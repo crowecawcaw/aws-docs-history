@@ -133,7 +133,7 @@ the batch. For example, as shown in the following illustration of a basic direct
 read an attribute value for the object `003`, the total read count of
 objects would be three.
 
-![Simple directory tree with root node 001 connected to leaf nodes 002 and 003 via paths 1 and 2.](images/limits.png)
+![Directory tree with node 001 linking to leaf nodes 002 and 003 via Path 1 and Path 2.](images/limits.png)
 
 The traversing of reads down the tree works like this:
 

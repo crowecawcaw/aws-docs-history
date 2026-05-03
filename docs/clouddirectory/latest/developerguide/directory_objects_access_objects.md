@@ -124,7 +124,7 @@ the directory root are ignored from the target object.
 For an example on how this works, let's say a directory has an object hierarchy
 similar to the illustration shown below.
 
-![Object hierarchy diagram showing nodes, links, and policy objects in a tree structure.](images/parent_path.png)
+![Directory object hierarchy showing nodes connected by child, attachment, and index links.](images/parent_path.png)
 
 The numbered shapes represent the different objects. The number of arrows between
 that object and the directory root (`000`) represent the complete

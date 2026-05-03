@@ -7,7 +7,7 @@ leaf nodes, and links between the nodes, as shown in the following illustration.
 useful in application development to model, store, and quickly traverse hierarchical
 data.
 
-![Hierarchical tree structure of a cloud directory with root node, node objects, and leaf nodes.](images/directory_structure.png)
+![Hierarchical tree structure with root node at top, node objects in middle, and leaf node objects at bottom.](images/directory_structure.png)
 
 ## Root Node
 

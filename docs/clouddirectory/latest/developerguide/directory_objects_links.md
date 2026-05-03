@@ -4,7 +4,7 @@ Amazon Cloud Directory is no longer be open to new customers. For alternatives t
 
 A link is a directed edge between two objects that define a relationship. Cloud Directory currently supports the following link types.
 
-![Diagram showing node objects connected by various link types, including child, attachment, index, and typed links.](images/objectlinks.png)
+![Diagram showing child, attachment, index, and typed link relationships between node objects.](images/objectlinks.png)
 
 ## Child Links
 
@@ -99,7 +99,7 @@ same attribute values. Attributes must be configured as `REQUIRED_ALWAYS`.
 Typed links that are created from different typed link facets never conflict with
 each other. For example, consider the following diagram:
 
-![Diagram showing three node objects connected by typed links, with multiple identity attributes.](images/typedlinks.png)
+![Three node objects connected by typed links with identity attributes showing operation failure at node 003.](images/typedlinks.png)
 
 - Object `001` has typed links and attributes (A1 and A2)
   with the same attribute values (x1 and x2) going to different objects
@@ -138,7 +138,7 @@ the order they are supplied to any API calls.
 For example, in the following diagram, consider a Cloud Directory that is
 used to store information about Employees and their Abilities.
 
-![Organizational hierarchy diagram showing Root, Employees, Offices, and their relationships.](images/typedlinklisting.png)
+![Hierarchical diagram showing Root node with Employees and Offices branches, leaf nodes for John, Kelly, and Pete with Status and Role attributes.](images/typedlinklisting.png)
 
 Let’s say we model our employee’s capabilities with a typed link named
 `EmployeeCapability`, which is configured with three string attributes:
