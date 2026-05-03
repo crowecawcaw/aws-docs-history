@@ -21,7 +21,7 @@ This diagram is an example of a 1-to-1 redundancy group
 for Elemental Live nodes. The same design applies to Elemental Statmux
 nodes.
 
-![Diagram showing two live active nodes connected within a redundancy group.](images/Live_resil_node_1-1.png)
+![Two live active nodes connected vertically in a 1-to-1 redundancy group configuration.](images/Live_resil_node_1-1.png)
 
 ## What happens in a failure
 
@@ -33,7 +33,7 @@ This diagram illustrates the change in the group after one
 node fails. This diagram is for Elemental Live but the same pattern
 applies to Elemental Statmux.
 
-![Diagram showing two nodes: a failed node in gray and a live active node in green.](images/Live_resil_node_1-1-failed.png)
+![Two nodes in a group: one failed node shown in gray, one live active node shown in green.](images/Live_resil_node_1-1-failed.png)
 
 ## Considerations
 

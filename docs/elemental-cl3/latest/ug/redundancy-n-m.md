@@ -14,7 +14,7 @@ This diagram is an example of an N-to-M redundancy group
 for Elemental Live nodes. The same design applies to Elemental Statmux
 nodes.
 
-![Diagram showing one active node and two backup nodes in a redundancy group configuration.](images/live_resil_node_nm.png)
+![One live active node with two live backup nodes in a redundancy group configuration.](images/live_resil_node_nm.png)
 
 ## What happens in a failure
 
@@ -39,7 +39,7 @@ This diagram illustrates the change in the group after one
 node fails. This diagram is for Elemental Live but the same pattern
 applies to Elemental Statmux.
 
-![Diagram showing a failed node, a live node, and a live backup node in a group configuration.](images/live_resil_node_nm-failed.png)
+![Node group showing failed node, live node, and live backup node after failure occurs.](images/live_resil_node_nm-failed.png)
 
 ## Considerations
 

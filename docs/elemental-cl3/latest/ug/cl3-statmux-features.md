@@ -70,7 +70,7 @@ information to Elemental Statmux. Elemental Statmux assesses the demands of all 
 sends a bitrate allocation response for that segment to each Elemental Live. Each
 Elemental Live uses the allocation response to determine the bitrate for the segment.
 
-![Diagram showing data flow between channel and MPTS components for complexity and allocation.](images/smux-allocation-conversation.png)
+![Channel sends complexity to MPTS, which returns allocation based on all channel demands.](images/smux-allocation-conversation.png)
 
 ## Resiliency in a statmux workflow
 

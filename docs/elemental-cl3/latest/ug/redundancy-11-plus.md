@@ -18,7 +18,7 @@ The backup node is dedicated to one redundancy group. One
 backup node can't act as backup for two 1-to-1 redundancy
 groups.
 
-![Diagram showing two live active nodes and one live backup node in a redundancy group.](images/Live_resil_node_1-1plus.png)
+![Diagram showing one live backup node dedicated to two live active nodes in a redundancy group.](images/Live_resil_node_1-1plus.png)
 
 ## What happens in a failure
 
@@ -38,7 +38,7 @@ This diagram illustrates the change in the group after one
 node fails. This diagram is for Elemental Live but the same
 pattern applies to Elemental Statmux.
 
-![Diagram showing three nodes: one failed and two live active, with one highlighted.](images/Live_resil_node_1-1plus-failed.png)
+![Diagram showing one failed node and two live active nodes, with one node circled.](images/Live_resil_node_1-1plus-failed.png)
 
 ## Considerations
 

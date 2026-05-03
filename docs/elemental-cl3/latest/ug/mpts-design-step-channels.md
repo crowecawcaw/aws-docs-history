@@ -104,14 +104,14 @@ channels:
   might create this TS output as a _monitoring output_. Creating this output
   doesn't add to the workload on the channel.
 
-![Diagram showing channel A output flow to UDP/TS group and Elemental Statmux node with MPTS.](images/Channel-multi-outputs.png)
+![Channel A outputs to UDP/TS output group, which sends TS output and MPTS output to Elemental Statmux node.](images/Channel-multi-outputs.png)
 
 - The channel can include both statmux outputs and
   non-statmux outputs. These non-statmux outputs can be of
   any type, including other UDP/TS outputs (that go to
   other destinations).
 
-![Diagram showing channel A with HLS, Archive, and Statmux outputs, plus Elemental Statmux node.](images/Channel-several-outputs.png)
+![Channel A with HLS output, Archive output, and Statmux output containing MPTS and SPTS nodes.](images/Channel-several-outputs.png)
 
 ## Step 2: Create the MPTS and add channels
 
