@@ -9,5 +9,6 @@ This section does not apply for clusters running in KRaft mode. See [KRaft mode]
 
 ###### This topic contains the following sections:
 
+- [Disable or enable direct Apache ZooKeeper client access](zookeeper-disable-access.md "zookeeper-disable-access.md")
 - [To place your Apache ZooKeeper nodes in a separate security group](zookeeper-security-group.md "zookeeper-security-group.md")
 - [Using TLS security with Apache ZooKeeper](zookeeper-security-tls.md "zookeeper-security-tls.md")

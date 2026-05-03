@@ -88,10 +88,10 @@ aws s3 cp ../custom-plugin.zip s3:<`S3_URI_BUCKET_LOCATION`>
    **s3:<`S3_URI_BUCKET_LOCATION`>** S3
    bucket to select the custom plugin ZIP file you just uploaded.
 
-![Amazon S3 bucket interface showing a single custom-plugin.zip file in the debezium folder.](images/s3-object-browser.png) 7. Enter `debezium-custom-plugin` for the plugin name. Optionally, enter a
+![S3 bucket showing debezium folder containing custom-plugin.zip file with size and metadata.](images/s3-object-browser.png) 7. Enter `debezium-custom-plugin` for the plugin name. Optionally, enter a
 description and choose **Create Custom Plugin**.
 
-![Amazon S3 bucket interface showing a single custom-plugin.zip file in the debezium folder.](images/create-custom-plugin.png)
+![S3 bucket showing debezium folder with custom-plugin.zip file, 55.2 MB, modified May 15, 2023.](images/create-custom-plugin.png)
 
 ## Configure parameters and permissions for different providers
 
