@@ -100,7 +100,7 @@ Notice how the `display` property is used. First, we use
 the first `display` and shows us the nested <ul>. The result, rendered
 on a desktop browser, is shown below.
 
-![Navigation menu with dropdown submenu showing Home, About, Nav with subitems, Contact, and Press.](images/dropdown2.png)
+![Navigation menu with Nav item expanded showing Item 1, Item 2 selected, and Item 3.](images/dropdown2.png)
 A single <li> contains both a hidden list and a link. To display
 the drop-down menu, you hover over the appropriate <li>. To follow a link, you
 click the <a> element within the appropriate <li>. In other words, you need
@@ -119,7 +119,7 @@ responds to touch events. [Superfish](https://plugins.jquery.com/superfish/ "htt
 In the following example page, which is distributed by Superfish and is shown here
 rendered by Silk on a Kindle Fire HDX, the drop-down menus open on tap.
 
-![Menu interface with multiple items and Latin placeholder text, featuring buttons at the bottom.](images/dropdown.png)
+![Page with four menu items in header, lorem ipsum text, and menu item dropdowns with buttons.](images/dropdown.png)
 To follow a top-level menu item (for example, menu item 3), you'd tap
 it a second time. On a desktop browser, the drop-down menus unfold on hover, and you
 follow links by clicking. Thus, the menus are navigable on both touch-screen and desktop

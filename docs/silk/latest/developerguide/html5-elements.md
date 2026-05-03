@@ -35,7 +35,7 @@ an `<audio>` element, you can reference multiple file types.
 
 The sample code above produces the player control shown below:
 
-![HTML5 audio player interface with play button and progress bar.](images/audio_element.png)
+![HTML5 audio player control with play button, progress bar, and time display showing 00:00.](images/audio_element.png)
 
 For more information, see the [W3C
 audio element wiki](http://www.w3.org/wiki/HTML/Elements/audio "http://www.w3.org/wiki/HTML/Elements/audio").
@@ -77,7 +77,7 @@ the keyboard more user-friendly for typing an email address.
 
 The Silk virtual keyboard is shown below:
 
-![Email sign-up form with virtual keyboard showing @ and .com keys highlighted.](images/silk-virtual-keyboard.png)
+![Virtual keyboard with email input field, at symbol and .com keys highlighted, and Go button.](images/silk-virtual-keyboard.png)
 
 For more information, see [Making Forms Fabulous with
 HTML5](http://www.html5rocks.com/en/tutorials/forms/html5forms/ "http://www.html5rocks.com/en/tutorials/forms/html5forms/").
@@ -105,7 +105,7 @@ It specifies a fractional value or gauge. For example, you could use the
 
 The sample code above produces the gauge below:
 
-![Horizontal bar graph showing partial hard disk usage, with a green progress bar.](images/meter_element.png)
+![Gauge showing hard disk usage with a partially filled green progress bar.](images/meter_element.png)
 
 For more information, see [HTML/Elements/meter](http://www.w3.org/wiki/HTML/Elements/meter "http://www.w3.org/wiki/HTML/Elements/meter").
 
@@ -133,7 +133,7 @@ sum of the values entered into the two input fields:
 Here's how the markup looks in Silk, after a user enters values in the input
 fields:
 
-![Form with input fields for number of dogs and cats, showing a total of 5 pets.](images/output_element.png)
+![Form showing 3 dogs, 2 cats, and total of 5 pets with input fields and values.](images/output_element.png)
 
 Note that the `oninput` event is not supported by Silk Gen 1. For more on the
 `<output>` element, see [HTML/Elements/output](http://www.w3.org/wiki/HTML/Elements/output "http://www.w3.org/wiki/HTML/Elements/output").
@@ -154,7 +154,7 @@ JavaScript to create a progress display.
 
 The sample code above produces the progress display shown below:
 
-![HTML5 progress element displaying a partially filled horizontal bar.](images/progress_element.png)
+![Progress bar showing File downloading with partial completion.](images/progress_element.png)
 
 For more information, see [HTML/Elements/progress](http://www.w3.org/wiki/HTML/Elements/progress "http://www.w3.org/wiki/HTML/Elements/progress").
 
@@ -207,7 +207,7 @@ a web page without using plug-ins. By nesting `<source>` tags within a
 
 The sample code above produces the player control shown below:
 
-![Video player interface with a play button icon in the center of a gray rectangle.](images/video_element.png)
+![Video player control with play button centered on gray background.](images/video_element.png)
 
 For more information, see the [W3C
 video element wiki](http://www.w3.org/wiki/HTML/Elements/video "http://www.w3.org/wiki/HTML/Elements/video").

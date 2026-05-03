@@ -100,7 +100,7 @@ location with the Geolocation API, the browser has to obtain user permission. Al
 that support the Geolocation API must respect this requirement, although the implementation
 varies. Amazon Silk prompts the user with a dialog requesting permission.
 
-![Dialog box prompting user to share location, with options to share or decline.](images/share_location.png)
+![Browser dialog requesting permission to share location with Share location and Decline buttons.](images/share_location.png)
 
 In the Settings menu, Silk users can disable location access for an individual website or
 for all websites.

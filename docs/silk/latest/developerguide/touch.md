@@ -133,11 +133,11 @@ target element.
 
 Here's what the page looks like immediately after page load:
 
-![Mobile website interface with header, navigation menu, and two tap action buttons.](images/jquery_mobile_before.png)
+![Mobile app interface showing navigation menu, two interactive buttons labeled Tap and Tap and hold, and footer with copyright information.](images/jquery_mobile_before.png)
 
 And here's the page after the tap and tap-and-hold events.
 
-![Website header with navigation menu and two blue and orange event response bars.](images/jquery_mobile_after.png)
+![Mobile app interface showing two buttons labeled After tap event and After tap-and-hold event.](images/jquery_mobile_after.png)
 
 The example above illustrates the beginning of a touch-friendly web design. Even in
 portrait mode, the top navigation links are wide enough to accommodate touch interactions

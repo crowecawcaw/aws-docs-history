@@ -23,4 +23,4 @@ In this example, the first set of numbers, `1.0.443.55`, is the browser version.
 
 The second set of numbers, `40051010`, is the build version.
 
-![Version number display showing 1.0.443.55-Gen6_40051010 and build 40051010.](images/about-version.png)
+![About Silk dialog showing version 1.0.443.55-Gen6_40051010 and build 40051010.](images/about-version.png)

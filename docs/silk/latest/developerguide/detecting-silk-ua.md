@@ -23,7 +23,7 @@ you can use a script like the one embedded in the following HTML document:
 
 Here's the page displayed in Silk on a Kindle Fire HDX 7".
 
-![Dialog box showing detection of Silk version 44.1.54 on a device in Default mode.](images/user-agent-pop-up.png)
+![Dialog box showing Silk version 44.1.54 detected on device KFTHWI in Default desktop mode.](images/user-agent-pop-up.png)
 The script detects the browser version, product model, and requested mode. We could
 search for other fields, too. To learn more about fields in the Silk user agent, see
 [Learn about user agent strings](user-agent.md "user-agent.md").

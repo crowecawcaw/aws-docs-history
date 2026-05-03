@@ -18,11 +18,11 @@ top navigation disappears and the layout is simplified.
 
 Here's the TIME.com site at desktop scale.
 
-![TIME Entertainment webpage featuring article on memorable fictional characters with Superman illustration.](images/Time_desktop.png)
+![TIME Entertainment homepage showing navigation menu, article about fictional characters, and Superman illustration.](images/Time_desktop.png)
 And here's the site with the browser window reduced in size, as it would be on a mobile
 device.
 
-![TIME Entertainment webpage showing Superman illustration and photos of office supplies and a celebrity.](images/Time_tablet.png)
+![TIME Entertainment mobile view showing article about fictional characters and photo sections.](images/Time_tablet.png)
 The site adapts to the changing width of the browser window, moving content and transforming
 the navigation bar to a pop-out Sections menu.
 
@@ -155,7 +155,7 @@ slightly modified version of the Gridpak demo site to try out Silk.
 
 Here's our demo site in portrait view on a Fire HD 8.9" tablet:
 
-![Website layout mockup showing header, navigation, main content, related content, and media blocks.](images/gridpack-shared-vertical.png)
+![Mobile layout showing header, navigation sidebar, main content area, related content, and media blocks.](images/gridpack-shared-vertical.png)
 
 The following media query and the associated styles and scripts (which aren't shown)
 produce a 6-column grid when the viewport is between 320 and 800 pixels wide.:
@@ -168,7 +168,7 @@ produce a 6-column grid when the viewport is between 320 and 800 pixels wide.:
 
 Now here's our demo site in landscape view:
 
-![Website layout wireframe showing header, navigation, main content, and related content areas.](images/gridpack-shared-horizontal.png)
+![Mobile website layout in landscape orientation showing header, navigation, main content, and related content sections.](images/gridpack-shared-horizontal.png)
 
 In this case, the following media query, plus the omitted styles and scripts, produce a
 12-column grid when the viewport is more than 800 pixels wide.
