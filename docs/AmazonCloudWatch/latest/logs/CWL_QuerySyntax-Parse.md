@@ -1,7 +1,9 @@
 # parse
 
 Use `parse` to extract data from a log field and create an
-extracted field that you can process in your query.
+extracted field that you can process in your query. If a log event doesn't
+match the specified pattern, you still see it in the results, but without
+the extracted fields.
 **`parse`** supports both glob mode
 using wildcards, and regular expressions. For information about regular
 expression syntax, see [Supported regular expressions (regex) syntax](FilterAndPatternSyntax.md#regex-expressions "FilterAndPatternSyntax.md#regex-expressions").

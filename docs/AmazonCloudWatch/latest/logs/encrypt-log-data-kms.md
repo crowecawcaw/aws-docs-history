@@ -193,12 +193,55 @@ JSON
 
 ```
 
-Next, add permissions to the role which will be calling the CloudWatch Logs. You can do this by adding an additional statement to the AWS KMS Key Policy or through
-IAM on the role itself. CloudWatch Logs uses `kms:ViaService` to make calls to AWS KMS on the customer’s behalf. For more information, see
+## Step 3: Set permissions on the calling IAM principal
+
+Add permissions to the IAM principal (user or role) that will be calling CloudWatch Logs APIs.
+The permissions required depend on which operations the principal needs to perform.
+You can add these permissions in the AWS KMS key policy or through IAM on the role itself.
+CloudWatch Logs uses `kms:ViaService` to make calls to AWS KMS on the customer's behalf.
+For more information, see
 [kms:ViaService](../../../kms/latest/developerguide/conditions-kms.md#conditions-kms-via-service "../../../kms/latest/developerguide/conditions-kms.md#conditions-kms-via-service").
 
-To add permissions in the AWS KMS Key Policy, add the following additional statement to your key policy. If you use this method, as best practice,
-scope the policy to only the roles that will be interacting with AWS KMS encrypted log groups.
+### Permissions for associating a KMS key with a log group
+
+The IAM principal that calls `CreateLogGroup` with a
+`kmsKeyId` parameter, or calls `AssociateKmsKey`,
+must have `kms:DescribeKey` permission on the specified KMS key.
+If the caller does not have this permission, the API call will fail with an
+`AccessDeniedException`.
+
+The following example key policy statement grants the minimum permissions needed to
+associate a KMS key with a log group:
+
+```
+{
+  "Effect": "Allow",
+  "Principal": {
+    "AWS": "arn:aws:iam::`account_id`:role/`role_name`"
+  },
+  "Action": [
+    "kms:Describe*"
+  ],
+  "Resource": "*",
+  "Condition": {
+    "StringEquals": {
+      "kms:ViaService": [
+        "logs.`region`.amazonaws.com"
+      ]
+    }
+  }
+}
+```
+
+### Permissions for reading and writing encrypted log data
+
+If the IAM principal also needs to read or write encrypted log data
+(for example, calling `PutLogEvents`, `GetLogEvents`,
+`FilterLogEvents`, or `StartQuery` on a log group
+encrypted with a customer managed KMS key), the principal needs additional
+AWS KMS permissions. The following example key policy statement grants the full set
+of permissions needed for both associating a key and reading or writing encrypted
+log data:
 
 ```
 {
@@ -222,11 +265,12 @@ scope the policy to only the roles that will be interacting with AWS KMS encrypt
     }
   }
 }
-
-
 ```
 
-Alternatively if you would like to manage role permissions in IAM, you can add equivalent permissions through the following policy. This can be added to an existing
+As a best practice, scope the policy to only the roles that will be interacting
+with AWS KMS encrypted log groups.
+
+Alternatively, to grant the full set of permissions for both associating a key and reading or writing encrypted log data via IAM, you can add the following policy to the caller role. This can be added to an existing
 role policy or attached to a role as an additional separate policy. If you use this method, as best practice, scope the policy to only the AWS KMS keys which will be used for log
 encryption. For more information, see [Edit IAM policies](../../../IAM/latest/UserGuide/access_policies_manage-edit.md "../../../IAM/latest/UserGuide/access_policies_manage-edit.md").
 
@@ -265,7 +309,7 @@ Finally, add the updated policy using the following [put-key-policy](../../../cl
 aws kms put-key-policy --key-id `key-id` --policy-name default --policy file://policy.json
 ```
 
-## Step 3: Associate a KMS key with a log group
+## Step 4: Associate a KMS key with a log group
 
 You can associate a KMS key with a log group when you create it or after it
 exists.
@@ -298,7 +342,7 @@ command as follows:
 `aws logs associate-kms-key --log-group-name `my-log-group` --kms-key-id "`key-arn`"`
 ```
 
-## Step 4: Disassociate key from a log group
+## Step 5: Disassociate key from a log group
 
 To disassociate the KMS key associated with a log group, use the following [disassociate-kms-key](../../../cli/latest/reference/logs/disassociate-kms-key.md "../../../cli/latest/reference/logs/disassociate-kms-key.md") command:
 

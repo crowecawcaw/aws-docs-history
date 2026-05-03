@@ -77,10 +77,26 @@ The command uses the following arguments:
 - `log-field` – The
   field in your log events to match. The match is exact and
   case-sensitive.
+- ``lookup-field` as
+  `log-field` [,...]` –
+  You can specify multiple match field pairs separated by
+  commas. When multiple pairs are specified, a row in the
+  lookup table must match all fields to produce a result (AND
+  logic).
 - `output-mode` –
-  Specify `OUTPUT` to add the output fields
-  to the results. If a field with the same name already exists
-  in the log event, it is overwritten.
+  Specifies how output fields are added to the results. Use one
+  of the following:
+  - `OUTPUT` – Adds the output fields
+    to the results. If a field with the same name already
+    exists in the log event, it is overwritten with the
+    lookup table value. If no match is found, the field is
+    set to null.
+  - `OUTPUTNEW` – Adds the output
+    fields to the results only if the field does not
+    already exist in the log event. If the field already
+    has a value, the original value is kept. If no match
+    is found, the field is left unchanged.
+
 - `output-field` –
   One or more fields from the lookup table to add to the
   results.
@@ -122,4 +138,28 @@ only events from a specific department.
 fields user_id, action
 | lookup user_data user_id OUTPUT username, email, department
 | filter department = "Engineering"
+```
+
+###### Example: Use OUTPUTNEW to enrich without overwriting
+
+If your log events already contain a `hostname`
+field but it's sometimes empty, use `OUTPUTNEW` to
+fill in missing values without overwriting existing ones.
+
+```
+fields srcAddr, hostname
+| lookup known_hosts ip_address as srcAddr OUTPUTNEW hostname, region
+```
+
+###### Example: Use lookup with multiple match fields
+
+You can match on more than one field. The following query
+matches both `srcAddr` and `dstPort`
+against the lookup table to identify known network
+services.
+
+```
+fields @timestamp, srcAddr, dstAddr, dstPort
+| lookup network_services ip_address as srcAddr, port as dstPort OUTPUT service_name, owner
+| filter ispresent(service_name)
 ```
