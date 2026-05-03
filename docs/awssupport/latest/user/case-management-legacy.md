@@ -246,7 +246,7 @@ In the AWS Management Console, you can also choose the question mark icon (
      impaired**, choose **Update**.
    - If you're raising the severity to **Production system down** or **Business-critical system down**, use one of the options in the **Contact methods** section to engage with AWS Support, and then choose **Update**. The following example shows the options available in the **Contact methods** section.
 
-   ![The Change case severity screen showing the Contact methods section with the following options: Web, Chat, and Phone.](/images/awssupport/latest/user/images/change-case-severity-contact-methods.png)
+   ![The Change case severity screen showing the Contact methods section with the following options: Web, Chat, and Phone.](images/change-case-severity-contact-methods.png)
 
 ###### Note
 

@@ -17,7 +17,6 @@ use with no additional charge.
 - [Manage access to AWS Support Center](accessing-support.md "accessing-support.md")
 - [Manage access to AWS Support Plans](security-support-plans.md "security-support-plans.md")
 - [Manage access to AWS Trusted Advisor](security-trusted-advisor.md "security-trusted-advisor.md")
-- [Example Service Control Policies for AWS Trusted Advisor](example-scps-for-aws-trusted-advisor.md "example-scps-for-aws-trusted-advisor.md")
 - [Troubleshooting AWS Support identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
 
 ## Audience
