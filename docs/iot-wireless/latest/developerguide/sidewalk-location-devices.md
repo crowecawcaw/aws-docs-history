@@ -41,8 +41,8 @@ the topic. The following shows an example of a location message:
     "type": "Point",
     "properties": {
         "measurementType": `"GNSS" | "Wi-Fi" | "BLE"`,
-        "verticalAccuracy": `35.2`,
-        "horizontalAccuracy": `40.5`,
+        "horizontalAccuracy": `16`,
+        "verticalAccuracy": `17.2`,
         "timestamp": `"2026-01-01T00:00:00Z"`
     }
 }
@@ -68,9 +68,9 @@ To create a new Sidewalk device with location capabilities:
 2. In the **Specify device details** section, enter the device name, choose a device profile, and specify the uplink destination name.
 3. In the **Geolocation** section, select **Activate positioning** to enable location capabilities for the device.
 
-![](images/iot-sidewalk-enable-positioning-console.png) 4. In the **Position data destination** field, select the name of the destination where location data will be sent.
+![Geolocation section with Activate positioning checkbox selected and Position data destination dropdown.](images/iot-sidewalk-enable-positioning-console.png) 4. In the **Position data destination** field, select the name of the destination where location data will be sent.
 
-![](images/iot-sidewalk-location-destination.png) 5. Complete the remaining steps to create your device, and then choose **Create**.
+![Position data destination dropdown menu expanded showing options topic1, testTopic, and Canary.](images/iot-sidewalk-location-destination.png) 5. Complete the remaining steps to create your device, and then choose **Create**.
 
 ###### Update an existing device to enable location
 
@@ -79,7 +79,7 @@ To enable location capabilities for an existing Sidewalk device:
 1. Go to the [Sidewalk devices hub](https://console.aws.amazon.com/iot/home#/wireless/devices?tab=sidewalk "https://console.aws.amazon.com/iot/home#/wireless/devices?tab=sidewalk").
 2. Choose the device that you want to update to view its details.
 
-![](images/iot-sidewalk-device-edit.png) 3. In the device details page, select **Activate positioning** to enable location capabilities. 4. In the **Position data destination** field, select the name of the destination where location data will be sent. 5. Choose **Save** to apply the changes.
+![Sidewalk devices table showing three provisioned devices with device IDs, names, and destinations.](images/iot-sidewalk-device-edit.png) 3. In the device details page, select **Activate positioning** to enable location capabilities. 4. In the **Position data destination** field, select the name of the destination where location data will be sent. 5. Choose **Save** to apply the changes.
 
 ## Configuring the position of your devices using the API or CLI
 
@@ -167,7 +167,7 @@ aws iotwireless create-wireless-device \
     --type "Sidewalk" \
     --name `"sidewalk_device"` \
     --destination-name `"UplinkDestination"` \
-    --positioning `"Enabled"` \
+    --positioning "Enabled" \
     --sidewalk DeviceProfileId=`"12345678-a1b2-3c45-67d8-e90fa1b2c34d"`,Positioning={DestinationName=`"LocationDestination"`}
 ```
 
@@ -177,8 +177,8 @@ To enable location for an existing Sidewalk device, use the [`UpdateWirelessDevi
 
 ```
 aws iotwireless update-wireless-device \
-    --id `"23456789-abcd-0123-bcde-fabc012345678"` \
-    --positioning `"Enabled"` \
+    --id `"a1b2c3d4-5e6f-7a8b-9c0d-ef1234abcd56"` \
+    --positioning "Enabled" \
     --sidewalk Positioning={DestinationName=`"LocationDestination"`}
 ```
 
@@ -214,9 +214,12 @@ aws iotwireless update-resource-position \
     --geo-json-payload fileb:///tmp/position.json
 ```
 
-The following shows the contents of the
-`deviceposition.json` file,
-which is the uplink message from AWS IoT Core for Amazon Sidewalk to rules engine
+After updating the position, the following message will be published to
+your location destination topic. Note that `measurementType` is set to
+`"UserInput"` to indicate the position was set manually.
+
+The following shows the contents of the `deviceposition.json` file,
+which is the uplink message from AWS IoT Core for Amazon Sidewalk to rules engine.
 
 **Contents of deviceposition.json**
 
@@ -231,8 +234,8 @@ which is the uplink message from AWS IoT Core for Amazon Sidewalk to rules engin
     "type": "Point",
     "properties": {
         "measurementType": "UserInput",
-        "verticalAccuracy": 0,
         "horizontalAccuracy": 0,
+        "verticalAccuracy": 0,
         "timestamp": `"2026-01-01T00:00:00Z"`
     }
 }
@@ -240,8 +243,7 @@ which is the uplink message from AWS IoT Core for Amazon Sidewalk to rules engin
 
 ###### Note
 
-This command returns no response body (`204 No Content`),
-so the `update-resource-position-api-response.json` file will be empty.
+This command returns no response body (`204 No Content`).
 To verify the updated position, use the `GetResourcePosition` API operation.
 
 ### Get position information
@@ -261,7 +263,8 @@ GET /resource-positions/`ResourceIdentifier`?resourceType=WirelessDevice HTTP/1.
 ```
 aws iotwireless get-resource-position \
     --resource-type WirelessDevice \
-    --resource-id `"a1b2c3d4-5e6f-7a8b-9c0d-ef1234abcd56"`
+    --resource-id `"a1b2c3d4-5e6f-7a8b-9c0d-ef1234abcd56"` \
+    /dev/stdout
 ```
 
 ###### Note
@@ -285,8 +288,8 @@ not included in the API response.
     "type": "Point",
     "properties": {
         "measurementType": `"GNSS" | "Wi-Fi" | "BLE" | "UserInput"`,
-        "horizontalAccuracy": `389`,
-        "verticalAccuracy": `707`,
+        "horizontalAccuracy": `16`,
+        "verticalAccuracy": `17.2`,
         "timestamp": `"Thu Jan 01 00:00:00 UTC 2026"`
     }
 }

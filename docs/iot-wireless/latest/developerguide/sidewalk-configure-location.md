@@ -20,9 +20,9 @@ the Amazon Sidewalk SDK configuration.
 
 Wi-Fi based location
 
-The device scans nearby WiFi access points and sends their BSSID
+The device scans nearby Wi-Fi access points and sends their BSSID
 information and signal strengths. AWS uses this information to estimate
-the device's location based on known WiFi access point locations.
+the device's location based on known Wi-Fi access point locations.
 
 GNSS (Global Navigation Satellite System) based location
 

@@ -258,8 +258,8 @@ with the [CreateWirelessDevice](../apireference/API_CreateWirelessDevice.md "../
      "type": "Point",
      "properties": {
         "measurementType": "UserInput",
-        "verticalAccuracy": 0,
         "horizontalAccuracy": 0,
+        "verticalAccuracy": 0,
         "timestamp": `"2026-01-01T00:00:00Z"`
       }
 }
@@ -267,8 +267,7 @@ with the [CreateWirelessDevice](../apireference/API_CreateWirelessDevice.md "../
 
 ###### Note
 
-This command returns no response body (`204 No Content`),
-so the `update-resource-position-api-response.json` file will be empty.
+This command returns no response body (`204 No Content`).
 To verify the updated position, use the `GetResourcePosition` API operation.
 
 ### Get position information
@@ -288,7 +287,7 @@ GET /resource-positions/`ResourceIdentifier`?resourceType=WirelessDevice HTTP/1.
 ```
 aws iotwireless get-resource-position \
     --resource-type WirelessDevice \
-    --resource-id `"5b58245e-146c-4c30-9703-0ca942e3ff35"`
+    --resource-id `"5b58245e-146c-4c30-9703-0ca942e3ff35"` \
     /dev/stdout
 ```
 
@@ -323,14 +322,14 @@ not included in the API response.
 ## Resolved location metadata parameters
 
 The following table shows a definition of the different parameters in the resolved location
-metadata. The `wirelessDeviceId` is the ID of the
+metadata. The `WirelessDeviceId` is the ID of the
 wireless device, such as `5b58245e-146c-4c30-9703-0ca942e3ff35` and the
 `measurementType` is the positioning method used to calculate the location.
 
 | LoRaWAN resolved location metadata parameters | Parameter                                                                                                                                                                                                           | Description | Type |
 | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---- |
-| `coordinates`                                 | The resolved coordinates of the LoRaWAN device.<br>Coordinates are ordered as `[longitude, latitude, altitude]`.                                                                                                    | String      |
-| `wirelessDeviceId`                            | The identifier of the wireless device that sends the location uplink data                                                                                                                                           | String      |
+| `coordinates`                                 | The resolved coordinates of the LoRaWAN device.<br>Coordinates are ordered as `[longitude, latitude, altitude]`.                                                                                                    | Array       |
+| `WirelessDeviceId`                            | The identifier of the wireless device that sends the location uplink data                                                                                                                                           | String      |
 | `type`                                        | GeoJSON type. Currently supports the `"Point"` type.                                                                                                                                                                | String      |
 | `measurementType`                             | The measurement type for resolved location metadata.<br>For LoRaWAN devices, the supported values are<br>`"GNSS"` and `"Wi-Fi"`.<br>If triggered by update-resource-position API or CLI, it would be `"UserInput"`. | String      |
 | `horizontalAccuracy`                          | The horizontal accuracy of the resolved position, in meters.                                                                                                                                                        | Number      |
