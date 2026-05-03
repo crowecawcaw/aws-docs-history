@@ -34,6 +34,7 @@ Before enabling encryption support on a transit gateway, ensure that:
 - The transit gateway doesn't have Peering attachments
 - The transit gateway doesn't have Network Firewall attachments
 - The transit gateway doesn't have VPN Concentrator attachments
+- The transit gateway doesn't have Client VPN attachments
 - The transit gateway doesn't have security group references enabled
 - The transit gateway doesn't have Multicast features enabled
 
@@ -63,7 +64,9 @@ apply:
 - When the transit gateway encryption state is **disabling**,
   you cannot create new VPC attachments with Encryption control
   enforced.
-- Connect attachments, peering attachments, security group references, and multicast features are
-  not supported with Encryption Support.
+- Connect attachments, Peering attachments, Network Firewall attachments,
+  VPN Concentrator attachments, Client VPN attachments, security group
+  references, and multicast features are not supported with Encryption
+  Support.
 
 Attempting to create incompatible attachments will fail with an API error.

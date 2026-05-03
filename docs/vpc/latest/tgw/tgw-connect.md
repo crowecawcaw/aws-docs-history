@@ -165,9 +165,9 @@ of the redundant BGP peerings a single peer establishes to it.
   route table by default.
 - Static routes are not supported.
 - Configure the GRE tunnel MTU to be smaller than the external interface MTU by
-  subtracting the GRE header (24 bytes) and outer IP header (20 bytes) overhead.
+  subtracting the GRE header (4 bytes) and outer IP header (20 bytes) overhead.
   For example, if your external interface MTU is 1500 bytes, set the GRE tunnel
-  MTU to 1456 bytes (1500 - 24 - 20 = 1456) to prevent packet
+  MTU to 1476 bytes (1500 - 4 - 20 = 1476) to prevent packet
   fragmentation.
 
 ###### Tasks
