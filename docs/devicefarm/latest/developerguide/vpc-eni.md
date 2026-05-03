@@ -19,7 +19,7 @@ situations, Device Farm will create an ENI in a subnet you provide for your `us-
 you'll be responsible for ensuring that a connection can be established between the `us-west-2`
 Region VPC and the VPC in the other Region.
 
-![AWS Device Farm architecture with on-premises and cloud components for mobile app testing.](images/VPC-ENI-Customer-Flow.jpg)
+![Architecture diagram showing Device Farm connecting devices to VPCs in us-west-2 and other regions.](images/VPC-ENI-Customer-Flow.jpg)
 For information on using AWS CloudFormation to automatically create and peer VPCs, see the [VPCPeering templates](https://github.com/awslabs/aws-cloudformation-templates/tree/master/aws/solutions/VPCPeering "https://github.com/awslabs/aws-cloudformation-templates/tree/master/aws/solutions/VPCPeering") in the AWS CloudFormation template repository on GitHub.
 
 ###### Note

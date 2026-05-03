@@ -128,19 +128,19 @@ ARNs and device instance ARNs), then you need to create the pool through the CLI
       because this option causes the device pool to be created with device instance ARN rules
       (instead of device ARN rules).
 
-   ![Device selection method options for creating a static or dynamic device pool.](images/aws-device-farm-create-new-device-pool-private-devices.png) 2. To use device instance label rules for your device pool, choose **Create dynamic
+   ![Create static device pool option selected with See private device instances only checkbox.](images/aws-device-farm-create-new-device-pool-private-devices.png) 2. To use device instance label rules for your device pool, choose **Create dynamic
    device pool**. Then, for each label you would like to use in the device pool,
    choose **Add a rule**. For each rule, choose **Instance
    Labels** as the `Field`, choose **Contains** as the
    `Operator`, and specify your desired device instance label as the
    `Value`.
 
-   ![Device pool creation interface with dynamic selection method and attribute filter options.](images/aws-device-farm-create-new-device-pool-private-devices-add-rule.png) 3. To use device instance ARN rules for your device pool, choose **Create static
+   ![Device selection method section with dynamic pool option selected and filter rule configured.](images/aws-device-farm-create-new-device-pool-private-devices-add-rule.png) 3. To use device instance ARN rules for your device pool, choose **Create static
    device pool**, then select **Private device instances only**
    to limit the list of devices to only those private device instances that Device Farm has
    associated with your AWS account.
 
-   ![Device selection options for creating a static device pool with private instances.](images/aws-device-farm-create-new-device-pool-private-device-instance-only.png)
+   ![Create static device pool option selected with See private device instances only checkbox.](images/aws-device-farm-create-new-device-pool-private-device-instance-only.png)
 
 6. Choose **Create**.
 
