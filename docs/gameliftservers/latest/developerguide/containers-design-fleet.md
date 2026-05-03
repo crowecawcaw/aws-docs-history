@@ -246,7 +246,8 @@ In a container fleet, the connection between a client and server is not direct.
 Internally, a process in a container listens on a _container
 port_. Externally, incoming traffic connects to a fleet instance using a _connection port_. Amazon GameLift Servers maintains the mappings between internal
 container ports and external-facing connection ports, so that incoming traffic gets routed to
-the correct process on the instance.
+the correct process on the instance. To retrieve the current port mappings for a specific container group, call the [DescribeContainerGroupPortMappings](../apireference/API_DescribeContainerGroupPortMappings.md "../apireference/API_DescribeContainerGroupPortMappings.md") operation. For more information about viewing
+port mappings, see [View container port mappings](containers-remote-access.md#containers-remote-access-port-mappings "containers-remote-access.md#containers-remote-access-port-mappings").
 
 Amazon GameLift Servers provides an extra layer of control for your network connections. Each container
 fleet has an _inbound permissions_ setting, which allows you to

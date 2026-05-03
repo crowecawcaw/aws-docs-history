@@ -179,3 +179,113 @@ the following command:
 ```
 sudo docker exec -it 02accb92cd9bef3373300e7151d5c2b3dcca3b06eff1bb4e345085fc008d4678 sh
 ```
+
+## View container port mappings
+
+Port mappings show how container ports map to connection ports on your fleet instances.
+Each container port that accepts inbound traffic is assigned a connection port on the
+instance. You can check port mappings to discover which connection ports map to your
+container ports or to troubleshoot connection issues. You can view port mappings in the
+Amazon GameLift Servers console, or use the AWS CLI or AWS SDK.
+
+### View port mappings in the console
+
+In the Amazon GameLift Servers console, choose **Managed containers**
+from the navigation pane, and then **Fleets**. Choose a fleet
+to open the fleet details page. You can view port mappings in the following
+locations:
+
+- **Instance details page** – Shows port mappings
+  for the per-instance container group on the selected instance.
+- **Compute details page** – Shows port mappings
+  for the game server container group on the selected compute.
+
+Both pages include a search field to filter port mappings by container name.
+
+### View port mappings with the AWS CLI
+
+Use the `describe-container-group-port-mappings` command to retrieve port
+mappings for a container group on a fleet instance. Specify the container group type and
+either a `--compute-name` (for game server groups) or an `--instance-id`
+(for per-instance groups). Optionally, include the `--container-name` parameter
+to filter results to a specific container.
+
+**Example: Game server container group**
+
+The following command retrieves port mappings for the game server container group on a
+specific compute.
+
+```
+aws gamelift describe-container-group-port-mappings \
+    --fleet-id fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa \
+    --container-group-type GAME_SERVER \
+    --compute-name 62c5ff7f7a9a445d84877074c80aeafc
+```
+
+If successful, Amazon GameLift Servers returns a response like the following:
+
+```
+{
+  "FleetId": "fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa",
+  "Location": "us-west-2",
+  "ContainerGroupDefinitionArn": "arn:aws:gamelift:us-west-2:123456789012:containergroupdefinition/MyGameServerGroup",
+  "ContainerGroupType": "GAME_SERVER",
+  "ComputeName": "62c5ff7f7a9a445d84877074c80aeafc",
+  "InstanceId": "i-1234567890abcdef0",
+  "ContainerGroupPortMappings": [
+    {
+      "ContainerName": "MyGameServer",
+      "ContainerRuntimeId": "a1b2c3d4e5f6",
+      "ContainerPortMappings": [
+        {
+          "ContainerPort": 7777,
+          "ConnectionPort": 1025,
+          "Protocol": "UDP"
+        },
+        {
+          "ContainerPort": 8080,
+          "ConnectionPort": 1026,
+          "Protocol": "TCP"
+        }
+      ]
+    }
+  ]
+}
+```
+
+**Example: Per-instance container group**
+
+The following command retrieves port mappings for the per-instance container group on a
+specific instance.
+
+```
+aws gamelift describe-container-group-port-mappings \
+    --fleet-id fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa \
+    --container-group-type PER_INSTANCE \
+    --instance-id i-1234567890abcdef0
+```
+
+If successful, Amazon GameLift Servers returns a response like the following:
+
+```
+{
+  "FleetId": "fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa",
+  "Location": "us-west-2",
+  "ContainerGroupDefinitionArn": "arn:aws:gamelift:us-west-2:123456789012:containergroupdefinition/MyPerInstanceGroup",
+  "ContainerGroupType": "PER_INSTANCE",
+  "InstanceId": "i-1234567890abcdef0",
+  "ContainerGroupPortMappings": [
+    {
+      "ContainerName": "MySupportContainer",
+      "ContainerRuntimeId": "f6e5d4c3b2a1",
+      "ContainerPortMappings": [
+        {
+          "ContainerPort": 8443,
+          "ConnectionPort": 2025,
+          "Protocol": "TCP"
+        }
+      ]
+    }
+  ]
+}
+```

@@ -95,8 +95,24 @@ The following release notes are in chronological order, with the latest updates 
 first. Amazon GameLift Servers was first released in 2016. For release notes dated earlier than those
 listed here, see the release date links in [SDK versions](#release-notes-history "#release-notes-history").
 
-This release makes it simpler to onboard games and integrate with Amazon GameLift Servers, based on customer
-feedback. These updates help customers get started and manage game sessions within fleets more easily.
+Amazon GameLift Servers has launched a new public API for container fleets,
+`DescribeContainerGroupPortMappings`. This operation retrieves the
+port mappings for all containers in a container group, listing how each
+container port maps to a connection port on the fleet instance. It supports
+retrieving port mappings for both game server and per-instance container
+groups.
+
+This new feature addresses the need to discover port mappings for containers
+beyond the game server port. Previously, customers were required to remotely
+access their compute to retrieve all other port mappings. The new API is
+available through the Amazon GameLift Servers console, AWS CLI, and AWS SDK.
+
+###### **Learn more:**
+
+- [View container port mappings](containers-remote-access.md#containers-remote-access-port-mappings "containers-remote-access.md#containers-remote-access-port-mappings"), _Amazon GameLift Servers Developer Guide_
+- [DescribeContainerGroupPortMappings](../apireference/API_DescribeContainerGroupPortMappings.md "../apireference/API_DescribeContainerGroupPortMappings.md"), _Amazon GameLift Servers API Reference_
+  This release makes it simpler to onboard games and integrate with Amazon GameLift Servers, based on customer
+  feedback. These updates help customers get started and manage game sessions within fleets more easily.
 
 Amazon GameLift Servers now returns a `ComputeName` field in game session API
 responses. You can use this field to identify which compute is hosting a game
