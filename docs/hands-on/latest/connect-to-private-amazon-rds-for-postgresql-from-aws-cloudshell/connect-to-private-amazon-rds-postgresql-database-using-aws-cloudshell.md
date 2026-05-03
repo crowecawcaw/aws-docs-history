@@ -63,55 +63,55 @@ The commands performed the following actions:
 6. Select **Your VPCs** from the left menu.
 7. Select **CustomVPC**, and then select the **Resource map tab** to review the layout of the subnets and route tables.
 
-![](images/resource-map-tab.png)
+![Resource map showing VPC with subnets in two availability zones connected to route tables and network connections.](images/resource-map-tab.png)
 In this task, you will create an Amazon RDS PostgreSQL database hosted in private subnets
 within an Amazon VPC you've created in the previous task.
 
 1. Open the [Amazon RDS](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/") console, and select **Create a database**.
 
-![](images/RDS-create-a-database.png) 2. For Engine options, select **PostgreSQL** Engine type.
+![Create a database section with two options: Create a database button and Restore from S3 button.](images/RDS-create-a-database.png) 2. For Engine options, select **PostgreSQL** Engine type.
 
-![](images/engine-options.png) 3. For Engine version, select **PostgreSQL 16.8-R2**.
+![Database creation interface showing Full configuration method selected and PostgreSQL engine type selected.](images/engine-options.png) 3. For Engine version, select **PostgreSQL 16.8-R2**.
 
-![](images/engine-versions.png) 4. Select the **Dev/Test** template with the **Single-AZ DB instance deployment** option.
+![Engine version dropdown showing PostgreSQL 16.8-R2 with RDS Extended Support checkbox.](images/engine-versions.png) 4. Select the **Dev/Test** template with the **Single-AZ DB instance deployment** option.
 
-![](images/deploy-options.png) 5. Name your DB instance identifier.
+![Three RDS deployment options showing Multi-AZ cluster, Multi-AZ instance, and Single-AZ configurations.](images/deploy-options.png) 5. Name your DB instance identifier.
 
     1. For example, **postgresql-demo**
 
-![](images/db-instance-identifier.png) 6. Under Instance Configuration, select **Burstable classes**. 7. Select **db.t3.medium** for DB instance class, and set Allocated Storage to **20GB**.
+![Settings page showing DB instance identifier field with postgresql-demo entered.](images/db-instance-identifier.png) 6. Under Instance Configuration, select **Burstable classes**. 7. Select **db.t3.medium** for DB instance class, and set Allocated Storage to **20GB**.
 
-![](images/instance-config.png) 8. Under **Connectivity**:
+![DB instance class selection showing db.t3.medium with 2 vCPUs and 4 GiB RAM selected.](images/instance-config.png) 8. Under **Connectivity**:
 
     * Select the **CustomVPC** you created in previous task.
     * Confirm that the **Public access** setting is set to **No**.
     * Select the **default security group**.
 
-![](images/connectivity.png) 9. Leave all other options as their default settings, and choose **Create database**. 10. After the database instance successfully creates, select **View connection Details**.
+![VPC configuration showing CustomVPC selected, Public access set to No, and default security group chosen.](images/connectivity.png) 9. Leave all other options as their default settings, and choose **Create database**. 10. After the database instance successfully creates, select **View connection Details**.
 
-![](images/manage-credentials.png) 11. Copy the hostname of the instance, and select **Manage Credentials**.
+![Success banner with View connection details button for newly created postgresql-demo database.](images/manage-credentials.png) 11. Copy the hostname of the instance, and select **Manage Credentials**.
 
-![](images/endpoint-info.png) 12. Retrieve the password by selecting **Retrieve secret
+![Connection details dialog showing master username postgres and endpoint URL for RDS database.](images/endpoint-info.png) 12. Retrieve the password by selecting **Retrieve secret
 value**.
 
 ###### Important
 
 Take note of the **username**, **Endpoint**, and **password**. You will need these values for your VPC environment in the next task.
 
-![](images/secret-value.png)
+![Secret value section with Retrieve secret value button and Resource permissions section with Edit permissions button.](images/secret-value.png)
 In this task, you will set up an AWS CloudShell VPC environment and test
 connectivity.
 
 1. Open [AWS CloudShell](https://console.aws.amazon.com/cloudshell/ "https://console.aws.amazon.com/cloudshell/"), and select the **+** button to bring up an option for **Create VPC environment**.
 
-![](images/create-vpc-environment.png) 2. Name the VPC environment.
+![CloudShell interface showing options to open us-west-2 environment or create VPC environment.](images/create-vpc-environment.png) 2. Name the VPC environment.
 
     1. For example, **cloudshell-vpc-demo**.
 
 3. Select **CustomVPC**, any **Private subnet,** and the **default security group**.
 4. Choose **Create**.
 
-![](images/custom-vpc.png)
+![Create a VPC environment form with fields for name, VPC, subnet, and security group.](images/custom-vpc.png)
 
 ###### Note
 
@@ -150,13 +150,13 @@ psql -h `<HOSTNAME>` -U `<USERNAME>`
 
 `<USERNAME>` is your database administrator username 10. Enter your **password** to finish establishing a connection to your database.
 
-![](images/establish-connection-to-DB.png) 11. Validate your setup by running this test command:
+![CloudShell terminal showing successful psql connection to PostgreSQL database with SSL enabled.](images/establish-connection-to-DB.png) 11. Validate your setup by running this test command:
 
 ```
 CREATE DATABASE demodb;
 ```
 
-![](images/validate-setup.png)
+![CloudShell terminal showing PostgreSQL connection and database creation commands.](images/validate-setup.png)
 To avoid unexpected charges, follow these clean-up steps:
 
 1. Open [AWS CloudShell](https://console.aws.amazon.com/cloudshell/ "https://console.aws.amazon.com/cloudshell/"), and select
@@ -166,15 +166,15 @@ To avoid unexpected charges, follow these clean-up steps:
 
 VPC environments do not have persistent storage. The $HOME directory is deleted when your VPC environment times out (after 20-30 minutes of inactivity), or when you delete or restart your environment.
 
-![](images/CloudShell-delete.png) 2. Enter **delete**, and choose **Delete** to confirm
+![Actions menu showing environment options such as View details, New tab, Split views, and Delete.](images/CloudShell-delete.png) 2. Enter **delete**, and choose **Delete** to confirm
 the deletion of the VPC environment. 3. Open [Amazon RDS](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/"), and select
 **Databases**. 4. Select **postgresql-demo**. 5. Select **Actions**, and select
 **Delete.**
 
-![](images/enter-delete.png) 6. Enter **delete me** to remove the PostgreSQL database instance. 7. Open [AWS CloudFormation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/"), and select
+![Quick Actions menu showing options such as Delete, Set up EC2 connection, and Create read replica.](images/enter-delete.png) 6. Enter **delete me** to remove the PostgreSQL database instance. 7. Open [AWS CloudFormation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/"), and select
 **custom-vpc**. 8. Select **Delete.**
 
-![](images/actions-delete.png) 9. Choose **Delete** to remove the CloudFormation stack.
+![Stacks table showing custom-vpc stack with CREATE_COMPLETE status and VPC deployment description.](images/actions-delete.png) 9. Choose **Delete** to remove the CloudFormation stack.
 
 ## Conclusion
 
