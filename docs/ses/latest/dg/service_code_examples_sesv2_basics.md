@@ -5,6 +5,7 @@ SDKs.
 
 ###### Examples
 
+- [Hello Amazon SES API v2](sesv2_example_sesv2_Hello_section.md "sesv2_example_sesv2_Hello_section.md")
 - [Actions](service_code_examples_sesv2_actions.md "service_code_examples_sesv2_actions.md")
   - [CreateContact](sesv2_example_sesv2_CreateContact_section.md "sesv2_example_sesv2_CreateContact_section.md")
   - [CreateContactList](sesv2_example_sesv2_CreateContactList_section.md "sesv2_example_sesv2_CreateContactList_section.md")
@@ -16,4 +17,5 @@ SDKs.
   - [GetEmailIdentity](sesv2_example_sesv2_GetEmailIdentity_section.md "sesv2_example_sesv2_GetEmailIdentity_section.md")
   - [ListContactLists](sesv2_example_sesv2_ListContactLists_section.md "sesv2_example_sesv2_ListContactLists_section.md")
   - [ListContacts](sesv2_example_sesv2_ListContacts_section.md "sesv2_example_sesv2_ListContacts_section.md")
+  - [SendBulkEmail](sesv2_example_sesv2_SendBulkEmail_section.md "sesv2_example_sesv2_SendBulkEmail_section.md")
   - [SendEmail](sesv2_example_sesv2_SendEmail_section.md "sesv2_example_sesv2_SendEmail_section.md")

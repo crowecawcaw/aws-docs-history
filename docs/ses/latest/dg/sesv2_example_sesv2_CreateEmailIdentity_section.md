@@ -3,8 +3,9 @@
 The following code examples show how to use `CreateEmailIdentity`.
 
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+context in the following code examples:
 
+- [Email Attachments Scenario](sesv2_example_sesv2_Scenario_EmailAttachments_section.md "sesv2_example_sesv2_Scenario_EmailAttachments_section.md")
 - [Newsletter scenario](sesv2_example_sesv2_NewsletterWorkflow_section.md "sesv2_example_sesv2_NewsletterWorkflow_section.md")
 
 .NET
@@ -125,7 +126,79 @@ Python
 
 There's more on GitHub. Find the complete example and learn how to set up and run in the
 [AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2#code-examples").
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/attachments_scenario#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/attachments_scenario#code-examples").
+
+```
+class SESv2Wrapper:
+    """Encapsulates Amazon SESv2 email sending actions."""
+
+    def __init__(self, sesv2_client: Any) -> None:
+        """
+        Initializes the SESv2Wrapper with an SESv2 client.
+
+        :param sesv2_client: A Boto3 SESv2 client.
+        """
+        self.sesv2_client = sesv2_client
+
+    @classmethod
+    def from_client(cls) -> "SESv2Wrapper":
+        """
+        Creates an SESv2Wrapper instance with a default Boto3 SESv2 client.
+
+        :return: A new SESv2Wrapper instance.
+        """
+        sesv2_client = boto3.client("sesv2")
+        return cls(sesv2_client)
+
+
+    def create_email_identity(self, email_address: str) -> Dict[str, Any]:
+        """
+        Starts the process of verifying an email identity (email address or domain).
+
+        :param email_address: The email address or domain to verify.
+        :return: A dictionary with the identity type and verification status.
+        :raises ClientError: If the limit is exceeded (LimitExceededException).
+        """
+        try:
+            response = self.sesv2_client.create_email_identity(
+                EmailIdentity=email_address
+            )
+            logger.info(
+                "Started verification for email identity %s.", email_address
+            )
+            return response
+        except ClientError as err:
+            if err.response["Error"]["Code"] == "LimitExceededException":
+                logger.error(
+                    "Couldn't create email identity %s. You have exceeded "
+                    "the maximum number of email identities. "
+                    "Use an existing verified identity.",
+                    email_address,
+                )
+            else:
+                logger.error(
+                    "Couldn't create email identity %s. Here's why: %s: %s",
+                    email_address,
+                    err.response["Error"]["Code"],
+                    err.response["Error"]["Message"],
+                )
+            raise
+
+
+
+```
+
+- For API details, see
+  [CreateEmailIdentity](../../../goto/boto3/sesv2-2019-09-27/CreateEmailIdentity.md "../../../goto/boto3/sesv2-2019-09-27/CreateEmailIdentity.md")
+  in _AWS SDK for Python (Boto3) API Reference_.
+
+**SDK for Python (Boto3)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/newsletter_scenario#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/newsletter_scenario#code-examples").
 
 ```
 def main():

@@ -2,6 +2,11 @@
 
 The following code examples show how to use `SendEmail`.
 
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in
+context in the following code example:
+
+- [Email Attachments Scenario](sesv2_example_sesv2_Scenario_EmailAttachments_section.md "sesv2_example_sesv2_Scenario_EmailAttachments_section.md")
+
 .NET
 
 **SDK for .NET**
@@ -369,7 +374,117 @@ Python
 
 There's more on GitHub. Find the complete example and learn how to set up and run in the
 [AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2#code-examples").
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/attachments_scenario#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/attachments_scenario#code-examples").
+
+Sends a message with optional attachments.
+
+```
+class SESv2Wrapper:
+    """Encapsulates Amazon SESv2 email sending actions."""
+
+    def __init__(self, sesv2_client: Any) -> None:
+        """
+        Initializes the SESv2Wrapper with an SESv2 client.
+
+        :param sesv2_client: A Boto3 SESv2 client.
+        """
+        self.sesv2_client = sesv2_client
+
+    @classmethod
+    def from_client(cls) -> "SESv2Wrapper":
+        """
+        Creates an SESv2Wrapper instance with a default Boto3 SESv2 client.
+
+        :return: A new SESv2Wrapper instance.
+        """
+        sesv2_client = boto3.client("sesv2")
+        return cls(sesv2_client)
+
+
+    def send_email(
+        self,
+        from_address: str,
+        to_addresses: List[str],
+        subject: str,
+        html_body: str,
+        text_body: str,
+        attachments: Optional[List[Dict[str, Any]]] = None,
+    ) -> str:
+        """
+        Sends a simple email message with optional attachments.
+
+        SES handles MIME construction automatically when using attachments
+        with the Simple content type, so developers don't need to build
+        raw MIME messages.
+
+        :param from_address: The verified sender email address.
+        :param to_addresses: A list of recipient email addresses.
+        :param subject: The subject line of the email.
+        :param html_body: The HTML body content.
+        :param text_body: The plain text body content.
+        :param attachments: An optional list of attachment dictionaries. Each
+            attachment should contain 'RawContent' (bytes), 'FileName' (str),
+            and optionally 'ContentType', 'ContentDisposition', 'ContentId',
+            'ContentDescription', and 'ContentTransferEncoding'.
+        :return: The MessageId of the sent email.
+        :raises ClientError: If the message is rejected (MessageRejected).
+        """
+        try:
+            simple_message: Dict[str, Any] = {
+                "Subject": {"Data": subject},
+                "Body": {
+                    "Html": {"Data": html_body},
+                    "Text": {"Data": text_body},
+                },
+            }
+
+            if attachments:
+                simple_message["Attachments"] = attachments
+
+            response = self.sesv2_client.send_email(
+                FromEmailAddress=from_address,
+                Destination={"ToAddresses": to_addresses},
+                Content={"Simple": simple_message},
+            )
+            message_id = response["MessageId"]
+            logger.info(
+                "Sent email from %s to %s. MessageId: %s",
+                from_address,
+                to_addresses,
+                message_id,
+            )
+            return message_id
+        except ClientError as err:
+            if err.response["Error"]["Code"] == "MessageRejected":
+                logger.error(
+                    "Message was rejected. Check that attachments use "
+                    "supported file types and total message size is "
+                    "under 40 MB. Details: %s",
+                    err.response["Error"]["Message"],
+                )
+            else:
+                logger.error(
+                    "Couldn't send email. Here's why: %s: %s",
+                    err.response["Error"]["Code"],
+                    err.response["Error"]["Message"],
+                )
+            raise
+
+
+
+```
+
+- For API details, see
+  [SendEmail](../../../goto/boto3/sesv2-2019-09-27/SendEmail.md "../../../goto/boto3/sesv2-2019-09-27/SendEmail.md")
+  in _AWS SDK for Python (Boto3) API Reference_.
+
+**SDK for Python (Boto3)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/newsletter_scenario#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/newsletter_scenario#code-examples").
 
 Sends a message to all members of the contact list.
 

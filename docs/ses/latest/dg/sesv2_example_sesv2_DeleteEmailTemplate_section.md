@@ -3,8 +3,9 @@
 The following code examples show how to use `DeleteEmailTemplate`.
 
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+context in the following code examples:
 
+- [Email Attachments Scenario](sesv2_example_sesv2_Scenario_EmailAttachments_section.md "sesv2_example_sesv2_Scenario_EmailAttachments_section.md")
 - [Newsletter scenario](sesv2_example_sesv2_NewsletterWorkflow_section.md "sesv2_example_sesv2_NewsletterWorkflow_section.md")
 
 .NET
@@ -103,7 +104,73 @@ Python
 
 There's more on GitHub. Find the complete example and learn how to set up and run in the
 [AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2#code-examples").
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/attachments_scenario#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/attachments_scenario#code-examples").
+
+```
+class SESv2Wrapper:
+    """Encapsulates Amazon SESv2 email sending actions."""
+
+    def __init__(self, sesv2_client: Any) -> None:
+        """
+        Initializes the SESv2Wrapper with an SESv2 client.
+
+        :param sesv2_client: A Boto3 SESv2 client.
+        """
+        self.sesv2_client = sesv2_client
+
+    @classmethod
+    def from_client(cls) -> "SESv2Wrapper":
+        """
+        Creates an SESv2Wrapper instance with a default Boto3 SESv2 client.
+
+        :return: A new SESv2Wrapper instance.
+        """
+        sesv2_client = boto3.client("sesv2")
+        return cls(sesv2_client)
+
+
+    def delete_email_template(self, template_name: str) -> None:
+        """
+        Deletes an email template.
+
+        :param template_name: The name of the template to delete.
+        :raises ClientError: If the template is not found (NotFoundException).
+        """
+        try:
+            self.sesv2_client.delete_email_template(
+                TemplateName=template_name
+            )
+            logger.info("Deleted email template %s.", template_name)
+        except ClientError as err:
+            if err.response["Error"]["Code"] == "NotFoundException":
+                logger.info(
+                    "Email template %s not found or already deleted.",
+                    template_name,
+                )
+            else:
+                logger.error(
+                    "Couldn't delete email template %s. Here's why: %s: %s",
+                    template_name,
+                    err.response["Error"]["Code"],
+                    err.response["Error"]["Message"],
+                )
+            raise
+
+
+
+```
+
+- For API details, see
+  [DeleteEmailTemplate](../../../goto/boto3/sesv2-2019-09-27/DeleteEmailTemplate.md "../../../goto/boto3/sesv2-2019-09-27/DeleteEmailTemplate.md")
+  in _AWS SDK for Python (Boto3) API Reference_.
+
+**SDK for Python (Boto3)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/newsletter_scenario#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sesv2/newsletter_scenario#code-examples").
 
 ```
 def main():

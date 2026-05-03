@@ -25,4 +25,5 @@ For a complete list, see the
 - [GetEmailIdentity](sesv2_example_sesv2_GetEmailIdentity_section.md "sesv2_example_sesv2_GetEmailIdentity_section.md")
 - [ListContactLists](sesv2_example_sesv2_ListContactLists_section.md "sesv2_example_sesv2_ListContactLists_section.md")
 - [ListContacts](sesv2_example_sesv2_ListContacts_section.md "sesv2_example_sesv2_ListContacts_section.md")
+- [SendBulkEmail](sesv2_example_sesv2_SendBulkEmail_section.md "sesv2_example_sesv2_SendBulkEmail_section.md")
 - [SendEmail](sesv2_example_sesv2_SendEmail_section.md "sesv2_example_sesv2_SendEmail_section.md")
