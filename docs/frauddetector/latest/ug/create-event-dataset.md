@@ -51,7 +51,7 @@ with the event. The header is followed by event data. Each line consists of data
 The following is an example of a CSV file containing data from an account registration event. The header row contains both event metadata in uppercase and event variables in lowercase followed by the event data. Each row in the dataset
 contains data elements associated with single account registration with each data element corresponding with the header.
 
-![CSV file showing event metadata and variables with sample data for account registration events.](images/SampleEventDataset.png)
+![CSV file with header row showing event metadata and variables, followed by rows of event data.](images/SampleEventDataset.png)
 
 ## Get event dataset requirements using the Data models explorer
 
