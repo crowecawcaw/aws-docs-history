@@ -14,7 +14,7 @@ complete the following tasks:
    end-to-end user authentication flow from the initial browser request through SAML and
    Active Directory authentication.
 
-![Authentication flow diagram showing steps from user login to AWSWorkSpaces Applications session start.](images/domain-join-UPDATED.png)
+![Authentication flow diagram showing steps from user login to AWS WorkSpaces Applications session start.](images/domain-join-UPDATED.png)
 
 ###### User Authentication Flow
 

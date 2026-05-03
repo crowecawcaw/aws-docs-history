@@ -15,13 +15,13 @@ and audio conferencing within your WorkSpaces Applications streaming session.
      attached to your streaming session. Choose the video icon to
      attach one or more webcams.
 
-   ![Icon of a video camera with a diagonal line through it, indicating disabled or detached webcams.](images/Webcam-available-1.png)
+   ![Amazon AppStream 2.0 toolbar with video icon showing diagonal line indicating detached webcams.](images/Webcam-available-1.png)
    - If the video icon does not have a diagonal line through it (as
      shown in the following screenshot), one or more webcams are
      already attached to your streaming session. Skip this step and
      proceed to the next step.
 
-   ![Video icon without a diagonal line, indicating available WorkSpaces Applications real-time AV feature.](images/Webcam-attached-2.png)
+   ![Amazon AppStream 2.0 toolbar with video icon highlighted.](images/Webcam-attached-2.png)
 
 ###### Note
 
@@ -34,13 +34,13 @@ that is connected to your laptop and a built-in webcam), a check mark
 appears next to the name of the webcam that is selected for use for
 video conferencing within your streaming session.
 
-![Dropdown menu showing two webcam options, with one selected as indicated by a checkmark.](images/Webcam1-selected-3.png) 4. To use the selected webcam for video conferencing within your WorkSpaces Applications
+![Dropdown menu showing Webcam 1 selected with a check mark and Webcam 2 as an option.](images/Webcam1-selected-3.png) 4. To use the selected webcam for video conferencing within your WorkSpaces Applications
 streaming session, start the video conferencing application that you
 want to use. When the webcam is active (being used for video
 conferencing within your streaming session), the video icon is
 red.
 
-![Toolbar with video icon highlighted in red, indicating active webcam use.](images/Webcam1-selected-cameras-streaming-4.png) 5. To enable the microphone, choose the microphone icon.
+![Amazon AppStream 2.0 toolbar with red video icon and dropdown menu showing Webcam 1 selected.](images/Webcam1-selected-cameras-streaming-4.png) 5. To enable the microphone, choose the microphone icon.
 
 ###### Note
 
@@ -58,13 +58,13 @@ from the session. For more information, see the next procedure.
      webcams are still attached to your streaming session. Choose the
      video icon to detach the webcams.
 
-   ![Video icon without a diagonal line, indicating available WorkSpaces Applications real-time AV feature.](images/Webcam-attached-2.png)
+   ![Amazon AppStream 2.0 toolbar with video icon highlighted.](images/Webcam-attached-2.png)
    - If the video icon has a diagonal line through it (as shown in
      the following screenshot), your webcams are already detached
      from your streaming session. Skip this step and proceed to the
      next step.
 
-   ![Icon of a video camera with a diagonal line through it, indicating disabled or detached webcams.](images/Webcam-available-1.png)
+   ![Amazon AppStream 2.0 toolbar with video icon showing diagonal line indicating detached webcams.](images/Webcam-available-1.png)
 
 2. Display the names of your webcams by choosing the downward arrow next
    to the video icon, then select the name of the webcam that you want to
@@ -76,7 +76,7 @@ You must select the name of the webcam you want to use. If you
 select the check mark next to the name of the webcam you want to
 use, the webcam won't change.
 
-![WorkSpaces Applications toolbar with webcam options showing Webcam 1 and Webcam 2 selections.](images/Webcam2-selected-5.png) 3. Choose the video icon to reattach the webcams to your WorkSpaces Applications streaming
+![Amazon AppStream 2.0 toolbar with Webcam 2 selected from webcam dropdown menu.](images/Webcam2-selected-5.png) 3. Choose the video icon to reattach the webcams to your WorkSpaces Applications streaming
 session.
 
-![Video icon highlighted in toolbar, with Webcam 1 and Webcam 2 options below.](images/Webcam-2-selected-cameras-reattached-6.png)
+![Video icon highlighted in the Amazon AppStream 2.0 toolbar with Webcam 2 selected in dropdown.](images/Webcam-2-selected-cameras-reattached-6.png)

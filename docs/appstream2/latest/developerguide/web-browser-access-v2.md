@@ -7,7 +7,7 @@ were available in the previous version are still available in the new one. These
 setting options have been reorganized as a result of usability testing conducted
 by the WorkSpaces Applications team.
 
-![Toolbar with icons for various system functions and settings in a dark theme interface.](images/toolbar.png)
+![Menu bar with icons for Catalog, Windows, My Files, Clipboard, Microphone, Camera, Preferences, Full screen, Dual monitor, FN Keys, and Profile.](images/toolbar.png)
 End users can access an enhanced WorkSpaces Applications toolbar, plus the following features
 available under **My files**:
 

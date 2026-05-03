@@ -15,6 +15,13 @@ access the latest versions of their applications. Your applications run on AWS c
 resources, and data is never stored on users' devices, which means they always get a high
 performance, secure experience.
 
+WorkSpaces Applications provides Model Context Protocol (MCP) tools that enable AI agents to interact
+with your desktop applications by typing, clicking, and taking screenshots. You provide
+agents access to WorkSpaces in your stack and configure which capabilities agents can use.
+Agents authenticate using AWS IAM credentials. AWS CloudTrail logs agent activity, and you
+can monitor tool performance metrics in Amazon CloudWatch. For more information, see
+[Get started providing agents with access to WorkSpaces Applications](getting-started-agent-access.md "getting-started-agent-access.md").
+
 Unlike traditional on-premises solutions for desktop application streaming, WorkSpaces Applications offers
 pay-as-you-go pricing, with no upfront investment and no infrastructure to maintain. You can
 scale instantly and globally, ensuring that your users always have the best possible

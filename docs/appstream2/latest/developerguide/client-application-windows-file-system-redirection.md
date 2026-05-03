@@ -17,7 +17,7 @@ computer. File redirection is not available when you connect to WorkSpaces Appli
 1. Open the WorkSpaces Applications client and connect to a streaming session.
 2. In your WorkSpaces Applications session, in the top left area, choose the **Settings** icon, and then choose **Local Resources**, **Local Drives and Folders**.
 
-![Settings menu with Local Resources option and submenu showing Local Drives and Folders.](images/AppStream2-Client-Local-Drives-Folders-MenuOptions.png)
+![Settings menu with Local Resources selected, showing submenu with Local Drives and Folders option.](images/AppStream2-Client-Local-Drives-Folders-MenuOptions.png)
 
 The **Share your local drives and folders** dialog box
 displays the drives and folders that your administrator has made
@@ -32,7 +32,7 @@ share drives and folders, do one of the following:
 
 
 
-    ![Dialog box for sharing local drives and folders with options to share all or save configuration.](images/AppStream2-Client-Local-Drives-Folders-ShareAll.png)
+    ![Share your local drives and folders dialog box with Share All and Save my configuration highlighted.](images/AppStream2-Client-Local-Drives-Folders-ShareAll.png)
     * To share a specific local drive or folder, select the drive or folder that you want to access,
      and choose **Share**, **Save my
      configuration**. To share another local drive or
@@ -40,7 +40,7 @@ share drives and folders, do one of the following:
 
 
 
-    ![Dialog for sharing local drives and folders, with options to share specific items.](images/AppStream2-Client-Local-Drives-Folders-Share-Specific.png)
+    ![Share your local drives and folders dialog with Share button highlighted for Y_examplecorp drive.](images/AppStream2-Client-Local-Drives-Folders-Share-Specific.png)
     * If the local drive or folder that you want to share is not displayed, you can add it. For
      example, your administrator might make your entire local C Drive
      available for you to share. However, you might only need to
@@ -56,7 +56,7 @@ share drives and folders, do one of the following:
 
 
 
-    	![Dialog box for sharing local drives and folders, with an "Add Folder" button highlighted.](images/AppStream2-Client-Local-Drives-Folders-Add-Specific-Folder.png)
+    	![Add Folder button highlighted at the bottom of the dialog box.](images/AppStream2-Client-Local-Drives-Folders-Add-Specific-Folder.png)
     	+ Browse to the folder that
     	 you want to share, and choose **OK**.
     	+ The folder that you selected is now available to share. Select the folder, and choose
@@ -66,7 +66,7 @@ share drives and folders, do one of the following:
 
 
 
-    	![Dialog for sharing local drives and folders, with options to share specific drives and folders.](images/AppStream2-Client-Local-Drive-Folders-SpecificFolderAdded.PNG)
+    	![Share local drives and folders dialog with Share and Save my configuration buttons circled.](images/AppStream2-Client-Local-Drive-Folders-SpecificFolderAdded.PNG)
 
 After you share a local drive or folder, perform the following steps to access
 files in the shared drive or folder from your streaming session.
@@ -80,7 +80,7 @@ files in the shared drive or folder from your streaming session.
    drives and folders appear in the Notepad++ browse dialog box for Jane
    Doe when she browses for a file.
 
-![File browser showing shared local drives and folders for a user, including mapped network drives.](images/AppStream2-Client-Local-Drives-Folders-Access-Shared-Drives-Folders.png)
+![File browser showing shared drives including Desktop, Documents, Downloads, and Work Files folders.](images/AppStream2-Client-Local-Drives-Folders-Access-Shared-Drives-Folders.png)
 
 In the browse dialog box, the corresponding paths for her shared drives and folders are shown in the red box. The paths appear with backslashes replaced by
 underscores. At the end of each path is the name of Jane's computer, ExampleCorp-123456, and a drive letter. 4. When you're done working with the file, use the **File Save** or **File Save As** command to save it to the location that you want.
@@ -97,7 +97,7 @@ The **Share your local drives and folders** dialog box displays the drives and f
 
 
 
-    ![Interface for sharing local drives and folders with options to unshare and save configuration.](images/AppStream2-Client-Local-Drives-Folders-UnshareAll.png)
+    ![Dialog showing Unshare All and Save my configuration buttons highlighted in the interface.](images/AppStream2-Client-Local-Drives-Folders-UnshareAll.png)
     * To stop sharing a specific shared local drive or folder, select the drive or folder, and choose
      **Unshare**, **Save my
      configuration**. To stop sharing another local drive or
@@ -105,7 +105,7 @@ The **Share your local drives and folders** dialog box displays the drives and f
 
 
 
-    ![Interface for sharing local drives and folders with options to unshare and save configuration.](images/AppStream2-Client-Local-Drives-Folders-UnshareAll.png)
+    ![Dialog showing Unshare All and Save my configuration buttons highlighted in the interface.](images/AppStream2-Client-Local-Drives-Folders-UnshareAll.png)
 
 You can delete local drives and folders that you add to the **Share your
 local drives and folders** dialog box. However, you can't delete local
@@ -123,4 +123,4 @@ displays the drives and folders that your administrator has made
 available for you to share. If you added any drives or folders, they are
 also displayed. 3. Select the local drive or folder that you want to delete, and then choose **Delete**, **Save my configuration**.
 
-![Dialog for sharing local drives and folders, with options to delete and save configuration.](images/AppStream2-Client-Local-Drive-Folders-SpecificFolderAdded-Delete.png)
+![Dialog showing drives and folders with Delete and Save my configuration buttons highlighted.](images/AppStream2-Client-Local-Drive-Folders-SpecificFolderAdded-Delete.png)

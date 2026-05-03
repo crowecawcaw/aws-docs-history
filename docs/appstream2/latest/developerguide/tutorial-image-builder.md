@@ -83,7 +83,7 @@ administrator permissions.
 1. From the image builder desktop, open Image Assistant. Image Assistant guides
    you through the image creation process.
 
-![Row of icons representing different functions in Image Assistant interface.](images/Image-Builder-Desktop-Image-Assistant.png) 2. In **1. Add Apps**, choose **+ Add
+![Image Assistant icon on desktop with toolbar containing flag, copy, settings, pin, and flow icons.](images/Image-Builder-Desktop-Image-Assistant.png) 2. In **1. Add Apps**, choose **+ Add
 App**, and navigate to the location of the application, script, or
 shortcut to add. Choose **Open**. 3. In the **App Launch Settings** dialog box, keep or change the
 default settings for **Name**, **Display

@@ -12,14 +12,14 @@ are displayed when you choose the Fn icon (or the FN Keys on WorkSpaces Applicat
 access v2). If not all keys are displayed, you can scroll to the right or left
 on the shortcut toolbar to display more keys.
 
-![Keyboard shortcut toolbar displaying Windows-specific keys and function keys.](images/AppStream-Fn-Key-2a-Keys-No-Scrollbar.png)
+![Keyboard shortcut toolbar showing Windows-specific keys such as Ctrl, Alt, Shift, Del, and Esc.](images/AppStream-Fn-Key-2a-Keys-No-Scrollbar.png)
 To use a key combination that includes the Windows Control key, choose the
 Ctrl key on the shortcut toolbar, and then type any key on the shortcut toolbar
 (or, if you are using a touch-enabled device, the on-screen keyboard). Choosing
 the Ctrl key changes the color to blue. In this case, any other key that you
 select is interpreted as a key combination that includes the Control key.
 
-![Ctrl key highlighted in blue on a keyboard shortcut toolbar.](images/AppStream-Fn-Key-3-Choose-Ctrl-Key.png)
+![Shortcut toolbar with Ctrl key highlighted in blue, followed by other keys such as Alt, Shift, and Del.](images/AppStream-Fn-Key-3-Choose-Ctrl-Key.png)
 Choose the Ctrl key again to release it. For example, to use the keyboard
 shortcut Ctrl + F, choose the Ctrl key on the shortcut toolbar, and then type
 the f key. Choose the Ctrl key on the shortcut toolbar again to release the

@@ -36,16 +36,16 @@ your OneDrive account to WorkSpaces Applications.
 2. In the **My Files** dialog box, choose **Add
    Storage**.
 
-![File management interface showing Home Folder and Temporary Files with Add Storage option.](images/AddStorage.png) 3. Choose **OneDrive**.
+![My Files dialog box with Add Storage button highlighted in upper right corner.](images/AddStorage.png) 3. Choose **OneDrive**.
 
-![OneDrive option highlighted in cloud storage selection menu.](images/AddOneDrive1.png) 4. Under **Login accounts**, choose the domain for your
+![OneDrive option selected in the Add Storage dropdown menu.](images/AddOneDrive1.png) 4. Under **Login accounts**, choose the domain for your
 OneDrive account.
 
-![Dropdown menu showing login account options with example.com highlighted.](images/LoginAccounts.png) 5. In the **Sign in** dialog box, enter the sign-in
+![Login accounts dialog with example.com domain highlighted for selection.](images/LoginAccounts.png) 5. In the **Sign in** dialog box, enter the sign-in
 credentials for your account. 6. After your OneDrive account is added to WorkSpaces Applications, your OneDrive folder is
 displayed in **My Files**.
 
-![File explorer window showing OneDrive folder added to My Files with last modified date.](images/AddOneDrive2.png) 7. To work with your files and folders in OneDrive, choose the
+![My Files interface showing OneDrive folder listed with Home Folder and Temporary Files.](images/AddOneDrive2.png) 7. To work with your files and folders in OneDrive, choose the
 **OneDrive** folder and browse to the file or folder
 you want. If you do not want to work with files in OneDrive during this
 streaming session, close the **My Files** dialog box.
@@ -65,7 +65,7 @@ streaming session, close the **My Files** dialog box.
      to download, choose the down arrow to the right of the file name,
      and choose **Download**.
 
-   ![File management interface showing PDF file with options to upload, download, and rename.](images/GoogleDrive_FileUploadDownload.png)
+   ![File list showing My Example File.pdf with Download option selected from the menu.](images/GoogleDrive_FileUploadDownload.png)
 
 ###### To remove OneDrive permissions from WorkSpaces Applications
 

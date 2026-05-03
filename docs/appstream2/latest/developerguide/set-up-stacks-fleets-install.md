@@ -27,6 +27,13 @@ with a Linux fleet, please make sure these settings are disabled.
      you do not specify a URL, this link is not displayed.
    - **Fleet** — Select an existing fleet or create
      a new one to associate with your stack.
+   - **AI agent access** — Select
+     **Enable AI agent access** to allow AI agents
+     to connect to streaming sessions and interact with desktop
+     applications through the managed MCP service. When you enable
+     agent access, Steps 2 and 3 of the stack creation wizard are
+     configured for agent-specific settings. For more information,
+     see [Learn more about agents accessing WorkSpaces](agent-access-setup.md "agent-access-setup.md").
    - **Streaming
      Protocol Preference** — Specify the streaming
      protocol you’d like your stack to prefer, UDP or TCP. UDP is currently
@@ -107,6 +114,15 @@ with a Linux fleet, please make sure these settings are disabled.
 5. Choose **Next**.
 6. For **Step 3: User Settings**, configure the following
    settings. When you're done, choose **Review**.
+
+###### Note
+
+If you enabled AI agent access in Step 1, Step 3 displays
+**Edit agent settings** instead of
+**User Settings**. You configure computer input,
+computer vision, screenshot storage, screen resolution, screen image
+type, and application settings persistence for agents. For more
+information, see [Learn more about agents accessing WorkSpaces](agent-access-setup.md "agent-access-setup.md").
 
 **Clipboard, file transfer, print to local device, and
 authentication permissions**:

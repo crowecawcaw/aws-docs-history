@@ -32,7 +32,7 @@ the default Internet Explorer home page.
 3.  In the upper right area of the image builder desktop, choose
     **Admin Commands**, **Switch User**.
 
-![Admin Commands dropdown menu with Switch User option highlighted.](images/admin-commands-switch-user.png) 4. This disconnects your current session and opens the login menu. Log in to
+![Admin Commands menu with Switch User option highlighted.](images/admin-commands-switch-user.png) 4. This disconnects your current session and opens the login menu. Log in to
 the image builder by doing either of the following:
 
     * If your image builder is not joined to an Active Directory domain,

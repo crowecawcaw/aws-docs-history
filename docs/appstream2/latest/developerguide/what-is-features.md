@@ -83,3 +83,7 @@ streaming instances only for the duration of the streaming session,
 in seconds.
 
 For more information, see [Amazon WorkSpaces Applications Pricing](https://aws.amazon.com/appstream2/pricing/ "https://aws.amazon.com/appstream2/pricing/").
+
+**Enable AI agents to interact with desktop applications**
+
+You enable agent access on your WorkSpaces Applications stack. When AI agents connect, they receive Model Context Protocol (MCP) tools to operate your desktop applications. Your agents can click buttons, enter text, and capture screenshots. This lets them complete multi-step workflows across your business applications. You configure which capabilities are available to agents, including computer input, computer vision, and screenshot storage. Agents authenticate by using standard AWS Identity and Access Management (IAM) credentials with SigV4 signing. No API keys or static secrets are required. Agent access works with Always-On and On-Demand fleets. You can monitor agent activity through AWS CloudTrail. Operational metrics are available in CloudWatch.

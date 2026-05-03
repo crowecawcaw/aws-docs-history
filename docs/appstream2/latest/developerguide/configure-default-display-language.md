@@ -57,7 +57,7 @@ User**. Confirm that Windows is using the display language that you
 selected. 10. In the upper right area of the image builder desktop, choose **Admin
 Commands**, **Switch User**.
 
-![Admin Commands dropdown menu with Switch User option highlighted.](images/admin-commands-switch-user.png) 11. When prompted, log in as **Administrator**. 12. If required, configure additional default regional or language settings.
+![Admin Commands menu with Switch User option highlighted.](images/admin-commands-switch-user.png) 11. When prompted, log in as **Administrator**. 12. If required, configure additional default regional or language settings.
 Otherwise, on the image builder desktop, open Image Assistant and install and
 configure applications for streaming. 13. In Step 2 of the Image Assistant process, choose **Save
 settings**. 14. Follow the necessary steps in Image Assistant to finish creating your image.

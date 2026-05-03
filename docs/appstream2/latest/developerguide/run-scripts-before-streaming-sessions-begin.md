@@ -26,7 +26,7 @@ the user.
 When you run scripts before streaming sessions begin and the WorkSpaces Applications dynamic
 application framework is not enabled, the following process occurs:
 
-![WorkSpaces Applications workflow diagram showing connection, application selection, and session launch steps.](images/session-scripts-without-DAF-non-domain-joined2.png)
+![AppStream 2.0 session flow showing user connection, application selection, script execution, and streaming session start.](images/session-scripts-without-DAF-non-domain-joined2.png)
 
 1. Your users connect to an WorkSpaces Applications fleet instance that is not domain-joined.
    They connect by using one of the following access methods:
@@ -63,7 +63,7 @@ For information about the WorkSpaces Applications dynamic application framework,
 When you run scripts before streaming sessions begin and the WorkSpaces Applications dynamic
 application framework is enabled, the following process occurs:
 
-![WorkSpaces Applications workflow from user login to application launch, including SAML authentication and session scripts.](images/session-scripts-with-DAF-domain-joined2.png)
+![AppStream 2.0 SAML authentication workflow showing user login through session scripts to application launch.](images/session-scripts-with-DAF-domain-joined2.png)
 
 1. Your users visit the SAML 2.0 application portal for your organization,
    and they choose the WorkSpaces Applications stack.

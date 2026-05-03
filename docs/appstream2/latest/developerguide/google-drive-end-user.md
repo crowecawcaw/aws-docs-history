@@ -42,17 +42,17 @@ add your Google Drive account to WorkSpaces Applications.
 2. In the **My Files** dialog box, choose **Add
    Storage**.
 
-![File management interface showing Home Folder and Temporary Files with Add Storage option.](images/AddStorage.png) 3. Choose **Google Drive**.
+![My Files dialog box with Add Storage button highlighted in upper right corner.](images/AddStorage.png) 3. Choose **Google Drive**.
 
-![Google Drive option highlighted in the Add Storage dropdown menu.](images/AddGoogleDrive1.png) 4. Choose the domain for your Google Drive account.
+![Add Storage dropdown menu with Google Drive option highlighted.](images/AddGoogleDrive1.png) 4. Choose the domain for your Google Drive account.
 
-![Dropdown menu showing login account options with example.com highlighted.](images/LoginAccounts.png) 5. The **Sign in with Google** dialog box is displayed.
+![Login accounts dialog with example.com domain highlighted for selection.](images/LoginAccounts.png) 5. The **Sign in with Google** dialog box is displayed.
 Enter the sign-in credentials for your Google Drive account when prompted.
 
 After your Google Drive account is added to WorkSpaces Applications, your Google Drive
 folder is displayed in **My Files**.
 
-![File explorer window showing Google Drive folder added to My Files with last modified date.](images/AddGoogleDrive2.png) 6. To work with your files and folders in Google Drive, choose the
+![My Files window showing Google Drive folder listed with Home Folder and Temporary Files.](images/AddGoogleDrive2.png) 6. To work with your files and folders in Google Drive, choose the
 **Google Drive** folder and browse to the file or
 folder you want. If you do not want to work with files in Google Drive
 during this streaming session, close the **My Files**
@@ -73,4 +73,4 @@ dialog box.
      to download, choose the down arrow to the right of the file name,
      and choose **Download**.
 
-   ![File management interface showing PDF file with options to upload, download, and rename.](images/GoogleDrive_FileUploadDownload.png)
+   ![File list showing My Example File.pdf with Download option selected from the menu.](images/GoogleDrive_FileUploadDownload.png)

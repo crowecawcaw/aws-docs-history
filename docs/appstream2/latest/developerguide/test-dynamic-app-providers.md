@@ -14,7 +14,7 @@ following steps before you finish creating the image.
      builder session toolbar, choose **Admin
      Commands**, **Switch User**.
 
-   ![Admin Commands dropdown menu with Switch User option highlighted.](images/admin-commands-switch-user.png)
+   ![Admin Commands menu expanded showing Switch User option.](images/admin-commands-switch-user.png)
    - If you are not already connected to the image builder, connect
      by either [using the
      WorkSpaces Applications console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only) or [creating a streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or WorkSpaces Applications client

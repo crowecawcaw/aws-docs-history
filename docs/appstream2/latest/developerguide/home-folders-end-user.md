@@ -38,4 +38,4 @@ directory in File Explorer: C:\Users\PhotonUser\My Files\Home Folder.
      arrow to the right of the file name, and choose
      **Download**.
 
-   ![File management interface showing options to upload files and download a selected document.](images/home-folder-new.png)
+   ![File management interface showing Upload Files button and Download option in context menu.](images/home-folder-new.png)

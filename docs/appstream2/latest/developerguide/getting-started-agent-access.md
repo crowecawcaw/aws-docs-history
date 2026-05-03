@@ -1,0 +1,275 @@
+# Get started providing agents with access to WorkSpaces Applications
+
+To enable AI agents to operate desktop applications through Amazon WorkSpaces Applications, you
+create a stack with access enabled for agents, generate a streaming URL, and connect
+your agent to the managed MCP service.
+
+If you are setting up agent access for the first time, you can use the Build Your
+First Agent quick-start experience. You can also follow the steps in this topic to
+configure agent access manually. The quick-start experience is available in the GitHub
+repository — [sample-code-for-workspaces-agent-access](https://github.com/aws-samples/sample-code-for-workspaces-agent-access "https://github.com/aws-samples/sample-code-for-workspaces-agent-access").
+
+This tutorial takes approximately 15 minutes to complete.
+
+###### Important
+
+The resources you create in this tutorial might result in charges to your AWS
+account. Delete the stack and stop the fleet when you are done to avoid ongoing
+charges.
+
+In this tutorial, you complete the following tasks:
+
+- Step 1: Create a stack with agent access enabled
+- Step 2: Generate a streaming URL
+- Step 3: Connect your agent to the MCP service
+- Step 4: Verify agent activity
+- Step 5: Clean up resources
+
+## Prerequisites
+
+Before you begin, make sure you have the following:
+
+- An active Amazon WorkSpaces Applications fleet. If you haven't set one up yet,
+  see [Get Started with Amazon WorkSpaces Applications: Set Up With Sample Applications](getting-started.md "getting-started.md").
+- AWS credentials (environment variables, AWS profile, EC2 instance role,
+  or Lambda execution role) with the following IAM permissions:
+
+```
+{
+    "Sid": "MCP",
+    "Effect": "Allow",
+    "Action": ["agentaccess-mcp:*"],
+    "Resource": "*"
+},
+{
+    "Sid": "AppStream",
+    "Effect": "Allow",
+    "Action": ["appstream:CreateStreamingURL", "appstream:DescribeFleets"],
+    "Resource": "*"
+}
+```
+
+- An MCP-compatible agent framework. The agent must be able to make
+  SigV4-signed Streamable HTTP requests to the MCP endpoint. The
+  [Strands
+  Agents SDK](https://strandsagents.com/docs/user-guide/concepts/tools/mcp-tools/ "https://strandsagents.com/docs/user-guide/concepts/tools/mcp-tools/") provides native MCP client support, or you can use any
+  framework with the mcp-proxy-for-aws transport.
+- Python 3.10 or later. No specific operating system is required.
+
+## Step 1: Create a stack with agent access enabled
+
+Create a WorkSpaces Applications stack with agent access enabled to allow AI agents to interact
+with desktop applications.
+
+### Using the AWS Management Console
+
+###### To create a stack with agent access
+
+1. Open the [WorkSpaces Applications
+   console](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
+2. In the left navigation pane, choose **Stacks**, then
+   choose **Create Stack**.
+3. On the **Stack details** page (step 1 of 4), under
+   **AI agent access**, select **Enable AI agent
+   access**. Choose **Next**.
+4. On the **Enable storage** page (step 2 of 4), optionally
+   enable **Home folders** to allow your agent to save files to
+   an Amazon S3 bucket in your AWS account. The fleet associated with this stack must
+   allow access to Amazon S3 through the internet or a Amazon VPC endpoint for Amazon S3. Choose
+   **Next**.
+5. On the **Edit agent settings** page (step 3 of 4),
+   configure the following:
+   - **Enable computer input** — Allow agents to
+     choose buttons, enter text, and scroll on the desktop. If you enable
+     computer input, you must also enable computer vision.
+   - **Enable computer vision** — Allow agents to
+     see the desktop.
+   - **Screenshot storage** — Configure where agent
+     screenshots are stored during streaming sessions. If enabled, provide an
+     Amazon S3 bucket that you have permissions to write to.
+   - **Screen resolution** — Select the display
+     resolution for the agent streaming environment (1280x720).
+   - **Screen image type** — Select the image format
+     for agent screen captures (PNG or JPEG).
+   - **Application settings persistence** —
+     Optionally enable this to save your agent's application customizations
+     and Windows settings between sessions. Settings are saved to an Amazon S3
+     bucket in your AWS account.
+
+###### Note
+
+You must enable at least one of computer input or computer vision.
+
+Choose **Next**. 6. On the **Review and Create** page (step 4 of 4), review
+your settings and choose **Create Stack**.
+
+### Using the AWS CLI
+
+Run the following command to create a stack with agent access enabled:
+
+```
+aws appstream create-stack \
+    --name `your-stack-name` \
+    --agent-access-config '{
+        "Settings": [
+            {"AgentAction": "COMPUTER_VISION", "Permission": "ENABLED"},
+            {"AgentAction": "COMPUTER_INPUT", "Permission": "ENABLED"}
+        ],
+        "ScreenResolution": "W_1280xH_720",
+        "ScreenImageFormat": "PNG"
+    }'
+```
+
+To also enable screenshot storage, add the `S3BucketArn` and
+`ScreenshotsUploadEnabled` parameters:
+
+```
+aws appstream create-stack \
+    --name `your-stack-name` \
+    --agent-access-config '{
+        "Settings": [
+            {"AgentAction": "COMPUTER_VISION", "Permission": "ENABLED"},
+            {"AgentAction": "COMPUTER_INPUT", "Permission": "ENABLED"}
+        ],
+        "ScreenResolution": "W_1280xH_720",
+        "ScreenImageFormat": "PNG",
+        "S3BucketArn": "`arn:aws:s3:::your-bucket-name`",
+        "ScreenshotsUploadEnabled": true
+    }'
+```
+
+After you create the stack, associate it with a fleet. Agents cannot connect
+to a stack that does not have an associated fleet.
+
+```
+aws appstream associate-fleet \
+    --stack-name `your-stack-name` \
+    --fleet-name `your-fleet-name`
+```
+
+## Step 2: Generate a streaming URL
+
+Create a streaming URL using the standard WorkSpaces Applications `CreateStreamingURL`
+API. You don't need agent-specific parameters. The stack's agent access configuration
+determines the agent-specific behavior.
+
+### Using the AWS Management Console
+
+###### To generate a streaming URL using the console
+
+1. Open the [WorkSpaces Applications
+   console](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
+2. In the left navigation pane, choose **Stacks**, then
+   choose the stack you created with agent access enabled.
+3. Choose the **Actions** button, and in the dropdown,
+   select **Create Streaming URL**. Your stack must be
+   selected for this option to be available.
+4. In the **UserID** section, enter a user. You can enter
+   `TestUser` if you are testing.
+5. In the **URL expiration** section, select the time you
+   want the URL to be valid. A shorter time is recommended. 30 minutes is the
+   default and recommended for testing.
+6. Choose **GetURL** and copy the URL generated.
+
+### Using the AWS CLI
+
+Run the following command to generate a streaming URL:
+
+```
+aws appstream create-streaming-url \
+    --stack-name `your-stack-name` \
+    --fleet-name `your-fleet-name` \
+    --user-id `your-agent-id` \
+    --validity 3600
+```
+
+The response includes a `StreamingURL` that you pass to your agent
+in the next step. The URL is valid for the duration specified by the
+`--validity` parameter.
+
+## Step 3: Connect your agent to the MCP service
+
+Your agent connects to the managed MCP service at the following fixed
+endpoint:
+
+`https://agentaccess-mcp.`region`.api.aws/mcp`
+
+The connection uses SigV4 signing with the service name
+`agentaccess-mcp`. You pass the streaming URL from Step 2 as a header
+on every MCP request.
+
+The following example shows how to establish the connection using
+mcp-proxy-for-aws:
+
+```
+aws_iam_streamablehttp_client(
+    endpoint="https://agentaccess-mcp.`region`.api.aws/mcp",
+    aws_service="agentaccess-mcp",
+    aws_region="`region`",
+    headers={
+        "X-Amzn-AgentAccess-Streaming-Session-Url": streaming_url,
+    },
+)
+```
+
+After the agent connects, it can use the MCP tools to enter text, choose buttons,
+and take screenshots of the desktop.
+
+## Step 4: Verify agent activity
+
+You can verify agent activity using the following AWS services:
+
+- **AWS CloudTrail** — AWS CloudTrail logs agent
+  session events. Open the AWS CloudTrail console to view agent activity.
+- **CloudWatch** — CloudWatch provides operational
+  metrics for agent sessions. Open the CloudWatch console to view metrics.
+- **Amazon S3** — If you enabled screenshot
+  storage, Amazon S3 stores the screenshots in the bucket you specified during
+  stack configuration.
+
+## Step 5: Clean up resources
+
+To avoid ongoing charges, delete the stack you created in this tutorial. You must
+stop the fleet and disassociate it from the stack before you can delete the stack.
+Optionally, you can also delete the fleet.
+
+### Using the AWS Management Console
+
+###### To clean up resources
+
+1. Open the [WorkSpaces Applications
+   console](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
+2. In the left navigation pane, choose **Fleets**.
+3. Select the fleet associated with the stack. Choose **Actions**,
+   **Stop**. Wait for the fleet to stop.
+4. In the left navigation pane, choose **Stacks**.
+5. Select the stack you created, and choose **Actions**,
+   **Disassociate Fleet**.
+6. With the stack still selected, choose **Actions**,
+   **Delete**.
+7. (Optional) To delete the fleet, in the left navigation pane, choose
+   **Fleets**. Select the fleet and choose
+   **Actions**, **Delete**.
+
+### Using the AWS CLI
+
+Run the following commands to clean up resources:
+
+```
+aws appstream stop-fleet \
+    --name `your-fleet-name`
+
+aws appstream disassociate-fleet \
+    --stack-name `your-stack-name` \
+    --fleet-name `your-fleet-name`
+
+aws appstream delete-stack \
+    --name `your-stack-name`
+```
+
+(Optional) To also delete the fleet after it has stopped:
+
+```
+aws appstream delete-fleet \
+    --name `your-fleet-name`
+```

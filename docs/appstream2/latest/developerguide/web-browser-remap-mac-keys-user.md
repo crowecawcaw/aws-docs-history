@@ -7,10 +7,10 @@ A _modifier key_ modifies the action of another key when you use both keys toget
 with another key to perform a task such as printing. A _Meta key_ is a special type of modifier key. You can use a Meta key to temporarily change the function of
 another key when you use both keys together.
 
-| You can remap this Mac key                                                                  | To this key during a streaming session    |
-| ------------------------------------------------------------------------------------------- | ----------------------------------------- |
-| Option key<br>Keyboard key labeled "option" representing a modifier key on Apple keyboards. | • Remote Alt key<br>• Local modifier key  |
-| Command key<br>Key labeled "command" on a keyboard, typically found on Apple devices.       | • Remote Control key<br>• Remote Meta key |
+| You can remap this Mac key                            | To this key during a streaming session    |
+| ----------------------------------------------------- | ----------------------------------------- |
+| Option key<br>Option key icon.                        | • Remote Alt key<br>• Local modifier key  |
+| Command key<br>Command key icon with keyboard symbol. | • Remote Control key<br>• Remote Meta key |
 
 Follow these steps to remap the Mac Option and Command keys during an WorkSpaces Applications streaming session.
 
@@ -20,7 +20,7 @@ Follow these steps to remap the Mac Option and Command keys during an WorkSpaces
 2. In the top left of the WorkSpaces Applications toolbar, choose the **Settings** icon, and choose **Keyboard Settings**.
 3. Choose the options that correspond to the keys that you want to remap.
 
-![Preferences window showing display, resolution, and keyboard settings options.](images/Preferences-new.png)
+![Preferences dialog showing keyboard settings with Option and Command key remapping options.](images/Preferences-new.png)
 Follow these steps to remap the Mac Option and Command keys on WorkSpaces Applications web
 browser access v2.
 
