@@ -15,7 +15,7 @@ To configure your catalog in account A:
 3. After the registration is initiated, you will see an invite from Amazon Redshift on the Lake Formation console.
 4. Select the pending catalog invitation and choose **Approve and create catalog**.
 
-![](images/lakehouse/sm-sharing-pending-invite.png) 5. On the **Set catalog details** page, configure your
+![Pending catalog invitations section with Approve and create catalog button highlighted.](images/lakehouse/sm-sharing-pending-invite.png) 5. On the **Set catalog details** page, configure your
 catalog:
 
     1. For **Name**, enter a name.
@@ -63,7 +63,7 @@ To grant permissions:
 6. For **Databases**, choose the database you want to share
    (for example, `customerdb`).
 
-![](images/lakehouse/sm-sharing-grant-permission.png) 7. Under **Database permissions**, select **Describe** under both **Database permissions** and **Grantable permissions**. 8. Choose **Grant**. 9. Repeat these steps to grant table-level **Select** and
+![Databases dropdown with customerdb selected in the Named Data Catalog resources section.](images/lakehouse/sm-sharing-grant-permission.png) 7. Under **Database permissions**, select **Describe** under both **Database permissions** and **Grantable permissions**. 8. Choose **Grant**. 9. Repeat these steps to grant table-level **Select** and
 **Describe** permissions on the tables you want to share. 10. Repeat these steps again to grant database and table level permissions for the
 federated catalog database. 11. Choose **Data permissions** in the navigation pane and verify
 that account B has been granted database and table level permissions for both tables
