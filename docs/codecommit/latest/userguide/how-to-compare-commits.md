@@ -35,7 +35,7 @@ browser cookies whenever you change them. For more information, see [Working wit
 
 ![Changes shown in Unified view, with white space changes hidden](images/codecommit-commit-changes2c.png)
 
-![Changes shown in Split view, with a comment on a line](/images/codecommit/latest/userguide/images/codecommit-commenting-commenttab.png)
+![Changes shown in Split view, with a comment on a line](images/codecommit-commenting-commenttab.png)
 
 ###### Note
 
