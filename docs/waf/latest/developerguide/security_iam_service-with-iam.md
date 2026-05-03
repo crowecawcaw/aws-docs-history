@@ -7,6 +7,11 @@ For more details, see [Working with the console](working-with-console.md "workin
 
 This section explains how to use the features of IAM with AWS WAF.
 
+###### Note
+
+Introducing new actions in IAM policies that give you more granular control when invoking web ACL Association related operations for Application Load Balancer and AWS AppSync.
+See [Actions that require additional permissions settings](#security_iam_action-additions "#security_iam_action-additions").
+
 Before you use IAM to manage access to AWS WAF, learn what IAM features are
 available to use with AWS WAF.
 
@@ -163,37 +168,72 @@ resource type and to call AWS WAF `AssociateWebACL` on a protection pack (web AC
 
 ###### Application Load Balancer
 
+**Old Permission Setting**
+
 Requires permission to call `elasticloadbalancing:SetWebACL` action
 on the Application Load Balancer resource type and to call AWS WAF
 `AssociateWebACL` on a protection pack (web ACL).
 
 ```
 {
-    "Sid": "AssociateWebACL1",
-    "Effect": "Allow",
-    "Action": [
-        "wafv2:AssociateWebACL"
-    ],
-    "Resource": [
-        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
-    ]
+                  "Sid": "AssociateWebACL1",
+                  "Effect": "Allow",
+                  "Action": [
+                     "wafv2:AssociateWebACL"
+                  ],
+                  "Resource": [
+                     "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+                  ]
+               },
+               {
+                  "Sid": "AssociateWebACL2",
+                  "Effect": "Allow",
+                  "Action": [
+                     "elasticloadbalancing:SetWebACL"
+                  ],
+                  "Resource": [
+                     "arn:aws:elasticloadbalancing:*:`account-id`:loadbalancer/app/*/*"
+                  ]
+               }
+```
+
+[Show moreShow less](# "#")
+**New Permission Setting**
+
+Requires permission to call `elasticloadbalancing:CreateWebACLAssociation` action
+on the Application Load Balancer resource type and to call AWS WAF
+`AssociateWebACL` on a protection pack (web ACL).
+
+```
+{
+   "Sid": "AssociateWebACL1",
+   "Effect": "Allow",
+   "Action": [
+      "wafv2:AssociateWebACL"
+   ],
+   "Resource": [
+      "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+   ]
 },
 {
-    "Sid": "AssociateWebACL2",
-    "Effect": "Allow",
-    "Action": [
-        "elasticloadbalancing:SetWebACL"
-    ],
-    "Resource": [
-        "arn:aws:elasticloadbalancing:*:`account-id`:loadbalancer/app/*/*"
-    ]
+   "Sid": "AssociateWebACL2",
+   "Effect": "Allow",
+   "Action": [
+      "elasticloadbalancing:CreateWebACLAssociation"
+   ],
+   "Resource": [
+         "arn:aws:elasticloadbalancing:*:`account-id`:loadbalancer/app/*/*"
+   ]
 }
 ```
 
 ###### AWS AppSync GraphQL API
 
-Requires permission to call AWS AppSync `SetWebACL` on the GraphQL API
-resource type and to call AWS WAF `AssociateWebACL` on a protection pack (web ACL).
+**Old Permission Setting**
+
+Requires permission to call AWS AppSync `SetWebACL` on the
+GraphQL API resource type and to call AWS WAF `AssociateWebACL`
+on a protection pack (web ACL).
 
 ```
 {
@@ -214,6 +254,37 @@ resource type and to call AWS WAF `AssociateWebACL` on a protection pack (web AC
     ],
     "Resource": [
         "arn:aws:appsync:*:`account-id`:apis/*"
+    ]
+}
+```
+
+[Show moreShow less](# "#")
+
+**New Permission Setting**
+
+Requires permission to call `appsync:AssociateWebACL`
+action on the GraphQL API resource type and to call AWS WAF `AssociateWebACL` on a
+protection pack (web ACL).
+
+```
+{
+    "Sid": "AssociateWebACL1",
+    "Effect": "Allow",
+    "Action": [
+        "wafv2:AssociateWebACL"
+    ],
+    "Resource": [
+        "arn:aws:wafv2:region:account-id:regional/webacl/*/*"
+    ]
+},
+{
+    "Sid": "AssociateWebACL2",
+    "Effect": "Allow",
+    "Action": [
+        "appsync:AssociateWebACL"
+    ],
+    "Resource": [
+        "arn:aws:appsync:*:account-id:apis/*"
     ]
 }
 ```
@@ -334,6 +405,8 @@ resource type. Does not require permission to call AWS WAF `DisassociateWebACL`.
 
 ###### Application Load Balancer
 
+**Old Permission Setting**
+
 Requires permission to call the `elasticloadbalancing:SetWebACL`
 action on the Application Load Balancer resource type. Does not require permission to call AWS WAF `DisassociateWebACL`.
 
@@ -350,10 +423,39 @@ action on the Application Load Balancer resource type. Does not require permissi
 }
 ```
 
+[Show moreShow less](# "#")
+**New Permission Setting**
+
+Requires permission to call the `elasticloadbalancing:DeleteWebACLAssociation`
+action on the Application Load Balancer resource type. Also requires permission to call AWS WAF `DisassociateWebACL`.
+
+```
+{
+      "Sid": "DisassociateWebACL",
+      "Effect": "Allow",
+      "Action": "wafv2:DisassociateWebACL",
+      "Resource": "*"
+    },
+    {
+      "Sid": "DisassociateWebACL2",
+      "Effect": "Allow",
+      "Action": [
+         "elasticloadbalancing:DeleteWebACLAssociation"
+      ],
+      "Resource": [
+        "arn:aws:elasticloadbalancing:*:`account-id`:loadbalancer/app/*/*"
+      ]
+   }
+}
+```
+
 ###### AWS AppSync GraphQL API
 
-Requires permission to call AWS AppSync `SetWebACL` on the GraphQL API
-resource type. Does not require permission to call AWS WAF `DisassociateWebACL`.
+**Old Permission Setting**
+
+Requires permission to call AWS AppSync `SetWebACL` on the
+GraphQL API resource type. Does not require permission to call AWS WAF
+`DisassociateWebACL`.
 
 ```
 {
@@ -364,6 +466,33 @@ resource type. Does not require permission to call AWS WAF `DisassociateWebACL`.
     ],
     "Resource": [
         "arn:aws:appsync:*:`account-id`:apis/*"
+    ]
+}
+```
+
+[Show moreShow less](# "#")
+
+**New Permission Setting**
+
+Requires permission to call the `appsync:DisassociateWebACL`
+action on the GraphQL API resource type. Also requires permission to call
+AWS WAF `DisassociateWebACL`.
+
+```
+{
+    "Sid": "DisassociateWebACL1",
+    "Effect": "Allow",
+    "Action": "wafv2:DisassociateWebACL",
+    "Resource": "*"
+},
+{
+    "Sid": "DisassociateWebACL2",
+    "Effect": "Allow",
+    "Action": [
+        "appsync:DisassociateWebACL"
+    ],
+    "Resource": [
+        "arn:aws:appsync:*:account-id:apis/*"
     ]
 }
 ```
@@ -461,7 +590,7 @@ indicating that your account is not authorized to perform
 `wafv2:GetWebACL` on the resource. AWS WAF doesn't add this
 type of error to the AWS CloudTrail event history.
 
-###### Amazon API Gateway REST API, Application Load Balancer, and AWS AppSync GraphQL API
+###### Amazon API Gateway REST API
 
 Require permission to call AWS WAF `GetWebACLForResource` and
 `GetWebACL` for a protection pack (web ACL).
@@ -476,6 +605,111 @@ Require permission to call AWS WAF `GetWebACLForResource` and
     ],
     "Resource": [
         "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+    ]
+}
+```
+
+###### Application Load Balancer
+
+**Old Permission Setting**
+
+Require permission to call AWS WAF `GetWebACLForResource` and
+`GetWebACL` for a protection pack (web ACL).
+
+```
+{
+    "Sid": "GetWebACLForResource",
+    "Effect": "Allow",
+    "Action": [
+        "wafv2:GetWebACLForResource",
+        "wafv2:GetWebACL"
+    ],
+    "Resource": [
+        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+    ]
+}
+```
+
+[Show moreShow less](# "#")
+**New Permission Setting**
+
+Require permission to call AWS WAF `GetWebACLForResource` and
+`GetWebACL` for a protection pack (web ACL). Also require permission to call
+`elasticloadbalancing:GetLoadBalancerWebACL`.
+
+```
+{
+    "Sid": "GetWebACLForResource1",
+    "Effect": "Allow",
+    "Action": [
+        "wafv2:GetWebACLForResource",
+        "wafv2:GetWebACL"
+    ],
+    "Resource": [
+        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+    ]
+},
+{
+   "Sid": "GetWebACLForResource2",
+    "Effect": "Allow",
+    "Action": [
+        "elasticloadbalancing:GetLoadBalancerWebACL"
+    ],
+    "Resource": [
+        "arn:aws:elasticloadbalancing:*:`account-id`:loadbalancer/app/*/*"
+    ]
+}
+```
+
+###### AWS AppSync GraphQL API
+
+**Old Permission Setting**
+
+Require permission to call AWS WAF `GetWebACLForResource` and
+`GetWebACL` for a protection pack (web ACL).
+
+```
+{
+    "Sid": "GetWebACLForResource",
+    "Effect": "Allow",
+    "Action": [
+        "wafv2:GetWebACLForResource",
+        "wafv2:GetWebACL"
+    ],
+    "Resource": [
+        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+    ]
+}
+```
+
+[Show moreShow less](# "#")
+
+**New Permission Setting**
+
+Require permission to call AWS WAF `GetWebACLForResource` and
+`GetWebACL` for a protection pack (web ACL). Also require permission
+to call `appsync:GetWebACLForResource`.
+
+```
+{
+    "Sid": "GetWebACLForResource1",
+    "Effect": "Allow",
+    "Action": [
+        "wafv2:GetWebACLForResource",
+        "wafv2:GetWebACL"
+    ],
+    "Resource": [
+        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+    ]
+},
+{
+   "Sid": "GetWebACLForResource2",
+    "Effect": "Allow",
+    "Action": [
+        "appsync:GetWebACLForResource"
+    ],
+    "Resource": [
+        "arn:aws:appsync:*:`account-id`:apis/*"
     ]
 }
 ```
@@ -581,7 +815,7 @@ CloudFront action `ListDistributionsByWebACLId`. For
 information, see [ListDistributionsByWebACLId](../../../cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.md "../../../cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.md") in the _Amazon CloudFront API
 Reference_.
 
-###### Amazon API Gateway REST API, Application Load Balancer, and AWS AppSync GraphQL API
+###### Amazon API Gateway REST API
 
 Require permission to call AWS WAF `ListResourcesForWebACL` for a web
 ACL.
@@ -596,6 +830,104 @@ ACL.
     "Resource": [
         "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
     ]
+}
+```
+
+###### Application Load Balancer
+
+**Old Permission Setting**
+
+Require permission to call AWS WAF `ListResourcesForWebACL`
+for a protection pack (web ACL).
+
+```
+{
+    "Sid": "ListWebACLForResource",
+    "Effect": "Allow",
+    "Action": [
+        "wafv2:GetWebACLForResource"
+    ],
+    "Resource": [
+        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+    ]
+}
+```
+
+[Show moreShow less](# "#")
+
+**New Permission Setting**
+
+Require permission to call AWS WAF `ListResourcesForWebACL` for
+a protection pack (web ACL). Also require permission to call
+`elasticloadbalancing:DescribeWebACLAssociation`.
+
+```
+{
+    "Sid": "ListResourcesForWebACL",
+    "Effect": "Allow",
+    "Action": [
+        "wafv2:ListResourcesForWebACL",
+    ],
+    "Resource": [
+        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+    ]
+},
+{
+   "Sid": "ListResourcesForWebACL2",
+    "Effect": "Allow",
+    "Action": [
+        "elasticloadbalancing:DescribeWebACLAssociation"
+    ],
+    "Resource": "*"
+}
+```
+
+###### AWS AppSync GraphQL API
+
+**Old Permission Setting**
+
+Require permission to call AWS WAF `ListResourcesForWebACL`
+for a protection pack (web ACL).
+
+```
+{
+    "Sid": "ListResourcesForWebACL",
+    "Effect": "Allow",
+    "Action": [
+        "wafv2:ListResourcesForWebACL",
+    ],
+    "Resource": [
+        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+    ]
+}
+```
+
+[Show moreShow less](# "#")
+
+**New Permission Setting**
+
+Require permission to call AWS WAF `ListResourcesForWebACL` for
+a protection pack (web ACL). Also require permission to call
+`appsync:ListResourcesForWebACL`.
+
+```
+{
+    "Sid": "ListResourcesForWebACL",
+    "Effect": "Allow",
+    "Action": [
+        "wafv2:ListResourcesForWebACL"
+    ],
+    "Resource": [
+        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+    ]
+},
+{
+    "Sid": "ListResourcesForWebACL2",
+    "Effect": "Allow",
+    "Action": [
+        "appsync:ListResourcesForWebACL"
+    ],
+    "Resource": "*"
 }
 ```
 
