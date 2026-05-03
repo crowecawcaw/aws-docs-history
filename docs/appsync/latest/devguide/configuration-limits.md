@@ -39,11 +39,11 @@ the following:
 When introspection is enabled (the default behavior), using the introspection system will work normally. For
 example, the image below shows a `__schema` field processing all available types in the schema:
 
-![GraphQL schema explorer showing query structure with types and name fields.](images/introspection-enabled.png)
+![GraphQL query editor showing MyQuery with schema introspection returning Query, String, Int, Schema, Type, and TypeKind types.](images/introspection-enabled.png)
 
 When disabling this feature, a validation error will appear in the response instead:
 
-![GraphQL query editor showing a validation error for undefined 'types' field in '_Schema'.](images/introspection-disabled.png)
+![GraphQL query editor showing validation error for undefined types field in schema.](images/introspection-disabled.png)
 
 ## Configuring query depth limits
 
@@ -88,7 +88,7 @@ When a limit is set, going past its upper bound will result in a `QueryDepthLimi
 For example, the image below shows a query with a depth limit of `2` going past the limit to the third
 (`L3`) and fourth (`L4`) levels:
 
-![Query structure with nested layers L1, L2, L3, and L4, showing depth limit exceeded.](images/query-depth-limit.jpg)
+![Query depth limit error showing nested query structure exceeding the configured limit of 2.](images/query-depth-limit.jpg)
 
 Note that fields can still be marked as nullable or non-nullable in the schema. If a non-nullable field
 receives a `QueryDepthLimitReached` error, that error will be thrown to the first nullable parent
@@ -133,4 +133,4 @@ Like the query depth limit, exceeding the configured resolver limit causes the q
 resolver count limit of _2_ tries to process three resolvers. Because of the
 limit, the third resolver throws an error and doesn't run.
 
-![Query with three resolvers, showing error on third resolver due to execution limit reached.](images/resolver-count-limit.jpg)
+![GraphQL query with three resolvers showing error when resolver count limit of two is exceeded.](images/resolver-count-limit.jpg)

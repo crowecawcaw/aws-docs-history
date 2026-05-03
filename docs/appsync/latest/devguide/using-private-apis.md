@@ -18,7 +18,7 @@ AWS AppSync supports AWS PrivateLink for both data plane and control plane opera
   Provides private access to AWS AppSync management operations such as creating APIs, updating schemas,
   and configuring data sources.
 
-![AWS Cloud architecture showing VPC with public and private subnets connecting to AWS AppSync via PrivateLink.](images/private-api-architecture.png)
+![Architecture diagram showing EC2 instances connecting to AppSync via PrivateLink through VPC endpoints.](images/private-api-architecture.png)
 There are some additional factors to consider before enabling Private API features:
 
 - Setting up VPC interface endpoints for AWS AppSync with Private DNS features enabled will prevent resources in

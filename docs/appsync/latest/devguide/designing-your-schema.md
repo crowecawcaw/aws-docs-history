@@ -69,7 +69,7 @@ written. Each author has a name and an array of books they've authored. Each boo
 associated authors. We also want the ability to add or retrieve books and authors. A simple UML
 representation of this relationship may look like this:
 
-![UML diagram showing Author and Book classes with attributes and methods, linked by association.](images/GraphQL-UML-1.png)
+![UML diagram showing Author and Book classes with bidirectional many-to-many relationship.](images/GraphQL-UML-1.png)
 
 In GraphQL, the entities `Author` and `Book` represent two different object types in
 your schema:

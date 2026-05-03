@@ -185,7 +185,7 @@ developers handle some common edge cases:
 
 The flowchart for this process is:
 
-![Flowchart showing process for transforming requests with mutation attempts and value checks.](images/DynamoDB-condition-check-failure-handling.png)
+![Flowchart showing mutation attempt process with decision points for success, strategy, and action.](images/DynamoDB-condition-check-failure-handling.png)
 
 ### Checking for the desired result
 

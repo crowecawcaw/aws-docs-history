@@ -6,7 +6,7 @@ between the two sits one or more resolvers that handle the business logic for yo
 plays an important role in your GraphQL implementation. The following sections will introduce these three
 components and the role they play in the GraphQL service.
 
-![GraphQL API components: schema, resolvers, and data sources interconnected with AppSync.](images/appsync-architecture-graphql-api.png)
+![GraphQL API architecture showing schema, resolvers, and data sources connected by arrows.](images/appsync-architecture-graphql-api.png)
 
 ###### Topics
 

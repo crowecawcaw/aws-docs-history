@@ -96,7 +96,7 @@ template as `$ctx.prev.result` or `$ctx.result`.
 Given a pipeline resolver comprised of two functions, the list below represents
 the execution flow when the resolver is invoked:
 
-![GraphQL request flow diagram showing template processing and data source interactions.](images/PipelineResolver.jpg)
+![GraphQL request flow through BEFORE template, two functions with request and response templates accessing data sources, AFTER template, then GraphQL response.](images/PipelineResolver.jpg)
 
 1. Pipeline resolver **Before** mapping
    template

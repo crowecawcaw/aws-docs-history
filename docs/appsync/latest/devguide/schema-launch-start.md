@@ -72,7 +72,7 @@ There are also other options present here, but we won't be using them for this e
 
 
 
-    	![Model information form showing fields for a Todo model with ID, name, when, where, and description.](images/model-information-tutorial.png)
+    	![Model information form showing five fields: id, name, when, where, and description with their types.](images/model-information-tutorial.png)
 
     	###### Note
 

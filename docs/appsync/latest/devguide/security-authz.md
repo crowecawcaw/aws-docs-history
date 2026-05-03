@@ -770,7 +770,7 @@ Pools for example, and then pass these credentials as part of a GraphQL operatio
 mapping template will then substitute a value from the credentials (like the username)in a
 conditional statement which will then be compared to a value in your database.
 
-![Diagram showing authentication flow from user login to database operation using AWS services.](images/FGAC.png)
+![Four-step workflow showing token retrieval, request sending, conditional check, and operation execution.](images/FGAC.png)
 
 To add this functionality, add a GraphQL field of `editPost` as
 follows:

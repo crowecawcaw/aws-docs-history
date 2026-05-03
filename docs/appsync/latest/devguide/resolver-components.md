@@ -31,7 +31,7 @@ the request payload used to call your data source. The response handler receives
 the data source with the result of the executed request. The response handler transforms the payload
 into a GraphQL response to resolve the GraphQL field.
 
-![GraphQL request flow showing request and response handlers interacting with a data source.](images/unit-resolver-js.png)
+![GraphQL request flows through request and response handlers that interact with data source.](images/unit-resolver-js.png)
 
 ### Pipeline resolvers
 
@@ -55,7 +55,7 @@ When implementing pipeline resolvers, there is a general structure they follow:
   you to perform some final operations on the final function's response before passing it to the
   GraphQL response.
 
-![GraphQL request flow diagram showing interactions between request, data sources, and response components.](images/appsync-js-resolver-logic.png)
+![GraphQL request flow showing sequential processing through request and response functions with data source interactions.](images/appsync-js-resolver-logic.png)
 
 ## Resolver handler structure
 
@@ -236,7 +236,7 @@ query {
 We're returning `Person` with a `name` and `age` fields. When running
 this query, the tree will look something like this:
 
-![Hierarchical diagram showing query, Person, name, and age nodes connected by arrows.](images/ast-1.png)
+![Query tree diagram showing Person object with name and age fields as child nodes.](images/ast-1.png)
 
 From the tree, it appears that this request will search the root for the `Query` in the
 schema. Inside of the query, the `Person` field will be resolved. From previous examples, we

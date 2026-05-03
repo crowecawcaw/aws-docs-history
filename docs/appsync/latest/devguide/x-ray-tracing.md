@@ -76,7 +76,7 @@ The resolver for the `getPost` query uses the underlying DynamoDB data
 source. The following trace view shows the call to DynamoDB, as well as the latencies of
 various parts of the query’s execution:
 
-![Trace view showing client request, postAPI, and DynamoDB with durations and request details.](images/xray-getpost-trace-view.png)
+![Trace map showing postAPI request flow from client through DynamoDB with timing details.](images/xray-getpost-trace-view.png)
 
 - In the preceding image, `/getPost` represents the complete path to
   the element that is being resolved. In this case, because `getPost` is
