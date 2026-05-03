@@ -34,7 +34,7 @@ Follow these steps to find them in the AWS Management Console.
 
    The following image shows these fields in the console:
 
-   ![Connectivity & security panel showing endpoint, port, networking, and security details.](images/endpoint-port.png)
+   ![Endpoint and port section showing database endpoint URL and port 3306.](images/endpoint-port.png)
 
 These are the primary details that you need to initiate a connection to your DB
 instance.

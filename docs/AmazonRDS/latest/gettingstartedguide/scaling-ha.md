@@ -25,7 +25,7 @@ page in the AWS Management Console and choose **Modify**. For the **Instance
 configuration**, choose a new instance class that aligns with your requirements,
 such as compute optimized or memory optimized.
 
-![Instance configuration options showing burstable classes selected with db.t4g.micro specs.](images/size-change.png)
+![Instance configuration section showing DB instance class filters and db.t4g.micro selection.](images/size-change.png)
 
 Apply changes during a maintenance window or immediately, depending on your
 application’s tolerance for downtime.
@@ -72,7 +72,7 @@ To create a Multi-AZ DB instance, select **Multi-AZ DB instance** under
 **Availability and durability** when you create the DB instance. Amazon RDS
 handles data replication and failover management transparently.
 
-![Comparison of three AWS RDS deployment options showing instances, availability zones, and uptime percentages.](images/multi-az.png)
+![Three deployment options showing Multi-AZ cluster, Multi-AZ instance, and Single-AZ configurations.](images/multi-az.png)
 
 **Key considerations**:
 

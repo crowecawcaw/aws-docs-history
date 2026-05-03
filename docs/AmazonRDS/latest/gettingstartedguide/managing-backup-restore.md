@@ -31,7 +31,7 @@ operational requirements, with options ranging from 1 to 35 days.
 To configure how long Amazon RDS retains automated backups, set the **Backup
 retention period** setting for the DB instance:
 
-![Backup settings interface with options for automated backups, retention period, and backup window.](images/automated-backups.png)
+![Backup retention period field set to 7 days, highlighted with a red border.](images/automated-backups.png)
 
 Consider the following when you configure a retention period:
 
@@ -54,7 +54,7 @@ within the Amazon RDS console and select the DB instance that you want to restor
 exact time to which you want to restore your database. Amazon RDS creates a new instance from
 the backups and leaves the original instance intact.
 
-![Restore time options for creating a new DB instance from a source DB at a specified time.](images/point-in-time.png)
+![Restore time section with Latest restorable time selected and Custom date and time option.](images/point-in-time.png)
 
 For more information, see [Restoring a DB instance to a specified time for Amazon RDS](../UserGuide/USER_PIT.md "../UserGuide/USER_PIT.md") in the _Amazon RDS User Guide_.
 
@@ -77,7 +77,7 @@ To take a manual snapshot, select the DB instance that you want to back up and c
 snapshots in Amazon S3. You can share them across AWS accounts or copy them to different
 AWS Regions for disaster recovery purposes.
 
-![Form for taking a DB Snapshot, showing options for snapshot type and naming conventions.](images/take-snapshot.png)
+![Take DB Snapshot dialog with snapshot type, DB instance, and snapshot name fields.](images/take-snapshot.png)
 
 Restoring from a manual snapshot involves creating a new DB instance from the stored
 backup. Choose **Snapshots** within the Amazon RDS console and select the

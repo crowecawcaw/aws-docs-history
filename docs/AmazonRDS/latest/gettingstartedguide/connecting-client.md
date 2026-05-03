@@ -34,7 +34,7 @@ Follow these steps to set up a connection and start working with your MySQL data
    - **Username**: Enter the master username you set
      when you created the DB instance.
 
-   ![Database connection settings interface with hostname, port, username, and password fields.](images/connect-mysql.png)
+   ![Connection dialog with hostname, port, username fields, and password storage options.](images/connect-mysql.png)
 
 4. Choose **Test Connection** to verify the connection
    settings.
@@ -68,7 +68,7 @@ connection and interact with your database.
    - **Password**: Provide the password you set during
      instance creation.
 
-   ![Database connection settings form with host, port, database name, and authentication fields.](images/connect-postgres.png)
+   ![Connection tab showing host address, port 5432, maintenance database, username, and password fields.](images/connect-postgres.png)
 
 5. Save the configuration and connect in order to view and manage your database.
 

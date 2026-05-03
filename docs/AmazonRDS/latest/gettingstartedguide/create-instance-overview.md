@@ -27,11 +27,11 @@ instance](../UserGuide/USER_CreateDBInstance.md "../UserGuide/USER_CreateDBInsta
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. Choose **Create database**.
 
-![Orange button labeled "Create database" for setting up an Amazon RDS instance.](images/create-database.png) 3. For the creation method, choose **Easy create**. This method
+![Create database button highlighted on the RDS database creation page.](images/create-database.png) 3. For the creation method, choose **Easy create**. This method
 simplifies database provisioning by automatically configuring settings such as instance
 class, storage type, and networking settings.
 
-![Database creation method options: Standard create with full configuration or Easy create with recommended settings.](images/creation-method.png) 4. In this tutorial, we create a MySQL DB instance. For **Engine
+![Easy create option selected with Standard create option available as alternative.](images/creation-method.png) 4. In this tutorial, we create a MySQL DB instance. For **Engine
 type**, choose **MySQL**.
 
 MySQL is a good starting point because it's open-source, cost-effective, and widely
@@ -53,7 +53,7 @@ DB instance. Alternately, keep the name that Amazon RDS generates for you. 7. Fo
 **Self-managed**. This option lets you manage your own master user
 credentials.
 
-![Credentials management options: AWS Secrets Manager or self-managed master user credentials.](images/cred-management.png) 8. For **Master password**, enter a password for the master user and
+![Credentials management options with Self managed selected.](images/cred-management.png) 8. For **Master password**, enter a password for the master user and
 confirm the password. 9. Expand **View default settings for Easy create** and review the
 settings that Amazon RDS automatically configures for you. You can modify some settings, such
 as public access and the engine version, after you create the DB instance. 10. Choose **Create database**.
@@ -115,7 +115,7 @@ and the allocated size directly affect your database performance and cost.
 - High-performance transactional applications benefit from Provisioned IOPS
   SSD.
 
-![Storage options including Provisioned IOPS SSD (io2) and General Purpose SSD (gp3) with descriptions.](images/storage.png)
+![Storage type dropdown showing Provisioned IOPS SSD (io2) selected with 3000 IOPS specified.](images/storage.png)
 
 For more information, see [Amazon RDS DB instance
 storage](../UserGuide/CHAP_Storage.md "../UserGuide/CHAP_Storage.md") in the _Amazon RDS User Guide_.
@@ -133,7 +133,7 @@ query volume, and application requirements.
 - **Burstable classes** work well for applications with
   intermittent workloads.
 
-![Instance configuration options for DB class selection, including standard and optimized classes.](images/instance-class.png)
+![DB instance class selection showing Standard classes option selected with db.m5d.large details.](images/instance-class.png)
 
 For detailed guidance, see [DB instance
 classes](../UserGuide/Concepts.DBInstanceClass.md "../UserGuide/Concepts.DBInstanceClass.md") in the _Amazon RDS User Guide_.
@@ -149,7 +149,7 @@ outside the VPC. This setting is critical for managing connectivity and security
 - **Disable public access** for internal applications
   or enhanced security, limiting connectivity to instances within your VPC.
 
-![Public access options for RDS cluster with Yes and No choices and their implications.](images/public-access.png)
+![Public access options with Yes and No radio buttons, where No is selected.](images/public-access.png)
 
 For more information about configuring public or private access and related network
 settings, see [Working with

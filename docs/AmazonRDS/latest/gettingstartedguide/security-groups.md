@@ -42,7 +42,7 @@ group.
    EC2 instance within the same VPC by specifying the EC2 instance security group as
    the source.
 
-   ![Inbound rules configuration with Custom TCP type, port 3306, and source IP address.](images/security-group.png)
+   ![Inbound rule configuration with Custom TCP type, TCP protocol, port 3306, and My IP source.](images/security-group.png)
 
 4. (Optional) Adjust outbound rules. Typically, you don't need to make any changes
    because the DB instance allows all outbound traffic by default.
