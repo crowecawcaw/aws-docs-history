@@ -64,7 +64,7 @@ _Amazon Machine Learning API Reference_.
    **Summary**, and then choose **Try real-time
    predictions**.
 
-![Tools section with option to try real-time predictions.](images/try-real-time.png)
+![Tools section with Try real-time predictions link.](images/try-real-time.png)
 
 Amazon ML shows a list of the variables that made up the data records that Amazon ML used to train your model. 5. You can proceed by entering data in each of the fields in the form or by pasting a single data
 record, in CSV format, into the text box.
@@ -90,7 +90,7 @@ that the `Predict` API call returns, along with the ML model type, the
 name of the target variable, and the predicted class or value. For information about
 interpreting the results, see [Interpreting the Contents of Batch Prediction Files for a Binary Classification ML model](reading-the-batchprediction-output-files.md#interpreting-the-contents-of-batch-prediction-files-for-a-binary-classification-ml-model "reading-the-batchprediction-output-files.md#interpreting-the-contents-of-batch-prediction-files-for-a-binary-classification-ml-model").
 
-![Prediction results showing binary ML model type with predicted label 0 and score details.](images/real-time-result.png)
+![Prediction results pane showing binary classification with predicted label 0 and score 0.03348433.](images/real-time-result.png)
 
 ## Creating a Real-Time Endpoint
 
@@ -115,13 +115,13 @@ information on using the `CreateRealtimeEndpoint` API, see
 A dialog box that explains how real-time predictions are priced appears. 5. Choose **Create**. The real-time endpoint request is sent to Amazon ML and
 entered into a queue. The status of the real-time endpoint is **Updating**.
 
-![Real-time endpoint status shown as "Updating" in a user interface element.](images/endpoint-updating.png) 6. When the real-time endpoint is ready, the status changes to
+![Enable real-time predictions section showing Real-time endpoint status as Updating.](images/endpoint-updating.png) 6. When the real-time endpoint is ready, the status changes to
 **Ready**, and Amazon ML displays the endpoint URL. Use the endpoint URL to
 create real-time prediction requests with the `Predict` API. For more
 information about using the `Predict` API, see
 [https://docs.aws.amazon.com/machine-learning/latest/APIReference/API_Predict.html](../APIReference/API_Predict.md "../APIReference/API_Predict.md") in the Amazon Machine Learning API Reference.
 
-![Real-time endpoint status showing Ready with an endpoint URL and Peak Requests Per Second value.](images/endpoint-ready.png)
+![Real-time endpoint status showing Ready with endpoint URL and 200 requests per second.](images/endpoint-ready.png)
 
 ## Locating the Real-time Prediction Endpoint (Console)
 

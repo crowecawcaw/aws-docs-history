@@ -28,7 +28,7 @@ For Amazon ML formatting requirements, see [Understanding the Data Format for Am
    employment status. Each row represents the collection of observations about a single
    customer.
 
-![Spreadsheet preview showing header row with columns for euribor3m, nr_employed, and y.](images/image1.png)
+![CSV file showing header row with column names euribor3m, nr_employed, and y above data rows.](images/image1.png)
 
 You want your ML model to answer the question "Will this customer subscribe to my new
 product?". In the `banking.csv` dataset, the answer to this question is attribute
@@ -48,9 +48,9 @@ attribute. For more information about valid values, see [Using the AttributeType
 The following examples show the data before and after we changed the values in attribute **y**
 to the binary attributes 0 and 1.
 
-![Data table showing 'banking.csv' with columns for 'euribor3m', 'nr_employed', and binary 'y' values.](images/image2.png)
+![CSV file showing euribor3m and nr_employed columns with y values transformed from yes/no to 1/0.](images/image2.png)
 
-![Partial view of a CSV file showing banking data with columns for euribor3m, nr_employed, and y.](images/image3.png)
+![Data transformation showing banking.csv file with columns euribor3m, nr_employed, and y displayed.](images/image3.png)
 The `banking-batch.csv` file doesn’t contain the **y** attribute. After you have
 created an ML model, you will use the model to predict **y** for each record in
 that file.

@@ -88,7 +88,7 @@ a different AWS Identity and Access Management (IAM) user to access the Amazon R
    data?**, choose **Amazon Redshift**. If you already have a datasource
    created from Amazon Redshift data, you have the option of copying settings from another datasource.
 
-![Amazon S3 and Amazon Redshift icons with option to copy settings from existing datasource.](images/infobar.png)
+![Amazon Redshift selected as data source with option to copy settings from existing datasource.](images/infobar.png)
 
 If you don't already have a datasource created from Amazon Redshift data, this option doesn't
 appear. 4. Choose **Find a datasource**. 5. Select the datasource that you want to copy, and choose **Copy

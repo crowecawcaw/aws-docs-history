@@ -9,7 +9,7 @@ percentage error (MAPE). These metrics measure the distance between the predicte
 the actual numeric answer (ground truth). In Amazon ML, the RMSE metric is used to
 evaluate the predictive accuracy of a regression model.
 
-![Histogram showing prediction errors, with most predictions clustered near zero and fewer at extremes.](images/mlconcepts_image4.png)
+![Histogram showing prediction errors with bin width selector, centered near zero target value.](images/mlconcepts_image4.png)
 Figure 3: Distribution of residuals for a Regression model
 
 It is common practice to review the _residuals_ for regression problems. A residual for an observation in the

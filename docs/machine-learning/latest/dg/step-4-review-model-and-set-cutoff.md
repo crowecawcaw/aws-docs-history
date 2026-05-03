@@ -20,7 +20,7 @@ predictive performance.
 2. On the **Evaluation summary** page, review the evaluation summary,
    including the model's AUC performance metric.
 
-![ML model performance metric showing extremely good quality score with AUC of 0.94.](images/image24.png)
+![ML model quality score of extremely good with AUC of 0.94 and score threshold graph at 0.5.](images/image24.png)
 The ML model generates numeric prediction scores for each record in
 a
 prediction datasource, and then applies a threshold to convert these scores
@@ -33,7 +33,7 @@ threshold.
 1. On the **Evaluation Summary** page, choose **Adjust Score
    Threshold.**
 
-![ML model performance chart showing predicted distributions for "1" and "0" records with adjustable score threshold.](images/image25.png)
+![ML model performance chart showing prediction distribution with score threshold at 0.5.](images/image25.png)
 
 You can fine-tune your ML model performance metrics by adjusting the
 score threshold. Adjusting this value changes the level of confidence that the model must have
@@ -50,7 +50,7 @@ positives. 2. Let's say you want to target the top 3% of the customers that will
 product. Slide the vertical selector to set the score threshold to a value that corresponds to
 **3% of the records are predicted as "1"**.
 
-![ML model performance chart showing distribution of predicted answers for "1" and "0" records.](images/image26.png)
+![ML model performance chart showing score threshold at 0.77 with 3% predicted as 1 and false positive rate of 0.0077.](images/image26.png)
 
 Note the impact of this score threshold on the ML model's performance: the false positive
 rate is 0.007. Let's assume that that false positive rate is acceptable. 3. Choose **Save score threshold at 0.77**.

@@ -36,9 +36,9 @@ without creating a real-time endpoint. That's what we'll do for this tutorial.
 1. In the **ML model report** navigation pane, choose **Try
    real-time predictions**.
 
-![Navigation pane with "Try real-time predictions" option circled in red.](images/try-real-time-prediction-menu.png) 2. Choose **Paste a record**.
+![ML model report navigation pane with Try real-time predictions option highlighted.](images/try-real-time-prediction-menu.png) 2. Choose **Paste a record**.
 
-![Button labeled "Paste a record" highlighted in a web interface form.](images/paste-a-record.png) 3. In the **Paste a record** dialog box, paste the following
+![Paste a record button highlighted in the real-time predictions interface.](images/paste-a-record.png) 3. In the **Paste a record** dialog box, paste the following
 observation:
 
 ```
@@ -49,7 +49,7 @@ observation:
    **Submit** to confirm that you want to generate a prediction for this
    observation. Amazon ML populates the values in the real-time prediction form.
 
-![Table row showing 'age' attribute with Numeric type and Value of 32.0.](images/value-column.png)
+![Table row showing age attribute with Numeric type and value of 32.0.](images/value-column.png)
 
 ###### Note
 
@@ -63,7 +63,7 @@ that this potential customer is unlikely to respond to the campaign. A **Predict
 label** of `1` would mean that the customer is likely to respond to
 the campaign.
 
-![Prediction results showing binary ML model with predicted label 0 and score 0.033486433.](images/real-time-result.png)
+![Prediction results pane showing predicted label 0 with score 0.03348433 using SGD algorithm.](images/real-time-result.png)
 Now, create a batch prediction. You will provide Amazon ML with the name of the ML model you are
 using; the Amazon Simple Storage Service (Amazon S3) location of the input data for which you want to generate predictions
 (Amazon ML will create a batch prediction datasource from this data); and the Amazon S3 location for
@@ -74,7 +74,7 @@ storing the results.
 1. Choose **Amazon Machine Learning**, and then choose **Batch
    Predictions**.
 
-![Amazon Machine Learning dropdown menu with Batch Predictions option highlighted.](images/image29.png) 2. Choose **Create new batch prediction**. 3. On the **ML model for batch predictions** page, choose **ML
+![Amazon Machine Learning menu expanded showing Dashboard, Datasources, ML Models, Evaluations, and Batch Predictions options.](images/image29.png) 2. Choose **Create new batch prediction**. 3. On the **ML model for batch predictions** page, choose **ML
 model: Banking Data 1**.
 
 Amazon ML displays the ML model name, ID, creation time, and the associated datasource ID. 4. Choose **Continue**. 5. To generate predictions, you need to provide Amazon ML the data that you need predictions
@@ -84,7 +84,7 @@ datasource so that Amazon ML can access it.
 For **Locate the input data**, choose **My data is in S3, and I
 need to create a datasource**.
 
-![Radio button options for locating input data, with the second option selected.](images/image31.png) 6. For **Datasource name**, type `Banking Data 2`. 7. For **S3 Location**, type the full location of the
+![Two radio button options: one for existing datasource, one selected for creating new datasource.](images/image31.png) 6. For **Datasource name**, type `Banking Data 2`. 7. For **S3 Location**, type the full location of the
 `banking-batch.csv` file:
 `your-bucket``/banking-batch.csv`. 8. For **Does the first line in your CSV contain the column names?**,
 choose **Yes**. 9. Choose **Verify**.
@@ -99,7 +99,7 @@ tutorial, the model and the predictions are named after the training datasource,
 `Banking Data 1`. 13. Choose **Review**. 14. In the **S3 permissions** dialog box, choose
 **Yes**.
 
-![Dialog box asking to grant Amazon Machine Learning write permission on S3 location.](images/image32.png) 15. On the **Review** page, choose **Finish**.
+![S3 permissions dialog box requesting write permission with No and Yes buttons.](images/image32.png) 15. On the **Review** page, choose **Finish**.
 
 The batch prediction request is sent to Amazon ML and entered into a queue. The time it takes
 Amazon ML to process a batch prediction depends on the size of your datasource and the complexity
@@ -113,19 +113,19 @@ status changes to **Completed**. Now, you can view the results.
    **Batch
    Predictions**.
 
-![Amazon Machine Learning dropdown menu showing options including Batch Predictions.](images/image33.png) 2. In the list of predictions, choose **Batch prediction: ML model: Banking Data
+![Amazon Machine Learning navigation menu with Batch Predictions option highlighted.](images/image33.png) 2. In the list of predictions, choose **Batch prediction: ML model: Banking Data
 1**. The **Batch prediction info** page appears.
 
-![Batch prediction details including name, ID, status, and associated data sources and models.](images/image34.png) 3. To view the results of the batch prediction, go to the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/")
+![Batch prediction details showing ID, creation time, status, datasource ID, model ID, and S3 URLs.](images/image34.png) 3. To view the results of the batch prediction, go to the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/")
 and navigate to the Amazon S3 location referenced in the **Output S3 URL** field. From
 there, navigate to the results folder, which will have a name similar to
 `s3://aml-data/batch-prediction/result`.
 
-![AWS S3 console showing a single file in the batch-prediction result folder.](images/image35.png)
+![S3 bucket showing the bp-u5DMGZYFa9I-banking-batch.csv.gz file in the result folder.](images/image35.png)
 
 The prediction is stored in a compressed .gzip file with the .gz extension. 4. Download the prediction file to your desktop, uncompress it, and open it.
 
-![Table showing bestAnswer scores with numerical values ranging from 0.00046 to 0.30811.](images/image36.png)
+![Table showing bestAnswer scores with values ranging from 0.06046 to 0.30811.](images/image36.png)
 
 The file has two columns, **bestAnswer** and
 **score**, and a row for each observation in your datasource. The results
@@ -140,7 +140,7 @@ The following examples show positive and negative predictions based on the score
 of 0.77.
 Positive prediction:
 
-![Table showing bestAnswer score of 1 with a corresponding value of 0.822876.](images/image37.png)
+![Table showing bestAnswer score of 1 with confidence value 0.8228876.](images/image37.png)
 In this example, the value for **bestAnswer** is 1, and the value of
 **score** is 0.8228876. The value for **bestAnswer** is 1
 because the **score** is greater than the score threshold of 0.77. A

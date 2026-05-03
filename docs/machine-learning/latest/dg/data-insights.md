@@ -91,9 +91,9 @@ following examples, there is one invalid value in the duration Numeric attribute
 invalid values in the Binary data type (one in the housing attribute and one in the loan
 attribute).
 
-![Table showing numeric variable "duration" with correlations, missing values, range, mean, and median.](images/image42.png)
+![Numeric Variables table showing duration variable with correlation, missing values, range, mean, median, and preview.](images/image42.png)
 
-![Table showing binary variables with correlations, percentages, and invalid values for campaign data.](images/image43.png)
+![Binary Variables table showing correlations, percent true, and invalid values for variables.](images/image43.png)
 
 ### Variable-Target Correlation
 
@@ -136,7 +136,7 @@ the number of unique values, most frequent value, and least frequent value. The
 **Preview** column provides a link to a graphical distribution for each
 attribute.
 
-![Table showing categorical variables with correlations, unique values, and frequency data.](images/image44.png)
+![Table showing categorical variables with correlations, unique values, frequencies, and preview charts.](images/image44.png)
 
 Summary statistics for the Numeric data type show all Numeric attributes with the number
 of missing values, invalid values, range of values, mean, and median. The
@@ -199,7 +199,7 @@ values grouped as "other". It ranks each of the top 10 categorical values with t
 number of observations in the input file that contain that value, as well as a link to view
 sample observations from the input data file.
 
-![Bar chart showing top 10 job categories, with blue-collar jobs having the highest count at 9,732.](images/image45.png)
+![Bar chart showing top 10 job categories with blue-collar highest at 9,732, followed by management at 9,458.](images/image45.png)
 
 ### Understanding the Distribution of Numeric Attributes
 
@@ -213,7 +213,7 @@ resolution of the displayed distribution.
 The minimum, mean, and maximum values are also displayed, as shown in the following
 screenshot.
 
-![Histogram showing duration distribution, with highest frequency near 0 and decreasing as duration increases.](images/image46.png)
+![Histogram showing duration distribution with most values under 500, ranging from 0 to 4918.](images/image46.png)
 
 ### Understanding the Distribution of Text Attributes
 
@@ -221,7 +221,7 @@ To view the distribution of a text attribute, click the **Preview**
 link of the attribute. When viewing the distribution of a text attribute, you will see the
 following information.
 
-![Table showing word prominence and count for phrases, with "enters" and "trust" ranking highest.](images/image62.png)
+![Table showing phrase rankings with tokens, word prominence scores, and counts for terms like film, movie, and good.](images/image62.png)
 
 **Ranking**
 

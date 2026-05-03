@@ -46,7 +46,7 @@ from the entire data range.
 The following figure shows examples of when you should use a sequential splitting
 strategy versus when you should use a random strategy.
 
-![Comparison of sequential and random splitting strategies for time series data.](images/image64.png)
+![Two cases comparing sequential split strategies: Case 1 splits by month, Case 2 splits by target.](images/image64.png)
 
 When you create a datasource, you can choose to split your datasource sequentially, and
 Amazon ML uses the first 70 percent of your data for training and the remaining 30 percent of the
@@ -71,7 +71,7 @@ to use the same seed string value for both datasources and the complement flag f
 datasource, to ensure that there is no overlap between the training and evaluation
 data.
 
-![Diagram showing data split into training and evaluation sets using a seed-based method.](images/image65.png)
+![List of movie genres split between training and evaluation datasources.](images/image65.png)
 
 A common pitfall in developing a high-quality ML model is evaluating the ML model on
 data that is not similar to the data used for training. For example, say you are using ML to

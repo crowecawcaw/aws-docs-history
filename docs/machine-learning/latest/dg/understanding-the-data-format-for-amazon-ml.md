@@ -103,7 +103,7 @@ following procedure. Be sure to choose the correct format.
    then choose **Windows Comma Separated (.csv)**.
 2. Choose **Save**.
 
-![Excel file save dialog showing various file format options, including CSV and specialty formats.](images/image40b.png)
+![Save dialog showing Windows Comma Separated format selected from file format dropdown menu.](images/image40b.png)
 
 ###### Important
 

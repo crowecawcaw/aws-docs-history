@@ -49,7 +49,7 @@ Your actual cost may vary from this estimate for the following reasons:
 - The estimate doesn't take into account pre-existing credits or other adjustments
   that are applied by AWS.
 
-![Batch prediction results page showing estimated cost, ML fee, and S3 destination input.](images/image59b.png)
+![Batch prediction results page showing cost estimate of $4.20 and S3 destination input field.](images/image59b.png)
 
 ### Estimating Batch Prediction Cost When Only Data Size Is Available
 
@@ -86,4 +86,4 @@ for prediction processing. This charge varies based on the size of the model, as
 the [service pricing
 page](https://aws.amazon.com/machine-learning/pricing/ "https://aws.amazon.com/machine-learning/pricing/"). You will also be informed about the standard Amazon ML real-time prediction charge.
 
-![Dialog box for creating a real-time endpoint with model details and pricing information.](images/image60b.png)
+![Dialog box for creating a real-time endpoint showing model size, hourly cost, and per-prediction pricing.](images/image60b.png)

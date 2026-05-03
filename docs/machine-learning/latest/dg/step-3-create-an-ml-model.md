@@ -20,7 +20,7 @@ Using a friendly name, such as the default, helps you easily identify and manage
 model. 2. For **Training and evaluation settings**, ensure that
 **Default** is selected.
 
-![Select training and evaluation settings interface with Default option selected.](images/image19.png) 3. For **Name this evaluation**, accept the default,
+![Default option selected with Name this evaluation field showing Evaluation ML model: Banking Data 1.](images/image19.png) 3. For **Name this evaluation**, accept the default,
 `Evaluation: ML model: Banking Data 1`. 4. Choose **Review**, review your settings, and then choose
 **Finish**.
 
