@@ -26,7 +26,7 @@ During rotation, Secrets Manager calls the same function several times, each tim
 - **SecretId** – The ARN of the secret to rotate.
 - **ClientRequestToken** – A unique identifier for the new version of the secret. This value helps ensure idempotency. For more information, see [PutSecretValue: ClientRequestToken](../apireference/API_PutSecretValue.md#SecretsManager-PutSecretValue-request-ClientRequestToken "../apireference/API_PutSecretValue.md#SecretsManager-PutSecretValue-request-ClientRequestToken") in the _AWS Secrets Manager API Reference_.
 - **RotationToken** – A unique identifier that indicates the source of the request. Required for secret rotation using an assumed role or cross-account rotation, in which you rotate a secret in one account by using a Lambda rotation function in another account. In both cases, the rotation function assumes an IAM role to call Secrets Manager and then Secrets Manager uses the rotation token to validate the IAM role identity.
-  If any rotation step fails, Secrets Manager retries the entire rotation process multiple times.
+  Rotation failures can occur because of issues with your Lambda function or with Secrets Manager. If any rotation step fails, Secrets Manager retries the entire rotation process multiple times during the open rotation windows on the secret.
 
 ###### Topics
 

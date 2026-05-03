@@ -30,7 +30,7 @@ monitor them for Secrets Manager API requests to retrieve a secret pending delet
    the name of the trail to configure for CloudWatch.
 4. On the **Trails Configuration** page, scroll down to the
    **CloudWatch Logs** section, and then choose the edit icon (
-   ![Remote control icon with power, volume, and channel buttons.](images/edit-pencil-icon.png)
+   ![Edit pencil icon](images/edit-pencil-icon.png)
    ).
 5. For **New or existing log group**, type a name for the log group,
    such as `CloudTrail/MyCloudWatchLogGroup`.
