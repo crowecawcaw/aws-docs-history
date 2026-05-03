@@ -3,7 +3,7 @@
 This page describes the changes and functionality available in the latest releases of
 Amazon EMR 7.x, 6.x, and 5.x.
 
-These release notes are also available on the [Amazon EMR 7.12.0](emr-7120-release.md "emr-7120-release.md"),
+These release notes are also available on the [Amazon EMR 7.13.0](emr-7130-release.md "emr-7130-release.md"),
 [Amazon EMR
 6.15.0](emr-6150-release.md "emr-6150-release.md"), and [Amazon EMR 5.36.2](emr-5362-release.md "emr-5362-release.md")
 pages, along with the application versions, component versions, and available configuration
@@ -34,24 +34,36 @@ The Apache Spark troubleshooting agent for Amazon EMR is a conversational AI cap
 
 You can use the agent to troubleshoot PySpark and Scala applications failures. The agent analyzes your failed jobs, identifies performance bottlenecks, and provides actionable recommendations and code fixes while giving you full control over implementation decisions. For more details refer to [What is Apache Spark Troubleshooting Agent for Amazon EMR](spark-troubleshoot.md "spark-troubleshoot.md").
 
-## Amazon EMR 7.12.0 (latest release of 7.x series)
+## Amazon EMR 7.13.0 (latest release of 7.x series)
 
 New Amazon EMR releases are made available in different Regions over a period of several days, beginning with the first Region on the initial release date. The latest release version may not be available in your Region during this period.
 
-The following release notes include information for Amazon EMR release 7.11.0.
+The following release notes include information for Amazon EMR release 7.13.0.
 
-- **New features**
-  - **Application upgrades** – Amazon EMR 7.11.0 application upgrades include Delta 3.3.2-amzn-0, Flink 1.20.0-amzn-5, HBase 2.6.2-amzn-2, HCatalog 3.1.3-amzn-20, Hadoop 3.4.1-amzn-3, Hive 3.1.3-amzn-20, Hudi 1.0.2-amzn-0, Iceberg 1.9.1-amzn-0, Presto 0.287-amzn-5, Spark 3.5.6-amzn-0, TensorFlow 2.19.0, Tez 0.10.2-amzn-18, Trino 475-amzn-0, and ZooKeeper 3.9.3-amzn-3.
-  - Amazon EMR on EC2 now supports IAM Identity Center User Background Sessions
-    - **User Background Sessions**: Enables long-running Spark workloads to continue running even after users log off from SageMaker Unified Studio, supporting sessions up to 90 days
-    - **Flexible Background Session Configuration**: Two-level configuration (IAM Identity Center instance and Amazon EMR-EC2 cluster) with customizable background session duration from 15 minutes to 90 days (default: 7 days)
-    - **Trusted Identity Propagation**: Maintains secure identity context throughout the background session lifecycle using Amazon EMR's trusted identity propagation feature
-    - **SageMaker Unified Studio Integration**: Background sessions initiated through Livy interactive sessions in SageMaker Unified Studio
+### What's new
 
-  - **Long-running sessions with corporate identities** - Amazon SageMaker Unified Studio now supports long-running sessions with corporate identities through IAM Identity Center's Trusted Identity Propagation (TIP). Users can launch interactive notebooks and data processing sessions on Amazon EMR and AWS Glue that persist using corporate credentials, even when logged off or sessions expire. Sessions run for up to 90 days (default 7 days) while maintaining identity permissions and consistent security controls.
+- **Python 3.11 default for PySpark and Spark workloads** — Python 3.11 is now the default Python version for PySpark and Spark workloads. Python 3.9 remains the default for all other applications. Both Python 3.9 and 3.11 are included in the release.
 
-- **Known issues and limitations**
-  - **Missing step and container logs** - From Amazon EMR 7.9 to Amazon EMR 7.12, there is a bug where step logs and/or container logs may not get uploaded to S3 if the step or application is running for longer than 3 hours. Please upgrade to Amazon EMR 7.13 to resolve this issue.
+### Changes, enhancements, and resolved issues
+
+- **Iceberg configuration property** — Amazon EMR 7.13 adds a new Iceberg configuration property, `spark.sql.catalog.spark_catalog.route-non-iceberg-drop-to-session-catalog`. When set to `true`, `DROP TABLE` on non-Iceberg managed tables in `SparkSessionCatalog` deletes both the table metadata and the underlying Amazon S3 data. The default value is `false`.
+
+### Application upgrades
+
+The following applications are upgraded in this release:
+
+- HBase 2.6.4-amzn-0 (upgraded from 2.6.2-amzn-3)
+- Hadoop 3.4.2-amzn-0 (upgraded from 3.4.1-amzn-4)
+- Phoenix 5.3.0 (upgraded from 5.2.1)
+- Hudi 1.0.2-amzn-2 (upgraded from 1.0.2-amzn-1)
+- Trino 479-amzn-1 (upgraded from 476-amzn-1)
+- AWS SDK v2 2.42.12 (upgraded from 2.35.5)
+- AWS SDK v1 1.12.797 (upgraded from 1.12.792)
+- Spark 3.5.6-amzn-2, Hive 3.1.3-amzn-22, Tez 0.10.2-amzn-20, Presto 0.287-amzn-7, Iceberg 1.10.0-amzn-1, Delta 3.3.2-amzn-2, Flink 1.20.0-amzn-7, ZooKeeper 3.9.3-amzn-5 (amzn patch bumps)
+
+### Known issues and limitations
+
+There are no known issues in this release.
 
 ## Amazon EMR 6.15.0 (latest release of 6.x series)
 

@@ -10,12 +10,12 @@ _Amazon EMR Management Guide_ to connect to the YARN ResourceManager. For
 example, if you've set up an SSH tunnel and have activated a proxy in your browser, you
 choose the ResourceManager connection under **Connections** in your EMR cluster details page.
 
-![Resource Manager link under Connections section in cluster details page.](images/resourcemanager.png)
+![Development Cluster status showing Waiting state with ResourceManager connection link.](images/resourcemanager.png)
 After you find the ResourceManager, select the YARN application that's hosting a Flink
 session. Choose the link under the **Tracking UI** column.
 
-![Application details table showing a running Apache Flink session with ApplicationMaster link.](images/resourcemanager2.png)
+![All Applications page showing a running Flink session with ApplicationMaster link in Tracking UI column.](images/resourcemanager2.png)
 In the Flink web interface, you can view configuration, submit your own custom JAR as
 a job, or monitor jobs in progress.
 
-![Apache Flink Dashboard overview showing task managers, slots, and job statistics.](images/flink.png)
+![Apache Flink Dashboard Overview page showing 1 task manager, 1 task slot, and job status counts.](images/flink.png)

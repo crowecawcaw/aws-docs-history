@@ -198,7 +198,7 @@ word_count("s3://`s3_bucket`/word.txt", "s3://`s3_bucket`/demo_output.txt")
 1. Choose **FLINK JOB** in the Zeppelin UI to access and
    view the Flink Web UI.
 
-![Flink code snippet for word count with output showing counts for "hello", "flink", "hadoop", and "world".](images/batch-wordcount-example.png) 2. Choosing **FLINK JOB** routes to the Flink Web Console in
+![FLINK JOB button highlighted in the Zeppelin notebook interface toolbar.](images/batch-wordcount-example.png) 2. Choosing **FLINK JOB** routes to the Flink Web Console in
 another tab of your browser.
 
 ![Choosing FLINK JOB opens the Flink Web Console in another tab of your browser.](images/flink-web-console.png)

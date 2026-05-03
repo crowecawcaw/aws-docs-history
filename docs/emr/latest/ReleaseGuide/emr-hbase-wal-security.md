@@ -12,7 +12,7 @@ Console
 From the AWS Management Console, specify the configuration under **Security
 configuration and EC2 key pair**.
 
-![Security configuration section with search bar, refresh button, and options to browse or create configuration.](images/wal-configure-security.png)
+![Security configuration section with search field showing DO-NOT-DELETE-disable-IM and buttons for Browse and Create security configuration.](images/wal-configure-security.png)
 
 CLI
 From the AWS CLI, set the `--security-configuration` parameter

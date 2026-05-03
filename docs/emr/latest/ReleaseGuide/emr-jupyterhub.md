@@ -15,14 +15,14 @@ install additional kernels within the Docker container manually. For more inform
 
 The following diagram depicts the components of JupyterHub on Amazon EMR with corresponding authentication methods for notebook users and the administrator. For more information, see [Adding Jupyter Notebook users and administrators](emr-jupyterhub-user-access.md "emr-jupyterhub-user-access.md").
 
-![JupyterHub architecture on EMR showing user authentication and component interactions.](images/jupyter-arch.png)
+![Architecture diagram showing SSH and command line access through PAM or LDAP to JupyterHub master instance.](images/jupyter-arch.png)
 The following table lists the version of JupyterHub included in the latest release of the Amazon EMR 7.x series, along with the components that Amazon EMR installs with JupyterHub.
 
-For the version of components installed with JupyterHub in this release, see [Release 7.12.0 Component Versions](emr-7120-release.md "emr-7120-release.md").
+For the version of components installed with JupyterHub in this release, see [Release 7.13.0 Component Versions](emr-7130-release.md "emr-7130-release.md").
 
-| JupyterHub version information for emr-7.12.0 | Amazon EMR Release Label | JupyterHub Version                                                                                                                                                                                                                                                                                                                                     | Components Installed With JupyterHub |
+| JupyterHub version information for emr-7.13.0 | Amazon EMR Release Label | JupyterHub Version                                                                                                                                                                                                                                                                                                                                     | Components Installed With JupyterHub |
 | --------------------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------ |
-| emr-7.12.0                                    | JupyterHub 1.5.0         | emrfs, emr-goodies, emr-ddb, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, hudi, hudi-spark, r, spark-client, spark-history-server, spark-on-yarn, spark-yarn-slave, livy-server, jupyterhub |
+| emr-7.13.0                                    | JupyterHub 1.5.0         | emrfs, emr-goodies, emr-ddb, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, hudi, hudi-spark, r, spark-client, spark-history-server, spark-on-yarn, spark-yarn-slave, livy-server, jupyterhub |
 
 The following table lists the version of JupyterHub included in the latest release of the Amazon EMR 6.x series, along with the components that Amazon EMR installs with JupyterHub.
 

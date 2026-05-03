@@ -94,7 +94,7 @@ explicitly denies permissions to the
 
 
     ```
-    aws emr create-cluster --release-label `emr-7.12.0` --instance-type m5.xlarge --instance-count 2 \
+    aws emr create-cluster --release-label `emr-7.13.0` --instance-type m5.xlarge --instance-count 2 \
     --applications Name=Hive --configurations file://hiveConfiguration.json --use-default-roles
     ```
 

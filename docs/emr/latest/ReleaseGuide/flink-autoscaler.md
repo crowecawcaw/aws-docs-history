@@ -31,10 +31,10 @@ cluster.
       **Flink** application bundle, and select any other
       applications that you might want to include on your cluster.
 
-   ![Application bundle options for Amazon EMRcluster, with Flink highlighted and selected.](images/emr-flink-cluster-create.png) 2. For the **Cluster scaling and provisioning** option,
+   ![Application bundle section with Flink selected and checkboxes for Flink, Hadoop, Hive, and Zeppelin.](images/emr-flink-cluster-create.png) 2. For the **Cluster scaling and provisioning** option,
    select **Use EMR-managed scaling**.
 
-   ![Cluster scaling options: manual, EMR-managed (selected), or custom automatic scaling.](images/emr-flink-cluster-managedscaling.png)
+   ![Cluster scaling options with Use EMR-managed scaling selected.](images/emr-flink-cluster-managedscaling.png)
 
 2. In the **Software settings** section, enter the following
    configuration to enable Flink autoscaler. For testing scenarios, set the

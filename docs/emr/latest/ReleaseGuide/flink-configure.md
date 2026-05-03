@@ -33,7 +33,7 @@ sudo chmod 755 /usr/lib/flink/lib/libfb303-0.9.3.jar
 sudo chmod 755 /usr/lib/flink/lib/flink-connector-hive_2.12-1.15.2.jar
 ```
 
-![Form to add a Custom JAR step with fields for step type, name, JAR location, arguments, and failure action.](images/hive.png)
+![Add step dialog for Custom JAR with fields for name, JAR location, arguments, and action on failure.](images/hive.png)
 
 ### Use the AWS Glue Data Catalog
 
@@ -95,7 +95,7 @@ The main configuration file for Flink is `flink-conf.yaml`.
 2. Next, create a cluster with the following configuration:
 
 ```
-aws emr create-cluster --release-label `emr-7.12.0` \
+aws emr create-cluster --release-label `emr-7.13.0` \
 --applications Name=Flink \
 --configurations file://./configurations.json \
 --region `us-east-1` \

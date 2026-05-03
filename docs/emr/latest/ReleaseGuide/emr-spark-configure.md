@@ -172,7 +172,7 @@ console.
   Amazon S3.
 
 ```
-aws emr create-cluster --release-label `emr-7.12.0` --applications Name=Spark \
+aws emr create-cluster --release-label `emr-7.13.0` --applications Name=Spark \
 --instance-type m5.xlarge --instance-count 2 --service-role EMR_DefaultRole_V2 --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole --configurations https://s3.amazonaws.com/amzn-s3-demo-bucket/myfolder/myConfig.json
 ```
 
@@ -217,7 +217,7 @@ classification=spark-defaults,properties=[spark.executor.memory=2G]
   referencing a file, `myConfig.json`, stored in Amazon S3.
 
 ```
-aws emr create-cluster --release-label `emr-7.12.0` --applications Name=Spark \
+aws emr create-cluster --release-label `emr-7.13.0` --applications Name=Spark \
 --instance-type m5.xlarge --instance-count 2 --service-role EMR_DefaultRole_V2 --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole --configurations https://s3.amazonaws.com/amzn-s3-demo-bucket/myfolder/myConfig.json
 ```
 
