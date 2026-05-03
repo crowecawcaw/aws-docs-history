@@ -113,16 +113,16 @@ After you complete the ServiceNow OAuth configuration, create the integration
 in Amazon Quick.
 
 1. In the Amazon Quick console, choose
-   **Integrations**.
-2. Choose **ServiceNow** and choose the Add (plus "+")
-   button.
-3. Enter the integration details:
+   **Connectors**.
+2. Choose the **Create for your team** tab.
+3. Find and choose **ServiceNow**.
+4. Enter the integration details:
    - **Name** – Descriptive name for your
      ServiceNow integration.
    - **Description** (Optional) – Purpose of the
      integration.
 
-4. Choose your connection type and fill in the connection
+5. Choose your connection type and fill in the connection
    settings:
    1. For **User authentication
       (OAuth)**, configure the following fields:
@@ -153,12 +153,12 @@ in Amazon Quick.
       - **Token URL** –
         `https://`{your-instance}`.service-now.com/oauth_token.do`
 
-5. Choose **Create and continue**.
-6. Choose users to share the integration with.
-7. Choose **Next**.
+6. Choose **Create and continue**.
+7. Choose users to share the integration with.
+8. Choose **Next**.
 
-For user authentication, navigate to **Integrations** >
-**Actions** > your ServiceNow integration name, and choose
+For user authentication, navigate to **Connectors** >
+your ServiceNow connector name, and choose
 **Sign in** to complete the OAuth authorization
 flow.
 

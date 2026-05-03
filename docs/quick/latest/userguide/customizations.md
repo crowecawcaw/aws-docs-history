@@ -31,7 +31,7 @@ To check your Region setting, you can use one of the following procedures.
 
 ###### To check your AWS Region on the Amazon Quick console
 
-1. Choose your profile icon at upper right to open the menu.
+1. Choose your profile icon to open the menu.
 2. View your current AWS Region, listed next to a location icon.
 3. (Optional) Choose another AWS Region from the menu to change to that Region.
    Remember to change back after you are finished with customizations.

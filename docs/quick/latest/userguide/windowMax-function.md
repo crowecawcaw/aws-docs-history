@@ -86,4 +86,4 @@ The following screenshot shows the results of this trailing 12-month example. Th
 sum(Revenue) field is added to the chart to show the difference between the revenue
 and the trailing 12-month maximum revenue.
 
-![](images/windowMax.png)
+![Line chart showing revenue and trailing 12-month maximum from January 2017 to November 2018.](images/windowMax.png)

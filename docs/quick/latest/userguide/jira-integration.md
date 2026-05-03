@@ -144,11 +144,9 @@ the following values. You need them for the Amazon Quick configuration.
 After you prepare your authentication credentials, create the integration in
 Amazon Quick.
 
-1. In the Amazon Quick console, choose **Integrations**.
-2. Choose the **Actions** tab.
-3. Under **Set up a new app integration for Actions**,
-   find **Atlassian Jira Cloud** and choose the Add
-   (plus "+") button.
+1. In the Amazon Quick console, choose **Connectors**.
+2. Choose the **Create for your team** tab.
+3. Find and choose **Atlassian Jira Cloud**.
 4. In the **Create integration** wizard, fill in the
    following fields:
    - **Name** – Descriptive name for your Jira

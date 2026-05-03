@@ -42,7 +42,7 @@ and additional settings.
 ### Authenticate your account
 
 1. In the Amazon Quick console, choose
-   **Integrations**.
+   **Knowledge**.
 2. Under **Knowledge**, choose
    **Atlassian Confluence Cloud** and choose the
    Add (plus "+") button.

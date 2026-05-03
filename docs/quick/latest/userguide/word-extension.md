@@ -1,4 +1,10 @@
-# Amazon Quick Microsoft Word extension
+# Amazon Quick Microsoft Word extension (Legacy)
+
+###### Note
+
+This is the legacy Microsoft Word extension. We recommend using
+the new [Amazon Quick Microsoft Word extension (Preview)](word-extension-preview.md "word-extension-preview.md")
+for new deployments.
 
 The Quick extension for Microsoft Word integrates
 AI-powered assistance directly into your document creation and editing workflows. Users

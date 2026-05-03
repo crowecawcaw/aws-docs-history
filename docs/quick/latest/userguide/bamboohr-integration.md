@@ -1,6 +1,6 @@
 # BambooHR integration
 
-Connect Amazon Quick to your BambooHR system to manage employee data, time-off requests, and HR processes. You can create, update, and manage HR content without leaving your Amazon Quick environment. This integration requires Amazon Quick Pro tier or higher.
+Connect Amazon Quick to your BambooHR system to manage employee data, time-off requests, and HR processes. You can create, update, and manage HR content without leaving your Amazon Quick environment. For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md "integration-console-setup-process.md").
 
 ## What you can do
 
@@ -14,14 +14,15 @@ Create, update, and manage employee records, time-off requests, and other HR pro
 
 Follow these steps to connect Amazon Quick to your BambooHR system.
 
-1.  In the Amazon Quick console, choose **Integrations**.
-2.  Click **Add** (plus "+" button).
-3.  Complete the integration details:
+1.  In the Amazon Quick console, choose **Connectors**.
+2.  Choose the **Create for your team** tab.
+3.  Find and choose **BambooHR**.
+4.  Complete the integration details:
     - **Name** - Enter a descriptive name for your BambooHR integration.
     - **Description** (Optional) - Describe the purpose of this integration.
 
-4.  Choose connection type (user or service authentication).
-5.  Complete the connection settings based on authentication method:
+5.  Choose connection type (user or service authentication).
+6.  Complete the connection settings based on authentication method:
     - **For User authentication (OAuth):**
 
           + **Base URL** - Your BambooHR instance URL.
@@ -48,9 +49,9 @@ Follow these steps to connect Amazon Quick to your BambooHR system.
       - **API Key** - Your BambooHR API key.
       - **Email** - Email address associated with the API key.
 
-6.  Select **Create and continue**.
-7.  Select users to share the integration with.
-8.  Click **Next**.
+7.  Select **Create and continue**.
+8.  Select users to share the integration with.
+9.  Click **Next**.
 
 ## Manage BambooHR integration
 
@@ -60,8 +61,8 @@ You can perform these management tasks for your BambooHR integration:
 
 To modify your BambooHR integration settings:
 
-1. In the Amazon Quick console, choose **Integrations**.
-2. Choose **BambooHR** from the integration grid.
+1. In the Amazon Quick console, choose **Connectors**.
+2. Choose **BambooHR** from the connector list.
 3. Select your integration from the list and choose **Edit**.
 4. Modify your integration settings as needed.
 5. Choose **Save changes**.

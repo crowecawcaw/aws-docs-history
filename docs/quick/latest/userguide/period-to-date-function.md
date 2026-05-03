@@ -133,7 +133,7 @@ be used in the narrative.
    shows the year to date sales of the latest month and the percentage
    difference compared with the previous month.
 
-![](images/periodOverPeriod1.png) 4. (Optional) To further customize the insight, open the on-visual
+![Field wells showing Order Date in Time section and Sales (Sum) in Values section.](images/periodOverPeriod1.png) 4. (Optional) To further customize the insight, open the on-visual
 menu and choose **Customize narrative**. In the
 **Edit narative** window that appears, drag and
 drop the fields that you need from the

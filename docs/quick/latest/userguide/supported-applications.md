@@ -22,13 +22,13 @@ Using **Table across** applies the calculation across the
 rows of the pivot table, regardless of any grouping. This application is the
 default. For example, take the following pivot table.
 
-![](images/sample-pivot.png)
+![Pivot table showing billed amounts by customer region, date, and consumption channel.](images/sample-pivot.png)
 
 Applying the **Running total** function using
 **Table across** gives you the following results, with
 row totals in the last column.
 
-![](images/table-across.png)
+![Table showing billed amounts by customer region, date, and consumption channel with API column highlighted.](images/table-across.png)
 
 ## Table down
 
@@ -39,7 +39,7 @@ Applying the **Running total** function using
 **Table down** gives you the following results, with
 column totals in the last row.
 
-![](images/table-down.png)
+![Table showing billed amounts by region, date, and channel with 2016 US row highlighted.](images/table-down.png)
 
 ## Table across down
 
@@ -52,7 +52,7 @@ Applying the **Running total** function using
 In this case, totals are summed both down and across, with the grand total
 in the lower-right cell.
 
-![](images/running-total-across-down.png)
+![Table showing billed amounts by region, date, and channel with running totals across and down.](images/running-total-across-down.png)
 
 In this case, suppose that you apply the **Rank**
 function using **Table across down**. Doing so means that
@@ -60,7 +60,7 @@ the initial ranks are determined across the table rows and then those ranks
 are in turn ranked down the columns. This approach gives you the following
 results.
 
-![](images/rank-table-across-down.png)
+![Table showing billed amounts by customer region, date, and consumption channel across Web, Mobile, and API.](images/rank-table-across-down.png)
 
 ## Table down across
 
@@ -73,14 +73,14 @@ You can apply the **Running total** function using
 this case, totals are summed both down and across, with the grand total in
 the lower-right cell.
 
-![](images/running-total-down-across.png)
+![Table showing billed amounts by region, date, and channel with running totals down and across.](images/running-total-down-across.png)
 
 You can apply the **Rank** function using **Table
 down across** to get the following results. In this case, the
 initial ranks are determined down the table columns. Then those ranks are in
 turn ranked across the rows.
 
-![](images/rank-table-down-across.png)
+![Table showing billed amounts by customer region, date, and consumption channel.](images/rank-table-down-across.png)
 
 ## Group across
 
@@ -109,7 +109,7 @@ highlighted cell represents the total for the `APAC` region for
 `2012`, for all `Consumption Channel` values in
 the `Service Line` named `Billing`.
 
-![](images/group-across.png)
+![Table showing billed amounts by region, date, service line, and channel with $74K highlighted.](images/group-across.png)
 
 ## Group down
 
@@ -138,7 +138,7 @@ represents the total the `APAC` region, for the
 `Billing` service for the `Mobile` channel, for
 all the `Date` values (years) that display in the report.
 
-![](images/group-down.png)
+![Table showing billed amounts by region, date, service line, and channel with 2014 totals highlighted.](images/group-down.png)
 
 ## Group across down
 
@@ -169,7 +169,7 @@ boundaries. Here, these boundaries are `Service Line` for the
 columns and `Customer Region` for the rows. The grand total
 appears in the lower-right cell for the group.
 
-![](images/running-total-group-across-down.png)
+![Table showing running totals by customer region and service line with highlighted values.](images/running-total-group-across-down.png)
 
 You can apply the **Rank** function using **Group
 across down** to get the following results. In this case, the
@@ -178,7 +178,7 @@ function is first applied across the rows bounded by each `Service
 that first calculation, this time applied down the columns bounded by each
 `Customer Region` group.
 
-![](images/rank-group-across-down.png)
+![Table showing billed amounts by customer region, date, service line, and consumption channel.](images/rank-group-across-down.png)
 
 ## Group down across
 
@@ -218,4 +218,4 @@ function is first applied down the columns bounded by each `Customer
 of that first calculation, this time applied across the rows bounded by each
 `Service Line` group.
 
-![](images/rank-group-down-across.png)
+![Table showing billed amounts by customer region, date, service line, and consumption channel.](images/rank-group-down-across.png)

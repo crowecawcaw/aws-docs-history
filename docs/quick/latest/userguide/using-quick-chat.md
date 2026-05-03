@@ -14,6 +14,7 @@ Quick chat provides you with the following capabilities.
 - [Expand and collapse modes](#expand-collapse "#expand-collapse")
 - [Agent picker](#agent-picker "#agent-picker")
 - [Scoping response generation to specific data](#data-filter "#data-filter")
+- [Chatting with datasets](#chatting-with-datasets "#chatting-with-datasets")
 - [Web search](#web-search "#web-search")
 - [Upload files and chat](#file-uploads "#file-uploads")
 - [Actions](#chat-actions "#chat-actions")
@@ -25,8 +26,10 @@ Quick chat provides you with the following capabilities.
 - [Artifact panel](#artifact-panel "#artifact-panel")
 - [Conversation management](#conversation-mgmt "#conversation-mgmt")
 - [Response events](#response-events "#response-events")
+- [Explanations](#chat-explanations-summary "#chat-explanations-summary")
 - [Contextual awareness](#contextual-awareness "#contextual-awareness")
 - [Managing your preferences in Amazon Quick](#user-preferences "#user-preferences")
+- [Amazon Quick chat explanations](chat-explanations.md "chat-explanations.md")
 
 ## Welcome message
 
@@ -83,19 +86,15 @@ underlying large language model (LLM). While using chat, you can select between 
 following knowledge modes:
 
 - **All data and apps** – Amazon Quick will
-  use all available knowledge sources (including spaces, dashboards, topics,
+  use all available knowledge sources (including spaces, dashboards, datasets, topics,
   knowledge bases, action integrations, and LLM knowledge) to generate a response
   to your prompts.
 - **General knowledge** – Amazon Quick will
   only use LLM knowledge to generate responses to your prompts. It won't use any
   knowlegde from Amazon Quick resources.
 - **Specific data and apps** – Chat with a
-  specific or multiple spaces, dashboards, topics, knowledge bases, or actions. To
+  specific or multiple spaces, dashboards, datasets, topics, knowledge bases, or actions. To
   choose specific resources, select **Choose resource**.
-
-###### Note
-
-You can't add datasets to a chat filter.
 
 An agent with pre-defined knowledge, on the other hand, only has knowledge of existing
 Amazon Quick resources already linked to it, and its underlying LLM knowledge. While
@@ -106,9 +105,30 @@ modes:
   will use only the Amazon Quick resource knowledge linked to the agent, and LLM
   knowledge, to generate responses. You can't change this setting.
 - **Additional data and apps** – Chat with a
-  specific or multiple spaces, dashboards, topics, or knowledge bases and actions.
+  specific or multiple spaces, dashboards, datasets, topics, or knowledge bases and actions.
   To choose specific resources, select **Choose
   resource**.
+
+## Chatting with datasets
+
+You can chat with your datasets in Amazon Quick to ask questions and get insights
+from your data using natural language. To get started, you need to first create a
+dataset. For more information, see [Creating
+datasets](../../../quicksight/latest/user/creating-data-sets.md "../../../quicksight/latest/user/creating-data-sets.md").
+
+Amazon Quick chat supports the following dataset types:
+
+- SPICE datasets
+- Direct Query datasets against Amazon Redshift, Athena, Aurora PostgreSQL, and Amazon S3
+  Tables
+
+###### Note
+
+Direct Query datasets against other data sources are not yet supported for
+chat.
+
+For SPICE datasets, the size limit of 2 TB and 2 billion rows applies
+when chatting with the dataset.
 
 ## Web search
 
@@ -264,10 +284,12 @@ Amazon Quick stores any artifacts it generates as responses during chat in an ar
 panel. You can access any artifacts created during your chat by selecting **View
 more** from below the artifact in chat.
 
-###### Note
+You can download artifacts as text, CSV, code files, Word documents, Excel
+spreadsheets, PowerPoint presentations, PDFs, and infographics. Saving artifacts to
+a Space is not currently supported.
 
-You can download artifacts as text, CSV, and code files. Word, PDF, and Excel
-downloads are not supported. Saving artifacts to a Space is not supported.
+For more information about creating and downloading documents and visuals, see
+[Document and visual creation with Amazon Quick](document-and-visual-creation.md "document-and-visual-creation.md").
 
 ## Conversation management
 
@@ -298,6 +320,32 @@ uploaded or with a Amazon Quick resource) and capture any rewrites to your respo
 before it's finalized. A response event also includes the system generated identifiers
 for your conversation—you can copy and save the information for
 troubleshooting..
+
+## Explanations
+
+When you chat with dashboards and datasets, each answer includes an Explanation
+that shows how the model arrived at each numerical claim, including the data sources, assumptions, filters, calculations, and
+SQL queries that the model used. Instead of manually verifying each answer by finding
+the original source and re-creating the logic, you can directly see the model's
+assumptions at the click of a button.
+
+When you open an Explanation, you can see the following components:
+
+- **Found data in** – Displays the
+  dashboards, sheets, or datasets where the insight came from.
+- **Filters** – Lists dashboard filter
+  values that were used to arrive at the answer.
+- **Assumptions** – Unpacks any large
+  language model (LLM)-derived definitions from either the data directly or
+  from world knowledge.
+- **Calculation explained** – Shows any
+  calculations that the model performed to arrive at the answer, presented in
+  both natural language and as a math formula.
+- **Generated SQL** (datasets only) –
+  Displays the specific SQL query that produced each numerical claim.
+
+For more information and examples, see
+[Amazon Quick chat explanations](chat-explanations.md "chat-explanations.md").
 
 ## Contextual awareness
 

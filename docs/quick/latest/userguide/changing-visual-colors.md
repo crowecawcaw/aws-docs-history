@@ -23,25 +23,25 @@ it overrides the chart color.
 
 For example, suppose that you set the chart color to green.
 
-![](images/color-priority1.png)
+![Context menu showing Color EMEA option with green color selected from color picker palette.](images/color-priority1.png)
 
 All of the bars turn green. Even though you choose the first bar, the chart color
 applies to all the bars. Then you set the color for the **SMB** bar
 to blue.
 
-![](images/color-priority2.png)
+![Color picker menu showing options to focus on, exclude, or change color for AMER region data.](images/color-priority2.png)
 
 Looking at the result, you decide that you need more contrast between the green
 and blue bars, so you change the chart color to orange. If you are changing the
 chart color, it doesn't matter which bar you choose to open the context menu
 from.
 
-![](images/color-priority3.png)
+![Chart Color menu with color palette showing orange selected in Data colors section.](images/color-priority3.png)
 
 The **SMB** bar remains blue. This is because it was directly
 configured. The remaining bars turn orange.
 
-![](images/color-priority4.png)
+![Horizontal bar chart showing sales by region: EMEA highest, AMER middle, APJ lowest.](images/color-priority4.png)
 
 When you change the color of an element that is grouped, the color for that
 element is changed in all of the groups. An example is a bar in a clustered bar
@@ -50,7 +50,7 @@ chart. In the following example, Customer Segment is moved out of the
 well. Customer Region is added as the **Y-axis**. The chart color
 stays orange, and SMB stays blue for all Customer Regions.
 
-![](images/color-priority5.png)
+![Horizontal bar chart showing count of records by region and segment with color grouping.](images/color-priority5.png)
 
 If your visual has a legend that shows categories (dimensions), you can click on
 the values in the legend to see a menu of available actions. For example, suppose
@@ -68,7 +68,7 @@ following:
 Following is an example of using the legend to change the color for a
 dimension.
 
-![](images/visual-elements-legend-color.png)
+![Color picker menu showing options to focus on or exclude SMB segment with color palettes.](images/visual-elements-legend-color.png)
 
 ### Setting new colors for a visual
 

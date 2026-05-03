@@ -4,22 +4,40 @@ Use the Microsoft Teams action connector to send messages, manage channels, sche
 meetings, and manage team collaboration directly in Amazon Quick through natural
 language.
 
-Setting up this integration involves two steps. First, you register an application in
-Microsoft Entra and configure its permissions. Then, you create the integration in
-Amazon Quick and connect it to your Entra app. For information about the authentication
-methods that Amazon Quick supports, see [Authentication methods](quick-action-auth.md "quick-action-auth.md").
+Amazon Quick supports multiple authentication methods for Microsoft Teams.
+Choose the method that best fits your organization's security requirements.
+
+- **Default OAuth app** – Uses an
+  AWS-managed OAuth application. No additional credentials are needed.
+  Users authenticate directly with their Microsoft account.
+- **Custom OAuth app** – Uses a
+  customer-managed application registered in Microsoft Entra. This option
+  gives your organization full control over the OAuth configuration.
+  Users authenticate on behalf of a signed-in user (delegated
+  permissions).
+- **Service-to-Service OAuth** – Uses
+  client credentials for server-to-server authentication without user
+  interaction (application permissions). Suitable for automated
+  workflows.
+  For more information about the authentication methods that Amazon Quick
+  supports, see [Authentication methods](quick-action-auth.md "quick-action-auth.md").
 
 ## Before you begin
 
 Make sure you have the following before you set up the integration.
 
 - A Microsoft 365 account with Teams access.
-- Access to the [Microsoft Entra
-  admin center](https://entra.microsoft.com/ "https://entra.microsoft.com/") with at least Application Developer
-  permissions.
+- For **Custom OAuth app** or
+  **Service-to-Service OAuth**: Access
+  to the [Microsoft Entra
+  admin center](https://entra.microsoft.com/ "https://entra.microsoft.com/") on the Microsoft website with at least
+  Application Developer permissions.
 - For subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md "integration-console-setup-process.md").
 
 ## Configure Microsoft Entra
+
+If you are using **Default OAuth app**
+authentication, skip this section and proceed to [Setting up the connector in Amazon Quick](#msteams-action-connector-setup "#msteams-action-connector-setup").
 
 Before you configure Amazon Quick, create an app registration in Microsoft Entra.
 Complete all of the following steps in Entra before moving to the Amazon Quick
@@ -149,56 +167,118 @@ following values. You need them for the Amazon Quick configuration.
 | Directory (tenant) ID                     | App registration overview page |
 | Client secret value                       | Certificates & secrets page    |
 
-## Set up the integration in Amazon Quick
+## Setting up the connector in Amazon Quick
 
-After you complete the Entra configuration, create the integration in
-Amazon Quick.
+### Connect from the Available tab
+
+If you want to use Default OAuth app authentication, you can connect
+directly from the **Available** tab without additional
+configuration.
 
 1. In the Amazon Quick console, choose
-   **Integrations**.
-2. Choose the **Actions** tab.
-3. Choose **Microsoft Teams** and choose the Add (plus "+")
-   button.
-4. Fill in the integration details:
-   - **Name** – Descriptive name for your Teams
-     integration.
-   - **Description** (Optional) – Purpose of the
-     integration.
+   **Connectors**.
+2. On the **Available** tab, find
+   **MSTeams** and choose
+   **Connect**.
+3. Complete the Microsoft sign-in flow and grant the requested
+   permissions.
 
-5. Choose your connection type and fill in the connection settings:
-   1. For **User authentication
-      (OAuth)**, configure the following fields:
-      - **Base URL** –
-        `https://graph.microsoft.com/v1.0`
-      - **Client ID** – Application
-        (client) ID from your Entra app
-        registration.
-      - **Client Secret** – Client secret
-        value from your Entra app
-        registration.
-      - **Token URL** –
-        `https://login.microsoftonline.com/`{tenant-id}`/oauth2/v2.0/token`
-      - **Auth URL** –
-        `https://login.microsoftonline.com/`{tenant-id}`/oauth2/v2.0/authorize`
-      - **Redirect URL** –
-        `https://`{region}`.quicksight.aws.amazon.com/sn/oauthcallback`
+To configure a connector with Custom OAuth app or Service-to-Service
+OAuth instead, use the **Create for your team** tab as
+described below.
 
-   2. For **Service authentication**,
-      configure the following fields:
-      - **Client ID** – Application
-        (client) ID from your Entra app
-        registration.
-      - **Client Secret** – Client secret
-        value from your Entra app
-        registration.
-      - **Token URL** –
-        `https://login.microsoftonline.com/`{tenant-id}`/oauth2/v2.0/token`
-      - **Scope** –
-        `.default`
+### Create from the Create for your team tab
 
-6. Choose **Create and continue**.
-7. Choose users to share the integration with.
-8. Choose **Next**.
+After you complete any required Entra configuration, create the
+connector in Amazon Quick.
+
+1. In the Amazon Quick console, choose
+   **Connectors**.
+2. Choose the **Create for your team** tab.
+3. Find and choose **Microsoft Teams**.
+
+###### Note
+
+If a Microsoft Teams connector already exists, a dialog
+appears with your existing connectors. To use an existing
+connector, choose it. To create a new one, choose
+**No, create new**. 4. Enter a **Name** for your connector. Optionally,
+choose **+ Add Description** to add a
+description. 5. For **Connection type**, choose **Public
+network**. 6. For **OAuth Configuration**, choose one of the
+following authentication methods and configure the required
+fields.
+
+    1. For **Default OAuth
+     app**:
+
+
+    No additional credentials are needed. Choose
+     **Next** to continue.
+    2. For **Custom OAuth app**
+     (user authentication with delegated permissions), configure
+     the following fields:
+
+
+
+
+    	* **Base URL** (Optional) – The
+    	 Microsoft Graph API base URL. Example:
+    	 `https://graph.microsoft.com/v1.0`
+    	* **Client ID** – The Application
+    	 (client) ID from your Entra app
+    	 registration.
+    	* **Client secret** – The client
+    	 secret value from your Entra app
+    	 registration.
+    	* **Token URL** – The token
+    	 endpoint. Example:
+    	 `https://login.microsoftonline.com/`{tenant-id}`/oauth2/v2.0/token`
+    	* **Authorization URL** – The
+    	 authorization endpoint. Example:
+    	 `https://login.microsoftonline.com/`{tenant-id}`/oauth2/v2.0/authorize`
+    	* **Redirect URL** – Pre-filled
+    	 with the Amazon Quick callback URL.
+    3. For **Service-to-Service
+     OAuth** (service authentication with
+     application permissions), configure the following
+     fields:
+
+
+
+
+    	* **Base URL** (Optional) – The
+    	 Microsoft Graph API base URL. Example:
+    	 `https://graph.microsoft.com/v1.0`
+    	* **Client ID** – The Application
+    	 (client) ID from your Entra app
+    	 registration.
+    	* **Client secret** – The client
+    	 secret value from your Entra app
+    	 registration.
+    	* **Token URL** – The token
+    	 endpoint. Example:
+    	 `https://login.microsoftonline.com/`{tenant-id}`/oauth2/v2.0/token`
+    ###### Note
+
+    The scope for the client credentials token request
+     (`https://graph.microsoft.com/.default`)
+     is set automatically by Amazon Quick. You do not need
+     to configure it manually.
+
+7. Choose **Next**.
+8. If you chose **Default OAuth app**
+   or **Custom OAuth app**, a Microsoft
+   authorization window opens. Review the requested permissions and
+   choose **Accept**.
+
+If you see an error instead of the consent dialog, your
+organization might restrict third-party app access. See
+[Admin consent for Microsoft 365](#msteams-admin-consent "#msteams-admin-consent"). 9. On the **Review** page, review the available
+actions for the connector. Choose
+**Next**. 10. On the **Publish** page, choose who can access
+the connector. You can enable access for everyone in your
+organization or search for specific teams or groups. 11. Choose **Publish**.
 
 ## Available actions
 
@@ -252,3 +332,51 @@ provider does not exist in tenant`** – The user
   account is not configured in the correct Microsoft Entra tenant. Verify
   the user account exists in the tenant that matches the Directory
   (tenant) ID in your app registration.
+
+## Admin consent for Microsoft 365
+
+When you use the **Default OAuth app**
+authentication method, Amazon Quick uses an AWS-managed application to
+access Microsoft Teams on behalf of the signed-in user. Most users can
+complete setup without any extra steps. However, if your Microsoft 365
+tenant restricts third-party app access, a Microsoft 365 administrator
+must grant one-time consent before users can connect.
+
+If you see an error when you sign in during connector setup, your
+organization might restrict third-party app access. Share the following
+information with your Microsoft 365 administrator:
+
+- **What to do:** Grant admin consent
+  for the Amazon Quick Microsoft Teams integration
+  application.
+- **Why:** Amazon Quick needs
+  delegated access to Teams channels, chats, meetings, and calendar
+  data to perform actions on behalf of users.
+
+An administrator can grant consent in one of the following ways:
+
+- **Through the consent dialog** – A
+  Global Administrator or Privileged Role Administrator initiates the
+  connector setup flow. In the Microsoft sign-in dialog, they select
+  the **Consent on behalf of your organization**
+  check box and choose **Accept**.
+- **Through the Microsoft Entra admin
+  center** – Sign in to the [Microsoft Entra admin
+  center](https://entra.microsoft.com/ "https://entra.microsoft.com/") on the Microsoft website. Choose **Enterprise
+  applications**, locate the Amazon Quick application,
+  choose **Permissions**, and choose
+  **Grant admin consent for `Your
+Organization`**.
+
+After consent is granted, any user in your organization can connect
+without being prompted for individual consent.
+
+###### Note
+
+To check whether your tenant restricts user consent, go to the
+Microsoft Entra admin center and choose **Enterprise
+applications**, **Consent and
+permissions**, **User consent
+settings**. If the setting is **Do not allow user
+consent**, an administrator must grant consent before
+users can use the connector.

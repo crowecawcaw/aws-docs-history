@@ -6,14 +6,14 @@ If you are not an administrator, you can sign up for Quick using a link provided
 
 1. **Getting your sign-up link**
 
-Sign up for Amazon Quick with the link provided by your admin. 2. **Account creation and QuickSight access**
+Sign up for Amazon Quick with the link provided by your admin. 2. **Account creation and Quick access**
 
-After you've created your account, from within QuickSight, search for Amazon Quick. 3. **Account configuration**
+After you've created your account, from within Quick, search for Amazon Quick. 3. **Account configuration**
 
-Enter your Account name, Email, region, and Authentication method.
+Enter your Account name, Email, Region, and Authentication method.
 
-    * For authentication, Amazon Q supports Pro license integration with start URL format: https://amzn.awsapps.com/start
-    * Default region is us-east-1
+    * For authentication, Amazon Quick supports Pro license integration with start URL format: https://amzn.awsapps.com/start
+    * Default Region is us-east-1
 
 4. **Plan selection**
 

@@ -49,11 +49,10 @@ and Share integration.
 ### Connect
 
 1. In the Amazon Quick console, choose
-   **Integrations**.
-2. Choose the **Actions** tab.
-3. Under **Set up a new app integration for
-   Actions**, locate the **Model Context Protocol
-   (MCP)** tile and choose **Add** (+).
+   **Connectors**.
+2. Choose the **Create for your team** tab.
+3. Find and choose **Model Context Protocol
+   (MCP)**.
 4. On the **Create integration** page, enter the
    following fields:
    - **Name** – A descriptive name for your

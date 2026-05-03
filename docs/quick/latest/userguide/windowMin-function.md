@@ -86,4 +86,4 @@ The following screenshot shows the results of this trailing 12-month example. Th
 sum(Revenue) field is added to the chart to show the difference between the revenue
 and the trailing 12-month minimum revenue.
 
-![](images/windowMin.png)
+![Line chart comparing Revenue and Trailing12Min metrics from Jan 2017 to Nov 2018.](images/windowMin.png)

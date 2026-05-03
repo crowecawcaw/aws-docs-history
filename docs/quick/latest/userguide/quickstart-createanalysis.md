@@ -35,7 +35,7 @@ To upload the sample data, do the following:
 
 2. On the **Datasets** page, choose the **Web and
    Social Media Analytics** dataset, and then choose **Use
-   in Analysis** at upper right.
+   in Analysis**.
 3. In the **Data** pane, choose **Date**,
    and then choose **Mailing list adds**.
 

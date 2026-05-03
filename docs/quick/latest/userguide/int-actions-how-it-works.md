@@ -6,13 +6,13 @@ Action connectors in Amazon Quick create secure connections between Amazon Quick
 
 **Action connectors**
 
-The foundational resources that integrate with external services. Amazon Quick supports 15 third-party integrations and 5 AWS service integrations. For information about setting up AWS built-in service action connectors, see [AWS service action connectors](builtin-services-integration.md "builtin-services-integration.md").
+The foundational resources that integrate with external services. For a list of supported connectors, see [Supported integrations](supported-integrations.md "supported-integrations.md"). For information about setting up AWS built-in service action connectors, see [AWS service action connectors](builtin-services-integration.md "builtin-services-integration.md").
 
 **Authentication methods**
 
 Action connectors support multiple authentication methods including
-managed (3LO), custom user-based, API key, and 2LO. For detailed information
-about each authentication method, see [Authentication methods](action-connector-apis.md#action-connector-apis-authentication "action-connector-apis.md#action-connector-apis-authentication").
+Default OAuth app, Custom OAuth app, Service-to-Service OAuth, and API key. For detailed information
+about each authentication method, see [Authentication methods](quick-action-auth.md "quick-action-auth.md").
 
 **Implementation types**
 

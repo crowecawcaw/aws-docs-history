@@ -127,4 +127,4 @@ percentileDiscOver
 
 The following screenshot shows the how these two examples look on a chart.
 
-![](images/percentilOver-50-98.png)
+![Table showing billed amounts and percentages by customer region for APAC, EMEA, and US.](images/percentilOver-50-98.png)

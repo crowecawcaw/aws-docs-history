@@ -33,7 +33,7 @@ The following screenshot shows the results of the example. With the addition of
 `Service Line`, the total amount billed for each is displayed, and
 the average of these three values displays in the calculated field.
 
-![](images/avgOver.png)
+![Table showing Billed Amount and avgOver values grouped by Customer Region and Service Line.](images/avgOver.png)
 
 ## Arguments
 

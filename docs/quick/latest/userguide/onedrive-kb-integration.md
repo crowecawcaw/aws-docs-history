@@ -32,7 +32,7 @@ center, which immediately revokes all access.
 ## Set up the knowledge base integration
 
 1. In the Amazon Quick console, choose
-   **Integrations**.
+   **Knowledge**.
 2. Choose **Microsoft OneDrive** and choose the Add
    (plus "+") button.
 3. In the **Create OneDrive knowledge base** dialog,

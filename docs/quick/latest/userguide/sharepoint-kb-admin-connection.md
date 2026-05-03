@@ -14,13 +14,11 @@ setup on your behalf, collect these values before you proceed:
 - Directory (tenant) ID (from Step 3)
 - SharePoint domain URL (from your Microsoft 365 tenant)
 
-## Navigate to integrations
+## Navigate to Knowledge
 
-1. In Amazon Quick, choose **Integrations** from the
+1. In Amazon Quick, choose **Knowledge** from the
    left navigation pane.
-2. On the **Integrations** page, choose the **Knowledge
-   bases** tab.
-3. Under **Set up new knowledge base**, locate
+2. Under **Set up new knowledge base**, locate
    **Microsoft SharePoint Online** and choose the
    **Add** icon.
 

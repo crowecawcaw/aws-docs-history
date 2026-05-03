@@ -1,6 +1,6 @@
 # Zendesk Suite integration
 
-With Zendesk Suite integration in Amazon Quick, you can perform actions within Zendesk instances, including managing tickets, users, and customer support workflows. This integration supports action execution only and requires Amazon Quick Pro tier or higher.
+With Zendesk Suite integration in Amazon Quick, you can perform actions within Zendesk instances, including managing tickets, users, and customer support workflows. For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md "integration-console-setup-process.md").
 
 ## What you can do
 
@@ -14,18 +14,18 @@ Create, update, and manage tickets, users, and customer support processes throug
 
 Follow these steps to create your Zendesk integration:
 
-1.  In the Amazon Quick console, choose **Integrations**.
-2.  Choose **Zendesk Suite** from the integration options, click
-    the Add (plus "+") button.
-3.  Fill in the integration details:
+1.  In the Amazon Quick console, choose **Connectors**.
+2.  Choose the **Create for your team** tab.
+3.  Find and choose **Zendesk Suite**.
+4.  Fill in the integration details:
     - **Name** - Descriptive name for your Zendesk integration.
     - **Description** (Optional) - Purpose of the integration.
 
-4.  Choose your connection type:
+5.  Choose your connection type:
     - **User authentication** - OAuth-based authentication for individual user access.
     - **Service authentication** - API key-based authentication for service access.
 
-5.  Fill in the connection settings based on your selected authentication method (either user or service):
+6.  Fill in the connection settings based on your selected authentication method (either user or service):
     1.  For **User authentication (OAuth)**, configure the following fields:
 
             * **Base URL** - Zendesk instance URL.
@@ -42,9 +42,9 @@ Follow these steps to create your Zendesk integration:
         - **Base URL** - Zendesk instance URL.
         - **Email** - Associated Zendesk user email.
 
-6.  Select **Create and continue**.
-7.  Choose users to share the integration with.
-8.  Click **Next**.
+7.  Select **Create and continue**.
+8.  Choose users to share the integration with.
+9.  Click **Next**.
 
 ## Manage Zendesk integrations
 

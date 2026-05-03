@@ -101,7 +101,7 @@ A new, blank visual is created and receives focus. 5. Use one of the following o
 
 
 
-    	![](images/field-wells.png)
+    	![Line chart field wells showing X axis, Value, Color, and Small multiples dimension options.](images/field-wells.png)
     	2. From the **Data** pane, drag the fields
     	 that you want to use to the appropriate field wells.
     	 Typically, you want to use dimension or measure fields as

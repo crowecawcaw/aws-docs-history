@@ -90,7 +90,7 @@ to return column values from field wells or themes:
 
 **Example**
 
-![](images/get-column-example.png)
+![Table showing sum of cancelled orders grouped by day of month and day of week.](images/get-column-example.png)
 
 `getColumn` can access any column from the table:
 

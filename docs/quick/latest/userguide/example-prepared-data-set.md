@@ -6,11 +6,11 @@ already in Amazon Quick Sight, you can download it: [web-and-social-analytics.cs
 
 ###### To prepare the Marketing dataset and create an analysis
 
-1. From the Amazon Quick homepage, choose **Data** at
-   left.
+1. From the Amazon Quick homepage, choose **Data** in
+   the navigation pane.
 2. In the **Datasets** tab, choose
    **New** then **Dataset**.
-3. From the exisitng data sources, choose the **Web and Social
+3. From the existing data sources, choose the **Web and Social
    Media Analytics** Amazon S3 data source. Choose your table and
    then choose **Edit/Preview data**.
 

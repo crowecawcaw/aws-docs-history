@@ -4,28 +4,39 @@ Amazon Quick supports integrations with various third-party applications and ser
 
 | Supported Integration Capabilities | Integration | Actions | Knowledge Base |
 | ---------------------------------- | ----------- | ------- | -------------- |
+| Airtable                           | ✓           | —       |
 | Amazon S3                          | ✓           | ✓       |
 | Asana                              | ✓           | —       |
 | Atlassian Confluence Cloud         | ✓           | ✓       |
+| Atlassian Jira Cloud               | ✓           | —       |
 | BambooHR                           | ✓           | —       |
 | Box                                | ✓           | —       |
 | Canva                              | ✓           | —       |
+| Dropbox                            | ✓           | —       |
 | GitHub                             | ✓           | —       |
-| Google Drive                       | —           | ✓       |
+| Gmail                              | ✓           | —       |
+| Google Analytics                   | ✓           | —       |
+| Google Calendar                    | ✓           | —       |
+| Google Docs                        | ✓           | —       |
+| Google Drive                       | ✓           | ✓       |
+| Google Meet                        | ✓           | —       |
+| Google Sheets                      | ✓           | —       |
+| Google Slides                      | ✓           | —       |
 | HubSpot                            | ✓           | —       |
 | HuggingFace                        | ✓           | —       |
 | Intercom                           | ✓           | —       |
-| Atlassian Jira Cloud               | ✓           | —       |
 | Linear                             | ✓           | —       |
-| Microsoft Outlook                  | ✓           | —       |
 | Microsoft OneDrive                 | ✓           | ✓       |
-| Microsoft SharePoint Cloud         | ✓           | ✓       |
+| Microsoft Outlook                  | ✓           | —       |
+| Microsoft SharePoint Online        | ✓           | ✓       |
 | Microsoft Teams                    | ✓           | —       |
 | Model Context Protocol (MCP)       | ✓           | —       |
 | Monday.com                         | ✓           | —       |
+| New Relic                          | ✓           | —       |
 | Notion                             | ✓           | —       |
 | OpenAPI Specification              | ✓           | —       |
 | PagerDuty                          | ✓           | —       |
+| QuickBooks                         | ✓           | —       |
 | REST API                           | ✓           | —       |
 | Salesforce                         | ✓           | —       |
 | SAP Bill of Materials              | ✓           | —       |
@@ -36,8 +47,10 @@ Amazon Quick supports integrations with various third-party applications and ser
 | ServiceNow                         | ✓           | —       |
 | Slack                              | ✓           | —       |
 | Smartsheet                         | ✓           | —       |
+| Visier                             | ✓           | —       |
 | Web Crawler                        | —           | ✓       |
 | Zendesk Suite                      | ✓           | —       |
+| Zoom                               | ✓           | —       |
 
 ###### Note
 

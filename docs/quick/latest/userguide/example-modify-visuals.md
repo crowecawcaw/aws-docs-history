@@ -93,7 +93,7 @@ The filter is applied to the scatter plot visual. This is
 indicated with a filter icon on the visual drop-down
 menu. 8. Apply the filter to the line chart visual.
 
-In the **Filter** pane at left, choose the
+In the **Filter** pane, choose the
 **Date** filter again and choose
 **Single visual**, and then choose
 **All visuals of this dataset**.

@@ -10,6 +10,7 @@ examples to learn more about the requirements for connecting to specific data so
 - [Creating a dataset using Amazon Athena data](create-a-data-set-athena.md "create-a-data-set-athena.md")
 - [Using Amazon OpenSearch Service with Amazon Quick Sight](connecting-to-os.md "connecting-to-os.md")
 - [Creating a dataset using Amazon S3 files](create-a-data-set-s3.md "create-a-data-set-s3.md")
+- [Creating a dataset using Amazon S3 Tables](create-a-data-set-s3-tables.md "create-a-data-set-s3-tables.md")
 - [Creating a data source using Apache Spark](create-a-data-source-spark.md "create-a-data-source-spark.md")
 - [Using Databricks in Quick Sight](quicksight-databricks.md "quicksight-databricks.md")
 - [Creating a dataset using Google BigQuery](quicksight-google-big-query.md "quicksight-google-big-query.md")

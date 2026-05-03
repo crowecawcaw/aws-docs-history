@@ -85,4 +85,4 @@ lead(
 
 The following screenshot shows the results of the example.
 
-![](images/leadCalc.png)
+![Table showing Lead and Sum of Billed Amount by Customer Segment with grouped field wells.](images/leadCalc.png)

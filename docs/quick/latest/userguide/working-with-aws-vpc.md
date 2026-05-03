@@ -49,7 +49,7 @@ a dashboard to help you analyze your CloudTrail logs. By combining Amazon Quick 
 from your other AWS services, you can get a fuller view of how your data is being
 used.
 
-You don't need to be an networking expert to connect and use a VPC with Amazon Quick,
+You don't need to be a networking expert to connect and use a VPC with Amazon Quick,
 because Amazon Quick provides a user interface for adding your network information.
 However, the person who gathers the information that you need for setup should have some
 understanding of networking concepts and using VPCs. This person also needs read-only

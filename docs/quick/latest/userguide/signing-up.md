@@ -1,4 +1,12 @@
-# Signing up for an Amazon Quick subscription
+# Signing up through the AWS Console
+
+###### Note
+
+This section covers signing up for Amazon Quick through the AWS Management Console for
+organizations that already use AWS. If you want to sign up without an
+AWS account, see [Signing up at quick.aws.com](../../../quicksuite/latest/userguide/standalone-signup.md "../../../quicksuite/latest/userguide/standalone-signup.md") for a faster setup process using email
+or social login. For a comparison of features available with each account type,
+see [Pricing and availability](../../../quicksuite/latest/userguide/what-is.md#pricing "../../../quicksuite/latest/userguide/what-is.md#pricing").
 
 When you first sign up for Amazon Quick, you get a free trial subscription for twenty-five
 users for 30 days. During the process of signing up, you may set options for your
@@ -45,5 +53,5 @@ Your AWS account number is displayed for verification purposes. 2. Enter a uniqu
 
 5. Review the choices that you made, then choose **Create
    account**.
-6. Upon completion, your Quick account will be created. To open
+6. Upon completion, your Quick account is created. To open
    Quick, choose **Go to Quick**.

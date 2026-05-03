@@ -285,7 +285,7 @@ To configure the Pivot step, use the following in the **Configuration** pane:
 5. **Aggregation function**: Choose the aggregation method (e.g., Sum).
 6. **Group by**: Specify organizing columns (e.g., Segment).
 
-![](images/pivot.png)
+![Pivot table configuration showing input tables transformed into output with pivot and value columns.](images/pivot.png)
 
 **Supported operators per data type**
 
@@ -320,7 +320,7 @@ To configure the Unpivot step, in the **Configuration** pane:
    - **Unpivoted column values**: The name for the
      unpivoted values (e.g., Sales)
 
-![](images/unpivot.png)
+![Unpivot columns configuration showing input columns mapped to output column row values.](images/unpivot.png)
 
 **Key features**
 

@@ -16,6 +16,7 @@ to add cross-sheet controls, see [Controls](cross-sheet-filters.md#cross-sheet-c
 - [Adding filter controls](#filter-controls-add "#filter-controls-add")
 - [Pinning filter controls to the top of a sheet](#filter-controls-pin "#filter-controls-pin")
 - [Customizing filter controls](#filter-controls-customize "#filter-controls-customize")
+- [Sorting filter control values](#filter-controls-sort "#filter-controls-sort")
 - [Cascading filter controls](#cascading-controls "#cascading-controls")
 
 ## Adding filter controls
@@ -309,6 +310,140 @@ customize the remaining options.
         Removes the helper text in text fields.
 
 2.  When finished, choose **Apply**.
+
+## Sorting filter control values
+
+Custom sort gives authors control over how values appear in dropdown and list filter
+controls. By default, control values are sorted alphabetically in ascending order. With
+custom sort, you can display values in a specific business order (such as fiscal quarters
+or priority levels) or sort by related metrics (such as sorting regions by total
+sales).
+
+Custom sort is available for **Dropdown** (single select and
+multiselect) and **List** (single select and multiselect) control
+styles. The available sort options depend on whether the control uses specific values or
+values from a dataset column.
+
+###### Note
+
+Custom sort is not available for date type columns at this time. To sort date
+values in a logical order, use the sort by another field option with a date-related
+field.
+
+### When to use custom sort
+
+Use custom sort when you need to do the following:
+
+- **Display values in business logic order**
+  – For example, priority levels (Critical, High, Medium, Low), fiscal
+  quarters (Q1, Q2, Q3, Q4), or custom status workflows (New, In Progress,
+  Review, Complete).
+- **Sort by related metrics** – For
+  example, products sorted by total sales, regions sorted by customer count,
+  categories sorted by average revenue, or departments sorted by
+  headcount.
+
+### Configuring custom sort
+
+The sort configuration options depend on whether the control uses specific values
+or values from a dataset column.
+
+#### Controls with specific values
+
+When a control uses specific values that you entered manually, the following
+sort options are available in the **Sort** section of the
+**Format control** pane.
+
+###### To configure sort for a specific values control
+
+1. Choose the filter control in the sheet.
+2. Choose the pencil icon to open the **Format control**
+   pane.
+3. In the **Format control** pane, locate the
+   **Sort** section.
+4. Choose one of the following options:
+   - **Ascending (A–Z,
+     0–9)** – Sorts values in ascending
+     order. This is the default.
+   - **Descending (Z–A,
+     9–0)** – Sorts values in descending
+     order.
+   - **User-defined order** – Displays the
+     values in the exact order you entered them. This preserves your
+     custom ordering without any automatic sorting.
+
+###### Note
+
+When a control has values from both specific values and a source entity
+(such as a filter or parameter), the combined list is sorted together. For
+user-defined order, values are appended in the order they were entered. If a
+value from the source cannot be sorted based on the current configuration, it
+is appended at the end of the list.
+
+#### Controls with values from a dataset column
+
+When a control displays values from a dataset column, you can sort by that
+field or another field in the dataset using an aggregation function. This is
+useful when you want to order control values by a related metric, such as sorting
+a list of products by total sales.
+
+###### To configure sort for a column-based control
+
+1. Choose the filter control in the sheet.
+2. Choose the pencil icon to open the **Format control**
+   pane.
+3. In the **Format control** pane, locate the
+   **Sort** section.
+4. Configure the following options:
+   - **Sort by control column**
+     – Sorts the control values based on the column that the
+     control is tied to.
+     - For **Sort direction**, choose
+       **Ascending** or
+       **Descending**.
+     - For **Aggregation**, choose an
+       aggregation function or choose **No
+       aggregation** to sort by the raw column
+       values.
+
+   - **Sort by another field**
+     – Sorts the control values based on a different column in
+     the dataset.
+     - For **Sort by field**, choose a
+       column from the dataset. For calculated fields, only
+       scalar (non-aggregated) calculated columns are
+       available.
+     - For **Aggregation**, choose an
+       aggregation function to apply to the sort field. The
+       available functions depend on the data type of the
+       selected column. For numeric fields, you can use Sum,
+       Average, Count, Distinct count, Min, Max, Median,
+       Percentile, Var, Stdev, and other statistical functions.
+       For non-numeric fields, you can use Count and Distinct
+       count.
+     - For **Sort direction**, choose
+       **Ascending** or
+       **Descending**.
+
+#### Cross-sheet filter controls
+
+You can configure sort order for cross-sheet filter controls through the
+cross-sheet settings. The sort configuration applies to all instances of the
+control across sheets.
+
+###### To configure sort for a cross-sheet filter control
+
+1. Open the cross-sheet settings for the filter.
+2. In the default control configuration section, locate the
+   **Sort** settings.
+3. Configure the sort options as described in the preceding
+   sections.
+4. Choose **Apply**.
+
+###### Note
+
+Dashboard controls inherit the sort configuration from the analysis. Sort
+configuration changes are not available to dashboard readers.
 
 ## Cascading filter controls
 

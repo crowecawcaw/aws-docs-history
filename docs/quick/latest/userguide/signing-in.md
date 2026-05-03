@@ -24,9 +24,9 @@ credentials and use them to perform only a few account and service management ta
 more information, see [AWS account root user](../../../IAM/latest/UserGuide/id_root-user.md "../../../IAM/latest/UserGuide/id_root-user.md") in the
 _IAM User Guide_.
 
-## How to sign in to Quick
+## Signing in through the AWS Console
 
-Use the following procedure to sign in to Quick.
+Use the following procedure to sign in to Quick through the AWS Management Console.
 
 ###### To sign in to Quick
 
@@ -40,8 +40,8 @@ the account name inside of that email. If you don't have the email that invited
 you to Quick, ask the Quick administrator in your
 organization for the information that you need.
 
-You can also find your Quick account name by selecting the profile
-icon at the upper-right of the Quick console menu. In some cases,
+You can also find your Quick account name by choosing the profile
+icon on the Quick console menu. In some cases,
 you might not have access to your Quick account or have an
 administrator who can provide this information, or both. If so, contact AWS
 Support and open a ticket that includes your AWS customer ID. 3. For **Username**, enter your Quick user name.
@@ -122,3 +122,9 @@ the following procedure to finish signing in.
 If your sign-in process happens automatically and you need to use a different account, use
 a private or incognito browser window. Doing this prevents the browser from reusing cached
 settings.
+
+###### Note
+
+If you're not sure which type of account you have: if you signed up at [quick.aws.com](https://quick.aws.com "https://quick.aws.com") and use an email/password to sign
+in, you have a Free or Plus account. If you sign in through the AWS Management Console or your
+organization's single sign-on portal, you have an AWS Console account.

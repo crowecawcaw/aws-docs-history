@@ -91,7 +91,7 @@ lag(
 
 The following screenshot shows the results of the example.
 
-![](images/lagCalc.png)
+![Pivot table showing Sales and lag1 values grouped by Order Date from Jan 4-12, 2020.](images/lagCalc.png)
 
 The following example uses a calculated field with `lag` to display the
 sales amount for the previous row next to the amount for the current row, sorted by
@@ -108,4 +108,4 @@ lag
 
 The following screenshot shows the results of the example.
 
-![](images/lagCalc2.png)
+![Table showing sum of Sales and Lag2 values grouped by Order Date and Segment fields.](images/lagCalc2.png)

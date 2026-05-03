@@ -58,7 +58,7 @@ To create a user-managed Google Drive knowledge base, complete the following
 steps in the Amazon Quick console.
 
 1. In the Amazon Quick console, choose
-   **Integrations**.
+   **Knowledge**.
 2. Find **Google Drive** and choose the **Add** (+) icon.
 3. In the **Create Google Drive knowledge base**
    dialog, under **Authentication method**, choose

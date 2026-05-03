@@ -13,9 +13,11 @@ of scale and complexity:
 
 - **Amazon Quick Flows** empowers any business user to
   automate repetitive, routine tasks without needing technical
-  expertise
+  expertise.
 - **Amazon Quick Automate** enables power users to
-  orchestrate end-to-end business processes at enterprise scale
+  orchestrate end-to-end business processes at enterprise scale. Amazon Quick Automate
+  is not available for Free or Plus accounts created at
+  [quick.aws.com](https://quick.aws.com "https://quick.aws.com").
 
 ## Choosing between Quick Flows and Quick Automate
 

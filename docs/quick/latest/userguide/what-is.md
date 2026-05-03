@@ -16,12 +16,14 @@ can connect to diverse data sources, create interactive dashboards, build intell
 automations, and get immediate insights through natural language conversations with AI
 agents.
 
-Quick includes five integrated capabilities that work together: Amazon Quick Sight for
+Quick includes six integrated capabilities that work together: Amazon Quick Sight for
 data visualization, Amazon Quick Flows for workflow automation, Amazon Quick Automate for process
 optimization, Amazon Quick Index for data discovery, and Amazon Quick Research for
 comprehensive analysis. The platform extends beyond traditional BI by bringing AI assistance
 directly into your existing tools through extensions for browsers, Slack, and Microsoft
-Office applications.
+Office applications. You can also build and publish interactive web applications using
+apps in Amazon Quick. For more information, see
+[Build web applications with apps in Amazon Quick](using-amazon-quick-apps.md "using-amazon-quick-apps.md").
 
 ###### Topics
 
@@ -72,26 +74,59 @@ task completion.
 
 ## Pricing and availability
 
-Quick charges you both for user subscriptions, and for data capacity. For
-information about what's included in the tiers of user subscriptions and index capacity,
-see [Quick
-pricing](https://aws.amazon.com/quicksuite/pricing/ "https://aws.amazon.com/quicksuite/pricing/").
+Amazon Quick offers flexible pricing depending on how you access the service.
 
-For a list of regions where Quick is currently available, see [Quick
+**Free/Plus accounts (quick.aws.com)**
+
+Standalone accounts offer Free, Free Trial Plus, and Paid Plus plans. For current pricing details, plan limits, and feature comparisons, see [Quick pricing](https://aws.amazon.com/quick/pricing/ "https://aws.amazon.com/quick/pricing/").
+
+**AWS Console accounts**
+
+Console accounts follow standard AWS billing with user subscriptions
+and data capacity charges. For information about subscription types and
+pricing, see [Quick pricing](https://aws.amazon.com/quicksuite/pricing/ "https://aws.amazon.com/quicksuite/pricing/").
+
+The following table summarizes the features available for each account type.
+
+| Feature                                         | Free and Plus | Professional and Enterprise |
+| ----------------------------------------------- | ------------- | --------------------------- |
+| Chat with AI                                    | ✓             | ✓                           |
+| Chat agents                                     | ✓             | ✓                           |
+| Spaces                                          | ✓             | ✓                           |
+| Amazon Quick Flows                              | ✓             | ✓                           |
+| Research                                        | ✓             | ✓                           |
+| Apps                                            | ✓             | ✓                           |
+| Extensions                                      | ✓             | ✓                           |
+| Desktop application                             | ✓             | ✓                           |
+| Integrations and connectors                     | ✓             | ✓                           |
+| Amazon Quick Sight dashboards and analytics     | —             | ✓                           |
+| Amazon Quick Automate                           | —             | ✓                           |
+| API access                                      | —             | ✓                           |
+| IAM Identity Center and IAM identity management | —             | ✓                           |
+| AWS Management Console administration           | —             | ✓                           |
+
+For a list of Regions where Quick is currently available, see [Quick
 endpoints and quotas](../../../general/latest/gr/quicksight.md "../../../general/latest/gr/quicksight.md") and [AWS Regions,
 websites, IP address ranges, and endpoints](../../../quicksuite/latest/userguide/regions.md "../../../quicksuite/latest/userguide/regions.md").
 
 ## Accessing Quick
 
-You can access Quick in the following ways in the AWS Regions that it's
-available in:
+You can access Quick in the following ways:
+
+**[Amazon Quick standalone (quick.aws.com)](https://quick.aws.com "https://quick.aws.com")**
+
+You can sign up for Amazon Quick directly at [https://quick.aws.com](https://quick.aws.com "https://quick.aws.com") without an
+existing AWS account. You can sign up using your email address or
+social login credentials. Accounts are available in Free, Free Trial Plus, and Paid Plus
+plan tiers. This is the fastest way to get started with Amazon Quick for
+individuals and small teams. For more information, see [Signing up at quick.aws.com](../../../quicksuite/latest/userguide/standalone-signup.md "../../../quicksuite/latest/userguide/standalone-signup.md").
 
 **[AWS Management Console](https://aws.amazon.com/console/ "https://aws.amazon.com/console/")**
 
-You can use the AWS Management Console—a browser-based interface to interact
-with AWS services—to access the Quick console and
-resources. You can perform most Quick tasks using the
-Quick console.
+If your organization uses AWS, you can access Quick through
+the AWS Management Console. Console accounts use IAM Identity Center or IAM for authentication and
+follow standard AWS billing. You can perform most Quick
+administration tasks using the AWS Management Console. For more information, see [Signing up through the AWS Console](../../../quicksuite/latest/userguide/signing-up.md "../../../quicksuite/latest/userguide/signing-up.md").
 
 **[Amazon Quick API](../../../quicksight/latest/APIReference/Welcome.md "../../../quicksight/latest/APIReference/Welcome.md")**
 
@@ -172,3 +207,6 @@ Explains key concepts and important Quick terminology.
 
 Outlines how to set up Quick so that you can begin using
 it.
+
+If you want to get started with Amazon Quick without an AWS account, you can sign
+up directly at [quick.aws.com](https://quick.aws.com "https://quick.aws.com"). See [Signing up at quick.aws.com](../../../quicksuite/latest/userguide/standalone-signup.md "../../../quicksuite/latest/userguide/standalone-signup.md") for step-by-step instructions.

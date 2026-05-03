@@ -216,4 +216,4 @@ total_bonus = `total_days_worked` * `bonus_per_day`
 
 ```
 
-![](images/addWorkDays-function-example.png)
+![Table showing employee data grouped by employee_id with aggregated values for days worked and bonuses.](images/addWorkDays-function-example.png)

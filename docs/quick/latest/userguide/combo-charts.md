@@ -110,6 +110,6 @@ Use the following procedure to create a combo chart.
      in **Group/Color**, you can't have more than
      one field under **Bars**.
 
-![](images/combo-chart-example2-clustered.png) 5. (Optional) Add drill-down layers by dragging one or more additional fields
+![Bar chart showing website metrics by event type, with empty having highest visits and declining trend line overlay.](images/combo-chart-example2-clustered.png) 5. (Optional) Add drill-down layers by dragging one or more additional fields
 to the **X axis** or **Group/Color** field
 wells. For more information about adding drill-downs, see [Adding drill-downs to visual data in Quick Sight](adding-drill-downs.md "adding-drill-downs.md").

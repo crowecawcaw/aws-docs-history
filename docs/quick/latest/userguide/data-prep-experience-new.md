@@ -26,3 +26,4 @@ overall efficiency.
 - [Data preparation limits](data-preparation-limits.md "data-preparation-limits.md")
 - [Ingestion behavior changes](ingestion-behavior-changes.md "ingestion-behavior-changes.md")
 - [Frequently asked questions](new-data-prep-faqs.md "new-data-prep-faqs.md")
+- [Dataset Enrichment](dataset-enrichment.md "dataset-enrichment.md")

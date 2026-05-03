@@ -168,11 +168,9 @@ Gather the following information from your Confluence Cloud administrator:
 After you prepare your authentication credentials, create the integration in
 Amazon Quick.
 
-1. In the Amazon Quick console, choose **Integrations**.
-2. Choose the **Actions** tab.
-3. Under **Set up a new app integration for Actions**,
-   find **Atlassian Confluence Cloud** and choose the Add
-   (plus "+") button.
+1. In the Amazon Quick console, choose **Connectors**.
+2. Choose the **Create for your team** tab.
+3. Find and choose **Atlassian Confluence Cloud**.
 4. On the **Integration type** page, select
    **Perform actions in Atlassian Confluence Cloud** and
    choose **Next**.

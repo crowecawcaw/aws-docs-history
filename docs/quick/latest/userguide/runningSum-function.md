@@ -74,4 +74,4 @@ The following screenshot shows the results of the example. The red labels show h
 each amount is added ( `a + b = c` ) to the next amount, resulting in a
 new total.
 
-![](images/runningSum.png)
+![Table showing Billed Amount and runningSum by date with labels indicating addition formula.](images/runningSum.png)

@@ -1,6 +1,6 @@
 # OpenAPI Specification integration
 
-With OpenAPI Specification integration, you can create custom integrations based on OpenAPI schemas. This allows you to connect to any API that provides an OpenAPI specification. This integration supports action execution only and requires Amazon Quick Pro tier or higher.
+With OpenAPI Specification integration, you can create custom integrations based on OpenAPI schemas. This allows you to connect to any API that provides an OpenAPI specification. For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md "integration-console-setup-process.md").
 
 ## What you can do
 
@@ -80,15 +80,16 @@ Unsupported authentication schemes in the OpenAPI specification will be ignored,
 
 After preparing your OpenAPI specification and authentication credentials, follow these steps to create your OpenAPI Specification integration.
 
-1. In the Amazon Quick console, choose **Integrations**.
-2. Click **Add** (plus "+" button).
-3. On the Add Schema page, select **Import Schema** and choose a schema to import.
-4. Select **Next**.
-5. Fill in the integration details including name and description.
-6. Review the available actions generated from your OpenAPI specification.
-7. Select **Create and continue**.
-8. Choose users to share the integration with.
-9. Click **Next**.
+1. In the Amazon Quick console, choose **Connectors**.
+2. Choose the **Create for your team** tab.
+3. Find and choose **OpenAPI Specification**.
+4. On the Add Schema page, select **Import Schema** and choose a schema to import.
+5. Select **Next**.
+6. Fill in the integration details including name and description.
+7. Review the available actions generated from your OpenAPI specification.
+8. Select **Create and continue**.
+9. Choose users to share the integration with.
+10. Click **Next**.
 
 ### Expected results
 

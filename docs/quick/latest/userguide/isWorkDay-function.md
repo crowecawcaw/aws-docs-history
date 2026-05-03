@@ -69,4 +69,4 @@ is_start_date_work_day = isWorkDay(employment_start_date)
 is_end_date_work_day = isWorkDay(employment_end_date)
 ```
 
-![](images/isWorkDay-example.png)
+![Table showing employee data with start and end dates, including workday indicators.](images/isWorkDay-example.png)

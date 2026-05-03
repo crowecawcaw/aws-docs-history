@@ -16,6 +16,7 @@ Amazon Quick Sight:
 - Amazon Redshift Spectrum
 - Amazon S3
 - Amazon S3 Analytics
+- Amazon S3 Tables
 - Apache Impala
 - Apache Spark 2.0 or later
 - AWS IoT Analytics

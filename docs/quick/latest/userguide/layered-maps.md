@@ -15,7 +15,7 @@ geometries are not supported.
 
 The following image shows a layer map visual in Amazon Quick.
 
-![](images/layer-map.png)
+![Choropleth map of Washington DC area showing percentage data by census tract with gradient from green to orange.](images/layer-map.png)
 
 ## Creating a shape layer with layered maps
 

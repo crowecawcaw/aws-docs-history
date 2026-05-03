@@ -1,95 +1,133 @@
 # Integration workflows
 
-The following procedures describe the general workflows for creating and managing different types of integrations in Amazon Quick.
+The following procedures describe the general workflows for creating and
+managing different types of integrations in Amazon Quick.
 
-## Creating a knowledge base from scratch
+## Creating a knowledge base
 
-Data access integrations establish the connection to external systems creating
-knowledge bases from external data sources.
+Knowledge bases connect external data sources to Amazon Quick so you can
+ask questions about and get insights from your content.
 
-1. In the Amazon Quick console, choose **Integrations**.
-2. Choose the **Knowledge bases** tab.
-3. From the integration grid, choose the application you want to connect to (for example, **Google Drive**, **OneDrive**, or **S3**).
-4. In the Integration details section, select the "Add" option (**+**). If required, complete the authentication process
-   in the popup that occurs.
-5. Fill in the appropriate details, depending on your chosen integration. For
-   example, for Amazon S3, select your AWS account and your Amazon S3 bucket url.
-6. Enter a **Name** for your integration.
-7. Enter the required connection details for your chosen application.
-8. If required, choose **Create and continue** to
-   continue to knowledge base creation.
-9. Specify a name for your knowledge base.
-10. Specify the files you want to include in your knowledge base using the file
-    picker or appropriate sync options (for example, **S3** allows you to choose to add all content of specific
-    content).
-11. Choose **Create**.
+1. In the Amazon Quick console, choose
+   **Knowledge**.
+2. Find the application you want to connect to (for example,
+   **Google Drive**, **Microsoft OneDrive**, or **Amazon
+   S3**) and choose the **Add** (+)
+   icon.
+3. Complete the authentication process for your chosen
+   application.
+4. Enter a **Name** and optional
+   description for your knowledge base.
+5. Select the files and folders you want to include in your knowledge
+   base using the file picker or sync options.
+6. Choose **Create**.
 
-Syncing of your content will automatically begin after creation of the
-knowledge base.
+After you choose **Create**, the data sync starts
+automatically.
 
 ## Creating an action connector
 
-Action Connectors enable you to perform actions in external applications directly from
-Amazon Quick.
+Action connectors enable you to perform actions in external applications
+directly from Amazon Quick.
 
-1. In the Amazon Quick console, choose **Integrations**.
-2. Choose the **Actions** tab.
-3. From the integration grid, choose an application that supports action connectors (for example, **OneDrive**, **Confluence**, or **Slack**).
-4. In the Integration details section, select the "Add" option (**+**).
-5. Enter a **Name** for your action connector.
-6. Configure the task-specific settings for your chosen application.
-7. Choose **Next** to complete the authentication
-   and setup process.
+1. In the Amazon Quick console, choose
+   **Connectors**.
+2. Choose the **Create for your team** tab.
+3. Find and choose the application you want to connect to (for
+   example, **Google Drive**, **Atlassian Confluence Cloud**, or **Slack**).
+4. Enter a **Name** for your connector.
+   Optionally, add a description.
+5. Configure the connection type and authentication method. For more
+   information about authentication options, see [Authentication methods](quick-action-auth.md "quick-action-auth.md").
+6. Review the available actions and choose
+   **Publish**.
 
-After successful creation, your action connector is available for use in Amazon Quick workflows and can be triggered from analyses, dashboards, or automated processes.
+After successful creation, your action connector is available for use in
+Amazon Quick chat, workflows, and Amazon Q Apps.
 
 ## Managing existing integrations
 
-You can edit, delete, share, and manage existing integrations from the Integrations console. You can access management options from the integrations list or from an integration's details page.
+You can edit, delete, share, and manage existing integrations from the
+Amazon Quick console.
 
 ### To edit an integration
 
-From the integrations list:
+For knowledge bases:
 
-1. In the Amazon Quick console, choose **Integrations**.
-2. Choose the **Knowledge bases** or **Actions** tab.
-3. Choose the **Open menu** icon in the row of the integration you want to edit.
-4. Choose **Edit**.
-5. Modify the integration settings as needed and choose **Save changes**.
+1. In the Amazon Quick console, choose
+   **Knowledge**.
+2. Choose the knowledge base you want to edit.
+3. Choose the menu icon (⋮) and select
+   **Edit**.
+4. Modify the settings as needed and choose
+   **Save changes**.
 
-You can also edit from the integration details page by choosing the integration name, then choosing the menu icon (⋮) and selecting **Edit**.
+For action connectors:
+
+1. In the Amazon Quick console, choose
+   **Connectors**.
+2. Choose the connector you want to edit.
+3. Choose the menu icon (⋮) and select
+   **Edit**.
+4. Modify the connector settings as needed and choose
+   **Save changes**.
 
 ### To delete an integration
 
-From the integrations list:
+For knowledge bases:
 
-1. In the Amazon Quick console, choose **Integrations**.
-2. Choose the **Knowledge bases** or **Actions** tab.
-3. Choose the **Open menu** icon in the row of the integration you want to delete.
-4. Choose **Delete**.
-5. In the confirmation dialog, review the integration details and choose **Delete** to confirm.
+1. In the Amazon Quick console, choose
+   **Knowledge**.
+2. Choose the knowledge base you want to delete.
+3. Choose the menu icon (⋮) and select
+   **Delete**.
+4. In the confirmation dialog, choose
+   **Delete** to confirm.
 
-You can also delete from the integration details page by choosing the integration name, then choosing the menu icon (⋮) and selecting **Delete**.
+For action connectors:
 
-The integration is permanently removed from your account. Any dependent resources
-(such as knowledge bases) that rely on this integration will be impacted.
+1. In the Amazon Quick console, choose
+   **Connectors**.
+2. Choose the connector you want to delete.
+3. Choose the menu icon (⋮) and select
+   **Delete**.
+4. In the confirmation dialog, choose
+   **Delete** to confirm.
+
+The integration is permanently removed from your account. Any
+dependent resources (such as knowledge bases) that rely on this
+integration will be impacted.
 
 ### To share an integration
 
-From the integrations list, choose the **Open menu** icon in the row of the integration and choose **Share**. You can also choose **Share** from the integration details page.
+From the connector or knowledge base details page, choose the menu
+icon (⋮) and select **Share**.
 
 ### Managing action connectors
 
-Action connector integrations have additional management options available from the integration details page.
+Action connectors have additional management options available from
+the connector details page.
 
 **Sign in or re-connect**
 
-For integrations that use user-based OAuth authentication, you must sign in to the server before you can use its actions. If you have not yet signed in, a **Sign in** button appears at the top of the details page. After you sign in, the button changes to **Re-Connect**, which you can use to re-authenticate if your session expires or the connection is interrupted.
+For connectors that use Default OAuth app or Custom OAuth
+app authentication, you must sign in to the service before
+you can use its actions. If you have not yet signed in, a
+**Sign in** button appears on the details
+page. After you sign in, you can use
+**Re-Connect** to re-authenticate if your
+session expires or the connection is interrupted.
 
 **Test action APIs**
 
-Choose **Test action APIs** in the Actions section of the details page to test individual actions provided by the integration. This lets you verify that the connection is working correctly and that the server responds as expected.
+Choose **Test action APIs** in the
+Actions section of the details page to test individual
+actions provided by the connector. This lets you verify that
+the connection is working correctly and that the service
+responds as expected.
 
 ###### Note
 
-The **Test action APIs** option is available for action connectors only. Knowledge base integrations do not support action testing.
+The **Test action APIs** option is available for
+action connectors only. Knowledge bases do not support action
+testing.

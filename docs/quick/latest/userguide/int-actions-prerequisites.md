@@ -2,13 +2,10 @@
 
 Before using actions in Amazon Quick, ensure you have the following:
 
-## License requirements
+## Subscription requirements
 
-One of the following Amazon Quick licenses:
-
-- Reader Pro - Provides read access to data and the ability to execute actions in connected services.
-- Author - Includes Reader Pro capabilities plus the ability to create and modify content and configurations.
-- Author Pro - Full feature access including advanced action configuration and administrative capabilities.
+For information about subscription requirements for configuring and using
+action connectors, see [Set up integrations in the console](integration-console-setup-process.md "integration-console-setup-process.md").
 
 ## Service requirements
 

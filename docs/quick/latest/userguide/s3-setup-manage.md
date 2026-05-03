@@ -5,7 +5,7 @@
 After your administrator has completed the setup tasks, follow these steps to create
 your Amazon S3 knowledge base.
 
-1.  In the Amazon Quick console, choose **Integrations**.
+1.  In the Amazon Quick console, choose **Knowledge**.
 2.  Under **Amazon S3**, choose **Add** (the
     plus **+** button).
 3.  On the **Connect S3 bucket** page, choose your data source:
@@ -101,8 +101,7 @@ You can modify your existing Amazon S3 knowledge bases:
 
 You can create multiple knowledge bases from the same Amazon S3 integration:
 
-1. In the Amazon Quick console, choose **Integrations**, and
-   then select the **Data** tab.
+1. In the Amazon Quick console, choose **Knowledge**.
 2. Choose your existing Amazon S3 integration from the list.
 3. Choose the three-dot icon under **Actions**, then choose
    **Create knowledge base**.

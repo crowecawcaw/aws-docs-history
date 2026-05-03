@@ -31,7 +31,7 @@ To initiate a Divergence, in your workflow:
 4. Apply your desired transformations to each path.
 5. Use Join or Append steps to recombine paths into a single output.
 
-![](images/divergence.png)
+![Data flow diagram showing Superstore 2018 data through rename, customer join, product join, filters, self join, and join 2 steps.](images/divergence.png)
 
 **Key features**
 

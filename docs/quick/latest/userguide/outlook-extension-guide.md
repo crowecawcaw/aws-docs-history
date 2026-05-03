@@ -1,4 +1,9 @@
-# Amazon Quick Microsoft Outlook extension
+# Amazon Quick Microsoft Outlook extension (Legacy)
+
+###### Note
+
+This is the legacy version of the Microsoft Outlook extension. We
+recommend using the new [Amazon Quick Microsoft Outlook extension (Preview)](outlook-extension-preview-guide.md "outlook-extension-preview-guide.md") for new deployments.
 
 ###### Note
 

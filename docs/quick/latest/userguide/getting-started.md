@@ -1,13 +1,15 @@
 # Getting started with Amazon Quick
 
-Amazon Quick is a comprehensive business intelligence platform that enables you to
-analyze data, create visualizations, automate workflows, and collaborate with your team. Use
+Amazon Quick is an AI-powered workspace that combines business intelligence,
+AI-assisted chat, workflow automation, and research capabilities in a single service. Use
 the topics in this section to get started with the core capabilities of Quick,
-including Amazon Quick Sight for data analysis, Quick Flows for workflow automation, and Quick Automate for
-process optimization.
+including AI agents for natural language conversations, Amazon Quick Sight for data visualization,
+Spaces for team collaboration, Quick Flows for workflow automation, and Research for
+comprehensive analysis.
 
-You can begin by using sample data to explore the platform's features, or connect to your
-own data sources to start building real-world solutions.
+You can begin by exploring the platform's features through AI chat, using sample data
+for visualizations, or connecting to your own data sources to start building real-world
+solutions.
 
 ###### Topics
 

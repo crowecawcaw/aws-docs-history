@@ -2,9 +2,10 @@
 
 Extension access connects your Amazon Quick account to third party applications like
 Microsoft Teams, Microsoft Outlook, Microsoft
-Word, and Slack. Think of it as giving permission for
-Amazon Quick to work inside the apps your team already uses, helping them accomplish their
-work, assisted by generative AI, and without context switching.
+Word, Microsoft Excel, Microsoft PowerPoint,
+and Slack. Think of it as giving permission for Amazon Quick to work inside
+the apps your team already uses, helping them accomplish their work, assisted by generative
+AI, and without context switching.
 
 As an admin, you configure extension access. Then, either an admin or an author must
 install the extension in the Amazon Quick console to make the extension available to end
@@ -46,7 +47,11 @@ User roles and extension permissions work as follows:
 ###### Topics
 
 - [Browser extension](browser-extension.md "browser-extension.md")
-- [Amazon Quick Microsoft Outlook extension](outlook-extension.md "outlook-extension.md")
+- [Amazon Quick Microsoft Outlook extension (Preview)](outlook-extension-preview.md "outlook-extension-preview.md")
+- [Amazon Quick Microsoft Excel extension (Preview)](excel-extension-preview.md "excel-extension-preview.md")
+- [Amazon Quick Microsoft Word extension (Preview)](word-extension-preview.md "word-extension-preview.md")
+- [Amazon Quick Microsoft PowerPoint extension (Preview)](powerpoint-extension-preview.md "powerpoint-extension-preview.md")
 - [Amazon Quick Slack extension](slack-extension.md "slack-extension.md")
-- [Amazon Quick Microsoft Word extension](word-extension.md "word-extension.md")
 - [Amazon Quick Microsoft Teams extension](teams-extension.md "teams-extension.md")
+- [Amazon Quick Microsoft Outlook extension (Legacy)](outlook-extension.md "outlook-extension.md")
+- [Amazon Quick Microsoft Word extension (Legacy)](word-extension.md "word-extension.md")

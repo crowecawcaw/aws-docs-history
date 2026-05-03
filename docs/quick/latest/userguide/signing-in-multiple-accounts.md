@@ -6,7 +6,7 @@ switch between them as necessary.
 ###### To sign in to multiple accounts
 
 1. Follow the steps at [Signing in to Amazon Quick](signing-in.md "signing-in.md") to sign in to Amazon Quick.
-2. At the top-right corner, select your account name to reveal a dropdown
+2. From the navigation bar, choose your account name to reveal a dropdown
    menu.
 3. Hover over **Switch accounts**. A list of accounts that
    you've signed in to before appears. Do one of the following:
@@ -18,7 +18,7 @@ switch between them as necessary.
 
 ###### To sign out of an account or all accounts
 
-1. Select your account name at the top-right corner to reveal a dropdown
+1. From the navigation bar, choose your account name to reveal a dropdown
    menu.
 2. Hover over **Sign out**. You can choose to sign out of your
    current account or to **Sign out of all accounts**.

@@ -1,8 +1,7 @@
 # SAP workload integrations
 
 With SAP workload integrations, you can perform actions within various SAP systems. Manage
-business data, inventory, materials, and business processes. These integrations support
-action execution only and require Amazon Quick Pro tier or higher.
+business data, inventory, materials, and business processes. For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md "integration-console-setup-process.md").
 
 ## What you can do
 
@@ -127,18 +126,19 @@ Prepare SAP user authentication credentials and ensure proper system access perm
 
 After preparing your SAP system configuration and authentication credentials, the setup process is similar for all SAP integration types. Choose between OAuth 2.0 or Basic Authentication based on your security requirements.
 
-1.  In the Amazon Quick console, choose **Integrations**.
-2.  Select one of the available SAP connectors:
+1.  In the Amazon Quick console, choose **Connectors**.
+2.  Choose the **Create for your team** tab.
+3.  Select one of the available SAP connectors:
     - **SAP Bill of Materials**
     - **SAP Business Partner**
     - **SAP Material Stock**
     - **SAP Physical Inventory Documents**
     - **SAP Product Master**
 
-3.  Click **Add** (plus "+" button).
-4.  Fill in the name and description for your SAP integration.
-5.  Choose the connection type for your integration.
-6.  Configure authentication using one of the supported methods:
+4.  Click **Add** (plus "+" button).
+5.  Fill in the name and description for your SAP integration.
+6.  Choose the connection type for your integration.
+7.  Configure authentication using one of the supported methods:
     1. **OAuth 2.0 configuration**
 
     For OAuth 2.0 authentication, provide:
@@ -156,9 +156,9 @@ After preparing your SAP system configuration and authentication credentials, th
         * **Password** - Your SAP system password
         * **Domain URL** - SAP system API endpoint URL
 
-7.  Select **Create and continue**.
-8.  Choose users to share the integration with.
-9.  Click **Next**.
+8.  Select **Create and continue**.
+9.  Choose users to share the integration with.
+10. Click **Next**.
 
 ### Expected results
 
@@ -270,9 +270,9 @@ options.
 
 Follow these steps to modify your SAP workload integration settings.
 
-1. In the Amazon Quick console, choose **Integrations**.
-2. Choose your SAP workload integration type from the integration
-   grid.
+1. In the Amazon Quick console, choose **Connectors**.
+2. Choose your SAP workload connector from the
+   connector list.
 3. Select your integration from the list and choose **Edit**.
 4. Modify integration settings:
    - Update authentication credentials (username and password).

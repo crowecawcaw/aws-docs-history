@@ -25,13 +25,11 @@ base. If you require document-level access control, use
 
 ## Create the SharePoint knowledge base
 
-### Navigate to integrations
+### Navigate to Knowledge
 
-1. In Amazon Quick, choose **Integrations** from
+1. In Amazon Quick, choose **Knowledge** from
    the left navigation panel.
-2. On the Integrations page, choose the **Knowledge
-   bases** tab.
-3. Under **Set up new knowledge base**, locate
+2. Under **Set up new knowledge base**, locate
    **Microsoft SharePoint Online** and choose the
    **+** icon.
 

@@ -97,4 +97,4 @@ The following screenshot shows the results of this trailing 12-month sum example
 The `sum(Revenue)` field is added to the chart to show the difference
 between the revenue and the trailing 12-month sum of revenue.
 
-![](images/windowSum.png)
+![Line chart showing revenue and moving sum trends from 2017 to 2018, with moving sum rising to 3B.](images/windowSum.png)

@@ -1,13 +1,15 @@
 # How Amazon Quick works
 
-Amazon Quick provides five integrated API sets for comprehensive business intelligence and analytics:
+Amazon Quick provides six integrated capabilities for comprehensive business intelligence and analytics:
 
 - Amazon Quick Sight for interactive data visualization and business intelligence
 - Amazon Quick Flows for intelligent workflow automation
 - Amazon Quick Automate for streamlined business process automation
 - Amazon Quick Index for data discovery and cataloging
 - Amazon Quick Research for comprehensive data analysis
-  **Data visualization and business intelligence**
+- Apps in Amazon Quick for building and sharing interactive web applications
+
+###### Data visualization and business intelligence
 
 With Amazon Quick Sight, your applications can:
 
@@ -19,7 +21,7 @@ With Amazon Quick Sight, your applications can:
 - Share dashboards and reports across your organization
   Use cases include self-service business intelligence, executive dashboards, and embedded analytics.
 
-**Intelligent workflow automation**
+###### Intelligent workflow automation
 
 With Amazon Quick Flows and Amazon Quick Automate, your applications can:
 
@@ -30,7 +32,7 @@ With Amazon Quick Flows and Amazon Quick Automate, your applications can:
 - Orchestrate complex multi-step business processes
   Use cases include document processing, approval workflows, and system integration automation.
 
-**AI-powered analysis and collaboration**
+###### AI-powered analysis and collaboration
 
 With Quick AI capabilities, your applications can:
 
@@ -42,7 +44,18 @@ With Quick AI capabilities, your applications can:
 - Integrate AI assistance into existing tools through extensions
   Use cases include conversational analytics, knowledge management, and research automation.
 
-**Key features**
+###### Interactive web applications
+
+With apps in Amazon Quick, you can:
+
+- Describe the app you need in natural language and Quick will generate a working application in minutes
+- Connect to data sources and take action in business systems
+- Use built-in storage for application data
+- Embed Amazon Quick Sight visuals directly into your applications
+- Publish and share applications through a unique URL
+  Use cases include internal tools, data-driven dashboards, and team productivity applications.
+
+###### Key features
 
 - SPICE in-memory engine for high-performance analytics
 - Natural language processing for conversational data interaction
@@ -63,6 +76,7 @@ To demo the Quick capabilities, you can see [Getting started with Amazon Quick](
 - [Automate workflows with Amazon Quick Flows and Amazon Quick Automate](#how-quick-works-automate-workflows "#how-quick-works-automate-workflows")
 - [Create and use Amazon Quick custom agents](#how-quick-works-chat-agents "#how-quick-works-chat-agents")
 - [Share data and collaborate with Amazon Quick spaces and folders](#how-quick-works-spaces-folders "#how-quick-works-spaces-folders")
+- [Build web applications with apps in Amazon Quick](#how-quick-works-apps "#how-quick-works-apps")
 - [Governance and administration for Amazon Quick](#how-quick-works-governance-admin "#how-quick-works-governance-admin")
 
 ## Business intelligence (BI) with Amazon Quick Sight
@@ -173,6 +187,24 @@ Folders complement spaces by providing structured organization for your analytic
 assets, with support for both personal and shared folders. Shared restricted folders
 ensure that sensitive assets remain within designated boundaries while still enabling
 collaboration.
+
+## Build web applications with apps in Amazon Quick
+
+Apps in Amazon Quick in Quick lets you build, publish, and share interactive
+web applications by describing what you need in natural language. The apps in Quick
+agent generates a working app with a live preview that you can review, iterate on, and
+publish.
+
+Apps in Quick capabilities include:
+
+- Describing your application in natural language and Quick will generate a working app in minutes
+- Connecting to data sources and taking action in business systems
+- Using built-in storage for persistent application data
+- Embedding Amazon Quick Sight visuals for interactive data visualization
+- Adding AI inference capabilities to your applications
+- Publishing and sharing apps through a unique URL
+
+For more information, see [Build web applications with apps in Amazon Quick](using-amazon-quick-apps.md "using-amazon-quick-apps.md").
 
 ## Governance and administration for Amazon Quick
 

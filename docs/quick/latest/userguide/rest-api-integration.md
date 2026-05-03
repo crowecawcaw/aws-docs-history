@@ -60,21 +60,21 @@ You can use custom headers and parameters for flexible authentication and API in
 
 After you have prepared your API endpoint and authentication credentials, follow these steps to create your REST API integration:
 
-1. In the Amazon Quick console, choose **Integrations**.
-2. Choose **REST API Connection** from the integration options,
-   and click the Add (plus "+") button.
-3. Fill in the integration details:
+1. In the Amazon Quick console, choose **Connectors**.
+2. Choose the **Create for your team** tab.
+3. Find and choose **REST API Connection**.
+4. Fill in the integration details:
    - **Name** - Descriptive name for your REST API integration.
    - **Description** (Optional) - Purpose of the integration.
 
-4. Choose your connection type:
+5. Choose your connection type:
    - **User authentication** - OAuth-based authentication for individual user access.
    - **Service authentication** - API key-based authentication for service access.
 
-5. Fill in the connection settings based on your selected authentication method (either user or service).
-6. Select **Next**.
-7. Review the actions that are available.
-8. Select **Create and continue**.
+6. Fill in the connection settings based on your selected authentication method (either user or service).
+7. Select **Next**.
+8. Review the actions that are available.
+9. Select **Create and continue**.
 
 ## Available task actions
 

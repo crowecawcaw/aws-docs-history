@@ -1,6 +1,6 @@
 # Asana integration
 
-Connect Amazon Quick to your Asana workspace to manage projects, tasks, and team collaboration. You can create, update, and manage Asana content without leaving your Amazon Quick environment. This integration requires Amazon Quick Pro tier or higher.
+Connect Amazon Quick to your Asana workspace to manage projects, tasks, and team collaboration. You can create, update, and manage Asana content without leaving your Amazon Quick environment. For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md "integration-console-setup-process.md").
 
 ## What you can do
 
@@ -14,17 +14,18 @@ Create, update, and manage projects, tasks, and team assignments through the Asa
 
 Follow these steps to connect Amazon Quick to your Asana workspace.
 
-1. In the Amazon Quick console, choose **Integrations**.
-2. Click **Add** (plus "+" button).
-3. Fill in the following details:
+1. In the Amazon Quick console, choose **Connectors**.
+2. Choose the **Create for your team** tab.
+3. Find and choose **Asana**.
+4. Fill in the following details:
    - **Name** - Enter a descriptive name for your Asana integration.
    - **Description** - Describe the purpose of this integration.
 
-4. Choose the connection type and configure the network type settings.
-5. Configure the authentication settings based on your chosen authentication method.
-6. Select **Create and continue**.
-7. Add users to share the integration with.
-8. Click **Next**.
+5. Choose the connection type and configure the network type settings.
+6. Configure the authentication settings based on your chosen authentication method.
+7. Select **Create and continue**.
+8. Add users to share the integration with.
+9. Click **Next**.
 
 ## Configure authentication
 

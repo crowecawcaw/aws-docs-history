@@ -1,6 +1,6 @@
 # PagerDuty integration
 
-Connect Amazon Quick to your PagerDuty system to manage incidents, alerts, schedules, and on-call rotations. You can perform these actions without leaving your Amazon Quick environment. This integration requires Amazon Quick Pro tier or higher.
+Connect Amazon Quick to your PagerDuty system to manage incidents, alerts, schedules, and on-call rotations. You can perform these actions without leaving your Amazon Quick environment. For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md "integration-console-setup-process.md").
 
 ## What you can do
 
@@ -14,9 +14,9 @@ Create, update, and manage incidents, alerts, schedules, and escalation policies
 
 Follow these steps to connect Amazon Quick to your PagerDuty system.
 
-1. In the Amazon Quick console, choose **Integrations**.
-2. Click the Add (plus "+") button.
-3. Choose **PagerDuty** from the integration options.
+1. In the Amazon Quick console, choose **Connectors**.
+2. Choose the **Create for your team** tab.
+3. Find and choose **PagerDuty**.
 4. Fill in the integration details:
    - **Name** - Enter a descriptive name for your PagerDuty integration.
    - **Description** (Optional) - Describe the purpose of this integration.

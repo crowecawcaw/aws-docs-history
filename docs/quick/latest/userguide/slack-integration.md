@@ -1,94 +1,318 @@
 # Slack integration
 
-With Slack integration in Amazon Quick, you can perform actions within Slack workspaces, including sending messages, managing channels, and interacting with Slack APIs. This integration supports action execution only and requires Amazon Quick Pro tier or higher.
+With the Slack action connector, you can access the Slack platform directly in
+Amazon Quick through natural language. You can send messages, manage channels,
+search content, and interact with users and user groups without leaving
+Amazon Quick.
 
-## What you can do
+Amazon Quick supports multiple authentication methods for Slack. Choose the
+method that best fits your organization's security requirements.
 
-With Slack integration, you can perform actions through the action connector.
-
-**Action connector**
-
-Send messages, manage channels, and access Slack APIs through authenticated connections.
+- **Default OAuth app** – Uses an
+  AWS-managed OAuth application. No additional credentials are needed.
+  You authenticate directly with your Slack workspace.
+- **Custom OAuth app** – Uses a
+  customer-managed Slack app. This option gives your organization full
+  control over the OAuth configuration.
+- **Bearer Token** – Uses a Slack bot
+  token for authentication. This method is suitable for bot-level access
+  to a workspace.
+  For more information about the authentication methods that Amazon Quick
+  supports, see [Authentication methods](quick-action-auth.md "quick-action-auth.md").
 
 ## Before you begin
 
-Before you set up Slack integration, make sure you have the following:
+Make sure that you have the following before you set up the
+integration.
 
-- Slack workspace with appropriate permissions.
-- Slack app or bot token with required scopes.
-- Amazon Quick Author or higher.
-- Administrative access to configure OAuth applications (if using user authentication).
+- A Slack workspace with access to the channels and data that you
+  want to use.
+- For **Custom OAuth app**: Access to
+  the [Slack API
+  dashboard](https://api.slack.com/apps "https://api.slack.com/apps") on the Slack website to create an app.
+- For **Bearer Token**: A bot token
+  (starts with `xoxb-`) from a Slack app. For more
+  information, see [Quickstart
+  app settings](https://docs.slack.dev/app-management/quickstart-app-settings "https://docs.slack.dev/app-management/quickstart-app-settings") on the Slack website.
+- For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md "integration-console-setup-process.md").
 
-## Set up Slack OAuth app
+## Configuring Slack
 
-Before you configure the integration, you need to create a Slack app with OAuth capabilities. Follow these steps:
+If you are using **Default OAuth app**
+authentication, skip this section and go to [Setting up the connector in Amazon Quick](#slack-quicksuite-setup "#slack-quicksuite-setup").
 
-1. Go to the Slack API website and create a new Slack app.
-2. Configure OAuth scopes based on the actions you want to perform.
-3. Set up redirect URLs to match your Amazon Quick integration configuration.
-4. Note the client ID and client secret for use in Amazon Quick integration setup.
+For Custom OAuth app or Bearer Token authentication, complete the
+applicable steps in Slack before you configure Amazon Quick.
 
-## Set up Slack integration
+### Create a Slack app for Custom OAuth app or Bearer Token
 
-Use the unified Integrations tab in the Amazon Quick console to set up Slack integration for task execution. Follow these steps:
+Create a Slack app to get the client credentials or bot token that
+you need for Amazon Quick.
 
-1. In the Amazon Quick console, choose **Integrations**.
-2. Choose **Slack** from the integration options, click the Add
-   (plus "+") button.
-3. Fill in the integration details:
-   - **Name** - Descriptive name for your Slack integration.
-   - **Description** (Optional) - Purpose of the integration.
+1. Go to the [Slack API
+   dashboard](https://api.slack.com/apps "https://api.slack.com/apps") on the Slack website and choose
+   **Create New App**.
+2. Choose **From scratch**.
+3. Enter an **App Name** and select your Slack
+   workspace. Choose **Create App**.
+4. In the left sidebar, choose **OAuth &
+   Permissions**.
+5. Under **Redirect URLs**, choose
+   **Add New Redirect URL** and enter the
+   Amazon Quick callback URL:
+   `https://`{region}`.quicksight.aws.amazon.com/sn/oauthcallback`
 
-4. Choose your connection type (user authentication for Slack).
-5. Fill in the connection settings for user authentication:
-   1. Configure the following OAuth fields:
-      - **Base URL** - Slack API base URL (typically https://slack.com/api).
-      - **Client ID** - Slack app client ID.
-      - **Client Secret** - Slack app client secret.
-      - **Token URL** - Slack OAuth token endpoint.
-      - **Auth URL** - Slack OAuth authorization endpoint.
-      - **Redirect URL** - OAuth redirect URI configured in your Slack app.
+Choose **Add**, then choose
+**Save URLs**. 6. Under **Scopes**, add the Bot Token Scopes
+that your integration requires. For the recommended scopes,
+see [Recommended scopes](#slack-oauth-scopes "#slack-oauth-scopes"). 7. In the left sidebar, choose **Basic
+Information**. Under **App
+Credentials**, record the following values:
 
-6. Select **Create and continue**.
-7. Choose users to share the integration with.
-8. Click **Next**.
+    * **Client ID**
+    * **Client secret**
 
-## Available task actions
+8. For **Bearer Token**: Install
+   the app to your workspace from the **OAuth &
+   Permissions** page. After installation, copy the
+   **Bot User OAuth Token** (starts with
+   `xoxb-`).
 
-After you create your Slack integration, you can review the available actions for interacting with Slack workspaces. Common Slack actions include:
+### Recommended scopes
 
-- Send messages to channels or direct messages.
-- Create and manage channels.
-- Retrieve channel information and member lists.
-- Upload and share files.
-- Manage user presence and status.
-- Access workspace and team information.
+The following scopes are requested when you connect to Slack.
+When you create a custom Slack app, add these scopes on the
+**OAuth & Permissions** page. For Custom OAuth
+app, add them as **User Token Scopes**. For Bearer
+Token, add them as **Bot Token Scopes**.
+
+| Slack recommended scopes | Scope                                              | Description |
+| ------------------------ | -------------------------------------------------- | ----------- |
+| `calls:read`             | Reads call information.                            |
+| `calls:write`            | Creates and manages calls.                         |
+| `channels:history`       | Reads message history in public channels.          |
+| `channels:read`          | Reads information about public channels.           |
+| `channels:write`         | Manages public channels.                           |
+| `chat:write`             | Sends messages to channels and conversations.      |
+| `dnd:read`               | Reads Do Not Disturb settings.                     |
+| `dnd:write`              | Updates Do Not Disturb settings.                   |
+| `emoji:read`             | Reads custom emoji.                                |
+| `files:read`             | Reads files shared in channels.                    |
+| `files:write`            | Uploads and manages files.                         |
+| `groups:history`         | Reads message history in private channels.         |
+| `groups:read`            | Reads information about private channels.          |
+| `groups:write`           | Manages private channels.                          |
+| `im:history`             | Reads message history in direct messages.          |
+| `im:read`                | Reads information about direct messages.           |
+| `im:write`               | Starts direct messages.                            |
+| `links:read`             | Reads link previews.                               |
+| `links:write`            | Manages link previews.                             |
+| `mpim:history`           | Reads message history in group direct<br>messages. |
+| `mpim:read`              | Reads information about group direct<br>messages.  |
+| `mpim:write`             | Starts group direct messages.                      |
+| `pins:read`              | Reads pinned messages.                             |
+| `pins:write`             | Pins and unpins messages.                          |
+| `reactions:read`         | Reads emoji reactions on messages.                 |
+| `reactions:write`        | Adds and removes emoji reactions.                  |
+| `reminders:read`         | Reads reminders.                                   |
+| `reminders:write`        | Creates reminders.                                 |
+| `remote_files:read`      | Reads remote files.                                |
+| `remote_files:share`     | Shares remote files.                               |
+| `search:read`            | Searches messages and files.                       |
+| `stars:read`             | Reads starred items.                               |
+| `stars:write`            | Stars and unstars items.                           |
+| `team:read`              | Reads workspace information.                       |
+| `usergroups:read`        | Reads user group information.                      |
+| `usergroups:write`       | Manages user groups.                               |
+| `users:read`             | Reads user information.                            |
+| `users:read.email`       | Reads user email addresses.                        |
+| `users:write`            | Updates user information.                          |
+| `users.profile:read`     | Reads user profile information.                    |
+| `users.profile:write`    | Updates user profile information.                  |
 
 ###### Note
 
-The specific actions available depend on the OAuth scopes configured in your Slack app and the permissions granted during authentication.
+Not all scopes are available for both User Token Scopes and
+Bot Token Scopes. Some scopes, such as `search:read`
+and `stars:read`, are available only as User Token
+Scopes. When you configure scopes for Bearer Token
+authentication, verify scope availability in the
+[Slack API scopes
+reference](https://api.slack.com/scopes "https://api.slack.com/scopes") on the Slack website.
 
-## Share integrations
+## Setting up the connector in Amazon Quick
 
-You can share Slack action connectors with other users in your organization. Follow these steps:
+### Connect from the Available tab
 
-1. After you create the integration, choose **Share integration**.
-2. Select users or groups to share the integration with.
-3. Set appropriate permissions for shared access.
-4. Confirm sharing settings.
+If you want to use Default OAuth app authentication, you can connect
+directly from the **Available** tab without additional
+configuration.
 
-Shared users can use the Slack integration to perform actions within the connected Slack workspace, subject to the permissions configured in the original OAuth setup.
+1. In the Amazon Quick console, choose
+   **Connectors**.
+2. On the **Available** tab, find
+   **Slack** and choose
+   **Connect**.
+3. Complete the Slack sign-in flow and grant the requested
+   permissions.
 
-## Manage Slack integrations
+To configure a connector with Custom OAuth app or Bearer Token
+instead, use the **Create for your team** tab as
+described below.
 
-After you create your Slack integration, you can manage it through the Integrations console using these options:
+### Create from the Create for your team tab
 
-- **Edit integration** - Update authentication settings or OAuth configuration.
-- **Share integration** - Make the integration available to other users in your organization.
-- **Monitor usage** - View integration activity and API usage metrics.
-- **Review actions** - See the complete list of available Slack actions.
-- **Delete integration** - Remove the integration and revoke associated OAuth tokens.
+After you complete any required Slack configuration, create the connector
+in Amazon Quick.
 
-###### Important
+1. In the Amazon Quick console, choose
+   **Connectors**.
+2. Choose the **Create for your team** tab.
+3. Find and choose **Slack**.
 
-Deleting a Slack integration will revoke the OAuth tokens and prevent any shared users from accessing the Slack workspace through Amazon Quick.
+###### Note
+
+If a Slack connector already exists, a dialog appears with
+your existing connectors. To use an existing connector,
+choose it. To create a new one, choose
+**No, create new**. 4. Enter a **Name** for your connector. Optionally,
+choose **+ Add Description** to add a
+description. 5. For **Connection type**, choose **Public
+network**. 6. For **OAuth Configuration**, choose one of the
+following authentication methods and configure the required
+fields.
+
+    1. For **Default OAuth
+     app**:
+
+
+    No additional credentials are needed. Choose
+     **Next** to continue.
+    2. For **Custom OAuth app**,
+     configure the following fields:
+
+
+
+
+    	* **Base URL** (Optional) – The
+    	 Slack API base URL. Example:
+    	 `https://slack.com/api`
+    	* **Client ID** – The client ID
+    	 from your Slack app.
+    	* **Client secret** – The client
+    	 secret from your Slack app.
+    	* **Token URL** – The token
+    	 endpoint. Example:
+    	 `https://slack.com/api/oauth.v2.access`
+    	* **Authorization URL** – The
+    	 authorization endpoint. Example:
+    	 `https://slack.com/oauth/v2/authorize`
+    	* **Redirect URL** – Pre-filled
+    	 with the Amazon Quick callback URL.
+    3. For **Bearer Token**,
+     configure the following fields:
+
+
+
+
+    	* **Base URL** (Optional) – The
+    	 Slack API base URL. Example:
+    	 `https://slack.com/api`
+    	* **Bot token** – Your Slack bot
+    	 token (starts with
+    	 `xoxb-`).
+
+7. Choose **Next**.
+8. If you chose **Default OAuth app**
+   or **Custom OAuth app**, a Slack
+   authorization window opens. Review the requested permissions,
+   select your workspace, and choose
+   **Allow**.
+9. On the **Review** page, review the available
+   actions for the connector. Choose
+   **Next**.
+10. On the **Publish** page, choose who can access
+    the connector. You can enable access for everyone in your
+    organization or search for specific teams or groups.
+11. Choose **Publish**.
+
+## Available actions
+
+After you set up the connector, the following actions are available.
+
+| Slack available actions | Category                    | Action                                                                                                            | Description |
+| ----------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------- |
+| Messages                | Chat Post Message           | Posts a message to a channel, direct message, or<br>private group.                                                |
+| Messages                | Send Me Message             | Sends a third-person action message to a<br>channel.                                                              |
+| Messages                | Get Message Permalink       | Retrieves a permalink URL for a specific<br>message.                                                              |
+| Channels                | Conversations Create        | Creates a public or private channel.                                                                              |
+| Channels                | Conversations History       | Retrieves message history from a channel. Returns<br>main timeline messages only, not threaded<br>replies.        |
+| Channels                | Conversations Replies       | Retrieves threaded replies to a specific parent<br>message.                                                       |
+| Channels                | Conversations Invite        | Invites users to an existing channel.                                                                             |
+| Channels                | Conversations Join          | Joins an existing channel.                                                                                        |
+| Channels                | Conversations Kick          | Removes a user from a channel.                                                                                    |
+| Channels                | Conversations Leave         | Leaves a channel.                                                                                                 |
+| Channels                | Conversations Members       | Lists member IDs for a channel.                                                                                   |
+| Channels                | Conversations Open          | Opens or resumes a direct message or multi-person<br>direct message.                                              |
+| Channels                | Conversations Set Topic     | Sets or updates the topic for a channel.                                                                          |
+| Channels                | Get Conversation            | Retrieves metadata for a channel by ID.                                                                           |
+| Channels                | List Channels               | Lists channels available to the user.                                                                             |
+| Channels                | List Conversations For User | Lists channels and direct messages accessible to a<br>user.                                                       |
+| Reactions               | Create Reaction             | Adds an emoji reaction to a message.                                                                              |
+| Reactions               | Delete Reaction             | Removes an emoji reaction from a message.                                                                         |
+| Reactions               | List Reactions              | Lists reactions on a message, file, or file<br>comment.                                                           |
+| Files                   | Upload Or Create File       | Uploads files or media to channels or<br>threads.                                                                 |
+| Files                   | Upload To URL External      | Adds a reference to an external file for sharing in<br>Slack.                                                     |
+| Files                   | Download File               | Downloads a file shared in Slack.                                                                                 |
+| Files                   | Files Info                  | Retrieves metadata and comments for a<br>file.                                                                    |
+| Files                   | Files List                  | Lists files in a workspace with optional<br>filters.                                                              |
+| Search                  | Search All                  | Searches messages and files across the<br>workspace.                                                              |
+| Search                  | Search Messages             | Searches messages with date ranges and<br>filters.                                                                |
+| Search                  | Search Channels             | Searches channels by name, topic, or<br>purpose.                                                                  |
+| Search                  | Search Users                | Searches users by email, name, or display<br>name.                                                                |
+| Search                  | Search Context              | Searches across messages, files, channels, and<br>users. Supports semantic search on workspaces with<br>Slack AI. |
+| Search                  | Get Search Configuration    | Checks whether semantic search is available on the<br>workspace.                                                  |
+| Users                   | Get User Details            | Retrieves information for a user by ID.                                                                           |
+| Users                   | Get User Profile            | Retrieves profile information for a user.                                                                         |
+| Users                   | Users Profile Set           | Updates a user's profile fields.                                                                                  |
+| Users                   | Users List                  | Lists all users in the workspace.                                                                                 |
+| User groups             | User Groups Create          | Creates a new user group.                                                                                         |
+| User groups             | User Groups List            | Lists user groups in the workspace.                                                                               |
+| User groups             | User Groups Users Update    | Replaces all members of a user group.                                                                             |
+| Reminders               | Reminders Add               | Creates a reminder with specified text and<br>time.                                                               |
+| Workspace               | Get Team                    | Retrieves metadata about the Slack<br>workspace.                                                                  |
+
+###### Note
+
+The actions that you can use depend on the scopes configured for
+your Slack app and the channels accessible to the authenticated
+user.
+
+## Managing and troubleshooting
+
+To edit, share, or delete your connector, see [Managing existing integrations](integration-workflows.md#managing-existing-integrations "integration-workflows.md#managing-existing-integrations").
+
+### Authentication issues
+
+- **Sign-in fails (Default OAuth app or
+  Custom OAuth app)** – Verify that your Slack
+  workspace is active and that you can sign in to
+  [the Slack website](https://slack.com "https://slack.com") directly.
+  For Custom OAuth app, confirm that the redirect URL in your
+  Slack app matches the Amazon Quick callback URL.
+- **Invalid client credentials (Custom
+  OAuth app)** – Verify that the Client ID and
+  Client secret match the values in your Slack app's Basic
+  Information section.
+- **Bearer Token rejected** –
+  Verify that your bot token is active and starts with
+  `xoxb-`. Tokens can be revoked from the Slack API
+  dashboard.
+- **Insufficient permissions** –
+  Verify that the scopes configured for your Slack app include
+  the permissions required for the actions that you want to
+  use. See [Recommended scopes](#slack-oauth-scopes "#slack-oauth-scopes").
+- **Channel not found or not in
+  channel** – Verify that the bot has been added
+  to the channel. Invite the bot to the channel before
+  attempting to post messages or read history.

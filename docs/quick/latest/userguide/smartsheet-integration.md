@@ -32,7 +32,7 @@ these methods, see [Authentication methods](quick-action-auth.md "quick-action-a
 
 - **User authentication (OAuth)** – Each
   user signs in with their own Smartsheet account. Actions run with that
-  user's permissions. This method uses [Custom user-based authentication](quick-action-auth.md#quick-custom-user-auth "quick-action-auth.md#quick-custom-user-auth"). Complete the [Register for Developer Tools and create a developer profile](#smartsheet-register-developer-tools "#smartsheet-register-developer-tools") and [Register the OAuth application](#smartsheet-register-oauth-app "#smartsheet-register-oauth-app") sections below.
+  user's permissions. This method uses [Custom OAuth app](quick-action-auth.md#quick-custom-user-auth "quick-action-auth.md#quick-custom-user-auth"). Complete the [Register for Developer Tools and create a developer profile](#smartsheet-register-developer-tools "#smartsheet-register-developer-tools") and [Register the OAuth application](#smartsheet-register-oauth-app "#smartsheet-register-oauth-app") sections below.
 - **Service authentication (API key)** –
   All actions run using a single API token. This method uses [API key authentication](quick-action-auth.md#quick-actions-api-key-auth "quick-action-auth.md#quick-actions-api-key-auth"). Complete the [Generate an API access token (service authentication only)](#smartsheet-api-token-setup "#smartsheet-api-token-setup") section below.
 
@@ -138,16 +138,16 @@ After you complete the Smartsheet Developer Tools configuration, create the
 integration in Amazon Quick.
 
 1. In the Amazon Quick console, choose
-   **Integrations**.
-2. Choose **Smartsheet** and choose the Add (plus "+")
-   button.
-3. Enter the integration details:
+   **Connectors**.
+2. Choose the **Create for your team** tab.
+3. Find and choose **Smartsheet**.
+4. Enter the integration details:
    - **Name** – Descriptive name for your
      Smartsheet integration.
    - **Description** (Optional) – Purpose of the
      integration.
 
-4. Choose your connection type and fill in the connection settings. For
+5. Choose your connection type and fill in the connection settings. For
    more information about these authentication methods, see [Authentication methods](quick-action-auth.md "quick-action-auth.md").
    1. For **User authentication
       (OAuth)**, use the Client ID and Client Secret
@@ -181,12 +181,12 @@ integration in Amazon Quick.
         with the Smartsheet account that generated the
         token.
 
-5. Choose **Create and continue**.
-6. Choose users to share the integration with.
-7. Choose **Next**.
+6. Choose **Create and continue**.
+7. Choose users to share the integration with.
+8. Choose **Next**.
 
-For user authentication, go to **Integrations** >
-**Actions** > your Smartsheet integration name, and choose
+For user authentication, go to **Connectors** >
+your Smartsheet connector name, and choose
 **Sign in** to complete the OAuth authorization flow. In the
 Smartsheet consent window, choose **Allow** to grant
 access.

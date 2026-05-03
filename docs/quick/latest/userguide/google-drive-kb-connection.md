@@ -12,7 +12,7 @@ before you proceed.
 ## Setting up the knowledge base
 
 1. In the Amazon Quick console, choose
-   **Integrations**.
+   **Knowledge**.
 2. Under **Knowledge bases**, find
    **Google Drive**, and then choose the **Add**
    (+) icon.

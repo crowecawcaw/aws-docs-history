@@ -1,6 +1,6 @@
 # Salesforce integration
 
-With Salesforce action connector in Amazon Quick, you can perform actions within Salesforce organizations, including managing records, querying data, and interacting with Salesforce APIs. This action connector supports task execution only and requires Amazon Quick Pro tier or higher.
+With Salesforce action connector in Amazon Quick, you can perform actions within Salesforce organizations, including managing records, querying data, and interacting with Salesforce APIs. For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md "integration-console-setup-process.md").
 
 ## What you can do
 
@@ -100,18 +100,18 @@ After preparing your Salesforce connected app credentials, create the Salesforce
 Salesforce integration supports action execution only - data access and knowledge base
 creation are not available for Salesforce systems.
 
-1. In the Amazon Quick console, choose **Integrations**.
-2. Choose **Salesforce** from the integration options, and click
-   the Add (plus "+") button.
-3. Fill in the integration details:
+1. In the Amazon Quick console, choose **Connectors**.
+2. Choose the **Create for your team** tab.
+3. Find and choose **Salesforce**.
+4. Fill in the integration details:
    - **Name** - Descriptive name for your Salesforce action connector.
    - **Description** (Optional) - Purpose of the action connector.
 
-4. Choose your connection type:
+5. Choose your connection type:
    - **User authentication** - OAuth-based authentication for individual user access.
    - **Service authentication** - Service-to-service authentication for application access.
 
-5. Fill in the connection settings based on your selected authentication method (either user or service):
+6. Fill in the connection settings based on your selected authentication method (either user or service):
    1. For **User authentication (OAuth)**, configure the following fields:
       - **Base URL** - Salesforce instance URL (for example, https://your-domain.salesforce.com).
       - **Client ID** - Salesforce connected app consumer key.
@@ -120,9 +120,9 @@ creation are not available for Salesforce systems.
       - **Auth URL** - Salesforce OAuth authorization endpoint.
       - **Redirect URL** - OAuth redirect URI configured in your connected app.
 
-6. Select **Create and continue**.
-7. Choose users to share the integration with.
-8. Click **Next**.
+7. Select **Create and continue**.
+8. Choose users to share the integration with.
+9. Click **Next**.
 
 ## Step 4: Associate action connector to automation groups
 

@@ -1,9 +1,19 @@
 # Administration for Amazon Quick
 
-Use the following section to learn about Amazon Quick administrative tasks. This section
-contains information about controlling access, managing accounts, and choosing
-AWS Regions. It also includes the essential setup tasks, such as integrating your account
-with IAM Identity Center, assigning access to users, managing the Amazon Quick service.
+The administration experience for Amazon Quick depends on how your account was
+created. This section covers administration for accounts provisioned through the AWS Management Console,
+including IAM Identity Center configuration, SPICE capacity management, security settings, and integration
+with other AWS services.
+
+If you created your account at [quick.aws.com](https://quick.aws.com "https://quick.aws.com"), see [Administering Amazon Quick (Free/Plus)](../../../quicksuite/latest/userguide/standalone-admin-guide.md "../../../quicksuite/latest/userguide/standalone-admin-guide.md") instead.
+
+###### Note
+
+The product features available to users (chat, agents, spaces, research,
+integrations, extensions) are identical regardless of how the
+account was created. Only the administration interface differs. Some features,
+including Amazon Quick Sight and Amazon Quick Automate, are available only for accounts provisioned
+through the AWS Management Console.
 
 ###### Topics
 

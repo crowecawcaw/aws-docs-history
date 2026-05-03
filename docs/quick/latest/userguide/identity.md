@@ -22,7 +22,7 @@ Quick:
 
 ###### Note
 
-In the regions listed below, Amazon Quick accounts can only use [IAM Identity Center](../../../quicksight/latest/user/sec-identity-management-identity-center.md "../../../quicksight/latest/user/sec-identity-management-identity-center.md") for identity and access management.
+In the following regions, Amazon Quick accounts can only use [IAM Identity Center](../../../quicksight/latest/user/sec-identity-management-identity-center.md "../../../quicksight/latest/user/sec-identity-management-identity-center.md") for identity and access management.
 
 - `af-south-1` Africa (Cape Town)
 - `ap-southeast-3` Asia Pacific (Jakarta)

@@ -10,7 +10,9 @@ cases.
 Spaces allow your team to get the most relevant results from conversational agents and
 other AI tools inside Quick by grounding the results with only data relevant for
 your task or domain. Multiple people on the team can contribute to the knowledge inside a
-space; this reduces data silos and streamline information discovery.
+space; this reduces data silos and streamline information discovery. Spaces also serve as a
+data layer for apps in Amazon Quick applications. For more information, see
+[Build web applications with apps in Amazon Quick](using-amazon-quick-apps.md "using-amazon-quick-apps.md").
 
 ###### Note
 
@@ -41,10 +43,10 @@ You can use spaces to accomplish tasks like:
 The following table shows how each user type in Amazon Quick interacts with
 spaces.
 
-| User type                       | Capabilities                                                                                                                                                                                                                                        |
-| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Administrators                  | • Control whether users with space creation capabilities can<br>create spaces                                                                                                                                                                       |
-| Author Pro and Reader Pro users | • Create and maintain spaces<br>• Add topics, dashboards, knowledge bases, and application<br>actions to spaces<br>• Upload files directly into spaces<br>• Attach an agent to a space<br>• Interact with space data through chat<br>• Share spaces |
+| User type                       | Capabilities                                                                                                                                                                                                                                                  |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Administrators                  | • Control whether users with space creation capabilities can<br>create spaces                                                                                                                                                                                 |
+| Author Pro and Reader Pro users | • Create and maintain spaces<br>• Add topics, dashboards, datasets, knowledge bases, and application<br>actions to spaces<br>• Upload files directly into spaces<br>• Attach an agent to a space<br>• Interact with space data through chat<br>• Share spaces |
 
 ## Amazon Quick user permission for spaces
 
@@ -59,10 +61,10 @@ There are two permission types that users can be assigned:
 The following table outlines how user permissions determine what you can do with a
 Amazon Quick space:
 
-| Permissions type | Permissions                                                                                                                                                                                                                                                                                                                                                                                   |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Owners           | • Create a space<br>• Upload files to a space<br>• Share spaces with others<br>• Link and unlink Amazon Quick resources (topics,<br>dashboards, knowledge bases, and application actions) to a<br>space<br>• Delete a space<br>As an owner, you can designate another user co-owner of a space.<br>If you do so, the user can undertake all post-creation management<br>actions an owner can. |
-| Viewers          | • Download files uploaded into a space<br>• Ask questions from data inside space<br>• Use a specific space as context for an agent<br>• Search for a space by name<br>• Access a space using a direct URL<br>• View a preset list sample questions to help get started on<br>using the space                                                                                                  |
+| Permissions type | Permissions                                                                                                                                                                                                                                                                                                                                                                                             |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Owners           | • Create a space<br>• Upload files to a space<br>• Share spaces with others<br>• Link and unlink Amazon Quick resources (topics,<br>dashboards, datasets, knowledge bases, and application actions) to a<br>space<br>• Delete a space<br>As an owner, you can designate another user co-owner of a space.<br>If you do so, the user can undertake all post-creation management<br>actions an owner can. |
+| Viewers          | • Download files uploaded into a space<br>• Ask questions from data inside space<br>• Use a specific space as context for an agent<br>• Search for a space by name<br>• Access a space using a direct URL<br>• View a preset list sample questions to help get started on<br>using the space                                                                                                            |
 
 ## Understanding file upload status
 

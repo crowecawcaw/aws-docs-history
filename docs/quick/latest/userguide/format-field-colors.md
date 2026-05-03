@@ -15,7 +15,7 @@ that are defined at the visual level take precedence over field based colors. Th
 that if the author sets a color for a value on the visual, that color will override the
 field based colors configuration for that individual visual.
 
-![](images/field-coloring.gif)
+![Data visualization interface showing stacked bar chart and pie chart configuration options.](images/field-coloring.gif)
 
 ###### To apply field level coloring to a legacy account
 

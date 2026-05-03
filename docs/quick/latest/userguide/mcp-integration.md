@@ -58,20 +58,21 @@ If the MCP server does not require authentication, no credentials are needed. Se
 
 After you prepare your MCP server configuration and authentication credentials, create your MCP integration.
 
-1. In the Amazon Quick console, choose **Integrations**.
-2. Choose **Add**.
-3. On the **Create Integration** page, enter the integration details:
+1. In the Amazon Quick console, choose **Connectors**.
+2. Choose the **Create for your team** tab.
+3. Find and choose **Model Context Protocol (MCP)**.
+4. On the **Create Integration** page, enter the integration details:
    - **Name** – A descriptive name for your MCP integration.
    - **Description** (Optional) – The purpose of the integration.
    - **MCP server endpoint** – The URL of the MCP server.
 
-4. Choose **Next**.
-5. Select the authentication method (user, service, or no authentication).
-6. Provide the appropriate configuration details.
-7. Choose **Create and continue**.
-8. Review the integration details.
-9. Choose **Next**.
-10. Share the integration with other users if needed.
+5. Choose **Next**.
+6. Select the authentication method (user, service, or no authentication).
+7. Provide the appropriate configuration details.
+8. Choose **Create and continue**.
+9. Review the integration details.
+10. Choose **Next**.
+11. Share the integration with other users if needed.
 
 After you create your MCP integration, the available tools are discovered and registered as actions.
 

@@ -126,9 +126,9 @@ Submit button examples:
 
 After preparing your website access requirements, create the Web Crawler integration in Amazon Quick.
 
-1. In the Amazon Quick console, choose **Integrations**.
-2. Choose **Web Crawler** from the integration options, and
-   click the **Add** button (plus "+" button).
+1. In the Amazon Quick console, choose **Knowledge**.
+2. Find **Web Crawler** and choose the
+   **Add** (+) icon.
 3. Choose **Access data from Web Crawler**. Web Crawler integration supports data access only - action execution is not available for web crawling.
 4. Configure integration details and authentication method, then create
    knowledge bases as needed.

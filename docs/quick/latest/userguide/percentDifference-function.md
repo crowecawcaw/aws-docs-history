@@ -89,4 +89,4 @@ that the total `Billed Amount` for the `Customer Region`
 `APAC` is 24 percent less than the amount for the
 `EMEA` region.
 
-![](images/percentDifference.png)
+![Table showing Billed Amount and percentDifference by Customer Region with calculation formula.](images/percentDifference.png)

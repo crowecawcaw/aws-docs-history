@@ -101,4 +101,4 @@ rank(
 The following screenshot shows the results of the example, along with the total
 `Billed Amount` so you can see how each region ranks.
 
-![](images/rankCalc.png)
+![Table showing Customer Region, rank, and Billed Amount with US ranked 1, EMEA ranked 2, APAC ranked 3.](images/rankCalc.png)

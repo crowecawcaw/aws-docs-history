@@ -1,4 +1,10 @@
-# Amazon Quick Microsoft Word extension
+# Amazon Quick Microsoft Word extension (Legacy)
+
+###### Note
+
+This is the legacy Microsoft Word extension. We recommend using
+the new [Amazon Quick Microsoft Word extension (Preview)](word-extension-preview-guide.md "word-extension-preview-guide.md")
+for new deployments.
 
 ###### Note
 

@@ -86,4 +86,4 @@ difference(
 The red highlights show how each amount is added ( a + b = c ) to show the
 difference between amounts a and c.
 
-![](images/differenceCalc.png)
+![Table showing Customer Region with difference and Billed Amount columns, with red labels a, b, c.](images/differenceCalc.png)

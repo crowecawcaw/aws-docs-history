@@ -155,5 +155,69 @@ visual or control. For more information about formatting a visual, see [Formatti
 
 - **Delete** removes the control. You can recreate it by
   choosing the parameter context menu.
-  In the workspace, you can also resize and rearrange your controls. The dashboard users
-  see them as you do, except without being able to edit or delete them.
+
+## Configuring custom sort for controls
+
+You can configure a custom sort order for parameter controls to change how values
+appear in the control list. By default, controls display values in
+user-defined order. You can customize this to sort in ascending or descending order
+or sort by a related field in the dataset.
+
+###### To configure custom sort for a control
+
+1. Choose the parameter control in the sheet.
+2. Choose the pencil icon to open the **Format control**
+   pane.
+3. In the **Format control** pane, locate the
+   **Sort** section.
+4. Configure the sort options. Note that the sort options depend on whether
+   the control uses specific values or is linked to a dataset field.
+
+### Sort options by control type
+
+###### Sorting controls with specific values
+
+If the control uses specific values, choose one of the following sort
+options:
+
+- **Ascending (A–Z, 0–9)** – Sorts
+  values in ascending order.
+- **Descending (Z–A, 9–0)** – Sorts
+  values in descending order.
+- **User-defined order** – Displays the values
+  in the exact order that you entered them, without any automatic
+  sorting. This is the default.
+
+###### Sorting controls linked to a dataset field
+
+If the control is linked to a dataset field, you can sort by the
+control's own column or by another field in the same dataset.
+
+- **Sort by control column** – Sorts values
+  based on the field that the control is linked to. Choose a sort
+  direction (**Ascending** or
+  **Descending**) and optionally choose an
+  aggregation function. Choose **No aggregation** to
+  sort by the raw column values.
+- **Sort by another field** – Sorts values
+  based on a column in any analysis dataset. For calculated fields, only
+  scalar (non-aggregated) calculated columns are available. Choose a
+  sort-by field, a sort direction, and an aggregation function. This is
+  useful for ordering values by a related metric, such as sorting regions
+  by total revenue.
+
+###### Note
+
+The available aggregation functions depend on the data type of the
+selected column. For numeric fields, options include **No
+aggregation**, **Sum**,
+**Average**, **Count**,
+**Distinct count**, **Min**,
+**Max**, **Median**,
+**Percentile**, **Var**, and
+**Stdev**. For non-numeric fields, options include
+**No aggregation**, **Count**, and
+**Distinct count**.
+
+In the workspace, you can also resize and rearrange your controls. The dashboard users
+see them as you do, except without being able to edit or delete them.

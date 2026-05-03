@@ -4,31 +4,44 @@ Amazon Quick supports multiple connector types, each with specific actions avail
 
 ## External service connectors
 
-- **Salesforce** - Create records, update opportunities, search accounts, manage leads.
-- **JIRA** - Create issues, update tickets, search projects, manage workflows.
-- **Microsoft Outlook** - Send emails, manage calendar events, access contacts.
-- **Slack** - Send messages, create channels, manage notifications.
-- **ServiceNow** - Create incidents, update requests, manage workflows.
-- **Zendesk** - Create tickets, update cases, search knowledge base.
-- **PagerDuty** - Create incidents, manage escalations, update on-call schedules.
-- **Asana** - Create actions, update projects,
-  manage team workflows.
+- **Airtable** - Create and update records, manage bases and tables, filter views, and perform relational data operations.
+- **Asana** - Manage tasks, workspace operations, and project handling.
+- **Atlassian Confluence Cloud** - Create, update, and manage pages, spaces, and other Confluence objects.
+- **Atlassian Jira Cloud** - Create issues, update tickets, search projects, manage workflows.
 - **BambooHR** - Access employee data, manage time-off requests.
 - **Box** - Manage files, folders, and collaborate on documents.
 - **Canva** - Create and edit designs, manage templates and assets.
-- **FactSet** - Access financial data, generate reports.
+- **Dropbox** - Upload files, manage folder structures, generate sharing links, and control access permissions.
 - **GitHub** - Manage repositories, issues, pull requests, and code collaboration.
-- **HuggingFace** - Access AI models, datasets, and machine learning workflows.
+- **Gmail** - Read emails, search inbox, draft messages, manage labels, and organize threads.
+- **Google Analytics** - Query traffic reports, retrieve audience data, monitor conversion events, and access performance metrics.
+- **Google Calendar** - Create and update events, check availability, manage invites, and retrieve schedules.
+- **Google Docs** - Create and edit documents, read content, and collaborate on text-based files.
+- **Google Drive** - Upload files, manage folders, search content, and perform file operations.
+- **Google Meet** - Schedule video meetings, list hosted meetings, retrieve transcripts, and update access settings.
+- **Google Sheets** - Create and edit spreadsheets, read and write cell ranges, and perform data operations.
+- **Google Slides** - Create presentations, edit slides, manage layouts, and add speaker notes.
 - **HubSpot** - Manage contacts, deals, marketing campaigns, and CRM data.
+- **HuggingFace** - Access AI models, datasets, and machine learning workflows.
 - **Intercom** - Manage customer conversations, support tickets, and messaging.
 - **Linear** - Create and manage issues, projects, and development workflows.
-- **Monday** - Manage projects, tasks, and team collaboration workflows.
+- **Microsoft OneDrive** - Create, update, delete, and manage OneDrive files and folders.
+- **Microsoft Outlook** - Send emails, manage calendar events, access contacts.
+- **Microsoft SharePoint** - Perform actions on SharePoint lists, items, files, and Excel workbooks.
+- **Microsoft Teams** - Send messages, manage channels, schedule meetings, and manage team collaboration.
+- **Monday.com** - Manage projects, tasks, and team collaboration workflows.
+- **New Relic** - Access observability data, query metrics, and manage monitoring workflows.
 - **Notion** - Create and manage pages, databases, and collaborative workspaces.
+- **PagerDuty** - Create incidents, manage escalations, update on-call schedules.
+- **QuickBooks** - Manage invoices, track expenses, generate financial reports, and handle vendor records.
+- **Salesforce** - Create records, update opportunities, search accounts, manage leads.
+- **SAP** - Access SAP S/4HANA systems to perform read operations on enterprise data.
+- **ServiceNow** - Create incidents, update requests, manage workflows.
+- **Slack** - Send messages, create channels, manage notifications.
 - **Smartsheet** - Update sheets, manage project data.
-- **Confluence** - Create, update, and manage pages, spaces, and other Confluence objects.
-- **SharePoint** - Perform actions on SharePoint lists, items, and Excel files with 19 available actions for creating, updating, deleting, and retrieving SharePoint content.
-- **OneDrive** - Create, update, delete, and manage OneDrive files and folders.
-- **SAP** - Access SAP S/4HANA systems to perform Read only operation on enterprise data.
+- **Visier** - Access workforce analytics, query people data, and generate HR insights.
+- **Zendesk** - Create tickets, update cases, search knowledge base.
+- **Zoom** - Schedule meetings, add webinar registrants, summarize recorded meetings, and list participants.
 
 ## AWS service connectors
 
@@ -53,31 +66,44 @@ The following table shows which Amazon Quick features each action connector type
 | Amazon S3                              | —                | —           | —     | —                 | ✓                | —           |
 | Amazon Textract                        | —                | —           | —     | —                 | ✓                | —           |
 | **External Service Connectors**        |
+| Airtable                               | ✓                | ✓           | ✓     | —                 | —                | —           |
 | Asana                                  | ✓                | ✓           | —     | —                 | —                | ✓           |
 | Atlassian Confluence Cloud             | ✓                | ✓           | —     | —                 | ✓                | ✓           |
 | Atlassian Jira Cloud                   | ✓                | ✓           | ✓     | ✓                 | ✓                | ✓           |
 | BambooHR                               | ✓                | ✓           | —     | —                 | —                | ✓           |
 | Box                                    | ✓                | ✓           | —     | —                 | —                | —           |
 | Canva                                  | ✓                | ✓           | —     | —                 | —                | —           |
-| FactSet                                | ✓                | ✓           | —     | —                 | —                | —           |
+| Dropbox                                | ✓                | ✓           | ✓     | —                 | —                | —           |
 | GitHub                                 | ✓                | ✓           | —     | —                 | —                | —           |
-| HuggingFace                            | ✓                | ✓           | —     | —                 | —                | —           |
+| Gmail                                  | ✓                | ✓           | ✓     | —                 | —                | —           |
+| Google Analytics                       | ✓                | ✓           | ✓     | —                 | —                | —           |
+| Google Calendar                        | ✓                | ✓           | ✓     | —                 | —                | —           |
+| Google Docs                            | ✓                | ✓           | ✓     | —                 | —                | —           |
+| Google Drive                           | ✓                | ✓           | ✓     | —                 | —                | —           |
+| Google Meet                            | ✓                | ✓           | ✓     | —                 | —                | —           |
+| Google Sheets                          | ✓                | ✓           | ✓     | —                 | —                | —           |
+| Google Slides                          | ✓                | ✓           | ✓     | —                 | —                | —           |
 | HubSpot                                | ✓                | ✓           | —     | —                 | —                | —           |
+| HuggingFace                            | ✓                | ✓           | —     | —                 | —                | —           |
 | Intercom                               | ✓                | ✓           | —     | —                 | —                | —           |
 | Linear                                 | ✓                | ✓           | —     | —                 | —                | —           |
-| Monday                                 | ✓                | ✓           | —     | —                 | —                | —           |
-| Notion                                 | ✓                | ✓           | —     | —                 | —                | —           |
-| Microsoft OneDrive                     | ✓                | ✓           | —     | —                 | ✓                | ✓           |
+| Microsoft OneDrive                     | ✓                | ✓           | ✓     | ✓                 | ✓                | ✓           |
 | Microsoft Outlook                      | ✓                | ✓           | ✓     | ✓                 | ✓                | ✓           |
-| Microsoft SharePoint                   | ✓                | ✓           | —     | —                 | ✓                | ✓           |
+| Microsoft SharePoint                   | ✓                | ✓           | ✓     | ✓                 | ✓                | ✓           |
 | Microsoft Teams                        | ✓                | ✓           | ✓     | ✓                 | ✓                | ✓           |
+| Monday.com                             | ✓                | ✓           | —     | —                 | —                | —           |
+| New Relic                              | ✓                | ✓           | —     | —                 | —                | —           |
+| Notion                                 | ✓                | ✓           | —     | —                 | —                | —           |
 | PagerDuty                              | ✓                | ✓           | —     | —                 | ✓                | ✓           |
+| QuickBooks                             | ✓                | ✓           | ✓     | —                 | —                | —           |
 | Salesforce                             | ✓                | ✓           | ✓     | ✓                 | ✓                | ✓           |
 | SAP                                    | ✓                | —           | —     | —                 | ✓                | ✓           |
 | ServiceNow                             | ✓                | ✓           | ✓     | ✓                 | ✓                | ✓           |
 | Slack                                  | ✓                | ✓           | ✓     | —                 | —                | ✓           |
 | Smartsheet                             | ✓                | ✓           | —     | —                 | —                | ✓           |
+| Visier                                 | ✓                | ✓           | —     | —                 | —                | —           |
 | Zendesk                                | ✓                | ✓           | —     | —                 | —                | ✓           |
+| Zoom                                   | ✓                | ✓           | ✓     | —                 | —                | —           |
 | **Custom Connector Types**             |
 | Model Context Protocol (MCP)           | ✓                | ✓           | —     | —                 | ✓                | —           |
 | OpenAPI                                | ✓                | ✓           | —     | —                 | —                | —           |
@@ -85,7 +111,7 @@ The following table shows which Amazon Quick features each action connector type
 
 **Authentication Support:**
 
-- **Chat Agents and Companions** - Support user authentication (3LO, Basic)
-- **Dashboard Visuals** - Support user authentication (3LO)
-- **Dashboard Alerts** - Support system authentication (2LO or API Key)
-- **Automations** - Support system authentication (2LO)
+- **Chat Agents and Companions** - Support user authentication (Default OAuth app, Custom OAuth app, Basic)
+- **Dashboard Visuals** - Support user authentication (Default OAuth app, Custom OAuth app)
+- **Dashboard Alerts** - Support system authentication (Service-to-Service OAuth or API Key)
+- **Automations** - Support system authentication (Service-to-Service OAuth)
