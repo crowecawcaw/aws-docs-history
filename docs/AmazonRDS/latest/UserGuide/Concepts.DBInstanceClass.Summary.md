@@ -101,6 +101,25 @@ Graviton4 processors**
 | db.m8g.xlarge\*  | 4    | —   | 16           | EBS-optimized only     | Up to 10,000              | Up to 12.5               |
 | db.m8g.large\*   | 2    | —   | 8            | EBS-optimized only     | Up to 10,000              | Up to 12.5               |
 
+**db.m8i – general-purpose instance classes powered
+by Intel Xeon 6 processors**
+
+| Instance class    | vCPU | Processor cores | Sockets | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
+| ----------------- | ---- | --------------- | ------- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
+| db.m8i.metal-96xl | 384  | 192             | 2       | —   | 1,536        | EBS only               | 80,000                    | 100                      |
+| db.m8i.metal-48xl | 192  | 96              | 1       | —   | 768          | EBS only               | 60,000                    | 75                       |
+| db.m8i.96xlarge   | 384  | —               | —       | —   | 1,536        | EBS only               | 80,000                    | 100                      |
+| db.m8i.48xlarge   | 192  | —               | —       | —   | 768          | EBS only               | 60,000                    | 75                       |
+| db.m8i.32xlarge   | 128  | —               | —       | —   | 512          | EBS only               | 40,000                    | 50                       |
+| db.m8i.24xlarge   | 96   | —               | —       | —   | 384          | EBS only               | 30,000                    | 40                       |
+| db.m8i.16xlarge   | 64   | —               | —       | —   | 256          | EBS only               | 20,000                    | 30                       |
+| db.m8i.12xlarge   | 48   | —               | —       | —   | 192          | EBS only               | 15,000                    | 22.5                     |
+| db.m8i.8xlarge    | 32   | —               | —       | —   | 128          | EBS only               | 10,000                    | 15                       |
+| db.m8i.4xlarge    | 16   | —               | —       | —   | 64           | EBS only               | Up to 10,000              | Up to 15                 |
+| db.m8i.2xlarge    | 8    | —               | —       | —   | 32           | EBS only               | Up to 10,000              | Up to 15                 |
+| db.m8i.xlarge     | 4    | —               | —       | —   | 16           | EBS only               | Up to 10,000              | Up to 12.5               |
+| db.m8i.large      | 2    | —               | —       | —   | 8            | EBS only               | Up to 10,000              | Up to 12.5               |
+
 **db.m7i – general-purpose instance classes powered by 4th
 generation Intel Xeon Scalable processors**
 
@@ -406,6 +425,25 @@ Graviton4 processors**
 | db.r8g.2xlarge\* | 8    | —   | 64           | EBS-optimized only     | Up to 10,000              | Up to 15                 |
 | db.r8g.xlarge\*  | 4    | —   | 32           | EBS-optimized only     | Up to 10,000              | Up to 12.5               |
 | db.r8g.large\*   | 2    | —   | 16           | EBS-optimized only     | Up to 10,000              | Up to 12.5               |
+
+**db.r8i – memory-optimized instance classes powered by
+Intel Xeon 6 processors**
+
+| Instance class    | vCPU | Processor cores | Sockets | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
+| ----------------- | ---- | --------------- | ------- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
+| db.r8i.metal-96xl | 384  | 192             | 2       | —   | 3,072        | EBS only               | 80,000                    | 100                      |
+| db.r8i.metal-48xl | 192  | 96              | 1       | —   | 1,536        | EBS only               | 60,000                    | 75                       |
+| db.r8i.96xlarge   | 384  | —               | —       | —   | 3,072        | EBS only               | 80,000                    | 100                      |
+| db.r8i.48xlarge   | 192  | —               | —       | —   | 1,536        | EBS only               | 60,000                    | 75                       |
+| db.r8i.32xlarge   | 128  | —               | —       | —   | 1,024        | EBS only               | 40,000                    | 50                       |
+| db.r8i.24xlarge   | 96   | —               | —       | —   | 768          | EBS only               | 30,000                    | 40                       |
+| db.r8i.16xlarge   | 64   | —               | —       | —   | 512          | EBS only               | 20,000                    | 30                       |
+| db.r8i.12xlarge   | 48   | —               | —       | —   | 384          | EBS only               | 15,000                    | 22.5                     |
+| db.r8i.8xlarge    | 32   | —               | —       | —   | 256          | EBS only               | 10,000                    | 15                       |
+| db.r8i.4xlarge    | 16   | —               | —       | —   | 128          | EBS only               | Up to 10,000              | Up to 15                 |
+| db.r8i.2xlarge    | 8    | —               | —       | —   | 64           | EBS only               | Up to 10,000              | Up to 15                 |
+| db.r8i.xlarge     | 4    | —               | —       | —   | 32           | EBS only               | Up to 10,000              | Up to 12.5               |
+| db.r8i.large      | 2    | —               | —       | —   | 16           | EBS only               | Up to 10,000              | Up to 12.5               |
 
 **db.r7i – memory-optimized instance classes powered by 4th
 generation Intel Xeon Scalable processors**

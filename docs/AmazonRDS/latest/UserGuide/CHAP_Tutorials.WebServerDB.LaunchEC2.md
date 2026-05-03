@@ -21,7 +21,7 @@ Create an Amazon EC2 instance in the public subnet of your VPC.
 
 
 
-    ![Choose an Amazon Machine Image](images/Tutorial_WebServer_12.png)
+    ![Choose an Amazon Machine Image](/images/AmazonRDS/latest/UserGuide/images/Tutorial_WebServer_12.png)
     3. Under **Instance type**, choose **t2.micro**.
     4. Under **Key pair (login)**, choose a **Key pair name** to use an existing key
      pair. To create a new key pair for the Amazon EC2 instance, choose **Create new key pair**
@@ -90,7 +90,7 @@ need when you connect using SSH:
 
 
 
-    ![EC2 key pair name on Details tab of Instance page.](images/easy-create-ec2-key-pair.png)
+    ![EC2 key pair name on Details tab of Instance page.](/images/AmazonRDS/latest/UserGuide/images/easy-create-ec2-key-pair.png)
 
 8. Wait until **Instance state** for your instance is **Running** before continuing.
 9. Complete [Create an Amazon RDS DB instance](CHAP_Tutorials.WebServerDB.CreateDBInstance.md "CHAP_Tutorials.WebServerDB.CreateDBInstance.md").

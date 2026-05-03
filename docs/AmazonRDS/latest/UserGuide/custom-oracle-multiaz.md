@@ -18,7 +18,7 @@ don't need to reconfigure your application when a failover occurs.
 
 The following diagram shows the Multi-AZ architecture for RDS Custom for Oracle:
 
-![Amazon RDS architecture with primary DB instance and standby replica in separate availability zones.](images/custom-oracle-multiaz-architecture.png)
+![RDS Custom for Oracle Multi-AZ deployment with primary instance and standby replica across availability zones.](images/custom-oracle-multiaz-architecture.png)
 The Amazon RDS console shows the Availability Zone of the standby replica (the secondary AZ).
 You can also use the `describe-db-instances` CLI command or the
 `DescribeDBInstances` API operation to find the secondary AZ.

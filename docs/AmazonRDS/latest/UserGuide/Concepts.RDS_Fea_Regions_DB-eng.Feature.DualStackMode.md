@@ -56,8 +56,8 @@ RDS for Db2.
 | Middle East (Bahrain)      | All available versions |
 | Middle East (UAE)          | All available versions |
 | South America (São Paulo)  | All available versions |
-| AWS GovCloud (US-East)     | Not available          |
-| AWS GovCloud (US-West)     | Not available          |
+| AWS GovCloud (US-East)     | All available versions |
+| AWS GovCloud (US-West)     | All available versions |
 
 ## Dual-stack mode with RDS for MariaDB
 

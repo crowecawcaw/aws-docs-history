@@ -137,7 +137,7 @@ need when you connect using SSH:
 
 
 
-    ![EC2 public DNS name on Details tab of Instances page.](images/easy-create-ec2-public-dns.png)
+    ![EC2 public DNS name on Details tab of Instances page.](/images/AmazonRDS/latest/UserGuide/images/easy-create-ec2-public-dns.png)
     2. In **Instance details**, note the value for **Key
      pair name**.
 

@@ -70,8 +70,8 @@ RDS for Db2.
 | Middle East (Bahrain)      | All versions     |
 | Middle East (UAE)          | All versions     |
 | South America (São Paulo)  | All versions     |
-| AWS GovCloud (US-East)     | Not available    |
-| AWS GovCloud (US-West)     | Not available    |
+| AWS GovCloud (US-East)     | All versions     |
+| AWS GovCloud (US-West)     | All versions     |
 
 ## Kerberos authentication with RDS for MySQL
 

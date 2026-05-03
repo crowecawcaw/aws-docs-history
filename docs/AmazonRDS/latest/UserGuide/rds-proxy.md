@@ -42,6 +42,7 @@ code changes.
 - [Troubleshooting for RDS Proxy](rds-proxy.troubleshooting.md "rds-proxy.troubleshooting.md")
 - [Using RDS Proxy with AWS CloudFormation](rds-proxy-cfn.md "rds-proxy-cfn.md")
 - [Using RDS Proxy with Blue/Green Deployments](rds-proxy-blue-green.md "rds-proxy-blue-green.md")
+- [Best practices with RDS Proxy](rds-proxy-best-practices.md "rds-proxy-best-practices.md")
 
 ## Region and version availability
 
@@ -228,6 +229,8 @@ The following additional limitations apply to RDS Proxy with RDS for PostgreSQL 
   aren't always accurate. As a work-around, use the [INSERT](https://www.postgresql.org/docs/current/sql-insert.html "https://www.postgresql.org/docs/current/sql-insert.html") statement
   with the `RETURNING` clause.
 - RDS Proxy currently doesn't support streaming replication mode.
+- RDS Proxy doesn't support direct SSL negotiation mode.
+- RDS Proxy only supports version 3.0 of the PostgreSQL messaging protocol.
 - With RDS for PostgreSQL 16, modifications to the `scram_iterations` value exclusively impact
   the authentication process between the proxy and the database.
   Specifically, if you configure `ClientPasswordAuthType` to `scram-sha-256`,

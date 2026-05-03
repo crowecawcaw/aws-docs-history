@@ -83,15 +83,17 @@ Intel Xeon 6 processors**
 
 | Instance class    | Db2 | MariaDB | Microsoft SQL Server | MySQL | Oracle                             | PostgreSQL |
 | ----------------- | --- | ------- | -------------------- | ----- | ---------------------------------- | ---------- |
-| db.m8i.48xlarge   | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
-| db.m8i.24xlarge   | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
-| db.m8i.16xlarge   | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
-| db.m8i.12xlarge   | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
-| db.m8i.8xlarge    | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
-| db.m8i.4xlarge    | No  | No      | No                   | No    | BYOL only, all editions            | No         |
-| db.m8i.2xlarge    | No  | No      | No                   | No    | BYOL only, all editions            | No         |
-| db.m8i.xlarge     | No  | No      | No                   | No    | BYOL only, all editions            | No         |
-| db.m8i.large      | No  | No      | No                   | No    | BYOL only, all editions            | No         |
+| db.m8i.96xlarge   | No  | No      | Yes                  | No    | No                                 | No         |
+| db.m8i.48xlarge   | No  | No      | Yes                  | No    | BYOL only, Enterprise Edition only | No         |
+| db.m8i.32xlarge   | No  | No      | Yes                  | No    | BYOL only, Enterprise Edition only | No         |
+| db.m8i.24xlarge   | No  | No      | Yes                  | No    | BYOL only, Enterprise Edition only | No         |
+| db.m8i.16xlarge   | No  | No      | Yes                  | No    | BYOL only, Enterprise Edition only | No         |
+| db.m8i.12xlarge   | No  | No      | Yes                  | No    | BYOL only, Enterprise Edition only | No         |
+| db.m8i.8xlarge    | No  | No      | Yes                  | No    | BYOL only, Enterprise Edition only | No         |
+| db.m8i.4xlarge    | No  | No      | Yes                  | No    | BYOL only, all editions            | No         |
+| db.m8i.2xlarge    | No  | No      | Yes                  | No    | BYOL only, all editions            | No         |
+| db.m8i.xlarge     | No  | No      | Yes                  | No    | BYOL only, all editions            | No         |
+| db.m8i.large      | No  | No      | Yes                  | No    | BYOL only, all editions            | No         |
 | db.m8i.metal-96xl | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
 | db.m8i.metal-48xl | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
 
@@ -100,15 +102,15 @@ generation Intel Xeon Scalable processors**
 
 | Instance class    | Db2      | MariaDB                                         | Microsoft SQL Server | MySQL                   | Oracle                             | PostgreSQL                                                                                                     |
 | ----------------- | -------- | ----------------------------------------------- | -------------------- | ----------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| db.m7i.48xlarge   | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only, Enterprise Edition only | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
-| db.m7i.24xlarge   | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only, Enterprise Edition only | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
-| db.m7i.16xlarge   | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only, Enterprise Edition only | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
-| db.m7i.12xlarge   | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only, Enterprise Edition only | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
-| db.m7i.8xlarge    | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only, Enterprise Edition only | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
-| db.m7i.4xlarge    | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only, all editions            | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
-| db.m7i.2xlarge    | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only, all editions            | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
-| db.m7i.xlarge     | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only, all editions            | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
-| db.m7i.large      | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only, all editions            | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.m7i.48xlarge   | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.0.32 and higher | BYOL only, Enterprise Edition only | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.m7i.24xlarge   | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.0.32 and higher | BYOL only, Enterprise Edition only | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.m7i.16xlarge   | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.0.32 and higher | BYOL only, Enterprise Edition only | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.m7i.12xlarge   | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.0.32 and higher | BYOL only, Enterprise Edition only | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.m7i.8xlarge    | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.0.32 and higher | BYOL only, Enterprise Edition only | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.m7i.4xlarge    | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.0.32 and higher | BYOL only, all editions            | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.m7i.2xlarge    | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.0.32 and higher | BYOL only, all editions            | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.m7i.xlarge     | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.0.32 and higher | BYOL only, all editions            | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.m7i.large      | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.0.32 and higher | BYOL only, all editions            | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
 | db.m7i.metal-48xl | No       | No                                              | No                   | No                      | BYOL only, Enterprise Edition only | No                                                                                                             |
 | db.m7i.metal-24xl | No       | No                                              | No                   | No                      | BYOL only, Enterprise Edition only | No                                                                                                             |
 
@@ -364,15 +366,17 @@ Intel Xeon 6 processors**
 
 | Instance class    | Db2 | MariaDB | Microsoft SQL Server | MySQL | Oracle                             | PostgreSQL |
 | ----------------- | --- | ------- | -------------------- | ----- | ---------------------------------- | ---------- |
-| db.r8i.48xlarge   | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
-| db.r8i.24xlarge   | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
-| db.r8i.16xlarge   | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
-| db.r8i.12xlarge   | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
-| db.r8i.8xlarge    | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
-| db.r8i.4xlarge    | No  | No      | No                   | No    | BYOL only, all editions            | No         |
-| db.r8i.2xlarge    | No  | No      | No                   | No    | BYOL only, all editions            | No         |
-| db.r8i.xlarge     | No  | No      | No                   | No    | BYOL only, all editions            | No         |
-| db.r8i.large      | No  | No      | No                   | No    | BYOL only, all editions            | No         |
+| db.r8i.96xlarge   | No  | No      | Yes                  | No    | No                                 | No         |
+| db.r8i.48xlarge   | No  | No      | Yes                  | No    | BYOL only, Enterprise Edition only | No         |
+| db.r8i.32xlarge   | No  | No      | Yes                  | No    | BYOL only, Enterprise Edition only | No         |
+| db.r8i.24xlarge   | No  | No      | Yes                  | No    | BYOL only, Enterprise Edition only | No         |
+| db.r8i.16xlarge   | No  | No      | Yes                  | No    | BYOL only, Enterprise Edition only | No         |
+| db.r8i.12xlarge   | No  | No      | Yes                  | No    | BYOL only, Enterprise Edition only | No         |
+| db.r8i.8xlarge    | No  | No      | Yes                  | No    | BYOL only, Enterprise Edition only | No         |
+| db.r8i.4xlarge    | No  | No      | Yes                  | No    | BYOL only, all editions            | No         |
+| db.r8i.2xlarge    | No  | No      | Yes                  | No    | BYOL only, all editions            | No         |
+| db.r8i.xlarge     | No  | No      | Yes                  | No    | BYOL only, all editions            | No         |
+| db.r8i.large      | No  | No      | Yes                  | No    | BYOL only, all editions            | No         |
 | db.r8i.metal-96xl | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
 | db.r8i.metal-48xl | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
 
@@ -399,15 +403,15 @@ generation Intel Xeon Scalable processors**
 
 | Instance class    | Db2      | MariaDB                                         | Microsoft SQL Server | MySQL                   | Oracle                             | PostgreSQL                                                                                                     |
 | ----------------- | -------- | ----------------------------------------------- | -------------------- | ----------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| db.r7i.48xlarge   | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only                          | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
-| db.r7i.24xlarge   | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only                          | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
-| db.r7i.16xlarge   | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only                          | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
-| db.r7i.12xlarge   | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only                          | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
-| db.r7i.8xlarge    | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only                          | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
-| db.r7i.4xlarge    | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only, all editions            | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
-| db.r7i.2xlarge    | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only, all editions            | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
-| db.r7i.xlarge     | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only, all editions            | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
-| db.r7i.large      | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | No                   | MySQL 8.0.32 and higher | BYOL only, all editions            | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.r7i.48xlarge   | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.0.32 and higher | BYOL only                          | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.r7i.24xlarge   | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.0.32 and higher | BYOL only                          | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.r7i.16xlarge   | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.0.32 and higher | BYOL only                          | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.r7i.12xlarge   | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.0.32 and higher | BYOL only                          | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.r7i.8xlarge    | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.0.32 and higher | BYOL only                          | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.r7i.4xlarge    | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.0.32 and higher | BYOL only, all editions            | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.r7i.2xlarge    | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.0.32 and higher | BYOL only, all editions            | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.r7i.xlarge     | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.0.32 and higher | BYOL only, all editions            | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
+| db.r7i.large      | Db2 11.5 | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Yes                  | MySQL 8.0.32 and higher | BYOL only, all editions            | PostgreSQL version 17.1 and higher, 16.1 and higher, 15.4 and higher, 14.9<br>and higher, and 13.11 and higher |
 | db.r7i.metal-48xl | No       | No                                              | No                   | No                      | BYOL only, Enterprise Edition only | No                                                                                                             |
 | db.r7i.metal-24xl | No       | No                                              | No                   | No                      | BYOL only, Enterprise Edition only | No                                                                                                             |
 
