@@ -83,7 +83,7 @@ available in the [Java code samples](java-samples_3.md "java-samples_3.md").
 
 ## Issue: KeyGenerator and KeyAttribute incorrectly interprets key size parameter as number of bytes instead of bits
 
-When generating a key using the `init` function of the [KeyGenerator class](https://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyGenerator.html#init-int- "https://docs.oracle.com/javase/8/docs/api/javax/crypto/KeyGenerator.html#init-int-")
+When generating a key using the `init` function of the [KeyGenerator class](<https://docs.oracle.com/en/java/javase/25/docs/api/java.base/javax/crypto/KeyGenerator.html#init(int)> "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/javax/crypto/KeyGenerator.html#init(int)")
 or the `SIZE` attribute of the [AWS CloudHSM KeyAttribute enum](java-lib-attributes_5.md "java-lib-attributes_5.md"), the
 API incorrectly expects the argument to be the number of key bytes, when it should instead be the number of key bits.
 
@@ -106,6 +106,11 @@ WARNING: All illegal access operations will be denied in a future release`
 ```
 
 This issue is fixed in Client SDK version 5.8 and later.
+
+###### Note
+
+OpenJDK 11 is no longer supported. Client SDK 5.17.1 is the last release to
+support OpenJDK 11.
 
 ## Issue: JCE session pool is exhausted
 

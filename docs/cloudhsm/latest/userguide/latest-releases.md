@@ -199,3 +199,7 @@ Download version 5.17.1 software for Windows Server 2016 on x86_64 architecture:
 - [Key Storage Provider (KSP)](https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Windows/AWSCloudHSMKSP-5.17.1-1.msi "https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Windows/AWSCloudHSMKSP-5.17.1-1.msi") (SHA256 checksum 5bef4732d23861795a8463c3a3511e0a235a29972d584c2f65384e87ba4bb48c)
 
 Client SDK 5.17.1 includes bug fixes and improvements.
+
+###### JCE
+
+- Client SDK 5.17.1 is the last release to support OpenJDK 11.

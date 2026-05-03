@@ -4,7 +4,7 @@ This configuration allows a single client instance to communicate to multiple AW
 clusters. Compared to having a single instance only communicate with a single cluster, this
 can be a cost-savings feature for some use cases. The
 `CloudHsmProvider` class is AWS CloudHSM's implementation of [Java
-Security's Provider class](https://docs.oracle.com/javase/8/docs/api/java/security/Provider.html "https://docs.oracle.com/javase/8/docs/api/java/security/Provider.html"). Each instance of this class represents a connection
+Security's Provider class](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/Provider.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/Provider.html"). Each instance of this class represents a connection
 to your entire AWS CloudHSM cluster. You instantiate this class and add it to Java Security
 provider's list so that you can interact with it using standard JCE classes.
 

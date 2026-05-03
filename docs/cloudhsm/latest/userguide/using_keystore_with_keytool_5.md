@@ -1,6 +1,6 @@
 # Use AWS CloudHSM key store with keytool using Client SDK 5
 
-[Keytool](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html "https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html") is a popular command line utility for common key and certificate
+[Keytool](https://docs.oracle.com/en/java/javase/25/docs/specs/man/keytool.html "https://docs.oracle.com/en/java/javase/25/docs/specs/man/keytool.html") is a popular command line utility for common key and certificate
 tasks. A complete tutorial on keytool is out of scope for AWS CloudHSM
 documentation. This article explains the specific parameters you should use with various
 keytool functions when utilizing AWS CloudHSM as the root of trust through the AWS CloudHSM key

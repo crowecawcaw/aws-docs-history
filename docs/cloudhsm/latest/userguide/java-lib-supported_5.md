@@ -129,37 +129,37 @@ You can use key factories to convert keys to key specifications. AWS CloudHSM ha
 **SecretKeyFactory:** Used to import or derive symmetric keys. Using SecretKeyFactory,
 you can pass a supported Key or a supported KeySpec to import or derive symmetric keys into AWS CloudHSM. Following are the supported specs for KeyFactory:
 
-- For SecretKeyFactory's `generateSecret` method following [KeySpec](https://docs.oracle.com/javase/8/docs/api/java/security/spec/KeySpec.html "https://docs.oracle.com/javase/8/docs/api/java/security/spec/KeySpec.html") classes are supported:
+- For SecretKeyFactory's `generateSecret` method following [KeySpec](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/KeySpec.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/KeySpec.html") classes are supported:
   - **KeyAttributesMap**can be used to import a key bytes with additional attributes as a CloudHSM Key. An example can be found here
     [here](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/KeyUtilitiesRunner.java "https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/KeyUtilitiesRunner.java").
-  - **[SecretKeySpec](https://docs.oracle.com/javase/8/docs/api/javax/crypto/spec/SecretKeySpec.html "https://docs.oracle.com/javase/8/docs/api/javax/crypto/spec/SecretKeySpec.html")**can be used to
+  - **[SecretKeySpec](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/javax/crypto/spec/SecretKeySpec.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/javax/crypto/spec/SecretKeySpec.html")**can be used to
     import a symmetric key spec as a CloudHSM Key.
   - **AesCmacKdfParameterSpec**can be used to derive symmetric keys using another CloudHSM AES Key.
 
 ###### Note
 
-SecretKeyFactory's `translateKey` method takes any key that implements the [key](https://docs.oracle.com/javase/8/docs/api/java/security/Key.html "https://docs.oracle.com/javase/8/docs/api/java/security/Key.html") interface.
+SecretKeyFactory's `translateKey` method takes any key that implements the [key](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/Key.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/Key.html") interface.
 
 **KeyFactory:** Used for importing asymmetric keys. Using KeyFactory, you can pass a supported Key or supported KeySpec to
 import an asymmetric key into AWS CloudHSM. For more information, refer to the following resources:
 
-- For KeyFactory's `generatePublic` method, following [KeySpec](https://docs.oracle.com/javase/8/docs/api/java/security/spec/KeySpec.html "https://docs.oracle.com/javase/8/docs/api/java/security/spec/KeySpec.html") classes are supported:
+- For KeyFactory's `generatePublic` method, following [KeySpec](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/KeySpec.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/KeySpec.html") classes are supported:
 - CloudHSM KeyAttributesMap for both RSA and EC KeyTypes, including:
   - CloudHSM KeyAttributesMap for both RSA and EC public KeyTypes. An example can be found
     [here](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/KeyUtilitiesRunner.java "https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/KeyUtilitiesRunner.java")
-  - [X509EncodedKeySpec](https://docs.oracle.com/javase/8/docs/api/java/security/spec/X509EncodedKeySpec.html "https://docs.oracle.com/javase/8/docs/api/java/security/spec/X509EncodedKeySpec.html") for both RSA and EC Public Key
-  - [RSAPublicKeySpec](https://docs.oracle.com/javase/8/docs/api/java/security/spec/RSAPublicKeySpec.html "https://docs.oracle.com/javase/8/docs/api/java/security/spec/RSAPublicKeySpec.html") for RSA Public Key
-  - [ECPublicKeySpec](https://docs.oracle.com/javase/8/docs/api/java/security/spec/ECPublicKeySpec.html "https://docs.oracle.com/javase/8/docs/api/java/security/spec/ECPublicKeySpec.html") for EC Public Key
+  - [X509EncodedKeySpec](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/X509EncodedKeySpec.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/X509EncodedKeySpec.html") for both RSA and EC Public Key
+  - [RSAPublicKeySpec](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/RSAPublicKeySpec.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/RSAPublicKeySpec.html") for RSA Public Key
+  - [ECPublicKeySpec](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/ECPublicKeySpec.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/ECPublicKeySpec.html") for EC Public Key
 
-- For KeyFactory's `generatePrivate` method, following [KeySpec](https://docs.oracle.com/javase/8/docs/api/java/security/spec/KeySpec.html "https://docs.oracle.com/javase/8/docs/api/java/security/spec/KeySpec.html") classes are supported:
+- For KeyFactory's `generatePrivate` method, following [KeySpec](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/KeySpec.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/KeySpec.html") classes are supported:
 - CloudHSM KeyAttributesMap for both RSA and EC KeyTypes, including:
   - CloudHSM KeyAttributesMap for both RSA and EC public KeyTypes. An example can be found
     [here](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/KeyUtilitiesRunner.java "https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/KeyUtilitiesRunner.java")
-  - [PKCS8EncodedKeySpec](https://docs.oracle.com/javase/8/docs/api/java/security/spec/PKCS8EncodedKeySpec.html "https://docs.oracle.com/javase/8/docs/api/java/security/spec/PKCS8EncodedKeySpec.html") for both EC and RSA Private Key
-  - [RSAPrivateCrtKeySpec](https://docs.oracle.com/javase/8/docs/api/java/security/spec/RSAPrivateCrtKeySpec.html "https://docs.oracle.com/javase/8/docs/api/java/security/spec/RSAPrivateCrtKeySpec.html") for RSA Private Key
-  - [ECPrivateKeySpec](https://docs.oracle.com/javase/8/docs/api/java/security/spec/ECPrivateKeySpec.html "https://docs.oracle.com/javase/8/docs/api/java/security/spec/ECPrivateKeySpec.html") for EC Private Key
+  - [PKCS8EncodedKeySpec](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/PKCS8EncodedKeySpec.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/PKCS8EncodedKeySpec.html") for both EC and RSA Private Key
+  - [RSAPrivateCrtKeySpec](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/RSAPrivateCrtKeySpec.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/RSAPrivateCrtKeySpec.html") for RSA Private Key
+  - [ECPrivateKeySpec](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/ECPrivateKeySpec.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/ECPrivateKeySpec.html") for EC Private Key
 
-For KeyFactory's `translateKey` method, it takes in any Key that implements the [Key Interface](https://docs.oracle.com/javase/8/docs/api/java/security/Key.html "https://docs.oracle.com/javase/8/docs/api/java/security/Key.html").
+For KeyFactory's `translateKey` method, it takes in any Key that implements the [Key Interface](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/Key.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/Key.html").
 
 ## Mechanism annotations
 

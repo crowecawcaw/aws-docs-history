@@ -1,10 +1,14 @@
 # Install the JCE provider for AWS CloudHSM Client SDK 5
 
-The JCE provider for AWS CloudHSM Client SDK 5 is compatible with OpenJDK 8, OpenJDK 11, OpenJDK 17,
-OpenJDK 21, and OpenJDK 25. You can download both from the [OpenJDK
+The JCE provider for AWS CloudHSM Client SDK 5 is compatible with OpenJDK 17, OpenJDK 21, and OpenJDK 25.
+You can download OpenJDK from the [OpenJDK
 website](https://openjdk.java.net/ "https://openjdk.java.net/").
 
-Use the following sections to install and provide credentials to the provider.
+###### Note
+
+- Client SDK 5.17.0 is the last release to support OpenJDK 8.
+- Client SDK 5.17.1 is the last release to support OpenJDK 11.
+  Use the following sections to install and provide credentials to the provider.
 
 ###### Note
 
@@ -203,7 +207,7 @@ Before your Java application can use an HSM, the HSM needs to first authenticate
 HSMs authenticate using either an explicit login or implicit login method.
 
 **Explicit login** – This method lets you provide
-AWS CloudHSM credentials directly in the application. It uses the method from the [`AuthProvider`](https://docs.oracle.com/javase/8/docs/api/java/security/AuthProvider.html "https://docs.oracle.com/javase/8/docs/api/java/security/AuthProvider.html"), where you pass a CU username and password in
+AWS CloudHSM credentials directly in the application. It uses the method from the [`AuthProvider`](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/AuthProvider.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/AuthProvider.html"), where you pass a CU username and password in
 the pin pattern. For more information, see [Login to an HSM](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/LoginRunner.java "https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/LoginRunner.java") code example.
 
 **Implicit login** – This method lets you set
