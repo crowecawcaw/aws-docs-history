@@ -4,11 +4,11 @@
 
 **What is RFT?**
 
-Reinforcement fine-tuning (RFT) improves model performance by training on feedback signals—measurable scores or rewards indicating how well the model performed—rather than exact correct answers. Unlike supervised fine-tuning that learns from input-output pairs, RFT uses reward functions to evaluate model responses and iteratively optimizes the model to maximize these rewards. This approach excels when defining the exact correct output is challenging, but you can reliably measure response quality.
+Reinforcement fine-tuning (RFT) improves model performance by training on feedback signals—measurable scores or rewards indicating how well the model performed—rather than exact correct answers. Unlike supervised fine-tuning (SFT) that learns from input-output pairs, RFT uses reward functions to evaluate model responses and iteratively optimizes the model to maximize these rewards. This approach excels when defining the exact correct output is challenging, but you can reliably measure response quality.
 
 **When to use RFT**
 
-Use RFT when you can define clear, measurable success criteria but struggle to provide exact correct outputs for training. It's ideal for:
+Use RFT when you can define clear, measurable success criteria but it's difficult to provide exact correct outputs for training. RFT is ideal for:
 
 - Tasks where quality is subjective or multifaceted (creative writing, code optimization, complex reasoning)
 - Scenarios with multiple valid solutions where some are clearly better than others
@@ -238,13 +238,14 @@ These additional fields are passed to your reward function during evaluation, en
 
 ```
 # Note:
-# This recipe can run on p5.48xlarge and p5en.48xlarge instance types.
+# This recipe can run on p5.48xlarge, p5e.48xlarge, and p5en.48xlarge instance types.
 run:
-  name: "my-rft-run"                           # Unique run name (appears in logs/artifacts).
+  name: "my-rft-run"                           # Unique run name (appears in logs and artifacts).
   model_type: amazon.nova-2-lite-v1:0:256k
   model_name_or_path: nova-lite-2/prod
-  data_s3_path: s3://<bucket>/<data file>      # Training dataset in JSONL;
-  replicas: 4
+  data_s3_path: s3://<bucket>/<data-file>      # Training dataset in JSONL format.
+  replicas: 4                                   # Number of total training instances.
+  generation_replicas: 2                        # Number of total instances dedicated to response generation.
   reward_lambda_arn: arn:aws:lambda:<region>:<account-id>:function:<function-name>
 
   ## MLFlow configs
@@ -252,46 +253,56 @@ run:
   mlflow_experiment_name: "my-rft-experiment" # Optional for MLFlow. Note: leave this field non-empty
   mlflow_run_name: "my-rft-run" # Optional for MLFlow. Note: leave this field non-empty
 
-## SMTJ GRPO Training specific configs
+## SMTJ RFT training configs
 training_config:
-  max_length: 8192                              # Context window (tokens) for inputs+prompt;
-  global_batch_size: 16                         # Total samples per optimizer step across all replicas (16/32/64/128/256).
-  reasoning_effort: high                        # Enables reasoning mode high / low / or null for non-reasoning
+  max_length: 8192                              # Context window (tokens) for inputs and prompt.
+  global_batch_size: 32                         # Total samples per optimizer step across all replicas (16/32/64/128/256).
+  reasoning_effort: high                        # Reasoning mode: high, low, or null for non-reasoning.
 
-  rollout:                                      # How responses are generated for GRPO/advantage calc.
+  data:
+    shuffle: true                               # Shuffle training data each epoch.
+
+  rollout:                                      # Controls how responses are generated for advantage calculation.
+    rollout_strategy:
+      type: off_policy_async                    # Asynchronous rollout for higher throughput.
+      age_tolerance: 2                          # Maximum policy age before regeneration.
     advantage_strategy:
-      number_generation: 2                      # N samples per prompt to estimate advantages (variance vs cost).
+      number_generation: 4                      # Samples per prompt to estimate advantages (higher = lower variance but higher cost).
     generator:
-      max_new_tokens: 6000                      # Cap on tokens generated per sample
+      max_new_tokens: 6000                      # Cap on tokens generated per sample.
       set_random_seed: true                     # Seed generation for reproducibility across runs.
-      temperature: 1                            # Softmax temperature;
-      top_k: 1                                  # Sample only from top-K logits
+      temperature: 1                            # Softmax temperature for sampling.
+      top_k: 1                                  # Sample only from top-K logits.
     rewards:
-      preset_reward_function: null              # Usage of preset reward functions [exact_match]
+      preset_reward_function: null              # Preset reward functions: exact_match or null for custom.
       api_endpoint:
         lambda_arn: arn:aws:lambda:<region>:<account-id>:function:<function-name>
         lambda_concurrency_limit: 12             # Max concurrent Lambda invocations (throughput vs. throttling).
+        lambda_batch_size: 128                  # Number of samples per Lambda invocation.
 
   trainer:
-    max_steps: 2                                 # Steps to train for. One Step = global_batch_size
-    save_steps: 5
-    test_steps: 1
+    max_steps: 2                                # Steps to train for. One step = global_batch_size samples.
+    save_steps: 5                               # Save a checkpoint every N steps.
+    test_steps: 1                               # Run validation every N reference model updates.
+    refit_freq: 4                               # Frequency of reference model updates.
+    clip_ratio_high: 0.2                        # PPO clip ratio for policy updates.
+    loss_scale: 1.0                             # Scaling factor for the policy loss.
 
     # RL parameters
-    ent_coeff: 0.0                              # A bonus added to the policy loss that rewards higher-output entropy.
-    kl_loss_coef: 0.001                         # Weight on the KL penalty between the actor (trainable policy) and a frozen reference model
+    ent_coeff: 0.0                              # Entropy bonus added to the policy loss (higher = more exploration).
+    kl_loss_coef: 0.0                           # Weight on the KL penalty between the current and reference policy.
 
-    optim_config:                    # Optimizer settings
-        lr: 5e-5                       # Learning rate
-        weight_decay: 0.0              # L2 regularization strength (0.0–1.0)
+    optim_config:                               # Optimizer settings.
+        lr: 1e-6                                # Learning rate.
+        weight_decay: 0.0                       # L2 regularization strength (0.0 to 1.0).
         adam_beta1: 0.9
         adam_beta2: 0.95
 
-    peft:                            # Parameter-efficient fine-tuning (LoRA)
-        peft_scheme: "lora"            # Enable LoRA for PEFT
+    peft:                                       # Parameter-efficient fine-tuning (LoRA).
+        peft_scheme: "lora"                     # Enable LoRA for PEFT.
         lora_tuning:
-            alpha: 32
-            lora_plus_lr_ratio: 64.0     # LoRA+ learning rate scaling factor (0.0–100.0)
+            alpha: 64                           # LoRA scaling factor.
+            lora_plus_lr_ratio: 64.0            # LoRA+ learning rate scaling factor (0.0 to 100.0).
 ```
 
 ## RFT training using LLM as a judge
