@@ -85,9 +85,13 @@ resilient to non-idempotent file operations by default. You do not need to adjus
 non-idempotent file operations.
 
 HealthOmics allocates a fixed amount of run storage. You specify this value when you start the run. The default run
-storage is 1200 GiB, if you don't specify a value. When you specify a value for storage size in the StartRun API
-request, the system rounds up the value to the nearest multiple of 1200 GiB. If that storage size isn't available,
-it rounds up to the nearest multiple of 2400 GiB.
+storage is 1200 GiB, if you don't specify a value. The supported storage sizes are 1,200 GiB or multiples of
+2,400 GiB (for example, 2,400, 4,800, 7,200 GiB). If your requested size is not a supported value, the system
+rounds up to the nearest supported size.
+
+For example, if you request 42,000 GiB, the run provisions 43,200 GiB (18 × 2,400 GiB) because 42,000
+is not a multiple of 2,400. Similarly, a request for 5,000 GiB provisions 7,200 GiB (3 × 2,400 GiB), and a
+request for 1,000 GiB provisions the minimum size of 1,200 GiB.
 
 For static run storage, HealthOmics provisions the following throughput values:
 

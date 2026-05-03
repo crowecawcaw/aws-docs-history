@@ -44,10 +44,12 @@ that your subnets are in one or more of these Availability Zones.
 | us-west-2       | us-west-2a             | usw2-az2             |
 | us-west-2b      | usw2-az1               |
 | us-west-2c      | usw2-az3               |
+| us-west-2d      | usw2-az4               |
 | us-east-1       | us-east-1a             | use1-az4             |
 | us-east-1b      | use1-az6               |
 | us-east-1c      | use1-az1               |
 | us-east-1d      | use1-az2               |
+| us-east-1f      | use1-az5               |
 | eu-west-1       | eu-west-1a             | euw1-az2             |
 | eu-west-1b      | euw1-az3               |
 | eu-west-1c      | euw1-az1               |
