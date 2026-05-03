@@ -11,3 +11,54 @@ For current pricing, see [pricing](https://aws.amazon.com/bedrock/pricing/ "http
 
 The assistant displays context window usage during interactions to help you monitor
 token consumption.
+
+## Tracking assistant costs
+
+supports cost allocation by AWS Identity and Access Management (IAM) principal, which you can use to track
+and attribute assistant inference costs across teams, projects, or cost centers. To
+set up cost tracking for the assistant, tag the monitor user role with attributes
+that represent your organizational structure, then activate those tags for cost
+allocation.
+
+To complete this procedure, you need IAM permissions to tag roles and access
+to the Billing console.
+
+###### To set up cost tracking for the assistant
+
+1. Tag the IAM role that your monitor users assume. You can add tags in the
+   IAM console or by using the AWS CLI. The following example uses the AWS CLI:
+
+```
+aws iam tag-role \
+    --role-name `YourMonitorUserRole` \
+    --tags Key=team,Value=`YourTeam` Key=project,Value=`YourProject`
+```
+
+Choose tag keys that align with your organizational structure, such as
+`team`, `project`, or `cost-center`. 2. Activate the tags for cost allocation:
+
+    1. Open the [Billing
+     console](https://console.aws.amazon.com/costmanagement/home#/cost-allocation-tags "https://console.aws.amazon.com/costmanagement/home#/cost-allocation-tags").
+    2. In the navigation pane, under **Cost Organization**,
+     choose **Cost Allocation Tags**.
+    3. Find and select your IAM principal tags, then choose
+     **Activate**.
+
+3. In (), filter or group by your activated IAM
+   principal tags to view costs.
+   1. Choose **Tag** as the grouping dimension.
+   2. Select your tag key.
+
+After you apply tags to your IAM roles, it can take up to 24 hours for
+the tag keys to appear on the cost allocation tags page. It can then take up to
+24 hours for the tags to activate.
+
+For line-item cost attribution, create a AWS Cost and Usage Report () data export and select
+**Include caller identity (IAM principal) allocation data**. The
+export includes a `line_item_iam_principal` column that records the IAM
+ARN for each request, along with your IAM principal tags prefixed with
+`iamPrincipal/`.
+
+For more information, see [Using IAM
+principal for cost allocation](../../../awsaccountbilling/latest/aboutv2/iam-principal-cost-allocation.md "../../../awsaccountbilling/latest/aboutv2/iam-principal-cost-allocation.md") in the _AWS Billing User
+Guide_.

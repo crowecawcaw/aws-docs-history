@@ -25,6 +25,8 @@ The available GPU accelerators are:
 - `A10G` - NVIDIA A10G Tensor Core GPU
 - `L4` - NVIDIA L4 Tensor Core GPU
 - `L40s` - NVIDIA L40S Tensor Core GPU
+- `RTX PRO Server 6000` - NVIDIA RTX PRO 6000 Blackwell Server
+  Edition GPU
   You can choose from the following runtime drivers:
 
 - `Latest` - Use the latest runtime available for the chip. If you

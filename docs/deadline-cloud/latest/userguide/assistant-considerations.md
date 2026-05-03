@@ -1,6 +1,6 @@
 # Important considerations
 
-Before using the Deadline Cloud assistant, be aware of the following considerations
+Before you use the Deadline Cloud assistant, be aware of the following considerations
 about AI-generated content and data handling:
 
 - **AI-generated responses** – The assistant
@@ -13,6 +13,6 @@ about AI-generated content and data handling:
   outputs. Responses might occasionally contain unexpected or inappropriate
   content.
 - **Feedback** – You can provide feedback on
-  individual responses by using the thumbs up and thumbs down icons. To submit general
-  feedback about the assistant, choose the speech bubble icon in the top right corner of
-  the assistant panel (non-EU and non-UK regions only). You can also contact [AWS Support](https://aws.amazon.com/support/ "https://aws.amazon.com/support/") to report issues.
+  individual responses by using the thumbs up and thumbs down icons. A general feedback
+  form is also available from the assistant panel (non-EU and non-UK regions only). You
+  can also contact [AWS Support](https://aws.amazon.com/support/ "https://aws.amazon.com/support/") to report issues.
