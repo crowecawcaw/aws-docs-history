@@ -7,6 +7,7 @@ This page describes how to produce log output from your Lambda function's code, 
 ###### Sections
 
 - [Creating a function that returns logs](#ruby-logging-output "#ruby-logging-output")
+- [Using Lambda advanced logging controls with Ruby](#ruby-logging-advanced "#ruby-logging-advanced")
 - [Viewing logs in the Lambda console](#ruby-logging-console "#ruby-logging-console")
 - [Viewing logs in the CloudWatch console](#ruby-logging-cwconsole "#ruby-logging-cwconsole")
 - [Viewing logs using the AWS Command Line Interface (AWS CLI)](#ruby-logging-cli "#ruby-logging-cli")
@@ -65,6 +66,150 @@ invocation. The report line provides the following details.
 - **Sampled** – For traced requests, the sampling result.
 
 For more detailed logs, use the [Working with the Ruby logger library](#ruby-logging-lib "#ruby-logging-lib").
+
+## Using Lambda advanced logging controls with Ruby
+
+To give you more control over how your functions' logs are captured, processed, and consumed, Lambda offers advanced logging controls with Ruby. For Ruby 4.0 and later runtimes, you can configure the following logging options:
+
+- **Log format** - select between plain text and structured JSON format for your function's logs
+- **Log level** - for logs in JSON format, choose the detail level of the logs Lambda sends to Amazon CloudWatch, such as ERROR, DEBUG, or INFO
+- **Log group** - choose the CloudWatch log group your function sends logs to
+
+For more information about these logging options, and instructions on how to configure your function to use them, see [Configuring advanced logging controls for Lambda functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced "monitoring-logs.md#monitoring-cloudwatchlogs-advanced").
+
+To learn more about using the log format and log level options with your Ruby Lambda functions, see the guidance in the following sections.
+
+### Using structured JSON logs with Ruby
+
+If you select JSON for your function's log format, Lambda will send logs output by the Ruby standard `Logger` library to CloudWatch as structured JSON. Each JSON log object contains at least four key value pairs with the following keys:
+
+- `"timestamp"` - the time the log message was generated
+- `"level"` - the log level assigned to the message
+- `"message"` - the contents of the log message
+- `"requestId"` - the unique request ID for the function invocation
+
+The Ruby `Logger` library can also add extra key value pairs such as `"logger"` to this JSON object.
+
+The examples in the following sections show how log outputs generated using the Ruby `Logger` library are captured in CloudWatch Logs when you configure your function's log format as JSON.
+
+Note that if you use the `puts` method to produce basic log outputs as described in [Creating a function that returns logs](#ruby-logging-output "#ruby-logging-output"), Lambda will capture these outputs as plain text, even if you configure your function's logging format as JSON.
+
+### Standard JSON log outputs using Ruby Logger library
+
+The following example code snippet and log output show how standard log outputs generated using the Ruby `Logger` library are captured in CloudWatch Logs when your function's log format is set to JSON.
+
+###### Example Ruby logging code
+
+```
+require 'logger'
+
+def lambda_handler(event:, context:)
+  logger = Logger.new($stdout)
+  logger.info("Inside the handler function")
+end
+```
+
+###### Example JSON log record
+
+```
+{
+    "timestamp": "2025-10-27T19:17:45.586Z",
+    "level": "INFO",
+    "message": "Inside the handler function",
+    "requestId": "79b4f56e-95b1-4643-9700-2807f4e68189"
+}
+```
+
+### Logging extra parameters in JSON
+
+When your function's log format is set to JSON, you can also log additional parameters with the Ruby `Logger` library by passing a hash of extra key value pairs to the log output.
+
+###### Example Ruby logging code
+
+```
+require 'logger'
+require 'json'
+
+def lambda_handler(event:, context:)
+  logger = Logger.new($stdout)
+  extra_params = { "a" => "b", "b" => [3] }
+  logger.info({ message: "extra parameters example" }.merge(extra_params).to_json)
+end
+```
+
+###### Example JSON log record
+
+```
+{
+    "timestamp": "2025-11-02T15:26:28Z",
+    "level": "INFO",
+    "message": "extra parameters example",
+    "requestId": "3dbd5759-65f6-45f8-8d7d-5bdc79a3bd01",
+    "a": "b",
+    "b": [
+        3
+    ]
+}
+```
+
+### Logging exceptions in JSON
+
+The following code snippet shows how Ruby exceptions are captured in your function's log output when you configure the log format as JSON. Note that log outputs generated using `logger.error` with an exception are assigned the log level ERROR.
+
+###### Example Ruby logging code
+
+```
+require 'logger'
+
+def lambda_handler(event:, context:)
+  logger = Logger.new($stdout)
+  begin
+    raise "exception"
+  rescue => e
+    logger.error(e)
+  end
+end
+```
+
+###### Example JSON log record
+
+```
+{
+    "timestamp": "2025-11-02T16:18:57Z",
+    "level": "ERROR",
+    "message": "exception",
+    "stackTrace": [
+        "  /var/task/lambda_function.rb:4:in `lambda_handler'"
+    ],
+    "errorType": "RuntimeError",
+    "errorMessage": "exception",
+    "requestId": "3f9d155c-0f09-46b7-bdf1-e91dab220855",
+    "location": "/var/task/lambda_function.rb:lambda_handler:6"
+}
+```
+
+### Using log-level filtering with Ruby
+
+By configuring log-level filtering, you can choose to send only logs of a certain logging level or lower to CloudWatch Logs. To learn how to configure log-level filtering for your function, see [Log-level filtering](monitoring-cloudwatchlogs-log-level.md "monitoring-cloudwatchlogs-log-level.md").
+
+For AWS Lambda to filter your application logs according to their log level, your function must use JSON formatted logs. You can achieve this in two ways:
+
+- Create log outputs using the standard Ruby `Logger` library and configure your function to use JSON log formatting. AWS Lambda then filters your log outputs using the `"level"` key value pair in the JSON object described in [Using structured JSON logs with Ruby](#ruby-logging-json "#ruby-logging-json"). To learn how to configure your function's log format, see [Configuring advanced logging controls for Lambda functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced "monitoring-logs.md#monitoring-cloudwatchlogs-advanced").
+- Use another logging library or method to create JSON structured logs in your code that include a `"level"` key value pair defining the level of the log output.
+
+You can also use a `puts` statement to output a JSON object containing a log level identifier. The following `puts` statement produces a JSON formatted output where the log level is set to INFO. AWS Lambda will send the JSON object to CloudWatch Logs if your function's logging level is set to INFO, DEBUG, or TRACE.
+
+```
+puts '{"msg":"My log message", "level":"info"}'
+```
+
+For Lambda to filter your function's logs, you must also include a `"timestamp"` key value pair in your JSON log output. The time must be specified in valid [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt "https://www.ietf.org/rfc/rfc3339.txt") timestamp format. If you don't supply a valid timestamp, Lambda will assign the log the level INFO and add a timestamp for you.
+
+### Using an alternative logging library
+
+If you need to use a custom version of the `logger` library, you can include it in your deployment package or in a Lambda layer, and set the `RUBYLIB` environment variable to the library's `lib` directory. The Lambda runtime will load your version instead of the bundled one.
+
+If your code already uses another logging library to produce JSON structured logs, you don't need to make any changes. AWS Lambda doesn't double-encode any logs that are already JSON encoded. Even if you configure your function to use the JSON log format, your logging outputs appear in CloudWatch in the JSON structure you define.
 
 ## Viewing logs in the Lambda console
 

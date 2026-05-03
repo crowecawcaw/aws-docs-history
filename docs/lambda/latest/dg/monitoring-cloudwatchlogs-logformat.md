@@ -36,6 +36,7 @@ Lambda currently supports the option to output JSON structured application logs 
 | .NET     | .NET 8 and later                                  |
 | Node.js  | Node.js 16 and later                              |
 | Python   | Python 3.8 and later                              |
+| Ruby     | Ruby 4.0 and later                                |
 | Rust     | n/a                                               |
 
 For Lambda to send your function's application logs to CloudWatch in structured JSON format, your function must use the following built-in
@@ -46,6 +47,7 @@ logging tools to output logs:
 - **Node.js** - The console methods `console.trace`, `console.debug`,
   `console.log`, `console.info`, `console.error`, and `console.warn`. For more information, see [Log and monitor Node.js Lambda functions](nodejs-logging.md "nodejs-logging.md").
 - **Python**: The standard Python `logging` library. For more information, see [Log and monitor Python Lambda functions](python-logging.md "python-logging.md").
+- **Ruby**: The standard Ruby `Logger` library. For more information, see [Log and monitor Ruby Lambda functions](ruby-logging.md "ruby-logging.md").
 - **Rust**: The `tracing` crate. For more information, see [Log and monitor Rust Lambda functions](rust-logging.md "rust-logging.md").
 
 For other managed Lambda runtimes, Lambda currently only natively supports capturing system logs in structured JSON format. However, you

@@ -8,9 +8,9 @@ Lambda supports the following Ruby runtimes.
 
 | Name     | Identifier | Operating system  | Deprecation date | Block function create | Block function update |
 | -------- | ---------- | ----------------- | ---------------- | --------------------- | --------------------- |
+| Ruby 4.0 | `ruby4.0`  | Amazon Linux 2023 | Mar 31, 2029     | Apr 30, 2029          | May 31, 2029          |
 | Ruby 3.4 | `ruby3.4`  | Amazon Linux 2023 | Mar 31, 2028     | Apr 30, 2028          | May 31, 2028          |
 | Ruby 3.3 | `ruby3.3`  | Amazon Linux 2023 | Mar 31, 2027     | Apr 30, 2027          | May 31, 2027          |
-| Ruby 3.2 | `ruby3.2`  | Amazon Linux 2    | Mar 31, 2026     | Aug 31, 2026          | Sep 30, 2026          |
 
 ###### To create a Ruby function
 
@@ -18,7 +18,7 @@ Lambda supports the following Ruby runtimes.
 2. Choose **Create function**.
 3. Configure the following settings:
    - **Function name**: Enter a name for the function.
-   - **Runtime**: Choose **Ruby 3.4**.
+   - **Runtime**: Choose **Ruby 4.0**.
 
 4. Choose **Create function**.
    The console creates a Lambda function with a single source file named `lambda_function.rb`. You can edit this file and add more files in the built-in code editor. In the **DEPLOY** section, choose **Deploy** to update your function's code. Then, to run your code, choose **Create test event** in the **TEST EVENTS** section.

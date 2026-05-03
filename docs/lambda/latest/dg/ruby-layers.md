@@ -20,7 +20,7 @@ three general steps:
 
 To create a layer, bundle your packages into a .zip file archive that meets the following requirements:
 
-- Create the layer using the same Ruby version that you plan to use for the Lambda function. For example, if you create your layer for Ruby 3.4, use the Ruby 3.4 runtime for your function.
+- Create the layer using the same Ruby version that you plan to use for the Lambda function. For example, if you create your layer for Ruby 4.0, use the Ruby 4.0 runtime for your function.
 - Your layer's .zip file must use one of these directory structures:
 
       + `ruby/gems/`x.x.x`` (where `x.x.x` is your Ruby version, for example `3.4.0`)
@@ -109,7 +109,7 @@ gem 'httparty'
 
 2. Use Docker to build the gems in a Linux environment that is compatible with Lambda. Specify an [AWS base image](ruby-image.md#ruby-image-base "ruby-image.md#ruby-image-base") in your Dockerfile:
 
-###### Example Dockerfile for Ruby 3.4
+###### Example Dockerfile for Ruby 4.0
 
 ```
 FROM `public.ecr.aws/lambda/ruby:3.4`
@@ -293,7 +293,7 @@ AWS CLI
 Run the [publish-layer-version](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/publish-layer-version.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/publish-layer-version.html") AWS CLI command to create the Lambda layer:
 
 ```
-aws lambda publish-layer-version --layer-name `my-layer` --zip-file fileb://layer.zip --compatible-runtimes `ruby3.4`
+aws lambda publish-layer-version --layer-name `my-layer` --zip-file fileb://layer.zip --compatible-runtimes `ruby4.0`
 ```
 
 The [compatible runtimes](../api/API_PublishLayerVersion.md#lambda-PublishLayerVersion-request-CompatibleRuntimes "../api/API_PublishLayerVersion.md#lambda-PublishLayerVersion-request-CompatibleRuntimes") parameter is optional. When specified, Lambda uses this parameter to filter layers in the Lambda console.
