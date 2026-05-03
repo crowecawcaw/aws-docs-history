@@ -30,3 +30,4 @@ When you use billing transfer as a bill source account, your estimated savings i
 
 - [Viewing recommended actions and estimated savings](coh-view-recommendations.md "coh-view-recommendations.md")
 - [Grouping related recommendations](coh-group-recommendations.md "coh-group-recommendations.md")
+- [Exporting your recommendations](coh-export-recommendations.md "coh-export-recommendations.md")
