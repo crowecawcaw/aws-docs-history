@@ -23,6 +23,7 @@ see [Managing the service updates](managing-updates.md "managing-updates.md").
 
 | CVE                                                                                                                   | Valkey 7.3 | Valkey 7.2 | Redis OSS 7.1 | Redis OSS 7.0 | Redis OSS 6.2 |
 | --------------------------------------------------------------------------------------------------------------------- | ---------- | ---------- | ------------- | ------------- | ------------- |
+| [CVE-2025-49844](https://www.cve.org/CVERecord?id=CVE-2025-49844 "https://www.cve.org/CVERecord?id=CVE-2025-49844")\* | ✓          | ✓          | ✓             | ✓             | ✓             |
 | [CVE-2025-49819](https://www.cve.org/CVERecord?id=CVE-2025-49819 "https://www.cve.org/CVERecord?id=CVE-2025-49819")\* | ✓          | ✓          | ✓             | ✓             | ✓             |
 | [CVE-2025-48367](https://www.cve.org/CVERecord?id=CVE-2025-48367 "https://www.cve.org/CVERecord?id=CVE-2025-48367")\* | ✓          | ✓          | ✓             | ✓             | ✓             |
 | [CVE-2025-46844](https://www.cve.org/CVERecord?id=CVE-2025-46844 "https://www.cve.org/CVERecord?id=CVE-2025-46844")\* | ✓          | ✓          | ✓             | ✓             | ✓             |
