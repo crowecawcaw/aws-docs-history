@@ -48,6 +48,48 @@ Please follow the instructions from the deployment wizard. More info about comma
 [Readme](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd")
 or `cid-cmd --help`.
 
+Terraform
+You can deploy the SCAD Containers Cost Allocation Dashboard using the [CID Terraform module](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/tree/main/terraform/cicd-deployment "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/tree/main/terraform/cicd-deployment").
+
+###### Note
+
+**Prerequisite**: Complete the foundational Terraform deployment as described in the [Foundational Dashboards deployment guide](deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard "deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard") (select the **Terraform** tab) before deploying additional dashboards.
+
+1. In your [user-config.tf](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/terraform/cicd-deployment/user-config.tf "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/terraform/cicd-deployment/user-config.tf"), find the `dashboards` block and set `containers` to `"yes"`:
+
+```
+  containers = "yes"  # SCAD Containers Cost Allocation Dashboard
+```
+
+2. Ensure the following module block is present in your `dashboards.tf`:
+
+```
+module "containers_dashboard" {
+  source = "./modules/cloudformation_stack"
+  providers = {
+    aws = aws.datacollection
+  }
+
+  config = local.additional_dashboards.containers
+}
+```
+
+###### Note
+
+This block is already included if you are using the full module files from the repository. If your existing deployment only has foundational dashboards, add this block to `dashboards.tf` manually. For individual dashboard deployments, include `depends_on = [module.cloud_intelligence_dashboards]` to ensure correct ordering. 3. Run the Terraform workflow:
+
+```
+terraform init
+terraform plan
+terraform apply
+```
+
+###### Note
+
+If you are adding this dashboard to an existing Terraform deployment, `terraform plan` will show the additional stack to be created. The `dashboards.tf` file handles the resource definitions automatically — no manual edits to it are needed. If you have a custom module structure with a separate path, ensure the `source` parameter in your module block points to the correct location.
+
+For detailed instructions, refer to the [Terraform Deployment README](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/terraform/cicd-deployment/README.md "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/terraform/cicd-deployment/README.md").
+
 ###### Note
 
 Please note that DataExport can take up to 24-48 hours to deliver the

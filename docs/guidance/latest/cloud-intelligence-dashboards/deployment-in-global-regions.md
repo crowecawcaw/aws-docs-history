@@ -265,7 +265,27 @@ or `cid-cmd --help`. 5. Repeat deployment command for Cost Intelligence Dashboar
 Please note that Advanced Dashboard will require Advanced [Data Collection](data-collection.md "data-collection.md")
 
 Terraform
-WIP
+You can also deploy the foundational dashboards (CUDOS, Cost Intelligence, and KPI) using the [CID Terraform module](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/tree/main/terraform/cicd-deployment "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/tree/main/terraform/cicd-deployment"). This module uses Terraform to orchestrate CloudFormation stacks across your Management (Payer) and Data Collection accounts.
+
+**Getting Started:**
+
+1. Clone or download the [Terraform module files](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/tree/main/terraform/cicd-deployment "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/tree/main/terraform/cicd-deployment").
+2. Create a `backend.tf` for your Terraform state configuration (e.g., S3 backend).
+3. Create a `providers.tf` with two AWS provider aliases: `management` (Payer account) and `datacollection` (Data Collection account).
+4. Edit [user-config.tf](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/terraform/cicd-deployment/user-config.tf "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/terraform/cicd-deployment/user-config.tf") — this is the main configuration file. Update `global_values` with your account IDs, region, and QuickSight username. In the `dashboards` block, set the foundational dashboards you want to deploy to `"yes"`.
+5. Run the standard Terraform workflow:
+
+```
+terraform init
+terraform plan
+terraform apply
+```
+
+###### Note
+
+The module deploys three CloudFormation stacks automatically: Data Exports Destination, Data Exports Source, and the CID Dashboards stack. Stack creation can take up to 60 minutes.
+
+For detailed instructions including file structure, cross-account setup, advanced configuration, and FAQ, refer to the [Terraform Deployment README](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/terraform/cicd-deployment/README.md "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/terraform/cicd-deployment/README.md").
 
 ###### Note
 

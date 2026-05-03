@@ -118,8 +118,9 @@ The Cloud Intelligence Dashboards are managed by:
 - Mohideen Hajamohideen, Senior Cloud Infra Architect, AWS
 - Marco De Bianchi, Senior Cloud FinOps Architect, AWS
 - Samuel Chniber, Senior Solutions Architect, AWS
-- Vineeth Nair, Technical Account Manager, AWS
+- Vineeth Nair, Senior Technical Account Manager, AWS
 - Devashish Meher, Technical Account Manager, AWS
+- Zarif Samar, Delivery Consultant, AWS
 
 ## Legal Notice
 

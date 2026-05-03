@@ -87,7 +87,7 @@ CloudFormation
 1. Log in to to your **Data Collection** Account.
 2. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=AWS-Budgets-Dashboard&param_DashboardId=aws-budgets&param_RequiresDataCollection=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=AWS-Budgets-Dashboard¶m_DashboardId=aws-budgets¶m_RequiresDataCollection=yes")
+[![Launch Stack button](/images/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=AWS-Budgets-Dashboard&param_DashboardId=aws-budgets&param_RequiresDataCollection=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=AWS-Budgets-Dashboard¶m_DashboardId=aws-budgets¶m_RequiresDataCollection=yes")
 
 1. You can change **Stack name** for your template if you wish.
 2. Leave **Parameters** values as it is.
