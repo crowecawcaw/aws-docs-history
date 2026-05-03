@@ -79,18 +79,11 @@ fix may be available.
 
 - **Package manager** – The
   package manager used to configure this package.
-- **Remediation** – If a fix is available
-  through an updated package or programming library, this section
-  includes the commands that you can run to make the update. You can
-  copy the provided command and run it in your environment.
-
-###### Note
-
-Remediation commands are provided from vendor data feeds and
-may vary depending on your system configuration. Review finding
-references or operating system documentation for more specific
-guidance.
-
+- **Remediation** – Remediation commands
+  vary depending on your system configuration. Review finding
+  references or operating system documentation for more specific
+  guidance. When available, customers should update affected packages
+  to the provided fixed version (or newer).
 - **Vulnerability details** –
   provides a link to the Amazon Inspector preferred source for the CVE identified
   in the finding, such as National Vulnerability Database (NVD),

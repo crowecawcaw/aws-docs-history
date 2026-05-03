@@ -8,6 +8,8 @@ Sbomgen then transforms package metadata into a CycloneDX SBOM.
 You can use Sbomgen to generate the CycloneDX SBOM as a file or in STDOUT and send SBOMs to Amazon Inspector for vulnerability detection.
 You can also use Sbomgen as part of [the CI/CD integration](scanning-cicd.md "scanning-cicd.md"), which scans container images automatically as part of your deployment pipeline.
 
+Amazon Inspector uses Sbomgen for several managed scanning features. When Amazon Inspector performs [Amazon ECR container image scanning](scanning-ecr.md "scanning-ecr.md"), [AWS Lambda function scanning](scanning-lambda.md "scanning-lambda.md"), and [Agentless scanning](scanning-ec2.md#agentless "scanning-ec2.md#agentless") of Amazon Elastic Compute Cloud instances through Amazon EBS volume analysis, it invokes Sbomgen behind the scenes to generate the software inventory used for vulnerability assessment. The standalone Sbomgen tool described on this page provides the same underlying technology, enabling you to integrate SBOM generation directly into your workflows.
+
 ## Supported packages types
 
 Sbomgen collects inventory for the following package types:
