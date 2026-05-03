@@ -119,7 +119,7 @@ metadata:
 spec:
   type: Scala
   mode: cluster
-  image: "895885662937.dkr.ecr.us-west-2.amazonaws.com/spark/emr-7.12.0:latest"
+  image: "895885662937.dkr.ecr.us-west-2.amazonaws.com/spark/emr-7.13.0:latest"
   imagePullPolicy: Always
   mainClass: org.apache.spark.examples.SparkPi
   mainApplicationFile: "local:///usr/lib/spark/examples/jars/spark-examples.jar"
