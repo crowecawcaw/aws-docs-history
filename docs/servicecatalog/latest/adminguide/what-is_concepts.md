@@ -114,10 +114,10 @@ AWS CloudFormation templates for products and apply restrictions to the template
 
 This diagram shows the initial workflow for an administrator to create a catalog.
 
-![Workflow diagram showing steps for administrators to create and manage product portfolios.](images/sc-diagram-updated.png)
+![Workflow showing catalog products organized into portfolios with constraints and distributed to organizations or users.](images/sc-diagram-updated.png)
 
 ## Initial End User Workflow
 
 This diagram shows the initial workflow for an end user.
 
-![End user workflow: discover products, select version, provide inputs, manage lifecycle.](images/end-user-journey.png)
+![End user workflow showing four stages: discover products, select product and version, provide parameter inputs and launch, and manage product life-cycle.](images/end-user-journey.png)

@@ -16,18 +16,18 @@ equivalent access to the provisioned product write operations. For more informat
 3. In the **Access Filter** dropdown menu, choose
    **Account**.
 
-![Provisioned products interface with search bar, access filter dropdown, and table columns.](images/access-filter-dropdown.png) 4. In the **Account** view, choose and open a provisioned
+![Access Filter dropdown menu expanded showing Account, User, and Role options.](images/access-filter-dropdown.png) 4. In the **Account** view, choose and open a provisioned
 product to display its details.
 
 ![Provisioned products table showing one S3 bucket product with its creation date and status.](images/account-view.png)
 
 You can see the details of the provisioned product.
 
-![Provisioned product details page showing status, ID, name, creation date, and other information.](images/details-pp.png) 5. Scroll down to expand the **Events** section. Note the
+![Provisioned product details page showing product name, IDs, user information, and status.](images/details-pp.png) 5. Scroll down to expand the **Events** section. Note the
 `Provisioned product ID` and
 `CloudformationStackARN` values.
 
-![Events section showing UPDATE_PROVISIONED_PRODUCT with CloudFormationStackARN details.](images/events-container.png) 6. Use the provisioned product ID to identify the AWS CloudTrail record that corresponds to
+![Events section showing UPDATE_PROVISIONED_PRODUCT with provisioning artifact ID and CloudformationStackARN output.](images/events-container.png) 6. Use the provisioned product ID to identify the AWS CloudTrail record that corresponds to
 this launch and identify the requesting user (typically, you enter an email
 address during federation). In this example, it is "steve".
 
