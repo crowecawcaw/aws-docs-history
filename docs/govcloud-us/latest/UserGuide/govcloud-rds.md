@@ -16,6 +16,7 @@ Amazon Relational Database Service (Amazon RDS) is a web service that makes it e
 - Copying an option group isn’t available.
 - Performance Insights [proactive recommendations](../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.InsightsRecommendationViewDetails.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.InsightsRecommendationViewDetails.md") aren’t available.
 - Zero-ETL integration with SageMaker Lakehouse isn’t available.
+- Amazon RDS for Db2 is available with Bring Your Own License (BYOL) only. Db2 licensing through AWS Marketplace is not available in the AWS GovCloud (US) Regions.
 
 ## Documentation for Amazon Relational Database Service
 
