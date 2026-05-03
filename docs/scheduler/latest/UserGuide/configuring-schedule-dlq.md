@@ -207,7 +207,7 @@ If successful, you will see output similar to the following.
 }
 ```
 
-Note the following attributes in the dead-letter event to help you identify and troubleshoot possible reasons why target inovcation has failed.
+Note the following attributes in the dead-letter event to help you identify and troubleshoot possible reasons why target invocation has failed.
 
 - **`ERROR_CODE`** – Contains the error code that EventBridge Scheduler receives from the target's service API. In the preceding example,
   the error code returned by Amazon SQS is `AWS.SimpleQueueService.NonExistentQueue`. If the schedule fails to invoke a target due to an issue with EventBridge Scheduler, you'll
