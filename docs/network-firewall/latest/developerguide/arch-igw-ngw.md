@@ -11,4 +11,4 @@ gateways, see [NAT gateways](../../../vpc/latest/userguide/vpc-nat-gateway.md ".
 The following figure depicts a VPC configuration for Network Firewall with an internet gateway
 and a NAT gateway.
 
-![VPC configuration showing internet gateway, firewall subnet, NAT gateway subnet, and customer subnet with IP ranges.](images/arch-igw-natgw.png)
+![VPC configuration with an internet gateway and a NAT gateway, showing firewall subnet, NAT gateway subnet, and customer workload subnets.](images/arch-igw-natgw.png)
