@@ -174,6 +174,12 @@ The status is updated to one of the following:
 
 ## Enable AWS Audit Manager automated assessments
 
+###### Note
+
+Vendor Insights automated assessments are no longer available for new sellers. This
+feature relies on AWS Audit Manager, which is entering maintenance mode on April 30, 2026, and will
+not support new account setup. Existing automated assessments are unaffected. [Learn more](../../../audit-manager/latest/userguide/audit-manager-availability-change.md "../../../audit-manager/latest/userguide/audit-manager-availability-change.md")
+
 AWS Marketplace Vendor Insights uses multiple AWS services to automatically gather evidence for your security
 profile.
 

@@ -1,39 +1,64 @@
 # Search performance dashboard
 
-The **Search performance** dashboard provides metrics on how your AWS Marketplace
-listings perform in the AWS Marketplace search experience. You use the dashboard to improve the
-discoverability and performance of your listings. The dashboard tracks the number of
-impressions, clicks, and click through rates. It also tracks the top keywords that you supply,
-and that customers use, and it offers keyword suggestions based on common customer
-searches.
+The **Search Performance** dashboard helps you optimize your product
+discoverability with comprehensive search insights for both external search engines, such as
+Google, as well as AWS Marketplace search.
 
-The insights from the dashboard can help you refine your product listings to improve
-visibility, match your keywords with customer preferences, and drive more qualified traffic to
-your business on AWS Marketplace. 
+## Overview
 
-To open the dashboard, start the AWS Marketplace Management Portal and go to the **Insights** tab.
+The **Search Performance** dashboard provides AWS Marketplace Sellers with
+comprehensive analytics to improve product listing discoverability across multiple search
+channels. This dashboard includes both external search engine optimization (SEO) insights as
+well as internal AWS Marketplace search data and recommendations.
 
-For more information about controlling access to the dashboard, see [Seller dashboards](dashboards.md "dashboards.md"), earlier in this section.
+To open the dashboard, start the AWS Marketplace Management Portal and go to the
+**Insights** tab. For more information about controlling access to the
+dashboard, see [Seller dashboards](dashboards.md "dashboards.md"), earlier in this
+section.
 
-## Section 1: Accessing the dashboard
+In the **Search Performance** dashboard, you can optimize your product
+visibility on external search engines like Google, as well as within AWS Marketplace search results
+with:
 
-To unlock this dashboard, you must be a member of the
-[AWS Marketplace Seller Prime Program](https://pages.awscloud.com/aws-marketplace-seller-prime.html "https://pages.awscloud.com/aws-marketplace-seller-prime.html").
+- Keyword performance analytics
+- Optimization recommendations for key fields including product description and short
+  description
+- Discover new keyword recommendations to aid in content optimization
 
-After you enroll in the Seller Prime program, system
-administrators for seller accounts can use the **Insights** tab in
-the AWS Marketplace Management Portal to start the **Search performance**
-dashboard.
+## Accessing the dashboard
 
-System administrators can also create an AWS Identity and Access Management (IAM) policy to provide access for specific dashboards to
-other users in the seller company.
+To unlock this dashboard, you must enroll or be a member of the
+[AWS Marketplace Seller
+Prime Program](https://pages.awscloud.com/aws-marketplace-seller-prime.html "https://pages.awscloud.com/aws-marketplace-seller-prime.html").
+
+After you are eligible, you can access SEO insights via Partner Central:
+
+###### How to Access in existing Partner Central
+
+1. [Log
+   into](https://partnercentral.awspartner.com/partnercentral2/s/ "https://partnercentral.awspartner.com/partnercentral2/s/") your Partner Central account.
+2. Navigate to **Analytics**.
+3. Choose **AWS Marketplace Insights** from the drop down.
+4. Select the **Search Performance** section at the top for new SEO
+   Insights.
+
+###### How to Access in new Partner Central
+
+1. [Click here](../../../partner-central/latest/getting-started/signing-in.md "../../../partner-central/latest/getting-started/signing-in.md") to
+   learn more about getting started with Partner Central.
+2. Log into your Partner Central account.
+3. Use the left-hand navigation to open **AWS Marketplace
+   Insights**.
+4. Select **Search Performance** for new SEO Insights.
+
+System administrators can also create an AWS Identity and Access Management (IAM) policy to provide access for
+specific dashboards to other users in the seller company.
 
 ###### Note
 
-As of September 2023, we no longer support access to seller
-dashboards enabled by legacy IAM permissions. Use the new Amazon
-Resource Name (ARN) format as shown in the following examples to
-update your IAM permissions.
+As of September 2023, we no longer support access to seller dashboards enabled by
+legacy IAM permissions. Use the new Amazon Resource Name (ARN) format as shown in the
+following examples to update your IAM permissions.
 
 For more information about creating policies, see
 [Creating
@@ -41,9 +66,11 @@ IAM policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../
 
 ### Using policies to control access
 
-Use one of the following policies to provide access to the listing performance dashboard.
+Use one of the following policies to provide access to the listing performance
+dashboard.
 
-The following example provides access to all current and future AWS Marketplace resources, including dashboards and reports, regardless of current or future data feeds.
+The following example provides access to all current and future AWS Marketplace resources,
+including dashboards and reports, regardless of current or future data feeds.
 
 JSON
 
@@ -63,7 +90,8 @@ JSON
 
 ```
 
-The following example provides access to the **Search performance** dashboard by including its ARN. 
+The following example provides access to the **Search performance**
+dashboard by including its ARN.
 
 JSON
 
@@ -83,81 +111,108 @@ JSON
 
 ```
 
-## Section 2: Filters
+## Search Performance Insights
 
-This section of the dashboard provides the following filters. Use
-them to refine your data.
+What are SEO Insights?
 
-| Control name      | Description                                                                                                                                                                                                                                                                                                                                                                                            |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Product title** | The title of the product.<br>This filter affects the impressions, clicks, click-through rate, and **AWS Marketplace search keyword recommendations**. It doesn’t affect the \*_Top searched keywords by product category_<br>• table.                                                                                                                                                                  |
-| **Date filter**   | You can filter on the past 30, 60, and 90 days, the trailing 12 months (TTM),<br>and the year to date (YTD). You can choose **Custom\*<br>• to use specific start and end date.<br>This filter affects the impressions, clicks, and click-through rate. it doesn’t affect the **AWS Marketplace search keyword recommendations*<br>• or<br>\*\*Top searched keywords by product category*<br>• tables. |
+SEO Insights help you optimize your public AWS Marketplace product listings for better visibility
+in external search engines, as well as within AWS Marketplace search. This feature provides data-driven
+recommendations to improve your search rankings and drive more qualified traffic to your
+products. These recommendations also improve visibility in AI-powered discovery, where AI
+agents recommend products, generate comparisons, and help customers create proposals.
+**Disclaimer**: This dashboard provides data-driven
+recommendations powered by BrightEdge and AI. These recommendations are advisory only and are
+provided to assist sellers in optimizing their listings; however, they do not guarantee any
+specific outcomes or results. For more information on general SEO best practices see
+[here](search-engine-optimization.md "search-engine-optimization.md").
+
+_Key Capabilities_
+
+- **Keyword Performance Insights**
+  - View top performing keywords currently driving organic traffic from search
+    engines to your listing(s)
+  - See monthly search volumes and current ranking positions
+
+- **Keyword Recommendations**
+  - Discover up to 5 new keyword opportunities
+  - Access search volume data for strategic planning
+
+- **AI-Powered Content Optimization
+  Recommendations**
+  - Receive optimized product title suggestions
+  - Get short description optimization recommendations
+
+## Section 1: Use filters to select a product and time frame
+
+In order to see search performance data, you must select a product and month from the
+drop down at the top of the dashboard. Data is refreshed monthly, when updated the insights
+reflect data from prior month. For example, data published in December will show November
+trends.
+
+| Control name      | Description                                                                                                                                                                          |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Product title** | The title of the product.<br>This filter affects **Current and recommended product title and<br>description**, **Current top performing keywords**,<br>and **Recommended keywords**. |
 
 For more information about filtering, see
 [Filtering
-data on Amazon QuickSight](../../../quicksight/latest/user/adding-a-filter.md "../../../quicksight/latest/user/adding-a-filter.md"), in the _Amazon QuickSight
-User Guide_.
+data on Quick](../../../quicksight/latest/user/adding-a-filter.md "../../../quicksight/latest/user/adding-a-filter.md"), in the _Quick User Guide_.
 
-## Section 3: AWS Marketplace search performance
+## Section 2: Current and recommended product title and description
 
-This section of the dashboard displays key performance indicators
-(KPIs) about the discoverability and performance of your AWS Marketplace listings. The dashboard provides KPIs for the number of
-impressions, the number of clicks, and the click-through rate.
+This section of the **Search performance** dashboard pulls title and
+description information from your public product listing. Recommended product title and
+description are generated using AI and Brightedge SEO Insights.
 
-You can see year-over-year or period-over-period changes in volume
-and percentage. You can also change date ranges.
+## Section 3: Current top performing keywords and Recommended keywords
 
-| Metric                       | Description                                                                                                                                                       |
-| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Impressions**              | The number of times your listings appear in the top 20 search results on AWS Marketplace.                                                                         |
-| **Clicks**                   | The number of times users click your listings from the AWS Marketplace search results.                                                                            |
-| **Click-through rate (CTR)** | The ratio between the number of clicks and the number of impressions. A measure of how effective your listings are at engaging customers from the search results. |
+Current top performing keywords come from Brightedge SEO Insights as well as Google
+Search Console. These are the keywords that are currently driving the most traffic to your
+product listing. The dashboard provides search volume, and ranking information. You want to
+ensure to maintain these keywords throughout your listing to maintain performance.
 
-## Section 4: Monthly trend for impressions, clicks, and click-through rate
-
-This section of the dashboard provides monthly trends for a
-given date range. It provides KPIs for the number of
-impressions, the number of clicks, and the click-through rate.
-
-## Section 5: AWS Marketplace search keyword recommendations
-
-This section of the dashboard provides a table that lists your
-current keywords, plus recommended keywords for each of your listings.
-
-| Column names                 | Description                                                                                                                                                         |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Product title**            | The title of the product. The link takes you to the product overview page in the<br>AWS Marketplace Management Portal, where you can manage and edit your listings. |
-| **Current keywords**         | The keywords you provided in the \*_Update product information_<br>• section of the AWS Marketplace Management Portal.                                              |
-| **Top performing keywords**  | The keywords that appear in the top five customer searches for your product.                                                                                        |
-| **AWS-recommended keywords** | The keywords that customers use the most when searching for similar products.                                                                                       |
-| **Estimated traffic gain %** | The potential traffic gain if you adopt the recommended keywords. Not affected by the date filter.                                                                  |
+Recommended keywords are generated using Brightedge insights and AI. You can incorporate
+relevant keywords by naturally integrating them throughout your product detail page to improve
+ranking for those respective terms. For AWS Marketplace AI-powered discovery, integrate keywords
+naturally alongside specific details like AWS service names, compliance standards (SOC2,
+HIPAA), and quantifiable benefits. AI agents use these specifics to match your product to
+customer intent.
 
 ###### Note
 
-While keywords are important, other factors can affect search results.
+Rank: The current position, which the listing is ranking for in search engine page
+results (SERP) for that respective keyword.
 
-- Listing optimization
-  - Optimize other parts of your listing, such as short and long
-    descriptions.
-  - Consider offering features such as free trials to enhance your listing's appeal.
+Search volume: Estimated monthly search volume for that specific term in Google.
 
-- Matching keywords with listings and target customers
-  - As much as possible, match your listings with frequently used keywords.
-  - Use only the keywords relevant to your products and their features. Otherwise,
-    your listings may appear in a larger number of searches, but fewer users will choose
-    them.
+Not ranked: Your listing is not yet ranking on search engine page results for this
+term.
 
-- Understanding keyword variations
-  - Remember that similar terms, such as "git" and "gitops" may be treated as the same search term.
-  - Evaluate the relevance of any variations and adjust your keywords accordingly.
+Glossary of terms:
 
-- Updating keywords
-  1.  In the AWS Marketplace Management Portal, open the **Products** menu and select a product category.
-  2.  Choose the link to your product, choose the **Product information** tab, and navigate to the
-      **Provide product information** page.
-  3.  Scroll down to the **AWS Marketplace discoverability** section, find
-      **Keywords for AWS Marketplace search results**, and adjust your keywords.
+| Column names                | Description                                                                                                                                                                            |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Product title**           | The title of the product in your listing. The link takes you to the product<br>overview page in the AWS Marketplace Management Portal, where you can manage and edit your<br>listings. |
+| **Short Description**       | The short description field on your listing, which is also used as a meta<br>description field for Google.                                                                             |
+| **Top performing keywords** | The keywords that appear in the top five customer searches for your product.<br>It is recommended this field be 150 characters max.                                                    |
+| **Recommended keywords**    | Highly search keywords that may be relevant for your listing.                                                                                                                          |
 
-## Section 6: Top searched keywords by product category
+## Addition SEO and Listing Engagement Best Practices
 
-The top five customer search keywords in each product category for products similar to yours. Other product and date filters on this dashboard don't affect this data.
+While keywords are important, other factors can affect search results and click through
+rates. To optimize your listing:
+
+- Optimize each section of your listing, including product title, as well as short
+  and long descriptions.
+- Complete all available metadata fields; incomplete listings may be less competitive
+  in search results.
+- Consider offering features such as free trials, videos, and promotional media to
+  enhance your listing's appeal.
+- Encourage customers to leave reviews that highlight specific benefits like ease of
+  integration and deployment speed.
+- Configure
+  [Express Private
+  Offers](express-private-offers.md "express-private-offers.md") to streamline the procurement process for buyers.
+- Ensure pricing is transparent and uses standard units that buyers can easily
+  compare.
+- Use measurable claims and specific product capabilities rather than generic
+  marketing language.
