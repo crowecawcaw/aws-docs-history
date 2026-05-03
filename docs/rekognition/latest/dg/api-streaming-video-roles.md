@@ -2,11 +2,10 @@
 
 ###### Note
 
-Amazon Rekognition Streaming Video Analysis will no longer be
-open to new customers starting April 30, 2026. If you would like to use Streaming Video Analysis, sign up prior to
-that date. Existing customers for accounts that have used this feature within the last 12 months can continue
-to use the service as normal. For more information, see
-[Rekognition Streaming Video Analysis availability change](rekognition-streaming-video-analysis-availability-change.md "rekognition-streaming-video-analysis-availability-change.md").
+Streaming Video and Bulk Image Analysis is no longer available to new customers. For more information, see
+[Amazon Rekognition feature availability changes](rekognition-availability-changes.md "rekognition-availability-changes.md").
+
+**This change does not impact the availability of other Amazon Rekognition features.**
 
 You use an AWS Identity and Access Management (IAM) service role to give Amazon Rekognition Video read access to Kinesis
 video streams. If you are using a face search stream processor, you use an IAM
