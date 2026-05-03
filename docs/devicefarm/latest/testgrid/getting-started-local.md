@@ -8,12 +8,12 @@ Traditional local testing with Selenium involves tests that start a WebDriver co
 under test, without the use of an intermediary. This means that your browsers are running where your tests are
 running:
 
-![Diagram showing local computer components: Test Suites, browsers, and Web Application interconnected.](images/testgrid-localtests-shared.png)
+![Diagram showing test suites and browsers on local computer connecting to web application.](images/testgrid-localtests-shared.png)
 A common solution is to add an intermediary, Selenium Server, that runs browsers remotely. Often, this
 results in your tests being run on your CI server with a headless browser. Your infrastructure now looks like
 this:
 
-![Diagram showing test suites, Selenium Server, browsers, and web application interconnected.](images/testgrid-local-ci-shared.png)
+![Architecture diagram showing test suites connecting to Selenium Server, which connects to browsers, which connect to web application.](images/testgrid-local-ci-shared.png)
 When you use Selenium Server (or Selenium Grid), you create a `RemoteWebDriver` instance that acts
 as a stand-in for your browser-specific `WebDriver`.
 

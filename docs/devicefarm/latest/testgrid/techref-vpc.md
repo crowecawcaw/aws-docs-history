@@ -20,7 +20,7 @@ Device Farm can connect to VPCs only within the `us-west-2` AWS Region. To acces
 resources in a VPC in another Region, you must create a VPC in the `us-west-2` Region
 and peer the VPCs. For information on peering VPCs, see the [Amazon VPC Peering Guide](../../../vpc/latest/peering.md "../../../vpc/latest/peering.md").
 
-![Diagram showing Device Farm's VPC connectivity in us-west-2 and optional VPC peering.](images/TestGridVPC_peered.png)
+![Architecture diagram showing VPC peering between us-west-2 and eu-west-2 regions for Device Farm testing.](images/TestGridVPC_peered.png)
 For information on using AWS CloudFormation to automatically create and peer VPCs, see the [VPCPeering templates](https://github.com/awslabs/aws-cloudformation-templates/tree/master/aws/solutions/VPCPeering "https://github.com/awslabs/aws-cloudformation-templates/tree/master/aws/solutions/VPCPeering") in the CloudFormation template repository on
 GitHub.
 

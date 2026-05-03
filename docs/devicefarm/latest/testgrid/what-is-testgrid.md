@@ -5,7 +5,7 @@ scales seamlessly so you can run your tests in parallel on multiple browser inst
 your test suite. For every browser the test is executed on, Device Farm generates video recordings and Selenium logs to help
 you quickly identify any issues with your web app.
 
-![Diagram showing WebDriver connecting test suites, DeviceFarm, browsers, and web application in AWS Cloud.](images/testgrid-overview-shared.png)
+![Architecture diagram showing test suites connecting to DeviceFarm and browsers via WebDriver in AWS Cloud.](images/testgrid-overview-shared.png)
 
 ###### Topics
 
