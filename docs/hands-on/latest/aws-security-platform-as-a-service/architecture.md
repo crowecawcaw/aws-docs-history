@@ -24,13 +24,13 @@ You get comprehensive Cloud Security Posture Management (CSPM) through AWS Secur
 Hub integrated with Amazon OpenSearch Service. This gives you unified security visibility
 across AWS, Microsoft Azure, and the Google Cloud Platform.
 
-![](images/aws-multi-cloud-cspm-architecture.png)
+![Multi-cloud CSPM architecture with Azure, AWS, and GCP feeding security findings to centralized Security Hub and OpenSearch analytics.](images/aws-multi-cloud-cspm-architecture.png)
 
 Your Amazon OpenSearch Security Analytics dashboard will display a multi-cloud
 security posture overview with compliance status across AWS, Azure, and GCP
 environments.
 
-![](images/amazon-opensearch-security-analytics-dashboard.png)
+![Dashboard showing compliance status across Azure, GCP, and AWS with distribution charts and trends.](images/amazon-opensearch-security-analytics-dashboard.png)
 
 ### Built-in multi-cloud integration connectors
 
@@ -93,7 +93,7 @@ Hub and GCP Pub/Sub through native connectors. AWS Lambda processors transform d
 v1.7.0 format and zero-ETL integration to OpenSearch Security Analytics for unified SIEM
 capabilities.
 
-![](images/aws-multi-cloud-siem-architecture.png)
+![Multi-cloud SIEM architecture with logs from Azure, AWS, and GCP flowing to Security Lake.](images/aws-multi-cloud-siem-architecture.png)
 
 The Amazon OpenSearch Service Security Analytics timeline view shows correlated
 security events from AWS, Azure, and GCP with unified event correlation and threat
@@ -173,13 +173,13 @@ instances. Systems Manager is integrated with Amazon GuardDuty, Amazon Inspector
 Hub for unified threat detection, vulnerability management, and runtime protection in the
 OpenSearch Security Operations console.
 
-![](images/aws-multi-cloud-cwpp-architecture.png)
+![Multi-cloud CWPP architecture showing AWS Systems Manager integrating with Azure, GCP, and AWS workloads.](images/aws-multi-cloud-cwpp-architecture.png)
 
 AWS multi-cloud virtual machine inventory dashboard shows the real-time protection
 status of VMs across Amazon EC2, Azure VMs, and GCP Compute Engine instances through Systems
 Manager.
 
-![](images/multi-cloud-virtual-machine-inventory-dashboard.png)
+![OpenSearch Dashboards showing filtered log data with cloud provider GCP highlighted in results.](images/multi-cloud-virtual-machine-inventory-dashboard.png)
 
 ### Multi-cloud workload protection components
 
@@ -296,7 +296,7 @@ repository on GitHub.
 This AWS unified threat detection dashboard displays active security alerts and
 incidents across all connected cloud environments.
 
-![](images/unified-cwpp-console-features.png)
+![OpenSearch dashboard showing multiple charts including finding types, severity trends, activity metrics, and query statistics.](images/unified-cwpp-console-features.png)
 
 ### Advanced CWPP capabilities
 

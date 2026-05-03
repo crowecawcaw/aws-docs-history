@@ -111,4 +111,4 @@ In this tutorial, we created and showed a comprehensive Security Platform as a S
    Azure and GCP workload protection with unified threat detection, vulnerability management,
    and runtime protection
 
-![](images/security-patform-as-a-service-dashboard.png)
+![Cloud security dashboard showing workload metrics, severity distributions, and vulnerability analysis across Azure and AWS resources.](images/security-patform-as-a-service-dashboard.png)
