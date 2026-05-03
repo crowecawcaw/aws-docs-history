@@ -21,5 +21,6 @@ instances.
 ###### Topics
 
 - [SQL commands](iceberg-writes-sql-syntax.md "iceberg-writes-sql-syntax.md")
+- [Altering table definitions](iceberg-alter-table.md "iceberg-alter-table.md")
 - [Transaction semantics](iceberg-writes-transaction-semantics.md "iceberg-writes-transaction-semantics.md")
 - [Best practices](iceberg-writes-best-practices.md "iceberg-writes-best-practices.md")

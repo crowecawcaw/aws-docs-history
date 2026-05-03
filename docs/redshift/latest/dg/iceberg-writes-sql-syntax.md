@@ -28,8 +28,9 @@ Note that this only removes the table registration. The actual data will stay in
 until you delete it separately.
 
 You can also modify existing data using `DELETE`,
-`UPDATE`, and `MERGE` commands. All other SQL statements,
-such as `ALTER TABLE`, are not yet supported on Iceberg tables.
+`UPDATE`, and `MERGE` commands. To change table definitions
+such as schema, partition specs, and properties, see [Altering table definitions](iceberg-alter-table.md "iceberg-alter-table.md"). Other DDL
+statements not documented there are not supported for Iceberg tables.
 
 It's possible for you to write into an Iceberg table that is not created by Amazon Redshift.
 However, there are some limitations:
@@ -75,19 +76,31 @@ USING ICEBERG
 [TABLE PROPERTIES ('compression_type'='<compression_value>')]
 ```
 
-Note that `<external_schema>` must
-be an existing external schema name in which the external table will be created.
+For the auto-mounted root catalog `awsdatacatalog`:
+
+```
+CREATE TABLE awsdatacatalog.`<database_name>`.`<table_name>` (
+  column_name data_type [, ...]
+)
+USING ICEBERG
+LOCATION 's3://`your-bucket-name`/prefix/'
+[PARTITIONED BY [[column_name | transform_function]], ...]
+[TABLE PROPERTIES ('compression_type'='<compression_value>')]
+```
+
+When using the external schema syntax, note that
+`<external_schema>` must be an
+existing external schema name in which the external table will be created.
 For more information about how to create and manage external schemas, see [CREATE EXTERNAL SCHEMA](r_CREATE_EXTERNAL_SCHEMA.md "r_CREATE_EXTERNAL_SCHEMA.md") in the Amazon Redshift documentation.
 
 The `LOCATION` clause defines the table location for this newly
-created Iceberg table. For Amazon S3 tables, `LOCATION` cannot be
-specified as the table location is determined by Amazon S3 tables catalog
+created Iceberg table. `LOCATION` is required for tables created
+using external schemas or the `awsdatacatalog` root catalog. It
+should be an empty location, meaning there are no existing Amazon S3 objects sharing
+this same bucket and prefix. The Amazon S3 bucket region must be in the same region
+as the Amazon Redshift cluster. For Amazon S3 table buckets, `LOCATION` cannot
+be specified as the table location is determined by the Amazon S3 tables catalog
 (`s3tablescatalog`).
-
-In all other cases, `LOCATION` is required, and it should be an
-empty location, meaning there are no existing Amazon S3 objects sharing this same
-bucket and prefix. Note that the Amazon S3 bucket region must be in the same region
-as Amazon Redshift cluster.
 
 However, AWS provides a method to replicate data from Iceberg tables stored
 in an AWS Glue Data Catalog in one AWS Region to a different AWS Region, which allows
@@ -231,6 +244,10 @@ INSERT INTO `<external_schema>`.`<table_name>` [(column_name [, ...])] (SELECT q
 -- Using three-part notation for S3 table buckets:
 INSERT INTO "`<table_bucket_name>`@s3tablescatalog".`<database_name>`.`<table_name>` [(column_name [, ...])] VALUES (...)
 INSERT INTO "`<table_bucket_name>`@s3tablescatalog".`<database_name>`.`<table_name>` [(column_name [, ...])] (SELECT query)
+
+-- Using three-part notation for the awsdatacatalog root catalog:
+INSERT INTO awsdatacatalog.`<database_name>`.`<table_name>` [(column_name [, ...])] VALUES (...)
+INSERT INTO awsdatacatalog.`<database_name>`.`<table_name>` [(column_name [, ...])] (SELECT query)
 ```
 
 You can `INSERT INTO` existing Iceberg table using the above syntax. If
@@ -259,6 +276,14 @@ You can also use three-part notation for S3 table buckets:
 ```
 [ WITH [RECURSIVE] `common_table_expression` [, `common_table_expression` , ...] ]
 DELETE [ FROM ] "`<table_bucket_name>`@s3tablescatalog".`<database_name>`.`<table_name>`
+[ { USING } `table_name, ...` ] [ WHERE `condition` ]
+```
+
+For the auto-mounted root catalog `awsdatacatalog`:
+
+```
+[ WITH [RECURSIVE] `common_table_expression` [, `common_table_expression` , ...] ]
+DELETE [ FROM ] awsdatacatalog.`<database_name>`.`<table_name>`
 [ { USING } `table_name, ...` ] [ WHERE `condition` ]
 ```
 
@@ -327,6 +352,15 @@ You can also use three-part notation for S3 table buckets:
 ```
 [ WITH [RECURSIVE] `common_table_expression` [, `common_table_expression` , ...] ]
 UPDATE "`<table_bucket_name>`@s3tablescatalog".`<database_name>`.`<table_name>` [ [ AS ] alias ] SET column = { `expression` } [,...]
+[ FROM `fromlist` ]
+[ WHERE `condition` ]
+```
+
+For the auto-mounted root catalog `awsdatacatalog`:
+
+```
+[ WITH [RECURSIVE] `common_table_expression` [, `common_table_expression` , ...] ]
+UPDATE awsdatacatalog.`<database_name>`.`<table_name>` [ [ AS ] alias ] SET column = { `expression` } [,...]
 [ FROM `fromlist` ]
 [ WHERE `condition` ]
 ```
@@ -406,6 +440,17 @@ You can also use three-part notation for S3 table buckets:
 
 ```
 MERGE INTO "`<table_bucket_name>`@s3tablescatalog".`<database_name>`.`<table_name>` USING `source_table` [ [ AS ] `alias` ]
+ON `match_condition`
+[ WHEN MATCHED THEN { UPDATE SET `col_name` = { `expr` } [,...] | DELETE }
+  WHEN NOT MATCHED THEN INSERT [ ( `col_name` [,...] ) ]
+  VALUES ( { `expr` } [, ...] )
+| REMOVE DUPLICATES ]
+```
+
+For the auto-mounted root catalog `awsdatacatalog`:
+
+```
+MERGE INTO awsdatacatalog.`<database_name>`.`<table_name>` USING `source_table` [ [ AS ] `alias` ]
 ON `match_condition`
 [ WHEN MATCHED THEN { UPDATE SET `col_name` = { `expr` } [,...] | DELETE }
   WHEN NOT MATCHED THEN INSERT [ ( `col_name` [,...] ) ]

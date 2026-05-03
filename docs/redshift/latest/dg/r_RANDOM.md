@@ -19,8 +19,11 @@ RANDOM()
 
 ## Usage notes
 
-Call RANDOM after setting a seed value with the [SET](r_SET.md "r_SET.md") command to cause RANDOM to generate numbers in a
-predictable sequence.
+The RANDOM function can be seeded using [SET](r_SET.md "r_SET.md") seed TO value. When seeded, each compute slice generates
+its own reproducible pseudo-random sequence. However, the overall query results are
+not deterministic in a distributed MPP environment because you cannot predict which
+slice will process which row. The seed value affects the random number generator on
+each compute node, but row distribution across slices varies.
 
 ## Examples
 

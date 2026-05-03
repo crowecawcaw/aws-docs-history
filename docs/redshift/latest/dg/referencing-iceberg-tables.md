@@ -52,20 +52,40 @@ SELECT * FROM "`my_table_bucket`@s3tablescatalog".`my_database`.`my_iceberg_tabl
 
 For more information about integrating Amazon S3 table buckets with Amazon Redshift, see [Integrating S3 Tables with Amazon Redshift](../../../AmazonS3/latest/userguide/s3-tables-integrating-redshift.md "../../../AmazonS3/latest/userguide/s3-tables-integrating-redshift.md") in the _Amazon S3 User Guide_.
 
-You can also use the `USE` statement to set a default catalog and database:
+You can also reference tables under the auto-mounted root catalog
+`awsdatacatalog`, which provides direct access to databases and
+tables registered in the AWS Glue Data Catalog:
+
+```
+SELECT * FROM awsdatacatalog.`my_database`.`my_iceberg_table`;
+```
+
+For more information about using the `awsdatacatalog` root catalog, see
+[Querying the AWS Glue Data Catalog](../mgmt/query-editor-v2-glue.md "../mgmt/query-editor-v2-glue.md") in the _Amazon Redshift Management Guide_ and [Managing
+Data Catalog namespaces](../../../lake-formation/latest/dg/managing-namespaces-datacatalog.md "../../../lake-formation/latest/dg/managing-namespaces-datacatalog.md") in the
+_AWS Lake Formation Developer Guide_.
+
+You can also use the `USE` statement to set a default catalog and database for Amazon S3 table buckets:
 
 ```
 USE "`my_table_bucket`@s3tablescatalog".`my_database`;
 SELECT * FROM `my_iceberg_table`;
 ```
 
-To set a search path for schema resolution:
+To set a search path for schema resolution with Amazon S3 table buckets:
 
 ```
 USE "`my_table_bucket`@s3tablescatalog";
 SET search_path TO `my_database`;
 SELECT * FROM `my_iceberg_table`;
 ```
+
+###### Note
+
+The `USE` statement and `search_path` are only
+supported for `s3tablescatalog`. They can't be used with
+`awsdatacatalog`. To reference tables in
+`awsdatacatalog`, use the full three-part notation.
 
 ## Best practices for referencing Iceberg tables
 
