@@ -113,17 +113,17 @@ of number of stacks and steps in the flow and the layout of the flow. The lighte
 inside the gray box indicates the steps that are within the UI view. You can use this
 box to see sections of your data flow that fall outside of the UI view. Use the fit
 screen icon (
-![Dotted square outline icon representing a placeholder or empty state.](images/studio/mohave/updates/fit-screen.png)
+![Fit screen icon.](images/studio/mohave/updates/fit-screen.png)
 ) to fit all steps and datasets into your UI view.
 
 The bottom left navigation bar includes icons that you can use to zoom in (
 ![Plus symbol icon representing an addition or new item action.](images/studio/mohave/updates/zoom-in.png)
 ) and zoom out (
-![Horizontal line or divider, typically used to separate content sections.](images/studio/mohave/updates/zoom-out.png)
+![Zoom out icon.](images/studio/mohave/updates/zoom-out.png)
 ) of your data flow and resize the data flow to fit the screen (
-![Dotted square outline icon representing a placeholder or empty state.](images/studio/mohave/updates/fit-screen.png)
+![Fit screen icon.](images/studio/mohave/updates/fit-screen.png)
 ). Use the lock icon (
-![Trash can icon representing deletion or removal functionality.](images/studio/mohave/updates/lock-nodes.png)
+![Lock icon to lock and unlock node positions.](images/studio/mohave/updates/lock-nodes.png)
 ) to lock and unlock the location of each step on the screen.
 
 ## Add a Step to Your Data Flow

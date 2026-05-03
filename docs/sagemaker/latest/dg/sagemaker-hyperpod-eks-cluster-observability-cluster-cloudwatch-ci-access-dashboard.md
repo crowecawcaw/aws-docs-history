@@ -8,4 +8,4 @@
    you're using.
 4. View the Pod/Cluster level metrics.
 
-![Performance monitoring dashboard for EKS cluster showing node status, resource utilization, and pod metrics.](images/hyperpod-eks-CIdashboard.png)
+![CloudWatch Container Insights dashboard showing EKS cluster performance metrics and status.](images/hyperpod-eks-CIdashboard.png)

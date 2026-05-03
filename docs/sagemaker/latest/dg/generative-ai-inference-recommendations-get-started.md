@@ -135,6 +135,37 @@ request throughput.
 Applied optimization techniques such as speculative decoding or kernel
 tuning, with their configuration parameters.
 
+The following optimization techniques may be applied:
+
+Speculative decoding
+
+Speculative decoding speeds up text generation by processing multiple
+tokens in parallel rather than one token at a time. A lightweight
+speculator proposes several candidate tokens in a single step, and the
+primary model then verifies them together in one forward pass, keeping
+the candidates that agree with its own distribution and discarding the
+rest. The speculator is trained to align with the primary model's data
+distribution so that more of its proposals are accepted, which directly
+translates into more useful tokens produced per forward pass. The output
+distribution of the primary model is preserved, so response quality is
+unchanged. The result is higher output tokens per second and lower
+inter-token latency (ITL), thereby improving your throughput
+metrics.
+
+Kernel tuning
+
+Kernel tuning starts with parsing the model execution graph to identify
+performance-critical kernels that are good candidates for tuning, such as
+attention and fused operator kernels. Their launch and tiling parameters
+are then tuned so the implementation is better matched to the target GPU
+hardware and the expected traffic pattern, such as concurrency. These
+parameters affect memory reuse, cache locality, and parallelism, improving
+execution efficiency. The number of pipeline stages used for loading data
+and computing is also tuned, helping overlap memory movement with
+computation. By tuning these parameters for the specific combination of
+model, hardware, and serving workload, kernel tuning improves throughput
+and latency by ensuring the GPU is fully utilized.
+
 The following performance target metrics are available:
 
 `ttft-ms`

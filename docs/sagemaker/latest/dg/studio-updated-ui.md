@@ -64,7 +64,7 @@ in Studio. It also provides options for the main workflows in Studio.
 
 This section of the UI can be used in an expanded or collapsed state. To change
 whether the section is expanded or collapsed, select the **Collapse** icon (
-![Square icon with "ID" text representing an identity or identification concept.](images/monarch/collapse-ui.png)
+![Collapse icon.](images/monarch/collapse-ui.png)
 ).
 
 **Applications**

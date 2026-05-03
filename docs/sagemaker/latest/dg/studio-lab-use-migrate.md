@@ -178,7 +178,7 @@ If you saved the files to your local machine, you can import the files to Studio
 using the following steps.
 
 1. Open the **File Browser** panel (
-   ![Black square icon representing a placeholder or empty image.](images/studio/icons/folder.png)
+   ![File Browser icon.](images/studio/icons/folder.png)
    ) at the top left of Studio Classic.
 2. Choose the **Upload Files** icon (
    ![Black square icon representing a placeholder or empty image.](images/icons/File_upload_squid.png)

@@ -2,7 +2,7 @@
 
 To open the SQL extension user interface (UI), choose the SQL extension icon
 (
-![Purple circular icon with a clock symbol representing time or scheduling.](images/studio/sqlexplorer/sqlexplorer-icon.png)
+![SQL Explorer icon.](images/studio/sqlexplorer/sqlexplorer-icon.png)
 ) in the navigation pane of your JupyterLab application in
 Studio. The left panel data discovery view expands and displays all pre-configured data
 store connections to Amazon Athena, Amazon Redshift, and Snowflake.

@@ -11,6 +11,12 @@ output Amazon S3 location for `OutputConfig`. You can optionally specify
 notifications about prediction results. For more information about Amazon SNS topics, see
 [Configuring Amazon SNS](../../../sns/latest/dg/sns-configuring.md "../../../sns/latest/dg/sns-configuring.md").
 
+To improve endpoint availability and reduce insufficient capacity errors, you can
+configure _instance pools_ in your production variant. Instance
+pools let you specify an ordered list of instance types so that SageMaker AI automatically
+falls back to lower-priority types when your preferred instance type is unavailable.
+For more information, see [Deploy to multiple instance types with instance pools](realtime-endpoints-heterogeneous.md "realtime-endpoints-heterogeneous.md").
+
 The following example shows how to create an endpoint configuration using AWS SDK for Python (Boto3):
 
 ```

@@ -10,7 +10,7 @@ information about Amazon SageMaker HyperPod feature releases, see [Amazon SageMa
 
 To update existing HyperPod clusters with the latest DLAMI, see [Update the SageMaker HyperPod platform software of a cluster](sagemaker-hyperpod-operate-slurm-cli-command.md#sagemaker-hyperpod-operate-slurm-cli-command-update-cluster-software "sagemaker-hyperpod-operate-slurm-cli-command.md#sagemaker-hyperpod-operate-slurm-cli-command-update-cluster-software").
 
-## SageMaker HyperPod AMI releases for Slurm: April 20, 2026
+## SageMaker HyperPod AMI releases for Slurm: April 23, 2026
 
 **AMI general updates**
 
@@ -23,14 +23,89 @@ This release includes the following updates:
 
 Slurm v24.11
 
-- Slurm 24.11 (ARM64):
-  - Linux Kernel version: 6.8
+- Slurm 24.11 (aarch64):
+  - Linux Kernel version: 6.8.0-1052-aws
   - Glibc version: 2.35
   - OpenSSL version: 3.0.2
   - FSx Lustre Client version: 2.15.6-1fsx28
-  - Runc version: 1.3.4
-  - Containerd version: containerd containerd.io v2.2.2
+  - Containerd version: v2.2.3
   - NVIDIA Driver version: 580.126.09
+  - NVIDIA CUDA Default version: 13.0
+  - CUDA version: 12.6, 12.8, 12.9, 13.0
+  - EFA Installer version: 1.47.0
+  - Python version: 3.10.12
+  - Slurm version: 24.11.0
+  - nvme-cli version: 1.16
+  - collectd version: 5.12.0.
+  - lustre-client version: 2.15.6-1fsx28
+  - nvidia-imex version: 580.126.09-1
+  - systemd version: 249
+  - openssh version: 8.9
+  - sudo version: 1.9.9
+  - ufw version: 0.36.1
+  - gcc version: 11.4.0
+  - cmake version: 3.22.1
+  - git version: 2.34.1
+  - make version: 4.3
+  - cloudwatch-agent version: 1.300066.1b1374-1
+  - nfs-utils version: 1:2.6.1-1ubuntu1.2
+  - iscsi-initiator-utils version: 2.1.5-1ubuntu1.1
+  - lvm2 version: 2.03.11
+  - ec2-instance-connect version: 1.1.14-0ubuntu1.1
+  - rdma-core version: 61.0-1
+
+- Slurm 24.11 (x86_64):
+  - Linux Kernel version: 6.8.0-1052-aws
+  - Glibc version: 2.35
+  - OpenSSL version: 3.0.2
+  - FSx Lustre Client version: 2.15.6-1fsx28
+  - Containerd version: v2.2.3
+  - aws Neuronx DKMS version: 2.27.4.0
+  - NVIDIA Driver version: 580.126.09
+  - NVIDIA CUDA Default version: 12.9
+  - CUDA version: 12.6, 12.8, 12.9, 13.0
+  - EFA Installer version: 1.47.0
+  - Python version: 3.10.12
+  - Slurm version: 24.11.0
+  - nvme-cli version: 1.16
+  - stress version: 1.0.5
+  - collectd version: 5.12.0.
+  - lustre-client version: 2.15.6-1fsx28
+  - systemd version: 249
+  - openssh version: 8.9
+  - sudo version: 1.9.9
+  - ufw version: 0.36.1
+  - gcc version: 11.4.0
+  - cmake version: 3.22.1
+  - make version: 4.3
+  - cloudwatch-agent version: 1.300066.1b1374-1
+  - nfs-utils version: 1:2.6.1-1ubuntu1.2
+  - iscsi-initiator-utils version: 2.1.5-1ubuntu1.1
+  - lvm2 version: 2.03.11
+  - ec2-instance-connect version: 1.1.14-0ubuntu1.1
+  - rdma-core version: 61.0-1
+
+## SageMaker HyperPod AMI releases for Slurm: March 30, 2026
+
+**AMI general updates**
+
+- Released updates for SageMaker HyperPod AMI for Slurm versions 24.11.
+- Base DLAMI release note is available [here](../../../dlami/latest/devguide/appendix-ami-release-notes.md#appendix-ami-release-notes-base "../../../dlami/latest/devguide/appendix-ami-release-notes.md#appendix-ami-release-notes-base").
+
+**SageMaker HyperPod DLAMI for Slurm support**
+
+This release includes the following updates:
+
+Slurm v24.11
+
+- Slurm 24.11 (aarch64):
+  - Linux Kernel version: 6.8.0-1050-aws
+  - Glibc version: 2.35
+  - OpenSSL version: 3.0.2
+  - FSx Lustre Client version: 2.15.6-1fsx28
+  - Containerd version: v2.2.2
+  - NVIDIA Driver version: 580.126.09
+  - NVIDIA CUDA Default version: 13.0
   - CUDA version: 12.6, 12.8, 12.9, 13.0
   - EFA Installer version: 1.45.1
   - Python version: 3.10.12
@@ -55,14 +130,14 @@ Slurm v24.11
   - rdma-core version: 60.0-1
 
 - Slurm 24.11 (x86_64):
-  - Linux Kernel version: 6.8
+  - Linux Kernel version: 6.8.0-1050-aws
   - Glibc version: 2.35
   - OpenSSL version: 3.0.2
   - FSx Lustre Client version: 2.15.6-1fsx28
-  - Runc version: 1.3.4
-  - Containerd version: containerd containerd.io v2.2.2
+  - Containerd version: v2.2.2
   - aws Neuronx DKMS version: 2.26.10.0
   - NVIDIA Driver version: 580.126.09
+  - NVIDIA CUDA Default version: 12.9
   - CUDA version: 12.6, 12.8, 12.9, 13.0
   - EFA Installer version: 1.45.0
   - Python version: 3.10.12

@@ -44,4 +44,4 @@ The high-level architecture of Amazon EKS support in HyperPod involves a 1-to-1
 mapping between an EKS cluster (control plane) and a HyperPod cluster (worker
 nodes) within a VPC, as shown in the following diagram.
 
-![EKS and HyperPod VPC architecture with control plane, cluster nodes, and AWS services.](images/hyperpod-eks-diagram.png)
+![EKS control plane connected to HyperPod cluster nodes via cross-account ENIs within VPCs.](images/hyperpod-eks-diagram.png)

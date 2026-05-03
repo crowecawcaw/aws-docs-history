@@ -62,6 +62,146 @@ If your endpoint is in a VPC, pass the `NetworkConfig` parameter with
 your `VpcConfig` settings, including security group IDs and
 subnets.
 
+## Benchmark inference components
+
+If your endpoint uses _inference components_ instead of
+deploying a model directly, you must specify the inference components to
+benchmark in the `BenchmarkTarget`. When inference components are
+specified, the benchmarking service routes requests to those specific components
+rather than the endpoint's default model.
+
+Pass one or more inference component names or ARNs in the
+`InferenceComponents` list:
+
+**Python (boto3)**
+
+```
+
+response = client.create_ai_benchmark_job(
+    AIBenchmarkJobName="my-ic-benchmark",
+    BenchmarkTarget={
+        "Endpoint": {
+            "Identifier": "my-multi-model-endpoint",
+            "InferenceComponents": [
+                {"Identifier": "my-inference-component-llama"}
+            ]
+        }
+    },
+    OutputConfig={
+        "S3OutputLocation": "s3://DOC-EXAMPLE-BUCKET/benchmark-results/"
+    },
+    AIWorkloadConfigIdentifier="my-benchmark-config",
+    RoleArn="arn:aws:iam::111122223333:role/ExampleRole",
+)
+
+```
+
+**AWS CLI**
+
+```
+
+aws sagemaker create-ai-benchmark-job \
+  --ai-benchmark-job-name "my-ic-benchmark" \
+  --benchmark-target '{
+    "Endpoint": {
+      "Identifier": "my-multi-model-endpoint",
+      "InferenceComponents": [
+        {"Identifier": "my-inference-component-llama"}
+      ]
+    }
+  }' \
+  --output-config '{"S3OutputLocation": "s3://DOC-EXAMPLE-BUCKET/benchmark-results/"}' \
+  --ai-workload-config-identifier "my-benchmark-config" \
+  --role-arn "arn:aws:iam::111122223333:role/ExampleRole" \
+  --region us-west-2
+
+```
+
+###### Note
+
+If your endpoint is configured for inference components but you don't
+specify `InferenceComponents` in the benchmark target, the job
+fails with an error indicating that no model is deployed directly on the
+endpoint. Always include the `InferenceComponents` parameter
+when benchmarking inference-component-based endpoints.
+
+## Benchmark multi-LoRA endpoints
+
+To benchmark an endpoint that serves multiple LoRA adapters, specify each
+adapter as an inference component in the `BenchmarkTarget`. You can
+optionally use the `model_selection_strategy` workload parameter to
+control how the benchmark distributes requests across adapters. If you don't
+specify a strategy, the default is `round_robin`.
+
+First, create a workload configuration. The following example includes the
+optional `model_selection_strategy` parameter:
+
+```
+
+# Create a workload config for multi-LoRA benchmarking
+workload_spec = {
+    "benchmark": {"type": "aiperf"},
+    "parameters": {
+        "prompt_input_tokens_mean": 550,
+        "output_tokens_mean": 150,
+        "concurrency": 10,
+        "streaming": True,
+        "tokenizer": "meta-llama/Llama-3.2-1B",
+        "model_selection_strategy": "round_robin"
+    },
+    "secrets": {
+        "hf_token": "arn:aws:secretsmanager:us-west-2:111122223333:secret:my-hf-token-AbCdEf"
+    },
+    "tooling": {"api_standard": "openai"}
+}
+
+import json
+client.create_ai_workload_config(
+    AIWorkloadConfigName="multi-lora-config",
+    WorkloadSpec={"Inline": json.dumps(workload_spec)}
+)
+
+```
+
+Then, create a benchmark job that targets all the LoRA adapter inference
+components:
+
+```
+
+response = client.create_ai_benchmark_job(
+    AIBenchmarkJobName="multi-lora-benchmark",
+    BenchmarkTarget={
+        "Endpoint": {
+            "Identifier": "my-lora-endpoint",
+            "InferenceComponents": [
+                {"Identifier": "lora-adapter-customer-support"},
+                {"Identifier": "lora-adapter-code-generation"},
+                {"Identifier": "lora-adapter-summarization"}
+            ]
+        }
+    },
+    OutputConfig={
+        "S3OutputLocation": "s3://DOC-EXAMPLE-BUCKET/multi-lora-results/"
+    },
+    AIWorkloadConfigIdentifier="multi-lora-config",
+    RoleArn="arn:aws:iam::111122223333:role/ExampleRole",
+)
+
+```
+
+The `model_selection_strategy` parameter is optional and determines
+how the benchmark tool distributes requests across the specified inference
+components. Valid values are:
+
+- `round_robin` (default) — each adapter receives requests
+  in order. The nth request is sent to the (n mod number-of-models)th
+  adapter.
+- `random` — each request is assigned to an adapter
+  uniformly at random.
+
+If you don't specify `model_selection_strategy`, the benchmark
+uses `round_robin` by default.
+
 ## Step 2: Monitor job status
 
 Poll the job status until it reaches a terminal state.

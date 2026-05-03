@@ -16,4 +16,5 @@ containers on your endpoints with enhanced metrics (see [Amazon SageMaker AI enh
 - [Instance storage volumes](host-instance-storage.md "host-instance-storage.md")
 - [Validation of models in production](model-validation.md "model-validation.md")
 - [Online explainability with SageMaker Clarify](clarify-online-explainability.md "clarify-online-explainability.md")
+- [Deploy to multiple instance types with instance pools](realtime-endpoints-heterogeneous.md "realtime-endpoints-heterogeneous.md")
 - [Fine-tune models with adapter inference components](realtime-endpoints-adapt.md "realtime-endpoints-adapt.md")

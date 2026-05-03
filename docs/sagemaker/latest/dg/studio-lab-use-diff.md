@@ -16,14 +16,14 @@ the notebook to match the checkpoint file.
 
 To save the Studio Lab notebook and update the checkpoint file to match: Choose the
 **Save notebook and create checkpoint** icon (
-![Icon of a cloud with an arrow pointing upward, representing cloud upload functionality.](images/icons/Notebook_save.png)
+![Save notebook and create checkpoint icon.](images/icons/Notebook_save.png)
 ). This is located on the Studio Lab menu's left side. The keyboard
 shortcut for **Save notebook and create checkpoint** is `Ctrl +
  s`.
 
 To view changes between the Studio Lab notebook and the checkpoint file: Choose the
 **Checkpoint diff** icon (
-![Camera icon representing image capture or photo functionality.](images/icons/Checkpoint_diff.png)
+![Checkpoint diff icon.](images/icons/Checkpoint_diff.png)
 ), located in the center of the Studio Lab menu.
 
 To revert the Studio Lab notebook to the checkpoint file: On the main Studio Lab menu,
@@ -37,5 +37,5 @@ notebook and the last Git commit.
 
 To view the changes in the notebook from the last Git commit: Choose the **Git
 diff** icon (
-![GitHub icon representing version control and source code management.](images/icons/Git_diff.png)
+![Icon showing a git branch symbol with directional arrows indicating version control flow.](images/icons/Git_diff.png)
 ) in the center of the notebook menu.

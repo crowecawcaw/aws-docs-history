@@ -77,7 +77,7 @@ You can fine-tune a foundation model by using any of the following methods in th
 
 - While in a **Generate, extract and summarize content** chat with a
   foundation model, choose the **Fine-tune model** icon (
-  ![Magnifying glass icon with a plus sign, indicating a search or zoom-in function.](images/studio/canvas/wrench-icon-small.png)
+  ![Fine-tune model icon.](images/studio/canvas/wrench-icon-small.png)
   ).
 - While in a chat with a foundation model, if you’ve re-generated the response two or more times,
   then Canvas offers you the option to **Fine-tune model**.

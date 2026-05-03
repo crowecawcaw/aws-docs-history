@@ -202,6 +202,15 @@ For more information on evaluation job submission through SageMaker Python SDK, 
 
 Use LLM-as-a-judge (LLMAJ) evaluation to leverage another frontier model to grade your target model responses. You can use AWS Bedrock models as judges by calling `create_evaluation_job` API to launch the evaluation job.
 
+- **SageMaker LLM as a Judge**: This
+  feature is powered by Amazon Bedrock Evaluations. Your use of this feature is
+  subject to pricing of Amazon Bedrock Evaluations, see the [Service
+  Terms](https://aws.amazon.com/service-terms/ "https://aws.amazon.com/service-terms/") applicable to Amazon Bedrock, and the terms that apply to
+  your usage of third-party models. Amazon Bedrock Evaluations may securely
+  transmit data across AWS Regions within your geography for
+  processing. For more information, access [Amazon Bedrock
+  Evaluations documentation](../../../bedrock/latest/userguide/evaluation-judge.md "../../../bedrock/latest/userguide/evaluation-judge.md").
+
 For more information on the supported judge models see: [https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html](../../../bedrock/latest/userguide/models-supported.md "../../../bedrock/latest/userguide/models-supported.md")
 
 You can use 2 different metric formats to define the evaluation:

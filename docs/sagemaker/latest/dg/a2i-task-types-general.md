@@ -54,7 +54,7 @@ review loop into a machine learning workflow, you can use a Jupyter Notebook fro
    take a few moments for JupyterLab to load.
 3. Choose the add Github repository icon
    (
-   ![Diagonal arrow icon with N and 1 symbols, representing a one-to-many relationship.](images/icons/Git_squip_add_repo.png)
+   ![Add GitHub repository icon.](images/icons/Git_squip_add_repo.png)
    ) to clone a GitHub repository into your workspace.
 4. Enter the [amazon-a2i-sample-jupyter-notebooks](https://github.com/aws-samples/amazon-a2i-sample-jupyter-notebooks "https://github.com/aws-samples/amazon-a2i-sample-jupyter-notebooks") repository HTTPS URL.
 5. Choose **CLONE**.

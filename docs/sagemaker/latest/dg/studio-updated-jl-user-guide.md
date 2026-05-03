@@ -64,4 +64,5 @@ For information about lifecycle configurations, see [Lifecycle configurations wi
 - [Customize your environment using a package manager](studio-updated-jl-user-guide-customize-package-manager.md "studio-updated-jl-user-guide-customize-package-manager.md")
 - [Clean up a conda environment](studio-updated-jl-clean-up-conda.md "studio-updated-jl-clean-up-conda.md")
 - [Share conda environments between instance types](studio-updated-jl-create-conda-share-environment.md "studio-updated-jl-create-conda-share-environment.md")
+- [Using a coding assistant to expedite your machine learning workflows](studio-updated-jl-coding-assistant.md "studio-updated-jl-coding-assistant.md")
 - [Use Amazon Q to Expedite Your Machine Learning Workflows](studio-updated-jl-user-guide-use-amazon-q.md "studio-updated-jl-user-guide-use-amazon-q.md")

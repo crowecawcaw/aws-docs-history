@@ -29,7 +29,7 @@ minutes until the dashboard loads.
 
 SageMaker HyperPod requires the CloudWatch Insight v2.0.1-eksbuild.1 or later.
 
-![CloudWatch Observability service card showing status, version, and IAM role information.](images/hyperpod-eks-CIaddon.png)
+![Amazon CloudWatch Observability add-on showing Creating status with version v2.0.1-eksbuild.1.](images/hyperpod-eks-CIaddon.png)
 
 ## Access CloudWatch container insights logs
 

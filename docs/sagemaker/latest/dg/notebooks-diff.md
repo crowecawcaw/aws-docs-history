@@ -45,13 +45,13 @@ By default, a notebook is auto-saved every 120 seconds and also when you close t
 notebook. However, the checkpoint file isn't updated to match the notebook. To save the
 notebook and update the checkpoint file to match, you must choose the **Save
 notebook and create checkpoint** icon (
-![Padlock icon representing security or access control in cloud services.](images/studio/icons/notebook-save-and-checkpoint.png)
+![Save notebook and create checkpoint icon.](images/studio/icons/notebook-save-and-checkpoint.png)
 ) on the left of the notebook menu or use the `Ctrl + S`
 keyboard shortcut.
 
 To view the changes between the notebook and the checkpoint file, choose the
 **Checkpoint diff** icon (
-![Clock icon representing time or duration in a user interface.](images/studio/icons/notebook-checkpoint-diff.png)
+![Checkpoint diff icon.](images/studio/icons/notebook-checkpoint-diff.png)
 ) in the center of the notebook menu.
 
 To revert the notebook to the checkpoint file, from the main Studio Classic menu, choose

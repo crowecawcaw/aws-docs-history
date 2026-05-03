@@ -36,6 +36,7 @@ your required extensions support remote development before use.
 - [Set up remote access](remote-access-remote-setup.md "remote-access-remote-setup.md")
 - [Set up Remote IDE](remote-access-local-ide-setup.md "remote-access-local-ide-setup.md")
 - [Supported AWS Regions](remote-access-supported-regions.md "remote-access-supported-regions.md")
+- [Installing Amazon SageMaker AI skills](remote-access-install-skills.md "remote-access-install-skills.md")
 
 ## Key concepts
 
@@ -175,3 +176,4 @@ specifications](studio-updated-byoi-specs.md "studio-updated-byoi-specs.md") and
 - [Set up remote access](remote-access-remote-setup.md "remote-access-remote-setup.md")
 - [Set up Remote IDE](remote-access-local-ide-setup.md "remote-access-local-ide-setup.md")
 - [Supported AWS Regions](remote-access-supported-regions.md "remote-access-supported-regions.md")
+- [Installing Amazon SageMaker AI skills](remote-access-install-skills.md "remote-access-install-skills.md")

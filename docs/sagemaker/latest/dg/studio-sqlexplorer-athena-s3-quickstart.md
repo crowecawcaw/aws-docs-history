@@ -259,7 +259,7 @@ JupyterLab application. 4. Enable Athena default connection:
      connection**.
     4. In your JupyterLab application, choose the SQL extension icon
      (
-    ![Purple circular icon with a clock symbol representing time or scheduling.](images/studio/sqlexplorer/sqlexplorer-icon.png)
+    ![SQL Explorer icon.](images/studio/sqlexplorer/sqlexplorer-icon.png)
     ) in the left navigation pane to open the
      SQL extension.
     5. Choose the **Refresh** button at the bottom of the

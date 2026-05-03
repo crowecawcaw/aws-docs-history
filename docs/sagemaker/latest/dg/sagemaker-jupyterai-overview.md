@@ -10,7 +10,7 @@ language model of your choice.
 
 After launching a JupyterLab application installed with Jupyter AI, you can access the
 chat interface by choosing the chat icon (
-![Icon of a rectangular shape with a curved arrow pointing to the upper right corner.](images/studio/icons/jupyterai/jupyterai-chat-ui.png)
+![Chat icon.](images/studio/icons/jupyterai/jupyterai-chat-ui.png)
 ) in the left navigation panel. First-time users are prompted to
 configure their model. See [Configure your model provider in the chat UI](sagemaker-jupyterai-model-configuration.md#sagemaker-jupyterai-model-configuration-chatui "sagemaker-jupyterai-model-configuration.md#sagemaker-jupyterai-model-configuration-chatui") for configuration
 instructions.

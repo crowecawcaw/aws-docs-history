@@ -94,6 +94,13 @@ image_uris.retrieve(framework='xgboost',region='us-east-1',version='3.0-5')
 | Scikit-Learn | 0.23-1          | 3/6/2023   | 06/02/2021    |
 | Scikit-Learn | 0.20-1          | >4 years   | Not supported |
 
+###### Note
+
+Scikit-Learn 1.4-2 is available in both Python 3.10 (`1.4-2`) and
+Python 3.12 (`1.4-2-py312`) image variants. The Python 3.12 image does
+not include [ml-io](https://github.com/awslabs/ml-io "https://github.com/awslabs/ml-io"). Customers
+using mlio should continue using the 1.4-2 (Python 3.10) image.
+
 ## SageMaker AI Built-in Algorithm Container support policy
 
 The SageMaker AI Built-in Algorithm Containers are a set of Docker images for training

@@ -76,7 +76,7 @@ new default values, and reset your default values for your notebook jobs.
      **System Defaults** panel to the **User
      Preferences** panel, and update the fields. 4. If you updated the default values, choose the **Save User
      Settings** icon (
-     ![Icon of a cloud with an arrow pointing upward, representing cloud upload functionality.](images/icons/Notebook_save.png)
+     ![Icon showing a document or file with a question mark symbol.](images/icons/Notebook_save.png)
      ) in the top right corner. Closing the editor does not
      save the changes.
 

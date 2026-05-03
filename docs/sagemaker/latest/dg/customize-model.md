@@ -86,7 +86,12 @@ Resource Access Manager (RAM) while maintaining complete lineage visibility.
 
 **User Interfaces**
 
-To get started with model customization programmatically, see the [SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/model_customization/index.html "https://sagemaker.readthedocs.io/en/stable/model_customization/index.html").
+Amazon SageMaker AI provides multiple interfaces for model customization, allowing you to
+choose the approach that best fits your workflow and expertise level. You can
+customize models programmatically using APIs available through the [SageMaker AI Python SDK](https://sagemaker.readthedocs.io/en/stable/model_customization/index.html "https://sagemaker.readthedocs.io/en/stable/model_customization/index.html"), leverage intuitive UI interfaces in
+Studio for visual model customization workflows, or use agent-guided workflows
+directly in your IDE and coding assistant of choice for an interactive,
+conversational approach to model development, leveraging Amazon SageMaker AI Skills.
 
 **Pricing**
 
