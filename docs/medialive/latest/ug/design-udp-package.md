@@ -21,11 +21,11 @@ with one output.
 The
 captions are embedded in the video encode.
 
-![Output group diagram showing video encode with embedded captions and two audio outputs.](images/output3-nonABR-Ve-2A.png)
+![Output group container showing one output with embedded video and two outputs labeled A.](images/output3-nonABR-Ve-2A.png)
 This diagram illustrates a UDP output
 group with one
 output. The captions are
 object-style
 captions.
 
-![Output group diagram showing V, A, A, C, C as individual elements in sequence.](images/output4-nonABR-V-2A-2C.png)
+![Output group labeled Output containing five elements: V, A, A, C, and C in oval shapes.](images/output4-nonABR-V-2A-2C.png)

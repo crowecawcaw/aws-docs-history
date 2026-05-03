@@ -40,7 +40,7 @@ in the usual way.
 
 As this diagram illustrates, there are two instances of the content source.
 
-![Diagram showing failover pair with two upstream servers, standard-class inputs, and a single-pipeline channel to downstream system.](images/aif-single-setup.png)
+![Two upstream origin servers connecting through standard-class inputs in a failover pair to a single pipeline channel feeding a downstream system.](images/aif-single-setup.png)
 
 ## Failure handling
 
@@ -58,4 +58,4 @@ If there is a failure, the behavior is as follows:
 This diagram illustrates the flow after there is a failure upstream of the first
 input. MediaLive has failed over to the second input.
 
-![Diagram showing failover from one upstream server to another, with a single pipeline channel to downstream system.](images/aif-single-input-failover.png)
+![Failover pair with active connection from second upstream server through standard-class input to pipeline and downstream system.](images/aif-single-input-failover.png)

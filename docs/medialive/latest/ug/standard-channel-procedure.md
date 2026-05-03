@@ -46,7 +46,7 @@ downstream system. The downstream system chooses to handle one
 instance (the output from blue pipeline) and to ignore the other
 instance (the output from the green pipeline).
 
-![Diagram showing upstream system, standard input, channel with two pipelines, and downstream system.](images/pipeline-redundancy-standard-channel.png)
+![Upstream system sending content through two pipelines to downstream system via standard channel.](images/pipeline-redundancy-standard-channel.png)
 
 ## Failure handling
 
@@ -68,4 +68,4 @@ that the upstream system is working but pipeline 0 has failed.
 The downstream system has started handling pipeline 1 instead,
 using the source content from the green pipeline.
 
-![Diagram showing upstream system, two pipelines, and downstream system with pipeline 1 active.](images/pipeline-redundancy-standard-failure.png)
+![Upstream system connected to two pipelines, with pipeline 0 failed and pipeline 1 active.](images/pipeline-redundancy-standard-failure.png)

@@ -28,4 +28,4 @@ The attachment is at the channel level, which gives you the flexibility to creat
 roles for different channels. Each role gives MediaLive access to different operations and,
 especially, different resources.
 
-![Diagram showing role attached to channel, indicating service access flexibility.](images/medialiveaccessrole-to-channel.png)
+![Diagram showing Role for the service connected to Channel.](images/medialiveaccessrole-to-channel.png)

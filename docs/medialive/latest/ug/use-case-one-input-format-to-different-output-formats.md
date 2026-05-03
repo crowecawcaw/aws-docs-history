@@ -8,4 +8,4 @@ the languages in that output.
 For example, the input has embedded captions in German and French. You want to convert
 the captions to DVB-Sub and include these captions in both languages in a UDP output.
 
-![Diagram showing input captions converted to DVB-Sub format and included in UDP output.](images/captions_INembed_OUTdvb_udp.png)
+![Diagram showing input captions in German and French converting to DVB-Sub output formats.](images/captions_INembed_OUTdvb_udp.png)

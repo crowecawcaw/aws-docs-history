@@ -32,7 +32,7 @@ data includes information about how MediaLive connects to the downstream systems
 
 This setup connects the components as illustrated in this diagram.
 
-![Diagram showing data flow from upstream system through input, channel, and output to downstream system.](images/components-4main.png)
+![Flow diagram showing upstream system with source content connecting through input and channel to output and downstream system.](images/components-4main.png)
 To start processing the content, you start the channel. When the channel is running, it
 ingests the source content from the upstream system that is identified by the input. The channel
 then transcodes that video (and the related audio, captions, and metadata) and creates outputs.
@@ -56,7 +56,7 @@ with it. The input security group identifies a range of IP addresses that includ
 addresses on the upstream system. IP addresses within this range are allowed to push content to
 the input.
 
-![Diagram showing upstream system with source content connecting to input and input security group.](images/components-input-side.png)
+![Upstream system with source content connecting to input, which connects to input security group.](images/components-input-side.png)
 
 ## MediaLive channels
 
@@ -78,7 +78,7 @@ output groups depend on the type of the output group.
 
 The following diagram is a detailed illustration of the workflow.
 
-![Diagram showing data flow from upstream to downstream system through input, channels, and output groups.](images/components-workflow.png)
+![Upstream system connects to channel with two pipelines, each containing output groups with video, audio, and captions flowing to downstream system.](images/components-workflow.png)
 
 The illustration shows a channel with only one output group.
 

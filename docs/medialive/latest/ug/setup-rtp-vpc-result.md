@@ -28,4 +28,4 @@ pushing before then.
 At runtime of the channel, MediaLive reacts to the content that is being pushed and
 ingests it.
 
-![Diagram showing RTP input from upstream systems to MediaLive through VPC subnets.](images/rtp-vpc-uss-input.png)
+![Two upstream systems pushing RTP input to MediaLive via VPC subnets with IP addresses.](images/rtp-vpc-uss-input.png)

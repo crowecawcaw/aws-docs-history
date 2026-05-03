@@ -46,7 +46,7 @@ produces one instance of the output for the downstream system.
 The other pipeline in the input (the green pipeline) is always
 inactive.
 
-![Diagram showing single-pipeline channel with standard-class input connecting upstream and downstream systems.](images/pipeline-redundancy-single-channel-standard-input.png)
+![Data flow from upstream server through standard-class input to single active pipeline to downstream system.](images/pipeline-redundancy-single-channel-standard-input.png)
 
 ## Failure handling
 

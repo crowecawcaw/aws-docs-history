@@ -45,7 +45,7 @@ The following diagram illustrates the possible design of a MediaLive Anywhere cl
 CL stands for cluster. Nd stands for node. CPG stands for channel placement group. The
 orange boxes are channels.
 
-![Diagram showing two clusters with nodes and channel placement groups containing channels.](images/anywhere_cluster_cnp.png)
+![Two clusters: CL-A contains nodes Nd-1 through Nd-4 and channel placement groups CPG-W, CPG-X, and CPG-Y with multiple channels; CL-B contains nodes Nd-5 and Nd-6 and CPG-Z with one channel.](images/anywhere_cluster_cnp.png)
 In this diagram, there are two clusters. Both clusters are associated with the same two
 networks.
 

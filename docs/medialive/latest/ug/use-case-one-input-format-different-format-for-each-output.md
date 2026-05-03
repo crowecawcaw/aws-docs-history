@@ -12,7 +12,7 @@ output, you want to include one video and one audio and you want to convert the 
 TTML. In the HLS output, you want to include one video and one audio and you want to convert
 the captions to WebVTT.
 
-![Diagram showing input captions and output formats for Microsoft Smooth and HLS groups.](images/captions_INttext_OUT_OPmss_hls_result.png)
+![Diagram showing caption conversion from Teletext to TTML for Smooth and WebVTT for HLS outputs.](images/captions_INttext_OUT_OPmss_hls_result.png)
 To set up for this use case, follow this procedure.
 
 1.  In the channel that you are creating, in the navigation pane, for **Input

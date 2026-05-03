@@ -35,7 +35,7 @@ notification_ on Tuesday, May 2.
   maintenance window that occurs during the maintenance opening. In this example, it is
   set to occur on Thursday, May 18 between 4:00 and 5:00 UTC.
 
-![Timeline showing a long bar spanning multiple days and shorter bars on specific dates.](images/maintenance.png)
+![Calendar view showing a scheduled event spanning Thursday with markers on days 4, 11, and 18.](images/maintenance.png)
 
 ## Options for handling maintenance
 

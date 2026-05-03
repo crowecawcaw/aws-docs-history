@@ -31,7 +31,7 @@ English and French encodes will appear in the low-resolution output.
   output.
   This diagram illustrates a Microsoft output group with bundled audio.
 
-![Output group diagram showing V, A, A components bundled with V, A, A, and separate C, C outputs.](images/output12-ABR-2V-2A-2C.png)
+![Three output groups containing outputs labeled V, A, A, V, A, A, C, and C respectively.](images/output12-ABR-2V-2A-2C.png)
 **Downstream players that require separate audio**
 
 Plan for the output group to contain the following:
@@ -51,4 +51,4 @@ bitrates.
 This diagram illustrates a Microsoft Smooth output group with an audio rendition
 group.
 
-![Output group containing six outputs: two V, two A, and two C, arranged in a row.](images/output14-ABR-2V-2Asep-2C.png)
+![Output group containing six outputs: two V outputs, two A outputs, and two C outputs.](images/output14-ABR-2V-2Asep-2C.png)

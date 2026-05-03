@@ -8,4 +8,4 @@ languages in that output.
 For example, the input has embedded captions in English and French. You want to produce
 HLS output that includes embedded captions in both English and French.
 
-![Diagram showing input captions in English and French, and output with embedded captions in both languages.](images/captions_INembed_OUTembed_hls.png)
+![Diagram showing input captions in English and French flowing to output captions and HLS output.](images/captions_INembed_OUTembed_hls.png)

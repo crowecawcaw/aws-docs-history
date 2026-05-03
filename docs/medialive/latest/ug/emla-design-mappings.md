@@ -14,14 +14,14 @@ Each mapping connects one network to the node network interface that handles the
 for that network. For example, there might be a mapping to connect the input network to the
 node network interface for input traffic.
 
-![Diagram showing a Network box connected to a Node box, each with a single component.](images/anywhere_nwork_nodeinterface.png)
+![Network container with input-network name mapped to Node container with Eth1 physical interface.](images/anywhere_nwork_nodeinterface.png)
 
 The mapping works as illustrated in the diagram that follows. The mapping (the blue box)
 consists of two pieces of information — the network ID and a logical interface name that you
 assign. The mapping connects the network (the pink box) to the physical interface (the
 yellow box).
 
-![Diagram showing network, mapping, and node components connected in a linear flow.](images/anywhere_nwork_full.png)
+![Network box connected to mapping box with network ID, which connects to node box with interfaces.](images/anywhere_nwork_full.png)
 
 You must design one mapping for each network in a cluster. You don't create one mapping
 for each node. Instead, the similar physical interfaces in all the nodes share the same

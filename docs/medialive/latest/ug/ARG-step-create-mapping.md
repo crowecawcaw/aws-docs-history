@@ -51,7 +51,7 @@ group`.
   There is no need to create separate video encodes for each rendition
   group.
 
-![Diagram showing two rendition groups connected to a single video encode.](images/ARG_oneV_twoARG.png)
+![Diagram showing Rendition GP 1 and Rendition GP 2 both connecting to Video1.](images/ARG_oneV_twoARG.png)
 
 - All the rendition groups associated with the same video must contain
   the same audio encodes. For example, if both the AAC group and the Dolby
@@ -64,4 +64,4 @@ group`.
   video encode and the low definition video encode. There is no need to
   create separate rendition groups for each video.
 
-![Diagram showing a rendition group connected to two separate video elements.](images/ARG_twoV_oneARG.png)
+![Rendition Group 1 connected to Video1 and Video2 outputs.](images/ARG_twoV_oneARG.png)

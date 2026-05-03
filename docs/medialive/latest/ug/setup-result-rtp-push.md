@@ -17,4 +17,4 @@ pushing before then.
 At runtime of the channel, MediaLive reacts to the content that is being pushed and
 ingests it.
 
-![Upstream system diagram showing IP addresses, RTP inputs, and Input Security Group.](images/rtp-push-uss-input.png)
+![Upstream system with two sets of public IP addresses routing to RTP inputs and security groups.](images/rtp-push-uss-input.png)

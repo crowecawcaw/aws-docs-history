@@ -32,11 +32,11 @@ English and French encodes will appear in the low-resolution output.
   This diagram illustrates an HLS output group when the captions encodes are
   embedded.
 
-![Output group diagram showing embedded and non-embedded outputs with associated elements.](images/output11-ABR-2Ve-2A.png)
+![Output group with two outputs, each containing embedded video and two audio streams.](images/output11-ABR-2Ve-2A.png)
 This diagram illustrates an HLS output group when the captions encodes are
 sidecars.
 
-![Output group diagram showing V, A, A components, V, A, A outputs, and two C outputs.](images/output12-ABR-2V-2A-2C.png)
+![Output group containing video and audio outputs, with separate caption outputs as sidecars.](images/output12-ABR-2V-2A-2C.png)
 **Downstream players that require separate audio**
 
 Plan for the output group to contain the following:
@@ -55,8 +55,8 @@ bitrates.
 This diagram illustrates an HLS output group with an audio rendition group, and with
 embedded captions encodes.
 
-![Output group diagram showing four outputs: two marked as embedded, and two marked as A.](images/output13-ABR-2Ve-2Asep.png)
+![Output group containing two outputs with embedded captions and two outputs with type A.](images/output13-ABR-2Ve-2Asep.png)
 This diagram illustrates an HLS output group for an ABR stack with an audio rendition
 group, and with sidecar captions encodes.
 
-![Output group diagram showing six outputs: two V, two A, and two C, arranged in a row.](images/output14-ABR-2V-2Asep-2C.png)
+![Output group containing six outputs: two video, two audio, and two captions outputs.](images/output14-ABR-2V-2Asep-2C.png)

@@ -26,14 +26,14 @@ itself in an output in the output group. There is only ever one
 captions entity within that video encode, although that entity
 might contain captions for up to four languages.
 
-![Diagram showing video encode containing captions, and audio encode within an output container.](images/caption_categories_embedded.png)
+![Output container showing Video encode with Captions nested inside, and Audio encode below.](images/caption_categories_embedded.png)
 
 ## Object-style captions
 
 All the captions encodes for a specific output group are in the same output as the
 corresponding video and audio.
 
-![Diagram showing video, audio, and two captions encode components in a single output.](images/caption_categories_object.png)
+![Output container showing video encode, audio encode, and two captions encode items.](images/caption_categories_object.png)
 
 ## Sidecar captions
 
@@ -41,7 +41,7 @@ Each captions encode for a specific output group is in its own "captions-only"
 output. The output group can contain more than one captions output, for example, one
 for each language.
 
-![Diagram showing three output groups: one with video and audio encode, two with captions encode.](images/caption_categories_sidecar.png)
+![Three output groups: one with video and audio encode, two with captions encode only.](images/caption_categories_sidecar.png)
 
 Each captions-only output becomes a separate file in the
 packaged output.
@@ -52,7 +52,7 @@ Each captions encode for a specific output group is in its own "captions-only"
 output. The output group can contain more than one captions output, for example, one
 for each language.
 
-![Diagram showing three output groups: one with video and audio encode, two with captions encode.](images/caption_categories_stream.png)
+![Three output groups: one with video and audio encode, two with captions encode only.](images/caption_categories_stream.png)
 
 Each captions-only output becomes a separate stream in the
 packaged output.

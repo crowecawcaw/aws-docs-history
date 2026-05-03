@@ -21,7 +21,7 @@ standard-class inputs, in the usual way. When you create the channel, you attach
 these two inputs and then set them up as a failover pair. Both these steps are
 covered later in the setting up sections later in this topic.
 
-![Diagram showing failover pair setup with upstream systems, standard-class inputs, and downstream system.](images/aif-standard-setup.png)
+![Two upstream systems connecting to standard-class inputs in a failover pair, feeding into pipelines in a standard channel, then to downstream system.](images/aif-standard-setup.png)
 
 When you start the channel, MediaLive ingests the content from both inputs. So it
 ingests four sources (as shown by the red lines in the diagram). But only the
@@ -32,7 +32,7 @@ The pipeline produces two outputs for the downstream system, in the usual way. T
 downstream system chooses to handle one pipeline and to ignore the other
 pipeline.
 
-![Diagram showing failover pair with standard-class inputs, standard channels, and downstream system.](images/aif-standard-beforefailure.png)
+![Failover pair with standard-class inputs routing through two pipelines to downstream system.](images/aif-standard-beforefailure.png)
 
 ## Failure handling
 
@@ -51,7 +51,7 @@ occurs:
   it had chosen before the problem. The downstream system is not affected
   by the failure in the pipeline 0.
 
-![Failover pair diagram showing standard-class inputs, standard channel pipelines, and downstream system.](images/aif-standard-pipeline-failure.png)
+![Failover pair with standard-class inputs routing through two pipelines to downstream system.](images/aif-standard-pipeline-failure.png)
 
 ### Failure scenario 2
 
@@ -66,4 +66,4 @@ first input, then automatic input failover occurs:
   it had chosen before the problem. The downstream system is not affected
   by the failure in the first input.
 
-![Failover pair diagram showing standard-class inputs, standard channel with two pipelines, and downstream system.](images/aif-standard-input-failure.png)
+![Failover pair with standard-class inputs routing through two pipelines to downstream system.](images/aif-standard-input-failure.png)

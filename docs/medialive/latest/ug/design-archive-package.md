@@ -21,8 +21,8 @@ the following:
 This diagram illustrates an Archive output group that contains one output that holds
 one video encode with embedded captions, and two audio encodes.
 
-![Output group diagram showing one output with a video encode and two audio encodes.](images/output3-nonABR-Ve-2A.png)
+![Output group containing one output with video encode and two audio encodes labeled A.](images/output3-nonABR-Ve-2A.png)
 This diagram illustrates an Archive output group that contains one output that holds
 one video encode, two audio encodes, and two object-style captions encode.
 
-![Output group containing V, A, A, C, C elements representing video, audio, and caption encodes.](images/output4-nonABR-V-2A-2C.png)
+![Output group labeled Output containing five elements: V, A, A, C, and C.](images/output4-nonABR-V-2A-2C.png)

@@ -17,9 +17,9 @@ the following:
   that contains one
   output where the captions are embedded in the video encode.
 
-![Diagram showing Output Group containing Output with Video and Captions embedded.](images/output1-non-abr-Ve-A.png)
+![Output group containing output with video embedded captions and audio.](images/output1-non-abr-Ve-A.png)
 This diagram illustrates an RTMP output group
 that contains one
 output with object-style captions.
 
-![Venn diagram showing three overlapping circles labeled V, A, and C.](images/output2-non-abr-VAC.png)
+![Output group containing three outputs labeled V, A, and C.](images/output2-non-abr-VAC.png)

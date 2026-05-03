@@ -15,8 +15,8 @@ Each output contains the following:
 This diagram illustrates an SRT output group with one output. The captions are
 embedded in the video encode.
 
-![](images/output3-nonABR-Ve-2A.png)
+![Output group containing one output with embedded video and two audio outputs.](images/output3-nonABR-Ve-2A.png)
 This diagram illustrates an SRT output group with one output. The captions are
 object-style captions.
 
-![](images/output4-nonABR-V-2A-2C.png)
+![Output group labeled Output containing five elements: V, A, A, C, and C in oval shapes.](images/output4-nonABR-V-2A-2C.png)

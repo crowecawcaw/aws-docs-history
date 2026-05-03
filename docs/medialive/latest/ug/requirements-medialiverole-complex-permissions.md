@@ -4,7 +4,7 @@ With the complex option, MediaLive users must have permissions to use the truste
 wizard. This wizard is in the **IAM Role** section on the **Channel
 and input details** pane:
 
-![IAM role configuration options for AWS Elemental MediaLive channel access permissions.](images/medialiveaccessrole_withUpdateButton.png)
+![IAM Role section showing MediaLiveAccessRole dropdown, Update button, and Remember role checkbox.](images/medialiveaccessrole_withUpdateButton.png)
 Topics
 
 ## Set up wizard permissions

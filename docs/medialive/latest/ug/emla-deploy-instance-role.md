@@ -8,7 +8,7 @@ must create a role, attach some policies with specific content, and specify AWS 
 In this diagram, the role is in a pink box, each policy is in a yellow box, and each
 trusted entity is in a blue box.
 
-![Instance Role connected to three policies and a trust relationship with AWS Systems Manager.](images/instance-role-access.png)
+![Instance Role connects to three policies and has trust relationship with AWS Systems Manager .](images/instance-role-access.png)
 After this role is created, the MediaLive user who is deploying MediaLive Anywhere attaches this role to
 each cluster that they create. They attach the same role to every cluster. This role and its
 trusted entities make this statement:

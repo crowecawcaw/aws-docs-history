@@ -6,7 +6,7 @@ languages, and the single output converts those captions. For example, the input
 embedded captions in German and French. You want to produce a UDP output with both captions
 converted to DVB-Sub, plus one video and one audio.
 
-![Diagram showing captions flow from embedded German and French to DVB-Sub output.](images/captions_INembed_OUTdvb_udp_result.png)
+![Captions selector with embedded German and French converting to DVB-Sub German and French in UDP output.](images/captions_INembed_OUTdvb_udp_result.png)
 To set up for this use case, follow this procedure.
 
 1. In the channel that you are creating, in the navigation pane, for **Input

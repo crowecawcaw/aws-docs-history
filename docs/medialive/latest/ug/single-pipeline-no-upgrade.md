@@ -51,7 +51,7 @@ blue line. The input provides that one instance to the one pipeline in the
 channel. The channel produces one instance of the output for the downstream
 system.
 
-![Diagram showing content flow from upstream server through single-class input and pipeline to downstream system.](images/pipeline-redundancy-single-channel-single-input.png)
+![Flow from upstream origin server through single-class input and single-pipeline channel to downstream system.](images/pipeline-redundancy-single-channel-single-input.png)
 
 - Each standard-class input input contain two pipelines. However, only one
   of the pipelines is connected to a content source. The other input pipeline

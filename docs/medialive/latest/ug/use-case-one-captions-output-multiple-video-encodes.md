@@ -7,4 +7,4 @@ low-resolution video, one for medium, and one for high. Assume that there is one
 captions asset (English and Spanish embedded) that you want to associate with all three
 video/audio media combinations.
 
-![Diagram showing video/audio outputs at different resolutions and caption inputs/outputs in English and Spanish.](images/captions_INembed_OUTembed_ABRhls.png)
+![Diagram showing input captions flowing to output captions, which connect to three video quality outputs and HLS output.](images/captions_INembed_OUTembed_ABRhls.png)
