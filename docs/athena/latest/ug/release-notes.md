@@ -54,6 +54,15 @@ We recommend upgrading to this version as soon as possible. For more information
 the driver, see [Amazon Athena ODBC 2.x release notes](odbc-v2-driver-release-notes.md "odbc-v2-driver-release-notes.md"). To download the ODBC 2.x driver, see
 [ODBC 2.x driver download](odbc-v2-driver.md#odbc-v2-driver-download "odbc-v2-driver.md#odbc-v2-driver-download").
 
+### March 17, 2026
+
+Published on 2026-03-17
+
+Athena now supports AWS IAM-based authorization for Amazon S3 Tables and
+Apache Iceberg materialized views. With IAM-based authorization, you can define
+all necessary permissions across storage, catalog, and query engines in a single
+IAM policy.
+
 ### February 10, 2026
 
 Published on 2026-02-10
