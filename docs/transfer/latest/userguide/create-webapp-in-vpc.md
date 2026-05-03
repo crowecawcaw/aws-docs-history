@@ -39,12 +39,6 @@ infrastructure.
     - **Publicly accessible**: Your web app endpoint is accessible over the public via HTTPS. This option does not require any VPC configuration, making it straightforward to set up and suitable for applications intended for wide public use.
     - **VPC hosted**: Your web app endpoint is hosted within your Virtual Private Cloud (VPC), providing private network access through your VPC network, AWS Direct Connect, or VPN connections. This option offers enhanced security through network isolation and is recommended for internal applications.
 
-    ###### Note
-
-    You must have a dual-stack VPC configuration. For more
-    information, see [Example dual-stack VPC configuration](../../../vpc/latest/userguide/vpc-migrate-ipv6-example.md "../../../vpc/latest/userguide/vpc-migrate-ipv6-example.md") in the
-    _Amazon Virtual Private Cloud User Guide_.
-
     When configuring a VPC hosted endpoint, you'll need to specify:
 
         + **VPC**: Select an existing VPC or create a new one. A **Create a VPC** button is available.

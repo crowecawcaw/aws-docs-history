@@ -8,9 +8,12 @@ Each connector is automatically assigned static IP addresses that remain unchang
 over the lifetime of the connector. This allows you to connect with remote SFTP servers
 that only accept inbound connections from known IP addresses. Your connectors are
 assigned a set of static IP addresses that are shared by all connectors using the same
-protocol (SFTP or AS2) in your AWS account.
+protocol (SFTP or AS2) in your AWS account. These addresses are not dedicated
+exclusively to your account.
 
-For VPC_LATTICE-enabled connectors, the remote SFTP server will see IP addresses from your VPC CIDR range instead of AWS Transfer Family service-managed IP addresses.
+If you need dedicated, predictable IP addresses, configure your connectors with
+VPC-based egress. For more information, see
+[Create an SFTP connector with VPC-based egress](create-vpc-sftp-connector-procedure.md "create-vpc-sftp-connector-procedure.md").
 
 ## Update SFTP connectors
 
