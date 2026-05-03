@@ -77,7 +77,7 @@ attributes. If workers accept a HIT from one of these HIT groups, they can
 automatically move to the next piece of work in the HIT group without needing to
 return to the list.
 
-![HIT Groups interface showing tasks with titles, rewards, and time allotted.](images/mturk_accepted_HIT.png)
+![HIT Groups list showing three tasks with titles, reward amounts, and action buttons.](images/mturk_accepted_HIT.png)
 
 If, however, each HIT has a unique HIT type, then workers see your HITs as a long list of
 options in the list and have to return to the list after completing each

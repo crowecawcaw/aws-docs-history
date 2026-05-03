@@ -13,7 +13,7 @@ description, reward amount, and time allotted to complete each task before accep
 working on it. In many cases, workers preview a task prior to accepting it, which allows
 them to decide if they want to work on it.
 
-![Amazon Mechanical Turk worker interface showing available HITs with details and options to preview or accept tasks.](images/mturk_marketplace.png)
+![Amazon Mechanical Turk HIT Groups page showing available tasks with requester, reward, and creation time.](images/mturk_marketplace.png)
 Submitting tasks to the Mechanical Turk marketplace does not guarantee that workers will complete them.
 If workers don't believe that the reward amount is reasonable for the effort required,
 or the work isn't something on which they want to work, they skip it and move on to
