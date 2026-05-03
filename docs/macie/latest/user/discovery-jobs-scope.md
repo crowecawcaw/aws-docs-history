@@ -104,7 +104,7 @@ updates this data on a daily basis.
   run. Otherwise, a dash (–) appears in this field.
 
 If the information icon (
-![The information icon, which is a blue circle that has a lowercase letter i in it.](/images/macie/latest/user/images/icon-info-blue.png)
+![The information icon, which is a blue circle that has a lowercase letter i in it.](images/icon-info-blue.png)
 ) appears next to any bucket names, we
 recommend that you retrieve the latest bucket metadata from Amazon S3. To do this, choose
 refresh (

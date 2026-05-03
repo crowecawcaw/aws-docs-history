@@ -16,7 +16,7 @@ view](discovery-asdd-results-s3-inventory-table.md "discovery-asdd-results-s3-in
 
 To display the map, choose **S3 buckets** in the navigation pane on the
 console. Then choose map (
-![The map view button, which is a button that displays four black squares.](images/btn-s3-map-view.png)
+![The map view button, which is a button that displays four black squares.](/images/macie/latest/user/images/btn-s3-map-view.png)
 ) at the top of the page. The map is available only if
 automated sensitive data discovery is currently enabled. It doesn't include the results of sensitive data discovery jobs
 that you create and run.
@@ -141,5 +141,5 @@ down on many of the fields. To show buckets that have the same value for a field
 ![The zoom in icon, which is a magnifying glass that has a plus sign in it.](images/icon-magnifying-glass-plus-sign.png)
 in the field. To show buckets that have other values for a field,
 choose
-![The zoom out icon, which is a magnifying glass that has a minus sign in it.](images/icon-magnifying-glass-minus-sign.png)
+![The zoom out icon, which is a magnifying glass that has a minus sign in it.](/images/macie/latest/user/images/icon-magnifying-glass-minus-sign.png)
 in the field.
