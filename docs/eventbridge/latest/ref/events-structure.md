@@ -28,7 +28,7 @@ By default, this is set to 0 (zero) in all events.
 
 **id**
 
-A Version 4 UUID that's generated for every event. You can use `id` to
+A unique identifier in UUID format that's generated for every event. You can use `id` to
 trace events as they move through rules to targets.
 
 **detail-type**
