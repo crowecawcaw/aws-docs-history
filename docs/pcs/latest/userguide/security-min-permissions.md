@@ -54,10 +54,12 @@ to reserve GPU-based accelerated computing instances within a specific date and 
 to support short duration workloads. For more information, see [Using Amazon EC2 Capacity Blocks for ML with AWS PCS](capacity-blocks.md "capacity-blocks.md").
 
 You choose to use Capacity Blocks when you create or update a compute node group. The IAM identity
-you use to create or update the compute node group must have the following permission:
+you use to create or update the compute node group must have the following permissions:
 
 ```
-ec2:DescribeCapacityReservations
+ec2:DescribeCapacityReservations,
+ec2:DescribeCapacityBlocks,
+ec2:DescribeCapacityBlockStatus
 ```
 
 ## Minimum permissions for a service administrator
@@ -98,7 +100,9 @@ Users who don't configure and manage the service don't require these permissions
         "ec2:RunInstances",
         "ec2:CreateFleet",
         "ec2:CreateTags",
-        "ec2:DescribeCapacityReservations"
+        "ec2:DescribeCapacityReservations",
+        "ec2:DescribeCapacityBlocks",
+        "ec2:DescribeCapacityBlockStatus"
       ],
       "Resource": "*"
     },

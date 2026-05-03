@@ -9,7 +9,14 @@ Store the cluster secret with the following commands.
 
 ```
 sudo mkdir -p /etc/slurm
+sudo chmod 0755 /etc/slurm
 ```
+
+###### Note
+
+Setting directory permissions to `0755` ensures that the `slurm`
+user can traverse the directory to access the key file. Some systems may have a restrictive
+umask that creates directories with more restrictive permissions by default.
 
 - Retrieve, decode, and store the cluster secret. Before running this command, replace
   `region-code` with the Region where the target cluster is running,

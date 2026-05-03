@@ -6,6 +6,10 @@ your cluster.
 
 ###### Changes implemented in AWS PCS
 
+- Scheduler audit logs are now delivered separately through the
+  `PCS_SCHEDULER_AUDIT_LOGS` log type, simplifying troubleshooting
+  and auditing with independent control over log delivery. For more information,
+  see [Scheduler audit logs in AWS PCS](monitoring_scheduler-audit-logs.md "monitoring_scheduler-audit-logs.md").
 - Expedited requeue is enabled by default. Jobs that fail due to node issues
   (such as insufficient capacity errors) can be requeued with the highest
   scheduling priority using `sbatch --requeue=expedite`. This is
@@ -20,8 +24,9 @@ your cluster.
   `START_ONLY` value, which runs the health check program only at
   node startup (slurmd start).
 - `CommunicationParameters=disable_http` is set by default to
-  disable unauthenticated HTTP endpoints (metrics and health probes)
-  introduced in Slurm 25.11.
+  disable HTTP endpoints (metrics and health probes)
+  introduced in Slurm 25.11. To re-enable these endpoints, set `CommunicationParameters=enable_http`.
+  For more information, see [Slurm metrics in AWS PCS](slurm-metrics.md "slurm-metrics.md").
 
 ###### Known issues
 
