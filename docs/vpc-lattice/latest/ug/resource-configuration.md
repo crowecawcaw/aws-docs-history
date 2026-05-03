@@ -156,6 +156,12 @@ The following considerations apply to consumers of resource configurations:
   private DNS enabled status of either the service network endpoint or service
   network VPC association.
 
+For resource configurations that are domain-name targets, a private hosted zone entry is not created if the following are true:
+
+- Resource gateway is in the same VPC as the service network VPC endpoint/service network VPC association.
+- DNS resolution is set to IN_VPC on the resource gateway.
+- The custom domain name or group domain is the same or higher-level domain of the domain-name target.
+
 ## Custom domain names for service network owners
 
 The private DNS enabled property of the service network resource association overrides
@@ -178,8 +184,9 @@ ways:
   resource-types that are provisioned by AWS services, can be identified by
   their ARN. Only Amazon RDS databases are supported. You can't create a resource
   configuration for a publicly accessible cluster.
-- By a **domain-name target**: You can use any
-  domain name that is publicly resolvable. If your domain name points to an IP that's outside of your VPC, you must have a NAT gateway in your VPC.
+- By a **domain-name target**: You can use any domain name. If you use a private DNS
+  server or your domain is in a Route53 private hosted zone, then the resource gateway must have DNS resolution set to
+  IN_VPC. If your domain name points to an IP that's outside of your VPC, you must have a NAT gateway in your VPC.
 - By an **IP-address**: For IPv4, specify a
   private IP from the following ranges: 10.0.0.0/8, 100.64.0.0/10, 172.16.0.0/12,
   192.168.0.0/16. For IPv6, specify an IP from the VPC. Public IPs aren't supported.
