@@ -45,9 +45,22 @@ Default Value: 5120 bytes
 
 Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): No
 
+`batchAcrossTopics`
+
+Whether to allow batching messages from different MQTT topics into a single HTTP request.
+By default, only messages from the same topic are batched together. Enable this parameter for routing use cases where messages from multiple device topics are destined for the same HTTP endpoint.
+
+Default Value: false
+
+Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): No
+
 ###### Important
 
 When you specify multiple batch parameters, batching completes when the first limit is reached. For example, if you specify 100 ms as the Maximum Batch Open Time and 5 kiB as the Maximum Batch Size, and Rules Engine batches only 2 kiB within 100 ms, then a 2 kiB batch will be created and sent.
+
+###### Note
+
+Messages are always batched within the scope of the same account, rule name, target HTTP endpoint URL, and billing group. Messages that differ in any of these attributes are never combined into the same batch, regardless of the `batchAcrossTopics` setting.
 
 ## Using HTTP headers in a batch
 
@@ -165,6 +178,40 @@ The following is an example of an error action message with batching enabled:
 }
 ```
 
+When `batchAcrossTopics` is enabled, the error action payload format changes. The `topic` field moves from the top level to inside each `payloadsWithMetadata` entry:
+
+```
+{
+    "ruleName": "FailedTopicRule",
+    "payloadsWithMetadata": [
+        {
+            "id": 1,
+            "topic": "topic/sensor1",
+            "cloudwatchTraceId": "bebd6d93-6d4a-899e-9e40-56e82252d2be",
+            "clientId": "Test",
+            "sourceIp": "10.0.0.0",
+            "base64OriginalPayload": "eyJ1c2VyX2lkIjogInVzZXI1NjQ3IiwgInN0ZXBzX3RvZGF5IjogMTMzNjUsICJ0aW1lc3RhbXAiOiAiMjAyNS0xMC0wOVQwNzoyMjo1OC45ODQ3OTAxNzZaIn0="
+        },
+        {
+            "id": 2,
+            "topic": "topic/sensor2",
+            "cloudwatchTraceId": "af94d3b8-0b18-1dbf-2c7d-513f5cb9e2e1",
+            "clientId": "Test",
+            "sourceIp": "10.0.0.0",
+            "base64OriginalPayload": "eyJ1c2VyX2lkIjogInVzZXI1NjQ3IiwgInN0ZXBzX3RvZGF5IjogMTMzNjUsICJ0aW1lc3RhbXAiOiAiMjAyNS0xMC0wOVQwNzoyMjo1OC45ODQ3OTAxNzZaIn0="
+        }
+    ],
+    "failures": [
+        {
+            "affectedIds": [1, 2],
+            "failedAction": "HttpAction",
+            "failedResource": "https://example.foobar.com/HttpAction",
+            "errorMessage": "HttpAction failed to make a request to the specified endpoint. StatusCode: 500. Reason: Internal Server Error."
+        }
+    ]
+}
+```
+
 ###### Note
 
 Batched action failures also generate larger error action payloads which can increase the probability of error action failures due to size. You can monitor error action failures using the `ErrorActionFailure` metric. See [Rule action metrics](metrics_dimensions.md#rule-action-metrics "metrics_dimensions.md#rule-action-metrics") for more information.
@@ -213,7 +260,8 @@ Batched action failures also generate larger error action payloads which can inc
                     "batchConfig": {
                        "maxBatchOpenMs": `100`,
                        "maxBatchSize": `5`,
-                       "maxBatchSizeBytes": `1024`
+                       "maxBatchSizeBytes": `1024`,
+                       "batchAcrossTopics": `true`
                     }
                 }
             }
@@ -222,6 +270,6 @@ Batched action failures also generate larger error action payloads which can inc
 ```
 
 3. Configure the batching parameters. You do not need to specify all batch parameters.
-   You can choose to specify 1, 2, or all 3 batch parameters. If you do not specify a batch
+   You can choose to specify 1, 2, 3, or all 4 batch parameters. If you do not specify a batch
    parameter, Rules Engine will update that parameter with the default values. For more
    information on batching parameters and their default values, see [HTTP parameters](https-rule-action.md#https-rule-action-parameters "https-rule-action.md#https-rule-action-parameters").

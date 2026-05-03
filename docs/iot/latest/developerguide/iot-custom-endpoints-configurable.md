@@ -5,10 +5,6 @@ your data endpoints. With domain configurations, you can generate multiple AWS I
 endpoints, customize them with your own fully qualified domain names (FQDN) and associated
 server certificates, and also associate a custom authorizer. For more information, see [Custom authentication and authorization](custom-authentication.md "custom-authentication.md").
 
-###### Note
-
-This feature is not available in AWS GovCloud (US) AWS Regions.
-
 ###### In this chapter:
 
 - [What is a domain configuration?](iot-domain-configuration-what-is.md "iot-domain-configuration-what-is.md")

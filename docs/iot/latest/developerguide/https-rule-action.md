@@ -135,6 +135,19 @@ Default Value: 5,120 bytes
 
 Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): No
 
+`batchAcrossTopics`
+
+Whether to allow batching messages from different MQTT topics into a single HTTP request.
+By default, only messages from the same topic are batched together. Enable this parameter for routing use cases where messages from multiple device topics are destined for the same HTTP endpoint.
+
+Default Value: false
+
+Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): No
+
+###### Note
+
+Messages are always batched within the scope of the same account, rule name, target HTTP endpoint URL, and billing group. Messages that differ in any of these attributes are never combined into the same batch, regardless of the `batchAcrossTopics` setting.
+
 ###### Note
 
 The default content type is application/json when the payload

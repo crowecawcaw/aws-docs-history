@@ -15,17 +15,21 @@ regions:
 
 | Security policy name                | Supported AWS Regions                                                                                                                                                                |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| IoTSecurityPolicy_TLS13_1_3_2022_10 | All AWS Regions                                                                                                                                                                      |
-| IoTSecurityPolicy_TLS13_1_2_2022_10 | All AWS Regions                                                                                                                                                                      |
+| IoTSecurityPolicy_TLS13_1_3_2022_10 | All AWS Regions, excluding AWS GovCloud (US)                                                                                                                                         |
+| IoTSecurityPolicy_TLS13_1_2_2022_10 | All AWS Regions, excluding AWS GovCloud (US)                                                                                                                                         |
 | IoTSecurityPolicy_TLS12_1_2_2022_10 | All AWS Regions                                                                                                                                                                      |
 | IoTSecurityPolicy_TLS12_1_0_2016_01 | ap-east-1, ap-northeast-2, ap-south-1, ap-southeast-2, ca-central-1,<br>cn-north-1, cn-northwest-1, eu-north-1, eu-west-2, eu-west-3,<br>me-south-1, sa-east-1, us-east-2, us-west-1 |
 | IoTSecurityPolicy_TLS12_1_0_2015_01 | ap-northeast-1, ap-southeast-1, eu-central-1, eu-west-1, us-east-1,<br>us-west-2                                                                                                     |
+| IoTSecurityPolicy_TLS13_1_2_2022_01 | AWS GovCloud (US) only (FIPS policy)                                                                                                                                                 |
 
 The names of the security policies in AWS IoT Core include version information based on the
 year and month that they were released. If you create a new domain configuration, the
-security policy will default to `IoTSecurityPolicy_TLS13_1_2_2022_10`. For a
-complete table of security policies with details of protocols, TCP ports, and ciphers, see
-[Security polices](transport-security.md#tls-policy-table "transport-security.md#tls-policy-table"). AWS IoT Core doesn't support
+security policy will default to `IoTSecurityPolicy_TLS13_1_2_2022_10` for all
+regions excluding AWS GovCloud (US). For AWS GovCloud (US) regions, the security policy will default to
+`IoTSecurityPolicy_TLS13_1_2_2022_01`, which is the FIPS policy. For non-FIPS
+endpoints in AWS GovCloud (US) regions you can use the
+`IoTSecurityPolicy_TLS12_1_2_2022_10`. For a complete table of security
+policies with details of protocols, TCP ports, and ciphers, see [Security polices](transport-security.md#tls-policy-table "transport-security.md#tls-policy-table"). AWS IoT Core doesn't support
 custom security policies. For more information, see [Transport security in AWS IoT Core](transport-security.md "transport-security.md").
 
 To configure TLS settings in domain configurations, you can use the AWS IoT console or

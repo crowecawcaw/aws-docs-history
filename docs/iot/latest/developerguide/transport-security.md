@@ -37,54 +37,56 @@ needs. Note that AWS IoT Core doesn't support custom security policies.
 You can choose one of the predefined security policies for your devices when
 connecting them to AWS IoT Core. The names of the most recent predefined security policies
 in AWS IoT Core include version information based on the year and month that they were
-released. The default predefined security policy is
-`IoTSecurityPolicy_TLS13_1_2_2022_10`. To specify a security policy, you
+released. The default predefined security policy for non-AWS GovCloud (US) regions is
+`IoTSecurityPolicy_TLS13_1_2_2022_10` and
+`IoTSecurityPolicy_TLS13_1_2_2022_01` for AWS GovCloud (US) regions. To specify a security policy, you
 can use the AWS IoT console or the AWS CLI. For more information, see [Configuring TLS settings in domain configurations](iot-endpoints-tls-config.md "iot-endpoints-tls-config.md").
 
 The following table describes the most recent predefined security policies that
 AWS IoT Core supports. The `IotSecurityPolicy_` has been removed from policy
 names in the heading row so that they fit.
 
-| **Security policy**           | TLS13_1_3_2022_10 | TLS13_1_2_2022_10 | TLS12_1_2_2022_10 | TLS12_1_0_2016_01\* | TLS12_1_0_2015_01\* |
-| ----------------------------- | ----------------- | ----------------- | ----------------- | ------------------- | ------------------- | --- | --------- |
-| **TCP Port**                  | 443/8443/8883     | 443/8443/8883     | 443/8443/8883     | 443                 | 8443/8883           | 443 | 8443/8883 |
+| **Security policy**           | TLS13_1_3_2022_10 | TLS13_1_2_2022_10 | TLS12_1_2_2022_10 | TLS12_1_0_2016_01\* | TLS12_1_0_2015_01\* | TLS13_1_2_2022_01\* |
+| ----------------------------- | ----------------- | ----------------- | ----------------- | ------------------- | ------------------- | ------------------- | --------- | ------------- |
+| **TCP Port**                  | 443/8443/8883     | 443/8443/8883     | 443/8443/8883     | 443                 | 8443/8883           | 443                 | 8443/8883 | 443/8443/8883 |
 | **TLS<br>Protocols**          |
-| TLS 1.2                       |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓   | ✓         |
-| TLS 1.3                       | ✓                 | ✓                 |                   |                     |                     |     |           |
+| TLS 1.2                       |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓                   | ✓         | ✓             |
+| TLS 1.3                       | ✓                 | ✓                 |                   |                     |                     |                     |           | ✓             |
 | **TLS<br>Ciphers**            |
-| TLS_AES_128_GCM_SHA256        | ✓                 | ✓                 |                   |                     |                     |     |           |
-| TLS_AES_256_GCM_SHA384        | ✓                 | ✓                 |                   |                     |                     |     |           |
-| TLS_CHACHA20_POLY1305_SHA256  | ✓                 | ✓                 |                   |                     |                     |     |           |
-| ECDHE-RSA-AES128-GCM-SHA256   |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓   | ✓         |
-| ECDHE-RSA-AES128-SHA256       |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓   | ✓         |
-| ECDHE-RSA-AES128-SHA          |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓   | ✓         |
-| ECDHE-RSA-AES256-GCM-SHA384   |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓   | ✓         |
-| ECDHE-RSA-AES256-SHA384       |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓   | ✓         |
-| ECDHE-RSA-AES256-SHA          |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓   | ✓         |
-| AES128-GCM-SHA256             |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓   | ✓         |
-| AES128-SHA256                 |                   | ✓                 | ✓                 | ✓                   |                     | ✓   | ✓         |
-| AES128-SHA                    |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓   | ✓         |
-| AES256-GCM-SHA384             |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓   | ✓         |
-| AES256-SHA256                 |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓   | ✓         |
-| AES256-SHA                    |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓   | ✓         |
-| DHE-RSA-AES256-SHA            |                   |                   |                   |                     |                     | ✓   | ✓         |
-| ECDHE-ECDSA-AES128-GCM-SHA256 |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓   | ✓         |
-| ECDHE-ECDSA-AES128-SHA256     |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓   | ✓         |
-| ECDHE-ECDSA-AES128-SHA        |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓   | ✓         |
-| ECDHE-ECDSA-AES256-GCM-SHA384 |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓   | ✓         |
-| ECDHE-ECDSA-AES256-SHA384     |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓   | ✓         |
-| ECDHE-ECDSA-AES256-SHA        |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓   | ✓         |
+| TLS_AES_128_GCM_SHA256        | ✓                 | ✓                 |                   |                     |                     |                     |           | ✓             |
+| TLS_AES_256_GCM_SHA384        | ✓                 | ✓                 |                   |                     |                     |                     |           | ✓             |
+| TLS_CHACHA20_POLY1305_SHA256  | ✓                 | ✓                 |                   |                     |                     |                     |           |               |
+| ECDHE-RSA-AES128-GCM-SHA256   |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓                   | ✓         | ✓             |
+| ECDHE-RSA-AES128-SHA256       |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓                   | ✓         | ✓             |
+| ECDHE-RSA-AES128-SHA          |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓                   | ✓         | ✓             |
+| ECDHE-RSA-AES256-GCM-SHA384   |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓                   | ✓         | ✓             |
+| ECDHE-RSA-AES256-SHA384       |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓                   | ✓         | ✓             |
+| ECDHE-RSA-AES256-SHA          |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓                   | ✓         | ✓             |
+| AES128-GCM-SHA256             |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓                   | ✓         |               |
+| AES128-SHA256                 |                   | ✓                 | ✓                 | ✓                   |                     | ✓                   | ✓         |               |
+| AES128-SHA                    |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓                   | ✓         | ✓             |
+| AES256-GCM-SHA384             |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓                   | ✓         |               |
+| AES256-SHA256                 |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓                   | ✓         |               |
+| AES256-SHA                    |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓                   | ✓         | ✓             |
+| DHE-RSA-AES256-SHA            |                   |                   |                   |                     |                     | ✓                   | ✓         |               |
+| ECDHE-ECDSA-AES128-GCM-SHA256 |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓                   | ✓         | ✓             |
+| ECDHE-ECDSA-AES128-SHA256     |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓                   | ✓         | ✓             |
+| ECDHE-ECDSA-AES128-SHA        |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓                   | ✓         | ✓             |
+| ECDHE-ECDSA-AES256-GCM-SHA384 |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓                   | ✓         | ✓             |
+| ECDHE-ECDSA-AES256-SHA384     |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓                   | ✓         | ✓             |
+| ECDHE-ECDSA-AES256-SHA        |                   | ✓                 | ✓                 | ✓                   | ✓                   | ✓                   | ✓         | ✓             |
 
 ###### Note
 
 `TLS12_1_0_2016_01` is only available in the following AWS Regions:
 ap-east-1, ap-northeast-2, ap-south-1, ap-southeast-2, ca-central-1, cn-north-1,
-cn-northwest-1, eu-north-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-2,
-us-gov-west-1, us-gov-west-2, us-west-1.
+cn-northwest-1, eu-north-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-2, us-west-1.
 
 `TLS12_1_0_2015_01` is only available in the following AWS Regions:
 ap-northeast-1, ap-southeast-1, eu-central-1, eu-west-1, us-east-1,
 us-west-2.
+
+`TLS13_1_2_2022_01` is only available in AWS GovCloud (US) regions.
 
 ## Important notes for transport security in AWS IoT Core
 

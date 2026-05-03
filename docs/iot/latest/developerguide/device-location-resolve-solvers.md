@@ -200,7 +200,7 @@ the `locationout.json` file.
 
 ```
 aws iotwireless get-position-estimate `locationout.json` \
-    --ip IpAddress="`"54.240.198.35"`" \
+    --ip IpAddress="`54.240.198.35`" \
     --wi-fi-access-points \
         MacAddress="`A0:EC:F9:1E:32:C1`",Rss=`-75` \
         MacAddress="`A0:EC:F9:15:72:5E`",Rss=`-67` \
