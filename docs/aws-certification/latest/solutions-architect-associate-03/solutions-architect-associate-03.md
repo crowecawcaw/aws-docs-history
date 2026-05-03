@@ -15,8 +15,8 @@ The AWS Certified Solutions Architect - Associate (SAA-C03) exam is intended for
 - [Content Domain 4: Design Cost-Optimized Architectures](solutions-architect-associate-03-domain4.md "solutions-architect-associate-03-domain4.md")
 - [Technologies and Concepts](saa-technologies-concepts.md "saa-technologies-concepts.md")
 - [Mentions of AWS Services on the Exam](saa-service-mentions.md "saa-service-mentions.md")
-- [In-scope AWS services and features](saa-03-in-scope-services.md "saa-03-in-scope-services.md")
-- [Out-of-scope AWS services and features](saa-03-out-of-scope-services.md "saa-03-out-of-scope-services.md")
+- [In-Scope AWS Services](saa-03-in-scope-services.md "saa-03-in-scope-services.md")
+- [Out-of-Scope AWS Services](saa-03-out-of-scope-services.md "saa-03-out-of-scope-services.md")
 - [Survey](#solutions-architect-associate-03-survey "#solutions-architect-associate-03-survey")
 
 ## Introduction
