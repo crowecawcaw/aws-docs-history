@@ -58,7 +58,7 @@ As you work with your project in the console, you use the transformation toolbar
 
 In [Getting started with AWS Glue DataBrew](getting-started.md "getting-started.md"), you build a recipe to transform a dataset of famous chess games. You can download a copy of the recipe steps, by choosing **Download as JSON** or **Download as YAML** as shown in the following screenshot.
 
-![Dropdown menu showing options to import recipe and download as YAML or JSON.](images/project-view-download-json.png)
+![More menu expanded showing Import recipe, Download as YAML, and Download as JSON options.](images/project-view-download-json.png)
 
 The downloaded JSON file contains recipe actions corresponding to the transformations that you added to your recipe.
 

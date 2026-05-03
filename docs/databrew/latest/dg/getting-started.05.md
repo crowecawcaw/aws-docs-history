@@ -41,7 +41,7 @@ To request a data profile, create and run a profile job.
 10. To view the profile, choose **VIEW
     PROFILE**:
 
-![Icon of a person silhouette with "VIEW PROFILE" text underneath.](images/view-profile-button.png)
+![VIEW PROFILE button with LinkedIn icon.](images/view-profile-button.png)
 
 The **DATASETS** window is shown. Take some time
 to explore the following tabs:

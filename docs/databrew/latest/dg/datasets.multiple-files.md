@@ -169,7 +169,7 @@ Following is how you can define a parameterized path for this scenario:
 2. Then select a varying part, like a date,
    and replace it with a parameter. In this case, replace a date.
 
-![S3 bucket path with dynamic dataset folder and daily report CSV file for US region.](images/dynamic-datasets-01.png) 3. Open the context (right-click) menu for
+![S3 path with date 2021-03-23 highlighted for replacement with a parameter.](images/dynamic-datasets-01.png) 3. Open the context (right-click) menu for
 **Create custom parameter** and set properties
 for it:
 
@@ -183,7 +183,7 @@ Keep other fields at their default values. 4. Choose **Create**.
 
 After you do, you see the updated path, as in the following screenshot.
 
-![S3 source input field with a file path and matching files count displayed below.](images/dynamic-datasets-02.png)
+![S3 path with parameter placeholder showing 6 matching files found in the bucket.](images/dynamic-datasets-02.png)
 
 Now you can do the same for the country code and parameterize it as follows:
 
@@ -196,7 +196,7 @@ You don't have to specify conditions if all values are relevant. In the
 country codes, so there's no need for conditions. If you had other
 folders to exclude, you might use the following condition.
 
-![Text input field showing a string value with alphanumeric characters in square brackets.](images/dynamic-datasets-03.png)
+![String value field containing the regex pattern A-Z followed by 2 in brackets.](images/dynamic-datasets-03.png)
 
 This approach limits the subfolders of new cases to contain two capital Latin
 characters.
@@ -296,10 +296,10 @@ when matching files were updated and include only those files into your dataset.
 You can define these ranges using either absolute dates like "March 30,
 2021" or relative ranges like "Past 24 hours".
 
-![Dropdown menu showing "Past 24 hours" option for specifying last updated date range.](images/dynamic-datasets-04.png)
+![Specify last updated date range checkbox selected with Past 24 hours dropdown menu.](images/dynamic-datasets-04.png)
 
 To limit the number of matching files, select a number of files that is
 greater than 0 and whether you want the latest or the oldest matching
 files.
 
-![UI options to specify number of files to include, with dropdown for Latest and input for quantity.](images/dynamic-datasets-05.png)
+![Checkbox selected for Specify number of files to include with Latest dropdown and 10 files.](images/dynamic-datasets-05.png)

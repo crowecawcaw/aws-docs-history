@@ -70,6 +70,6 @@ your identity source](../../../singlesignon/latest/userguide/step2.md "../../../
 
 1. Sign into AWS using an IAM Identity Center-enabled account.
 
-![Sign-in form with username field, "Remember username" checkbox, and "Next" button.](images/databrew-sso-user01.png) 2. Click on **AWS Account** identity
+![Sign in dialog with username field, remember username checkbox, Next button, and agreement links.](images/databrew-sso-user01.png) 2. Click on **AWS Account** identity
 
-![AWS Account identity dropdown menu in the top-right corner of the console interface.](images/databrew-sso-user02.png) 3. Click **Management console** for one-click re-direction to the DataBrew console.
+![AWS Account identity container showing account ID and management console sign-in URL.](images/databrew-sso-user02.png) 3. Click **Management console** for one-click re-direction to the DataBrew console.

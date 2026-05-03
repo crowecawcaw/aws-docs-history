@@ -3,7 +3,7 @@
 Converts all the column values in a selected row into individual rows with
 values.
 
-![Table transformation showing column values converted to individual rows with values.](images/unpivot.png)
+![Table transformation from wide format with three columns to long format with column names and values.](images/unpivot.png)
 
 ###### Parameters
 
