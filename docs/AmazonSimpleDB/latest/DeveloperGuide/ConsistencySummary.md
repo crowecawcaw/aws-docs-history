@@ -41,7 +41,7 @@ consistent read, R1 and R2 might return `color = red`, `color =
 
  
 
-![Diagram showing two clients, two write operations (W1, W2), and two read operations (R1, R2) on a timeline.](images/consistency1.png)
+![Timeline diagram showing two clients with write operations W1 and W2, and read operations R1 and R2.](images/consistency1.png)
 
  
 
@@ -62,7 +62,7 @@ consistent read, R2 might return `color = ruby`, `color =
 
  
 
-![Timeline showing two writes and two reads with consistency and eventual outcomes for distributed systems.](images/consistency2.png)
+![Timeline diagram showing two clients with write operations W1 and W2, and read operations R1 and R2.](images/consistency2.png)
 
  
 

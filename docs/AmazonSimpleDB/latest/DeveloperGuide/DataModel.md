@@ -7,7 +7,7 @@ Domains consist of items which are described by _attribute_ name-value
 pairs. Consider the spreadsheet model shown in the following
 image.
 
-![Spreadsheet model showing items with attributes in columns and query domains in tabs.](images/spreadsheet3.png)
+![Spreadsheet with items in rows and attributes in columns, showing query domains at bottom.](images/spreadsheet3.png)
 The components correspond to each part of a spreadsheet:
 
 - Customer Account—Represented by the entire
