@@ -67,27 +67,15 @@ directly call the AWS KMS API.
 
 ## Step 2: Prepare KMS key policy statements
 
-After identifying the use cases relevant to your organization, you can prepare the
-corresponding KMS key policy statements.
+Start with the [Baseline KMS key policy](baseline-KMS-key-policy.md "baseline-KMS-key-policy.md") and customize it for your organization. If
+you need more specific policies based on your security requirements, you can modify the
+policy statements using the examples in [Advanced KMS key policy statements](advanced-kms-policy.md "advanced-kms-policy.md"). For guidance on this decision, see [Considerations for choosing baseline vs. advanced KMS key policy statements](considerations-for-customer-managed-kms-keys-advanced.md#kms-policy-considerations-advanced-vs-baseline "considerations-for-customer-managed-kms-keys-advanced.md#kms-policy-considerations-advanced-vs-baseline").
 
-1. Choose the KMS key policy statements that match the use cases for your
-   organization. Begin with the baseline policy templates. If you need more specific
-   policies based on your security requirements, you can modify the policy statements
-   using the examples in [Advanced KMS key policy statements](advanced-kms-policy.md "advanced-kms-policy.md"). For guidance on this decision, see [Considerations for choosing baseline vs. advanced KMS key policy statements](considerations-for-customer-managed-kms-keys-advanced.md#kms-policy-considerations-advanced-vs-baseline "considerations-for-customer-managed-kms-keys-advanced.md#kms-policy-considerations-advanced-vs-baseline"). In addition, each
-   baseline section in [Baseline KMS key and IAM policy statements](baseline-KMS-key-policy.md "baseline-KMS-key-policy.md") includes relevant considerations.
-2. Copy the relevant policies to an editor and insert the required identifiers and
+1. Copy the baseline policy to an editor and insert the required identifiers and
    IAM principal names in the KMS key policy statements. For help finding the values of
    the referenced identifiers, see [Where to find the required identifiers](#find-the-required-identifiers "#find-the-required-identifiers").
-
-Following are baseline policy templates for each use case. Only the first set of
-permissions for AWS IAM Identity Center is required to use a KMS key. We recommend that you review the
-applicable subsections for additional use case-specific information.
-
-- [Baseline KMS key policy statements for use of IAM Identity Center (required)](baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-iam-identity-center-mandatory "baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-iam-identity-center-mandatory")
-- [Baseline KMS key and IAM policy statements for use of AWS managed applications](baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-aws-managed-applications "baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-aws-managed-applications")
-- [Baseline KMS key statement for use of AWS Control Tower](baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-specific-use-cases "baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-specific-use-cases")
-- [Baseline KMS key and IAM policy statements for use of IAM Identity Center to Amazon EC2 instances](baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-sso-to-amazon-ec2-windows-instances "baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-sso-to-amazon-ec2-windows-instances")
-- [Baseline KMS key and IAM policy statements for use of custom workflows with IAM Identity Center](baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-custom-workflows-with-iam-identity-center "baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-custom-workflows-with-iam-identity-center")
+2. If your security requirements call for it, refine the policy statements
+   using the examples in [Advanced KMS key policy statements](advanced-kms-policy.md "advanced-kms-policy.md").
 
 ###### Important
 

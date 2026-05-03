@@ -19,7 +19,7 @@ To resolve this issue, grant the user or IAM principal `kms:Decrypt` access perm
 
 ## AWS managed application login failures with a customer managed KMS key enabled in IAM Identity Center
 
-If no Identity Center users can log into AWS managed applications and you have a customer managed KMS key enabled in your IAM Identity Center instance, verify that the KMS key policy grants the AWS managed applications permissions to use the customer managed KMS key. For more information, see [Baseline KMS key and IAM policy statements](baseline-KMS-key-policy.md "baseline-KMS-key-policy.md").
+If no Identity Center users can log into AWS managed applications and you have a customer managed KMS key enabled in your IAM Identity Center instance, verify that the KMS key policy grants the AWS managed applications permissions to use the customer managed KMS key. For more information, see [Baseline KMS key policy](baseline-KMS-key-policy.md "baseline-KMS-key-policy.md").
 
 ## AWS managed application installation and/or user assignment failures with a customer managed KMS key enabled in IAM Identity Center
 
@@ -51,4 +51,4 @@ To resolve this issue, grant all required KMS permissions to the user or IAM pri
 
 **Error:** "ERROR Code: 0001 - IdentityCenter service access is blocked. Reach out to your IdentityCenter admin for further steps."
 
-If users cannot log in to the AWS access portal and you have a customer managed KMS key enabled in your IAM Identity Center instance, verify that the KMS key policy grants the necessary permissions to Identity Center and Identity Store. For more information, see [Baseline KMS key and IAM policy statements](baseline-KMS-key-policy.md "baseline-KMS-key-policy.md").
+If users cannot log in to the AWS access portal and you have a customer managed KMS key enabled in your IAM Identity Center instance, verify that the KMS key policy grants the necessary permissions to Identity Center and Identity Store. For more information, see [Baseline KMS key policy](baseline-KMS-key-policy.md "baseline-KMS-key-policy.md").

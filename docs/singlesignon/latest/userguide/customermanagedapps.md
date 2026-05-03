@@ -24,9 +24,8 @@ exclusively using SAML and are therefore categorized as customer managed applica
 ###### Note
 
 When integrating customer managed applications with an IAM Identity Center instance that uses a
-[customer managed KMS key](encryption-at-rest.md "encryption-at-rest.md"), verify whether the application invokes IAM Identity Center service APIs
-to confirm whether the application needs KMS key permissions. Follow the guidance for granting KMS key permissions to custom workflows
-in the IAM Identity Center User Guide's [baseline KMS key policies](baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-custom-workflows-with-iam-identity-center "baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-custom-workflows-with-iam-identity-center").
+[customer managed KMS key](encryption-at-rest.md "encryption-at-rest.md"), verify whether the application invokes IAM Identity Center service APIs.
+If it does, see the [baseline KMS key policy](baseline-KMS-key-policy.md "baseline-KMS-key-policy.md") for the required permissions.
 
 ###### Topics
 

@@ -1,17 +1,17 @@
 # Advanced KMS key policy statements
 
 Use advanced KMS key policy statements to implement more granular access controls for
-your customer managed KMS key. These policies build on the [Baseline KMS key and IAM policy statements](baseline-KMS-key-policy.md "baseline-KMS-key-policy.md") by adding
+your customer managed KMS key. These policies build on the [Baseline KMS key policy](baseline-KMS-key-policy.md "baseline-KMS-key-policy.md") by adding
 encryption context conditions and service-specific restrictions. Before deciding whether to
 use advanced KMS key policy statements, make sure to review the pertinent considerations.
 
 ## Using encryption context to restrict access
 
-You can restrict KMS key usage to a specific IAM Identity Center instance by specifying an encryption
-context condition in your key policy statements. The baseline key policy statements
-already include this context with a generic value. Replace the "\*" wildcard with a
-specific Identity Center instance ARN and Identity Store ARN to ensure the key works only
-with your intended instance. You can also add the same encryption context conditions to
+You can restrict KMS key usage to a specific IAM Identity Center instance by adding encryption
+context conditions to the `AllowOrgPrincipalsViaIdentityCenterAndIdentityStore` and
+`AllowManagedApps` statements in your [Baseline KMS key policy](baseline-KMS-key-policy.md "baseline-KMS-key-policy.md").
+Add the following conditions with your specific Identity Center instance ARN
+and Identity Store ARN. You can also add the same encryption context conditions to
 the IAM policy configured for cross-account use of the KMS key.
 
 Identity Center
@@ -19,7 +19,7 @@ Identity Center
 ```
 
 "StringEquals": {
-    "kms:EncryptionContext:aws:sso:instance-arn": "arn:aws:sso:::instance/ssoins-1234567890abcdef"
+    "kms:EncryptionContext:aws:sso:instance-arn": "arn:aws:sso:::instance/`ssoins-1234567890abcdef`"
 }
 
 ```
@@ -29,7 +29,7 @@ Identity Store
 ```
 
 "StringEquals": {
-    "kms:EncryptionContext:aws:identitystore:identitystore-arn": "arn:aws:identitystore::111122223333:identitystore/d-1234567890"
+    "kms:EncryptionContext:aws:identitystore:identitystore-arn": "arn:aws:identitystore::`111122223333`:identitystore/`d-1234567890`"
 }
 
 ```
@@ -108,14 +108,14 @@ policy must enforce read-only access on IAM Identity Center service APIs.
       "Sid": "AllowReadOnlyAccessToIdentityCenterAPI",
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:iam::111122223333:role/MyAdminRole"
+        "AWS": "`arn:aws:iam::111122223333:role/MyAdminRole`"
       },
       "Action": "kms:Decrypt",
       "Resource": "*",
       "Condition": {
         "StringLike": {
           "kms:ViaService": "sso.*.amazonaws.com",
-          "kms:EncryptionContext:aws:sso:instance-arn": "arn:aws:sso:::instance/ssoins-1234567890abcdef"
+          "kms:EncryptionContext:aws:sso:instance-arn": "arn:aws:sso:::instance/`ssoins-1234567890abcdef`"
         }
       }
     },
@@ -123,14 +123,14 @@ policy must enforce read-only access on IAM Identity Center service APIs.
       "Sid": "AllowReadOnlyAccessToIdentityStoreAPI",
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:iam::111122223333:role/MyAdminRole"
+        "AWS": "`arn:aws:iam::111122223333:role/MyAdminRole`"
       },
       "Action": "kms:Decrypt",
       "Resource": "*",
       "Condition": {
         "StringLike": {
           "kms:ViaService": "identitystore.*.amazonaws.com",
-          "kms:EncryptionContext:aws:identitystore:identitystore-arn": "arn:aws:identitystore::111122223333:identitystore/d-1234567890"
+          "kms:EncryptionContext:aws:identitystore:identitystore-arn": "arn:aws:identitystore::`111122223333`:identitystore/`d-1234567890`"
         }
       }
     }
@@ -149,8 +149,8 @@ Some AWS managed applications cannot be used with IAM Identity Center configured
 customer managed KMS key. See [AWS
 managed applications that you can use with IAM Identity Center](awsapps-that-work-with-identity-center.md "awsapps-that-work-with-identity-center.md").
 
-The [Baseline KMS key and IAM policy statements for use of AWS managed applications](baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-aws-managed-applications "baseline-KMS-key-policy.md#baseline-kms-key-policy-statements-for-use-of-aws-managed-applications")
-allow any AWS managed application from any account in the same AWS organization to use
+The [Baseline KMS key policy](baseline-KMS-key-policy.md "baseline-KMS-key-policy.md")
+allows any AWS managed application from any account in the same AWS organization to use
 the KMS key. Use these refined policies to restrict access by:
 
 - Application service principal
