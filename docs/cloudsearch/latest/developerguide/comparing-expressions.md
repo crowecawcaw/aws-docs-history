@@ -41,7 +41,7 @@ Green up arrow
 The document is ranked higher in the search results using the
 second expression.
 
-![Red downward-pointing arrow icon indicating a download or direction.](images/cloudsearch-console-red-down-arrow.png)
+![Red downward-pointing arrow icon indicating a decrease or lower ranking.](images/cloudsearch-console-red-down-arrow.png)
 Red down arrow
 
 The document is ranked lower in the search results using the
