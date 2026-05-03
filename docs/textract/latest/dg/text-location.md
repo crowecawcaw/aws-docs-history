@@ -85,7 +85,7 @@ image is 700 x 200 pixels, and the top-left coordinate of the bounding box is
 The following diagram shows the range of a document page that each BoundingBox
 property covers.
 
-![Diagram showing bounding box properties: Top, Left, Width, and Height within an image.](images/bounding-box.png)
+![Diagram showing Left, Top, Width, and Height properties defining a bounding box on a page.](images/bounding-box.png)
 
 To display the bounding box with the correct location and size, you multiply the
 BoundingBox values by the document page width or height (depending on the value you

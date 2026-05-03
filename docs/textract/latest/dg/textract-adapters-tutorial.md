@@ -124,7 +124,7 @@ set labels for your documents, select **Auto-labeling** or **Manual
 labeling**. Auto-labeling is recommended for your first time
 training the adapter. Select the **Auto-labelling** option, and then choose Start auto-labeling.
 
-![Interface showing auto-labelling and manual labelling options for document processing.](images/TP-Image_6-Choose%20labelling%20type.png) 5. The auto-labeling process will take some time to complete. When it's done,
+![Auto-labeling option selected with Recommended badge and Start auto-labeling button.](images/TP-Image_6-Choose%20labelling%20type.png) 5. The auto-labeling process will take some time to complete. When it's done,
 you're notified that “Auto-labeling is now completed.” After the labeling
 process is complete, you must verify the accuracy of the labeling. Select
 **Verify documents** in the Adapter details
@@ -196,7 +196,7 @@ adapter’s performance by inspecting metrics.
 To evaluate model performance, use the left navigation pane to select the
 adapter version to evaluate.
 
-![Adapter performance metrics showing F1 score, Precision, and Recall at 94.4% each.](images/TP-Image10_Evaluating%20adapter%20performance.png)
+![Adapter performance metrics showing F1 score, Precision, and Recall all at 94.4 percent.](images/TP-Image10_Evaluating%20adapter%20performance.png)
 
 By examining your adapter’s metrics, you can determine how your adapter is
 performing on the documents in your dataset and the queries you have defined. You
@@ -216,7 +216,7 @@ To demo your adapter and see its performance on a document:
 
 1. Choose **Try Adapter**.
 
-![Two buttons: "Try Adapter" and a dropdown menu labeled "Ver. 1".](images/TP-Image11_try%20adapter.png) 2. On the **Try adapter** page, you can choose a
+![Try Adapter button and Ver. 1 dropdown menu.](images/TP-Image11_try%20adapter.png) 2. On the **Try adapter** page, you can choose a
 document to analyze with your adapter. Select the **Choose document** button and browse to the document’s location
 on your device. Alternatively, drag and drop the document into the **Upload a document** pane.
 
