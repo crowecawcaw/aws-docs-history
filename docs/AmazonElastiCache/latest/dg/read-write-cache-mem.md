@@ -35,6 +35,10 @@ aws elasticache describe-serverless-caches ^
 
 For information on how to connect using OpenSSL, see [ElastiCache in-transit encryption (TLS)](in-transit-encryption.md "in-transit-encryption.md")
 
+###### Note
+
+The following example uses the AWS fork of the spymemcached client, [aws-elasticache-cluster-client-memcached-for-java](https://github.com/awslabs/aws-elasticache-cluster-client-memcached-for-java "https://github.com/awslabs/aws-elasticache-cluster-client-memcached-for-java"). The `setSSLContext` method is only available in this fork and is not part of the standard open-source spymemcached library.
+
 ```
 import java.security.KeyStore;
 import javax.net.ssl.SSLContext;
