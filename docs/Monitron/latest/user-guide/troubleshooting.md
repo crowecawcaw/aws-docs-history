@@ -41,7 +41,7 @@ For commissioning a sensor, the mobile phone running the Amazon Monitron App sho
 - **Are you holding your smartphone close to the
   sensor?**
 
-![Hand holding a smartphone near a small orange square, possibly representing a sensor.](images/gs-sensor.png)
+![Hand holding smartphone near a small orange square sensor.](images/gs-sensor.png)
 
 At the moment of commissioning, your phone should be within two
 centimeters of the sensor. Don't move your phone while the sensor is being
@@ -64,7 +64,7 @@ Pixel](https://support.google.com/pixelphone/answer/7157629 "https://support.goo
 - Does the commissioning progress bar show up?
   (Android only)
 
-![Smartphone pairing with NFC device, showing progress bar at 50% completion.](images/do-not-move-your-phone.png)
+![Pair sensor with NFC screen showing phone near sensor with progress bar at 50%.](images/do-not-move-your-phone.png)
 
 If the commissioning progress bar doesn't show up (Android only), or
 resets to the beginning, then the NFC communication between the sensor and
@@ -130,9 +130,9 @@ If your sensor has stopped sending data, try the following:
 If you choose **Add gateway** in your mobile app, but the app
 can't find the gateway, try the following.
 
-|                                                                                                                                |                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Smartphone connected to AWS service via Bluetooth, represented by icons and symbols.<br>Bluetooth pairing with a Wi-Fi gateway | Smartphone connected to Amazon device via Bluetooth, illustrated with simple icons.<br>Bluetooth pairing with an Ethernet gateway. |
+|                                                                                                                                   |                                                                                                                      |
+| --------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Mobile phone connecting via Bluetooth to AWS service represented by orange square icon.<br>Bluetooth pairing with a Wi-Fi gateway | Smartphone connecting via Bluetooth to a streaming device with cable.<br>Bluetooth pairing with an Ethernet gateway. |
 
 - Make sure that the gateway is turned
   on.
@@ -201,7 +201,7 @@ to the network. In such cases, try the following:
   - When looking at information about your gateways in the mobile or
     web app, you may notice that a gateway is listed as offline.
 
-  ![Gateway status list showing one offline and two online gateways with their IDs and site names.](images/gateway-offline-status.png)
+  ![Gateways list showing three gateways with one offline and two online status indicators.](images/gateway-offline-status.png)
 
   The timestamp for an offline gateway marks the last time Amazon Monitron recieved a signal from that gateway.
 

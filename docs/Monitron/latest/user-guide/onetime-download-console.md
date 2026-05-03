@@ -193,7 +193,7 @@ following:
 
 
 
-    ![Support case form with Account and billing selected, and service details specified.](images/s3-export-5.png)
+    ![Support case form with Account and billing selected, Service set to Account, Category set to Compliance and Accreditations, and Severity set to General question.](images/s3-export-5.png)
 
 4. In **Additional information** do the
    following:

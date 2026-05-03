@@ -22,7 +22,7 @@ re-generate this link from the **Projects** page by selecting a user
 and then choosing **Email instructions**, or by choosing **Copy
 link** under **Project details.**
 
-![Project details showing name "Dan's Goat Ranch" with options to copy link or email instructions.](images/send_project_link.png)
+![Project details page showing Copy link button and Email instructions button highlighted.](images/send_project_link.png)
 
 ###### Topics
 
@@ -49,22 +49,22 @@ To manually install the latest updates:
 1. Sign in to the Amazon Monitron app and choose
    **Update**.
 
-|                                                                                        |                                                                                    |
-| -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| Amazon Monitron app sign-in screen with logo and description of service functionality. | Mobile app interface showing assets list and update notification to version 1.0.0. |
+|                                                                          |                                                                                                    |
+| ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- |
+| Amazon Monitron sign-in screen showing the app logo and loading message. | Update dialog box overlaying asset list with version 1.0.0 update notification and action buttons. |
 
 2. When you select **update**, you'll be directed to Google
    Play or the App Store. Select **Update** or
    **Install** to start the update.
 
-|                                                                                     |                                                                                            |
-| ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Amazon Monitron app interface showing asset details and commission gateway screens. | Google Play store page for Amazon Monitron app showing rating, downloads, and screenshots. |
+|                                                                                              |                                                                                               |
+| -------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| App Store page for Amazon Monitron mobile app showing update button and preview screenshots. | Google Play Store listing for Amazon Monitron app showing install button and app screenshots. |
 
 3. If you start the update process within the Amazon Monitron app, you'll see a
    success message in the app once the update has been installed.
 
-![Mobile app interface showing successful update to version 1.0.0 with a list of assets below.](images/app-update-success-screen.png)
+![Modal dialog confirming successful application update to version 1.0.0 with Done button.](images/app-update-success-screen.png)
 
 ###### Note
 

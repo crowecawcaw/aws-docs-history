@@ -68,7 +68,7 @@ The tag value for your project is the project ID.
 
 The list of projects is displayed under **Projects**.
 
-![Projects page showing one project named Test_Project with options to edit, delete, or create a new project.](images/billing-tags-1.png) 4. Choose the project that you want to get details on. 5. Copy the tag value from your **Project Id**.
+![Projects page showing Test_Project with its Project Id highlighted in the table.](images/billing-tags-1.png) 4. Choose the project that you want to get details on. 5. Copy the tag value from your **Project Id**.
 
 You can use this project id to filter costs in AWS Cost
 Explorer console.
@@ -90,11 +90,11 @@ If you're choosing an existing project, from the left navigation menu, select
 create custom asset classes for. 4. From the project details page, choose **Open in Amazon Monitron web
 app**.
 
-![Amazon Monitron project page showing setup steps and project details for Test_Project.](images/billing-tags-2.png) 5. From the left navigation pane, choose **Sites**.
+![Open in Monitron web app button highlighted in the project details page header.](images/billing-tags-2.png) 5. From the left navigation pane, choose **Sites**.
 
 The list of sites is displayed.
 
-![Sites page showing one site listed with its name and a blank ID field.](images/billing-tags-3.png) 6. Choose the site that you want to get details on. 7. Copy the tag value from your **Id**.
+![Sites page showing Site 1 in the list with its corresponding Id field highlighted.](images/billing-tags-3.png) 6. Choose the site that you want to get details on. 7. Copy the tag value from your **Id**.
 
 You can use this id to filter costs in AWS Cost Explorer
 console.
@@ -122,7 +122,7 @@ Management** left navigation pane:**
 
 
 
-    ![AWS Billing and Cost Management console showing cost allocation tags interface with activation option.](images/billing-tags-4.png)###### Note
+    ![Cost Allocation Tags page showing AWS generated tags tab with Activate button highlighted.](images/billing-tags-4.png)###### Note
 
 It takes up to 96 hours for the tags to be activated. The billing data
 starts being tagged only after the tags are active.
@@ -152,7 +152,7 @@ options available.
 5. Then, choose the Amazon Monitron assigned tag value for your project or
    site.
 
-![Cost and usage report interface showing total cost, average monthly cost, and service count.](images/billing-tags-5.png)
+![Cost Explorer interface showing Service and Tag filter dropdowns in the right panel.](images/billing-tags-5.png)
 
 ###### Note
 

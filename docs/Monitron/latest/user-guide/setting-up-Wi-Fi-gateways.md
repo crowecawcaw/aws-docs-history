@@ -13,7 +13,7 @@ The Amazon Monitron gateway is easy to install and operate. After plugging in th
 power cable, you can put the gateway in commissioning mode by pressing the commissioning
 button.
 
-![Orange gateway device with LED lights, commissioning button, and power cable connection.](images/gateway-physical.png)
+![Gateway device with LED lights, commissioning button, and power cable connected to outlet.](images/gateway-physical.png)
 
 ###### Topics
 

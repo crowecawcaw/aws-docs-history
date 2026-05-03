@@ -17,4 +17,4 @@ another page in the app, use this procedure.
 
 1. Choose the menu icon (☰).
 
-![Menu icon represented by three horizontal lines (hamburger menu).](images/navigation.png) 2. Choose **Assets**.
+![Navigation bar with menu icon, back arrow, AnyCompany logo, and notification bell.](/images/Monitron/latest/user-guide/images/navigation.png) 2. Choose **Assets**.

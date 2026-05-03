@@ -52,6 +52,6 @@ class**.
 
 ![Dialog box for adding a position with fields for name, type, and machine class.](images/mobile-app-add-position-2.png) 4. Choose **Next**. 5. Re-scan your sensor with your mobile device to save the position.
 
-![Mobile phone icon with instructions to scan sensor for position details.](images/mobile-app-add-position-4.png) 6. Your position is added to the asset.
+![Dialog prompting user to hold phone near sensor to scan for position details.](images/mobile-app-add-position-4.png) 6. Your position is added to the asset.
 
-![Asset management interface showing positions with various status indicators.](images/mobile-app-add-position-6.png)
+![Asset detail page showing positions list with various health statuses and Add position button.](images/mobile-app-add-position-6.png)

@@ -29,4 +29,4 @@ other sites or projects, this won't remove those permissions.
 
 1. Select **Users** from the nav pane.
 
-![Users & Permissions interface showing a list of users with roles and inherited status.](images/user-3.png) 2. Select the user that you want to remove. 3. Choose **Remove**.
+![Users table showing User 10 added with Technician role and No inherited user status.](images/user-3.png) 2. Select the user that you want to remove. 3. Choose **Remove**.

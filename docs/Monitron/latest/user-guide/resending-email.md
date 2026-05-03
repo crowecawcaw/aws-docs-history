@@ -21,7 +21,7 @@ contains instructions for connecting to your project.
    ) next to the user that you added.
 3. Choose **Email instructions**.
 
-![Dropdown menu with options to email instructions, edit user, and remove user.](images/email-invitation.png)
+![Dialog box with Email instructions link, Edit user option, and Remove user option.](images/email-invitation.png)
 
 Your email application opens with a draft of the email invitation
 addressed to that user. It contains two links. One link is to download

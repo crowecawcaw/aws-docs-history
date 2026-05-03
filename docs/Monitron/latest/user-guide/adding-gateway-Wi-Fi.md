@@ -25,7 +25,7 @@ gateway, see [Placing and installing a Wi-Fi gateway](installing-gateway.md "ins
 alternatively yellow and blue. 4. Push the button on the side of the gateway to put it into
 commissioning mode. The lights will start rapidly blinking.
 
-![Hand pointing to smiling orange device connected to power outlet, indicating activation.](images/gs-gateway-turnon.png) 5. Open the mobile app on your smartphone. 6. On the **Getting Started** page or the
+![Orange device with smiley face being touched by a finger, connected to a power source.](images/gs-gateway-turnon.png) 5. Open the mobile app on your smartphone. 6. On the **Getting Started** page or the
 **Gateways** page, choose **Add
 gateway**.
 
@@ -43,7 +43,7 @@ see [Troubleshooting Bluetooth pairing](troubleshooting-Bluetooth-pairing-wirele
 It can take a few moments for Amazon Monitron to connect to the new
 gateway.
 
-![Smartphone connecting to AWS service via Bluetooth, represented by icons and symbols.](images/gs-gateway-bluetooth.png)
+![Mobile phone connecting via Bluetooth to AWS gateway.](images/gs-gateway-bluetooth.png)
 
 If the mobile app continues to try to connect to the gateway without
 success, see [Troubleshooting Wi-Fi gateway detection](gateway-failure-Wi-Fi.md "gateway-failure-Wi-Fi.md"). 8. After it connects to the gateway, Amazon Monitron scans for Wi-Fi

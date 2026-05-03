@@ -36,7 +36,7 @@ Business](https://business.amazon.com/ "https://business.amazon.com/").
 
 You mount the sensors directly on the machines (or _assets_) that you want to monitor. You can place up to 20 sensors on an asset.
 
-![Amazon-branded sensor device with QR code and CE marking on orange and black casing.](images/real-sensor.png)
+![Orange sensor device with Amazon smile logo and regulatory compliance markings.](images/real-sensor.png)
 
 _An Amazon Monitron sensor_
 
@@ -48,7 +48,7 @@ The Amazon Monitron Starter Kit, which is available at [Amazon.com](https://amaz
 contains five sensors and one Wi-Fi gateway. You can add more sensors and gateways as
 needed.
 
-![Two orange Amazon devices: one with a cable attached and one showing ports and indicators.](images/both-gateways.png)
+![Two orange Amazon Monitron devices: a sensor with cable and a Wi-Fi gateway unit.](images/both-gateways.png)
 
 _An Amazon Monitron gateway_
 
@@ -83,20 +83,20 @@ The mobile app displays an icon for each asset, so you can see its condition at 
 | Yellow triangular warning sign with black exclamation mark.                           | **Warning**: A warning has been triggered for one of the<br>positions of this asset, indicating that Amazon Monitron has detected early signs of<br>potential failure. Amazon Monitron identifies warning conditions by analyzing equipment<br>vibration and temperature, using a combination of machine learning and ISO vibration<br>standards. |
 | Wrench icon on a blue square background, representing a tool or settings symbol.      | **Maintenance**: Someone has acknowledged the alarm and is<br>looking into the issue.                                                                                                                                                                                                                                                             |
 | Checkmark and X icons in a gray circle, representing selection or validation options. | **Asset Healthy-offline:\*<br>• Sensor is offline and the last<br>recorded state was **Healthy\*\*. No new alerts will be generated till the<br>sensor returns online.                                                                                                                                                                            |
-| Gray pill-shaped button with "Healthy" text and an X icon for removal.                | **Position Healthy-offline:\*<br>• Sensor is offline and the<br>last recorded state was **Healthy\*\*. No new alerts will be generated till<br>the position returns online.                                                                                                                                                                       |
+| Healthy status badge with a close or dismiss button.                                  | **Position Healthy-offline:\*<br>• Sensor is offline and the<br>last recorded state was **Healthy\*\*. No new alerts will be generated till<br>the position returns online.                                                                                                                                                                       |
 | Hexagonal warning icon with an exclamation mark and a crossed-out circle.             | **Asset Alarm-offline:\*<br>• Sensor is offline and the last<br>recorded state was an **Alarm\*\*. No new alerts will be generated till the<br>sensor returns online.                                                                                                                                                                             |
 | Alarm icon with an X symbol for dismissing or closing the alarm notification.         | **Position Alarm-offline:\*<br>• Sensor is offline and the last<br>recorded state was an **Alarm\*\*. No new alerts will be generated till the<br>position returns online.                                                                                                                                                                        |
 | Warning icon with an exclamation mark inside a triangle and an X symbol.              | **Asset Warning-offline:\*<br>• Sensor is offline and the last<br>recorded state was a **Warning\*\*. No new alerts will be generated till the<br>sensor returns online.                                                                                                                                                                          |
 | Warning message icon with an X button for dismissal.                                  | **Position Warning-offline:\*<br>• Sensor is offline and the<br>last recorded state was a **Warning\*\*. No new alerts will be generated till<br>the position returns online.                                                                                                                                                                     |
-| Icon of a wrench with an X mark, indicating a tool or repair function is unavailable. | **Asset Maintenance-offline:\*<br>• Sensor is offline and the<br>last recorded state was **Maintenance\*\*. No new alerts will be generated<br>till the sensor returns online.                                                                                                                                                                    |
+| Icon showing a wrench with a close or cancel symbol.                                  | **Asset Maintenance-offline:\*<br>• Sensor is offline and the<br>last recorded state was **Maintenance\*\*. No new alerts will be generated<br>till the sensor returns online.                                                                                                                                                                    |
 | Gray button labeled "Maintenance" with an X icon for dismissal or closure.            | **Position Maintenance-offline:\*<br>• Sensor is offline and<br>the last recorded state was **Maintenance\*\*. No new alerts will be<br>generated till the position returns online.                                                                                                                                                               |
 | No sensor                                                                             | **No sensor**: At least one position for the asset doesn't<br>have a sensor paired to it.                                                                                                                                                                                                                                                         |
 
 To find out more, you can drill down into the data.
 
-| Vibration monitoring dashboard showing total and single axis vibration graphs over time. | Dashboard showing vibration data for assets, with alarm triggered for Position name 3. |
-| ---------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| Sensor reading of a healthy asset.                                                       | Sensor reading of an unhealthy asset.                                                  |
+| Vibration monitoring dashboard showing total and single axis vibration graphs with measurements around 4.63 mm/s. | Vibration monitoring dashboard showing total and single axis vibration graphs over time. |
+| ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Sensor reading of a healthy asset.                                                                                | Sensor reading of an unhealthy asset.                                                    |
 
 As Amazon Monitron collects more data, it improves its machine learning (ML) model and
 learns to make more accurate estimates of potential machine abnormalities.

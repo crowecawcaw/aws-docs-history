@@ -16,7 +16,7 @@ upper right of your screen (
 Choosing the notification icon opens the **Notifications** page,
 which lists all pending notifications.
 
-![Notifications panel showing an alarm detected in Pump - Position 1 (Site 1) on 11/02/2020.](images/notification1.png)
+![Notifications page showing an alarm notification for Pump Position 1 dated 11/02/2020.](images/notification1.png)
 When you receive a notification, you must view and acknowledge it. This doesn't
 fix the issue with the asset, it just lets Amazon Monitron know that you are aware of it.
 
@@ -24,11 +24,11 @@ fix the issue with the asset, it just lets Amazon Monitron know that you are awa
 
 1. On the **Assets** list, choose the asset with the alarm.
 
-![Asset list showing various items with status indicators, including alarms on Sorter 1 and 2.](images/asset_list2.png) 2. Choose the position with the alarm to view the issue.
+![Assets list showing Sorter 1 with error icon, Sorter 2 with warning icon, and multiple items with success icons.](images/asset_list2.png) 2. Choose the position with the alarm to view the issue.
 
-|                                                                                   |                                                                                 |
-| --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| Sorter 2 interface showing positions, warnings, and asset details for AnyCompany. | Sorter 1 interface showing positions with alarm, warning, and healthy statuses. |
+|                                                                                          |                                                                                               |
+| ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Sorter 2 asset details showing two positions with Warning and Healthy status indicators. | Sorter 1 interface showing four positions with alarm, warning, and healthy status indicators. |
 
 3. To confirm that you are aware of the issue, choose
    **Acknowledge**.
@@ -40,7 +40,7 @@ This information can be used by technicians to investigate and fix the
 issue. After an abnormality has been acknowledged and repaired, resolve the
 issue in the mobile app.
 
-![Mobile app interface showing pump vibration data with alarm notifications and graphs.](images/mobile-understand-sensor-measurement.png)
+![Vibration monitoring dashboard showing alarm status and total vibration chart for pump main.](images/mobile-understand-sensor-measurement.png)
 
 The status of the asset changes to:
 

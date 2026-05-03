@@ -31,9 +31,9 @@ procedure.
 
 The assets list is displayed.
 
-|                                                                                                                                 |                                                                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| Pump monitoring interface showing vibration and temperature alarms with graphical data.<br>the assets list in the mobile<br>app | Dashboard showing vibration and temperature data for a pump main asset with alarm notifications.<br>the assets list in the web<br>app |
+|                                                                                                                                                                    |                                                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Vibration monitoring dashboard showing total and single axis vibration graphs with ISO alarm threshold exceeded on Dec 15.<br>the assets list in the mobile<br>app | Vibration monitoring dashboard showing total and single axis vibration graphs with ISO alarm threshold exceeded.<br>the assets list in the web<br>app |
 
 ## Asset and position status
 
@@ -51,9 +51,9 @@ icon, as shown in the following table.
 To learn more about a problem, choose the asset and look at the status of
 underlying sensor positions.
 
-|                                                                                               |                                                                                           |
-| --------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| Mobile app interface showing Sorter 1 with two positions, one in alarm state and one healthy. | Asset management interface showing Sorter 1 details with positions and status indicators. |
+|                                                                                             |                                                                                            |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Sorter 1 interface showing 1 alarm and 0 acknowledged positions, with Pos.1 in alarm state. | Asset list showing Sorter 1 with two positions: Pos. 1 in Alarm status and Pos. 2 Healthy. |
 
 Amazon Monitron uses icons similar to the asset status icons to show the status
 of sensor positions.
@@ -78,6 +78,6 @@ displays an alert symbol (
 Choosing the notification icon opens the **Notifications** page,
 which lists all pending notifications.
 
-|                                                                                                                                                 |                                                                                                                                                        |
-| ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Notifications screen showing alarms and warnings for various positions with vibration and temperature data.<br>a notification in the mobile app | Notifications panel showing alarms and warnings for various positions with detected vibration and temperature issues.<br>a notification in the web app |
+|                                                                                                                                                            |                                                                                                                                       |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Notifications list showing alarm and warning entries with position names, vibration and temperature detection details.<br>a notification in the mobile app | Notifications panel showing alarms and warnings for positions with vibration and temperature alerts.<br>a notification in the web app |

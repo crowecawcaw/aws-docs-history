@@ -29,16 +29,16 @@ muted.
 The following images show you how to mute alerts on the Amazon Monitron mobile
 app.
 
-|                                                                                   |                                                                                  |                                                                                          |
-| --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| Mobile app interface showing alarm details with "Acknowledge" button highlighted. | Project interface showing alarm details, vibration data, and a "Resolve" button. | Resolution feedback interface with failure mode, failure cause, and action taken fields. |
+|                                                                                                |                                                                                    |                                                                                                                              |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Acknowledge button highlighted on alarm details screen showing vibration and temperature data. | Vibration tab showing alarm details with total vibration measurement of 4.63 mm/s. | Resolution feedback screen with failure mode dropdown, informational message, and fields for failure cause and action taken. |
 
 The following images show you how to mute alerts on the Amazon Monitron web
 app.
 
-![Asset management interface showing alarm details for Position name 3 with vibration and temperature alerts.](images/mute-alarm-web-1.png)
+![Acknowledge button highlighted in the alarm notification panel for Position name 3.](images/mute-alarm-web-1.png)
 
-![Asset management interface showing alarms for vibration and temperature on Position name 3.](images/mute-alarm-web-2.png)
+![Position name 3 details page showing Maintenance status with ISO vibration and Temperature ML alarms.](images/mute-alarm-web-2.png)
 
 ![Issue resolution feedback form with failure mode, cause, and action taken fields for improving alert accuracy.](images/mute-alarm-web-3.png)
 
@@ -58,55 +58,55 @@ unmuting alerts, you can choose from the following options.
 
 If you've muted both alarms and warnings, you can unmute them.
 
-|                                                                                           |                                                                                            |                                                                                                   |
-| ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
-| Graph showing single axis vibration with maximum value of 4.63 mm/s and alarm thresholds. | Dialog box prompting to resume alarms and warnings for a position, with options to select. | Graph showing single axis vibration with maximum value of 4.63 mm/s and alarm threshold exceeded. |
+|                                                                                                   |                                                                                       |                                                                                                             |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Vibration monitoring graph showing spike above alarm threshold on Dec 20, with maximum 4.63 mm/s. | Resume alerts dialog with options to resume alarm and warning or keep warnings muted. | Vibration graph showing maximum values from Dec 7-20, 2022, with spike exceeding alarm threshold on Dec 20. |
 
-![Graph showing single axis vibration measurements over time with alarm and warning thresholds indicated.](images/resume-alerts-web-1.png)
+![Vibration monitoring graph showing measurements from Dec 7-20 with alarm threshold at 7mm/s.](images/resume-alerts-web-1.png)
 
-![Dialog box for resuming alerts with options to resume alarm and warning or keep warnings muted.](images/resume-alerts-web-2.png)
+![Resume alerts dialog with options to resume alarm and warning or keep warnings muted.](images/resume-alerts-web-2.png)
 
-![Graph showing single axis vibration measurements over time with warning and alarm thresholds.](images/resume-alerts-web-3.png)
+![Line graph showing vibration measurements over time with warning and alarm thresholds.](images/resume-alerts-web-3.png)
 
 ### Resume alarms but keep warnings muted
 
 If you've muted both alarms and warnings, you can unmute alarms and keep
 warnings muted.
 
-|                                                                                                              |                                                                                                         |                                                                                      |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| Graph showing single axis vibration with maximum value of 4.63 mm/s, alarm and warning thresholds indicated. | Graph showing single axis vibration measurements over time with alarm and warning thresholds indicated. | Dialog box prompting to resume alarms with options to resume or keep warnings muted. |
+|                                                                                                               |                                                                                                 |                                                                                       |
+| ------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| Vibration graph showing spike exceeding alarm threshold on Dec 20, with warning message about stopped alerts. | Vibration graph showing spike above alarm threshold on Dec 20, with maximum value of 4.63 mm/s. | Resume alerts dialog with options to resume alarm and warning or keep warnings muted. |
 
-![Graph showing single axis vibration over time with alarm and warning thresholds indicated.](images/alarms-warnings-web-1.png)
+![Vibration graph showing alarm threshold exceeded starting Dec 15, with warning level at 5.5 mm/s.](images/alarms-warnings-web-1.png)
 
-![Dialog box for resuming alerts with options to resume alarm and warning or keep warnings muted.](images/alarms-warnings-web-2.png)
+![Resume alerts dialog with options to resume alarm and warning or keep warnings muted.](images/alarms-warnings-web-2.png)
 
-![Single axis vibration graph showing measurements over time with warning and alarm thresholds.](images/alarms-warnings-web-3.png)
+![Vibration monitoring chart showing alarm threshold exceeded with red shaded region.](images/alarms-warnings-web-3.png)
 
 ### Resume only alarms
 
 If you've muted alarms, you can unmute them.
 
-|                                                                                                              |                                                                                               |                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| Graph showing single axis vibration with maximum value of 4.63 mm/s, including alarm and warning thresholds. | Dialog box asking to resume threshold alarms for a position, with Cancel and Confirm options. | Graph showing single axis vibration with a maximum of 4.63 mm/s and an alarm threshold exceeded. |
+|                                                                                           |                                                                                     |                                                                                                |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Vibration monitoring chart showing spike to 10 mm/s on Dec 20, exceeding alarm threshold. | Resume alarms dialog with Cancel and Confirm buttons for resuming threshold alarms. | Vibration monitoring graph showing spike above alarm threshold on Dec 20 with success message. |
 
-![Vibration monitoring graph showing single axis measurements over time with warning and alarm thresholds.](images/unmute-alarms-4.png)
+![Vibration chart showing measurements from Dec 7-20 with alarm threshold exceeded Dec 15-20.](images/unmute-alarms-4.png)
 
-![Dialog box asking to confirm resuming threshold alarms for a position, with Cancel and Confirm options.](images/unmute-alarms-5.png)
+![Resume alarms dialog box asking to confirm resuming threshold alarms for a position.](images/unmute-alarms-5.png)
 
-![Vibration chart showing single axis measurements over time with warning and alarm thresholds.](images/unmute-alarms-6.png)
+![Line chart showing vibration measurements over time with alarm threshold and warning level.](images/unmute-alarms-6.png)
 
 ### Resume only warnings
 
 If you've muted warnings, you can choose to resume them.
 
-|                                                                                           |                                                                                                 |                                                                                         |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| Graph showing single axis vibration with maximum value of 4.63 mm/s and alarm thresholds. | Dialog box asking to resume threshold warnings for a position, with Cancel and Confirm options. | Graph showing single axis vibration measurements with spikes exceeding alarm threshold. |
+|                                                                                                       |                                                                                 |                                                                                                 |
+| ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| Vibration monitoring graph showing spike to 10 mm/s on Dec 20, exceeding alarm threshold of 7.1 mm/s. | Dialog box asking to resume threshold warnings with Cancel and Confirm buttons. | Vibration monitoring graph showing spike above alarm threshold on Dec 20, with success message. |
 
-![Single axis vibration graph showing maximum values over time with warning and alarm thresholds.](images/warning-unmute-web-1.png)
+![Vibration monitoring graph showing Vrms values over time with warning and alarm thresholds.](images/warning-unmute-web-1.png)
 
-![Dialog box asking to resume threshold warnings for a position, with Cancel and Confirm options.](images/warning-unmute-web-2.png)
+![Resume warnings dialog box with confirmation prompt and Cancel and Confirm buttons.](images/warning-unmute-web-2.png)
 
-![Graph showing single axis vibration measurements over time with warning and alarm thresholds.](images/warning-unmute-web-3.png)
+![Vibration chart showing measurements from Dec 7-20 with alarm and warning thresholds.](images/warning-unmute-web-3.png)

@@ -20,14 +20,14 @@ with a site.
 Make sure that the project name is shown in the upper left of the
 screen.
 
-![Project interface showing site name, counts for assets, sensors, gateways, and users.](images/site-contents.png) 2. Choose the menu icon (☰). 3. Choose **Sites**. 4. Next to the site that you want to delete, choose
+![Project name 1 displayed in the upper left corner of the navigation bar.](images/site-contents.png) 2. Choose the menu icon (☰). 3. Choose **Sites**. 4. Next to the site that you want to delete, choose
 **Actions**. 5. Choose **Delete site**. 6. If assets, sensors, gateways, or users are associated with the site,
 choose **X**. Then delete those resources before
 proceeding.
 
 If there are no resources associated with the site, skip to the next step.
 
-![Error message indicating inability to delete "Site 1" due to remaining assets and users.](images/site-delete.png) 7. Choose **Delete**.
+![Dialog box indicating site deletion requires removing all assets, sensors, gateways and users first.](images/site-delete.png) 7. Choose **Delete**.
 
 The site is no longer listed in the **Sites**
 list.

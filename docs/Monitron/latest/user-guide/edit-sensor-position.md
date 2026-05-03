@@ -30,10 +30,10 @@ resolve any alerts before editing machine class.
    position whose machine class you want to change.
 3. Choose to see more sensor details.
 
-![Pump monitoring interface showing 4 positions with 1 alarm, 2 healthy, and 1 no sensor status.](images/asset-detail-machine-class-mobile-app-1.png) 4. From the options that appear, choose **Edit machine
+![Pump asset page showing four positions with statuses and a Pair sensor button.](images/asset-detail-machine-class-mobile-app-1.png) 4. From the options that appear, choose **Edit machine
 class**.
 
-![Menu options for editing a position, including Edit machine class, Delete position, and Delete sensor.](images/asset-detail-machine-class-mobile-app-2.png) 5. From **Edit machine class** choose the new machine class
+![Menu displaying Edit position name, Edit machine class, Delete position, and Delete sensor options.](images/asset-detail-machine-class-mobile-app-2.png) 5. From **Edit machine class** choose the new machine class
 you want to assign to the sensor. Select **Save**.
 
 ###### Note
@@ -46,10 +46,10 @@ interval. The single-axis chart threshold will be updated.
 1. From the **Position details** list, choose the
    **Actions** tab.
 
-![Sensor details page showing status, battery life, and position information for a pump.](images/position-detail-machine-class-mobile-app-1.png) 2. From the options that appear, choose **Edit machine
+![Actions dropdown button highlighted in the Position details section of the interface.](images/position-detail-machine-class-mobile-app-1.png) 2. From the options that appear, choose **Edit machine
 class**.
 
-![Dropdown menu showing options to edit position name, edit machine class, delete position, and delete sensor.](images/position-detail-machine-class-mobile-app-2.png) 3. From the **Edit machine class** menu choose the new
+![Modal menu with options including Edit position name, Edit machine class, Delete position, and Delete sensor.](images/position-detail-machine-class-mobile-app-2.png) 3. From the **Edit machine class** menu choose the new
 machine class you want to assign to the sensor. Choose
 **Next**.
 
@@ -64,7 +64,7 @@ interval. The single-axis chart threshold will be updated.
    **Actions** button.
 2. From the options, choose **Edit machine class**.
 
-![Positions table with status indicators and Actions dropdown menu highlighted.](images/asset-detail-machine-class-web-app.png) 3. From the **Edit machine class** menu choose the new
+![Actions menu expanded showing Edit position name, Edit machine class, and Delete position options.](images/asset-detail-machine-class-web-app.png) 3. From the **Edit machine class** menu choose the new
 machine class you want to assign to the sensor and then select
 **Save changes**.
 
@@ -80,7 +80,7 @@ will be updated.
    **Actions** button.
 2. From the options, choose **Edit machine class**.
 
-![Dashboard showing asset health status, vibration data, and an Actions dropdown menu for Position name 3.](images/position-detail-machine-class-web-app.png) 3. From the **Edit machine class** menu choose the new
+![Actions menu expanded showing Edit position name, Delete position, and Edit machine class options.](images/position-detail-machine-class-web-app.png) 3. From the **Edit machine class** menu choose the new
 machine class you want to assign to the sensor and then select
 **Save changes**.
 

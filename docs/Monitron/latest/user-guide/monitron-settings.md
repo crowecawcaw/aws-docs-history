@@ -47,21 +47,21 @@ Any changes you make to the language or units setting will be saved
 locally in the browser and will be applied to any project you open in
 the same browser. These changes are not shared across devices.
 
-|                                                                                                      |                                                                                                                        |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| Settings page for Amazon Monitron with language, unit, and temperature options.<br>a web app<br>view | Language selection dropdown menu showing options for English, Spanish, French, and Portuguese.<br>a mobile app<br>view |
+|                                                                                                                               |                                                                                                                                              |
+| ----------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| General settings panel with Language dropdown showing English, Español, Français, and Português options.<br>a web app<br>view | Settings screen showing language selector expanded with options including English, Español, Français, and Português.<br>a mobile app<br>view |
 
 2. Choose **Save**.
 3. You will see the following alert banner if you change two or more
    settings:
 
-|                                                                                                    |                                                                                                                               |
-| -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| Settings page for Amazon Monitron with language and measurement unit options.<br>a web app<br>view | Settings page showing language, vibration units, and temperature unit options with a success message.<br>a mobile app<br>view |
+|                                                                                                                                                             |                                                                                                                               |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Settings page showing General section with language set to English (US) and Measurements section with vibration and temperature units.<br>a web app<br>view | Settings page showing language, vibration units, and temperature unit options with a success message.<br>a mobile app<br>view |
 
 4. You will see the following alert if you leave the settings menu without
    saving:
 
-|                                                                                                     |                                                                                                 |
-| --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| Settings page with unsaved changes warning dialog and options to Exit or Save.<br>a web app<br>view | Settings page with unsaved changes warning and options to exit or save.<br>a mobile app<br>view |
+|                                                                                             |                                                                                              |
+| ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Modal dialog warning about unsaved changes with Exit and Save buttons.<br>a web app<br>view | Dialog box warning about unsaved changes with Exit and Save buttons.<br>a mobile app<br>view |

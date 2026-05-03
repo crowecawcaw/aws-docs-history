@@ -28,4 +28,4 @@ The new name is displayed in the **Sites** list.
 2. Select the site that you want to rename.
 3. Choose the **Edit site name** button.
 
-![Sites management interface showing a list of three site names with options to add, edit, or delete sites.](images/webapp_edit-site-name.png)
+![Sites table showing three site entries with radio button selection and action buttons.](images/webapp_edit-site-name.png)

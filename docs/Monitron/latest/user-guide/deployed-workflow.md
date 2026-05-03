@@ -6,7 +6,7 @@ Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/main
 
 The following diagram shows the basic workflow of Amazon Monitron.
 
-![Workflow diagram showing Amazon Monitron components from sensor to app for equipment monitoring.](images/processimage.png)
+![Workflow showing Monitron sensor, gateway, service, and app components with data flow arrows.](images/processimage.png)
 
 1. An Amazon Monitron sensor captures temperature and vibration data from the
    equipment (the asset) and transmits it to the gateway.

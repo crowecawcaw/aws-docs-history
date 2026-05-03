@@ -33,13 +33,13 @@ sites can move an asset.
 3. From the asset menu, choose **Actions**, and then choose
    **Move asset**.
 
-![Assets page showing Example_Asset selected, with Actions menu expanded to Move asset option.](images/asset-move-1.png) 4. From the dialog box that opens, select a site to move your asset to from
+![Actions menu expanded showing Move asset option highlighted.](images/asset-move-1.png) 4. From the dialog box that opens, select a site to move your asset to from
 the **New site** dropdown menu, and then select
 **Move**.
 
-![Dialog box for moving an asset to a new site with dropdown menu and Move button.](images/asset-move-2.png)
+![Move Example_Asset dialog box with New site dropdown menu highlighted.](images/asset-move-2.png)
 
-![Dialog box for moving an asset to a new site, with options to select a new parent and confirm the move.](images/asset-move-4.png)
+![Move Example_Asset dialog box with Site 2 selected as new parent and Move button highlighted.](images/asset-move-4.png)
 
 The app displays a success message if your asset is moved
 successfully.
@@ -51,12 +51,12 @@ successfully.
 2. Choose asset that you want to move to a new site. Then, open the asset
    details menu.
 
-![Assets page showing two listed assets with options to add or find assets.](images/asset-mob-1.png) 3. From the asset details menu, choose **Move asset**.
+![Assets page showing two assets with No sensor status and vertical three-dot menu icons.](images/asset-mob-1.png) 3. From the asset details menu, choose **Move asset**.
 
-![Asset details menu with options to edit name, move, or delete the asset.](images/asset-mob-2.png) 4. From the asset page, from **New site**, choose the new
+![Asset details menu with Move asset option highlighted.](images/asset-mob-2.png) 4. From the asset page, from **New site**, choose the new
 site you want to move the asset to. Then, choose **Move**.
 
-![Dialog box for moving an asset to a new site with options to select and confirm the move.](images/asset-mob-3.png)
+![Move asset dialog with Site dropdown menu and Move button highlighted in sequence.](images/asset-mob-3.png)
 
 The app displays a success message if your asset is moved
 successfully.

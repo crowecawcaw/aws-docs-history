@@ -56,7 +56,7 @@ how to do so:
 
    Choose **Add position**.
 
-   ![Mobile app interface showing "Asset name 1" with "No sensor" status and "Pair sensor" button.](images/pair_sensors.png)
+   ![Asset name 1 screen with No sensor status and Pair sensor button highlighted.](images/pair_sensors.png)
    - If you created the asset earlier, and have already paired more
      than one sensor to it:
      1. After you choose the asset, you will see a dropdown list
@@ -65,9 +65,9 @@ how to do so:
      Choose the **View** option at the top of
      that list.
 
-     ![Assets list with "cooler" item and View option circled, showing Healthy status for multiple items.](images/asset-dropdown-view-option.png) 2. Choose **Pair sensor**.
+     ![Assets page showing cooler asset with View cooler option and three Healthy status indicators.](images/asset-dropdown-view-option.png) 2. Choose **Pair sensor**.
 
-     ![Mobile app interface showing cooler status, positions, and asset details with a "Pair sensor" button highlighted.](images/pair-sensor-others-paired.png)
+     ![Cooler asset details screen showing Pair sensor button and three healthy positions.](images/pair-sensor-others-paired.png)
 
 3. Place your sensor on the machine in the correct location. For more
    information about placing sensors, see [Positioning a sensor](as-where-sensors.md "as-where-sensors.md") and [Mounting a sensor](as-how-sensors.md "as-how-sensors.md").
@@ -123,13 +123,13 @@ example, turbo-generator sets and gas turbines with outputs
 greater than 10 megawatt (MW) or 13,404 hp. 7. Choose **Next**. 8. Hold your smartphone close to the sensor to commission it. Don't move your
 smartphone while you are commissioning the sensor.
 
-![Hand holding a smartphone near a small orange device, illustrating device commissioning.](images/gs-sensor.png)
+![Hand holding smartphone near a small orange sensor device for commissioning.](images/gs-sensor.png)
 
 It can take a few moments for Amazon Monitron to commission the sensor
 and pair with it. While it's connecting, you will see the following
 message.
 
-![Smartphone pairing with NFC sensor, showing progress bar and instruction not to move phone.](images/do-not-move-your-phone.png)
+![Phone with NFC waves connecting to sensor, with progress bar showing pairing in progress.](images/do-not-move-your-phone.png)
 
 ###### Note
 
@@ -142,7 +142,7 @@ status, but not the specific details about each position. To display the details
 choose the position from the list. For more information about the data you can
 monitor with each asset, see [Understanding sensor measurements](anom-sensor-measure.md "anom-sensor-measure.md").
 
-![Mobile app interface showing asset health status with four healthy positions for bearings.](images/multiple_sensors.png)
+![Asset details page showing four sensor positions with Healthy status and asset information.](images/multiple_sensors.png)
 
 Positions are displayed in status order. For example, a position that's in an
 alarm state is displayed above a position that's in an acknowledged state. Positions

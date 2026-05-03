@@ -22,11 +22,11 @@ After you create an asset, you can change only its name.
 1. Sign in to your mobile app and select the project you want to add an asset
    to.
 
-![Assets page with one example asset listed and an "Add asset" button in the top right corner.](images/add-asset-mobile-1.png) 2. Make sure you're on the correct site your project that you want to add the
+![Assets page showing Add asset button highlighted with one example asset listed below.](images/add-asset-mobile-1.png) 2. Make sure you're on the correct site your project that you want to add the
 asset to. The project or site name indicates that you are at that level in
 the app.
 
-![Site name dropdown menu in a navigation bar with a notification bell icon.](images/site-level.png)
+![Navigation bar showing Site name dropdown menu with hamburger menu and notification icons.](images/site-level.png)
 
 For more information about changing from site level to project level and
 vice versa, see [Navigating between projects and sites in the mobile app](SM-working-project-and-site.md "SM-working-project-and-site.md"). 3. From the **Assets** page, choose **Add
@@ -34,7 +34,7 @@ asset**. 4. On the **Add asset** page, for **Asset
 name**, add a name for the asset you want to create and then
 select **Add**.
 
-![Add asset interface with warning message, asset name field, and example input.](images/add-asset-mobile-2.png)
+![Add asset page with warning message and Asset name text field with Example: Pump placeholder.](images/add-asset-mobile-2.png)
 
 ###### Note
 
@@ -51,21 +51,21 @@ list** page.
 1. Sign in to your web app and select the project you want to add an asset
    to.
 
-![Projects page showing two projects with options to add, remove, or search projects.](images/add-asset-1.png) 2. From the left navigation menu, choose **Sites**, and then
+![Projects page with Add project button highlighted in the upper right corner.](images/add-asset-1.png) 2. From the left navigation menu, choose **Sites**, and then
 select the site you want to the asset to.
 
-![Amazon Monitron interface showing Sites page with one site listed and options to manage sites.](images/add-asset-2.png)
+![Sites page with Site 1 selected in the sites list.](images/add-asset-2.png)
 
 ###### Note
 
 You can also add the asset directly to a project. 3. From the **Assets** page, choose **Add
 asset**.
 
-![Amazon Monitron interface showing Assets page with Add asset button highlighted.](images/add-asset-3.png) 4. On the **Add asset** page, for **Asset
+![Assets page with Add asset button highlighted in the navigation panel.](images/add-asset-3.png) 4. On the **Add asset** page, for **Asset
 name**, add a name for the asset you want to create and then
 select **Add asset**.
 
-![Dialog box for adding an asset, with fields for asset name and buttons to cancel or add.](images/add-asset-4.png)
+![Add asset dialog with Asset name field and Add asset button highlighted.](images/add-asset-4.png)
 
 When you've added your first asset, it's displayed on the **Assets
 list** page.

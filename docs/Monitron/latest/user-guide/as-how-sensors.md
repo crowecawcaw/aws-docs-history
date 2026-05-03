@@ -17,7 +17,7 @@ aluminum sensor (in the center of the target contact area) conducts heat directl
 the asset's surface to the temperate sensing mechanism inside the Amazon Monitron
 sensor.
 
-![Yellow sensor base with target contact area and minimum contact dimensions indicated.](images/sensor_mounting.png)
+![Sensor base showing target contact area with minimum contact area of 30 x 25 mm indicated.](images/sensor_mounting.png)
 Determine the place and orientation where you can most effectively monitor the asset,
 and then mount sensor at that spot. To mount the sensor, you need to purchase an
 industrial adhesive. We recommend using cyanoacrylate epoxies like Loctite 454 and
@@ -56,4 +56,4 @@ additional adhesive on each side for better contact between the sensor and the
 surface. Based on the surface and the adhesive used, your results should look
 similar to the following.
 
-![Diagram showing adhesive application on flat, slightly curved, and curved surfaces.](images/surface-conditions.png)
+![Trapezoid-shaped sensors on flat, slightly curved, and curved surfaces with gap filling glue.](images/surface-conditions.png)

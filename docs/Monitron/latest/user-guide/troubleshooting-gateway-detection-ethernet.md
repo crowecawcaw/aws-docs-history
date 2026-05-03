@@ -31,7 +31,7 @@ If the gateway has no power, check the following:
   **Config** button to enter commissioning mode, they
   blink rapidly, again alternating orange and blue.
 
-![Hand pressing the Config button on an Amazon device with a smile logo and LED indicators.](images/ethernet-gateway-pushing-config-button.png)
+![Hand pressing the Config button on an Amazon Monitron gateway device.](images/ethernet-gateway-pushing-config-button.png)
 
 - If the LEDs show any sequence other than slow blinking before you press
   the button, the gateway might not go into configuration mode. In this case,

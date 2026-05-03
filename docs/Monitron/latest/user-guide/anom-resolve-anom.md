@@ -78,7 +78,7 @@ The following are the Amazon Monitron failure causes:
 2. Choose the position with the abnormality.
 3. Choose **Resolve**.
 
-![Mobile app interface showing "Left bearing 1" with "Acknowledged" and "Resolve" buttons.](images/resolve.png) 4. For **Failure mode**, choose the type of failure that
+![Alert banner showing Acknowledged status on left and Resolve button on right.](images/resolve.png) 4. For **Failure mode**, choose the type of failure that
 occurred.
 
-![Issue resolution feedback form with dropdown fields for failure mode, cause, and action taken.](images/resolution.png) 5. For **Failure cause**, choose the cause of the failure. 6. For **Action taken**, choose which action you took. 7. Choose **Submit**.
+![Issue resolution feedback dialog with dropdowns for Failure mode, Failure cause, and Action taken.](images/resolution.png) 5. For **Failure cause**, choose the cause of the failure. 6. For **Action taken**, choose which action you took. 7. Choose **Submit**.

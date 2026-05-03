@@ -28,18 +28,18 @@ shows you how.
 1. From the **Gateways** list, choose the gateway whose
    details you want to view.
 
-![List of three WiFi gateways, all showing as Online, with option to add gateway.](images/gateway-details-mobile-1.png) 2. From the options box that pops open, select **View gateway
+![Gateway 2 selected from a list of three gateways, each showing WiFi type and online status.](images/gateway-details-mobile-1.png) 2. From the options box that pops open, select **View gateway
 details**.
 
-![Gateway management interface showing three online gateways and a context menu for gateway actions.](images/gateway-details-mobile-2.png) 3. The **Gateway details** page is displayed.
+![Options menu with Edit gateway name, View gateway details, and Delete gateway options.](images/gateway-details-mobile-2.png) 3. The **Gateway details** page is displayed.
 
-![Gateway details page showing device status, specifications, and network information.](images/gateway-details-mobile-ethernet.png)
+![Gateway details page showing device name, status, physical ID, IP address, and traffic data.](images/gateway-details-mobile-ethernet.png)
 
 ## To view Ethernet gateway details in the web app
 
 1. From the **Gateways** list, choose the gateway whose
    details you want to view.
 
-![Gateway management interface showing one online WiFi gateway for Test_Project.](images/ethernet-gateway-web-app-1.png) 2. The **Gateway details** page is displayed.
+![Gateway name MonitronGateway-e837456fe770 selected in the Gateways list.](images/ethernet-gateway-web-app-1.png) 2. The **Gateway details** page is displayed.
 
 ![Gateway details showing name, status, IP address, and other technical specifications.](images/ethernet-gateway-details-page-web.png)

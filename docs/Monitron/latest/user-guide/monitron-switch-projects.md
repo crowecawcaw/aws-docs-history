@@ -33,19 +33,19 @@ on the Amazon Monitron mobile app unless you also add it to the web app.
 1. Open the Amazon Monitron console at [https://console.aws.amazon.com/monitron](https://console.aws.amazon.com/monitron/ "https://console.aws.amazon.com/monitron/") .
 2. Choose **Open in Amazon Monitron web app**.
 
-![Project A dashboard showing setup steps, project details, and admin user management.](images/switch-project-console.png) 3. Enter your **Username** and **Password**
+![Project A page showing setup steps, project details, and admin users table with five users.](images/switch-project-console.png) 3. Enter your **Username** and **Password**
 on the **Sign in** screen. 4. From the **Assets** list page, select your account
 details dropdown menu, and then choose **View
 projects**.
 
-![Amazon Monitron interface showing asset list, positions, and user account options.](images/switch-project-web-app.png) 5. If you want to add a project, choose **Add project** and
+![Account details dropdown menu expanded showing View projects and Sign out options.](images/switch-project-web-app.png) 5. If you want to add a project, choose **Add project** and
 enter your project link url.
 
-![Add project dialog box with a field to enter the project link URL from the console or invitation email.](images/switch-project-add-web.png) 6. If you want to switch between projects, choose the project you want to
+![Add project dialog with Project link URL field containing a sample URL and Save button.](images/switch-project-add-web.png) 6. If you want to switch between projects, choose the project you want to
 view from the projects list. You will see this message before you
 switch.
 
-![Project switching dialog box explaining single project access and automatic logout/login process.](images/project-switching-message-web.png)
+![Project switching dialog with message about single project sign-in and Confirm button.](images/project-switching-message-web.png)
 
 ## Switching between projects in the mobile app
 
@@ -54,9 +54,9 @@ switch.
 1. Open the Amazon Monitron mobile app and login using your username and
    password.
 
-|                                                                        |                                                                                      |
-| ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| AWS sign-in page with username field, password input, and Next button. | AWS logo and Amazon Monitron sign-in screen for detecting abnormal machine behavior. |
+|                                                                                   |                                                                      |
+| --------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| AWS sign-in page with username field showing Email@amazon.com and password field. | Amazon Monitron sign-in screen showing AWS logo and loading message. |
 
 2. From the **Assets** list page, select your account
    details dropdown menu, and then choose **View
@@ -69,14 +69,14 @@ switch.
 3. If you want to add a project, choose **Add project** and
    enter your project link url.
 
-|                                                                                    |                                                                                    |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| Amazon Monitron projects page showing one project with last access date and email. | Add Projects screen with a text field for entering a project link URL from Amazon. |
+|                                                                                         |                                                                                            |
+| --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Amazon Monitron projects list showing Project A with last accessed date and user email. | Add Projects screen with Project link URL field containing an Amazon Monitron project URL. |
 
 4. If you want to switch between projects, choose the project you want to
    view from the projects list. You will see this message before you
    switch.
 
-|                                                                                                |                                                                                      |
-| ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| Amazon Monitron projects page showing two projects and a success message for adding Project B. | Project switching dialog box explaining single project sign-in and automatic logout. |
+|                                                                                                |                                                                                                    |
+| ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| Amazon Monitron projects page showing two projects and a success message for adding Project B. | Project switching dialog with message about single project sign-in and Cancel and Confirm buttons. |

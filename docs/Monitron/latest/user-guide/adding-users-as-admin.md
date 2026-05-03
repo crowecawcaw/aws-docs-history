@@ -10,7 +10,7 @@ Amazon Monitron web app.
 1. Navigate to the project or site that you want to add a user to, and then
    to the **Users** list.
 
-![Users & Permissions interface showing a list of 8 users with roles, assigned locations, and access levels.](images/user-10.png) 2. Enter a user name. Amazon Monitron searches the user directory for the
+![Users and Permissions page showing a table with 8 users, their roles, assigned locations, and project level access.](images/user-10.png) 2. Enter a user name. Amazon Monitron searches the user directory for the
 user.
 
 Choose the user from the list and the role you want to assign to the user:
@@ -19,9 +19,9 @@ Choose the user from the list and the role you want to assign to the user:
 
 Then, choose **Add user**.
 
-![Users & Permissions interface with a list of users and an "Add user" dialog box.](images/user-1.png) 3. The new user appears on the **Users** list.
+![Add user dialog with Username search field and Role dropdown set to Choose a role.](images/user-1.png) 3. The new user appears on the **Users** list.
 
-![Users & Permissions interface showing a list of users with roles and inherited status.](images/user-3.png)
+![Users table showing User 10 added with Technician role and No inherited user status.](images/user-3.png)
 
 Send the new user an email invitation with a link for accessing the
 project and downloading the Amazon Monitron mobile app. For more information, see

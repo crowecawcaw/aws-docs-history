@@ -28,10 +28,10 @@ shows you how.
 1. From the **Gateways** list, choose the gateway whose
    details you want to view.
 
-![List of three WiFi gateways, all showing as Online, with option to add gateway.](images/wifi-gateway-details-mobile-v1.png) 2. From the options box that pops open, select **View gateway
+![Gateway 2 selected from a list of three gateways, each showing WiFi type and online status.](images/wifi-gateway-details-mobile-v1.png) 2. From the options box that pops open, select **View gateway
 details**.
 
-![Gateway management interface showing three online gateways and a context menu for gateway actions.](images/wifi-gateway-details-mobile-v2.png) 3. The **Gateway details** page is displayed.
+![Options menu with Edit gateway name, View gateway details, and Delete gateway options.](images/wifi-gateway-details-mobile-v2.png) 3. The **Gateway details** page is displayed.
 
 ![Gateway details page showing status, physical ID, IP address, and other network information.](images/wifi-gateway-details-mobile-v3.png)
 
@@ -40,6 +40,6 @@ details**.
 1. From the **Gateways** list, choose the gateway whose
    details you want to view.
 
-![Gateway management interface showing one online WiFi gateway for Test_Project.](images/ethernet-gateway-web-app-1.png) 2. The **Gateway details** page is displayed.
+![Gateway name MonitronGateway-e837456fe770 selected in the Gateways list.](images/ethernet-gateway-web-app-1.png) 2. The **Gateway details** page is displayed.
 
 ![Gateway details interface showing device information, status, and network statistics.](images/wifi-gateway-details-web.png)

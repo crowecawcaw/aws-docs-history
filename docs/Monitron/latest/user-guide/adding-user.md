@@ -55,7 +55,7 @@ see [Sending an email invitation](resending-email.md "resending-email.md").
 1. Navigate to the project or site that you want to add a user to, and
    then to the **Users** list.
 
-![Users & Permissions interface showing a list of users and an "Add user" dialog box.](images/user-1.png) 2. Enter a user name. Amazon Monitron searches the user directory for the
+![Add user dialog with Username search field and Role dropdown set to Choose a role.](images/user-1.png) 2. Enter a user name. Amazon Monitron searches the user directory for the
 user.
 
 Choose the user from the list and the role you want to assign to the
@@ -66,7 +66,7 @@ Then, choose **Add user**.
 
 ![Add user dialog box with fields for username and role selection.](images/user-2.png) 3. The new user appears on the **Users** list.
 
-![Users & Permissions interface showing a list of users with roles and inherited status.](images/user-3.png)
+![Users table showing User 10 added with Technician role and No inherited user status.](images/user-3.png)
 
 Send the new user an email invitation with a link for accessing the
 project and downloading the Amazon Monitron mobile app. For more information,

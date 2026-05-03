@@ -34,7 +34,7 @@ adding new users, see [Adding a user](adding-user.md "adding-user.md").
 
 1. Choose **Users** from the navigation pane.
 
-![Users & Permissions interface showing a list of users with roles and edit options.](images/user-4.png) 2. Choose **Edit user role**. 3. Choose a new role for the user: **Admin**,
+![Users table showing User 8 selected with Edit button highlighted above the table.](images/user-4.png) 2. Choose **Edit user role**. 3. Choose a new role for the user: **Admin**,
 **Technician**, or **Viewer**.
 
-![User role editing interface showing options to change a user's role to Technician.](images/user-5.png) 4. Choose **Save**.
+![Edit user role dialog with Technician role selected in dropdown for User 8.](images/user-5.png) 4. Choose **Save**.

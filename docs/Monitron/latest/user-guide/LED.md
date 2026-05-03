@@ -9,7 +9,7 @@ of the gateway. Each LED light has one orange light and one blue light. The oran
 light indicates that the gateway is connected to a Wi-Fi network. The blue light
 indicates that the gateway's Bluetooth is connected to the sensors.
 
-![Orange device connected to power outlet, with LED lights indicated on its surface.](images/gateway-led.png)
+![Gateway device with LED lights on top, connected to power outlet via cable.](images/gateway-led.png)
 The sequence that the lights display indicates the status of the gateway, as
 described in the following table.
 

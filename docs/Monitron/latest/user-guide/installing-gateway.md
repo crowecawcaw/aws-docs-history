@@ -8,7 +8,7 @@ Unlike sensors, a Wi-Fi gateway doesn't need to be attached to the machines that
 are being monitored. However, it does need an available Wi-Fi network through which
 Amazon Monitron can connect to the AWS Cloud.
 
-![Yellow device with Amazon smile logo and black cable connector for Wi-Fi gateway.](images/real-gateway.png)
+![Orange gateway device with Amazon smile logo and attached black cable.](images/real-gateway.png)
 
 ###### Topics
 
@@ -71,7 +71,7 @@ the front. You might need to use an expansion plug or toggle bolt to
 secure the screw in the wall. An expansion plug or toggle bolt is
 not included.
 
-![Mounting bracket with screw holes and two plastic wall anchors for secure installation.](images/bracket-screws.png)
+![Mounting bracket back view showing screw holes and two wall anchors with screws.](images/bracket-screws.png)
 
 **Tape mounting**
 
@@ -80,13 +80,13 @@ box. Use it when you can't place a screw into the mounting surface.
 You can also use it in combination with the other methods of
 mounting for a more secure installation.
 
-![Black plastic mounting bracket with adhesive tape strip for secure installation.](images/bracket-tape1.png)
+![Black mounting bracket with adhesive backing showing double-sided tape placement.](images/bracket-tape1.png)
 
 Remove the backing on one side of the tape and apply the tape to
 the back of the wall mounting bracket between the four raised
 sections.
 
-![Wall mounting bracket with adhesive tape applied between raised sections and 3M backing visible.](images/bracket-tape2.png)
+![Black mounting bracket with foam tape applied between four raised sections.](images/bracket-tape2.png)
 
 Remove the remaining backing and apply the bracket to the mounting
 location. Press hard on the bracket to make sure that the tape
@@ -100,7 +100,7 @@ the wall mounting bracket. Put the ties through the holes in the
 four raised sections on the back of the bracket. wrap them around
 the mounting location, and pull tight.
 
-![Wall mounting bracket with cable ties threaded through holes for alternative mounting options.](images/bracket-tie1.png)
+![Wall mounting bracket back view showing four raised sections with holes for cable ties.](images/bracket-tie1.png)
 
 After the bracket is mounted, attach the gateway to the
 bracket.
@@ -118,13 +118,13 @@ right-side up. The two holes that will reveal the LEDs are just above the logo,
 on the right side. The hole for the small screw that will attach the bracket to
 the gateway is at the top, in the center.
 
-![Orange device with Amazon smile logo and two small dots above, representing LEDs.](images/eth-gateway-mounted-front.png)
+![Orange gateway device with Amazon smile logo and two LED indicator holes above it.](images/eth-gateway-mounted-front.png)
 
 On the back of the device, there are two pairs of orange plastic hooks. The
 large hooks, near the bottom of the device, point downward. The small hooks,
 near the top of the device, point upward.
 
-![Back panel of a device with black interior and orange frame, showing mounting hooks and connectors.](images/eth-gateway-mounted-back.png)
+![Back of device showing black mounting plate with orange frame and four orange plastic hooks.](images/eth-gateway-mounted-back.png)
 
 1. With the wall mounting bracket in place, place the gateway against the
    bracket. The two large plastic hooks on the back of the gateway should
@@ -135,10 +135,10 @@ near the top of the device, point upward.
 3. Using the small screw that came with the gateway, fasten the gateway
    to the bracket through the hole at the top of the gateway.
 
-![Small screw being inserted through hole at top of yellow device into mounting bracket.](images/gateway-screw.png) 4. Insert the appropriate AC plug into the AC adapter. The following
+![Gateway device fastened to mounting bracket with screw through top hole.](images/gateway-screw.png) 4. Insert the appropriate AC plug into the AC adapter. The following
 picture shows the US plug attached to the adapter.
 
-![AC adapter with attached US plug and power cord on a wooden surface.](images/adapter-us.png) 5. Plug the AC adapter into the bottom of the gateway and a power
+![AC adapter with attached cable and interchangeable plug attachments including US plug.](images/adapter-us.png) 5. Plug the AC adapter into the bottom of the gateway and a power
 outlet.
 
 When the LED lights on the gateway blink slowly, alternating orange

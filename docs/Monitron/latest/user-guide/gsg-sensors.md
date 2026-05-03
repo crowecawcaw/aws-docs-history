@@ -34,11 +34,11 @@ The following examples show where to place sensors. For more information and
 examples, see [Where to Place Your Sensors](as-sensor-positions.md#as-where-sensors "as-sensor-positions.md#as-where-sensors") in the _Amazon Monitron User
 Guide_.
 
-![Simplified diagram of a motor connected to a pump, labeled with their respective names.](images/mounting_sensor1.png)
+![Diagram showing motor and pump assembly with sensor placement locations marked.](images/mounting_sensor1.png)
 
-![Diagram showing a motor connected to a pump via a coupling, with labeled components.](images/mounting_sensor2.png)
+![Motor connected to pump through coupling component in mechanical system diagram.](images/mounting_sensor2.png)
 
-![Diagram showing a gearbox connected to two pillar bearings on a shaft.](images/mounting_sensor3.png)
+![Diagram showing motor connected to gearbox, with pillar bearings supporting a shaft assembly.](images/mounting_sensor3.png)
 
 ## How to Place Sensors
 
@@ -48,7 +48,7 @@ pick up vibration and temperature measurements across the entire base of the
 sensor, but it's important to have the asset target area centered as much as
 possible on the sensor as shown in the following image.
 
-![Yellow sensor device with arrow indicating target contact area and minimum contact dimensions.](images/sensor_mounting.png)
+![Sensor showing target contact area centered on base with minimum contact area of 30 x 25 mm.](/images/Monitron/latest/user-guide/images/sensor_mounting.png)
 
 Attach the sensor with an industrial adhesive. We recommend a
 cyanoacrylate-type epoxy. For additional information about attaching the sensor

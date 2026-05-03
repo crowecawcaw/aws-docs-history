@@ -133,7 +133,7 @@ admin users beyond name and email.
 4. On the **Users** page, choose the users that you want
    to assign as admin users. If you can't see a user, search for them.
 
-![User interface showing a list of users with display names and email addresses.](images/users.png)
+![Users page showing a list of four users with checkboxes, display names, and email addresses.](images/users.png)
 
 The users you choose are displayed in the **Selected
 users** section. 5. If the user you want isn't in the directory, choose **Create
@@ -146,7 +146,7 @@ user** to add the user.
 
 
 
-    ![Create user interface with fields for email address, first name, and last name.](images/create-user.png)
+    ![Create user dialog with fields for email address, first name, and last name.](images/create-user.png)
     2. For **First name** and **Last
      name**, enter the admin's name.
     3. Choose **Create User**.
@@ -159,7 +159,7 @@ user** to add the user.
 Amazon Monitron takes you to the project page for your project, where it
 lists all admin users.
 
-![Project admin users interface showing a single user with display name, email, and username fields.](images/project-admin-user-list.png) 8. To add additional admin users, choose **Add admin**.
+![Project admin users table showing display name, email, and user name columns with one user.](images/project-admin-user-list.png) 8. To add additional admin users, choose **Add admin**.
 
 Any admin user can add other users using the Amazon Monitron mobile app. For
 more information, see [Adding a User](adding-user.md "adding-user.md") in the _Amazon Monitron User
@@ -196,7 +196,7 @@ information.
 5. For **Active directory domain**, choose the directory
    domain from which you want to add identities.
 
-![Active directory domain selection interface with user search results and selected users section.](images/activedirectory.png) 6. Choose **Users** or **Groups**,
+![Active directory search interface showing search results for users and selected users section.](images/activedirectory.png) 6. Choose **Users** or **Groups**,
 depending on how you want to search the user directory. 7. Enter a string in the search box to find the identity you want to add
 and then choose **Search**.
 
@@ -235,7 +235,7 @@ information.
 5. On the **Users** page, choose the users that you want
    to assign as admin users. If you can't see a user, search for them.
 
-![User interface showing a list of user profiles with display names and email addresses.](images/IdPscreen.png) 6. Choose **Add** to add the admin users.
+![Users page displaying a list of users with checkboxes, display names, and email addresses.](images/IdPscreen.png) 6. Choose **Add** to add the admin users.
 
 ## Returning to Amazon Monitron with IAM Identity Center
 
@@ -252,7 +252,7 @@ There are two ways to log out of IAM Identity Center:
   AWS services. If you are not, then you are logged out of IAM Identity Center
   automatically.
 
-![Amazon Monitron sign-out page with logo, service description, and sign back in option.](images/log-back-in.png)
+![Amazon Monitron signed out screen with gear icon and Sign back in button.](images/log-back-in.png)
 
 To learn about admin users using IAM Identity Center, see [User directory setup](mu-adding-user.md "mu-adding-user.md").
 

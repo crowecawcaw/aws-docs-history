@@ -23,10 +23,10 @@ https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/crea
    region in which you are using Amazon Monitron.
 4. Choose **Create stack**.
 
-![CloudFormation quick create stack interface with template URL, stack name, and IAM role options.](images/s3-export-1.png) 5. On the next page, choose the refresh icon as often as you like until
+![Capabilities section with acknowledgment checkbox for IAM resource creation.](images/s3-export-1.png) 5. On the next page, choose the refresh icon as often as you like until
 the status of the stack (monitronexport) is CREATE_COMPLETE.
 
-![CloudFormation stack details page showing monitronexport stack in CREATE_IN_PROGRESS state.](images/s3-export-2.png)
+![Events tab showing monitronexport stack with CREATE_IN_PROGRESS status and refresh icon highlighted.](images/s3-export-2.png)
 
 ## Step 2: Note your resources
 
@@ -37,7 +37,7 @@ the status of the stack (monitronexport) is CREATE_COMPLETE.
 5. Note the region you chose in Step 1. It also now appears at the top of
    the page, to the left of your account ID.
 
-![CloudFormation stack outputs page showing MonRoleArn and S3BucketArn with descriptions.](images/s3-export-3.png)
+![Outputs tab showing MonRoleArn and S3BucketArn values with their descriptions.](images/s3-export-3.png)
 
 ## Step 3: Create the support case
 
@@ -61,7 +61,7 @@ following:
 
 
 
-    ![Support case form with Account and billing selected, and service details specified.](images/s3-export-5.png)
+    ![Support case form with Account and billing selected, Service set to Account, Category set to Compliance and Accreditations, and Severity set to General question.](images/s3-export-5.png)
 
 4. In **Additional information** do the
    following:

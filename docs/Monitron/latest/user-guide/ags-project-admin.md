@@ -32,7 +32,7 @@ you are ready to assign the admin role to them.
 3. In the **Create user** section, enter the admin user's
    email address and name.
 
-![Create user dialog box with fields for email address, first name, and last name.](images/create-user.png) 4. Choose **Create user**.
+![Create user dialog with fields for email address, first name, and last name.](images/create-user.png) 4. Choose **Create user**.
 
 Amazon Monitron creates a user in IAM Identity Center. IAM Identity Center sends the user an email that contains
 a link to activate the account. The link is valid for up to seven days.

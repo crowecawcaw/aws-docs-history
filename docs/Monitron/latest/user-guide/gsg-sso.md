@@ -57,7 +57,7 @@ users.
    then to the **Users** list.
 3. Choose **Add user**.
 
-![User interface showing a list of users and an "Add user" button in the top right corner.](images/user-list-add.png) 4. Enter a user name.
+![Users page with Add user button highlighted in the upper right corner.](images/user-list-add.png) 4. Enter a user name.
 
 Amazon Monitron searches the user directory for the user. 5. Choose the user from the list. 6. Choose the role that you want to assign the user:
 **Admin**, **Technician**, or
@@ -73,7 +73,7 @@ email invitation](resending-email.md "resending-email.md").
 1. Select **Users** from the navigation pane.
 2. Choose **Add user**.
 
-![User management interface showing a list of users with their roles and sites.](images/webapp_add-user.png) 3. Enter a user name.
+![Add user button highlighted in the Users page toolbar.](images/webapp_add-user.png) 3. Enter a user name.
 
 Amazon Monitron searches the user directory for the user. 4. Choose the user from the list. 5. Choose the role that you want to assign the user:
 **Admin**, **Technician**, or
@@ -84,4 +84,4 @@ project and downloading the Amazon Monitron mobile app. For more information,
 see [Sending an
 email invitation](resending-email.md "resending-email.md").
 
-![User management interface showing a list of 10 users with their names, roles, and assigned sites.](images/users-table.png)
+![Users table showing display names, roles such as Admin and Technician, and site assignments.](images/users-table.png)

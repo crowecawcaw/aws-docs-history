@@ -38,9 +38,9 @@ shows you how.
 5. Choose the **Sensor Actions** button.
 6. Choose **View sensor details**.
 
-|                                                                                                        |                                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
-| Menu options showing "View sensor details" and "Delete sensor" with "View sensor details" highlighted. | Sensor details interface showing vibration warning, sensor status, and position information for a gearbox. |
+|                                                                               |                                                                                              |
+| ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Menu with View sensor details option selected and Delete sensor option below. | Sensor details tab showing sensor ID, connected status, battery level, and position details. |
 
 The **Sensor details** page is displayed.
 
@@ -52,7 +52,7 @@ The **Sensor details** page is displayed.
    **Sensor details** tab on the lower right side of
    the app window.
 
-![Sensor details panel showing ID, status, measurement time, and other technical information.](images/web-viewing-sensor-details-1.png)
+![Sensor details tab displaying sensor ID, status, battery level, measurement times, and firmware information.](images/web-viewing-sensor-details-1.png)
 
 ## Sensor connectivity status
 
@@ -79,9 +79,9 @@ sensor goes offline, but the app will indicate if a device goes offline.
 
 The following images show sensors that are offline.
 
-|                                                                                         |                                                                                            |                                                                                  |
-| --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- |
-| Asset monitoring interface showing positions with alarm, warning, and offline statuses. | Assets list in a project interface showing multiple asset entries with unique identifiers. | Sensor status interface showing offline warning and vibration measurement graph. |
+|                                                                                     |                                                                                                  |                                                                                                  |
+| ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| Asset details page showing 5 positions with alarm, warning, and no sensor statuses. | Assets panel showing list of assets with identifiers and site references, with Add asset button. | Sensor monitoring dashboard showing offline status, warning acknowledgment, and vibration graph. |
 
 ## Sensor battery status
 
@@ -103,12 +103,12 @@ status.
 
 The following table shows the different sensor battery states:
 
-| Battery status                                                   | Condition   | Time remaining                                  | Action                                                                                                                                                                                                                                                                                                                                                                              |
-| ---------------------------------------------------------------- | ----------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Battery status icon showing a green bar indicating charge level. | **Normal**  | Sensor battery is in healthy<br>state.          | No sensor battery monitoring currently<br>needed.                                                                                                                                                                                                                                                                                                                                   |
-| Battery status icon showing a nearly empty battery level.        | **Low**     | Battery has less than 1 year of life<br>left.   | Begin monitoring your sensor<br>battery.                                                                                                                                                                                                                                                                                                                                            |
-| Battery status indicator showing very low charge level.          | **Urgent**  | Battery has less than 3 months of life<br>left. | Replace your sensor as soon as<br>possible.                                                                                                                                                                                                                                                                                                                                         |
-| Battery status indicator showing "Unknown" status.               | **Unknown** | Battery life status is unknown.                 | 1. If commissioning sensor for the first time, wait for a<br>minute till the sensor sends its first<br>measurement.<br>2. Then, make sure you have commisioned a gateway<br>correctly and take a measurement using the mobile<br>app.<br>See [Gateways](gateways.md "gateways.md") and [Taking a one-time measurement](anom-take-measure.md "anom-take-measure.md") for<br>details. |
+| Battery status                                              | Condition   | Time remaining                                  | Action                                                                                                                                                                                                                                                                                                                                                                              |
+| ----------------------------------------------------------- | ----------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Battery status indicator showing a full green battery icon. | **Normal**  | Sensor battery is in healthy<br>state.          | No sensor battery monitoring currently<br>needed.                                                                                                                                                                                                                                                                                                                                   |
+| Battery status icon showing a nearly empty battery level.   | **Low**     | Battery has less than 1 year of life<br>left.   | Begin monitoring your sensor<br>battery.                                                                                                                                                                                                                                                                                                                                            |
+| Battery status indicator showing low charge level.          | **Urgent**  | Battery has less than 3 months of life<br>left. | Replace your sensor as soon as<br>possible.                                                                                                                                                                                                                                                                                                                                         |
+| Battery status showing Unknown value with information icon. | **Unknown** | Battery life status is unknown.                 | 1. If commissioning sensor for the first time, wait for a<br>minute till the sensor sends its first<br>measurement.<br>2. Then, make sure you have commisioned a gateway<br>correctly and take a measurement using the mobile<br>app.<br>See [Gateways](gateways.md "gateways.md") and [Taking a one-time measurement](anom-take-measure.md "anom-take-measure.md") for<br>details. |
 
 ###### Note
 

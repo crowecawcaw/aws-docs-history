@@ -8,7 +8,7 @@ To monitor assets using the Amazon Monitron mobile app, start with the
 **Assets** list. This list is displayed when you open the
 mobile app.
 
-![Asset list interface showing various equipment statuses, including sorters and conveyor belts.](images/asset_list.png)
+![Assets list showing sorters, conveyor belts, and motors with status indicators.](images/asset_list.png)
 Each asset in your project or site is listed in the **Assets**
 list.
 
@@ -26,16 +26,16 @@ its health. The following table describes these icons.
 When you choose an asset, the app displays the health status of each underlying
 sensor position.
 
-![Mobile app interface showing Sorter 1 status with two positions, one in alarm and one healthy.](images/unhealthy_asset.png)
+![Sorter 1 asset details showing two positions: Pos.1 with Alarm status and Pos.2 with Healthy status.](images/unhealthy_asset.png)
 The following table describes the position status indicators.
 
-| Status                                                                                    | State                                                                                                                                                                                                                                                                                         |
-| ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Green oval button with the text "Healthy" indicating a positive status.                   | The position is healthy: All measured values are within their<br>normal range.                                                                                                                                                                                                                |
-| Yellow warning label with black text saying "Warning".                                    | A warning has been triggered for this position indicating<br>early signs of a potential failure condition. We recommend that<br>you monitor the equipment closely and initiate an investigation<br>during an upcoming planned maintenance.                                                    |
-| Red oval button labeled "Alarm" indicating an alert or warning notification.              | An alarm has been triggered for this position, indicating that<br>the machine vibration or temperature is out of the normal range<br>at this position. We recommend investigating the issue at the<br>earliest opportunity. An equipment failure might occur if the<br>issue isn't addressed. |
-| Blue rectangular button with white text "Maintenance" indicating a system status or mode. | The alarm state of the position has been acknowledged by a<br>technician, but not yet addressed.                                                                                                                                                                                              |
-| No sensor                                                                                 | The position doesn't have a sensor paired to it.                                                                                                                                                                                                                                              |
+| Status                                                                       | State                                                                                                                                                                                                                                                                                         |
+| ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Green oval button with the text "Healthy" indicating a positive status.      | The position is healthy: All measured values are within their<br>normal range.                                                                                                                                                                                                                |
+| Yellow warning label with black text saying "Warning".                       | A warning has been triggered for this position indicating<br>early signs of a potential failure condition. We recommend that<br>you monitor the equipment closely and initiate an investigation<br>during an upcoming planned maintenance.                                                    |
+| Red oval button labeled "Alarm" indicating an alert or warning notification. | An alarm has been triggered for this position, indicating that<br>the machine vibration or temperature is out of the normal range<br>at this position. We recommend investigating the issue at the<br>earliest opportunity. An equipment failure might occur if the<br>issue isn't addressed. |
+| Blue button labeled "Maintenance" indicating a system or service status.     | The alarm state of the position has been acknowledged by a<br>technician, but not yet addressed.                                                                                                                                                                                              |
+| No sensor                                                                    | The position doesn't have a sensor paired to it.                                                                                                                                                                                                                                              |
 
 When an issue is raised for an individual position, the status changes for that
 position and for the asset as a whole.

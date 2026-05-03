@@ -13,4 +13,4 @@ plot view on the bottom.
 You can select your sensor measurement view from the **Chart
 type** menu in your mobile and web app.
 
-![Dashboard showing vibration data for Position name 3, with warning alerts and graphs.](images/scatter-plot-chart-measurement.png)
+![Vibration monitoring dashboard showing total and single axis vibration charts with warning status.](images/scatter-plot-chart-measurement.png)

@@ -23,18 +23,18 @@ information to make user management easier:
    user permissions from, and then to the **Users &
    Permissions** list.
 
-![Users & Permissions interface showing a list of 8 users with roles, assigned locations, and access levels.](images/user-10.png) 2. Select **Edit**. Then, from the **Modify user
+![Users and Permissions page showing a table with 8 users, their roles, assigned locations, and project level access.](images/user-10.png) 2. Select **Edit**. Then, from the **Modify user
 permissions** page, in **Username**, select
 the user whose details you want to view or edit. Amazon Monitron displays the list of
 locations the user is assigned to.
 
-![User permissions modification interface showing a dropdown list of users to select.](images/user-7.png) 3. To change the role assigned to the user, select between
+![Username dropdown menu showing User 9 search with list of users and their email addresses.](images/user-7.png) 3. To change the role assigned to the user, select between
 **Admin**, **Technician**, and
 **Viewer**. Or, you can choose to
 **Remove** the user. Then, select
 **Done**.
 
-![User permissions interface showing username search and asset hierarchy with role selection dropdown.](images/user-8.png)
+![Permission dropdown menu showing Admin selected, with Technician, Viewer, and Remove options.](images/user-8.png)
 
 Amazon Monitron diplays how the user was assigned permissions to all locations. If a
 user is assigned an **Admin** role at the project level,
@@ -42,4 +42,4 @@ they inherit access to all locations within that project. In this case,
 Amazon Monitron indicates their access level as **Admin –
 inherited**.
 
-![User permissions interface showing admin access for project and inherited admin rights for multiple sites.](images/user-9.png)
+![Modify user permissions page showing Project name with Admin role and inherited permissions for sites.](images/user-9.png)

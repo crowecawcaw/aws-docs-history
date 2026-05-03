@@ -20,6 +20,6 @@ yourself.
 You can choose separate versions for different time periods (1 day, 1
 week, 2 weeks, 1 month, and so on).
 
-|                                                                                                                                  |                                                                                         |
-| -------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| Two graphs showing total vibration and single axis vibration measurements over time with ISO warning and alarm levels indicated. | Pump monitoring interface showing vibration and temperature alarms with graphical data. |
+|                                                                                                                                        |                                                                                              |
+| -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Two vibration monitoring charts showing total and single axis measurements from Dec 7-20, 2022, with ISO alarm and warning thresholds. | Vibration monitoring dashboard showing alarm status and total vibration chart for pump main. |

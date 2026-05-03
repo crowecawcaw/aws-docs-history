@@ -27,7 +27,7 @@ alternately. 4. Push the **Config** button on the gateway to put it
 into commissioning mode. The Bluetooth and network LED lights will start
 flashing rapidly.
 
-![Button labeled "CONFIG" with a circular indicator light next to it.](images/ethernet-config-button.png) 5. Open the mobile app on your smartphone. 6. On the **Getting started** page or the
+![CONFIG button with orange LED indicator light.](images/ethernet-config-button.png) 5. Open the mobile app on your smartphone. 6. On the **Getting started** page or the
 **Gateways** page, choose **Add
 gateway**.
 
@@ -45,7 +45,7 @@ see [Troubleshooting Bluetooth pairing](troubleshooting-Bluetooth-pairing-ethern
 It can take a few moments for Amazon Monitron to connect to the new
 gateway.
 
-![Smartphone connecting via Bluetooth to an Amazon device with a smile logo.](images/phone-bluetooth-ethernet-gateway.png)
+![Mobile device connecting via Bluetooth to Amazon Monitron gateway device.](images/phone-bluetooth-ethernet-gateway.png)
 
 If the mobile app continues to try to connect to the gateway without
 success, see [Troubleshooting Ethernet gateway detection](troubleshooting-gateway-detection-ethernet.md "troubleshooting-gateway-detection-ethernet.md").
@@ -57,7 +57,7 @@ gateway device ID and MAC ID in the mobile app. 8. After it connects to the gate
 options for you to configure the network connection for your
 gateway.
 
-![Network configuration options for Monitron Gateway: Automatic (DHCP) or Manual.](images/ethernet-network-configuration.png) 9. Choose your network configuation.
+![Network configuration dialog with Automatic DHCP and Manual options for Monitron Gateway.](images/ethernet-network-configuration.png) 9. Choose your network configuation.
 
 It can take a few minutes for the gateway to be commissioned and to
 connect to the network.
@@ -73,4 +73,4 @@ helpful to reset it. For more information, see [Resetting the Ethernet gateway t
      alternate DNS server (optional) information. Then choose
      **connect**.
 
-![Network configuration form with fields for IP address, subnet mask, router, and DNS servers.](/images/Monitron/latest/user-guide/images/ethernet-IP-DNS-settings.png)
+![Configure network dialog with fields for IP Address, Subnet mask, Router, and DNS servers.](images/ethernet-IP-DNS-settings.png)

@@ -8,7 +8,7 @@ Unlike sensors, an Ethernet gateway doesn't need to be attached to the machines
 that are being monitored. However, it does need an available Ethernet network
 through which Amazon Monitron can connect to the AWS Cloud.
 
-![Amazon-branded device with reset and config buttons, displaying connectivity icons.](images/real-gateway-ethernet.png)
+![Amazon Monitron Ethernet gateway device with orange frame, power and connectivity indicators, and reset and config buttons.](images/real-gateway-ethernet.png)
 
 ###### Topics
 
@@ -69,7 +69,7 @@ screws included in the gateway box. Mount the bracket from the front. You might
 need to use an expansion plug or toggle bolt (not included) to secure the screw
 in the wall.
 
-![Yellow plastic mounting bracket with screw holes and wall anchors for installation.](images/gateway-mounting-bracket-screws.png)
+![Yellow mounting bracket with screw holes and mounting tabs shown from front view.](images/gateway-mounting-bracket-screws.png)
 
 **Tape mounting**
 
@@ -78,12 +78,12 @@ when you can't place a screw into the mounting surface. You can also use it in
 combination with the other methods of mounting for a more secure
 installation.
 
-![Yellow plastic mounting frame with double-sided tape for secure installation.](images/bracket-tape1-ethernet.png)
+![Yellow plastic mounting bracket with adhesive backing strips attached.](images/bracket-tape1-ethernet.png)
 
 Remove the backing on one side of the tape and apply the tape to the back of
 the wall mounting bracket between the four raised sections.
 
-![Yellow plastic mounting bracket with gray felt insert and 3M adhesive tape visible.](images/bracket-tape2-ethernet.png)
+![Yellow wall mounting bracket with blue adhesive tape applied between four raised sections.](images/bracket-tape2-ethernet.png)
 
 Remove the remaining backing and apply the bracket to the mounting location.
 Press hard on the bracket to make sure that the tape firmly adheres to the
@@ -96,7 +96,7 @@ use cable ties (also known as zip ties) to fasten the wall mounting bracket. Put
 the ties through the holes in the four raised sections on the back of the
 bracket, wrap them around the mounting location, and pull tight.
 
-![Yellow plastic mounting bracket with cable tie slots and two attached zip ties for securing to non-wall surfaces.](images/bracket-tie1-ethernet.png)
+![Back of yellow wall mounting bracket showing four raised sections with holes for cable ties.](images/bracket-tie1-ethernet.png)
 
 After the bracket is mounted, attach the gateway to the bracket.
 

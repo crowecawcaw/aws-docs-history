@@ -18,16 +18,16 @@ app.
    app.
 2. Choose the menu icon in the upper left of the screen.
 
-![Menu icon represented by three horizontal lines in the upper left corner of a header.](images/navigation.png) 3. Choose **Gateways**.
+![Navigation bar with hamburger menu icon, back arrow, and AnyCompany label.](images/navigation.png) 3. Choose **Gateways**.
 
 A list of all gateways associated with the project is displayed.
 
-![List of three connected gateways with their IDs and status indicators.](images/gateway_list.png)
+![Gateways list showing three connected gateways with identifiers and site name placeholders.](images/gateway_list.png)
 
 ## To list your gateways using the web app
 
 1. Choose **Gateways** from the left nav.
 
-![Left navigation menu showing Assets, Gateways highlighted in orange, and Users options.](images/webapp_leftnav-gateways.png) 2. The gateway list appears in the right pane.
+![Navigation menu with Assets, Gateways, and Users options, where Gateways is highlighted.](/images/Monitron/latest/user-guide/images/webapp_leftnav-gateways.png) 2. The gateway list appears in the right pane.
 
-![Gateway list showing status, site, type, and network details for 7 gateways.](images/webapp_gateway-list.png)
+![Table displaying seven gateways with columns for name, physical ID, status, site, gateway type, and network details.](images/webapp_gateway-list.png)

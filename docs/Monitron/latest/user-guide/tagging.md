@@ -53,15 +53,15 @@ The following restrictions also apply to Amazon Monitron project tags:
 
 ![Expand the Tags section to add tags to your project.](images/tag-3.png) 5. Choose **Add new tag**.
 
-![Tags section showing no associated tags and an "Add new tag" button.](images/tag-a.png) 6. Enter the key-value pair for your tag.
+![Tags section showing no associated tags with Add new tag button and 50 more tags available.](images/tag-a.png) 6. Enter the key-value pair for your tag.
 
 The key must be unique for the project. The value is optional.
 
 ![Enter a key and an optional value in the Tags section.](images/tag-1.png) 7. Choose **Add new tag**. 8. To add more tags, repeat steps 2 and 3. 9. To remove a tag, choose **Remove**.
 
-![Tag management interface showing a key-value pair for "glass fabrication" and "windshields" with a Remove option.](images/tag-b.png) 10. Remove blank tag entries and then choose **Next**.
+![Tags interface showing a tag with key glass fabrication and value windshields with Remove button.](images/tag-b.png) 10. Remove blank tag entries and then choose **Next**.
 
-![Tags interface showing a key-value pair for glass fabrication and windshields, with an empty row below.](images/tag-c.png)
+![Tags interface showing error message for blank key field with Remove buttons for tag entries.](images/tag-c.png)
 
 ## Adding a tag to a project after it’s been created
 
@@ -76,16 +76,16 @@ You can add a tag to a project on the project detail page.
 4. Under **Tags**, choose **Manage
    tags**.
 
-![Tags section showing a key-value pair for glass fabrication and windshields.](images/tag-d.png) 5. Choose **Add new tag**
+![Tags section showing one tag with key glass fabrication and value windshields.](images/tag-d.png) 5. Choose **Add new tag**
 
-![Tag creation interface with key and value fields, and options to add or remove tags.](images/tag-e.png) 6. Enter the key-value pair for your tag.
+![Tags interface showing glass fabrication key with windshields value and Add new tag button.](images/tag-e.png) 6. Enter the key-value pair for your tag.
 
 ###### Note
 
 Remember that the key must be unique for the project. The value is
 optional.
 
-![Tags interface showing key-value pairs for AWS resources, with options to add or remove tags.](images/tag-f.png) 7. Choose **Save**.
+![Tags interface showing two key-value pairs: glass fabrication with windshields, and test lab with empty value.](images/tag-f.png) 7. Choose **Save**.
 
 ## Modifying or removing a tag
 
@@ -104,4 +104,4 @@ modify or remove tags on the project detail page.
 5. To modify the tag value, make the change. To remove the tag, choose
    **Remove** next to the tag.
 
-![Tag creation interface with key and value fields, and options to add or remove tags.](images/tag-e.png) 6. Choose **Save**.
+![Tags interface showing glass fabrication key with windshields value and Add new tag button.](images/tag-e.png) 6. Choose **Save**.

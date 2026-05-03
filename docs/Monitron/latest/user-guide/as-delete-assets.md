@@ -26,7 +26,7 @@ any historical data associated with them.
 
 
 
-    ![Confirmation dialog for deleting "Asset 6" with warning about data loss and Delete button.](images/delete-asset-warning.png)
+    ![Delete Asset 6 confirmation dialog with warning about deleting positions and measurements.](images/delete-asset-warning.png)
     * If there are sensors paired with the asset, delete them.
 
 
@@ -36,11 +36,11 @@ any historical data associated with them.
 
 
 
-    ![Dialog box warning about deleting sensors and positions before deleting an asset.](images/delete-asset-sensors.png)
+    ![Dialog box confirming deletion of Asset name 5 with Delete sensors and positions button.](images/delete-asset-sensors.png)
 
     It can take some time for Amazon Monitron to delete all the
      paired sensors and positions.
 
 6. Choose **Delete**.
 
-![Dialog box warning about deleting an asset and its associated sensors and measurements.](images/delete-asset-sensors2.png)
+![Delete Asset 5 dialog box with warning message and Delete button highlighted.](images/delete-asset-sensors2.png)

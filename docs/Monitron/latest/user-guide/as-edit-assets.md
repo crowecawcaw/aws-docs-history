@@ -26,4 +26,4 @@ After you add an asset, you can change both its name and machine class.
 2. In the large tab, choose the **Actions** button from the
    right end of the row containing the asset name.
 
-![Asset management interface showing Conveyor belt 1 details with positions and status.](images/webapp_positions.png) 3. Enter a new name. 4. Choose **Save**.
+![Actions button in the upper right corner of the Conveyor belt 1 asset details page.](images/webapp_positions.png) 3. Enter a new name. 4. Choose **Save**.

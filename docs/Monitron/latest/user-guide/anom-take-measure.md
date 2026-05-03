@@ -35,8 +35,8 @@ measurement**.
 
 ![Mobile app interface showing sensor details with "Take measurement" option highlighted.](images/measurement-6.png) 7. Hold your smartphone close to the sensor.
 
-![Smartphone screen showing "Ready to Scan" with an icon of a phone near a sensor.](images/measurement-7.png)
-![Smartphone screen showing "Ready to Scan" with an icon of a phone near a sensor.](images/sensor-measure.png) 8. When the measurement has been taken, move your smartphone away from the
+![Hand holding a device near a sensor icon, illustrating proximity measurement initiation.](images/measurement-7.png)
+![Hand holding a device near a sensor icon, illustrating proximity measurement initiation.](images/sensor-measure.png) 8. When the measurement has been taken, move your smartphone away from the
 sensor.
 
 ![Dialog box showing successful measurement initiation and instruction to remove phone.](images/measure-success.png)
