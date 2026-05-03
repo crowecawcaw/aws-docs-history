@@ -154,10 +154,10 @@ This policy includes the following permissions:
 - `sns` – Retrieve the list of subscriptions to an SNS
   topic.
 - `config` – Retrieve information about configuration recorders,
-  resources, and AWS Config rules. Also allows the service-linked role to create and delete
-  AWS Config rules, and to run evaluations against the rules.
+  resources, and AWS Config rules. Also allows the service-linked role to manage the Security Hub CSPM service-linked
+  configuration recorders, create and delete AWS Config rules, and run evaluations against the rules.
 - `iam` – Retrieve and generate credential reports for
-  accounts.
+  accounts, and create the service-linked role for AWS Config.
 - `organizations` – Retrieve account and organizational unit (OU) information for an
   organization.
 - `securityhub` – Retrieve information about how the Security Hub CSPM service, standards, and controls
@@ -204,6 +204,7 @@ alerts about updates to the policies, subscribe to the RSS feed on the [Security
 
 | Change                                                                                                                                                                                          | Description                                                                                                                                                                                                                                                                                                                          | Date               |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
+| [AWSSecurityHubServiceRolePolicy](#security-iam-awsmanpol-awssecurityhubservicerolepolicy "#security-iam-awsmanpol-awssecurityhubservicerolepolicy") – Updated policy                           | Security Hub CSPM updated the policy to add permissions to manage Security Hub CSPM service-linked configuration recorders and create the AWS Config service-linked role.                                                                                                                                                            | April 29, 2026     |
 | [AWSSecurityHubOrganizationsAccess](#security-iam-awsmanpol-awssecurityhuborganizationsaccess "#security-iam-awsmanpol-awssecurityhuborganizationsaccess") – Updated policy                     | Security Hub updated the policy to add permissions to describe resource policies to support Security Hub features. Security Hub is in preview release and subject to change.                                                                                                                                                         | November 12, 2025  |
 | [AWSSecurityHubFullAccess](#security-iam-awsmanpol-awssecurityhubfullaccess "#security-iam-awsmanpol-awssecurityhubfullaccess") – Updated policy                                                | Security Hub updated the policy to add capabilities around managing GuardDuty, Amazon Inspector, and account management to support Security Hub features. Security Hub is in preview release and subject to change.                                                                                                                  | November 17, 2025  |
 | [AWSSecurityHubV2ServiceRolePolicy](#security-iam-awsmanpol-awssecurityhubv2servicerolepolicy "#security-iam-awsmanpol-awssecurityhubv2servicerolepolicy") – Updated policy                     | Security Hub updated the policy to add metering capabilities for Amazon Elastic Container Registry, AWS Lambda, Amazon CloudWatch, and AWS Identity and Access Management to support Security Hub features. The update also added support for global AWS Config recorders. Security Hub is in preview release and subject to change. | November 5, 2025   |

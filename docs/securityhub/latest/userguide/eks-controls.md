@@ -69,8 +69,7 @@ in the **Amazon EKS User Guide**.
 
 - `oldestVersionSupported`: `1.33` (not customizable)
 
-This control checks whether an Amazon Elastic Kubernetes Service (Amazon EKS) cluster runs on a supported Kubernetes version. The control fails if
-the EKS cluster runs on an unsupported version.
+This control checks whether an Amazon Elastic Kubernetes Service (Amazon EKS) cluster is running on a standard support Kubernetes version. The control fails if the Amazon EKS cluster is running on an unsupported or extended support version.
 
 If your application doesn't require a specific version of Kubernetes, we recommend that you use the latest available Kubernetes version that's
 supported by EKS for your clusters. For more information, see [Amazon EKS Kubernetes release calendar](../../../eks/latest/userguide/kubernetes-versions.md#kubernetes-release-calendar "../../../eks/latest/userguide/kubernetes-versions.md#kubernetes-release-calendar") and
@@ -277,9 +276,7 @@ version management
 - `oldestVersionSupported`: `1.33` (not
   customizable)
 
-This control checks whether an Amazon EKS node group runs on a supported Kubernetes
-version. The control fails if the EKS node group runs on an unsupported
-version.
+This control checks whether an Amazon EKS node group runs on a standard support Kubernetes version. The control fails if the Amazon EKS node group runs on an unsupported or extended support version.
 
 Running EKS node groups on unsupported Kubernetes versions means those nodes no
 longer receive security patches, bug fixes, or compatibility updates from AWS.

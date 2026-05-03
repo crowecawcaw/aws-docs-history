@@ -150,7 +150,7 @@ NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2)
 `AWS::EC2::Instance`
 
 **AWS Config rule:**
-[`ec2-stopped-instance`](../../../config/latest/developerguide/ec2-stopped-instance.md "../../../config/latest/developerguide/ec2-stopped-instance.md")
+`ec2-stopped-instance-days-check` (custom Security Hub CSPM rule)
 
 **Schedule type:** Periodic
 

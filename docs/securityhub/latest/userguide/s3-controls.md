@@ -392,9 +392,20 @@ if the bucket doesn't have a Lifecycle configuration.
 We recommended creating a Lifecycle configuration for your S3 bucket to help you define actions that you want Amazon S3 to take during
 an object's lifetime.
 
+###### Tip
+
+Enabling versioning without lifecycle management can lead to unbounded storage growth and increased costs.
+Every object modification creates a new version that is retained indefinitely. Configure S3 Lifecycle rules to
+automatically transition noncurrent versions to cheaper storage classes or expire them after a defined retention
+period.
+
 ### Remediation
 
-For more information on configuring lifecycle on an Amazon S3 bucket, see [Setting lifecycle configuration on a bucket](../../../AmazonS3/latest/userguide/how-to-set-lifecycle-configuration-intro.md "../../../AmazonS3/latest/userguide/how-to-set-lifecycle-configuration-intro.md") and [Managing your storage lifecycle](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md "../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md").
+For more information on configuring lifecycle on an Amazon S3 bucket, see
+[Using S3 Versioning with S3 Lifecycle](../../../AmazonS3/latest/userguide/Versioning.md#versioning-lifecycle "../../../AmazonS3/latest/userguide/Versioning.md#versioning-lifecycle"),
+[Setting lifecycle configuration on a bucket](../../../AmazonS3/latest/userguide/how-to-set-lifecycle-configuration-intro.md "../../../AmazonS3/latest/userguide/how-to-set-lifecycle-configuration-intro.md") and
+[Managing the lifecycle of objects](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md "../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md")
+in the _Amazon S3 User Guide_.
 
 ## [S3.11] S3 general purpose buckets should have event notifications enabled
 
@@ -525,15 +536,18 @@ This control checks whether an Amazon S3 general purpose bucket has versioning e
 suspended for the bucket.
 
 Versioning keeps multiple variants of an object in the same S3 bucket. You can use
-versioning to preserve, retrieve, and restore earlier versions of an object stored in your S3
+versioning to preserve, retrieve, and restore all versions of all objects stored in your S3
 bucket. Versioning helps you recover from both unintended user actions and application
 failures.
 
 ###### Tip
 
-As the number of objects increases in a bucket because of versioning, you can set up a Lifecycle configuration to
-automatically archive or delete versioned objects based on rules. For more information, see
-[Amazon S3 Lifecycle Management for Versioned Objects](https://aws.amazon.com/blogs/aws/amazon-s3-lifecycle-management-update/ "https://aws.amazon.com/blogs/aws/amazon-s3-lifecycle-management-update/").
+Enabling versioning without lifecycle management can lead to unbounded storage growth and increased costs.
+Every object modification creates a new version that is retained indefinitely. Configure S3 Lifecycle
+rules to automatically transition noncurrent versions to cheaper storage classes or
+expire them after a defined retention period. For more information, see
+[Using S3 Versioning with S3 Lifecycle](../../../AmazonS3/latest/userguide/Versioning.md#versioning-lifecycle "../../../AmazonS3/latest/userguide/Versioning.md#versioning-lifecycle") and
+[Managing the lifecycle of objects](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md "../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md").
 
 ### Remediation
 
