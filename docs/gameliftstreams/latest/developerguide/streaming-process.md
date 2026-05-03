@@ -146,10 +146,31 @@ executable or script file. Complete this step in the Amazon GameLift Streams con
 5.  (Optional) In **Application log path**, enter the following:
     1. **Application log path**
 
-    This is the path (or paths) to the application folder or file which contains logs that you want to save.
-    Specify each log path relative to your application base path.
-    If you use this feature, then at the end of every stream session, Amazon GameLift Streams will copy the file(s) that you specify to the Amazon S3 bucket that you name.
-    The copy operation is not performed recursively in an application folder's subfolders.
+    Specify the paths to log files or folders that you want Amazon GameLift Streams to save.
+    At the end of every stream session, Amazon GameLift Streams
+    copies the specified files to the Amazon S3 bucket that you name.
+
+        * Paths are relative to your application directory, or relative to the user's home directory when using a supported path variable.
+        * If you specify a directory, only `.txt`, `.log`, and `.utrace` files are collected. To collect other file types, specify the exact file path.
+        * The copy operation is not performed recursively in subfolders.
+        * You can specify up to 10 log paths. Each individual log file cannot exceed 50 MB in size.
+
+    **Path variables**
+
+    The following variables are recognized when they appear as the first component of a path.
+
+        * `%USERPROFILE%` – The user's home directory (Windows and Proton)
+        * `$HOME`, `~` – The user's home directory (Linux)
+
+    **Examples:**
+
+        * `Saved\Logs` – Collects `.txt`,
+         `.log`, and `.utrace` files from the `Saved\Logs`
+         directory relative to your application.
+        * `Saved\Logs\debug.dmp` – Collects a specific named file.
+        * `%USERPROFILE%\AppData\Local\MyGame\Logs` – Collects `.txt`,
+         `.log`, and `.utrace` files relative to the user's home directory.
+         Use a path variable when your application writes logs outside of the application directory.
 
     To disable logging, remove all application log paths and clear the application log output destination.
 
