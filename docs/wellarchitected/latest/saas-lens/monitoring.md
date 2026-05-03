@@ -33,7 +33,7 @@ concurrency to limit the consumption of a given tenant tier.
 The diagram in Figure 24 provides an example of how this could
 be realized.
 
-![Diagram showing three tiers of microservices with increasing reserve concurrency levels.](images/image25.png)
+![Three Lambda tier configurations showing Basic with 100, Advanced with 300, and Premium with all unreserved concurrency.](images/image25.png)
 _Figure 24: Controlling tenant performance with reserve concurrency_
 
 In this example, we’ve created three separate tenant tiers and

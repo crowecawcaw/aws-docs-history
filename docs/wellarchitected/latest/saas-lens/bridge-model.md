@@ -8,7 +8,7 @@ mixed model is what we would refer to as the bridge model of isolation. The diag
 Figure 18 provides an example of how the bridge model might be realized in a SaaS
 solution.
 
-![Multi-tenant architecture with shared web tier and separate app tiers for three tenants.](images/image19.png)
+![Architecture with shared web tier and separate app tiers and databases for three tenants.](images/image19.png)
 _Figure 18: Bridge isolation model_
 
 This diagram highlights how the bridge model enables you to combine the silo and

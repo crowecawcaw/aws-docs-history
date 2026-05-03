@@ -29,7 +29,7 @@ might want insights into feature-oriented metrics. Meanwhile, an
 operations person might be using this data to assess the health
 and consumption trends of individual tenants and tiers.
 
-![Data flow diagram showing system and application events ingested into AWS services for analysis.](images/image12.png)
+![Data flow from system and application events through Kinesis Data Firehose to Redshift to QuickSight.](images/image12.png)
 _Figure 11: Ingest and visualize SaaS metrics_
 
 The architecture for capturing and surfacing this data is

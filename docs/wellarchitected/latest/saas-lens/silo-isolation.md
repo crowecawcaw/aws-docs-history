@@ -15,7 +15,7 @@ isolation is an end-to-end construct that spans an entire
 customer stack. The diagram in Figure 16 provides a conceptual
 view of this view of isolation.
 
-![Diagram showing multiple tenants with isolated web app, microservices, and database stacks.](images/image17.png)
+![Three tenants each with isolated stacks containing Web App, Microservices, and databases.](images/image17.png)
 _Figure 16: Silo isolation model_
 
 This diagram highlights the basic footprint of the siloed

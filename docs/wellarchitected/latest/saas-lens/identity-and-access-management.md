@@ -41,7 +41,7 @@ illustrated on the left side of the diagram, where a tenant
 completes a sign-up form, and triggers a call to your
 application’s registration service.
 
-![](images/image16.png)
+![Multi-tenant SaaS architecture flow from registration through authentication to microservices.](images/image16.png)
 _Figure 15: Injecting tenant content_
 
 This registration service creates a tenant and then creates a

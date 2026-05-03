@@ -43,7 +43,7 @@ controller. The controller enables selected routing within our
 Amazon EKS cluster that is essential to the multi-tenant routing
 that you’ll see below.
 
-![Multi-tenant AWS architecture with VPC across 3 availability zones, showing public and private subnets.](images/image5.png)
+![VPC with three Availability Zones containing public and private subnets with microservices.](images/image5.png)
 _Figure 4: Amazon EKS SaaS shared services architecture_
 
 The services running in the Amazon EKS cluster represent a
@@ -63,7 +63,7 @@ considerations described previously, our Amazon EKS environment
 will create separate namespaces for each tenant and secure those
 namespaces to ensure that we have a robust tenant isolation model.
 
-![Multi-zone VPC architecture with public and private subnets, NAT gateways, and tenant namespaces for Order and Product.](images/image6.png)
+![VPC with three availability zones, each containing public and private subnets with tenant namespaces.](images/image6.png)
 _Figure 5: Deploying tenant environments in Amazon EKS_
 
 The diagram in Figure 5 provides a view of these namespaces within
@@ -95,7 +95,7 @@ restrict the access of any tenant running in a given namespace.
 The diagram in Figure 6 provides a high-level illustration of an
 approach you can take to control the experience of each tenant.
 
-![Diagram showing tenant isolation in Amazon EKS with separate namespaces and security policies.](images/image7.jpeg)
+![Multi-tenant namespace isolation with pod security policies, IAM policies, and separate database tables per tenant.](images/image7.jpeg)
 _Figure 6: Isolating tenant resources_
 
 There are two specific constructs introduced here. At the

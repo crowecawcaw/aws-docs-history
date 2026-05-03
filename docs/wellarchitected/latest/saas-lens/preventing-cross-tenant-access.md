@@ -29,7 +29,7 @@ implementation of your multi-tenant functions. The diagram in
 Figure 2 provides an example of how this would be
 addressed.
 
-![Multi-tenant architecture diagram showing isolation context, AWS Lambda, and IAM integration.](images/image3.png)
+![Runtime-acquired tenant scope flow showing IAM, isolation context, Lambda functions, and access context layers.](images/image3.png)
 _Figure 2: Isolation in a serverless environment_
 
 In this example, you’ll see that we have three tenants accessing

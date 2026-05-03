@@ -26,7 +26,7 @@ customers that chose this option. If too many of your tenants fall into this mod
 you’ll begin to fall back to a fully siloed model and inherit many of the challenges
 that are outlined previously.
 
-![Comparison of pool and silo models for multi-tenant microservice architecture.](images/image20.png)
+![Pool model with shared resources for multiple tenants versus silo model with dedicated resources for one tenant.](images/image20.png)
 _Figure 19: Tier-based isolation_
 
 To limit the impact of these one-off environments, SaaS providers will often

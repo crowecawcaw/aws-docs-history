@@ -34,7 +34,7 @@ Token Manager. It then uses this context to get tenant-scoped
 credentials from an isolation manager before using these
 credentials to get the product data from DynamoDB.
 
-![Product microservice architecture with multi-tenant components and AWS services integration.](images/image11.png)
+![Architecture diagram showing multi-tenant microservice flow with JWT authentication and AWS services.](images/image11.png)
 _Figure 10: Developing multi-tenant microservices_
 
 Finally, our service records a metric (perhaps execution time)

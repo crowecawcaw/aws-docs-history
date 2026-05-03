@@ -37,7 +37,7 @@ but each tenant has a dedicated _database_ that holds its account
 data. In this scenario, the isolation concern is focused exclusively on separating the
 data. The compute is still enabled to be shared.
 
-![Microservices architecture diagram showing product, order, and account services with tenant data distribution.](images/image21.png)
+![Microservices architecture showing tenant data isolation models from fully siloed to shared compute with dedicated databases.](images/image21.png)
 _Figure 20: Targeted isolation_
 
 This model shows how the silo discussion becomes much more granular. Security,

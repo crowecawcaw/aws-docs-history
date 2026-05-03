@@ -22,7 +22,7 @@ can embrace this model without fully compromising your SaaS
 vision. The diagram in Figure 9 provides a conceptual view of how
 you could address this challenge.
 
-![Microservice architecture comparing pool and silo models for multi-tenant deployment.](images/image10.png)
+![Pool model with multiple tenants sharing microservices versus silo model with dedicated resources.](images/image10.png)
 _Figure 9: Hybrid deployment model_
 
 In this diagram, you’ll notice that we have two separate

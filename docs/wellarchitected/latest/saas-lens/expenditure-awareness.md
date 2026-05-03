@@ -53,7 +53,7 @@ activity for the tenant. An alternate approach to this would
 be to use AWS X-Ray to capture this data (instead of the
 Amazon API Gateway).
 
-![Diagram showing multi-tenant API architecture with Amazon API Gateway, Lambda, and microservices.](images/image26.png)
+![Architecture showing API Gateway with Lambda authorizer extracting tenant context from JWT to record activity.](images/image26.png)
 _Figure 25: Minimally invasive capture of tenant consumption_
 
 There’s also a placeholder on the diagram for aggregating and
@@ -77,7 +77,7 @@ of your application. The diagram in Figure 26 provides a view
 of how you might introduce metrics instrumentation into the
 microservices of your SaaS application.
 
-![Diagram showing metrics flow from Application Service through AWS services to Consumption Aggregation Service.](images/image27.png)
+![Application metrics flow from CloudWatch through Lambda and Kinesis to S3 and aggregation service.](images/image27.png)
 _Figure 26: Instrumenting microservices with tenant consumption events_
 
 In this example, we’ve introduced metrics instrumentation into
@@ -120,7 +120,7 @@ of a scenario where the costs of a SaaS environment were
 correlated with revenue from those tenants and the size of the
 ecommerce catalog being managed by these tenants.
 
-![Stacked bar graph comparing Basic, Standard, and Advanced tiers by catalog size, tenant revenue, and infra costs.](images/image28.png)
+![Stacked bar chart comparing infrastructure costs, tenant revenue, and catalog size across three tiers.](images/image28.png)
 _Figure 27: Costs per tenant by tier_
 
 This graph illustrates the distribution of costs across the
@@ -167,7 +167,7 @@ percentage of consumption to each tenant. Finally, these
 consumption percentages are applied to the infrastructure
 costs to arrive at the cost per tenant.
 
-![Cost aggregation and tenant consumption process for calculating cost per tenant.](images/image29.png)
+![Cost aggregation and tenant consumption data combined to calculate per-tenant costs.](images/image29.png)
 _Figure 28: Calculating cost per tenant_
 
 After you have this data, you can choose how best to represent

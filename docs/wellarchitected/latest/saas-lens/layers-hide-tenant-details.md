@@ -16,7 +16,7 @@ than ideal to have each service implementing these policies on
 their own. Instead, we’ve introduced a layer that includes code
 that manages the publishing of this data.
 
-![](images/image4.png)
+![Product and Order services with Lambda functions sending JWT tokens to a layer with Logging manager, Metrics manager, and Token manager components.](images/image4.png)
 _Figure 3: Lambda layers hide away tenant details_
 
 You’ll notice that our layer includes logging and metrics

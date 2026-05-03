@@ -8,7 +8,7 @@ to as a pool model, adds a level of complexity to the isolation story. The diagr
 Figure 17 provides an illustration of the challenge associated with implementing
 isolation in a pooled model.
 
-![Microservice architecture diagram showing tenant isolation and shared compute resources for a SaaS application.](images/image18.png)
+![Pooled microservices with shared compute resources serving multiple tenants with isolated storage.](images/image18.png)
 _Figure 17: Pool isolation model_
 
 In this model, you’ll notice that our tenants are consuming infrastructure that is

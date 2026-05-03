@@ -66,7 +66,7 @@ at the entry point to your application, detecting and
 throttling any tenant that may impose load that could impact
 the overall reliability of your environment.
 
-![Amazon API Gateway with JWT token, API keys, and usage plans for tenant access control.](images/image22.png)
+![API Gateway receiving requests from tenants using JWT tokens and API keys with usage plans.](images/image22.png)
 _Figure 21: Throttling tenants by tier_
 
 | SaaS REL 2: How do you proactively detect and maintain tenant<br>health? |
