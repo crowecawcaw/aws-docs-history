@@ -14,7 +14,7 @@ Objectives:
 - Identify features of responsible AI (for example, bias, fairness, inclusivity, robustness, safety, veracity).
 - Explain how to use tools to identify features of responsible AI (for example, Amazon Bedrock Guardrails).
 - Define responsible practices to select a model (for example, environmental considerations, sustainability).
-- Identify legal risks of working with GenAI (for example, intellectual property infringement claims, biased model outputs, loss of customer trust, end user risk, hallucinations).
+- Identify legal risks of working with generative AI (GenAI) (for example, intellectual property infringement claims, biased model outputs, loss of customer trust, end user risk, hallucinations).
 - Identify characteristics of datasets (for example, inclusivity, diversity, curated data sources, balanced datasets).
 - Describe effects of bias and variance (for example, effects on demographic groups, inaccuracy, overfitting, underfitting).
 - Describe tools to detect and monitor bias, trustworthiness, and truthfulness (for example, analyzing label quality, human audits, subgroup analysis, Amazon SageMaker Clarify, SageMaker Model Monitor, Amazon Augmented AI [Amazon A2I]).
@@ -24,6 +24,6 @@ Objectives:
 Objectives:
 
 - Describe the differences between models that are transparent and explainable and models that are not transparent and explainable.
-- Describe tools to identify transparent and explainable models (for example, SageMaker Model Cards, open source models, data, licensing).
+- Describe tools to identify transparent and explainable models (for example, Amazon SageMaker Model Cards, SageMaker Clarify, Amazon Bedrock Model Evaluations, open source models, data, licensing).
 - Identify tradeoffs between model safety and transparency (for example, measure interpretability and performance).
-- Describe principles of human-centered design for explainable AI.
+- Describe principles of human-centered design for explainable AI (for example, user-feedback mechanisms, AI decision transparency).

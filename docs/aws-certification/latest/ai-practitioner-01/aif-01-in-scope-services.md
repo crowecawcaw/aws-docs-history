@@ -1,6 +1,4 @@
-# In-scope AWS services and features
-
-## In-scope AWS services and features
+# In-Scope AWS Services
 
 The following list contains AWS services and features that are in scope for the AWS Certified AI Practitioner (AIF-C01) exam. This list is non-exhaustive and is subject to change. AWS offerings appear in categories that align with the offerings' primary functions.
 
@@ -11,13 +9,14 @@ The following list contains AWS services and features that are in scope for the 
 - [Compute](#aif-01-in-scope-compute "#aif-01-in-scope-compute")
 - [Containers](#aif-01-in-scope-containers "#aif-01-in-scope-containers")
 - [Database](#aif-01-in-scope-database "#aif-01-in-scope-database")
+- [Developer Tools](#aif-01-in-scope-developer-tools "#aif-01-in-scope-developer-tools")
 - [Machine Learning](#aif-01-in-scope-machine-learning "#aif-01-in-scope-machine-learning")
 - [Management and Governance](#aif-01-in-scope-management-governance "#aif-01-in-scope-management-governance")
 - [Networking and Content Delivery](#aif-01-in-scope-networking "#aif-01-in-scope-networking")
 - [Security, Identity, and Compliance](#aif-01-in-scope-security "#aif-01-in-scope-security")
 - [Storage](#aif-01-in-scope-storage "#aif-01-in-scope-storage")
 
-### Analytics
+## Analytics
 
 - AWS Data Exchange
 - Amazon EMR
@@ -25,52 +24,59 @@ The following list contains AWS services and features that are in scope for the 
 - AWS Glue DataBrew
 - AWS Lake Formation
 - Amazon OpenSearch Service
-- Amazon QuickSight
+- Amazon Quick
 - Amazon Redshift
 
-### Cloud Financial Management
+## Cloud Financial Management
 
 - AWS Budgets
 - AWS Cost Explorer
 
-### Compute
+## Compute
 
 - Amazon EC2
+- AWS Lambda
 
-### Containers
+## Containers
 
 - Amazon Elastic Container Service (Amazon ECS)
 - Amazon Elastic Kubernetes Service (Amazon EKS)
 
-### Database
+## Database
 
+- Amazon Aurora
 - Amazon DocumentDB (with MongoDB compatibility)
 - Amazon DynamoDB
 - Amazon ElastiCache
-- Amazon MemoryDB
 - Amazon Neptune
 - Amazon RDS
 
-### Machine Learning
+## Developer Tools
+
+- Kiro
+- Strands Agents
+- Amazon Q
+
+## Machine Learning
 
 - Amazon Augmented AI (Amazon A2I)
 - Amazon Bedrock
+- Amazon Bedrock AgentCore
 - Amazon Comprehend
-- Amazon Fraud Detector
 - Amazon Kendra
 - Amazon Lex
 - Amazon Nova
 - Amazon Personalize
 - Amazon Polly
-- Amazon Q Developer
-- Amazon Q Business
 - Amazon Rekognition
 - Amazon SageMaker AI
+- Amazon SageMaker JumpStart
 - Amazon Textract
 - Amazon Transcribe
 - Amazon Translate
+- AWS Transform
 
-### Management and Governance
+## Management and Governance
 
 - AWS CloudTrail
 - Amazon CloudWatch
@@ -78,12 +84,12 @@ The following list contains AWS services and features that are in scope for the 
 - AWS Trusted Advisor
 - AWS Well-Architected Tool
 
-### Networking and Content Delivery
+## Networking and Content Delivery
 
 - Amazon CloudFront
 - Amazon VPC
 
-### Security, Identity, and Compliance
+## Security, Identity, and Compliance
 
 - AWS Artifact
 - AWS Audit Manager
@@ -93,7 +99,7 @@ The following list contains AWS services and features that are in scope for the 
 - Amazon Macie
 - AWS Secrets Manager
 
-### Storage
+## Storage
 
 - Amazon S3
 - Amazon S3 Glacier

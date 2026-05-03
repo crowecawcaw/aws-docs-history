@@ -1,4 +1,6 @@
-# Out-of-scope AWS services and features
+# Out-of-Scope AWS Services
+
+The following list contains AWS services and features that are out of scope for the exam. This list is non-exhaustive and is subject to change. AWS offerings that are entirely unrelated to the target job roles for the exam are excluded from this list:
 
 ###### Topics
 
@@ -21,13 +23,11 @@
 - [Networking and Content Delivery](#aif-01-out-of-scope-networking "#aif-01-out-of-scope-networking")
 - [Security, Identity, and Compliance](#aif-01-out-of-scope-security "#aif-01-out-of-scope-security")
 - [Storage](#aif-01-out-of-scope-storage "#aif-01-out-of-scope-storage")
-  The following list contains AWS services and features that are out of scope for the exam. This list is non-exhaustive and is subject to change. AWS offerings that are entirely unrelated to the target job roles for the exam are excluded from this list:
 
 ## Analytics
 
 - AWS Clean Rooms
 - Amazon CloudSearch
-- Amazon FinSpace
 - Amazon Managed Streaming for Apache Kafka (Amazon MSK)
 
 ## Application Integration
@@ -39,12 +39,10 @@
 ## Business Applications
 
 - Amazon Chime
-- Amazon Honeycode
 - Amazon Pinpoint
 - Amazon Simple Email Service (Amazon SES)
 - AWS Supply Chain
 - AWS Wickr
-- Amazon WorkDocs
 - Amazon WorkMail
 
 ## Cloud Financial Management

@@ -11,10 +11,11 @@ Domain 5 covers security, compliance, and governance for AI solutions and repres
 
 Objectives:
 
-- Identify AWS services and features to secure AI systems (for example, IAM roles, policies, and permissions; encryption; Amazon Macie; AWS PrivateLink; AWS shared responsibility model).
+- Identify AWS services and features to secure AI systems (for example, IAM roles, policies, and permissions; encryption; Amazon Macie; AWS PrivateLink; AWS shared responsibility model; Amazon Bedrock AgentCore Identity; Policy in AgentCore; Amazon Bedrock Guardrails).
 - Describe the concept of source citation and documenting data origins (for example, data lineage, data cataloging, Amazon SageMaker Model Cards).
 - Describe best practices for secure data engineering (for example, assessing data quality, implementing privacy-enhancing technologies, data access control, data integrity).
-- Describe security and privacy considerations for AI systems (for example, application security, threat detection, vulnerability management, infrastructure protection, prompt injection, encryption at rest and in transit).
+- Describe security and privacy considerations for AI systems (for example, application security, threat detection, vulnerability management, infrastructure protection, prompt injection, encryption at rest and in transit, data leakage prevention, output filtering and validation, audit trail and logging requirements for AI interactions, toxicity).
+- Describe hallucination detection methods and grounding techniques to improve output accuracy (for example, Retrieval Augmented Generation [RAG] grounding, output validation, confidence scoring).
 
 ## Task Statement 5.2: Recognize governance and compliance regulations for AI systems.
 

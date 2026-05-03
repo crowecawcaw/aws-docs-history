@@ -13,8 +13,9 @@ The AWS Certified AI Practitioner (AIF-C01) exam is designed for individuals who
 - [Content Domain 3: Applications of Foundation Models](ai-practitioner-01-domain3.md "ai-practitioner-01-domain3.md")
 - [Content Domain 4: Guidelines for Responsible AI](ai-practitioner-01-domain4.md "ai-practitioner-01-domain4.md")
 - [Content Domain 5: Security, Compliance, and Governance for AI Solutions](ai-practitioner-01-domain5.md "ai-practitioner-01-domain5.md")
-- [In-scope AWS services and features](aif-01-in-scope-services.md "aif-01-in-scope-services.md")
-- [Out-of-scope AWS services and features](aif-01-out-of-scope-services.md "aif-01-out-of-scope-services.md")
+- [In-Scope AWS Services](aif-01-in-scope-services.md "aif-01-in-scope-services.md")
+- [Out-of-Scope AWS Services](aif-01-out-of-scope-services.md "aif-01-out-of-scope-services.md")
+- [Revisions](aif-01-revisions.md "aif-01-revisions.md")
 - [Survey](#ai-practitioner-01-survey "#ai-practitioner-01-survey")
 
 ## Introduction
