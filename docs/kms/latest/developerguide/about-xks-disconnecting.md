@@ -27,7 +27,7 @@ While a custom key store is disconnected, all attempts to create KMS keys in the
 fail. This action can prevent users from storing and accessing sensitive data.
 
 To better estimate the effect of disconnecting your external key store, identify the
-KMS keys in the external key store and [determine their past use](deleting-keys-determining-usage.md "deleting-keys-determining-usage.md").
+KMS keys in the external key store and [determine their past use](monitoring-keys-determining-usage.md "monitoring-keys-determining-usage.md").
 
 You might disconnect an external key store for reasons such as the following:
 

@@ -45,7 +45,7 @@ the name of the one of the aliases. Choosing the alias summary takes you
 directly to the **Aliases** tab on the key details
 page.
 
-![AWS KMScustomer managed key details showing general and cryptographic configurations.](images/console-key-detail-view-symmetric-sm.png)
+![](images/console-key-detail-view-symmetric-sym.png)
 The following list describes the fields in the detailed display, including field
 in the tabs. Some of these fields are also available as columns in the table
 display.
@@ -194,6 +194,23 @@ Where: Cryptographic configuration tab
 The cryptographic operations that are enabled on the [external key](keystore-external.md#concept-external-key "keystore-external.md#concept-external-key") associated with
 the KMS key. This field appears only for KMS keys in an external key
 store.
+
+**Last used**
+
+Where: General configuration section
+
+The last time the KMS key was used in a
+cryptographic operation, displayed as a relative value such as
+_5 days ago_. This value only covers usage since
+AWS KMS started tracking usage for this key. Hover over the value to
+view the exact timestamp, the date when AWS KMS started tracking
+usage, the AWS KMS operation that was performed, and a link to the
+associated AWS CloudTrail event.
+
+This field tracks only [cryptographic operations](kms-cryptography.md#cryptographic-operations "kms-cryptography.md#cryptographic-operations"). Non-cryptographic operations such as
+[DescribeKey](../APIReference/API_DescribeKey.md "../APIReference/API_DescribeKey.md") or
+[GetKeyPolicy](../APIReference/API_GetKeyPolicy.md "../APIReference/API_GetKeyPolicy.md")
+are not tracked.
 
 **Key policy**
 

@@ -115,6 +115,7 @@ set operators, see [Using multiple keys and values](../../../IAM/latest/UserGuid
 - [kms:RotationPeriodInDays](#conditions-kms-rotation-period-in-days "#conditions-kms-rotation-period-in-days")
 - [kms:ScheduleKeyDeletionPendingWindowInDays](#conditions-kms-schedule-key-deletion-pending-window-in-days "#conditions-kms-schedule-key-deletion-pending-window-in-days")
 - [kms:SigningAlgorithm](#conditions-kms-signing-algorithm "#conditions-kms-signing-algorithm")
+- [kms:TrailingDaysWithoutKeyUsage](#conditions-kms-trailing-days-without-key-usage "#conditions-kms-trailing-days-without-key-usage")
 - [kms:ValidTo](#conditions-kms-valid-to "#conditions-kms-valid-to")
 - [kms:ViaService](#conditions-kms-via-service "#conditions-kms-via-service")
 - [kms:WrappingAlgorithm](#conditions-kms-wrapping-algorithm "#conditions-kms-wrapping-algorithm")
@@ -2144,6 +2145,76 @@ request is an RSASSA_PSS algorithm, such as `RSASSA_PSS_SHA512`.
 - [kms:EncryptionAlgorithm](#conditions-kms-encryption-algorithm "#conditions-kms-encryption-algorithm")
 - [kms:MacAlgorithm](#conditions-kms-mac-algorithm "#conditions-kms-mac-algorithm")
 - [kms:MessageType](#conditions-kms-message-type "#conditions-kms-message-type")
+
+## kms:TrailingDaysWithoutKeyUsage
+
+| AWS KMS condition keys            | Condition type | Value type    | API operations                        | Policy type                   |
+| --------------------------------- | -------------- | ------------- | ------------------------------------- | ----------------------------- |
+| `kms:TrailingDaysWithoutKeyUsage` | Numeric        | Single-valued | `DisableKey`<br>`ScheduleKeyDeletion` | Key policies and IAM policies |
+
+The `kms:TrailingDaysWithoutKeyUsage` condition key represents the number of trailing
+days without cryptographic operations on a KMS key, calculated from the last successful cryptographic operation,
+or from the KMS key's creation date or `TrackingStartDate` if the key has never been used. For more
+information about the tracking start date, see [Understanding the usage tracking period](monitoring-keys-determining-usage.md#understanding-tracking-period "monitoring-keys-determining-usage.md#understanding-tracking-period").
+You can use this condition key in key policies and IAM policies to control access to the [ScheduleKeyDeletion](../APIReference/API_ScheduleKeyDeletion.md "../APIReference/API_ScheduleKeyDeletion.md") and [DisableKey](../APIReference/API_DisableKey.md "../APIReference/API_DisableKey.md") operations.
+
+This condition key is a numeric, single-valued condition. The trailing days value is
+always rounded down. For example, if a key was last used 89.9 days ago, the value is 89.
+
+The `kms:TrailingDaysWithoutKeyUsage` is calculated as follows:
+
+- For keys created _on or after_ the `TrackingStartDate` that
+  have _not been used_ since tracking started:
+
+Formula: _Present Date_ -
+`KeyCreationDate`
+
+For example, if the _Present Date_ is April 30,
+2026 and the key was created on April 20, 2026, the value is 10.
+
+- For keys created _before_ the `TrackingStartDate` that
+  have _not been used_ since tracking started:
+
+Formula: _Present Date_ -
+`TrackingStartDate`
+
+For example, if the _Present Date_ is April 30,
+2026 and the `TrackingStartDate` is April 15, 2026, the value is 15,
+regardless of when the key was created.
+
+- For keys that have _been used_ since tracking started,
+  irrespective of when the key was created:
+
+Formula: _Present Date_ - `Timestamp`
+of `KeyLastUsage`
+
+The following example key policy statement denies the `ScheduleKeyDeletion`
+and `DisableKey` operations when the key has been used within the last 90 days,
+or when the key has no recorded usage and was either created 90 or fewer days ago or
+tracking started 90 or fewer days ago. This prevents accidental deletion or disabling of
+actively used or recently created keys.
+
+```
+{
+  "Effect": "Deny",
+  "Action": [
+    "kms:ScheduleKeyDeletion",
+    "kms:DisableKey"
+  ],
+  "Principal": "*",
+  "Resource": "*",
+  "Condition": {
+    "NumericLessThanEquals": {
+      **"kms:TrailingDaysWithoutKeyUsage": "90"**
+    }
+  }
+}
+```
+
+**See also**
+
+- [Examine the last cryptographic operation performed with a KMS key](monitoring-keys-determining-usage.md#examine-last-usage "monitoring-keys-determining-usage.md#examine-last-usage")
+- [kms:ScheduleKeyDeletionPendingWindowInDays](#conditions-kms-schedule-key-deletion-pending-window-in-days "#conditions-kms-schedule-key-deletion-pending-window-in-days")
 
 ## kms:ValidTo
 

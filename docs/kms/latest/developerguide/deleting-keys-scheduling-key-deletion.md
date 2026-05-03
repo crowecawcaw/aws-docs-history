@@ -29,11 +29,15 @@ one time.
 
 You cannot schedule the deletion of [AWS managed keys](concepts.md#aws-managed-key "concepts.md#aws-managed-key") or [AWS owned keys](concepts.md#aws-owned-key "concepts.md#aws-owned-key"). 4. Choose the checkbox next to the KMS key that you want to delete. 5. Choose **Key actions**, **Schedule key
 deletion**. 6. Read and consider the warning, and the information about canceling the deletion
-during the waiting period. If you decide to cancel the deletion, at the bottom of
+during the waiting period. The warning includes the number of selected keys that
+were recently used in cryptographic operations. The table displays a
+**Last used** column that shows when each KMS key was last used.
+If you decide to cancel the deletion, at the bottom of
 the page, choose **Cancel**. 7. For **Waiting period (in days)**, enter a number of days
-between 7 and 30. 8. Review the KMS keys that you are deleting. 9. Choose the check box next to **Confirm you want to schedule this key for
-deletion in `<number of days>`
-days.**. 10. Choose **Schedule deletion**.
+between 7 and 30. 8. Review the KMS keys that you are deleting. 9. Choose the check box next to **I confirm that I want to schedule these
+keys for deletion. The keys will become immediately unusable for cryptographic
+operations. After the `<number of days>` day waiting
+period, the keys will be permanently deleted.** 10. Choose **Schedule deletion**.
 The KMS key status changes to **Pending deletion**.
 
 Use the [`aws kms

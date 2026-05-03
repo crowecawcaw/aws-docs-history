@@ -20,7 +20,7 @@ AWS owned keys.
 Before deleting a KMS key, you might want to know how many ciphertexts were encrypted
 under that KMS key. AWS KMS does not store this information and does not store any of the
 ciphertexts. To get this information, you must determine past usage of a KMS key. For help, go
-to [Determine past usage of a KMS key](deleting-keys-determining-usage.md "deleting-keys-determining-usage.md").
+to [Determine past usage of a KMS key](monitoring-keys-determining-usage.md "monitoring-keys-determining-usage.md").
 
 AWS KMS never deletes your KMS keys unless you explicitly schedule them for deletion and the
 mandatory waiting period expires.

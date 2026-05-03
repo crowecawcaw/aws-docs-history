@@ -361,7 +361,7 @@ To view the connection error code:
 - To view the connection error code in the AWS KMS console, on detail page for the
   external key store and hover over the **Failed** value.
 
-![Connection error code on the custom key store details page](/images/kms/latest/developerguide/images/connection-error-code.png)
+![Connection error code on the custom key store details page](images/connection-error-code.png)
 
 ### Connection error codes for external key stores
 

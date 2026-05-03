@@ -17,8 +17,8 @@ If you don't provide a key policy when you create an AWS KMS key, AWS creates on
 This [default key policy](key-policy-default.md "key-policy-default.md") grants the
 AWS accounts that own the KMS key full access to the key and allows the account to use
 IAM policies to allow access to the key. This policy allows all actions like [Decrypt](../APIReference/API_Decrypt.md "../APIReference/API_Decrypt.md"). AWS
-recommends applying principal of [Least-privilege permissions](least-privilege.md "least-privilege.md") to your KMS key policies. You can also restrict access by
-[modifying the KMS key policy](key-policy-modifying.md "key-policy-modifying.md") action for
+recommends applying principal of [Least-privilege permissions](least-privilege.md "least-privilege.md") to your KMS key policies. You can also restrict access
+by [modifying the KMS key policy](key-policy-modifying.md "key-policy-modifying.md") action for
 `kms:*` to `NotAction:kms:Decrypt`.
 
 The following condition keys let you limit the permissions for these operations based on
