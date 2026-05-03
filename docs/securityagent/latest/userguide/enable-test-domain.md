@@ -19,6 +19,7 @@ Choose one of the following verification methods:
 
 - **DNS TXT record**: Prove domain ownership by creating a DNS TXT record with your DNS provider.
 - **HTTP route**: Prove domain ownership by creating a route on your web server that contains a unique token provided by AWS Security Agent.
+- **Private VPC**: Only usable for private VPC penetration testing. Verifies that the domain resolves to an IP in a private CIDR range. The domain name configured must match the full domain name of any associated target endpoints
 
 ## Step 2: Verify domain ownership
 
