@@ -18,7 +18,7 @@ software or use other AWS services like Amazon SageMaker AI or Amazon Rekognitio
 available for downlinking data from your satellite; it is not possible to uplink data to your
 satellite from Amazon S3.
 
-![Diagram showing data flow from Satellite to AWS Ground Station to S3 Bucket within AWS Cloud.](images/s3-data-delivery.png)
+![Data flow from satellite to AWS Ground Station to S3 bucket.](images/s3-data-delivery.png)
 
 To utilize this path, you will use need to create an Amazon S3 bucket for AWS Ground Station to deliver the data
 into. In the next step, you'll also need to create a _S3 Recording Config_
@@ -42,7 +42,7 @@ To create your Dataflow Endpoint Group, please reference the
 
 The following shows the communication path if you are using the dataflow endpoint configuration.
 
-![Diagram showing data flow from satellite to AWS Ground Station to customer VPC and application.](images/ec2-data-delivery.png)
+![Data flow from satellite through AWS Ground Station to Elastic Network Interface and receiver.](images/ec2-data-delivery.png)
 
 The following shows the communication path if you are using the AWS Ground Station Agent configuration.
 
