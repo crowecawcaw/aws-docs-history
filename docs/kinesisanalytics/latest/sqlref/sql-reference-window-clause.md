@@ -143,7 +143,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 The preceding example outputs a stream similar to the following.
 
-![Table showing stock data with columns for rowtime, ticker symbol, and price information.](images/sql-reference-analytic-functions-example-1.png)
+![Table showing stock ticker data with columns for rowtime, ticker symbol, min price, max price, and avg price.](images/sql-reference-analytic-functions-example-1.png)
 
 ### Example 2: Row-Based Sliding Window That References a Named Window Specification
 
@@ -181,7 +181,7 @@ WINDOW
 
 The preceding example outputs a stream similar to the following.
 
-![Table showing stock ticker symbols, prices, and average values for multiple rows.](images/sql-reference-analytic-functions-example-2.png)
+![Table showing stock data with columns for rowtime, ticker symbol, price, and averages.](images/sql-reference-analytic-functions-example-2.png)
 
 ### Example 3: Time-Based Sliding Window with Inline Window Specification
 
@@ -208,7 +208,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 The preceding example outputs a stream similar to the following.
 
-![Table showing stock data with columns for timestamp, ticker symbol, price, and average price.](images/sql-reference-analytic-functions-example-3.png)
+![Table showing stock data with columns for rowtime, ticker symbol, price, and average price.](images/sql-reference-analytic-functions-example-3.png)
 
 ## Usage Notes
 

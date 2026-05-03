@@ -114,4 +114,4 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 The preceding example outputs a stream similar to the following.
 
-![Table showing data stream with columns for timestamp, ticker symbol, and frequency values.](images/sql-reference-topk-example-1.png)
+![Table showing rowtime, ticker symbol, and most frequent values for stock data entries.](images/sql-reference-topk-example-1.png)

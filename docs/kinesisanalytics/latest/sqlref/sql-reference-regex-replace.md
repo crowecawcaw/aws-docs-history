@@ -97,7 +97,7 @@ FROM "SOURCE_SQL_STREAM_001"
 
 The preceding example outputs a stream similar to the following.
 
-![Table showing stock data with columns for time, ticker symbol, sector, change, and price.](images/sql-reference-regex-replace.png)
+![Table showing stock data with columns for rowtime, ticker symbol, sector, change, and price.](images/sql-reference-regex-replace.png)
 
 ## Notes
 

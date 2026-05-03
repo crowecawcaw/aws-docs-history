@@ -93,7 +93,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 The preceding example outputs a stream similar to the following.
 
-![Data table showing ROWTIME, TICKER_SYMBOL, and SUM_PRICE columns with sample entries.](images/sql-reference-step-example-1.png)
+![Table showing rowtime, ticker symbol, and sum price columns with four rows of financial data.](images/sql-reference-step-example-1.png)
 
 ## STEP in an OVER clause (sliding window)
 
@@ -124,7 +124,7 @@ WINDOW w1 AS (
 
 The preceding example outputs a stream similar to the following.
 
-![Table showing ROWTIME, INGEST_TIME, TICKER_SYMBOL, and TICKER_SYMBOL_COUNT columns with sample data.](images/sql-reference-step-example-2.png)
+![Table showing rowtime, ingest time, ticker symbols such as CRM and BAC, and symbol counts.](images/sql-reference-step-example-2.png)
 
 ## Notes
 

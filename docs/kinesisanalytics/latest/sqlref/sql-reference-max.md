@@ -115,7 +115,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 The preceding examples output a stream similar to the following.
 
-![Table showing ROWTIME, TICKER_SYMBOL, and MAX_PRICE columns with sample data entries.](images/sql-reference-max-example-1.png)
+![Table showing rowtime, ticker symbol, and max price for four stock entries.](images/sql-reference-max-example-1.png)
 
 ### Example 2: Return the Maximum Value Using the OVER Clause
 
@@ -139,7 +139,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 The preceding example outputs a stream similar to the following.
 
-![Table showing stock ticker symbols QAZ, QXZ, MJN, WSB with corresponding timestamps and maximum prices.](images/sql-reference-max-example-2.png)
+![Table showing rowtime, ticker symbols such as QAZ and QXZ, and corresponding max prices.](images/sql-reference-max-example-2.png)
 
 ## Usage Notes
 

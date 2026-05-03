@@ -77,7 +77,7 @@ SELECT STREAM ticker_symbol, STDDEV_SAMP(price) AS stddev_samp_price
 
 The preceding examples output a stream similar to the following:
 
-![Table showing ROWTIME, TICKER_SYMBOL, and STDDEV_SAMP_PRICE columns with sample data.](images/sql-reference-stddev-samp-1.png)
+![Table with columns ROWTIME, TICKER_SYMBOL, and STDDEV_SAMP_PRICE showing stock data for AMZN, WSB, JKL, and QXZ.](images/sql-reference-stddev-samp-1.png)
 
 ### Example 2: Determine the statistical standard deviation of the values in a columm in a sliding window query
 
@@ -101,7 +101,7 @@ WINDOW TEN_SECOND_SLIDING_WINDOW AS (
 
 The preceding example outputs a stream similar to the following:
 
-![Table showing ROWTIME, TICKER_SYMBOL, and STDDEV_SAMP_PRICE columns with sample data.](images/sql-reference-stddev-samp-2.png)
+![Table with columns ROWTIME, TICKER_SYMBOL, and STDDEV_SAMP_PRICE showing stock data rows.](images/sql-reference-stddev-samp-2.png)
 
 ## See Also
 

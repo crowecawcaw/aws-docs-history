@@ -12,20 +12,20 @@ shown in bold text, are Amazon Kinesis Data Analytics extensions to the SQL stan
 | CONTAINS              | Blue rectangular shapes arranged in horizontal rows, resembling a simplified layout or structure. |
 | OVERLAPS              | Blue rectangular boxes arranged in rows, representing a structured layout or diagram.             |
 | EQUALS                | Two horizontal blue rectangles with orange borders, stacked vertically.                           |
-| PRECEDES              | Four blue rectangular shapes representing placeholder text or content blocks.                     |
+| PRECEDES              | Four blue rectangular buttons or containers arranged in a staggered layout.                       |
 | SUCCEEDS              | Four blue rectangular shapes arranged horizontally with gaps between them.                        |
-| IMMEDIATELY PRECEDES  | Blue rectangular shapes representing text or content placeholders.                                |
+| IMMEDIATELY PRECEDES  | Two horizontal progress bars with blue fill and orange borders at different stages.               |
 | IMMEDIATELY SUCCEEDS  | Two horizontal blue rectangular shapes against a white background.                                |
 | **LEADS**             | Four blue rectangular buttons with orange outlines, arranged horizontally.                        |
-| **LAGS**              | Four blue rectangular bars of varying lengths arranged horizontally.                              |
-| **STRICTLY CONTAINS** | Two blue rectangular shapes with orange outlines, one larger above a smaller one.                 |
-| **STRICTLY OVERLAPS** | Two blue rectangular shapes, one longer than the other, stacked vertically.                       |
+| **LAGS**              | Four horizontal progress bars or loading indicators of varying lengths.                           |
+| **STRICTLY CONTAINS** | Two blue rectangular buttons with orange borders, one larger than the other.                      |
+| **STRICTLY OVERLAPS** | Two blue rectangular buttons or UI elements of different sizes.                                   |
 | **STRICTLY PRECEDES** | Two horizontal blue bars representing placeholder elements in a user interface.                   |
 | **STRICTLY SUCCEEDS** | Two blue rectangular shapes representing UI elements or buttons.                                  |
-| **STRICTLY LEADS**    | Two blue rectangular shapes representing text or content blocks.                                  |
+| **STRICTLY LEADS**    | Two blue rectangular buttons with orange borders, one smaller above and one larger below.         |
 | **STRICTLY LAGS**     | Two horizontal blue rectangular shapes, one above the other, against a white background.          |
-| **IMMEDIATELY LEADS** | Two blue rectangular shapes, one longer than the other, stacked vertically.                       |
-| **IMMEDIATELY LAGS**  | Two blue rectangular shapes, one longer than the other, stacked vertically.                       |
+| **IMMEDIATELY LEADS** | Two blue rectangular buttons with orange borders, one larger above and one smaller below.         |
+| **IMMEDIATELY LAGS**  | Two blue rectangular buttons with orange borders, one larger than the other.                      |
 
 To enable concise expressions, Amazon Kinesis Data Analytics also supports the following extensions:
 

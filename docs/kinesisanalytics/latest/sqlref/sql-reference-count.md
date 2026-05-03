@@ -123,7 +123,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 The preceding examples output a stream similar to the following.
 
-![Table showing stock ticker symbols and prices for AAPL, WSB, and UHN at specific times.](images/sql-reference-count-example-1.png)
+![Table showing stock trades with columns for row time, ticker symbol, and count price.](images/sql-reference-count-example-1.png)
 
 ### Example 2: Return the Number of Values Using the OVER Clause
 
@@ -147,7 +147,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 The preceding example outputs a stream similar to the following.
 
-![Table showing timestamp, stock ticker symbols, and prices for four different stocks.](images/sql-reference-count-example-2.png)
+![Table showing rowtime, ticker symbols such as WMT and DFG, and count price values.](images/sql-reference-count-example-2.png)
 
 ## Usage Notes
 

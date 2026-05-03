@@ -128,4 +128,4 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 The preceding example outputs a stream similar to the following:
 
-![Table showing ROWTIME and NUMBER_OF_DISTINCT_ITEMS columns with four identical entries.](images/sql-reference-count-distinct-example-1.png)
+![Table showing rowtime column with four timestamps and number of distinct items column with value 47.](images/sql-reference-count-distinct-example-1.png)

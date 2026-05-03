@@ -102,7 +102,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 The preceding example outputs a stream similar to the following.
 
-![Table showing stock data with columns for time, ticker symbol, price, and previous prices.](images/sql-reference-lag.png)
+![Data table showing stock ticker symbols with corresponding price values and timestamps.](images/sql-reference-lag.png)
 
 ## Notes
 

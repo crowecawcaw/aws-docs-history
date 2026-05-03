@@ -116,7 +116,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 The preceding examples output a stream similar to the following.
 
-![Table showing stock ticker symbols, timestamps, and minimum prices for four different stocks.](images/sql-reference-min-example-1.png)
+![Table showing rowtime, ticker symbol, and minimum price data for stocks QXZ, WMT, QWE, and CRM.](images/sql-reference-min-example-1.png)
 
 ### Example 2: Return the Minimum Value Using the OVER Clause
 
@@ -140,7 +140,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 The preceding example outputs a stream similar to the following.
 
-![Table showing stock ticker symbols and minimum prices for NFS, NFLX, ASD, and DFG on 2017-02-17.](images/sql-reference-min-example-2.png)
+![Table showing rowtime, ticker symbol, and minimum price data for stocks NFS, NFLX, ASD, and DFG.](images/sql-reference-min-example-2.png)
 
 ## Usage Notes
 

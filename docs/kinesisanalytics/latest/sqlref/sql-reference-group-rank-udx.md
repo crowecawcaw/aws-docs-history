@@ -123,7 +123,7 @@ CREATE OR REPLACE PUMP DESTINATION_SQL_STREAM_PUMP AS
 
 The preceding examples output a stream similar to the following.
 
-![Data table showing ROWTIME, group_time, ticker, ticker_count, and group_rank columns with sample values.](images/sql-reference-group-rank-example-01.png)
+![Table showing ROWTIME, group_time, ticker, ticker_count, and group_rank columns with sample data.](images/sql-reference-group-rank-example-01.png)
 
 ## Operational Overview
 

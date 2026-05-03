@@ -124,7 +124,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 The preceding examples output a stream similar to the following.
 
-![Table showing data stream with timestamp, ticker symbol, and sum price columns.](images/sql-reference-sum-example-1.png)
+![Table showing rowtime, ticker symbol, and sum price columns with stock data entries.](images/sql-reference-sum-example-1.png)
 
 ## Usage Notes
 

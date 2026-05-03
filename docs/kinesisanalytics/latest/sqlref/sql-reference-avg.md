@@ -127,7 +127,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 The preceding examples output a stream similar to the following.
 
-![Table showing stock ticker symbols NFS, WAS, PPL, ALY with corresponding dates and average prices.](images/sql-reference-avg-example-1.png)
+![Table showing rowtime, ticker symbols such as NFS and WAS, and average prices.](images/sql-reference-avg-example-1.png)
 
 ### Example 2: Return the Average of Values Using the OVER Clause
 
@@ -151,7 +151,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 The preceding example outputs a stream similar to the following.
 
-![Table showing stock data with columns for timestamp, ticker symbol, and average price.](images/sql-reference-avg-example-2.png)
+![Table showing rowtime, ticker symbols such as AAPL and TGT, and average prices.](images/sql-reference-avg-example-2.png)
 
 ## Usage Notes
 
