@@ -310,7 +310,7 @@ in Confluence (Cloud).
    **Granular Confluence API authorization URL**, copy
    the URL and save it in a text editor of your choice.
 
-![Authorization page showing URL generator fields for User identity, Classic, and Granular Confluence API.](images/confluence-16.png)
+![Authorization page with Granular Confluence API authorization URL field highlighted.](images/confluence-16.png)
 
 The URL is of the following format:
 
@@ -336,7 +336,7 @@ you copied into the browser URL. On the page that opens up, make sure
 everything is correct and then select
 **Accept**.
 
-![Atlassian account access request screen showing permissions and a warning about development mode.](images/confluence-17.png)
+![Atlassian OAuth consent screen showing app permissions and Accept button highlighted.](images/confluence-17.png)
 
 You will be returned to your Confluence (Cloud) home page. 7. Copy the URL of the Confluence (Cloud) home page and save it in a text
 editor of your choice. The URL contains the authorization code for your
@@ -366,7 +366,7 @@ curl --location 'https://auth.atlassian.com/oauth/token' \
     **raw**
     **JSON**.
 
-![API request interface showing POST method, URL, and JSON body with OAuth parameters.](images/confluence-18.png) 11. In the text box, enter the following code extract, replacing the
+![Postman interface showing JSON body with OAuth token request parameters including grant_type and client_id.](images/confluence-18.png) 11. In the text box, enter the following code extract, replacing the
 fields with your credential values:
 
 ```
@@ -414,7 +414,7 @@ token.
    **Granular Confluence API authorization URL**, copy
    the URL and save it in a text editor of your choice.
 
-![Authorization page showing URL generator fields for User identity, Classic, and Granular Confluence API.](images/confluence-16.png) 5. In the saved authorization URL, update the
+![Authorization page with Granular Confluence API authorization URL field highlighted.](images/confluence-16.png) 5. In the saved authorization URL, update the
 `state=${YOUR_USER_BOUND_VALUE}` parameter value to any
 text of your choice. For example,
 `state=``sample_text`.
@@ -440,7 +440,7 @@ audience=api.atlassian.com
    sure everything is correct and then select
    **Accept**.
 
-![Atlassian account access request screen showing permissions and a warning about development mode.](images/confluence-17.png)
+![Atlassian OAuth consent screen showing app permissions and Accept button highlighted.](images/confluence-17.png)
 
 You will be returned to the Confluence (Cloud) console. 8. Copy the URL of the Confluence (Cloud) home page and save it in a text
 editor of your choice. The URL contains the authorization code for your
@@ -470,7 +470,7 @@ curl --location 'https://auth.atlassian.com/oauth/token' \
     **raw**
     **JSON**.
 
-![API request interface showing POST method, URL, and JSON body with OAuth parameters.](images/confluence-18.png) 12. In the text box, enter the following code extract, replacing the
+![Postman interface showing JSON body with OAuth token request parameters including grant_type and client_id.](images/confluence-18.png) 12. In the text box, enter the following code extract, replacing the
 fields with your credential values:
 
 ```
