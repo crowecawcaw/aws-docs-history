@@ -2,11 +2,11 @@
 
 **Viewing muted alarms:** You can easily identify which alarms are currently muted through the CloudWatch console. In both the alarms list view and individual alarm detail pages, a mute icon appears next to alarms whose actions are currently being muted by active mute rules. This visual indicator helps you quickly understand which alarms actions are being currently muted until the mute window expires.
 
-![](images/alarm_mute_rules_icon.png)
+![Mute icon with alarm symbol labeled test-alarm.](images/alarm_mute_rules_icon.png)
 
 **Alarms timeline:** The CloudWatch alarms console provides a comprehensive timeline view that shows when your alarm actions were muted. This timeline displays mute periods alongside alarm state changes, giving you a complete historical view of both alarm behaviour and muting activity. You can use this timeline to analyze the effectiveness of your mute rules and understand how they correlate with your operational activities.
 
-![](images/alarm-mutes-timelineview.png)
+![Graph showing timed expression values over time with alarm states indicated by colored bars below.](images/alarm-mutes-timelineview.png)
 
 **Programmatically checking alarm mute status:** To programmatically determine if an alarm is currently muted, you can use the [ListAlarmMuteRules](../APIReference/API_ListAlarmMuteRules.md "../APIReference/API_ListAlarmMuteRules.md") API with the alarm name as a filter criteria. This API returns all active mute rules that are affecting the specified alarm, allowing you to integrate mute status checks into your automation workflows, monitoring dashboards, or operational tools.
 

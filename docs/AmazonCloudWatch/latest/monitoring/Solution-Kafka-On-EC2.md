@@ -54,7 +54,7 @@ Below are the key advantages of the solution:
 
 The following image is an example of the dashboard for this solution.
 
-![Kafka cluster dashboard showing metrics for partitions, producer/consumer performance, and broker status.](images/KafkaDashboard.png)
+![Kafka monitoring dashboard showing cluster metrics, producer group performance, and consumer group statistics.](images/KafkaDashboard.png)
 
 ## Costs
 

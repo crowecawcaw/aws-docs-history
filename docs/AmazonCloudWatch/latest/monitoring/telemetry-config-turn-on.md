@@ -36,7 +36,7 @@ organization instead. For more information, see [Configuring telemetry for your 
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. In the navigation pane, choose **Telemetry config**.
+2. In the navigation pane, choose **Ingestion**.
 3. Choose the **Data Source** tab, and then select **Enable
    Resource Discovery**. CloudWatch begins discovering AWS resources in your account.
    As CloudWatch discovers resources, it updates information on the **Overview**

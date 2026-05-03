@@ -74,6 +74,8 @@ each sub-feature, and lists the strings for `UsageType`.
 | **CloudWatch metrics**             | _Custom metrics_                                              | `MetricMonitorUsage`                            |
 |                                    | _Detailed monitoring_                                         | `MetricMonitorUsage`                            |
 |                                    | _Embedded metrics_                                            | `MetricMonitorUsage`                            |
+|                                    | _OpenTelemetry metrics_                                       | `OTEL:Values`                                   |
+|                                    |                                                               | `OTEL:Bytes`                                    |
 | **CloudWatch API requests**        | _API requests_                                                | `Requests`                                      |
 |                                    | _Bulk (Get)_                                                  | `GMD-Metrics`                                   |
 |                                    | _Contributor Insights_                                        | `GIRR-Metrics`                                  |
@@ -184,6 +186,8 @@ WHEN line_item_usage_type LIKE '%%MetricInsightAlarmUsage%%' THEN 'Alarms (Metri
 WHEN line_item_usage_type LIKE '%%CompositeAlarmMonitorUsage%%' THEN 'Alarms (Composite)'
 -- Container Insights with enhanced observability
 WHEN (line_item_usage_type LIKE '%%MetricsUsage%%' OR line_item_usage_type LIKE '%%ObservationUsage%%') THEN 'Container Insights (Enhanced Observability)'
+-- OpenTelemetry metrics
+WHEN line_item_usage_type LIKE '%%CW:OTEL%%' THEN 'OpenTelemetry Metrics'
 -- Database Insights
 WHEN line_item_usage_type LIKE '%%DatabaseInsights%%' THEN 'Database Insights'
 -- Logs
@@ -715,10 +719,10 @@ for more information.
 Here are the following UsageType and Operation associated with this Container Inisghts
 with enhanced observability:
 
-| _CloudWatch sub-feature_                                           | `UsageType`        | `Operation`                   |
-| ------------------------------------------------------------------ | ------------------ | ----------------------------- |
-| _Container Insights with enhanced observability for<br>Amazon EKS_ | `ObservationUsage` | `ObservationCount:CI-EKScode` |
-| _Container Insights with enhanced observability for<br>Amazon ECS_ | `MetricsUsage`     | `MetricStorage:CI-ECS`        |
+| _CloudWatch sub-feature_                                           | `UsageType`        | `Operation`               |
+| ------------------------------------------------------------------ | ------------------ | ------------------------- |
+| _Container Insights with enhanced observability for<br>Amazon EKS_ | `ObservationUsage` | `ObservationCount:CI-EKS` |
+| _Container Insights with enhanced observability for<br>Amazon ECS_ | `MetricsUsage`     | `MetricStorage:CI-ECS`    |
 
 ## Optimizing and reducing costs of CloudWatch Database Insights
 

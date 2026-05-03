@@ -152,7 +152,7 @@ When you create a telemetry enablement rule, you specify:
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. In the navigation pane, choose **Telemetry config**.
+2. In the navigation pane, choose **Ingestion**.
 3. Choose the **Enablement rules** tab.
 4. Choose **Add rule**.
 5. For **Rule name**, enter a name for your rule.
@@ -182,7 +182,7 @@ each rule affects and monitor rule compliance.
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. In the navigation pane, choose **Telemetry config**.
+2. In the navigation pane, choose **Ingestion**.
 3. Choose the **Enablement rules** tab.
 4. Select a rule to view its details or choose one of these actions:
    - **Edit rule** – Modify rule settings
@@ -290,7 +290,7 @@ When enabling detailed monitoring:
 
 When enabling Security Hub logging:
 
-- Uses managed CloudWatch log group pattern /aws/securityhub_cspm/findings
+- Uses managed CloudWatch log group pattern aws/securityhub_cspm/findings
 - CloudWatch does not enable log deliveries for Security Hub that already are ingesting
   logs to managed CloudWatch Logs
 
@@ -328,3 +328,30 @@ When enabling CloudFront Distribution logging:
 
 - CloudWatch does not enable log deliveries for CloudFront distributions that already are
   ingesting logs to CloudWatch Logs
+
+**Amazon MSK Cluster Metrics**
+
+When enabling MSK Cluster metrics:
+
+- Only supports METRICS telemetry type
+- You can configure enhanced monitoring levels (PER_BROKER, PER_TOPIC_PER_BROKER,
+  etc.) to control the granularity of metrics collected
+- Rules with different enhanced monitoring levels can coexist for the same MSK
+  cluster
+
+**OpenTelemetry Enrichment Metrics**
+
+When enabling OpenTelemetry Enrichment metrics:
+
+- Only supports METRICS telemetry type
+- This is an account-level enablement with no user-configurable destination
+- Resource-level selection criteria is not supported
+
+**Amazon Bedrock Agentcore Workload Identity**
+
+When enabling Bedrock Agentcore Workload Identity logging:
+
+- Uses default CloudWatch log group pattern /aws/bedrock/agentcore if none
+  specified
+- CloudWatch does not enable log deliveries for Bedrock Agentcore Workload Identity that
+  already are ingesting logs to CloudWatch Logs

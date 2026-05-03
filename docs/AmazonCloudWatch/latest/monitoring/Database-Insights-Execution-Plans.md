@@ -50,4 +50,4 @@ You can view either one or two plans for a query at a time. In the following exa
 ![Compare plans](images/dbi_did-plans.png) 11. You can also view how each plan contributes to DBLoad over time by choosing **Plans** in the **Slice by** drop-down
 in the DBLoad chart.
 
-![Database load chart showing active sessions over time with plans contribution highlighted.](images/DBInsights_OverTime.png)
+![Top SQL table showing load by plans with query statements, execution metrics, and plan counts.](images/DBInsights_OverTime.png)

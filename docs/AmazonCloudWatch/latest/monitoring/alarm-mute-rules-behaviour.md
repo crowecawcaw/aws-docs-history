@@ -29,7 +29,7 @@ Consider that,
 - An Alarm has actions configured for its ALARM state
 - An alarm mute rule is scheduled to be active from t1 to t5 that targets the Alarm
 
-![](images/alarm_mute_rules_scenario-2.png)
+![Timeline showing alarm mute rule active period, effective mute window, and alarm state transitions.](images/alarm_mute_rules_scenario-2.png)
 
 - At **t0** - Alarm is in OK state, mute rule status is SCHEDULED
 - At **t1** - Mute rule status becomes ACTIVE
@@ -48,7 +48,7 @@ Consider that there are two mute rules,
 - Alarm Mute Rule 1 - mutes Alarm from t1 to t5
 - Alarm Mute Rule 2 - mutes Alarm from t3 to t9
 
-![](images/alarm_mute_rules_scenario-3.png)
+![Timeline showing two alarm mute rules creating an effective mute window from t1 to t18.](images/alarm_mute_rules_scenario-3.png)
 
 - At **t0** - Alarm is in OK state, both mute rules are SCHEDULED
 - At **t1** - First mute rule becomes ACTIVE
@@ -64,7 +64,7 @@ Consider that,
 - An Alarm has actions configured for its ALARM state
 - An alarm mute rule is scheduled to be active from t1 to t8 that targets the Alarm
 
-![](images/alarm_mute_rules_scenario-4.png)
+![Timeline showing alarm mute rule active period, effective mute window, and alarm state transitions from OK to ALARM at t12.](images/alarm_mute_rules_scenario-4.png)
 
 - At **t0** - Alarm is in OK state, mute rule is SCHEDULED
 - At **t1** - Mute rule becomes ACTIVE
@@ -85,7 +85,7 @@ Consider that,
 - An Alarm has actions configured for its ALARM state
 - An alarm mute rule is scheduled to be active from t1 to t8 that targets the Alarm
 
-![](images/alarm_mute_rules_scenario-5.png)
+![Timeline showing alarm mute rule active from t1 to t8, with alarm state transitioning from OK to ALARM at t3, and effective mute window displayed.](images/alarm_mute_rules_scenario-5.png)
 
 - At **t0** - Alarm is in OK state, mute rule is SCHEDULED. An SNS action is configured with the alarm state ALARM.
 - At **t1** - Mute rule becomes ACTIVE

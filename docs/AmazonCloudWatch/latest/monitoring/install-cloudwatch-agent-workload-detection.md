@@ -16,7 +16,7 @@ When workload detection is enabled, the agent analyzes your instance environment
 
 ## Prerequisites
 
-### SSM Agent Installation (Required)
+### SSM Agent installation (required)
 
 You must have AWS Systems Manager (SSM) agent installed on your Amazon EC2 instances. SSM agent comes pre-installed on most AWS-supplied Amazon Machine Images (AMIs), If you need to manually install or update the SSM agent, refer to the [Systems Manager documentation](../../../systems-manager/latest/userguide/ssm-agent.md "../../../systems-manager/latest/userguide/ssm-agent.md").
 

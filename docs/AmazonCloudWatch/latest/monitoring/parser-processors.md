@@ -55,6 +55,7 @@ This table lists the supported schema combinations.
 | `cloudwatch_logs`                         | `vpc_flow:`                                | `1.5`   | Not required    |
 | `cloudwatch_logs`                         | `eks_audit:`                               | `1.5`   | Not required    |
 | `cloudwatch_logs`                         | `aws_waf:`                                 | `1.5`   | Not required    |
+| `cloudwatch_logs`                         | `aws_nlb:`                                 | `1.5`   | Not required    |
 | `s3`                                      | Any OCSF schema                            | Any     | Any             |
 | `microsoft_office365`                     | `microsoft_office365:`                     | `1.5`   | `1.5.0`         |
 | `microsoft_entraid`                       | `microsoft_entraid:`                       | `1.5`   | `1.5.0`         |

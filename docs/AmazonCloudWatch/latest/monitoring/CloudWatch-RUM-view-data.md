@@ -4,21 +4,178 @@ CloudWatch RUM collects and visualizes application performance data from user se
 through an interactive dashboard. By capturing load times, Apdex scores, device
 information, geolocation, and error patterns, teams can quickly identify performance
 bottlenecks, prioritize fixes based on real user impact, and ensure optimal experiences
-across different browsers, devices, and geographic regions—ultimately reducing end
-user frustration and improving application reliability.
+across different browsers, devices, and geographic regions—helping organizations
+better understand user behavior leading to reduced end user frustration and improving
+application reliability.
 
-To view the RUM dashboard:
+**Getting Started with CloudWatch RUM**
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. In the navigation pane, choose **Application Signals (APM)**,
    **RUM**.
-   The RUM console displays a list view of all your app monitors. The
-   **Platform** column indicates whether each app monitor is for Web,
-   Android, or iOS applications. Select an app monitor to access detailed views with
+   The RUM console displays the **Overview** page, which provides a
+   consolidated view of all your app monitors, their health, and key operational metrics.
+   From the Overview page, select an app monitor to access detailed views with
    **Performance**, **Errors**,
-   **Sessions**, **Metrics** and
+   **Sessions**, **Metrics**, and
    **Configuration** tabs.
+
+## Overview
+
+The Overview page is the landing page of the CloudWatch RUM console. It provides a
+high-level summary of all your application monitors, helping you quickly assess
+health, performance trends, and operational coverage across your monitored
+applications.
+
+![The RUM Overview page showing summary cards, quick filters, and the App Monitors table](images/rum-overview-page.png)
+
+### Summary cards
+
+At the top of the Overview page, four summary cards provide an at-a-glance
+operational status across all your app monitors:
+
+- **Needs attention (by health status)** — Shows
+  how many app monitors require attention out of the total, broken down by
+  **Critical** and **Degraded** counts. A progress bar indicates the proportion
+  of monitors needing attention.
+- **Trending worse** — Shows how many app
+  monitors have a worsening trend out of the total.
+- **Setup and coverage** — Shows how many app
+  monitors have no SLOs configured and how many have tracing disabled,
+  helping you identify gaps in your monitoring setup.
+- **SLOs and Alarms** — Shows the number of
+  breached SLIs out of total SLIs, and the number of alarms currently
+  firing.
+
+### Quick filters
+
+The left panel provides quick filters to narrow the application list
+by:
+
+- **Platform** — Web, iOS, or Android.
+- **Health** — Healthy, Critical, Degraded, or
+  No data.
+- **SLI status** — Healthy, Unhealthy, or No
+  SLOs.
+- **Tracing** — Enabled or Disabled.
+- **Trend** — Worsening, Improving, or
+  Stable.
+- **Primary issue** — Filter by the primary
+  issue type affecting the app monitor.
+
+Choose **Clear filters** to reset all filters.
+
+### App Monitors table
+
+The **App Monitors** table lists all your app monitors with
+the following columns:
+
+- **Name** — The name of the app monitor, with
+  a platform icon (Web, iOS, or Android).
+- **Sessions** — The number of sessions
+  recorded in the selected time range, displayed with a bar chart
+  visualization.
+- **SLI status** — The status of service level
+  indicators. Displays the count of unhealthy SLIs (for example, "1/2
+  Unhealthy") or a **Create SLO** link if no SLOs are
+  configured.
+- **Health** — The health status of the
+  application: **Healthy**, **Critical**, **Degraded**, or **No
+  data**.
+- **View Insights** — Choose this link to open
+  the diagnostic side panel for the app monitor (see [Diagnostic side panel](#CloudWatch-RUM-overview-diagnostic-panel "#CloudWatch-RUM-overview-diagnostic-panel")).
+- **Primary issue** — The primary issue type
+  affecting the application. For **web** app
+  monitors, values include **JS errors**,
+  **Perf**, or **HTTP errors/faults**. For **mobile** app monitors, values include **Crashes**, **ANRs/App Hangs**, **Perf**, or **HTTP
+  errors/faults**.
+- **Trend** — A description of the trend
+  direction and magnitude (for example, "JS errors +1% worse sessions" or
+  "Perf +81% worse sessions").
+- **Tracing** — A **View
+  traces** link if tracing is enabled, or an
+  **Enable tracing** link if it is not.
+- **Services** — The SLI health status for
+  linked services (for example, "1/1 Unhealthy"), or a dash if no
+  services are linked.
+- **Last event received** — The time since the
+  last telemetry event was received (for example, "1 minute ago" or "No
+  events received in the past 4 weeks").
+
+Use the search bar above the table to find specific app monitors by name. You
+can sort the table by clicking column headers, and use the gear icon to
+customize which columns are visible. The **Actions** dropdown
+and **Add app monitor** button let you manage your app monitors
+directly from this page.
+
+### Health status
+
+The **Health** column provides an at-a-glance assessment of
+each application's operational state based on the percentage of impacted
+sessions—sessions with errors or slow page loads—relative to total
+sessions in the selected time range.
+
+Each app monitor displays one of the following statuses:
+
+| Status       | Impacted sessions | Description                                                                                                                                                   |
+| ------------ | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Healthy**  | Less than 1%      | The application is operating within normal<br>parameters.                                                                                                     |
+| **Degraded** | Between 1% and 5% | The application is experiencing elevated error rates or<br>degraded performance that may require attention.                                                   |
+| **Critical** | More than 5%      | The application is experiencing significant errors or<br>performance issues that require immediate<br>investigation.                                          |
+| **No data**  | —                 | Insufficient data is available to determine the<br>application's health status. This can occur when an app monitor<br>has not received recent telemetry data. |
+
+### Diagnostic side panel
+
+When you choose **View Insights** for an app monitor in the
+table, a diagnostic side panel opens on the right side of the page. The panel
+displays the app monitor name and provides two tabs:
+
+![The diagnostic side panel showing the Health tab with error breakdown and metrics graphs](images/rum-overview-diagnostic-panel.png)
+
+**Health** tab — Shows a breakdown of
+errors contributing to the health status (for example, JS errors, HTTP errors
+(4xx), and HTTP faults (5xx)) with color-coded indicators. The **Metrics** section displays interactive time-series graphs. Click
+on a point in the graphs to view correlated sessions.
+
+For **web** app monitors, the following graphs
+are displayed:
+
+- **Page views** — The count of page views over
+  time.
+- **Page load time (p75)** — The 75th percentile
+  page load time in seconds.
+- **JS errors** — The count of JavaScript error
+  sessions over time.
+- **HTTP errors** — The count of HTTP 4xx errors
+  and 5xx faults over time.
+
+For **mobile** app monitors (Android and iOS),
+the following graphs are displayed:
+
+- **Screen load time** — The screen load time
+  over time.
+- **Screen loads** — The count of screen loads
+  over time.
+- **Crashes** — The count of crash sessions over
+  time.
+- **App Hangs/ANRs** — The count of App Hang
+  (iOS) or ANR (Android) sessions over time.
+- **HTTP errors** — The count of HTTP 4xx errors
+  and 5xx faults over time.
+
+![The diagnostic side panel showing metrics graphs, breached SLOs, and alarms in ALARM state](images/rum-overview-diagnostic-panel-metrics.png)
+
+Below the metrics, the panel also shows:
+
+- **Breached SLOs** — A table listing any SLOs
+  in a **Breaching** state, with links to the
+  SLO details.
+- **Alarms in ALARM state** — A table listing
+  any alarms currently firing for the app monitor.
+
+**Correlated sessions** tab — Shows
+sessions correlated to the selected data point in the metrics graphs.
 
 ## Web Application Dashboard
 

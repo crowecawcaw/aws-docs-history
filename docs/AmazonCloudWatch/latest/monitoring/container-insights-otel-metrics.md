@@ -103,3 +103,51 @@ Insights.
 | NVMe                       | NVMe SMART metrics                                                                                                                              | -                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Kube State Metrics         | Pod, node, Deployment, DaemonSet, StatefulSet, ReplicaSet, Job, CronJob,<br>Service, Namespace, PersistentVolume, PersistentVolumeClaim metrics | -                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Kubernetes API server      | API server and etcd metrics                                                                                                                     | -                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+
+## Disabling dual publishing
+
+Starting with Amazon CloudWatch Observability EKS add-on version v6.0.1-eksbuild.1 or later,
+the add-on publishes metrics through both Container Insights (legacy) and OTel Container
+Insights by default. If you want to use only one of these, you can disable the other.
+
+### Disable OTel Container Insights
+
+To stop publishing OTel Container Insights metrics and use only legacy Container
+Insights, set the `otelContainerInsights` configuration to disabled.
+
+Use the following configuration value:
+
+```
+{"otelContainerInsights":{"enabled":false}}
+```
+
+Run the following command to apply the configuration:
+
+```
+aws eks update-addon \
+  --cluster-name `CLUSTER_NAME` \
+  --addon-name amazon-cloudwatch-observability \
+  --configuration-values '{"otelContainerInsights":{"enabled":false}}' \
+  --region `REGION`
+```
+
+### Disable Container Insights
+
+To stop publishing legacy Container Insights metrics and use only OTel Container
+Insights, set the `containerInsights` configuration to disabled.
+
+Use the following configuration value:
+
+```
+{"containerInsights":{"enabled":false}}
+```
+
+Run the following command to apply the configuration:
+
+```
+aws eks update-addon \
+  --cluster-name `CLUSTER_NAME` \
+  --addon-name amazon-cloudwatch-observability \
+  --configuration-values '{"containerInsights":{"enabled":false}}' \
+  --region `REGION`
+```

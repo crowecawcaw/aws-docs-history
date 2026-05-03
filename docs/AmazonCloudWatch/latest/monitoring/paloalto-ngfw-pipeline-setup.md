@@ -7,7 +7,7 @@ Configure the Palo Alto NGFW source with the following parameters:
 
 ```
 source:
-  palo_alto_ngfw:
+  paloaltonetworks_nextgenerationfirewall:
     hostname: "<example-host-name>"
     authentication:
       basic:

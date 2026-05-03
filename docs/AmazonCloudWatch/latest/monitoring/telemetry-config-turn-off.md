@@ -8,7 +8,7 @@ information, see [Setting up telemetry configuration](telemetry-config-turn-on.m
 ###### To turn off telemetry configuration
 
 1. [Open the CloudWatch console](https://console.aws.amazon.com/cloudwatch/home#telemetry-config:account-settings "https://console.aws.amazon.com/cloudwatch/home#telemetry-config:account-settings").
-2. In the navigation pane, choose **Telemetry config**.
+2. In the navigation pane, choose **Ingestion**.
 3. Choose **Turn off**.
 
 ###### Note

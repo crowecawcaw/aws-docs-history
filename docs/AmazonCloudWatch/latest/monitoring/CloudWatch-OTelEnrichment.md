@@ -1,5 +1,10 @@
 # Enabling vended metrics in PromQL
 
+###### Tip
+
+To learn more about OpenTelemetry on CloudWatch, check out the
+[Cloud Operations Enablement workshop and event series](https://aws-experience.com/amer/smb/events/series/Cloud-Operations-Enablement "https://aws-experience.com/amer/smb/events/series/Cloud-Operations-Enablement").
+
 You can enable OTel enrichment to make vended metrics for [supported AWS resources](UsingResourceTagsForTelemetry.md "UsingResourceTagsForTelemetry.md") queryable via PromQL. Once enabled, metrics that contain a
 resource identifier dimension (for example, EC2 CPUUtilization with an InstanceId dimension) are
 enriched with resource ARN and resource tag labels and become queryable using PromQL.
@@ -19,7 +24,7 @@ The enriched metric preserves the original metric name and CloudWatch dimensions
 Before you start OTel enrichment, you must [enable resource tags on telemetry](EnableResourceTagsOnTelemetry.md "EnableResourceTagsOnTelemetry.md") for your account.
 
 You can enable OTel enrichment for your account in a specific region using the CloudWatch
-console, AWS CLI, or AWS SDK.
+console, AWS CLI, CloudFormation, Terraform, or AWS SDK.
 
 You will need permissions for the following operation: `cloudwatch:StartOTelEnrichment`
 
@@ -33,10 +38,36 @@ You will need permissions for the following operation: `cloudwatch:StartOTelEnri
 **AWS CLI**
 
 ```
-aws cloudwatch start-o-tel-enrichment
+aws cloudwatch start-otel-enrichment
 ```
 
-To enable across multiple regions, invoke the API in each region of interest.
+**CloudFormation**
+
+```
+Resources:
+  OTelEnrichment:
+    Type: AWS::CloudWatch::OTelEnrichment
+```
+
+**Terraform**
+
+###### Note
+
+The `aws_cloudwatch_otel_enrichment` Terraform resource requires the
+`aws_observabilityadmin_telemetry_enrichment` resource to be configured first.
+
+```
+resource "aws_observabilityadmin_telemetry_enrichment" "example" {
+}
+
+resource "aws_cloudwatch_otel_enrichment" "example" {
+  depends_on = [aws_observabilityadmin_telemetry_enrichment.example]
+}
+```
+
+For more information, see [aws_cloudwatch_otel_enrichment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_otel_enrichment "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_otel_enrichment") in the Terraform Registry.
+
+To enable across multiple regions, create the same resource in each regional stack or invoke the API in each region of interest.
 
 Once enrichment is enabled, you can start querying vended metrics via PromQL. See:
 [Querying vended AWS metrics with PromQL](CloudWatch-PromQL-Querying.md#CloudWatch-PromQL-Querying-Vended "CloudWatch-PromQL-Querying.md#CloudWatch-PromQL-Querying-Vended").

@@ -1489,7 +1489,7 @@ concurrency can help with throughput.
       ###### Note
 
       The CloudWatch agent does not validate regular expressions that you provide. It also does not limit their evaluation time. Write your expressions carefully to avoid performance issues.
-      For more information on security ricks, see [Regular expression Denial of Service - ReDoS](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS "https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS") .
+      For more information about security risks, see [Regular expression Denial of Service - ReDoS](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS "https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS") .
 
       In the example agent configuration below:
 
