@@ -13,8 +13,8 @@ The AWS Certified CloudOps Engineer - Associate (SOA-C03) exam is intended for C
 - [Content Domain 3: Deployment, Provisioning, and Automation](sysops-administrator-associate-03-domain3.md "sysops-administrator-associate-03-domain3.md")
 - [Content Domain 4: Security and Compliance](sysops-administrator-associate-03-domain4.md "sysops-administrator-associate-03-domain4.md")
 - [Content Domain 5: Networking and Content Delivery](sysops-administrator-associate-03-domain5.md "sysops-administrator-associate-03-domain5.md")
-- [In-scope AWS services and features](soa-03-in-scope-services.md "soa-03-in-scope-services.md")
-- [Out-of-scope AWS services and features](soa-03-out-of-scope-services.md "soa-03-out-of-scope-services.md")
+- [In-Scope AWS Services](soa-03-in-scope-services.md "soa-03-in-scope-services.md")
+- [Out-of-Scope AWS Services](soa-03-out-of-scope-services.md "soa-03-out-of-scope-services.md")
 - [Survey](#sysops-administrator-associate-03-survey "#sysops-administrator-associate-03-survey")
 
 ## Introduction

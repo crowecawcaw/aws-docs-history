@@ -1,6 +1,4 @@
-# In-scope AWS services and features
-
-## In-scope AWS services and features
+# In-Scope AWS Services
 
 The following list contains AWS services and features that are in scope for the exam. This list is non-exhaustive and is subject to change. AWS offerings appear in categories that align with the offerings' primary functions:
 
@@ -20,41 +18,41 @@ The following list contains AWS services and features that are in scope for the 
 - [Security, Identity, and Compliance](#soa-03-in-scope-security-identity-compliance "#soa-03-in-scope-security-identity-compliance")
 - [Storage](#soa-03-in-scope-storage "#soa-03-in-scope-storage")
 
-### Analytics
+## Analytics
 
 - Amazon Athena
 - Amazon Data Firehose
 
-### Application Integration
+## Application Integration
 
 - Amazon EventBridge
 - Amazon Simple Notification Service (Amazon SNS)
 - Amazon Simple Queue Service (Amazon SQS)
 - AWS Step Functions
 
-### Business Applications
+## Business Applications
 
 - Amazon Simple Email Service (Amazon SES)
 
-### Cloud Financial Management
+## Cloud Financial Management
 
 - AWS Cost and Usage Reports
 - AWS Cost Explorer
 - Savings Plans
 
-### Compute
+## Compute
 
 - Amazon EC2
 - Amazon EC2 Image Builder
 - AWS Lambda
 
-### Containers
+## Containers
 
 - Amazon Elastic Container Registry (Amazon ECR)
 - Amazon Elastic Container Service (Amazon ECS)
 - Amazon Elastic Kubernetes Service (Amazon EKS)
 
-### Database
+## Database
 
 - Amazon Aurora
 - Amazon Aurora Serverless v2
@@ -64,11 +62,11 @@ The following list contains AWS services and features that are in scope for the 
 - Amazon RDS
 - Amazon RDS Proxy
 
-### Developer Tools
+## Developer Tools
 
 - AWS X-Ray
 
-### Management and Governance
+## Management and Governance
 
 - AWS Auto Scaling
 - AWS Cloud Development Kit (AWS CDK)
@@ -88,11 +86,11 @@ The following list contains AWS services and features that are in scope for the 
 - AWS Trusted Advisor
 - Amazon VPC IP Address Manager (IPAM)
 
-### Migration and Transfer
+## Migration and Transfer
 
 - AWS DataSync
 
-### Network and Content Delivery
+## Network and Content Delivery
 
 - Amazon Application Recovery Controller
 - AWS Client VPN
@@ -110,7 +108,7 @@ The following list contains AWS services and features that are in scope for the 
 - VPC peering
 - VPC Reachability Analyzer
 
-### Security, Identity, and Compliance
+## Security, Identity, and Compliance
 
 - AWS Certificate Manager (ACM)
 - Amazon EC2 security groups
@@ -132,7 +130,7 @@ The following list contains AWS services and features that are in scope for the 
 - AWS Shield
 - AWS WAF
 
-### Storage
+## Storage
 
 - AWS Backup
 - Amazon Elastic Block Store (Amazon EBS)
