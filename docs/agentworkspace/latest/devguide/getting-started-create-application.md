@@ -1,7 +1,7 @@
-# Create your application for Amazon Connect Agent Workspace
+# Create your application for Amazon Connect Customer agent workspace
 
 An application is a website that can be loaded from an HTTPS URL into an iframe in the
-Amazon Connect agent workspace. It can be built using any frontend framework and hosted
+Amazon Connect Customer agent workspace. It can be built using any frontend framework and hosted
 anywhere as long as it can be loaded by the user’s browser and supports being embedded.
 In addition to being accessible by the user, the application must integrate the [Amazon Connect SDK](https://github.com/amazon-connect/AmazonConnectSDK "https://github.com/amazon-connect/AmazonConnectSDK")
 to establish secure communication between the application and the agent workspace

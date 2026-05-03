@@ -1,4 +1,4 @@
-# Engage the preview contact for the given contactId in Amazon Connect Agent Workspace
+# Engage the preview contact for the given contactId in Amazon Connect Customer agent workspace
 
 When an agent is previewing a preview contact, this API will actually initiate the
 outbound dial to the end customer, ending the preview experience.

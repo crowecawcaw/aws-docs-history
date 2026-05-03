@@ -1,4 +1,4 @@
-# Place a participant on hold in Amazon Connect Agent Workspace
+# Place a participant on hold in Amazon Connect Customer agent workspace
 
 Places a specific participant on hold.
 

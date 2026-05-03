@@ -1,7 +1,7 @@
-# Unsubscribe from incoming contact events in Amazon Connect Agent Workspace
+# Unsubscribe from incoming contact events in Amazon Connect Customer agent workspace
 
-Unsubscribes the callback function from the contact incoming event in Amazon
-Connect agent workspace.
+Unsubscribes the callback function from the contact incoming event in Amazon Connect
+Customer agent workspace.
 
 **Signature**
 

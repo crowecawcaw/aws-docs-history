@@ -1,4 +1,4 @@
-# Unsubscribe a callback function when an Amazon Connect Agent Workspace contact is missed
+# Unsubscribe a callback function when an Amazon Connect Customer agent workspace contact is missed
 
 Unsubscribes the callback function from the contact missed event.
 

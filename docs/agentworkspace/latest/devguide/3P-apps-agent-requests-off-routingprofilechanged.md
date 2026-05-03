@@ -1,4 +1,4 @@
-# Unsubscribe from agent routing profile changes in Amazon Connect Agent Workspace
+# Unsubscribe from agent routing profile changes in Amazon Connect Customer agent workspace
 
 Unsubscribes from RoutingProfileChanged event.
 

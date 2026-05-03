@@ -1,4 +1,4 @@
-# Unsubscribe from agent enabled channel list changes in Amazon Connect Agent Workspace
+# Unsubscribe from agent enabled channel list changes in Amazon Connect Customer agent workspace
 
 Unsubscribes from EnabledChannelListChanged event.
 

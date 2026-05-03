@@ -1,4 +1,4 @@
-# Check if a participant is on hold in Amazon Connect Agent Workspace
+# Check if a participant is on hold in Amazon Connect Customer agent workspace
 
 Checks whether a specific participant is currently on hold.
 

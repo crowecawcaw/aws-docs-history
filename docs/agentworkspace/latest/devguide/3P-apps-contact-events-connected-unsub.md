@@ -1,6 +1,6 @@
-# Unsubscribe a callback function when an Amazon Connect Agent Workspace contact is connected
+# Unsubscribe a callback function when an Amazon Connect Customer agent workspace contact is connected
 
-Unsubscribes the callback function from Connected event in the Amazon Connect agent workspace.
+Unsubscribes the callback function from Connected event in the Amazon Connect Customer agent workspace.
 
 **Signature**
 

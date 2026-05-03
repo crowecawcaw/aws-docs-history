@@ -1,6 +1,6 @@
-# Handle application errors in Amazon Connect Agent Workspace
+# Handle application errors in Amazon Connect Customer agent workspace
 
-Applications can communicate errors back to the Amazon Connect agent workspace by either
+Applications can communicate errors back to the Amazon Connect Customer agent workspace by either
 calling `sendError` or `sendFatalError` on the `AmazonConnectApp`
 object. The agent workspace will shutdown an app if it sends a fatal error meaning that
 the app has reached an unrecoverable state and isn’t functional. When an app sends a

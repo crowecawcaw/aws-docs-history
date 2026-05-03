@@ -1,6 +1,6 @@
-# Install the Amazon Connect SDK for developing applications for Amazon Connect Agent Workspace
+# Install the Amazon Connect SDK for developing applications for Amazon Connect Customer agent workspace
 
-To develop applications for the Amazon Connect agent workspace you must first install
+To develop applications for the Amazon Connect Customer agent workspace you must first install
 the
 Amazon Connect SDK.
 

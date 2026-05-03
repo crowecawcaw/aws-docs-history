@@ -1,7 +1,7 @@
-# Subscribe a callback function when an Amazon Connect Agent Workspace agent state changes
+# Subscribe a callback function when an Amazon Connect Customer agent workspace agent state changes
 
 Subscribes a callback function to-be-invoked whenever an agent state changed event
-occurs in the Amazon Connect agent workspace.
+occurs in the Amazon Connect Customer agent workspace.
 
 **Signature**
 

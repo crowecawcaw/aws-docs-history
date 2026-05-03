@@ -1,7 +1,7 @@
-# Get all active application information in Amazon Connect Agent Workspace
+# Get all active application information in Amazon Connect Customer agent workspace
 
 Returns the application information for all active application instances in the
-Amazon Connect agent workspace.
+Amazon Connect Customer agent workspace.
 
 **Signature**
 

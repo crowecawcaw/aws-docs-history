@@ -1,4 +1,4 @@
-# Subscribe to participant disconnected events in Amazon Connect Agent Workspace
+# Subscribe to participant disconnected events in Amazon Connect Customer agent workspace
 
 Subscribes to participant disconnected events. This event fires when a participant
 leaves

@@ -1,7 +1,7 @@
-# Unsubscribe a callback function when an Amazon Connect Agent Workspace contact starts ACW
+# Unsubscribe a callback function when an Amazon Connect Customer agent workspace contact starts ACW
 
 Unsubscribes the callback function from the contact StartingAcw event in the Amazon Connect
-agent workspace.
+Customer agent workspace.
 
 **Signature**
 

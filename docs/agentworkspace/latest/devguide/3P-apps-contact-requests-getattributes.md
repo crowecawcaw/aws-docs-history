@@ -1,6 +1,6 @@
-# Get the attributes of a contact in Amazon Connect Agent Workspace
+# Get the attributes of a contact in Amazon Connect Customer agent workspace
 
-Returns a map of the attributes associated with the contact in the Amazon Connect Agent Workspace. Each
+Returns a map of the attributes associated with the contact in the Amazon Connect Customer agent workspace. Each
 value in the map has the following shape: `{ name: string, value: string
  }`.
 

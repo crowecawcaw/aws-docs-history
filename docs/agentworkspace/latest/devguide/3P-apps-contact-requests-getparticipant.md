@@ -1,4 +1,4 @@
-# Get specific participant information in Amazon Connect Agent Workspace
+# Get specific participant information in Amazon Connect Customer agent workspace
 
 Retrieves information for a specific participant.
 

@@ -1,7 +1,7 @@
-# Amazon Connect Agent Workspace Contact API
+# Amazon Connect Customer agent workspace Contact API
 
 The Amazon Connect SDK provides an `ContactClient` which serves as an interface that your app
-in the Amazon Connect agent workspace can use to subscribe to contact events and make contact data requests.
+in the Amazon Connect Customer agent workspace can use to subscribe to contact events and make contact data requests.
 
 The `ContactClient` accepts an optional constructor argument, `ConnectClientConfig` which itself is defined as:
 

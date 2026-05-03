@@ -1,4 +1,4 @@
-# List all contacts for the current agent in Amazon Connect Agent Workspace
+# List all contacts for the current agent in Amazon Connect Customer agent workspace
 
 Lists all contacts for the current agent.
 

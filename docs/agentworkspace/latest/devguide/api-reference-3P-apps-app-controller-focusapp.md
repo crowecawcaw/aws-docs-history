@@ -1,6 +1,6 @@
-# Focus an application in Amazon Connect Agent Workspace
+# Focus an application in Amazon Connect Customer agent workspace
 
-Brings the application into focus in the Amazon Connect agent workspace for the given
+Brings the application into focus in the Amazon Connect Customer agent workspace for the given
 application instance ID.
 
 **Signature**

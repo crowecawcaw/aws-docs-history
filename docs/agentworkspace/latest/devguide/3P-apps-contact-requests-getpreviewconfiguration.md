@@ -1,4 +1,4 @@
-# Get preview configuration for the given contactId in Amazon Connect Agent Workspace
+# Get preview configuration for the given contactId in Amazon Connect Customer agent workspace
 
 This gets configuration information related to the preview experience.
 

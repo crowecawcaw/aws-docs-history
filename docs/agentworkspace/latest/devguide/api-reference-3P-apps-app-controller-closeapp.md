@@ -1,7 +1,7 @@
-# Close an application in Amazon Connect Agent Workspace
+# Close an application in Amazon Connect Customer agent workspace
 
-Closes the application for the given application instance ID in the Amazon Connect agent
-workspace.
+Closes the application for the given application instance ID in the Amazon Connect
+Customer agent workspace.
 
 **Signature**
 

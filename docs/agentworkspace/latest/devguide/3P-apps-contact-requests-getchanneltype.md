@@ -1,6 +1,6 @@
-# Get the type of contact in Amazon Connect Agent Workspace
+# Get the type of contact in Amazon Connect Customer agent workspace
 
-Get the type of the contact in Amazon Connect agent workspace. This indicates
+Get the type of the contact in Amazon Connect Customer agent workspace. This indicates
 what type of media is carried over the connections of the contact.
 
 **Signature**

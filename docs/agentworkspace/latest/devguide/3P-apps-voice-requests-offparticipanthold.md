@@ -1,4 +1,4 @@
-# Unsubscribe from participant hold events in Amazon Connect Agent Workspace
+# Unsubscribe from participant hold events in Amazon Connect Customer agent workspace
 
 Unsubscribes from participant hold events.
 

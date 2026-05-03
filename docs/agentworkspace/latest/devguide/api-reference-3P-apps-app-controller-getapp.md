@@ -1,7 +1,7 @@
-# Get application information in Amazon Connect Agent Workspace
+# Get application information in Amazon Connect Customer agent workspace
 
 Returns the application information for the given application instance ID in the
-Amazon Connect agent workspace.
+Amazon Connect Customer agent workspace.
 
 **Signature**
 

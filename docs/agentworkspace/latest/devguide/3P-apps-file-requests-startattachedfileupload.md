@@ -1,4 +1,4 @@
-# Start uploading a file to Amazon Connect Agent Workspace
+# Start uploading a file to Amazon Connect Customer agent workspace
 
 Provides a pre-signed Amazon S3 URL in response to upload a new attached
 file.

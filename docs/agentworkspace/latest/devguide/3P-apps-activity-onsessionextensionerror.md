@@ -1,4 +1,4 @@
-# Subscribe to session extension errors in Amazon Connect Agent Workspace
+# Subscribe to session extension errors in Amazon Connect Customer agent workspace
 
 Subscribes a callback function to be invoked when an attempt to extend the agent's
 session fails.

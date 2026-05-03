@@ -1,4 +1,4 @@
-# Unsubscribe from participant resume capability change events in Amazon Connect Agent Workspace
+# Unsubscribe from participant resume capability change events in Amazon Connect Customer agent workspace
 
 Unsubscribes from participant capability change events.
 

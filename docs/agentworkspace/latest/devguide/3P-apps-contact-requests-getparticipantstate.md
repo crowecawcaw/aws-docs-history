@@ -1,4 +1,4 @@
-# Get participant state in Amazon Connect Agent Workspace
+# Get participant state in Amazon Connect Customer agent workspace
 
 Retrieves the current state of a specific participant.
 

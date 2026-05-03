@@ -1,7 +1,7 @@
-# Events and requests in Amazon Connect Agent Workspace
+# Events and requests in Amazon Connect Customer agent workspace
 
 App developers can easily create applications that seamlessly integrate into the
-agent workspace experience in the Amazon Connect agent workspace with the event and
+agent workspace experience in the Amazon Connect Customer agent workspace with the event and
 request functionality natively supported by [Amazon Connect SDK](https://github.com/amazon-connect/AmazonConnectSDK "https://github.com/amazon-connect/AmazonConnectSDK").
 You can build an app by leveraging the [Amazon
 Connect SDK](https://github.com/amazon-connect/AmazonConnectSDK "https://github.com/amazon-connect/AmazonConnectSDK") to subscribe to agent/contact events (invoking a particular

@@ -1,7 +1,7 @@
-# Subscribe to incoming contact events in Amazon Connect Agent Workspace
+# Subscribe to incoming contact events in Amazon Connect Customer agent workspace
 
 Creates a subscription whenever a new incoming event occurs in the Amazon Connect
-agent workspace.
+Customer agent workspace.
 
 **Signature**
 

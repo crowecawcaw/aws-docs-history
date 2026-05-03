@@ -1,7 +1,7 @@
-# Integrate application with Amazon Connect Agent Workspace contact data
+# Integrate application with Amazon Connect Customer agent workspace contact data
 
 To integrate your application with contact data from the Amazon Connect
-agent workspace, instantiate
+Customer agent workspace, instantiate
 the contact client as follows:
 
 ```
