@@ -5,7 +5,7 @@ When you sign in to your organization's management account, you can set up Multi
 An _identity source_
 is a Multi-party approval resource that models the connection between Multi-party approval and the AWS IAM Identity Center instance that manages the user authentication for approvers.
 
-![AWS Organizations and Approval portal diagram showing management account connection to IAM Identity Center.](images/setting-up.png)
+![AWS Organizations management account connecting IAM Identity Center and creating approval portal.](images/setting-up.png)
 _Figure 1: Diagram depicting a Multi-party approval administrator setting up Multi-party approval._
 
 ## Create a Multi-party approval identity source

@@ -3,7 +3,7 @@
 When you sign in to your organization's management account, you can create approval
 teams by navigating to the Multi-party approval console.
 
-![AWS Organizations approval process flow from management account to approval portal.](images/create-team.png)
+![Workflow showing approval team creation in AWS Organizations and invitation acceptance in approval portal.](images/create-team.png)
 _Figure 1: Diagram depicting a Multi-party approval administrator creating an approval team._
 
 ## Create an approval team
