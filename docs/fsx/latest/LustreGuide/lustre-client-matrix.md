@@ -6,7 +6,8 @@ with the Linux kernel versions of your client instances.
 | Operating system  | OS version | Minimum kernel version | Maximum kernel version | Lustre client version | Lustre file system version |
 | ----------------- | ---------- | ---------------------- | ---------------------- | --------------------- | -------------------------- | -------- | -------- |
 |                   |            |                        |                        |                       | **2.10**                   | **2.12** | **2.15** |
-| Amazon Linux 2023 | 6.12       | \*                     | \*                     | 2.15                  | no                         | yes      | yes      |
+| Amazon Linux 2023 | 6.18       | \*                     | \*                     | 2.15                  | no                         | yes      | yes      |
+|                   | 6.12       | \*                     | \*                     | 2.15                  | no                         | yes      | yes      |
 |                   | 6.1        | 6.1.79-99.167          | 6.1.79-99.167+         | 2.15                  | no                         | yes      | yes      |
 | Amazon Linux 2    | 5.10       | 5.10.144-127.601       | 5.10.144-127.601+      | 2.12                  | yes                        | yes      | yes      |
 |                   |            |                        | <5.10.144-127.601      | 2.10                  | yes                        | yes      | no       |

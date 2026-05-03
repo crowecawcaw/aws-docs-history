@@ -37,8 +37,9 @@ and the AWS API.
   data repository only when an existing file in the file system is changed. For file
   content changes, the file must be closed before it's propagated to the S3 repository.
   Metadata changes (rename, ownership, permissions, and timestamps) are propagated when
-  the operation is done. For renaming changes (including moves), the existing (pre-renamed)
-  S3 object is deleted and a new S3 object is created with the new name.
+  the operation is done. For all changes (including both content and metadata changes),
+  the existing corresponding S3 object is deleted and a new S3 object is created with the
+  new content and/or metadata.
 - **Deleted** – FSx for Lustre automatically updates the S3
   data repository only when a file, directory, or symlink is deleted in the file system.
 - **Any combination of New, Changed, and Deleted** – FSx for Lustre
@@ -54,6 +55,11 @@ and the AWS API.
   For most use cases, we recommend that you configure an export policy of **New**,
   **Changed**, and **Deleted**. This policy ensures that
   all updates made on your file system are automatically exported to your linked S3 data repository.
+
+###### Note
+
+All S3 objects created by automatic export are written using the S3 Standard
+storage class.
 
 We recommend that you [turn on logging](cw-event-logging.md#manage-logging "cw-event-logging.md#manage-logging") to CloudWatch Logs to
 log information about any files or directories that couldn't be exported automatically.
