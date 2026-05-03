@@ -2,7 +2,7 @@
 
 ###### Important
 
-AWS Glue for Ray will no longer be open to new customers starting April 30, 2026. If you would like to use AWS Glue for Ray, sign up prior to that date. Existing customers can continue to use the service as normal. For capabilities similar to for AWS Glue for Ray, explore Amazon EKS. For more information, see
+AWS Glue for Ray is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS Glue for Ray end of support](awsglue-ray-jobs-availability-change.md "awsglue-ray-jobs-availability-change.md").
 
 After careful consideration, we decided to close AWS Glue for Ray to new customers starting

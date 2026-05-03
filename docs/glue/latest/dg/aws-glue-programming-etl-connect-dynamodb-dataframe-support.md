@@ -27,7 +27,7 @@ Upon creating the DynamoDB connection, you can attach it to your Glue job via CL
 [UpdateJob](../../../cli/latest/reference/glue/update-job.md "../../../cli/latest/reference/glue/update-job.md")
 ) or directly in the "Job details" page:
 
-![](images/dynamodb-dataframe-connector.png)
+![Job details page showing my-dynamodb-connection selected in Additional network connections.](images/dynamodb-dataframe-connector.png)
 Upon ensuring a connection with DYNAMODB Type is attached to your Glue job,
 you can utilize the following read, write, and export operations from the DataFrame-based connector.
 

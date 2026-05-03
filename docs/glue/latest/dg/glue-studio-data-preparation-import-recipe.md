@@ -83,22 +83,22 @@ directly in AWS Glue Studio, you will have to import the recipe steps into your 
 ![The screenshot shows the Add node modal with data preparation recipe available for selection.](images/glue-add-node-data-preparation-recipe.png) 3. In the Transform panel, enter a name for your recipe. 4. Choose one or more parent nodes by selecting the available nodes on the canvas from the drop-down list. 5. Choose **Author Recipe**. If **Author Recipe** is grey it is unavailable until
 node parents have been selected and a data preview session has finished.
 
-![Author Data Preparation Recipe form with name field and node parents selection dropdown.](images/glue-author-data-preparation-recipe.png) 6. The data frame loads and shows you detailed information about your source data.
+![Author Recipe interface showing Name field, Node parents dropdown, and Plans S3 DataSource selected.](images/glue-author-data-preparation-recipe.png) 6. The data frame loads and shows you detailed information about your source data.
 
 Select the **more actions** icon and choose **Import recipe**.
 
-![Data preparation interface showing "Build your Recipe" with an "Add step" button.](images/glue-dataframe-import-recipe.png) 7. Use the Import recipe wizard to complete the steps. In step 1, search for your recipe, select it, and choose
+![Import recipe option displayed in dropdown menu next to Recipe heading.](images/glue-dataframe-import-recipe.png) 7. Use the Import recipe wizard to complete the steps. In step 1, search for your recipe, select it, and choose
 **Next**.
 
-![Import recipe interface showing two recipes, with one selected for import.](images/import-recipe-step-1.png) 8. In step 2, choose your import options. You can choose to Append a new recipe to an existing recipe
+![Import recipe wizard showing step 1 with Populations Sample Project-recipe selected from list.](images/import-recipe-step-1.png) 8. In step 2, choose your import options. You can choose to Append a new recipe to an existing recipe
 or Overwrite an existing recipe. Choose **Next**.
 
-![Import recipe interface showing selected recipe, version, and two imported steps.](images/import-recipe-step-2.png) 9. In step 3, validate the recipe steps. Once you import your AWS Glue DataBrew recipe, you can edit this recipe
+![Import options step showing Append and Overwrite radio buttons with imported recipe steps listed.](images/import-recipe-step-2.png) 9. In step 3, validate the recipe steps. Once you import your AWS Glue DataBrew recipe, you can edit this recipe
 directly in AWS Glue Studio.
 
-![Recipe import interface showing two steps and a validation progress indicator.](images/import-recipe-step-3.png)
+![Validating steps progress indicator showing 0 of 2 steps validated in Step 3 interface.](images/import-recipe-step-3.png)
 
-![Import recipe interface showing validated steps for sorting and formatting data.](images/import-recipe-step-3-validated-2.png) 10. After this, the steps will be imported as part of your AWS Glue job. Make necessary configuration changes in the
+![Step 3 validation screen showing all recipe steps validated with a green checkmark.](images/import-recipe-step-3-validated-2.png) 10. After this, the steps will be imported as part of your AWS Glue job. Make necessary configuration changes in the
 **Job details** tab, like naming your job and adjusting allocated capacity as needed.
 Choose **Save** to save your job and recipe.
 

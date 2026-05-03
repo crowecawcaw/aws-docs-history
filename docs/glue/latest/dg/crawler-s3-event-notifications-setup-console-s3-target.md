@@ -12,7 +12,7 @@ AWS Management Console
 By default **Not yet** is already selected. Leave this as the default as you are
 using an Amazon S3 data source and the data is not already mapped to AWS Glue tables. 4. In the section **Data sources**, choose **Add a data source**.
 
-![Data source configuration interface with options to select or add data sources for crawling.](images/crawler-s3-event-console1.png) 5. In the **Add data source** modal, configure the Amazon S3 data source:
+![Data source configuration section showing Add a data source button with empty data sources table.](images/crawler-s3-event-console1.png) 5. In the **Add data source** modal, configure the Amazon S3 data source:
 
     * **Data source**: By default, Amazon S3 is selected.
     * **Network connection** (Optional): Choose **Add new connection**.
@@ -26,7 +26,7 @@ using an Amazon S3 data source and the data is not already mapped to AWS Glue ta
      SQS ARN. (For example, `arn:aws:sqs:region:account:deadLetterQueue`).
     * Choose **Add an Amazon S3 data source**.
 
-![Add data source dialog for S3, showing options for network connection and crawl settings.](images/crawler-s3-event-console2.png)
+![Add data source dialog showing S3 configuration with path s3://test and crawl based on events selected.](images/crawler-s3-event-console2.png)
 
 AWS CLI
 The following is an example Amazon S3 AWS CLI call to configure a crawler to use

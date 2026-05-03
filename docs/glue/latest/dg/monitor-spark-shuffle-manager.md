@@ -20,7 +20,7 @@ and performance. This solution disaggregates compute and storage for your Spark 
 gives complete elasticity and low-cost shuffle storage, allowing you to run your most
 shuffle-intensive workloads reliably.
 
-![Spark workflow showing Map and Reduce stages using Amazon S3 for shuffle data storage.](images/gs-s3-shuffle-diagram.png)
+![Spark Map Stage writes to disk, shuffles data to S3, then Spark Reduce Stage reads from S3.](images/gs-s3-shuffle-diagram.png)
 We are introducing a new Cloud Shuffle Storage Plugin for Apache Spark to use Amazon S3. You can
 turn on Amazon S3 shuffling to run your AWS Glue jobs reliably without failures if they
 are known to be bound by the local disk capacity for large shuffle operations. In some cases,
@@ -51,7 +51,7 @@ In order to use the Cloud Shuffle Storage Plugin with AWS Glue ETL jobs, you nee
 To set up the AWS Glue Spark shuffle manager using the AWS Glue
 console or AWS Glue Studio when configuring a job: choose the **--write-shuffle-files-to-s3** job parameter to turn on Amazon S3 shuffling for the job.
 
-![Job parameters interface showing --write-shuffle-files- parameter and option to add more.](images/gs-s3-shuffle.png)
+![Job parameters section showing write-shuffle-files key with optional value field and Remove button.](images/gs-s3-shuffle.png)
 
 ## Using AWS Glue Spark shuffle plugin
 

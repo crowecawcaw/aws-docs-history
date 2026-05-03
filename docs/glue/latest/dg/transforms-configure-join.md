@@ -60,7 +60,7 @@ either:
 For more complex join conditions, you can add additional matching keys by choosing
 **Add condition** more than once. If you accidentally add a
 condition, you can choose the delete icon (
-![An outline of a trash can](images/delete-icon-black.png)
+![An outline of a trash can](/images/glue/latest/dg/images/delete-icon-black.png)
 ) to remove it. 8. (Optional) After configuring the transform node properties, you can view the modified schema for your data by choosing the **Output schema** tab in the node details panel. The first time you choose this tab for any node in your job, you are prompted to provide an IAM role to access the data. If you have not specified an IAM role on the **Job details** tab, you are prompted to enter an IAM role here. 9. (Optional) After configuring the node properties and transform properties, you can preview the modified dataset by choosing the **Data preview** tab in the node details panel. The first time you choose this tab for any node in your job, you are prompted to provide an IAM role to access the data. There is a cost associated with using this feature, and billing starts as soon as you provide an IAM role.
 For an example of the join output schema, consider a join between two datasets with the
 following property keys:

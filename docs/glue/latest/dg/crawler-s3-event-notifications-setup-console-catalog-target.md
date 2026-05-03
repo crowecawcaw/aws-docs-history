@@ -8,7 +8,7 @@ When you have a Data Catalog table, set up a crawler for Amazon S3 event notific
 
 Select **Yes** to select existing tables from your Data Catalog as your data source. 3. In the section **Glue tables**, choose **Add tables**.
 
-![Data source configuration interface with options to select existing Glue tables or add new ones.](images/crawler-s3-event-console1-cat.png) 4. In the **Add table** modal, configure the database and tables:
+![Data source configuration page with Yes option selected to use existing Glue tables.](images/crawler-s3-event-console1-cat.png) 4. In the **Add table** modal, configure the database and tables:
 
     * **Network connection** (Optional): Choose **Add new connection**.
     * **Database**: Select a database in the Data Catalog.
@@ -21,4 +21,4 @@ Select **Yes** to select existing tables from your Data Catalog as your data sou
      SQS ARN. (For example, `arn:aws:sqs:region:account:deadLetterQueue`).
     * Choose **Confirm**.
 
-![Add Glue tables dialog with network, database, tables, and crawler options.](images/crawler-s3-event-console2-cat.png)
+![Add Glue tables dialog showing database selection, table selection, and event-based crawling options.](images/crawler-s3-event-console2-cat.png)

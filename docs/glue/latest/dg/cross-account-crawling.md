@@ -34,7 +34,7 @@ AWS Management Console
    target Amazon S3 location is registered with Lake Formation. For in-account crawling, the
    accountId field is optional.
 
-   ![IAM role selection and Lake Formation configuration options for AWS Glue crawler security settings.](images/cross-account-crawler.png)
+   ![Lake Formation configuration section with Account ID field showing 111111111111.](images/cross-account-crawler.png)
 
 AWS CLI
 

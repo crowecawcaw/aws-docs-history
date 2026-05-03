@@ -5,20 +5,25 @@ This topic includes information about properties for AWS Glue connections.
 ###### Topics
 
 - [Required connection properties](#connection-properties-required "#connection-properties-required")
+- [Amazon DocumentDB connection](#connection-properties-documentdb "#connection-properties-documentdb")
+- [OpenSearch Service connection](#connection-properties-opensearch "#connection-properties-opensearch")
+- [Amazon Redshift connection](#connection-properties-redshift "#connection-properties-redshift")
+- [Google BigQuery connection](#connection-properties-bigquery "#connection-properties-bigquery")
+- [MySQL connection properties](#connection-properties-mysql "#connection-properties-mysql")
+- [Oracle connection properties](#connection-properties-oracle "#connection-properties-oracle")
+- [PostgreSQL connection properties](#connection-properties-postgresql "#connection-properties-postgresql")
+- [SAP HANA connection](#connection-properties-saphana "#connection-properties-saphana")
+- [Snowflake connection](#connection-properties-snowflake "#connection-properties-snowflake")
+- [SQL Server connection properties](#connection-properties-sqlserver "#connection-properties-sqlserver")
+- [Teradata Vantage connection](#connection-properties-teradata "#connection-properties-teradata")
+- [Vertica connection](#connection-properties-vertica "#connection-properties-vertica")
+- [Azure Cosmos connection](#connection-properties-azurecosmos "#connection-properties-azurecosmos")
+- [Azure SQL connection](#connection-properties-azuresql "#connection-properties-azuresql")
+- [Salesforce connection properties](#connection-properties-salesforce "#connection-properties-salesforce")
 - [AWS Glue JDBC connection properties](#connection-properties-jdbc "#connection-properties-jdbc")
 - [AWS Glue MongoDB and MongoDB Atlas connection properties](#connection-properties-mongodb "#connection-properties-mongodb")
-- [Salesforce connection properties](#connection-properties-salesforce "#connection-properties-salesforce")
-- [Snowflake connection](#connection-properties-snowflake "#connection-properties-snowflake")
-- [Vertica connection](#connection-properties-vertica "#connection-properties-vertica")
-- [SAP HANA connection](#connection-properties-saphana "#connection-properties-saphana")
-- [Azure SQL connection](#connection-properties-azuresql "#connection-properties-azuresql")
-- [Teradata Vantage connection](#connection-properties-teradata "#connection-properties-teradata")
-- [OpenSearch Service connection](#connection-properties-opensearch "#connection-properties-opensearch")
-- [Azure Cosmos connection](#connection-properties-azurecosmos "#connection-properties-azurecosmos")
 - [AWS Glue SSL connection properties](#connection-properties-SSL "#connection-properties-SSL")
 - [Apache Kafka connection properties for client authentication](#connection-properties-authentication "#connection-properties-authentication")
-- [Google BigQuery connection](#connection-properties-bigquery "#connection-properties-bigquery")
-- [Vertica connection](#connection-properties-vertica "#connection-properties-vertica")
 
 ## Required connection properties
 
@@ -65,6 +70,850 @@ port number. For example:
 b-1.vpc-test-2.o4q88o.c6.kafka.us-east-1.amazonaws.com:9094,
 b-2.vpc-test-2.o4q88o.c6.kafka.us-east-1.amazonaws.com:9094,
 b-3.vpc-test-2.o4q88o.c6.kafka.us-east-1.amazonaws.com:9094
+
+## Amazon DocumentDB connection
+
+The following properties are used to set up an Amazon DocumentDB connection.
+
+**HOST**
+
+(Required, STRING) The hostname of the Amazon DocumentDB cluster endpoint.
+
+**PORT**
+
+(Required, STRING) The port number. The value must be a valid port number.
+
+**ENFORCE_SSL**
+
+(Optional, BOOLEAN) Whether to enforce SSL for the connection. The default
+value is `false`. Allowed values: `true`,
+`false`.
+
+**ROLE_ARN**
+
+(Optional, STRING) The IAM role ARN used to access AWS Secrets Manager and to
+assign an IP address if a Amazon VPC is specified.
+
+**JDBC_PARAMS**
+
+(Optional, STRING) Additional connection parameters.
+
+**Authentication**
+
+The Amazon DocumentDB connection supports the following authentication type:
+
+- **BASIC** – Authenticates with a username and password
+  stored in AWS Secrets Manager.
+
+Use the following properties when configuring a connection to Amazon DocumentDB through a Amazon VPC:
+
+**VPC**
+
+Choose the name of the virtual private cloud (VPC) that contains your
+data store. The AWS Glue console lists all VPCs for the
+current Region.
+
+**Subnet**
+
+Choose the subnet within the VPC that contains your data store. The
+AWS Glue console lists all subnets for the data store in
+your VPC.
+
+**Security groups**
+
+Choose the security groups that are associated with your data store.
+AWS Glue requires one or more security groups with an
+inbound source rule that allows AWS Glue to connect. The
+AWS Glue console lists all security groups that are
+granted inbound access to your VPC. AWS Glue associates
+these security groups with the elastic network interface that is
+attached to your VPC subnet.
+
+## OpenSearch Service connection
+
+Use the following properties to set up a OpenSearch Service connection for AWS Glue ETL jobs.
+
+**Domain endpoint**
+An Amazon OpenSearch Service domain endpoint will have the following default form,
+https://search-`domainName`-`unstructuredIdContent`.`region`.es.amazonaws.com.
+For more information on identifying your domain endpoint, see [Creating and managing
+Amazon OpenSearch Service domains](../../../opensearch-service/latest/developerguide/createupdatedomains.md "../../../opensearch-service/latest/developerguide/createupdatedomains.md") in the Amazon OpenSearch Service documentation.
+
+**Port**
+The port open on the endpoint.
+
+**AWS Secret**
+The **Secret name** of a secret in AWS Secrets Manager. AWS Glue will connect to
+OpenSearch Service using the keys of your secret.
+
+**ROLE_ARN**
+
+(Optional, STRING) The IAM role ARN used to access AWS Secrets Manager and to
+assign an IP address if a Amazon VPC is specified.
+
+Use the following properties when configuring a connection to a OpenSearch Service endpoint hosted in Amazon VPC:
+
+**VPC**
+
+Choose the name of the virtual private cloud (VPC) that contains your
+data store. The AWS Glue console lists all VPCs for the
+current Region.
+
+**Subnet**
+
+Choose the subnet within the VPC that contains your data store. The
+AWS Glue console lists all subnets for the data store in
+your VPC.
+
+**Security groups**
+
+Choose the security groups that are associated with your data store.
+AWS Glue requires one or more security groups with an
+inbound source rule that allows AWS Glue to connect. The
+AWS Glue console lists all security groups that are
+granted inbound access to your VPC. AWS Glue associates
+these security groups with the elastic network interface that is
+attached to your VPC subnet.
+
+## Amazon Redshift connection
+
+The following properties are used to set up an Amazon Redshift connection.
+
+**HOST**
+
+(Required, STRING) The hostname of the Amazon Redshift cluster endpoint.
+
+**PORT**
+
+(Required, STRING) The port number. The value must be a valid port number.
+
+**DATABASE**
+
+(Required, STRING) The name of the Amazon Redshift database to connect to.
+
+**ENFORCE_SSL**
+
+(Optional, BOOLEAN) Whether to enforce SSL for the connection. The default
+value is `false`. Allowed values: `true`,
+`false`.
+
+**ROLE_ARN**
+
+(Optional, STRING) The IAM role ARN used to access AWS Secrets Manager and to
+assign an IP address if a Amazon VPC is specified.
+
+**JDBC_PARAMS**
+
+(Optional, STRING) Additional JDBC parameters for the connection.
+
+**Authentication**
+
+The Amazon Redshift connection supports the following authentication types:
+
+- **BASIC** – Authenticates with a username and password
+  stored in AWS Secrets Manager.
+- **IAM** – Authenticates with IAM role-based
+  access.
+
+Use the following properties when configuring a connection to an Amazon Redshift endpoint hosted in Amazon VPC:
+
+**VPC**
+
+Choose the name of the virtual private cloud (VPC) that contains your
+data store. The AWS Glue console lists all VPCs for the
+current Region.
+
+**Subnet**
+
+Choose the subnet within the VPC that contains your data store. The
+AWS Glue console lists all subnets for the data store in
+your VPC.
+
+**Security groups**
+
+Choose the security groups that are associated with your data store.
+AWS Glue requires one or more security groups with an
+inbound source rule that allows AWS Glue to connect. The
+AWS Glue console lists all security groups that are
+granted inbound access to your VPC. AWS Glue associates
+these security groups with the elastic network interface that is
+attached to your VPC subnet.
+
+## Google BigQuery connection
+
+The following properties are used to set up a Google BigQuery connection used in AWS Glue ETL jobs. For more
+information, see [BigQuery connections](aws-glue-programming-etl-connect-bigquery-home.md "aws-glue-programming-etl-connect-bigquery-home.md").
+
+**PROJECT_ID**
+
+(Required, STRING) The project ID within Google Cloud Platform.
+
+**ROLE_ARN**
+
+(Optional, STRING) The IAM role ARN used to access AWS Secrets Manager and to
+assign an IP address if a Amazon VPC is specified.
+
+**CATALOG_CASING_FILTER**
+
+(Optional, STRING) Controls how entity names are processed and which names
+are accepted from the external source. This property applies only when the
+connection is used with Data Catalog APIs and catalog federation. It does not
+apply to AWS Glue ETL jobs or other connection-related APIs. No default value. Allowed values:
+`LOWERCASE_ONLY`, `UPPERCASE_ONLY`.
+
+**Authentication**
+
+The Google BigQuery connection supports the following authentication type:
+
+- **CUSTOM** – Authenticates with Google Cloud service
+  account credentials stored in AWS Secrets Manager.
+
+Use the following properties when configuring a Google BigQuery connection through a Amazon VPC:
+
+**VPC**
+
+Choose the name of the virtual private cloud (VPC) that contains your
+data store. The AWS Glue console lists all VPCs for the
+current Region.
+
+**Subnet**
+
+Choose the subnet within the VPC that contains your data store. The
+AWS Glue console lists all subnets for the data store in
+your VPC.
+
+**Security groups**
+
+Choose the security groups that are associated with your data store.
+AWS Glue requires one or more security groups with an
+inbound source rule that allows AWS Glue to connect. The
+AWS Glue console lists all security groups that are
+granted inbound access to your VPC. AWS Glue associates
+these security groups with the elastic network interface that is
+attached to your VPC subnet.
+
+## MySQL connection properties
+
+The following properties are used to set up a MySQL unified connection.
+
+**HOST**
+
+(Required, STRING) The hostname of the MySQL database endpoint.
+
+**PORT**
+
+(Required, STRING) The port number. The value must be a valid port number.
+
+**DATABASE**
+
+(Required, STRING) The name of the database to connect to.
+
+**ENFORCE_SSL**
+
+(Optional, BOOLEAN) Whether to enforce SSL for the connection. The default
+value is `false`. Allowed values: `true`,
+`false`.
+
+**ROLE_ARN**
+
+(Optional, STRING) The IAM role ARN used to access AWS Secrets Manager and to
+assign an IP address if a Amazon VPC is specified.
+
+**JDBC_PARAMS**
+
+(Optional, STRING) Additional JDBC parameters for the connection.
+
+**CATALOG_CASING_FILTER**
+
+(Optional, STRING) Controls how entity names are processed and which names
+are accepted from the external source. This property applies only when the
+connection is used with Data Catalog APIs and catalog federation. It does not
+apply to AWS Glue ETL jobs or other connection-related APIs. No default value. Allowed values:
+`LOWERCASE_ONLY`, `UPPERCASE_ONLY`.
+
+**Authentication**
+
+The MySQL connection supports the following authentication type:
+
+- **BASIC** – Authenticates with a username and password
+  stored in AWS Secrets Manager.
+
+Use the following properties when configuring a connection to a MySQL endpoint hosted in Amazon VPC:
+
+**VPC**
+
+Choose the name of the virtual private cloud (VPC) that contains your
+data store. The AWS Glue console lists all VPCs for the
+current Region.
+
+**Subnet**
+
+Choose the subnet within the VPC that contains your data store. The
+AWS Glue console lists all subnets for the data store in
+your VPC.
+
+**Security groups**
+
+Choose the security groups that are associated with your data store.
+AWS Glue requires one or more security groups with an
+inbound source rule that allows AWS Glue to connect. The
+AWS Glue console lists all security groups that are
+granted inbound access to your VPC. AWS Glue associates
+these security groups with the elastic network interface that is
+attached to your VPC subnet.
+
+## Oracle connection properties
+
+The following properties are used to set up an Oracle unified connection.
+
+**HOST**
+
+(Required, STRING) The hostname of the Oracle database endpoint.
+
+**PORT**
+
+(Required, STRING) The port number. The value must be a valid port number.
+
+**DATABASE**
+
+(Required, STRING) The name of the database to connect to.
+
+**ENFORCE_SSL**
+
+(Optional, BOOLEAN) Whether to enforce SSL for the connection. The default
+value is `false`. Allowed values: `true`,
+`false`.
+
+**ROLE_ARN**
+
+(Optional, STRING) The IAM role ARN used to access AWS Secrets Manager and to
+assign an IP address if a Amazon VPC is specified.
+
+**JDBC_PARAMS**
+
+(Optional, STRING) Additional JDBC parameters for the connection.
+
+**CATALOG_CASING_FILTER**
+
+(Optional, STRING) Controls how entity names are processed and which names
+are accepted from the external source. This property applies only when the
+connection is used with Data Catalog APIs and catalog federation. It does not
+apply to AWS Glue ETL jobs or other connection-related APIs. The default value is
+`UPPERCASE_ONLY`. Allowed values:
+`LOWERCASE_ONLY`, `UPPERCASE_ONLY`.
+
+**Authentication**
+
+The Oracle connection supports the following authentication type:
+
+- **BASIC** – Authenticates with a username and password
+  stored in AWS Secrets Manager.
+
+Use the following properties when configuring a connection to an Oracle endpoint hosted in Amazon VPC:
+
+**VPC**
+
+Choose the name of the virtual private cloud (VPC) that contains your
+data store. The AWS Glue console lists all VPCs for the
+current Region.
+
+**Subnet**
+
+Choose the subnet within the VPC that contains your data store. The
+AWS Glue console lists all subnets for the data store in
+your VPC.
+
+**Security groups**
+
+Choose the security groups that are associated with your data store.
+AWS Glue requires one or more security groups with an
+inbound source rule that allows AWS Glue to connect. The
+AWS Glue console lists all security groups that are
+granted inbound access to your VPC. AWS Glue associates
+these security groups with the elastic network interface that is
+attached to your VPC subnet.
+
+## PostgreSQL connection properties
+
+The following properties are used to set up a PostgreSQL unified connection.
+
+**HOST**
+
+(Required, STRING) The hostname of the PostgreSQL database endpoint.
+
+**PORT**
+
+(Required, STRING) The port number. The value must be a valid port number.
+
+**DATABASE**
+
+(Required, STRING) The name of the database to connect to.
+
+**ENFORCE_SSL**
+
+(Optional, BOOLEAN) Whether to enforce SSL for the connection. The default
+value is `false`. Allowed values: `true`,
+`false`.
+
+**ROLE_ARN**
+
+(Optional, STRING) The IAM role ARN used to access AWS Secrets Manager and to
+assign an IP address if a Amazon VPC is specified.
+
+**JDBC_PARAMS**
+
+(Optional, STRING) Additional JDBC parameters for the connection.
+
+**CATALOG_CASING_FILTER**
+
+(Optional, STRING) Controls how entity names are processed and which names
+are accepted from the external source. This property applies only when the
+connection is used with Data Catalog APIs and catalog federation. It does not
+apply to AWS Glue ETL jobs or other connection-related APIs. The default value is
+`LOWERCASE_ONLY`. Allowed values:
+`LOWERCASE_ONLY`, `UPPERCASE_ONLY`.
+
+**Authentication**
+
+The PostgreSQL connection supports the following authentication type:
+
+- **BASIC** – Authenticates with a username and password
+  stored in AWS Secrets Manager.
+
+Use the following properties when configuring a connection to a PostgreSQL endpoint hosted in Amazon VPC:
+
+**VPC**
+
+Choose the name of the virtual private cloud (VPC) that contains your
+data store. The AWS Glue console lists all VPCs for the
+current Region.
+
+**Subnet**
+
+Choose the subnet within the VPC that contains your data store. The
+AWS Glue console lists all subnets for the data store in
+your VPC.
+
+**Security groups**
+
+Choose the security groups that are associated with your data store.
+AWS Glue requires one or more security groups with an
+inbound source rule that allows AWS Glue to connect. The
+AWS Glue console lists all security groups that are
+granted inbound access to your VPC. AWS Glue associates
+these security groups with the elastic network interface that is
+attached to your VPC subnet.
+
+## SAP HANA connection
+
+The following properties are used to set up a SAP HANA connection for AWS Glue ETL jobs.
+
+**HOST**
+
+(Required, STRING) The hostname of the SAP HANA database endpoint.
+
+**PORT**
+
+(Required, STRING) The port number. The value must be a valid port number.
+
+**DATABASE**
+
+(Optional, STRING) The name of the SAP HANA database to connect to.
+
+**ROLE_ARN**
+
+(Optional, STRING) The IAM role ARN used to access AWS Secrets Manager and to
+assign an IP address if a Amazon VPC is specified.
+
+**JDBC_PARAMS**
+
+(Optional, STRING) Additional JDBC parameters for the connection.
+
+**CATALOG_CASING_FILTER**
+
+(Optional, STRING) Controls how entity names are processed and which names
+are accepted from the external source. This property applies only when the
+connection is used with Data Catalog APIs and catalog federation. It does not
+apply to AWS Glue ETL jobs or other connection-related APIs. The default value is
+`UPPERCASE_ONLY`. Allowed values:
+`LOWERCASE_ONLY`, `UPPERCASE_ONLY`.
+
+**Authentication**
+
+The SAP HANA connection supports the following authentication type:
+
+- **BASIC** – Authenticates with a username and password
+  stored in AWS Secrets Manager.
+
+Use the following properties when configuring a connection to a SAP HANA endpoint hosted in Amazon VPC:
+
+**VPC**
+
+Choose the name of the virtual private cloud (VPC) that contains your
+data store. The AWS Glue console lists all VPCs for the
+current Region.
+
+**Subnet**
+
+Choose the subnet within the VPC that contains your data store. The
+AWS Glue console lists all subnets for the data store in
+your VPC.
+
+**Security groups**
+
+Choose the security groups that are associated with your data store.
+AWS Glue requires one or more security groups with an
+inbound source rule that allows AWS Glue to connect. The
+AWS Glue console lists all security groups that are
+granted inbound access to your VPC. AWS Glue associates
+these security groups with the elastic network interface that is
+attached to your VPC subnet.
+
+## Snowflake connection
+
+The following properties are used to set up a Snowflake connection used in AWS Glue ETL jobs.
+When crawling Snowflake, use a JDBC connection.
+
+**HOST**
+
+(Required, STRING) The Snowflake host URL. The value must end with
+`.snowflakecomputing.com` or `.snowflakecomputing.cn`.
+For more information about Snowflake endpoint URLs, see
+[Connecting to
+Your Accounts](https://docs.snowflake.com/en/user-guide/organizations-connect "https://docs.snowflake.com/en/user-guide/organizations-connect") in the Snowflake documentation.
+
+**PORT**
+
+(Optional, STRING) The port number for the Snowflake connection.
+
+**DATABASE**
+
+(Optional, STRING) The name of the Snowflake database.
+
+**SCHEMA**
+
+(Optional, STRING) The Snowflake schema name.
+
+**WAREHOUSE**
+
+(Optional, STRING) The Snowflake warehouse name.
+
+**JDBC_PARAMS**
+
+(Optional, STRING) Additional JDBC parameters for the Snowflake connection.
+
+**CATALOG_CASING_FILTER**
+
+(Optional, STRING) Controls how entity names are processed and which names
+are accepted from the external source. This property applies only when the
+connection is used with Data Catalog APIs and catalog federation. It does not
+apply to AWS Glue ETL jobs or other connection-related APIs. This property applies only when the
+connection is used with Data Catalog APIs and catalog federation. It does not
+apply to AWS Glue ETL jobs or other connection-related APIs. The default value is `UPPERCASE_ONLY`.
+Allowed values: `LOWERCASE_ONLY`, `UPPERCASE_ONLY`.
+
+**ROLE_ARN**
+
+(Optional, STRING) The IAM role ARN used to access AWS Secrets Manager and to
+assign an IP address if a Amazon VPC is specified.
+
+**Authentication**
+
+The Snowflake connection supports the following authentication types:
+
+- **BASIC** – Authenticates with a username and password
+  stored in AWS Secrets Manager.
+- **OAUTH2** – Authenticates with the OAuth2 Authorization
+  Code grant type.
+- **CUSTOM** – Authenticates with a username and PEM
+  private key stored in AWS Secrets Manager.
+
+Use the following properties when configuring a connection to a Snowflake endpoint hosted in Amazon VPC using AWS PrivateLink.
+
+**VPC**
+
+Choose the name of the virtual private cloud (VPC) that contains your
+data store. The AWS Glue console lists all VPCs for the
+current Region.
+
+**Subnet**
+
+Choose the subnet within the VPC that contains your data store. The
+AWS Glue console lists all subnets for the data store in
+your VPC.
+
+**Security groups**
+
+Choose the security groups that are associated with your data store.
+AWS Glue requires one or more security groups with an
+inbound source rule that allows AWS Glue to connect. The
+AWS Glue console lists all security groups that are
+granted inbound access to your VPC. AWS Glue associates
+these security groups with the elastic network interface that is
+attached to your VPC subnet.
+
+## SQL Server connection properties
+
+The following properties are used to set up a SQL Server unified connection.
+
+**HOST**
+
+(Required, STRING) The hostname of the SQL Server database endpoint.
+
+**PORT**
+
+(Required, STRING) The port number. The value must be a valid port number.
+
+**DATABASE**
+
+(Required, STRING) The name of the database to connect to.
+
+**ENFORCE_SSL**
+
+(Optional, BOOLEAN) Whether to enforce SSL for the connection. The default
+value is `false`. Allowed values: `true`,
+`false`.
+
+**ROLE_ARN**
+
+(Optional, STRING) The IAM role ARN used to access AWS Secrets Manager and to
+assign an IP address if a Amazon VPC is specified.
+
+**JDBC_PARAMS**
+
+(Optional, STRING) Additional JDBC parameters for the connection.
+
+**CATALOG_CASING_FILTER**
+
+(Optional, STRING) Controls how entity names are processed and which names
+are accepted from the external source. This property applies only when the
+connection is used with Data Catalog APIs and catalog federation. It does not
+apply to AWS Glue ETL jobs or other connection-related APIs. No default value. Allowed values:
+`LOWERCASE_ONLY`, `UPPERCASE_ONLY`.
+
+**Authentication**
+
+The SQL Server connection supports the following authentication type:
+
+- **BASIC** – Authenticates with a username and password
+  stored in AWS Secrets Manager.
+
+Use the following properties when configuring a connection to a SQL Server endpoint hosted in Amazon VPC:
+
+**VPC**
+
+Choose the name of the virtual private cloud (VPC) that contains your
+data store. The AWS Glue console lists all VPCs for the
+current Region.
+
+**Subnet**
+
+Choose the subnet within the VPC that contains your data store. The
+AWS Glue console lists all subnets for the data store in
+your VPC.
+
+**Security groups**
+
+Choose the security groups that are associated with your data store.
+AWS Glue requires one or more security groups with an
+inbound source rule that allows AWS Glue to connect. The
+AWS Glue console lists all security groups that are
+granted inbound access to your VPC. AWS Glue associates
+these security groups with the elastic network interface that is
+attached to your VPC subnet.
+
+## Teradata Vantage connection
+
+The following properties are used to set up a Teradata Vantage connection for AWS Glue ETL jobs.
+
+**HOST**
+
+(Required, STRING) The hostname of the Teradata database endpoint.
+
+**PORT**
+
+(Required, STRING) The port number. The value must be a valid port number.
+
+**DATABASE**
+
+(Required, STRING) The name of the Teradata database to connect to.
+
+**ROLE_ARN**
+
+(Optional, STRING) The IAM role ARN used to access AWS Secrets Manager and to
+assign an IP address if a Amazon VPC is specified.
+
+**JDBC_PARAMS**
+
+(Optional, STRING) Additional JDBC parameters for the connection.
+
+**Authentication**
+
+The Teradata Vantage connection supports the following authentication type:
+
+- **BASIC** – Authenticates with a username and password
+  stored in AWS Secrets Manager.
+
+Use the following properties when configuring a connection to a Teradata Vantage endpoint hosted in Amazon VPC:
+
+**VPC**
+
+Choose the name of the virtual private cloud (VPC) that contains your
+data store. The AWS Glue console lists all VPCs for the
+current Region.
+
+**Subnet**
+
+Choose the subnet within the VPC that contains your data store. The
+AWS Glue console lists all subnets for the data store in
+your VPC.
+
+**Security groups**
+
+Choose the security groups that are associated with your data store.
+AWS Glue requires one or more security groups with an
+inbound source rule that allows AWS Glue to connect. The
+AWS Glue console lists all security groups that are
+granted inbound access to your VPC. AWS Glue associates
+these security groups with the elastic network interface that is
+attached to your VPC subnet.
+
+## Vertica connection
+
+Use the following properties to set up a Vertica connection for AWS Glue ETL jobs.
+
+**Vertica Host**
+The hostname of your Vertica installation.
+
+**Vertica Port**
+The port your Vertica installation is available through.
+
+**AWS Secret**
+The **Secret name** of a secret in AWS Secrets Manager. AWS Glue will connect to
+Vertica using the keys of your secret.
+
+Use the following properties when configuring a connection to a Vertica endpoint hosted in Amazon VPC.
+
+**VPC**
+
+Choose the name of the virtual private cloud (VPC) that contains your
+data store. The AWS Glue console lists all VPCs for the
+current Region.
+
+**Subnet**
+
+Choose the subnet within the VPC that contains your data store. The
+AWS Glue console lists all subnets for the data store in
+your VPC.
+
+**Security groups**
+
+Choose the security groups that are associated with your data store.
+AWS Glue requires one or more security groups with an
+inbound source rule that allows AWS Glue to connect. The
+AWS Glue console lists all security groups that are
+granted inbound access to your VPC. AWS Glue associates
+these security groups with the elastic network interface that is
+attached to your VPC subnet.
+
+## Azure Cosmos connection
+
+Use the following properties to set up a Azure Cosmos connection for AWS Glue ETL jobs.
+
+**Azure Cosmos DB Account Endpoint URI**
+
+The endpoint used to connect to Azure Cosmos. For more information, see [the Azure documentation](https://learn.microsoft.com/en-us/rest/api/cosmos-db/cosmosdb-resource-uri-syntax-for-rest "https://learn.microsoft.com/en-us/rest/api/cosmos-db/cosmosdb-resource-uri-syntax-for-rest").
+
+**AWS Secret**
+The **Secret name** of a secret in AWS Secrets Manager. AWS Glue will connect to
+Azure Cosmos using the keys of your secret.
+
+## Azure SQL connection
+
+Use the following properties to set up a Azure SQL connection for AWS Glue ETL jobs.
+
+**Azure SQL URL**
+The JDBC URL of an Azure SQL endpoint.
+
+The URL must be in the following format:
+`jdbc:sqlserver://`databaseServerName`:`databasePort`;databaseName=`azuresqlDBname`;`.
+
+AWS Glue requires the following URL properties:
+
+- `databaseName` – A default database in Azure SQL to connect to.
+
+For more information about JDBC URLs for Azure SQL Managed Instances, see the [Microsoft documentation](https://learn.microsoft.com/en-us/sql/connect/jdbc/building-the-connection-url?view=azuresqldb-mi-current "https://learn.microsoft.com/en-us/sql/connect/jdbc/building-the-connection-url?view=azuresqldb-mi-current").
+
+**AWS Secret**
+The **Secret name** of a secret in AWS Secrets Manager. AWS Glue will connect to
+Azure SQL using the keys of your secret.
+
+## Salesforce connection properties
+
+The following properties are used to set up a Salesforce connection.
+
+**INSTANCE_URL**
+
+(Required, STRING) The Salesforce instance URL. The value must be a valid
+Salesforce URL (for example,
+`https://mycompany.my.salesforce.com`).
+
+**SALESFORCE_ENVIRONMENT**
+
+(Required, STRING) The Salesforce environment to connect to. The default
+value is `Production`. Allowed values:
+`Production`, `Sandbox`.
+
+**ROLE_ARN**
+
+(Required, STRING) The IAM role ARN used to access AWS Secrets Manager and to
+assign an IP address if a Amazon VPC is specified.
+
+**Authentication**
+
+The Salesforce connection supports the following authentication type:
+
+- **OAUTH2** – Authenticates with the OAuth2
+  Authorization Code and JWT Bearer grant types.
+
+Use the following properties when configuring a Salesforce connection through a Amazon VPC:
+
+**VPC**
+
+Choose the name of the virtual private cloud (VPC) that contains your
+data store. The AWS Glue console lists all VPCs for the
+current Region.
+
+**Subnet**
+
+Choose the subnet within the VPC that contains your data store. The
+AWS Glue console lists all subnets for the data store in
+your VPC.
+
+**Security groups**
+
+Choose the security groups that are associated with your data store.
+AWS Glue requires one or more security groups with an
+inbound source rule that allows AWS Glue to connect. The
+AWS Glue console lists all security groups that are
+granted inbound access to your VPC. AWS Glue associates
+these security groups with the elastic network interface that is
+attached to your VPC subnet.
+
+The following are additional connection options for Salesforce:
+
+- `ENTITY_NAME` (String) - (Required) Used for Read/Write. The name of your Object in Salesforce.
+- `API_VERSION` (String) - (Required) Used for Read/Write. Salesforce Rest API version you want to use.
+- `SELECTED_FIELDS` (List<String>) - Default: empty (SELECT \*). Used for Read. Columns you want to select for the object.
+- `FILTER_PREDICATE` (String) - Default: empty. Used for Read. It should be in the Spark SQL format.
+- `QUERY` (String) - Default: empty. Used for Read. Full Spark SQL query.
+- `PARTITION_FIELD` (String) - Used for Read. Field to be used to partition query.
+- `LOWER_BOUND` (String) - Used for Read. An inclusive lower bound value of the chosen partition field.
+- `UPPER_BOUND` (String) - Used for Read. An exclusive upper bound value of the chosen partition field.
+- `NUM_PARTITIONS` (Integer) - Default: 1. Used for Read. Number of partitions for read.
+- `IMPORT_DELETED_RECORDS` (String) - Default: FALSE. Used for Read. To get the deleted records while querying.
+- `WRITE_OPERATION` (String) - Default: INSERT. Used for Write. Value should be INSERT, UPDATE, UPSERT, DELETE.
+- `ID_FIELD_NAMES` (String) - Default: null. Used only for UPSERT.
 
 ## AWS Glue JDBC connection properties
 
@@ -297,259 +1146,6 @@ Provide a user name that has permission to access the JDBC data store.
 Enter the password for the user name that has access permission to the
 MongoDB or MongoDB Atlas data store.
 
-## Salesforce connection properties
-
-The following are additional properties for the Salesforce connection type.
-
-- `ENTITY_NAME`(String) - (Required) Used for Read/Write. The name of your Object in Salesforce.
-- `API_VERSION`(String) - (Required) Used for Read/Write. Salesforce Rest API version you want to use.
-- `SELECTED_FIELDS`(List<String>) - Default: empty(SELECT \*). Used for Read. Columns you want to select for the object.
-- `FILTER_PREDICATE`(String) - Default: empty. Used for Read. It should be in the Spark SQL format.
-- `QUERY`(String) - Default: empty. Used for Read. Full Spark SQL query.
-- `PARTITION_FIELD`(String) - Used for Read. Field to be used to partition query.
-- `LOWER_BOUND`(String)- Used for Read. An inclusive lower bound value of the chosen partition field.
-- `UPPER_BOUND`(String) - Used for Read. An exclusive upper bound value of the chosen partition field.
-- `NUM_PARTITIONS`(Integer) - Default: 1. Used for Read. Number of partitions for read.
-- `IMPORT_DELETED_RECORDS`(String) - Default: FALSE. Used for read. To get the delete records while querying.
-- `WRITE_OPERATION`(String) - Default: INSERT. Used for write. Value should be INSERT, UPDATE, UPSERT, DELETE.
-- `ID_FIELD_NAMES`(String) - Default : null. Used only for UPSERT.
-
-## Snowflake connection
-
-The following properties are used to set up a Snowflake connection used in AWS Glue ETL jobs.
-When crawling Snowflake, use a JDBC connection.
-
-**Snowflake URL**
-
-The URL of your Snowflake endpoint. For more information about Snowflake endpoint URLs, see
-[Connecting to
-Your Accounts](https://docs.snowflake.com/en/user-guide/organizations-connect "https://docs.snowflake.com/en/user-guide/organizations-connect") in the Snowflake documentation.
-
-**AWS Secret**
-The **Secret name** of a secret in AWS Secrets Manager. AWS Glue will connect to
-Snowflake using the `sfUser` and `sfPassword` keys of your secret.
-
-**Snowflake role (optional)**
-A Snowflake security role AWS Glue will use when connecting.
-
-Use the following properties when configuring a connection to a Snowflake endpoint hosted in Amazon VPC using AWS PrivateLink.
-
-**VPC**
-
-Choose the name of the virtual private cloud (VPC) that contains your
-data store. The AWS Glue console lists all VPCs for the
-current Region.
-
-**Subnet**
-
-Choose the subnet within the VPC that contains your data store. The
-AWS Glue console lists all subnets for the data store in
-your VPC.
-
-**Security groups**
-
-Choose the security groups that are associated with your data store.
-AWS Glue requires one or more security groups with an
-inbound source rule that allows AWS Glue to connect. The
-AWS Glue console lists all security groups that are
-granted inbound access to your VPC. AWS Glue associates
-these security groups with the elastic network interface that is
-attached to your VPC subnet.
-
-## Vertica connection
-
-Use the following properties to set up a Vertica connection for AWS Glue ETL jobs.
-
-**Vertica Host**
-The hostname of your Vertica installation.
-
-**Vertica Port**
-The port your Vertica installation is available through.
-
-**AWS Secret**
-The **Secret name** of a secret in AWS Secrets Manager. AWS Glue will connect to
-Vertica using the keys of your secret.
-
-Use the following properties when configuring a connection to a Vertica endpoint hosted in Amazon VPC.
-
-**VPC**
-
-Choose the name of the virtual private cloud (VPC) that contains your
-data store. The AWS Glue console lists all VPCs for the
-current Region.
-
-**Subnet**
-
-Choose the subnet within the VPC that contains your data store. The
-AWS Glue console lists all subnets for the data store in
-your VPC.
-
-**Security groups**
-
-Choose the security groups that are associated with your data store.
-AWS Glue requires one or more security groups with an
-inbound source rule that allows AWS Glue to connect. The
-AWS Glue console lists all security groups that are
-granted inbound access to your VPC. AWS Glue associates
-these security groups with the elastic network interface that is
-attached to your VPC subnet.
-
-## SAP HANA connection
-
-Use the following properties to set up a SAP HANA connection for AWS Glue ETL jobs.
-
-**SAP HANA URL**
-A SAP JDBC URL.
-
-SAP HANA JDBC URLs are in the form `jdbc:sap://`saphanaHostname`:`saphanaPort`/?`databaseName`=`saphanaDBname`,`ParameterName`=`ParameterValue``
-
-AWS Glue requires the following JDBC URL parameters:
-
-- `databaseName` – A default database in SAP HANA to connect to.
-
-**AWS Secret**
-The **Secret name** of a secret in AWS Secrets Manager. AWS Glue will connect to
-SAP HANA using the keys of your secret.
-
-Use the following properties when configuring a connection to a SAP HANA endpoint hosted in Amazon VPC:
-
-**VPC**
-
-Choose the name of the virtual private cloud (VPC) that contains your
-data store. The AWS Glue console lists all VPCs for the
-current Region.
-
-**Subnet**
-
-Choose the subnet within the VPC that contains your data store. The
-AWS Glue console lists all subnets for the data store in
-your VPC.
-
-**Security groups**
-
-Choose the security groups that are associated with your data store.
-AWS Glue requires one or more security groups with an
-inbound source rule that allows AWS Glue to connect. The
-AWS Glue console lists all security groups that are
-granted inbound access to your VPC. AWS Glue associates
-these security groups with the elastic network interface that is
-attached to your VPC subnet.
-
-## Azure SQL connection
-
-Use the following properties to set up a Azure SQL connection for AWS Glue ETL jobs.
-
-**Azure SQL URL**
-The JDBC URL of an Azure SQL endpoint.
-
-The URL must be in the following format:
-`jdbc:sqlserver://`databaseServerName`:`databasePort`;databaseName=`azuresqlDBname`;`.
-
-AWS Glue requires the following URL properties:
-
-- `databaseName` – A default database in Azure SQL to connect to.
-
-For more information about JDBC URLs for Azure SQL Managed Instances, see the [Microsoft documentation](https://learn.microsoft.com/en-us/sql/connect/jdbc/building-the-connection-url?view=azuresqldb-mi-current "https://learn.microsoft.com/en-us/sql/connect/jdbc/building-the-connection-url?view=azuresqldb-mi-current").
-
-**AWS Secret**
-The **Secret name** of a secret in AWS Secrets Manager. AWS Glue will connect to
-Azure SQL using the keys of your secret.
-
-## Teradata Vantage connection
-
-Use the following properties to set up a Teradata Vantage connection for AWS Glue ETL jobs.
-
-**Teradata URL**
-To connect to a Teradata instance specify the hostname for the database instance and relevant Teradata parameters:
-
-`jdbc:teradata://`teradataHostname`/`ParameterName`=`ParameterValue`,`ParameterName`=`ParameterValue``.
-
-AWS Glue supports the following JDBC URL parameters:
-
-- `DATABASE_NAME` – A default database in Teradata to connect to.
-- `DBS_PORT` – Specifies the Teradata port, if nonstandard.
-
-**AWS Secret**
-The **Secret name** of a secret in AWS Secrets Manager. AWS Glue will connect to
-Teradata Vantage using the keys of your secret.
-
-Use the following properties when configuring a connection to a Teradata Vantage endpoint hosted in Amazon VPC:
-
-**VPC**
-
-Choose the name of the virtual private cloud (VPC) that contains your
-data store. The AWS Glue console lists all VPCs for the
-current Region.
-
-**Subnet**
-
-Choose the subnet within the VPC that contains your data store. The
-AWS Glue console lists all subnets for the data store in
-your VPC.
-
-**Security groups**
-
-Choose the security groups that are associated with your data store.
-AWS Glue requires one or more security groups with an
-inbound source rule that allows AWS Glue to connect. The
-AWS Glue console lists all security groups that are
-granted inbound access to your VPC. AWS Glue associates
-these security groups with the elastic network interface that is
-attached to your VPC subnet.
-
-## OpenSearch Service connection
-
-Use the following properties to set up a OpenSearch Service connection for AWS Glue ETL jobs.
-
-**Domain endpoint**
-An Amazon OpenSearch Service domain endpoint will have the following default form,
-https://search-`domainName`-`unstructuredIdContent`.`region`.es.amazonaws.com.
-For more information on identifying your domain endpoint, see [Creating and managing
-Amazon OpenSearch Service domains](../../../opensearch-service/latest/developerguide/createupdatedomains.md "../../../opensearch-service/latest/developerguide/createupdatedomains.md") in the Amazon OpenSearch Service documentation.
-
-**Port**
-The port open on the endpoint.
-
-**AWS Secret**
-The **Secret name** of a secret in AWS Secrets Manager. AWS Glue will connect to
-OpenSearch Service using the keys of your secret.
-
-Use the following properties when configuring a connection to a OpenSearch Service endpoint hosted in Amazon VPC:
-
-**VPC**
-
-Choose the name of the virtual private cloud (VPC) that contains your
-data store. The AWS Glue console lists all VPCs for the
-current Region.
-
-**Subnet**
-
-Choose the subnet within the VPC that contains your data store. The
-AWS Glue console lists all subnets for the data store in
-your VPC.
-
-**Security groups**
-
-Choose the security groups that are associated with your data store.
-AWS Glue requires one or more security groups with an
-inbound source rule that allows AWS Glue to connect. The
-AWS Glue console lists all security groups that are
-granted inbound access to your VPC. AWS Glue associates
-these security groups with the elastic network interface that is
-attached to your VPC subnet.
-
-## Azure Cosmos connection
-
-Use the following properties to set up a Azure Cosmos connection for AWS Glue ETL jobs.
-
-**Azure Cosmos DB Account Endpoint URI**
-
-The endpoint used to connect to Azure Cosmos. For more information, see [the Azure documentation](https://learn.microsoft.com/en-us/rest/api/cosmos-db/cosmosdb-resource-uri-syntax-for-rest "https://learn.microsoft.com/en-us/rest/api/cosmos-db/cosmosdb-resource-uri-syntax-for-rest").
-
-**AWS Secret**
-The **Secret name** of a secret in AWS Secrets Manager. AWS Glue will connect to
-Azure Cosmos using the keys of your secret.
-
 ## AWS Glue SSL connection properties
 
 The following are details about the **Require SSL connection**
@@ -716,18 +1312,3 @@ connections for connectors](../ug/connectors-chapter.md#creating-connections "..
   select the location of the Kafka client keystore by browsing Amazon S3.
   Optionally, you can enter the Kafka client keystore password and Kafka
   client key password.
-
-## Google BigQuery connection
-
-The following properties are used to set up a Google BigQuery connection used in AWS Glue ETL jobs. For more
-information, see [BigQuery connections](aws-glue-programming-etl-connect-bigquery-home.md "aws-glue-programming-etl-connect-bigquery-home.md").
-
-AWS Secret
-
-The **Secret name** of a secret in AWS Secrets Manager. AWS Glue ETL jobs will connect
-to Google BigQuery using the `credentials` key of your secret.
-
-## Vertica connection
-
-The following properties are used to set up a Vertica connection used in AWS Glue ETL jobs. For more
-information, see [Vertica connections](aws-glue-programming-etl-connect-vertica-home.md "aws-glue-programming-etl-connect-vertica-home.md").

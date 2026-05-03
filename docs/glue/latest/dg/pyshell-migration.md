@@ -1,11 +1,9 @@
 # Migrate from AWS Glue Python shell jobs
 
-AWS launched the AWS Glue Python shell jobs in 2018 AWS launched the AWS Glue Python shell jobs in 2018 in order to give customers an easy way to run
+AWS launched the AWS Glue Python shell jobs in 2018 in order to give customers an easy way to run
 Python scripts for small-to-medium sized ETL jobs, and to trigger SQL queries. However, there are now more modern and flexible options to address the
 workloads currently running on PythonShell. This topic explains how to migrate your workloads from AWS Glue Python shell jobs to one of these alternative
 options in order to take advantage of the newer capabilities that are available.
-
-This topic explains how to migrate from AWS Glue Python shell jobs to alternative options.
 
 ## Migrating workload to AWS Glue Spark jobs
 
