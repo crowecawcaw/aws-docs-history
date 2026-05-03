@@ -69,7 +69,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 
 Response image
 
-![Aerial view of Vancouver's downtown and harbor, with BC Place stadium marked.](images/static-add-marker.png)
+![Satellite view of Vancouver showing BC Place stadium marked with a location pin near False Creek.](images/static-add-marker.png)
 
 ## Add multiple markers to a map image
 
@@ -123,7 +123,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 
 Response image
 
-![Aerial view of a city with lakes, buildings, roads, and numbered markers indicating points of interest.](images/static-add-multi-markers.png)
+![Static Maps API response showing multiple numbered markers placed at different locations, demonstrating multi-marker support.](images/static-add-multi-markers.png)
 
 ## Change color of marker in a map image
 
@@ -176,4 +176,4 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 
 Response image
 
-![World map showing locations of major cities across continents with colored labels.](images/static-change-marker-color.png)
+![World map showing labeled cities including Brussels, Paris, Cairo, Dubai, Nairobi, Patna, Beijing, Ulaanbaatar, Hanoi, Sydney, and Wellington.](images/static-change-marker-color.png)

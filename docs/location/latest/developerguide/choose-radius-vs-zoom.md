@@ -14,7 +14,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 
 Response image
 
-![Satellite view of Sri Lanka, showing the teardrop-shaped island nation surrounded by ocean.](images/static-radius.png)
+![Static Maps API response using the radius parameter to frame Sri Lanka within a circular distance from a center point.](images/static-radius.png)
 
 ## With zoom
 
@@ -28,4 +28,4 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 
 Response image
 
-![Satellite view of Sri Lanka, showing the teardrop-shaped island nation surrounded by ocean.](images/static-zoom.png)
+![Static Maps API response using the zoom parameter to frame Sri Lanka, demonstrating zoom-based framing as an alternative to radius.](images/static-zoom.png)

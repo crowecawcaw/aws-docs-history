@@ -21,7 +21,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 
 Response image
 
-![Aerial view of a coastal city with dense urban layout, harbor, and large stadium visible.](images/static-center.png)
+![Static Maps API response centered on Vancouver, Canada at zoom level 15, showing the waterfront and downtown area in satellite style.](images/static-center.png)
 
 ## Get map image for bounding box
 
@@ -39,7 +39,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 
 Response image
 
-![Satellite view of Southeast Asia, showing mainland, islands, and surrounding waters.](images/static-bounding-box.png)
+![Satellite view of Southeast Asia showing mainland Southeast Asia, Indonesia, Philippines, and northern Australia.](images/static-bounding-box.png)
 
 ## Get map image for bounded positions
 
@@ -61,4 +61,4 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 
 Response image
 
-![Aerial view of Paris showing dense urban layout, Seine River, and iconic landmarks.](images/static-bounding-position.png)
+![Static Maps API response showing Paris bounded by ten landmark coordinates including the Eiffel Tower, Louvre, and Notre-Dame, with the Seine River visible.](images/static-bounding-position.png)

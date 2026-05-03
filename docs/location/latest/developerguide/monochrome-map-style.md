@@ -28,7 +28,7 @@ The Monochrome style deliberately uses only shades of gray, allowing you
 complete freedom of color choice for data overlay layers such as choropleths,
 heatmaps, or dot maps.
 
-![Map of lower Manhattan showing streets, landmarks, and red dots indicating data points.](images/monochrome-data-vis.png)
+![Amazon Location Service Monochrome style used as a base layer for data visualization, with custom red data points overlaid on a neutral lower Manhattan map.](images/monochrome-data-vis.png)
 
 ### Minimalist design
 

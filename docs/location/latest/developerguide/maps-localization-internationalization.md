@@ -15,7 +15,7 @@ Amazon Location Service provides Maps APIs that enable you to customize the lang
 
 For more information, see [How to set a preferred language for a map](how-to-set-preferred-language-map.md "how-to-set-preferred-language-map.md").
 
-![Map of Taiwan showing major cities including Taipei, Taichung, and Kaohsiung along the western coast.](images/standard-language-switcher.gif)
+![Animated demonstration of the Amazon Location Service language switcher, cycling through map labels in different languages on a map of Taiwan.](images/standard-language-switcher.gif)
 
 ## Political view
 
@@ -25,4 +25,4 @@ In addition to the default international perspective, Amazon Location Service su
 
 For more information, see [How to set the political view of a map](how-to-set-political-view-map.md "how-to-set-political-view-map.md").
 
-![Map of Cyprus showing the locations of Nicosia and Limassol, with surrounding waters.](images/maps-political-view.png)
+![Two maps of Cyprus demonstrating Amazon Location Service political view options, showing how disputed territorial boundaries render differently based on country-specific perspectives.](images/maps-political-view.png)

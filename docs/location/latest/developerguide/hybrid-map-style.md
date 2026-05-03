@@ -15,15 +15,15 @@ information.
 
 Zoom
 
-![](/images/location/latest/developerguide/images/hybrid_zoom.gif)
+![Animated demonstration of the Hybrid map style zooming through multiple levels, showing satellite imagery with overlaid labels.](/images/location/latest/developerguide/images/hybrid_zoom.gif)
 
 Neighborhood
 
-![](images/hybrid-neighborhood.png)
+![Hybrid map style at neighborhood zoom level showing satellite imagery with street names and points of interest labels.](images/hybrid-neighborhood.png)
 
 Zoomed-in
 
-![](images/hybrid-zoom.png)
+![Hybrid map style at high zoom level showing detailed satellite imagery with building outlines and street labels.](images/hybrid-zoom.png)
 
 ## Designed for the world
 

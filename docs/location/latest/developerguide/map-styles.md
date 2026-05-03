@@ -59,7 +59,7 @@ configurable POI categories from our vector maps.
 
 To learn more, see [Hybrid map style](hybrid-map-style.md "hybrid-map-style.md").
 
-![](images/map-hybrid.png)
+![Map combining satellite imagery with road labels and points of interest.](images/map-hybrid.png)
 
 ## Satellite map style
 

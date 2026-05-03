@@ -50,20 +50,20 @@ content type of the response, and version control for the sprite data.
 
 Standard Light
 
-![Collection of colorful icons representing various services and concepts in cloud computing.](images/styling-standard-light.png)
+![Sprite sheet of map icons for the Amazon Location Service Standard Light style, including colored point-of-interest markers, road shields, and navigation symbols.](images/styling-standard-light.png)
 
 Standard Dark
 
-![Collection of colorful icons and shapes representing various services and concepts.](images/styling-standard-dark.png)
+![Sprite sheet of map icons for the Amazon Location Service Standard Dark style, including colored point-of-interest markers, road shields, and navigation symbols.](images/styling-standard-dark.png)
 
 Monochrome Light
 
-![Collection of various icons and shapes representing different concepts and services.](images/styling-monochrome-light.png)
+![Sprite sheet of map icons for the Amazon Location Service Monochrome Light style, showing light-colored point-of-interest markers, road shields, and traffic signs on a light background.](images/styling-monochrome-light.png)
 
 Monochrome Dark
 
-![Collection of various icons and shapes representing different concepts and services.](images/styling-monochrome-dark.png)
+![Sprite sheet of map icons for the Amazon Location Service Monochrome Dark style, showing light-colored point-of-interest markers, road shields, and traffic signs on a dark background.](images/styling-monochrome-dark.png)
 
 Hybrid
 
-![Collection of colorful icons representing various travel, transportation, and service symbols.](images/styling-hybrid.png)
+![Sprite sheet of map icons for the Amazon Location Service Hybrid (Satellite) style, including road shields, traffic signs, and navigation markers used on satellite imagery.](images/styling-hybrid.png)

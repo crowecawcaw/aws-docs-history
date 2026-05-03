@@ -14,7 +14,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 
 Response image
 
-![Aerial view of a coastal city with dense urban areas, waterways, and islands.](images/static-scale-single.png)
+![Static Maps API response of Helsinki, Finland with a Kilometers scale bar displayed in the bottom-right corner.](images/static-scale-single.png)
 
 ## Add scale with both units
 
@@ -28,4 +28,4 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 
 Response image
 
-![Aerial view of a coastal city with dense urban areas, harbors, and islands surrounded by water.](images/static-scale-both.png)
+![Static Maps API response of Helsinki, Finland with both Kilometers and Miles scale bars displayed in the bottom-right corner.](images/static-scale-both.png)

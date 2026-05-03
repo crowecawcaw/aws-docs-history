@@ -76,7 +76,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 
 Response image
 
-![Aerial view of coastal city with dense urban area, marina, and surrounding forests.](images/static-add-line.png)
+![Satellite view of coastal peninsula with red line marking route through residential area and marina.](images/static-add-line.png)
 
 ## Add styling to the line
 
@@ -131,4 +131,4 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 
 Response image
 
-![Aerial view of coastal city with dense urban area, marina, and surrounding forests.](images/static-add-line-styling.png)
+![Static Maps API response showing a styled polyline with custom color, width, and opacity applied to a coastal route.](images/static-add-line-styling.png)

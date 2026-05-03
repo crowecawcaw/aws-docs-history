@@ -13,19 +13,19 @@ night-time navigation.
 
 Forest
 
-![Map of Washington state and Vancouver area showing coastal regions and major cities.](images/color-scheme-forest.png)
+![Amazon Location Service Standard map style Forest color scheme showing the Pacific Northwest with green terrain emphasis in light and dark modes.](images/color-scheme-forest.png)
 
 Road
 
-![Map of Bronx area showing highways, neighborhoods, and landmarks in light and dark modes.](images/color-scheme-road.png)
+![Amazon Location Service Standard map style Road color scheme emphasizing highway networks and road infrastructure in light and dark modes.](images/color-scheme-road.png)
 
 City
 
-![Map of Boston showing neighborhoods, streets, and waterfront areas in light and dark modes.](images/color-scheme-city.png)
+![Amazon Location Service Standard map style City color scheme optimized for urban detail with building footprints and transit in light and dark modes.](images/color-scheme-city.png)
 
 Neighborhood
 
-![Map of Montreal showing districts, landmarks, and streets in light and dark modes.](images/color-scheme-neighborhood.png)
+![Amazon Location Service Standard map style Neighborhood color scheme showing local streets, parks, and points of interest at a neighborhood zoom level.](images/color-scheme-neighborhood.png)
 
 ## A pleasing, modern palette
 
@@ -83,11 +83,11 @@ To learn more, see [Localization and internationalization](maps-localization-int
 
 Languages
 
-![Map of Taiwan showing major cities and geographical features including Taiwan Strait.](images/standard-language-switcher.gif)
+![Animated demonstration of the Amazon Location Service language switcher, cycling through map labels in different languages on a map of Taiwan.](images/standard-language-switcher.gif)
 
 Political view
 
-![Map of Cyprus showing Nicosia in the north and Limassol in the south, with surrounding Mediterranean Sea.](images/maps-political-view.png)
+![Two maps of Cyprus demonstrating Amazon Location Service political view options, showing how disputed territorial boundaries render differently based on country-specific perspectives.](images/maps-political-view.png)
 
 ## Topography
 
@@ -171,8 +171,8 @@ and educational areas are highlighted with specific vibrant categories.
 
 Light
 
-![Color-coded squares representing various land uses with corresponding hex codes.](images/land-use-light.png)
+![Land use color legend for the Amazon Location Service Standard Light style, showing color-coded categories such as parks, water, residential, and commercial areas with hex values.](images/land-use-light.png)
 
 Dark
 
-![Color-coded squares representing various land uses with corresponding hex codes and labels.](images/land-use-dark.png)
+![Land use color legend for the Amazon Location Service Standard Dark style, showing color-coded categories for parks, water, residential, and commercial areas with hex values.](images/land-use-dark.png)

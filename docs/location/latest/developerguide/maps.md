@@ -1,6 +1,6 @@
 # Amazon Location Service Maps
 
-![Map icon leading to SDK package, then to multiple devices showing maps.](images/maps-overview.png)
+![Workflow showing map selection, SDK integration, and deployment across multiple devices.](images/maps-overview.png)
 Amazon Location Service Maps give you access to base map data for 190 countries with 5 million daily updates. Static and dynamic map capabilities provide flexibility to meet diverse user needs and deliver immersive, contextually relevant mapping solutions.
 
 ## Maps offering
