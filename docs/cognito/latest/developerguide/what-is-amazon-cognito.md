@@ -22,7 +22,7 @@ Facebook.
 
 ## User pools
 
-![Amazon Cognito user pool authentication flow with app, identity provider, and API/Database.](images/user-pools-overview.png)
+![Authentication flow diagram showing user sign-in through Cognito user pool with identity provider and app interactions.](images/user-pools-overview.png)
 
 Create a user pool when you want to authenticate and authorize users to your app or API.
 User pools are a user directory with both self-service and administrator-driven user creation,
@@ -39,7 +39,7 @@ issue authenticated JSON web tokens (JWTs) directly to an app, a web server, or 
 
 ## Identity pools
 
-![Diagram showing Amazon Cognito federated identities flow between app, identity pool, provider, and STS.](images/identity-pools-overview.png)
+![Sequence diagram showing authentication flow between app, identity pool, user pool, and STS.](images/identity-pools-overview.png)
 
 Set up an Amazon Cognito identity pool when you want to authorize authenticated or anonymous users
 to access your AWS resources. An identity pool issues AWS credentials for your app to
