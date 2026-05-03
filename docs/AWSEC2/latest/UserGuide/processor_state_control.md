@@ -64,7 +64,17 @@ The following instance types provide the ability for an operating system to cont
   `m8id.large` | `m8id.xlarge` | `m8id.2xlarge` |
   `m8id.4xlarge` | `m8id.8xlarge` | `m8id.12xlarge` |
   `m8id.16xlarge` | `m8id.24xlarge` | `m8id.32xlarge` |
-  `m8id.48xlarge` | `m8id.96xlarge`
+  `m8id.48xlarge` | `m8id.96xlarge` |
+  `m8in.large` | `m8in.xlarge` |
+  `m8in.2xlarge` | `m8in.4xlarge` | `m8in.8xlarge` |
+  `m8in.12xlarge` | `m8in.16xlarge` | `m8in.24xlarge` |
+  `m8in.32xlarge` | `m8in.48xlarge` | `m8in.96xlarge` |
+  `m8ib.large` | `m8ib.xlarge` |
+  `m8ib.2xlarge` | `m8ib.4xlarge` | `m8ib.8xlarge` |
+  `m8ib.12xlarge` | `m8ib.16xlarge` | `m8ib.24xlarge` |
+  `m8ib.32xlarge` | `m8ib.48xlarge` | `m8ib.96xlarge` |
+  `m8ine.large` | `m8ine.xlarge` | `m8ine.2xlarge` |
+  `m8ine.4xlarge` | `m8ine.8xlarge` | `m8ine.12xlarge`
 - Compute optimized:
   `c5.9xlarge` | `c5.12xlarge` | `c5.18xlarge` |
   `c5.24xlarge` | `c5a.24xlarge` | `c5ad.24xlarge` |
@@ -86,10 +96,7 @@ The following instance types provide the ability for an operating system to cont
   `c8i.xlarge` | `c8i.2xlarge` | `c8i.4xlarge` |
   `c8i.8xlarge` | `c8i.12xlarge` | `c8i.16xlarge` |
   `c8i.24xlarge` | `c8i.32xlarge` | `c8i.48xlarge` |
-  `c8i.96xlarge` | `c8ib.large` |`c8ib.xlarge` |
-  `c8ib.2xlarge` | `c8ib.4xlarge` | `c8ib.8xlarge` |
-  `c8ib.12xlarge` | `c8ib.16xlarge` |`c8ib.24xlarge` |
-  `c8ib.32xlarge` | `c8ib.48xlarge` |`c8ib.96xlarge` |
+  `c8i.96xlarge` |
   `c8id.large` | `c8id.xlarge` | `c8id.2xlarge` |
   `c8id.4xlarge` | `c8id.8xlarge` | `c8id.12xlarge` |
   `c8id.16xlarge` | `c8id.24xlarge` | `c8id.32xlarge` |
@@ -98,6 +105,12 @@ The following instance types provide the ability for an operating system to cont
   `c8in.4xlarge` |`c8in.8xlarge` | `c8in.12xlarge` |
   `c8in.16xlarge` | `c8in.24xlarge` | `c8in.32xlarge` |
   `c8in.48xlarge` |`c8in.96xlarge` |
+  `c8ib.large` |`c8ib.xlarge` |
+  `c8ib.2xlarge` | `c8ib.4xlarge` | `c8ib.8xlarge` |
+  `c8ib.12xlarge` | `c8ib.16xlarge` |`c8ib.24xlarge` |
+  `c8ib.32xlarge` | `c8ib.48xlarge` |`c8ib.96xlarge` |
+  `c8in.large` |`c8in.xlarge` | `c8in.2xlarge` |
+  `c8in.4xlarge` |`c8in.8xlarge` | `c8in.12xlarge` |
   `x8i.large` | `x8i.xlarge` | `x8i.2xlarge` |
   `x8i.4xlarge` | `x8i.8xlarge` | `x8i.12xlarge` |
   `x8i.16xlarge` | `x8i.24xlarge` | `x8i.32xlarge` |
@@ -128,7 +141,16 @@ The following instance types provide the ability for an operating system to cont
   `r8id.large` | `r8id.xlarge` | `r8id.2xlarge` |
   `r8id.4xlarge` | `r8id.8xlarge` | `r8id.12xlarge` |
   `r8id.16xlarge` | `r8id.24xlarge` | `r8id.32xlarge` |
-  `r8id.48xlarge` | `r8id.96xlarge` | `u-3tb1.56xlarge` |
+  `r8id.48xlarge` | `r8id.96xlarge` |
+  `r8in.large` | `r8in.xlarge` | `r8in.2xlarge` |
+  `r8in.4xlarge` | `r8in.8xlarge` | `r8in.12xlarge` |
+  `r8in.16xlarge` | `r8in.24xlarge` | `r8in.32xlarge` |
+  `r8in.48xlarge` | `r8in.96xlarge` |
+  `r8ib.large` | `r8ib.xlarge` | `r8ib.2xlarge` |
+  `r8ib.4xlarge` | `r8ib.8xlarge` | `r8ib.12xlarge` |
+  `r8ib.16xlarge` | `r8ib.24xlarge` | `r8ib.32xlarge` |
+  `r8ib.48xlarge` | `r8ib.96xlarge` |
+  `u-3tb1.56xlarge` |
   `u-6tb1.56xlarge` | `u-6tb1.112xlarge` | `u-9tb1.112xlarge` |
   `u-12tb1.112xlarge` | `u-18tb1.112xlarge` | `u-24tb1.112xlarge` |
   `u7i-6tb.112xlarge` | `u7i-8tb.112xlarge` | `u7i-12tb.224xlarge` |

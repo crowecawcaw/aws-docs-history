@@ -8,15 +8,19 @@ several factors, as follows.
 
 ###### Multi-flow traffic
 
-Bandwidth for multi-flow traffic is limited to 50% of the available bandwidth
-for traffic that goes through an internet gateway or a [local gateway](../../../outposts/latest/userguide/outposts-local-gateways.md "../../../outposts/latest/userguide/outposts-local-gateways.md")
-for instances with 32 or more vCPUs, or 5 Gbps, whichever is larger. For instances with
-fewer than 32 vCPUs, bandwidth is limited to 5 Gbps.
+When traffic goes through an internet gateway or a [local gateway](../../../outposts/latest/userguide/outposts-local-gateways.md "../../../outposts/latest/userguide/outposts-local-gateways.md"),
+the available bandwidth for multi-flow traffic depends on the instance type.
+
+| Instance types                                     | Available bandwidth                                             |
+| -------------------------------------------------- | --------------------------------------------------------------- |
+| Instance types with \*_less than_<br>• 32 vCPUs    | Limited to 5 Gbps                                               |
+| Instance types with \*_more than_<br>• 32 vCPUs    | Limited to 50% of the available bandwidth for the instance type |
+| `C8in`, `C8ine`, `M8in`, `M8ine`, `R8in` instances | Limited to the baseline bandwidth for the instance type         |
 
 ###### Single-flow traffic
 
-Bandwidth for single-flow traffic is limited to 5 Gbps when instances are
-not in the same [cluster placement group](placement-strategies.md#placement-groups-cluster "placement-strategies.md#placement-groups-cluster"). To
+When instances are not in the same [cluster
+placement group](placement-strategies.md#placement-groups-cluster "placement-strategies.md#placement-groups-cluster"), bandwidth for single-flow traffic is limited to 5 Gbps. To
 reduce latency and increase single-flow bandwidth, try one of the following:
 
 - Use a cluster placement group to achieve up to 10 Gbps bandwidth for instances within

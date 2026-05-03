@@ -142,6 +142,10 @@ Nitro v6
 | m8id.96xlarge              | Yes               | Yes                |
 | m8id.metal-48xl            | Yes               | Yes                |
 | m8id.metal-96xl            | Yes               | Yes                |
+| m8in.48xlarge              | Yes               | Yes                |
+| m8in.96xlarge              | Yes               | Yes                |
+| m8ib.48xlarge              | Yes               | Yes                |
+| m8ib.96xlarge              | Yes               | Yes                |
 | Compute Optimized          |
 | c8a.48xlarge               | Yes               | Yes                |
 | c8a.metal-48xl             | Yes               | Yes                |
@@ -159,10 +163,6 @@ Nitro v6
 | c8i.96xlarge               | Yes               | Yes                |
 | c8i.metal-48xl             | Yes               | Yes                |
 | c8i.metal-96xl             | Yes               | Yes                |
-| c8ib.48xlarge              | Yes               | Yes                |
-| c8ib.96xlarge              | Yes               | Yes                |
-| c8ib.metal-48xl            | Yes               | Yes                |
-| c8ib.metal-96xl            | Yes               | Yes                |
 | c8id.48xlarge              | Yes               | Yes                |
 | c8id.96xlarge              | Yes               | Yes                |
 | c8id.metal-48xl            | Yes               | Yes                |
@@ -171,6 +171,10 @@ Nitro v6
 | c8in.96xlarge              | Yes               | Yes                |
 | c8in.metal-48xl            | Yes               | Yes                |
 | c8in.metal-96xl            | Yes               | Yes                |
+| c8ib.48xlarge              | Yes               | Yes                |
+| c8ib.96xlarge              | Yes               | Yes                |
+| c8ib.metal-48xl            | Yes               | Yes                |
+| c8ib.metal-96xl            | Yes               | Yes                |
 | Memory Optimized           |
 | r8a.48xlarge               | Yes               | Yes                |
 | r8a.metal-48xl             | Yes               | Yes                |
@@ -192,6 +196,10 @@ Nitro v6
 | r8id.96xlarge              | Yes               | Yes                |
 | r8id.metal-48xl            | Yes               | Yes                |
 | r8id.metal-96xl            | Yes               | Yes                |
+| r8in.48xlarge              | Yes               | Yes                |
+| r8in.96xlarge              | Yes               | Yes                |
+| r8ib.48xlarge              | Yes               | Yes                |
+| r8ib.96xlarge              | Yes               | Yes                |
 | x8aedz.24xlarge            | Yes               | Yes                |
 | x8aedz.metal-24xl          | Yes               | Yes                |
 | x8i.48xlarge               | Yes               | Yes                |

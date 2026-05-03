@@ -136,6 +136,7 @@ Zone network border groups using the `--network-border-group` option:
 - ap-southeast-2-akl-1
 - ap-southeast-2-per-1
 - eu-central-1-ham-1
+- eu-central-1-ist-1
 - eu-central-1-waw-1
 - eu-north-1-cph-1
 - eu-north-1-hel-1
@@ -171,4 +172,23 @@ same network border group.
 ###### Note
 
 You cannot provision or advertise BYOIPv6 address ranges in Local Zones at this
-time.
+time, except for `eu-central-1-ist-1`, which supports both BYOIPv4
+and BYOIPv6.
+
+In the `eu-central-1-ist-1` Local Zone, advertisement and withdrawal
+are asynchronous operations that can take up to five business days to complete. When
+you advertise an address range, its status changes from `provisioned`
+to `pending-advertising`, then to `advertised` after the
+operation completes.
+When you withdraw it, the status changes from `advertised` to
+`pending-withdrawal`, then back to `provisioned`. You can
+monitor the progress of these operations through the AWS Console or CLI.
+
+If you use your own ASN (BYOASN), you can specify it when advertising your
+address range. You cannot change the ASN associated with the CIDR after
+advertisement. To change the ASN, withdraw the CIDR and re-advertise.
+
+###### Important
+
+You cannot cancel a pending advertisement or withdrawal. You must wait
+for the operation to complete before initiating the next operation.

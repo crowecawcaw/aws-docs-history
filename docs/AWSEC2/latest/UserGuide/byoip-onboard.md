@@ -160,6 +160,14 @@ command.
 aws ec2 withdraw-byoip-cidr --cidr `address-range` --region `us-east-1`
 ```
 
+###### Note
+
+In the `eu-central-1-ist-1` Local Zone, advertisement and
+withdrawal are asynchronous. The address range enters a
+`pending-advertising` or `pending-withdrawal` state
+before the operation completes. For more information, see
+[Local Zone availability](ec2-byoip.md#byoip-zone-avail "ec2-byoip.md#byoip-zone-avail").
+
 ## Deprovision the address range
 
 To stop using your address range with AWS, first release any Elastic IP
