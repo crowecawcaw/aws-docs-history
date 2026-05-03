@@ -40,4 +40,4 @@ In total, seven inputs are in use on the node, so you need seven
 outputs from the router. These seven outputs are shown on the right side
 of the router.
 
-![Network diagram showing router with multiple inputs connected to nodes and SD cards.](images/sdi-router-diagram-png.png)
+![Router with seven outputs connecting to inputs on Node 1, Node 2, and SDI Card 1 and 2.](images/sdi-router-diagram-png.png)
