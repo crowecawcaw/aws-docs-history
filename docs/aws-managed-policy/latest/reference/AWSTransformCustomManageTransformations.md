@@ -12,13 +12,13 @@ You can attach `AWSTransformCustomManageTransformations` to your users, groups, 
 
 - **Type**: AWS managed policy
 - **Creation time**: December 05, 2025, 15:49 UTC
-- **Edited time:** February 12, 2026, 17:57 UTC
+- **Edited time:** April 27, 2026, 19:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSTransformCustomManageTransformations`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -55,6 +55,21 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : [
         "*"
       ]
+    },
+    {
+      "Sid" : "AllowCreateServiceLinkedRole",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:CreateServiceLinkedRole"
+      ],
+      "Resource" : [
+        "arn:aws:iam::*:role/aws-service-role/transform-custom.amazonaws.com/AWSServiceRoleForAWSTransformCustom"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "iam:AWSServiceName" : "transform-custom.amazonaws.com"
+        }
+      }
     }
   ]
 }

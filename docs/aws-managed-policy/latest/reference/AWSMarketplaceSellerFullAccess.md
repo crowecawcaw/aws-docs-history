@@ -12,13 +12,13 @@ You can attach `AWSMarketplaceSellerFullAccess` to your users, groups, and roles
 
 - **Type**: AWS managed policy
 - **Creation time**: July 02, 2019, 20:40 UTC
-- **Edited time:** April 21, 2026, 18:12 UTC
+- **Edited time:** April 29, 2026, 21:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSMarketplaceSellerFullAccess`
 
 ## Policy version
 
-**Policy version:** v27 (default)
+**Policy version:** v28 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -140,7 +140,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "tax:PutSupplementalTaxRegistration",
         "tax:DeleteSupplementalTaxRegistration",
         "tax:GetTaxRegistration",
-        "aws-marketplace:ListPayables"
+        "aws-marketplace:ListPayables",
+        "aws-marketplace:ListInvoiceSubmissionTasks"
       ],
       "Resource" : "*"
     },
@@ -149,10 +150,19 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "aws-marketplace:StartInvoiceSubmissionTask",
-        "aws-marketplace:GetInvoiceSubmissionTask",
-        "aws-marketplace:ListInvoiceSubmissionTasks"
+        "aws-marketplace:GetInvoiceSubmissionTask"
       ],
       "Resource" : "arn:aws:aws-marketplace:*:*:catalog/AWSMarketplace*/invoice-submission-task/*"
+    },
+    {
+      "Sid" : "MarketplaceEphemeralWriteS3Access",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3:PutObject"
+      ],
+      "Resource" : [
+        "arn:aws:s3:::aws-partner-central-marketplace-ephemeral-writeonly-files/${aws:PrincipalAccount}/*"
+      ]
     },
     {
       "Sid" : "Support",

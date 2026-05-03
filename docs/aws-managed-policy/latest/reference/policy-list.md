@@ -1338,6 +1338,7 @@
 - [DynamoDBGlobalTableSettingsManagementServiceRolePolicy](DynamoDBGlobalTableSettingsManagementServiceRolePolicy.md "DynamoDBGlobalTableSettingsManagementServiceRolePolicy.md")
 - [DynamoDBKinesisReplicationServiceRolePolicy](DynamoDBKinesisReplicationServiceRolePolicy.md "DynamoDBKinesisReplicationServiceRolePolicy.md")
 - [DynamoDBReplicationServiceRolePolicy](DynamoDBReplicationServiceRolePolicy.md "DynamoDBReplicationServiceRolePolicy.md")
+- [EC2ApplicationStatusChecksServiceRolePolicy](EC2ApplicationStatusChecksServiceRolePolicy.md "EC2ApplicationStatusChecksServiceRolePolicy.md")
 - [EC2FastLaunchFullAccess](EC2FastLaunchFullAccess.md "EC2FastLaunchFullAccess.md")
 - [EC2FastLaunchServiceRolePolicy](EC2FastLaunchServiceRolePolicy.md "EC2FastLaunchServiceRolePolicy.md")
 - [EC2FleetTimeShiftableServiceRolePolicy](EC2FleetTimeShiftableServiceRolePolicy.md "EC2FleetTimeShiftableServiceRolePolicy.md")

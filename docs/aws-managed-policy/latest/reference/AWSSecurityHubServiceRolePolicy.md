@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 27, 2018, 23:47 UTC
-- **Edited time:** November 27, 2023, 03:46 UTC
+- **Edited time:** April 29, 2026, 14:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSSecurityHubServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v14 (default)
+**Policy version:** v15 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -104,6 +104,32 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "organizations:ServicePrincipal" : [
             "securityhub.amazonaws.com"
           ]
+        }
+      }
+    },
+    {
+      "Sid" : "SecurityHubCSPMServiceRoleConfig",
+      "Effect" : "Allow",
+      "Action" : [
+        "config:PutServiceLinkedConfigurationRecorder",
+        "config:DeleteServiceLinkedConfigurationRecorder",
+        "config:DescribeConfigurationRecorders",
+        "config:DescribeConfigurationRecorderStatus"
+      ],
+      "Resource" : [
+        "arn:aws:config:*:*:configuration-recorder/*ConfigurationRecorderForSecurityHubCSPM*"
+      ]
+    },
+    {
+      "Sid" : "SecurityHubCSPMServiceRoleIamPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:CreateServiceLinkedRole"
+      ],
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/config.amazonaws.com/AWSServiceRoleForConfig",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:AWSServiceName" : "config.amazonaws.com"
         }
       }
     }

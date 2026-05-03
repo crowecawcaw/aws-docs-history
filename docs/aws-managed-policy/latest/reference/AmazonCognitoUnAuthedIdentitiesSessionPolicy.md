@@ -12,13 +12,13 @@ You can attach `AmazonCognitoUnAuthedIdentitiesSessionPolicy` to your users, gro
 
 - **Type**: AWS managed policy
 - **Creation time**: July 19, 2023, 23:04 UTC
-- **Edited time:** November 01, 2024, 18:12 UTC
+- **Edited time:** May 01, 2026, 19:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonCognitoUnAuthedIdentitiesSessionPolicy`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -44,6 +44,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "firehose:*",
         "personalize:*",
         "geo:GetMap*",
+        "geo:ListMaps",
         "geo:SearchPlaceIndex*",
         "geo:GetPlace",
         "geo:CalculateRoute*",

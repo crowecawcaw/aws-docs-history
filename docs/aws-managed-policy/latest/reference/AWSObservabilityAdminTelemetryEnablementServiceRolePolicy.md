@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: August 01, 2025, 18:04 UTC
-- **Edited time:** April 16, 2026, 17:42 UTC
+- **Edited time:** April 29, 2026, 21:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSObservabilityAdminTelemetryEnablementServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v9 (default)
+**Policy version:** v10 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -57,13 +57,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
+        "ForAllValues:StringEquals" : {
+          "aws:TagKeys" : "CloudWatchTelemetryRuleManaged"
+        },
         "StringEquals" : {
           "aws:RequestTag/CloudWatchTelemetryRuleManaged" : "true",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}",
           "ec2:CreateAction" : "CreateFlowLogs"
-        },
-        "ForAllValues:StringEquals" : {
-          "aws:TagKeys" : "CloudWatchTelemetryRuleManaged"
         }
       }
     },
@@ -75,12 +75,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceTag/CloudWatchTelemetryRuleManaged" : "true",
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "ForAllValues:StringEquals" : {
           "aws:TagKeys" : "CloudWatchTelemetryRuleManaged"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "aws:ResourceTag/CloudWatchTelemetryRuleManaged" : "true"
         }
       }
     },
@@ -105,12 +105,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:ec2:*:*:vpc-flow-log/*",
       "Condition" : {
+        "ForAllValues:StringEquals" : {
+          "aws:TagKeys" : "CloudWatchTelemetryRuleManaged"
+        },
         "StringEquals" : {
           "aws:RequestTag/CloudWatchTelemetryRuleManaged" : "true",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
-        "ForAllValues:StringEquals" : {
-          "aws:TagKeys" : "CloudWatchTelemetryRuleManaged"
         }
       }
     },
@@ -131,8 +131,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*",
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceTag/CloudWatchTelemetryRuleManaged" : "true",
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "aws:ResourceTag/CloudWatchTelemetryRuleManaged" : "true"
         }
       }
     },
@@ -144,11 +144,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:eks:*:*:cluster/*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Bool" : {
           "eks:loggingType/api" : "true"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -160,11 +160,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:eks:*:*:cluster/*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Bool" : {
           "eks:loggingType/audit" : "true"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -176,11 +176,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:eks:*:*:cluster/*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Bool" : {
           "eks:loggingType/authenticator" : "true"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -192,11 +192,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:eks:*:*:cluster/*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Bool" : {
           "eks:loggingType/controllerManager" : "true"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -208,11 +208,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:eks:*:*:cluster/*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Bool" : {
           "eks:loggingType/scheduler" : "true"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -222,14 +222,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "wafv2:PutLoggingConfiguration"
       ],
-      "Resource" : "arn:aws:wafv2:*:*:regional/webacl/*",
+      "Resource" : "arn:aws:wafv2:*:*:*/webacl/*",
       "Condition" : {
         "ArnLike" : {
           "wafv2:LogDestinationResource" : "arn:aws:logs:*:*:log-group:*"
         },
         "StringEquals" : {
-          "wafv2:LogScope" : "CloudwatchTelemetryRuleManaged",
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "wafv2:LogScope" : "CloudwatchTelemetryRuleManaged"
         }
       }
     },
@@ -362,8 +362,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*",
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceTag/CloudWatchTelemetryRuleManaged" : "true",
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "aws:ResourceTag/CloudWatchTelemetryRuleManaged" : "true"
         }
       }
     },
@@ -391,8 +391,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*",
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceTag/CloudWatchTelemetryRuleManaged" : "true",
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "aws:ResourceTag/CloudWatchTelemetryRuleManaged" : "true"
         }
       }
     },
@@ -404,14 +404,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:*:iam::*:role/aws-service-role/route53resolver.amazonaws.com/AWSServiceRoleForRoute53Resolver",
       "Condition" : {
-        "StringEquals" : {
-          "iam:AWSServiceName" : [
-            "route53resolver.amazonaws.com"
-          ],
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "BoolIfExists" : {
           "aws:ViaAWSService" : "true"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "iam:AWSServiceName" : [
+            "route53resolver.amazonaws.com"
+          ]
         }
       }
     },
@@ -433,14 +433,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:iam::*:role/aws-service-role/config.amazonaws.com/AWSServiceRoleForConfig"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "iam:AWSServiceName" : [
-            "config.amazonaws.com"
-          ],
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "BoolIfExists" : {
           "aws:ViaAWSService" : "true"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "iam:AWSServiceName" : [
+            "config.amazonaws.com"
+          ]
         }
       }
     },
@@ -473,10 +473,88 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Condition" : {
         "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
           "config:ConfigurationRecorderServicePrincipal" : [
             "telemetry-enablement.observabilityadmin.amazonaws.com"
-          ],
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "TelemetryOperationsForKafka",
+      "Effect" : "Allow",
+      "Action" : [
+        "kafka:UpdateMonitoring",
+        "kafka:DescribeCluster"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "TelemetryOperationsForOTelEnrichmentSimba",
+      "Effect" : "Allow",
+      "Action" : [
+        "observabilityadmin:GetTelemetryEnrichmentStatus",
+        "observabilityadmin:StartTelemetryEnrichment",
+        "observabilityadmin:StopTelemetryEnrichment"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "TelemetryOperationsForOTelEnrichmentResourceExplorer",
+      "Effect" : "Allow",
+      "Action" : [
+        "resource-explorer-2:CreateIndex",
+        "resource-explorer-2:CreateManagedView",
+        "resource-explorer-2:CreateStreamingAccessForService",
+        "resource-explorer-2:DeleteStreamingAccessForService"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "Bool" : {
+          "aws:ViaAWSService" : "true"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "TelemetryOperationsForOTelEnrichmentCloudWatch",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudwatch:GetOTelEnrichment",
+        "cloudwatch:StartOTelEnrichment"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "TelemetryOperationsForOTelEnrichmentSLR",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:CreateServiceLinkedRole"
+      ],
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/resource-explorer-2.amazonaws.com/*",
+      "Condition" : {
+        "Bool" : {
+          "aws:ViaAWSService" : "true"
+        },
+        "StringEquals" : {
+          "iam:AWSServiceName" : "resource-explorer-2.amazonaws.com"
         }
       }
     }
