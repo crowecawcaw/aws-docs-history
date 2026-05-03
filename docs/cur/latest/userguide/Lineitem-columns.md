@@ -140,6 +140,8 @@ following:
 - **SavingsPlanNegation** – Any offset cost through
   your Savings Plans benefit that’s associated with the corresponding
   Savings Plans covered usage item.
+- **FlatRateSubscription** – Any hourly subscription fee AWS applied to your bill
+  for services with subscription fee. For example, Kiro Enterprise.
 
 For more information and examples of Savings Plans line items, see [Understanding Savings Plans](cur-sp.md "cur-sp.md").
 
