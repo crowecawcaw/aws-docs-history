@@ -23,7 +23,7 @@ one that has been learned and standardized over decades:
 - Various finance teams act as approvers and procurers
 - Operations teams rack, stack, and hand off ready-to-use infrastructure
 
-![Circular workflow diagram showing technology teams, procurement, supply chain, and operations interactions.](images/cost01-bp02-finance-and-procurement-workflow.png)
+![Circular workflow showing Technology teams requesting from Procurement, then Supply chain procuring, Operations managing rack and stack, connecting back to Technology teams.](images/cost01-bp02-finance-and-procurement-workflow.png)
 
 With the adoption of cloud, infrastructure procurement and consumption are no longer
 beholden to a chain of dependencies. In the cloud model, technology and product teams are no
@@ -40,7 +40,7 @@ predictability from a capital budgeting and forecasting perspective, cloud provi
 organizations with the ability to reduce the cost of over-provisioning, as well as reduce the
 opportunity cost associated with conservative under-provisioning.
 
-![Diagram showing Technology and Product teams deploying, Finance and Business teams operating, with optimization at the center.](images/cost01-bp02-deploy-operate-optimize.png)
+![Triangle diagram showing Technology and Product teams deploy, Finance and Business teams operate, and both optimize.](images/cost01-bp02-deploy-operate-optimize.png)
 
 Establish a partnership between key finance and technology stakeholders to create a shared understanding of organizational goals and develop mechanisms to succeed financially in the variable spend model of cloud computing. Relevant teams within your organization must be involved in cost and usage discussions at all stages of your cloud journey, including:
 
