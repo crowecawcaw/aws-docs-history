@@ -109,7 +109,7 @@ Follow these steps to configure the automation:
    The console link will be available in the child automation output. The
    default value `false`.
 
-![Input parameters form for an AWS EC2 instance with fields for InstanceId and automation options.](images/awssupport-troubleshoot-windows-update_input_parameters.png) 4. Select Execute. 5. The automation initiates. 6. The document performs the following steps:
+![Input parameters section showing InstanceId, AutomationAssumeRole, RunVpcReachabilityAnalyzer, and RetainVpcReachabilityAnalysis fields.](images/awssupport-troubleshoot-windows-update_input_parameters.png) 4. Select Execute. 5. The automation initiates. 6. The document performs the following steps:
 
     * **`getWindowsServerAndSSMAgentVersion:`**
 
@@ -194,7 +194,7 @@ Follow these steps to configure the automation:
 7. After completed, review the Outputs section for the detailed results of the
    execution:
 
-![Final report results showing various system checks and statuses, all marked as PASSED.](images/awssupport-troubleshoot-windows-update_outputs.png)
+![Final report results showing all prerequisite and configuration checks passed with green checkmarks.](images/awssupport-troubleshoot-windows-update_outputs.png)
 
 **References**
 

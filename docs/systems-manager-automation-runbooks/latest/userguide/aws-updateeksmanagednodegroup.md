@@ -65,7 +65,7 @@ Type: String
 Description: (Optional) The version of the Amazon EKS optimized AMI that you
 want to use. By default, the latest version is used.
 
-- ForceUpgrade
+- ForceUpdate
 
 Type: Boolean
 
@@ -122,7 +122,8 @@ Type: Integer
 Default: 0
 
 Description: (Optional) The maximum number of nodes that are unavailable
-at once during a version update.
+at once during a version update. Set to 0 (default) to retain the current
+setting.
 
 - MaxUnavailablePercentageNodeGroup
 
@@ -131,16 +132,17 @@ Type: Integer
 Default: 0
 
 Description: (Optional) The percentage of nodes that are unavailable
-during a version update.
+during a version update. Set to 0 (default) to retain the current
+setting.
 
 - NodeGroupDesiredSize
 
 Type: Integer
 
-Default: 0
+Default: -1
 
 Description: (Optional) The number of nodes that the managed node group
-should maintain.
+should maintain. Set to -1 (default) to retain the current setting.
 
 - NodeGroupMaxSize
 
@@ -149,16 +151,18 @@ Type: Integer
 Default: 0
 
 Description: (Optional) The maximum number of nodes that the managed node
-group can scale out to.
+group can scale out to. Set to 0 (default) to retain the current
+setting.
 
 - NodeGroupMinSize
 
 Type: Integer
 
-Default: 0
+Default: -1
 
 Description: (Optional) The minimum number of nodes that the managed node
-group can scale in to.
+group can scale in to. Set to -1 (default) to retain the current
+setting.
 
 - RemoveKubernetesTaintsEffect
 
@@ -178,6 +182,7 @@ remove.
 The `AutomationAssumeRole` parameter requires the following actions to
 use the runbook successfully.
 
+- `eks:DescribeUpdate`
 - `eks:UpdateNodegroupConfig`
 - `eks:UpdateNodegroupVersion`
 

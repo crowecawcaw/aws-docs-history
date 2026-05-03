@@ -382,7 +382,7 @@ Follow these steps to configure the automation:
    need to access the logs. Also make sure that the Amazon EC2 Windows instance has
    necessary access to the Amazon S3 bucket.
 
-![Input parameters form for AWS Systems Manager managed Windows Server EC2 instance validation.](images/awssupport-validate-fsxwindows-adconfig_input_parameters1.png) 4. To validate self-managed AD configuration for a new Amazon FSx creation, enter the
+![Input parameters form with fields for instance ID, IAM role, S3 bucket, secrets ARN, and FSx configuration.](images/awssupport-validate-fsxwindows-adconfig_input_parameters1.png) 4. To validate self-managed AD configuration for a new Amazon FSx creation, enter the
 following parameters:
 
     * **AutomationAssumeRole (Optional):**
@@ -442,7 +442,7 @@ following parameters:
      system. Provide the distinguished path name of the OU. Example:
      `OU=org,DC=example,DC=com`.
 
-![Form fields for configuring Amazon FSx for Windows File Server and related AWS services.](images/awssupport-validate-fsxwindows-adconfig_input_parameters2.png) 5. Select **Execute.** 6. The automation initiates. 7. The document performs the following steps:
+![Configuration parameters for Amazon FSx including domain name, subnet IDs, and admin groups.](images/awssupport-validate-fsxwindows-adconfig_input_parameters2.png) 5. Select **Execute.** 6. The automation initiates. 7. The document performs the following steps:
 
     * **CheckBucketPublicStatus
      (aws:executeScript):**
@@ -527,7 +527,7 @@ following parameters:
 8. After completed, review the Outputs section for the results of the
    execution:
 
-![Output showing instance details, CloudFormation stack ID, and validation script results with errors.](images/awssupport-validate-fsxwindows-adconfig_outputs.png)
+![Outputs section showing validation script results with one InvalidCredentials error.](images/awssupport-validate-fsxwindows-adconfig_outputs.png)
 
 The runbook will upload the results of the validation script execution to the Amazon S3
 bucket.

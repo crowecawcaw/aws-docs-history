@@ -193,7 +193,7 @@ Follow these steps to configure the automation:
    Amazon S3 bucket that will create if the bucket specified does not exist in the
    account.
 
-![Input parameters for S3 bucket configuration, including bucket name and KMS key ARN.](images/awssupport-analyze-ebs-resource-usage_input_parameters.png) 3. Select **Execute.** 4. The automation initiates. 5. The automation runbook performs the following steps:
+![Input parameters for S3BucketName, CustomerManagedKmsKeyArn, and AutomationAssumeRole fields.](images/awssupport-analyze-ebs-resource-usage_input_parameters.png) 3. Select **Execute.** 4. The automation initiates. 5. The automation runbook performs the following steps:
 
     * **checkConcurrency:**
 
@@ -231,7 +231,7 @@ Follow these steps to configure the automation:
 6. After completed, review the Outputs section for the detailed results of the
    execution.
 
-![Output details showing volume, AMI, and snapshot information for AWS resources.](images/awssupport-analyze-ebs-resource-usage_outputs.png)
+![Outputs section showing volume details, AMI file upload confirmation, and snapshot details.](images/awssupport-analyze-ebs-resource-usage_outputs.png)
 
 **References**
 

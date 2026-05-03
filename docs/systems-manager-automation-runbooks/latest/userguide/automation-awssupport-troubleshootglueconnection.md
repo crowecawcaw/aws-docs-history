@@ -286,7 +286,7 @@ Follow these steps to configure the automation:
    performed. **Must** be used with
    `DatasourceSubnets`. Example: `sg-1,sg-2`.
 
-![Input parameters form for AWS Glue connection troubleshooting with various configuration options.](images/awssupport-troubleshootglueconnection_input_parameters.png) 4. Select Execute. 5. The automation initiates. 6. The automation runbook performs the following steps:
+![Input parameters form with fields for AutomationAssumeRole, TestConnectionRole, ConnectionName, and other configuration options.](images/awssupport-troubleshootglueconnection_input_parameters.png) 4. Select Execute. 5. The automation initiates. 6. The automation runbook performs the following steps:
 
     * **ParseInputs:**
 
@@ -423,7 +423,7 @@ Follow these steps to configure the automation:
    automation could perform. The description of the scenario will inform which
    step has failed.
 
-![Troubleshooting results for AWS Glue connection issues with DNS resolution and IAM role problems.](images/awssupport-troubleshootglueconnection_outputs.png)
+![AWS Glue connection troubleshooting automation results showing DNS, IAM , and security issues.](images/awssupport-troubleshootglueconnection_outputs.png)
 
 **References**
 

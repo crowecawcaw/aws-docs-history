@@ -281,7 +281,7 @@ JSON
    Any prefix for the path inside Amazon S3 for storing the
    results.
 
-![Input parameters form for AWS Systems Manager Automation with fields for role, resources, and S3 bucket settings.](images/premsupport-ddos-resiliency-assessment_input_parameters.png) 4. Select **Execute**. 5. The automation initiates. 6. The document performs the following steps:
+![Input parameters form showing IAM role, S3 bucket, bucket owner, and resource type fields.](images/premsupport-ddos-resiliency-assessment_input_parameters.png) 4. Select **Execute**. 5. The automation initiates. 6. The document performs the following steps:
 
     * **CheckShieldAdvancedState:**
 
@@ -352,7 +352,7 @@ JSON
 **S3 Console link and Amazon S3 URI for the Report on
 successful execution of the runbook**
 
-![Execution status showing successful completion with 9 steps executed and no failures.](images/premsupport-ddos-resiliency-assessment_outputs.png)
+![Execution status showing overall success with 9 steps executed, 9 succeeded, 0 failed.](images/premsupport-ddos-resiliency-assessment_outputs.png)
 
 **References**
 

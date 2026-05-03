@@ -73,7 +73,7 @@ Follow these steps to configure the automation:
    latest failed patch command within the last 30 days on the selected
    instance.
 
-![Input parameters form for EC2 Instance Connect troubleshooting with instance ID and optional fields.](images/awssupport-troubleshoot-patch-manager-linux_input_parameters.png) 4. Select Execute. 5. The automation initiates. 6. The document performs the following steps:
+![Input parameters section showing InstanceId field, AutomationAssumeRole dropdown, and RunCommandId field.](images/awssupport-troubleshoot-patch-manager-linux_input_parameters.png) 4. Select Execute. 5. The automation initiates. 6. The document performs the following steps:
 
     * **CheckConcurrency:**
 
@@ -122,7 +122,7 @@ Follow these steps to configure the automation:
 7. After completed, review the Outputs section for the detailed results of the
    execution:
 
-![Troubleshooting results showing an error downloading payload and suggested solutions.](images/awssupport-troubleshoot-patch-manager-linux_outputs.png)
+![Troubleshooting results showing S3 download error with network connectivity solutions.](images/awssupport-troubleshoot-patch-manager-linux_outputs.png)
 
 **References**
 

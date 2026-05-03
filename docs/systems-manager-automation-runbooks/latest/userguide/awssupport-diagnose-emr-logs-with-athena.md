@@ -235,7 +235,7 @@ Follow these steps to configure the automation:
    The list of keywords to search in the logs, separated by commas. The
    keywords cannot contain single or double quotes.
 
-![Input parameters form for AWS Systems Manager Automation with various fields and options.](images/awssupport-diagnose-emr-logs-with-athena_input_parameters.png) 4. Select **Execute.** 5. The automation initiates. 6. The document performs the following steps:
+![Input parameters form with fields for automation role, S3 location, approvers, and cluster settings.](images/awssupport-diagnose-emr-logs-with-athena_input_parameters.png) 4. Select **Execute.** 5. The automation initiates. 6. The document performs the following steps:
 
     * **getLogLocation:**
 
@@ -322,7 +322,7 @@ results:**
     * Details on where specific errors and exceptions appear in the Amazon S3 log
      paths, to support further diagnosis.
 
-![Output section showing query links for exception summaries and analysis in AWS logs.](images/awssupport-diagnose-emr-logs-with-athena_outputs.png)
+![Outputs section showing three query links with descriptions for Athena log analysis.](images/awssupport-diagnose-emr-logs-with-athena_outputs.png)
 
 **References**
 

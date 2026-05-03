@@ -119,7 +119,7 @@ Follow these steps to configure the automation:
    The end time to view the data in CloudWatch. The time must be in the format
    `yyyy-mm-ddThh:mm:ss` and in UTC.
 
-![Input parameters form for AWS Systems Manager Automation with fields for role, resource ID, and time range.](images/awssupport-calculate-ebs-performance-metrics_input_parameters.png) 4. Select Execute. 5. The automation initiates. 6. The document performs the following steps:
+![Input parameters section showing fields for AutomationAssumeRole, ResourceId, StartTime, and EndTime.](images/awssupport-calculate-ebs-performance-metrics_input_parameters.png) 4. Select Execute. 5. The automation initiates. 6. The document performs the following steps:
 
     * **CheckResourceIdAndTimeStamps:**
 
@@ -141,15 +141,15 @@ Follow these steps to configure the automation:
 7. After completed, review the Outputs section for the detailed results of the
    execution:
 
-![CloudWatch dashboard creation output showing a URL link and a message with instructions.](images/awssupport-calculate-ebs-performance-metrics_outputs.png)
+![Outputs section showing CloudWatch Dashboard URL and success message for dashboard creation.](images/awssupport-calculate-ebs-performance-metrics_outputs.png)
 
 Example CloudWatch Dashboard For Resource ID as Amazon EC2 instance
 
-![CloudWatch dashboard showing EC2 instance metrics with graphs for IOPS, throughput, and volume performance.](images/awssupport-calculate-ebs-performance-metrics_dashboard_ec2_instance.png)
+![CloudWatch dashboard showing EBS performance metrics for EC2 instance with IOPS and throughput graphs.](images/awssupport-calculate-ebs-performance-metrics_dashboard_ec2_instance.png)
 
 Example CloudWatch Dashboard For Resource ID as Amazon EBS volume id
 
-![CloudWatch dashboard showing EBS volume performance metrics with IOPS and throughput graphs.](images/awssupport-calculate-ebs-performance-metrics_dashboard_ebs_volume.png)
+![CloudWatch dashboard showing EBS volume IOPS and throughput metrics with baseline thresholds.](images/awssupport-calculate-ebs-performance-metrics_dashboard_ebs_volume.png)
 
 **References**
 

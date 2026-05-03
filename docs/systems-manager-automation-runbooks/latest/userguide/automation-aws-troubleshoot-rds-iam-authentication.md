@@ -233,7 +233,7 @@ use the runbook successfully.
    The default option `*` is used to
    evaluate; nothing is provided in this field.
 
-![Input parameters form for AWS Systems Manager with fields for EC2 instance and database configuration.](images/awssupport-troubleshoot-rds-iam-authentication_input_parameters.png) 4. Select **Execute**. 5. Notice that the automation initiates. 6. The document performs the following steps:
+![Input parameters section showing EC2 instance picker, RDS configuration fields, and authentication options.](images/awssupport-troubleshoot-rds-iam-authentication_input_parameters.png) 4. Select **Execute**. 5. Notice that the automation initiates. 6. The document performs the following steps:
 
     * **Step 1:
      validateInputs:**
@@ -331,7 +331,7 @@ use the runbook successfully.
    to connect to the Amazon RDS Instance using the IAM
    credentials.
 
-![Troubleshooting results for IAM permissions and authentication for an Aurora MySQL database.](images/awssupport-troubleshoot-rds-iam-authentication_outputs.png)
+![Troubleshooting results showing IAM permissions verified, IAM authentication enabled, and no source EC2 instance provided.](images/awssupport-troubleshoot-rds-iam-authentication_outputs.png)
 
 **References**
 

@@ -82,7 +82,7 @@ Follow these steps to configure the automation:
 
    Name of the Amazon MWAA environment you wish to evaluate.
 
-![Input parameters form with AutomationAssumeRole and EnvironmentName fields for AWS Systems Manager Automation.](images/awssupport-troubleshoot-mwaa-environment-creation_input_parameters.png) 4. Select Execute. 5. The automation initiates. 6. The document performs the following steps:
+![Input parameters section showing AutomationAssumeRole and EnvironmentName fields with descriptions.](images/awssupport-troubleshoot-mwaa-environment-creation_input_parameters.png) 4. Select Execute. 5. The automation initiates. 6. The document performs the following steps:
 
     * **`GetMWAAEnvironmentDetails:`**
 
@@ -209,7 +209,7 @@ Follow these steps to configure the automation:
    Parses the existing CloudWatch log groups of the Amazon MWAA environment to locate
    errors.
 
-![Troubleshooting report for MMAA environment showing successful checks and connectivity tests.](images/awssupport-troubleshoot-mwaa-environment-creation_outputs.png)
+![MMAA environment troubleshooting report showing successful configuration checks and connectivity tests.](images/awssupport-troubleshoot-mwaa-environment-creation_outputs.png)
 
 **References**
 

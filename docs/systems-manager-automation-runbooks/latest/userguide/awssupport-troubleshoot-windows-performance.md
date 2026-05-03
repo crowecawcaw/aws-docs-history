@@ -137,7 +137,7 @@ Follow these steps to configure the automation:
    runbook and if you agree, type `Yes, I understand and
  acknowledge`.
 
-![Input parameters form for troubleshooting Amazon EC2 Windows instance performance issues.](images/awssupport-troubleshoot-windows-performance_input_parameters.png) 4. Select Execute. 5. The automation initiates. 6. The document performs the following steps:
+![Input parameters form with fields for InstanceId, AutomationAssumeRole, CaptureProcessDump, and other configuration options.](images/awssupport-troubleshoot-windows-performance_input_parameters.png) 4. Select Execute. 5. The automation initiates. 6. The document performs the following steps:
 
     * **`CheckConcurrency:`**
 
@@ -238,16 +238,16 @@ Follow these steps to configure the automation:
 
 Execution where the target instance has all required prerequisites.
 
-![Output logs showing performance capture process, EC2Rescue completion, and top CPU/memory usage processes.](images/awssupport-troubleshoot-windows-performance_outputs_all_prerequisites_met.png)
+![Outputs section showing successful performance log capture and EC2Rescue tool execution results.](images/awssupport-troubleshoot-windows-performance_outputs_all_prerequisites_met.png)
 
 Execution where the target instance is on Linux platform and the execution failed.
 You would select the step ID to see the failure details.
 
-![Execution status showing failed overall status with 2 executed steps, 1 succeeded and 1 failed.](images/awssupport-troubleshoot-windows-performance_outputs_failed_linux_instance.png)
+![Execution status showing 2 steps: CheckConcurrency succeeded, AssertInstanceIsWindows failed.](images/awssupport-troubleshoot-windows-performance_outputs_failed_linux_instance.png)
 
 The failure details of step `AssertInstanceIsWindows`.
 
-![Failure details showing verification error for Linux property value instead of Windows.](images/awssupport-troubleshoot-windows-performance_outputs_assert_windows_fail.png)
+![Failure message showing Linux value returned instead of expected Windows value.](images/awssupport-troubleshoot-windows-performance_outputs_assert_windows_fail.png)
 
 **References**
 

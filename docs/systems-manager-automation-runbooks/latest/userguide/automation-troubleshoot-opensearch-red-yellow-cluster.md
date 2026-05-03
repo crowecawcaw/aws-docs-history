@@ -151,14 +151,14 @@ Follow these steps to configure the automation:
    The utilization threshold percentage used to compare the CPUUtilization
    and JVMMemoryPressure metrics. Default value is 80.
 
-![Input parameters form for AWS Systems Manager Automation with IAM roles and domain settings.](images/awssupport-troubleshoot-opensearch-red-yellow-cluster_input_paramters.png) 4. If you have enabled [fine-grained access
+![Input parameters form with fields for AutomationAssumeRole, LambdaExecutionRole, DomainName, and UtilizationThreshold.](images/awssupport-troubleshoot-opensearch-red-yellow-cluster_input_paramters.png) 4. If you have enabled [fine-grained access
 control](../../../opensearch-service/latest/developerguide/fgac.md "../../../opensearch-service/latest/developerguide/fgac.md") on an OpenSearch Service cluster, make sure that the
 `LambdaExecutionRole` role arn is mapped to a role with at least
 `cluster_monitor` permission.
 
-![Cluster permissions section showing cluster_monitor permission granted.](images/awssupport-troubleshoot-opensearch-red-yellow-cluster_permissions.png)
+![Permissions tab showing Cluster permissions section with cluster_monitor permission selected.](images/awssupport-troubleshoot-opensearch-red-yellow-cluster_permissions.png)
 
-![Backend roles interface showing an AWSIAM role for Lambda execution and options to remove or add roles.](images/awssupport-troubleshoot-opensearch-red-yellow-cluster_backend_roles.png) 5. Select Execute. 6. The automation initiates. 7. The automation runbook performs the following steps:
+![Backend roles field showing an AWS IAM role ARN with Remove button and Map button.](images/awssupport-troubleshoot-opensearch-red-yellow-cluster_backend_roles.png) 5. Select Execute. 6. The automation initiates. 7. The automation runbook performs the following steps:
 
     * **GetClusterConfiguration:**
 

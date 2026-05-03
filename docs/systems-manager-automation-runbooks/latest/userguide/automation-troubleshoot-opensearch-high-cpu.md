@@ -185,9 +185,9 @@ Follow these steps to configure the automation:
    `LambdaExecutionRole` role arn is mapped to a role with at least
    `cluster_monitor` permission.
 
-![Cluster permissions section showing cluster_monitor permission granted.](images/awssupport-troubleshoot-opensearch-high-cpu_cluster_permissions.png)
+![Permissions tab showing Cluster permissions section with cluster_monitor permission selected.](images/awssupport-troubleshoot-opensearch-high-cpu_cluster_permissions.png)
 
-![Backend roles interface showing an AWSIAM role for Lambda execution and options to remove or add roles.](images/awssupport-troubleshoot-opensearch-high-cpu_backend_roles.png) 5. Select Execute. 6. The automation initiates. 7. The automation runbook performs the following steps:
+![Backend roles section showing a Lambda execution role ARN with Remove button and Map option.](images/awssupport-troubleshoot-opensearch-high-cpu_backend_roles.png) 5. Select Execute. 6. The automation initiates. 7. The automation runbook performs the following steps:
 
     * **checkConcurrency:**
 
@@ -241,7 +241,7 @@ Follow these steps to configure the automation:
 
    Provides the CloudWatch log group where the diagnostic data is stored.
 
-![Output message indicating hot thread data collection completed with log group details.](images/awssupport-troubleshoot-opensearch-high-cpu_outputs.png)
+![Outputs section showing finalStatus.FinalOutput with hot thread data collection completion message and CloudWatch log group reference.](images/awssupport-troubleshoot-opensearch-high-cpu_outputs.png)
 
 **References**
 
