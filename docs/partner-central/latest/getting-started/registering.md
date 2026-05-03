@@ -1,19 +1,28 @@
 # Registering in AWS Partner Central
 
+Registering as an AWS Partner is the first step for your AWS Partner business. This section guides you through the registration process, including providing required information and completing verification steps.
+
 ###### Important
 
 If you are an existing partner with an existing AWS Partner Central account, you should not register a new account in AWS Partner Central. Instead, the existing Alliance Lead should take the action to migrate your current AWS Partner Central account to the new experience on the AWS Console. For more information, see [Migrating to Partner Central on the AWS Console](https://partnercentral.awspartner.com/partnercentral2/s/article?category=Introductory_resources&article=Partner-Central-Migration-Guide "https://partnercentral.awspartner.com/partnercentral2/s/article?category=Introductory_resources&article=Partner-Central-Migration-Guide").
 
-For new sign-ups, before you can use AWS Partner Central, you must first register your company. The person who registers the company with AWS Partner Central must have the legal authority to accept the AWS Partner Central and ACE (AWS Partner Network Customer Engagements) terms and conditions on behalf of their business. During the registration process, business and identity verification processes are required.
+## Before you register
 
-If multiple companies, such as parent and child companies, share the same business domain and register in the AWS Partner Network, they will still share one single AWS Partner Central account.
+To register for AWS Partner Central, ensure you have:
 
-###### Note
+- **Legal authority to register on behalf of your company** — The person registering must have legal authority to accept the [AWS Partner Network Terms and Conditions](https://aws.amazon.com/partners/terms-and-conditions/ "https://aws.amazon.com/partners/terms-and-conditions/") and **APN Customer Engagements Terms and Conditions** on behalf of your company.
+- **An AWS account on a paid plan and in good standing** — You need an AWS account for registration. This account will be used for APN fee billing, and the billing address will be used as your headquarters address in the discovery portal. Whether you use an existing account from your organization or create a new one, the account must be on a paid plan and in good standing. For guidance on selecting an AWS account for AWS Partner Central, see [account selection guidance](linking-prerequisites.md#which-accounts-to-link "linking-prerequisites.md#which-accounts-to-link").
+- **Access credentials and permissions for your AWS account** — You need credentials and permissions to log into the AWS account. After registration, you'll also need specific permissions to access AWS Partner Central and Marketplace data. Work with your IAM Administrator to grant you [AWSPartnerCentralFullAccess](../../../aws-managed-policy/latest/reference/AWSPartnerCentralFullAccess.md "../../../aws-managed-policy/latest/reference/AWSPartnerCentralFullAccess.md") and [AWSMarketplaceSellerFullAccess](../../../aws-managed-policy/latest/reference/AWSMarketplaceSellerFullAccess.md "../../../aws-managed-policy/latest/reference/AWSMarketplaceSellerFullAccess.md").
 
-You must have an existing AWS account and proper IAM permissions before starting registration.
+## Working with your IAM Administrator
 
-To register for AWS Partner Central, you'll need to sign in to the AWS Console using a designated AWS account and navigate to the AWS Partner Central service page. Before beginning the registration process, ensure you have the necessary IAM permissions in place. For more information on which AWS account to use for AWS Partner Central registration, see [Linking AWS Partner Central and AWS accounts](linking-apc-aws-marketplace.md "linking-apc-aws-marketplace.md").
+You will need to get the AWS account access and permissions needed to proceed with AWS Partner Central registration. Normally you will need help from your organization's IAM Administrator. IAM Administrators typically work in IT Security, Information Security, or dedicated IAM teams within Governance and Compliance organizations. If you're unsure who your IAM Administrator is, reach out to your IT department or whoever manages your company's AWS accounts or teams who have AWS accounts (for example, the AWS Marketplace team).
 
-###### Note
+Your IAM Administrator will need to:
 
-You are not required to register in AWS Partner Central if you are only interested in selling on the AWS Marketplace and not engage in programs, funding, and co-sell with AWS. Users who register for AWS Partner Central simultaneously create Partner and Seller accounts, and can choose to engage as a partner, seller or both. Companies can register as a Seller independent of AWS Partner Central. For more information, see [Registering as a seller on AWS Marketplace](../../../marketplace/latest/userguide/seller-account-registering.md "../../../marketplace/latest/userguide/seller-account-registering.md").
+- Provision access to the selected AWS account for the person performing the registration (the 'alliance lead').
+- Set up the appropriate permissions using AWS managed policies for AWS Partner Central users.
+
+You will become the primary contact managing the AWS Partner Central account upon successful registration.
+
+After you have access to your AWS account, you can start the [registration process](registration-process.md "registration-process.md").

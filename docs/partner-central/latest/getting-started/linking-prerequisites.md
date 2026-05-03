@@ -12,7 +12,7 @@ Firefox or one of the chrome browsers.
 ###### Topics
 
 - [User roles and permissions](#people-roles "#people-roles")
-- [Selecting the right AWS account](#which-accounts-to-link "#which-accounts-to-link")
+- [Select an AWS account for AWS Partner Central](#which-accounts-to-link "#which-accounts-to-link")
 - [Granting IAM permissions](#grant-iam-permissions "#grant-iam-permissions")
 - [Understanding the role permissions](#standard-role-permissions "#standard-role-permissions")
 - [Creating a permission set for single sign-on](#create-permission-set "#create-permission-set")
@@ -35,37 +35,32 @@ development or business leadership role and legal authority to accept AWS Partne
 Network terms and conditions. The Alliance Lead can delegate account linking to a
 Partner Central user with the Cloud Admin user role.
 
-## Selecting the right AWS account
+## Select an AWS account for AWS Partner Central
 
-Use the information in the following table to help decide which AWS account you should
-link with your Partner Central account.
+Choose the AWS account you'll link to your AWS Partner Central profile. This applies whether you're registering as a new AWS partner or migrating from the legacy AWS Partner Network (APN) portal.
 
-###### Important
+The AWS account you choose for AWS Partner Central will manage APN fee payments, solutions, and APN Customer Engagement (ACE) opportunity tracking. All APN resources, including ACE opportunities, opportunity history, and multi-partner opportunity invitations, are created in the account and cannot be transferred to other AWS accounts.
 
-Consider the following when selecting an AWS account:
+If you are an AWS Partner who has access to legacy Partner Central and needs to link an AWS account to pay APN fees or for Partner Central migration, **account linking is permanent after migration**. Before migration, you can unlink your account and select a different one. After migration, the linked account cannot be changed. All AWS Partner Network resources, including ACE opportunities, opportunity history, and multi-partner opportunity invitations, are permanently associated with this account.
 
-- AWS Partner Central requires an AWS account that uses
-  IAM policies to control access.
-- The linked AWS account manages APN fee payment, solutions, and APN Customer
-  Engagement (ACE) opportunity tracking using the Partner Central APIs.
-- AWS Partner Network features and APIs are available through the linked AWS
-  account.
-- AWS resources such as ACE opportunities, opportunity history, and multi-partner
-  opportunity invitations are created in the linked AWS account and can't be
-  transferred to other AWS accounts.
-- The AWS account that you link to must be on a Paid AWS account plan. When you sign up for an AWS account, choose the Paid account plan.
-  To upgrade an AWS account to the Paid AWS account plan, refer to
-  [Choosing an AWS Free Tier plan](../../../awsaccountbilling/latest/aboutv2/free-tier-plans.md "../../../awsaccountbilling/latest/aboutv2/free-tier-plans.md") in the _AWS Billing User Guide_.
-- AWS recommends linking an AWS account that is _not_ used for the following purposes.
+Use the information in the following table to help decide which AWS account you should link or select for your AWS Partner Central account.
 
-      + A management account, where you manage the account information and metadata for all of the AWS accounts in your organization.
-      + A production account, where users and data interact with applications and services.
-      + A developer or sandbox account, where developers write code.
-      + A personal account where individuals for learn, experiment, and work on personal projects.
-      + An AWS Marketplace buyer account, where you procure products from AWS Marketplace.
+###### Account selection checklist
 
-  Keeping the linked account separate from your AWS Partner Network engagements ensures flexibility for configurations specific to AWS Partner Central
-  without affecting other environments. Doing so also simplifies financial tracking, tax reporting, and audits.
+**Your account must:**
+
+- **Use a paid AWS account plan and be in good standing** — The account must use a paid AWS account plan (not Free Tier) and maintain good standing with AWS and APN. To upgrade to a paid account plan, see [Choosing an AWS Free Tier plan](../../../awsaccountbilling/latest/aboutv2/billing-free-tier.md "../../../awsaccountbilling/latest/aboutv2/billing-free-tier.md") in the _AWS Billing User Guide_.
+- **Be owned by your company** — The account must be owned by your company and belong to an AWS organization that your company controls. It must **not** be owned by a distributor or another organization, or be a member account within a distributor's organization.
+- **Be able to onboard future AWS Partner Central users** — Users who need to create opportunities, solutions, and fund requests will need access to this account.
+- **Have a legal entity (tax) address matching your primary business location** — The account's billing address becomes the headquarters location for your partner profile. Choose an account with a billing address that matches your primary business location.
+  **Your account must not be:**
+
+- **Developer or sandbox accounts** for code development and testing
+- **Personal accounts** for individual learning or projects
+- **Test accounts**
+  **Recommended not to choose:**
+
+- **Management (or primary payer) accounts** for AWS Organizations
 
 | AWS Partner scenario                                                                                                        | Example                                                                                                                                     | AWS account options                                                                                                                                                           | Considerations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

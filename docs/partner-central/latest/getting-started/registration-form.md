@@ -1,13 +1,24 @@
 # Complete registration form
 
-###### To complete registration
+Complete identity and business verification before beginning this step.
 
-1. Enter contact information for the Alliance Lead. This should be your organization's primary contact. All AWS Partner Network communications and key updates, such as the APN Newsletter or email announcements about changes in policies or new feature launches, will only be sent to this primary contact.
+Before you begin, ensure you have:
+
+- Your organization's legal business name
+- Contact information for your primary alliance lead
+- A business email address for verification
+
+###### To complete AWS Partner registration
+
+1. **Enter your alliance lead contact information.** The alliance lead is your organization's primary contact for AWS Partner Network communications, including the APN Newsletter and announcements about policy changes. The information can be changed in AWS Partner Central settings after registration.
+   1. First name
+   2. Last name
+   3. Job title
+   4. Primary product or service: Choose the primary product or service type that you go-to-market with.###### Tip
+
+If you want AWS Partner communications sent to multiple people in your organization, use a shared email alias (such as aws-partners@example.com) as your alliance lead email. This allows all team members with access to that inbox to receive important updates. 2. **Verify your business email address.** Enter your alliance lead's business email address and choose **Send verification code**. Check your inbox for the verification code and enter it when prompted. 3. **(Optional) Add tags to your partner account.** Tags allow partners to label specific resources (such as Opportunities or Fund Requests) and control access based on these tags. For example, partners can tag opportunities by Region or Sector and restrict individual user access to these specific segments of their AWS Partner Central data. 4. **Review and accept the terms and conditions.** Read the [AWS Partner Network Terms and Conditions](https://aws.amazon.com/partners/terms-and-conditions/ "https://aws.amazon.com/partners/terms-and-conditions/") and [APN Customer Engagements Terms and Conditions](https://partnercentral.awspartner.com/partnercentral2/s/resources?Id=0690h0000061bwnAAA "https://partnercentral.awspartner.com/partnercentral2/s/resources?Id=0690h0000061bwnAAA"), then select the checkbox to agree. 5. **Review your information.** Before submitting, verify all details are correct. 6. **Submit your registration.** Choose **Submit registration** to complete the process.
+After registration is completed, you will be redirected to the AWS Partner Central homepage and Dashboard. Begin to complete the onboarding tasks.
 
 ###### Important
 
-For organizations who wish to distribute communications to a wider audience, we recommend using a shared email alias as the primary contact, which allows communication to go to all individuals with access to that shared inbox. 2. Provide basic details about your organization, including your primary product or service and industry focus. 3. Choose **Next**. Review information and prepare to complete registration. Choose **Edit** for the corresponding section if any updates are required. 4. Add tags (optional). Tags allow partners to label specific resources (such as Opportunities or Fund Requests) and control access based on these tags. For example, partners can tag opportunities by Region or Sector and restrict individual user access to these specific segments of their AWS Partner Central data. 5. Review the Terms and Conditions. 6. Choose **Submit Registration**.
-
-###### Note
-
-Separate AWS Partner Central and Marketplace accounts are created at the time of registration. Partners do not need to register as a Seller on the AWS Marketplace unless they choose to. The system automatically creates both accounts to ensure partners have access to all potential opportunities, even if not immediately needed. 7. Choose **Continue to AWS Partner Central** and begin completing onboarding tasks to get started.
+If you are unable to complete the registration process and require support, review the [Registration FAQ](registration-faq.md "registration-faq.md") or contact the APN Support Team through [this external link](https://www.apn-portal.com/knowledgebase/?cu=1&fs=ContactUs&l=en_US "https://www.apn-portal.com/knowledgebase/?cu=1&fs=ContactUs&l=en_US").

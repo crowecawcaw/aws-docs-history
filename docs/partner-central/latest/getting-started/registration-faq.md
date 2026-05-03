@@ -6,7 +6,7 @@ Use an AWS account that can serve as the primary account for managing AWS-relate
 
 ## How do I know if my company has a AWS Partner Central account?
 
-During the registration process, your registration business validation will fail if a company with the same Legal business name and details exists in our database. Contact [Partner Central Support](https://www.apn-portal.com/knowledgebase/?cu=1&fs=ContactUs&l=en_US "https://www.apn-portal.com/knowledgebase/?cu=1&fs=ContactUs&l=en_US") if you need to merge or consolidate APN accounts.
+During the registration process, your registration business validation will fail if a company with the same legal business name and details exists in our database. Contact [Partner Central Support](https://www.apn-portal.com/knowledgebase/?cu=1&fs=ContactUs&l=en_US "https://www.apn-portal.com/knowledgebase/?cu=1&fs=ContactUs&l=en_US") if you need to merge or consolidate APN accounts.
 
 ## How do I know if I am a root user?
 
@@ -44,5 +44,22 @@ If you have an AWS Marketplace account and see a "Not Registered" message in AWS
 
 Do not create a new profile or register again. Creating a new registration will replace all of your historical partner data.
 
-**What should I do?**
-Work with your IT administrator to schedule your migration from legacy Partner Central to the new AWS Partner Central in the Console. This will preserve all of your existing partner history and data.
+**What should I do?** Work with your IT administrator to schedule your migration from legacy Partner Central to the new AWS Partner Central in the Console. This will preserve all of your existing partner history and data.
+
+## I cannot start the identity verification process. It shows "Access denied. You do not have permission to AWS Partner Central."
+
+Contact your IAM administrator to provision you the permissions to access AWS Partner Central. You will need [AWSPartnerCentralFullAccess](../../../aws-managed-policy/latest/reference/AWSPartnerCentralFullAccess.md "../../../aws-managed-policy/latest/reference/AWSPartnerCentralFullAccess.md") and [AWSMarketplaceSellerFullAccess](../../../aws-managed-policy/latest/reference/AWSMarketplaceSellerFullAccess.md "../../../aws-managed-policy/latest/reference/AWSMarketplaceSellerFullAccess.md"). Work with your IAM administrator and review the registration prerequisites.
+
+## I cannot pass identity verification. It shows "Failed to verify your Identity. Refresh to get a new code." How do I fix it?
+
+Ensure you use a government ID that shows your face. If you use a government ID without a photo, the system cannot match it with your selfie. Also ensure your photo ID has a recent picture.
+
+## Why do I need to complete identity verification?
+
+To maintain the security and integrity of the AWS Partner Network and AWS customers.
+
+## Why am I seeing the error "Partner Registration requires a paid AWS account in good standing. Please ensure your account meets these requirements to continue"?
+
+To register as an AWS Partner, your AWS account must be on a paid plan rather than the AWS Free Tier, and your account must be in good standing with AWS. Upgrading to a paid plan does not incur additional costs beyond your actual AWS usage.
+
+If you are currently on the AWS Free Tier, log into the AWS Management Console and [upgrade your account to a paid plan](https://console.aws.amazon.com/billing/home?#/freetier/upgrade "https://console.aws.amazon.com/billing/home?#/freetier/upgrade"). If your account is already on a paid plan and the error persists, sign in to the AWS Management Console and contact APN support through [this external link](https://www.apn-portal.com/knowledgebase/?cu=1&fs=ContactUs&l=en_US "https://www.apn-portal.com/knowledgebase/?cu=1&fs=ContactUs&l=en_US") and specify the issue.
