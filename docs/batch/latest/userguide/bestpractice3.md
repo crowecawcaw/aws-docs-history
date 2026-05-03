@@ -24,4 +24,4 @@ history your_image_id` command to check your container image structure and layer
   thousands of jobs in parallel, a self-managed repository can fail or throttle throughput. Amazon ECR
   works at scale and can handle workloads with up to over a million vCPUs.
 
-![Diagram showing layers of machine images and containers with data types and change frequencies.](images/batch-best-practices-f1.png)
+![Diagram showing data layers from operating system to data, with table listing sizes and change frequencies.](images/batch-best-practices-f1.png)

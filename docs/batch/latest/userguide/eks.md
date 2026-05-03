@@ -3,14 +3,14 @@
 [Getting started with AWS Batch on Amazon EKS](getting-started-eks.md "getting-started-eks.md") provides a short guide to creating EKS
 compute environments. This section provides more details on Amazon EKS compute environments.
 
-![AWS Batch workflow diagram showing integration with Amazon EKS, ECS, Fargate, and EC2.](images/batch-on-eks.png)
+![Architecture diagram showing AWS Batch submitting jobs to Amazon ECS and Amazon EKS clusters.](images/batch-on-eks.png)
 AWS Batch simplifies your batch workloads on Amazon EKS clusters by providing managed batch capabilities. This includes
 queuing, dependency tracking, managed job retries and priorities, pod management, and node scaling. AWS Batch can handle
 multiple Availability Zones and multiple Amazon EC2 instance types and sizes. AWS Batch integrates several of the Amazon EC2 Spot
 best practices to run your workloads in a fault-tolerant manner, allowing for fewer interruptions. You can use AWS Batch
 to run a handful of overnight jobs or millions of mission-critical jobs with confidence.
 
-![AWS Batch workflow on Amazon EKS, showing job queue, compute environment, and EC2 instances.](images/batch-on-eks-detail.png)
+![AWS Batch architecture showing job submission, EKS cluster with managed node groups, and EC2 Spot instances.](images/batch-on-eks-detail.png)
 AWS Batch is a managed service that orchestrates batch workloads in your Kubernetes clusters that are managed by
 Amazon Elastic Kubernetes Service (Amazon EKS). AWS Batch conducts this orchestration external to your clusters using an "overlay" model. Since
 AWS Batch is a managed service, there are no Kubernetes components (for example, Operators or Custom Resources) to install or

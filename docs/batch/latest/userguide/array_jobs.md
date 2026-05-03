@@ -38,7 +38,7 @@ where the first child job must succeed before the next child job starts. The fig
 Job A, an array job with an array size of 10. Each job in Job A's child index is dependent on the
 previous child job. Job A:1 can't start until job A:0 finishes.
 
-![Flowchart showing Job-A with sequential child jobs A:0 through A:9, connected by arrows.](images/sequential-dep.png)
+![Sequential array job dependency where each child job from A:0 through A:9 runs in order.](images/sequential-dep.png)
 You can also specify an `N_TO_N` type dependency with a job ID for array jobs.
 That way, each index child of this job must wait for the corresponding index child of each
 dependency to complete before it can begin. The following figure shows Job A and Job B, two array

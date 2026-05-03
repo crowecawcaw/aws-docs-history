@@ -161,7 +161,7 @@ log group called `awslogs-mysql`. Both containers use the
 In the AWS Batch console, the log configuration for the `wordpress` job
 definition is specified as shown in the following image.
 
-![Log configuration interface showing awslogs driver with group and stream prefix options.](images/awslogs-console-config.png)
+![Log configuration section with awslogs driver, awslogs-group set to awslogs-wordpress, and awslogs-stream-prefix set to awslogs-example.](images/awslogs-console-config.png)
 
 After you have registered a task definition with the `awslogs` log driver in a
 job definition log configuration, you can submit a job with that job definition to start
