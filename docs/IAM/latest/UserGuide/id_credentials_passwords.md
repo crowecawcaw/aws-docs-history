@@ -10,7 +10,7 @@ recommend you consider first. For more information, see [AWS security credential
 ###### Note
 
 If one of your IAM users
-lose or forget their password, you _cannot_ retrieve them from IAM. Depending on your settings, either the user or the administrator must create a
+loses or forgets their password, you _cannot_ retrieve it from IAM. Depending on your settings, either the user or the administrator must create a
 new password.
 
 ###### Contents

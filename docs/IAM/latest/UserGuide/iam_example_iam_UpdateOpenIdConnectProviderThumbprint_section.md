@@ -18,6 +18,8 @@ This example updates the certificate thumbprint list for the OIDC provider whose
 
 ```
 
+If your OIDC provider's discovery and JWKS endpoints use different certificates, include thumbprints for both endpoints in the `--thumbprint-list` value.
+
 This command produces no output.
 
 For more information, see [Creating OpenID Connect (OIDC) identity providers](id_roles_providers_create_oidc.md "id_roles_providers_create_oidc.md") in the _AWS IAM User Guide_.

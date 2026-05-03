@@ -22,7 +22,7 @@ AWS Management Console. You can do this in one of two ways:
 We recommend that you [set a custom
 password policy](id_credentials_passwords_account-policy.md "id_credentials_passwords_account-policy.md") that requires IAM users to create strong passwords.
 
-## To allow all IAM users change their own passwords
+## To allow all IAM users to change their own passwords
 
 Console
 
@@ -48,7 +48,7 @@ To update the account password policy, call the following operation:
 
 - `UpdateAccountPasswordPolicy`
 
-## To allow selected IAM users change their own passwords
+## To allow selected IAM users to change their own passwords
 
 Console
 

@@ -58,7 +58,7 @@ Expired requests are eventually deleted from the system after the retention peri
 
 As a partner, you must track delegation request states in your system and surface them to your customers. When you receive SNS notifications about state changes, store these updates in your backend and reflect them in your customer-facing UI. Pay special attention to the Pending Approval state—when a customer forwards a request to an administrator for review, AWS sends a Pending Approval notification to you. Requests can remain in this state for up to 7 days while waiting for administrator action. During this time, show customers that their request is pending administrator approval in your application. Consider providing a deep link to the AWS Console where customers can check the request status or follow up with their administrator. Properly handling the state machine in your backend and surfacing the correct state information to customers at each stage is important for a good integration experience.
 
-![](images/delegation-states.png)
+![State diagram showing delegation request flow from Unassigned through Assigned, Pending Approval, to Accepted, Rejected, Finalized, Expired, or Deleted states.](images/delegation-states.png)
 
 ## Configuring Notifications
 

@@ -22,7 +22,7 @@ keys specified in the request, and at least one value in the policy. This means 
 the tags in the request must be in this list. However, the request can include only one of
 the tags in the list. For example, you can create an IAM user with only the
 `Department=QualityAssurance` tag. However, you cannot create an IAM user
-with the `JobFunction=employee` tag and the `Project=core` tag. For
+with the `JobFunction=Employee` tag and the `Project=core` tag. For
 more information about using `ForAllValues`, see [Set operators for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
 
 JSON

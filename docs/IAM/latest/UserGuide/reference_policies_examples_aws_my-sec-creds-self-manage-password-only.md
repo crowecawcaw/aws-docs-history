@@ -23,7 +23,7 @@ To learn how users can access the **Security credentials** page, see
   `iam:ListUsers` action to the `ViewAccountPasswordRequirements`
   statement. It also does not allow users to change their password on their own user page. To
   allow this, add the `iam:GetLoginProfile` and `iam:UpdateLoginProfile`
-  actions to the `ChangeOwnPasswords` statement.
+  actions to the `ChangeOwnPassword` statement.
 
 JSON
 

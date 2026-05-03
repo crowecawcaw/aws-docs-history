@@ -182,7 +182,7 @@ RDS](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAM.ServiceLinkedRoles.md 
 allows RDS to call Amazon EC2, Amazon SNS, Amazon CloudWatch Logs, and Amazon Kinesis on your behalf. If you allow users
 and roles in your account to modify or create RDS databases, then they may be able to
 indirectly interact with Amazon EC2, Amazon SNS, Amazon CloudWatch Logs logs, and Amazon Kinesis resources by calling RDS,
-as RDS would use it’s service-linked role to access those resources.
+as RDS would use its service-linked role to access those resources.
 
 ### Methods to create a service-linked role
 

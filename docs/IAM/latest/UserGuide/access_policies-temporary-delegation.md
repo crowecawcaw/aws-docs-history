@@ -26,7 +26,7 @@ The process works as follows:
 4. Once you or your administrator approves the request, the product provider can obtain approver's temporary credentials to perform the required tasks.
 5. Product provider access automatically expires after the specified time period. However, any IAM role created through the temporary delegation request persists beyond this period, allowing the product provider to continue accessing resources and actions for ongoing management tasks.
 
-![](images/delegation-flow.png)
+![Workflow showing end-user login, AWS integration setup, approval process, and configuration.](images/delegation-flow.png)
 
 ###### Note
 

@@ -24,7 +24,7 @@ What does this policy do?
   defined with the **Write** or **Permissions management**
   access levels while creating this policy in the IAM console. To do this, switch from the
   **JSON** tab to the **Visual editor** tab. For more
-  information about access levels. see [Actions, Resources, and Condition Keys for AWS Identity and Access Management](list_identityandaccessmanagement.md#identityandaccessmanagement-actions-as-permissions "list_identityandaccessmanagement.md#identityandaccessmanagement-actions-as-permissions").
+  information about access levels, see [Actions, Resources, and Condition Keys for AWS Identity and Access Management](list_identityandaccessmanagement.md#identityandaccessmanagement-actions-as-permissions "list_identityandaccessmanagement.md#identityandaccessmanagement-actions-as-permissions").
 
 JSON
 

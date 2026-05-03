@@ -141,6 +141,10 @@ create_sagemaker_role() {
     echo "Role created successfully" >&2
     CREATED_RESOURCES+=("IAMRole:$role_name")
 
+    # Tag the role
+    echo "Tagging IAM role..." >&2
+    aws iam tag-role --role-name "$role_name" --tags Key=project,Value=doc-smith Key=tutorial,Value=sagemaker-featurestore 2>&1
+
     # Attach necessary policies
     echo "Attaching policies to role..." >&2
 
@@ -236,7 +240,8 @@ PREFIX="featurestore-tutorial"
 CURRENT_TIME=$(date +%s)
 
 echo "Creating S3 bucket: $S3_BUCKET_NAME"
-# Create bucket in current region
+# Create bucket in current region (skip if using shared bucket)
+if [ "$BUCKET_IS_SHARED" = "false" ]; then
 if [ "$REGION" = "us-east-1" ]; then
     BUCKET_RESULT=$(aws s3api create-bucket --bucket "$S3_BUCKET_NAME" \
         --region "$REGION" 2>&1)
@@ -254,6 +259,10 @@ fi
 echo "$BUCKET_RESULT"
 CREATED_RESOURCES+=("S3Bucket:$S3_BUCKET_NAME")
 
+# Tag the S3 bucket
+echo "Tagging S3 bucket: $S3_BUCKET_NAME"
+aws s3api put-bucket-tagging --bucket "$S3_BUCKET_NAME" --tagging 'TagSet=[{Key=project,Value=doc-smith},{Key=tutorial,Value=sagemaker-featurestore}]' 2>&1
+
 # Block public access to the bucket
 BLOCK_RESULT=$(aws s3api put-public-access-block \
     --bucket "$S3_BUCKET_NAME" \
@@ -263,6 +272,9 @@ if echo "$BLOCK_RESULT" | grep -i "error" > /dev/null; then
     echo "Failed to block public access to S3 bucket: $BLOCK_RESULT"
     cleanup_resources
     exit 1
+fi
+else
+    echo "Using shared bucket (skipping creation)"
 fi
 
 # Create feature groups
@@ -291,7 +303,8 @@ CUSTOMERS_RESPONSE=$(aws sagemaker create-feature-group \
         },
         "DisableGlueTableCreation": false
     }' \
-    --role-arn "$ROLE_ARN" 2>&1)
+    --role-arn "$ROLE_ARN" \
+    --tags Key=project,Value=doc-smith Key=tutorial,Value=sagemaker-featurestore 2>&1)
 
 if echo "$CUSTOMERS_RESPONSE" | grep -i "error" > /dev/null; then
     echo "Failed to create customers feature group: $CUSTOMERS_RESPONSE"
@@ -326,7 +339,8 @@ ORDERS_RESPONSE=$(aws sagemaker create-feature-group \
         },
         "DisableGlueTableCreation": false
     }' \
-    --role-arn "$ROLE_ARN" 2>&1)
+    --role-arn "$ROLE_ARN" \
+    --tags Key=project,Value=doc-smith Key=tutorial,Value=sagemaker-featurestore 2>&1)
 
 if echo "$ORDERS_RESPONSE" | grep -i "error" > /dev/null; then
     echo "Failed to create orders feature group: $ORDERS_RESPONSE"
@@ -530,7 +544,6 @@ else
 fi
 
 echo "Script completed at $(date)"
-
 
 ```
 

@@ -66,7 +66,7 @@ Console
    Guide_.
 2. On the **IAM Console Home** page, in the left navigation pane, enter your query in the **Search IAM** text box.
 3. In the navigation pane, choose **Users** and then choose
-   **Create users**.
+   **Create user**.
 4. On the **Specify user details** page, do the following:
    1. For **User name**, type _`WorkloadName`_. Replace _`WorkloadName`_ with the name of
       the workload that will be using the account.

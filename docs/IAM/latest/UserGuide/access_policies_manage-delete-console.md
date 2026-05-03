@@ -51,7 +51,7 @@ AWS managed policies.
 
 Console
 
-###### To delete an inline policy for a IAM user, group, or role
+###### To delete an inline policy for an IAM user, group, or role
 
 1. In the navigation pane, choose **User groups**,
    **Users**, or **Roles**.

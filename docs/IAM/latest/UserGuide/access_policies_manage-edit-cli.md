@@ -86,7 +86,7 @@ You can edit an inline policy from the AWS CLI.
      - [list-role-policies](../../../cli/latest/reference/iam/list-role-policies.md "../../../cli/latest/reference/iam/list-role-policies.md")
      - [list-group-policies](../../../cli/latest/reference/iam/list-group-policies.md "../../../cli/latest/reference/iam/list-group-policies.md")
 
-   - To retrieve detailed information about a inline policy:
+   - To retrieve detailed information about an inline policy:
      - [get-user-policy](../../../cli/latest/reference/iam/get-user-policy.md "../../../cli/latest/reference/iam/get-user-policy.md")
      - [get-role-policy](../../../cli/latest/reference/iam/get-role-policy.md "../../../cli/latest/reference/iam/get-role-policy.md")
      - [get-group-policy](../../../cli/latest/reference/iam/get-group-policy.md "../../../cli/latest/reference/iam/get-group-policy.md")

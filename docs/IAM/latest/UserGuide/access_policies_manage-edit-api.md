@@ -80,7 +80,7 @@ You can edit an inline policy from the AWS API.
 
 ###### To edit an inline policy (AWS API)
 
-1. (Optional) To view information about an inline policy, run the following
+1. (Optional) To view information about an inline policy, call the following
    operations:
    - To list inline policies associated to an identity (a user, user group, or role):
      - [ListUserPolicies](../APIReference/API_ListUserPolicies.md "../APIReference/API_ListUserPolicies.md")
@@ -92,7 +92,7 @@ You can edit an inline policy from the AWS API.
      - [GetRolePolicy](../APIReference/API_GetRolePolicy.md "../APIReference/API_GetRolePolicy.md")
      - [GetGroupPolicy](../APIReference/API_GetGroupPolicy.md "../APIReference/API_GetGroupPolicy.md")
 
-2. To edit an inline policy, run the following operations:
+2. To edit an inline policy, call the following operations:
    - [PutUserPolicy](../APIReference/API_PutUserPolicy.md "../APIReference/API_PutUserPolicy.md")
    - [PutRolePolicy](../APIReference/API_PutRolePolicy.md "../APIReference/API_PutRolePolicy.md")
    - [PutGroupPolicy](../APIReference/API_PutGroupPolicy.md "../APIReference/API_PutGroupPolicy.md")

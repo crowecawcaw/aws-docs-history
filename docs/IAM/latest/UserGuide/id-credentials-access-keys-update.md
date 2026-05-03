@@ -160,7 +160,7 @@ You can update access keys using the AWS API.
 
 4.  Even if step [Step 3](#step-determine-use-2 "#step-determine-use-2") indicates no use of the old key, we recommend that you do not immediately
     delete the first access key. Instead, change the state of the first access key to
-    `Inactive` calling this operation:
+    `Inactive` by calling this operation:
     - [`UpdateAccessKey`](../APIReference/API_UpdateAccessKey.md "../APIReference/API_UpdateAccessKey.md")
 
 5.  Use only the new access key to confirm that your applications are working. Any
@@ -170,6 +170,6 @@ You can update access keys using the AWS API.
     reactivate the first access key. Then return to step [Step 2](#step-update-apps-2 "#step-update-apps-2") and update this
     application to use the new key.
 6.  After you wait some period of time to ensure that all applications and tools
-    have been updated, you can delete the first access key calling this
+    have been updated, you can delete the first access key by calling this
     operation:
     - [`DeleteAccessKey`](../APIReference/API_DeleteAccessKey.md "../APIReference/API_DeleteAccessKey.md")

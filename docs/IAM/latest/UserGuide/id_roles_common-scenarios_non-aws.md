@@ -1,4 +1,4 @@
-# Access for non AWS workloads
+# Access for non-AWS workloads
 
 An [IAM role](id_roles.md "id_roles.md") is an object in AWS Identity and Access Management (IAM) that is
 assigned [permissions](access_policies.md "access_policies.md"). When you [assume that role](id_roles_manage-assume.md "id_roles_manage-assume.md") using an IAM identity or an identity
@@ -6,7 +6,7 @@ from outside of AWS, it provides you with temporary security credentials for you
 session. You might have workloads running in your data center or other infrastructure
 outside of AWS that must access your AWS resources. Instead of creating, distributing,
 and managing long-term access keys, you can use AWS Identity and Access Management Roles Anywhere
-(IAM Roles Anywhere) to authenticate your non AWS workloads. IAM Roles Anywhere uses
+(IAM Roles Anywhere) to authenticate your non-AWS workloads. IAM Roles Anywhere uses
 X.509 certificates from your certificate authority (CA) to authenticate identities and
 securely provide access to AWS services with the temporary credentials provided by an
 IAM role.
@@ -20,8 +20,8 @@ IAM role.
    IAM Roles Anywhere and your CA for authentication.
 3. You can then configure your existing IAM roles, or create new roles that trust
    the IAM Roles Anywhere service.
-4. Authenticate your non AWS workloads with IAM Roles Anywhere using
-   the trust anchor. AWS grants the non AWS workload temporary credentials to the
+4. Authenticate your non-AWS workloads with IAM Roles Anywhere using
+   the trust anchor. AWS grants the non-AWS workload temporary credentials to the
    IAM role that has access to your AWS resources.
 
 ## Additional resources

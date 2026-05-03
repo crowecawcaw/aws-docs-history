@@ -54,7 +54,7 @@ Console
 7. After the policy is generated, you must review and customize it as
    needed with the account IDs and ARNs for resources. In addition, the
    automatically generated policy might not include the action-level
-   information need to complete the policy. For more information see,
+   information needed to complete the policy. For more information, see
    [IAM Access Analyzer policy generation](access-analyzer-policy-generation.md "access-analyzer-policy-generation.md").
 
 For example, you might edit the first statement that includes the

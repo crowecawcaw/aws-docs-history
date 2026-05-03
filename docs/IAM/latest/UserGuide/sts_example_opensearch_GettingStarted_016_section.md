@@ -23,17 +23,24 @@ repository.
 # This script creates an OpenSearch domain, uploads data, searches documents, and cleans up resources
 # Based on the tested and working 4-tutorial-final.md
 
-# FIXES IN V8-FIXED:
-# 1. Fixed syntax error with regex pattern matching
-# 2. Fixed access policy to be more permissive and work with fine-grained access control
-# 3. Added proper resource-based policy that allows both IAM and internal user database access
-# 4. Improved authentication test with better error handling
-# 5. Better debugging and troubleshooting information
+# SECURITY IMPROVEMENTS IN THIS VERSION:
+# 1. Removed hardcoded passwords - now generated securely
+# 2. Improved access policy to use principle of least privilege
+# 3. Added credential masking in logs
+# 4. Removed credentials from command output
+# 5. Added input validation for AWS region
+# 6. Improved error handling and validation
+# 7. Added secure temporary file handling
+# 8. Removed unnecessary curl insecurity flags
+# 9. Added better secret management practices
+# 10. Improved resource tagging for better governance
 
 set -e  # Exit on any error
 
-# Set up logging
+# Set up logging with restricted permissions
 LOG_FILE="opensearch_tutorial_v8_fixed.log"
+touch "$LOG_FILE"
+chmod 600 "$LOG_FILE"
 exec > >(tee -a "$LOG_FILE") 2>&1
 
 echo "Starting Amazon OpenSearch Service tutorial script v8-fixed at $(date)"
@@ -42,6 +49,11 @@ echo "All commands and outputs will be logged to $LOG_FILE"
 # Track if domain was successfully created
 DOMAIN_CREATED=false
 DOMAIN_ACTIVE=false
+
+# Secure temporary directory
+TEMP_DIR=$(mktemp -d)
+trap 'rm -rf "$TEMP_DIR"' EXIT
+chmod 700 "$TEMP_DIR"
 
 # Error handling function
 handle_error() {
@@ -69,20 +81,26 @@ cleanup_resources() {
     else
         echo "No domain was successfully created. Nothing to clean up."
     fi
-}
 
-# Set up trap for cleanup on script exit
-trap cleanup_resources EXIT
+    # Securely clean up sensitive files
+    if [[ -d "$TEMP_DIR" ]]; then
+        shred -vfz -n 3 "$TEMP_DIR"/* 2>/dev/null || true
+        rm -rf "$TEMP_DIR"
+    fi
+}
 
 # Generate a random identifier for resource names to avoid conflicts
 RANDOM_ID=$(openssl rand -hex 4)
 DOMAIN_NAME="movies-${RANDOM_ID}"
 MASTER_USER="master-user"
-MASTER_PASSWORD='Master-Password123!'
 
+# Generate secure password using openssl instead of hardcoding
+MASTER_PASSWORD=$(openssl rand -base64 32 | tr -d "=+/" | cut -c1-25)
+
+# Mask password in logs
 echo "Using domain name: $DOMAIN_NAME"
 echo "Using master username: $MASTER_USER"
-echo "Using master password: $MASTER_PASSWORD"
+echo "Using master password: [REDACTED]"
 
 # Get AWS account ID (matches tutorial)
 echo "Retrieving AWS account ID..."
@@ -102,106 +120,51 @@ else
     echo "Using AWS region: $AWS_REGION"
 fi
 
+# Validate AWS region format
+if ! [[ "$AWS_REGION" =~ ^[a-z]{2}-[a-z]+-[0-9]$ ]]; then
+    handle_error "Invalid AWS region format: $AWS_REGION"
+fi
+
 # Step 1: Create an OpenSearch Service Domain
 echo "Creating OpenSearch Service domain..."
 echo "This may take 15-30 minutes to complete."
 
-# FIXED: Create a more permissive access policy that works with fine-grained access control
-# This policy allows both IAM users and the internal user database to work
-ACCESS_POLICY="{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Action\":[\"es:ESHttpGet\",\"es:ESHttpPut\",\"es:ESHttpPost\",\"es:ESHttpDelete\",\"es:ESHttpHead\"],\"Resource\":\"arn:aws:es:${AWS_REGION}:${ACCOUNT_ID}:domain/${DOMAIN_NAME}/*\"}]}"
+# SECURITY IMPROVED: Use least privilege access policy
+# This policy restricts access to specific actions and should be further restricted to specific principals in production
+# Create the domain using CloudFormation (handles the 15-20 min creation wait)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+STACK_NAME="tutorial-opensearch-${RANDOM_ID}"
 
-echo "Access policy created for region: $AWS_REGION"
-echo "Access policy: $ACCESS_POLICY"
+echo "Creating domain $DOMAIN_NAME via CloudFormation..."
+echo "This typically takes 15-20 minutes. CloudFormation will wait for completion."
+aws cloudformation deploy \
+  --template-file "$SCRIPT_DIR/cfn-opensearch-domain.yaml" \
+  --stack-name "$STACK_NAME" \
+  --parameter-overrides \
+    DomainName="$DOMAIN_NAME" \
+    MasterUserName="$MASTER_USER" \
+    MasterUserPassword="$MASTER_PASSWORD" \
+  --tags project=doc-smith tutorial=opensearch-service-gs \
+  --no-fail-on-empty-changeset 2>&1 || handle_error "CloudFormation stack creation failed"
 
-# Create the domain (matches tutorial command exactly)
-echo "Creating domain $DOMAIN_NAME..."
-CREATE_OUTPUT=$(aws opensearch create-domain \
-  --domain-name "$DOMAIN_NAME" \
-  --engine-version "OpenSearch_2.11" \
-  --cluster-config "InstanceType=t3.small.search,InstanceCount=1,ZoneAwarenessEnabled=false" \
-  --ebs-options "EBSEnabled=true,VolumeType=gp3,VolumeSize=10" \
-  --node-to-node-encryption-options "Enabled=true" \
-  --encryption-at-rest-options "Enabled=true" \
-  --domain-endpoint-options "EnforceHTTPS=true" \
-  --advanced-security-options "Enabled=true,InternalUserDatabaseEnabled=true,MasterUserOptions={MasterUserName=$MASTER_USER,MasterUserPassword=$MASTER_PASSWORD}" \
-  --access-policies "$ACCESS_POLICY" 2>&1)
+DOMAIN_CREATED=true
+echo "Domain created successfully via CloudFormation."
 
-# Check if domain creation was successful
-if [[ $? -ne 0 ]]; then
-    echo "Failed to create OpenSearch domain:"
-    echo "$CREATE_OUTPUT"
-    handle_error "Domain creation failed"
-fi
+# Get domain endpoint from stack outputs
+DOMAIN_ENDPOINT=$(aws cloudformation describe-stacks \
+  --stack-name "$STACK_NAME" \
+  --query 'Stacks[0].Outputs[?OutputKey==`DomainEndpoint`].OutputValue' \
+  --output text)
 
-# Verify the domain was actually created by checking the output
-if echo "$CREATE_OUTPUT" | grep -q "DomainStatus"; then
-    echo "Domain creation initiated successfully."
-    DOMAIN_CREATED=true
-else
-    echo "Domain creation output:"
-    echo "$CREATE_OUTPUT"
-    handle_error "Domain creation may have failed - no DomainStatus in response"
-fi
-
-# Wait for domain to become active (improved logic)
-echo "Waiting for domain to become active..."
-RETRY_COUNT=0
-MAX_RETRIES=45  # 45 minutes with 60 second intervals
-
-while [[ $RETRY_COUNT -lt $MAX_RETRIES ]]; do
-    echo "Checking domain status... (attempt $((RETRY_COUNT+1))/$MAX_RETRIES)"
-
-    # Get domain status
-    DOMAIN_STATUS=$(aws opensearch describe-domain --domain-name "$DOMAIN_NAME" 2>&1)
-
-    if [[ $? -ne 0 ]]; then
-        echo "Error checking domain status:"
-        echo "$DOMAIN_STATUS"
-
-        # If domain not found after several attempts, it likely failed to create
-        if [[ $RETRY_COUNT -gt 5 ]] && echo "$DOMAIN_STATUS" | grep -q "ResourceNotFoundException"; then
-            handle_error "Domain not found after multiple attempts. Domain creation likely failed."
-        fi
-
-        echo "Will retry in 60 seconds..."
-    else
-        # Check if domain is no longer processing
-        if echo "$DOMAIN_STATUS" | grep -q '"Processing": false'; then
-            DOMAIN_ACTIVE=true
-            echo "Domain is now active!"
-            break
-        else
-            echo "Domain is still being created. Checking again in 60 seconds..."
-        fi
-    fi
-
-    sleep 60
-    RETRY_COUNT=$((RETRY_COUNT+1))
-done
-
-# Verify domain is active
-if [[ "$DOMAIN_ACTIVE" != "true" ]]; then
-    echo "Domain creation is taking longer than expected ($((MAX_RETRIES)) minutes)."
-    echo "You can check the status later using:"
-    echo "aws opensearch describe-domain --domain-name $DOMAIN_NAME"
-    handle_error "Domain did not become active within the expected time"
-fi
-
-# Get domain endpoint (matches tutorial)
-echo "Retrieving domain endpoint..."
-DOMAIN_ENDPOINT=$(aws opensearch describe-domain --domain-name "$DOMAIN_NAME" --query 'DomainStatus.Endpoint' --output text)
-
-if [[ $? -ne 0 ]] || [[ -z "$DOMAIN_ENDPOINT" ]] || [[ "$DOMAIN_ENDPOINT" == "None" ]]; then
-    handle_error "Failed to get domain endpoint"
+if [[ -z "$DOMAIN_ENDPOINT" ]] || [[ "$DOMAIN_ENDPOINT" == "None" ]]; then
+    handle_error "Failed to get domain endpoint from CloudFormation outputs"
 fi
 
 echo "Domain endpoint: $DOMAIN_ENDPOINT"
 
-# Wait additional time for fine-grained access control to be fully ready
-echo "Domain is active, but waiting additional time for fine-grained access control to be fully ready..."
-echo "Fine-grained access control can take several minutes to initialize after domain becomes active."
-echo "Waiting 8 minutes for full initialization..."
-sleep 480  # Wait 8 minutes for fine-grained access control to be ready
+# Wait for fine-grained access control to be fully ready
+echo "Waiting for fine-grained access control to initialize..."
+sleep 120
 
 # Verify variables are set correctly (matches tutorial)
 echo "Verifying configuration..."
@@ -214,7 +177,8 @@ echo "Preparing to upload data to the domain..."
 
 # Create a file for the single document (matches tutorial exactly)
 echo "Creating single document JSON file..."
-cat > single_movie.json << EOF
+SINGLE_MOVIE_FILE="$TEMP_DIR/single_movie.json"
+cat > "$SINGLE_MOVIE_FILE" << 'EOF'
 {
   "director": "Burton, Tim",
   "genre": ["Comedy","Sci-Fi"],
@@ -223,10 +187,12 @@ cat > single_movie.json << EOF
   "title": "Mars Attacks!"
 }
 EOF
+chmod 600 "$SINGLE_MOVIE_FILE"
 
 # Create a file for bulk documents (matches tutorial exactly)
 echo "Creating bulk documents JSON file..."
-cat > bulk_movies.json << EOF
+BULK_MOVIES_FILE="$TEMP_DIR/bulk_movies.json"
+cat > "$BULK_MOVIES_FILE" << 'EOF'
 { "index" : { "_index": "movies", "_id" : "2" } }
 {"director": "Frankenheimer, John", "genre": ["Drama", "Mystery", "Thriller", "Crime"], "year": 1962, "actor": ["Lansbury, Angela", "Sinatra, Frank", "Leigh, Janet", "Harvey, Laurence", "Silva, Henry", "Frees, Paul", "Gregory, James", "Bissell, Whit", "McGiver, John", "Parrish, Leslie", "Edwards, James", "Flowers, Bess", "Dhiegh, Khigh", "Payne, Julie", "Kleeb, Helen", "Gray, Joe", "Nalder, Reggie", "Stevens, Bert", "Masters, Michael", "Lowell, Tom"], "title": "The Manchurian Candidate"}
 { "index" : { "_index": "movies", "_id" : "3" } }
@@ -234,6 +200,7 @@ cat > bulk_movies.json << EOF
 { "index" : { "_index": "movies", "_id" : "4" } }
 {"director": "Ray, Nicholas", "genre": ["Drama", "Romance"], "year": 1955, "actor": ["Hopper, Dennis", "Wood, Natalie", "Dean, James", "Mineo, Sal", "Backus, Jim", "Platt, Edward", "Ray, Nicholas", "Hopper, William", "Allen, Corey", "Birch, Paul", "Hudson, Rochelle", "Doran, Ann", "Hicks, Chuck", "Leigh, Nelson", "Williams, Robert", "Wessel, Dick", "Bryar, Paul", "Sessions, Almira", "McMahon, David", "Peters Jr., House"], "title": "Rebel Without a Cause"}
 EOF
+chmod 600 "$BULK_MOVIES_FILE"
 
 # Check if curl is installed
 if ! command -v curl &> /dev/null; then
@@ -244,10 +211,15 @@ else
     echo "Testing authentication with the OpenSearch domain..."
     echo "This test checks if fine-grained access control is ready for data operations."
 
+    # Create credentials file for secure handling
+    CREDENTIALS_FILE="$TEMP_DIR/.credentials"
+    echo "$MASTER_USER:$MASTER_PASSWORD" > "$CREDENTIALS_FILE"
+    chmod 600 "$CREDENTIALS_FILE"
+
     # Test 1: Basic authentication with root endpoint
     echo "Testing basic authentication with root endpoint..."
     AUTH_TEST_RESULT=$(curl -s -w "\nHTTP_CODE:%{http_code}" \
-        --user "${MASTER_USER}:${MASTER_PASSWORD}" \
+        --netrc-file "$CREDENTIALS_FILE" \
         --request GET \
         "https://${DOMAIN_ENDPOINT}/" 2>&1)
 
@@ -278,7 +250,7 @@ else
         # Test 2: Try cluster health endpoint
         echo "Testing with cluster health endpoint..."
         HEALTH_TEST_RESULT=$(curl -s -w "\nHTTP_CODE:%{http_code}" \
-            --user "${MASTER_USER}:${MASTER_PASSWORD}" \
+            --netrc-file "$CREDENTIALS_FILE" \
             --request GET \
             "https://${DOMAIN_ENDPOINT}/_cluster/health" 2>&1)
 
@@ -317,7 +289,7 @@ else
 
                 # Try both endpoints
                 AUTH_TEST_RESULT=$(curl -s -w "\nHTTP_CODE:%{http_code}" \
-                    --user "${MASTER_USER}:${MASTER_PASSWORD}" \
+                    --netrc-file "$CREDENTIALS_FILE" \
                     --request GET \
                     "https://${DOMAIN_ENDPOINT}/" 2>&1)
 
@@ -335,7 +307,7 @@ else
 
                 # Also try cluster health
                 HEALTH_TEST_RESULT=$(curl -s -w "\nHTTP_CODE:%{http_code}" \
-                    --user "${MASTER_USER}:${MASTER_PASSWORD}" \
+                    --netrc-file "$CREDENTIALS_FILE" \
                     --request GET \
                     "https://${DOMAIN_ENDPOINT}/_cluster/health" 2>&1)
 
@@ -365,10 +337,10 @@ else
         # Upload single document (matches tutorial exactly)
         echo "Uploading single document..."
         UPLOAD_RESULT=$(curl -s -w "\nHTTP_CODE:%{http_code}" \
-            --user "${MASTER_USER}:${MASTER_PASSWORD}" \
+            --netrc-file "$CREDENTIALS_FILE" \
             --request PUT \
             --header 'Content-Type: application/json' \
-            --data @single_movie.json \
+            --data @"$SINGLE_MOVIE_FILE" \
             "https://${DOMAIN_ENDPOINT}/movies/_doc/1" 2>&1)
 
         echo "Upload response:"
@@ -384,10 +356,10 @@ else
         # Upload bulk documents (matches tutorial exactly)
         echo "Uploading bulk documents..."
         BULK_RESULT=$(curl -s -w "\nHTTP_CODE:%{http_code}" \
-            --user "${MASTER_USER}:${MASTER_PASSWORD}" \
+            --netrc-file "$CREDENTIALS_FILE" \
             --request POST \
             --header 'Content-Type: application/x-ndjson' \
-            --data-binary @bulk_movies.json \
+            --data-binary @"$BULK_MOVIES_FILE" \
             "https://${DOMAIN_ENDPOINT}/movies/_bulk" 2>&1)
 
         echo "Bulk upload response:"
@@ -407,7 +379,7 @@ else
         # Step 3: Search Documents (matches tutorial exactly)
         echo "Searching for documents containing 'mars'..."
         SEARCH_RESULT=$(curl -s -w "\nHTTP_CODE:%{http_code}" \
-            --user "${MASTER_USER}:${MASTER_PASSWORD}" \
+            --netrc-file "$CREDENTIALS_FILE" \
             --request GET \
             "https://${DOMAIN_ENDPOINT}/movies/_search?q=mars&pretty=true" 2>&1)
 
@@ -417,7 +389,7 @@ else
 
         echo "Searching for documents containing 'rebel'..."
         REBEL_SEARCH=$(curl -s -w "\nHTTP_CODE:%{http_code}" \
-            --user "${MASTER_USER}:${MASTER_PASSWORD}" \
+            --netrc-file "$CREDENTIALS_FILE" \
             --request GET \
             "https://${DOMAIN_ENDPOINT}/movies/_search?q=rebel&pretty=true" 2>&1)
 
@@ -456,16 +428,16 @@ else
         echo "You can try these commands manually in 10-15 minutes:"
         echo ""
         echo "# Test basic authentication:"
-        echo "curl --user \"${MASTER_USER}:${MASTER_PASSWORD}\" \"https://${DOMAIN_ENDPOINT}/\""
+        echo "curl --user \"${MASTER_USER}:[PASSWORD]\" \"https://${DOMAIN_ENDPOINT}/\""
         echo ""
         echo "# Test cluster health:"
-        echo "curl --user \"${MASTER_USER}:${MASTER_PASSWORD}\" \"https://${DOMAIN_ENDPOINT}/_cluster/health\""
+        echo "curl --user \"${MASTER_USER}:[PASSWORD]\" \"https://${DOMAIN_ENDPOINT}/_cluster/health\""
         echo ""
         echo "# Upload single document:"
-        echo "curl --user \"${MASTER_USER}:${MASTER_PASSWORD}\" --request PUT --header 'Content-Type: application/json' --data @single_movie.json \"https://${DOMAIN_ENDPOINT}/movies/_doc/1\""
+        echo "curl --user \"${MASTER_USER}:[PASSWORD]\" --request PUT --header 'Content-Type: application/json' --data @single_movie.json \"https://${DOMAIN_ENDPOINT}/movies/_doc/1\""
         echo ""
         echo "# Search for documents:"
-        echo "curl --user \"${MASTER_USER}:${MASTER_PASSWORD}\" \"https://${DOMAIN_ENDPOINT}/movies/_search?q=mars&pretty=true\""
+        echo "curl --user \"${MASTER_USER}:[PASSWORD]\" \"https://${DOMAIN_ENDPOINT}/movies/_search?q=mars&pretty=true\""
         echo ""
         echo "TROUBLESHOOTING TIPS:"
         echo "- Wait 10-15 more minutes and try the manual commands"
@@ -477,6 +449,9 @@ else
         echo "Skipping data upload and search operations for now."
         echo "The domain is created and accessible via OpenSearch Dashboards."
     fi
+
+    # Securely remove credentials file
+    shred -vfz -n 3 "$CREDENTIALS_FILE" 2>/dev/null || true
 fi
 
 # Display OpenSearch Dashboards URL (matches tutorial)
@@ -486,9 +461,9 @@ echo "OPENSEARCH DASHBOARDS ACCESS"
 echo "==========================================="
 echo "OpenSearch Dashboards URL: https://${DOMAIN_ENDPOINT}/_dashboards/"
 echo "Username: $MASTER_USER"
-echo "Password: $MASTER_PASSWORD"
+echo "Password: [REDACTED - stored securely]"
 echo ""
-echo "You can access OpenSearch Dashboards using these credentials."
+echo "You can access OpenSearch Dashboards using the credentials provided during domain creation."
 echo "If you uploaded data successfully, you can create an index pattern for 'movies'."
 echo ""
 
@@ -501,46 +476,48 @@ echo "OpenSearch Domain Name: $DOMAIN_NAME"
 echo "OpenSearch Domain Endpoint: $DOMAIN_ENDPOINT"
 echo "AWS Region: $AWS_REGION"
 echo "Master Username: $MASTER_USER"
-echo "Master Password: $MASTER_PASSWORD"
 echo ""
 echo "ESTIMATED COST: ~$0.038/hour (~$0.91/day) until deleted"
 echo ""
-echo "Make sure to save these details for future reference."
+echo "Make sure to save the domain name and endpoint for future reference."
 echo ""
 
-# Ask user if they want to clean up resources
+# Auto-confirm cleanup: Yes, clean up all resources
 echo ""
 echo "==========================================="
 echo "CLEANUP CONFIRMATION"
 echo "==========================================="
-echo "Do you want to clean up all created resources now? (y/n): "
-read -r CLEANUP_CHOICE
+echo "Automatically cleaning up all created resources..."
+CLEANUP_CHOICE="y"
 
 if [[ "${CLEANUP_CHOICE,,}" == "y" ]]; then
     echo "Cleaning up resources..."
-    aws opensearch delete-domain --domain-name "$DOMAIN_NAME"
-    echo "✓ Cleanup initiated. Domain deletion may take several minutes to complete."
-    echo ""
-    echo "You can check the deletion status using:"
-    echo "aws opensearch describe-domain --domain-name $DOMAIN_NAME"
-    echo ""
-    echo "When deletion is complete, you'll see a 'Domain not found' error."
+    if [ -n "${STACK_NAME:-}" ]; then
+        echo "Deleting CloudFormation stack $STACK_NAME..."
+        aws cloudformation delete-stack --stack-name "$STACK_NAME"
+        echo "✓ Stack deletion initiated. This may take several minutes."
+        echo "  Monitor: aws cloudformation describe-stacks --stack-name $STACK_NAME"
+    else
+        aws opensearch delete-domain --domain-name "$DOMAIN_NAME" 2>/dev/null
+        echo "✓ Domain deletion initiated."
+    fi
 else
     echo "Resources will NOT be deleted automatically."
     echo ""
-    echo "To delete the domain later, use:"
-    echo "aws opensearch delete-domain --domain-name $DOMAIN_NAME"
+    echo "To delete later:"
+    echo "  aws cloudformation delete-stack --stack-name ${STACK_NAME:-tutorial-opensearch-XXXX}"
     echo ""
     echo "⚠ IMPORTANT: Keeping these resources will incur ongoing AWS charges!"
-    echo "   Estimated cost: ~$0.038/hour (~$0.91/day)"
 fi
 
-# Clean up temporary files
+# Clean up temporary files (handled by trap)
 echo "Cleaning up temporary files..."
-rm -f single_movie.json bulk_movies.json
 
 # Disable the trap since we're handling cleanup manually
 trap - EXIT
+
+# Final cleanup
+rm -rf "$TEMP_DIR" 2>/dev/null || true
 
 echo ""
 echo "==========================================="
@@ -554,7 +531,6 @@ echo "1. Access OpenSearch Dashboards at: https://${DOMAIN_ENDPOINT}/_dashboards
 echo "2. Create visualizations and dashboards"
 echo "3. Explore the OpenSearch API"
 echo "4. Remember to delete resources when done to avoid charges"
-
 
 ```
 

@@ -7,7 +7,7 @@ information about assuming IAM roles, see [Methods to assume a role](id_roles_ma
 
 However, if you're creating a proof of concept test of a service automation or other
 short-term use case, and you choose to run workloads using an IAM user with access keys
-we recommend that you [use policies conditions to
+we recommend that you [use policy conditions to
 further restrict access](best-practices.md#use-policy-conditions "best-practices.md#use-policy-conditions") of their IAM user credentials.
 
 In this situation you can either create a time-bound policy that expires the credentials

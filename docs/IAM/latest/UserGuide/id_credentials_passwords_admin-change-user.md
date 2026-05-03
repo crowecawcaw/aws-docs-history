@@ -170,7 +170,7 @@ disabled.
 
 ### Creating, changing, or deleting an IAM user password (AWS CLI)
 
-You can use the AWS CLI API to manage passwords for your IAM users.
+You can use the AWS CLI to manage passwords for your IAM users.
 
 ###### To create a password (AWS CLI)
 

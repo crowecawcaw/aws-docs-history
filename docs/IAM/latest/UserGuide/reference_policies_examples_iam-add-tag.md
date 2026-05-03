@@ -3,7 +3,7 @@
 This example shows how you might create an identity-based policy that allows adding the tag key `Department` with the tag
 values `Marketing`, `Development`, or `QualityAssurance` to
 an IAM user. That user must already include the tag key–value pair
-`JobFunction = manager`. You can use this policy to require that a manager
+`JobFunction = Manager`. You can use this policy to require that a manager
 belong to only one of three departments. This policy defines permissions for programmatic and console access. To use this policy, replace the `italicized placeholder text` in the example policy with your own information.
 Then, follow the directions in [create a policy](access_policies_create.md "access_policies_create.md") or [edit a policy](access_policies_manage-edit.md "access_policies_manage-edit.md").
 

@@ -74,7 +74,7 @@ to call the AWS Security Token Service (AWS STS) `AssumeRole` API for the
 `UpdateApp` role. Any IAM user that belongs to the Developers group in the
 development account can now switch to the `UpdateApp` role in the production
 account. Other users who are not in the developer group do not have permission to switch
-to the role and therefore cannot access the S3 bucket in the production account. 3. The user requests switches to the role:
+to the role and therefore cannot access the S3 bucket in the production account. 3. The user requests to switch to the role:
 
     * AWS console: The user chooses the account name on the navigation bar and chooses
      **Switch Role**. The user specifies the account ID (or alias) and

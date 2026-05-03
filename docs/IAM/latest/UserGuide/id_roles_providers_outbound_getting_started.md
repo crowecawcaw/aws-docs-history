@@ -42,11 +42,11 @@ print(f"Status: {response['Status']}")
 
 Navigate to IAM and select **Account Settings** under the **Access Management** section of the left-hand navigation menu
 
-![](images/outbound-screen-1.png)
+![Account settings menu item highlighted in left navigation under Access management section.](images/outbound-screen-1.png)
 
 Once you enable the feature, make note of your account-specific issuer URL. You will use this URL when configuring trust relationships in external services. You can also retrieve this issuer URL as needed using the [GetOutboundWebIdentityFederationInfo](../APIReference/API_GetOutboundWebIdentityFederationInfo.md "../APIReference/API_GetOutboundWebIdentityFederationInfo.md") API.
 
-![](images/outbound-screen-2.png)
+![Outbound Identity Federation interface showing Enabled status with Disable button and token issuer URL.](images/outbound-screen-2.png)
 
 ## Establish trust relationship in external service
 

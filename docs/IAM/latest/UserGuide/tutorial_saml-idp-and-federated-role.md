@@ -1,6 +1,6 @@
-# IAM tutorial: Use an CloudFormation template to create a SAML Identity Provider (IdP) and SAML federated IAM role
+# IAM tutorial: Use a CloudFormation template to create a SAML Identity Provider (IdP) and SAML federated IAM role
 
-To get familiar with SAML federation and its capabilities, you'll use an CloudFormation template to
+To get familiar with SAML federation and its capabilities, you'll use a CloudFormation template to
 set up a SAML Identity Provider (IdP) and associated federated IAM role. This tutorial shows
 you how to create both resources together in a single stack.
 
@@ -26,7 +26,7 @@ This tutorial assumes that you have the following already in place:
 
 ## Create a SAML IdP and role using CloudFormation
 
-To create the SAML IdP and federated role, you'll create an CloudFormation template and use it
+To create the SAML IdP and federated role, you'll create a CloudFormation template and use it
 to create a stack containing both resources.
 
 ### Create the template

@@ -257,9 +257,9 @@ Create an inline permission policy for the role: [PutRolePolicy](../APIReference
 
 Remember that this is only the first half of the configuration required. You must
 also give individual users in the trusted account permissions to switch to the role. For
-more information about this step, see [Grant a user permissions to switch roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md"). 3. (Optional) Add custom attributes to the user by attaching tags: [TagRole](../APIReference/API_TagRole.md "../APIReference/API_TagRole.md")
+more information about this step, see [Grant a user permissions to switch roles](id_roles_use_permissions-to-switch.md "id_roles_use_permissions-to-switch.md"). 3. (Optional) Add custom attributes to the role by attaching tags: [TagRole](../APIReference/API_TagRole.md "../APIReference/API_TagRole.md")
 
-For more information, see [Managing tags on IAM users (AWS CLI or AWS API)](id_tags_users.md#id_tags_users_procs-cli-api "id_tags_users.md#id_tags_users_procs-cli-api"). 4. (Optional) Set the [permissions
+For more information, see [Managing tags on IAM roles (AWS CLI or AWS API)](id_tags_roles.md#id_tags_roles_procs-cli-api "id_tags_roles.md#id_tags_roles_procs-cli-api"). 4. (Optional) Set the [permissions
 boundary](access_policies_boundaries.md "access_policies_boundaries.md") for the role: [PutRolePermissionsBoundary](../APIReference/API_PutRolePermissionsBoundary.md "../APIReference/API_PutRolePermissionsBoundary.md")
 
 A permissions boundary controls the maximum permissions that a role can have.

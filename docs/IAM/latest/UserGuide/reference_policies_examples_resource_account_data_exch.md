@@ -23,7 +23,7 @@ account.
   belong to the listed account. The `NotAction` element indicates the exceptions to
   this statement. These actions are the exception to this statement because if the actions are
   performed on resources created by AWS Data Exchange, the policy denies them.
-- The statement, `DenyAllS3ResoucesOutsideAccountExceptDataExchange`, uses a
+- The statement, `DenyAllS3ResourcesOutsideAccountExceptDataExchange`, uses a
   combination of the `ResourceAccount` and `CalledVia` conditions to
   deny access to the three Amazon S3 actions excluded in the previous statement. The statement
   denies the actions if resources do not belong in the listed account and if the calling

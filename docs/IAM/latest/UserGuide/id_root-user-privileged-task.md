@@ -196,7 +196,7 @@ https://sts.us-east-2.amazonaws.com/
   &Action=AssumeRoot
   &TargetPrincipal=`111122223333`
   &PolicyArns.arn=`arn:aws:iam::aws:policy/root-task/S3UnlockBucketPolicy`
-  &DurationSeconds `900`
+  &DurationSeconds=`900`
 ```
 
 2. Use the `SessionToken`, `AccessKeyId`, and

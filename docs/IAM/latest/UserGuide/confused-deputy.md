@@ -20,7 +20,7 @@ Some AWS services (calling services) use their AWS service principal to access A
 resources from other AWS services (called services). In some of these service interactions
 you can configure calling services to communicate with the resources from a called service
 in a different AWS account. An example of this is configuring AWS CloudTrail to write to a
-central Amazon S3 bucket which is located in a different AWS account. The calling service, CloudTrail
+central Amazon S3 bucket which is located in a different AWS account. The calling service, CloudTrail,
 is granted access to your S3 bucket using the S3 bucket’s policy by adding an allow
 statement for `cloudtrail.amazonaws.com`.
 

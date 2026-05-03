@@ -334,9 +334,9 @@ For the role's trust policy, you can specify a file location. 2. Attach a manage
 
 or
 
-Create an inline permissions policy for the role: [PutRolePolicy](../APIReference/API_PutRolePolicy.md "../APIReference/API_PutRolePolicy.md") 3. (Optional) Add custom attributes to the user by attaching tags: [TagRole](../APIReference/API_TagRole.md "../APIReference/API_TagRole.md")
+Create an inline permissions policy for the role: [PutRolePolicy](../APIReference/API_PutRolePolicy.md "../APIReference/API_PutRolePolicy.md") 3. (Optional) Add custom attributes to the role by attaching tags: [TagRole](../APIReference/API_TagRole.md "../APIReference/API_TagRole.md")
 
-For more information, see [Managing tags on IAM users (AWS CLI or AWS API)](id_tags_users.md#id_tags_users_procs-cli-api "id_tags_users.md#id_tags_users_procs-cli-api"). 4. (Optional) Set the [permissions
+For more information, see [Managing tags on IAM roles (AWS CLI or AWS API)](id_tags_roles.md#id_tags_roles_procs-cli-api "id_tags_roles.md#id_tags_roles_procs-cli-api"). 4. (Optional) Set the [permissions
 boundary](access_policies_boundaries.md "access_policies_boundaries.md") for the role: [PutRolePermissionsBoundary](../APIReference/API_PutRolePermissionsBoundary.md "../APIReference/API_PutRolePermissionsBoundary.md")
 
 A permissions boundary controls the maximum permissions that a role can have.
