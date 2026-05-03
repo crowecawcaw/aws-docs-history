@@ -60,7 +60,7 @@ For more information, see [Data Types](chap-sql-server-aurora-pg.sql.datatypes.m
 
 ## Collations
 
-![No automation](/images/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)
+![No automation](images/pb-automation-0.png)
 
 The collation paradigms of SQL Server and Aurora PostgreSQL are significantly different. AWS SCT can’t migrate collations automatically to PostgreSQL.
 
@@ -72,7 +72,7 @@ For more information, see [SQL Server Collations and PostgreSQL Encoding](chap-s
 
 ## PIVOT and UNPIVOT
 
-![No automation](/images/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)
+![No automation](images/pb-automation-0.png)
 
 Aurora PostgreSQL version 10 doesn’t support `PIVOT` and `UNPIVOT` clauses. AWS SCT can’t automatically convert `PIVOT` and `UNPIVOT` clauses.
 
@@ -100,7 +100,7 @@ For more information, see [SQL Server TOP and FETCH and PostgreSQL LIMIT and OFF
 
 ## Cursors
 
-![Three star automation level](/images/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)
+![Three star automation level](images/pb-automation-3.png)
 
 PostgreSQL has PL/pgSQL cursors that enable you to iterate business logic on rows read from the database. They can encapsulate the query and read the query results a few rows at a time. All access to cursors in PL/pgSQL is performed through cursor variables, which are always of the `refcursor` data type. There are specific options which aren’t supported for automatic conversion by AWS SCT.
 
@@ -119,7 +119,7 @@ For more information, see [Cursors](chap-sql-server-aurora-pg.tsql.cursors.md "c
 
 ## Flow Control
 
-![Three star automation level](/images/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)
+![Three star automation level](images/pb-automation-3.png)
 
 Although the flow control syntax of SQL Server differs from Aurora PostgreSQL, AWS SCT can convert most constructs automatically including loops, command blocks, and delays. Aurora PostgreSQL doesn’t support the `GOTO` and `WAITFOR TIME` commands, which require manual conversion.
 
@@ -138,7 +138,7 @@ For more information, see [SQL Server Flow Control and PostgreSQL Control Struct
 
 ## Transaction Isolation
 
-![Three star automation level](/images/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)
+![Three star automation level](images/pb-automation-3.png)
 
 Aurora PostgreSQL supports the four transaction isolation levels specified in the SQL:92 standard: `READ UNCOMMITTED`, `READ COMMITTED`, `REPEATABLE READ`, and `SERIALIZABLE`, all of which are automatically converted by AWS SCT. Also, AWS SCT converts `BEGIN / COMMIT` and `ROLLBACK` commands that use slightly different syntax. Manual conversion is required for named, marked, and delayed durability transactions that aren’t supported by Aurora PostgreSQL.
 
@@ -171,7 +171,7 @@ For more information, see [Stored Procedures](chap-sql-server-aurora-pg.tsql.sto
 
 ## Triggers
 
-![Three star automation level](/images/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)
+![Three star automation level](images/pb-automation-3.png)
 
 Aurora PostgreSQL supports `BEFORE` and `AFTER` triggers for `INSERT`, `UPDATE`, and `DELETE`. However, Aurora PostgreSQL triggers differ substantially from SQL Server’s triggers. You can migrate the most common use cases with minimal code changes.
 
@@ -185,7 +185,7 @@ For more information, see [Triggers](chap-sql-server-aurora-pg.tsql.triggers.md 
 
 ## MERGE
 
-![No automation](/images/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)
+![No automation](images/pb-automation-0.png)
 
 Aurora PostgreSQL version 10 doesn’t support `MERGE` statements. AWS SCT can’t automatically convert these statements. Manual conversion is straightforward in most cases.
 
@@ -198,7 +198,7 @@ For more information, see [MERGE](chap-sql-server-aurora-pg.tsql.merge.md "chap-
 
 ## Query Hints
 
-![Three star automation level](/images/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)
+![Three star automation level](images/pb-automation-3.png)
 
 You can use AWS SCT to convert basic query hints such as index hints, except for data manipulation language (DML) statements. Note that specific optimizations used for SQL Server may be completely inapplicable to a new query optimizer. AWS recommends to start migration testing with all hints removed. Then, selectively apply hints as a last resort if other means such as schema, index, and query optimizations have failed. Plan guides aren’t supported by Aurora PostgreSQL.
 
@@ -210,7 +210,7 @@ For more information, see [SQL Server Query Hints and Plan Guides and PostgreSQL
 
 ## Full-Text Search
 
-![No automation](/images/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)
+![No automation](images/pb-automation-0.png)
 
 Migrating full-text indexes from SQL Server to Aurora PostgreSQL requires a full rewrite of the code that deals with both creating, managing, and querying full-text indexes. AWS SCT can’t automatically convert these statements.
 
@@ -222,7 +222,7 @@ For more information, see [Full-Text Search](chap-sql-server-aurora-pg.tsql.full
 
 ## Indexes
 
-![Three star automation level](/images/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)
+![Three star automation level](images/pb-automation-3.png)
 
 Basic non-clustered indexes, which are the most commonly used type of indexes are automatically migrated by AWS SCT. In addition, filtered indexes, indexes with included columns, and some SQL Server specific index options can’t be migrated automatically and require manual conversion.
 
@@ -247,7 +247,7 @@ For more information, see [Indexes](chap-sql-server-aurora-pg.indexes.md "chap-s
 
 ## Partitioning
 
-![Three star automation level](/images/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)
+![Three star automation level](images/pb-automation-3.png)
 
 Aurora PostgreSQL uses table inheritance, some of the physical aspects of partitioning in SQL Server don’t apply to Aurora PostgreSQL. For example, the concept of file groups and assigning partitions to file groups. Aurora PostgreSQL supports a much richer framework for table partitioning than SQL Server, with many additional options such as hash partitioning, and sub partitioning.
 
@@ -265,7 +265,7 @@ Starting from version 11, PostgreSQL supports `NULL` columns for partitioning. I
 
 ## Backup
 
-![No automation](/images/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)
+![No automation](images/pb-automation-0.png)
 
 Migrating from a self-managed backup policy to a Platform as a Service (PaaS) environment such as Aurora PostgreSQL is a complete paradigm shift. You don’t need to worry about transaction logs, file groups, disks running out of space, and purging old backups. Amazon Relational Database Service (Amazon RDS) provides guaranteed continuous backup with point in time restore up to 35 days. Therefore, AWS SCT doesn’t automatically convert backups.
 
@@ -277,7 +277,7 @@ For more information, see [Backup and Restore](chap-sql-server-aurora-pg.hadr.ba
 
 ## SQL Server Mail
 
-![No automation](/images/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)
+![No automation](images/pb-automation-0.png)
 
 Aurora PostgreSQL doesn’t provide native support for sending emails from the database.
 
@@ -289,7 +289,7 @@ For more information, see [Database Mail](chap-sql-server-aurora-pg.management.d
 
 ## Graph
 
-![No automation](/images/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)
+![No automation](images/pb-automation-0.png)
 
 AWS SCT doesn’t convert graph database capabilities.
 
@@ -302,7 +302,7 @@ For more information and potential workarounds, see [SQL Server Graph and Postgr
 
 ## SQL Server Agent
 
-![No automation](/images/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)
+![No automation](images/pb-automation-0.png)
 
 Aurora PostgreSQL doesn’t provide functionality similar to SQL Server Agent as an external, cross-instance scheduler. However, Aurora PostgreSQL provides a native, in-database scheduler. It is limited to the cluster scope and can’t be used to manage multiple clusters. Therefore, AWS SCT can’t automatically convert Agent jobs and alerts.
 
@@ -314,7 +314,7 @@ For more information, see [SQL Server Agent and PostgreSQL Scheduled Lambda](cha
 
 ## Service Broker
 
-![No automation](/images/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)
+![No automation](images/pb-automation-0.png)
 
 Aurora PostgreSQL doesn’t provide a compatible solution to the SQL Server Service Broker. However, you can use DB Links and AWS Lambda to achieve similar functionality.
 
@@ -326,7 +326,7 @@ For more information, see [SQL Server Service Broker Essentials](chap-sql-server
 
 ## XML
 
-![Three star automation level](/images/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)
+![Three star automation level](images/pb-automation-3.png)
 
 The XML options and features in Aurora PostgreSQL are similar or almost identical to SQL Server `XPATH` and `XQUERY` functions. PostgreSQL doesn’t support `FOR` XML clause, the walkaround for that is using `string_agg` instead. In some cases, it might be more efficient to use JSON instead of XML.
 
@@ -356,7 +356,7 @@ For more information, see [SQL Server Constraints and PostgreSQL Table Constrain
 
 ## Linked Servers
 
-![Three star automation level](/images/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)
+![Three star automation level](images/pb-automation-3.png)
 
 Aurora PostgreSQL supports remote data access from the database. Connectivity between schemas is trivial, but connectivity to other instances require an extension installation.
 
@@ -368,7 +368,7 @@ For more information, see [SQL Server Linked Servers and PostgreSQL DBLink and F
 
 ## Synonyms
 
-![Three star automation level](/images/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)
+![Three star automation level](images/pb-automation-3.png)
 
 Aurora PostgreSQL supports synonyms. If synonyms refer to tables, views, or functions, you can replace them with views or functions to wrap those. It becomes more challenging when synonyms refer to other objects.
 
