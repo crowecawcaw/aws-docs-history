@@ -10,7 +10,7 @@ experiment start and end time over a duration that you specify, as shown in the 
 This example demonstrates the impact of a packet loss experiment in an Availability Zone (AZ).
 When packet loss is introduced in AZ use1-az6, traffic shifts away from use1-az6 and towards use1-az4, so that the number of bytes processed by the load balancer in that AZ declines.
 
-![Two graphs showing ProcessedBytes over time, with one increasing and one decreasing sharply.](images/packet-loss-az-example.png)
+![Two graphs showing processed bytes for use1-az4 increasing and use1-az6 decreasing during experiment.](images/packet-loss-az-example.png)
 When the experiment ends, the report can be downloaded from the AWS FIS console and is also stored in an Amazon S3 bucket. If you include a CloudWatch dashboard in your report configuration, images of each widget are also delivered. Reports are not generated for experiments that are `cancelled`
 or run as part of target preview (with **actionsMode** set to `skip-all`). Once the experiment exceeds the experiment data retention limit, the report will only be available from the Amazon S3 bucket. AWS FIS charges apply for each delivered report, except for those
 that fail with internal errors. For more information, see [AWS Fault Injection Service pricing](https://aws.amazon.com/fis/pricing/ "https://aws.amazon.com/fis/pricing/") and [Quotas and limitations for AWS Fault Injection Service](fis-quotas.md "fis-quotas.md"). Ingest and storage charges for Amazon S3 and CloudWatch API charges

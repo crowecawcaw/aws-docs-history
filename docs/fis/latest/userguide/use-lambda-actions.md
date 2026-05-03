@@ -184,7 +184,7 @@ Initially, **aws:lambda:invocation-error** ramps up at 11:38 and runs for 2 minu
 Then, **aws:lambda:invocation-http-integration-response** attempts to start at 11:39, but does not come into effect until 11:40 after the first action has concluded.
 To maintain experiment timing, **aws:lambda:invocation-http-integration-response** still finishes at the originally intended time of 11:41.
 
-![Graphs showing error and response code percentages for x86 and arm during overlapping actions.](images/understanding-concurrency.png)
+![Error and response code graphs showing two actions overlapping from 11:38 to 11:41 on x86 and arm.](images/understanding-concurrency.png)
 
 ### Understanding invocation percentage
 

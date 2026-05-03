@@ -12,7 +12,7 @@ the fault injection is achieved through the use of
 [ephemeral containers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/ "https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/"),
 a Kubernetes feature that allows for the creation of temporary containers within an existing Pod. The ephemeral container is started in the same namespace as the target container and executes the desired fault injection tasks. If no target container is specified, the first container in the Pod specification is selected as target.
 
-![Fault Injection Service workflow in EKS cluster, showing pod creation and fault injection process.](images/eks-actions.png)
+![FIS pod creation workflow showing ephemeral container injection into target pod containers.](images/eks-actions.png)
 
 1. FIS creates the FIS Pod in the target cluster specified in the experiment template.
 2. The FIS Pod creates an ephemeral container in the Target Pod in the same namespace as target container.
