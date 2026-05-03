@@ -33,8 +33,10 @@ For more information about file system performance capabilities, see [Amazon FSx
 - [Access point compatibility](access-points-for-fsxn-object-api-support.md "access-points-for-fsxn-object-api-support.md")
 - [Managing access point access](s3-ap-manage-access-fsxn.md "s3-ap-manage-access-fsxn.md")
 - [Creating an access point](fsxn-creating-access-points.md "fsxn-creating-access-points.md")
+- [Configuring network access for Amazon S3 access points](configuring-network-access-for-s3-access-points.md "configuring-network-access-for-s3-access-points.md")
 - [Managing Amazon S3 access points](access-points-for-fsxn-manage.md "access-points-for-fsxn-manage.md")
 - [Using access points](access-points-for-fsxn-usage-examples.md "access-points-for-fsxn-usage-examples.md")
+- [Using access points with AWS services](using-access-points-with-aws-services.md "using-access-points-with-aws-services.md")
 - [Troubleshooting S3 access point issues](troubleshooting-access-points-for-fsxn.md "troubleshooting-access-points-for-fsxn.md")
 
 ## AWS Regions with Amazon S3 access points for FSx for ONTAP
