@@ -45,7 +45,7 @@ plans, ramp-up guides, assessment, and the following digital badge that you can 
 your résumé or share with your employer or on social media after you pass the
 assessment.
 
-![](images/foundations-badge.png)
+![Digital badge for AWS Migration Foundations with AWS logo and certification details.](images/foundations-badge.png)
 
 ## AWS GameDay
 
