@@ -4,6 +4,7 @@ AWS DevOps Agent Service provides the following APIs for data retrieval.
 
 | Actions                                                                                                                                | Description                                        | Access level |
 | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------------ |
+| [DescribePrivateConnection](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")       | Describe a private connection                      | Read         |
 | [GetAccountUsage](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")                 | Retrieve account usage information                 | Read         |
 | [GetAgentSpace](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")                   | Get agentspace                                     | Read         |
 | [GetAssociation](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")                  | Get association                                    | Read         |
@@ -22,6 +23,7 @@ AWS DevOps Agent Service provides the following APIs for data retrieval.
 | [ListKnowledgeItemVersions](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")       | List knowledge item versions                       | List         |
 | [ListKnowledgeItems](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")              | List knowledge items                               | List         |
 | [ListPendingMessages](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")             | List pending messages                              | List         |
+| [ListPrivateConnections](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")          | List private connections                           | List         |
 | [ListRecommendations](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")             | List recommendations                               | List         |
 | [ListServices](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")                    | List services                                      | List         |
 | [ListTagsForResource](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")             | List tags for a resource                           | Read         |
