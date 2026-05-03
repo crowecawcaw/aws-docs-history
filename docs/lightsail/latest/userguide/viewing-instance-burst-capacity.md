@@ -37,8 +37,8 @@ overall performance of your instance.
     * For the burst capacity graph, select **Show capacity as percentage of
      total** to change the view from burst capacity minutes available to burst
      capacity percentage available.
-    * Change the view of the graph to show data for 1 hour, 6 hours, 1 day, 1 week, and
-     2 weeks.
+    * Change the view of the graph to show data for 1 hour, 6 hours, 1 day, 1 week, 2 weeks, and
+     Current month.
     * Pause your cursor on a data point to view detailed information about that data
      point.
     * Add an alarm to be notified when CPU utilization and burst capacity crosses a

@@ -325,7 +325,7 @@ sudo mv /etc/gitlab/ssl/tls.key /etc/gitlab/ssl/tls.key.old
 ```
 
 11. Enter the following command to create symbolic links for your new
-    Let's Encript certificates in the `/etc/gitlab/ssl` directory, which
+    Let's Encrypt certificates in the `/etc/gitlab/ssl` directory, which
     is the default certificates directory on your GitLab CE instance.
 
 ```

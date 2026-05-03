@@ -1,4 +1,4 @@
-# Secure your Lightsail WordPress instance with free Let's Encrypt SSL certificates
+# Secure your Lightsail WordPress instance with free Let's Encrypt SSL certificates and certbot
 
 ###### Tip
 
@@ -68,8 +68,8 @@ a manual process. However, Bitnami offers a more automated process that uses the
 configuration (`bncert`) tool that is typically pre-installed on WordPress
 instances in Lightsail. We highly recommend that you use that tool instead of following the
 manual steps in this tutorial. This tutorial was written before the `bncert` tool
-became available. For more information about using the `bncert` tool, see [Enabling HTTPS on your WordPress
-instance in Amazon Lightsail](amazon-lightsail-enabling-https-on-wordpress.md "amazon-lightsail-enabling-https-on-wordpress.md").
+became available. For more information about using the `bncert` tool, see [Secure your WordPress
+site with HTTPS on Lightsail with bncert](amazon-lightsail-enabling-https-on-wordpress-with-bncert.md "amazon-lightsail-enabling-https-on-wordpress-with-bncert.md").
 
 **Identify the Linux distribution of your WordPress
 instance**
@@ -246,7 +246,7 @@ Let's Encrypt may provide a single or multiple TXT records that you must use for
 verification. In this example, we were provided with two TXT records to use for
 verification.
 
-![TXT records for Let's Encrypt certificates.](/images/lightsail/latest/userguide/images/instances/ssh/lets-encrypt-text-records.png) 8. Keep the Lightsail browser-based SSH session open—you return to it later in this
+![TXT records for Let's Encrypt certificates.](images/instances/lets-encrypt/get-TXT-records.png) 8. Keep the Lightsail browser-based SSH session open—you return to it later in this
 tutorial. Continue to the [next section](#add-a-text-record-to-your-domains-dns-zone-lets-encrypt-wordpress "#add-a-text-record-to-your-domains-dns-zone-lets-encrypt-wordpress") of this tutorial.
 
 ## Step 4: Add TXT records to your domain’s DNS zone

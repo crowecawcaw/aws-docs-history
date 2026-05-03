@@ -1,29 +1,23 @@
-# Migrate your WordPress blog to Lightsail
+# Migrate from WordPress by Bitnami to WordPress by Lightsail
 
-Looking to change your WordPress hosting provider? Amazon Lightsail is the easiest way to run
-a WordPress site on AWS.
+If you're running on a WordPress blueprint provided by Bitnami and want to move to a
+WordPress blueprint provided by Lightsail, this tutorial walks you through the migration
+process.
 
-You can choose one of our pricing plans (starting at $5 USD per month) and have full control
-over your WordPress installation, including plugins, themes, and more.
+Lightsail now offers WordPress blueprints that don't rely on Bitnami packaging.
+Migrating to these WordPress blueprints provides you with simplified updates,
+Instance Metadata Service Version 2 (IMDSv2) enforced by default,
+and the same affordable pricing plans starting at $5 USD per month.
 
-Creating a Lightsail WordPress instance only takes a few minutes. Follow this tutorial to
-back up your existing WordPress blog and import it to a new instance running in
-Lightsail.
-
-Here's a quick overview of the process:
-
-![Overview of the process to convert your existing WordPress blog to Amazon Lightsail](images/steps-for-migrating-your-existing-wordpress-blog-to-amazon-lightsail.png)
-Continue reading to get started.
+Creating a Lightsail WordPress instance only takes a few minutes.
+Follow this tutorial to back up your existing WordPress blog and import it to a new instance
+running in Lightsail.
 
 ## Prerequisites
 
-Before you begin, you will need the following:
+Ensure that Bitnami is your blueprint vendor on your instance management page:
 
-1. An AWS account. [Sign up for AWS](https://console.aws.amazon.com/console/home "https://console.aws.amazon.com/console/home"), or [sign in to AWS](https://console.aws.amazon.com/console/home "https://console.aws.amazon.com/console/home") if you
-   already have an account.
-2. Make sure your account is set up to use Lightsail. If it has been a while since you
-   created your account, or if you haven't provided a credit card yet, you may need to log in
-   to the AWS Management Console and update your account first.
+![WordPress blueprint vendor on the instance management page](images/wordpress/wordpress-blueprint-vendor-bitnami.png)
 
 ## Step 1: Back up your existing WordPress blog
 

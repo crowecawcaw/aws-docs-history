@@ -4,11 +4,11 @@ This section covers the following topics related to Amazon Lightsail:
 
 ###### Topics
 
-- [Quickly deploy applications with Lightsail blueprints](quick-start-chapter.md "quick-start-chapter.md")
-- [Work with Bitnami applications and stacks on Lightsail](bitnami-tutorials.md "bitnami-tutorials.md")
 - [Configure and manage Lightsail WordPress instances](wordpress-tutorials.md "wordpress-tutorials.md")
 - [Manage multiple WordPress sites with Multisite on Lightsail](wordpress-multisite-tutorials.md "wordpress-multisite-tutorials.md")
-- [Enable encrypted communication for Lightsail resources with Let's Encrypt](lets-encrypt-tutorials.md "lets-encrypt-tutorials.md")
+- [Migrate to Lightsail](migrate-to-lightsail-tutorials.md "migrate-to-lightsail-tutorials.md")
+- [Quickly deploy applications with Lightsail blueprints](quick-start-chapter.md "quick-start-chapter.md")
+- [Work with Bitnami applications and stacks on Lightsail](bitnami-tutorials.md "bitnami-tutorials.md")
 - [Configure IPv6 networking for Lightsail instances](network-tutorials.md "network-tutorials.md")
 - [Set up and configure the AWS CLI for Lightsail operations](lightsail-how-to-set-up-and-configure-aws-cli.md "lightsail-how-to-set-up-and-configure-aws-cli.md")
 - [Manage Lightsail resources with AWS CloudShell](amazon-lightsail-cloudshell.md "amazon-lightsail-cloudshell.md")

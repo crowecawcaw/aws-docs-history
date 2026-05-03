@@ -221,7 +221,7 @@ These are the options available:
 
     * **Enable HTTP to HTTPS redirection** - Specifies
      whether users who browse to the HTTP version of your website (i.e.,
-     `http:/example.com`) are automatically redirected to the HTTPS version
+     `http://example.com`) are automatically redirected to the HTTPS version
      (i.e., `https://example.com`). We recommend enabling this option because it
      forces all visitors to use the encrypted connection. Type `Y` and press
      **Enter** to enable it.

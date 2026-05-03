@@ -9,318 +9,271 @@ primarily informational, it's still recommended that you enable HTTPS. This is b
 browsers will notify website visitors that your website is not secure if HTTPS is not enabled,
 and your website will rank lower in search engine results.
 
+Here are a few steps you should take to setup SSL certificates after your WordPress instance is up and
+running on Amazon Lightsail. Before you get started, identify your blueprint vendor on your instance management page:
+
+![WordPress blueprint vendor on the instance management page](images/wordpress/wordpress-blueprint-vendor.png)
+Select the appropriate guide for your WordPress instance:
+
+Lightsail
+
+## Step 1: Configure your WordPress instance
+
+You can configure your WordPress instance by using a guided, step-by-step workflow
+that will configure the following:
+
+- A registered domain name – Your WordPress site
+  needs a domain name that is easy to remember. Users will specify this domain name to access
+  your WordPress site. For more information, see
+  [Register and manage domains for your website in Lightsail](amazon-lightsail-domain-registration.md "amazon-lightsail-domain-registration.md").
+- DNS management – You must decide how to manage
+  the DNS records for your domain. A DNS record tells the DNS server which IP address or hostname a domain or subdomain is associated with. A DNS zone contains the DNS records for
+  your domain. For more information, see [Understanding DNS in Lightsail](understanding-dns-in-amazon-lightsail.md "understanding-dns-in-amazon-lightsail.md").
+- A Static IP address – The default public IP address
+  for your WordPress instance changes if you stop and start your instance. When you attach a
+  static IP address to your instance, it stays the same even if you stop and start your instance.
+  For more information, see [View and manage IP addresses for Lightsail resources](understanding-public-ip-and-private-ip-addresses-in-amazon-lightsail.md "understanding-public-ip-and-private-ip-addresses-in-amazon-lightsail.md").
+- An SSL/TLS certificate – After you create a
+  validated certificate and install it on your instance, you can enable HTTPS for your
+  WordPress website so that traffic that is routed to the instance through your registered domain
+  is encrypted using HTTPS. For more information, see
+  [Secure your WordPress site with HTTPS on Lightsail](amazon-lightsail-enabling-https-on-wordpress.md "amazon-lightsail-enabling-https-on-wordpress.md").
+
 ###### Tip
 
-Lightsail offers a guided workflow that automates the installation and configuration of
-an SSL/TLS Let's Encrypt certificate on your WordPress instance. We highly recommend that you
-use the workflow instead of following the manual steps in this tutorial. For more information,
-see [Launch and
-configure a WordPress instance](amazon-lightsail-tutorial-launching-and-configuring-wordpress.md "amazon-lightsail-tutorial-launching-and-configuring-wordpress.md").
+Review the following tips before you begin. For troubleshooting information, see [Troubleshooting WordPress setup](amazon-lightsail-troubleshooting-wp-setup.md "amazon-lightsail-troubleshooting-wp-setup.md").
 
-This guide shows you how to use the Bitnami HTTPS configuration tool (`bncert`)
-to enable HTTPS on your _Certified by Bitnami_ WordPress instance on
-Amazon Lightsail. It lets you request certificates only for the domains and subdomains that you
-specify when making your request. Alternately, you can use the Certbot tool, which lets you
-request a certificate for domains and a wildcard certificate for subdomains. A wildcard
-certificate works for _any_ subdomains of a domain, which is beneficial if
-you don't know which subdomains you will use to direct traffic to your instance. However,
-Certbot does not automatically renew your certificate like the `bncert` tool. If you
-use Certbot, you have to manually renew your certificates every 90 days. For more information
-about using Certbot to enable HTTPS, see [Tutorial: Use Let’s
-Encrypt SSL certificates with your WordPress instance](amazon-lightsail-using-lets-encrypt-certificates-with-wordpress.md "amazon-lightsail-using-lets-encrypt-certificates-with-wordpress.md").
+- Your instance must be in a **Running** state. Allow a few minutes for the SSH connection to become ready
+  if the instance was just started.
+- Ports 22, 80, and 443 on your instance firewall must allow TCP connections from
+  any IP address while setup is running. For more information, see [Instance
+  firewalls](understanding-firewall-and-port-mappings-in-amazon-lightsail.md "understanding-firewall-and-port-mappings-in-amazon-lightsail.md").
+- When you add or update DNS records that point traffic from your apex domain
+  (`example.com`) and its `www` subdomains
+  (`www.example.com`), they will need to propagate throughout the
+  Internet. You can verify that your DNS changes have taken effect by using tools such
+  as [nslookup](https://aws.amazon.com/blogs//messaging-and-targeting/how-to-check-your-domain-verification-settings/ "https://aws.amazon.com/blogs//messaging-and-targeting/how-to-check-your-domain-verification-settings/"), or [DNS
+  Lookup](https://mxtoolbox.com/DnsLookup.aspx "https://mxtoolbox.com/DnsLookup.aspx") from _MxToolbox_.
+- Let's Encrypt certificates will automatically renew
+  every 60 to 90 days.
+- While setup is in progress, do not stop or make changes to your instance. It can
+  take up to 15 minutes to configure your instance. You can view the progress for each
+  step in the instance connect tab.
 
-**Contents**
+###### To configure your instance using the website setup wizard
 
-- [Step 1: Learn about the
-  process](#https-process-wordpress "#https-process-wordpress")
-- [Step 2: Complete the
-  prerequisites](#https-prerequisites-wordpress "#https-prerequisites-wordpress")
-- [Step 3: Connect to
-  your instance](#https-wordpress-connect-to-instance "#https-wordpress-connect-to-instance")
-- [Step 4: Confirm the bncert
-  tool is installed on your instance](#https-wordpress-bncert-install "#https-wordpress-bncert-install")
-- [Step 5: Enable HTTPS on your
-  WordPress instance](#https-wordpress-enable "#https-wordpress-enable")
-- [Step 6: Test that your website
-  is using HTTPS](#test-https-on-your-website "#test-https-on-your-website")
+1. On the instance management page, on the **Connect** tab, choose
+   **Set up your website**.
 
-## Step 1: Learn about the process
+![Launching WordPress setup in Lightsail.](images/amazon-wordpress-tutorial-gf-01.png) 2. For **Specify a domain name**, use an existing Lightsail managed domain,
+register a new domain with Lightsail, or use a domain that you registered by using another
+domain registrar. Choose **Use this domain** to go to the next step. 3. For **Configure DNS**, do one of the following:
+
+    * Choose **Lightsail managed domain** to use a Lightsail DNS
+     zone. Choose **Use this DNS zone** to go to the next step.
+    * Choose **Third-party domain** to use the hosting service that
+     manages the DNS records for your domain. Note that we create a matching DNS zone
+     in your Lightsail account in case you decide to use it later on. Choose
+     **Use third-party DNS** to go to the next step.
+
+4. For **Create a static IP address**, enter a name for your static IP
+   address and then choose **Create static IP**.
+5. For **Manage domain assignments**, choose **Add
+   assignment**, choose a domain type, and then choose
+   **Add**. Choose **Continue** to go to the next
+   step.
+6. For **Create an SSL/TLS certificate**, choose your domains and
+   subdomains, enter an email address, select **I authorize Lightsail to
+   configure a Let's Encrypt certificate on my instance**, and choose
+   **Create certificate**. We start to configure the Lightsail
+   resources.
+
+While setup is in progress, do not stop or make changes to your instance.
+It can take up to 15 minutes to configure your instance. You can view the progress for
+each step in the instance connect tab. 7. After the website setup is complete, verify that the URLs that you specified in the
+domain assignments step open your WordPress site.
+
+## Step 2: Get the admin password for your WordPress website
+
+The default password to sign in to the administration dashboard of your WordPress website
+is stored on the instance. Complete the following steps to get the password.
+
+###### To get the default password for the WordPress administrator
+
+1. Open the instance management page for your WordPress instance.
+2. On the **WordPress** panel, choose **Retrieve default
+   password**. This expands **Access default password** at
+   the bottom of the page.
+
+![Accessing WordPress admin password in Lightsail.](images/wordpress/wordpress-lightsail-retrieve-password.png) 3. Choose **Launch CloudShell**. This opens a panel at the bottom of
+the page. 4. Choose **Copy** and then paste the contents into the CloudShell
+window. You can either put your cursor at the CloudShell prompt and press Ctrl+V,
+or you can right-click to open the menu and then choose **Paste**. 5. Make a note of the password displayed in the CloudShell window. You need this
+to sign in to the administration dashboard of your WordPress website.
+
+![Viewing WordPress admin password in Lightsail.](images/wordpress/amazon-wordpress-lightsail-viewing-admin-password.png)
+
+## Step 3: Sign in to the administration dashboard of your WordPress website
+
+Now that you have the password for the administration dashboard of your WordPress website,
+you can sign in. In the administration dashboard, you can change your user password, install
+plugins, change the theme of your website, and more.
+
+Complete the following steps to sign in to the administration dashboard of your WordPress
+website.
+
+###### To sign in to the administration dashboard
+
+1. Open the instance management page for your WordPress instance.
+2. On the **WordPress** panel, choose **Access WordPress
+   Admin**.
+3. On the **Access your WordPress Admin Dashboard** panel, under
+   **Use public IP address**, choose the link with this format:
+
+http://`public-ipv4-address`./wp-admin 4. For **Username or Email Address**, enter `user`. 5. For **Password**, enter the password obtained in the previous step. 6. Choose **Log in**.
+
+![Launching and configuring WordPress in Lightsail.](images/amazon-wordpress-tutorial-07.png)
+
+You are now signed in to the administration dashboard of your WordPress website where
+you can perform administrative actions. For more information about administering your
+WordPress website, see the [WordPress
+Codex](https://codex.wordpress.org/ "https://codex.wordpress.org/") in the WordPress documentation.
+
+![Launching and configuring WordPress in Lightsail.](images/amazon-wordpress-tutorial-08.png)
+
+Bitnami
+
+## Step 1: Configure your WordPress instance
+
+You can configure your WordPress instance by using a guided, step-by-step workflow
+that will configure the following:
+
+- A registered domain name – Your WordPress site
+  needs a domain name that is easy to remember. Users will specify this domain name to access
+  your WordPress site. For more information, see
+  [Register and manage domains for your website in Lightsail](amazon-lightsail-domain-registration.md "amazon-lightsail-domain-registration.md").
+- DNS management – You must decide how to manage
+  the DNS records for your domain. A DNS record tells the DNS server which IP address or hostname a domain or subdomain is associated with. A DNS zone contains the DNS records for
+  your domain. For more information, see [Understanding DNS in Lightsail](understanding-dns-in-amazon-lightsail.md "understanding-dns-in-amazon-lightsail.md").
+- A Static IP address – The default public IP address
+  for your WordPress instance changes if you stop and start your instance. When you attach a
+  static IP address to your instance, it stays the same even if you stop and start your instance.
+  For more information, see [View and manage IP addresses for Lightsail resources](understanding-public-ip-and-private-ip-addresses-in-amazon-lightsail.md "understanding-public-ip-and-private-ip-addresses-in-amazon-lightsail.md").
+- An SSL/TLS certificate – After you create a
+  validated certificate and install it on your instance, you can enable HTTPS for your
+  WordPress website so that traffic that is routed to the instance through your registered domain
+  is encrypted using HTTPS. For more information, see
+  [Secure your WordPress site with HTTPS on Lightsail](amazon-lightsail-enabling-https-on-wordpress.md "amazon-lightsail-enabling-https-on-wordpress.md").
+
+###### Tip
+
+Review the following tips before you begin. For troubleshooting information, see [Troubleshooting WordPress setup](amazon-lightsail-troubleshooting-wp-setup.md "amazon-lightsail-troubleshooting-wp-setup.md").
+
+- Setup supports Lightsail instances with WordPress version 6 and newer, that were created after
+  January 1, 2023.
+- The Certbot dependency file, HTTPS rewrite script and certificate renewal script that are run during setup are saved in the `/opt/bitnami/lightsail/scripts/` directory on your instance.
+- Your instance must be in a **Running** state. Allow a few minutes for the SSH connection to become ready
+  if the instance was just started.
+- Ports 22, 80, and 443 on your instance firewall must allow TCP connections from
+  any IP address while setup is running. For more information, see [Instance
+  firewalls](understanding-firewall-and-port-mappings-in-amazon-lightsail.md "understanding-firewall-and-port-mappings-in-amazon-lightsail.md").
+- When you add or update DNS records that point traffic from your apex domain
+  (`example.com`) and its `www` subdomains
+  (`www.example.com`), they will need to propagate throughout the
+  Internet. You can verify that your DNS changes have taken effect by using tools such
+  as [nslookup](https://aws.amazon.com/blogs//messaging-and-targeting/how-to-check-your-domain-verification-settings/ "https://aws.amazon.com/blogs//messaging-and-targeting/how-to-check-your-domain-verification-settings/"), or [DNS
+  Lookup](https://mxtoolbox.com/DnsLookup.aspx "https://mxtoolbox.com/DnsLookup.aspx") from _MxToolbox_.
+- Wordpress instances that were created prior to January 1, 2023, might contain a deprecated Certbot Personal Package Archive (PPA) repository that will
+  cause website setup to fail. If this repository is present during setup, it will be removed from the existing path and backed up to the following
+  location on your instance: `~/opt/bitnami/lightsail/repo.backup`. For more information about the deprecated PPA, see [Certbot PPA](https://launchpad.net/~certbot/+archive/ubuntu/certbot "https://launchpad.net/~certbot/+archive/ubuntu/certbot") on the _Canonical_ website.
+- Let's Encrypt certificates will automatically renew
+  every 60 to 90 days.
+- While setup is in progress, do not stop or make changes to your instance. It can
+  take up to 15 minutes to configure your instance. You can view the progress for each
+  step in the instance connect tab.
+
+###### To configure your instance using the website setup wizard
+
+1. On the instance management page, on the **Connect** tab, choose
+   **Set up your website**.
+
+![Launching WordPress setup in Lightsail.](images/amazon-wordpress-tutorial-gf-01.png) 2. For **Specify a domain name**, use an existing Lightsail managed domain,
+register a new domain with Lightsail, or use a domain that you registered by using another
+domain registrar. Choose **Use this domain** to go to the next step. 3. For **Configure DNS**, do one of the following:
+
+    * Choose **Lightsail managed domain** to use a Lightsail DNS
+     zone. Choose **Use this DNS zone** to go to the next step.
+    * Choose **Third-party domain** to use the hosting service that
+     manages the DNS records for your domain. Note that we create a matching DNS zone
+     in your Lightsail account in case you decide to use it later on. Choose
+     **Use third-party DNS** to go to the next step.
+
+4. For **Create a static IP address**, enter a name for your static IP
+   address and then choose **Create static IP**.
+5. For **Manage domain assignments**, choose **Add
+   assignment**, choose a domain type, and then choose
+   **Add**. Choose **Continue** to go to the next
+   step.
+6. For **Create an SSL/TLS certificate**, choose your domains and
+   subdomains, enter an email address, select **I authorize Lightsail to
+   configure a Let's Encrypt certificate on my instance**, and choose
+   **Create certificate**. We start to configure the Lightsail
+   resources.
+
+While setup is in progress, do not stop or make changes to your instance.
+It can take up to 15 minutes to configure your instance. You can view the progress for
+each step in the instance connect tab. 7. After the website setup is complete, verify that the URLs that you specified in the
+domain assignments step open your WordPress site.
 
 ###### Note
 
-In this section, you get a high-level overview of the process. The specific steps to
-perform this process are included in the subsequent steps of this guide.
+If your blueprint does not support the guided workflow, you can use `bncert` to create
+your SSL certificates.For more information about using `bncert` to enable HTTPS, see [Secure your WordPress site with HTTPS on Lightsail with bncert](amazon-lightsail-enabling-https-on-wordpress-with-bncert.md "amazon-lightsail-enabling-https-on-wordpress-with-bncert.md").
 
-To enable HTTPS for your WordPress website, connect to your Lightsail instance using
-SSH, and use the `bncert` tool to request an SSL/TLS certificate from the [Let's Encrypt](https://letsencrypt.org/about/ "https://letsencrypt.org/about/") certificate authority. When you
-request the certificate, you specify your website's primary domain (`example.com`)
-and alternate domains (`www.example.com`, `blog.example.com`, etc.), if
-any. Let's Encrypt validates that you own the domains either by asking you to create TXT
-records in the DNS of your domains, or by verifying that those domains are already directing
-traffic to the public IP address of the instance from which you make the request.
+## Step 2: Get the admin password for your WordPress website
 
-After your certificate is validated, you can configure your WordPress website to
-automatically redirect visitors from HTTP to HTTPS (`http://example.com` redirects
-to `https://example.com`) so that visitors are forced to use the encrypted
-connection. You can also configure your website to automatically redirect the `www`
-subdomain to the apex of your domain (`https://www.example.com` redirects to
-`https://example.com`) or vice versa (`https://example.com` redirects
-to `https://www.example.com`). These redirections are also configured using the
-`bncert` tool.
+The default password to sign in to the administration dashboard of your WordPress website
+is stored on the instance. Complete the following steps to get the password.
 
-Let's Encrypt requires that you renew your certificate every 90 days to maintain HTTPS on
-your website. The `bncert` tool automatically renews your certificates for you, so
-that you can spend more time focusing on your website.
+###### To get the default password for the WordPress administrator
 
-**Limitations of the bncert tool**
+1. Open the instance management page for your WordPress instance.
+2. On the **WordPress** panel, choose **Retrieve default
+   password**. This expands **Access default password** at
+   the bottom of the page.
 
-The `bncert` tool has the following limitations:
+![Accessing WordPress admin password in Lightsail.](images/wordpress/wordpress-bitnami-retrieve-password.png) 3. Choose **Launch CloudShell**. This opens a panel at the bottom of
+the page. 4. Choose **Copy** and then paste the contents into the CloudShell
+window. You can either put your cursor at the CloudShell prompt and press Ctrl+V,
+or you can right-click to open the menu and then choose **Paste**. 5. Make a note of the password displayed in the CloudShell window. You need this
+to sign in to the administration dashboard of your WordPress website.
 
-- It's not preinstalled on all _Certified by Bitnami_ WordPress
-  instances when they're created. WordPress instances that were created on Lightsail a
-  while back will require that you manually install the `bncert` tool. Step 4 of
-  this guide shows you how to confirm that the tool is installed on your instance, and how
-  to install it if it's not.
-- You can request certificates only for the domains and subdomains that you specify when
-  making your request. This is different than the Certbot tool, which lets you request a
-  certificate for domains and a wildcard certificate for subdomains. A wildcard certificate
-  works for _any_ subdomains of a domain, which is beneficial if you
-  don't know which subdomains you will use to direct traffic to your instance. However,
-  Certbot does not automatically renew your certificate like the `bncert` tool.
-  If you use Certbot, you have to manually renew your certificates every 90 days. For more
-  information about using Certbot to enable HTTPS, see [Tutorial:
-  Using Let’s Encrypt SSL certificates with your WordPress instance in
-  Amazon Lightsail](amazon-lightsail-using-lets-encrypt-certificates-with-wordpress.md "amazon-lightsail-using-lets-encrypt-certificates-with-wordpress.md").
+![Viewing WordPress admin password in Lightsail.](images/amazon-wordpress-viewing-admin-password-01.png)
 
-## Step 2: Complete the prerequisites
+## Step 3: Sign in to the administration dashboard of your WordPress website
 
-Complete the following prerequisites if you haven’t already done so:
+Now that you have the password for the administration dashboard of your WordPress website,
+you can sign in. In the administration dashboard, you can change your user password, install
+plugins, change the theme of your website, and more.
 
-- Create a WordPress instance in Lightsail, and configure your website on your
-  instance. For more information, see [Get started with Linux/Unix-based instances in Amazon Lightsail](getting-started-with-amazon-lightsail.md "getting-started-with-amazon-lightsail.md").
-- Attach a static IP to your instance. Your instance's public IP address changes if you
-  stop and start your instance. A static IP does not change if you stop and start your
-  instance. For more information, see [Create a
-  static IP and attach it to an instance in Amazon Lightsail](lightsail-create-static-ip.md "lightsail-create-static-ip.md").
-- Create a snapshot of your WordPress instance after you're done configuring it, or
-  enable automatic snapshots. The snapshot can be used as a backup from which you can create
-  another instance in case something goes wrong with your original instance. For more
-  information, see [Create a snapshot of your Linux or Unix instance](lightsail-how-to-create-a-snapshot-of-your-instance.md "lightsail-how-to-create-a-snapshot-of-your-instance.md") or [Enabling or disabling
-  automatic snapshots for instances or disks in Amazon Lightsail](amazon-lightsail-configuring-automatic-snapshots.md "amazon-lightsail-configuring-automatic-snapshots.md").
-- Add DNS records to the DNS of your domain that directs traffic for the apex of your
-  domain (`example.com`) and for its `www` subdomain
-  (`www.example.com`) to the public IP address of your WordPress instance in
-  Lightsail. You can complete these actions at your domain's current DNS hosting provider.
-  Or if you transferred management of your domain's DNS to Lightsail, you can complete
-  these actions using a DNS zone in Lightsail. To learn more, see [DNS](understanding-dns-in-amazon-lightsail.md "understanding-dns-in-amazon-lightsail.md").
+Complete the following steps to sign in to the administration dashboard of your WordPress
+website.
 
-###### Important
+###### To sign in to the administration dashboard
 
-Add DNS records to the DNS of all domains that you want use with your WordPress
-website. All of those domains should be routing traffic to the public IP address of your
-WordPress website. The `bncert` tool will issue certificates only for domains
-that are currently directing traffic to the public IP address of your WordPress
-instance.
+1. Open the instance management page for your WordPress instance.
+2. On the **WordPress** panel, choose **Access WordPress
+   Admin**.
+3. On the **Access your WordPress Admin Dashboard** panel, under
+   **Use public IP address**, choose the link with this format:
 
-## Step 3: Connect to your instance
+http://`public-ipv4-address`./wp-admin 4. For **Username or Email Address**, enter `user`. 5. For **Password**, enter the password obtained in the previous step. 6. Choose **Log in**.
 
-Complete the following steps to connect to your instance using the browser-based SSH
-client in the Lightsail console.
+![Launching and configuring WordPress in Lightsail.](images/amazon-wordpress-tutorial-07.png)
 
-1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/").
-2. In the left navigation pane, choose the SSH quick connect icon for your WordPress
-   instance.
+You are now signed in to the administration dashboard of your WordPress website where
+you can perform administrative actions. For more information about administering your
+WordPress website, see the [WordPress
+Codex](https://codex.wordpress.org/ "https://codex.wordpress.org/") in the WordPress documentation.
 
-![SSH quick connect on the Lightsail home page.](images/amazon-lightsail-wordpress-ssh-quick-connect.png)
-
-The browser-based SSH client terminal window opens. You are successfully connected to
-your instance via SSH if you see the Bitnami logo as shown in the following
-example.
-
-![Browser-based SSH client terminal window in the Lightsail console.](images/amazon-lightsail-ssh-session-bncert.png)
-
-## Step 4: Confirm the bncert tool is installed on your instance
-
-Complete the following steps to ensure the Bitnami HTTPS configuration tool
-(`bncert`) is installed on your instance. It's not preinstalled on all
-_Certified by Bitnami_ WordPress instances when they're created.
-WordPress instances that were created on Lightsail a while back will require that you
-manually install the `bncert` tool. This procedure includes the steps to install
-the tool if it's is not installed.
-
-1. Enter the following command to run the `bncert` tool.
-
-```
-sudo /opt/bitnami/bncert-tool
-```
-
-    * If you see `command not found` in the response as shown in the
-     following example, then the `bncert` tool is not installed on your
-     instance. Continue to the next step in this procedure to install the
-     `bncert` tool on your instance.
-
-
-    ###### Important
-
-    The `bncert` tool can only be used on WordPress instances that are
-     *Certified by Bitnami*. Alternately, you can use the Certbot
-     tool to enable HTTPS on your WordPress instance. For more information, see [Tutorial: Use Let’s Encrypt SSL certificates with your WordPress
-     instance](amazon-lightsail-using-lets-encrypt-certificates-with-wordpress.md "amazon-lightsail-using-lets-encrypt-certificates-with-wordpress.md").
-
-
-
-    ![Message confirming the bncert tool is not installed](images/run-bncert-tool-fail.png)
-    * If you see `Welcome to the Bitnami HTTPS configuration tool` in the
-     response as shown in the following example, then the `bncert` tool is
-     installed on your instance. Continue to the [Step 5: Enable HTTPS on your WordPress instance](#https-wordpress-enable "#https-wordpress-enable") section of this
-     guide.
-
-
-
-    ![Message confirming the bncert tool is installed](images/run-bncert-tool-success.png)
-
-2. Enter the following command to download the `bncert` run file to your
-   instance.
-
-```
-wget -O bncert-linux-x64.run https://downloads.bitnami.com/files/bncert/latest/bncert-linux-x64.run
-```
-
-3. Enter the following command to create a directory for the `bncert` run file
-   on your instance.
-
-```
-sudo mkdir /opt/bitnami/bncert
-```
-
-4. Enter the following command to move the downloaded `bncert` run file to the
-   new directory you created.
-
-```
-sudo mv bncert-linux-x64.run /opt/bitnami/bncert/
-```
-
-5. Enter the following command to make the `bncert` run a file that can be
-   executed as a program.
-
-```
-sudo chmod +x /opt/bitnami/bncert/bncert-linux-x64.run
-```
-
-6. Enter the following command to create a symbolic link that runs the
-   `bncert` tool when you enter the `sudo /opt/bitnami/bncert-tool`
-   command.
-
-```
-sudo ln -s /opt/bitnami/bncert/bncert-linux-x64.run /opt/bitnami/bncert-tool
-```
-
-You are now done installing the `bncert` tool on your instance. Continue to
-the [Step 5: Enable HTTPS on your
-WordPress instance](#https-wordpress-enable "#https-wordpress-enable") section of this guide.
-
-## Step 5: Enable HTTPS on your WordPress instance
-
-Complete the following procedure to enable HTTPS on your WordPress instance after you have
-confirmed that the `bncert` tool is installed on your instance.
-
-1. Enter the following command to run the `bncert` tool.
-
-```
-sudo /opt/bitnami/bncert-tool
-```
-
-You should see a message similar to the following example.
-
-![Running the bncert tool](images/run-bncert-tool-success.png)
-
-If the `bncert` tool has been installed on your instance for a while, then
-you might see a message indicating that an updated version of the tool is available.
-Choose to download it as shown in the following example, and then enter the `sudo
- /opt/bitnami/bncert-tool` command to run the `bncert` tool
-again.
-
-![Message indicating a new version of the bncert tool is available](images/bncert-update-required.png) 2. Enter your primary domain name and alternate domain names separated by a space as
-shown in the following example.
-
-If your domain is not configured to route traffic to the public IP address of your
-instance, the `bncert` tool will ask you to make that configuration before
-continuing. Your domain must be routing traffic to the public IP address of the instance
-from which you are using the `bncert` tool to enable HTTPS on the instance.
-This confirms that you own the domain, and serves as the validation for your
-certificate.
-
-![Entering the primary and alternate domain names](images/bncert-domain-names.png) 3. The `bncert` tool will ask you how you want your website's redirection to
-be configured. These are the options available:
-
-    * **Enable HTTP to HTTPS redirection** - Specifies
-     whether users who browse to the HTTP version of your website (i.e.,
-     `http:/example.com`) are automatically redirected to the HTTPS version
-     (i.e., `https://example.com`). We recommend enabling this option because it
-     forces all visitors to use the encrypted connection. Type `Y` and press
-     **Enter** to enable it.
-    * **Enable non-www to www redirection** - Specifies
-     whether users who browse to the apex of your domain (i.e.,
-     `https://example.com`) are automatically redirected to your domain's
-     `www` subdomain (i.e., `https://www.example.com`). We
-     recommend enabling this option. However, you may want to disable it and enable the
-     alternate option (enable `www` to non-`www` redirection) if you
-     have specified the apex of your domain as your preferred website address in search
-     engine tools like Google's webmaster tools, or if your apex points directly to your IP
-     and your `www` subdomain references your apex via a CNAME record. Type
-     `Y` and press **Enter** to enable it.
-    * **Enable www to non-www redirection** - Specifies
-     whether users who browse to your domain's `www` subdomain (i.e.,
-     `https://www.example.com`) are automatically redirected to the apex of
-     your domain (i.e., `https://example.com`). We recommend disabling this, if
-     you enabled non-`www` redirection to `www`. Type `N`
-     and press **Enter** to disable it.
-
-Your selections should look like the following example.
-
-![Website redirection options](images/bncert-enable-disable-redirection.png) 4. The changes that are going to be made are listed. Type `Y` and press
-**Enter** to confirm and continue.
-
-![Confirming the changes](images/bncert-confirm-changes.png) 5. Enter your email address to associate with your Let's Encrypt certificate and press
-**Enter**.
-
-![Associating your email address with your Let's Encrypt certificate](images/bncert-email-address.png) 6. Review the Let's Encrypt Subscriber Agreement. Type `Y` and press
-**Enter** to accept the agreement and continue.
-
-![Review the Let's Encrypt subscriber agreement](images/bncert-lets-ecrypt-agreement.png)
-
-The actions are performed to enable HTTPS on your instance, including requesting the
-certificate and configuring the redirections you specified.
-
-![Actions being performed](images/bncert-performing-actions.png)
-
-Your certificate is successfully issued and validated, and the redirections are
-successfully configured on your instance if you see a message similar to the following
-example.
-
-![Actions successfully completed](/images/lightsail/latest/userguide/images/bncert-success-conf.png)
-
-The `bncert` tool will perform an automatic renewal of your certificate
-every 80 days before it expires. Repeat the above steps if you wish to use additional
-domains and subdomains with your instance, and you want to enable HTTPS for those
-domains.
-
-You are now done enabling HTTPS on your WordPress instance. Continue to the [Step 6: Test that your website is
-using HTTPS](#test-https-on-your-website "#test-https-on-your-website") section of this guide.
-
-## Step 6: Test that your website is using HTTPS
-
-After you enable HTTPS on your WordPress instance, you should confirm that your website is
-using HTTPS by browsing to all of the domains that you specified when using the
-`bncert` tool. When you visit each domain, you should see that they use a secure
-connection as shown in the following example.
-
-###### Note
-
-You might have to refresh, and clear your browser's cache to see the change.
-
-![Secured website confirmation](images/bncert-secured-website.png)
-
-You might also notice that the non-`www` address redirects to the
-`www` subdomain of your domain, or vice versa depending on the option you
-selected when running the `bncert` tool.
+![Launching and configuring WordPress in Lightsail.](images/amazon-wordpress-tutorial-08.png)

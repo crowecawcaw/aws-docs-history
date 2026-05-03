@@ -131,8 +131,8 @@ console, you will see sustainable, and burstable zones. For more information abo
 zones, see [CPU utilization
 sustainable and burstable zones](#cpu-utilization-zones "#cpu-utilization-zones"). 6. You can perform the following actions on the metrics graph:
 
-    * Change the view of the graph to show data for 1 hour, 6 hours, 1 day, 1 week, and
-     2 weeks.
+    * Change the view of the graph to show data for 1 hour, 6 hours, 1 day, 1 week,
+     2 weeks, and Current month.
     * Pause your cursor on a data point to view detailed information about that data
      point.
     * Add an alarm for the chosen metric to be notified when the metric crosses a

@@ -7,6 +7,8 @@ Amazon Lightsail instances:
 
 - [Obtain the default application username and password for Lightsail Bitnami instances](log-in-to-your-bitnami-application-running-on-amazon-lightsail.md "log-in-to-your-bitnami-application-running-on-amazon-lightsail.md")
 - [Remove the Bitnami banner from Lightsail instances](amazon-lightsail-remove-bitnami-banner.md "amazon-lightsail-remove-bitnami-banner.md")
+- [Enable encrypted communication for Lightsail resources with Let's Encrypt and Certbot](lets-encrypt-tutorials.md "lets-encrypt-tutorials.md")
+- [Enable encrypted communication for Lightsail resources with Let's Encrypt and bncert](lets-encrypt-bncert-tutorials.md "lets-encrypt-bncert-tutorials.md")
   Follow the step-by-step instructions to learn how to retrieve the default credentials
   for your Bitnami application and database, sign in to the application's admin panel, and
   optionally remove the Bitnami branding banner from the application's home page.

@@ -24,7 +24,7 @@ instance. For more information, see [Create a Lightsail content delivery network
 
 ###### Prerequisite
 
-Create and configure a WordPress instance as described in [Deploy and manage WordPress on Lightsail](amazon-lightsail-quick-start-guide-wordpress.md "amazon-lightsail-quick-start-guide-wordpress.md").
+Create and configure a WordPress instance as described in [Launch and configure a WordPress instance on Lightsail](amazon-lightsail-tutorial-launching-and-configuring-wordpress.md "amazon-lightsail-tutorial-launching-and-configuring-wordpress.md").
 
 ###### To create a distribution for your WordPress instance
 

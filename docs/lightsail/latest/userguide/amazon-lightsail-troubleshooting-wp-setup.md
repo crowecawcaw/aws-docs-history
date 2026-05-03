@@ -29,4 +29,4 @@ you might encounter with the WordPress setup guided workflow.
 - [Setup failures](wordpress-setup-failures.md "wordpress-setup-failures.md")
   For more information about the WordPress setup guided workflow in Amazon Lightsail, see
   [Configure your WordPress
-  instance](amazon-lightsail-tutorial-launching-and-configuring-wordpress.md#set-up-wordpress-instance-website "amazon-lightsail-tutorial-launching-and-configuring-wordpress.md#set-up-wordpress-instance-website").
+  instance](amazon-lightsail-enabling-https-on-wordpress.md#set-up-wordpress-instance-website "amazon-lightsail-enabling-https-on-wordpress.md#set-up-wordpress-instance-website").

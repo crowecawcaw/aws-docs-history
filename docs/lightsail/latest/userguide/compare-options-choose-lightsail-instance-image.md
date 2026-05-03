@@ -129,12 +129,7 @@ This blueprint is compatible with a Lightsail IPv6-only instance plan.
 
 Learn more at the [_Debian_](https://www.debian.org/doc/ "https://www.debian.org/doc/") website.
 
-\***\*FreeBSD 13, 14, and 15\*\***
-
-###### Important
-
-FreeBSD 13 will reach End of Life on April 30, 2026. You will not be
-able to create new Lightsail instances with this blueprint on or after April 30, 2026. For more information, see the [FreeBSD website](https://www.freebsd.org/releases/13.5R/announce/ "https://www.freebsd.org/releases/13.5R/announce/").
+\***\*FreeBSD 14 and 15\*\***
 
 FreeBSD is an operating system used to power servers, desktops, and embedded
 systems. Derived from BSD, the version of UNIX developed at the University of
@@ -150,7 +145,12 @@ This blueprint is compatible with a Lightsail IPv6-only instance plan.
 
 Learn more at the [_FreeBSD_](https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/ "https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/") website.
 
-\***\*openSUSE 15\*\***
+\***\*openSUSE 15 and 16\*\***
+
+###### Important
+
+openSUSE Leap 15 will reach End of Life on July 30, 2026. You will not be
+able to create new Lightsail instances with the openSUSE 15 blueprint on or after July 30, 2026. For more information, see the [_openSUSE_](https://en.opensuse.org/ "https://en.opensuse.org/") website.
 
 The openSUSE distribution is a stable, easy to use and complete multipurpose Linux
 distribution. It is aimed towards users and developers working on the desktop or server.
@@ -242,13 +242,16 @@ Lightsail:
 
 \***\*WordPress\*\***
 
-The WordPress blueprint provides a complete production environment with PHP, MariaDB, phpMyAdmin, and WordPress.
-Lightsail packages blueprints to be secure and up-to-date using industry best practices.
+The WordPress blueprint provides a complete production environment with PHP, MariaDB, phpMyAdmin,
+and WordPress. This blueprint supports Lightsail’s guided workflow for configuring HTTPS
+with Let’s Encrypt SSL certificates with just a few clicks. Popular plugins like Jetpack,
+All in One SEO, WP Mail, Google Analytics for WordPress, All-in-One WP Migration and Backup,
+AMP, and W3 Total Cache are pre-installed in this blueprint.
 
 Lightsail instances launched from WordPress will have Instance Metadata Service Version 2
 (IMDSv2) enforced by default. For more information, see [How Instance Metadata Service Version 2 works](amazon-lightsail-configuring-instance-metadata-service.md "amazon-lightsail-configuring-instance-metadata-service.md").
 
-[Deploy and manage WordPress on Lightsail](amazon-lightsail-quick-start-guide-wordpress.md "amazon-lightsail-quick-start-guide-wordpress.md")
+[Launch and configure a WordPress instance on Lightsail](amazon-lightsail-tutorial-launching-and-configuring-wordpress.md "amazon-lightsail-tutorial-launching-and-configuring-wordpress.md")
 
 Learn more about the [WordPress
 stack](https://wordpress.org/ "https://wordpress.org/") at the _WordPress_ website.
@@ -265,7 +268,7 @@ feel of your site with a few clicks. You can also use existing free or commercia
 WordPress themes. WordPress is in full compliance with the standards of the [_World Wide Web Consortium
 (W3C)_](https://www.w3.org/ "https://www.w3.org/").
 
-[Deploy and manage WordPress on Lightsail](amazon-lightsail-quick-start-guide-wordpress.md "amazon-lightsail-quick-start-guide-wordpress.md")
+[Launch and configure a WordPress instance on Lightsail](amazon-lightsail-tutorial-launching-and-configuring-wordpress.md "amazon-lightsail-tutorial-launching-and-configuring-wordpress.md")
 
 Learn more about [WordPress](https://bitnami.com/stack/wordpress "https://bitnami.com/stack/wordpress")
 at the _Bitnami_ website.

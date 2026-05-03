@@ -60,7 +60,7 @@ permissions** section of the page.
 ![The Change permissions button.](images/amazon-lightsail-bucket-access-permissions.png) 6. Choose **Individual objects can be made public and read
 only**.
 
-![The Individual objects can be made public and read only option.](images/amazon-lightsail-bucket-access-permissions-options.png) 7. Choose **Save**. 8. Choose **Yes, save** in the confirmation prompt that appears.
+![The Individual objects can be made public and read only option.](/images/lightsail/latest/userguide/images/amazon-lightsail-bucket-access-permissions-options.png) 7. Choose **Save**. 8. Choose **Yes, save** in the confirmation prompt that appears.
 
 ![The Yes, save button.](images/amazon-lightsail-bucket-access-permissions-confirmation.png)
 
