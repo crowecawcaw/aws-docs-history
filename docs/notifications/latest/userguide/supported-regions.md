@@ -38,5 +38,6 @@ Regions are supported:
 - Europe (Spain)
 - Europe (Zurich)
 - Israel (Tel Aviv)
+- Mexico (Central)
 - Middle East (Bahrain)
 - Middle East (UAE)
