@@ -1,6 +1,4 @@
-# In-scope AWS services and features
-
-## In-scope AWS services and features
+# In-Scope AWS Services
 
 The following list contains AWS services and features that are in scope for the AWS Certified Solutions Architect - Professional (SAP-C02) exam. This list is non-exhaustive and is subject to change. AWS offerings appear in categories that align with the offerings' primary functions.
 
@@ -26,7 +24,7 @@ The following list contains AWS services and features that are in scope for the 
 - [Security, Identity, and Compliance](#sap-02-in-scope-security "#sap-02-in-scope-security")
 - [Storage](#sap-02-in-scope-storage "#sap-02-in-scope-storage")
 
-### Analytics
+## Analytics
 
 - Amazon Athena
 - AWS Data Exchange
@@ -40,7 +38,7 @@ The following list contains AWS services and features that are in scope for the 
 - Amazon OpenSearch Service
 - Amazon QuickSight
 
-### Application Integration
+## Application Integration
 
 - Amazon AppFlow
 - AWS AppSync
@@ -50,22 +48,22 @@ The following list contains AWS services and features that are in scope for the 
 - Amazon Simple Queue Service (Amazon SQS)
 - AWS Step Functions
 
-### Blockchain
+## Blockchain
 
 - Amazon Managed Blockchain
 
-### Business Applications
+## Business Applications
 
 - Amazon Simple Email Service (Amazon SES)
 
-### Cloud Financial Management
+## Cloud Financial Management
 
 - AWS Budgets
 - AWS Cost and Usage Report
 - AWS Cost Explorer
 - Savings Plans
 
-### Compute
+## Compute
 
 - AWS App Runner
 - AWS Auto Scaling
@@ -79,7 +77,7 @@ The following list contains AWS services and features that are in scope for the 
 - AWS Outposts
 - AWS Wavelength
 
-### Containers
+## Containers
 
 - Amazon Elastic Container Registry (Amazon ECR)
 - Amazon Elastic Container Service (Amazon ECS)
@@ -88,7 +86,7 @@ The following list contains AWS services and features that are in scope for the 
 - Amazon EKS Anywhere
 - Amazon EKS Distro
 
-### Database
+## Database
 
 - Amazon Aurora
 - Amazon Aurora Serverless
@@ -101,7 +99,7 @@ The following list contains AWS services and features that are in scope for the 
 - Amazon Redshift
 - Amazon Timestream
 
-### Developer Tools
+## Developer Tools
 
 - AWS CodeArtifact
 - AWS CodeBuild
@@ -110,19 +108,19 @@ The following list contains AWS services and features that are in scope for the 
 - AWS CodePipeline
 - AWS X-Ray
 
-### End User Computing
+## End User Computing
 
 - Amazon AppStream 2.0
 - Amazon WorkSpaces
 
-### Frontend Web and Mobile
+## Frontend Web and Mobile
 
 - AWS Amplify
 - Amazon API Gateway
 - AWS Device Farm
 - Amazon Pinpoint
 
-### Internet of Things (IoT)
+## Internet of Things (IoT)
 
 - AWS IoT Core
 - AWS IoT Device Defender
@@ -133,7 +131,7 @@ The following list contains AWS services and features that are in scope for the 
 - AWS IoT Things Graph
 - AWS IoT 1-Click
 
-### Machine Learning
+## Machine Learning
 
 - Amazon Comprehend
 - Amazon Fraud Detector
@@ -147,12 +145,12 @@ The following list contains AWS services and features that are in scope for the 
 - Amazon Transcribe
 - Amazon Translate
 
-### Media Services
+## Media Services
 
 - Amazon Elastic Transcoder
 - Amazon Kinesis Video Streams
 
-### Management and Governance
+## Management and Governance
 
 - AWS CloudFormation
 - AWS CloudTrail
@@ -175,7 +173,7 @@ The following list contains AWS services and features that are in scope for the 
 - AWS Trusted Advisor
 - AWS Well-Architected Tool
 
-### Migration and Transfer
+## Migration and Transfer
 
 - AWS Application Discovery Service
 - AWS Application Migration Service
@@ -186,7 +184,7 @@ The following list contains AWS services and features that are in scope for the 
 - AWS Snow Family
 - AWS Transfer Family
 
-### Networking and Content Delivery
+## Networking and Content Delivery
 
 - Amazon CloudFront
 - AWS Direct Connect
@@ -198,7 +196,7 @@ The following list contains AWS services and features that are in scope for the 
 - Amazon Virtual Private Cloud (Amazon VPC)
 - AWS VPN
 
-### Security, Identity, and Compliance
+## Security, Identity, and Compliance
 
 - AWS Artifact
 - AWS Audit Manager
@@ -222,7 +220,7 @@ The following list contains AWS services and features that are in scope for the 
 - AWS Shield
 - AWS WAF
 
-### Storage
+## Storage
 
 - AWS Backup
 - Amazon Elastic Block Store (Amazon EBS)

@@ -16,11 +16,13 @@ The AWS Certified Solutions Architect - Professional (SAP-C02) exam is intended 
 - [Service References](#sap-service-references "#sap-service-references")
 - [Survey](#sap-02-survey "#sap-02-survey")
 - [Technologies and Concepts](sap-technologies-concepts.md "sap-technologies-concepts.md")
-- [In-scope AWS services and features](sap-02-in-scope-services.md "sap-02-in-scope-services.md")
-- [Out-of-scope AWS services and features](sap-02-out-of-scope-services.md "sap-02-out-of-scope-services.md")
+- [In-Scope AWS Services](sap-02-in-scope-services.md "sap-02-in-scope-services.md")
+- [Out-of-Scope AWS Services](sap-02-out-of-scope-services.md "sap-02-out-of-scope-services.md")
 - [Mentions of AWS Services on the Exam](sap-service-mentions.md "sap-service-mentions.md")
 
 ## Introduction
+
+The [AWS Certified Solutions Architect - Professional (SAP-C02)](https://aws.amazon.com/certification/certified-solutions-architect-professional/ "https://aws.amazon.com/certification/certified-solutions-architect-professional/") exam is intended for individuals who perform a solutions architect role. The exam validates a candidate's advanced technical skills and experience in designing optimized AWS solutions that are based on the AWS Well-Architected Framework.
 
 The exam also validates a candidate's ability to complete the following tasks within the scope of the AWS Well-Architected Framework:
 
@@ -32,8 +34,6 @@ The exam also validates a candidate's ability to complete the following tasks wi
 ## Target candidate description
 
 The target candidate has 2 or more years of experience in using AWS services to design and implement cloud solutions. This candidate has the ability to evaluate cloud application requirements and make architectural recommendations for deployment of applications on AWS. This candidate also can provide expert guidance about architectural design that extends across multiple applications and projects within a complex organization.
-
-Refer to the Appendix for a list of technologies and concepts that might appear on the exam, a list of in-scope AWS services and features, and a list of out-of-scope AWS services and features.
 
 ### Job tasks and knowledge that are out of scope for the target candidate
 
