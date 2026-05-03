@@ -104,6 +104,7 @@ elements:
     	- `connectamd`
     	- `connectoptimization`
     	- `contactlens`
+    	- `connectdecision`
     	- `datazone`
     	- `dms`
     	- `entityresolution`

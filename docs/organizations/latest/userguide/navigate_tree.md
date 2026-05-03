@@ -40,6 +40,6 @@ AWS Management Console
    **Organization** section, choose the
    **View AWS accounts only** switch icon to
    turn it on.
-   ![Speech bubble icon representing a chat or conversation interface.](images/console-switch-on.png)
+   ![Toggle switch icon in the on position, shown in blue.](images/console-switch-on.png)
    .
 3. The list of accounts is displayed without any hierarchy.

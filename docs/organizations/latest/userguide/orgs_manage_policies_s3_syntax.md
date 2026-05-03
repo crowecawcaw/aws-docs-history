@@ -29,7 +29,7 @@ Defines the Block Public Access behavior for the organization.
 The assignment operator that accepts one of two values:
 
 - `"all"` - Enables all four Amazon S3 Block Public Access settings at the organization level
-- `"none"` - Disables organization-level control, allowing individual accounts to manage their own Block Public Access settings
+- `"none"` - Disables all four Amazon S3 Block Public Access settings at the organization level
 
 Amazon S3 Block Public Access has four settings that control public access:
 
@@ -38,4 +38,4 @@ Amazon S3 Block Public Access has four settings that control public access:
 3. **IgnorePublicAcls** - Amazon S3 will ignore all ACLs that grant public access to buckets and objects.
 4. **RestrictPublicBuckets** - Amazon S3 will ignore public and cross-account access for buckets or access points with policies that grant public access to buckets and objects.
 
-When you set `@@assign` to `"all"`, all four settings are consolidated and enabled at the organization level, providing comprehensive protection against public access across all accounts in your organization.
+When you set `@@assign` to `"all"`, all four settings are consolidated and enabled at the organization level, providing comprehensive protection against public access across all accounts in your organization. If you want to manage Amazon S3 Block Public Access at an account level, you should disable S3 Policy type at the organization level
