@@ -2369,7 +2369,7 @@ information, see:
 - [Costs](costs.md "costs.md") – In "Storing Recorded Video," we
   updated screenshots.
 - [IVS API
-  Reference](../APIReference.md "../APIReference.md"):
+  Reference](../LowLatencyAPIReference.md "../LowLatencyAPIReference.md"):
   - In ThumbnailConfiguration, we added `resolution` and
     `storage`. This affects the
     CreateRecordingConfiguration request and response,
@@ -2447,7 +2447,7 @@ prevent and stop playback using that token. For more information, see:
 - [Setting Up IVS Private Channels](private-channels.md "private-channels.md") –
   We changed the "Token Schema" section and added "Revoke Viewer
   Sessions."
-- [IVS API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md") – We added two endpoints
+- [IVS API Reference](../LowLatencyAPIReference/API_Welcome.md "../LowLatencyAPIReference/API_Welcome.md") – We added two endpoints
   (StartViewerSessionRevocation and BatchStartViewerSessionRevocation) and two
   objects (BatchStartViewerSessionRevocationError and
   BatchStartViewerSessionRevocationViewerSession).
@@ -2681,7 +2681,7 @@ RTMP streaming can be set up via:
   modifying an existing channel.
 - API – Use the new `insecureIngest` field in CreateChannel or
   UpdateChannel requests. See the [IVS API
-  Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+  Reference](../LowLatencyAPIReference/API_Welcome.md "../LowLatencyAPIReference/API_Welcome.md").
 
 For information on RTMP ingest endpoints, see [Set Up Streaming Software](getting-started-set-up-streaming.md "getting-started-set-up-streaming.md"),
 [Broadcast Android SDK Guide](broadcast-android.md "broadcast-android.md"), and [Broadcast iOS SDK Guide](broadcast-ios.md "broadcast-ios.md").
@@ -3078,7 +3078,7 @@ considered a single broadcast and merged. For more information, see:
   Recording State Change](eventbridge.md#eventbridge-examples-recording-state-change "eventbridge.md#eventbridge-examples-recording-state-change"), `recording_session_id` and
   `recording_session_stream_ids` fields were added.
 - [IVS API
-  Reference](../APIReference.md "../APIReference.md") – We added the
+  Reference](../LowLatencyAPIReference.md "../LowLatencyAPIReference.md") – We added the
   `recordingReconnectWindowSeconds` field to the
   CreateRecordingConfiguration request and the RecordingConfiguration object.
   This affects three responses (CreateRecordingConfiguration,
@@ -3463,7 +3463,7 @@ session. This is the first release of this new functionality. See:
     `path` fields in "JSON Metadata Files."
 
 - [Amazon IVS API
-  Reference](../APIReference.md "../APIReference.md") – We made several changes:
+  Reference](../LowLatencyAPIReference.md "../LowLatencyAPIReference.md") – We made several changes:
   - New field `(thumbnailConfiguration`) in the
     RecordingConfiguration object. This in turn affects the
     CreateRecordingConfiguration request and response,
@@ -3553,7 +3553,7 @@ Streaming](stream-health.md "stream-health.md").
 - [Using Amazon EventBridge with Amazon IVS](eventbridge.md "eventbridge.md")
   – We added two events, Session Created and Session Ended.
 - [Amazon IVS API
-  Reference](../APIReference.md "../APIReference.md") – Many changes:
+  Reference](../LowLatencyAPIReference.md "../LowLatencyAPIReference.md") – Many changes:
   - Two new endpoints: GetStreamSession and ListStreamSessions.
   - Seven new objects: AudioConfiguration, IngestConfiguration,
     StreamEvent, StreamFilters, StreamSession, StreamSessionSummary, and
@@ -3800,7 +3800,7 @@ thumbnails images are saved. Your recording configuration also is saved, so it c
 be easily re-used for additional channels.
 
 You can set up a recording configuration and enable/disable recording through the
-Amazon IVS console or API. For details, see [Getting Started with IVS](getting-started.md "getting-started.md") and the [Amazon IVS API Reference](../APIReference.md "../APIReference.md").
+Amazon IVS console or API. For details, see [Getting Started with IVS](getting-started.md "getting-started.md") and the [Amazon IVS API Reference](../LowLatencyAPIReference.md "../LowLatencyAPIReference.md").
 
 ## January 28, 2021
 
@@ -3930,7 +3930,7 @@ signed JSON Web Tokens (JWTs) for authorized playback requests. For details, see
 [Setting Up Private Channels](private-channels.md "private-channels.md").
 
 A new `authorized` field in the Channel object indicates whether the
-channel is private. See the [Amazon IVS API Reference](../APIReference.md "../APIReference.md").
+channel is private. See the [Amazon IVS API Reference](../LowLatencyAPIReference.md "../LowLatencyAPIReference.md").
 
 ## August 11, 2020
 

@@ -180,7 +180,7 @@ Your broadcast software may implement automatic reconnection. If you support aut
 
 #### Stopping the Stream and Disconnecting
 
-When the user stops streaming, and if the TCP connection is still open (e.g., the lower-level connection was not reset), you must send FCUnpublish ([example implementation in OBS Studio](https://github.com/obsproject/obs-studio/blob/master/plugins/obs-outputs/librtmp/rtmp.c#L1973-L1999 "https://github.com/obsproject/obs-studio/blob/master/plugins/obs-outputs/librtmp/rtmp.c#L1973-L1999")) before closing the RTMP connection. This is critical to signal the user’s intent of the end of the stream, because downstream features rely on it to operate properly.
+When the user stops streaming, and if the TCP connection is still open (e.g., the lower-level connection was not reset), you must send FCUnpublish ([example implementation in OBS Studio](https://github.com/obsproject/obs-studio/blob/master/plugins/obs-outputs/librtmp/rtmp.c "https://github.com/obsproject/obs-studio/blob/master/plugins/obs-outputs/librtmp/rtmp.c")) before closing the RTMP connection. This is critical to signal the user’s intent of the end of the stream, because downstream features rely on it to operate properly.
 
 ## Required Feature: Broadcast Performance Metrics (BPM)
 
