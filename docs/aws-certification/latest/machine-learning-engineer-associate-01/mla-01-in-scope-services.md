@@ -31,15 +31,15 @@ The following list contains AWS services and features that are in scope for the 
 - AWS Lake Formation
 - Amazon Managed Service for Apache Flink
 - Amazon OpenSearch Service
-- Amazon QuickSight
+- Amazon Quick
 - Amazon Redshift
 
 ## Application Integration
 
 - Amazon EventBridge
 - Amazon Managed Workflows for Apache Airflow (Amazon MWAA)
-- Amazon Simple Notification Service (Amazon SNS)
-- Amazon Simple Queue Service (Amazon SQS)
+- Amazon SNS
+- Amazon SQS
 - AWS Step Functions
 
 ## Cloud Financial Management
@@ -57,13 +57,13 @@ The following list contains AWS services and features that are in scope for the 
 
 ## Containers
 
-- Amazon Elastic Container Registry (Amazon ECR)
-- Amazon Elastic Container Service (Amazon ECS)
-- Amazon Elastic Kubernetes Service (Amazon EKS)
+- Amazon ECR
+- Amazon ECS
+- Amazon EKS
 
 ## Database
 
-- Amazon DocumentDB (with MongoDB compatibility)
+- Amazon DocumentDB
 - Amazon DynamoDB
 - Amazon ElastiCache
 - Amazon Neptune
@@ -71,7 +71,7 @@ The following list contains AWS services and features that are in scope for the 
 
 ## Developer Tools
 
-- AWS Cloud Development Kit (AWS CDK)
+- AWS CDK
 - AWS CodeArtifact
 - AWS CodeBuild
 - AWS CodeDeploy
@@ -135,15 +135,15 @@ The following list contains AWS services and features that are in scope for the 
 
 ## Security, Identity, and Compliance
 
-- AWS Identity and Access Management (IAM)
-- AWS Key Management Service (AWS KMS)
+- AWS KMS
 - Amazon Macie
 - AWS Secrets Manager
+- IAM
 
 ## Storage
 
-- Amazon Elastic Block Store (Amazon EBS)
-- Amazon Elastic File System (Amazon EFS)
+- Amazon EBS
+- Amazon EFS
 - Amazon FSx
 - Amazon S3
 - Amazon S3 Glacier

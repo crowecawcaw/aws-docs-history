@@ -36,7 +36,7 @@ Skills in:
 
 - Configuring and using tools to troubleshoot and analyze resources (for example, CloudWatch Logs, CloudWatch alarms)
 - Creating CloudTrail trails
-- Setting up dashboards to monitor performance metrics (for example, by using Amazon QuickSight, CloudWatch dashboards)
+- Setting up dashboards to monitor performance metrics (for example, by using Amazon Quick Sight, CloudWatch dashboards)
 - Monitoring infrastructure (for example, by using Amazon EventBridge events)
 - Rightsizing instance families and sizes (for example, by using SageMaker AI Inference Recommender and AWS Compute Optimizer)
 - Monitoring and resolving latency and scaling issues
@@ -49,7 +49,7 @@ Skills in:
 
 Knowledge of:
 
-- IAM roles, policies, and groups that control access to AWS services (for example, AWS Identity and Access Management [IAM], bucket policies, SageMaker Role Manager)
+- IAM roles, policies, and groups that control access to AWS services (for example, IAM, bucket policies, SageMaker Role Manager)
 - SageMaker AI security and compliance features
 - Controls for network access to ML resources
 - Security best practices for CI/CD pipelines

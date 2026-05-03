@@ -11,13 +11,13 @@
 Knowledge of:
 
 - Data formats and ingestion mechanisms (for example, validated and non-validated formats, Apache Parquet, JSON, CSV, Apache ORC, Apache Avro, RecordIO)
-- How to use the core AWS data sources (for example, Amazon S3, Amazon Elastic File System [Amazon EFS], Amazon FSx for NetApp ONTAP)
+- How to use the core AWS data sources (for example, Amazon S3, Amazon EFS, Amazon FSx for NetApp ONTAP)
 - How to use AWS streaming data sources to ingest data (for example, Amazon Kinesis, Apache Flink, Apache Kafka)
 - AWS storage options, including use cases and tradeoffs
 
 Skills in:
 
-- Extracting data from storage (for example, Amazon S3, Amazon Elastic Block Store [Amazon EBS], Amazon EFS, Amazon RDS, Amazon DynamoDB) by using relevant AWS service options (for example, Amazon S3 Transfer Acceleration, Amazon EBS Provisioned IOPS)
+- Extracting data from storage (for example, Amazon S3, Amazon EBS, Amazon EFS, Amazon RDS, Amazon DynamoDB) by using relevant AWS service options (for example, Amazon S3 Transfer Acceleration, Amazon EBS Provisioned IOPS)
 - Choosing appropriate data formats (for example, Parquet, JSON, CSV, ORC) based on data access patterns
 - Ingesting data into Amazon SageMaker Data Wrangler and SageMaker Feature Store
 - Merging data from multiple sources (for example, by using programming techniques, AWS Glue, Apache Spark)

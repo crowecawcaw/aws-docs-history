@@ -41,7 +41,7 @@ The following list contains AWS services and features that are out of scope for 
 - Amazon Connect
 - Amazon Honeycode
 - Amazon Pinpoint
-- Amazon Simple Email Service (Amazon SES)
+- Amazon SES
 - AWS Supply Chain
 - AWS Wickr
 - Amazon WorkDocs
@@ -167,7 +167,7 @@ The following list contains AWS services and features that are out of scope for 
 - Amazon GuardDuty
 - Amazon Inspector
 - AWS Payment Cryptography
-- AWS Private Certificate Authority
+- AWS Private CA
 - AWS Resource Access Manager (AWS RAM)
 - AWS Security Hub
 - AWS Shield

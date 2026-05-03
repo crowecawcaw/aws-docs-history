@@ -24,7 +24,7 @@ Skills in:
 - Choosing the appropriate compute environment for training and inference based on requirements (for example, GPU or CPU specifications, processor family, networking bandwidth)
 - Selecting the correct deployment orchestrator (for example, Apache Airflow, SageMaker Pipelines)
 - Selecting multi-model or multi-container deployments
-- Selecting the correct deployment target (for example, SageMaker AI endpoints, Kubernetes, Amazon Elastic Container Service [Amazon ECS], Amazon Elastic Kubernetes Service [Amazon EKS], AWS Lambda)
+- Selecting the correct deployment target (for example, SageMaker AI endpoints, Kubernetes, Amazon ECS, Amazon Elastic Kubernetes Service [Amazon EKS], AWS Lambda)
 - Choosing model deployment strategies (for example, real time, batch)
 
 ## Task 3.2: Create and script infrastructure based on existing architecture and requirements
@@ -33,7 +33,7 @@ Knowledge of:
 
 - Difference between on-demand and provisioned resources
 - How to compare scaling policies
-- Tradeoffs and use cases of infrastructure as code (IaC) options (for example, AWS CloudFormation, AWS Cloud Development Kit [AWS CDK])
+- Tradeoffs and use cases of infrastructure as code (IaC) options (for example, AWS CloudFormation, AWS CDK)
 - Containerization concepts and AWS container services
 - How to use SageMaker AI endpoint auto scaling policies to meet scalability requirements (for example, based on demand, time)
 
@@ -41,7 +41,7 @@ Skills in:
 
 - Applying best practices to enable maintainable, scalable, and cost-effective ML solutions (for example, automatic scaling on SageMaker AI endpoints, dynamically adding Spot Instances, by using Amazon EC2 instances, by using Lambda behind the endpoints)
 - Automating the provisioning of compute resources, including communication between stacks (for example, by using CloudFormation, AWS CDK)
-- Building and maintaining containers (for example, Amazon Elastic Container Registry [Amazon ECR], Amazon EKS, Amazon ECS, by using bring your own container [BYOC] with SageMaker AI)
+- Building and maintaining containers (for example, Amazon ECR, Amazon EKS, Amazon ECS, by using bring your own container [BYOC] with SageMaker AI)
 - Configuring SageMaker AI endpoints within the VPC network
 - Deploying and hosting models by using the SageMaker AI SDK
 - Choosing specific metrics for auto scaling (for example, model latency, CPU utilization, invocations per instance)
