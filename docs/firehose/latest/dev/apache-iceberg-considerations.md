@@ -32,6 +32,22 @@ ingest records. If you expect the data volume to increase in sudden large
 bursts, or if your new stream needs a higher throughput than the default
 throughput limit, request to increase the throughput limit.
 
+- **Throughput and Partition Scaling** –
+  The service is optimized to support either a large number of Iceberg partitions
+  or very high ingest throughput. As ingest throughput increases, the number of
+  partitions that can be actively written to decreases.
+
+Here are the limits for ingest throughput and max active partitions
+supported.
+
+| Ingest Throughput | Max Active Partitions supported |
+| ----------------- | ------------------------------- |
+| ≤ 20 MB/s         | Up to ~3,000                    |
+| 20–40 MB/s        | 1000                            |
+| 40–400 MB/s       | 100                             |
+| 400–750 MB/s      | 50                              |
+| 750 MB/s–1.5 GB/s | 1                               |
+
 - **S3 Transaction Per Second (TPS)** – To
   optimize S3 performance, if you are using Kinesis Data Streams or Amazon MSK as a source, we
   recommend that you partition the source record using a proper partition key. In
