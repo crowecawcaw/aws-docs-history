@@ -29,4 +29,4 @@ environments from production accounts and verify that only sustained production 
 uses reserved compute capacity. Review plan coverage quarterly as model architectures,
 token volumes, and context sizes evolve.
 
-![](images/image1.jpeg)
+![Stacked bar chart showing savings plan commitment versus actual usage across quarters.](images/image1.jpeg)
