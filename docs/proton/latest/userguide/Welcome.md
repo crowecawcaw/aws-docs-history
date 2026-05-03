@@ -57,28 +57,28 @@ what constitutes a simple AWS Proton workflow.
 
 ![A diagram that describes the main AWS Proton concepts discussed in the preceding paragraph. It also offers a high-level overview of what constitutes a simple AWS Proton workflow divided into the following six steps.](images/service-diagram_1.png)
 
-![Red circle with the number 1 inside, typically used as a notification icon.](images/label-one.png)
+![Number 1 icon.](images/label-one.png)
 As an **Administrator**, you create and register an **Environment Template**
 with AWS Proton, which defines the shared resources.
 
-![Number 2 icon in a pink circle.](images/label-two.png)
+![Number 2 icon.](images/label-two.png)
 AWS Proton deploys one or more **Environments**, based on an **Environment
 Template**.
 
-![Pink square icon with a white exclamation mark inside a circle.](images/label-three.png)
+![Number 3 icon.](images/label-three.png)
 As an **Administrator**, you create and register a **Service Template**
 with AWS Proton, which defines the related infrastructure, monitoring, and CI/CD resources as well as compatible **Environment
 Templates**.
 
-![Number 4 in a red circle icon, commonly used to indicate a notification count.](images/label-four.png)
+![Number 4 icon.](images/label-four.png)
 As a **Developer**, you select a registered **Service Template** and
 provide a link to your **Source code** repository.
 
-![Pink square icon with number 5 inside, representing a notification or count.](images/label-five.png)
+![Number 5 icon.](images/label-five.png)
 AWS Proton provisions the **Service** with a **CI/CD Pipeline** for your
 **Service instances**.
 
-![Red circle icon with number 6 inside, representing a notification or count.](images/label-six.png)
+![Number 6 icon.](images/label-six.png)
 AWS Proton provisions and manages the **Service** and the **Service
 Instances** that are running the **Source code** as was defined in the selected **Service
 Template**. A **Service Instance** is an instantiation of the selected **Service

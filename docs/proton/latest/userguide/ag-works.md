@@ -10,18 +10,18 @@ services are based on environment and service _templates_, respectively, that yo
 
 ![A diagram that describes a process of how to create a template bundle for a set of AWS Proton infrastructure resources.](images/works.png)
 
-![Red circle with the number 1 inside, typically used as a notification icon.](images/label-one.png)
+![Number 1 icon.](images/label-one.png)
 When you, as an administrator, select an environment template with AWS Proton, you provide values for required _input
 parameters_.
 
-![Number 2 icon in a pink circle.](/images/proton/latest/userguide/images/label-two.png)
+![Number 2 icon.](images/label-two.png)
 AWS Proton uses the environment template and parameter values to provision your environment.
 
-![Pink square icon with a white exclamation mark inside a circle.](images/label-three.png)
+![Number 3 icon.](images/label-three.png)
 When you, as a developer or administrator, select a service template with AWS Proton, you provide values for required input parameters.
 You also select an environment to deploy your application or service to.
 
-![Number 4 in a red circle icon, commonly used to indicate a notification count.](images/label-four.png)
+![Number 4 icon.](images/label-four.png)
 AWS Proton uses the service template, and both your service and selected environment parameter values, to provision your service.
 
 You provide values for the input parameters to customize your template for re-use and multiple use cases, applications, or services.

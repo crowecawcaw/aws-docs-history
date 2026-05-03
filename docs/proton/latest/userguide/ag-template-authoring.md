@@ -52,16 +52,16 @@ The following diagram shows an example of steps that you can take to create a _t
 
 ![A diagram that describes a process of how to create a template bundle for a set of AWS Proton infrastructure resources.](images/bundles.png)
 
-![Red circle with the number 1 inside, typically used as a notification icon.](/images/proton/latest/userguide/images/label-one.png)
+![Number 1 icon.](images/label-one.png)
 Identify [input parameters](parameters.md "parameters.md").
 
-![Number 2 icon in a pink circle.](images/label-two.png)
+![Number 2 icon.](images/label-two.png)
 Create a [schema file](ag-schema.md "ag-schema.md") to define your input parameters.
 
-![Pink square icon with a white exclamation mark inside a circle.](images/label-three.png)
+![Number 3 icon.](images/label-three.png)
 Create [IaC files](ag-infrastructure-tmp-files.md "ag-infrastructure-tmp-files.md") that reference your input parameters. You can reference
 environment IaC file _outputs_ as _inputs_ for your service IaC files.
 
-![Number 4 in a red circle icon, commonly used to indicate a notification count.](/images/proton/latest/userguide/images/label-four.png)
+![Number 4 icon.](/images/proton/latest/userguide/images/label-four.png)
 
 [Register a template version](template-create.md "template-create.md") with AWS Proton and upload your template bundle.
