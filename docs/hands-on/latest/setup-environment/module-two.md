@@ -590,7 +590,7 @@ authenticator code is required for registration. 3. Your authenticator app is su
 You can register another device, rename or delete your existing MFA device or from
 the MFA devices page.
 
-![](images/email-verification-message-button-labeled.png) 4. From the access portal, select **AWS Account**,
+![Success message confirming authenticator app registration with Done button highlighted.](images/email-verification-message-button-labeled.png) 4. From the access portal, select **AWS Account**,
 select your **<account name>**. Then, select
 **Management console.**
 
@@ -598,7 +598,7 @@ select your **<account name>**. Then, select
      can add services, add additional users, and configure policies and permissions.
      You no longer need to use your root user to accomplish these tasks.
 
-![](images/email-verification-message-button-labeled-1.png) 5. Open IAM Identity Center
+![AWS access portal showing AdministratorAccess link and Access keys option for an account.](images/email-verification-message-button-labeled-1.png) 5. Open IAM Identity Center
 
 An email was sent to the email address you specified when you created the user.
 The email contains three important items:
