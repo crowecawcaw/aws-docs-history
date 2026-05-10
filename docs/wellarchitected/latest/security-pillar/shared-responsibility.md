@@ -47,25 +47,31 @@ control environment. Customers can then use the AWS control and compliance docum
 available to them to perform their control evaluation and verification procedures as required.
 The following are examples of controls that are managed by AWS, AWS customers, or both.
 
-**Inherited Controls** – Controls that a customer fully
+**Inherited controls:** Controls that a customer fully
 inherits from AWS.
 
-- Physical and Environmental controls
-  **Shared Controls** – Controls that apply to both the
+- Physical and environmental controls
+  **Shared controls:** Controls that apply to both the
   infrastructure layer and customer layers, but in separate contexts or perspectives. In a
   shared control, AWS provides the requirements for the infrastructure and the customer must
   provide their own control implementation within their use of AWS services. Examples
   include:
 
-- Patch Management – AWS is responsible for patching and fixing flaws within the
-  infrastructure, but customers are responsible for patching their guest operating system
-  and applications.
-- Configuration Management – AWS maintains the configuration of its infrastructure
+- **Patch management:** AWS is responsible for patching and fixing flaws within the infrastructure, but customers are responsible for patching their guest operating system and applications.
+  - For AWS managed services operating on single-tenant architectures (such as Amazon ElastiCache, Amazon RDS, and Amazon OpenSearch Service), patch management responsibility is shared as follows:
+    - **AWS responsibility:** Identify vulnerabilities, develop and validate patches, release patches within the service's patching SLA, and notify customers of available updates through the service's documented notification mechanism.
+    - **Customer responsibility:** Review available updates and facilitate patching by selecting maintenance windows, applying service updates, or scheduling required restarts within the timeframes communicated by AWS.
+
+  - For AWS managed services operating on multi-tenant architectures (such as Amazon ElastiCache Serverless, Amazon DynamoDB, and Amazon S3), patch management responsibility is shared as follows:
+    - **AWS responsibility:** Apply patches without requiring customer action.
+    - **Customer responsibility:** Consult patching and maintenance documentation for each AWS managed service they use to understand specific notification mechanisms, maintenance window options, and update application processes available to them.
+
+- **Configuration management:** AWS maintains the configuration of its infrastructure
   devices, but customers are responsible for configuring their own guest operating
   systems, databases, and applications.
-- Awareness and Training – AWS trains AWS employees, but customers must train their
+- **Awareness and training:** AWS trains AWS employees, but customers must train their
   own employees.
-  **Customer Specific** – Controls that are solely the
+  **Customer specific:** Controls that are solely the
   responsibility of the customer based on the application they are deploying within AWS
   services. Examples include:
 
