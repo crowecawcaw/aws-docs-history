@@ -146,9 +146,9 @@ As of February 10, 2026, Resource Explorer no longer supports the following reso
 - [Amazon Cognito IdentityPool](#services-cognito-idp "#services-cognito-idp")
 - [Amazon Comprehend](#services-comprehend "#services-comprehend")
 - [AWS Config](#services-config "#services-config")
-- [Amazon Connect](#services-connect "#services-connect")
-- [Amazon Connect Customer Profiles](#services-profile "#services-profile")
-- [Amazon Connect Wisdom](#services-wisdom "#services-wisdom")
+- [Amazon Connect Customer](#services-connect "#services-connect")
+- [Amazon Connect Customer Customer Profiles](#services-profile "#services-profile")
+- [Connect Customer Wisdom](#services-wisdom "#services-wisdom")
 - [AWS Cost Explorer](#services-ce "#services-ce")
 - [AWS Data Exchange](#services-dataexchange "#services-dataexchange")
 - [AWS Data Pipeline](#services-datapipeline "#services-datapipeline")
@@ -259,6 +259,14 @@ As of February 10, 2026, Resource Explorer no longer supports the following reso
 - [AWS Systems Manager](#services-ssm "#services-ssm")
 - [AWS Transfer Family](#services-transfer "#services-transfer")
 - [Amazon WorkSpaces](#services-workspaces "#services-workspaces")
+- [Amazon Bedrock AgentCore](#services-bedrock-agentcore "#services-bedrock-agentcore")
+- [AWS Budgets](#services-budgets "#services-budgets")
+- [AWS Clean Rooms](#services-cleanrooms "#services-cleanrooms")
+- [Amazon Data Lifecycle Manager](#services-dlm "#services-dlm")
+- [Amazon Kendra Intelligent Ranking](#services-kendra-ranking "#services-kendra-ranking")
+- [AWS Elemental MediaConnect](#services-mediaconnect "#services-mediaconnect")
+- [AWS Well-Architected Tool](#services-wellarchitected "#services-wellarchitected")
+- [AWS X-Ray](#services-xray "#services-xray")
 
 ### Amazon API Gateway
 
@@ -306,6 +314,7 @@ As of February 10, 2026, Resource Explorer no longer supports the following reso
 - `macie2:allow-list`
 - `macie2:custom-data-identifier`
 - `macie2:findings-filter`
+- `macie2:member`
 
 ### OpenSearch Service Serverless Service
 
@@ -425,6 +434,7 @@ As of February 10, 2026, Resource Explorer no longer supports the following reso
 - `bedrock:application-inference-profile`
 - `bedrock:data-automation-project`
 - `bedrock:flow`
+- `bedrock:flow/alias`
 - `bedrock:guardrail`
 - `bedrock:knowledge-base`
 - `bedrock:prompt`
@@ -541,6 +551,7 @@ As of February 10, 2026, Resource Explorer no longer supports the following reso
 ### AWS CodeStar Connections
 
 - `codestar-connections:connection`
+- `codestar-connections:host`
 
 ### Amazon Cognito Identity
 
@@ -560,23 +571,24 @@ As of February 10, 2026, Resource Explorer no longer supports the following reso
 
 - `config:config-rule`
 
-### Amazon Connect
+### Amazon Connect Customer
 
 - `connect:instance`
 - `connect:instance/agent`
 - `connect:instance/operating-hours`
+- `connect:instance/queue`
 - `connect:instance/rule`
 - `connect:instance/task-template`
 - `connect:instance/transfer-destination`
 - `connect:phone-number`
 
-### Amazon Connect Customer Profiles
+### Amazon Connect Customer Customer Profiles
 
 - `profile:domains`
 - `profile:domains/integrations`
 - `profile:domains/object-types`
 
-### Amazon Connect Wisdom
+### Connect Customer Wisdom
 
 - `wisdom:assistant`
 - `wisdom:association`
@@ -591,6 +603,7 @@ As of February 10, 2026, Resource Explorer no longer supports the following reso
 ### AWS Data Exchange
 
 - `dataexchange:data-sets`
+- `dataexchange:data-sets/revisions`
 
 ### AWS Data Pipeline
 
@@ -842,6 +855,7 @@ As of February 10, 2026, Resource Explorer no longer supports the following reso
 
 ### AWS Fault Injection Service
 
+- `fis:experiment`
 - `fis:experiment-template`
 
 ### Amazon FinSpace
@@ -983,6 +997,7 @@ As of February 10, 2026, Resource Explorer no longer supports the following reso
 - `iot:cacert`
 - `iot:cert`
 - `iot:fleetmetric`
+- `iot:job`
 - `iot:jobtemplate`
 - `iot:mitigationaction`
 - `iot:policy`
@@ -1087,6 +1102,8 @@ As of February 10, 2026, Resource Explorer no longer supports the following reso
 - `lambda:code-signing-config`
 - `lambda:event-source-mapping`
 - `lambda:function`
+- `lambda:function/version`
+- `lambda:layer/version`
 
 ### Amazon Lex
 
@@ -1177,6 +1194,7 @@ As of February 10, 2026, Resource Explorer no longer supports the following reso
 
 ### AWS Panorama
 
+- `panorama:device`
 - `panorama:package`
 
 ### Amazon Personalize
@@ -1247,6 +1265,7 @@ As of February 10, 2026, Resource Explorer no longer supports the following reso
 
 ### AWS Resource Access Manager
 
+- `ram:permission`
 - `ram:resource-share`
 
 ### AWS Resource Groups
@@ -1303,6 +1322,8 @@ As of February 10, 2026, Resource Explorer no longer supports the following reso
 - `sagemaker:feature-group`
 - `sagemaker:flow-definition`
 - `sagemaker:hub`
+- `sagemaker:hub-content`
+- `sagemaker:human-loop`
 - `sagemaker:human-task-ui`
 - `sagemaker:image`
 - `sagemaker:image-version`
@@ -1316,6 +1337,7 @@ As of February 10, 2026, Resource Explorer no longer supports the following reso
 - `sagemaker:monitoring-schedule`
 - `sagemaker:notebook-instance`
 - `sagemaker:notebook-instance-lifecycle-config`
+- `sagemaker:partner-app`
 - `sagemaker:pipeline`
 - `sagemaker:project`
 - `sagemaker:space`
@@ -1368,6 +1390,7 @@ As of February 10, 2026, Resource Explorer no longer supports the following reso
 ### Storage Gateway
 
 - `storagegateway:gateway`
+- `storagegateway:share`
 
 ### AWS Systems Manager
 
@@ -1395,6 +1418,40 @@ As of February 10, 2026, Resource Explorer no longer supports the following reso
 
 - `workspaces:connectionalias`
 - `workspaces:workspace`
+
+### Amazon Bedrock AgentCore
+
+- `bedrock-agentcore:runtime`
+
+### AWS Budgets
+
+- `budgets:budget`
+- `budgets:budget/action`
+
+### AWS Clean Rooms
+
+- `cleanrooms:collaboration`
+
+### Amazon Data Lifecycle Manager
+
+- `dlm:policy`
+
+### Amazon Kendra Intelligent Ranking
+
+- `kendra-ranking:rescore-execution-plan`
+
+### AWS Elemental MediaConnect
+
+- `mediaconnect:flow`
+- `mediaconnect:gateway`
+
+### AWS Well-Architected Tool
+
+- `wellarchitected:workload`
+
+### AWS X-Ray
+
+- `xray:sampling-rule`
 
 ## Programmatically accessing the list of supported resource types
 

@@ -128,6 +128,233 @@ For more information, including examples of JSON and YAML templates for Resource
 and views, see the [ResourceExplorer2 resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_ResourceExplorer2.md "../../../AWSCloudFormation/latest/UserGuide/AWS_ResourceExplorer2.md") in the
 _AWS CloudFormation User Guide_.
 
+## Troubleshooting CloudFormation setup
+
+If you have existing Resource Explorer resources in your account, you may experience failures
+running CloudFormation templates to create AWS Resource Explorer indexes and views. Only one index can
+be created for a given Region. If the CloudFormation templates attempt to create resources
+in the same Region(s), they will fail (expected behavior) if the templates do not
+account for the prior existence of these resources. Customers may notice this following
+the [Immediate Resource Discovery launch](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md"). After this release, customers
+searching in the Unified Search bar or Resource Explorer console will trigger automatic index/view
+creation in the Region where they searched when they have appropriate permissions.
+Customers can do the following to work around this behavior:
+
+### Option A: Import existing resources into the CloudFormation stack (recommended)
+
+This approach uses CloudFormation's [manual resource import](../../../AWSCloudFormation/latest/UserGuide/resource-import-existing-stack.md "../../../AWSCloudFormation/latest/UserGuide/resource-import-existing-stack.md") to adopt the auto-created resources into the
+customer's stack. No resources are deleted, so there is no interruption to resource
+discovery.
+
+###### Caveats
+
+- [Import operations don't allow new resource creations](../../../AWSCloudFormation/latest/UserGuide/resource-import-existing-stack.md "../../../AWSCloudFormation/latest/UserGuide/resource-import-existing-stack.md"). You
+  cannot mix imports and creates in the same operation.
+  - If the template contains other new resources beyond index/view,
+    they must be created separately. See [Important constraint for mixed-resource templates](#troubleshooting-cfn-mixed-resource-constraint "#troubleshooting-cfn-mixed-resource-constraint")
+    for more info.
+
+### Option B: Delete the auto-created resources, then create the stack
+
+This approach removes the auto-created resources so the CloudFormation template can
+create them fresh. No template changes are required, and it works with any template
+regardless of what other resources it contains.
+
+###### Caveats
+
+- There is a temporary gap in resource discovery for the Region while the
+  index is deleted and recreated.
+- Deleting the index also deletes all views in that Region. See [DeleteIndex API reference](../apireference/API_DeleteIndex.md "../apireference/API_DeleteIndex.md").
+- If the deleted index was an aggregator index, the customer must wait
+  24 hours before another index can be promoted to aggregator.
+
+### Comparison
+
+|                          | Option A (Import)                                    | Option B (Delete and Recreate)                                 |
+| ------------------------ | ---------------------------------------------------- | -------------------------------------------------------------- |
+| Downtime                 | None                                                 | Brief gap in resource discovery                                |
+| Template change          | Add DeletionPolicy: Retain                           | None                                                           |
+| Deployment change        | Use import change set instead of `create-stack`      | Run deletion steps before `create-stack`                       |
+| Mixed-resource templates | Requires two-step process (see constraint above)     | Works in a single create-stack                                 |
+| Rollback safety          | Safe: index unaffected by stack deletion             | Unsafe: New index will be deleted upon stack deletion/rollback |
+| Best for                 | Existing production environments, aggregator indexes | New or dev/test environments, simple setups                    |
+
+### Full implementation steps
+
+#### Option A: Import
+
+##### Option A Steps (CLI)
+
+**1. Retrieve the ARNs of the existing resources**
+
+```
+aws resource-explorer-2 get-index --region REGION --query 'Arn' --output text
+aws resource-explorer-2 list-views --region REGION --query 'Views' --output text
+```
+
+**2. Add DeletionPolicy: Retain to the AREX resources in the template**
+
+This is required by CloudFormation for any resource being imported. It ensures the
+resource is not deleted if the stack is later removed. The customer can change
+this after the import if desired.
+
+```
+Resources:
+  MyIndex:
+    Type: AWS::ResourceExplorer2::Index
+    DeletionPolicy: Retain
+    Properties:
+      Type: LOCAL
+
+  MyView:
+    Type: AWS::ResourceExplorer2::View
+    DeletionPolicy: Retain
+    Properties:
+      ViewName: my-view
+      IncludedProperties:
+        - Name: tags
+    DependsOn: MyIndex
+```
+
+**3. Create the import change set**
+
+Replace `INDEX_ARN`, `VIEW_ARN`,
+`MyIndex`, and `MyView` with the actual values. The
+logical resource IDs must match those used in the template.
+
+```
+aws cloudformation create-change-set \
+  --stack-name STACK_NAME \
+  --change-set-name ImportArex \
+  --change-set-type IMPORT \
+  --template-body file://template.yaml \
+  --resources-to-import '[
+    {
+      "ResourceType": "AWS::ResourceExplorer2::Index",
+      "LogicalResourceId": "MyIndex",
+      "ResourceIdentifier": {"Arn": "INDEX_ARN"}
+    },
+    {
+      "ResourceType": "AWS::ResourceExplorer2::View",
+      "LogicalResourceId": "MyView",
+      "ResourceIdentifier": {"ViewArn": "VIEW_ARN"}
+    }
+  ]' \
+  --region REGION
+```
+
+**4. Review the change set**
+
+```
+aws cloudformation describe-change-set \
+  --change-set-name ImportArex \
+  --stack-name STACK_NAME \
+  --region REGION
+```
+
+Verify both resources show `Action: "Import"` before executing.
+
+**5. Execute the change set**
+
+```
+aws cloudformation execute-change-set \
+  --change-set-name ImportArex \
+  --stack-name STACK_NAME \
+  --region REGION
+```
+
+After the import completes, subsequent stack operations (updates, deletes) work normally.
+
+##### Option A Steps (Console)
+
+**1. Retrieve the ARNs**
+
+Navigate to **Resource Explorer** →
+**Settings** in the target Region. Note the index
+ARN. Then navigate to **Views** and note the view ARN.
+
+**2. Update the template** as described above (add
+`DeletionPolicy: Retain`).
+
+**3. Import the resources**
+
+- For a **new stack**: Go to
+  **CloudFormation** →
+  **Create stack** →
+  **With existing resources (import resources)**.
+  Upload the template, then provide the identifier values when prompted
+  (Index ARN and View ARN). See [Creating a stack from existing resources](../../../AWSCloudFormation/latest/UserGuide/resource-import-new-stack.md "../../../AWSCloudFormation/latest/UserGuide/resource-import-new-stack.md").
+- For an **existing stack**: Go to
+  **CloudFormation** → select the stack →
+  **Stack actions** →
+  **Import resources into stack**. Upload the
+  updated template, then provide the identifier values. See [Importing existing resources into a stack](../../../AWSCloudFormation/latest/UserGuide/resource-import-existing-stack.md "../../../AWSCloudFormation/latest/UserGuide/resource-import-existing-stack.md").
+
+**4. Review and execute** the import.
+
+##### Important constraint for mixed-resource templates
+
+[Import operations don't allow new resource creations](../../../AWSCloudFormation/latest/UserGuide/resource-import-existing-stack.md "../../../AWSCloudFormation/latest/UserGuide/resource-import-existing-stack.md"). When using
+`--change-set-type IMPORT` to create a new stack, every resource in
+the template must be listed in `--resources-to-import`. You cannot
+mix imports and creates in the same operation.
+
+If the template contains other resources beyond index/view (e.g., S3 buckets,
+Lambda functions), the customer has two paths:
+
+**Path 1**: Import AREX resources first using a
+template containing only those resources, then run `update-stack`
+with the full template to add the remaining resources.
+
+**Path 2**: Create the stack first with the
+non-AREX resources only (removing index/view from the template), then [import the AREX resources into the existing stack](../../../AWSCloudFormation/latest/UserGuide/resource-import-existing-stack.md "../../../AWSCloudFormation/latest/UserGuide/resource-import-existing-stack.md"). When importing
+into an existing stack, only the resources being imported need to be in
+`--resources-to-import`.
+
+If the template contains only AREX resources, no extra steps are needed —
+a single import operation is sufficient.
+
+#### Option B: Delete and Recreate
+
+##### Option B Steps (CLI)
+
+**1. Get the index ARN and delete the index (this also deletes all views)**
+
+```
+aws resource-explorer-2 get-index --region REGION --query 'Arn' --output text
+aws resource-explorer-2 delete-index --arn INDEX_ARN --region REGION
+```
+
+**2. Wait for deletion to complete**
+
+```
+aws resource-explorer-2 get-index --region REGION --query 'State' --output text
+```
+
+Repeat until the state is `DELETED` or the command returns an error
+(indicating the index no longer exists).
+
+**3. Run create-stack as normal**
+
+```
+aws cloudformation create-stack \
+  --stack-name STACK_NAME \
+  --template-body file://template.yaml \
+  --region REGION
+```
+
+##### Option B Steps (Console)
+
+**1.** Navigate to **Resource
+Explorer** → **Settings** in the
+target Region.
+
+**2.** Delete the index from the settings page.
+
+**3.** Wait for the index to be fully deleted.
+
+**4.** Create the CloudFormation stack as normal.
+
 ## Learn more about CloudFormation
 
 To learn more about CloudFormation, see the following resources:
