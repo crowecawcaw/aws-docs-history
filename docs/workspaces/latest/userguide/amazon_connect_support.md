@@ -1,25 +1,25 @@
-# Amazon Connect audio optimization for WorkSpaces
+# Connect Customer audio optimization for WorkSpaces
 
-Amazon WorkSpaces allows you to add Amazon Connect Contact Control Panel (CCP) to your WorkSpace so you
-can use Amazon Connect audio optimization.
+Amazon WorkSpaces allows you to add Connect Customer Contact Control Panel (CCP) to your WorkSpace so you
+can use Connect Customer audio optimization.
 
-To use Amazon Connect audio optimization with your WorkSpace:
+To use Connect Customer audio optimization with your WorkSpace:
 
 - You must have the WorkSpaces Windows client version 4.0.6 or later installed.
 - You must have a web browser installed onto the WorkSpaces client endpoint that's
-  supported by Amazon Connect. For the list of supported browsers, see [Browsers supported by Amazon Connect](../../../connect/latest/adminguide/browsers.md "../../../connect/latest/adminguide/browsers.md").
+  supported by Connect Customer. For the list of supported browsers, see [Browsers supported by Amazon Connect](../../../connect/latest/adminguide/browsers.md "../../../connect/latest/adminguide/browsers.md").
 
 ###### Note
 
 If you do not have a supported web browser, you will be asked to install a supported browser.
 
-- You must have an existing Amazon Connect account.
+- You must have an existing Connect Customer account.
 
-## Log in to your WorkSpace and Amazon Connect Contact Control Panel (CCP)
+## Log in to your WorkSpace and Connect Customer Contact Control Panel (CCP)
 
-###### Log in to your WorkSpace and Amazon Connect Contact Control Panel (CCP)
+###### Log in to your WorkSpace and Connect Customer Contact Control Panel (CCP)
 
-After your administrator has enabled Amazon Connect Contact Control Panel (CCP) audio
+After your administrator has enabled Connect Customer Contact Control Panel (CCP) audio
 optimization, log in to your WorkSpace and the CCP Panel.
 
 1. Open the WorkSpaces client and log in to your WorkSpace.
