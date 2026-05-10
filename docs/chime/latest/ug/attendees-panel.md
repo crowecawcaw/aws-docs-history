@@ -98,7 +98,7 @@ You can open or close the **Attendees** panel at any time during a meeting. Clos
 
 - Choose the **Attendee panel** icon (
 
-![Icon of two figures surrounded by a blue circle.](images/left-control-2.png)
+![Icon of two figures surrounded by a blue circle.](/images/chime/latest/ug/images/left-control-2.png)
 
 ).
 
