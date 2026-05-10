@@ -118,7 +118,7 @@ The following AWS services support IAM global condition keys for enriched events
 - Amazon Cognito Sync
 - Amazon Comprehend
 - Amazon Comprehend Medical
-- Amazon Connect Voice ID
+- Amazon Connect Customer Voice ID
 - AWS Control Tower
 - Amazon Data Firehose
 - Amazon Elastic Block Store
