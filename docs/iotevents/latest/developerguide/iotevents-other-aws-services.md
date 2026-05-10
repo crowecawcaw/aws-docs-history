@@ -588,7 +588,7 @@ For more information, see [SNSTopicPublishAction](../apireference/API_SNSTopicPu
 _AWS IoT Events API Reference_.
 
 You can also use Amazon SNS and the AWS IoT Core rules engine to trigger an AWS Lambda
-function. This makes it possible to take actions using other services, such as Amazon Connect, or
+function. This makes it possible to take actions using other services, such as Connect Customer, or
 even a company enterprise resource planning (ERP) application.
 
 ###### Note

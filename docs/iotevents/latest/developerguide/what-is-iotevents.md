@@ -47,7 +47,7 @@ For more information on logical expressions, see [Expressions to filter, transfo
 AWS IoT Events enables you to directly trigger actions in Amazon Simple Notification Service (Amazon SNS), AWS IoT Core,
 Lambda, Amazon SQS and Amazon Kinesis Firehose. You can also trigger an AWS Lambda function
 using the AWS IoT rules engine which makes it possible to take actions using other
-services, such as Amazon Connect, or your own enterprise resource planning (ERP)
+services, such as Connect Customer, or your own enterprise resource planning (ERP)
 applications.
 
 AWS IoT Events includes a prebuilt library of actions you can take, and also enables you to
