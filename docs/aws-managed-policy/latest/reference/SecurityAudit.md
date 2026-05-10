@@ -12,13 +12,13 @@ You can attach `SecurityAudit` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: February 06, 2015, 18:41 UTC
-- **Edited time:** May 01, 2026, 03:12 UTC
+- **Edited time:** May 07, 2026, 16:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SecurityAudit`
 
 ## Policy version
 
-**Policy version:** v86 (default)
+**Policy version:** v87 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -145,6 +145,32 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "bedrock:ListPrompts",
         "bedrock:ListProvisionedModelThroughputs",
         "bedrock:ListTagsForResource",
+        "bedrock-agentcore:GetAgentRuntime",
+        "bedrock-agentcore:GetAgentRuntimeEndpoint",
+        "bedrock-agentcore:GetBrowser",
+        "bedrock-agentcore:GetBrowserProfile",
+        "bedrock-agentcore:GetCodeInterpreter",
+        "bedrock-agentcore:GetGateway",
+        "bedrock-agentcore:GetGatewayTarget",
+        "bedrock-agentcore:GetHarness",
+        "bedrock-agentcore:GetMemory",
+        "bedrock-agentcore:GetPolicy",
+        "bedrock-agentcore:GetPolicyEngine",
+        "bedrock-agentcore:GetPolicyGeneration",
+        "bedrock-agentcore:ListAgentRuntimeEndpoints",
+        "bedrock-agentcore:ListAgentRuntimeVersions",
+        "bedrock-agentcore:ListAgentRuntimes",
+        "bedrock-agentcore:ListBrowserProfiles",
+        "bedrock-agentcore:ListBrowsers",
+        "bedrock-agentcore:ListCodeInterpreters",
+        "bedrock-agentcore:ListGatewayTargets",
+        "bedrock-agentcore:ListGateways",
+        "bedrock-agentcore:ListHarnesses",
+        "bedrock-agentcore:ListMemories",
+        "bedrock-agentcore:ListPolicies",
+        "bedrock-agentcore:ListPolicyEngines",
+        "bedrock-agentcore:ListPolicyGenerationAssets",
+        "bedrock-agentcore:ListPolicyGenerations",
         "braket:SearchJobs",
         "braket:SearchQuantumTasks",
         "chime:List*",

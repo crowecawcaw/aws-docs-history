@@ -12,13 +12,13 @@ You can attach `AIDevOpsAgentAccessPolicy` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: March 26, 2026, 03:42 UTC
-- **Edited time:** April 23, 2026, 15:42 UTC
+- **Edited time:** May 07, 2026, 00:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AIDevOpsAgentAccessPolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -741,6 +741,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "servicecatalog:GetAttributeGroup",
         "servicecatalog:List*",
         "servicequotas:GetServiceQuota",
+        "servicequotas:ListServiceQuotas",
         "ses:Describe*",
         "ses:GetAccount",
         "ses:GetAddonInstance",

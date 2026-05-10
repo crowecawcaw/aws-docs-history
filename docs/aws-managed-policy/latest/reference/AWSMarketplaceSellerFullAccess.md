@@ -12,13 +12,13 @@ You can attach `AWSMarketplaceSellerFullAccess` to your users, groups, and roles
 
 - **Type**: AWS managed policy
 - **Creation time**: July 02, 2019, 20:40 UTC
-- **Edited time:** April 29, 2026, 21:12 UTC
+- **Edited time:** May 07, 2026, 18:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSMarketplaceSellerFullAccess`
 
 ## Policy version
 
-**Policy version:** v28 (default)
+**Policy version:** v29 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -141,7 +141,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "tax:DeleteSupplementalTaxRegistration",
         "tax:GetTaxRegistration",
         "aws-marketplace:ListPayables",
-        "aws-marketplace:ListInvoiceSubmissionTasks"
+        "aws-marketplace:ListInvoiceSubmissionTasks",
+        "invoicing:ListInvoiceSummaries",
+        "invoicing:GetInvoicePDF",
+        "aws-marketplace:ListIssuedTaxInvoices"
       ],
       "Resource" : "*"
     },
@@ -237,6 +240,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "partnercentral:GetVerification"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "SellerSettingsGetIssuedTaxInvoice",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:GetIssuedTaxInvoice"
+      ],
+      "Resource" : "arn:aws:aws-marketplace:*:*:catalog/AWSMarketplace*/issued-tax-invoice/*"
     },
     {
       "Sid" : "AWSMarketplaceAgreementsCancellationAndAdjustmentAccess",

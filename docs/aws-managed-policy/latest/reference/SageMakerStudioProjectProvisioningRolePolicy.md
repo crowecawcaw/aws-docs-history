@@ -12,13 +12,13 @@ You can attach `SageMakerStudioProjectProvisioningRolePolicy` to your users, gro
 
 - **Type**: Service role policy
 - **Creation time**: November 20, 2024, 21:58 UTC
-- **Edited time:** March 11, 2026, 16:27 UTC
+- **Edited time:** May 07, 2026, 00:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/SageMakerStudioProjectProvisioningRolePolicy`
 
 ## Policy version
 
-**Policy version:** v78 (default)
+**Policy version:** v80 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -40,17 +40,17 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:cloudformation:*:*:stack/DataZone*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        "ForAllValues:StringLike" : {
+          "aws:TagKeys" : [
+            "AmazonDataZone*"
+          ]
         },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false",
           "aws:TagKeys" : "false"
         },
-        "ForAllValues:StringLike" : {
-          "aws:TagKeys" : [
-            "AmazonDataZone*"
-          ]
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -66,11 +66,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:cloudformation:*:*:stack/DataZone*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -145,11 +145,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : "s3:GetObject",
       "Resource" : "*",
       "Condition" : {
-        "StringNotEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "StringEquals" : {
           "aws:CalledViaFirst" : "cloudformation.amazonaws.com"
+        },
+        "StringNotEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -168,17 +168,17 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:codecommit:*:*:datazone*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        "ForAllValues:StringLike" : {
+          "aws:TagKeys" : [
+            "AmazonDataZone*"
+          ]
         },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false",
           "aws:TagKeys" : "false"
         },
-        "ForAllValues:StringLike" : {
-          "aws:TagKeys" : [
-            "AmazonDataZone*"
-          ]
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -193,11 +193,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:codecommit:*:*:datazone*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -228,6 +228,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
+        "Null" : {
+          "kms:EncryptionContext:aws:codecommit:id" : "false"
+        },
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
@@ -235,9 +238,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "kms:ViaService" : [
             "codecommit.*.amazonaws.com"
           ]
-        },
-        "Null" : {
-          "kms:EncryptionContext:aws:codecommit:id" : "false"
         }
       }
     },
@@ -271,11 +271,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:iam::*:role/AmazonBedrockEvaluation*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "iam:PermissionsBoundary" : "arn:aws:iam::aws:policy/SageMakerStudioProjectUserRolePermissionsBoundary"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "iam:PermissionsBoundary" : "arn:aws:iam::aws:policy/SageMakerStudioProjectUserRolePermissionsBoundary"
         }
       }
     },
@@ -290,11 +290,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:iam::*:role/datazone*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "iam:PermissionsBoundary" : "arn:aws:iam::aws:policy/SageMakerStudioProjectUserRolePermissionsBoundary"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "iam:PermissionsBoundary" : "arn:aws:iam::aws:policy/SageMakerStudioProjectUserRolePermissionsBoundary"
         }
       }
     },
@@ -325,9 +325,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:iam::*:role/datazone*"
       ],
       "Condition" : {
-        "Null" : {
-          "aws:ResourceTag/AmazonDataZoneProject" : "false"
-        },
         "ArnEquals" : {
           "iam:PolicyARN" : [
             "arn:aws:iam::aws:policy/SageMakerStudioProjectUserRolePolicy",
@@ -340,6 +337,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "arn:aws:iam::aws:policy/AmazonSageMakerPartnerAppsFullAccess",
             "arn:aws:iam::aws:policy/service-role/SageMakerStudioBedrockKnowledgeBaseServiceRolePolicy"
           ]
+        },
+        "Null" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "false"
         }
       }
     },
@@ -354,13 +354,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:iam::*:role/datazone*"
       ],
       "Condition" : {
-        "Null" : {
-          "aws:ResourceTag/AmazonDataZoneAdminProject" : "false"
-        },
         "ArnEquals" : {
           "iam:PolicyARN" : [
-            "arn:aws:iam::aws:policy/SageMakerStudioAdminProjectUserRolePolicy"
+            "arn:aws:iam::aws:policy/SageMakerStudioAdminProjectUserRolePolicy",
+            "arn:aws:iam::aws:policy/SageMakerStudioAdminIAMDefaultExecutionPolicy"
           ]
+        },
+        "Null" : {
+          "aws:ResourceTag/AmazonDataZoneAdminProject" : "false"
         }
       }
     },
@@ -373,9 +374,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:iam::*:role/AmazonBedrock*",
       "Condition" : {
-        "Null" : {
-          "aws:ResourceTag/AmazonDataZoneProject" : "false"
-        },
         "ArnEquals" : {
           "iam:PolicyARN" : [
             "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
@@ -388,6 +386,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "arn:aws:iam::aws:policy/service-role/SageMakerStudioBedrockPromptUserRolePolicy",
             "arn:aws:iam::aws:policy/service-role/SageMakerStudioBedrockEvaluationJobServiceRolePolicy"
           ]
+        },
+        "Null" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "false"
         }
       }
     },
@@ -408,10 +409,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:iam::*:role/SageMakerStudioQueryExecutionRole"
       ],
       "Condition" : {
-        "Null" : {
-          "aws:ResourceTag/AmazonDataZoneProject" : "false",
-          "aws:TagKeys" : "false"
-        },
         "ForAllValues:StringLike" : {
           "aws:TagKeys" : [
             "AmazonDataZone*",
@@ -433,6 +430,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "CreatedForUseWithSageMakerStudio",
             "SageMakerStudioQueryExecutionRole"
           ]
+        },
+        "Null" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "false",
+          "aws:TagKeys" : "false"
         }
       }
     },
@@ -447,15 +448,15 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:iam::*:role/datazone_usr_role_*"
       ],
       "Condition" : {
-        "Null" : {
-          "aws:ResourceTag/AmazonDataZoneProject" : "false"
-        },
         "ForAllValues:StringLike" : {
           "aws:TagKeys" : [
             "AmazonDataZoneScopeName",
             "BootstrappedServices",
             "AmazonDataZoneAdminProject"
           ]
+        },
+        "Null" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "false"
         }
       }
     },
@@ -468,9 +469,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:iam::*:role/AmazonBedrock*",
       "Condition" : {
-        "Null" : {
-          "aws:ResourceTag/AmazonDataZoneProject" : "false"
-        },
         "ForAllValues:StringLike" : {
           "aws:TagKeys" : [
             "AmazonDataZone*",
@@ -486,6 +484,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "PromptDefinitionPath",
             "OpenSearchServerlessCollectionId"
           ]
+        },
+        "Null" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "false"
         }
       }
     },
@@ -497,14 +498,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:iam::*:role/datazone_usr_role_*"
       ],
       "Condition" : {
-        "Null" : {
-          "aws:ResourceTag/AmazonDataZoneProject" : "false",
-          "aws:TagKeys" : "false"
-        },
         "ForAllValues:StringLike" : {
           "aws:TagKeys" : [
             "RedshiftDb*"
           ]
+        },
+        "Null" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "false",
+          "aws:TagKeys" : "false"
         }
       }
     },
@@ -521,10 +522,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:iam::*:role/datazone_emr_containers_system_namespace_role_*"
       ],
       "Condition" : {
-        "Null" : {
-          "aws:ResourceTag/AmazonDataZoneProject" : "false",
-          "aws:TagKeys" : "false"
-        },
         "ForAllValues:StringLike" : {
           "aws:TagKeys" : [
             "AmazonDataZone*",
@@ -534,6 +531,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "KmsKeyId",
             "VpcId"
           ]
+        },
+        "Null" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "false",
+          "aws:TagKeys" : "false"
         }
       }
     },
@@ -543,11 +544,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : "iam:UntagRole",
       "Resource" : "arn:aws:iam::*:role/datazone_usr_role_*",
       "Condition" : {
-        "Null" : {
-          "aws:ResourceTag/AmazonDataZoneProject" : "false"
-        },
         "ForAllValues:StringLike" : {
           "aws:TagKeys" : "EnableAmazonBedrockIDEPermissions"
+        },
+        "Null" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "false"
         }
       }
     },
@@ -852,16 +853,16 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
-        "Null" : {
-          "aws:TagKeys" : "false"
-        },
         "ForAllValues:StringLike" : {
           "aws:TagKeys" : [
             "AmazonDataZone*"
           ]
+        },
+        "Null" : {
+          "aws:TagKeys" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -898,6 +899,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
     },
     {
       "Sid" : "GlueConnections",
+      "Effect" : "Allow",
       "Action" : [
         "glue:PassConnection",
         "glue:GetConnections",
@@ -907,7 +909,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:glue:*:*:connection/*",
         "arn:aws:glue:*:*:catalog/*"
       ],
-      "Effect" : "Allow",
       "Condition" : {
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
@@ -916,11 +917,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
     },
     {
       "Sid" : "AthenaConnection",
+      "Effect" : "Allow",
       "Action" : [
         "athena:CreateDataCatalog"
       ],
       "Resource" : "*",
-      "Effect" : "Allow",
       "Condition" : {
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
@@ -946,15 +947,15 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:athena:*:*:datacatalog/*",
       "Condition" : {
-        "Null" : {
-          "aws:ResourceTag/AmazonDataZoneProject" : "false",
-          "aws:TagKeys" : "false"
-        },
         "ForAllValues:StringLike" : {
           "aws:TagKeys" : [
             "AmazonDataZone*",
             "federated_athena*"
           ]
+        },
+        "Null" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "false",
+          "aws:TagKeys" : "false"
         }
       }
     },
@@ -969,11 +970,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:glue:*:*:connection/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:RequestTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -988,11 +989,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:glue:*:*:connection/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -1035,8 +1036,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
     },
     {
       "Sid" : "GetDataCatalogEncSett",
-      "Action" : "glue:GetDataCatalogEncryptionSettings",
       "Effect" : "Allow",
+      "Action" : "glue:GetDataCatalogEncryptionSettings",
       "Resource" : "arn:aws:glue:*:*:catalog",
       "Condition" : {
         "StringEquals" : {
@@ -1083,7 +1084,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "cloudformation:DeleteChangeSet"
       ],
       "Resource" : [
-        "arn:aws:cloudformation:*:*:transform/Serverless*"
+        "arn:aws:cloudformation:*:*:transform/*"
       ]
     },
     {
@@ -1099,11 +1100,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:lambda:*:*:function:athenafederatedcatalog*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -1118,11 +1119,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
           "aws:CalledViaLast" : [
             "athena.amazonaws.com",
             "cloudformation.amazonaws.com"
-          ]
+          ],
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -1136,13 +1137,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:lambda:*:*:function:athenafederatedcatalog*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
-        "Null" : {
-          "aws:ResourceTag/AmazonDataZoneProject" : "false",
-          "aws:TagKeys" : "false"
-        },
         "ForAllValues:StringLike" : {
           "aws:TagKeys" : [
             "AmazonDataZone*",
@@ -1150,6 +1144,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "federated_athena*",
             "lambda:createdBy"
           ]
+        },
+        "Null" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "false",
+          "aws:TagKeys" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -1180,11 +1181,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:s3:::*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "s3:prefix" : "true"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -1253,6 +1254,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
     },
     {
       "Sid" : "GetRole",
+      "Effect" : "Allow",
       "Action" : [
         "iam:GetRole"
       ],
@@ -1260,8 +1262,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:iam::*:role/SageMakerStudioQueryExecutionRole",
         "arn:aws:iam::*:role/service-role/AmazonSageMakerQueryExecution",
         "arn:aws:iam::*:role/datazone_s3tables_*"
-      ],
-      "Effect" : "Allow"
+      ]
     },
     {
       "Sid" : "S3tPassConn",
@@ -1287,8 +1288,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*",
       "Condition" : {
         "StringEquals" : {
-          "lakeformation:EnabledOnlyForMetaDataAccess" : "true",
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "lakeformation:EnabledOnlyForMetaDataAccess" : "true"
         }
       }
     },
@@ -1303,11 +1304,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:glue:*:*:catalog/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:RequestTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -1407,16 +1408,16 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:redshift-serverless:*:*:workgroup/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
-        "Null" : {
-          "aws:TagKeys" : "false"
-        },
         "ForAllValues:StringLike" : {
           "aws:TagKeys" : [
             "AmazonDataZone*"
           ]
+        },
+        "Null" : {
+          "aws:TagKeys" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -1447,11 +1448,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ec2:*:*:security-group/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -1490,18 +1491,18 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ec2:*:*:security-group/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
-        "Null" : {
-          "aws:TagKeys" : "false"
-        },
         "ForAllValues:StringLike" : {
           "aws:TagKeys" : [
             "AmazonDataZone*",
             "for-use-with-amazon-emr-managed-policies",
             "aws:cloudformation:*"
           ]
+        },
+        "Null" : {
+          "aws:TagKeys" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -1531,17 +1532,17 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:logs:*:*:log-group:/aws/lambda/amazon-bedrock-ide-*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
-        "Null" : {
-          "aws:TagKeys" : "false"
-        },
         "ForAllValues:StringLike" : {
           "aws:TagKeys" : [
             "AmazonDataZone*",
             "AmazonBedrockManaged"
           ]
+        },
+        "Null" : {
+          "aws:TagKeys" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -1578,11 +1579,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:logs:*:*:log-group:/aws/lambda/amazon-bedrock-ide-*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -1595,17 +1596,18 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:athena:*:*:workgroup/*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        "ForAllValues:StringLike" : {
+          "aws:TagKeys" : [
+            "AmazonDataZone*",
+            "aws:cloudformation:*"
+          ]
         },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false",
           "aws:TagKeys" : "false"
         },
-        "ForAllValues:StringLike" : {
-          "aws:TagKeys" : [
-            "AmazonDataZone*"
-          ]
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -1620,11 +1622,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:athena:*:*:workgroup/*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -1641,17 +1643,17 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:redshift-serverless:*:*:workgroup/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        "ForAllValues:StringLike" : {
+          "aws:TagKeys" : [
+            "AmazonDataZone*"
+          ]
         },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false",
           "aws:TagKeys" : "false"
         },
-        "ForAllValues:StringLike" : {
-          "aws:TagKeys" : [
-            "AmazonDataZone*"
-          ]
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -1724,16 +1726,16 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
-        "Null" : {
-          "aws:ResourceTag/AmazonDataZoneProject" : "false",
-          "aws:ResourceTag/CreatedBy" : "false",
-          "aws:TagKeys" : "false"
-        },
         "ForAllValues:StringLike" : {
           "aws:TagKeys" : [
             "AmazonDataZone*",
             "CreatedBy"
           ]
+        },
+        "Null" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "false",
+          "aws:ResourceTag/CreatedBy" : "false",
+          "aws:TagKeys" : "false"
         }
       }
     },
@@ -1746,16 +1748,16 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
-        "StringLike" : {
-          "kms:ViaService" : [
-            "secretsmanager.*.amazonaws.com"
-          ]
+        "Null" : {
+          "kms:EncryptionContext:SecretARN" : "false"
         },
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
-        "Null" : {
-          "kms:EncryptionContext:SecretARN" : "false"
+        "StringLike" : {
+          "kms:ViaService" : [
+            "secretsmanager.*.amazonaws.com"
+          ]
         }
       }
     },
@@ -1817,11 +1819,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:redshift-serverless:*:*:workgroup/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -1835,16 +1837,16 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
-        "StringLike" : {
-          "kms:ViaService" : [
-            "redshift-serverless.*.amazonaws.com"
-          ]
+        "Null" : {
+          "kms:EncryptionContext:aws:redshift-serverless:arn" : "false"
         },
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
-        "Null" : {
-          "kms:EncryptionContext:aws:redshift-serverless:arn" : "false"
+        "StringLike" : {
+          "kms:ViaService" : [
+            "redshift-serverless.*.amazonaws.com"
+          ]
         }
       }
     },
@@ -1863,11 +1865,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:secretsmanager:*:*:secret:amazon-bedrock-ide/*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -1896,9 +1898,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:secretsmanager:*:*:secret:redshift!*",
       "Condition" : {
-        "Null" : {
-          "aws:TagKeys" : "false"
-        },
         "ForAllValues:StringLike" : {
           "aws:TagKeys" : [
             "Redshift",
@@ -1907,6 +1906,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "AmazonDataZone*",
             "datazone.rs.workgroup"
           ]
+        },
+        "Null" : {
+          "aws:TagKeys" : "false"
         },
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
@@ -1925,11 +1927,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:sagemaker:*:*:mlflow-app/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -1946,11 +1948,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:sagemaker:*:*:mlflow-app/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:RequestTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -1963,11 +1965,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:sagemaker:*:*:domain/*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -1982,11 +1984,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:sagemaker:*:*:app/*/*/JupyterLab/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -1996,11 +1998,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : "sagemaker:DeleteSpace",
       "Resource" : "arn:aws:sagemaker:*:*:space/*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -2010,11 +2012,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : "sagemaker:DeleteUserProfile",
       "Resource" : "arn:aws:sagemaker:*:*:user-profile/*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -2029,17 +2031,17 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        "ForAllValues:StringLike" : {
+          "aws:TagKeys" : [
+            "AmazonDataZone*"
+          ]
         },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false",
           "aws:TagKeys" : "false"
         },
-        "ForAllValues:StringLike" : {
-          "aws:TagKeys" : [
-            "AmazonDataZone*"
-          ]
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -2054,11 +2056,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -2099,11 +2101,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:sagemaker:*:*:mlflow-tracking-server/*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:RequestTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -2121,11 +2123,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:sagemaker:*:*:mlflow-tracking-server/*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -2211,11 +2213,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -2264,14 +2266,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:neptune-graph:*:*:graph/*",
       "Condition" : {
-        "Null" : {
-          "aws:ResourceTag/AmazonDataZoneProject" : "false"
-        },
         "ForAllValues:StringLike" : {
           "aws:TagKeys" : [
             "AmazonDataZone*",
             "AmazonBedrock*"
           ]
+        },
+        "Null" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "false"
         }
       }
     },
@@ -2368,11 +2370,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -2385,11 +2387,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:bedrock:*:*:flow/*/alias/TSTALIASID"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:RequestTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -2399,11 +2401,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : "bedrock:BatchDeleteEvaluationJob",
       "Resource" : "*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -2425,11 +2427,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:lambda:*:*:function:amazon-bedrock-ide-*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -2532,18 +2534,18 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
+        "Null" : {
+          "kms:EncryptionContextKeys" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        },
         "StringLike" : {
           "kms:ViaService" : [
             "airflow.*.amazonaws.com",
             "neptune-graph.*.amazonaws.com",
             "s3vectors.*.amazonaws.com"
           ]
-        },
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
-        "Null" : {
-          "kms:EncryptionContextKeys" : "false"
         }
       }
     },
@@ -2686,11 +2688,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:scheduler:*:*:schedule-group/*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -2700,15 +2702,15 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : "scheduler:CreateScheduleGroup",
       "Resource" : "arn:aws:scheduler:*:*:schedule-group/*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        "ForAllValues:StringLike" : {
+          "aws:TagKeys" : "AmazonDataZone*"
         },
         "Null" : {
           "aws:RequestTag/AmazonDataZoneProject" : "false",
           "aws:TagKeys" : "false"
         },
-        "ForAllValues:StringLike" : {
-          "aws:TagKeys" : "AmazonDataZone*"
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -2718,15 +2720,15 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : "scheduler:TagResource",
       "Resource" : "arn:aws:scheduler:*:*:schedule-group/*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
-        "Null" : {
-          "aws:TagKeys" : "false",
-          "aws:ResourceTag/AmazonDataZoneProject" : "false"
-        },
         "ForAllValues:StringLike" : {
           "aws:TagKeys" : "AmazonDataZone*"
+        },
+        "Null" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "false",
+          "aws:TagKeys" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -2740,11 +2742,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:scheduler:*:*:schedule/SageMakerUnifiedStudio-*-*/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -2774,11 +2776,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -2856,16 +2858,16 @@ request to access an AWS resource, AWS checks the default version of the policy 
           ]
         },
         "Null" : {
-          "events:source" : "false",
-          "events:detail-type" : "false"
+          "events:detail-type" : "false",
+          "events:source" : "false"
         },
         "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
           "events:ManagedBy" : "datazone.amazonaws.com",
           "events:detail-type" : [
             "AWS Service Event via CloudTrail",
             "CodeCommit Repository State Change"
-          ],
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+          ]
         }
       }
     },
@@ -2882,8 +2884,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:events:*:*:rule/Managed.SageMaker*",
       "Condition" : {
         "StringEquals" : {
-          "events:ManagedBy" : "datazone.amazonaws.com",
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "events:ManagedBy" : "datazone.amazonaws.com"
         }
       }
     },
@@ -2895,11 +2897,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:secretsmanager:*:*:secret:*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -2934,11 +2936,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },

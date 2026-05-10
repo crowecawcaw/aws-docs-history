@@ -12,13 +12,13 @@ You can attach `AWSMarketplaceManageSubscriptions` to your users, groups, and ro
 
 - **Type**: AWS managed policy
 - **Creation time**: February 06, 2015, 18:40 UTC
-- **Edited time:** March 31, 2026, 17:12 UTC
+- **Edited time:** May 07, 2026, 16:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSMarketplaceManageSubscriptions`
 
 ## Policy version
 
-**Policy version:** v8 (default)
+**Policy version:** v9 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -53,6 +53,27 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "aws-marketplace:ListPrivateListings"
       ],
       "Resource" : "*"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:GetListing",
+        "aws-marketplace:GetProduct",
+        "aws-marketplace:GetOffer",
+        "aws-marketplace:GetOfferTerms",
+        "aws-marketplace:GetOfferSet",
+        "aws-marketplace:ListPurchaseOptions",
+        "aws-marketplace:ListFulfillmentOptions",
+        "aws-marketplace:SearchFacets",
+        "aws-marketplace:SearchListings"
+      ],
+      "Resource" : [
+        "arn:aws:aws-marketplace:::catalog/AWSMarketplace*/product/*",
+        "arn:aws:aws-marketplace:::catalog/AWSMarketplace*/listing/*",
+        "arn:aws:aws-marketplace:::catalog/AWSMarketplace*/offer/*",
+        "arn:aws:aws-marketplace:::catalog/AWSMarketplace*/offerSet/*",
+        "arn:aws:aws-marketplace:::catalog/AWSMarketplace*/purchaseOption/*"
+      ]
     },
     {
       "Effect" : "Allow",

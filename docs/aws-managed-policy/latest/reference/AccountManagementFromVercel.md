@@ -12,13 +12,13 @@ You can attach `AccountManagementFromVercel` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: December 11, 2025, 16:34 UTC
-- **Edited time:** February 12, 2026, 18:00 UTC
+- **Edited time:** May 07, 2026, 18:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AccountManagementFromVercel`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -52,6 +52,41 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceTag/VercelInstallId" : "${aws:PrincipalTag/VercelInstallId}"
+        }
+      }
+    },
+    {
+      "Sid" : "ManageServiceRole",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:GetRole",
+        "iam:CreateRole",
+        "iam:AttachRolePolicy",
+        "iam:DetachRolePolicy",
+        "iam:PutRolePolicy",
+        "iam:DeleteRolePolicy",
+        "iam:DeleteRole"
+      ],
+      "Resource" : "arn:aws:iam::*:role/Vercel/Service_2026_04_16",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/VercelInstallId" : "${aws:PrincipalTag/VercelInstallId}",
+          "iam:PermissionsBoundary" : [
+            "arn:aws:iam::partner:policy/permissions-boundary/vercel.com/VercelMarketplaceServiceRoleBoundary_2026_04_16"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "TagManageServiceRole",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:TagRole"
+      ],
+      "Resource" : "arn:aws:iam::*:role/Vercel/Service_2026_04_16",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:RequestTag/VercelInstallId" : "${aws:PrincipalTag/VercelInstallId}"
         }
       }
     }

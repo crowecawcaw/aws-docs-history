@@ -1,24 +1,24 @@
-# AWSMarketplaceRead-only
+# AWSMarketplaceDiscoveryFullAccess
 
-**Description**: Provides the ability to review AWS Marketplace subscriptions
+**Description**: Provides full access to the AWS Marketplace Discovery API for searching and retrieving product and pricing information.
 
-`AWSMarketplaceRead-only` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AWSMarketplaceDiscoveryFullAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 
 ## Using this policy
 
-You can attach `AWSMarketplaceRead-only` to your users, groups, and roles.
+You can attach `AWSMarketplaceDiscoveryFullAccess` to your users, groups, and roles.
 
 ## Policy details
 
 - **Type**: AWS managed policy
-- **Creation time**: February 06, 2015, 18:40 UTC
+- **Creation time**: May 07, 2026, 17:12 UTC
 - **Edited time:** May 07, 2026, 17:12 UTC
 - **ARN**:
-  `arn:aws:iam::aws:policy/AWSMarketplaceRead-only`
+  `arn:aws:iam::aws:policy/AWSMarketplaceDiscoveryFullAccess`
 
 ## Policy version
 
-**Policy version:** v13 (default)
+**Policy version:** v1 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -32,49 +32,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
     {
       "Effect" : "Allow",
       "Action" : [
-        "aws-marketplace:ViewSubscriptions",
-        "aws-marketplace:ListAgreementCharges",
-        "ec2:DescribeAccountAttributes",
-        "ec2:DescribeAddresses",
-        "ec2:DescribeImages",
-        "ec2:DescribeInstances",
-        "ec2:DescribeKeyPairs",
-        "ec2:DescribeSecurityGroups",
-        "ec2:DescribeSubnets",
-        "ec2:DescribeVpcs"
-      ],
-      "Resource" : "*"
-    },
-    {
-      "Effect" : "Allow",
-      "Action" : [
-        "iam:ListRoles",
-        "iam:ListInstanceProfiles",
-        "sns:GetTopicAttributes",
-        "sns:ListTopics"
-      ],
-      "Resource" : "*"
-    },
-    {
-      "Effect" : "Allow",
-      "Action" : [
-        "aws-marketplace:ListPrivateMarketplaceRequests",
-        "aws-marketplace:DescribePrivateMarketplaceRequests",
-        "aws-marketplace:GetAgreementPaymentRequest",
-        "aws-marketplace:ListAgreementPaymentRequests"
-      ],
-      "Resource" : "*"
-    },
-    {
-      "Effect" : "Allow",
-      "Action" : [
-        "aws-marketplace:ListPrivateListings"
-      ],
-      "Resource" : "*"
-    },
-    {
-      "Effect" : "Allow",
-      "Action" : [
         "aws-marketplace:GetListing",
         "aws-marketplace:GetProduct",
         "aws-marketplace:GetOffer",
@@ -82,8 +39,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "aws-marketplace:GetOfferSet",
         "aws-marketplace:ListPurchaseOptions",
         "aws-marketplace:ListFulfillmentOptions",
-        "aws-marketplace:SearchFacets",
-        "aws-marketplace:SearchListings"
+        "aws-marketplace:SearchListings",
+        "aws-marketplace:SearchFacets"
       ],
       "Resource" : [
         "arn:aws:aws-marketplace:::catalog/AWSMarketplace*/product/*",
@@ -92,14 +49,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:aws-marketplace:::catalog/AWSMarketplace*/offerSet/*",
         "arn:aws:aws-marketplace:::catalog/AWSMarketplace*/purchaseOption/*"
       ]
-    },
-    {
-      "Effect" : "Allow",
-      "Action" : [
-        "aws-marketplace:ListAgreementCancellationRequests",
-        "aws-marketplace:GetAgreementCancellationRequest"
-      ],
-      "Resource" : "*"
     }
   ]
 }

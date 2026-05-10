@@ -1,8 +1,8 @@
-# AWSServiceRoleForAWSTransformCustom
+# AWSAppConfigServiceRolePolicy
 
-**Description**: Allows AWS Transform Custom to publish CloudWatch metrics to your account on your behalf.
+**Description**: Allows AWS AppConfig to call AWS services on your behalf.
 
-`AWSServiceRoleForAWSTransformCustom` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AWSAppConfigServiceRolePolicy` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 
 ## Using this policy
 
@@ -12,14 +12,14 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 ## Policy details
 
 - **Type**: Service-linked role policy
-- **Creation time**: March 25, 2026, 02:57 UTC
-- **Edited time:** May 05, 2026, 19:42 UTC
+- **Creation time**: May 08, 2026, 18:42 UTC
+- **Edited time:** May 08, 2026, 18:42 UTC
 - **ARN**:
-  `arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForAWSTransformCustom`
+  `arn:aws:iam::aws:policy/aws-service-role/AWSAppConfigServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v1 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -31,6 +31,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
+      "Sid" : "CloudWatchPutExperimentMetrics",
       "Effect" : "Allow",
       "Action" : [
         "cloudwatch:PutMetricData"
@@ -38,25 +39,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*",
       "Condition" : {
         "StringEquals" : {
-          "cloudwatch:namespace" : "AWS/TransformCustom"
-        }
-      }
-    },
-    {
-      "Effect" : "Allow",
-      "Action" : [
-        "logs:CreateLogGroup",
-        "logs:CreateLogStream",
-        "logs:PutLogEvents",
-        "logs:PutRetentionPolicy"
-      ],
-      "Resource" : [
-        "arn:aws:logs:*:*:log-group:/aws/TransformCustom",
-        "arn:aws:logs:*:*:log-group:/aws/TransformCustom:log-stream:*"
-      ],
-      "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+          "cloudwatch:namespace" : "AWS/AppConfig"
         }
       }
     }
