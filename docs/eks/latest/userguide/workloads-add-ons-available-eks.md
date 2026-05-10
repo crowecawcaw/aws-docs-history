@@ -14,6 +14,7 @@ You can use any of the following Amazon EKS add-ons.
 | A flexible, extensible DNS server that can serve as the Kubernetes cluster DNS                                                                                                                                                                        | [CoreDNS](#add-ons-coredns "#add-ons-coredns")                                                                                           | EC2, Fargate, EKS Auto Mode, EKS Hybrid Nodes |
 | Maintain network rules on each Amazon EC2 node                                                                                                                                                                                                        | [Kube-proxy](#add-ons-kube-proxy "#add-ons-kube-proxy")                                                                                  | EC2, EKS Hybrid Nodes                         |
 | Provide Amazon EBS storage for your cluster                                                                                                                                                                                                           | [Amazon EBS CSI driver](#add-ons-aws-ebs-csi-driver "#add-ons-aws-ebs-csi-driver")                                                       | EC2                                           |
+| Provide Amazon EC2 instance storage for your cluster                                                                                                                                                                                                  | [Amazon EC2 Instance Store CSI driver](#add-ons-aws-ec2-instance-store-csi-driver "#add-ons-aws-ec2-instance-store-csi-driver")          | EC2                                           |
 | Provide Amazon EFS storage for your cluster                                                                                                                                                                                                           | [Amazon EFS CSI driver](#add-ons-aws-efs-csi-driver "#add-ons-aws-efs-csi-driver")                                                       | EC2, EKS Auto Mode                            |
 | Provide Amazon S3 Files storage for your cluster                                                                                                                                                                                                      | [Amazon EFS CSI driver](#add-ons-aws-efs-csi-driver "#add-ons-aws-efs-csi-driver")                                                       | EC2, EKS Auto Mode                            |
 | Provide Amazon FSx for Lustre storage for your cluster                                                                                                                                                                                                | [Amazon FSx CSI driver](#add-ons-aws-fsx-csi-driver "#add-ons-aws-fsx-csi-driver")                                                       | EC2, EKS Auto Mode                            |
@@ -133,6 +134,20 @@ eksctl create iamserviceaccount \
 ### Additional information
 
 To learn more about the add-on, see [Use Kubernetes volume storage with Amazon EBS](ebs-csi.md "ebs-csi.md").
+
+## Amazon EC2 Instance Store CSI driver
+
+The Amazon EC2 Instance Store CSI driver Amazon EKS add-on is a Kubernetes Container Storage Interface (CSI) plugin that provides Amazon EC2 instance store NVMe storage for your cluster.
+
+The Amazon EKS add-on name is `aws-ec2-local-instance-store-csi-driver`.
+
+### Required IAM permissions
+
+This add-on doesn’t require any permissions. The driver interacts with backend NVMe devices through local Linux operations and doesn’t make AWS API calls.
+
+### Additional information
+
+To learn more about the add-on, see [Amazon EC2 instance store for Kubernetes volume storage](lis-csi.md "lis-csi.md").
 
 ## Amazon EFS CSI driver
 

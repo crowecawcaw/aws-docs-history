@@ -11,6 +11,7 @@ This chapter covers storage options for Amazon EKS clusters.
 ###### Topics
 
 - [Use Kubernetes volume storage with Amazon EBS](ebs-csi.md "ebs-csi.md")
+- [Amazon EC2 instance store for Kubernetes volume storage](lis-csi.md "lis-csi.md")
 - [Use elastic file system storage with Amazon EFS](efs-csi.md "efs-csi.md")
 - [Use Amazon S3 file system storage with the Amazon EFS CSI driver](s3files-csi.md "s3files-csi.md")
 - [Use high-performance app storage with Amazon FSx for Lustre](fsx-csi.md "fsx-csi.md")

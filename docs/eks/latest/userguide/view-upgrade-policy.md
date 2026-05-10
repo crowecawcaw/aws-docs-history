@@ -18,11 +18,9 @@ You can set the version policy for both new and existing clusters, using the `su
 
 ###### Important
 
-If you want your cluster to stay on its current Kubernetes version to take advantage of the extended support period, you must enable the extended support upgrade policy before the end of standard support period.
+If you want your cluster to stay on its current Kubernetes version to take advantage of the extended support period, we strongly recommend enabling the extended support upgrade policy before the end of the standard support period for your cluster’s Kubernetes version. You can enable extended support after the standard support period ends. However, Amazon EKS cannot guarantee that the change will take effect if an automatic upgrade has already been initiated for your cluster.
 
-You can only set the version support policy for your clusters while its running on Kubernetes version in standard support. Once the version enters extended support, you will not be able to change this setting until you are running on a version in standard support.
-
-For example, if you have set your version support policy as `standard` then you will not be able to change this setting after the Kubernetes version running on your cluster reaches the end of standard support. If you have set your version support policy as `extended` then you will not be able to change this setting after the Kubernetes version running on your cluster reaches end of standard support. In order to change the version support policy setting, your cluster must be running on a standard supported Kubernetes version.
+Once your cluster has entered extended support, you cannot disable it. To change the version support policy setting, your cluster must be running on a Kubernetes version in standard support.
 
 ## View cluster upgrade policy (AWS Console)
 

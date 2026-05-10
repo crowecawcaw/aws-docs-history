@@ -281,41 +281,70 @@ If you receive an error stating "
     	+ **username**: The user name within Kubernetes to map to the IAM user.
     	+ **groups**: The group, or list of Kubernetes groups to map the user to. The group can be a default group, or a group specified in a `clusterrolebinding` or `rolebinding`. For more information, see [Default roles and role bindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#default-roles-and-role-bindings "https://kubernetes.io/docs/reference/access-authn-authz/rbac/#default-roles-and-role-bindings") in the Kubernetes documentation.
 
-3. For example, the following YAML block contains:
-   - A `mapRoles` section that maps the IAM node instance to Kubernetes groups so that nodes can register themselves with the cluster and the `my-console-viewer-role` IAM role that is mapped to a Kubernetes group that can view all Kubernetes resources for all clusters. For a list of the IAM and Kubernetes group permissions required for the `my-console-viewer-role` IAM role, see [Required permissions](view-kubernetes-resources.md#view-kubernetes-resources-permissions "view-kubernetes-resources.md#view-kubernetes-resources-permissions").
-   - A `mapUsers` section that maps the `admin` IAM user from the default AWS account to the `system:masters` Kubernetes group and the `my-user` user from a different AWS account that is mapped to a Kubernetes group that can view Kubernetes resources for a specific namespace. For a list of the IAM and Kubernetes group permissions required for the `my-user` IAM user, see [Required permissions](view-kubernetes-resources.md#view-kubernetes-resources-permissions "view-kubernetes-resources.md#view-kubernetes-resources-permissions").
+=== Template variables for `username` and `groups`
 
-   Add or remove lines as necessary and replace all example values with your own values.
+The `username` and `groups` fields in both `mapRoles` and `mapUsers` entries support template variables that the AWS IAM Authenticator replaces at authentication time. The following template variables are available:
 
-   ```
-   # Please edit the object below. Lines beginning with a '#' will be ignored,
-   # and an empty file will abort the edit. If an error occurs while saving this file will be
-   # reopened with the relevant failures.
-   #
-   apiVersion: v1
-   data:
-     mapRoles: |
-       - groups:
-         - system:bootstrappers
-         - system:nodes
-         rolearn: arn:aws:iam::111122223333:role/my-role
-         username: system:node:{{EC2PrivateDNSName}}
-       - groups:
-         - eks-console-dashboard-full-access-group
-         rolearn: arn:aws:iam::111122223333:role/my-console-viewer-role
-         username: my-console-viewer-role
-     mapUsers: |
-       - groups:
-         - system:masters
-         userarn: arn:aws:iam::111122223333:user/admin
-         username: admin
-       - groups:
-         - eks-console-dashboard-restricted-access-group
-         userarn: arn:aws:iam::444455556666:user/my-user
-         username: my-user
-   ```
+`{{AccountID}}`
 
-4. Save the file and exit your text editor.
+The 12-digit AWS account ID of the authenticated IAM principal.
+
+`{{SessionName}}`
+
+The STS role session name, with `@` characters replaced by `-`. For EC2 instance roles, this is the instance ID. For federated roles, this is the federated identity. For roles assumed with `sts:AssumeRole`, this is the value of the `RoleSessionName` parameter set by the caller.
+
+`{{SessionNameRaw}}`
+
+The raw STS role session name without any character replacement.
+
+`{{AccessKeyID}}`
+
+The AWS access key ID used to authenticate the request.
+
+`{{EC2PrivateDNSName}}`
+
+The private DNS name of the EC2 instance. This variable requires the session name to be a valid EC2 instance ID and makes an `ec2:DescribeInstances` API call.
+
+###### Important
+
+The `{{SessionName}}` and `{{SessionNameRaw}}` values are user-controlled when a role is assumed with `sts:AssumeRole`. The caller sets the `RoleSessionName` parameter to a nearly arbitrary string. If you use these variables in the `username` field, a caller who can assume the mapped role can impersonate any Kubernetes username that doesn’t match a reserved prefix (such as `system:`, `eks:`, `aws:`, `amazon:`, or `iam:`). If you use these variables in the `groups` field, a caller can choose their own Kubernetes group membership by crafting the session name. Only use `{{SessionName}}` or `{{SessionNameRaw}}` in `username` or `groups` if you trust all principals that can assume the role.
+
+- . For example, the following YAML block contains:
+  **A `mapRoles` section that maps the IAM node instance to Kubernetes groups so that nodes can register themselves with the cluster and the `my-console-viewer-role` IAM role that is mapped to a Kubernetes group that can view all Kubernetes resources for all clusters. For a list of the IAM and Kubernetes group permissions required for the `my-console-viewer-role` IAM role, see [Required permissions](view-kubernetes-resources.md#view-kubernetes-resources-permissions "view-kubernetes-resources.md#view-kubernetes-resources-permissions").** A `mapUsers` section that maps the `admin` IAM user from the default AWS account to the `system:masters` Kubernetes group and the `my-user` user from a different AWS account that is mapped to a Kubernetes group that can view Kubernetes resources for a specific namespace. For a list of the IAM and Kubernetes group permissions required for the `my-user` IAM user, see [Required permissions](view-kubernetes-resources.md#view-kubernetes-resources-permissions "view-kubernetes-resources.md#view-kubernetes-resources-permissions").
+
+- Add or remove lines as necessary and replace all example values with your own values.
+
+-
+
+```
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+apiVersion: v1
+data:
+  mapRoles: |
+    - groups:
+      - system:bootstrappers
+      - system:nodes
+      rolearn: arn:aws:iam::111122223333:role/my-role
+      username: system:node:{{EC2PrivateDNSName}}
+    - groups:
+      - eks-console-dashboard-full-access-group
+      rolearn: arn:aws:iam::111122223333:role/my-console-viewer-role
+      username: my-console-viewer-role
+  mapUsers: |
+    - groups:
+      - system:masters
+      userarn: arn:aws:iam::111122223333:user/admin
+      username: admin
+    - groups:
+      - eks-console-dashboard-restricted-access-group
+      userarn: arn:aws:iam::444455556666:user/my-user
+      username: my-user
+```
+
+1. Save the file and exit your text editor.
 
 ## Apply the `aws-auth`   `ConfigMap` to your cluster
 
