@@ -22,9 +22,9 @@ for both sets of customers.
 **What this means for you**
 
 If you are using Amazon Pinpoint engagement features (endpoints, segments, campaigns, journeys,
-and analytics), we recommend you to migrate to Amazon Connect proactive engagement solutions (e.g.,
-[Amazon Connect outbound campaigns](https://aws.amazon.com/connect/outbound/ "https://aws.amazon.com/connect/outbound/") and
-[Amazon Connect Customer
+and analytics), we recommend you to migrate to Connect Customer proactive engagement solutions (e.g.,
+[Amazon Connect Customer outbound campaigns](https://aws.amazon.com/connect/outbound/ "https://aws.amazon.com/connect/outbound/") and
+[Amazon Connect Customer Customer
 Profiles](https://aws.amazon.com/connect/customer-profiles/ "https://aws.amazon.com/connect/customer-profiles/")) to drive personalized, timely engagement across channels with unified
 performance tracking and the ability to manage inbound (e.g., customer support) and outbound
 (e.g., proactive communications) using one unified application. If you are using events
@@ -49,13 +49,13 @@ functionality in SES by October 30, 2026.
 
 ### Customers seeking engagement features
 
-To use the proactive engagement features of Amazon Connect, including segments, message
+To use the proactive engagement features of Connect Customer, including segments, message
 templates, campaigns, journeys, analytics, please follow this guide to migrate Amazon Pinpoint
-engagement capabilities to Amazon Connect.
+engagement capabilities to Connect Customer.
 
 #### Migrate endpoints and segments
 
-Amazon Pinpoint Endpoints can be modeled as Amazon Connect Customer Profiles. Customer Profiles
+Amazon Pinpoint Endpoints can be modeled as Connect Customer Customer Profiles. Customer Profiles
 allows you to combine multiple endpoints into a single profile, allowing up to 3
 email addresses and 4 phone numbers to be modeled as a single Profile. To
 migrate your endpoints, you can
@@ -198,11 +198,11 @@ process_pinpoint_endpoints(input_file, output_file)
 
 Follow the onboarding steps to enable [SMS](../../../connect/latest/adminguide/setup-sms-messaging.md "../../../connect/latest/adminguide/setup-sms-messaging.md") and
 [email](../../../connect/latest/adminguide/setup-email-channel.md "../../../connect/latest/adminguide/setup-email-channel.md")
-communications in Amazon Connect.
+communications in Connect Customer.
 
 #### Migrate templates
 
-Templates in Amazon Connect use the same message rendering engine (Handlebars) as
+Templates in Connect Customer use the same message rendering engine (Handlebars) as
 Amazon Pinpoint. However, the attribute placeholders are represented differently.
 
 1. You can use our existing Amazon Pinpoint APIs to fetch a template (for example,
@@ -213,7 +213,7 @@ Amazon Pinpoint. However, the attribute placeholders are represented differently
    `{{User.UserAttributes.PurchaseHistory}}`. These can now
    be changed to
    `{{Attributes.Customer.Attributes.PurchaseHistory}}`.
-3. Next, create templates in Q in Amazon Connect using the  [create-message-template](../../../cli/latest/reference/qconnect/create-message-template.md "../../../cli/latest/reference/qconnect/create-message-template.md") API or using [this
+3. Next, create templates in Q in Connect Customer using the  [create-message-template](../../../cli/latest/reference/qconnect/create-message-template.md "../../../cli/latest/reference/qconnect/create-message-template.md") API or using [this
    guide](../../../connect/latest/adminguide/create-message-templates1.md "../../../connect/latest/adminguide/create-message-templates1.md") to create message templates.
 
 To map your attributes, follow the mappings you did earlier when you mapped
@@ -222,15 +222,15 @@ Endpoints to Profiles, prefixed with `Attributes.Customer`.
 #### Migrate campaigns
 
 For every campaign, we recommend you use the [get-campaign](../../../cli/latest/reference/pinpoint/get-campaign.md "../../../cli/latest/reference/pinpoint/get-campaign.md")
-API to fetch its definition, and then recreate it in Amazon Connect using the [campaign
+API to fetch its definition, and then recreate it in Connect Customer using the [campaign
 creation guide](../../../connect/latest/adminguide/how-to-create-campaigns.md "../../../connect/latest/adminguide/how-to-create-campaigns.md").
 
 #### Migrate journeys
 
-Journeys are not yet fully supported in Amazon Connect. We recommend you to evaluate
-your journey use cases if they can be solved using Amazon Connect Campaigns. If yes,
+Journeys are not yet fully supported in Connect Customer. We recommend you to evaluate
+your journey use cases if they can be solved using Connect Customer Campaigns. If yes,
 follow the similar approach as above using get-journey API to fetch its
-definition, and then recreate it in Amazon Connect using the campaign creation
+definition, and then recreate it in Connect Customer using the campaign creation
 guide.
 
 ### Events collection and mobile analytics customers
@@ -241,7 +241,7 @@ If you use Amplify SDK to send events to Amazon Pinpoint for updating Endpoints,
 triggering campaign or journeys, or analyzing your application’s usage, you can
 migrate to using Kinesis. Using Kinesis, you can stream events to a compute platform
 of your choice to them send updates to Customer Profiles, which can update the
-application user’s profile and trigger Amazon Connect campaigns.
+application user’s profile and trigger Connect Customer campaigns.
 
 #### Put-Events customers
 
@@ -252,7 +252,7 @@ Kinesis.
 #### Unavailable features
 
 As of now, the following Amazon Pinpoint engagement features are not available in
-Amazon Connect.
+Connect Customer.
 
 - In-App Messaging
 - PUSH (GCM, APNS, BAIDU, etc.) notifications in Campaigns
@@ -508,9 +508,9 @@ The following additional resources are available:
 
 - [Amazon Pinpoint website](https://aws.amazon.com/pinpoint/ "https://aws.amazon.com/pinpoint/")
 - [Amazon Pinpoint User Guide](welcome.md "welcome.md")
-- [Amazon Connect outbound
+- [Amazon Connect Customer outbound
   campaigns](https://aws.amazon.com/connect/outbound/ "https://aws.amazon.com/connect/outbound/")
-- [Amazon Connect Customer
+- [Amazon Connect Customer Customer
   Profiles](https://aws.amazon.com/connect/customer-profiles/ "https://aws.amazon.com/connect/customer-profiles/")
 - [Amazon Kinesis website](https://aws.amazon.com/kinesis/ "https://aws.amazon.com/kinesis/")
 - [AWS End User

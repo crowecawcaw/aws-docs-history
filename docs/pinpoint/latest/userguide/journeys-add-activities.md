@@ -230,8 +230,8 @@ about verifying destination numbers, see [SMS sandbox](../../../sms-voice/latest
 ### Set up a contact center activity
 
 When a journey participant arrives on a **Send through a contact
-center** activity, Amazon Pinpoint places them into an Amazon Connect outbound campaigns
-(referred to in Amazon Pinpoint as an _Amazon Connect campaign_). You can configure
+center** activity, Amazon Pinpoint places them into an Connect Customer outbound campaigns
+(referred to in Amazon Pinpoint as an _Connect Customer campaign_). You can configure
 this activity type to dial the journey participant's phone number and either connect
 them to an agent, or play a voice message.
 
@@ -241,7 +241,7 @@ contact center** activity, all of the preceding activities between the
 contact center activity and previous messaging activity that involve a
 **Multivariate split** or **Yes/no split**
 activities are reevaluated immediately before the participant's phone number is
-entered into the Amazon Connect queue to be dialed. If there is no messaging activity before
+entered into the Connect Customer queue to be dialed. If there is no messaging activity before
 the contact center activity, then the journey entry criteria is also reevaluated.
 
 The purpose of this reevaluation process is to make sure that the journey
@@ -264,7 +264,7 @@ transaction. In this scenario, the "yes" branch of the yes/no split (for
 participants who complete the transaction) sends a follow-up email, while the "no"
 branch (for participants who didn't complete the transaction) leads to a contact
 center activity. Participants who arrive on the contact center activity remain there
-until the call is queued successfully to Amazon Connect. When an agent becomes available, the
+until the call is queued successfully to Connect Customer. When an agent becomes available, the
 journey reevaluates the participant's attributes against the criteria in the journey
 entry step and the yes/no split activity.
 
@@ -277,10 +277,10 @@ Contact Center activities are not supported in event triggered journeys.
 Before you can add a contact center activity to a journey, you must do the
 following:
 
-- Create an Amazon Connect account and instance.
-- Use Amazon AppIntegrations to enable high-volume outbound campaigns for your Amazon Connect
+- Create an Connect Customer account and instance.
+- Use Amazon AppIntegrations to enable high-volume outbound campaigns for your Connect Customer
   instance.
-- Enable your Amazon Connect instance for outbound calling.
+- Enable your Connect Customer instance for outbound calling.
 - Create a dedicated outbound communications queue to handle any
   contacts that will be routed to agents because of the campaign. The
   queue must be assigned to the agent's routing profile.
@@ -288,9 +288,9 @@ following:
   progress** block. This block enables you to branch based on
   whether a person answered the phone, for example, or a voice mail was
   detected.
-- Make sure that the Amazon Connect queue you plan to use has an outbound number
+- Make sure that the Connect Customer queue you plan to use has an outbound number
   defined in the queue.
-- In IAM, create a policy and role that allow Amazon Connect to send messages
+- In IAM, create a policy and role that allow Connect Customer to send messages
   through Amazon Pinpoint.
 
 ###### Note
@@ -309,24 +309,24 @@ dials until the IAM configuration is reinstated with the original
 set of roles, access policies, and permissions.
 
 You can find procedures for completing these tasks in steps 1–5 of
-[Make predictive and progressive calls using Amazon Connect outbound](https://aws.amazon.com/blogs/contact-center/make-predictive-and-progressive-calls-using-amazon-connect-high-volume-outbound-communications/ "https://aws.amazon.com/blogs/contact-center/make-predictive-and-progressive-calls-using-amazon-connect-high-volume-outbound-communications/") on the
+[Make predictive and progressive calls using Connect Customer outbound](https://aws.amazon.com/blogs/contact-center/make-predictive-and-progressive-calls-using-amazon-connect-high-volume-outbound-communications/ "https://aws.amazon.com/blogs/contact-center/make-predictive-and-progressive-calls-using-amazon-connect-high-volume-outbound-communications/") on the
 AWS Contact Center blog.
 
 #### Setting up a contact center activity
 
-You can connect your journey to an existing Amazon Connect outbound campaign, or click
-to build an Amazon Connect outbound campaign.
+You can connect your journey to an existing Connect Customer outbound campaign, or click
+to build an Connect Customer outbound campaign.
 
 Note the following considerations when using contact center activities in
 Amazon Pinpoint:
 
 - You can only use three contact center activities in a Journey.
-- You can only use one Amazon Connect campaign per journey. If a journey contains
-  multiple contact center activities, and you change the Amazon Connect campaign
+- You can only use one Connect Customer campaign per journey. If a journey contains
+  multiple contact center activities, and you change the Connect Customer campaign
   for one activity, the change is reflected in all other contact center
   activities in the same journey.
-- You can use a single Amazon Connect campaign in multiple journeys. Amazon Pinpoint shows
-  a warning if the Amazon Connect campaign is already in use when you publish the
+- You can use a single Connect Customer campaign in multiple journeys. Amazon Pinpoint shows
+  a warning if the Connect Customer campaign is already in use when you publish the
   journey.
 - Your phone numbers of your customers must exist in Amazon Pinpoint as voice
   endpoints.
@@ -335,25 +335,25 @@ Amazon Pinpoint:
   international public telecommunication numbering plan](https://www.itu.int/rec/T-REC-E.164/en "https://www.itu.int/rec/T-REC-E.164/en") on the
   International Telecommunications Union website.
 
-##### Using an existing Amazon Connect campaign
+##### Using an existing Connect Customer campaign
 
 1. Choose **Add activity**.
 2. For **Add an activity**, choose **Send
    through a contact center**.
-3. Choose the **Amazon Connect instance** that you want to
+3. Choose the **Connect Customer instance** that you want to
    use.
-4. Choose the **Amazon Connect outbound campaign** from the
+4. Choose the **Connect Customer outbound campaign** from the
    dropdown list.
-5. (Optional) You can choose **Build an Amazon Connect outbound
-   campaign**, which directs you to Amazon Connect.
+5. (Optional) You can choose **Build an Connect Customer outbound
+   campaign**, which directs you to Connect Customer.
 6. For **IAM role**, complete one of the following
    steps:
    1. If you want to have Amazon Pinpoint create a role that allows it to
-      pass phone numbers to Amazon Connect, select **Automatically
+      pass phone numbers to Connect Customer, select **Automatically
       create a role**. Then, for IAM role, enter a
       unique name for the new role that you're creating.
    2. If you've already created an IAM role that allows Amazon Pinpoint
-      to pass phone numbers to Amazon Connect, select **Choose an
+      to pass phone numbers to Connect Customer, select **Choose an
       existing role**. Then, for IAM role, select a
       role that contains the appropriate permissions.
 
@@ -362,7 +362,7 @@ Amazon Pinpoint:
    appears as the activity's label.
 8. When you finish, choose **Save**.
 
-![The send through a contact center window to set up an Amazon Connect activity.](images/journeys-create-step-3-add-activities-procedures-contact-center-option-1.png)
+![The send through a contact center window to set up an Connect Customer activity.](images/journeys-create-step-3-add-activities-procedures-contact-center-option-1.png)
 
 ### Set up a custom message channel activity
 

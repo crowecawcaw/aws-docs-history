@@ -190,7 +190,7 @@ channel** activities.
   couldn't be delivered through a **Send through a contact
   center** activity because an issue prevented the number from
   being dialed. This type of failure can occur if there are permissions issues
-  that prevent the call from being made, if an Amazon Connect service quota has been
+  that prevent the call from being made, if an Connect Customer service quota has been
   exceeded, or if a transient service issue occurs.
 - **Removed due to re-evaluation** – The number of
   endpoints that were removed from the journey because of the re-evaluation
@@ -468,7 +468,7 @@ The following call metrics are available:
   then calls received by answering machines won't be included in the
   **Connected** metric. Otherwise, if answering
   machine detection is disabled they are included. For more
-  information about answering machine detection, see [AnswerMachine DetectionConfig](../../../connect/latest/APIReference/API_connect-outbound-campaigns_AnswerMachineDetectionConfig.md "../../../connect/latest/APIReference/API_connect-outbound-campaigns_AnswerMachineDetectionConfig.md") in the _Amazon Connect
+  information about answering machine detection, see [AnswerMachine DetectionConfig](../../../connect/latest/APIReference/API_connect-outbound-campaigns_AnswerMachineDetectionConfig.md "../../../connect/latest/APIReference/API_connect-outbound-campaigns_AnswerMachineDetectionConfig.md") in the _Connect Customer
   Outbound Campaigns API Reference_.
 - **SIT tone** – The number of calls that
   received a busy tone.
