@@ -17,4 +17,4 @@ data, incident data, and performance data.
   **Performance data**
 
 - Service Level Objective (SLO) performance
-  Reach our to your technical account manager for operational and performance data you may need.
+  Reach out to your Technical Account Manager for operational and performance data you may need.
