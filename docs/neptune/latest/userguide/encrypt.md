@@ -40,11 +40,22 @@ can be the AWS KMS key alias instead of the key's ARN.
 
 ###### Important
 
-If Neptune loses access to the encryption key for a Neptune DB instance—for example, when
-Neptune access to a key is revoked—the encrypted DB instance is placed into a
-terminal state and can only be restored from a backup. We strongly recommend that you always
-enable backups for encrypted NeptuneDB instances to guard against the loss of encrypted
-data in your databases.
+If you disable the AWS KMS key for an encrypted DB cluster, Neptune loses access to
+the key and the encrypted DB cluster enters the
+`inaccessible-encryption-credentials-recoverable` state. The DB cluster
+remains in this state for seven days, during which it is stopped and API calls to the
+DB cluster might not succeed. During this window, re-enable the AWS KMS key and then
+restart the DB cluster by stopping it and starting it again (see
+[Stopping and starting an Amazon Neptune DB cluster](manage-console-stop-start.md "manage-console-stop-start.md")) to recover it.
+
+If you don't recover the DB cluster within seven days, it enters the terminal
+`inaccessible-encryption-credentials` state. In this state, the DB cluster
+is no longer usable and you can only restore it from a backup. To restore the DB cluster,
+restore from the latest DB cluster snapshot. For more information, see
+[Restoring from a DB Cluster Snapshot](backup-restore-restore-snapshot.md "backup-restore-restore-snapshot.md").
+
+We strongly recommend that you always enable backups for encrypted Neptune DB
+clusters to guard against the loss of encrypted data in your databases.
 
 ## Key permissions needed when enabling encryption
 

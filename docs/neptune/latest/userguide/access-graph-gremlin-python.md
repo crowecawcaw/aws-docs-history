@@ -75,13 +75,19 @@ is required to submit the traversal to the server for evaluation.
 If you don't include that method or another equivalent method,
 the query is not submitted to the Neptune DB instance.
 
-The following methods submit the query to the Neptune DB instance:
+The following are examples of methods that submit the query to the Neptune DB instance:
 
     * `toList()`
     * `toSet()`
     * `next()`
-    * `nextTraverser()`
     * `iterate()`
+
+These terminal steps behave differently in script mode and bytecode mode.
+For the canonical list of terminal steps and details about how they affect transactions,
+see [Test Gremlin code in the context where you will deploy it](best-practices-gremlin-console-glv-differences.md "best-practices-gremlin-console-glv-differences.md").
+
+Use `iterate()` when you don't need the results of your queries
+(e.g. mutations) as it saves serialization costs.
 
 The preceding example returns the first two vertices in the graph by using the
 `g.V().limit(2).toList()` traversal. To query for something else, replace it

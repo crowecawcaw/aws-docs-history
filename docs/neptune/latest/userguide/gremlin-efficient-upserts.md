@@ -10,6 +10,14 @@ concurrent write scenarios where concurrent modifications to the same part of th
 can force one or more transactions to roll back with a `ConcurrentModificationException`,
 thereby necessitating retries.
 
+###### Note
+
+The `mergeV()` and `mergeE()` steps require Neptune engine
+version [1.2.1.0](engine-releases-1.2.1.0.md "engine-releases-1.2.1.0.md") or later, which introduced
+TinkerPop 3.6 support. If your cluster is running an older engine version, see
+[Efficient upserts before 3.6.x](gremlin-efficient-upserts-pre-3.6.md "gremlin-efficient-upserts-pre-3.6.md") instead. You can check your
+current engine version using the [instance status](access-graph-status.md "access-graph-status.md") endpoint.
+
 For example, the following query upserts a vertex by using the supplied `Map`
 to first try to find a vertex with a `T.id` of `"v-1"`. If that
 vertex is found then it is returned. If it is not found then a vertex with that `id`

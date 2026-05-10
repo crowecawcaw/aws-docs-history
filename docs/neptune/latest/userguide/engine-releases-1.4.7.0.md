@@ -3,14 +3,6 @@
 As of 2026-03-03, engine version 1.4.7.0 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
 
-###### Important
-
-**Upgrade Temporarily Unavailable**
-
-Upgrades to Neptune engine version 1.4.7.0 are not available at this time due
-to known issues related to upgrades of Global Database (GDB) clusters. We expect to
-enable upgrades in few weeks.
-
 ## New Features in This Engine Release
 
 - openCypher read from S3 support for Parquet and CSV files via OC. See the

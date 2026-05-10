@@ -97,16 +97,19 @@ The final part of the Gremlin query, `Next()`, is required to submit the
 traversal to the server for evaluation. If you don't include that method or another
 equivalent method, the query is not submitted to the Neptune DB instance.
 
-The following methods submit the query to the Neptune DB instance:
+The following are examples of methods that submit the query to the Neptune DB instance:
 
     * `ToList()`
     * `ToSet()`
     * `Next()`
-    * `NextTraverser()`
     * `Iterate()`
 
-Use `Next()` if you need the query results to be serialized and
-returned, or `Iterate()` if you don't.
+These terminal steps behave differently in script mode and bytecode mode.
+For the canonical list of terminal steps and details about how they affect transactions,
+see [Test Gremlin code in the context where you will deploy it](best-practices-gremlin-console-glv-differences.md "best-practices-gremlin-console-glv-differences.md").
+
+Use `Iterate()` when you don't need the results of your queries
+(e.g. mutations) as it saves serialization costs.
 
 The preceding example returns a list by using the `g.V().Limit(3).ToList()`
 traversal. To query for something else, replace it with another Gremlin traversal with

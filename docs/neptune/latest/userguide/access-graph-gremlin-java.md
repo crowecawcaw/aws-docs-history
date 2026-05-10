@@ -231,13 +231,18 @@ equivalent method, the query is not submitted to the Neptune DB instance.
 You also must append an appropriate ending when you add a vertex or edge, such as
 when you use the `addV( )` step.
 
-The following methods submit the query to the Neptune DB instance:
+The following are examples of methods that submit the query to the Neptune DB instance:
 
 - `toList()`
 - `toSet()`
 - `next()`
-- `nextTraverser()`
 - `iterate()`
+  Use `iterate()` when you don't need the results of your queries
+  (e.g. mutations) as it saves serialization costs.
+
+These terminal steps behave differently depending on whether you submit queries
+as strings (script mode) or as bytecode traversal objects (bytecode mode). The
+differences are especially important for transaction handling. For details, see [Test Gremlin code in the context where you will deploy it](best-practices-gremlin-console-glv-differences.md "best-practices-gremlin-console-glv-differences.md").
 
 ## SSL/TLS configuration for Gremlin Java client
 
