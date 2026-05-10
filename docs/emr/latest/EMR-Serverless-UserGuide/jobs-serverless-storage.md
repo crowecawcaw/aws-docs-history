@@ -126,8 +126,30 @@ to **false**.
 
 ## Supported AWS Regions
 
-EMR Serverless support serverless storage in the following regions:
+EMR Serverless supports serverless storage in the following regions:
 
 - US East (N. Virginia)
+- US East (Ohio)
+- US West (N. California)
 - US West (Oregon)
+- Africa (Cape Town)
+- Asia Pacific (Hong Kong)
+- Asia Pacific (Jakarta)
+- Asia Pacific (Melbourne)
+- Asia Pacific (Mumbai)
+- Asia Pacific (Osaka)
+- Asia Pacific (Seoul)
+- Asia Pacific (Singapore)
+- Asia Pacific (Sydney)
+- Asia Pacific (Tokyo)
+- Canada (Central)
+- Canada West (Calgary)
+- Europe (Frankfurt)
 - Europe (Ireland)
+- Europe (London)
+- Europe (Milan)
+- Europe (Paris)
+- Europe (Spain)
+- Europe (Stockholm)
+- Europe (Zurich)
+- South America (São Paulo)
