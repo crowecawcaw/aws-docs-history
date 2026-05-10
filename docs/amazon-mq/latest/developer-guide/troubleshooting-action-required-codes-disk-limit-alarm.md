@@ -4,6 +4,7 @@ Disk limit alarm is an indication that the volume of disk used by a RabbitMQ nod
 a high number of messages not consumed while new messages were added. RabbitMQ will raise a disk limit alarm when the broker's
 free disk space, identified by Amazon CloudWatch metric `RabbitMQDiskFree`, reaches the disk limit, identified by `RabbitMQDiskFreeLimit`.
 `RabbitMQDiskFreeLimit` is set by Amazon MQ and has been defined considering the disk space available for each broker instance type.
+For more information, see [Memory and disk alarms](rmq-broker-instance-types.md#rabbitmq-memory-disk-thresholds "rmq-broker-instance-types.md#rabbitmq-memory-disk-thresholds").
 
 An RabbitMQ on Amazon MQ broker that has raised a disk limit alarm will become unavailable for new messages being published.
 If you have a publisher and consumer on the same connection, the consumer will also be unavailable to receive messages.

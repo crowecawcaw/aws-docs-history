@@ -24,7 +24,7 @@ to continue to use the same endpoint to connect to the broker.
 
 The following diagram illustrates an Amazon MQ for RabbitMQ single-instance broker.
 
-![Diagram showing client, load balancer, Amazon MQ broker, and EBS volume in AWS Cloud.](images/amazon-mq-rabbitmq-broker-architecture-single-broker.png)
+![Client connecting through Network Load Balancer to Amazon MQ Broker and EBS Volume in us-west-2a.](images/amazon-mq-rabbitmq-broker-architecture-single-broker.png)
 
 ## Option 2: Amazon MQ for RabbitMQ cluster deployment
 

@@ -13,7 +13,7 @@ To diagnose and resolve high memory alarm, first follow all [best practices](bes
 ###### Important
 
 - `RabbitMQMemLimit` is set by Amazon MQ and is specifically tuned considering the memory available for
-  each host instance type.
+  each host instance type. For more information, see [Memory and disk alarms](rmq-broker-instance-types.md#rabbitmq-memory-disk-thresholds "rmq-broker-instance-types.md#rabbitmq-memory-disk-thresholds").
 - Amazon MQ will not restart a broker experiencing a high memory alarm and will return an exception for
   [`RebootBroker`](../api-reference/brokers-broker-id-reboot.md "../api-reference/brokers-broker-id-reboot.md") API
   operations as long as the broker continues to raise the alarm.

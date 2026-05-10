@@ -2,9 +2,8 @@
 
 Amazon MQ supports RabbitMQ 4.2 in the RabbitMQ 4 release series only on the mq.m7g instance type across all supported instance sizes.
 
-###### Important
-
-You can only create new brokers on RabbitMQ 4.2. In place upgrades from RabbitMQ 3.13 are not currently supported.
+Amazon MQ supports in-place upgrades from RabbitMQ 3.13 to RabbitMQ 4.2. For more information, see
+[Upgrading from RabbitMQ 3 to 4](upgrading-rabbitmq-v3-to-v4.md "upgrading-rabbitmq-v3-to-v4.md").
 
 ###### Important
 

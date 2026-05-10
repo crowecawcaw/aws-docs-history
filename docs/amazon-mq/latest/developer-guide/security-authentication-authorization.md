@@ -173,7 +173,7 @@ To provide the correct `userRoleName` for the example above, you would specify t
 
 The following image highlights where to specify these optional settings.
 
-![Optional settings for LDAP attributes and search scope in role search matching.](images/amazon-mq-active-ldap-optional-settings.png)
+![Optional settings section with fields for User Role Name, Role Name, and checkboxes for subtree search.](images/amazon-mq-active-ldap-optional-settings.png)
 
 ## How LDAP integration works
 

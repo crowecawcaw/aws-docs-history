@@ -15,12 +15,12 @@ low-latency and high throughput. For more information about storage options, see
 The following diagram illustrates a single-instance broker with Amazon EFS storage
 replicated across multiple AZs.
 
-![Diagram showing client, Amazon MQ broker, and EFS volume in AWS Cloud availability zone.](images/amazon-mq-activemq-broker-architecture-single-broker-efs.png)
+![Client connecting to Amazon MQ Broker in us-west-2a availability zone with EFS Volume storage.](images/amazon-mq-activemq-broker-architecture-single-broker-efs.png)
 
 The following diagram illustrates a single-instance broker with Amazon EBS storage
 replicated across multiple servers within a single AZ.
 
-![Diagram showing client, Amazon MQ broker, and EBS volume within AWS Cloud availability zone.](images/amazon-mq-activemq-broker-architecture-single-broker-ebs.png)
+![Client connecting to Amazon MQ Broker and EBS Volume within availability zone us-west-2a.](images/amazon-mq-activemq-broker-architecture-single-broker-ebs.png)
 
 ## Option 2: Amazon MQ active/standby brokers for high availability
 
@@ -47,4 +47,4 @@ For wire-level protocol endpoints, you should allow your application to connect 
 The following diagram illustrates an active/standby broker with Amazon EFS storage
 replicated across multiple AZs.
 
-![Active/standby Amazon MQ broker setup with EFS volume across multiple availability zones.](images/amazon-mq-activemq-broker-architecture-active-standby.png)
+![Active MQ broker in us-west-2a and standby broker in us-west-2b, both connected to client and EFS volume.](images/amazon-mq-activemq-broker-architecture-active-standby.png)

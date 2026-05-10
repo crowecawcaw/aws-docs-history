@@ -5,7 +5,17 @@ Amazon MQ brokers on version 3.13 or above
 by creating a new virtual host on the same cluster,
 or by migrating in place.
 
-## Option 1: Migrating from classic mirrored queues to quorum queues with a new virtual host
+## Option 1: Migrating from classic mirrored queues to quorum queues with Amazon MQ for RabbitMQ queue migration tool
+
+Amazon MQ provides a queue migration tool to migrate classic queues to quorum queues.
+The tool is accessible through the RabbitMQ web console under
+**Admin** > **Queue Migration**, or through
+the HTTP API.
+
+To use the tool see,
+[Amazon MQ queue migration tool](https://github.com/amazon-mq/rabbitmq-queue-migration "https://github.com/amazon-mq/rabbitmq-queue-migration").
+
+## Option 2: Migrating from classic mirrored queues to quorum queues with a new virtual host
 
 You can migrate your classic mirrored queues to quorum queues on
 Amazon MQ brokers on version 3.13 or above

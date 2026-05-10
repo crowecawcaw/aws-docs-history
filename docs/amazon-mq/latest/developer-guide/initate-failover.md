@@ -18,12 +18,12 @@ In this process, the client in the primary broker’s VPC is unable to produce f
 When the replication queue is drained and the two brokers achieve identical state, the client in the replica broker’s VPC is unable to connect to the replica broker until the failover operation completes,
 and the replica broker is promoted to primary.
 
-![Diagram showing broker switchover process between us-east-1 and us-west-2 regions with replication traffic.](images/planned-failover-process.png)
+![Broker switchover with primary broker demotion in us-east-1 and replica promotion in us-west-2.](images/planned-failover-process.png)
 
 The following diagram illustrates the broker status after the switchover process is complete. The original replica broker has now been promoted to the primary broker role and is accepting client connections.
 The client can produce and consume data from the broker.
 
-![Diagram showing broker status after switchover, with primary broker in us-west-2 and replica in us-east-1.](images/finished-failover-process.png)
+![Primary broker in us-west-2 connects to EC2 client, with failed replica broker in us-east-1.](images/finished-failover-process.png)
 
 ## Promote the replica broker using the console
 
