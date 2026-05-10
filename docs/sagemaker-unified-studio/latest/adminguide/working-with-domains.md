@@ -9,7 +9,7 @@ units.
 Amazon SageMaker Unified Studio supports two distinct domain types to accommodate different organizational
 needs and authentication approaches:
 
-- **Identity Center-based domains** - Use AWS IAM Identity
+- **Identity Center-based domains** - Uses AWS IAM Identity
   Center for user authentication and management. These domains support single sign-on (SSO)
   through identity providers and provide centralized user management capabilities. You can
   create these domains using either quick setup or manual setup options through the Amazon
@@ -23,10 +23,10 @@ multi-Region support. To use this feature, your IAM Identity Center instance mus
 connected to an external identity provider (IdP). For information about setting up IAM
 Identity Center multi-Region, see [Using IAM Identity Center across multiple AWS Regions](../../../singlesignon/latest/userguide/multi-region-iam-identity-center.md "../../../singlesignon/latest/userguide/multi-region-iam-identity-center.md").
 
-- **IAM-based domains** - Use AWS Identity and Access
-  Management (IAM) roles for authentication and access control. These domains provide an
-  additional path to setup and manage your data and AI development environment using federated
-  IAM roles for login and execution. Only one IAM-based domain is available per AWS
+- **IAM-based domains** - Uses AWS Identity and Access
+  Management (IAM) roles and AWS IAM Identity Center for authentication and access control. These domains provide an
+  additional path to set up and manage your data and AI development environment using federated
+  IAM roles for the execution IAM role. Only one IAM-based domain is available per AWS
   Account.
   Both domain types provide access to the same core Amazon SageMaker Unified Studio capabilities for data analytics,
   machine learning, and AI development, but use different authentication mechanisms and setup

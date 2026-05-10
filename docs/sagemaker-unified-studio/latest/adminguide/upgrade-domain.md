@@ -19,15 +19,8 @@ review these important considerations to ensure a smooth upgrade process.
     create a new [AmazonSageMakerDomainService](AmazonSageMakerDomainService.md "AmazonSageMakerDomainService.md") role. This is a service role for domain
     level actions performed by Amazon SageMaker Unified Studio.
 
-- Root domain ownership considerations:
-  - IAM users or SSO users/groups can be optionally assigned as root domain owners
-    during the upgrade process.
-  - If the root domain unit only has IAM roles assigned as owners, it is
-    recommended that you add an IAM user or an SSO user/group as owner. For more
-    information, see [User management](user-management.md "user-management.md") in the Amazon SageMaker Unified Studio Administrator Guide.
-  - **Important**: IAM roles cannot log in to the
-    Amazon SageMaker Unified Studio.
-
+- Root domain ownership considerations – You can optionally assign IAM users or
+  SSO users and groups as root domain owners during the upgrade process.
 - Associated accounts and AWS Resource Access Manager (AWS RAM) changes:
   - Associated accounts use resource shares from AWS RAM to permit API actions
     from the root domain account.

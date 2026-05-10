@@ -1,17 +1,17 @@
 # Set up projects within an IAM-based domain
 
-To create a project within an IAM-based domain you assign Member IAM role or user and
-Execution IAM role, configure execution permissions for the execution role, and set up
+To create a project within an IAM-based domain, you assign project members (IAM or
+single sign-on) and an Execution IAM role, configure execution permissions, and set up
 storage options. By default, projects can access resources within the domain's AWS
 account. You can configure the project execution IAM role to access data and resources
-across AWS accounts and regions.
+across AWS accounts and Regions.
 
 ## Preparing IAM roles
 
-**Member IAM role:**
+**Project Members**
 
-- [SageMakerStudioUserIAMConsolePolicy](security-iam-awsmanpol-SageMakerStudioUserIAMConsolePolicy.md "security-iam-awsmanpol-SageMakerStudioUserIAMConsolePolicy.md") must be attached or have the same
-  permissions added via another policy.
+- For IAM role or user project members, [SageMakerStudioUserIAMConsolePolicy](security-iam-awsmanpol-SageMakerStudioUserIAMConsolePolicy.md "security-iam-awsmanpol-SageMakerStudioUserIAMConsolePolicy.md") must be attached or have the same
+  permissions added through another policy.
 
 **Execution IAM role:**
 
@@ -22,31 +22,36 @@ across AWS accounts and regions.
   services. A trust policy is needed to allow Amazon SageMaker Unified Studio and related services to
   assume this execution IAM role.
 
-## Create new project from domain administration page
+## Create a project from the domain administration page
 
-1. From the domain administration page, choose Projects in the left navigation
-   pane.
-2. Choose Create project. This will open up the create project panel.
-3. Give the project a name and choose Next.
-4. Select a Member role or user.
-5. Select an Execution role, choose either to Auto-create a new role with
-   permissions or Use an existing role.
-6. Choose Create.
-7. You should see a Creating project notification.
-8. Once the project is successfully created, you should see an entry in the
-   projects table with the project name.
+1. From the domain administration page, choose **Projects** in the
+   left navigation pane.
+2. Choose **Create project**.
+3. Enter a project name and description, and then choose
+   **Next**.
+4. For **Execution role**, choose either **Auto-create a
+   new role with permissions** or **Use an existing
+   role**.
+5. For **Storage**, choose either to create a new Amazon S3 bucket
+   or use an existing Amazon S3 bucket, and then choose
+   **Next**.
+6. Add members to your project. Choose IAM or single sign-on users to add as
+   members. You can assign up to 8 members at a time. You can add more members after
+   the project is created.
+7. For each member, assign a **Designation**.
+8. Choose **Create**.
 
-## Prepare other IAM roles for other users to self-service setup projects
+## Prepare IAM roles and users for self-service project setup
 
-You can configure other IAM roles in your account to self-setup their Amazon SageMaker Unified Studio
-project within your IAM-based domain. You must add additional permissions and policies
-to the existing IAM roles to allow them to setup their own project using the Member IAM
-role for login and Execution IAM role for accessing data and resources within the
-project. This enables users from AWS console to create projects using these roles from
-AWS Services - Amazon Athena, Amazon S3 Tables, and Amazon
-Redshift.
+You can configure IAM roles and users in your account to set up their own
+Amazon SageMaker Unified Studio project within your IAM-based domain. You must add permissions and
+policies to the existing IAM roles and users to allow them to set up their own project
+using the project member for login and the execution IAM role for accessing data and
+resources within the project. This configuration enables users to create projects from
+the AWS Management Console using these roles and users, or from AWS services such as
+Amazon Athena, Amazon S3 Tables, and Amazon Redshift.
 
-**Member IAM role:**
+**Project member IAM role and user:**
 
 1. Login to the IAM role (defined in [Overview of IAM-based domains](iam-based-domains-overview.md "iam-based-domains-overview.md") ) with AWS IAM administrator
    privileges defined in the pre-requisites.

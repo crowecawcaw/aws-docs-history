@@ -1,11 +1,11 @@
 # Projects in IAM-based domains
 
 Projects in IAM-based domains provide isolated environments for data analytics and AI/ML
-development work. Each project has one IAM role for login, one IAM role for accessing data
-and resources, and storage configurations that determine what resources and data project
-members can access from within the project. All members for a project within an IAM-based
-domain have the same access to data and compute, this is managed through the execution IAM
-role for the project.
+development work. Each project has one IAM role for accessing data and resources, IAM and
+SSO credentials for login, and storage configurations. These configurations determine what
+resources and data project members can access from within the project. All members of a
+project within an IAM-based domain have the same access to data and compute. This access is
+managed through the execution IAM role for the project.
 
 Projects can be created in the following ways:
 
@@ -14,13 +14,12 @@ Projects can be created in the following ways:
 2. The Amazon SageMaker Unified Studio admin prepares IAM roles for self-setup of projects created
    directly from AWS services - Amazon Athena, Amazon S3 Tables, and
    Amazon Redshift.
-   Projects within IAM-based domains require two IAM roles:
+   Projects within IAM-based domains require a project member and an Execution IAM role:
 
-- **Member IAM role or user** – Authenticates users and
-  provides access to the Amazon SageMaker Unified Studio project. This role or user must have the
+- **Project member** – An IAM role or user that
+  provides access to the Amazon SageMaker Unified Studio project. For IAM, the role or user must have the
   SageMakerStudioUserIAMConsolePolicy managed policy attached, or equivalent permissions
-  through another policy. Use this role to access your assigned project from the
-  Amazon SageMaker Unified Studio interface.
+  through another policy. Log in to Amazon SageMaker Unified Studio to view the projects that you have access to.
 - **Execution IAM role** – Defines which AWS analytics,
   AI, and ML service data the project can access. This role determines available data and
   resources in the portal. Amazon SageMaker Unified Studio assumes this role to make service calls on behalf

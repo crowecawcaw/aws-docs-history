@@ -56,9 +56,8 @@ release, AWS Glue (SageMaker Lakehouse) is supported, make your data discoverabl
 other users in the domain, and note the owner project that is auto-created for you and
 where this onboarded data will be accessible in Amazon SageMaker Unified Studio. For more information, see
 [Onboarding data in Amazon SageMaker Unified Studio](data-onboarding.md "data-onboarding.md"). 6. On the **Create IAM Identity Center user** page, create a single sign-on user
-(account with IAM Identity Center) or select an existing single sign-on user to log in to the
-Amazon SageMaker Unified Studio. IAM roles that create the Amazon SageMaker unified domains cannot log in to
-the Amazon SageMaker Unified Studio. The single sign-on user selected here is used as the administrator in the
+(account with IAM Identity Center) or choose an existing single sign-on user to log in to
+Amazon SageMaker Unified Studio. The single sign-on user that you choose here serves as the administrator in
 Amazon SageMaker Unified Studio.
 
 ###### Note
