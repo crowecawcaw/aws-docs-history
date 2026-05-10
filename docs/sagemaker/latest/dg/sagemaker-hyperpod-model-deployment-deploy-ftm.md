@@ -1,6 +1,7 @@
-# Deploy custom fine-tuned models from Amazon S3 and Amazon FSx using kubectl
+# Deploy models from Amazon S3, Amazon FSx, or Hugging Face Hub using kubectl
 
-The following steps show you how to deploy models stored on Amazon S3 or Amazon FSx to a
+The following steps show you how to deploy models stored on Amazon S3, Amazon FSx, or
+Hugging Face Hub to a
 Amazon SageMaker HyperPod cluster using kubectl.
 
 The following instructions contain code cells and commands designed to run in a
@@ -348,6 +349,105 @@ Using Amazon S3 as the model source
     EOF
     ```
 
+Using Hugging Face Hub as the model source
+
+    1. Create a Kubernetes Secret containing your Hugging Face API token. This token is required for gated models and recommended for all downloads. You can generate a token at [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens "https://huggingface.co/settings/tokens").
+
+
+    ###### Important
+
+    Deploying models from Hugging Face Hub requires outbound internet access from your cluster nodes to Hugging Face domains including `*.huggingface.co` and `*.hf.co`. Ensure that your VPC networking configuration (NAT gateway, security groups, and network ACLs) allows HTTPS egress to these domains. Without internet access, the model download will fail.
+
+
+    ###### Note
+
+    For production environments, we recommend using Amazon S3 or Amazon FSx as the model source instead of Hugging Face Hub. With Amazon S3 and Amazon FSx, model artifacts are stored within your AWS account, eliminating the dependency on external internet connectivity and providing more predictable deployment times. Hugging Face Hub is best suited for development, experimentation, and quick prototyping where direct access to the Hugging Face model repository is convenient.
+
+
+
+    ```
+    kubectl create secret generic hf-token-secret \
+      --from-literal=token=hf_YOUR_TOKEN_HERE \
+      -n $CLUSTER_NAMESPACE
+    ```
+    2. Set up a SageMaker endpoint name.
+
+
+
+    ```
+    export SAGEMAKER_ENDPOINT_NAME="mistral7b-hf"
+    ```
+    3. The following is an example YAML file for deploying a Mistral 7B model from Hugging Face Hub using vLLM as the inference runtime. With `prefetchEnabled: true`, the operator uses an init container to download the model before the inference container starts.
+
+
+    ###### Note
+
+    For clusters with GPU partitioning enabled, replace `nvidia.com/gpu` with the appropriate MIG resource name such as `nvidia.com/mig-1g.10gb`. For more information, see [Task Submission with MIG](sagemaker-hyperpod-eks-gpu-partitioning-task-submission.md "sagemaker-hyperpod-eks-gpu-partitioning-task-submission.md").
+
+
+
+    ```
+    cat <<EOF> deploy_hf_inference.yaml
+    ---
+    apiVersion: inference.sagemaker.aws.amazon.com/v1
+    kind: InferenceEndpointConfig
+    metadata:
+      name: $SAGEMAKER_ENDPOINT_NAME
+      namespace: $CLUSTER_NAMESPACE
+    spec:
+      modelName: mistral-7b
+      modelSourceConfig:
+        modelSourceType: huggingface
+        prefetchEnabled: true
+        huggingFaceModel:
+          modelId: "mistralai/Mistral-7B-Instruct-v0.3"
+          tokenSecretRef:
+            name: hf-token-secret
+            key: token
+      instanceType: "ml.g5.24xlarge"
+      invocationEndpoint: v1/chat/completions
+      worker:
+        image: "vllm/vllm-openai:v0.10.1"
+        modelInvocationPort:
+          containerPort: 8000
+          name: http
+        modelVolumeMount:
+          name: model-weights
+          mountPath: /opt/ml/model
+        resources:
+          requests:
+            nvidia.com/gpu: "4"
+            memory: "96Gi"
+            cpu: "16"
+          limits:
+            nvidia.com/gpu: "4"
+            memory: "96Gi"
+            cpu: "16"
+        args:
+          - "--model"
+          - "/opt/ml/model"
+          - "--port"
+          - "8000"
+          - "--tensor-parallel-size"
+          - "4"
+          - "--served-model-name"
+          - "mistralai/Mistral-7B-Instruct-v0.3"
+        environmentVariables:
+          - name: VLLM_REQUEST_TIMEOUT
+            value: "600"
+    EOF
+    ```
+    4. The key Hugging Face configuration fields are:
+
+
+
+
+    	* `modelSourceType` (required) — Set to `huggingface`.
+    	* `huggingFaceModel.modelId` (required) — The Hugging Face Hub model identifier in `org/model` format (for example, `mistralai/Mistral-7B-Instruct-v0.3`).
+    	* `huggingFaceModel.commitSHA` (optional) — A 40-character Git commit SHA to pin a specific model version. If omitted, defaults to the `main` branch.
+    	* `huggingFaceModel.tokenSecretRef` (optional) — Reference to a Kubernetes Secret containing your Hugging Face API token. Required for gated models. The token is only used during model download and is not exposed to the inference container.
+    	* `prefetchEnabled` (optional) — When `true`, an init container downloads the model before the inference container starts. When `false`, the inference runtime (vLLM, TGI, SGLang) downloads the model natively at startup. Defaults to `false`.
+
 ## Configure KV caching and intelligent routing for improved performance
 
 1. Enable KV caching by setting `enableL1Cache` and `enableL2Cache` to `true`.Then, set `l2CacheSpec` to `redis` and update `l2CacheLocalUrl` with the Redis cluster URL.
@@ -387,7 +487,7 @@ metrics:
       containerPort: <port value>
 ```
 
-## Deploy your model from Amazon S3 or Amazon FSx
+## Deploy your model from Amazon S3, Amazon FSx, or Hugging Face Hub
 
 1. Get the Amazon EKS cluster name from the HyperPod cluster ARN for
    kubectl authentication.
@@ -413,6 +513,14 @@ Deploy with Amazon S3 as a source
 ```
 kubectl apply -f deploy_s3_inference.yaml
 ```
+
+Deploy with Hugging Face Hub as a source
+
+```
+kubectl apply -f deploy_hf_inference.yaml
+```
+
+If the deployment fails, check the InferenceEndpointConfig events for diagnostic information. For common issues such as token errors, network connectivity, and model not found, see [Hugging Face Hub model deployment failures](sagemaker-hyperpod-model-deployment-ts-huggingface.md "sagemaker-hyperpod-model-deployment-ts-huggingface.md").
 
 ## Verify the status of your deployment
 

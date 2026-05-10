@@ -1,9 +1,9 @@
 # Accelerate generative AI development using managed MLflow on Amazon SageMaker AI
 
-Fully managed MLflow 3.0 on Amazon SageMaker AI enables you to accelerate generative AI by making it easier to track experiments and monitor performance of models
+Fully managed MLflow on Amazon SageMaker AI enables you to accelerate generative AI by making it easier to track experiments and monitor performance of models
 and AI applications using a single tool.
 
-**Generative AI development with MLflow 3.0**
+**Generative AI development with MLflow**
 
 As customers across industries accelerate their generative AI development, they require capabilities to track experiments, observe behavior, and evaluate performance of models and AI applications.
 Data scientists and developers lack tools for analyzing the performance of models and AI applications from experimentation to production, making it hard to root cause
@@ -15,12 +15,12 @@ in numerous model training runs and versions, making it challenging to track the
 The complexity of managing and comparing iterative training runs increases with GenAI, where experimentation involves not only fine-tuning models but also
 exploring creative and diverse outputs. Researchers must adjust hyperparameters, select suitable model architectures, and curate diverse datasets to optimize
 both the quality and creativity of the generated content. Evaluating generative AI models requires both quantitative and qualitative metrics,
-adding another layer of complexity to the experimentation process. Experimentation tracking capabilities in MLflow 3.0 on Amazon SageMaker AI enables you to track,
+adding another layer of complexity to the experimentation process. Experimentation tracking capabilities in MLflow on Amazon SageMaker AI enables you to track,
 organize, view, analyze, and compare iterative ML experimentation to gain comparative insights and register and deploy your best performing models.
 
-Tracing capabilities in fully managed MLflow 3.0 enables you to record the inputs, outputs, and metadata at every step of a generative AI application,
+Tracing capabilities in fully managed MLflow enables you to record the inputs, outputs, and metadata at every step of a generative AI application,
 helping you to quickly identify the source of bugs or unexpected behaviors. By maintaining records of each model and application version,
-fully managed MLflow 3.0 offers traceability to connect AI responses to their source components, allowing you to quickly trace an issue directly
+fully managed MLflow offers traceability to connect AI responses to their source components, allowing you to quickly trace an issue directly
 to the specific code, data, or parameters that generated it. This dramatically reduces troubleshooting time and enables teams to focus more on innovation.
 
 ## MLflow integrations
@@ -68,11 +68,34 @@ Automate the model review and deployment lifecycle using MLflow events captured 
 
 ## Supported AWS Regions
 
-Amazon SageMaker AI with MLflow is generally available in all AWS commercial [Regions](regions-quotas.md "regions-quotas.md") where Amazon SageMaker Studio is available, except the
-China Regions. SageMaker AI with MLflow is available using only the AWS CLI in the Europe (Zurich) Region,
+**MLflow Tracking Servers**
+
+MLflow Tracking Servers are generally available in all AWS commercial [Regions](regions-quotas.md "regions-quotas.md") where Amazon SageMaker Studio is available, except the
+China Regions. MLflow Tracking Servers are available using only the AWS CLI in the Europe (Zurich) Region,
 Asia Pacific (Hyderabad) Region, Asia Pacific (Melbourne) Region, and Canada West (Calgary) Region.
 
 Tracking servers are launched in a single availability zone within their specified Region.
+
+**MLflow Apps**
+
+MLflow Apps are available in the following AWS Regions:
+
+- US East (N. Virginia) Region
+- US East (Ohio) Region
+- US West (N. California) Region
+- US West (Oregon) Region
+- Asia Pacific (Mumbai) Region
+- Asia Pacific (Seoul) Region
+- Asia Pacific (Singapore) Region
+- Asia Pacific (Sydney) Region
+- Asia Pacific (Tokyo) Region
+- Canada (Central) Region
+- Europe (Frankfurt) Region
+- Europe (Ireland) Region
+- Europe (London) Region
+- Europe (Paris) Region
+- Europe (Stockholm) Region
+- South America (São Paulo) Region
 
 ## How it works
 
@@ -118,9 +141,9 @@ SageMaker AI MLflow has a 200 MB download size limit.
 
 The following MLflow versions are available to use with SageMaker AI MLflow Apps:
 
-| MLflow version                                                                                       | Python version                                                                                                                        |
-| ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| [MLflow 3.4](https://mlflow.org/releases/3.4.0 "https://mlflow.org/releases/3.4.0") (latest version) | [Python<br>3.9](https://www.python.org/downloads/release/python-390/ "https://www.python.org/downloads/release/python-390/") or later |
+| MLflow version                                                                                            | Python version                                                                                                                           |
+| --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| [MLflow 3.10](https://mlflow.org/releases/3.10.1/ "https://mlflow.org/releases/3.10.1/") (latest version) | [Python<br>3.10](https://www.python.org/downloads/release/python-3100/ "https://www.python.org/downloads/release/python-3100/") or later |
 
 The latest version of the MLflow App has the latest features, security patches, and bug fixes.
 When you create a new MLflow App it will be automatically updated to the latest supported version. For more information about creating an MLflow App, see [MLflow App Setup](mlflow-app-setup.md "mlflow-app-setup.md").

@@ -1228,7 +1228,8 @@ job, add the following permissions:
 {
     "Effect": "Allow",
     "Action": [
-    "kms:CreateGrant"
+    "kms:CreateGrant",
+    "kms:DescribeKey"
     ]
 }
 ```
@@ -1413,7 +1414,8 @@ job, add the following permissions:
 {
     "Effect": "Allow",
     "Action": [
-    "kms:CreateGrant"
+    "kms:CreateGrant",
+    "kms:DescribeKey"
     ]
 }
 ```

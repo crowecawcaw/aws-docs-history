@@ -5,6 +5,13 @@ it up with Slurm through the SageMaker AI console UI. Following the tutorial, yo
 HyperPod cluster with three Slurm nodes, `my-controller-group`,
 `my-login-group`, and `worker-group-1`.
 
+###### Note
+
+HyperPod now supports creating Slurm clusters without lifecycle scripts.
+You can create a fully functional cluster using AMI-based configuration, extend it
+with an extension script, or continue using custom lifecycle scripts for full
+control.
+
 ###### Topics
 
 - [Create cluster](#smcluster-getting-started-slurm-console-create-cluster-page "#smcluster-getting-started-slurm-console-create-cluster-page")
@@ -107,6 +114,14 @@ This section lists all the default settings for your cluster creation,
 including all the new AWS resources that will be created during the
 cluster creation process. Review the default settings.
 
+###### Note
+
+Quick setup uses default lifecycle scripts automatically. The new
+AMI-based configuration option (no lifecycle scripts) is available only
+through Custom setup. If you want to create a cluster without lifecycle
+scripts, choose Custom setup and choose **None** under
+**Lifecycle scripts**.
+
 On the **Custom setup** section, follow these steps to create
 your HyperPod cluster with Slurm orchestration.
 
@@ -193,20 +208,106 @@ if the EBS volume is mounted correctly by running the `df
  -h` command. Attaching an additional EBS volume provides
 stable, off-instance, and independently persisting storage, as
 described in the [Amazon EBS volumes](../../../ebs/latest/userguide/ebs-volumes.md "../../../ebs/latest/userguide/ebs-volumes.md") section in the _Amazon Elastic Block Store User
-Guide_. 8. Choose **Add instance group**.
+Guide_. 8. For **Slurm partition name** (Compute groups
+only), enter the Slurm partition name for this compute instance
+group. Partitions act as logical queues that organize how jobs are
+scheduled across different sets of nodes. 9. Choose **Add instance group**.
 
-### Lifecycle scripts
+### Lifecycle configuration - optional
 
-You can choose to use the default lifecycle scripts or the custom
-lifecycle scripts, which will be stored in your Amazon S3 bucket. You can view
-the default lifecycle scripts in the [Awesome Distributed Training GitHub repository](https://github.com/aws-samples/awsome-distributed-training/tree/main/1.architectures/7.sagemaker-hyperpod-eks/LifecycleScripts "https://github.com/aws-samples/awsome-distributed-training/tree/main/1.architectures/7.sagemaker-hyperpod-eks/LifecycleScripts"). To learn more
-about the lifecycle scripts, see [Customizing SageMaker HyperPod clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md "sagemaker-hyperpod-lifecycle-best-practices-slurm.md").
+Configure how nodes in your cluster are provisioned. Your choice affects
+Amazon S3 bucket requirements, internet access needs, and provisioning
+complexity. HyperPod supports three node lifecycle configuration
+options, each offering a different level of control over the provisioning
+process.
 
-1. For **Lifecycle scripts**, choose to use default
-   or custom lifecycle scripts.
-2. For **S3 bucket for lifecycle scripts**, choose
-   to create a new bucket or use an existing bucket to store the
-   lifecycle scripts.
+1.  For **Lifecycle scripts**, choose one of the
+    following options to control how nodes are provisioned in your
+    cluster:
+
+        * **None** — HyperPod configures
+         nodes automatically using AMI-based configuration. Slurm
+         daemons, Docker, Enroot, Pyxis, Slurm accounting with
+         MariaDB, SSH key generation and propagation, log rotation,
+         and home directory setup are all configured without any
+         scripts or Amazon S3 bucket. All software is pre-packaged in the
+         AMI, so no internet access is required during provisioning.
+         This is the simplest path for new clusters.
+        * **Use default lifecycle scripts** —
+         Default lifecycle scripts are uploaded to the chosen Amazon S3
+         bucket and used to provision nodes. This option uses the
+         scripts from the [Awsome Distributed Training repository](https://github.com/awslabs/awsome-distributed-training/tree/main/1.architectures/5.sagemaker-hyperpod/LifecycleScripts/base-config "https://github.com/awslabs/awsome-distributed-training/tree/main/1.architectures/5.sagemaker-hyperpod/LifecycleScripts/base-config").
+        * **Use custom lifecycle scripts** — Choose
+         lifecycle scripts from an Amazon S3 bucket. This corresponds to
+         the `OnCreate` path in the API, where your
+         scripts own the entire provisioning sequence, including when
+         Slurm starts. HyperPod does not run AMI-based
+         configuration when this option is selected.
+
+    The following table summarizes the three options:
+
+| Option                                     | What HyperPod does                                                          | Amazon S3 bucket needed? | Internet access needed? |
+| ------------------------------------------ | --------------------------------------------------------------------------- | ------------------------ | ----------------------- |
+| \*_None_<br>• (AMI-based<br>configuration) | Configures nodes automatically with Slurm and essential<br>packages         | No                       | No                      |
+| **Use default lifecycle scripts**          | Uploads and runs ADTR scripts from Amazon S3                                | Yes                      | Yes                     |
+| **Use custom lifecycle scripts**           | Runs your scripts from Amazon S3; you own the full<br>provisioning sequence | Yes                      | Depends on your scripts |
+
+2. For **Extension script file in S3 -
+   _optional_**
+   (appears when you choose **None** under
+   **Lifecycle scripts**), enter the Amazon S3 URI of your extension script. The
+   extension script allows you to provision additional optional
+   capabilities, such as observability, System Security Services Daemon
+   (SSSD), and Amazon S3 bucket mounting, on top of default configurations
+   without managing the entire set of lifecycle scripts.
+
+Enter the full Amazon S3 URI to the entry point script, for
+example:
+
+```
+s3://DOC-EXAMPLE-BUCKET/extensions/run_extensions.sh
+```
+
+HyperPod downloads the entire folder where the entry
+point script resides. Structure your Amazon S3 folder so that all
+supporting files are in the same directory as the entry point
+script.
+
+###### Note
+
+In the API, this corresponds to specifying
+`OnInitComplete` in
+`LifeCycleConfig` with
+`SourceS3Uri`. The console combines these into a
+single Amazon S3 URI field pointing directly to the entry point
+script.
+
+###### Tip
+
+For ready-to-use extension scripts, see the [Extensions folder](https://github.com/awslabs/awsome-distributed-training/tree/main/1.architectures/5.sagemaker-hyperpod/Extensions "https://github.com/awslabs/awsome-distributed-training/tree/main/1.architectures/5.sagemaker-hyperpod/Extensions") in the Awsome Distributed
+Training repository. The `run_extensions.sh` script
+orchestrates multiple capabilities with simple boolean toggles
+to enable or disable each one. 3. For **S3 bucket for lifecycle scripts** (appears
+when you choose **Use default lifecycle scripts**
+or **Use custom lifecycle scripts**), choose to
+create a new bucket or use an existing bucket to store the lifecycle
+scripts.
+
+###### Note
+
+Optional node lifecycle configuration is supported only for
+Slurm-orchestrated clusters. Amazon EKS-orchestrated clusters and Slurm
+clusters using Continuous `NodeProvisioningMode` continue to
+require lifecycle scripts on every instance group.
+
+###### Note
+
+The **None** option with an extension script and the
+**Use custom lifecycle scripts** option are
+mutually exclusive. You cannot combine AMI-based configuration with
+extension script and custom lifecycle scripts on the same instance
+group. In the API, this means `OnCreate` and
+`OnInitComplete` cannot be specified together.
 
 ### Permissions
 
@@ -216,7 +317,8 @@ access necessary AWS resources on your behalf.
 ### Storage
 
 Configure the FSx for Lustre file system to be provisioned on the
-HyperPod cluster.
+HyperPod cluster. FSx configuration is optional for cluster
+creation but recommended for production ML workloads.
 
 1. For **File system**, choose an existing
    FSx for Lustre file system, to create a new FSx for Lustre file system, or
@@ -230,6 +332,15 @@ HyperPod cluster.
    **LZ4** to enable data compression.
 5. For **Lustre version**, view the value that's
    recommended for the new file systems.
+
+###### Note
+
+When using AMI-based configuration (choosing
+**None** under **Lifecycle
+scripts**) or an extension
+script, HyperPod handles FSx for Lustre mounting automatically.
+When using custom lifecycle scripts, your scripts are responsible for
+mounting the filesystem.
 
 ### Tags - optional
 
@@ -265,8 +376,15 @@ instructions at [Delete a SageMaker HyperPod cluster](sagemaker-hyperpod-operate
 However, if you have created a cluster with reserved compute capacity, the status
 of the clusters does not affect service billing.
 
-To clean up the lifecycle scripts from the S3 bucket used for this tutorial, go to
-the S3 bucket you used during cluster creation and remove the files entirely.
+If you used **Use default lifecycle scripts** or **Use
+custom lifecycle scripts**, go to the Amazon S3 bucket you used during
+cluster creation and remove the lifecycle script files.
+
+If you used **None** (AMI-based configuration only) without an
+extension script, no Amazon S3 cleanup is needed for lifecycle scripts.
+
+If you used **None** with an extension script, clean up the
+extension script files from the Amazon S3 bucket you specified.
 
 If you have tested running any workloads on the cluster, make sure if you have
 uploaded any data or if your job saved any artifacts to different S3 buckets or file

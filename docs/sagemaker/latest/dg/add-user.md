@@ -35,6 +35,7 @@ Required access entry policies
 - `AmazonSagemakerHyperpodSpacePolicy` - scoped to namespace DS should create spaces in
 - `AmazonSagemakerHyperpodSpaceTemplatePolicy` - scoped to
   “jupyter-k8s-shared” namespace
+- `AmazonSagemakerHyperpodUserClusterPolicy` - scoped to cluster
 
 ## Private and Public spaces
 

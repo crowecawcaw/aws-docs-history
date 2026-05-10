@@ -23,7 +23,7 @@ with the host driver.
 
 **AMI general updates**
 
-- Released updates for SageMaker Hyperpod AMI for Amazon EKS versions 1.28, 1.29, 1.30, 1.31, 1.32, 1.33, 1.34.
+- Released updates for SageMaker Hyperpod AMI for Amazon EKS versions 1.28, 1.29, 1.30, 1.31, 1.32, 1.33, 1.34, 1.35.
 - Base DLAMI release note is available [here](../../../dlami/latest/devguide/appendix-ami-release-notes.md#appendix-ami-release-notes-base "../../../dlami/latest/devguide/appendix-ami-release-notes.md#appendix-ami-release-notes-base").
 
 **SageMaker Hyperpod DLAMI for Amazon EKS support**
@@ -644,6 +644,82 @@ Kubernetes v1.34
   - nvme-cli version: 2.13 1.13
   - stress version: 1.0.7
   - collectd version: 5.12.0.
+  - acl version: 2.3.1
+  - lustre-client version: 2.15.6
+  - nvidia-imex version: 580.126.09
+  - systemd version: 252
+  - openssh version: 8.7
+  - sudo version: 1.9.15
+  - gcc version: 11.5.0
+  - cmake version: 3.22.2
+  - git version: 2.50.1
+  - make version: 4.3
+  - cloudwatch-agent version: 1.300064.2
+  - nfs-utils version: 2.5.4
+  - lvm2 version: 2.03.16
+  - ec2-instance-connect version: 1.1
+  - aws-cfn-bootstrap version: 2.0
+  - rdma-core version: 61.0
+
+Kubernetes v1.35
+
+- AL2023 (x86_64):
+  - Linux Kernel version: 6.1.166-197.305.amzn2023.x86_64
+  - Glibc version: 2.34
+  - OpenSSL version: 3.5.5
+  - FSx Lustre Client version: 2.15.6
+  - Runc version: 1.3.4
+  - Containerd version: 2.1.5
+  - aws SSM Agent version: 3.3.4268.0
+  - aws Neuronx DKMS version: 2.27.4.0
+  - NVIDIA Driver version: 580.126.09
+  - Maximum Supported CUDA Version: 13.0
+  - NVIDIA CUDA Toolkit version: 12.8
+  - EFA Installer version: 1.47.0
+  - ENA Driver version: 2.16.1g
+  - Python version: 3.9.25
+  - Kubernetes version: v1.35.2-eks-f69f56f
+  - iptables-services version: 1.8.8
+  - nginx version: 1.28.3
+  - nvme-cli version: 2.13 1.13
+  - stress version: 1.0.7
+  - collectd version: 5.12.0
+  - acl version: 2.3.1
+  - lustre-client version: 2.15.6
+  - systemd version: 252
+  - openssh version: 8.7
+  - sudo version: 1.9.15
+  - gcc version: 11.5.0
+  - cmake version: 3.22.2
+  - git version: 2.50.1
+  - make version: 4.3
+  - cloudwatch-agent version: 1.300064.2
+  - nfs-utils version: 2.5.4
+  - lvm2 version: 2.03.16
+  - ec2-instance-connect version: 1.1
+  - aws-cfn-bootstrap version: 2.0
+  - rdma-core version: 61.0
+
+- AL2023 (ARM64):
+  - Linux Kernel version: 6.12.79-101.147.amzn2023.aarch64
+  - Glibc version: 2.34
+  - OpenSSL version: 3.5.5
+  - FSx Lustre Client version: 2.15.6
+  - Runc version: 1.3.4
+  - Containerd version: 2.2.1+unknown
+  - aws SSM Agent version: 3.3.4268.0
+  - NVIDIA Driver version: 580.126.09
+  - Maximum Supported CUDA Version: 13.0
+  - NVIDIA CUDA Toolkit version: 12.8
+  - EFA Installer version: 1.47.0
+  - ENA Driver version: 2.16.1g
+  - Python version: 3.9.25
+  - Kubernetes version: v1.35.2-eks-f69f56f
+  - iptables-services version: 1.8.8
+  - nginx version: 1.28.3
+  - nvme-cli version: 2.13 1.13
+  - stress version: 1.0.7
+  - collectd version: 5.12.0
   - acl version: 2.3.1
   - lustre-client version: 2.15.6
   - nvidia-imex version: 580.126.09

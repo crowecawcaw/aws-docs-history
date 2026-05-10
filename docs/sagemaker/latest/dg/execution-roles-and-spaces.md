@@ -63,6 +63,7 @@ For information on modifying your execution role, see [Modify permissions to exe
 
 - [SageMaker AI execution roles](#sagemaker-execution-roles "#sagemaker-execution-roles")
 - [Example of flexible permissions with execution roles](#sagemaker-execution-roles-example "#sagemaker-execution-roles-example")
+- [Execution role session name mode](#sagemaker-execution-role-session-name "#sagemaker-execution-role-session-name")
 
 ## SageMaker AI execution roles
 
@@ -126,3 +127,49 @@ existing user profile, see [Get user execution role](sagemaker-roles.md#sagemake
 
 For information on SageMaker AI execution roles and adding additional permissions to them, see
 [How to use SageMaker AI execution roles](sagemaker-roles.md "sagemaker-roles.md").
+
+## Execution role session name mode
+
+You can configure the execution role session name mode for your domain using the
+`ExecutionRoleSessionNameMode` field in [StudioWebPortalSettings](../APIReference/API_StudioWebPortalSettings.md "../APIReference/API_StudioWebPortalSettings.md"). The session name mode determines the session name of
+the execution role when users access the Studio web portal.
+
+You can set this value at the domain level as a default for all users, or override it
+at the user profile level for individual users.
+
+The following values are available:
+
+USER_IDENTITY
+
+The session name of the execution role corresponds to the user's identity. For
+IAM domains, the session name is the IAM session name used to generate the
+presigned URL. For IAM Identity Center domains, the session name is the username of the associated
+IAM Identity Center user.
+
+STATIC
+
+The session name defaults to `SageMaker`. This is also the default
+behavior if `ExecutionRoleSessionNameMode` is not set.
+
+Setting the execution role session name mode to `USER_IDENTITY` enables you to
+identify which user performed actions using the execution role in Amazon CloudWatch logs and AWS
+CloudTrail events.
+
+The following example shows how to set the execution role session name mode to
+`USER_IDENTITY` for a domain.
+
+```
+aws sagemaker update-domain \
+  --domain-id `domainId` \
+  --default-user-settings '{"StudioWebPortalSettings": {"ExecutionRoleSessionNameMode": "USER_IDENTITY"}}'
+```
+
+The following example shows how to set the execution role session name mode for a specific
+user profile.
+
+```
+aws sagemaker update-user-profile \
+  --domain-id `domainId` \
+  --user-profile-name `userProfileName` \
+  --user-settings '{"StudioWebPortalSettings": {"ExecutionRoleSessionNameMode": "USER_IDENTITY"}}'
+```

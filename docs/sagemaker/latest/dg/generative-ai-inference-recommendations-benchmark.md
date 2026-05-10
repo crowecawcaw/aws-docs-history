@@ -202,6 +202,260 @@ components. Valid values are:
 If you don't specify `model_selection_strategy`, the benchmark
 uses `round_robin` by default.
 
+## Benchmark multimodal endpoints with synthetic images
+
+You can benchmark vision-language models by generating synthetic images as part
+of the workload configuration. The benchmarking service uses AIPerf to create
+images with configurable dimensions and format, then sends them as base64-encoded
+payloads to your endpoint.
+
+The following example creates a workload configuration for benchmarking a
+vision-language model with synthetic images:
+
+```
+
+import json
+
+workload_spec = {
+    "benchmark": {"type": "aiperf"},
+    "parameters": {
+        "image_width_mean": 640,
+        "image_height_mean": 480,
+        "prompt_input_tokens_mean": 100,
+        "output_tokens_mean": 150,
+        "concurrency": 8,
+        "request_count": 100,
+        "streaming": True,
+        "tokenizer": "meta-llama/Llama-3.2-1B"
+    },
+    "secrets": {
+        "hf_token": "arn:aws:secretsmanager:us-west-2:111122223333:secret:my-hf-token-AbCdEf"
+    }
+}
+
+client.create_ai_workload_config(
+    AIWorkloadConfigName="image-benchmark-config",
+    WorkloadSpec={"Inline": json.dumps(workload_spec)}
+)
+
+```
+
+The following parameters control synthetic image generation:
+
+| Parameter             | Type   | Default | Description                                                                                                                              |
+| --------------------- | ------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `image_width_mean`    | float  | None    | Mean image width in pixels.                                                                                                              |
+| `image_width_stddev`  | float  | None    | Standard deviation of image width. Set to vary image<br>dimensions across requests.                                                      |
+| `image_height_mean`   | float  | None    | Mean image height in pixels.                                                                                                             |
+| `image_height_stddev` | float  | None    | Standard deviation of image height.                                                                                                      |
+| `image_batch_size`    | int    | 1       | Number of images per request.                                                                                                            |
+| `image_format`        | string | png     | Image format. Valid values: `png`<br>(lossless), `jpeg` (lossy, smaller<br>files), `random` (randomly selects PNG or JPEG<br>per image). |
+
+**Variable-size images**
+
+Use standard deviation parameters to generate images with varying dimensions,
+simulating real-world workloads where image sizes differ:
+
+```
+
+workload_spec = {
+    "benchmark": {"type": "aiperf"},
+    "parameters": {
+        "image_width_mean": 800,
+        "image_width_stddev": 200,
+        "image_height_mean": 600,
+        "image_height_stddev": 150,
+        "image_batch_size": 2,
+        "concurrency": 4,
+        "request_count": 50,
+        "streaming": True,
+        "tokenizer": "meta-llama/Llama-3.2-1B"
+    }
+}
+
+```
+
+## Benchmark multimodal endpoints with synthetic video
+
+You can benchmark multimodal models that process video inputs by generating
+synthetic videos as part of the workload configuration. The benchmarking service
+uses AIPerf's synthetic video generation to create videos with configurable
+resolution, frame rate, duration, and encoding, then sends them as base64-encoded
+payloads to your endpoint.
+
+###### Note
+
+Video generation is disabled by default. You must specify both
+`video_width` and `video_height` in your workload
+configuration to enable it.
+
+The following example creates a workload configuration for benchmarking a
+multimodal model with synthetic video at 640×480 resolution:
+
+```
+
+import json
+
+workload_spec = {
+    "benchmark": {"type": "aiperf"},
+    "parameters": {
+        "video_width": 640,
+        "video_height": 480,
+        "video_fps": 4,
+        "video_duration": 5.0,
+        "output_tokens_mean": 150,
+        "concurrency": 4,
+        "request_count": 50,
+        "streaming": True,
+        "tokenizer": "meta-llama/Llama-3.2-1B"
+    },
+    "secrets": {
+        "hf_token": "arn:aws:secretsmanager:us-west-2:111122223333:secret:my-hf-token-AbCdEf"
+    }
+}
+
+client.create_ai_workload_config(
+    AIWorkloadConfigName="video-benchmark-config",
+    WorkloadSpec={"Inline": json.dumps(workload_spec)}
+)
+
+```
+
+### Video parameters
+
+The following parameters control synthetic video generation:
+
+| Parameter          | Type   | Default       | Description                                                                                                                                                    |
+| ------------------ | ------ | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `video_width`      | int    | None          | Frame width in pixels. Must be set with<br>`video_height` to enable video generation.                                                                          |
+| `video_height`     | int    | None          | Frame height in pixels. Must be set with<br>`video_width` to enable video generation.                                                                          |
+| `video_fps`        | int    | 4             | Frames per second.                                                                                                                                             |
+| `video_duration`   | float  | 5.0           | Clip duration in seconds.                                                                                                                                      |
+| `video_batch_size` | int    | 1             | Number of videos per request.                                                                                                                                  |
+| `video_synth_type` | string | moving_shapes | Synthesis pattern. Valid values:<br>`moving_shapes` (animated geometric shapes),<br>`grid_clock` (grid with clock animation),<br>`noise` (random pixel noise). |
+| `video_format`     | string | webm          | Container format. Valid value: `webm`.                                                                                                                         |
+| `video_codec`      | string | libvpx-vp9    | Video codec. Supported value:<br>`libvpx-vp9` (VP9, WebM).                                                                                                     |
+
+###### Note
+
+The benchmarking service supports VP9 encoding with WebM format
+only.
+
+### Embedded audio tracks
+
+For models that process video and audio together, you can embed a synthetic
+audio track in the generated videos. Audio is disabled by default. Set
+`video_audio_num_channels` to `1` (mono) or
+`2` (stereo) to enable it.
+
+| Parameter                  | Type   | Default | Description                                                                                                                        |
+| -------------------------- | ------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `video_audio_num_channels` | int    | 0       | 0 = disabled, 1 = mono, 2 = stereo.                                                                                                |
+| `video_audio_sample_rate`  | int    | 44100   | Sample rate in Hz (8000–96000).                                                                                                    |
+| `video_audio_codec`        | string | auto    | Audio codec. Auto-selects `libvorbis` for WebM<br>and `aac` for MP4. You can override with<br>`aac`, `libvorbis`, or<br>`libopus`. |
+| `video_audio_depth`        | int    | 16      | Bit depth per sample (8, 16, 24, or 32).                                                                                           |
+
+### Video benchmarking examples
+
+**Low-resolution video understanding**
+
+```
+
+workload_spec = {
+    "benchmark": {"type": "aiperf"},
+    "parameters": {
+        "video_width": 320,
+        "video_height": 240,
+        "video_fps": 2,
+        "video_duration": 3.0,
+        "video_synth_type": "moving_shapes",
+        "concurrency": 4,
+        "request_count": 50,
+        "streaming": True,
+        "tokenizer": "meta-llama/Llama-3.2-1B"
+    }
+}
+
+```
+
+**HD video benchmarking**
+
+```
+
+workload_spec = {
+    "benchmark": {"type": "aiperf"},
+    "parameters": {
+        "video_width": 1920,
+        "video_height": 1080,
+        "video_fps": 8,
+        "video_duration": 10.0,
+        "concurrency": 2,
+        "request_count": 20,
+        "streaming": True,
+        "tokenizer": "meta-llama/Llama-3.2-1B"
+    }
+}
+
+```
+
+**Video with audio for multimodal models**
+
+```
+
+workload_spec = {
+    "benchmark": {"type": "aiperf"},
+    "parameters": {
+        "video_width": 640,
+        "video_height": 480,
+        "video_fps": 4,
+        "video_duration": 5.0,
+        "video_audio_num_channels": 1,
+        "video_audio_sample_rate": 16000,
+        "concurrency": 4,
+        "request_count": 50,
+        "streaming": True,
+        "tokenizer": "meta-llama/Llama-3.2-1B"
+    }
+}
+
+```
+
+**Mixed text and video**
+
+Combine video with text prompts for video question-answering or captioning
+workloads:
+
+```
+
+workload_spec = {
+    "benchmark": {"type": "aiperf"},
+    "parameters": {
+        "video_width": 640,
+        "video_height": 480,
+        "video_fps": 4,
+        "video_duration": 5.0,
+        "prompt_input_tokens_mean": 100,
+        "output_tokens_mean": 50,
+        "concurrency": 8,
+        "request_count": 100,
+        "streaming": True,
+        "tokenizer": "meta-llama/Llama-3.2-1B"
+    }
+}
+
+```
+
+### Performance considerations
+
+- Higher resolution and frame rates increase video encoding time and
+  payload size. For high-throughput testing, use lower resolutions
+  (320×240 or 640×480).
+- VP9 (`libvpx-vp9`) with WebM format is the only
+  supported codec and provides good compression for benchmarking
+  payloads.
+- Audio adds minimal overhead compared to the video stream. Use mono
+  (`1`) at 16 kHz for speech-focused workloads.
+
 ## Step 2: Monitor job status
 
 Poll the job status until it reaches a terminal state.

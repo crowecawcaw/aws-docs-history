@@ -84,8 +84,11 @@ We collect certain routine operational metrics to provide essential service avai
 
 - [Setting up your HyperPod clusters for model deployment](sagemaker-hyperpod-model-deployment-setup.md "sagemaker-hyperpod-model-deployment-setup.md")
 - [Deploy foundation models and custom fine-tuned models](sagemaker-hyperpod-model-deployment-deploy.md "sagemaker-hyperpod-model-deployment-deploy.md")
+- [Custom certificates and Route 53 DNS management for HyperPod Inference](sagemaker-hyperpod-model-deployment-custom-certs.md "sagemaker-hyperpod-model-deployment-custom-certs.md")
+- [Configure request limits for your HyperPod inference model deployment](sagemaker-hyperpod-model-deployment-request-limits.md "sagemaker-hyperpod-model-deployment-request-limits.md")
 - [Autoscaling policies for your HyperPod inference model deployment](sagemaker-hyperpod-model-deployment-autoscaling.md "sagemaker-hyperpod-model-deployment-autoscaling.md")
 - [Implementing inference observability on HyperPod clusters](sagemaker-hyperpod-model-deployment-observability.md "sagemaker-hyperpod-model-deployment-observability.md")
 - [Task governance for model deployment on HyperPod](sagemaker-hyperpod-model-deployment-task-gov.md "sagemaker-hyperpod-model-deployment-task-gov.md")
+- [Data capture for inference on HyperPod](sagemaker-hyperpod-model-deployment-data-capture.md "sagemaker-hyperpod-model-deployment-data-capture.md")
 - [HyperPod inference troubleshooting](sagemaker-hyperpod-model-deployment-ts.md "sagemaker-hyperpod-model-deployment-ts.md")
 - [Amazon SageMaker HyperPod Inference release notes](sagemaker-hyperpod-inference-release-notes.md "sagemaker-hyperpod-inference-release-notes.md")

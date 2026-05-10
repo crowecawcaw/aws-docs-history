@@ -14,10 +14,9 @@ pre-trained on massive amounts of text data and can be fine-tuned for specific l
 tasks.
 
 Amazon SageMaker JumpStart onboards and maintains publicly available foundation models for you to access,
-customize, and integrate into your machine learning lifecycles. For more information, see
-[Publicly available foundation models](jumpstart-foundation-models-latest.md#jumpstart-foundation-models-latest-publicly-available "jumpstart-foundation-models-latest.md#jumpstart-foundation-models-latest-publicly-available"). Amazon SageMaker JumpStart also
-includes proprietary foundation models from third-party providers. For more information, see
-[Proprietary foundation models](jumpstart-foundation-models-latest.md#jumpstart-foundation-models-latest-proprietary "jumpstart-foundation-models-latest.md#jumpstart-foundation-models-latest-proprietary").
+customize, and integrate into your machine learning lifecycles. Amazon SageMaker JumpStart also
+includes proprietary foundation models from third-party providers. For a complete list
+of available models, see [Available foundation models](jumpstart-foundation-models-latest.md "jumpstart-foundation-models-latest.md").
 
 To get started exploring and experimenting with available models, see [JumpStart foundation model usage](jumpstart-foundation-models-use.md "jumpstart-foundation-models-use.md"). All foundation models are available
 to use programmatically with the SageMaker Python SDK. For more information, see

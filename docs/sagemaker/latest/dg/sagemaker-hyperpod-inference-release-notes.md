@@ -8,6 +8,134 @@ Amazon SageMaker HyperPod platform releases, updates, and improvements, see [Ama
 For information about SageMaker HyperPod Inference capabilities and deployment options, see
 [Deploying models on Amazon SageMaker HyperPod](sagemaker-hyperpod-model-deployment.md "sagemaker-hyperpod-model-deployment.md").
 
+## SageMaker HyperPod Inference release notes: v3.1.2
+
+**Release Date:** May 6, 2026
+
+**Summary**
+
+Inference Operator v3.1.2 introduces inference data capture for logging endpoint traffic,
+HuggingFace Hub integration for direct model deployment, Route 53 DNS management for custom
+domains, local NVMe model deployment for reduced cold-start latency, and custom service
+accounts with IRSA support.
+
+**New Features**
+
+- **Inference Data Capture** – Record inputs and
+  outputs at three capture points: SageMaker AI endpoint, load balancer (ALB access logs),
+  and model pod. Enable any combination via `dataCapture` in your CRD.
+  See [Data capture for inference on HyperPod](sagemaker-hyperpod-model-deployment-data-capture.md "sagemaker-hyperpod-model-deployment-data-capture.md").
+- **HuggingFace Model Source** – Deploy models
+  directly from HuggingFace Hub without pre-staging to S3 or FSx. Supports gated
+  models via `tokenSecretRef`, revision pinning via `commitSHA`,
+  and token isolation. Compatible with vLLM, TGI, and SGLang runtimes. See
+  [Deploy models from Amazon S3, Amazon FSx, or Hugging Face Hub using kubectl](sagemaker-hyperpod-model-deployment-deploy-ftm.md "sagemaker-hyperpod-model-deployment-deploy-ftm.md").
+- **Route 53 DNS Management** – Automatically create
+  and manage DNS records for custom domains via `dnsConfig`. See
+  [Custom certificates and Route 53 DNS management for HyperPod Inference](sagemaker-hyperpod-model-deployment-custom-certs.md "sagemaker-hyperpod-model-deployment-custom-certs.md").
+- **Local NVMe Model Deployment** – Load model weights
+  from node-local NVMe storage via `modelSourceType: kubernetesVolume` to
+  reduce cold-start latency. Supports fallback to S3. See
+  [Deploy models from local NVMe storage using kubectl](sagemaker-hyperpod-model-deployment-deploy-nvme.md "sagemaker-hyperpod-model-deployment-deploy-nvme.md").
+- **Custom Service Accounts** – Assign custom
+  ServiceAccounts with IRSA support to inference pods via
+  `spec.kubernetes.serviceAccountName`.
+
+**Bug Fixes**
+
+- **Tag Propagation** – User-defined tags on
+  `InferenceEndpointConfig` now propagate correctly to the
+  `SageMakerEndpointRegistration` CRD and downstream SageMaker AI resources.
+  Previously, tags were not passed during endpoint registration creation or updates.
+- **Autoscaling Replica Preservation** – Fixed an issue
+  where updating an `InferenceEndpointConfig` or `JumpStartModel`
+  CR would reset the replica count to the spec value, overriding the current HPA/KEDA-managed
+  replica count. The operator now preserves the active replica count during CR updates.
+- **Autoscaling CRD Validation** – Fixed
+  `prometheusTrigger.serverAddress` validation regex that incorrectly required
+  a trailing path segment, causing 404 errors when KEDA appended
+  `/api/v1/query` to the AMP workspace URL.
+- **Certificate Rotation** – Fixed custom certificate
+  rotation not propagating to ALB after operator pod restart.
+
+### Upgrade to v3.1.2
+
+**Helm upgrade:**
+
+If you already have the Inference Operator installed via Helm, use the following
+commands to upgrade:
+
+```
+helm get values -n kube-system hyperpod-inference-operator \
+> current-values.yaml
+
+cd sagemaker-hyperpod-cli/helm_chart/HyperPodHelmChart/\
+charts/inference-operator
+
+helm upgrade hyperpod-inference-operator . -n kube-system \
+  -f current-values.yaml --set image.tag=v3.1
+
+# Verification
+kubectl get deployment hyperpod-inference-operator-controller-manager \
+  -n hyperpod-inference-system \
+  -o jsonpath='{.spec.template.spec.containers[0].image}'
+```
+
+**EKS Add-on upgrade:**
+
+If you installed the Inference Operator as an EKS Add-on, upgrade to the latest version.
+
+First, check if `hyperpodClusterArn` is already in your add-on configuration:
+
+```
+CLUSTER=EKS_CLUSTER_NAME
+REGION=REGION
+
+aws eks describe-addon \
+  --cluster-name $CLUSTER \
+  --addon-name amazon-sagemaker-hyperpod-inference \
+  --region $REGION \
+  --query 'addon.configurationValues' --output text | jq .
+```
+
+If `hyperpodClusterArn` is present in the output, run the following command to upgrade:
+
+```
+aws eks update-addon \
+  --cluster-name $CLUSTER \
+  --addon-name amazon-sagemaker-hyperpod-inference \
+  --addon-version v1.2.0-eksbuild.1 \
+  --resolve-conflicts OVERWRITE \
+  --region $REGION
+```
+
+If `hyperpodClusterArn` is not present, fetch the current configuration, add it,
+and upgrade:
+
+```
+HP_ARN=HYPERPOD_CLUSTER_ARN
+
+CURRENT_CONFIG=$(aws eks describe-addon \
+  --cluster-name $CLUSTER \
+  --addon-name amazon-sagemaker-hyperpod-inference \
+  --region $REGION \
+  --query 'addon.configurationValues' --output text)
+
+# Add hyperpodClusterArn to the configuration
+NEW_CONFIG=$(echo "$CURRENT_CONFIG" | jq --arg arn "$HP_ARN" \
+  '. + {hyperpodClusterArn: $arn}')
+
+aws eks update-addon \
+  --cluster-name $CLUSTER \
+  --addon-name amazon-sagemaker-hyperpod-inference \
+  --addon-version v1.2.0-eksbuild.1 \
+  --configuration-values "$NEW_CONFIG" \
+  --resolve-conflicts OVERWRITE \
+  --region $REGION
+```
+
+Wait for the add-on to become active before deploying models.
+
 ## SageMaker HyperPod Inference release notes: v3.1
 
 **Release Date:** April 3, 2026
