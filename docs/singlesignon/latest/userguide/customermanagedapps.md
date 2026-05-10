@@ -6,7 +6,7 @@ can provision your users and groups into IAM Identity Center and use your IdP fo
 a single connection, IAM Identity Center represents your IdP in front of multiple AWS services and
 enables your OAuth 2.0 applications to request access to data in these services on
 behalf of your users. You can also use IAM Identity Center to assign your users access to [SAML 2.0](https://wiki.oasis-open.org/security "https://wiki.oasis-open.org/security")
-applications. This includes AWS services such as Amazon Connect and AWS Client VPN, which integrate with IAM Identity Center
+applications. This includes AWS services such as Connect Customer and AWS Client VPN, which integrate with IAM Identity Center
 exclusively using SAML and are therefore categorized as customer managed applications.
 
 - If your application supports **JSON Web Tokens (JWTs)**, you
