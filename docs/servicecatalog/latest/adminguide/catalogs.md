@@ -14,6 +14,5 @@ AWS Service Catalog. For more information, see [Identity and Access Management i
 - [Managing Products](catalogs_products.md "catalogs_products.md")
 - [Using AWS Service Catalog Constraints](constraints.md "constraints.md")
 - [AWS Service Catalog Service Actions](using-service-actions.md "using-service-actions.md")
-- [Adding AWS Marketplace Products to Your Portfolio](catalogs_marketplace-products.md "catalogs_marketplace-products.md")
 - [Using CloudFormation StackSets](using-stacksets.md "using-stacksets.md")
 - [Managing Budgets](catalogs_budgets.md "catalogs_budgets.md")
