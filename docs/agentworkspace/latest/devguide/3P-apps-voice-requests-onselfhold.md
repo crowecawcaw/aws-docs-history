@@ -1,4 +1,4 @@
-# Subscribe to self hold events in Amazon Connect Customer agent workspace
+# Subscribe to self hold events in Connect Customer Customer agent workspace
 
 Subscribes to events when the current user's participant is put on hold.
 

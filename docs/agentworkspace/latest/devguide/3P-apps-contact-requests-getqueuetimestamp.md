@@ -1,7 +1,7 @@
-# Get the timestamp of the contact in Amazon Connect Customer agent workspace
+# Get the timestamp of the contact in Connect Customer Customer agent workspace
 
 Returns a `Date` object with the timestamp associated with when the contact
-was placed in the queue in the Amazon Connect Customer agent workspace.
+was placed in the queue in the Connect Customer Customer agent workspace.
 
 ```
 

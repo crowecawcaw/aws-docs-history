@@ -1,10 +1,10 @@
-# Install the Amazon Connect SDK for developing applications for Amazon Connect Customer agent workspace
+# Install the Amazon Connect SDK for developing applications for Connect Customer Customer agent workspace
 
-To develop applications for the Amazon Connect Customer agent workspace you must first install
+To develop applications for the Connect Customer Customer agent workspace you must first install
 the
-Amazon Connect SDK.
+Connect Customer SDK.
 
-The [_Amazon Connect Amazon Connect SDK_](https://github.com/amazon-connect/AmazonConnectSDK "https://github.com/amazon-connect/AmazonConnectSDK") can be
+The [_Connect Customer Amazon Connect SDK_](https://github.com/amazon-connect/AmazonConnectSDK "https://github.com/amazon-connect/AmazonConnectSDK") can be
 installed from NPM. The Aamzon Connect SDK is made up of a set of modules that can
 be installed as separate packages, meaning that you should only pull in the packages
 that you need.

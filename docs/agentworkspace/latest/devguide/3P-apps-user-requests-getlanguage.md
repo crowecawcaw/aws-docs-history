@@ -1,6 +1,6 @@
-# Get the language of a user in Amazon Connect Customer agent workspace
+# Get the language of a user in Connect Customer Customer agent workspace
 
-Returns the language setting for the current user in the Amazon Connect Customer agent workspace.
+Returns the language setting for the current user in the Connect Customer Customer agent workspace.
 
 ```
 

@@ -1,6 +1,6 @@
-# Inform Amazon Connect that the agent is active
+# Inform Connect Customer that the agent is active
 
-Sends a signal to the Amazon Connect indicating that the agent is active and should
+Sends a signal to the Connect Customer indicating that the agent is active and should
 not be logged out. It takes a provider as a parameter.
 
 **Signature**

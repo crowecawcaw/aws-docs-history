@@ -1,6 +1,6 @@
-# Get the application configuration in Amazon Connect Customer agent workspace
+# Get the application configuration in Connect Customer Customer agent workspace
 
-Returns the application configuration for the given application ARN in the Amazon Connect
+Returns the application configuration for the given application ARN in the Connect Customer
 Customer agent workspace.
 
 **Signature**

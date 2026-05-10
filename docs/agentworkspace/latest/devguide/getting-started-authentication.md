@@ -1,8 +1,8 @@
-# Authentication for applications in Amazon Connect Customer agent workspace
+# Authentication for applications in Connect Customer Customer agent workspace
 
-Apps in the Amazon Connect Customer agent workspace must provide their own authentication to
+Apps in the Connect Customer Customer agent workspace must provide their own authentication to
 their users. It
-is recommended that apps use the same identity provider that the Amazon Connect instance has
+is recommended that apps use the same identity provider that the Connect Customer instance has
 been configured to use when it was created. This will make it so users only need to
 log in once for both the agent workspace and their applications, since they both use
 the same single sign on provider.
@@ -12,7 +12,7 @@ the same single sign on provider.
 On Jul 22, 2024, Google announced that they no longer plan to deprecate
 third-party cookies **[1]**. With this
 announcement, there will be no impact to third-party applications embedded
-within Amazon Connect Customer agent workspace, unless third-party application
+within Connect Customer Customer agent workspace, unless third-party application
 users explicitly opt-in for deprecation. We advise third-party application
 developers to adopt the third-party cookie deprecation impact prevention
 solutions below as a forward-looking preventative measure.
@@ -32,14 +32,14 @@ guide](../../../connect/latest/adminguide/3P-apps-agent-workspace.md "../../../c
 
 We are aware of the **Google Chrome** Third-Party Cookies
 Deprecation (3PCD) that may impact the third-party applications experience. If
-your application is embedded within the Amazon Connect Customer agent workspace in an iframe and
+your application is embedded within the Connect Customer Customer agent workspace in an iframe and
 uses cookie based Authentication/Authorization, then your application is likely
 to be impacted by Third-Party Cookie Deprecation. You can test if your user
 experience will be impacted by 3PCD by using the following [Test
 for Breakage](https://developers.google.com/privacy-sandbox/3Pcd/prepare/test-for-breakage "https://developers.google.com/privacy-sandbox/3Pcd/prepare/test-for-breakage") guidance.
 
 Here are the recommendations to ensure customers continue to have good
-experiences when accessing your application within the Amazon Connect Customer agent workspace
+experiences when accessing your application within the Connect Customer Customer agent workspace
 with Google Chrome.
 
 - **Temporary solution**: Allow 3P cookie

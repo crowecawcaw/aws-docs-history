@@ -1,6 +1,6 @@
-# Unsubscribe a callback function when an Amazon Connect Customer agent workspace user changes languages
+# Unsubscribe a callback function when an Connect Customer Customer agent workspace user changes languages
 
-Unsubscribes the callback function from LanguageChanged event in the Amazon Connect
+Unsubscribes the callback function from LanguageChanged event in the Connect Customer
 Customer agent workspace.
 
 **Signature**

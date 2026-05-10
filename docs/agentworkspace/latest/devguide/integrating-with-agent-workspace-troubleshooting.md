@@ -1,7 +1,7 @@
-# Troubleshoot application setup in Amazon Connect Customer agent workspace
+# Troubleshoot application setup in Connect Customer Customer agent workspace
 
 You can use the [Amazon Connect SDK's](https://github.com/amazon-connect/AmazonConnectSDK "https://github.com/amazon-connect/AmazonConnectSDK")
-`AppConfig` object to retrieve data about your applications’s setup in the Amazon Connect
+`AppConfig` object to retrieve data about your applications’s setup in the Connect Customer
 Customer agent workspace, including its permissions. This will allow you to inspect its
 state and determine which permissions were assigned to your app. Accessing its `permissions` property will return a list of strings, each representing a
 permissions that grants access to a set of events and requests. Performing an action,

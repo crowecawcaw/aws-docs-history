@@ -1,4 +1,4 @@
-# Create an outbound call to phone number in Amazon Connect Customer agent workspace
+# Create an outbound call to phone number in Connect Customer Customer agent workspace
 
 Creates an outbound call to the given phone number and returns the contactId. It takes
 an optional parameter `queueARN` which specifies the outbound queue

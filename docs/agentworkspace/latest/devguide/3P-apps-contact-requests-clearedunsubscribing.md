@@ -1,6 +1,6 @@
-# Unsubscribes the callback function from the contact cleared event in Amazon Connect Customer agent workspace
+# Unsubscribes the callback function from the contact cleared event in Connect Customer Customer agent workspace
 
-Unsubscribes the callback function from the contact cleared event in Amazon Connect
+Unsubscribes the callback function from the contact cleared event in Connect Customer
 Customer agent workspace.
 
 **Signature**

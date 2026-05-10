@@ -1,4 +1,4 @@
-# List all participants for a contact in Amazon Connect Customer agent workspace
+# List all participants for a contact in Connect Customer Customer agent workspace
 
 Retrieves all participants associated with a specific contact.
 

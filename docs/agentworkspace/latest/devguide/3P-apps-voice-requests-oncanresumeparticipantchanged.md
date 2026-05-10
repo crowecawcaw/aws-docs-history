@@ -1,4 +1,4 @@
-# Subscribe to participant resume capability change events in Amazon Connect Customer agent workspace
+# Subscribe to participant resume capability change events in Connect Customer Customer agent workspace
 
 Subscribes to events when a participant's capability to be resumed from hold changes.
 

@@ -1,7 +1,7 @@
-# Subscribe a callback function when an Amazon Connect Customer agent workspace user changes languages
+# Subscribe a callback function when an Connect Customer Customer agent workspace user changes languages
 
 Subscribes a callback function to-be-invoked whenever a user LanguageChanged event
-occurs in the Amazon Connect Customer agent workspace.
+occurs in the Connect Customer Customer agent workspace.
 
 **Signature**
 

@@ -1,4 +1,4 @@
-# Resume a participant from hold in Amazon Connect Customer agent workspace
+# Resume a participant from hold in Connect Customer Customer agent workspace
 
 Resumes a specific participant from hold.
 

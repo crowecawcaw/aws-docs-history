@@ -1,7 +1,7 @@
-# Amazon Connect Customer agent workspace User API
+# Connect Customer Customer agent workspace User API
 
 The Amazon Connect SDK provides an `SettingsClient` which serves as an interface that your app
-in Amazon Connect Customer agent workspace can use to make data requests on user settings.
+in Connect Customer Customer agent workspace can use to make data requests on user settings.
 
 The `SettingsClient` accepts an optional constructor argument, `ConnectClientConfig` which itself is defined as:
 

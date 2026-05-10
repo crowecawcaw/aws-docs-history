@@ -1,4 +1,4 @@
-# Get detailed contact information in Amazon Connect Customer agent workspace
+# Get detailed contact information in Connect Customer Customer agent workspace
 
 Retrieves detailed information for a specific contact by its ID.
 

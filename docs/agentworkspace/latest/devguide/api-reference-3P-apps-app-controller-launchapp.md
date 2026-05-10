@@ -1,4 +1,4 @@
-# Launch an application in Amazon Connect Customer agent workspace
+# Launch an application in Connect Customer Customer agent workspace
 
 Launch the application in the agent workspace for the given application ARN or name. It
 supports optional launch options to fine tune the launch behavior.

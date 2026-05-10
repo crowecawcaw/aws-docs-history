@@ -1,6 +1,6 @@
-# Test your application for Amazon Connect Customer agent workspace locally
+# Test your application for Connect Customer Customer agent workspace locally
 
-Once you have a minimal version of the app that you want to use in the Amazon Connect
+Once you have a minimal version of the app that you want to use in the Connect Customer
 Customer agent workspace with the Amazon Connect SDK that you want to test in the
 agent workspace, run your app locally and create an application in the AWS console with an _AccessUrl_ using the localhost endpoint, like `http://localhost:3000`
 .
@@ -13,7 +13,7 @@ Detailed steps for creating and managing applications can be found in the
 admin guide under [Third-party applications (3P
 apps) in the agent workspace (Preview)](../../../connect/latest/adminguide/3P-apps.md "../../../connect/latest/adminguide/3P-apps.md").
 
-1. Open the Amazon Connect
+1. Open the Connect Customer
    [console](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/")
    (https://console.aws.amazon.com/connect/).
 2. Navigate to **Third-party applications** in the left hand
@@ -34,7 +34,7 @@ apps) in the agent workspace (Preview)](../../../connect/latest/adminguide/3P-ap
       agent/contact events that occur in the agent workspace or make
       requests for agent/contact data.
 
-5. Select the Amazon Connect instance you are testing with to associate
+5. Select the Connect Customer instance you are testing with to associate
    the app with that instance.
 6. Choose **Add application** to finish creating your app.
 7. Log into your test instance as an admin user.
@@ -74,5 +74,5 @@ you should see the following series of logs entries.
 
 ```
 
-If you see these, then your app correctly integrates with the _Amazon Connect Amazon Connect SDK_ and the [The create event in Amazon Connect Customer agent workspace](integrating-with-agent-workspace-lifecycle-events-create.md "integrating-with-agent-workspace-lifecycle-events-create.md") / [The destroy event in Amazon Connect Customer agent workspace](integrating-with-agent-workspace-lifecycle-events-destroy.md "integrating-with-agent-workspace-lifecycle-events-destroy.md")destroy
+If you see these, then your app correctly integrates with the _Connect Customer Amazon Connect SDK_ and the [The create event in Connect Customer Customer agent workspace](integrating-with-agent-workspace-lifecycle-events-create.md "integrating-with-agent-workspace-lifecycle-events-create.md") / [The destroy event in Connect Customer Customer agent workspace](integrating-with-agent-workspace-lifecycle-events-destroy.md "integrating-with-agent-workspace-lifecycle-events-destroy.md")destroy
 lifecycle events.

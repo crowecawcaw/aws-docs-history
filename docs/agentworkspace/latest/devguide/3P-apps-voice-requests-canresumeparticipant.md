@@ -1,4 +1,4 @@
-# Check if a participant can be resumed from hold in Amazon Connect Customer agent workspace
+# Check if a participant can be resumed from hold in Connect Customer Customer agent workspace
 
 Checks whether a specific participant can be resumed from hold.
 

@@ -1,4 +1,4 @@
-# Unsubscribe from voice enhancement mode change events in Amazon Connect Customer agent workspace
+# Unsubscribe from voice enhancement mode change events in Connect Customer Customer agent workspace
 
 Unsubscribes a callback function registered for voice enhancements mode changed
 event.

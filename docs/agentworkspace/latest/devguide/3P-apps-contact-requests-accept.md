@@ -1,4 +1,4 @@
-# Accept the incoming contact for the given contactId in Amazon Connect Customer agent workspace
+# Accept the incoming contact for the given contactId in Connect Customer Customer agent workspace
 
 Accept the incoming contact for the given contactId.
 

@@ -1,6 +1,6 @@
-# Get specific attributes for a contact in Amazon Connect Customer agent workspace
+# Get specific attributes for a contact in Connect Customer Customer agent workspace
 
-Returns the requested attribute associated with the contact in the Amazon Connect
+Returns the requested attribute associated with the contact in the Connect Customer
 Customer agent workspace.
 
 ```

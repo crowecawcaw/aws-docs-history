@@ -1,4 +1,4 @@
-# How applications are loaded in Amazon Connect Customer agent workspace
+# How applications are loaded in Connect Customer Customer agent workspace
 
 The agent workspace allows users to handle multiple contacts
 concurrently. They will have only one contact selected at a time though, and the

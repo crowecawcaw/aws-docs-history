@@ -1,4 +1,4 @@
-# Add another participant to a contact in Amazon Connect Customer agent workspace
+# Add another participant to a contact in Connect Customer Customer agent workspace
 
 Add another participant to the contact. Multi-party only works for Voice at this
 time. For Voice, the existing participants will be put on hold when a new

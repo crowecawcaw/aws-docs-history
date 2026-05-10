@@ -3,7 +3,7 @@
 This guide is intended for developers building Amazon Connect integrations who do not
 use npm, webpack, or other JavaScript package managers and bundlers in their web
 applications. This includes developers building custom StreamsJS-based contact center
-interfaces or third-party applications that run within the Amazon Connect
+interfaces or third-party applications that run within the Connect Customer
 Customer agent workspace.
 
 Amazon Connect recommends using a package manager such as npm and a bundler such as

@@ -1,6 +1,6 @@
-# Get the current state of the agent in Amazon Connect Customer agent workspace
+# Get the current state of the agent in Connect Customer Customer agent workspace
 
-Returns the Amazon Connect Customer agent workspace agent's current `AgentState` object indicating
+Returns the Connect Customer Customer agent workspace agent's current `AgentState` object indicating
 their availability state type. This object contains the following fields:
 
 - `agentStateARN`: The agent's current state ARN.

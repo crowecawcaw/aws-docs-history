@@ -1,7 +1,7 @@
-# Subscribe a callback function when an Amazon Connect Customer agent workspace contact is connected
+# Subscribe a callback function when an Connect Customer Customer agent workspace contact is connected
 
 Subscribes a callback function to-be-invoked whenever a contact Connected event
-occurs in the Amazon Connect Customer agent workspace. If no contact ID is provided, then it uses the context of
+occurs in the Connect Customer Customer agent workspace. If no contact ID is provided, then it uses the context of
 the current contact that the 3P app was opened on.
 
 **Signature**

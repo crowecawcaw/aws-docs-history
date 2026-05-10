@@ -1,6 +1,6 @@
-# Get the name of the agent in Amazon Connect Customer agent workspace
+# Get the name of the agent in Connect Customer Customer agent workspace
 
-Returns the name of the user that's currently logged in to the Amazon Connect Customer agent workspace.
+Returns the name of the user that's currently logged in to the Connect Customer Customer agent workspace.
 
 ```
 

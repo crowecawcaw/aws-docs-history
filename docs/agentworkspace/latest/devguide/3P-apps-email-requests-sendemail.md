@@ -1,4 +1,4 @@
-# Send a draft email contact in Amazon Connect Customer agent workspace
+# Send a draft email contact in Connect Customer Customer agent workspace
 
 Sends both agent initiated and agent reply draft email contacts. Upon successfully
 sending the email, the contact will transition to ENDED state.

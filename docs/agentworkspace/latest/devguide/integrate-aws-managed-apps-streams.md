@@ -2,7 +2,7 @@
 
 This guide demonstrates how to integrate AWS-managed applications with your existing
 applications built using Amazon Connect Streams. This integration extends your custom
-agent application with AWS-managed applications from the Amazon Connect Customer agent workspace.
+agent application with AWS-managed applications from the Connect Customer Customer agent workspace.
 By embedding AWS-managed applications into your custom agent application, you can
 leverage their features without additional development effort, while maintaining control
 over application access through Security Profiles.
@@ -17,7 +17,7 @@ Connect Streams documentation](https://github.com/amazon-connect/amazon-connect-
 
 ## AWS-managed applications
 
-Amazon Connect provides AWS-managed applications, such as [Worklist](../../../connect/latest/adminguide/worklist-app.md "../../../connect/latest/adminguide/worklist-app.md") that are accessible in the [Amazon Connect
+Amazon Connect provides AWS-managed applications, such as [Worklist](../../../connect/latest/adminguide/worklist-app.md "../../../connect/latest/adminguide/worklist-app.md") that are accessible in the [Connect Customer
 Customer agent workspace](../../../connect/latest/adminguide/agent-workspace.md "../../../connect/latest/adminguide/agent-workspace.md").
 
 ## Amazon Connect SDK

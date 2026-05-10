@@ -1,4 +1,4 @@
-# Unsubscribe from self resume events in Amazon Connect Customer agent workspace
+# Unsubscribe from self resume events in Connect Customer Customer agent workspace
 
 Unsubscribes from self resume events.
 

@@ -1,6 +1,6 @@
 # Agent workspace startup process
 
-Third-party services follow this process in the Amazon Connect
+Third-party services follow this process in the Connect Customer
 Customer agent workspace:
 
 ![Agent workspace third-party service lifecycle flow chart.](images/building-3p-services-startup-process-1.png)

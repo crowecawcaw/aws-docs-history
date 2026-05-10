@@ -1,4 +1,4 @@
-# Subscribe to agent routing profile changes in Amazon Connect Customer agent workspace
+# Subscribe to agent routing profile changes in Connect Customer Customer agent workspace
 
 Creates a subscription for RoutingProfileChanged event. This gets triggered when an
 Agent's routing profile gets updated.
