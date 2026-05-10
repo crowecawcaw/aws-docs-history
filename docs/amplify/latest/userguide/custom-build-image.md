@@ -83,7 +83,7 @@ dependency is used to build your app.
 
 ###### Warning
 
-Setting the Node.js version to **latest** causes builds to fail. Instead, you must specify an exact Node.js version, such as `18`, `21.5`, or `v0.1.2`.
+Setting the Node.js version to **latest** causes builds to fail. Instead, you must specify an exact Node.js version, such as `20`, `21.5`, or `v0.1.2`.
 
 ###### To configure live package updates
 

@@ -318,7 +318,7 @@ type ComputeResource = {
   entrypoint: string;
 };
 
-type ComputeRuntime = 'nodejs20.x' | 'nodejs22.x';
+type ComputeRuntime = 'nodejs20.x' | 'nodejs22.x' | 'nodejs24.x';
 ```
 
 The following table describes the `ComputeResource` object's
@@ -327,7 +327,7 @@ properties.
 | Key        | Type           | Required | Description                                                                                                                                                                                                                                 |
 | ---------- | -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | name       | String         | Yes      | Specifies the name of the compute resource. The name must match the name<br>of the subdirectory inside the `.amplify-hosting/compute<br>directory`.<br>For version 1 of the deployment specification, the only valid value is<br>`default`. |
-| runtime    | ComputeRuntime | Yes      | Defines the runtime for the provisioned compute resource.<br>Valid values are `nodejs20.x` and<br>`nodejs22.x`.                                                                                                                             |
+| runtime    | ComputeRuntime | Yes      | Defines the runtime for the provisioned compute resource.<br>Valid values are `nodejs20.x`,<br>`nodejs22.x`, and `nodejs24.x`.                                                                                                              |
 | entrypoint | String         | Yes      | Specifies the name of the starting file that code will run from for the<br>specified compute resource. The file must exist inside the subdirectory that<br>represents a compute resource.                                                   |
 
 If you have a directory structure that looks like the following.

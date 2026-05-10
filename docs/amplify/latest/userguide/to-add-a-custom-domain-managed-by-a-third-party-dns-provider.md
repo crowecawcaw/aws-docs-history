@@ -129,7 +129,7 @@ console.
 The following screenshot shows the location of the domain name record to
 use.
 
-![The DNS records in the Amplify console, including the domain name record.](/images/amplify/latest/userguide/images/amplify-customdomains-DNS-verification3.png) 15. Configure the ANAME/ALIAS record to point to the root domain of your app (for
+![The DNS records in the Amplify console, including the domain name record.](images/amplify-customdomains-DNS-verification3.png) 15. Configure the ANAME/ALIAS record to point to the root domain of your app (for
 example **https://example.com**). An ANAME record points
 the root of your domain to a hostname. If you have production traffic, we recommended
 that you update your ANAME record after your domain status shows as

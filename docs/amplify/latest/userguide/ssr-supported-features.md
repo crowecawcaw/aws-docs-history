@@ -24,8 +24,9 @@ Node.js that was used to build the app.
 
 ###### Note
 
-Starting on September 15, 2025, Amplify hosting will no longer support Node.js 14,
-Node.js 16, and Node.js 18 runtimes. Supported runtimes include Node.js 20 and Node.js 22.
+Amplify Hosting no longer supports Node.js 14,
+Node.js 16, and Node.js 18 runtimes. Supported runtimes include Node.js 20, Node.js
+22, and Node.js 24.
 
 You can specify the Node.js version to use in the **Live package
 override** feature in the Amplify console. For more information about

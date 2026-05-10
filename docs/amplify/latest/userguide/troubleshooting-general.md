@@ -131,17 +131,16 @@ information, see [Deploying a static website to Amplify from an Amazon S3 bucket
 
 ## I need to update my application's Node.js version
 
-Amplify support for apps using Node.js versions 14, 16, and 18 ends on September 15, 2025. The behavior after this date depends on your application type:
+Amplify no longer supports apps using Node.js versions 14, 16, and 18. The behavior depends on your application type:
 
 - SSR Applications: Build failures will occur when using deprecated Node.js versions. You won't
-  be able to deploy updates until you upgrade to Node.js 20 or later.
+  be able to deploy updates until you upgrade to Node.js 20 or later. Supported runtimes include Node.js 20, 22, and 24.
 - Non-SSR Applications: Can continue using deprecated Node.js versions if you install them manually through buildspec or live package updates.
 
 Applications that are already deployed will continue running regardless of Node.js version.
 
 If you are using the Amazon Linux 2023 build image, Node.js version 20 is supported by
-default. Starting on September 15, 2025, the AL2023 image will automatically
-support Node.js 22 and change its default Node.js version from 18 to 22.
+default. The AL2023 image supports Node.js 22 and 24, with a default Node.js version of 22.
 
 Amazon Linux 2 (AL2) doesn't automatically support Node.js version 20 or later. If you are
 currently using AL2, we recommend that you switch to AL2023. You can change the
@@ -168,16 +167,16 @@ You can specify the Node.js version to use in your application's
 instructions on updating an application's build settings, see [Configuring the build settings for an Amplify application](build-settings.md "build-settings.md").
 
 The following example demonstrates how to customize the build settings to
-set the default Node.js version to Node.js 18 and upgrade to Node.js
-version 20 on a test branch named `node-20`.
+set the default Node.js version to Node.js 20 and upgrade to Node.js
+version 24 on a test branch named `node-24`.
 
 ```
 frontend:
   phases:
     preBuild:
       commands:
-        - nvm use 18
-        - if [ "${AWS_BRANCH}" = "node-20" ]; then nvm use 20; fi
+        - nvm use 20
+        - if [ "${AWS_BRANCH}" = "node-24" ]; then nvm use 24; fi
 ```
 
 ###### Warning
