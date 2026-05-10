@@ -9,6 +9,16 @@ In the navigation pane, choose **AWS services**, then select **EventBridge Sched
 To request a quota increase, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md")
 in the _Service Quotas User Guide_. If the quota is not yet available in Service Quotas, use the [limit increase form](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase").
 
+###### Note
+
+The most commonly referenced quotas for EventBridge Scheduler are _Number of schedules_
+(default 10,000,000 per Region, adjustable to billions), _CreateSchedule request rate_
+(default 5,000 TPS in primary Regions, adjustable to tens of thousands), and
+_Invocations throttle limit_ (default 1,000 TPS in primary Regions, adjustable to
+tens of thousands). All three are adjustable — see
+[Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md")
+in the _Service Quotas User Guide_ for details.
+
 Your AWS account has the following quotas related to EventBridge Scheduler.
 
 | Name                                                  | Default                                                                                                                                                                                                                                                                                 | Adjustable                                                                                                                                                                             | Description                                                                                                                                                                                                                                                                            |
