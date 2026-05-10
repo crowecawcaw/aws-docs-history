@@ -109,3 +109,9 @@ information about the service status, go to the [AWS Service Health Dashboard](h
   configuration set that you specified does not exist. A configuration set is an
   optional parameter that you use to publish email sending events. For more
   information, see [Monitor email sending using Amazon SES event publishing](monitor-using-event-publishing.md "monitor-using-event-publishing.md").
+- Server errors and timeouts—On rare
+  occasions, a `SendEmail` or `SendRawEmail` request may
+  time out or return a server error after the email has already been accepted for
+  delivery. If your application retries the request, a second email with a
+  different message ID may be sent. To reliably correlate event notifications
+  with your sending logic, use [message tags](monitor-using-event-publishing.md "monitor-using-event-publishing.md") rather than relying solely on the message ID.

@@ -38,7 +38,7 @@ _Amazon CloudWatch User Guide_.
    (see image below) - this will open the **Specify metric and
    conditions** page.
 
-![CloudWatch metrics graph with Reputation.BounceRate metric and alarm bell icon highlighted.](images/cw_alarm_for_reputation.png) 5. Scroll down to the **Conditions** pane, and choose
+![Alarm bell icon in the Actions column of the Graphed metrics tab.](images/cw_alarm_for_reputation.png) 5. Scroll down to the **Conditions** pane, and choose
 **Static** in the **Threshold type**
 field.
 

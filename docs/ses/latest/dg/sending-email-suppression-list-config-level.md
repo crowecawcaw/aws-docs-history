@@ -36,7 +36,7 @@ For any suppression condition _not_ specified at the
 configuration set-level, suppression behavior will fall back to the global
 suppression list since account-level settings have been overridden.
 
-![Flowchart showing configuration set-level suppression logic with override options.](images/config_set_suppression_logic.png)
+![Flowchart showing configuration set-level suppression logic with decision points and outcomes.](images/config_set_suppression_logic.png)
 Keep in mind that configuration set-level suppression is not an actual suppression
 _list_, rather, it's simply a mechanism to override your
 account-level suppression list with custom suppression settings defined in a configuration

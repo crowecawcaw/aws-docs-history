@@ -4,7 +4,7 @@ This topic describes what happens when you send an email with SES, and the vario
 outcomes that can occur after the email is sent. The following figure is a high-level
 overview of the sending process:
 
-![Email sending process with Amazon SES, showing potential bounces, complaints, and delivery outcomes.](images/arch_overview-diagram.png)
+![Email flow from sender through SES to receivers, showing bounce and complaint feedback loops.](images/arch_overview-diagram.png)
 
 ######
 
@@ -60,6 +60,16 @@ the sender with an error and drops the email. The request could fail for several
 reasons. For example, the request may not be formatted properly or the email address
 may not have been verified by the sender.
 
+###### Note
+
+On rare occasions, SES may accept an email for delivery even
+though the send request returns an error to the caller. If your application
+retries the request, a second email with a different message ID may be sent,
+and you may receive event notifications for the message associated with the
+failed call. To reliably correlate event notifications with your sending
+logic, use [message
+tags](monitor-using-event-publishing.md "monitor-using-event-publishing.md") rather than relying solely on the message ID.
+
 The method through which you can determine if the request has failed depends on
 how you call SES. The following are examples of how errors and exceptions are
 returned:
@@ -88,7 +98,7 @@ one of the following outcomes occurs:
   delivers the email to the recipient. A successful delivery is shown in the
   following figure.
 
-![Email flow diagram showing sender, Amazon SES, receiver ISP, and recipient with successful delivery.](images/successful-diagram.png)
+![Email flow from sender through Amazon SES to receiver and recipient.](images/successful-diagram.png)
 
 - Hard bounce – The email is rejected by
   the ISP because of a persistent condition or rejected by SES because the
@@ -101,7 +111,7 @@ one of the following outcomes occurs:
   suppression list bounces by the same means. The path of a hard bounce from an
   ISP is shown in the following figure.
 
-![Email flow diagram showing sender, Amazon SES, and receiver with arrows indicating message path.](images/hard_bounce-diagram.png)
+![Email flow from sender through Amazon SES to receiver showing hard bounce path back to sender.](images/hard_bounce-diagram.png)
 
 - Soft bounce – The ISP cannot deliver the
   email to the recipient because of a temporary condition, such as the ISP is too
@@ -116,7 +126,7 @@ one of the following outcomes occurs:
   the following figure. In this case, SES retries sending the email, and
   the ISP is eventually able to deliver it to the recipient.
 
-![Email flow diagram showing sender, Amazon SES, receiver, and recipient with soft bounce scenario.](images/soft_bounce-diagram.png)
+![Email flow from sender through Amazon SES to receiver and recipient with retry path shown.](images/soft_bounce-diagram.png)
 
 - Complaint – The email is accepted by the
   ISP and delivered to the recipient, but the recipient considers the email to be
@@ -129,7 +139,7 @@ one of the following outcomes occurs:
   recipients of the original message and the ISP from which SES received
   the complaint. The path of a complaint is shown in the following figure.
 
-![Diagram showing email flow from sender through Amazon SES, ISP, and recipient, with complaint feedback loop.](images/complaint-diagram.png)
+![Email flow from sender through Amazon SES to receiver at ISP, then to recipient.](images/complaint-diagram.png)
 
 - Auto response – The email is accepted by
   the ISP, and the ISP delivers it to the recipient. The ISP then sends an
@@ -137,7 +147,7 @@ one of the following outcomes occurs:
   SES forwards the auto response notification to the sender. An auto
   response is shown in the following figure.
 
-![Diagram showing email flow from sender through Amazon SES, ISP, recipient, and auto-response back to sender.](images/auto_response-diagram.png)
+![Email flow from sender through Amazon SES to receiver at ISP, then auto response back to sender.](images/auto_response-diagram.png)
 
 Make sure that your SES-enabled program does not retry sending messages
 that generate an auto response.

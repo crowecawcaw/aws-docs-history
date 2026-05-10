@@ -250,6 +250,57 @@ After configuring your VPC endpoint and ingress endpoint:
    appropriate base64-encoded credentials used with your authenticated
    ingress endpoint.
 
+## SMTP credentials rotation for authenticated ingress endpoints
+
+When using an authenticated ingress endpoint, you may need to periodically rotate the SMTP
+password used by your sending clients. The rotation behavior depends on how you store
+your credentials: using AWS Secrets Manager or using SES managed storage.
+
+###### AWS Secrets Manager-based password storage
+
+If you configured your authenticated ingress endpoint with a secret stored in AWS Secrets Manager,
+Mail Manager uses the `AWSCURRENT` version of the secret for authentication and
+also accepts the `AWSPREVIOUS` version. This means that both the old and
+new passwords are valid during and after rotation, giving your sending clients time
+to update their credentials.
+
+The `AWSPREVIOUS` version does not expire on the Mail Manager side—it
+remains valid as long as it exists in AWS Secrets Manager. It is your responsibility to manage
+secret versions and expiration through AWS Secrets Manager.
+
+To set up automatic rotation:
+
+1. Configure [automatic
+   rotation](../../../secretsmanager/latest/userguide/rotate-secrets_turn-on-for-other.md "../../../secretsmanager/latest/userguide/rotate-secrets_turn-on-for-other.md") on your secret in AWS Secrets Manager.
+2. When rotation occurs, AWS Secrets Manager moves the `AWSCURRENT` label to
+   the new secret version and attaches `AWSPREVIOUS` to the former
+   current version.
+3. Mail Manager immediately accepts both versions, so sending clients can update their
+   credentials without downtime.
+
+For more information about AWS Secrets Manager rotation strategies, see [Rotate secrets](../../../secretsmanager/latest/userguide/rotating-secrets.md "../../../secretsmanager/latest/userguide/rotating-secrets.md") in the
+_AWS Secrets Manager User Guide_.
+
+###### SES managed password storage
+
+If you set the password directly when creating the ingress endpoint (or update it using
+the `UpdateIngressPoint` API), Mail Manager supports the previous password for
+14 days after the update. After 14 days, sending clients using the old password
+receive `Authentication failed` errors.
+
+###### Coordinating rotation with sending clients
+
+When planning a credentials rotation, notify your sending application owners in
+advance and ensure they update their SMTP configurations within the grace period.
+For AWS Secrets Manager-based storage, the grace period lasts as long as the
+`AWSPREVIOUS` version exists. For SES managed storage, the grace
+period is 14 days.
+
+###### Note
+
+For seamless credentials rotation with minimal client disruption, use
+AWS Secrets Manager-based password storage with automatic rotation configured.
+
 ## TLS policy for ingress endpoints
 
 The TLS policy for an ingress endpoint controls whether connecting SMTP clients are required

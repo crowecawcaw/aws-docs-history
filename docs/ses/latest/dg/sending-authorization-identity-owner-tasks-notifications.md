@@ -21,4 +21,4 @@ Return-Path field of the email (or the address in the Source field, if you didn'
 Return-Path address), even if you disabled email feedback forwarding. This process is
 illustrated in the following image.
 
-![Flowchart showing notification paths for bounce/complaint events based on various settings.](images/feedback_forwarding.png)
+![Flowchart showing bounce and complaint notification routing based on configuration settings.](images/feedback_forwarding.png)

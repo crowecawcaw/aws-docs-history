@@ -315,6 +315,21 @@ Easy DKIM
 
 
     ![The DKIM section of a details page for an identity. Three fictitious CNAME records are shown.](images/dkim_records.png)
+
+    ###### Retrieving the hosted zone programmatically
+
+    Each CNAME record's value is composed of the DKIM token
+     followed by a hosted zone domain (for example,
+     ``token`.dkim.amazonses.com`
+     or
+     ``token`.`a31d`.dkim.`us-west-2`.amazonses.com`).
+     The hosted zone portion varies by AWS Region and cell.
+
+    You can retrieve the hosted zone directly from the API response. Both the [CreateEmailIdentity](../APIReference-V2/API_CreateEmailIdentity.md "../APIReference-V2/API_CreateEmailIdentity.md") and [GetEmailIdentity](../APIReference-V2/API_GetEmailIdentity.md "../APIReference-V2/API_GetEmailIdentity.md") responses include a
+     `SigningHostedZone` field in the
+     `DkimAttributes` object. Use this value to
+     construct the full CNAME record value:
+     ``token`.`SigningHostedZone``.
     2. Add the CNAME records to your domain’s DNS settings respective
      of your DNS host provider:
 
@@ -631,7 +646,7 @@ identity](#just-verify-domain-proc "#just-verify-domain-proc") for more informat
 When you attempt to verify an email address, Amazon SES sends an email to that address that
 resembles the example shown in the following image.
 
-![Email verification request from Amazon SES and Pinpoint with confirmation link and instructions.](images/verification_email_example.png)
+![Email verification message from AWS with confirmation URL and instructions.](images/verification_email_example.png)
 
 Several Amazon SES customers build applications (such as email marketing suites or ticketing
 systems) that send email through Amazon SES on behalf of their own customers. For the end users
@@ -783,7 +798,7 @@ Amazon SES automatically adds a unique link to the recipient, and also a brief d
 The following image shows a sample verification email that uses the template created in
 [Creating a custom verification email template](#send-email-verify-address-custom-creating "#send-email-verify-address-custom-creating").
 
-![Email verification message with instructions and a link to confirm the recipient's address.](images/cve_sample_message.png)
+![Email verification message with verification link, welcome text, and disclaimer footer.](images/cve_sample_message.png)
 
 ### Custom verification email frequently asked questions
 

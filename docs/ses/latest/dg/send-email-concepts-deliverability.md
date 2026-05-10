@@ -12,7 +12,7 @@ send, and then improve your email-sending program, if necessary, to further incr
 likelihood of successful deliveries. The following sections review the concepts behind these
 steps and how Amazon SES helps you through the process.
 
-![Circular diagram showing four steps to improve email delivery: understand issues, be proactive, stay informed, and improve program.](images/deliverability_concepts-diagram.png)
+![Circular flow diagram showing four steps: Understand Email Delivery Issues, Be Proactive, Stay Informed, and Improve Your Email Sending Program.](images/deliverability_concepts-diagram.png)
 
 ## Understand email delivery issues
 
