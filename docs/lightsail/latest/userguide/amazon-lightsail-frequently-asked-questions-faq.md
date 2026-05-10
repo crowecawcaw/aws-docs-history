@@ -7,6 +7,8 @@ following categories.
 
 - [Learn about Lightsail and its global availability](amazon-lightsail-frequently-asked-questions-faq-general.md "amazon-lightsail-frequently-asked-questions-faq-general.md")
 - [Billing and account management](amazon-lightsail-frequently-asked-questions-faq-billing-and-account-management.md "amazon-lightsail-frequently-asked-questions-faq-billing-and-account-management.md")
+- [Instances](amazon-lightsail-faq-instances.md "amazon-lightsail-faq-instances.md")
+- [Blueprints packaged by Bitnami](amazon-lightsail-faq-bitnami-blueprints.md "amazon-lightsail-faq-bitnami-blueprints.md")
 - [Data transfer in Lightsail](amazon-lightsail-faq-data-transfer-allowance.md "amazon-lightsail-faq-data-transfer-allowance.md")
 - [Block storage (Disks)](amazon-lightsail-faq-block-storage.md "amazon-lightsail-faq-block-storage.md")
 - [Certificates](amazon-lightsail-faq-certificates.md "amazon-lightsail-faq-certificates.md")
@@ -16,7 +18,6 @@ following categories.
 - [Databases](amazon-lightsail-faq-databases.md "amazon-lightsail-faq-databases.md")
 - [Domains](amazon-lightsail-faq-domains.md "amazon-lightsail-faq-domains.md")
 - [Export Lightsail resources to Amazon Elastic Compute Cloud (Amazon EC2)](amazon-lightsail-faq-export-to-ec2.md "amazon-lightsail-faq-export-to-ec2.md")
-- [Instances](amazon-lightsail-faq-instances.md "amazon-lightsail-faq-instances.md")
 - [Load balancers](amazon-lightsail-faq-load-balancers.md "amazon-lightsail-faq-load-balancers.md")
 - [Manual and automatic snapshots](amazon-lightsail-faq-snapshots.md "amazon-lightsail-faq-snapshots.md")
 - [Resource health metrics and alarms](faq-metrics-and-alarms.md "faq-metrics-and-alarms.md")

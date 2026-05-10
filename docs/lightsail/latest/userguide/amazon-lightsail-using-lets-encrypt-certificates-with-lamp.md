@@ -196,7 +196,7 @@ Let's Encrypt may provide a single or multiple TXT records that you must use for
 verification. In this example, we were provided with two TXT records to use for
 verification.
 
-![TXT records for Let's Encrypt certificates.](images/instances/lets-encrypt/get-TXT-records.png) 8. Keep the Lightsail browser-based SSH session open—you return to it later in this
+![TXT records for Let's Encrypt certificates.](/images/lightsail/latest/userguide/images/instances/lets-encrypt/get-TXT-records.png) 8. Keep the Lightsail browser-based SSH session open—you return to it later in this
 tutorial. Continue to the [next section](#add-a-text-record-to-your-domains-dns-zone-lets-encrypt-lamp "#add-a-text-record-to-your-domains-dns-zone-lets-encrypt-lamp") of this tutorial.
 
 ## Step 4: Add TXT records to your domain’s DNS zone

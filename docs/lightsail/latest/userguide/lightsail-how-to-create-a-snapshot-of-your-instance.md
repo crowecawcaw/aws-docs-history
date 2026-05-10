@@ -53,3 +53,13 @@ To create a larger instance size from a snapshot, you can use the Lightsail cons
 see [Create an
 instance from a snapshot](lightsail-how-to-create-instance-from-snapshot.md "lightsail-how-to-create-instance-from-snapshot.md"). For more information about Lightsail bundles, see
 [Lightsail pricing](https://amazonlightsail.com/pricing/ "https://amazonlightsail.com/pricing/").
+
+###### Important
+
+A snapshot is a point-in-time copy of your instance, including all software and
+configurations installed at the time the snapshot is created. When you create a new
+instance from a snapshot, the software on that instance is only as current as it was
+when the snapshot was taken. It is your responsibility to keep the software on any new
+instance created from a snapshot up to date, including manually applying software
+updates and security patches. For more information, see [Keep Lightsail instances and
+containers secure with update management](amazon-lightsail-update-management.md "amazon-lightsail-update-management.md").

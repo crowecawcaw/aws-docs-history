@@ -29,7 +29,7 @@ your own SSH client.
 
 ## What operating systems can I use with Lightsail?
 
-Lightsail currently supports 7 Linux or Unix-like distributions: AlmaLinux OS 9,
+Lightsail currently supports 8 Linux or Unix-like distributions: AlmaLinux OS 9,
 Amazon Linux 2, Amazon Linux 2023, CentOS, Debian, FreeBSD, OpenSUSE, and Ubuntu, as well as three Windows
 Server versions: 2016, 2019, and 2022.
 
