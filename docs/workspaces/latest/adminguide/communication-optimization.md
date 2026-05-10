@@ -71,7 +71,7 @@ user's workstation or the virtual phone operating on the client device to the re
 call peer. Notable instances of applications functioning within this mode
 encompass:
 
-- [Amazon Connect Optimization for Amazon WorkSpaces](../../../whitepapers/latest/best-practices-deploying-amazon-workspaces/connect-optimization.md "../../../whitepapers/latest/best-practices-deploying-amazon-workspaces/connect-optimization.md")
+- [Amazon Connect Customer Optimization for Amazon WorkSpaces](../../../whitepapers/latest/best-practices-deploying-amazon-workspaces/connect-optimization.md "../../../whitepapers/latest/best-practices-deploying-amazon-workspaces/connect-optimization.md")
 - [Genesys Cloud WebRTC media helper](https://help.mypurecloud.com/articles/about-webrtc-media-helper/ "https://help.mypurecloud.com/articles/about-webrtc-media-helper/")
 - [Microsoft Teams SIP Gateway](https://learn.microsoft.com/en-us/microsoftteams/sip-gateway-plan "https://learn.microsoft.com/en-us/microsoftteams/sip-gateway-plan")
 - [Microsoft Teams Desk phones and Teams displays](https://www.microsoft.com/en-us/microsoft-teams/across-devices/devices/category/desk-phones-teams-displays/34 "https://www.microsoft.com/en-us/microsoft-teams/across-devices/devices/category/desk-phones-teams-displays/34")
@@ -338,8 +338,8 @@ UC applications.
 - Genesys:
   - [Genesys Cloud WebRTC media helper](https://help.mypurecloud.com/articles/about-webrtc-media-helper/ "https://help.mypurecloud.com/articles/about-webrtc-media-helper/")
 
-- Amazon Connect:
-  - [Amazon Connect Optimization for Amazon WorkSpaces](../../../whitepapers/latest/best-practices-deploying-amazon-workspaces/connect-optimization.md "../../../whitepapers/latest/best-practices-deploying-amazon-workspaces/connect-optimization.md")
+- Amazon Connect Customer:
+  - [Connect Customer Optimization for Amazon WorkSpaces](../../../whitepapers/latest/best-practices-deploying-amazon-workspaces/connect-optimization.md "../../../whitepapers/latest/best-practices-deploying-amazon-workspaces/connect-optimization.md")
 
 - Google Meet:
   - [Use a phone for audio in a video meeting](https://support.google.com/meet/answer/9518557?hl=en "https://support.google.com/meet/answer/9518557?hl=en")
