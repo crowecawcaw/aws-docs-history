@@ -26,7 +26,7 @@ slot type, you can modify it or delete it from the bot design using the
 console or the API.
 
 The automated chatbot designer supports conversation transcript files
-using the Contact Lens for Amazon Connect schema. If you are using a different
+using the Contact Lens for Connect Customer schema. If you are using a different
 contact center application, you must transform the conversation
 transcripts to the format used by the chatbot designer. For information,
 see [Input transcript format](designing-input-format.md "designing-input-format.md").

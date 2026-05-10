@@ -9,7 +9,7 @@ user to use runtime operations on a specific bot alias.
 
 When you use a resource-based policy you can allow other AWS
 services to access resources in your account. For example, you can
-allow Amazon Connect to access an Amazon Lex V2 bot.
+allow Connect Customer to access an Amazon Lex V2 bot.
 
 To learn how to create a bot or bot alias, see [Working with Amazon Lex V2 bots](building-bots.md "building-bots.md").
 
@@ -271,7 +271,7 @@ JSON
 
 ## Allow an AWS service to use a specific Amazon Lex V2 bot
 
-The following example grants permission for AWS Lambda and Amazon Connect
+The following example grants permission for AWS Lambda and Connect Customer
 to call Amazon Lex V2 runtime API operations.
 
 The condition block is required for service principals, and must
@@ -281,6 +281,6 @@ use the global context keys `AWS:SourceAccount` and
 The `AWS:SourceAccount` is the account ID that is
 calling the Amazon Lex V2 bot.
 
-The `AWS:SourceArn` is the resource ARN of the Amazon Connect
+The `AWS:SourceArn` is the resource ARN of the Connect Customer
 service instance or Lambda function that the call to the Amazon Lex V2 bot
 alias originates from.

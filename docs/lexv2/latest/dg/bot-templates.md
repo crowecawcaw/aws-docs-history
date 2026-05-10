@@ -9,7 +9,7 @@ optimizing resources, so that you can focus on customer relationships.
 
 You can create pre-built bots based on your business use case.
 You can use the CloudFormation console to select the pre-built options for the related services,
-such as Amazon S3, Amazon Connect and DynamoDB.
+such as Amazon S3, Connect Customer and DynamoDB.
 
 Currently, Amazon Lex V2 supports the following business verticals:
 
@@ -40,7 +40,7 @@ the bot template:**
   - AWS CloudFormation to run the stack
 
 - IAM access and secret key credentials
-- Amazon Connect instance (optional)
+- Connect Customer instance (optional)
 
 ###### Note
 
@@ -62,11 +62,11 @@ costs for each service.
 5. In the CloudFormation console, CloudFormation creates a
    default configuration for each of the values for the template you have chosen. You can
    also select your own stack name, CloudFormation parameters, Amazon DynamoDB table,
-   and (optional) Amazon Connect parameters.
+   and (optional) Connect Customer parameters.
 6. At the bottom of the window, select **Create stack**.
 7. CloudFormation processes the request in the background for several minutes to
    configure your new bot. NOTE: The process automatically creates resources for a
-   DynamoDB table, an Amazon Connect contact flow, and an Amazon Connect instance. You can track the
+   DynamoDB table, an Connect Customer contact flow, and an Connect Customer instance. You can track the
    progress in the CloudFormation console, and then navigate back to the Amazon Lex V2 console once
    the CloudFormation stack creation is completed.
 8. If successfully built, a message appears and you can select
@@ -85,9 +85,9 @@ the DynamoDB table needed to load your sample policy data. You can also enter th
 of your custom DynamoDB table. Your custom DynamoDB table should be formatted in the
 same way as the default table created by the bot template deployment.
 
-**Amazon Connect** – You can configure your Amazon Connect instance to work
+**Connect Customer** – You can configure your Connect Customer instance to work
 with your new bot template by entering the ConnectInstanceARN and a unique
-ContactFlowName. With the use of Amazon Connect, you can test your bot using an IVR system from
+ContactFlowName. With the use of Connect Customer, you can test your bot using an IVR system from
 end-to-end.
 
 **Troubleshooting your bot template**

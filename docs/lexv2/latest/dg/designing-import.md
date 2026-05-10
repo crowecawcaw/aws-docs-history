@@ -4,7 +4,7 @@ Importing conversation transcripts is a three-step process:
 
 1. Prepare the transcripts for importing by converting them
    to the correct format. If you are using Contact Lens for
-   Amazon Connect the transcripts are already in the correct format.
+   Connect Customer the transcripts are already in the correct format.
 2. Upload the transcripts to an Amazon S3 bucket. If you are using
    Contact Lens, your transcripts are already in an S3
    bucket.
@@ -15,7 +15,7 @@ Importing conversation transcripts is a three-step process:
    analyzed every minute.
    Each of these steps is described in the following sections.
 
-## Importing transcripts from Contact Lens for Amazon Connect
+## Importing transcripts from Contact Lens for Connect Customer
 
 The Amazon Lex V2 automated chatbot designer is compatible with
 Contact Lens transcript files. To use Contact Lens transcript
@@ -24,15 +24,15 @@ its output files.
 
 ###### To export transcripts from Contact Lens
 
-1. Turn on Contact Lens in your Amazon Connect instance. For
-   instructions, see [Enable Contact Lens for Amazon Connect](../../../connect/latest/adminguide/enable-analytics.md "../../../connect/latest/adminguide/enable-analytics.md") in the
-   _Amazon Connect administrator
+1. Turn on Contact Lens in your Connect Customer instance. For
+   instructions, see [Enable Contact Lens for Connect Customer](../../../connect/latest/adminguide/enable-analytics.md "../../../connect/latest/adminguide/enable-analytics.md") in the
+   _Connect Customer administrator
    guide_.
-2. Note the location of the S3 bucket that Amazon Connect is using
+2. Note the location of the S3 bucket that Connect Customer is using
    for your instance. To see the location, open the
-   **Data storage** page in the Amazon Connect
+   **Data storage** page in the Connect Customer
    console. For instructions, see [Update instance settings](../../../connect/latest/adminguide/update-instance-settings.md "../../../connect/latest/adminguide/update-instance-settings.md") in the
-   _Amazon Connect administrator
+   _Connect Customer administrator
    guide_.
 
 After you have turned on Contact Lens and noted the location
@@ -84,14 +84,14 @@ are:
 
 - A script to combine Contact Lens transcripts with
   Amazon Lex V2 conversation logs. Contact Lens transcripts don't
-  include parts of Amazon Connect conversations that interact with
+  include parts of Connect Customer conversations that interact with
   Amazon Lex V2 bots. The script requires conversation logs to be
   turned on for Amazon Lex V2, and appropriate permissions to
   query conversation log CloudWatch Logs and Contact Lens
   S3 buckets.
 - A script to transform Amazon Transcribe call analytics to the
   Amazon Lex V2 input format.
-- A script to transform Amazon Connect chat transcripts to the
+- A script to transform Connect Customer chat transcripts to the
   Amazon Lex V2 input format.
 
 You can download the scripts from this GitHub repository:
@@ -102,7 +102,7 @@ You can download the scripts from this GitHub repository:
 If you are using Contact Lens, your transcript files are
 already contained in an S3 bucket. For the location and file
 names of your transcript files, see [Example Contact Lens output files](../../../connect/latest/adminguide/contact-lens-example-output-files.md "../../../connect/latest/adminguide/contact-lens-example-output-files.md") in the
-_Amazon Connect administrator guide_.
+_Connect Customer administrator guide_.
 
 If you are using another contact center application and you
 have not set up an S3 bucket for your transcript files, follow

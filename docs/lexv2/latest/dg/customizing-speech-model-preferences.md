@@ -16,7 +16,7 @@ The neural speech recognition model provides enhanced accuracy and better handli
 
 Deepgram
 
-Deepgram provides a public speech-to-test (STT) API for users that create an account and an API key. See [https://deepgram.com/](https://deepgram.com/ "https://deepgram.com/") for information about their public offerings.
+Deepgram provides a public speech-to-text (STT) API for users that create an account and an API key. See [https://deepgram.com/](https://deepgram.com/ "https://deepgram.com/") for information about their public offerings.
 
 ## Configuring speech model preferences
 

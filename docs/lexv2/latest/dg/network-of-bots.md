@@ -159,4 +159,4 @@ integrations**.
 
 ###### Note
 
-Network of bots is currently not available in Amazon Connect voice or chat.
+Network of bots is currently not available in Connect Customer voice or chat.

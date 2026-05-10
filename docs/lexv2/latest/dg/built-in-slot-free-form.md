@@ -20,7 +20,7 @@ Note:
 - `AMAZON.FreeFormInput` cannot have slot sample utterances.
 - `AMAZON.FreeFormInput` is only recognized when elicited for.
 - `AMAZON.FreeFormInput` does not support wait and continue.
-- `AMAZON.FreeFormInput` is currently not supported in the Amazon Connect Chat
+- `AMAZON.FreeFormInput` is currently not supported in the Connect Customer Chat
   channel.
 - When a `AMAZON.FreeFormInput` slot is elicited, `FallbackIntent`
   will not be triggered.

@@ -21,7 +21,7 @@ Amazon Lex V2 now includes advanced AI-powered features that make bot building e
 With **Multi-Region Replication (MRR)**, you can now deploy your bots across multiple AWS regions for improved availability and disaster recovery, ensuring your conversational interfaces remain accessible to users worldwide.
 
 Amazon Lex V2 provides integration with AWS Lambda, and you can integrate with
-many other services on the AWS platform, including Amazon Connect, Amazon Comprehend, and
+many other services on the AWS platform, including Connect Customer, Amazon Comprehend, and
 Amazon Kendra. Integration with Lambda provides bots access to pre-built
 serverless enterprise connectors to link to data in SaaS applications
 such as Salesforce.
