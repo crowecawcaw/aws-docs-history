@@ -63,7 +63,7 @@ considerations described previously, our Amazon EKS environment
 will create separate namespaces for each tenant and secure those
 namespaces to ensure that we have a robust tenant isolation model.
 
-![VPC with three availability zones, each containing public and private subnets with tenant namespaces.](images/image6.png)
+![VPC with three availability zones, each containing public and private subnets with tenant namespaces.](/images/wellarchitected/latest/saas-lens/images/image6.png)
 _Figure 5: Deploying tenant environments in Amazon EKS_
 
 The diagram in Figure 5 provides a view of these namespaces within
