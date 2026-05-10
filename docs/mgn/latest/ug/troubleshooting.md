@@ -12,3 +12,4 @@ This section provides help for common communication, credential, installation, a
 - [Troubleshooting agentless replication issues](agentless-troubleshooting.md "agentless-troubleshooting.md")
 - [Common replication errors](common-replication-errors.md "common-replication-errors.md")
 - [Other troubleshooting topics](Other-Troubleshooting-Topics.md "Other-Troubleshooting-Topics.md")
+- [Target instance cannot connect to Active Directory after migration](ad-connectivity-after-migration.md "ad-connectivity-after-migration.md")

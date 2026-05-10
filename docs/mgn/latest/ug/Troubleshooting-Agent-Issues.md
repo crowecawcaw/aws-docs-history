@@ -103,7 +103,7 @@ available disk space on the /tmp directory run the following command: df -h /tm
 After you have entered the above commands for checking the available disk space, the
 results will be displayed as follows:
 
-![Terminal output showing disk space usage for root and tmp directories on Ubuntu Linux system.](images/troubleshooting-25-re.png) 2. **The format of the list of disks to replicate**
+![Terminal output showing disk space usage with root filesystem at 19% and tmp at 19% usage.](images/troubleshooting-25-re.png) 2. **The format of the list of disks to replicate**
 
 During the installation, when you are asked to enter the disks you want to replicate, do
 NOT use apostrophes, brackets, or disk paths that do not exist. Type only existing disk
@@ -127,7 +127,7 @@ number of the kernel.To handle this issue, follow these steps:
 
 
 
-    ![Terminal output showing Linux kernel version 4.4.41-36.55.amzn1.x86_64.](images/troubleshooting-26-re.png)
+    ![Terminal output showing kernel version 4.4.41-36.55.amzn1.x86_64 from uname command.](images/troubleshooting-26-re.png)
 
     The 'uname -r' output version should match the version of one of the installed kernel
      headers packages (kernel-devel-<version number> / linux-headers-<version number>).
@@ -145,7 +145,7 @@ number of the kernel.To handle this issue, follow these steps:
 
 
 
-    ![Terminal output showing kernel-related packages installed on an Amazon Linux system.](images/troubleshooting-27-re.png)
+    ![Terminal output showing three installed kernel packages with version 4.4.41-36.55.amzn1.x86_64.](images/troubleshooting-27-re.png)
 
     **Note**: This command looks for kernel-devel.
 
@@ -154,7 +154,7 @@ number of the kernel.To handle this issue, follow these steps:
 
 
 
-    ![Terminal output showing search results for Linux kernel headers packages.](images/troubleshooting-28-re.png)
+    ![Terminal output showing apt-cache search results for linux-headers packages.](images/troubleshooting-28-re.png)
     3. **Verifying that the folder that contains the
      kernel-devel/linux-headers is not a symbolic link.**
 
@@ -181,7 +181,7 @@ number of the kernel.To handle this issue, follow these steps:
 
 
 
-    ![Terminal output showing directory listing of /usr/src with Linux kernel headers.](images/troubleshooting-29-re.png)
+    ![Terminal output showing directory listing of /usr/src where linux-headers directories are real directories, not symbolic links.](images/troubleshooting-29-re.png)
 
     In the above example, the results show that the linux-headers are not a symbolic
      link.

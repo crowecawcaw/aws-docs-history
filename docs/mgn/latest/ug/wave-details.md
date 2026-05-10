@@ -7,18 +7,18 @@ view.
 
 Click the **Wave name** of any wave on the **Waves** page.
 
-![Wave management interface showing one active wave with in-progress migration status and healthy alerts.](images/wave-1.png)
+![Waves table with wave 1 selected, showing migration status, health alerts, and applications.](images/wave-1.png)
 Click the **Wave** of any application on the **Applications** page.
 
-![Applications page showing one app with Wave 2 and migration status in progress.](images/wave-2.png)
+![Applications table with Wave 2 highlighted in the Wave name column for App 1.](images/wave-2.png)
 Click the **Wave name** in the **Overview** dashboard inside **Application details** of an
 application.
 
-![Overview dashboard showing App 2 details, including Wave name set to "wave 1".](images/wave-3.png)
+![Overview dashboard showing Wave name field with value wave 1.](images/wave-3.png)
 The **Wave details** view shows information and options for an
 individual wave. Here, you can control and monitor the individual wave.
 
-![Wave details view showing overview, status, and migration progress for MGN-6583.](images/wave-11.png)
+![Wave details page showing overview information, migration status, and application alerts.](images/wave-11.png)
 You can also perform a variety of actions on the wave, and perform batch operations such as
 launch test and cutover instances for the servers associated with the wave.
 

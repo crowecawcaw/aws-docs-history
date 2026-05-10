@@ -2,6 +2,15 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Release notes
 
+## May 2026
+
+- Updated network requirements to include the Amazon Linux 2023 (AL2023) package
+  repository bucket for staging area subnet connectivity. This applies to both
+  firewall-restricted environments (allowlist the dual-stack Amazon S3 URL) and isolated
+  subnets without internet access (Amazon S3 VPC gateway endpoint policy). For more
+  information, see [Communication between
+  the staging area subnet and S3](preparing-environments.md#Communication-Staging-S3 "preparing-environments.md#Communication-Staging-S3").
+
 ## April 2026
 
 - Service launch in these regions: _Asia Pacific (New Zealand)_,
@@ -11,10 +20,6 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 ## March 2026
 
-- Updated network requirements for environments without outbound internet access.
-  If you use an Amazon S3 VPC gateway endpoint, you must now allow access to the Amazon
-  Linux 2023 package repository bucket. For more information, see
-  [Communication over TCP port 443](preparing-environments.md#TCP-443 "preparing-environments.md#TCP-443").
 - AWS Application Migration Service now supports storing EBS snapshots locally within AWS Local Zones
   that support this feature. For more information, see
   [Store snapshots in AWS Local Zone](replication-server-settings.md#local-zone-snapshots "replication-server-settings.md#local-zone-snapshots").

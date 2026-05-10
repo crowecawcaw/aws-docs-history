@@ -60,7 +60,7 @@ make gcc perl tar gawk rpm
   After you have entered the commands for checking the available disk space, the
   results are displayed as:
 
-  ![Terminal output showing disk space usage for root and tmp directories on Ubuntu Linux system.](images/agent1.png)
+  ![Terminal output showing disk space usage with /dev/xvda1 having 6.0G available space.](images/agent1.png)
 
 - Ensure that you have Python installed on the source server (version
   2.4+, version 3.0+) for Agent installation.
@@ -91,7 +91,7 @@ _/tmp_ directory, run this command: `sudo mount -o
 
 This example illustrates the troubleshooting procedure:
 
-![Terminal commands showing mount operations and grep searches for /tmp directory.](images/agent66.png)
+![Terminal commands showing mount output filtered for tmp, then remounting and verifying.](images/agent66.png)
 
 - The AWS Application Migration Service user needs to be either a root user or a user in the sudoers list.
 - Ensure that the dhclient package is installed. If not, please install the package
@@ -130,7 +130,7 @@ number of the kernel. To handle this issue, follow these steps:
 
 
 
-    ![Terminal output showing Linux kernel version 4.14.177-107.254.amzn2.x86_64.](images/agent2.jpg)
+    ![Terminal output showing kernel version 4.14.177-107.254.amzn1.x86_64 from uname command.](images/agent2.jpg)
 
     The *uname -r* output version should match the version of one of
      the installed kernel headers packages (kernel-devel-<version number> /
@@ -148,7 +148,7 @@ number of the kernel. To handle this issue, follow these steps:
 
 
 
-    ![Terminal output showing installed kernel packages on a Linux system.](images/agent3.jpg)
+    ![Terminal output showing four installed kernel packages listed by rpm command.](images/agent3.jpg)
 
     ###### Note
 
@@ -160,7 +160,7 @@ number of the kernel. To handle this issue, follow these steps:
 
 
 
-    ![Terminal output showing search results for Linux kernel headers packages.](images/agent4.png)
+    ![Terminal output showing apt-cache search results for linux-headers packages.](images/agent4.png)
     3. Verify that the folder that contains the
      *kernel-devel/linux-headers* is not a symbolic link.
 
@@ -192,7 +192,7 @@ number of the kernel. To handle this issue, follow these steps:
     ```
 
 
-    ![Terminal output showing Linux directory listing with kernel-related files and timestamps.](images/agent5.png)
+    ![Terminal output showing directory listing of /usr/src with Linux kernel header files.](images/agent5.png)
 
     In the above example, the results show that the actual **linux-headers-\*** folders are not symbolic links.
     4. [If a symbolic link exists] Delete the symbolic link.

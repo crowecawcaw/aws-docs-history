@@ -6,7 +6,7 @@ The source server **Alerts** metric provides an aggregated
 overview of the alerts related to the wave's associated servers. You can look up an individual
 source server **Alerts** status at the **Source servers** table at the bottom of the page.
 
-![Pie chart showing server status: 2 healthy servers (66.7%) and 1 launched server (33.3%).](images/app-7.png)
+![Pie chart showing server alerts: 2 servers healthy (66.7%), 1 server launched (33.3%).](images/app-7.png)
 
 - A healthy server for which a test or cutover instance has not been launched will display
   a **Healthy** status.

@@ -219,12 +219,12 @@ event occurs.
 
 You can see MGN in CloudWatch automatic dashboards:
 
-![CloudWatch cross-service dashboard showing Application Migration Service and EC2 metrics.](images/cw1.png)
+![CloudWatch cross service dashboard showing metrics for Application Migration Service and EC2.](images/cw1.png)
 
-![AWS Application Migration Service dashboard showing various performance metrics over a 3-hour period.](images/cw2.png)
+![Application Migration Service dashboard showing metric graphs for lag duration, backlog, duration since last test, elapsed replication duration, and server counts.](images/cw2.png)
 
 MGN events can be selected when defining a rule from the EventBridge console:
 
-![Event pattern form showing AWS services dropdown with MGN options and event JSON input area.](images/EB-cw3.jpg)
+![Event source dropdown showing MGN filter with three MGN event types listed below.](images/EB-cw3.jpg)
 
 [Learn more about monitoring MGN](monitoring-overview.md "monitoring-overview.md").

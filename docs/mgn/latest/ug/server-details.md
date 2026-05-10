@@ -32,7 +32,7 @@ The server details view is divided into several tabs, including:
 
 - [Monitor the server in the migration lifecycle](migration-dashboard.md "migration-dashboard.md")
 - [Review source server information](source-server-info.md "source-server-info.md")
-- [Add or remove tags assigned to source servers](Cirrus_tags.md "Cirrus_tags.md")
+- [Add or remove tags assigned to source servers](source-server-tags.md "source-server-tags.md")
 - [Review disk settings for source servers](disk-settings.md "disk-settings.md")
 - [Change staging disk type](staging-disk.md "staging-disk.md")
 - [Edit replication settings for a source server](replication-settings.md "replication-settings.md")

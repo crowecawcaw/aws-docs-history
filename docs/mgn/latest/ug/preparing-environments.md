@@ -30,6 +30,7 @@ As part of network setting preparations, set up a staging area and operational s
 
 - [Staging area subnet](#Staging-Area "#Staging-Area")
 - [Operational subnets](#Operational-Subnet "#Operational-Subnet")
+- [Active Directory connectivity](#ad-network-preparation "#ad-network-preparation")
 
 ### Staging area subnet
 
@@ -65,6 +66,17 @@ instances](launching-test-gs.md "launching-test-gs.md").
 [Learn more about how Amazon EC2 launch templates are
 used](ec2-launch.md "ec2-launch.md").
 
+### Active Directory connectivity
+
+If your source servers are domain-joined to an Active Directory, ensure that the target
+VPC has network connectivity and DNS resolution to your AD domain controllers before launching
+test or cutover instances. During conversion, Application Migration Service resets network settings to use DHCP, which
+means instance-level DNS overrides from the source server are not preserved.
+
+For details on configuring DNS and network connectivity for domain-joined servers, see
+[Target instance cannot connect to Active
+Directory after migration](ad-connectivity-after-migration.md "ad-connectivity-after-migration.md").
+
 ## Required connectivity settings
 
 To prepare your network for running AWS Application Migration Service, configure the following connectivity
@@ -82,6 +94,7 @@ endpoint.
 - [Communication between source servers and AWS Application Migration Service over TCP port 443](#Source-Manager-TCP-443 "#Source-Manager-TCP-443")
 - [Communication between source servers and the staging area subnet over TCP port 1500](#Communication-TCP-1500 "#Communication-TCP-1500")
 - [Communication between the staging area subnet and AWS Application Migration Service over TCP port 443](#Communication-TCP-443-Staging "#Communication-TCP-443-Staging")
+- [Communication between the staging area subnet and Amazon S3](#Communication-Staging-S3 "#Communication-Staging-S3")
 
 ### Endpoints and firewall allowlist
 
@@ -117,7 +130,7 @@ https://aws-mgn-internal-hashes-<region>.s3.<region>.amazonaws.com/
 https://aws-application-migration-service-<region>.s3.<region>.amazonaws.com/
 https://aws-application-migration-service-hashes-<region>.s3.<region>.amazonaws.com/
 https://amazon-ssm-<region>.s3.<region>.amazonaws.com/
-https://al2023-repos-<region>-de612dc2.s3.<region>.amazonaws.com/
+https://al2023-repos-<region>-de612dc2.s3.dualstack.<region>.amazonaws.com/
 
 ```
 
@@ -130,9 +143,9 @@ dual-stack endpoints](../../../AmazonS3/latest/API/dual-stack-endpoints.md#dual-
 
 ###### Important
 
-If your staging area subnet does not have outbound internet access, ensure that
-your Amazon S3 VPC gateway endpoint policy allows access to the Amazon Linux 2023 package repository
-bucket (`al2023-repos-<region>-de612dc2`).
+Ensure that your Amazon S3 VPC gateway endpoint policy allows access to the Amazon
+Linux 2023 package repository bucket (`al2023-repos-<region>-de612dc2`). This
+bucket is accessed through the Amazon S3 dual-stack endpoint.
 
 **Amazon S3 VPC Endpoint policy**
 
@@ -222,6 +235,48 @@ staging area, as described in the
 2. [Private
    IP address + NAT gateway](../../../AmazonVPC/latest/UserGuide/vpc-nat-gateway.md "../../../AmazonVPC/latest/UserGuide/vpc-nat-gateway.md")
 
+### Communication between the staging area subnet and Amazon S3
+
+The staging area subnet requires access to Amazon S3 for both replication and conversion
+operations. Replication servers and conversion servers are based on Amazon Linux 2023 (AL2023)
+and require access to the AL2023 package repository hosted in Amazon S3 for package installation
+and updates.
+
+The AL2023 package repository bucket is accessed through the Amazon S3 dual-stack endpoint.
+You must ensure that the staging area subnet can reach the following Amazon S3 URL:
+
+```
+https://al2023-repos-<region>-de612dc2.s3.dualstack.<region>.amazonaws.com/
+```
+
+Replace <region> with the AWS Region code you are replicating to (for example,
+`us-east-1`).
+
+Depending on your network configuration, ensure access using one or both of the following
+methods:
+
+- **Firewall-restricted environments** – If the staging area
+  subnet has outbound internet access through a firewall or proxy, add the AL2023 repository
+  URL to your allowlist. For the complete list of Amazon S3 URLs to allowlist, see
+  [Endpoints and firewall allowlist](#TCP-443 "#TCP-443").
+- **Isolated subnets (no internet access)** – If the staging
+  area subnet does not have outbound internet access and uses an Amazon S3 VPC gateway endpoint,
+  ensure that the endpoint policy allows access to the AL2023 package repository bucket. Add
+  the following resource ARN to the endpoint policy:
+
+```
+"arn:aws:s3:::al2023-repos-<region>-de612dc2/*"
+```
+
+For the complete Amazon S3 VPC endpoint policy example, see
+[Endpoints and firewall allowlist](#TCP-443 "#TCP-443").
+
+###### Important
+
+Without access to the AL2023 package repository, replication servers may fail
+to launch or function correctly, and conversion servers may fail during the boot conversion
+process.
+
 ## Troubleshooting connectivity issues
 
 If there is no connection between your source servers and Application Migration Service, make sure that your
@@ -254,13 +309,13 @@ you use.
 2. On the console, select the **Outbound Rules** option from
    the tree.
 
-![Outbound Rules table showing network configurations, with BranchCache entries highlighted.](images/network-requirements-1-re.png) 3. On the **Outbound Rules** table, select the rule that
+![Windows Defender Firewall with Advanced Security console with Outbound Rules option highlighted in the tree.](images/network-requirements-1-re.png) 3. On the **Outbound Rules** table, select the rule that
 relates to the connectivity to Remote Port - 443. Check if the **Enabled** status is **Yes**.
 
-![Outbound Rules table showing various network rules with Enabled status highlighted.](images/network-requirements-2-re.png) 4. If the Enabled status of the rule is **No**, right-click
+![Outbound Rules table with BranchCache Hosted Cache Client rule highlighted showing Enabled status and Remote Port 443.](images/network-requirements-2-re.png) 4. If the Enabled status of the rule is **No**, right-click
 it and select **Enable Rule** from the pop-up menu.
 
-![Outbound Rules table with BranchCache Hosted Cache Client rule highlighted and Enable Rule option.](images/network-requirements-3-re.png)
+![Context menu showing Enable Rule option highlighted for a disabled outbound rule.](images/network-requirements-3-re.png)
 
 ### Enabling Linux Firewall for TCP port 443 connectivity
 

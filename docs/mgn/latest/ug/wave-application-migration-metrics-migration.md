@@ -7,7 +7,7 @@ aggregated overview of the migration status of the wave's associated application
 up an individual application **Migration status** status at the
 **Applications** table at the bottom of the page.
 
-![Pie chart showing migration status: 50% not started, 50% in progress, with 1 application each.](images/wave-9.png)
+![Pie chart showing migration status: 50% in progress and 50% not started, one application each.](images/wave-9.png)
 Application **Migration status** can have one of the
 following values:
 

@@ -233,18 +233,18 @@ example, eu-central-1) and the full credentials.
    replication. The installer displays the identified disks and prompt you to choose the
    disks you want to replicate.
 
-![Terminal window showing AWS Replication Agent installation and volume identification process.](images/sourceservers-linuxagent3.png)
+![Terminal window showing disk selection prompt listing identified volumes for replication.](images/sourceservers-linuxagent3.png)
 
 To replicate some of the disks, type the path of the disks, separated by a comma, as
 illustrated in the installer (such as: /dev/sda, /dev/sdb, and more). To replicate all of the
 disks, click **Enter**. The installer identifies the selected
 disks and print their size.
 
-![Terminal output showing AWS Replication Agent installation and volume identification process.](images/sourceservers-linuxagent4.png)
+![Terminal output showing selected disks with their reported sizes.](images/sourceservers-linuxagent4.png)
 
 The installer confirms that all disks were successfully identified.
 
-![Terminal output showing AWS Replication Agent installation and volume identification process.](images/sourceservers-linuxagent5.png)
+![Terminal output confirming all disks were successfully identified.](images/sourceservers-linuxagent5.png)
 
 ###### Note
 
@@ -276,11 +276,11 @@ changes are automatically identified, but this also causes a resync. Perform a t
 after installing the Agent to ensure that the correct disks have been added. 7. After all of the disks that are to be replicated have been successfully identified, the
 installer downloads and installs the AWS Replication Agent on the source server.
 
-![Terminal output showing AWS Replication Agent installation and volume identification process.](images/sourceservers-linuxagent6.png) 8. Once the AWS Replication Agent is installed, the server is added to the AWS Application Migration Service
+![Terminal output showing agent download and installation progress.](images/sourceservers-linuxagent6.png) 8. Once the AWS Replication Agent is installed, the server is added to the AWS Application Migration Service
 console and undergoes the initial sync process. The installer provides you with the
 source server's ID.
 
-![Terminal output showing AWS Replication Agent installation and volume identification process.](images/sourceservers-linuxagent7.png)
+![Terminal output showing installation complete with the source server ID displayed.](images/sourceservers-linuxagent7.png)
 
 You can review this process in real time on the **Source
 servers** page. [Learn more about the initial sync

@@ -11,6 +11,7 @@ Use the information in this section to troubleshoot communication errors.
 - [Calculating the required bandwidth for TCP Port 1500](#Calculating-Bandwidth "#Calculating-Bandwidth")
 - [Verifying communication over Port 1500](#Verifying-Communication-1500 "#Verifying-Communication-1500")
 - [Solving communication problems over Port 1500](#Solving-Problems-1500 "#Solving-Problems-1500")
+- [Missing Amazon Linux 2023 repository access](#missing-al2023-repo-access "#missing-al2023-repo-access")
 
 ## Solving communication problems over TCP Port 443 between the staging area and the AWS Application Migration Service
 
@@ -203,6 +204,44 @@ the Source Servers.
 Firewall issues may have several causes. Check the following if you experience any
 firewall issues, such as Windows Firewall connection issues:
 
-![Windows Defender Firewall settings overview showing Domain, Private, and Public profiles.](images/troubleshooting-24-re.png)
+![Windows Defender Firewall overview showing Domain, Private, and Public profiles are on.](images/troubleshooting-24-re.png)
 
 - Ensure that the subnet you assigned for the replication servers still exists.
+
+## Missing Amazon Linux 2023 repository access
+
+Replication servers and conversion servers are based on Amazon Linux 2023 (AL2023) and
+require access to the AL2023 package repository hosted in Amazon S3. If the staging area subnet
+cannot reach this repository, replication or conversion may fail.
+
+Symptoms of this issue include:
+
+- Replication stalling or failing after the replication server is launched.
+- Replication server unable to install or update required packages.
+- Conversion server failing during the boot conversion process.
+
+**Cause: Amazon S3 VPC gateway endpoint policy missing AL2023 bucket
+(isolated subnets)**
+
+If the staging area subnet does not have outbound internet access and uses an Amazon S3 VPC
+gateway endpoint, the endpoint policy must allow access to the AL2023 repository bucket.
+Add the following resource ARN to the endpoint policy:
+
+```
+"arn:aws:s3:::al2023-repos-<REGION>-de612dc2/*"
+```
+
+**Cause: Firewall or proxy blocking the AL2023 repository URL
+(firewall-restricted environments)**
+
+If the staging area subnet has outbound internet access through a firewall or proxy,
+ensure that the AL2023 repository URL is allowlisted. The AL2023 repository is accessed
+through the Amazon S3 dual-stack endpoint:
+
+```
+https://al2023-repos-<region>-de612dc2.s3.dualstack.<region>.amazonaws.com/
+```
+
+For the complete list of Amazon S3 buckets required by AWS Application Migration Service and the example Amazon S3 VPC
+endpoint policy, see [Communication between the
+staging area subnet and S3](preparing-environments.md#Communication-Staging-S3 "preparing-environments.md#Communication-Staging-S3").

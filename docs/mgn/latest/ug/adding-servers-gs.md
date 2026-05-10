@@ -13,7 +13,7 @@ Prior to adding your source servers, ensure that you meet all of the [network re
 
 The following is the AWS MGN agent network architecture diagram:
 
-![AWS cloud migration architecture showing data replication from on-premises to AWS staging and migrated resources.](images/AWSMGNArchitecture.png)
+![Data replication from corporate data center through AWS Replication Agent to staging area and migrated resources in AWS.](images/AWSMGNArchitecture.png)
 
 ## Migration lifecycle
 
