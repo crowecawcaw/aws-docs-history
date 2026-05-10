@@ -81,9 +81,9 @@ The following table list AWS services and the management events they generate th
 | Amazon Braket                                  | SearchCompilations                                           | API call       |
 | Amazon Braket                                  | SearchDevices                                                | API call       |
 | Amazon Braket                                  | SearchQuantumTasks                                           | API call       |
-| Amazon Connect Cases                           | BatchGetField                                                | API call       |
-| Amazon Connect Cases                           | SearchCases                                                  | API call       |
-| Amazon Connect Cases                           | SearchRelatedItems                                           | API call       |
+| Amazon Connect Customer Cases                  | BatchGetField                                                | API call       |
+| Amazon Connect Customer Cases                  | SearchCases                                                  | API call       |
+| Amazon Connect Customer Cases                  | SearchRelatedItems                                           | API call       |
 | Amazon Chime                                   | RetrieveDataExports                                          | API call       |
 | Amazon Chime                                   | SearchChannels                                               | API call       |
 | Amazon Chime SDK Identity                      | DeleteProfile                                                | Service event  |
@@ -183,11 +183,11 @@ The following table list AWS services and the management events they generate th
 | AWS Config                                     | BatchGetResourceConfig                                       | API call       |
 | AWS Config                                     | SelectAggregateResourceConfig                                | API call       |
 | AWS Config                                     | SelectResourceConfig                                         | API call       |
-| Amazon Connect                                 | AdminGetEmergencyAccessToken                                 | API call       |
-| Amazon Connect                                 | SearchQueues                                                 | API call       |
-| Amazon Connect                                 | SearchRoutingProfiles                                        | API call       |
-| Amazon Connect                                 | SearchSecurityProfiles                                       | API call       |
-| Amazon Connect                                 | SearchUsers                                                  | API call       |
+| Amazon Connect Customer                        | AdminGetEmergencyAccessToken                                 | API call       |
+| Amazon Connect Customer                        | SearchQueues                                                 | API call       |
+| Amazon Connect Customer                        | SearchRoutingProfiles                                        | API call       |
+| Amazon Connect Customer                        | SearchSecurityProfiles                                       | API call       |
+| Amazon Connect Customer                        | SearchUsers                                                  | API call       |
 | AWS Glue DataBrew                              | SendProjectSessionAction                                     | API call       |
 | AWS Data Pipeline                              | EvaluateExpression                                           | API call       |
 | AWS Data Pipeline                              | QueryObjects                                                 | API call       |
@@ -437,9 +437,9 @@ The following table list AWS services and the management events they generate th
 | AWS Well-Architected Tool                      | TagResource                                                  | API call       |
 | AWS Well-Architected Tool                      | UntagResource                                                | API call       |
 | AWS Well-Architected Tool                      | UpdateGlobalSettings                                         | API call       |
-| Amazon Connect Wisdom                          | QueryAssistant                                               | API call       |
-| Amazon Connect Wisdom                          | SearchContent                                                | API call       |
-| Amazon Connect Wisdom                          | SearchSessions                                               | API call       |
+| Amazon Connect Customer Wisdom                 | QueryAssistant                                               | API call       |
+| Amazon Connect Customer Wisdom                 | SearchContent                                                | API call       |
+| Amazon Connect Customer Wisdom                 | SearchSessions                                               | API call       |
 | Amazon WorkDocs                                | AbortDocumentVersionUpload                                   | API call       |
 | Amazon WorkDocs                                | AddUsersToGroup                                              | API call       |
 | Amazon WorkDocs                                | BatchGetUsers                                                | API call       |

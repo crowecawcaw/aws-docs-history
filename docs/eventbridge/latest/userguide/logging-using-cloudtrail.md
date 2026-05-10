@@ -83,13 +83,70 @@ _AWS CloudTrail API Reference_.
 
 ###### Note
 
-Data events are delivered only to the AWS account of the API caller. If you send events
-to a cross-account event bus, the resource owner's account does not receive a CloudTrail data event.
+The `detail` field in event entries is redacted in CloudTrail data event logs to
+protect sensitive data.
+
+### Data event delivery
 
 ###### Note
 
-The `detail` field in event entries is redacted in CloudTrail data event logs to
-protect sensitive data.
+CloudTrail sends data events only to the AWS account that called the API.
+
+#### `PutEvents`
+
+##### Cross-account `PutEvents` calls
+
+When an account that you granted permission to via a resource policy calls
+`PutEvents` to your bus, only the caller's account receives the CloudTrail data
+event. Your account (the bus owner) does not.
+
+##### Bus-to-bus forwarding
+
+Up to four accounts can be involved in a bus-to-bus forwarding scenario. The
+following table shows which accounts receive a CloudTrail data event.
+
+| Account role                                                                           | Receives CloudTrail data event                                                                                                                                                                                                                                                                                       |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| The account that originally called `PutEvents` (the<br>sender)                         | Yes, always.                                                                                                                                                                                                                                                                                                         |
+| The account that owns the source bus (the source bus owner)                            | No.                                                                                                                                                                                                                                                                                                                  |
+| The account that owns the rule and the IAM role on the rule target<br>(the rule owner) | Yes, but only for cross-Region forwarding. For cross-Region forwarding,<br>EventBridge uses the IAM role on the rule target to call `PutEvents`<br>on the destination Region. This makes the rule owner's account the effective<br>API caller. Same-Region forwarding does not generate an additional data<br>event. |
+| The account that owns the destination bus (the destination bus<br>owner)               | No.                                                                                                                                                                                                                                                                                                                  |
+
+###### Note
+
+For cross-Region forwarding, the original `PutEvents` call and the
+forwarding `PutEvents` call are recorded as separate CloudTrail data events in
+their respective Regions. To capture both, ensure that CloudTrail is configured to log
+data events in both Regions.
+
+##### Global endpoints with event replication
+
+When you use a global endpoint with event replication enabled, EventBridge creates a
+managed rule that forwards events cross-Region to the secondary bus. This is a
+cross-Region bus-to-bus forwarding scenario, so the same rules from the table above
+apply:
+
+- Primary Region: EventBridge generates a data event for the original
+  `PutEvents` call. The event includes both the event bus ARN and the
+  endpoint resource ARN.
+- Secondary Region: Because you own the managed rule and the IAM role used to
+  replicate events, your account receives a data event for the replication
+  `PutEvents` call. The event includes only the event bus ARN. The
+  endpoint resource ARN is not included.
+
+#### `PutPartnerEvents`
+
+##### Events received from a SaaS partner
+
+When a SaaS partner sends events to your bus, your account does not receive a
+`PutPartnerEvents` CloudTrail data event. Only the SaaS partner's account
+receives the data event.
+
+##### Events sent to a customer bus as a SaaS partner
+
+When you send events to a customer's event bus as a SaaS partner, your account
+receives the `PutPartnerEvents` CloudTrail data event. The event includes only
+the event source ARN as a resource. The customer's event bus ARN is not included.
 
 For examples of data events that EventBridge logs to CloudTrail, see [EventBridge data event examples](#cloudtrail-data-event-examples "#cloudtrail-data-event-examples").
 
