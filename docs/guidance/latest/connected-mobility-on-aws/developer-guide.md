@@ -516,6 +516,93 @@ curl -X POST https://<commands-api-url>/api/geofences \
 
 When a vehicle responds to a command, the response flows through an IoT Rule that matches the topic `cms/commands/+/response`. The rule invokes the `command_response_handler` Lambda, which updates the command status in DynamoDB.
 
+## Service alerts and predictive maintenance
+
+The Connected Mobility platform provides three layers of vehicle health monitoring, each designed for a different failure time scale.
+
+### Alert detection layers
+
+| Layer                    | Detection Method               | Time Scale | Example                               | Cost                        |
+| ------------------------ | ------------------------------ | ---------- | ------------------------------------- | --------------------------- |
+| Rule-based (Flink)       | Event catalog thresholds       | Immediate  | Tire pressure < 28 PSI                | $0 (runs on existing Flink) |
+| Daily batch (Lambda)     | Trend analysis over 7 days     | Days       | Pressure dropping 0.8 PSI/day         | $0.60/month                 |
+| Real-time ML (SageMaker) | Multi-signal anomaly detection | Minutes    | Low pressure + high speed + high temp | $83/month                   |
+
+### Event catalog — single source of truth
+
+All detection rules are defined in the event catalog DynamoDB table (`cms-{stage}-event-catalog`). The Flink processors, simulator, and UI all read from this catalog. Adding a new event to the catalog makes it immediately detectable by Flink and simulatable in the trip simulator — no code changes required.
+
+Each event defines:
+
+- `event_id` — unique identifier (e.g., `maintenance.tire_pressure`)
+- `category` — `safety` or `maintenance`
+- `json_fields` — telemetry field names to evaluate (e.g., `tire_pressure_fl`)
+- `threshold_operator` and `threshold_value` — the detection rule (e.g., `< 28`)
+- `condition_type` — `simple` (single signal) or `composite` (multiple signals with AND/OR logic)
+- `severity` — 1 (low) to 3 (critical)
+
+The platform ships with 41 events: 12 safety events and 29 maintenance events covering tire pressure, engine temperature, oil pressure, battery voltage, brake wear, and more.
+
+### Catalog-driven Flink processing
+
+The `MaintenanceProcessor` loads rules from the event catalog at startup and refreshes every 5 minutes. It evaluates each telemetry message against all maintenance rules using the `EventCatalogEvaluator`:
+
+1. Telemetry arrives on the `cms-telemetry-maintenance` Kafka topic
+2. The evaluator loads rules filtered by `category = maintenance`
+3. For each rule, it checks if the telemetry field crosses the threshold
+4. For composite rules, it evaluates all conditions with AND/OR logic
+5. Matching rules generate alerts written to the `maintenance-alerts` DynamoDB table
+
+The `SafetyProcessor` follows the same pattern for safety events, writing to the `safety-events` table.
+
+Alerts include the vehicle ID, GPS coordinates, odometer reading, estimated repair cost, and the catalog rule that triggered them.
+
+### Estimated repair costs
+
+Each alert type has a realistic cost estimate based on the service type:
+
+| Alert Type                   | Estimated Cost |
+| ---------------------------- | -------------- |
+| Tire pressure (patch/repair) | $35            |
+| Tire rotation                | $60            |
+| Tire replacement (set of 4)  | $800           |
+| Oil change                   | $75            |
+| Brake pads                   | $350           |
+| Battery replacement          | $180           |
+| Alternator failure           | $650           |
+| Engine overheating           | $1,200         |
+| Diagnostic scan              | $120           |
+| EV motor overheating         | $2,500         |
+
+### Predictive maintenance integration
+
+The platform integrates with the [Tire Predictive Maintenance Guidance](../automotive-data-platform/predictive-maintenance.md "../automotive-data-platform/predictive-maintenance.md") for ML-based prediction. Two inference strategies are used:
+
+#### Daily batch — slow leak detection
+
+A scheduled Lambda runs daily, queries the last 7 days of tire telemetry, and computes pressure trends using linear regression. Vehicles with consistent pressure loss (> 0.3 PSI/day) receive a `prediction.tire_slow_leak` warning days before the rule-based threshold is crossed.
+
+This approach costs approximately $0.60/month because a slow leak changes over days — checking daily provides the same advance warning as checking every 15 minutes, at a fraction of the cost.
+
+#### Real-time — highway blowout risk
+
+A SageMaker Random Cut Forest endpoint evaluates multi-signal risk patterns for vehicles at highway speed. The model detects dangerous combinations that no single threshold catches: borderline pressure (29 PSI) + high temperature (140°F) + high speed (75 mph) + worn tread (3.5mm).
+
+The endpoint is only called when:
+
+1. Vehicle speed exceeds 60 mph, AND
+2. Any tire pressure is below 30 PSI OR tire temperature exceeds 120°F
+
+This pre-filtering reduces inference calls from ~19,000/day to ~50-100/day, keeping the $83/month endpoint cost justified against the $10,000+ cost of a highway blowout.
+
+### Simulating service alerts
+
+The trip simulator in the Fleet Manager UI allows selecting specific maintenance and safety events to trigger during a simulated trip. Events are loaded dynamically from the event catalog — the dropdown always reflects the current catalog contents.
+
+When an event is selected, the simulator uses catalog-driven degradation targets to gradually push the relevant signal past its threshold. For example, selecting "Tire pressure below safe threshold" causes tire pressure to drop from 32 PSI toward 20 PSI over approximately 2 minutes, crossing the 28 PSI threshold and triggering the Flink alert.
+
+To simulate a highway blowout risk scenario, select "Highway blowout risk" which creates a composite condition: tire pressure drops below 30 PSI while vehicle speed exceeds 60 mph.
+
 ## Testing and debugging
 
 ### Test UI locally
