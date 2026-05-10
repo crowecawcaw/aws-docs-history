@@ -8,7 +8,7 @@ Checks if an AWS WAF Classic rule group contains any rules. The rule is NON_COMP
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions
+**AWS Region:** Only available in US East (N. Virginia) Region
 
 **Parameters:**
 

@@ -160,11 +160,11 @@ AWS Config](../../../apigateway/latest/developerguide/apigateway-config.md "../.
 | ----------------- | --------------------------- | ------------ | ---------------- | ----- |
 | Amazon Comprehend | `AWS::Comprehend::Flywheel` | NA           | NA               |       |
 
-## Amazon Connect
+## Connect Customer
 
 | AWS Service                         | Resource Type Value             | Relationship | Related Resource                                                                            | Notes |
 | ----------------------------------- | ------------------------------- | ------------ | ------------------------------------------------------------------------------------------- | ----- |
-| Amazon Connect                      | `AWS::Connect::Instance`        | NA           | NA                                                                                          |       |
+| Connect Customer                    | `AWS::Connect::Instance`        | NA           | NA                                                                                          |       |
 | `AWS::Connect::PhoneNumber`         | NA                              | NA           |                                                                                             |
 | `AWS::Connect::PredefinedAttribute` | NA                              | NA           |                                                                                             |
 | `AWS::Connect::Prompt`              | NA                              | NA           | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
@@ -174,7 +174,7 @@ AWS Config](../../../apigateway/latest/developerguide/apigateway-config.md "../.
 | `AWS::Connect::SecurityProfile`     | NA                              | NA           |                                                                                             |
 | `AWS::Connect::TaskTemplate`        | NA                              | NA           | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
 | `AWS::Connect::User`                | NA                              | NA           |                                                                                             |
-| Amazon Connect Customer Profiles    | `AWS::CustomerProfiles::Domain` | NA           | NA                                                                                          |       |
+| Connect Customer Customer Profiles  | `AWS::CustomerProfiles::Domain` | NA           | NA                                                                                          |       |
 | `AWS::CustomerProfiles::ObjectType` | NA                              | NA           |                                                                                             |
 
 ## Amazon Detective
