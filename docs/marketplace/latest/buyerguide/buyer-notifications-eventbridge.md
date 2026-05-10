@@ -7,10 +7,6 @@ Guide_](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridg
 
 AWS Marketplace sends the following types of EventBridge events:
 
-- [Discovery API events](buyer-eventbridge.md "buyer-eventbridge.md") – Buyers receive an event
-  from AWS Marketplace every time a seller creates an offer and makes it available for purchase. The
-  event contains details such the product ID, expiration date, product details, and the
-  seller's name.
 - [Private marketplace events](pmp-eventbridge.md "pmp-eventbridge.md") – Private
   marketplace administrators and buyers receive events from AWS Marketplace every time a buyer creates a
   product request, and when the request is approved or declined. The events contain details

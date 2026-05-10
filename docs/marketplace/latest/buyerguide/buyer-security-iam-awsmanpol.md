@@ -22,6 +22,7 @@ for AWS Marketplace sellers](../userguide/security-iam-awsmanpol.md "../userguid
 ###### Topics
 
 - [AWS managed policy: AWSMarketplaceDeploymentServiceRolePolicy](#deployment-service-manpol "#deployment-service-manpol")
+- [AWS managed policy: AWSMarketplaceDiscoveryFullAccess](#security-iam-awsmanpol-awsmarketplacediscoveryfullaccess "#security-iam-awsmanpol-awsmarketplacediscoveryfullaccess")
 - [AWS managed policy: AWSMarketplaceFullAccess](#security-iam-awsmanpol-awsmarketplacefullaccess "#security-iam-awsmanpol-awsmarketplacefullaccess")
 - [AWS managed policy: AWSMarketplaceImageBuildFullAccess (Deprecated)](#security-iam-awsmanpol-awsmarketplaceimagebuildfullaccess "#security-iam-awsmanpol-awsmarketplaceimagebuildfullaccess")
 - [AWS managed policy: AWSMarketplaceLicenseManagementServiceRolePolicy](#security-iam-awsmanpol-awsmarketplacelicensemanagementservicerolepolicy "#security-iam-awsmanpol-awsmarketplacelicensemanagementservicerolepolicy")
@@ -47,6 +48,17 @@ deployment-related parameters, which are stored as secrets in [AWS Secrets Manag
 
 To view the permissions for this policy, see [AWSMarketplaceDeploymentServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSMarketplaceDeploymentServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSMarketplaceDeploymentServiceRolePolicy.md") in the _AWS
 Managed Policy Reference_.
+
+## AWS managed policy: AWSMarketplaceDiscoveryFullAccess
+
+You can attach the `AWSMarketplaceDiscoveryFullAccess` policy to your
+IAM identities.
+
+Provides full access to the AWS Marketplace Discovery API for searching and retrieving
+product and pricing information.
+
+To view the permissions for this policy, see [AWSMarketplaceDiscoveryFullAccess](../../../aws-managed-policy/latest/reference/AWSMarketplaceDiscoveryFullAccess.md "../../../aws-managed-policy/latest/reference/AWSMarketplaceDiscoveryFullAccess.md") in the
+_AWS Managed Policy Reference_.
 
 ## AWS managed policy: AWSMarketplaceFullAccess
 
@@ -99,6 +111,9 @@ The permissions are organized into the following groups:
 - `aws-marketplace` – Allows principals to create and manage agent token containers and express private offers through the changeset mechanism. These permissions are limited to specific change types: CreateAgentTokenContainer, RequestExpressPrivateOffer, and ExpireToken.
 - `aws-marketplace` – Allows principals to list and describe entities in the AWS Marketplace catalog, such as products, offers, and agreements.
 - `aws-marketplace` – Allows principals to manage agreement cancellation requests as the accepting party, including listing, retrieving, accepting, rejecting cancellation requests, and directly canceling agreements. These permissions are restricted to PurchaseAgreement type and Acceptor party type.
+- `aws-marketplace` – Allows principals to search listings,
+  retrieve product and offer details, and list purchase and fulfillment options
+  using the Discovery API.
 
 To view the permissions for this policy, see [AWSMarketplaceManageSubscriptions](../../../aws-managed-policy/latest/reference/AWSMarketplaceManageSubscriptions.md "../../../aws-managed-policy/latest/reference/AWSMarketplaceManageSubscriptions.md") in the _AWS Managed Policy
 Reference_.
@@ -143,6 +158,9 @@ The permissions are organized into the following groups:
 - `aws-marketplace` – Allows principals to list and describe private marketplace requests, and view agreement payment requests.
 - `aws-marketplace` – Allows principals to list private product listings.
 - `aws-marketplace` – Allows principals to list and view agreement cancellation requests.
+- `aws-marketplace` – Allows principals to search listings,
+  retrieve product and offer details, and list purchase and fulfillment options
+  using the Discovery API.
 
 To view the permissions for this policy, see [AWSMarketplaceRead-only](../../../aws-managed-policy/latest/reference/AWSMarketplaceRead-only.md "../../../aws-managed-policy/latest/reference/AWSMarketplaceRead-only.md") in the _AWS Managed
 Policy Reference_.
@@ -270,6 +288,9 @@ equal to a seller for the purposes of this guide.
 
 | Change                                                                                                                                                                                                                                                                                                                        | Description                                                                                                                                                                                                                         | Date              |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| [AWSMarketplaceManageSubscriptions](#security-iam-awsmanpol-awsmarketplacemanagesubscriptions "#security-iam-awsmanpol-awsmarketplacemanagesubscriptions") —<br>updates to existing policy                                                                                                                                    | AWS Marketplace added Discovery API permissions for searching listings,<br>retrieving product and offer details, and listing purchase and<br>fulfillment options.                                                                   | May 7, 2026       |
+| [AWSMarketplaceDiscoveryFullAccess](#security-iam-awsmanpol-awsmarketplacediscoveryfullaccess "#security-iam-awsmanpol-awsmarketplacediscoveryfullaccess") — new<br>policy                                                                                                                                                    | AWS Marketplace added a new policy that provides full access to the AWS Marketplace<br>Discovery API for searching and retrieving product and pricing<br>information.                                                               | May 7, 2026       |
+| [AWSMarketplaceRead-only](#security-iam-awsmanpol-awsmarketplaceread-only "#security-iam-awsmanpol-awsmarketplaceread-only") — updates to<br>existing policy                                                                                                                                                                  | AWS Marketplace added read-only permissions for Discovery API operations<br>including searching listings, retrieving product and offer details, and<br>listing purchase and fulfillment options.                                    | May 7, 2026       |
 | [AWSMarketplaceProcurementSystemAdminFullAccess](#security-iam-awsmanpol-awsmarketplaceprocurementsystemadminfullaccess "#security-iam-awsmanpol-awsmarketplaceprocurementsystemadminfullaccess") — updates to<br>existing policy                                                                                             | AWS Marketplace added permissions for creating, retrieving, and listing procurement portal preferences.                                                                                                                             | April 7, 2026     |
 | [AWSMarketplaceRead-only](#security-iam-awsmanpol-awsmarketplaceread-only "#security-iam-awsmanpol-awsmarketplaceread-only") — updates to<br>existing policy                                                                                                                                                                  | AWS Marketplace added permissions for listing and viewing agreement cancellation requests.                                                                                                                                          | March 31, 2026    |
 | [AWSMarketplaceManageSubscriptions](#security-iam-awsmanpol-awsmarketplacemanagesubscriptions "#security-iam-awsmanpol-awsmarketplacemanagesubscriptions") — updates to<br>existing policy                                                                                                                                    | AWS Marketplace added permissions for managing agreement cancellation requests, including listing, retrieving, accepting, rejecting cancellation requests, and directly canceling agreements.                                       | March 31, 2026    |
