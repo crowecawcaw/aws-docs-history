@@ -610,11 +610,45 @@ the improvements in PostgreSQL 17.4, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 17.4.6, May 07, 2026](#aurorapostgresql-versions-version174x-1746 "#aurorapostgresql-versions-version174x-1746")
 - [Aurora PostgreSQL 17.4.5, February 02, 2026](#aurorapostgresql-versions-version1745x-1745 "#aurorapostgresql-versions-version1745x-1745")
 - [Aurora PostgreSQL 17.4.4, October 9, 2025](#aurorapostgresql-versions-version1744x-1744 "#aurorapostgresql-versions-version1744x-1744")
 - [Aurora PostgreSQL 17.4.3, June 03, 2025](#aurorapostgresql-versions-version1743x-1743 "#aurorapostgresql-versions-version1743x-1743")
 - [Aurora PostgreSQL 17.4.2, May 01, 2025](#aurorapostgresql-versions-version1742x-1742 "#aurorapostgresql-versions-version1742x-1742")
 - [Aurora PostgreSQL 17.4, May 01, 2025](#aurorapostgresql-versions-version174x-174 "#aurorapostgresql-versions-version174x-174")
+
+#### Aurora PostgreSQL 17.4.6, May 07, 2026
+
+**Critical stability enhancements**
+
+- Fixed a bug in the aws_s3 extension which, in rare circumstances, can cause database unavailability.
+- Fixed an issue where read nodes may restart when attempting to connect to the new write node following a failover.
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2026-2003](https://nvd.nist.gov/vuln/detail/CVE-2026-2003 "https://nvd.nist.gov/vuln/detail/CVE-2026-2003").
+  - [CVE-2026-2004](https://nvd.nist.gov/vuln/detail/CVE-2026-2004 "https://nvd.nist.gov/vuln/detail/CVE-2026-2004").
+  - [CVE-2026-2005](https://nvd.nist.gov/vuln/detail/CVE-2026-2005 "https://nvd.nist.gov/vuln/detail/CVE-2026-2005").
+  - [CVE-2026-2006](https://nvd.nist.gov/vuln/detail/CVE-2026-2006 "https://nvd.nist.gov/vuln/detail/CVE-2026-2006").
+  - [CVE-2026-2007](https://nvd.nist.gov/vuln/detail/CVE-2026-2007 "https://nvd.nist.gov/vuln/detail/CVE-2026-2007").
+  - [CVE-2026-3172](https://nvd.nist.gov/vuln/detail/CVE-2026-3172 "https://nvd.nist.gov/vuln/detail/CVE-2026-3172").
+
+- Fixed a bug in Query Plan Management that prevented plan capture.
+- Fixed a bug in the Aurora Storage Daemon that could cause database unavailability in rare cases when enhanced logical replication is enabled.
+- Fixed an issue that can result in reader crash during catching up with the writer instance
+- Fixed an issue in cache initialization that could cause database unavailability during startup.
+- Fixed an issue where global databases planned switchover operations could become unresponsive while waiting for storage volume growth to complete.
+
+**Security enhancements**
+
+- Fixed a bug in the babelfish_set_role function that improved permission validation when setting roles.
+
+**General enhancements**
+
+- Fixed an issue to reduce CPU overhead while establishing Encryption in Transit between the database engine and the storage layer.
+- Fixed an issue where correlated any transform could return an error message 'failed to build any 3-way joins' during transformation.
+- Fixed an issue where ALTER FUNCTION could fail with "routine name is not unique".
 
 #### Aurora PostgreSQL 17.4.5, February 02, 2026
 
@@ -1360,11 +1394,45 @@ the improvements in PostgreSQL 16.8, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 16.8.6, May 07, 2026](#aurorapostgresql-versions-version168x-1686 "#aurorapostgresql-versions-version168x-1686")
 - [Aurora PostgreSQL 16.8.5, February 03, 2026](#aurorapostgresql-versions-version1685x-1685 "#aurorapostgresql-versions-version1685x-1685")
 - [Aurora PostgreSQL 16.8.4, October 9, 2025](#aurorapostgresql-versions-version1684x-1684 "#aurorapostgresql-versions-version1684x-1684")
 - [Aurora PostgreSQL 16.8.3, June 03, 2025](#aurorapostgresql-versions-version1683x-1683 "#aurorapostgresql-versions-version1683x-1683")
 - [Aurora PostgreSQL 16.8.2, May 01, 2025](#aurorapostgresql-versions-version1682x-1682 "#aurorapostgresql-versions-version1682x-1682")
 - [Aurora PostgreSQL 16.8, April 07, 2025](#aurorapostgresql-versions-version168x-168 "#aurorapostgresql-versions-version168x-168")
+
+#### Aurora PostgreSQL 16.8.6, May 07, 2026
+
+**Critical stability enhancements**
+
+- Fixed a bug in the aws_s3 extension which, in rare circumstances, can cause database unavailability.
+- Fixed an issue where read nodes may restart when attempting to connect to the new write node following a failover.
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2026-2003](https://nvd.nist.gov/vuln/detail/CVE-2026-2003 "https://nvd.nist.gov/vuln/detail/CVE-2026-2003").
+  - [CVE-2026-2004](https://nvd.nist.gov/vuln/detail/CVE-2026-2004 "https://nvd.nist.gov/vuln/detail/CVE-2026-2004").
+  - [CVE-2026-2005](https://nvd.nist.gov/vuln/detail/CVE-2026-2005 "https://nvd.nist.gov/vuln/detail/CVE-2026-2005").
+  - [CVE-2026-2006](https://nvd.nist.gov/vuln/detail/CVE-2026-2006 "https://nvd.nist.gov/vuln/detail/CVE-2026-2006").
+  - [CVE-2026-2007](https://nvd.nist.gov/vuln/detail/CVE-2026-2007 "https://nvd.nist.gov/vuln/detail/CVE-2026-2007").
+  - [CVE-2026-3172](https://nvd.nist.gov/vuln/detail/CVE-2026-3172 "https://nvd.nist.gov/vuln/detail/CVE-2026-3172").
+
+- Fixed a bug in Query Plan Management that prevented plan capture.
+- Fixed a bug in the Aurora Storage Daemon that could cause database unavailability in rare cases when enhanced logical replication is enabled.
+- Fixed an issue that can result in reader crash during catching up with the writer instance
+- Fixed an issue in cache initialization that could cause database unavailability during startup.
+- Fixed an issue where global databases planned switchover operations could become unresponsive while waiting for storage volume growth to complete.
+
+**Security enhancements**
+
+- Fixed a bug in the babelfish_set_role function that improved permission validation when setting roles.
+
+**General enhancements**
+
+- Fixed an issue to reduce CPU overhead while establishing Encryption in Transit between the database engine and the storage layer.
+- Fixed an issue where correlated any transform could return an error message 'failed to build any 3-way joins' during transformation.
+- Fixed an issue where ALTER FUNCTION could fail with "routine name is not unique".
 
 #### Aurora PostgreSQL 16.8.5, February 03, 2026
 
@@ -2942,11 +3010,45 @@ about the improvements in PostgreSQL 15.12, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 15.12.6, May 07, 2026](#aurorapostgresql-versions-version1512x-15126 "#aurorapostgresql-versions-version1512x-15126")
 - [Aurora PostgreSQL 15.12.5, February 19, 2026](#aurorapostgresql-versions-version15125x-15125 "#aurorapostgresql-versions-version15125x-15125")
 - [Aurora PostgreSQL 15.12.4, October 9, 2025](#aurorapostgresql-versions-version15124x-15124 "#aurorapostgresql-versions-version15124x-15124")
 - [Aurora PostgreSQL 15.12.3, June 03, 2025](#aurorapostgresql-versions-version15123x-15123 "#aurorapostgresql-versions-version15123x-15123")
 - [Aurora PostgreSQL 15.12.2, May 01, 2025](#aurorapostgresql-versions-version15122x-15122 "#aurorapostgresql-versions-version15122x-15122")
 - [Aurora PostgreSQL 15.12, April 07, 2025](#aurorapostgresql-versions-version1512x-1512 "#aurorapostgresql-versions-version1512x-1512")
+
+#### Aurora PostgreSQL 15.12.6, May 07, 2026
+
+**Critical stability enhancements**
+
+- Fixed a bug in the aws_s3 extension which, in rare circumstances, can cause database unavailability.
+- Fixed an issue where read nodes may restart when attempting to connect to the new write node following a failover.
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2026-2003](https://nvd.nist.gov/vuln/detail/CVE-2026-2003 "https://nvd.nist.gov/vuln/detail/CVE-2026-2003").
+  - [CVE-2026-2004](https://nvd.nist.gov/vuln/detail/CVE-2026-2004 "https://nvd.nist.gov/vuln/detail/CVE-2026-2004").
+  - [CVE-2026-2005](https://nvd.nist.gov/vuln/detail/CVE-2026-2005 "https://nvd.nist.gov/vuln/detail/CVE-2026-2005").
+  - [CVE-2026-2006](https://nvd.nist.gov/vuln/detail/CVE-2026-2006 "https://nvd.nist.gov/vuln/detail/CVE-2026-2006").
+  - [CVE-2026-2007](https://nvd.nist.gov/vuln/detail/CVE-2026-2007 "https://nvd.nist.gov/vuln/detail/CVE-2026-2007").
+  - [CVE-2026-3172](https://nvd.nist.gov/vuln/detail/CVE-2026-3172 "https://nvd.nist.gov/vuln/detail/CVE-2026-3172").
+
+- Fixed a bug in Query Plan Management that prevented plan capture.
+- Fixed a bug in the Aurora Storage Daemon that could cause database unavailability in rare cases when enhanced logical replication is enabled.
+- Fixed an issue that can result in reader crash during catching up with the writer instance
+- Fixed an issue in cache initialization that could cause database unavailability during startup.
+- Fixed an issue where global databases planned switchover operations could become unresponsive while waiting for storage volume growth to complete.
+
+**Security enhancements**
+
+- Fixed a bug in the babelfish_set_role function that improved permission validation when setting roles.
+
+**General enhancements**
+
+- Fixed an issue to reduce CPU overhead while establishing Encryption in Transit between the database engine and the storage layer.
+- Fixed an issue where correlated any transform could return an error message 'failed to build any 3-way joins' during transformation.
+- Fixed an issue where ALTER FUNCTION could fail with "routine name is not unique".
 
 #### Aurora PostgreSQL 15.12.5, February 19, 2026
 
@@ -5132,11 +5234,45 @@ about the improvements in PostgreSQL 14.17, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 14.17.6, May 07, 2026](#aurorapostgresql-versions-version1417x-14176 "#aurorapostgresql-versions-version1417x-14176")
 - [Aurora PostgreSQL 14.17.5, February 10, 2026](#aurorapostgresql-versions-version1417x-1417 "#aurorapostgresql-versions-version1417x-1417")
 - [Aurora PostgreSQL 14.17.4, October 9, 2025](#aurorapostgresql-versions-version14174x-14174 "#aurorapostgresql-versions-version14174x-14174")
 - [Aurora PostgreSQL 14.17.3, June 3, 2025](#aurorapostgresql-versions-version14173x-14173 "#aurorapostgresql-versions-version14173x-14173")
 - [Aurora PostgreSQL 14.17.2, May 01, 2025](#aurorapostgresql-versions-version14172x-14172 "#aurorapostgresql-versions-version14172x-14172")
 - [Aurora PostgreSQL 14.17, April 07, 2025](#aurorapostgresql-versions-version1417x-1417 "#aurorapostgresql-versions-version1417x-1417")
+
+#### Aurora PostgreSQL 14.17.6, May 07, 2026
+
+**Critical stability enhancements**
+
+- Fixed a bug in the aws_s3 extension which, in rare circumstances, can cause database unavailability.
+- Fixed an issue where read nodes may restart when attempting to connect to the new write node following a failover.
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2026-2003](https://nvd.nist.gov/vuln/detail/CVE-2026-2003 "https://nvd.nist.gov/vuln/detail/CVE-2026-2003").
+  - [CVE-2026-2004](https://nvd.nist.gov/vuln/detail/CVE-2026-2004 "https://nvd.nist.gov/vuln/detail/CVE-2026-2004").
+  - [CVE-2026-2005](https://nvd.nist.gov/vuln/detail/CVE-2026-2005 "https://nvd.nist.gov/vuln/detail/CVE-2026-2005").
+  - [CVE-2026-2006](https://nvd.nist.gov/vuln/detail/CVE-2026-2006 "https://nvd.nist.gov/vuln/detail/CVE-2026-2006").
+  - [CVE-2026-2007](https://nvd.nist.gov/vuln/detail/CVE-2026-2007 "https://nvd.nist.gov/vuln/detail/CVE-2026-2007").
+  - [CVE-2026-3172](https://nvd.nist.gov/vuln/detail/CVE-2026-3172 "https://nvd.nist.gov/vuln/detail/CVE-2026-3172").
+
+- Fixed a bug in Query Plan Management that prevented plan capture.
+- Fixed a bug in the Aurora Storage Daemon that could cause database unavailability in rare cases when enhanced logical replication is enabled.
+- Fixed an issue that can result in reader crash during catching up with the writer instance
+- Fixed an issue in cache initialization that could cause database unavailability during startup.
+- Fixed an issue where global databases planned switchover operations could become unresponsive while waiting for storage volume growth to complete.
+
+**Security enhancements**
+
+- Fixed a bug in the babelfish_set_role function that improved permission validation when setting roles.
+
+**General enhancements**
+
+- Fixed an issue to reduce CPU overhead while establishing Encryption in Transit between the database engine and the storage layer.
+- Fixed an issue where correlated any transform could return an error message 'failed to build any 3-way joins' during transformation.
+- Fixed an issue where ALTER FUNCTION could fail with "routine name is not unique".
 
 #### Aurora PostgreSQL 14.17.5, February 10, 2026
 
