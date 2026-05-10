@@ -24,7 +24,9 @@ Quorum authentication can control the following operations:
   MFA. For more information about using quorum authentication
   and MFA, see [Using CloudHSM CLI to manage
   MFA](login-mfa-token-sign.md "login-mfa-token-sign.md").
-- Each HSM can only contain one token per Admin service at a time, but multiple tokens per Crypto User service.
+- Only one quorum operation can be active at a time per service. You must complete or
+  delete the active quorum token for a service before you can generate a new one for the same
+  service. For more information, see [Supported services and types](key-quorum-auth-chsm-cli-service-names.md "key-quorum-auth-chsm-cli-service-names.md").
   The following topics provide more information about quorum authentication in AWS CloudHSM.
 
 ###### Topics

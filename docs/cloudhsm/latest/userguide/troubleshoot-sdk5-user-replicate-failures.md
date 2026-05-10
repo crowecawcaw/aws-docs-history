@@ -64,7 +64,7 @@ To check for user desynchronization in the source cluster:
 ###### Resolution: Synchronize user attributes throughout the source cluster
 
 - To synchronize user information throughout the source cluster, refer to the following:
-  [AWS CloudHSM Client SDK 5 user contains inconsistent values](troubleshoot-sdk5-inconsistent-value.md "troubleshoot-sdk5-inconsistent-value.md").
+  [AWS CloudHSM Client SDK 5 user or policy contains inconsistent values](troubleshoot-sdk5-inconsistent-value.md "troubleshoot-sdk5-inconsistent-value.md").
 
 ## Problem: User exists on the destination cluster with different attributes
 

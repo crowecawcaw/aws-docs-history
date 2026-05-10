@@ -19,6 +19,7 @@ key_mgmt_util command line tool, the PKCS #11 SDK, the JCE SDK, or the OpenSSL S
 - [Issue: ECDSA signing fails with "invalid mechanism" error starting with SDK 5.16](#ki-all-12 "#ki-all-12")
 - [Issue: Signing operations with prehashed data do not properly clear session tokens in interactive mode](#ki-all-13 "#ki-all-13")
 - [Issue: CloudHSM client library's default client certificate expires on Jan 31, 2026](#ki-all-14 "#ki-all-14")
+- [Issue: Client SDK 5 connection fails due to weak CA certificate key](#ki-all-15 "#ki-all-15")
 
 ## Issue: AES key wrapping uses PKCS #5 padding instead of providing a standards-compliant implementation of key wrap with zero padding
 
@@ -179,3 +180,15 @@ sudo /opt/cloudhsm/bin/configure-cli --enable-ecdsa-with-weak-hash-function
 
 - **Impact:** There is no impact to customers beyond Jan 31, 2026. All communications between the client and HSM are secured by client-HSM TLS as described [here](client-end-to-end-encryption.md "client-end-to-end-encryption.md"). The client-HSM TLS uses customer owned/managed certificates which are configured by the customer during cluster initialization.
 - **Resolution status:** Resolved.
+
+## Issue: Client SDK 5 connection fails due to weak CA certificate key
+
+After upgrading to Client SDK 5 version 5.17.0 or 5.17.1, your application fails to connect to the AWS CloudHSM cluster with the following error:
+
+```
+Certificate verification error with error code 67 and depth 1: CA certificate key too weak
+```
+
+- **Impact:** Clusters that were initialized with a CA certificate using an RSA key weaker than 2048 bits will fail to connect on Client SDK 5 versions 5.17.0 and 5.17.1.
+- **Workaround:** Downgrade to a Client SDK 5 version earlier than 5.17.0 to restore connectivity to your cluster.
+- **Resolution status:** We are currently working on a fix.

@@ -7,7 +7,7 @@ If you encounter problems with AWS CloudHSM, the following topics can help you r
 - [AWS CloudHSM known issues](KnownIssues.md "KnownIssues.md")
 - [AWS CloudHSM Client SDK 3 key synchronization failures](ts-client-sync-fail.md "ts-client-sync-fail.md")
 - [AWS CloudHSM Client SDK 3 verify HSM performance with the pkpspeed tool](troubleshooting-verify-hsm-performance.md "troubleshooting-verify-hsm-performance.md")
-- [AWS CloudHSM Client SDK 5 user contains inconsistent values](troubleshoot-sdk5-inconsistent-value.md "troubleshoot-sdk5-inconsistent-value.md")
+- [AWS CloudHSM Client SDK 5 user or policy contains inconsistent values](troubleshoot-sdk5-inconsistent-value.md "troubleshoot-sdk5-inconsistent-value.md")
 - [AWS CloudHSM Client SDK 5 user replicate failures](troubleshoot-sdk5-user-replicate-failures.md "troubleshoot-sdk5-user-replicate-failures.md")
 - [AWS CloudHSM Client SDK 5 key replicate failures](troubleshoot-sdk5-key-replicate-failures.md "troubleshoot-sdk5-key-replicate-failures.md")
 - [AWS CloudHSM error seen during key availability check](troubleshoot-key-availability-check.md "troubleshoot-key-availability-check.md")
