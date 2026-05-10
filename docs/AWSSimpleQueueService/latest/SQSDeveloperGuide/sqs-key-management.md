@@ -229,7 +229,7 @@ When using SSE enabled Amazon SQS queues, the following services support
 - CloudWatch Events
 - AWS Lambda
 - CodeBuild
-- Amazon Connect Customer Profiles
+- Connect Customer Customer Profiles
 - AWS Auto Scaling
 - Amazon Chime
 

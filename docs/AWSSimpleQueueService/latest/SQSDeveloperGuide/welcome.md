@@ -50,7 +50,7 @@ In the following scenario, your system has several _producers_ (components that 
 to the queue) and _consumers_ (components that receive messages from the queue). The queue (which
 holds messages A through E) redundantly stores the messages across multiple Amazon SQS servers.
 
-![Three main parts in a distributed messaging system: the components of your distributed system, your queue (distributed on Amazon SQS servers), and the messages in the queue.](images/ArchOverview.png)
+![Three main parts in a distributed messaging system: the components of your distributed system, your queue (distributed on Amazon SQS servers), and the messages in the queue.](/images/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/ArchOverview.png)
 
 ### Message lifecycle
 
