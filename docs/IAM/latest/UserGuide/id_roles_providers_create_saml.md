@@ -125,16 +125,20 @@ federation](troubleshoot_saml.md "troubleshoot_saml.md").
 
 ###### Note
 
-The `validUntil` or `cacheDuration` attribute in your SAML
-metadata document defines the **Valid until** date for the identity
-provider. If your SAML metadata document does not include a validity period attribute,
-the **Valid until** date will not match your X.509 certificate
-expiration date.
+The **Valid until** date displayed for the identity provider is set
+by IAM at provider creation time. It does not reflect the `validUntil` or
+`cacheDuration` attributes in your SAML metadata document. IAM does not
+use these metadata attributes to determine the **Valid until**
+date.
 
-IAM does not evaluate or take action on the expiration of X.509 certificates in
-SAML metadata documents. If you are concerned about expired X.509 certificates, we
-recommend monitoring certificate expiration dates and rotating certificates according to
-your organization’s governance and security policies. 6. (Optional) For **SAML encryption**, choose **Choose
+IAM does not evaluate or take action on the expiration of the SAML metadata
+document or X.509 certificates in SAML metadata documents during SAML authentication.
+SAML authentication validity is enforced at the assertion level, using the
+`NotOnOrAfter` attribute in the assertion’s `Conditions` and
+`SubjectConfirmationData` elements. If you are concerned about expired X.509
+certificates, we recommend monitoring certificate expiration dates and rotating
+certificates according to your organization’s governance and security
+policies. 6. (Optional) For **SAML encryption**, choose **Choose
 file** and select the private key file that you created in [Prerequisites](#idp-manage-identityprovider-prerequisites "#idp-manage-identityprovider-prerequisites"). Choose **Require
 encryption** to accept only encrypted requests from your IdP. 7. (Optional) For **Add tags**, you can add key–value pairs to help you
 identify and organize your IdPs. You can also use tags to control access to AWS

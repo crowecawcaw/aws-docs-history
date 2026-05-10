@@ -78,7 +78,7 @@ automatically approved.
 
 | Resource                              | Default quota   | Maximum quota   |
 | ------------------------------------- | --------------- | --------------- |
-| Customer managed policies per account | 1500            | 5000            |
+| Customer managed policies per account | 1500            | 10000           |
 | Groups per account                    | 300             | 500             |
 | Instance profiles per account         | 1000            | 10000           |
 | Managed policies per role             | 10              | 25              |
