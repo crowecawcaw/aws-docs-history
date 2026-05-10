@@ -31,6 +31,8 @@ of your application.
 - [Recommendation Data (Hashes)](#elasticache-for-redis-use-cases-recommendations "#elasticache-for-redis-use-cases-recommendations")
 - [Semantic caching for generative AI applications](#elasticache-for-redis-use-cases-semantic-caching "#elasticache-for-redis-use-cases-semantic-caching")
 - [ElastiCache Customer Testimonials](#elasticache-use-cases-testimonials "#elasticache-use-cases-testimonials")
+- [Using Amazon ElastiCache for Valkey for semantic caching](semantic-caching.md "semantic-caching.md")
+- [Using Amazon ElastiCache for Valkey for agentic memory](agentic-memory.md "agentic-memory.md")
 
 ## In-Memory Data Store
 

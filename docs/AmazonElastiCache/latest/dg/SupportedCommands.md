@@ -215,6 +215,12 @@ Deletes one or more keys.
 
 [Learn more](https://valkey.io/commands/del/ "https://valkey.io/commands/del/")
 
+- `DELIFEQ`
+
+Deletes the given key only if its current value is equal to the provided value.
+
+[Learn more](https://valkey.io/commands/delifeq/ "https://valkey.io/commands/delifeq/")
+
 - `DUMP`
 
 Returns a serialized representation of the value stored at a key.
@@ -500,6 +506,78 @@ Returns the length of the value of a field.
 Returns all values in a hash.
 
 [Learn more](https://valkey.io/commands/hvals/ "https://valkey.io/commands/hvals/")
+
+- `HSETEX`
+
+Sets fields in a hash with per-field expiration times. Creates the key if it doesn't exist.
+
+[Learn more](https://valkey.io/commands/hsetex/ "https://valkey.io/commands/hsetex/")
+
+- `HGETEX`
+
+Returns the values of fields in a hash and optionally sets their expiration.
+
+[Learn more](https://valkey.io/commands/hgetex/ "https://valkey.io/commands/hgetex/")
+
+- `HGETDEL`
+
+Returns the values of fields in a hash and deletes them.
+
+[Learn more](https://valkey.io/commands/hgetdel/ "https://valkey.io/commands/hgetdel/")
+
+- `HEXPIRE`
+
+Sets the expiration time of a hash field in seconds.
+
+[Learn more](https://valkey.io/commands/hexpire/ "https://valkey.io/commands/hexpire/")
+
+- `HEXPIREAT`
+
+Sets the expiration time of a hash field to a Unix timestamp.
+
+[Learn more](https://valkey.io/commands/hexpireat/ "https://valkey.io/commands/hexpireat/")
+
+- `HPEXPIRE`
+
+Sets the expiration time of a hash field in milliseconds.
+
+[Learn more](https://valkey.io/commands/hpexpire/ "https://valkey.io/commands/hpexpire/")
+
+- `HPEXPIREAT`
+
+Sets the expiration time of a hash field to a Unix milliseconds timestamp.
+
+[Learn more](https://valkey.io/commands/hpexpireat/ "https://valkey.io/commands/hpexpireat/")
+
+- `HPERSIST`
+
+Removes the expiration time from a hash field.
+
+[Learn more](https://valkey.io/commands/hpersist/ "https://valkey.io/commands/hpersist/")
+
+- `HTTL`
+
+Returns the remaining time to live of a hash field in seconds.
+
+[Learn more](https://valkey.io/commands/httl/ "https://valkey.io/commands/httl/")
+
+- `HPTTL`
+
+Returns the remaining time to live of a hash field in milliseconds.
+
+[Learn more](https://valkey.io/commands/hpttl/ "https://valkey.io/commands/hpttl/")
+
+- `HEXPIRETIME`
+
+Returns the expiration time of a hash field as a Unix timestamp.
+
+[Learn more](https://valkey.io/commands/hexpiretime/ "https://valkey.io/commands/hexpiretime/")
+
+- `HPEXPIRETIME`
+
+Returns the expiration time of a hash field as a Unix milliseconds timestamp.
+
+[Learn more](https://valkey.io/commands/hpexpiretime/ "https://valkey.io/commands/hpexpiretime/")
 
 **HyperLogLog Commands**
 
@@ -1519,6 +1597,48 @@ Executes all commands in a transaction.
 Starts a transaction.
 
 [Learn more](https://valkey.io/commands/multi/ "https://valkey.io/commands/multi/")
+
+## Search commands
+
+**Search Commands**
+
+The following search commands are supported by ElastiCache for Valkey.
+
+- `FT.CREATE`
+
+Creates an index and initiates a backfill of that index.
+
+[Learn more](https://valkey.io/commands/ft.create/ "https://valkey.io/commands/ft.create/")
+
+- `FT.SEARCH`
+
+Uses the provided query expression to locate keys within an index.
+
+[Learn more](https://valkey.io/commands/ft.search/ "https://valkey.io/commands/ft.search/")
+
+- `FT.AGGREGATE`
+
+Runs an aggregation pipeline against an index.
+
+[Learn more](https://valkey.io/commands/ft.aggregate/ "https://valkey.io/commands/ft.aggregate/")
+
+- `FT.DROPINDEX`
+
+Deletes an index.
+
+[Learn more](https://valkey.io/commands/ft.dropindex/ "https://valkey.io/commands/ft.dropindex/")
+
+- `FT.INFO`
+
+Returns information about a given index.
+
+[Learn more](https://valkey.io/commands/ft.info/ "https://valkey.io/commands/ft.info/")
+
+- `FT._LIST`
+
+Returns a list of all existing indexes.
+
+[Learn more](https://valkey.io/commands/ft._list/ "https://valkey.io/commands/ft._list/")
 
 ## Restricted Valkey and Redis OSS commands
 

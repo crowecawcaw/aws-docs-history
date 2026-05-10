@@ -24,6 +24,22 @@ However, in practice there are significant differences.
 
 ###### Choose Valkey or Redis OSS with ElastiCache if the following apply for you:
 
+- **ElastiCache version 9.0 for Valkey**
+
+You want built-in [full-text search, aggregations, and hybrid search](https://github.com/valkey-io/valkey-search "https://github.com/valkey-io/valkey-search") capabilities that extend the vector search introduced in Valkey 8.2, [hash field expiration](https://github.com/valkey-io/valkey/pull/2089 "https://github.com/valkey-io/valkey/pull/2089") for per-field TTLs, [multi-database support in cluster mode](https://github.com/valkey-io/valkey/pull/1671 "https://github.com/valkey-io/valkey/pull/1671"), [polygon-based geospatial queries](https://github.com/valkey-io/valkey/pull/1809 "https://github.com/valkey-io/valkey/pull/1809"), up to [40% higher throughput with pipelining](https://github.com/valkey-io/valkey/pull/2092 "https://github.com/valkey-io/valkey/pull/2092"), or [atomic slot migration](https://github.com/valkey-io/valkey/pull/1949 "https://github.com/valkey-io/valkey/pull/1949") for safer cluster scaling. For more information, see [Valkey 9.0](VersionManagement.md#valkey-version-9.0 "VersionManagement.md#valkey-version-9.0").
+
+- **ElastiCache version 8.2 for Valkey**
+
+You want native [vector search](search.md "search.md") with microsecond latency and 95%+ recall rate. For more information, see [Valkey 8.2](VersionManagement.md#valkey-version-8.2 "VersionManagement.md#valkey-version-8.2").
+
+- **ElastiCache version 8.1 for Valkey**
+
+You want a [new memory-efficient hash table](https://valkey.io/blog/new-hash-table/ "https://valkey.io/blog/new-hash-table/") that reduces memory overhead by up to 20%, native [Bloom filter](https://valkey.io/topics/bloomfilters/ "https://valkey.io/topics/bloomfilters/") support, the [COMMANDLOG](https://valkey.io/commands/commandlog-get/ "https://valkey.io/commands/commandlog-get/") command, and up to 514% higher throughput for BITCOUNT. For more information, see [Valkey 8.1](VersionManagement.md#valkey-version-8.1 "VersionManagement.md#valkey-version-8.1").
+
+- **ElastiCache version 8.0 for Valkey**
+
+You want up to 20% better memory efficiency through [embedded keys](https://github.com/valkey-io/valkey/pull/541 "https://github.com/valkey-io/valkey/pull/541"), [per-slot metrics](https://github.com/valkey-io/valkey/pull/20 "https://github.com/valkey-io/valkey/pull/20"), [dual-channel replication](https://github.com/valkey-io/valkey/pull/60 "https://github.com/valkey-io/valkey/pull/60"), and [async I/O threading](https://github.com/valkey-io/valkey/pull/763 "https://github.com/valkey-io/valkey/pull/763"). For more information, see [Valkey 8.0](VersionManagement.md#valkey-version-8 "VersionManagement.md#valkey-version-8").
+
 - **ElastiCache version 7.2 for Valkey or version 7.0 (Enhanced) for Redis OSS**
 
 You want to use [Functions](https://valkey.io/topics/functions-intro/ "https://valkey.io/topics/functions-intro/"),
@@ -42,72 +58,6 @@ You want to authenticate users with role-based access control.
 
 For more information, see [Redis OSS Version 6.0 (Enhanced)](engine-versions.md#redis-version-6.0 "engine-versions.md#redis-version-6.0").
 
-- **ElastiCache version 5.0.0 (Enhanced) for Redis OSS**
-
-You want to use [Redis OSS streams](https://redis.io/topics/streams-intro "https://redis.io/topics/streams-intro"), a log data structure that allows producers to append new items in real time and also allows consumers to consume messages either in a blocking or non-blocking fashion.
-
-For more information, see [Redis OSS Version 5.0.0 (Enhanced)](engine-versions.md#redis-version-5-0 "engine-versions.md#redis-version-5-0").
-
-- **ElastiCache version 4.0.10 (Enhanced) for Redis OSS**
-
-Supports both encryption and dynamically adding or removing shards from your Valkey or Redis OSS (cluster mode enabled) cluster.
-
-For more information, see [Redis OSS Version 4.0.10 (Enhanced)](engine-versions.md#redis-version-4-0-10 "engine-versions.md#redis-version-4-0-10").
-The following versions are deprecated, have reached or soon to reach end of life.
-
-- **ElastiCache version 3.2.10 (Enhanced) for Redis OSS**
-
-Supports the ability to dynamically add or remove shards from your Valkey or Redis OSS (cluster mode enabled) cluster.
-
-###### Important
-
-Currently ElastiCache 3.2.10 for Redis OSS doesn't support encryption.
-
-For more information, see the following:
-
-    + [Redis OSS Version 3.2.10 (Enhanced)](engine-versions.md#redis-version-3-2-10 "engine-versions.md#redis-version-3-2-10")
-    + Online resharding best practices for Redis OSS, For more information, see the following:
-
-
-
-
-    	- [Best Practices: Online Resharding](best-practices-online-resharding.md "best-practices-online-resharding.md")
-    	- [Online Resharding and Shard Rebalancing for Valkey or Redis OSS (Cluster Mode Enabled)](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online")
-    + For more information on scaling Redis OSS clusters, see [Scaling](Scaling.md "Scaling.md").
-
-- **ElastiCache version 3.2.6 (Enhanced) for Redis OSS**
-
-If you need the functionality of earlier Redis OSS versions plus the following features,
-choose 3.2.6:
-
-    + In-transit encryption. For more information, see [Amazon ElastiCache for Redis OSS In-Transit Encryption](in-transit-encryption.md "in-transit-encryption.md").
-    + At-rest encryption. For more information, see [Amazon ElastiCache for Redis OSS At-Rest Encryption](at-rest-encryption.md "at-rest-encryption.md").
-
-- **ElastiCache (Cluster mode enabled) version 3.2.4 for Redis OSS**
-
-If you need the functionality of 2.8.x plus the following features, choose 3.2.4 (clustered mode):
-
-    + You need to partition your data across two to 500 node groups (clustered mode
-     only).
-    + You need geospatial indexing (clustered mode or non-clustered mode).
-    + You don't need to support multiple databases.
-
-- **ElastiCache (non-clustered mode) 2.8.x and 3.2.4 (Enhanced) for Redis OSS**
-
-If the following apply for you, 2.8.x or 3.2.4 (non-clustered mode):
-
-    + You need complex data types, such as strings, hashes, lists, sets, sorted sets, and bitmaps.
-    + You need to sort or rank in-memory datasets.
-    + You need persistence of your key store.
-    + You need to replicate your data from the primary to one or more read replicas for read intensive
-     applications.
-    + You need automatic failover if your primary node fails.
-    + You need publish and subscribe (pub/sub) capabilities—to inform
-     clients about events on the server.
-    + You need backup and restore capabilities for node-based clusters as well as serverless
-    caches.
-    + You need to support multiple databases.
-
 | Comparison summary of Memcached, Valkey or Redis OSS (cluster mode disabled), and Valkey or Redis OSS (cluster mode enabled) |                                                                   | Memcached                                                | Valkey or Redis OSS (cluster mode disabled)              | Valkey or Redis OSS (cluster mode enabled) |
 | ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | ------------------------------------------ |
 | Engine versions+                                                                                                             | 1.4.5 and later                                                   | 4.0.10 and later                                         | 4.0.10 and later                                         |
@@ -118,6 +68,14 @@ If the following apply for you, 2.8.x or 3.2.4 (non-clustered mode):
 | Online resharding                                                                                                            | No                                                                | No                                                       | 3.2.10 and later                                         |
 | Encryption                                                                                                                   | in-transit 1.6.12 and later                                       | 4.0.10 and later                                         | 4.0.10 and later                                         |
 | Data tiering                                                                                                                 | No                                                                | 6.2 and later                                            | 6.2 and later                                            |
+| Memory efficiencies                                                                                                          | No                                                                | Valkey 8.0 and later                                     | Valkey 8.0 and later                                     |
+| Bloom filters                                                                                                                | No                                                                | Valkey 8.1 and later                                     | Valkey 8.1 and later                                     |
+| Vector search                                                                                                                | No                                                                | Valkey 8.2 and later                                     | Valkey 8.2 and later                                     |
+| Full-text search                                                                                                             | No                                                                | Valkey 9.0 and later                                     | Valkey 9.0 and later                                     |
+| Hybrid search (text + vector)                                                                                                | No                                                                | Valkey 9.0 and later                                     | Valkey 9.0 and later                                     |
+| Aggregation pipelines                                                                                                        | No                                                                | Valkey 9.0 and later                                     | Valkey 9.0 and later                                     |
+| Hash field expiration                                                                                                        | No                                                                | Valkey 9.0 and later                                     | Valkey 9.0 and later                                     |
+| Numbered databases in cluster mode                                                                                           | No                                                                | N/A                                                      | Valkey 9.0 and later                                     |
 | Compliance certifications                                                                                                    |
 | Compliance Certification<br>FedRAMP<br>HIPAA<br>PCI DSS                                                                      | Yes<br>• 1.6.12 and later<br>Yes<br>• 1.6.12 and later<br>Yes     | 4.0.10 and later<br>4.0.10 and later<br>4.0.10 and later | 4.0.10 and later<br>4.0.10 and later<br>4.0.10 and later |
 | Multi-threaded                                                                                                               | Yes                                                               | No                                                       | No                                                       |

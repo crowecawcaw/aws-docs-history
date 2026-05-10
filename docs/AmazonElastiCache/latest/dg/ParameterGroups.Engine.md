@@ -20,6 +20,7 @@ information, see [Creating an ElastiCache parameter group](ParameterGroups.Creat
 
 ###### Topics
 
+- [Valkey 9.0 parameter changes](#ParameterGroups.Valkey.9.0 "#ParameterGroups.Valkey.9.0")
 - [Valkey 8.2 parameter changes](#ParameterGroups.Valkey.8.2 "#ParameterGroups.Valkey.8.2")
 - [Valkey 8.1 parameter changes](#ParameterGroups.Valkey.8.1 "#ParameterGroups.Valkey.8.1")
 - [Valkey 8.0 parameter changes](#ParameterGroups.Valkey.8 "#ParameterGroups.Valkey.8")
@@ -39,6 +40,23 @@ information, see [Creating an ElastiCache parameter group](ParameterGroups.Creat
 - [Redis OSS 2.8.6 added parameters](#ParameterGroups.Redis.2-8-6 "#ParameterGroups.Redis.2-8-6")
 - [Redis OSS 2.6.13 parameters](#ParameterGroups.Redis.2-6-13 "#ParameterGroups.Redis.2-6-13")
 - [Redis OSS node-type specific parameters](#ParameterGroups.Redis.NodeSpecific "#ParameterGroups.Redis.NodeSpecific")
+
+### Valkey 9.0 parameter changes
+
+**Parameter group family:** valkey9
+
+###### Note
+
+- Valkey 9.0 and above parameter groups are incompatible with Valkey 8.x and Redis OSS.
+
+New parameter group families for Valkey 9.0:
+
+- `default.valkey9` – Default parameter group for Valkey 9.0 (cluster mode disabled).
+- `default.valkey9.cluster.on` – Default parameter group for Valkey 9.0 with cluster mode enabled.
+
+| New customer-visible parameter in Valkey 9.0 | Parameter                                                                    | Description | Values | Default              | Modifiable |
+| -------------------------------------------- | ---------------------------------------------------------------------------- | ----------- | ------ | -------------------- | ---------- |
+| `cluster-databases`                          | Number of databases available in cluster mode. Set at cluster creation time. | 0 to 15     | 0      | No (set at creation) |
 
 ### Valkey 8.2 parameter changes
 

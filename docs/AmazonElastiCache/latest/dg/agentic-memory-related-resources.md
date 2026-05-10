@@ -1,6 +1,6 @@
 # Related resources
 
-- [Vector search for ElastiCache](vector-search.md "vector-search.md")
+- [Search for ElastiCache](search.md "search.md")
 - [Common ElastiCache use cases](elasticache-use-cases.md "elasticache-use-cases.md")
 - [Build persistent memory for agentic AI applications with Mem0 and Amazon ElastiCache for Valkey](https://aws.amazon.com/blogs/database/build-persistent-memory-for-agentic-ai-applications-with-mem0-open-source-amazon-elasticache-for-valkey-and-amazon-neptune-analytics/ "https://aws.amazon.com/blogs/database/build-persistent-memory-for-agentic-ai-applications-with-mem0-open-source-amazon-elasticache-for-valkey-and-amazon-neptune-analytics/") (AWS Database Blog)
 - [Mem0 documentation — Valkey vector store](https://docs.mem0.ai/components/vectordbs/dbs/valkey "https://docs.mem0.ai/components/vectordbs/dbs/valkey")

@@ -60,7 +60,7 @@ For Linux, macOS, or Unix:
 aws elasticache modify-replication-group \
    --replication-group-id myReplGroup \
    --engine valkey \
-   --engine-version 8.0
+   --engine-version 9.0
 ```
 
 For Windows:
@@ -69,7 +69,7 @@ For Windows:
 aws elasticache modify-replication-group ^
    --replication-group-id myReplGroup ^
    --engine valkey ^
-   --engine-version 8.0
+   --engine-version 9.0
 ```
 
 If you have a custom cache parameter group applied to the existing Redis OSS replication group you wish to upgrade, you will need to pass a custom Valkey cache parameter group in the request as well. The input Valkey custom parameter group must have the same Redis OSS static parameter values as the existing Redis OSS custom parameter group.
@@ -80,7 +80,7 @@ For Linux, macOS, or Unix:
 aws elasticache modify-replication-group \
    --replication-group-id myReplGroup \
    --engine valkey \
-   --engine-version 8.0 \
+   --engine-version 9.0 \
    --cache-parameter-group-name myParamGroup
 ```
 
@@ -90,7 +90,7 @@ For Windows:
 aws elasticache modify-replication-group ^
    --replication-group-id myReplGroup ^
    --engine valkey ^
-   --engine-version 8.0 ^
+   --engine-version 9.0 ^
    --cache-parameter-group-name myParamGroup
 ```
 
@@ -102,7 +102,7 @@ For Linux, macOS, or Unix:
 aws elasticache modify-serverless-cache \
    --serverless-cache-name myCluster \
    --engine valkey \
-   --major-engine-version 8
+   --major-engine-version 9
 ```
 
 For Windows:
@@ -111,7 +111,7 @@ For Windows:
 aws elasticache modify-serverless-cache ^
    --serverless-cache-name myCluster ^
    --engine valkey ^
-   --major-engine-version 8
+   --major-engine-version 9
 ```
 
 ### Upgrading Redis OSS to Valkey with the Console

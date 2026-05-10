@@ -75,7 +75,7 @@ def cache_key_for_query(query: str):
 
 ElastiCache for Valkey uses an index to provide fast and accurate vector search. The
 `FT.CREATE` command creates the underlying index. For more information, see
-[Vector search for ElastiCache](vector-search.md "vector-search.md").
+[Vector search for ElastiCache](search.md "search.md").
 
 ## Step 4: Implement cache search and update functions
 
