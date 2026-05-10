@@ -2379,8 +2379,8 @@ You might need to scroll horizontally or vertically to see all of the data in th
 | AWS CodeArtifact                                       | `codeartifact.`AWS_region`.amazonaws.com`                                                                                                     |
 | Amazon CodeGuru Reviewer                               | `codeguru-reviewer.`AWS_region`.amazonaws.com`                                                                                                |
 | Amazon Comprehend                                      | `comprehend.`AWS_region`.amazonaws.com`                                                                                                       |
-| Amazon Connect                                         | `connect.`AWS_region`.amazonaws.com`                                                                                                          |
-| Amazon Connect Customer Profiles                       | `profile.`AWS_region`.amazonaws.com`                                                                                                          |
+| Amazon Connect Customer                                | `connect.`AWS_region`.amazonaws.com`                                                                                                          |
+| Amazon Connect Customer Customer Profiles              | `profile.`AWS_region`.amazonaws.com`                                                                                                          |
 | Amazon Q in Connect                                    | `wisdom.`AWS_region`.amazonaws.com`                                                                                                           |
 | AWS Database Migration Service (AWS DMS)               | `dms.`AWS_region`.amazonaws.com`                                                                                                              |
 | AWS DeepRacer                                          | `deepracer.`AWS_region`.amazonaws.com`                                                                                                        |
