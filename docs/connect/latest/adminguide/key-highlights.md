@@ -10,7 +10,7 @@ Contact Control Panel (CCP).
 ###### Tip
 
 For a list of supported languages, see the _Key highlights_
-column in the [Amazon Connect Contact Lens supported languages](supported-languages.md#supported-languages-contact-lens "supported-languages.md#supported-languages-contact-lens") topic.
+column in the [Connect Customer Contact Lens supported languages](supported-languages.md#supported-languages-contact-lens "supported-languages.md#supported-languages-contact-lens") topic.
 
 After you enable Contact Lens, it identifies key parts of a customer
 conversation, assigns labels (such as issue, outcome, or action item) to those

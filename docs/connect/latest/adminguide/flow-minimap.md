@@ -1,4 +1,4 @@
-# Use the mini-map in Amazon Connect to navigate a flow
+# Use the mini-map in Connect Customer to navigate a flow
 
 In the lower left corner of the flow designer, there's a miniaturize view of the
 entire flow. Use this view to help you easily navigate the flow. The drag-to-move

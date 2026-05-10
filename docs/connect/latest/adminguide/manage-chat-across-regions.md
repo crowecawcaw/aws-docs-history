@@ -1,4 +1,4 @@
-# Manage chat in your Amazon Connect instance across Regions
+# Manage chat in your Connect Customer instance across Regions
 
 You manage chat across AWS Regions by creating two custom chat interfaces or two
 out-of-the-box communication widgets: one in the source Region and another in the
@@ -7,14 +7,14 @@ interface or out-of-the-box communication widget you want to use.
 
 - Custom chat interfaces: Configure the chat interface in the replica Region to
   use the API endpoint of the replica Region. For examples of custom interfaces,
-  see the [Amazon Connect open source library](https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master "https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master") on GitHub. For more information, see
-  [Customize chat with the Amazon Connect open source example](download-chat-example.md "download-chat-example.md").
+  see the [Connect Customer open source library](https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master "https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master") on GitHub. For more information, see
+  [Customize chat with the Connect Customer open source example](download-chat-example.md "download-chat-example.md").
 - Out-the-box communication widgets: Create a communication widget in the
-  replica Amazon Connect instance. For instructions, see [Configure a communication widget in the replica instance](#communicationswidget-multiple-regions "#communicationswidget-multiple-regions").
+  replica Connect Customer instance. For instructions, see [Configure a communication widget in the replica instance](#communicationswidget-multiple-regions "#communicationswidget-multiple-regions").
   Following are the chat configuration parameters that are required in your website or
   app to initiate a client side chat:
 
-- **Amazon Connect instance ID** and **flow ID**: These parameters are the same in the source and replica
+- **Connect Customer instance ID** and **flow ID**: These parameters are the same in the source and replica
   Regions.
 - **Target AWS Region** and usually an **API endpoint** to start the chat (that is, to acquire
   the participant token): These parameters are different in the source and replica
@@ -27,11 +27,11 @@ interface or out-of-the-box communication widget you want to use.
 
 ## Configure a communication widget in the replica instance
 
-1. On your source Amazon Connect instance, create a communication widget for chat if
-   one doesn't already exist. For instructions, see [Add a chat user interface to your website hosted by Amazon Connect](add-chat-to-website.md "add-chat-to-website.md").
+1. On your source Connect Customer instance, create a communication widget for chat if
+   one doesn't already exist. For instructions, see [Add a chat user interface to your website hosted by Connect Customer](add-chat-to-website.md "add-chat-to-website.md").
 2. On your replica instance, create another communication widget for chat.
    Configure the widget with the same flow that is used in the widget on the
-   source instance. The flow is already in the replica instance because Amazon Connect
+   source instance. The flow is already in the replica instance because Connect Customer
    Global Resiliency copies all flows from the source to replica and keeps them
    continuously synchronized.
 3. Copy the new communication widget script that you created in the replica

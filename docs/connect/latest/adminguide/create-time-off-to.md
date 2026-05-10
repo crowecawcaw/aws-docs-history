@@ -1,4 +1,4 @@
-# Create a time off request in Amazon Connect
+# Create a time off request in Connect Customer
 
 Time off requests can be created by supervisors, managers, or agents in the published schedule.
 Once created, time off requests are visible in both published and draft schedules.
@@ -41,7 +41,7 @@ Shift profile rules. Enter a **Reason** and choose
 
 ###### Tip
 
-When Amazon Connect evaluates time off requests, it factors in the [Forecast group allowance for
+When Connect Customer evaluates time off requests, it factors in the [Forecast group allowance for
 time off](config-group-allowance-to.md "config-group-allowance-to.md") and the [individual agent's allowance
 for time off](config-group-allowance-to.md "config-group-allowance-to.md"), if they've been specified.
 

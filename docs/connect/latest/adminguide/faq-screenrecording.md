@@ -1,6 +1,6 @@
-# Frequently asked questions about Amazon Connect screen recording capabilities
+# Frequently asked questions about Connect Customer screen recording capabilities
 
-This topic provides frequently asked questions about using Amazon Connect screen recording
+This topic provides frequently asked questions about using Connect Customer screen recording
 capabilities.
 
 ###### Contents
@@ -16,7 +16,7 @@ capabilities.
 
 The screen recording files are saved in MP4 format.
 
-- **Which Amazon Connect channels are
+- **Which Connect Customer channels are
   supported?**
 
 You can generate screen recordings for voice, chat, and task
@@ -24,7 +24,7 @@ contacts.
 
 - **Do you capture the entire screen?**
 
-Yes, the Amazon Connect Client Service records all the open applications on the agent's monitor,
+Yes, the Connect Customer Client Service records all the open applications on the agent's monitor,
 up to three monitors.
 
 - **Does screen recording support concurrent user
@@ -32,7 +32,7 @@ up to three monitors.
   environments?**
 
 Yes, screen recording supports concurrent user sessions on Windows when
-using Amazon Connect Client Application version 2.0.0 or later.
+using Connect Customer Client Application version 2.0.0 or later.
 
 - **Where are the screen recording files stored in my
   AWS account?**
@@ -44,7 +44,7 @@ stored and encrypted.
 - **How can I be notified when there is a latest version
   of the client application?**
   - For Windows, to be notified when there is an update to the
-    Amazon Connect Client Application, we recommend subscribing to the RSS feed of this
+    Connect Customer Client Application, we recommend subscribing to the RSS feed of this
     administrator guide. Choose the **RSS** link that
     appears under the title of this page (it's next to the PDF
     link).
@@ -74,7 +74,7 @@ enable a percentage of contacts for screen recording.
 
 - **Is screen recording PCI compliant?**
 
-Amazon Connect, including the screen recording capability, is compliant with the
+Connect Customer, including the screen recording capability, is compliant with the
 Payment Card Industry Data Security Standard (PCI DSS). However, you are
 responsible for determining whether your specific implementation meets your
 compliance requirements.
@@ -90,7 +90,7 @@ custom CCP and communication widget. For more information, see [Integrate in-app
   desktops?**
 
 Screen recording is designed to work with custom CCP and agent workspace
-built with the [Amazon Connect
+built with the [Connect Customer
 Streams JS library](https://github.com/amazon-connect/amazon-connect-streams "https://github.com/amazon-connect/amazon-connect-streams"). We recommend testing your custom solution
 before deploying screen recording in production.
 
@@ -98,7 +98,7 @@ before deploying screen recording in production.
   world?**
 
 Screen recording is available in AWS GovCloud (US) and all AWS commercial
-Regions where Amazon Connect is available. However, your use of screen recording may
+Regions where Connect Customer is available. However, your use of screen recording may
 be subject to compliance with privacy and other laws. Please consult your
 compliance team before enabling this capability for your agents.
 
@@ -108,8 +108,8 @@ To use screen recording in AWS GovCloud (US-West) requires client version
 - **Are agents alerted when screen recording is enabled
   for a contact?**
 
-By default Amazon Connect doesn't provide a notification feature. However, you can
-use the [Amazon Connect Streams JS library](https://github.com/amazon-connect/amazon-connect-streams/blob/master/cheat-sheet.md "https://github.com/amazon-connect/amazon-connect-streams/blob/master/cheat-sheet.md") to create a notice or other visual
+By default Connect Customer doesn't provide a notification feature. However, you can
+use the [Connect Customer Streams JS library](https://github.com/amazon-connect/amazon-connect-streams/blob/master/cheat-sheet.md "https://github.com/amazon-connect/amazon-connect-streams/blob/master/cheat-sheet.md") to create a notice or other visual
 indicator on an agent's desktop to signal that screen recording is in
 use.
 
@@ -117,7 +117,7 @@ use.
   contact, or immediately after a contact ends?**
 
 If the browser is closed at the beginning of contact before any screen
-capture data can be uploaded to Amazon Connect, the final screen recording may not be
+capture data can be uploaded to Connect Customer, the final screen recording may not be
 published. If the browser is closed immediately after a contact ends but
 before the final screen capture data can be uploaded, the screen recording
 is published when the agent next logs in to CCP.

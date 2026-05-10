@@ -1,4 +1,4 @@
-# Review recorded conversations between agents and customers using Amazon Connect
+# Review recorded conversations between agents and customers using Connect Customer
 
 Managers can review past conversations between agents and customers. To set this up, you
 need to [set up recording behavior](set-up-recordings.md "set-up-recordings.md"), assign managers
@@ -31,10 +31,10 @@ transcripts of past agent conversations. For chat contacts, the same transcript 
 the agent interaction and the automated interaction (for example, with chat
 bots).
 
-1. Log in to Amazon Connect with a user account that has that has permissions to access
+1. Log in to Connect Customer with a user account that has that has permissions to access
    [the contact search
    page](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts") and to [access recordings](assign-permissions-to-review-recordings.md "assign-permissions-to-review-recordings.md").
-2. In Amazon Connect choose **Analytics and optimization**,
+2. In Connect Customer choose **Analytics and optimization**,
    **Contact search**.
 3. Filter the list of contacts by date, agent login, phone number, or other
    criteria. Choose **Search**.
@@ -90,7 +90,7 @@ to better resolve the needs of the end-customer and maintain audio and system ex
 records of the interaction for compliance purposes. To review automated interaction
 (IVR) recordings and logs:
 
-1. Log in to Amazon Connect with a user account that has permissions to access [the contact search
+1. Log in to Connect Customer with a user account that has permissions to access [the contact search
    page](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts") and to [access recordings](assign-permissions-to-review-recordings.md "assign-permissions-to-review-recordings.md"). Note that to view information on flow execution,
    you would need permissions to view **Flows** and **Flow
    modules**.
@@ -115,7 +115,7 @@ seeing additional details on which flow was executed), you can turn off the
 
 ###### Flow blocks available within the automated interaction logs and transcripts
 
-You can view the following flow blocks within the Amazon Connect UI on the contact details
+You can view the following flow blocks within the Connect Customer UI on the contact details
 page;
 
 - [Get customer input](get-customer-input.md "get-customer-input.md")

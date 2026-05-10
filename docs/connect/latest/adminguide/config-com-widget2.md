@@ -1,9 +1,9 @@
 # Integrate in-app, web, video calling, and screen sharing natively into your application
 
-To integrate Amazon Connect in-app, web, video calling, and screen sharing with your
+To integrate Connect Customer in-app, web, video calling, and screen sharing with your
 application:
 
-1. Use the Amazon Connect [StartWebRTCContact](../APIReference/API_StartWebRTCContact.md "../APIReference/API_StartWebRTCContact.md") API to create the contact.
+1. Use the Connect Customer [StartWebRTCContact](../APIReference/API_StartWebRTCContact.md "../APIReference/API_StartWebRTCContact.md") API to create the contact.
 2. Then use the details returned by the API call to join the call using the
    Amazon Chime client library for [iOS](https://github.com/aws/amazon-chime-sdk-ios "https://github.com/aws/amazon-chime-sdk-ios"), [Android](https://github.com/aws/amazon-chime-sdk-android "https://github.com/aws/amazon-chime-sdk-android"), or
    [JavaScript](https://github.com/aws/amazon-chime-sdk-js "https://github.com/aws/amazon-chime-sdk-js").
@@ -27,9 +27,9 @@ application or browser) to initiate an in-app or web call.
 1. Your customer uses the client application (website or application) to
    start an in-app or web call.
 2. The client application (website or mobile application) or web server uses
-   the Amazon Connect
+   the Connect Customer
    [StartWebRTCContact](../APIReference/API_StartWebRTCContact.md "../APIReference/API_StartWebRTCContact.md") API to start the contact passing any
-   attributes or context to Amazon Connect.
+   attributes or context to Connect Customer.
 3. The client application joins the call using the details returned from the
    [StartWebRTCContact](../APIReference/API_StartWebRTCContact.md "../APIReference/API_StartWebRTCContact.md") in step 2.
 4. (Optional) Client uses the [CreateParticipantConnection](../../../connect-participant/latest/APIReference/API_CreateParticipantConnection.md "../../../connect-participant/latest/APIReference/API_CreateParticipantConnection.md") API to receive a
@@ -130,7 +130,7 @@ platform-specific API overview guides:
 
 ### Send DTMF tones
 
-To send DTMF to the call, two Amazon Connect Participant Service APIs are needed:
+To send DTMF to the call, two Connect Customer Participant Service APIs are needed:
 [CreateParticipantConnection](../../../connect-participant/latest/APIReference/API_CreateParticipantConnection.md "../../../connect-participant/latest/APIReference/API_CreateParticipantConnection.md") and [SendMessage](../../../connect-participant/latest/APIReference/API_SendMessage.md "../../../connect-participant/latest/APIReference/API_SendMessage.md") respectively.
 
 ###### Note

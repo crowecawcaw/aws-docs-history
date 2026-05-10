@@ -1,4 +1,4 @@
-# Schedule Adherence metrics in Amazon Connect
+# Schedule Adherence metrics in Connect Customer
 
 This section describes the metrics used when calculating Historical Schedule
 Adherence.
@@ -22,12 +22,12 @@ This metric measures the percentage of time that an agent correctly follows thei
 
 **Metric category**: Agent activity-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AGENT_SCHEDULE_ADHERENCE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Adherence
 
@@ -45,12 +45,12 @@ This metric measures the total time an agent adhered to their schedule.
 
 **Metric category**: Agent activity-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AGENT_ADHERENT_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Adherent time
 
@@ -62,12 +62,12 @@ This metric measures the total time an agent did not adhere to their schedule.
 
 **Metric category**: Agent activity-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AGENT_NON_ADHERENT_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Non-Adherent time
 
@@ -81,12 +81,12 @@ time) and _Adherence_ for those shifts was set to
 
 **Metric category**: Agent activity-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AGENT_SCHEDULED_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Scheduled time
 

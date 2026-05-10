@@ -1,9 +1,9 @@
-# Sample queue configurations flow in Amazon Connect
+# Sample queue configurations flow in Connect Customer
 
 ###### Note
 
-This topic explains a sample flow that is included with Amazon Connect. For information
-about locating the sample flows in your instance, see [Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md").
+This topic explains a sample flow that is included with Connect Customer. For information
+about locating the sample flows in your instance, see [Sample flows in Connect Customer](contact-flow-samples.md "contact-flow-samples.md").
 
 Type: Flow (inbound)
 
@@ -69,11 +69,11 @@ block:
 5. We use a **[Transfer to
    queue](transfer-to-queue.md "transfer-to-queue.md")** block to put the customer in a callback queue.
 6. The **[Transfer to
-   queue](transfer-to-queue.md "transfer-to-queue.md")** block is configured so Amazon Connect waits 5 seconds between
+   queue](transfer-to-queue.md "transfer-to-queue.md")** block is configured so Connect Customer waits 5 seconds between
    the time the callback contact is initiated and the contact is enqueued, where it
    sits until it is offered to an available agent.
 
-If the initial callback doesn't reach the customer, Amazon Connect will attempt 1
+If the initial callback doesn't reach the customer, Connect Customer will attempt 1
 callback. If it were configured for 2 attempted callbacks, it would wait 10
 minutes between each one.
 
@@ -83,6 +83,6 @@ BasicQueue, which was set at the beginning of the flow.
 ![The transfer to callback queue tab, minimum time between attempts is 10 minutes.](images/sample-queue-configurations-transfer-to-queue-block.png)
 For information about queued callbacks, see the following topics:
 
-- [Set up queued callback by creating flows, queues, and routing profiles in Amazon Connect](setup-queued-cb.md "setup-queued-cb.md")
-- [Flow block in Amazon Connect: Transfer to queue](transfer-to-queue.md "transfer-to-queue.md")
-- [Queued callbacks in real-time metrics in Amazon Connect](about-queued-callbacks.md "about-queued-callbacks.md")
+- [Set up queued callback by creating flows, queues, and routing profiles in Connect Customer](setup-queued-cb.md "setup-queued-cb.md")
+- [Flow block in Connect Customer: Transfer to queue](transfer-to-queue.md "transfer-to-queue.md")
+- [Queued callbacks in real-time metrics in Connect Customer](about-queued-callbacks.md "about-queued-callbacks.md")

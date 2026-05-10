@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Authenticate Customer
+# Flow block in Connect Customer: Authenticate Customer
 
 This topic defines the flow block to authenticate customers and route them to specific
 paths within a flow based on the authentication result.
@@ -7,17 +7,17 @@ paths within a flow based on the authentication result.
 
 Before you can use this block:
 
-- The customer authentication capability must be enabled for your Amazon Connect
+- The customer authentication capability must be enabled for your Connect Customer
   instance. In addition, a new Amazon Cognito user pool must be created with your
-  identity provider. For instructions, see [Set up customer authentication in Amazon Connect for chat contacts](customer-auth.md "customer-auth.md").
+  identity provider. For instructions, see [Set up customer authentication in Connect Customer for chat contacts](customer-auth.md "customer-auth.md").
 - Customer Profiles must be [enabled](enable-customer-profiles.md "enable-customer-profiles.md") for
-  your Amazon Connect instance.
+  your Connect Customer instance.
 
 ## Description
 
 - Enables your customers to authenticate during a chat.
 - After a customer successfully signs in, and an ID token is retrieved from
-  Amazon Cognito, Amazon Connect either updates an existing customer profile or creates a new
+  Amazon Cognito, Connect Customer either updates an existing customer profile or creates a new
   customer profile, depending on the identifier used to store the information
   into customer profiles.
 - If the First Name field is present in the customer profile, the customer's
@@ -67,7 +67,7 @@ types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact
 ## How to configure this block
 
 You can configure the **Authenticate Customer** block by using
-the Amazon Connect admin website or by using the [AuthenticateParticipant](../APIReference/participant-actions-authenticateparticipant.md "../APIReference/participant-actions-authenticateparticipant.md") action in the Amazon Connect Flow language.
+the Connect Customer admin website or by using the [AuthenticateParticipant](../APIReference/participant-actions-authenticateparticipant.md "../APIReference/participant-actions-authenticateparticipant.md") action in the Connect Customer Flow language.
 
 The following image shows an example of the Properties page for the
 **Authenticate Customer** block.
@@ -82,7 +82,7 @@ The following image shows an example of the Properties page for the
 - **Select an Amazon Cognito App Client**: After you select the user
   pool, choose the name of the app client from the drop-down list.
 
-**Amazon Connect Customer Profiles Configuration**
+**Connect Customer Customer Profiles Configuration**
 
 - **Store by default template**: By choosing the default
   template, Amazon Connect Customer Profile ingests [Amazon Cognito standard attributes](../../../cognito/latest/developerguide/user-pool-settings-attributes.md#cognito-user-pools-standard-attributes "../../../cognito/latest/developerguide/user-pool-settings-attributes.md#cognito-user-pools-standard-attributes") into a unified standard profile
@@ -119,7 +119,7 @@ This block supports the following output branches:
 - We recommend that you enable flow logs in an Amazon CloudWatch log group
   provide you with real-time details about events in your flows as
   customers interact with them. You can also use flow logs to help debug
-  your flows as you are creating them. For more information, see [Enable Amazon Connect flow logs in an Amazon CloudWatch log group](contact-flow-logs.md "contact-flow-logs.md").
+  your flows as you are creating them. For more information, see [Enable Connect Customer flow logs in an Amazon CloudWatch log group](contact-flow-logs.md "contact-flow-logs.md").
 - For information about enabling customer authentication for Apple
   Messages for Business Chats, see [Enable authentication for Apple Messages for Business](enabling-authentication-for-apple-messages-for-business.md "enabling-authentication-for-apple-messages-for-business.md").
 
@@ -132,10 +132,10 @@ This block does not generate any data.
 A contact is routed down the **Error** branch in the following
 situations:
 
-- Customer Profiles has not been enabled in your Amazon Connect instance. The option to enable
+- Customer Profiles has not been enabled in your Connect Customer instance. The option to enable
   Customer Profiles is selected by default when you create an instance, but it's possible
   to unselect this option. For instructions about enabling Customer Profiles manually, see
-  [Enable Customer Profiles for your Amazon Connect instance](enable-customer-profiles.md "enable-customer-profiles.md").
+  [Enable Customer Profiles for your Connect Customer instance](enable-customer-profiles.md "enable-customer-profiles.md").
 - The chat subtype is not supported.
 - The provided authentication code is incorrect.
 - Error from Amazon Cognito token endpoint because the client or request is not

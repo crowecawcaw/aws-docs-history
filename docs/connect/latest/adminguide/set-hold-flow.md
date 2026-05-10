@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Set hold flow
+# Flow block in Connect Customer: Set hold flow
 
 This topic defines the flow block for specifying the flow to invoke when a customer or
 agent is put on hold.
@@ -43,7 +43,7 @@ namespaces that you can use to set the hold flow dynamically.
 
 ![The properties page of the Set hold flow block.](images/set-hold-flow-properties.png)
 
-For information about using attributes, see [Use Amazon Connect contact attributes](connect-contact-attributes.md "connect-contact-attributes.md").
+For information about using attributes, see [Use Connect Customer contact attributes](connect-contact-attributes.md "connect-contact-attributes.md").
 
 ## Configured block
 

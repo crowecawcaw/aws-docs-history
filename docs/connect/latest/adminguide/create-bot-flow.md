@@ -2,7 +2,7 @@
 
 This topic explains how to add a previously created conversational AI bot to a flow.
 
-1. On the navigation menu in Amazon Connect, choose **Routing**,
+1. On the navigation menu in Connect Customer, choose **Routing**,
    **Flows**, **Create flow**, and type a name for the
    flow.
 2. Under **Interact**, drag a [Get customer input](get-customer-input.md "get-customer-input.md") block onto the designer, and connect it to
@@ -38,8 +38,8 @@ The following image shows the dialog box to filter intents by locale.
 
 ###### Important
 
-If you're using an Amazon Lex V2 bot, your language attribute in Amazon Connect must match the language
-model used to build your Lex bot. This is different than Amazon Lex (Classic). Use a [Set voice](set-voice.md#set-voice-lexv2bot "set-voice.md#set-voice-lexv2bot") block to indicate the Amazon Connect language model,
+If you're using an Amazon Lex V2 bot, your language attribute in Connect Customer must match the language
+model used to build your Lex bot. This is different than Amazon Lex (Classic). Use a [Set voice](set-voice.md#set-voice-lexv2bot "set-voice.md#set-voice-lexv2bot") block to indicate the Connect Customer language model,
 or use a [Set contact
 attributes](set-contact-attributes.md "set-contact-attributes.md")
 block.
@@ -56,11 +56,11 @@ options to find them.
       then choose **Tags**.
   2.  If the **AmazonConnectEnabled** tag is not present, add
       **AmazonConnectEnabled = true**.
-  3.  Return to the Amazon Connect admin website. Refresh the flow designer to see the selections in
+  3.  Return to the Connect Customer admin website. Refresh the flow designer to see the selections in
       **Get customer input** block.
 
 - Check if the version is associated with the alias:
-  1.  In Amazon Connect admin website, choose **Routing**, **Flows**,
+  1.  In Connect Customer admin website, choose **Routing**, **Flows**,
       the bot, **Aliases**. Verify that **Use in flow and
       flow modules** is enabled, as shown in the following
       image.

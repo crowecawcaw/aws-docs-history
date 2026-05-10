@@ -1,6 +1,6 @@
 # Access Connect assistant in the Connect agent workspace
 
-If you're using the CCP that is provided with Amazon Connect, after you enable the Connect assistant, share the
+If you're using the CCP that is provided with Connect Customer, after you enable the Connect assistant, share the
 following URL with your agents so they can access it:
 
 - **https://`instance
@@ -10,12 +10,12 @@ following URL with your agents so they can access it:
 
 - **https://`instance
  name`.awsapps.com/connect/agent-app-v2/**
-  For help finding your instance name, see [Find your Amazon Connect instance name](find-instance-name.md "find-instance-name.md").
+  For help finding your instance name, see [Find your Connect Customer instance name](find-instance-name.md "find-instance-name.md").
 
 By using the new URL, your agents can view the CCP and Connect assistant in the same browser
 window.
 
-If CCP is embedded in your agent's application, see [Initialization for CCP, Customer Profiles, and Connect assistant](https://github.com/amazon-connect/amazon-connect-streams/blob/master/Documentation.md#initialization-for-ccp-customer-profiles-and-wisdom " https://github.com/amazon-connect/amazon-connect-streams/blob/master/Documentation.md#initialization-for-ccp-customer-profiles-and-wisdom ") in the _Amazon Connect
+If CCP is embedded in your agent's application, see [Initialization for CCP, Customer Profiles, and Connect assistant](https://github.com/amazon-connect/amazon-connect-streams/blob/master/Documentation.md#initialization-for-ccp-customer-profiles-and-wisdom " https://github.com/amazon-connect/amazon-connect-streams/blob/master/Documentation.md#initialization-for-ccp-customer-profiles-and-wisdom ") in the _Connect Customer
 Streams Documentation_ for information about how to include the Connect assistant.
 
 For more information about the agent's experience using Connect AI agents, see [Search for content using Connect AI agents](search-for-answers.md "search-for-answers.md").
@@ -30,7 +30,7 @@ security profile:
   Contact Lens conversational analytics is enabled.
 
 For information about how to add more permissions to an existing security profile,
-see [Update security profiles in Amazon Connect](update-security-profiles.md "update-security-profiles.md").
+see [Update security profiles in Connect Customer](update-security-profiles.md "update-security-profiles.md").
 
 By default, the **Admin** security profile already has permissions to
 perform all Connect assistant activities.

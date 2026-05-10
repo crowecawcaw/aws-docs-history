@@ -45,7 +45,7 @@ In this section:
 
 ### Step 1: Define conditions
 
-1. Log in to Amazon Connect with a user account that is assigned the
+1. Log in to Connect Customer with a user account that is assigned the
    **CallCenterManager** security profile, or
    that is enabled for **Rules**
    permissions.
@@ -189,7 +189,7 @@ located in Seattle.
 ### Step 2: Define actions
 
 In addition to categorizing a contact, you can define what actions
-Amazon Connect should take:
+Connect Customer should take:
 
 1. [Generate
    an EventBridge event](contact-lens-rules-eventbridge-event.md "contact-lens-rules-eventbridge-event.md")

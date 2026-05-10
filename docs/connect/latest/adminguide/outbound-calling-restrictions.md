@@ -1,6 +1,6 @@
-# Outbound calling restrictions in Amazon Connect
+# Outbound calling restrictions in Connect Customer
 
-This topic explains restrictions that are in place for outbound calling with Amazon Connect.
+This topic explains restrictions that are in place for outbound calling with Connect Customer.
 
 ###### Contents
 
@@ -14,7 +14,7 @@ This topic explains restrictions that are in place for outbound calling with Ama
 
 ## Use of toll-free numbers outside the country of origin
 
-Amazon Connect does not support the use of toll-free numbers for international
+Connect Customer does not support the use of toll-free numbers for international
 calling. International calls from toll-free numbers can be flagged as spam by
 downstream providers, resulting in negative reputation scores. They can also
 generate unexpected fees for call recipients.
@@ -28,18 +28,18 @@ will be blocked.
 ## Redirection of calls
 
 If you are using Amazon Connect to redirect calls: If you are receiving calls with
-Anonymous (withheld CLI), you must use an Amazon Connect number for the transfer.
+Anonymous (withheld CLI), you must use an Connect Customer number for the transfer.
 
 **Important:** Anonymous calls (calls without caller
 ID) are increasingly blocked by carriers as anti-spam measures and may violate
 telecommunications regulations in many countries. Always configure a valid caller ID
 number from your Amazon Connect instance to ensure reliable call delivery.
 
-See [Set up outbound caller ID in Amazon Connect](queues-callerid.md "queues-callerid.md").
+See [Set up outbound caller ID in Connect Customer](queues-callerid.md "queues-callerid.md").
 
 ## International calling restrictions
 
-Amazon Connect has several restrictions on international calling. These are
+Connect Customer has several restrictions on international calling. These are
 based on requirements in the following specific jurisdictions.
 
 ### South Africa
@@ -55,7 +55,7 @@ internationally reachable.
 ### Vietnam
 
 Vietnamese carriers are implementing enhanced fraud prevention measures with
-stricter limitations for calling activities. Amazon Connect requires that all customers
+stricter limitations for calling activities. Connect Customer requires that all customers
 calling Vietnamese numbers comply with additional requirements for continued
 use.
 
@@ -82,7 +82,7 @@ use.
 ### China
 
 Chinese carriers are increasingly blocking international routes into China
-unilaterally. Amazon Connect has taken steps to continue to support our
+unilaterally. Connect Customer has taken steps to continue to support our
 existing customers but require that all customers comply with additional
 requirements for continued use. Starting October 14, 2023 all customers approved
 to call China are required to follow these conditions.
@@ -115,7 +115,7 @@ the following steps:
 
 - You must provide an exact list of telephony numbers you will use
   to phone China.
-  - The number must be a DID provided by Amazon Connect.
+  - The number must be a DID provided by Connect Customer.
     No other number is acceptable.
   - The number cannot be a DID provided by Hong Kong, Macau,
     Taiwan, China, or Singapore.
@@ -134,10 +134,10 @@ the following steps:
 
 #### Consequences for violating the calling criteria for China
 
-Amazon Connect has a zero tolerance policy for calling into China.
-Amazon will suspend your use of Amazon Connect if you use the service
+Connect Customer has a zero tolerance policy for calling into China.
+Amazon will suspend your use of Connect Customer if you use the service
 for any of the restricted use cases identified in this topic. It is
-essential that the administrators of your Amazon Connect service focus
+essential that the administrators of your Connect Customer service focus
 on ensuring the members of your organization are aware of these
 restrictions, as ignorance of the rules is not an acceptable reason for
 breach.
@@ -146,5 +146,5 @@ breach.
 
 In the event of further incidents where Chinese carriers block major
 international routes without prior warning and impact the ability to call
-China, the exemptions in the [Amazon Connect Service
+China, the exemptions in the [Connect Customer Service
 Level Agreement](https://aws.amazon.com/connect/sla/ "https://aws.amazon.com/connect/sla/") will take effect.

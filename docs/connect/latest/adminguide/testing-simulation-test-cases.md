@@ -6,7 +6,7 @@ The following procedure shows how to create a test case.
 
 ###### To create a test case
 
-1. Open the Amazon Connect console at
+1. Open the Connect Customer console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 2. In the main navigation pane, choose **Routing**, and then
    **Tests** to open the Test case management page to view list

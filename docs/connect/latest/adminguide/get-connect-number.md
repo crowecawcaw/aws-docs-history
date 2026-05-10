@@ -1,12 +1,12 @@
-# Get a local toll-free or DID Amazon Connect phone number
+# Get a local toll-free or DID Connect Customer phone number
 
-To place or receive calls in your Amazon Connect instance, you need to claim a DID or
+To place or receive calls in your Connect Customer instance, you need to claim a DID or
 toll-free phone number. If you did not claim a phone number when you created your
-Amazon Connect instance, follow these steps to claim one now.
+Connect Customer instance, follow these steps to claim one now.
 
 ## Claim a number for your contact center
 
-1. Log in to the Amazon Connect admin website with an Admin account, or an account assigned to a
+1. Log in to the Connect Customer admin website with an Admin account, or an account assigned to a
    security profile that has **Phone numbers - Claim**
    permissions.
 2. On the navigation menu, choose **Channels**,
@@ -43,12 +43,12 @@ experience with your contact center from start to finish.
 ## How many phone numbers you can claim
 
 There is a service quota for how many phone numbers you can have in each
-instance. For the default service quota, see [Amazon Connect service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md"). If you reach your quota,
+instance. For the default service quota, see [Connect Customer service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md"). If you reach your quota,
 but want a different phone number, you can release one of your previously
 claimed numbers. You cannot claim the same phone number after releasing it.
 
 If you need more phone numbers, you can request a service quota increase using
-the [Amazon Connect
+the [Connect Customer
 service quota increase form](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-connect "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-connect").
 
 ## Avoid being blocked from claiming or releasing too many numbers
@@ -74,7 +74,7 @@ open an AWS support ticket.
 To claim a phone number programmatically:
 
 1. Use the [SearchAvailablePhoneNumbers](../APIReference/API_SearchAvailablePhoneNumbers.md "../APIReference/API_SearchAvailablePhoneNumbers.md") API to search for available
-   phone numbers that you can claim to your Amazon Connect instance.
+   phone numbers that you can claim to your Connect Customer instance.
 2. Use [ClaimPhoneNumber](../APIReference/API_ClaimPhoneNumber.md "../APIReference/API_ClaimPhoneNumber.md") API to claim the phone number.
 
 Claiming a number by using the [ClaimPhoneNumber](../APIReference/API_ClaimPhoneNumber.md "../APIReference/API_ClaimPhoneNumber.md") API puts the number in one of the
@@ -108,4 +108,4 @@ get this error message when you attempt to claim a number. All the issues that
 cause this error message require help from AWS Support to resolve.
 
 Contact AWS Support and they will provide assistance. For instructions, see
-[Get administrative support for Amazon Connect](get-admin-support.md "get-admin-support.md").
+[Get administrative support for Connect Customer](get-admin-support.md "get-admin-support.md").

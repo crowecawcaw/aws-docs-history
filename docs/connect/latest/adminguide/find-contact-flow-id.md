@@ -7,11 +7,11 @@ You can either reuse an existing flow that you’re already using for voice or c
 contacts, or create a new one specifically for Apple Messages for Business contacts. For instructions about
 creating a new inbound flow, see [Create an inbound flow](create-contact-flow.md#create-inbound-contact-flow "create-contact-flow.md#create-inbound-contact-flow").
 
-For more information about flows, see [Flows in Amazon Connect](connect-contact-flows.md "connect-contact-flows.md").
+For more information about flows, see [Flows in Connect Customer](connect-contact-flows.md "connect-contact-flows.md").
 
 ###### To find your flow ID for Apple Messages for Business
 
-1. Log in to the Amazon Connect console with an **Admin** account, or an
+1. Log in to the Connect Customer console with an **Admin** account, or an
    account assigned to a security profile that has permissions to view contact
    flows.
 2. On the navigation menu, choose **Routing**, **Contact

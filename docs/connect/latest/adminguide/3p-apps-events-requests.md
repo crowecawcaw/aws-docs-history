@@ -1,16 +1,16 @@
-# Events and requests when granting third-party applications access to Amazon Connect
+# Events and requests when granting third-party applications access to Connect Customer
 
 This topic lists the permissions you must explicitly give to third party
-applications to access Amazon Connect data.
+applications to access Connect Customer data.
 
 ###### Note
 
 If you are a developer, review how to create applications that react to
-events: [Integrate application with Amazon Connect Agent Workspace agent data](../../../agentworkspace/latest/devguide/integrate-with-agent-data.md "../../../agentworkspace/latest/devguide/integrate-with-agent-data.md").
+events: [Integrate application with Connect Customer Agent Workspace agent data](../../../agentworkspace/latest/devguide/integrate-with-agent-data.md "../../../agentworkspace/latest/devguide/integrate-with-agent-data.md").
 
 When you onboard third-party applications by using the API or the onboarding UI in
 the AWS Management Console, you must explicitly give third-party applications permissions to
-Amazon Connect data. You can also edit the permissions on an existing app.
+Connect Customer data. You can also edit the permissions on an existing app.
 
 To understand the effects of assigning a particular permission, review the
 following permissions, description, and corresponding requests and events.

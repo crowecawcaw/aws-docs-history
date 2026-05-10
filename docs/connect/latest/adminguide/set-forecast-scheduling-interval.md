@@ -1,4 +1,4 @@
-# Set the forecast and schedule interval in Amazon Connect
+# Set the forecast and schedule interval in Connect Customer
 
 You can set the granularity for your short-term forecasts and your
 schedules.
@@ -13,7 +13,7 @@ schedules.
 
 - You must specify an interval for short-term forecasting and
   scheduling.
-- Amazon Connect supports 15- or 30-minute intervals. For example, if you select 30
+- Connect Customer supports 15- or 30-minute intervals. For example, if you select 30
   minutes as the interval, your short-term forecasts are generated for
   30-minute intervals (that is, 20 contacts between 9:00 AM-9:30 AM), and your
   schedules are computed for 30 minute intervals.
@@ -24,8 +24,8 @@ schedules.
 
 ###### To set the forecast and schedule interval
 
-1. Log in to the Amazon Connect admin website.
-2. On the Amazon Connect navigation menu, select **Analytics and
+1. Log in to the Connect Customer admin website.
+2. On the Connect Customer navigation menu, select **Analytics and
    optimization**, **Forecasting**.
 3. Choose the **Forecast and schedule interval** tab. You'll
    see this tab only if you have the appropriate security profile

@@ -1,4 +1,4 @@
-# How SLAs work in Amazon Connect Cases
+# How SLAs work in Connect Customer Cases
 
 Service Level Agreements (SLAs) in Amazon Connect Cases are a type of related item that
 can be associated with a case. They allow you to track service goals for your contact
@@ -34,7 +34,7 @@ You can associate SLAs with cases in two ways:
 
 - **Automatically**: Use Contact Lens Rules to add
   SLAs to cases that meet specified conditions (case template and field values)
-  for Case Creation and Update rules. For more information, see [Automatically monitor and update cases in Amazon Connect Cases](create-alerts-on-cases.md "create-alerts-on-cases.md").
+  for Case Creation and Update rules. For more information, see [Automatically monitor and update cases in Connect Customer Cases](create-alerts-on-cases.md "create-alerts-on-cases.md").
 - **Manually**: Use the CreateRelatedItem API to
   add an SLA related item to a case.
 
@@ -47,7 +47,7 @@ and identify those at risk of missing service goals.
 
 ###### To add SLA information to the case list view:
 
-1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/.
+1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/.
 2. Open the **Agent Workspace**.
 
 ![Open the Agent Workspace.](images/cases-sla-viewing-1.png) 3. Choose the gear icon in the top right of the table.
@@ -85,4 +85,4 @@ target completion time without being met:
    **Case SLA Breach**.
 2. Specify which SLA names the **Breach rule** should apply to.
 
-For more information, see [Automatically monitor and update cases in Amazon Connect Cases](create-alerts-on-cases.md "create-alerts-on-cases.md") in the Amazon Connect documentation.
+For more information, see [Automatically monitor and update cases in Connect Customer Cases](create-alerts-on-cases.md "create-alerts-on-cases.md") in the Amazon Connect documentation.

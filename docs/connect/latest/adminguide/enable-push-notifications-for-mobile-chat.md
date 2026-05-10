@@ -3,13 +3,13 @@
 Push notifications for mobile chat are configured through [AWS End User Messaging](../../../sms-voice/latest/userguide/what-is-service.md "../../../sms-voice/latest/userguide/what-is-service.md").
 You can enable push notifications for mobile chat on iOS or Android devices, allowing you to
 alert customers about new messages even when they aren't actively using your mobile
-application. You can enable this feature in your existing app integrated with the [Amazon Connect mobile SDKs](integrate-chat-with-mobile.md "integrate-chat-with-mobile.md"), a [webview solution](https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/mobileChatExamples "https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/mobileChatExamples"), or a custom native solution.
+application. You can enable this feature in your existing app integrated with the [Connect Customer mobile SDKs](integrate-chat-with-mobile.md "integrate-chat-with-mobile.md"), a [webview solution](https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/mobileChatExamples "https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/mobileChatExamples"), or a custom native solution.
 
-The following steps and resources will help you get started with integrating Amazon Connect push notifications into your native mobile applications:
+The following steps and resources will help you get started with integrating Connect Customer push notifications into your native mobile applications:
 
 ## Step 1: Obtain credentials from Apple's APNs and Google's FCM console
 
-In order to set up Amazon Connect so that it can send push notifications to your
+In order to set up Connect Customer so that it can send push notifications to your
 apps, you first have to obtain credentials from Apple's APNs and Google's FCM console
 that will enable [AWS End User
 Messaging](../../../sms-voice/latest/userguide/what-is-service.md "../../../sms-voice/latest/userguide/what-is-service.md") to send notifications to your mobile applications. The credentials
@@ -75,21 +75,21 @@ enable or disable any of the push channels at a later time:
 
 6. Choose **Create application**.
 
-## Step 3: Associate the AWS End User Messaging application with an Amazon Connect instance
+## Step 3: Associate the AWS End User Messaging application with an Connect Customer instance
 
-To enable push notifications on an [Amazon Connect
+To enable push notifications on an [Connect Customer
 instance](find-instance-arn.md "find-instance-arn.md"), you will need to associate an AWS End User Messaging application
-with an [Amazon Connect
+with an [Connect Customer
 instance](find-instance-arn.md "find-instance-arn.md") by calling the [CreateIntegrationAssociation](../APIReference/API_CreateIntegrationAssociation.md "../APIReference/API_CreateIntegrationAssociation.md") API with the `PINPOINT_APP`
 [IntegrationType](../APIReference/API_CreateIntegrationAssociation.md#API_CreateIntegrationAssociation_RequestSyntax "../APIReference/API_CreateIntegrationAssociation.md#API_CreateIntegrationAssociation_RequestSyntax"). You can call this API with [AWS CLI](../../../cli/latest/reference/connect/create-integration-association.md "../../../cli/latest/reference/connect/create-integration-association.md")
 or the [Amazon Connect SDK](https://aws.amazon.com/developer/tools/ "https://aws.amazon.com/developer/tools/") for any
 supported languages. This is a one-time onboarding step required for each integration
-between an AWS End User Messaging application and an Amazon Connect instance.
+between an AWS End User Messaging application and an Connect Customer instance.
 
-## Step 4: Get device token with FCM or APNs SDK, and register it with Amazon Connect
+## Step 4: Get device token with FCM or APNs SDK, and register it with Connect Customer
 
 You will need to fetch the device token and use it to register an end-user mobile
-device with an Amazon Connect chat contact to send push notifications for new
+device with an Connect Customer chat contact to send push notifications for new
 messages in the chat. Read the below FCM/APNs developer documentation for how the device
 token is generated and obtained from the mobile application.
 
@@ -118,7 +118,7 @@ To register the device with a chat contact, we recommend that you do the followi
       message comes from the agent or system. By default, push notifications
       will be sent for all the system and agent messages.
 
-   ![Invoke lambda function flow block in the Amazon Connect admin website flow designer.](images/step-4-set-up-push-notifications-for-mobile-chat-1.png)
+   ![Invoke lambda function flow block in the Connect Customer admin website flow designer.](images/step-4-set-up-push-notifications-for-mobile-chat-1.png)
 
 3. (optional)  Embed a call to the [DeletePushNotificationRegistration](../APIReference/API_DeletePushNotificationRegistration.md "../APIReference/API_DeletePushNotificationRegistration.md") action in a Lambda function in a
    flow. Once the API call is made, the device will stop receiving push
@@ -126,7 +126,7 @@ To register the device with a chat contact, we recommend that you do the followi
 
 ## Step 5: Receive push notification on your mobile applications
 
-Check out our [Amazon Connect Chat UI Examples](https://github.com/amazon-connect/amazon-connect-chat-ui-examples "https://github.com/amazon-connect/amazon-connect-chat-ui-examples") project and refer to our sample [iOS](https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/mobileChatExamples/iOS-WKWebView-sample "https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/mobileChatExamples/iOS-WKWebView-sample") and [Android](https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/mobileChatExamples/android-webview-sample "https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/mobileChatExamples/android-webview-sample") chat webview examples that showcase how to integrate Amazon Connect APIs to onboard and receive push notifications.
+Check out our [Connect Customer Chat UI Examples](https://github.com/amazon-connect/amazon-connect-chat-ui-examples "https://github.com/amazon-connect/amazon-connect-chat-ui-examples") project and refer to our sample [iOS](https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/mobileChatExamples/iOS-WKWebView-sample "https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/mobileChatExamples/iOS-WKWebView-sample") and [Android](https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/mobileChatExamples/android-webview-sample "https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/mobileChatExamples/android-webview-sample") chat webview examples that showcase how to integrate Connect Customer APIs to onboard and receive push notifications.
 
 ## Monitor your usage for push notifications
 

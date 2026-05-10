@@ -1,9 +1,9 @@
-# Sample flow in Amazon Connect for A/B contact distribution testing
+# Sample flow in Connect Customer for A/B contact distribution testing
 
 ###### Note
 
-This topic explains a sample flow that is included with Amazon Connect. For information
-about locating the sample flows in your instance, see [Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md").
+This topic explains a sample flow that is included with Connect Customer. For information
+about locating the sample flows in your instance, see [Sample flows in Connect Customer](contact-flow-samples.md "contact-flow-samples.md").
 
 Type: Flow (inbound)
 
@@ -11,7 +11,7 @@ This flow shows how to perform an A/B call distribution based on a percentage. H
 how it works:
 
 1. The **Play prompt** block uses Amazon Polly, the text-to-speech
-   service, to say "Amazon Connect will now simulate rolling dice by using the Distribute
+   service, to say "Connect Customer will now simulate rolling dice by using the Distribute
    randomly block. Now rolling."
 2. The contact reaches the **Distribute by percentage** block,
    which routes the customer randomly based on a percentage.

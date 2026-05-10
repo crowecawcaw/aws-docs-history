@@ -24,7 +24,7 @@ Ensure users are assigned the appropriate security profile permissions:
 
 - **Access metrics - Access** permission or the
   **Dashboard - Access** permission. For information
-  about the difference in behavior, see [Assign permissions to view dashboards and reports in Amazon Connect](dashboard-required-permissions.md "dashboard-required-permissions.md").
+  about the difference in behavior, see [Assign permissions to view dashboards and reports in Connect Customer](dashboard-required-permissions.md "dashboard-required-permissions.md").
 - **Outbound Campaign - Campaigns - View** permission: This
   permission is required to view outbound campaigns data on the
   dashboard.
@@ -66,7 +66,7 @@ The widget must be manually added to your dashboard. Refer to [Add or remove wid
 The charts include the following metrics:
 
 - **Delivery attempts**: The count of outbound campaign
-  contacts dialed by the Amazon Connect dialer.
+  contacts dialed by the Connect Customer dialer.
 - **Human answer rate**: The count of outbound campaign
   calls that were connected to a live customer divided by total dials
   attempted. This metric is only available with answering machine detection
@@ -84,9 +84,9 @@ The charts include the following metrics:
   of outbound campaign calls that were connected to a live customer. This
   metric is only available with answering machine detection enabled.
 - **Avg. dials per minute**: The average of outbound
-  campaign contacts dialed per minute by the Amazon Connect dialer.
+  campaign contacts dialed per minute by the Connect Customer dialer.
 - **Send attempts**: The count of outbound campaign send
-  requests sent by Amazon Connect for delivery. A campaign send request represents an
+  requests sent by Connect Customer for delivery. A campaign send request represents an
   attempt made to reach out to an recipient by email, SMS, or a telephony
   dial.
 - **Delivered rate**: The percentage of delivered and
@@ -278,7 +278,7 @@ range.
 This table includes the following metrics.
 
 - **Campaign send attempts**: The count of outbound
-  campaign send requests sent by Amazon Connect for delivery. A campaign send request
+  campaign send requests sent by Connect Customer for delivery. A campaign send request
   represents an attempt made to reach out to an recipient using email, SMS, or
   a telephony dial.
 - **Human answered**: The count of outbound campaign calls
@@ -298,7 +298,7 @@ This table includes the following metrics.
   to an agent within 2 seconds. This metric is only available with answering
   machine detection enabled.
 - Avg. dials per minute: The average of outbound voice campaign contacts
-  dialed per minute by the Amazon Connect voice dialer within the selected time range
+  dialed per minute by the Connect Customer voice dialer within the selected time range
   filter.
 - **Campaign contacts abandoned after 2 seconds**: The
   count of outbound voice campaign calls that were connected to a human but

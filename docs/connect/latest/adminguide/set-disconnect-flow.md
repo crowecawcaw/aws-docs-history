@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Set disconnect flow
+# Flow block in Connect Customer: Set disconnect flow
 
 This topic defines the flow block for specifying which flow to run when a call is
 disconnected during a contact.
@@ -27,8 +27,8 @@ When the disconnect event occurs, the corresponding flow runs.
     disconnected.
 
   For more information about creating post-contact surveys, see this
-  blog: [Easily create and visualize post chat surveys with Amazon Connect and
-  Amazon Lex](https://aws.amazon.com/blogs/contact-center/easily-create-and-visualize-post-chat-surveys-with-amazon-connect-and-amazon-lex/ "https://aws.amazon.com/blogs/contact-center/easily-create-and-visualize-post-chat-surveys-with-amazon-connect-and-amazon-lex/"). And check out this workshop: [Building a contact survey solution for Amazon Connect](https://catalog.workshops.aws/amazon-connect-contact-survey/en-US "https://catalog.workshops.aws/amazon-connect-contact-survey/en-US").
+  blog: [Easily create and visualize post chat surveys with Connect Customer and
+  Amazon Lex](https://aws.amazon.com/blogs/contact-center/easily-create-and-visualize-post-chat-surveys-with-amazon-connect-and-amazon-lex/ "https://aws.amazon.com/blogs/contact-center/easily-create-and-visualize-post-chat-surveys-with-amazon-connect-and-amazon-lex/"). And check out this workshop: [Building a contact survey solution for Connect Customer](https://catalog.workshops.aws/amazon-connect-contact-survey/en-US "https://catalog.workshops.aws/amazon-connect-contact-survey/en-US").
   - In a chat scenario, if a customer stops responding to the chat,
     use this block to decide whether to run the disconnect flow and call
     a [Wait](wait.md "wait.md") block, or end
@@ -79,17 +79,17 @@ configured. It has the following branches: **Success** and
 
 ## Sample flows
 
-Amazon Connect includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
-[Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
+Connect Customer includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
+[Sample flows in Connect Customer](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-- [Sample inbound flow in Amazon Connect for the first contact experience](sample-inbound-flow.md "sample-inbound-flow.md")
+- [Sample inbound flow in Connect Customer for the first contact experience](sample-inbound-flow.md "sample-inbound-flow.md")
 
 ## Scenarios
 
 See these topics for scenarios that use this block:
 
 - [Example chat scenario](web-and-mobile-chat.md#example-chat-scenario "web-and-mobile-chat.md#example-chat-scenario")
-- [Easily create and visualize post chat surveys with Amazon Connect and
+- [Easily create and visualize post chat surveys with Connect Customer and
   Amazon Lex](https://aws.amazon.com/blogs/contact-center/easily-create-and-visualize-post-chat-surveys-with-amazon-connect-and-amazon-lex/ "https://aws.amazon.com/blogs/contact-center/easily-create-and-visualize-post-chat-surveys-with-amazon-connect-and-amazon-lex/")
-- [Building a contact survey solution for Amazon Connect](https://catalog.workshops.aws/amazon-connect-contact-survey/en-US "https://catalog.workshops.aws/amazon-connect-contact-survey/en-US")
+- [Building a contact survey solution for Connect Customer](https://catalog.workshops.aws/amazon-connect-contact-survey/en-US "https://catalog.workshops.aws/amazon-connect-contact-survey/en-US")

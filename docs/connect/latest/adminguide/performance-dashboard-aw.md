@@ -66,7 +66,7 @@ access the **Agent workspace performance dashboard**:
          name`.awsapps.com/connect/agent-app-v2/**
 
     Where `instance name` is provided by your IT
-    department or the individuals that set up Amazon Connect for your business.
+    department or the individuals that set up Connect Customer for your business.
 
 2.  In the agent workspace, choose the **Apps** dropdown
     menu, and then choose **Performance metrics** to display

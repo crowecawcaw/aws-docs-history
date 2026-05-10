@@ -1,4 +1,4 @@
-# Set up machine learning for Identity Resolution in Amazon Connect
+# Set up machine learning for Identity Resolution in Connect Customer
 
 ## Edit machine learning matching run schedule
 

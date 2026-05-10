@@ -15,7 +15,7 @@ Pre-requisite: Security profile permission is required. From a Security profile,
 
 To create a new workspace:
 
-1. Open the Amazon Connect admin website.
+1. Open the Connect Customer admin website.
 2. Navigate to **UI Management** > **Workspaces**.
 3. Click **Add new workspace**.
 4. Provide a name and description for your workspace.
@@ -50,7 +50,7 @@ The settings that cause pages and contents to differ from user to user are:
 
 Views may contain components, such as third party applications, that require Security profile permission. If a View opens but individual components do not render, check their configuration.
 
-- **Security Profile assignment** — this is the traditional way to determine which Amazon Connect managed pages appear in the left navigation menu. This applies to user interfaces that are not powered by Views.
+- **Security Profile assignment** — this is the traditional way to determine which Connect Customer managed pages appear in the left navigation menu. This applies to user interfaces that are not powered by Views.
 
 ###### Note
 
@@ -61,7 +61,7 @@ Other considerations to keep in mind:
 
 ###### Note
 
-All Amazon Connect pages do not support multiple Views. Amazon Connect managed pages have the same layout and components, with only slight variations based on user permissions, for example an **Add** button that appears only to entitled users.
+All Connect Customer pages do not support multiple Views. Connect Customer managed pages have the same layout and components, with only slight variations based on user permissions, for example an **Add** button that appears only to entitled users.
 
 - **Granular access control** can be applied to workspaces using tag-based access control (TBAC). This is useful if access needs to be restricted to certain records but not others, for example the workspace used by the Security team should not be visible to any other team member.
 
@@ -79,4 +79,4 @@ To minimize disruption to users, a workspace can only be deleted if it is not as
 
 ###### Accessing a workspace
 
-After a workspace has been assigned to a user, it is visible in their header. If a user only has one workspace assigned, it opens automatically. If no custom workspace has been created or assigned, users will see the default Amazon Connect experience. Users **assigned to more than one** workspace can switch between assigned workspaces from the header control. Their last-used workspace will open by default in the next session.
+After a workspace has been assigned to a user, it is visible in their header. If a user only has one workspace assigned, it opens automatically. If no custom workspace has been created or assigned, users will see the default Connect Customer experience. Users **assigned to more than one** workspace can switch between assigned workspaces from the header control. Their last-used workspace will open by default in the next session.

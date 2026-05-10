@@ -1,4 +1,4 @@
-# Optimize your reputation for outbound calling in Amazon Connect
+# Optimize your reputation for outbound calling in Connect Customer
 
 In the contact center industry one of the most difficult tasks is understanding why
 customers don't answer calls when you dial out. Is the customer deliberately not
@@ -23,7 +23,7 @@ By using call branding solutions, you can provide enhanced call displays that
 include your business name, logos, reason for the call, and your service. Branding
 your calls increases the call answer rate by 30%.
 
-Amazon Connect partners with solutions providers like [First
+Connect Customer partners with solutions providers like [First
 Orion](https://firstorion.com/amazon-connect-branded-calling-now-available/ "https://firstorion.com/amazon-connect-branded-calling-now-available/") and Neustar to offer branded calling services.
 
 ## Step 3: Select caller IDs that mean something to your customer
@@ -41,8 +41,8 @@ IDs:
   as 0800 123 0000.
 - **Mobile numbers**. Where countries permit
   this, it may be possible to use a virtual mobile number to dial out from a
-  contact center. For a list of countries where Amazon Connect supports mobile numbers,
-  see [Region requirements for ordering and porting phone numbers in Amazon Connect](phone-number-requirements.md "phone-number-requirements.md").
+  contact center. For a list of countries where Connect Customer supports mobile numbers,
+  see [Region requirements for ordering and porting phone numbers in Connect Customer](phone-number-requirements.md "phone-number-requirements.md").
 
 ## Step 4: Make sure your campaign is calling valid numbers
 

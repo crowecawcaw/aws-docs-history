@@ -1,4 +1,4 @@
-# Re-run a capacity plan in Amazon Connect
+# Re-run a capacity plan in Connect Customer
 
 You can re-run capacity plans when you make any changes on the plan start and/or
 end date, or the scenario. When there are no changes to plan inputs or the scenario,

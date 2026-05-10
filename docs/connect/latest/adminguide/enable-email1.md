@@ -1,19 +1,19 @@
-# Enable email for your Amazon Connect instance
+# Enable email for your Connect Customer instance
 
-This topic is for administrators who have access to the Amazon Connect console. It explains how
-to enable email for your instance using the Amazon Connect admin website. For a list of the APIs to enable
+This topic is for administrators who have access to the Connect Customer console. It explains how
+to enable email for your instance using the Connect Customer admin website. For a list of the APIs to enable
 email programmatically, see [APIs to enable email](#apis-email-setup2 "#apis-email-setup2").
 
 When you enable email, you get an auto-generated email domain. Optionally, you can
 also use custom domains.
 
-- **Amazon Connect email domain**. The email domain is
+- **Connect Customer email domain**. The email domain is
   _`instance-alias`.email.connect.aws_.
   - You can use this domain for testing.
-  - Or, you can use this email domain to integrate with Amazon Connect and start
-    receiving emails into Amazon Connect. For example, if you have an email address
+  - Or, you can use this email domain to integrate with Connect Customer and start
+    receiving emails into Connect Customer. For example, if you have an email address
     such as *support@example.com* you can forward email
-    into Amazon Connect by using
+    into Connect Customer by using
     *support@example.email.connect.aws*.
 
 - **Custom domains**. You can specify up to 5
@@ -21,54 +21,54 @@ also use custom domains.
 
 ## Step 1: Move Amazon SES into production mode
 
-Amazon Connect uses Amazon SES for sending and receiving emails. If you have a new Amazon SES
+Connect Customer uses Amazon SES for sending and receiving emails. If you have a new Amazon SES
 instance, you need to take it out of sandbox mode. For instructions, see [Request
 production access (Moving out of the Amazon SES sandbox)](../../../ses/latest/dg/request-production-access.md "../../../ses/latest/dg/request-production-access.md") in the
 _Amazon SES Developer Guide_.
 
 After you move Amazon SES into production mode, if you already enabled email when you
-created your Amazon Connect instance, skip to these topics:
+created your Connect Customer instance, skip to these topics:
 
 - [(Optional) Step 3: Use your own custom email domains](#use-custom-email "#use-custom-email")
 - [Step 5: Configure a CORS policy on your attachments bucket](#config-email-attachments-cors1 "#config-email-attachments-cors1")
 
-## Step 2: Get a default Amazon Connect email domain
+## Step 2: Get a default Connect Customer email domain
 
-These steps only apply if you already created an Amazon Connect instance but didn't enable
-email. Complete these steps to get a default email domain from Amazon Connect.
+These steps only apply if you already created an Connect Customer instance but didn't enable
+email. Complete these steps to get a default email domain from Connect Customer.
 
-1. In the Amazon Connect console, on the left navigation menu, choose
+1. In the Connect Customer console, on the left navigation menu, choose
    **Email**, and then choose **Create service
    role**. This role needs to be created only once for your
-   account. It allows Amazon SES to route emails to Amazon Connect.
+   account. It allows Amazon SES to route emails to Connect Customer.
 2. Choose **Add Domain** as shown in the following
    image.
 
-![The Manage email page, the Add domain button.](images/email-aws-console1.png) 3. In the **Add email domain** box, choose **Amazon Connect
+![The Manage email page, the Add domain button.](images/email-aws-console1.png) 3. In the **Add email domain** box, choose **Connect Customer
 email domain**, as shown in the following image. When you
 choose this option, the name of the domain is auto-generated:
 _`instance-alias`.email.connect.aws_.
 You cannot change this email address.
 
-![The Add email domain box, the Amazon Connect email domain option.](images/email-add-email-domain.png)
+![The Add email domain box, the Connect Customer email domain option.](images/email-add-email-domain.png)
 
 ## (Optional) Step 3: Use your own custom email domains
 
 You can import up to five custom domains that have been [onboarded
 to Amazon SES](../../../ses/latest/dg/creating-identities.md#just-verify-domain-proc "../../../ses/latest/dg/creating-identities.md#just-verify-domain-proc").
 
-1. In the Amazon Connect console, on the left navigation menu, choose
+1. In the Connect Customer console, on the left navigation menu, choose
    **Email**, and then choose **Add
    Domain** as shown in the following image.
 
-![The Email channel on the Amazon Connect console.](images/email-aws-console.png) 2. Choose **Use custom email domain**. Use the dropdown box
+![The Email channel on the Connect Customer console.](images/email-aws-console.png) 2. Choose **Use custom email domain**. Use the dropdown box
 to choose custom domains that have been [verified by Amazon SES](../../../ses/latest/dg/creating-identities.md#just-verify-domain-proc "../../../ses/latest/dg/creating-identities.md#just-verify-domain-proc").
 
 ![The Use custom email domain option.](images/email-add-custom-domain.png)
 
 ## Step 4: Enable email and create an Amazon S3 bucket for storing email and attachments
 
-These steps apply only if you already created an Amazon Connect instance but didn't enable
+These steps apply only if you already created an Connect Customer instance but didn't enable
 email.
 
 You need to update your **Data storage** settings to enable the
@@ -84,14 +84,14 @@ attachments bucket](#config-email-attachments-cors1 "#config-email-attachments-c
 **the email channel will not work for your
 instance**.
 
-1. Open the Amazon Connect console at
+1. Open the Connect Customer console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 2. On the instances page, choose the instance alias. The instance alias is also
-   your **instance name**, which appears in your Amazon Connect
-   URL. The following image shows the **Amazon Connect virtual contact center instances** page, with a box
+   your **instance name**, which appears in your Connect Customer
+   URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box
    around the instance alias.
 
-![The Amazon Connect virtual contact center instances page, the instance alias.](images/instance.png) 3. On the left navigation menu, choose **Data storage**,
+![The Connect Customer virtual contact center instances page, the instance alias.](images/instance.png) 3. On the left navigation menu, choose **Data storage**,
 **Email messages**, **Edit**,
 **Enable exporting email messages to S3**, and then
 choose **Save**. 4. Complete the **Email messages** page to create or select
@@ -118,9 +118,9 @@ don't recommend.
 ###### To configure CORS on the attachments bucket
 
 1. Find the name of the Amazon S3 bucket for storing attachments:
-   1. Open the Amazon Connect console at
+   1. Open the Connect Customer console at
       [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
-   2. In the Amazon Connect console, choose **Data storage**,
+   2. In the Connect Customer console, choose **Data storage**,
       and locate the Amazon S3 bucket name.
 
 2. Open the Amazon S3 console at
@@ -185,8 +185,8 @@ don't recommend.
 
 ## Next steps
 
-- [Set up attachment scanning in Amazon Connect](setup-attachment-scanning.md "setup-attachment-scanning.md"): This topic is for
-  developers who are familiar with Lambda. You can configure Amazon Connect to scan
+- [Set up attachment scanning in Connect Customer](setup-attachment-scanning.md "setup-attachment-scanning.md"): This topic is for
+  developers who are familiar with Lambda. You can configure Connect Customer to scan
   email attachments by using your preferred scanning application.
 
 ## APIs to enable email

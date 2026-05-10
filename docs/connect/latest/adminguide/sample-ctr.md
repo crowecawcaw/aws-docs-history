@@ -1,4 +1,4 @@
-# View a contact record in the Amazon Connect admin website
+# View a contact record in the Connect Customer admin website
 
 1. Do a [contact search](contact-search.md "contact-search.md"). A list of contact
    IDs will be returned.

@@ -1,8 +1,8 @@
-# Delete a routing profile from an Amazon Connect instance
+# Delete a routing profile from an Connect Customer instance
 
-There are three ways to delete a routing profile from your Amazon Connect instance:
+There are three ways to delete a routing profile from your Connect Customer instance:
 
-- Amazon Connect admin website: On the left side menu, choose **Users**,
+- Connect Customer admin website: On the left side menu, choose **Users**,
   **Routing profiles** and then select the delete
   icon.
 

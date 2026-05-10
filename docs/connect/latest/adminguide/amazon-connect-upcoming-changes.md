@@ -1,6 +1,6 @@
 # Upcoming changes to the agent workspace
 
-The Amazon Connect agent workspace will be updated with minor visual changes, on or after November 30, 2025. These changes will better align the agent workspace with other web pages in Amazon Connect, creating a more intuitive experience for your agents. The layout and functionality of the agent workspace will remain unchanged.
+The Connect Customer agent workspace will be updated with minor visual changes, on or after November 30, 2025. These changes will better align the agent workspace with other web pages in Connect Customer, creating a more intuitive experience for your agents. The layout and functionality of the agent workspace will remain unchanged.
 
 For examples of what the updated agent workspace looks like, see [Before and after examples of the visual changes](#example-visual-changes "#example-visual-changes").
 

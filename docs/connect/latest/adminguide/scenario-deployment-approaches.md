@@ -1,9 +1,9 @@
-# Scenario and deployment approaches in Amazon Connect
+# Scenario and deployment approaches in Connect Customer
 
-Amazon Connect offers self-service configuration and enables dynamic, personal, and natural
+Connect Customer offers self-service configuration and enables dynamic, personal, and natural
 customer engagement at any scale with a variety of migration and integration options. In
 this section, we explain the following scenarios and deployment approaches to consider
-when designing a workload for Amazon Connect:
+when designing a workload for Connect Customer:
 
 - Traditional contact center
 - Inbound
@@ -32,7 +32,7 @@ quality assurance, and test environments.
 
 ![Traditional contact center.](images/architecture/traditionalcontactcenter.png)
 
-A typical Amazon Connect deployment solves or reduces many of the challenges associated
+A typical Connect Customer deployment solves or reduces many of the challenges associated
 with versioning, compatibility, licensing, contact center telephony infrastructure,
 and maintenance. It gives you the flexibility to create instances in new locations
 in minutes and migrate components individually, or in parallel, to best meet your
@@ -40,27 +40,27 @@ individual business objectives. You can use flows for your IVR/ACD, have voice a
 data delivered through a supported web browser to your agent’s softphone, port your
 existing phone numbers, redirect softphone audio to an existing desk phone, invoke
 an Amazon Lex bot natively within your flow for ASR and NLP, and use the same flow for
-chat and voice. You can use Amazon Connect Contact Lens to automatically generate voice
+chat and voice. You can use Connect Customer Contact Lens to automatically generate voice
 transcriptions, perform key word identification and sentiment analysis, and
 categorize contacts. For agent CTI data and real-time voice streaming, you can use
-Amazon Connect Agent Event Streams and Kinesis Video Streams. You can also create multi-stage development,
+Connect Customer Agent Event Streams and Kinesis Video Streams. You can also create multi-stage development,
 quality assurance, and test environments at no additional cost and only pay for what
 you use.
 
 ## Inbound
 
 Inbound is a contact center term used to describe a communication request
-initiated by a contact to the center. Contacts can reach your Amazon Connect instance for
+initiated by a contact to the center. Contacts can reach your Connect Customer instance for
 inbound self-service or to speak with a live agent in a variety of ways, including
-voice and chat. Voice contacts go through the PSTN and are routed to the Amazon Connect
+voice and chat. Voice contacts go through the PSTN and are routed to the Connect Customer
 Instance telephony entry point through the phone number claimed in your instance.
-You can reserve a phone number with Amazon Connect directly, port your existing phone number,
-or forward voice contacts to Amazon Connect. Amazon Connect can provide local and toll-free numbers in
+You can reserve a phone number with Connect Customer directly, port your existing phone number,
+or forward voice contacts to Connect Customer. Connect Customer can provide local and toll-free numbers in
 all Regions where the service is supported.
 
 ![A diagram showing an inbound request initiated by a contact to the center.](images/architecture/inbound.png)
 
-When a phone call is placed to a number claimed in or ported to your Amazon Connect
+When a phone call is placed to a number claimed in or ported to your Connect Customer
 instance, the flow associated with the called number will be invoked. You can define
 the flow using flow blocks that can be configured with no coding knowledge required.
 The flow determines how the contact should be processed and routed, optionally
@@ -75,21 +75,21 @@ Kinesis Video Streams for real-time streaming of voice calls.
 If an inbound contact needs to reach an agent, the contact is put into a queue and
 routed to an agent when they change their status to Available, according to your
 routing configuration. When the available agent’s contact is accepted manually or
-through auto-accept configuration, Amazon Connect connects the contact with the agent.
+through auto-accept configuration, Connect Customer connects the contact with the agent.
 
 ![A diagram showing an inbound contact in a queue.](images/architecture/inbound2.png)
 
 When an inbound contact comes from a browser or mobile app request for a chat
 session, the request is routed to a web service or Amazon API Gateway endpoint that calls the
-Amazon Connect chat API to invoke the flow configured in your request. You can use the same
+Connect Customer chat API to invoke the flow configured in your request. You can use the same
 flows for chat and voice, where the experience is managed and routed dynamically,
 based on the logic defined in the flow.
 
 ## Outbound
 
-Amazon Connect allows you the ability to programmatically make outbound contact attempts to
+Connect Customer allows you the ability to programmatically make outbound contact attempts to
 local and international endpoints, reduce agent set-up time between contacts, and
-improve agent productivity. By using the [Amazon Connect Streams](https://github.com/aws/amazon-connect-streams "https://github.com/aws/amazon-connect-streams") API
+improve agent productivity. By using the [Connect Customer Streams](https://github.com/aws/amazon-connect-streams "https://github.com/aws/amazon-connect-streams") API
 and [StartOutboundVoiceContact](../APIReference/API_StartOutboundVoiceContact.md "../APIReference/API_StartOutboundVoiceContact.md"), you can develop your own outbound solution
 or take advantage of existing partner integrations that work with your CRM data to
 create dynamic, personalized experiences for your contacts and empowering your
@@ -98,23 +98,23 @@ agents with the tools and resources they need to service those contacts.
 Outbound campaigns are typically driven by contact data exported from CRMs and
 separated into contact lists. Those contacts are prioritized and either delivered to
 the agents to initiate after a period of preview or programmatically contacted using
-the Amazon Connect Outbound API, driven by your flow logic, and connecting to agents as
+the Connect Customer Outbound API, driven by your flow logic, and connecting to agents as
 needed. Typical outbound contact center use cases include fraud and service alerts,
 collections, and appointment confirmations.
 
 ## Hybrid
 
-If you have requirements to transfer contacts between Amazon Connect and legacy contact
+If you have requirements to transfer contacts between Connect Customer and legacy contact
 center technologies, you can use a Hybrid model architecture to pass contact data
 with the transfer. For example, a sales business unit on a legacy contact center
 platform may need to transfer a call to the service business unit that’s been
-migrated to Amazon Connect. Without a Hybrid architecture, call details will be lost and may
+migrated to Connect Customer. Without a Hybrid architecture, call details will be lost and may
 require the contact to repeat information. This could increase handle times and may
 result in contact calling again for the same purpose.
 
 Hybrid architectures require you to claim as many phone numbers as your expected
 maximum concurrent contacts and an intermediary state database accessible by both
-Amazon Connect and your legacy contact center platform. When a transfer is required to the
+Connect Customer and your legacy contact center platform. When a transfer is required to the
 other platform, you will use one of these phone numbers as a unique identifier, flag
 it as in-use in your intermediary database, insert your contact details, and use
 that number as your ANI or DNIS when you transfer the contact. When the contact is
@@ -125,15 +125,15 @@ additional cost and complexity associated.
 
 ### IVR-only
 
-You may choose to use Amazon Connect to drive the contact’s IVR experience while your
+You may choose to use Connect Customer to drive the contact’s IVR experience while your
 agent population remains on your legacy contact center platform. With this
-approach, you can use Amazon Connect flows to drive self-service and routing logic, and,
+approach, you can use Connect Customer flows to drive self-service and routing logic, and,
 if necessary, transfer the contact to the target agent or agent queue on your
 legacy contact center platform.
 
 ![A diagram showing a customer Interactive Voice Response experience.](images/architecture/hybridivr.png)
 
-In this diagram, the contact dials a phone number claimed in your Amazon Connect
+In this diagram, the contact dials a phone number claimed in your Connect Customer
 instance for service. If they need to be transferred to an agent on your legacy
 contact center platform, an AWS Lambda function is invoked to query an available
 unique phone number, flag it as in-use, and write relevant contact details to an
@@ -146,17 +146,17 @@ intermediary database, allowing the phone number to be used again.
 ### Agent-only
 
 With this approach, your legacy contact center IVR drives the contact’s IVR
-self-serve and routing logic, and, if necessary, transfers the contact to Amazon Connect
+self-serve and routing logic, and, if necessary, transfers the contact to Connect Customer
 to route to your agent population.
 
 ![A diagram showing an Agent only experience.](images/architecture/hybridagentonly.png)
 
 In this diagram, the contact dials a phone number claimed with your legacy
-contact center platform. If they need to be transferred to an agent on Amazon Connect,
+contact center platform. If they need to be transferred to an agent on Connect Customer,
 the legacy contact center platform will query an available unique phone number,
 flag it as in-use, and write relevant contact details to an intermediary
-database. The contact will then be transferred to Amazon Connectwith the phone number
-returned by the legacy contact center’s query. Amazon Connect will then query the contact
+database. The contact will then be transferred to Connect Customerwith the phone number
+returned by the legacy contact center’s query. Connect Customer will then query the contact
 details from the intermediary database using AWS Lambda, route accordingly, and
 reset the contact data in the intermediary database, allowing the phone number
 to be used again.
@@ -164,16 +164,16 @@ to be used again.
 ### Mixed
 
 In this scenario, you may have your IVR and agents operating in parallel on
-Amazon Connect and your legacy contact center platform to allow for site, agent group, or
+Connect Customer and your legacy contact center platform to allow for site, agent group, or
 line-of-business migrations.
 
 ![A diagram showing a hybrid Agent only and Interactive Voice Response experience.](images/architecture/hybridmixed.png)
 
 ## Legacy contact center migration
 
-When you are evaluating Amazon Connect for new or existing workloads, there are several
+When you are evaluating Connect Customer for new or existing workloads, there are several
 strategies you can consider. For situations that require contact details to be
-included when contacts are transferred between Amazon Connect and your legacy contact center
+included when contacts are transferred between Connect Customer and your legacy contact center
 solution, a Hybrid model architecture will be required until the migration is
 complete. The approaches described in this section allow you to move specific lines
 of business in phases, manage training and support, and mitigate risks associated
@@ -183,7 +183,7 @@ with change.
 
 You may decrease risk associated with changes to existing business units and
 increase flexibility and digital innovation potential by adopting a net new
-workload on Amazon Connect. Net new workloads that do not require the Hybrid model
+workload on Connect Customer. Net new workloads that do not require the Hybrid model
 architecture are less complex, are not affected by change in business process or
 agent routine, and have a faster time to market. Adopting a net new workload
 allows you to take advantage of usage-based, pay-as-you-go pricing. Your contact
@@ -194,16 +194,16 @@ existing workloads.
 
 ### IVR First
 
-You may choose to use Amazon Connect to drive the contact’s IVR experience while your
+You may choose to use Connect Customer to drive the contact’s IVR experience while your
 agent population remains on your legacy contact center platform. With this
-approach, you can use Amazon Connect Flows to drive self-service and routing logic, and,
+approach, you can use Connect Customer Flows to drive self-service and routing logic, and,
 if necessary, transfer the contact to the target agent or agent queue on your
 legacy contact center platform.
 
 ### IVR Last
 
 With this approach, your legacy contact center IVR drives the contact’s IVR
-self-serve and routing logic, and, if necessary, transfers the contact to Amazon Connect
+self-serve and routing logic, and, if necessary, transfers the contact to Connect Customer
 to route to your agent population.
 
 ### Line of business segmentation
@@ -212,8 +212,8 @@ If your lines of business have separate IVRs or don’t require contact
 transfers to legacy contact center platforms, you may want to consider a line of
 business migration approach. For example, selecting your service desk for
 internal support as your first line of business to migrate. After migrating your
-service desk IVR and agent population to Amazon Connect, you may choose to forward your
-existing contact to Amazon Connect, porting the endpoint after testing and business
+service desk IVR and agent population to Connect Customer, you may choose to forward your
+existing contact to Connect Customer, porting the endpoint after testing and business
 validation is completed.
 
 ### Site or agent group segmentation
@@ -229,7 +229,7 @@ next.
 
 ## Virtual desktop infrastructure (VDI)
 
-While you can use the Amazon Connect Contact Control Panel (CCP) within Virtual Desktop
+While you can use the Connect Customer Contact Control Panel (CCP) within Virtual Desktop
 Infrastructure (VDI) environments, it will add another layer of complexity to your
 solution that warrants separate POC efforts and performance testing to optimize. The
 configuration/support/optimization is best handled by your VDI support team and the
@@ -237,7 +237,7 @@ following deployment models are the most commonly implemented.
 
 ### VDI client with local browser access
 
-You can build a custom CCP with the [Amazon Connect Streams](https://github.com/aws/amazon-connect-streams "https://github.com/aws/amazon-connect-streams")
+You can build a custom CCP with the [Connect Customer Streams](https://github.com/aws/amazon-connect-streams "https://github.com/aws/amazon-connect-streams")
 API by creating a CCP with no media for call signaling. This way, the media is
 handled on the local desktop using standard CCP, and the signaling and call
 controls are handled on the remote connection with the CCP with no media. The
@@ -245,47 +245,47 @@ following diagram describes this approach.
 
 ![VDI client with local browser access.](images/architecture/vdi.png)
 
-### Citrix VDI with Amazon Connect audio optimization
+### Citrix VDI with Connect Customer audio optimization
 
 If you use Citrix Virtual Desktop Infrastructure (VDI) environment, you can
-build a custom CCP with the Amazon Connect RTC JavaScript library which integrates with
+build a custom CCP with the Connect Customer RTC JavaScript library which integrates with
 Citrix United Communications SDK (ucsdk) and automatically redirects the media
-from your local desktop to Amazon Connect. This enables your agents to use Citrix VDI
+from your local desktop to Connect Customer. This enables your agents to use Citrix VDI
 client applications, such as Citrix Workspaces, to connect to their custom agent
 applications or custom CCPs. This removes the need to develop and manage a
 separate agent application, like dual-CCPs, for audio media redirection for
 their Citrix environments. The following diagram describes that approach:
 
-![Amazon Connect media workflow for Citrix VDI environments.](images/vdi-citrix.png)
+![Connect Customer media workflow for Citrix VDI environments.](images/vdi-citrix.png)
 
 ###### Note
 
 This solution requires you to allow WebRTC signaling traffic between your
-VDI server and Amazon Connect, and the media connection between the agent’s desktop
-and Amazon Connect. For more information, see the [Set up your network to use the Amazon Connect Contact Control Panel (CCP)](ccp-networking.md "ccp-networking.md") documentation.
+VDI server and Connect Customer, and the media connection between the agent’s desktop
+and Connect Customer. For more information, see the [Set up your network to use the Connect Customer Contact Control Panel (CCP)](ccp-networking.md "ccp-networking.md") documentation.
 
-### Amazon WorkSpaces VDI with Amazon Connect audio optimization
+### Amazon WorkSpaces VDI with Connect Customer audio optimization
 
 By using Amazon WorkSpaces, a Virtual Desktop Infrastructure (VDI) environment, you
 have the capability to create a customized Contact Control Panel (CCP) by
-leveraging the Amazon Connect Real-Time Communications (RTC) JavaScript library. This
+leveraging the Connect Customer Real-Time Communications (RTC) JavaScript library. This
 library seamlessly integrates with the Amazon WorkSpaces SDK, enabling automatic media
-redirection from your local desktop to Amazon Connect. This eliminates the need to
+redirection from your local desktop to Connect Customer. This eliminates the need to
 develop and manage a separate agent application, such as dual-CCPs, specifically
 for audio media redirection within their WorkSpaces environments. The following
 diagram illustrates this approach.
 
-![Amazon Connect and Workspaces environment.](images/vdi-connect.png)
+![Connect Customer and Workspaces environment.](images/vdi-connect.png)
 
-### Omnissa VDI with Amazon Connect audio optimization
+### Omnissa VDI with Connect Customer audio optimization
 
 The Omnissa Virtual Desktop Infrastructure (VDI) solution enables a
-streamlined integration with Amazon Connect through the implementation of a custom
+streamlined integration with Connect Customer through the implementation of a custom
 Contact Control Panel (CCP).
 
-By leveraging the Amazon Connect RTC JavaScript library in conjunction with Omnissa's
+By leveraging the Connect Customer RTC JavaScript library in conjunction with Omnissa's
 Horizon WebRTC SDK, audio processing is optimized by redirecting media streams
-directly from the agent's local endpoint to Amazon Connect. This architecture eliminates
+directly from the agent's local endpoint to Connect Customer. This architecture eliminates
 the traditional challenges of audio routing through virtual desktops, providing
 agents with a superior voice experience while using their Omnissa VDI
 environment. The solution removes the complexity of managing separate audio
@@ -293,7 +293,7 @@ redirection applications, offering a single, unified interface for agent
 interactions. The following diagram illustrates this architectural
 approach.
 
-![Amazon Connect and Omnissa environment.](images/omnissa-6.png)
+![Connect Customer and Omnissa environment.](images/omnissa-6.png)
 
 ### VDI client without local browser access
 

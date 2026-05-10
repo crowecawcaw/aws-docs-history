@@ -1,4 +1,4 @@
-# How routing works in Amazon Connect
+# How routing works in Connect Customer
 
 Contacts are routed through your contact center based on these factors:
 
@@ -9,7 +9,7 @@ Contacts are routed through your contact center based on these factors:
   with specific skill sets. If no agent with the required skill set is available, you can
   place the contact in the queue defined in the flow.
 
-Here's the logic Amazon Connect uses to route contacts:
+Here's the logic Connect Customer uses to route contacts:
 
 - Contacts in a queue are automatically prioritized and forwarded to the next
   available agent (that is, the agent who has been
@@ -58,13 +58,13 @@ For example:
 ## How routing transfers works
 
 As the previous section explains, the order in which contacts in queue are handled
-in Amazon Connect depends on multiple factors, including the enqueue time, routing age
+in Connect Customer depends on multiple factors, including the enqueue time, routing age
 adjustment, and contact priority. In the case of contacts that experience a
-transfer, however, Amazon Connect handles the routing age adjustment slightly differently: it
+transfer, however, Connect Customer handles the routing age adjustment slightly differently: it
 depends on whether the contact was transferred by an agent, or if it was transferred
 by a queue-to-queue transfer in a flow or an API.
 
-The following two scenarios demonstrate how Amazon Connect handles the routing age
+The following two scenarios demonstrate how Connect Customer handles the routing age
 adjustment.
 
 - **Agent transfers the contact using a quick
@@ -91,7 +91,7 @@ When you set up a routing profile to handle multiple channels, you must specify
 whether agents can handle contacts while already on another channel. This is called
 cross-channel concurrency.
 
-When using cross-channel concurrency, Amazon Connect checks which contact to offer the
+When using cross-channel concurrency, Connect Customer checks which contact to offer the
 agent as follows:
 
 1. It checks what contacts/channels the agent is currently handling.
@@ -99,13 +99,13 @@ agent as follows:
    configuration in the agent's routing profile, it determines whether the
    agent can be routed the next contact.
 
-For a detailed example of how Amazon Connect routes contacts when cross-channel concurrency
+For a detailed example of how Connect Customer routes contacts when cross-channel concurrency
 is set up, see [Example of how a contact is routed with cross-channel concurrency](routing-profiles.md#example-routing-concurrency "routing-profiles.md#example-routing-concurrency").
 
 ## How routing works with manual assignment
 
 When you set up a routing profile that has queues and channels listed for manual
-assignment, Amazon Connect does not automatically route these contacts.
+assignment, Connect Customer does not automatically route these contacts.
 
 Agents with this routing profile can view queued contacts (currently only
 supported for Tasks, Emails, and Chats) in the worklist app in their agent
@@ -118,7 +118,7 @@ See the following topics to learn more about routing:
 
 - [Queues: priority and
   delay examples](concepts-routing-profiles-priority.md "concepts-routing-profiles-priority.md").
-- [How Amazon Connect uses routing profiles](concepts-routing.md "concepts-routing.md")
+- [How Connect Customer uses routing profiles](concepts-routing.md "concepts-routing.md")
 - [Queue-based routing to route customers to a specific contact center agent](concepts-queue-based-routing.md "concepts-queue-based-routing.md")
 - [Set up queue-based
   routing](set-up-queue-based-routing.md "set-up-queue-based-routing.md")

@@ -1,7 +1,7 @@
-# View the agent schedule in the agent workspace in Amazon Connect
+# View the agent schedule in the agent workspace in Connect Customer
 
 If your organization uses the forecasting, capacity planning, and scheduling features
-of Amazon Connect you can view your schedule in the agent workspace.
+of Connect Customer you can view your schedule in the agent workspace.
 
 Complete the following are steps to view your schedule in the agent workspace.
 

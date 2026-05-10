@@ -1,4 +1,4 @@
-# Agent activity audit tag-based access control in Amazon Connect
+# Agent activity audit tag-based access control in Connect Customer
 
 You can use resource tags and access control tags to apply granular access to
 users for the agent activity audit report. For example, you can control who has
@@ -16,10 +16,10 @@ limited set of agents:**
 ![By using tag-based access controls, you can see a limited set of agents.](images/agent-activity-audit-tag-based-access-control-after.png)
 Tag-based access controls enable you to configure granular access to specific
 resources based on assigned resource tags. You can configure tag based access
-controls by using the API/SDK or the Amazon Connect admin website (for supported resources). You must
+controls by using the API/SDK or the Connect Customer admin website (for supported resources). You must
 configure user resource tags and access control tags before tag-based access
 control is applied to users for the agent activity audit report. For more
-information, see [Add tags to resources in Amazon Connect](tagging.md "tagging.md") and [Apply tag-based access control in Amazon Connect](tag-based-access-control.md "tag-based-access-control.md").
+information, see [Add tags to resources in Connect Customer](tagging.md "tagging.md") and [Apply tag-based access control in Connect Customer](tag-based-access-control.md "tag-based-access-control.md").
 
 ## How To Enable Tag-based Access Control for Agent Activity Audit Report
 
@@ -33,7 +33,7 @@ appropriately configured, you will have access controls applied to users for
 the agent activity audit report.
 
 For more information on tagging resources and tag-based access control in
-Amazon Connect, see [Add tags to resources in Amazon Connect](tagging.md "tagging.md") and [Apply tag-based access control in Amazon Connect](tag-based-access-control.md "tag-based-access-control.md").
+Connect Customer, see [Add tags to resources in Connect Customer](tagging.md "tagging.md") and [Apply tag-based access control in Connect Customer](tag-based-access-control.md "tag-based-access-control.md").
 
 ## Permissions
 

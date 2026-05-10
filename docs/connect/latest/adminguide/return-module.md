@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Return (from module)
+# Flow block in Connect Customer: Return (from module)
 
 This topic defines the flow block for resuming a task contact from a paused
 state.
@@ -43,7 +43,7 @@ specified channel.
 
 ###### To use a Return block
 
-1. In the Amazon Connect admin website choose **Routing**,
+1. In the Connect Customer admin website choose **Routing**,
    **Flows**.
 2. On the **Flows** page, choose the
    **Modules** tab, as shown in the following
@@ -53,7 +53,7 @@ specified channel.
 want to edit. 4. Select the **Return** block from the block dock and drag
 it onto the flow canvas.
 
-### Return block in the Amazon Connect admin website (for Tag action)
+### Return block in the Connect Customer admin website (for Tag action)
 
 The following image shows what a **Return** block looks like
 on the flow editor canvas.
@@ -63,10 +63,10 @@ on the flow editor canvas.
 ### Return block in the Flow language
 
 The **Return** flow block in the flow editor is stored as an
-`EndFlowModuleExecution` flow action in the Amazon Connect Flow
+`EndFlowModuleExecution` flow action in the Connect Customer Flow
 Language.
 
-For more information, see EndFlowModuleExecution in the _Amazon Connect API
+For more information, see EndFlowModuleExecution in the _Connect Customer API
 Reference_.
 
 ### How to configure Return block properties
@@ -82,7 +82,7 @@ The following image shows the **Properties** pane of the
    ready!
 
 The following code shows how this same configuration is represented as an
-EndFlowModuleExecution action in the Amazon Connect Flow Language.
+EndFlowModuleExecution action in the Connect Customer Flow Language.
 
 ```
 {

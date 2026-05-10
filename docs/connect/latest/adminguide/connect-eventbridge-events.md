@@ -1,6 +1,6 @@
-# EventBridge events emitted by Amazon Connect
+# EventBridge events emitted by Connect Customer
 
-Amazon Connect emits a variety of events related to the contact center, including but
+Connect Customer emits a variety of events related to the contact center, including but
 not limited to the following types of events:
 
 - [Contact events](contact-events.md "contact-events.md") - contact (voice calls, chat,

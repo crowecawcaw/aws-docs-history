@@ -1,14 +1,14 @@
-# Assign permissions to view dashboards and reports in Amazon Connect
+# Assign permissions to view dashboards and reports in Connect Customer
 
 The following security profile permissions control access to dashboards and reports in
-Amazon Connect. These permissions are in the **Analytics and Optimization**
+Connect Customer. These permissions are in the **Analytics and Optimization**
 section of the **Security profiles** page.
 
 ## Access metrics permission
 
 When you select **Access metrics - Access**:
 
-- Amazon Connect automatically assigns the following permissions:
+- Connect Customer automatically assigns the following permissions:
 
       + **Real-time metrics - Access**
       + **Historical metrics - Access**
@@ -68,7 +68,7 @@ reports** page.
 - **Analytics and Optimization - Custom metrics**:
   - This permission enables users to view, create and manage custom
     metrics.
-  - If you have enabled Next Generation Amazon Connect in your instance, you
+  - If you have enabled Next Generation Connect Customer in your instance, you
     will have the ability to view, create, and manage custom metrics
     with custom filters and functions in addition to custom customer
     service level metric calculations.

@@ -1,4 +1,4 @@
-# Set up agents in Amazon Connect to assign tasks to themselves
+# Set up agents in Connect Customer to assign tasks to themselves
 
 For an agent to be able receive a task, they need a quick connect created for them.
 With this quick connect, agents will be able to assign tasks to themselves, and other

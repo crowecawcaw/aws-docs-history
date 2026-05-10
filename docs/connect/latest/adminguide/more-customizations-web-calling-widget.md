@@ -1,4 +1,4 @@
-# Additional customizations for your Amazon Connect web calling widget
+# Additional customizations for your Connect Customer web calling widget
 
 You can add the following additional customizations to your web calling widget:
 

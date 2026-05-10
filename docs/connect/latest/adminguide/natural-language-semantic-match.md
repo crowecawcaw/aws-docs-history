@@ -16,7 +16,7 @@ previously used Words or Phrases - Semantic Match.
 
 ######
 
-1. Log in to Amazon Connect with a user that has permissions
+1. Log in to Connect Customer with a user that has permissions
    **Rules** and **Rules - Generative
    AI** permissions.
 2. On the navigation menu, choose **Analytics and

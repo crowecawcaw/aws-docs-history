@@ -1,4 +1,4 @@
-# Find your Apple Messages for Business Account ID for your integration with Amazon Connect
+# Find your Apple Messages for Business Account ID for your integration with Connect Customer
 
 1. In [Apple Business Register](https://register.apple.com/ "https://register.apple.com/"),
    navigate to **Message Service Provider** and click or tap

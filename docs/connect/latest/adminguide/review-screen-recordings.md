@@ -1,4 +1,4 @@
-# Review agent screen recordings in the Amazon Connect Client Application
+# Review agent screen recordings in the Connect Customer Client Application
 
 Use screen recordings to identify areas for agent coaching (for example, long contact
 handle duration or non-compliance with business processes) by watching an agent's
@@ -13,11 +13,11 @@ Screen recordings are only available for Completed contacts.
 
 ###### Contents
 
-- [Step 1: Assign permissions to review screen recordings in the Amazon Connect Client Application](#assign-permissions-sr "#assign-permissions-sr")
+- [Step 1: Assign permissions to review screen recordings in the Connect Customer Client Application](#assign-permissions-sr "#assign-permissions-sr")
 - [Step 2: Review screen recordings](#review-sr-2 "#review-sr-2")
 - [Watch in Picture-in-picture mode](#picture-in-picture "#picture-in-picture")
 
-## Step 1: Assign permissions to review screen recordings in the Amazon Connect Client Application
+## Step 1: Assign permissions to review screen recordings in the Connect Customer Client Application
 
 To allow users to review screen recordings, assign the following
 **Analytics and optimization** security profile permission:
@@ -38,11 +38,11 @@ they can listen to the unredacted audio.
   screen recording videos.
 
 For information about how to add more permissions to an existing security profile,
-see [Update security profiles in Amazon Connect](update-security-profiles.md "update-security-profiles.md").
+see [Update security profiles in Connect Customer](update-security-profiles.md "update-security-profiles.md").
 
 ## Step 2: Review screen recordings
 
-1. Log in to Amazon Connect with a user account that has the **Analytics and
+1. Log in to Connect Customer with a user account that has the **Analytics and
    optimization** - **Screen recording - Access**
    permission in its security profile.
 
@@ -70,7 +70,7 @@ page is not supported in the legacy
 `https://`your-instance-alias`/awsapps.com`
 domain. We recommend using the
 `https://`your-instance-alias`.my.connect.aws/`
-domain to play screen recordings. For more information, see [Update your Amazon Connect domain](update-your-connect-domain.md "update-your-connect-domain.md") in this guide. 6. Use the right-side controls to zoom in and out, fit the video to the
+domain to play screen recordings. For more information, see [Update your Connect Customer domain](update-your-connect-domain.md "update-your-connect-domain.md") in this guide. 6. Use the right-side controls to zoom in and out, fit the video to the
 window, download video, expand to full-screen, and play
 picture-in-picture.
 

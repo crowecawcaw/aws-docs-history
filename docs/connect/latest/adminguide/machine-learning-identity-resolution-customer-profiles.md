@@ -1,6 +1,6 @@
-# Machine learning for Identity Resolution in Amazon Connect
+# Machine learning for Identity Resolution in Connect Customer
 
-Identity Resolution in Amazon Connect automatically finds similar profiles and helps you
+Identity Resolution in Connect Customer automatically finds similar profiles and helps you
 consolidate them. The topics in this section describe how to set up machine learning
 matching to consolidate duplicate profiles as part of the automatic merging
 process.

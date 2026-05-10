@@ -1,17 +1,17 @@
-# Provide agent coaching in Amazon Connect
+# Provide agent coaching in Connect Customer
 
-Amazon Connect provides integrated coaching tools that help supervisors deliver structured, data-driven
+Connect Customer provides integrated coaching tools that help supervisors deliver structured, data-driven
 feedback to agents based on performance evaluations. For upcoming one-on-one sessions with agents,
 supervisors can share detailed coaching feedback with concrete examples, and set performance goals
-directly within Amazon Connect. Quality management teams can also assign coaching to supervisors with due dates
+directly within Connect Customer. Quality management teams can also assign coaching to supervisors with due dates
 when they identify improvement opportunities, such as showing greater empathy towards customer issues.
-Once coaching is completed, agents can acknowledge the feedback in Amazon Connect, ensuring that they understand
+Once coaching is completed, agents can acknowledge the feedback in Connect Customer, ensuring that they understand
 next steps for improvement. Past coaching feedback is centrally accessible, making it easier for agents,
 supervisors, and quality managers to track agent progress over time.
 
 ###### Note
 
-This feature is available as part of Amazon Connect performance evaluations.
+This feature is available as part of Connect Customer performance evaluations.
 
 ## Assign permissions for coaching
 
@@ -19,7 +19,7 @@ Permissions can be configured as follows:
 
 1. **Admins and quality managers**: Provide **coaching
    – manage coaching sessions** permissions. These permissions grant them access to all
-   coaching sessions in your Amazon Connect instance. With this permission, they can assign agent coaching to
+   coaching sessions in your Connect Customer instance. With this permission, they can assign agent coaching to
    agents' supervisors.
 2. **Supervisors**: Provide **coaching – my
    coaching sessions** (View, Create, Delete, Edit) permissions. These permissions enable them
@@ -32,7 +32,7 @@ For more information, see [Assign security profile permissions for performance e
 
 ## Provide coaching to agents
 
-1. Log in to Amazon Connect with a security profile that can [search contacts](contact-search.md "contact-search.md") and perform coaching.
+1. Log in to Connect Customer with a security profile that can [search contacts](contact-search.md "contact-search.md") and perform coaching.
 2. Select **Analytics and Optimization** >
    **Contact search** from the navigation bar on the
    left.
@@ -63,7 +63,7 @@ topics.
 ###### Note
 
 **Session due date** is mandatory. 11. Click **Submit** to save the coaching session as a draft. 12. When the coaching session is ready, click **Share** to make the coaching
-session visible to the agent. If the agent has an email configured within Amazon Connect (or has a secondary
+session visible to the agent. If the agent has an email configured within Connect Customer (or has a secondary
 email for a SAML instance), they will receive an email notification with a link
 to view the coaching session. 13. At the time of coaching, you can access the coaching session on
 **Analytics and Optimization** > **Coaching

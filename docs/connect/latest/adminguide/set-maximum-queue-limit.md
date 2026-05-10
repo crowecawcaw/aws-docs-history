@@ -1,4 +1,4 @@
-# Set the limit of maximum contacts in a queue using Amazon Connect
+# Set the limit of maximum contacts in a queue using Connect Customer
 
 By default a queue can contain up to your [service quota](amazon-connect-service-limits.md "amazon-connect-service-limits.md") for voice, chat, tasks,
 and email:
@@ -9,7 +9,7 @@ and email:
 - **Concurrent active tasks per instance**
 - **Concurrent active emails per instance**
   To increase one of these quotas, you must request a quota increase. For more
-  information, see [Amazon Connect service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
+  information, see [Connect Customer service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
 
 There may be situations where you want a specific queue to allow fewer contacts than
 the allowed quota. For example:
@@ -19,7 +19,7 @@ the allowed quota. For example:
   allowed in the queue to be less than **Concurrent active calls per
   instance**. This prevents customers from waiting for hours.
 - You may have a queue dedicated to chats. Your service quota is 100 but you
-  want only up to 20 chats at a time. You can set that value so Amazon Connect limits the
+  want only up to 20 chats at a time. You can set that value so Connect Customer limits the
   number of active chats routed to that queue.
 - You have a queue that combines more than one channel, and you set a custom
   value. Note that the queue stops accepting new contacts after that number is
@@ -37,7 +37,7 @@ standard queue. This setting does not apply to [agent queues](concepts-queues-st
 
 ![Option to set a maximum limit for contacts in queue across all channels.](images/maximum-contacts-in-queue3.png)
 
-When you enter a number in **Maximum contacts in queue**, Amazon Connect
+When you enter a number in **Maximum contacts in queue**, Connect Customer
 validates that the number is less than the sum of your concurrent active contacts
 service quotas: **Concurrent calls per instance** +
 **Concurrent active chats per instance** + **Concurrent
@@ -55,7 +55,7 @@ instance**.
 - Incoming calls and queued callbacks count towards the queue size
   limit.
   For information about default service quotas and how to request an increase,
-  see [Amazon Connect service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
+  see [Connect Customer service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
 
 ###### To reduce the number of contacts allowed in a specific queue
 
@@ -101,24 +101,24 @@ There are times when you can add more contacts to a queue than the set
   incoming contacts to be queued during that time, particularly during bursts
   of traffic.
 
-Additionally, Amazon Connect includes a 20 percent buffer to the queue capacity for the
+Additionally, Connect Customer includes a 20 percent buffer to the queue capacity for the
 following exceptional scenarios:
 
 - A contact was transformed into a Queued Callback, scheduled to be added to
   the queue at X time using the **Initial delay** setting in
   the flow. However, when the scheduled time arrived, the target queue had
   reached its **Maximum capacity in queue** limit. In this
-  scenario, Amazon Connect allows the Queued Callback to be enqueued up to a 20 percent
+  scenario, Connect Customer allows the Queued Callback to be enqueued up to a 20 percent
   buffer of the **Maximum capacity in queue** limit for the
   queue.
 - A contact, previously queued in Queue1, is now being transferred to Queue2
   through the flow. However, when the transfer is attempted, Queue2 has
   already reached its **Maximum capacity in queue** limit. In
-  this scenario, Amazon Connect allows the transfer to proceed, up to a 20 percent
+  this scenario, Connect Customer allows the transfer to proceed, up to a 20 percent
   buffer of the **Maximum capacity in queue** limit for
   Queue2.
 - An agent initiates a manual transfer of a contact into a queue through
   quick connects. However, when the transfer is attempted, the queue has
   already reached its **Maximum capacity in queue** limit. In
-  this scenario, Amazon Connect allows the transfer to proceed, up to a 20 percent
+  this scenario, Connect Customer allows the transfer to proceed, up to a 20 percent
   buffer of the **Maximum capacity in queue** limit.

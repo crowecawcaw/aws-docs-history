@@ -1,4 +1,4 @@
-# Manage contacts from the Contact details page in Amazon Connect
+# Manage contacts from the Contact details page in Connect Customer
 
 On the **Contact details** page of an in-progress contact, you can manage
 a contact by transferring, rescheduling, or ending the contact.
@@ -8,7 +8,7 @@ You can also perform these actions programmatically using the [TransferContact](
 operations.
 
 This section explains how to transfer, reschedule, and end contacts by using the
-Amazon Connect admin website.
+Connect Customer admin website.
 
 ###### Contents
 

@@ -1,4 +1,4 @@
-# Amazon Connect Contact Lens conversational analytics dashboard
+# Connect Customer Contact Lens conversational analytics dashboard
 
 When Contact Lens conversational analytics is [enabled](enable-analytics.md "enable-analytics.md") on your contacts, you can analyze conversations between customers
 and agents by using speech and chat transcriptions, natural language processing, and
@@ -42,7 +42,7 @@ handle time over a period of intervals in time in a time series chart.
    permissions:
    - **Access metrics - Access permission** or the
      **Dashboard - Access permission**. For
-     information about the difference in behavior, see [Assign permissions to view dashboards and reports in Amazon Connect](dashboard-required-permissions.md "dashboard-required-permissions.md").
+     information about the difference in behavior, see [Assign permissions to view dashboards and reports in Connect Customer](dashboard-required-permissions.md "dashboard-required-permissions.md").
    - **Contact Lens - conversational
      analytics**: This permission enables users to view data
      in the Contact Lens dashboard.

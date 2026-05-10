@@ -1,4 +1,4 @@
-# Publish a capacity plan in Amazon Connect
+# Publish a capacity plan in Connect Customer
 
 When you are satisfied with the capacity plan outputs, choose **Publish
 plan** to finalize your plan.

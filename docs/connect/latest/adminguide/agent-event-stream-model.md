@@ -1,4 +1,4 @@
-# Agent event streams data model in Amazon Connect
+# Agent event streams data model in Connect Customer
 
 Agent event streams are created in JavaScript Object Notation (JSON) format. For each
 event type, a JSON blob is sent to the Kinesis data stream. The following event types are
@@ -53,7 +53,7 @@ Type: ARN
 **AWSAccountId**
 
 The 12-digit AWS account ID for the AWS account associated with
-the Amazon Connect instance.
+the Connect Customer instance.
 
 Type: String
 
@@ -86,7 +86,7 @@ Valid values: `STATE_CHANGE` | `HEART_BEAT` |
 
 **InstanceARN**
 
-Amazon Resource Name for the Amazon Connect instance in which the agent's user
+Amazon Resource Name for the Connect Customer instance in which the agent's user
 account is created.
 
 Type: ARN
@@ -126,7 +126,7 @@ a custom status, such as Break or Training, which means that
 inbound contacts can't be routed to them BUT they can still make
 outbound calls.
 
-A status of `Error` indicates an internal Amazon Connect error.
+A status of `Error` indicates an internal Connect Customer error.
 
 - StartTimestamp—The timestamp in ISO 8601 standard
   format for the time at which the agent entered the
@@ -166,7 +166,7 @@ Information about the agent, including:
 - LastName—The agent's last name.
 - RoutingProfile—The routing profile the agent is
   assigned to.
-- Username—the agent's Amazon Connect user name.
+- Username—the agent's Connect Customer user name.
 
 Type: `Configuration` object
 
@@ -183,7 +183,7 @@ The `Configuration` object includes the following properties:
 
 **FirstName**
 
-The first name entered in the agent's Amazon Connect account.
+The first name entered in the agent's Connect Customer account.
 
 Type: String
 
@@ -198,7 +198,7 @@ Type: `AgentHierarchyGroups` object
 
 **LastName**
 
-The last name entered in the agent's Amazon Connect account.
+The last name entered in the agent's Connect Customer account.
 
 Type: String
 
@@ -219,7 +219,7 @@ Type: `RoutingProfile` object.
 
 **Username**
 
-The user name for the agent's Amazon Connect user account.
+The user name for the agent's Connect Customer user account.
 
 Type: String
 
@@ -270,9 +270,9 @@ Valid values:
   callback flow.
 
 For more information about the InitiationMethod in this
-scenario, see [Queued callbacks in real-time metrics in Amazon Connect](about-queued-callbacks.md "about-queued-callbacks.md").
+scenario, see [Queued callbacks in real-time metrics in Connect Customer](about-queued-callbacks.md "about-queued-callbacks.md").
 
-- `API`: The contact was initiated with Amazon Connect by API.
+- `API`: The contact was initiated with Connect Customer by API.
   This could be an outbound contact you created and queued to an
   agent, using the [StartOutboundVoiceContact](../APIReference/API_StartOutboundVoiceContact.md "../APIReference/API_StartOutboundVoiceContact.md") API, or it could be a
   live chat that was initiated by the customer with your contact

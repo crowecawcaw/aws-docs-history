@@ -1,4 +1,4 @@
-# Use pre-filtered tables for Routing profiles and Queues tables in Amazon Connect
+# Use pre-filtered tables for Routing profiles and Queues tables in Connect Customer
 
 In real-time metrics reports, for **Routing profiles** and
 **Queues** tables, you can open pre-filtered tables that

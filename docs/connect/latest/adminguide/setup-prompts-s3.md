@@ -1,4 +1,4 @@
-# Set up prompts to play from an S3 bucket in Amazon Connect
+# Set up prompts to play from an S3 bucket in Connect Customer
 
 When you configure prompts on the [Get customer input](get-customer-input.md "get-customer-input.md"), [Loop prompts](loop-prompts.md "loop-prompts.md"), [Play prompt](play.md "play.md"), or [Store customer input](store-customer-input.md "store-customer-input.md") blocks, you can choose an S3 bucket as
 the source location. You can store as many voice prompts as needed in an S3 bucket and
@@ -6,13 +6,13 @@ access them in real time by using contact attributes. For examples, see the [Pla
 
 ## Requirements
 
-- **Supported formats**: Amazon Connect supports .wav
+- **Supported formats**: Connect Customer supports .wav
   files to use for your prompt. You must use .wav files that are 8KHz, and
   mono channel audio with U-Law encoding. Otherwise, the prompt won't play
   correctly. You can use publicly available third-party tools to convert your
   .wav files to U-Law encoding. After converting the files, upload them to
-  Amazon Connect.
-- **Size**: Amazon Connect supports prompts that are
+  Connect Customer.
+- **Size**: Connect Customer supports prompts that are
   less than 50MB and less than five minutes long.
 - **For Regions that are disabled by default**
   (also called [opt-in](../../../general/latest/gr/rande-manage.md "../../../general/latest/gr/rande-manage.md") Regions) such
@@ -20,9 +20,9 @@ access them in real time by using contact attributes. For examples, see the [Pla
 
 ## Update the S3 bucket policy
 
-To allow Amazon Connect to play prompts from an S3 bucket, when you set up your S3 bucket,
+To allow Connect Customer to play prompts from an S3 bucket, when you set up your S3 bucket,
 you must update the bucket policy to grant `connect.amazonaws.com` (the
-Amazon Connect service principal) permission to call `s3:ListBucket` and
+Connect Customer service principal) permission to call `s3:ListBucket` and
 `s3:GetObject`.
 
 ###### To update the S3 bucket policy:
@@ -67,15 +67,15 @@ JSON
 
 ```
 
-5. Encryption: Amazon Connect cannot download and play prompts from an S3 bucket if an
+5. Encryption: Connect Customer cannot download and play prompts from an S3 bucket if an
    AWS managed key is enabled on that S3 bucket. However, you can use a
-   customer managed key to allow the Amazon Connect service principal ("connect.amazonaws.com")
-   that enables your Amazon Connect instance to access the S3 bucket. See the following
+   customer managed key to allow the Connect Customer service principal ("connect.amazonaws.com")
+   that enables your Connect Customer instance to access the S3 bucket. See the following
    code snippet:
 
 ```
 {
-            "Sid": "Enable Amazon Connect",
+            "Sid": "Enable Connect Customer",
             "Effect": "Allow",
             "Principal": {
                 "Service": "connect.amazonaws.com"

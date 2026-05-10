@@ -1,4 +1,4 @@
-# Customize views for the Amazon Connect agent workspace by using HTML and JSX
+# Customize views for the Connect Customer agent workspace by using HTML and JSX
 
 You can customize the look and feel of the layouts of View resources. You do this
 by leveraging HTML or JSX when you pass in input parameters to the [Show view](show-view-block.md "show-view-block.md") block.

@@ -9,14 +9,14 @@ provider.
 - A third-party TTS provider API key stored in AWS Secrets Manager. For more information
   about storing API keys as secrets in Secrets Manager, see [Create an AWS Secrets Manager
   secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md").
-- An Secrets Manager resource policy allowing Amazon Connect to retrieve the key. For more
+- An Secrets Manager resource policy allowing Connect Customer to retrieve the key. For more
   information, see [Managing secrets and resource policies](managing-secrets-resource-policies.md "managing-secrets-resource-policies.md").
 - AWS KMS key permissions allowing decryption. For more information, see [Managing secrets and resource policies](managing-secrets-resource-policies.md "managing-secrets-resource-policies.md").
 - Provider-specific model and voice values.
 
 ## Step 1: Open the contact flow
 
-1. Sign in to the Amazon Connect admin website.
+1. Sign in to the Connect Customer admin website.
 2. Choose **Flows**.
 3. Choose an existing flow or create a new one.
 
@@ -58,7 +58,7 @@ text-to-speech provider you want to use.
 
 ## Runtime behavior (TTS)
 
-- Amazon Connect sends text to the TTS provider for synthesis.
+- Connect Customer sends text to the TTS provider for synthesis.
 - Returned audio is played to the customer.
 - Execution logs include provider errors such as invalid credentials or model
   values.

@@ -1,17 +1,17 @@
-# Create conversational AI bots in Amazon Connect
+# Create conversational AI bots in Connect Customer
 
-You can use the Amazon Connect admin website to create, edit, and continuously improve conversational AI bots for
+You can use the Connect Customer admin website to create, edit, and continuously improve conversational AI bots for
 interactive voice response (IVR) and chatbot self-service experiences. The bots are powered by
 Amazon Lex.
 
-By using the Amazon Connect admin website, you can deliver dynamic, conversational AI experiences to understand your
+By using the Connect Customer admin website, you can deliver dynamic, conversational AI experiences to understand your
 customer's intent, ask follow-on questions, and automate the resolution of their issues. The topics in
-this section explain how to enable the bot building experience in Amazon Connect admin website, and how to build your
+this section explain how to enable the bot building experience in Connect Customer admin website, and how to build your
 bot.
 
 ###### Contents
 
-- [Enable bot and analytics in Amazon Connect](enable-bot-building.md "enable-bot-building.md")
+- [Enable bot and analytics in Connect Customer](enable-bot-building.md "enable-bot-building.md")
 - [Create a bot](work-bot-building-experience.md "work-bot-building-experience.md")
 - [Create a flow and add your conversational AI
   bot](create-bot-flow.md "create-bot-flow.md")

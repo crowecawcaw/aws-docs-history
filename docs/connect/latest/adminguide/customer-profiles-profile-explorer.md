@@ -1,6 +1,6 @@
-# Set up Profile explorer in Amazon Connect Customer Profiles
+# Set up Profile explorer in Connect Customer Customer Profiles
 
-Amazon Connect Customer Profiles Explorer is a dynamic, all-in-one dashboard that provides a comprehensive 360°
+Connect Customer Customer Profiles Explorer is a dynamic, all-in-one dashboard that provides a comprehensive 360°
 view of your customers. It unifies fragmented customer data and allows organizations to
 customize data displays, track interactions, and transform customer information into
 actionable insights that drive business value and customer loyalty. Organizations in

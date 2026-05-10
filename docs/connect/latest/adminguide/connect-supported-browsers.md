@@ -1,11 +1,11 @@
-# Browsers supported by Amazon Connect
+# Browsers supported by Connect Customer
 
 ###### Important
 
 **Trying to contact Amazon support?** See [Amazon Customer Service](https://www.amazon.com/gp/help/customer/display.html?icmpid=docs_connect_browsers_customerservice "https://www.amazon.com/gp/help/customer/display.html?icmpid=docs_connect_browsers_customerservice") (Amazon orders and deliveries) or [AWS
 Support](https://aws.amazon.com/premiumsupport/?icmpid=docs_connect_browsers_premiumsupport "https://aws.amazon.com/premiumsupport/?icmpid=docs_connect_browsers_premiumsupport") (Amazon Web Services).
 
-Before you work with Amazon Connect, verify that your browser is supported using the following
+Before you work with Connect Customer, verify that your browser is supported using the following
 table.
 
 | Browser                 | Version                                                                                                                                                                                                                                                                                                                                                           | How to check your version                                                                                                                                                                                                                                                         |
@@ -21,9 +21,9 @@ For more requirements, see [Agent headset and workstation requirements for using
 
 ## Browsers on mobile devices
 
-The Amazon Connect console, Contact Control Panel (CCP), and agent workspace do not support
+The Connect Customer console, Contact Control Panel (CCP), and agent workspace do not support
 mobile browsers. However, your agents can forward the audio portion of the call to
-their mobile device. For instructions, see [Forward calls in the Amazon Connect CCP to a mobile device (iPhone, Android)](forward-calls-to-mobile-device.md "forward-calls-to-mobile-device.md").
+their mobile device. For instructions, see [Forward calls in the Connect Customer CCP to a mobile device (iPhone, Android)](forward-calls-to-mobile-device.md "forward-calls-to-mobile-device.md").
 
 ## Supported browsers and mobile OS for in-app, web, and video calling capabilities
 
@@ -67,13 +67,13 @@ opt-in mechanism for users to disable them.
 **For businesses that embed the Contact Control Panel
 (CCP) into a custom workspace**: If your agents use Google's opt-in
 mechanism to disable third-party cookies, it will cause authentication issues
-when they use the CCP. Amazon Connect relies on third-party cookies to facilitate
+when they use the CCP. Connect Customer relies on third-party cookies to facilitate
 authentication. Ensure that third-party cookies are enabled in your agents'
 browser settings to avoid any authentication issues while using the CCP.
 
 ## Firefox Enhanced Tracking Protection updates
 
-As of February 2024, Firefox prevents the Amazon Connect CCP from being embedded in another
+As of February 2024, Firefox prevents the Connect Customer CCP from being embedded in another
 application. As a result, agents are prevents from handling contacts. This is
 because Firefox enabled Total Cookie Protection by default for all users, including
 users who have set their [Enhanced Tracking Protection setting as Standard](https://support.mozilla.org/en-US/kb/introducing-total-cookie-protection-standard-mode "https://support.mozilla.org/en-US/kb/introducing-total-cookie-protection-standard-mode") .
@@ -91,7 +91,7 @@ the following steps:
 
 ## Firefox browser guidance for Microphone Access
 
-The Amazon Connect CCP conforms to Firefox microphone usage guidance, and only has access
+The Connect Customer CCP conforms to Firefox microphone usage guidance, and only has access
 to connect to the user's microphone when the CCP tab is in focus. This may lead to
 missed call scenarios when the CCP tab is not in focus, for example, if the agent
 focused on a different tab or application.
@@ -102,7 +102,7 @@ focused on a different tab or application.
 ## Microsoft Edge v146 autoplay policy change
 
 Microsoft Edge version 146, released on March 13, 2026, introduced a change to
-its autoplay policy behavior that affects Amazon Connect agents. In Edge v146, when the
+its autoplay policy behavior that affects Connect Customer agents. In Edge v146, when the
 `AutoplayAllowed` enterprise policy is set to "Disabled", it now maps
 to "Block" — preventing websites from autoplaying media. In Edge versions 92 through
 144, this same setting mapped to "Limit" and permitted audio playback on active
@@ -123,7 +123,7 @@ who have configured the enterprise group policy
 **Recommended action for browser administrators**
 
 Configure the **AutoplayAllowlist** policy in
-Microsoft Edge to explicitly permit autoplay on your Amazon Connect instance URL.
+Microsoft Edge to explicitly permit autoplay on your Connect Customer instance URL.
 
 - **Group Policy path:**
   `Administrative Templates/Microsoft Edge`
@@ -134,7 +134,7 @@ Microsoft Edge to explicitly permit autoplay on your Amazon Connect instance URL
 
 To configure:
 
-Add your Amazon Connect instance URL to the AutoplayAllowlist policy. The URL format
+Add your Connect Customer instance URL to the AutoplayAllowlist policy. The URL format
 is:
 
 ```

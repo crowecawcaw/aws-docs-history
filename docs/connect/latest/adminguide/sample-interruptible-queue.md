@@ -1,9 +1,9 @@
-# Sample interruptible queue flow with callback in Amazon Connect
+# Sample interruptible queue flow with callback in Connect Customer
 
 ###### Note
 
-This topic explains a sample flow that is included with Amazon Connect. For information
-about locating the sample flows in your instance, see [Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md").
+This topic explains a sample flow that is included with Connect Customer. For information
+about locating the sample flows in your instance, see [Sample flows in Connect Customer](contact-flow-samples.md "contact-flow-samples.md").
 
 Type: Customer queue
 

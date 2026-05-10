@@ -1,4 +1,4 @@
-# Mapping Shopify objects to the standard order in Amazon Connect Customer Profiles
+# Mapping Shopify objects to the standard order in Connect Customer Customer Profiles
 
 This topic lists which fields in Shopify objects map to fields in the
 standard order object in Customer Profiles.
@@ -65,7 +65,7 @@ field.
 ```
 
 The Shopify-DraftOrder customer data from the Shopify object is
-associated with an Amazon Connect standard order using the following
+associated with an Connect Customer standard order using the following
 index.
 
 | Standard Index Name | Shopify-DraftOrder source field |
@@ -155,7 +155,7 @@ field.
 ```
 
 The Shopify-Order customer data from the Shopify object is
-associated with an Amazon Connect standard order using the following
+associated with an Connect Customer standard order using the following
 index.
 
 | Standard Index Name | Shopify-Order source field |

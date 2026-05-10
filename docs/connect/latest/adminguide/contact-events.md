@@ -1,7 +1,7 @@
-# Amazon Connect contact events
+# Connect Customer contact events
 
-Amazon Connect allows you to subscribe to a near real-time stream of contact (voice calls, chat,
-task, and email) events (for example, call is queued) in your Amazon Connect contact center.
+Connect Customer allows you to subscribe to a near real-time stream of contact (voice calls, chat,
+task, and email) events (for example, call is queued) in your Connect Customer contact center.
 
 You can use contact events to create analytics dashboards to monitor and track contact
 activity, integrate into workforce management (WFM) solutions to better understand contact
@@ -25,7 +25,7 @@ gracefully. Your applications should:
 
 - [Contact events data model](#contact-events-data-model "#contact-events-data-model")
 - [Contact timestamps](#contact-timestamps "#contact-timestamps")
-- [Subscribe to Amazon Connect contact events](#subscribe-contact-events "#subscribe-contact-events")
+- [Subscribe to Connect Customer contact events](#subscribe-contact-events "#subscribe-contact-events")
 - [Sample to stop streaming an event type](#stop-streaming-event "#stop-streaming-event")
 - [Sample contact event for when a voice call is connected to an agent](#sample-contact-event "#sample-contact-event")
 - [Sample contact event for when a voice call is disconnected](#sample-contact-event-call-disconnected "#sample-contact-event-call-disconnected")
@@ -49,7 +49,7 @@ available:
 
 ###### Note
 
-This event is generated for outbound calls (including [Amazon Connect outbound campaigns](how-to-create-campaigns.md "how-to-create-campaigns.md"))
+This event is generated for outbound calls (including [Connect Customer outbound campaigns](how-to-create-campaigns.md "how-to-create-campaigns.md"))
 tasks, and chats.
 
 - CONTACT_DATA_UPDATED - One or more of the following contact properties were
@@ -308,7 +308,7 @@ Type: `VOICE`, `CHAT`, `TASK`, or
 
 **InstanceArn**
 
-Amazon Resource Name (ARN) for the Amazon Connect instance in which the agent's
+Amazon Resource Name (ARN) for the Connect Customer instance in which the agent's
 user account is created.
 
 Type: ARN
@@ -328,8 +328,8 @@ Valid values:
   results in a new contact record being created.
 - CALLBACK: The customer was contacted as part of a callback
   flow. For more information about the InitiationMethod in this
-  scenario, see [Queued callbacks in real-time metrics in Amazon Connect](about-queued-callbacks.md "about-queued-callbacks.md").
-- API: The contact was initiated with Amazon Connect by API. This could
+  scenario, see [Queued callbacks in real-time metrics in Connect Customer](about-queued-callbacks.md "about-queued-callbacks.md").
+- API: The contact was initiated with Connect Customer by API. This could
   be an outbound contact you created and queued to an agent, using
   the [StartOutboundVoiceContact](../APIReference/API_StartOutboundVoiceContact.md "../APIReference/API_StartOutboundVoiceContact.md") API, or it could be a
   live chat that was initiated by the customer with your contact
@@ -396,7 +396,7 @@ Valid values:
 
 Indicates how an [outbound
 campaign](how-to-create-campaigns.md "how-to-create-campaigns.md") call is actually disposed if the contact is
-connected to Amazon Connect.
+connected to Connect Customer.
 
 Type: String
 
@@ -471,7 +471,7 @@ see [ContactLens](ctr-data-model.md#ctr-ContactLens "ctr-data-model.md#ctr-Conta
 **SegmentAttributes**
 
 A set of system defined key-value pairs stored on individual contact
-segments using an attribute map. The attributes are standard Amazon Connect attributes and can be accessed in flows. Attribute keys
+segments using an attribute map. The attributes are standard Connect Customer attributes and can be accessed in flows. Attribute keys
 can include only alphanumeric, -, and \_ characters.
 
 This field can be used to show channel subtype. For example,
@@ -494,7 +494,7 @@ Type: String to string map
 The customer's identification number. For example, the CustomerId may
 be a customer number from your CRM. You can create a Lambda function to
 pull the unique customer ID of the caller from your CRM system. If you
-enable Amazon Connect Voice ID capability, this attribute is populated with the
+enable Connect Customer Voice ID capability, this attribute is populated with the
 CustomerSpeakerId of the caller.
 
 Type: String
@@ -968,7 +968,7 @@ Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 
 **ConnectedToSystemTimestamp**
 
-The date and time the customer endpoint connected to Amazon Connect, in UTC time.
+The date and time the customer endpoint connected to Connect Customer, in UTC time.
 For INBOUND, this matches InitiationTimestamp. For OUTBOUND, CALLBACK, and
 API, this is when the customer endpoint answers.
 
@@ -1159,9 +1159,9 @@ Timestamp of last chat message by Participant.
 
 Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 
-## Subscribe to Amazon Connect contact events
+## Subscribe to Connect Customer contact events
 
-Amazon Connect contact events are published using [Amazon EventBridge](https://aws.amazon.com/eventbridge/ "https://aws.amazon.com/eventbridge/"), and can be enabled in a couple of steps for your Amazon Connect instance
+Connect Customer contact events are published using [Amazon EventBridge](https://aws.amazon.com/eventbridge/ "https://aws.amazon.com/eventbridge/"), and can be enabled in a couple of steps for your Connect Customer instance
 in the Amazon EventBridge console by creating a new rule. Although events are not ordered, they
 have a timestamp which enables you to consume the data.
 
@@ -1169,7 +1169,7 @@ Events are emitted on a
 [best effort](../../../eventbridge/latest/userguide/eb-service-event.md "../../../eventbridge/latest/userguide/eb-service-event.md")
 basis.
 
-To subscribe to Amazon Connect contact events:
+To subscribe to Connect Customer contact events:
 
 1. In the Amazon EventBridge console, choose **Create rule**.
 2. On the **Default rule detail** page, assign a name to the
@@ -1178,13 +1178,13 @@ To subscribe to Amazon Connect contact events:
 
 ![The define rule detail page in the EventBridge console.](images/eventbridge-createrule.png) 3. On the **Build event pattern** page, under **Event
 source**, verify that **AWS events or EventBridge
-partner events** is selected. 4. Under **Sample event type**, choose **AWS events**, and then choose **Amazon Connect Contact Event** from the dropdown box, as shown
+partner events** is selected. 4. Under **Sample event type**, choose **AWS events**, and then choose **Connect Customer Contact Event** from the dropdown box, as shown
 in the following image.
 
 ![The sample event section, sample event type is AWS events.](images/eventbridge-sampleevents.png) 5. For Creation method choose Use pattern form. In the **Event
 pattern** section, choose **AWS
-services**, **Amazon Connect**,
-**Amazon Connect Contact Event**, and then choose
+services**, **Connect Customer**,
+**Connect Customer Contact Event**, and then choose
 **Next**, as shown in the following image.
 
 ![The Creation method and event pattern sections of the default rule detail page.](images/eventbridge-creationmethod.png) 6. On the Select target(s) page, you can then select a target of your choice,
@@ -1199,7 +1199,7 @@ _Amazon EventBridge User Guide_.
 ## Sample to stop streaming an event type
 
 The following sample shows how to stop streaming a `CONTACT_DATA_UPDATED`
-event from Amazon Connect to EventBridge.
+event from Connect Customer to EventBridge.
 
 ```
 {
@@ -1290,7 +1290,7 @@ included in events received by EventBridge when `initiationMethod` is
 {
     "version": "0",
     "id": "`the event ID`",
-    "detail-type": "Amazon Connect Contact Event",
+    "detail-type": "Connect Customer Contact Event",
     "source": "aws.connect",
     "account": "111122223333",
     "time": "2021-08-04T17:43:48Z",

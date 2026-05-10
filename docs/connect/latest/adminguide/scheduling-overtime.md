@@ -1,4 +1,4 @@
-# Overtime management for call center agents in Amazon Connect
+# Overtime management for call center agents in Connect Customer
 
 Simultaneously achieving Service Level (SL), Average Speed of Answer (ASA), and cost
 targets requires matching supply (# of agents) and demand (# of contacts \* handle time).

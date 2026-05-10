@@ -1,4 +1,4 @@
-# Create staff rules for scheduling in Amazon Connect
+# Create staff rules for scheduling in Connect Customer
 
 Use staff rules to specify optional details for individual agents and supervisors,
 such as their local time zone, start and end dates, and contract details.
@@ -19,12 +19,12 @@ employees to schedule for 20 hours per week.
 
 ## Create staff rules for individuals
 
-1. Log in to the Amazon Connect admin website with an account that has security profile
+1. Log in to the Connect Customer admin website with an account that has security profile
    permissions for **Scheduling**, **Schedule
    manager - Edit**.
 
 For more information, see [Assign
-permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Amazon Connect navigation menu, select **Analytics and
+permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Connect Customer navigation menu, select **Analytics and
 optimization**, **Scheduling**. 3. On the **Scheduling** page, choose the
 **Staff rules** tab, and then search and choose one
 or more staff from the list. Every time staff is selected, the staff
@@ -72,18 +72,18 @@ details such as:
 For the maximum file size that you can upload, see _File size per
 upload of agent time off data_ in [Forecasting, capacity planning, and scheduling feature specifications](feature-limits.md#forecasting-cap-planning-scheduling-specs "feature-limits.md#forecasting-cap-planning-scheduling-specs").
 
-1. Log in to the Amazon Connect admin website with an account that has security profile
+1. Log in to the Connect Customer admin website with an account that has security profile
    permissions for **Scheduling**, **Schedule
    manager - Edit**.
 
 For more information, see [Assign
-permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Amazon Connect navigation menu, select **Analytics and
+permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Connect Customer navigation menu, select **Analytics and
 optimization**, **Scheduling**. 3. On the **Scheduling** page, choose the
 **Staff Rules** tab. 4. Choose Download template and store the .csv file on your desktop. It
 looks similar to the following image.
 
 ![The timeoff balance file for individuals.](images/schedule-timeoff-balance-ic.png) 5. Add data or make changes to the .csv file as needed and then save to
-your desktop with a new file name. 6. Choose **Upload data** to upload the .csv file. Amazon Connect
+your desktop with a new file name. 6. Choose **Upload data** to upload the .csv file. Connect Customer
 does the following:
 
     * Validates the data and provides details if there are
@@ -93,7 +93,7 @@ does the following:
     * Uploads the file and displays a confirmation message when
      complete.
 
-After the .csv file is successfully uploaded, Amazon Connect checks the available time
+After the .csv file is successfully uploaded, Connect Customer checks the available time
 off balance when time off requests are submitted. If there is enough time off
 balance it approves the request. Otherwise, the request is declined.
 

@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Check hours of operation
+# Flow block in Connect Customer: Check hours of operation
 
 This topic defines the flow block to checks whether a contact occurs within
 or outside of the defined hours of operation.
@@ -38,7 +38,7 @@ types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact
 
 Select the **Check hours of operation** flow block to view its properties and define what path a contact should take based on the current date and time.
 
-1. Within Amazon Connect, navigate to the **Routing** menu.
+1. Within Connect Customer, navigate to the **Routing** menu.
 2. Select the **Flows** page.
 3. Open the desired resource.
 4. Find its **Check hours of operation** block. It has default branches:
@@ -47,7 +47,7 @@ Select the **Check hours of operation** flow block to view its properties and de
    3. **Error**
 
 5. Click on the flow block to optionally specify an hours of operation for this flow.
-   1. If not specified, Amazon Connect will use the hours associated with a contact's queue.
+   1. If not specified, Connect Customer will use the hours associated with a contact's queue.
 
 6. If you wish to set up special branching for certain dates, find the **Optional branches** section.
 
@@ -55,7 +55,7 @@ Select the **Check hours of operation** flow block to view its properties and de
 
 ![Check hours of operation branches.](images/check-hours-of-operation-branches.png) 11. Build out the desired flow path for each new node.
 
-For more information on standard day-of-the-week configurations, see [Set the hours of operation and time zone for a queue using Amazon Connect](set-hours-operation.md "set-hours-operation.md").
+For more information on standard day-of-the-week configurations, see [Set the hours of operation and time zone for a queue using Connect Customer](set-hours-operation.md "set-hours-operation.md").
 
 To learn more about overrides, see [Set overrides for extended, reduced, and holiday hours](hours-of-operation-overrides.md "hours-of-operation-overrides.md").
 
@@ -67,8 +67,8 @@ If you use this block to check the hours of operation for an agent queue, the ch
 
 ## Sample flows
 
-Amazon Connect includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
-[Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
+Connect Customer includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
+[Sample flows in Connect Customer](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-[Sample inbound flow in Amazon Connect for the first contact experience](sample-inbound-flow.md "sample-inbound-flow.md")
+[Sample inbound flow in Connect Customer for the first contact experience](sample-inbound-flow.md "sample-inbound-flow.md")

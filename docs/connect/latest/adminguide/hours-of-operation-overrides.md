@@ -125,7 +125,7 @@ The number of children that can reference the same parent is not limited. All of
 After an hours of operation record becomes a parent, it cannot have a parent itself.
 The list of overrides in a linked list cannot be modified in any way from a child record. Changes can only be made from the parent record. If linkage is made in error, it can be removed.
 
-If only a subset of users with permission to edit hours of operations should have access to a parent record, you can set up granular access control. For more information, see [Apply tag-based access control in Amazon Connect](tag-based-access-control.md "tag-based-access-control.md").
+If only a subset of users with permission to edit hours of operations should have access to a parent record, you can set up granular access control. For more information, see [Apply tag-based access control in Connect Customer](tag-based-access-control.md "tag-based-access-control.md").
 
 ###### Dates with competing overrides
 

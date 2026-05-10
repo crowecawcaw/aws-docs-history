@@ -1,11 +1,11 @@
-# Add a chat user interface to your website hosted by Amazon Connect
+# Add a chat user interface to your website hosted by Connect Customer
 
 To support your customers through chat, you can add a communications widget to your website that is
-hosted by Amazon Connect. You can configure the communications widget in the Amazon Connect admin website. You can customize the font
+hosted by Connect Customer. You can configure the communications widget in the Connect Customer admin website. You can customize the font
 and colors, and secure the widget so that it can be launched only from your website. When
 finished, you will have a short code snippet that you add to your website.
 
-Because Amazon Connect hosts the widget, it ensures that the latest version is always live on your
+Because Connect Customer hosts the widget, it ensures that the latest version is always live on your
 website.
 
 ###### Tip
@@ -13,7 +13,7 @@ website.
 Use of the communications widget is subject to default service quotas, such as the number of
 required characters for each message. Before launching your communications widget into
 production, make sure that your service quotas are set for your organization's needs.
-For more information, see [Amazon Connect service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
+For more information, see [Connect Customer service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
 
 ###### Contents
 
@@ -36,7 +36,7 @@ For more information, see [Amazon Connect service quotas](amazon-connect-service
   for your chat widget](chat-widget-download-transcript.md "chat-widget-download-transcript.md")
 - [Download and customize our open
   source example](download-chat-example.md "download-chat-example.md")
-- [Start chats in your applications by using Amazon Connect APIs](integrate-with-startchatcontact-api.md "integrate-with-startchatcontact-api.md")
+- [Start chats in your applications by using Connect Customer APIs](integrate-with-startchatcontact-api.md "integrate-with-startchatcontact-api.md")
 - [Send browser notifications to customers when chat messages arrive](browser-notifications-chat.md "browser-notifications-chat.md")
 - [Programmatic chat
   disconnect](programmatic-chat-disconnect.md "programmatic-chat-disconnect.md")
@@ -67,7 +67,7 @@ information, see [Send browser notifications to customers when chat messages arr
 In this step, you customize the experience of the communications widget for your
 customers.
 
-1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/. Choose **Customize communications widget**.
+1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/. Choose **Customize communications widget**.
 
 ![The configuration guide page, the customize communications widget link.](images/chatwidget-customize-chat-window-button.png) 2. On the **Communications widgets** page, choose **Add
 communications widget** to begin customizing a new communications widget experience.
@@ -79,7 +79,7 @@ communications widget.
 
 ###### Note
 
-The Name must be unique for each communications widget created in an Amazon Connect
+The Name must be unique for each communications widget created in an Connect Customer
 instance. 4. In the **Communications options** section, choose how your
 customers can engage with your widget, and then choose **Save and
 continue**.
@@ -93,7 +93,7 @@ The following image shows options to allow chat, message receipts, and create
 a pre-chat form for customers. To enable a pre chat form, you must first create
 a [view](view-resources-sg.md "view-resources-sg.md") with a connect action button and
 select the `StartChatContact` action. For more information about pre-chat
-and pre-contact forms, see [Add the Amazon Connect widget to your
+and pre-contact forms, see [Add the Connect Customer widget to your
 website](connect-widget-on-website.md "connect-widget-on-website.md").
 
 ![The communication widget page configured for chat and web calling.](images/comm-widget-page-chat.png) 5. On the **Create communication widget** page, choose the
@@ -185,16 +185,16 @@ Domain allowlist behavior:
    choosing **Yes**, and working with your website administrator
    to set up your web servers to issue JSON Web Tokens (JWTs) for new chat
    requests. This provides you more control when initiating new chats, including
-   the ability to verify that chat requests sent to Amazon Connect are from authenticated
+   the ability to verify that chat requests sent to Connect Customer are from authenticated
    users.
 
 ![The activation of security for new communication widget requests.](images/chatwidget-choose-security.png)
 
 Choosing **Yes** results in the following:
 
-    * Amazon Connect provides a 44-character security key on the next page that you
+    * Connect Customer provides a 44-character security key on the next page that you
      can use to create JSON Web Tokens (JWTs).
-    * Amazon Connect adds a callback function within the communications widget embed script
+    * Connect Customer adds a callback function within the communications widget embed script
      that checks for a JSON Web Token (JWT) when a chat is initiated.
 
 
@@ -227,17 +227,17 @@ creating them.
 
 Use this 44-character security key to generate JSON web tokens from your web
 server. You can also update, or rotate, keys if you need to change them. When you do
-this, Amazon Connect provides you with a new key and maintains the previous key until you
+this, Connect Customer provides you with a new key and maintains the previous key until you
 have a chance to replace it. After you have the new key deployed, you can come back
-to Amazon Connect and delete the previous key.
+to Connect Customer and delete the previous key.
 
-![The security key provided by Amazon Connect.](images/chatwidget-security-key.png)
+![The security key provided by Connect Customer.](images/chatwidget-security-key.png)
 
 When your customers interact with the Start chat icon on your website, the
 communications widget requests your web server for a JWT. When this JWT is provided, the
-widget will then include it as part of the end customer’s chat request to Amazon Connect.
-Amazon Connect then uses the secret key to decrypt the token. If successful, this confirms
-that the JWT was issued by your web server and Amazon Connect routes the chat request to your
+widget will then include it as part of the end customer’s chat request to Connect Customer.
+Connect Customer then uses the secret key to decrypt the token. If successful, this confirms
+that the JWT was issued by your web server and Connect Customer routes the chat request to your
 contact center agents.
 
 #### JSON Web Token specifics
@@ -265,7 +265,7 @@ contact center agents.
        valid contact id. The relatedContactId must follow limitations
        set by the [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") API.
       + **customerId (optional)**: This can be either
-       an Amazon Connect Customer Profiles ID or a custom identifier from an external system,
+       an Connect Customer Customer Profiles ID or a custom identifier from an external system,
        such as a CRM.
 
   \* For information about the date format, see the following Internet
@@ -321,4 +321,4 @@ snippet to update your website directly.
 
 ## Getting error messages?
 
-If you encounter error messages, see [Troubleshoot issues with your Amazon Connect communications widget](ts-cw.md "ts-cw.md").
+If you encounter error messages, see [Troubleshoot issues with your Connect Customer communications widget](ts-cw.md "ts-cw.md").

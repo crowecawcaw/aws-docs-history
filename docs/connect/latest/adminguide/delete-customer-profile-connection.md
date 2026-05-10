@@ -8,7 +8,7 @@ deleting a specific mapping may not clear the profile data. If you want to
 delete specific data, then you would delete the mapping, but your profiles may
 still exist if they contain data from other mappings. This could result in
 additional charges for the existing profiles. You can delete a domain and all
-data from Customer Profiles, including all profiles, by using the [Amazon Connect console](delete-customer-profiles-domain.md "delete-customer-profiles-domain.md")
+data from Customer Profiles, including all profiles, by using the [Connect Customer console](delete-customer-profiles-domain.md "delete-customer-profiles-domain.md")
 or the [DeleteDomain](../../../customerprofiles/latest/APIReference/API_DeleteDomain.md "../../../customerprofiles/latest/APIReference/API_DeleteDomain.md") API.
 
 **Console method**
@@ -17,7 +17,7 @@ or the [DeleteDomain](../../../customerprofiles/latest/APIReference/API_DeleteDo
   choose the integration/mapping and then choose
   **Delete**.
 - To delete the integrations, customer profiles, and all the customer
-  profile data, you can delete your customer profiles domain in the Amazon Connect console. For more information, see [Delete an Amazon Connect Customer Profiles domain](delete-customer-profiles-domain.md "delete-customer-profiles-domain.md").
+  profile data, you can delete your customer profiles domain in the Connect Customer console. For more information, see [Delete an Connect Customer Customer Profiles domain](delete-customer-profiles-domain.md "delete-customer-profiles-domain.md").
   **API method**
 
 - To delete customer profiles data for a specific integration, use the

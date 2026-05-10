@@ -1,4 +1,4 @@
-# Customize your Amazon Connect dashboard
+# Customize your Connect Customer dashboard
 
 You can customize specific widgets to create dashboards that best fit your business
 needs. For example, you can create a single line chart that combines contacts queued,
@@ -218,7 +218,7 @@ percentage of contacts handled within your specified time threshold.
 
 Complete the following steps to create a custom calculation.
 
-1. Log in to Amazon Connect admin website using an Admin account, or an account that has the
+1. Log in to Connect Customer admin website using an Admin account, or an account that has the
    following permissions in its security profile:
    - **Analytics and Optimization - Access metrics** -
      Access permission or the **Dashboard - Access**

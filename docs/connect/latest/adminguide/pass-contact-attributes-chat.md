@@ -12,7 +12,7 @@ associated with a contact.
 
 ## How to pass contact attributes into the communications widget
 
-1. Enable security in the communications widget as described in [Add a chat user interface to your website hosted by Amazon Connect](add-chat-to-website.md "add-chat-to-website.md"), if
+1. Enable security in the communications widget as described in [Add a chat user interface to your website hosted by Connect Customer](add-chat-to-website.md "add-chat-to-website.md"), if
    you haven't already:
    1. In Step 2, under **Add security for your chat
       widget**, choose **Yes**.
@@ -59,7 +59,7 @@ The contact attributes must follow the limitations set by the [StartChatContact]
     * Values can have a minimum length of 0
 
 Optionally, you can add the segmentAttributes string to [SegmentAttributeValue](../APIReference/API_SegmentAttributeValue.md "../APIReference/API_SegmentAttributeValue.md") object map, in the payload. The attributes are
-standard Amazon Connect attributes. They can be accessed in flows. The contact
+standard Connect Customer attributes. They can be accessed in flows. The contact
 attributes must follow the limitations set by the [StartChatContact](../APIReference/API_StartChatContact.md#connect-StartChatContact-request-SegmentAttributes "../APIReference/API_StartChatContact.md#connect-StartChatContact-request-SegmentAttributes") API.
 
 ## Alternative method: Pass contact attributes directly from snippet code

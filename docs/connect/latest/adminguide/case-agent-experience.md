@@ -1,12 +1,12 @@
-# Access Amazon Connect Cases in the agent application
+# Access Connect Customer Cases in the agent application
 
-After you enable Amazon Connect Cases, you need to take steps to make the functionality
+After you enable Connect Customer Cases, you need to take steps to make the functionality
 available through the agent application. This topic explains your options.
 
 ###### Tip
 
 Make sure your agents have **Cases** permissions in their
-security profile so they can access Cases. For more information, see [Security profile permissions for Amazon Connect Cases](assign-security-profile-cases.md "assign-security-profile-cases.md").
+security profile so they can access Cases. For more information, see [Security profile permissions for Connect Customer Cases](assign-security-profile-cases.md "assign-security-profile-cases.md").
 
 ## Option 1: Use Cases with the CCP out-of-the-box
 
@@ -22,7 +22,7 @@ the following URL:
 - **https://`instance
 name`.awsapps.com/connect/agent-app-v2/**
 
-For help finding your instance name, see [Find your Amazon Connect instance name](find-instance-name.md "find-instance-name.md").
+For help finding your instance name, see [Find your Connect Customer instance name](find-instance-name.md "find-instance-name.md").
 
 ## Option 2: Embed Cases into a custom agent application
 
@@ -30,11 +30,11 @@ When you embed your Contact Control Panel (CCP), you have the option of showing 
 hiding the pre-built CCP user interface. For example, you may want to develop a
 custom agent application that has a user interface you design, with customized
 buttons to accept and reject calls. Or, you may want to embed the pre-built CCP
-that's included with Amazon Connect into another custom app.
+that's included with Connect Customer into another custom app.
 
 You can display the pre-built CCP user interface, or hide it and build your own.
 In both scenarios, you can incorporate Cases into your agent application by
-using public APIs provided by Amazon Connect. These APIs are built to provide you the
+using public APIs provided by Connect Customer. These APIs are built to provide you the
 flexibility to create the functionality and user experience that you want. For more
 information, see the [Cases API
 documentation](../../../cases/latest/APIReference/Welcome.md "../../../cases/latest/APIReference/Welcome.md").
@@ -43,5 +43,5 @@ documentation](../../../cases/latest/APIReference/Welcome.md "../../../cases/lat
 
 When you customize the agent's application, you determine what URL agents will
 use to access their agent application. This might be very different from the one
-provided by Amazon Connect. For example, your URL could be
+provided by Connect Customer. For example, your URL could be
 https://example-corp.com/agent-support-app.

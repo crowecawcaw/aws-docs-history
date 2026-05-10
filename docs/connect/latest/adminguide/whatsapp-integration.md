@@ -1,8 +1,8 @@
 # Set up WhatsApp Business messaging
 
 The topics in this section explain how to set up and test WhatsApp Business messaging for
-Amazon Connect. You use [AWS End User Messaging Social](../../../social-messaging/latest/userguide/what-is-service.md "../../../social-messaging/latest/userguide/what-is-service.md") to link a WhatsApp Business Account and phone number to an Amazon Connect instance, then
-import the linked phone number into Amazon Connect. Customers can then use WhatsApp to send messages to
+Connect Customer. You use [AWS End User Messaging Social](../../../social-messaging/latest/userguide/what-is-service.md "../../../social-messaging/latest/userguide/what-is-service.md") to link a WhatsApp Business Account and phone number to an Connect Customer instance, then
+import the linked phone number into Connect Customer. Customers can then use WhatsApp to send messages to
 your call center.
 
 You can also use Amazon Lex to automate responses to customer questions, which saves agents time
@@ -12,24 +12,24 @@ _Amazon Lex Developer Guide_.
 ###### Contents
 
 - [Prerequisites](#whatsapp-prerequisites "#whatsapp-prerequisites")
-- [Step 1: Enable Amazon Connect as the event destination](#enable-connect-destination "#enable-connect-destination")
+- [Step 1: Enable Connect Customer as the event destination](#enable-connect-destination "#enable-connect-destination")
 - [Step 2: Configure an inbound contact flow on your phone number](#inbound-contact-flow "#inbound-contact-flow")
 - [Step 3: Send and receive test messages](#send-receive-test-messages "#send-receive-test-messages")
 - [Next steps: Prepare to go live](#whatsapp-next-steps "#whatsapp-next-steps")
 - [Troubleshoot common problems](#whatsapp-troubleshooting "#whatsapp-troubleshooting")
-- [WhatsApp Business messaging capabilities and limitations with Amazon Connect](whatsapp-messaging-capabilities.md "whatsapp-messaging-capabilities.md")
+- [WhatsApp Business messaging capabilities and limitations with Connect Customer](whatsapp-messaging-capabilities.md "whatsapp-messaging-capabilities.md")
 
 ## Prerequisites
 
-Before you can integrate WhatsApp with Amazon Connect, you must have the following items:
+Before you can integrate WhatsApp with Connect Customer, you must have the following items:
 
 - A WhatsApp Business Account.
 - A WhatsApp phone number. The number must be able to receive a voice call or an SMS text
   message in order to complete Meta's phone number verification process for WhatsApp Business
-  messaging. You can use an Amazon Connect voice number or an AWS End User Messaging SMS number for the WhatsApp phone
+  messaging. You can use an Connect Customer voice number or an AWS End User Messaging SMS number for the WhatsApp phone
   number. You can also use a phone number that you own outside of AWS.
 
-When using an Amazon Connect voice number or AWS End User Messaging SMS number, we recommend claiming a new number
+When using an Connect Customer voice number or AWS End User Messaging SMS number, we recommend claiming a new number
 that isn’t used with live voice or SMS traffic to avoid potential disruption of service.
 
 You can use the AWS End User Messaging Social console at [https://console.aws.amazon.com/social-messaging/](https://console.aws.amazon.com/social-messaging/ "https://console.aws.amazon.com/social-messaging/") to create the WhatsApp Business
@@ -48,15 +48,15 @@ AWS End User Messaging Social](../../../social-messaging/latest/userguide/best-p
 After you create the account and phone number, complete the steps in the following sections
 in the order listed.
 
-## Step 1: Enable Amazon Connect as the event destination
+## Step 1: Enable Connect Customer as the event destination
 
-The following steps explain how to use AWS End User Messaging Social to enable Amazon Connect as the event destination
+The following steps explain how to use AWS End User Messaging Social to enable Connect Customer as the event destination
 for your linked WhatsApp Business Account. This enables the system to import your WhatsApp phone
 number.
 
 You can use the [AWS End
 User Messaging Social console](https://console.aws.amazon.com/social-messaging/ "https://console.aws.amazon.com/social-messaging/") or the AWS CLI to complete this task. To use the AWS CLI, see
-[ImportPhoneNumber](../APIReference/API_ImportPhoneNumber.md "../APIReference/API_ImportPhoneNumber.md") in the _Amazon Connect API Reference_, and
+[ImportPhoneNumber](../APIReference/API_ImportPhoneNumber.md "../APIReference/API_ImportPhoneNumber.md") in the _Connect Customer API Reference_, and
 [PutWhatsAppBusinessAccountEventDestinations](../../../social-messaging/latest/APIReference/API_PutWhatsAppBusinessAccountEventDestinations.md "../../../social-messaging/latest/APIReference/API_PutWhatsAppBusinessAccountEventDestinations.md") in the _AWS End
 User Messaging Social API Reference_.
 
@@ -69,17 +69,17 @@ The following steps explain how to use the console.
    choose the desired account.
 3. On the **Event destination** tab, choose **Edit
    destination**.
-4. For **Destination type**, choose **Amazon Connect**.
-5. For **Connect instance**, choose your Amazon Connect instance from the dropdown
+4. For **Destination type**, choose **Connect Customer**.
+5. For **Connect instance**, choose your Connect Customer instance from the dropdown
    list.
 6. For **Role ARN**, choose an IAM role that grants permission to deliver
    messages and events, and to import phone numbers. For example IAM policies, see [Add a message and event destination to AWS End User Messaging Social](../../../social-messaging/latest/userguide/managing-event-destinations-add.md#managing-event-destinations-amazon-connect-policies "../../../social-messaging/latest/userguide/managing-event-destinations-add.md#managing-event-destinations-amazon-connect-policies") in the _AWS End User Messaging Social
    User Guide_.
 7. Choose **Save changes**.
 
-This starts the process of importing your phone number to Amazon Connect.
+This starts the process of importing your phone number to Connect Customer.
 
-After the operation finishes, the number appears in the Amazon Connect admin website.
+After the operation finishes, the number appears in the Connect Customer admin website.
 
 ###### To view the number
 
@@ -102,14 +102,14 @@ block and enable branching for the flow. The block enables you to send WhatsApp 
 specific queue, or take another action.
 
 For more information about building your contact flow, including interactive messages and
-rich link previews, see [WhatsApp Business messaging capabilities and limitations with Amazon Connect](whatsapp-messaging-capabilities.md "whatsapp-messaging-capabilities.md") later in this section.
+rich link previews, see [WhatsApp Business messaging capabilities and limitations with Connect Customer](whatsapp-messaging-capabilities.md "whatsapp-messaging-capabilities.md") later in this section.
 
 The following sets of steps explain how to configure an inbound contact flow and add a
 `CheckContactAttribute` block to the flow.
 
 ###### To configure a flow
 
-1. Start the Amazon Connect console at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/")
+1. Start the Connect Customer console at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/")
 2. In the navigation pane, choose **Channels**, then **Phone
    numbers**.
 3. Choose the WhatsApp number, then choose **Edit**.
@@ -151,16 +151,16 @@ list of options.
 After you test your integration, we recommend adding the following features and capabilities
 to your WhatsApp messaging channel.
 
-### Add Amazon Connect features
+### Add Connect Customer features
 
-The links in the following list take you to information about Amazon Connect features that you can
+The links in the following list take you to information about Connect Customer features that you can
 add to your customer and agent experiences.
 
-- Learn more about the [WhatsApp Business messaging capabilities and limitations with Amazon Connect](whatsapp-messaging-capabilities.md "whatsapp-messaging-capabilities.md").
-- [Enable customers to resume chat conversations in Amazon Connect](chat-persistence.md "chat-persistence.md") – Customers can resume previous conversations with
+- Learn more about the [WhatsApp Business messaging capabilities and limitations with Connect Customer](whatsapp-messaging-capabilities.md "whatsapp-messaging-capabilities.md").
+- [Enable customers to resume chat conversations in Connect Customer](chat-persistence.md "chat-persistence.md") – Customers can resume previous conversations with
   the context, metadata, and transcripts carried forward. They don't need to repeat themselves
   when they return to a chat, and agents have access to the entire conversation history.
-- [Create quick responses for use with chat and email contacts in Amazon Connect](create-quick-responses.md "create-quick-responses.md") – Provide agents with pre-written responses to
+- [Create quick responses for use with chat and email contacts in Connect Customer](create-quick-responses.md "create-quick-responses.md") – Provide agents with pre-written responses to
   common customer inquiries that they can use while they chat with customers. Quick responses
   make it faster for agents to respond to customers.
 
@@ -185,12 +185,12 @@ display name](https://business.facebook.com/business/help/338047025165344 "https
 After you onboard live traffic to your WhatsApp integration, we recommend monitoring the
 following quotas.
 
-###### Amazon Connect quotas
+###### Connect Customer quotas
 
-For more information about default quotas, and about raising them, see [Amazon Connect service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
+For more information about default quotas, and about raising them, see [Connect Customer service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
 
 - [Concurrent active chats per instance](amazon-connect-service-limits.md#concurrent-active-chats "amazon-connect-service-limits.md#concurrent-active-chats")
-  quota. For information about monitoring this quota, see [Monitoring your Amazon Connect instance using CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md"),
+  quota. For information about monitoring this quota, see [Monitoring your Connect Customer instance using CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md"),
 - [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") throttling quota.
 - [SendChatIntegrationEvent](../APIReference/API_SendChatIntegrationEvent.md "../APIReference/API_SendChatIntegrationEvent.md") throttling quota.
 - `SendIntegrationEvent` throttling quota. A permission only API used by
@@ -223,22 +223,22 @@ integration.
 
 ###### Contents
 
-- [Unable to see imported phone numbers in your Amazon Connect instance](#no-imported-number "#no-imported-number")
+- [Unable to see imported phone numbers in your Connect Customer instance](#no-imported-number "#no-imported-number")
 - [Inbound messages from customers are not delivered](#whatsapp-messages-not-delivered "#whatsapp-messages-not-delivered")
 
-### Unable to see imported phone numbers in your Amazon Connect instance
+### Unable to see imported phone numbers in your Connect Customer instance
 
-If your imported number fails to appear in the Amazon Connect admin website, follow these
+If your imported number fails to appear in the Connect Customer admin website, follow these
 steps:
 
 - Ensure that the event destination IAM role has the necessary permissions. For more
-  information, see [Step 1: Enable Amazon Connect as the event destination](#enable-connect-destination "#enable-connect-destination").
+  information, see [Step 1: Enable Connect Customer as the event destination](#enable-connect-destination "#enable-connect-destination").
 - See if your _Phone numbers per instance_ quota needs to be raised. For
-  more information, see [Amazon Connect service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
-- To reassign a linked WhatsApp Business Account to a different Amazon Connect instance, you must
-  first release the imported phone numbers from the original Amazon Connect instance. After the phone
+  more information, see [Connect Customer service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
+- To reassign a linked WhatsApp Business Account to a different Connect Customer instance, you must
+  first release the imported phone numbers from the original Connect Customer instance. After the phone
   numbers are released, you can update the event destination on your linked WhatsApp Business
-  Account to another Amazon Connect instance.
+  Account to another Connect Customer instance.
 
 ###### Important
 
@@ -249,7 +249,7 @@ Do not release numbers that handle live customer traffic. Instead, [claim new ph
   `ImportPhoneNumber` call succeeds, you can call `DescribePhoneNumber`
   for other error details.
 
-If you made a fix, you must import the phone numbers again. To do this, repeat [Step 1: Enable Amazon Connect as the event destination](#enable-connect-destination "#enable-connect-destination").
+If you made a fix, you must import the phone numbers again. To do this, repeat [Step 1: Enable Connect Customer as the event destination](#enable-connect-destination "#enable-connect-destination").
 
 ### Inbound messages from customers are not delivered
 
@@ -259,13 +259,13 @@ details.
 
 You can also check these common scenarios:
 
-- Ensure that your linked WhatsApp Business Account in AWS End User Messaging Social has an Amazon Connect event
+- Ensure that your linked WhatsApp Business Account in AWS End User Messaging Social has an Connect Customer event
   destination enabled.
 - Ensure your event destination IAM role has the necessary permissions. For more
-  information, see [Step 1: Enable Amazon Connect as the event destination](#enable-connect-destination "#enable-connect-destination") earlier in this section. You
+  information, see [Step 1: Enable Connect Customer as the event destination](#enable-connect-destination "#enable-connect-destination") earlier in this section. You
   have a misconfigured role if CloudTrail throws `AccessDeniedException` errors from the
   `SendIntegrationEvent` API.
-- Ensure that your WhatsApp phone number imported successfully to your Amazon Connect instance, and
+- Ensure that your WhatsApp phone number imported successfully to your Connect Customer instance, and
   that the number has an associated inbound contact flow. For more information, see [Step 2: Configure an inbound contact flow on your phone number](#inbound-contact-flow "#inbound-contact-flow").
 - Inbound messages were dropped because they are not yet supported. For more information,
-  see [WhatsApp Business messaging capabilities and limitations with Amazon Connect](whatsapp-messaging-capabilities.md "whatsapp-messaging-capabilities.md").
+  see [WhatsApp Business messaging capabilities and limitations with Connect Customer](whatsapp-messaging-capabilities.md "whatsapp-messaging-capabilities.md").

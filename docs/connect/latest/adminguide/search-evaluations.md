@@ -1,15 +1,15 @@
-# Search for and view evaluations in Amazon Connect
+# Search for and view evaluations in Connect Customer
 
 Users can search for evaluated contacts and view evaluations
 side-by-side alongside audio or screen recordings, conversation transcripts, summaries and insights.
 
 ## Searching for evaluated contacts
 
-1. Log in to Amazon Connect with a user account that has [permissions to search for and
+1. Log in to Connect Customer with a user account that has [permissions to search for and
    view contacts](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts") and either the **Evaluation forms - perform
    evaluations** or **Evaluation forms – view my received
    evaluations** permission.
-2. In Amazon Connect choose **Analytics and optimization**,
+2. In Connect Customer choose **Analytics and optimization**,
    **Contact search**.
 3. Use the filters on the page to narrow your search. For the date selection, you
    can search for up to 8 weeks of contacts at a time. You can review contacts and

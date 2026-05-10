@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Invoke a published module
+# Flow block in Connect Customer: Invoke a published module
 
 This topic defines the flow block for calling a published module to create reusable
 sections in a flow.
@@ -8,7 +8,7 @@ sections in a flow.
 Calls a published module, which enables you create reusable sections of a contact
 flow.
 
-For more information, see [Flow modules for reusable functions in Amazon Connect](contact-flow-modules.md "contact-flow-modules.md").
+For more information, see [Flow modules for reusable functions in Connect Customer](contact-flow-modules.md "contact-flow-modules.md").
 
 ## Supported channels
 
@@ -25,11 +25,6 @@ specified channel.
 ## Flow types
 
 You can use this block across all [flow types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"). If your module contains blocks that are not supported by the specific flow type, this incompatibility might cause interruptions in the flow execution.
-
-###### Note
-
-- Whisper flows that use a **TransferToQueue** block within a module might cause interruption during the flow execution.
-- **CustomerQueue** flow with a **LoopPrompt** block invoking a module using **EndFlow** block might cause interruption during the flow execution.
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Historical metrics report limits in Amazon Connect
+# Historical metrics report limits in Connect Customer
 
 Historical metrics reports have the following limits:
 
@@ -8,7 +8,7 @@ Historical metrics reports have the following limits:
   per instance** and **Scheduled reports per
   instance**. When service quotas are breached, the following
   error message is displayed: _Report cannot be saved_. For
-  more information about these quotas, see [Amazon Connect service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md")
+  more information about these quotas, see [Connect Customer service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md")
 
 ###### Data only for active queues
 
@@ -25,7 +25,7 @@ Historical metrics reports have the following limits:
 ###### The availability of historical metric data is based on the retention period of contact records
 
 - Historical metrics are based contact records. For the current retention
-  period for contact records, see [Amazon Connect feature specifications](feature-limits.md "feature-limits.md").
+  period for contact records, see [Connect Customer feature specifications](feature-limits.md "feature-limits.md").
 
 ###### For daily and total intervals
 

@@ -1,4 +1,4 @@
-# Create AI prompts in Amazon Connect
+# Create AI prompts in Connect Customer
 
 An _AI prompt_ is a task for the large language model (LLM) to do.
 It provides a task description or instruction for how the model should perform. For
@@ -6,11 +6,11 @@ example, _Given a list of customer orders and available inventory, determine
 which orders can be fulfilled and which items have to be
 restocked_.
 
-Amazon Connect includes a set of default system AI prompts that power the out-of-the-box
+Connect Customer includes a set of default system AI prompts that power the out-of-the-box
 recommendations experience in the agent workspace. You can copy these default prompts to
 create your own new AI prompts.
 
-To make it easy for non-developers to create AI prompts, Amazon Connect provides a set of
+To make it easy for non-developers to create AI prompts, Connect Customer provides a set of
 templates that already contain instructions. You can use these templates to create new
 AI prompts. The templates contain placeholder text written in an easy-to-understand
 language called YAML. Just replace the placeholder text with your own
@@ -43,7 +43,7 @@ instructions.
 Your first step is to choose the type of prompt you want to create. Each type
 provides a template AI prompt to help you get started.
 
-1. Log in to the Amazon Connect admin website at https://`instance
+1. Log in to the Connect Customer admin website at https://`instance
 name`.my.connect.aws/. Use an admin account, or an account with
    **AI agent designer** - **AI prompts** -
    **Create** permission in it's security profile.
@@ -99,7 +99,7 @@ this AI prompt.
 ###### Note
 
 The models listed in the dropdown menu are based on the AWS Region of your
-Amazon Connect instance. For a list of models supported for each AWS Region, see [Supported models for system/custom prompts](#cli-create-aiprompt "#cli-create-aiprompt").
+Connect Customer instance. For a list of models supported for each AWS Region, see [Supported models for system/custom prompts](#cli-create-aiprompt "#cli-create-aiprompt").
 
 The following image shows **us.amazon.nova-pro-v1:0 (Cross Region)(System
 Default)** as the model for this AI prompt.
@@ -478,7 +478,7 @@ The value of the variable is replaced with content when the instructions are sen
 the LLM to do.
 
 When you create AI prompt instructions, you can add variables that use system data
-that Amazon Connect provides, or [custom data](ai-agent-session.md "ai-agent-session.md").
+that Connect Customer provides, or [custom data](ai-agent-session.md "ai-agent-session.md").
 
 The following table lists the variables you can use in your AI prompts, and how to
 format them. You'll notice these variables are already used in the AI prompt
@@ -490,7 +490,7 @@ templates.
 | System variable            | {{$.contentExcerpt}}          | Inserts relevant document excerpts found within the knowledge<br>base so the excerpts can be included in the instructions that are<br>sent to the LLM.                                   |
 | System variable            | {{$.locale}}                  | Defines the locale to be used for the inputs to the LLM and its<br>outputs in response.                                                                                                  |
 | System variable            | {{$.query}}                   | Inserts the query constructed by a Connect AI agent to find document excerpts<br>within the knowledge base so the query can be included in the<br>instructions that are sent to the LLM. |
-| Customer provided variable | {{$.Custom.<VARIABLE\_NAME>}} | Inserts any customer provided value that is added to a Amazon Connect<br>session so that value can be included in the instructions that are<br>sent to the LLM.                          |
+| Customer provided variable | {{$.Custom.<VARIABLE\_NAME>}} | Inserts any customer provided value that is added to a Connect Customer<br>session so that value can be included in the instructions that are<br>sent to the LLM.                        |
 
 ## Optimize your AI prompts
 
@@ -535,7 +535,7 @@ requirements, see [supported models, regions and limits](../../../bedrock/latest
 
 After you create the YAML files for the AI prompt, you can choose
 **Publish** on the **AI Prompt builder** page,
-or call the [CreateAIPrompt](../APIReference/API_amazon-q-connect_CreateAIPrompt.md "../APIReference/API_amazon-q-connect_CreateAIPrompt.md") API to create the prompt. Amazon Connect currently supports the
+or call the [CreateAIPrompt](../APIReference/API_amazon-q-connect_CreateAIPrompt.md "../APIReference/API_amazon-q-connect_CreateAIPrompt.md") API to create the prompt. Connect Customer currently supports the
 following LLM models for a particular AWS Region. Some LLM model
 options support cross-region inference, which can improve performance and
 availability. Refer to the following table to see which models include cross-region

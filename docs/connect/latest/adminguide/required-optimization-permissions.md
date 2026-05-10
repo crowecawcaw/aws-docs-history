@@ -1,4 +1,4 @@
-# Security profile permissions for forecasting, capacity planning, and scheduling in Amazon Connect
+# Security profile permissions for forecasting, capacity planning, and scheduling in Connect Customer
 
 Assign the following security profile permissions as needed to use forecasting, capacity planning, and scheduling.
 
@@ -63,7 +63,7 @@ Assign the following security profile permissions as needed to use forecasting, 
 
 - **Schedule manager**. Grants permission to view, edit,
   and publish generated schedules from the Schedule manager. You can also
-  import an agents time off balance to Amazon Connect
+  import an agents time off balance to Connect Customer
 
 ###### Note
 
@@ -99,7 +99,7 @@ metrics](scheduling-metrics.md "scheduling-metrics.md").
 
 They can accept or decline VTO.
 For information about how to add more permissions to an existing security profile,
-see [Update security profiles in Amazon Connect](update-security-profiles.md "update-security-profiles.md").
+see [Update security profiles in Connect Customer](update-security-profiles.md "update-security-profiles.md").
 
 By default, the **Admin** security profile already has
 permissions to perform all forecasting, capacity planning, and scheduling

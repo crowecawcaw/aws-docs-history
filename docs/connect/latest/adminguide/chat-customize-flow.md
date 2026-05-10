@@ -1,6 +1,6 @@
-# Customize chat flow experiences in Amazon Connect by integrating custom participants
+# Customize chat flow experiences in Connect Customer by integrating custom participants
 
-You can integrate other solutions, such as bots, with Amazon Connect chat to create customized chat
+You can integrate other solutions, such as bots, with Connect Customer chat to create customized chat
 flow experiences.
 
 Following is an overview of how you can customize your chat flow experience. Implement
@@ -18,17 +18,17 @@ inbound chat flow.
 
 1.  [Enable real-time streaming of chat
     messages](chat-message-streaming.md "chat-message-streaming.md").
-2.  Call the Amazon Connect [CreateParticipant](../APIReference/API_CreateParticipant.md "../APIReference/API_CreateParticipant.md") API to add a custom participant
+2.  Call the Connect Customer [CreateParticipant](../APIReference/API_CreateParticipant.md "../APIReference/API_CreateParticipant.md") API to add a custom participant
     (`ParticipantRole` = `CUSTOM_BOT`) to the chat
     contact.
-    1. For information about how to create the SDK client for calling Amazon Connect APIs,
+    1. For information about how to create the SDK client for calling Connect Customer APIs,
        see the following topics:
        - [Class AmazonConnectClientBuilder](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/connect/AmazonConnectClientBuilder.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/connect/AmazonConnectClientBuilder.md")
        - [Creating Service Clients](../../../sdk-for-java/v1/developer-guide/creating-clients.md "../../../sdk-for-java/v1/developer-guide/creating-clients.md")
 
     2. Keep the `ParticipantToken` that is obtained from [CreateParticipant](../APIReference/API_CreateParticipant.md "../APIReference/API_CreateParticipant.md") to call [CreateParticipantConnection](../../../connect-participant/latest/APIReference/API_CreateParticipantConnection.md "../../../connect-participant/latest/APIReference/API_CreateParticipantConnection.md").
        `CreateParticipantConnection` returns a
-       `ConnectionToken`, which you can use to call other Amazon Connect
+       `ConnectionToken`, which you can use to call other Connect Customer
        Participant APIs.
 
     When calling [CreateParticipantConnection](../../../connect-participant/latest/APIReference/API_CreateParticipantConnection.md "../../../connect-participant/latest/APIReference/API_CreateParticipantConnection.md") to create a connection for a custom
@@ -37,12 +37,12 @@ inbound chat flow.
         * Set `ConnectParticipant` to `True` to mark
          the custom participant as connected for message streaming.
         * Pass `Type` as `CONNECTION_CREDENTIALS` to
-         call the subsequent Amazon Connect Participant Service APIs.
+         call the subsequent Connect Customer Participant Service APIs.
         * `CreateParticipantConnection` should be called within
          15 seconds of calling `CreateParticipant`.
 
 3.  After the participant is added to the contact, they can exchange messages with the
-    customer by using Amazon Connect Participant Service APIs.
+    customer by using Connect Customer Participant Service APIs.
 4.  To disconnect the participant, call the [DisconnectParticipant](../../../connect-participant/latest/APIReference/API_DisconnectParticipant.md "../../../connect-participant/latest/APIReference/API_DisconnectParticipant.md") API.
 
 ###### Note

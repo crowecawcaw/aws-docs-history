@@ -1,6 +1,6 @@
-# Set up shift exchange in Amazon Connect
+# Set up shift exchange in Connect Customer
 
-You can set up Amazon Connect to allow agents to exchange shifts with each other. Agents
+You can set up Connect Customer to allow agents to exchange shifts with each other. Agents
 can initiate shift trades directly from their agent calendar. They don't need to
 send emails their manager. This self-service functionality enables agents to manage
 unexpected life events and achieve better work-life balance.
@@ -16,17 +16,17 @@ same forecast group who can trade shifts with each other.
 ###### Tip
 
 Want to watch a video that shows how to set up shift exchange? See [How Schedulers Configure
-the Shift Exchange Feature](https://www.youtube.com/watch?v=skhoJqb4hzY "https://www.youtube.com/watch?v=skhoJqb4hzY") on the Amazon Connect Enablement channel on
+the Shift Exchange Feature](https://www.youtube.com/watch?v=skhoJqb4hzY "https://www.youtube.com/watch?v=skhoJqb4hzY") on the Connect Customer Enablement channel on
 YouTube.
 
 ###### To define how shift exchange will work for the agents in a shift trade group
 
-1. Log in to the Amazon Connect admin website with an account that has security profile permissions
+1. Log in to the Connect Customer admin website with an account that has security profile permissions
    for **Scheduling**, **Schedule manager -
    Edit**.
 
 For more information, see [Assign
-permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Amazon Connect navigation menu, select **Analytics and
+permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Connect Customer navigation menu, select **Analytics and
 optimization**, **Scheduling**. 3. On the **Scheduling** page, choose the **Shift
 activities** tab, choose the shift activity you want to edit,
 and choose **Edit**. 4. On the **Edit shift activities** page, in the

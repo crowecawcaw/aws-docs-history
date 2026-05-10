@@ -1,4 +1,4 @@
-# Choose the text-to-speech voice and language for audio prompts in Amazon Connect
+# Choose the text-to-speech voice and language for audio prompts in Connect Customer
 
 You select the text-to-speech voice and language in the [Set voice](set-voice.md "set-voice.md") block.
 

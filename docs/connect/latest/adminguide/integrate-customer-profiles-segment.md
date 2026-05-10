@@ -1,19 +1,19 @@
-# Set up integration for Segment to provide periodic updates to Amazon Connect Customer Profiles
+# Set up integration for Segment to provide periodic updates to Connect Customer Customer Profiles
 
-To provide periodic updates to Amazon Connect Customer Profiles, you can integrate with Segment using
-Amazon AppFlow. You first set up the connection in Amazon Connect and Segment, and then verify the
+To provide periodic updates to Connect Customer Customer Profiles, you can integrate with Segment using
+Amazon AppFlow. You first set up the connection in Connect Customer and Segment, and then verify the
 Segment integration.
 
-## Set up the connection in Amazon Connect and Segment
+## Set up the connection in Connect Customer and Segment
 
-1. Open the Amazon Connect console at
+1. Open the Connect Customer console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 2. On the instances page, choose the instance alias. The instance alias is also
-   your **instance name**, which appears in your Amazon Connect
-   URL. The following image shows the **Amazon Connect virtual contact center instances** page, with a box
+   your **instance name**, which appears in your Connect Customer
+   URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box
    around the instance alias.
 
-![The Amazon Connect virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **Customer
+![The Connect Customer virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **Customer
 profiles**. 4. On the **Customer profiles configuration** page,
 choose **Add integration**.
 
@@ -89,7 +89,7 @@ To find your source ID:
     3. Copy your **Source ID**.
 
 After you set up the event source destination, return to the Customer Profiles
-console and paste the Client ID. 11. You will see an alert that indicates Amazon Connect has successfully
+console and paste the Client ID. 11. You will see an alert that indicates Connect Customer has successfully
 connected with Segment. 12. On the **Integration options** page, choose which
 source objects you want to ingest and select their object type.
 
@@ -126,7 +126,7 @@ To perform this step you need the following prerequisites:
 
 - Access to your Segment workspace.
 - [Access to the
-  Amazon Connect Contact Control Panel](amazon-connect-contact-control-panel.md "amazon-connect-contact-control-panel.md").
+  Connect Customer Contact Control Panel](amazon-connect-contact-control-panel.md "amazon-connect-contact-control-panel.md").
 
 ###### To verify your Segment integration
 
@@ -138,13 +138,13 @@ Choose the EventBridge destination for Customer Profiles.
 
 ![The list of destinations page.](images/customer-profiles-enable-segment-2.png) 3. Choose the **Event Tester** tab. From this page
 you will send a test event to Customer Profiles. The event is ingested and turned
-into a customer profile that you can view in the Amazon Connect agent
+into a customer profile that you can view in the Connect Customer agent
 application.
 
 ![The event tester tab.](images/customer-profiles-enable-segment-3.png) 4. Select **Identify** as the event type, and select
 **Event Builder** as your input method. 5. You can specify a **User ID** and some traits.
 Agents can search for these traits in the agent application. 6. Choose **Send Event**. 7. The event delivery should be almost instantaneous but allow it a
-minute for it to be delivered and create a customer profile. 8. Open the Amazon Connect agent application. Search for the user ID you
+minute for it to be delivered and create a customer profile. 8. Open the Connect Customer agent application. Search for the user ID you
 entered in the **Event Builder**. You should be
 able to see the customer profile with the user ID and the traits you
 entered. 9. If you cannot see the customer profile, then there is a problem

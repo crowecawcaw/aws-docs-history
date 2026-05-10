@@ -1,6 +1,6 @@
 # Automatically populate customer profiles
 
-By default, Amazon Connect Customer Profiles uses the following values to search for and
+By default, Connect Customer Customer Profiles uses the following values to search for and
 autopopulate a customer profile in its user interface:
 
 - For voice contacts: Phone number

@@ -1,6 +1,6 @@
 # Create email addresses
 
-This topic explains how to create email addresses by using the Amazon Connect admin website. You can create
+This topic explains how to create email addresses by using the Connect Customer admin website. You can create
 email addresses that customers can reply to, as well as outbound only (no-reply) email
 addresses.
 
@@ -11,7 +11,7 @@ You can create up to 100 email addresses.
 
 ###### To create email addresses
 
-1. Log in to the Amazon Connect admin website at https://`instance
+1. Log in to the Connect Customer admin website at https://`instance
 name`.my.connect.aws/. Use an admin account, or an account with
    **Channels and Flows** - **Email
    addresses** - **Create** permission in it's
@@ -37,14 +37,14 @@ name`.my.connect.aws/. Use an admin account, or an account with
    and cannot accept a reply don't select a flow to be used for the
    email address.
 
-5. Under **Tags**, optionally add [tags](tagging.md "tagging.md") to manage who can view and access email addresses in Amazon Connect and
+5. Under **Tags**, optionally add [tags](tagging.md "tagging.md") to manage who can view and access email addresses in Connect Customer and
    the agent workspace.
 6. Choose **Create**.
 
 ## APIs to create and manage email addresses
 
 For a list of all email address APIs, see [Email actions](../APIReference/email-api.md "../APIReference/email-api.md") in the
-_Amazon Connect API Reference Guide_.
+_Connect Customer API Reference Guide_.
 
 Use the following APIs to create addresses programmatically:
 

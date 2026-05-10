@@ -1,4 +1,4 @@
-# Manage saved reports as an admin in Amazon Connect
+# Manage saved reports as an admin in Connect Customer
 
 You can view and delete all saved reports in your instance, including reports that
 were not created by you or that are not currently published.
@@ -8,7 +8,7 @@ To do this, you need the **Analytics and Optimization** -
 
 ## View and delete reports
 
-1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/. Use an account that has **Save reports (admin) -
+1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/. Use an account that has **Save reports (admin) -
    All** in it's the security profile.
 2. On the navigation menu, choose **Analytics and
    Optimization**, **Dashboards and reports**.

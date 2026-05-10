@@ -1,18 +1,18 @@
-# Evaluate agent and self-service interaction performance in Amazon Connect
+# Evaluate agent and self-service interaction performance in Connect Customer
 
 ###### Tip
 
-**New user?** Check out the [Amazon Connect
+**New user?** Check out the [Connect Customer
 Agent Evaluation Forms Workshop](https://catalog.workshops.aws/amazon-connect-evaluation-forms/en-US "https://catalog.workshops.aws/amazon-connect-evaluation-forms/en-US"). This online course guides you through
 creating a working example of an evaluation form.
 
-**IT administrators**: To enable Amazon Connect evaluation
-capabilities, go to the Amazon Connect console, choose your instance alias, choose
+**IT administrators**: To enable Connect Customer evaluation
+capabilities, go to the Connect Customer console, choose your instance alias, choose
 **Data storage**, **Content evaluations**,
 **Edit**. You'll be prompted to create or choose an S3 bucket.
 After the bucket is created, you can store evaluations and export them.
 
-Amazon Connect performance evaluations enables you to define custom performance evaluation criteria
+Connect Customer performance evaluations enables you to define custom performance evaluation criteria
 to assess, monitor and improve how agents and automated systems (bots, AI agents)
 interact with customers and resolve issues. You can then monitor performance by reviewing
 aggregated insights in dashboards, and drill-down into individual contacts where you can see
@@ -20,13 +20,13 @@ evaluations alongside recordings, transcript, conversation summaries and analyti
 view. With integrated coaching, you can provide feedback to agents highlighting their strengths
 and opportunities to improve.
 
-You can perform manual evaluations for all contact types (voice, chat, email, and task). You can perform automated interactions for voice and chat contacts analyzed by Amazon Connect conversational analytics. You can perform automated evaluations of both agent interactions and automated interactions (handled by bots or AI agents). For more details on automated evaluations, see [Step 6: Enable automated evaluations](create-evaluation-forms.md#step-automate "create-evaluation-forms.md#step-automate").
+You can perform manual evaluations for all contact types (voice, chat, email, and task). You can perform automated interactions for voice and chat contacts analyzed by Connect Customer conversational analytics. You can perform automated evaluations of both agent interactions and automated interactions (handled by bots or AI agents). For more details on automated evaluations, see [Step 6: Enable automated evaluations](create-evaluation-forms.md#step-automate "create-evaluation-forms.md#step-automate").
 
 To perform manual evaluations, you can search for a contact, choose the appropriate evaluation form, review the contact audio, screen recording or transcript, and then evaluate how the human, AI agent, or bot interacted with the customer. You can then use those insights to improve the customer experience by providing agent coaching feedback and optimizing bots, AI agents and self-service workflows.
 
 ###### To evaluate performance
 
-1. Log in to Amazon Connect with a user account that has [permissions to perform
+1. Log in to Connect Customer with a user account that has [permissions to perform
    evaluations](evaluation-and-coaching-permissions.md "evaluation-and-coaching-permissions.md").
 2. Access the contact that you want to evaluate. There are a few ways you can do
    this. For example, someone may have shared the contact URL with you, or assigned you

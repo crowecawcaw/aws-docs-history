@@ -1,4 +1,4 @@
-# Customize the Amazon Connect agent workspace
+# Customize the Connect Customer agent workspace
 
 This section explains how to customize the agent workspace and enable guided experiences.
 
@@ -20,12 +20,12 @@ The following image shows the parts of the agent workspace.
 4. **Tasks** to assign work or follow-up
    activities.
 5. The case ID, and other info on the **Cases** tab, powered by
-   Amazon Connect Cases.
+   Connect Customer Cases.
 6. **Step-by-step guides**, which provide consistent
    workflows to reduce cognitive load.
 7. Machine-learning powered voice authentication, powered by **Voice ID**.
 8. Customer information on the **Customer profile** tab, powered by
-   Amazon Connect Customer Profiles.
+   Connect Customer Customer Profiles.
    You can also integrate [third-party applications](3p-apps.md "3p-apps.md")—built
    by vendors or you—into the agent workspace. The following image shows an example
    third-party app named **SchedulerApp** in the agent workspace. Agents can

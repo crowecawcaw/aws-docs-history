@@ -1,11 +1,11 @@
-# Metric definitions in Amazon Connect
+# Metric definitions in Connect Customer
 
 This topic lists all metrics in alphabetical order. For lists of metrics that apply only
 to a specific feature area, see these topics:
 
 - [Custom metric primitives](metric-primitive-definitions.md "metric-primitive-definitions.md")
-- [Amazon Connect Cases metrics](case-management-metrics.md "case-management-metrics.md")
-- [Amazon Connect bot metrics and analytics](bot-metrics.md "bot-metrics.md")
+- [Connect Customer Cases metrics](case-management-metrics.md "case-management-metrics.md")
+- [Connect Customer bot metrics and analytics](bot-metrics.md "bot-metrics.md")
 - [Conversational analytics
   metrics](contact-lens-metrics.md "contact-lens-metrics.md")
 - [Evaluation metrics](evaluation-metrics.md "evaluation-metrics.md")
@@ -31,11 +31,11 @@ staffing, improved call routing strategies, or addressing queue bottlenecks.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API: `ABANDONMENT_RATE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Abandonment rate
 - Historical metrics reports: Abandonment rate
@@ -53,12 +53,12 @@ Agent is identified by its unique combination of `Name` and `Version`.
 
 **Metric category**: AI Agent
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `ACTIVE_AI_AGENTS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
   Active AI Agents
@@ -97,12 +97,12 @@ This metric helps organizations:
 
 **Metric category**: Current agent metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetCurrentMetricData](../APIReference/API_GetCurrentMetricData.md "../APIReference/API_GetCurrentMetricData.md") API identifier:
   `SLOTS_ACTIVE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Active
 - Historical metrics reports: Active
@@ -122,12 +122,12 @@ This metric measures the percentage of time that an agent correctly follows thei
 
 **Metric category**: Agent activity-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AGENT_SCHEDULE_ADHERENCE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Adherence
 
@@ -137,7 +137,7 @@ This metric measures the percentage of time that an agent correctly follows thei
   to 30 days in the past from the current date (not the date of the schedule),
   if schedules are changed.
 
-For a list of all schedule adherence metrics, see [Schedule Adherence metrics in Amazon Connect](scheduling-metrics.md "scheduling-metrics.md").
+For a list of all schedule adherence metrics, see [Schedule Adherence metrics in Connect Customer](scheduling-metrics.md "scheduling-metrics.md").
 
 ## Adherent time
 
@@ -150,16 +150,16 @@ This metric measures the total time an agent adhered to their schedule.
 
 **Metric category**: Agent activity-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AGENT_ADHERENT_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Adherent time
 
-For a list of all schedule adherence metrics, see [Schedule Adherence metrics in Amazon Connect](scheduling-metrics.md "scheduling-metrics.md").
+For a list of all schedule adherence metrics, see [Schedule Adherence metrics in Connect Customer](scheduling-metrics.md "scheduling-metrics.md").
 
 ## After contact work time
 
@@ -175,14 +175,14 @@ configured timeout is reached.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") API metric identifier:
   `AFTER_CONTACT_WORK_TIME`
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `SUM_AFTER_CONTACT_WORK_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Duration (when Agent Activity is in After Contact
   Work state)
@@ -209,7 +209,7 @@ If an agent is handling a single contact, this metric may have the following val
 Available, Incoming, On contact, Rejected, Missed, Error, After contact work, or a
 custom status.
 
-If an agent is handling concurrent contacts, Amazon Connect uses the following
+If an agent is handling concurrent contacts, Connect Customer uses the following
 logic to determine the state:
 
 - If at least one contact is in Error, Agent Activity =
@@ -257,7 +257,7 @@ This metric helps organizations:
 
 **Metric category**: Current agent metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetCurrentMetricData](../APIReference/API_GetCurrentMetricData.md "../APIReference/API_GetCurrentMetricData.md") API identifier:
   `AGENTS_AFTER_CONTACT_WORK`
@@ -265,24 +265,24 @@ This metric helps organizations:
 Despite the API name suggesting this metric counts agents, it actually counts
 contacts in ACW state, not the number of agents.
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: ACW
 - Historical metrics reports: Contacts in ACW
 - Dashboard: ACW contacts
 
-To learn more about agent status and contact states, see [Agent status in the Contact Control Panel (CCP)](metrics-agent-status.md "metrics-agent-status.md") and [About contact states in Amazon Connect](about-contact-states.md "about-contact-states.md").
+To learn more about agent status and contact states, see [Agent status in the Contact Control Panel (CCP)](metrics-agent-status.md "metrics-agent-status.md") and [About contact states in Connect Customer](about-contact-states.md "about-contact-states.md").
 
 ## Agent API connecting time
 
 This metric measures the total time between when a contact is initiated using an
-Amazon Connect API, and the agent is connected.
+Connect Customer API, and the agent is connected.
 
 **Metric type**: String (_hh:mm:ss_)
 
 **Metric category**: Agent activity-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `SUM_CONNECTING_TIME_AGENT`
@@ -293,7 +293,7 @@ parameter set as follows:
     + `MetricFilterKey = INITIATION_METHOD`
     + `MetricFilterValues = API`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Agent API connecting time
 
@@ -325,12 +325,12 @@ of accepted contacts to total routing attempts.
 
 **Metric category**: Agent activity-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API identifier:
   `AGENT_ANSWER_RATE`.
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Agent answer rate
 
@@ -362,12 +362,12 @@ supports filtering and grouping by channel = CHAT.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_CONTACT_FIRST_RESPONSE_TIME_AGENT`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: Avg. contact first response wait time
 
@@ -388,14 +388,14 @@ supports filtering and grouping by channel = CHAT.
 ## Agent callback connecting time
 
 This metric measures the total time between when a callback contact is initiated by
-Amazon Connect reserving the agent for the contact, and the agent is
+Connect Customer reserving the agent for the contact, and the agent is
 connected.
 
 **Metric type**: String (_hh:mm:ss_)
 
 **Metric category**: Agent activity-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API identifier:
   `SUM_CONNECTING_TIME_AGENT`
@@ -406,7 +406,7 @@ parameter set as follows:
     + `MetricFilterKey = INITIATION_METHOD`
     + `MetricFilterValues = CALLBACK`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Agent callback connecting time
 
@@ -432,12 +432,12 @@ This metric helps organizations:
 
 **Metric category**: Current agent metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetCurrentMetricData](../APIReference/API_GetCurrentMetricData.md "../APIReference/API_GetCurrentMetricData.md") API identifier:
   `AGENTS_ERROR`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Error
 - Historical metrics reports: Agents in error
@@ -449,7 +449,7 @@ After the agent sets their status in the CCP to **Available**, this
 metric measures is the amount of time they weren't handling contacts + any time their
 contacts were in an Error state.
 
-Agent idle time includes the amount of time from when Amazon Connect starts routing the contact
+Agent idle time includes the amount of time from when Connect Customer starts routing the contact
 to the agent to when the agent picks up or declines the contact. After an agent accepts
 the contact, the agent is no longer considered idle.
 
@@ -457,12 +457,12 @@ the contact, the agent is no longer considered idle.
 
 **Metric category**: Agent activity-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `SUM_IDLE_TIME_AGENT`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Agent idle time
 
@@ -487,13 +487,13 @@ the contact, the agent is no longer considered idle.
 
 ## Agent incoming connecting time
 
-This metric measures the total time between when a contact is initiated by Amazon Connect reserving the agent for the contact, and the agent is connected.
+This metric measures the total time between when a contact is initiated by Connect Customer reserving the agent for the contact, and the agent is connected.
 
 **Metric type**: String (_hh:mm:ss_)
 
 **Metric category**: Agent activity-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md"): `SUM_CONNECTING_TIME_AGENT`
 
@@ -503,7 +503,7 @@ parameter set as follows:
     + `MetricFilterKey = INITIATION_METHOD`
     + `MetricFilterValues = INBOUND`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Agent incoming connecting time
 
@@ -523,11 +523,11 @@ and outbound calls.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md"): `SUM_INTERACTION_AND_HOLD_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Agent interaction and hold time
 
@@ -554,11 +554,11 @@ Work Time](#after-contact-work-time "#after-contact-work-time"), or agent pause 
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md"): `SUM_INTERACTION_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Agent interaction time
 
@@ -606,12 +606,12 @@ This metric helps organizations:
 
 **Metric category**: Current agent metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetCurrentMetricData](../APIReference/API_GetCurrentMetricData.md "../APIReference/API_GetCurrentMetricData.md") API identifier:
   `AGENTS_NON_PRODUCTIVE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: NPT
 - Historical metrics reports: Non-Productive Time
@@ -627,12 +627,12 @@ agent was spending their time unproductively.
 
 **Metric category**: Agent activity driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `SUM_NON_PRODUCTIVE_TIME_AGENT`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Non-Productive Time
 
@@ -657,7 +657,7 @@ agent was spending their time unproductively.
 This metric counts the contacts routed to an agent but not answered by that agent,
 including contacts abandoned by the customer.
 
-If a contact is not answered by a given agent, Amazon Connect attempts to route it to another
+If a contact is not answered by a given agent, Connect Customer attempts to route it to another
 agent to handle; the contact is not dropped. Because a single contact can be missed
 multiple times (including by the same agent), it can be counted multiple times: once for
 each time it is routed to an agent but not answered.
@@ -666,14 +666,14 @@ each time it is routed to an agent but not answered.
 
 **Metric category**: Agent activity driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") API metric identifier:
   `CONTACTS_MISSED`
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AGENT_NON_RESPONSE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Agent non-response
 - Historical metrics reports: Agent non-response
@@ -698,7 +698,7 @@ each time it is routed to an agent but not answered.
 This metric counts the voice contacts routed to an agent but not answered by that agent,
 excluding contacts abandoned by the customer.
 
-If a voice contact is not answered by a given agent, Amazon Connect attempts to route it to another
+If a voice contact is not answered by a given agent, Connect Customer attempts to route it to another
 agent to handle; the contact is not dropped. Because a single contact can be missed
 multiple times (including by the same agent), it can be counted multiple times: once for
 each time it is routed to an agent but not answered.
@@ -711,12 +711,12 @@ use the **Agent non-response** metric.
 
 **Metric category**: Agent activity-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AGENT_NON_RESPONSE_WITHOUT_CUSTOMER_ABANDONS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Agent non-response without customer
   abandons
@@ -746,12 +746,12 @@ example, Training would be a custom status.)
 
 **Metric category**: Agent activity-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `SUM_CONTACT_TIME_AGENT`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Agent on contact time
 
@@ -790,9 +790,9 @@ An agent is defined as online when their CCP status is:
 
 **Metric category**: Current agent metric
 
-**How to access using the Amazon Connect API**: Not available
+**How to access using the Connect Customer API**: Not available
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Agents count](queue-performance-dashboard.md#agent-status-drill-down "queue-performance-dashboard.md#agent-status-drill-down")
 
@@ -819,14 +819,14 @@ agent.
 
 **Metric category**: Current Agent Metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetCurrentMetricData](../APIReference/API_GetCurrentMetricData .md "../APIReference/API_GetCurrentMetricData .md") API metric identifier:
   `AGENTS_ON_CONTACT`
 
 Legacy API Identifier: AGENTS_ON_CALL (still supported)
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: On contact
 - Historical metrics reports: Agents on contact
@@ -835,14 +835,14 @@ Legacy API Identifier: AGENTS_ON_CALL (still supported)
 ## Agent outbound connecting time
 
 This metric measures the total time between when an outbound contact is initiated by
-Amazon Connect reserving the agent for the contact, and the agent is
+Connect Customer reserving the agent for the contact, and the agent is
 connected.
 
 **Metric type**: String (_hh:mm:ss_)
 
 **Metric category**: Agent activity-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API: `SUM_CONNECTING_TIME_AGENT`
 
@@ -852,7 +852,7 @@ parameter set as follows:
     + `MetricFilterKey = INITIATION_METHOD`
     + `MetricFilterValues = OUTBOUND`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Agent outbound connecting time
 
@@ -865,12 +865,12 @@ conversation duration.
 
 **Metric category**: Conversational analytics driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `PERCENT_TALK_TIME_AGENT`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Agent talk time percent
 
@@ -885,7 +885,7 @@ conversation duration.
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## AI Handoffs
 
@@ -897,12 +897,12 @@ initially handle customer inquiries.
 
 **Metric category**: AI Session
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `AI_HANDOFFS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Active
 - Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
@@ -925,7 +925,7 @@ that had escalation to human agents or additional support.
 
 **Metric category**: AI Session
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `AI_HANDOFF_RATE`
@@ -950,12 +950,12 @@ AI-Agents per instance.
 
 **Metric category**: AI Agent
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `AI_AGENT_INVOCATIONS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"), AI
   Agent Invocation Count
@@ -977,7 +977,7 @@ successfully without technical failures such as API errors, timeouts, or system 
 
 **Metric category**: AI Agent
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `AI_AGENT_INVOCATION_SUCCESS`
@@ -1001,12 +1001,12 @@ executed successfully without technical failures.
 
 **Metric category**: AI Agent
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `AI_AGENT_INVOCATION_SUCCESS_RATE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"), AI
   Agent Invocation Success Rate
@@ -1025,12 +1025,12 @@ This metric measures the count of AI suggestions rated as helpful with a thumbs-
 
 **Metric category**: AI Agent
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `AI_AGENT_RESPONSE_HELPFUL`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"), AI
   Agent Response Helpful
@@ -1057,12 +1057,12 @@ This metric measures the count of AI suggestions rated as unhelpful with a thumb
 
 **Metric category**: AI Agent
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `AI_AGENT_RESPONSE_NOT_HELPFUL`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"), AI
   Agent Response Not Helpful
@@ -1094,12 +1094,12 @@ customer inquiries.
 
 **Metric category**: AI Session
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `AI_RESPONSE_COMPLETION_RATE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
   Response Completion Rate
@@ -1120,12 +1120,12 @@ customer inquiries.
 
 **Metric category**: AI Session
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `AI_INVOLVED_CONTACTS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"), AI
   Involved Contacts
@@ -1148,7 +1148,7 @@ Prompts](create-ai-prompts.md "create-ai-prompts.md") invocations that executed 
 
 **Metric category**: AI Prompt
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `AI_PROMPT_INVOCATION_SUCCESS`
@@ -1171,12 +1171,12 @@ Prompts](create-ai-prompts.md "create-ai-prompts.md") invocations that executed 
 
 **Metric category**: AI Prompt
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `AI_PROMPT_INVOCATION_SUCCESS_RATE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"), AI
   Prompt Invocation Success Rate
@@ -1195,12 +1195,12 @@ This metric measures the total count of [AI Prompts](create-ai-prompts.md "creat
 
 **Metric category**: AI Prompt
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `AI_PROMPT_INVOCATIONS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"), AI
   Prompt Invocation Count
@@ -1222,7 +1222,7 @@ executed successfuly.
 
 **Metric category**: AI Tool
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `AI_TOOL_INVOCATION_SUCCESS`
@@ -1244,12 +1244,12 @@ This metric measures the percentage of [AI Tools](ai-agent-mcp-tools.md "ai-agen
 
 **Metric category**: AI Tool
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `AI_TOOL_INVOCATION_SUCCESS_RATE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"), AI
   Tool Invocation Success Rate
@@ -1268,12 +1268,12 @@ This metric measures the percentage of [AI Tools](ai-agent-mcp-tools.md "ai-agen
 
 **Metric category**: AI Tool
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `AI_TOOL_INVOCATIONS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"), AI
   Tool Invocation Count
@@ -1295,12 +1295,12 @@ provided the correct parameters. Value is between 0-1, where 1 indicates perfect
 
 **Metric category**: AI Tool
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `AI_TOOL_PARAMETER_ACCURACY`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"), AI
   Tool Parameter Accuracy
@@ -1328,12 +1328,12 @@ Value is between 0-1, where 1 indicates optimal selection.
 
 **Metric category**: AI Tool
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `AI_TOOL_SELECTION_ACCURACY`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"), AI
   Tool Selection Accuracy
@@ -1361,12 +1361,12 @@ including proper parameters and selection. Value is between 0-1, where 1 indicat
 
 **Metric category**: AI Tool
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `AI_TOOL_UTILIZATION_ACCURACY`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"), AI
   Tool Utilization Accuracy
@@ -1394,12 +1394,12 @@ Agents](create-ai-agents.md "create-ai-agents.md") took to reach an outcome.
 
 **Metric category**: AI Agent
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `AVG_AI_AGENT_CONVERSATION_TURNS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
   Avg. AI agent conversation turns
@@ -1421,12 +1421,12 @@ This metric measures the average number of conversation turns across all AI invo
 
 **Metric category**: AI Session
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `AVG_AI_CONVERSATION_TURNS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
   Avg. AI Conversation Turns
@@ -1450,12 +1450,12 @@ milliseconds.
 
 **Metric category**: AI Prompt
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `AVG_AI_PROMPT_INVOCATION_LATENCY`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
   Avg. AI Prompt Invocation Latency
@@ -1478,12 +1478,12 @@ milliseconds.
 
 **Metric category**: AI Prompt
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `AVG_AI_TOOL_INVOCATION_LATENCY`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
   Avg. AI Tool Invocation Latency
@@ -1507,12 +1507,12 @@ answers. Value is between 0-1, where 1 indicates complete responses across all s
 
 **Metric category**: AI Session
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `COMPLETENESS_SCORE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
   Avg. Completeness Score
@@ -1542,12 +1542,12 @@ Value is between 0-1, where 1 indicates perfect contextual fidelity.
 
 **Metric category**: AI Session
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `FAITHFULNESS_SCORE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
   Avg. Faithfulness Score
@@ -1577,12 +1577,12 @@ across all sessions.
 
 **Metric category**: AI Session
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `GOAL_SUCCESS_RATE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
   Goal Success Rate
@@ -1611,12 +1611,12 @@ Agents](create-ai-agents.md "create-ai-agents.md").
 
 **Metric category**: AI Knowledge Base
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `KNOWLEDGE_CONTENT_REFERENCES`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
   Knowledge Base Reference Count
@@ -1637,7 +1637,7 @@ This metric measures the number of proactive intents (customer queries) that wer
 
 **Metric category**: AI Session
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `PROACTIVE_INTENTS_ANSWERED`
@@ -1661,7 +1661,7 @@ particularly for Agent Assistance use cases.
 
 **Metric category**: AI Session
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `PROACTIVE_INTENTS_DETECTED`
@@ -1685,7 +1685,7 @@ particularly for Agent Assistance use cases.
 
 **Metric category**: AI Session
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `PROACTIVE_INTENTS_ENGAGED`
@@ -1709,12 +1709,12 @@ agents.
 
 **Metric category**: AI Session
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `PROACTIVE_INTENT_ENGAGEMENT_RATE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
   Proactive Intent Engagement Rate
@@ -1734,12 +1734,12 @@ agents.
 
 **Metric category**: AI Session
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")
   API metric identifier: `PROACTIVE_INTENT_RESPONSE_RATE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"),
   Proactive Intent Engagement Rate
@@ -1752,7 +1752,7 @@ agents.
 
 ## API contacts
 
-This metric counts the contacts that were initiated using an Amazon Connect API
+This metric counts the contacts that were initiated using an Connect Customer API
 operation, such as `StartOutboundVoiceContact`. This includes contacts that
 were not handled by an agent.
 
@@ -1760,7 +1760,7 @@ were not handled by an agent.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API: `CONTACTS_CREATED`
 
@@ -1770,7 +1770,7 @@ parameter set as follows:
     + `MetricFilterKey = INITIATION_METHOD`
     + `MetricFilterValues = API`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: API Contacts
 
@@ -1784,7 +1784,7 @@ parameter set as follows:
 
 ## API contacts handled
 
-This metric counts the contacts that were initiated using an Amazon Connect API
+This metric counts the contacts that were initiated using an Connect Customer API
 operation, such as `StartOutboundVoiceContact`, and handled by an
 agent.
 
@@ -1792,7 +1792,7 @@ agent.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") API metric identifier:
   `API_CONTACTS_HANDLED`
@@ -1805,7 +1805,7 @@ parameter set as follows:
     + `MetricFilterKey = INITIATION_METHOD`
     + `MetricFilterValues = API`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: API contacts handled
 - Historical metrics reports: API contacts handled
@@ -1829,7 +1829,7 @@ If a question is marked as an automatic fail, then the parent section and the fo
 
 **Metric category**: Contact evaluation driven metric
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md")
 
@@ -1880,10 +1880,10 @@ What causes this number to go down? A slot is considered unavailable when:
   inbound ringing, outbound ringing, missed, or in an error state.
 - A contact in the slot is connected to the agent and on hold.
 
-Amazon Connect doesn't count an agent's slots when:
+Connect Customer doesn't count an agent's slots when:
 
 - The agent has set their status in the CCP to a custom status, such as Break or
-  Training. Amazon Connect doesn't count these slots because agents can't take
+  Training. Connect Customer doesn't count these slots because agents can't take
   inbound contacts when they've set their status to a custom status.
 - The agent can't take contacts from that channel per their routing profile.
 
@@ -1894,12 +1894,12 @@ Amazon Connect doesn't count an agent's slots when:
 
 **Metric category**: Current Agent Metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetCurrentMetricData](../APIReference/API_GetCurrentMetricData.md "../APIReference/API_GetCurrentMetricData.md") API metric identifier:
   `SLOTS_AVAILABLE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Availability
 - Dashboard: Available Capacity
@@ -1917,18 +1917,18 @@ Availability metric. It indicates how many slots the agent has free.
 What causes this number to go down? An agent is considered **unavailable** when:
 
 - The agent has set their status in the CCP to a custom status, such as Break or
-  Training. Amazon Connect doesn't count these slots because agents can't take
+  Training. Connect Customer doesn't count these slots because agents can't take
   inbound contacts when they've set their status to a custom status.
 - The agent has at least one contact ongoing.
 - The agent has a contact in a missed or error state, which prevents the agent
   from taking any more contacts until they are flipped back to routable.
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetCurrentMetricData](../APIReference/API_GetCurrentMetricData.md "../APIReference/API_GetCurrentMetricData.md") API metric identifier:
   `AGENTS_AVAILABLE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Available
 
@@ -1947,12 +1947,12 @@ status.)
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_ACTIVE_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Average active time
 - Historical metrics reports: Average active time
@@ -1983,12 +1983,12 @@ This metric measures the average time that an agent spent doing After Contact Wo
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_AFTER_CONTACT_WORK_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Avg ACW
 - Historical metrics reports: Average after contact work time
@@ -2010,13 +2010,13 @@ This metric measures the average time that an agent spent doing After Contact Wo
 ## Average agent API connecting time
 
 This metric measures the average time between when a contact is initiated using an
-Amazon Connect API, and the agent is connected.
+Connect Customer API, and the agent is connected.
 
 **Metric type**: String (_hh:mm:ss_)
 
 **Metric category**: Agent activity-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_AGENT_CONNECTING_TIME`
@@ -2027,7 +2027,7 @@ parameter set as follows:
     + `MetricFilterKey` = `INITIATION_METHOD`
     + `MetricFilterValues` = `API`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Avg API connecting time
 - Historical metrics reports: Average agent API connecting time
@@ -2035,13 +2035,13 @@ parameter set as follows:
 ## Average agent callback connecting time
 
 This metric measures the average time between when a callback contact is initiated by
-Amazon Connect reserving the agent for the contact, and the agent is connected.
+Connect Customer reserving the agent for the contact, and the agent is connected.
 
 **Metric type**: String (_hh:mm:ss_)
 
 **Metric category**: Agent activity-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_AGENT_CONNECTING_TIME`
@@ -2052,7 +2052,7 @@ parameter set as follows:
     + `MetricFilterKey` = `INITIATION_METHOD`
     + `MetricFilterValues` = `CALLBACK`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Avg callback connecting time
 - Historical metrics reports: Average agent callback connecting time
@@ -2061,7 +2061,7 @@ parameter set as follows:
 **Calculation logic**:
 
 - The following image shows the five parts that go into calculating this metric:
-  Amazon Connect assign work item to agent, agent accepts work item, connection build time,
+  Connect Customer assign work item to agent, agent accepts work item, connection build time,
   network connection time, rings for customer. It also shows what is in the agent
   event stream: Connecting, Connected or no answer.
 
@@ -2080,12 +2080,12 @@ CHAT.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_FIRST_RESPONSE_TIME_AGENT`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: Avg. agent first response time
 
@@ -2110,12 +2110,12 @@ indicating how quickly they engage with customers after joining the chat.
 
 **Metric category**: Conversational analytics driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_GREETING_TIME_AGENT`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Average agent greeting time
 
@@ -2129,18 +2129,18 @@ indicating how quickly they engage with customers after joining the chat.
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Average agent incoming connecting time
 
-This metric measures the average time between when contact is initiated by Amazon Connect reserving the agent for the contact, and the agent is connected. This is
+This metric measures the average time between when contact is initiated by Connect Customer reserving the agent for the contact, and the agent is connected. This is
 the ring time for configurations where the agent is not set to auto-answer.
 
 **Metric type**: String (_hh:mm:ss_)
 
 **Metric category**: Agent activity-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_AGENT_CONNECTING_TIME`
@@ -2151,7 +2151,7 @@ parameter set as follows:
     + `MetricFilterKey` = `INITIATION_METHOD`
     + `MetricFilterValues` = `INBOUND`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Avg incoming connecting time
 - Historical metrics reports: Average agent incoming connecting time
@@ -2179,14 +2179,14 @@ outbound calls.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") API metric identifier:
   `INTERACTION_AND_HOLD_TIME`
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_INTERACTION_AND_HOLD_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Avg interaction and hold time
 - Historical metrics reports: Average agent interaction and customer hold
@@ -2216,14 +2216,14 @@ Work Time](#after-contact-work-time "#after-contact-work-time"), or agent pause 
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") API metric identifier:
   `INTERACTION_TIME`
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_INTERACTION_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Avg interaction time
 - Historical metrics reports: Average agent interaction time
@@ -2250,12 +2250,12 @@ customer interactions.
 
 **Metric category**: Conversational analytics driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_INTERRUPTIONS_AGENT`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Average agent interruptions
 
@@ -2269,7 +2269,7 @@ customer interactions.
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Average agent interruption time
 
@@ -2279,12 +2279,12 @@ This metric measures the average of total agent interruption time while talking 
 
 **Metric category**: Conversational analytics driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_INTERRUPTION_TIME_AGENT`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Average agent interruption time
 
@@ -2300,7 +2300,7 @@ This metric measures the average of total agent interruption time while talking 
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Average agent message length
 
@@ -2314,12 +2314,12 @@ only supports filtering and grouping by channel = CHAT.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_MESSAGE_LENGTH_AGENT`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: Avg. agent message length
 
@@ -2350,12 +2350,12 @@ only supports filtering and grouping by channel = CHAT.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_MESSAGES_AGENT`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: Avg. agent messages
 
@@ -2373,13 +2373,13 @@ only supports filtering and grouping by channel = CHAT.
 ## Average agent outbound connecting time
 
 This metric measures the average time between when an outbound contact is initiated by
-Amazon Connect reserving the agent for the contact, and the agent is connected.
+Connect Customer reserving the agent for the contact, and the agent is connected.
 
 **Metric type**: String (_hh:mm:ss_)
 
 **Metric category**: Agent activity-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API: `AVG_AGENT_CONNECTING_TIME`
 
@@ -2389,7 +2389,7 @@ parameter set as follows:
     + `MetricFilterKey = INITIATION_METHOD`
     + `MetricFilterValues = OUTBOUND`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Avg outbound connecting time
 - Historical metrics reports: Average agent outbound connecting time
@@ -2420,12 +2420,12 @@ the report for them.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_AGENT_PAUSE_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Average agent pause time
 - Historical metrics reports: Average agent pause time
@@ -2452,12 +2452,12 @@ customer messages. It only supports filtering and grouping by channel = CHAT.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_RESPONSE_TIME_AGENT`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: Avg. agent response time
 
@@ -2485,12 +2485,12 @@ This metric measures the average time that was spent talking in a conversation b
 
 **Metric category**: Conversational analytics driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_TALK_TIME_AGENT`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Average agent talk time
 
@@ -2505,7 +2505,7 @@ This metric measures the average time that was spent talking in a conversation b
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Average bot conversation time
 
@@ -2516,7 +2516,7 @@ resource (flow or flow module) started between the specified start and end time.
 
 **Metric category**: Flow driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_BOT_CONVERSATION_TIME`
@@ -2534,7 +2534,7 @@ It can be filtered on specific conversation outcomes with
 - Data for this metric is available starting from December 2, 2024 00:00:00
   GMT.
 
-For a list of all bot metrics, see [Amazon Connect bot metrics and analytics](bot-metrics.md "bot-metrics.md").
+For a list of all bot metrics, see [Connect Customer bot metrics and analytics](bot-metrics.md "bot-metrics.md").
 
 ## Average bot conversation turns
 
@@ -2548,7 +2548,7 @@ bot.
 
 **Metric category**: Flow driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_BOT_CONVERSATION_TURNS`
@@ -2566,7 +2566,7 @@ It can be filtered on specific conversation outcomes with
 - Data for this metric is available starting from December 2, 2024 00:00:00
   GMT.
 
-For a list of all bot metrics, see [Amazon Connect bot metrics and analytics](bot-metrics.md "bot-metrics.md").
+For a list of all bot metrics, see [Connect Customer bot metrics and analytics](bot-metrics.md "bot-metrics.md").
 
 ## Average bot messages
 
@@ -2580,12 +2580,12 @@ only supports filtering and grouping by channel = CHAT.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_MESSAGES_BOT`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: Avg. bot messages
 
@@ -2608,16 +2608,16 @@ interval.
 
 **Metric category**: Case driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_CASE_RESOLUTION_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Average Case Resolution Time
 
-For a list of all case driven metrics, see [Amazon Connect Cases metrics](case-management-metrics.md "case-management-metrics.md").
+For a list of all case driven metrics, see [Connect Customer Cases metrics](case-management-metrics.md "case-management-metrics.md").
 
 ## Average contact duration
 
@@ -2628,12 +2628,12 @@ timestamp to disconnect timestamp. For information about a contact, see [Contact
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_CONTACT_DURATION`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Average contact duration
 
@@ -2658,16 +2658,16 @@ during the provided time interval.
 
 **Metric category**: Case driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_CASE_RELATED_CONTACTS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Average Case Related Contacts
 
-For a list of all case driven metrics, see [Amazon Connect Cases metrics](case-management-metrics.md "case-management-metrics.md").
+For a list of all case driven metrics, see [Connect Customer Cases metrics](case-management-metrics.md "case-management-metrics.md").
 
 ## Average conversation close time
 
@@ -2682,12 +2682,12 @@ CHAT.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_CONVERSATION_CLOSE_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: Avg. conversation close time
 
@@ -2711,12 +2711,12 @@ This metric measures the average conversation duration of voice contacts with ag
 
 **Metric category**: Conversational analytics driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_CONVERSATION_DURATION`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Average conversation duration
 
@@ -2733,7 +2733,7 @@ This metric measures the average conversation duration of voice contacts with ag
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Average customer hold time
 
@@ -2746,14 +2746,14 @@ notice a value of 0 on the report for them.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") API metric identifier:
   `AVG_HOLD_TIME`
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_HOLD_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Avg hold time
 - Historical metrics reports: Average customer hold time
@@ -2783,12 +2783,12 @@ calculation includes contacts that were never put on hold.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_HOLD_TIME_ALL_CONTACTS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Average customer hold time all contacts
 
@@ -2819,12 +2819,12 @@ It only supports filtering and grouping by channel = CHAT.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_MESSAGE_LENGTH_CUSTOMER`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: Avg. customer first response time
 
@@ -2856,12 +2856,12 @@ only supports filtering and grouping by channel = CHAT.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_MESSAGES_CUSTOMER`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: Avg. customer messages
 
@@ -2891,12 +2891,12 @@ CHAT.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_RESPONSE_TIME_CUSTOMER`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: Avg. customer response time
 
@@ -2926,12 +2926,12 @@ conversation by a customer.
 
 **Metric category**: Conversational analytics driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_TALK_TIME_CUSTOMER`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Average customer talk time
 
@@ -2946,7 +2946,7 @@ conversation by a customer.
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Average dials per minute
 
@@ -2958,12 +2958,12 @@ start time and end time.
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_DIALS_PER_MINUTE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Avg. dials per minute
@@ -2975,7 +2975,7 @@ start time and end time.
 - Data for this metric is available starting from June 25, 2024 0:00:00
   GMT.
 
-For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Amazon Connect](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
+For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Connect Customer](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
 
 ## Average evaluation score
 
@@ -2990,12 +2990,12 @@ If the grouping does not contain evaluation form, section or question, then the 
 
 **Metric category**: Contact evaluation driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_EVALUATION_SCORE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md")
 
@@ -3024,7 +3024,7 @@ time.
 
 **Metric category**: Flow driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API: `AVG_FLOW_TIME`
 
@@ -3058,14 +3058,14 @@ identifying opportunities for process improvements and training.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") API metric identifier:
   `HANDLE_TIME`
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_HANDLE_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: AHT
 - Historical metrics reports: Average handle time
@@ -3102,12 +3102,12 @@ optimization.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_HOLDS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Average holds
 
@@ -3133,12 +3133,12 @@ supports filtering and grouping by channel = CHAT.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_MESSAGES`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: Avg. messages
 
@@ -3165,12 +3165,12 @@ conversation.
 
 **Metric category**: Conversational analytics driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_NON_TALK_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Average non-talk time
 
@@ -3185,7 +3185,7 @@ conversation.
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Average outbound after contact work time
 
@@ -3196,7 +3196,7 @@ for an outbound contact.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_AFTER_CONTACT_WORK_TIME`
@@ -3207,7 +3207,7 @@ parameter set as follows:
     + MetricFilterKey = INITIATION\_METHOD
     + MetricFilterValues = OUTBOUND
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Average outbound after contact work time
 
@@ -3225,7 +3225,7 @@ Time, Custom status time, or agent pause duration (which applies only to tasks).
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API: `AVG_INTERACTION_TIME`
 
@@ -3235,7 +3235,7 @@ parameter set as follows:
     + `MetricFilterKey = INITIATION_METHOD`
     + `MetricFilterValues = OUTBOUND`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Average outbound agent interaction time
 
@@ -3269,14 +3269,14 @@ staffing, leading to poor customer satisfaction.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") API metric identifier:
   `ABANDON_TIME`
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_ABANDON_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Avg abandon time
 - Historical metrics reports: Average queue abandon time
@@ -3311,7 +3311,7 @@ considered abandoned if it was removed from a queue but not answered by an agent
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_ABANDON_TIME`
@@ -3320,7 +3320,7 @@ considered abandoned if it was removed from a queue but not answered by an agent
   - MetricFilterKey = INITIATION_METHOD
   - MetricFilterValues = CALLBACK_CUSTOMER_FIRST_DIALED
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: Avg. queue abandon time - customer first callback
 
@@ -3346,7 +3346,7 @@ considered abandoned if it was removed from a queue but not answered by an agent
 
 **Notes**:
 
-- This metric is available when next generation Amazon Connect is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance. It provides
+- This metric is available when next generation Connect Customer is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance. It provides
   unlimited AI capabilities.
 
 ## Average queue answer time
@@ -3367,14 +3367,14 @@ better a customer experience.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") API metric identifier:
   `QUEUE_ANSWER_TIME`
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_QUEUE_ANSWER_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Avg queue answer time
 - Historical metrics reports: Average queue answer time
@@ -3401,12 +3401,12 @@ first callback before being answered by an agent.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_QUEUE_ANSWER_TIME_CUSTOMER_FIRST_CALLBACK`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: Avg. queue answer time - customer first callback
 
@@ -3425,7 +3425,7 @@ first callback before being answered by an agent.
 
 **Notes**:
 
-- This metric is available when next generation Amazon Connect is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance. It provides
+- This metric is available when next generation Connect Customer is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance. It provides
   unlimited AI capabilities.
 
 ## Average queue answer time (enqueue timestamp)
@@ -3444,14 +3444,14 @@ Duration (from the contact record).
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") API metric identifier:
   `QUEUE_ANSWER_TIME`
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_QUEUE_ANSWER_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Intraday forecast performance dashboard](intraday-forecast-performance-dashboard.md "intraday-forecast-performance-dashboard.md")
 
@@ -3473,11 +3473,11 @@ contacts, leading to better customer satisfaction.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier: `AVG_RESOLUTION_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Average resolution time
 - Historical metrics reports: Average resolution time
@@ -3510,7 +3510,7 @@ remains in queue until the whisper is completed.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_QUEUE_ANSWER_TIME`
@@ -3519,7 +3519,7 @@ remains in queue until the whisper is completed.
   - MetricFilterKey = INITIATION_METHOD
   - MetricFilterValues = CALLBACK_CUSTOMER_FIRST_DIALED
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: Avg. speed of answer - customer first callback dialed
 
@@ -3538,7 +3538,7 @@ remains in queue until the whisper is completed.
 
 **Notes**:
 
-- This metric is available when next generation Amazon Connect is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance. It provides
+- This metric is available when next generation Connect Customer is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance. It provides
   unlimited AI capabilities.
 
 ## Average talk time
@@ -3550,12 +3550,12 @@ customer or the agent.
 
 **Metric category**: Conversational analytics driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_TALK_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Average talk time
 
@@ -3570,7 +3570,7 @@ customer or the agent.
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Average Test Case Execution Duration
 
@@ -3580,7 +3580,7 @@ The max duration of test runs that successfully started and completed.
 
 **Metric category**: Flow driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API.
 
@@ -3599,12 +3599,12 @@ connected to an agent after they answer their first callback.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_WAIT_TIME_AFTER_CUSTOMER_FIRST_CALLBACK_CONNECTION`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: Avg. wait time after customer connection - customer first
   callback
@@ -3632,19 +3632,19 @@ connected to an agent after they answer their first callback.
 
 **Notes**:
 
-- This metric is available when next generation Amazon Connect is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance. It provides
+- This metric is available when next generation Connect Customer is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance. It provides
   unlimited AI capabilities.
 
 ## Average wait time after customer connection
 
 This metric measures the average duration of total wait time by the customer after they answer the
-outbound call through the Amazon Connect dialer.
+outbound call through the Connect Customer dialer.
 
 **Metric type**: String (_hh:mm:ss_)
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_WAIT_TIME_AFTER_CUSTOMER_CONNECTION`
@@ -3656,7 +3656,7 @@ outbound call through the Amazon Connect dialer.
 - Data for this metric is available starting from June 25, 2024 0:00:00
   GMT.
 
-For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Amazon Connect](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
+For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Connect Customer](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
 
 ## Average weighted evaluation score
 
@@ -3674,12 +3674,12 @@ then the average evaluation score is at an evaluation form level.
 
 **Metric category**: Contact evaluation driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_WEIGHTED_EVALUATION_SCORE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md")
 
@@ -3721,7 +3721,7 @@ module):
 
 **Metric category**: Flow driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `BOT_CONVERSATIONS_COMPLETED`
@@ -3747,7 +3747,7 @@ filter `BOT_CONVERSATION_OUTCOME_TYPE`.
 - Data for this metric is available starting from December 2, 2024 00:00:00
   GMT.
 
-For a list of all bot metrics, see [Amazon Connect bot metrics and analytics](bot-metrics.md "bot-metrics.md").
+For a list of all bot metrics, see [Connect Customer bot metrics and analytics](bot-metrics.md "bot-metrics.md").
 
 ## Bot intents completed
 
@@ -3759,7 +3759,7 @@ the specified start and end time.
 
 **Metric category**: Flow driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `BOT_INTENTS_COMPLETED`
@@ -3810,7 +3810,7 @@ It can be filtered on the following intent outcomes using metric level filter
 - Data for this metric is available starting from December 2, 2024 00:00:00
   GMT.
 
-For a list of all bot metrics, see [Amazon Connect bot metrics and analytics](bot-metrics.md "bot-metrics.md").
+For a list of all bot metrics, see [Connect Customer bot metrics and analytics](bot-metrics.md "bot-metrics.md").
 
 ## Callback attempts
 
@@ -3821,12 +3821,12 @@ customer did not answer the call.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `SUM_RETRY_CALLBACK_ATTEMPTS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Callback attempts
 - Historical metrics reports: Callback attempts
@@ -3858,7 +3858,7 @@ first time, but the customer did not answer the call.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CONTACTS_CREATED`
@@ -3867,7 +3867,7 @@ first time, but the customer did not answer the call.
   - MetricFilterKey = INITIATION_METHOD
   - MetricFilterValues = CALLBACK_CUSTOMER_FIRST_DIALED
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: Callback attempts - customer first callback
 
@@ -3890,7 +3890,7 @@ first time, but the customer did not answer the call.
 
 **Notes**:
 
-- This metric is available when next generation Amazon Connect is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance. It provides
+- This metric is available when next generation Connect Customer is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance. It provides
   unlimited AI capabilities.
 
 ## Callback contacts
@@ -3902,7 +3902,7 @@ callback.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Callback contacts
 
@@ -3915,7 +3915,7 @@ by an agent.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") API metric identifier:
   `CALLBACK_CONTACTS_HANDLED`
@@ -3929,7 +3929,7 @@ parameter set as follows:
     + `MetricFilterKey` = `INITIATION_METHOD`
     + `MetricFilterValues` = `CALLBACK`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Callback contacts handled
 - Historical metrics reports: Callback contacts handled
@@ -3946,12 +3946,12 @@ This metric is only available with answering machine detection enabled. For more
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CAMPAIGN_CONTACTS_ABANDONED_AFTER_X`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Campaign contacts abandoned after x seconds rate
@@ -3963,7 +3963,7 @@ This metric is only available with answering machine detection enabled. For more
 - Data for this metric is available starting from June 25, 2024 0:00:00
   GMT.
 
-For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Amazon Connect](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
+For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Connect Customer](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
 
 ## Campaign contacts abandoned after X rate
 
@@ -3978,12 +3978,12 @@ The possible values for X are from 1 to 604800 inclusive.
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CAMPAIGN_CONTACTS_ABANDONED_AFTER_X_RATE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Campaign contacts abandoned rate
@@ -3996,7 +3996,7 @@ The possible values for X are from 1 to 604800 inclusive.
 - Data for this metric is available starting from June 25, 2024 0:00:00
   GMT.
 
-For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Amazon Connect](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
+For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Connect Customer](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
 
 ## Campaign interactions
 
@@ -4008,7 +4008,7 @@ Example interactions include `Open`, `Click`, and `Compliant`.
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CAMPAIGN_INTERACTIONS`
@@ -4020,7 +4020,7 @@ Example interactions include `Open`, `Click`, and `Compliant`.
 - This metric is available only for outbound campaigns that use the email delivery mode.
 - Data for this metric is available starting from November 6, 2024 0:00:00 GMT.
 
-For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Amazon Connect](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
+For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Connect Customer](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
 
 ## Campaign progress rate
 
@@ -4034,7 +4034,7 @@ recipients attempted for delivery, out of the total number of recipients targete
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CAMPAIGN_PROGRESS_RATE`
@@ -4046,24 +4046,24 @@ recipients attempted for delivery, out of the total number of recipients targete
 - This metric is only available for outbound campaigns initiated using a customer segment. It is not available for event triggered campaigns.
 - Data for this metric is available starting from April 30, 2025 0:00:00 GMT.
 
-For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Amazon Connect](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
+For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Connect Customer](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
 
 ## Campaign send attempts
 
 This metric counts the outbound campaign
-send requests sent by Amazon Connect for delivery.
+send requests sent by Connect Customer for delivery.
 A campaign send request represents a send attempt made to reach out to an recipient using email, SMS, or telephony delivery mode.
 
 **Metric type**: Integer
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CAMPAIGN_SEND_ATTEMPTS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Send attempts
@@ -4072,7 +4072,7 @@ A campaign send request represents a send attempt made to reach out to an recipi
 
 - Data for this metric is available starting from November 6, 2024 0:00:00 GMT.
 
-For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Amazon Connect](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
+For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Connect Customer](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
 
 ## Campaign send exclusions
 
@@ -4082,12 +4082,12 @@ This metric measures the count of outbound campaign send attempts that were excl
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CAMPAIGN_SEND_EXCLUSIONS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Campaign send exclusions
@@ -4097,7 +4097,7 @@ This metric measures the count of outbound campaign send attempts that were excl
 - For more details on the exclusion reasons, see campaign_event_type under [Outbound Campaign Events](data-lake.md#campaign-events "data-lake.md#campaign-events") in the Data Lake documentation.
 - Data for this metric is available starting from April 30, 2025 0:00:00 GMT.
 
-For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Amazon Connect](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
+For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Connect Customer](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
 
 ## Capacity
 
@@ -4118,12 +4118,12 @@ This metric counts all the cases created.
 
 **Metric category**: Case driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CASES_CREATED`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Cases Created
 
@@ -4140,7 +4140,7 @@ This metric counts all the cases created.
 - Can be filtered by case template and status.
 - Data for this metric is available starting from January 26, 2024 0:00:00 GMT.
 
-For a list of all case driven metrics, see [Amazon Connect Cases metrics](case-management-metrics.md "case-management-metrics.md").
+For a list of all case driven metrics, see [Connect Customer Cases metrics](case-management-metrics.md "case-management-metrics.md").
 
 ## Cases reopened
 
@@ -4150,12 +4150,12 @@ This metric measures the number of times cases have been reopened.
 
 **Metric category**: Case driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `REOPENED_CASE_ACTIONS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Reopen Case Actions Performed
 
@@ -4172,7 +4172,7 @@ This metric measures the number of times cases have been reopened.
 - Can be filtered by case template and status.
 - Data for this metric is available starting from January 26, 2024 0:00:00 GMT.
 
-For a list of all case driven metrics, see [Amazon Connect Cases metrics](case-management-metrics.md "case-management-metrics.md").
+For a list of all case driven metrics, see [Connect Customer Cases metrics](case-management-metrics.md "case-management-metrics.md").
 
 ## Cases resolved
 
@@ -4182,12 +4182,12 @@ This metric measures the number of times cases have been resolved.
 
 **Metric category**: Case driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `RESOLVED_CASE_ACTIONS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Resolve Case Actions Performed
 
@@ -4204,7 +4204,7 @@ This metric measures the number of times cases have been resolved.
 - Can be filtered by case template and status.
 - Data for this metric is available starting from January 26, 2024 0:00:00 GMT.
 
-For a list of all case driven metrics, see [Amazon Connect Cases metrics](case-management-metrics.md "case-management-metrics.md").
+For a list of all case driven metrics, see [Connect Customer Cases metrics](case-management-metrics.md "case-management-metrics.md").
 
 ## Cases resolved on first contact
 
@@ -4220,12 +4220,12 @@ closed in the specified interval it will not contribute to this metric.
 
 **Metric category**: Case driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `PERCENT_CASES_FIRST_CONTACT_RESOLVED`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Case First Contact Resolution Rate
 
@@ -4244,7 +4244,7 @@ closed in the specified interval it will not contribute to this metric.
 - True (1.0) if resolved in single contact.
 - Data for this metric is available starting from December 4, 2023 0:00:00 GMT.
 
-For a list of all case driven metrics, see [Amazon Connect Cases metrics](case-management-metrics.md "case-management-metrics.md").
+For a list of all case driven metrics, see [Connect Customer Cases metrics](case-management-metrics.md "case-management-metrics.md").
 
 ## Consult
 
@@ -4264,12 +4264,12 @@ Outbound contacts don't start in a flow, so outbound contacts aren't included.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `SUM_CONTACT_FLOW_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Contacts flow time
 
@@ -4304,12 +4304,12 @@ example, Training would be a custom status.)
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `SUM_HANDLE_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Contact handle time
 
@@ -4364,7 +4364,7 @@ methods: Inbound, Transfer, Queue_Transfer, Callback, and API.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Intraday forecast performance dashboard](intraday-forecast-performance-dashboard.md "intraday-forecast-performance-dashboard.md")
 
@@ -4377,7 +4377,7 @@ for the first callback.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CONTACTS_CREATED`
@@ -4386,7 +4386,7 @@ for the first callback.
   - MetricFilterKey = INITIATION_METHOD
   - MetricFilterValues = CALLBACK
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: Contact volume - agent first callback
 
@@ -4403,7 +4403,7 @@ for the first callback.
 
 **Notes**:
 
-- This metric is available when next generation Amazon Connect is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance. It provides
+- This metric is available when next generation Connect Customer is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance. It provides
   unlimited AI capabilities.
 
 ## Contact volume - customer first callback
@@ -4415,7 +4415,7 @@ for the first callback.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CONTACTS_CREATED`
@@ -4424,7 +4424,7 @@ for the first callback.
   - MetricFilterKey = INITIATION_METHOD
   - MetricFilterValues = CALLBACK_CUSTOMER_FIRST_QUEUED
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: Contact volume - customer first callback
 
@@ -4442,7 +4442,7 @@ for the first callback.
 
 **Notes**:
 
-- This metric is available when next generation Amazon Connect is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance. It provides
+- This metric is available when next generation Connect Customer is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance. It provides
   unlimited AI capabilities.
 
 ## Contacts abandoned
@@ -4467,14 +4467,14 @@ customers abandoned the queue before being connected to an agent.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetCurrentMetricData](../APIReference/API_GetCurrentMetricData.md "../APIReference/API_GetCurrentMetricData.md") API metric identifier:
   `CONTACTS_ABANDONED`
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CONTACTS_ABANDONED`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Abandoned
 - Historical metrics reports: Contacts abandoned
@@ -4506,7 +4506,7 @@ abandoned the queue before being connected to an agent.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CONTACTS_ABANDONED`
@@ -4515,7 +4515,7 @@ abandoned the queue before being connected to an agent.
   - MetricFilterKey = INITIATION_METHOD
   - MetricFilterValues = CALLBACK_CUSTOMER_FIRST_DIALED
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: Contacts abandoned - customer first callback
 
@@ -4537,7 +4537,7 @@ abandoned the queue before being connected to an agent.
 
 **Notes**:
 
-- This metric is available when next generation Amazon Connect is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance. It provides
+- This metric is available when next generation Connect Customer is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance. It provides
   unlimited AI capabilities.
 
 ## Contacts abandoned in _X_ seconds
@@ -4551,14 +4551,14 @@ exceeding the defined time threshold.
 
 The preset values for X are: 15, 20, 25, 30, 45, 60, 90, 120, 180, 240, 300, and 600
 but you can define a custom duration for this metric such as minutes, hours, or days.
-The maximum duration for a custom value is 7 days. That's because in Amazon Connect you can't
+The maximum duration for a custom value is 7 days. That's because in Connect Customer you can't
 have a contact that goes longer than 7 days.
 
 **Metric type**: Integer
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `SUM_CONTACTS_ABANDONED_IN_X`
@@ -4596,7 +4596,7 @@ customer.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md")> API metric identifier:
   `CONTACTS_AGENT_HUNG_UP_FIRST`
@@ -4609,7 +4609,7 @@ MetricFilters parameter set as follows:
     + `MetricFilterKey` = `DISCONNECT_REASON`
     + `MetricFilterValues` = `AGENT_DISCONNECT`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Agent hung up
 - Historical metrics reports: Contacts agent hung up first
@@ -4630,19 +4630,19 @@ This metric counts the contacts that were answered by an agent between 0 and X s
 of being placed in the queue, based on the value of EnqueueTimestamp.
 
 The possible values for X are: 15, 20, 25, 30, 45, 60, 90, 120, 180, 240, 300, and 600. You can define custom durations for this metric such as minutes, hours, or days.
-The maximum duration for a custom value is 7 days. That's because in Amazon Connect you can't
+The maximum duration for a custom value is 7 days. That's because in Connect Customer you can't
 have a contact that goes longer than 7 days.
 
 **Metric type**: Integer
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `SUM_CONTACTS_ANSWERED_IN_X`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Contacts answered in X seconds
 - Historical metrics reports: Contacts answered in X seconds
@@ -4663,7 +4663,7 @@ have a contact that goes longer than 7 days.
 ## Contacts created
 
 This metric counts the contacts in a queue. It provides a count of contacts that were
-initiated or created within the Amazon Connect instance. It tracks the number of inbound and
+initiated or created within the Connect Customer instance. It tracks the number of inbound and
 outbound contacts across all channels (voice, chat, task, etc.) that were generated
 during the specified time period. It can be filtered by initiation methods.
 
@@ -4674,12 +4674,12 @@ the contact center.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CONTACTS_CREATED`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Intraday forecast performance dashboard](intraday-forecast-performance-dashboard.md "intraday-forecast-performance-dashboard.md"), Contacts created
 
@@ -4698,14 +4698,14 @@ the contact center.
 
 Deprecated May 2019. When used in a report, it returns a dash (-).
 
-The count of contacts handled by an agent who consulted with another agent in Amazon Connect. The agent interacts with the other agent, but the customer is not
+The count of contacts handled by an agent who consulted with another agent in Connect Customer. The agent interacts with the other agent, but the customer is not
 transferred to the other agent.
 
 **Metric type**: Integer
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") API metric identifier:
   `CONTACTS_CONSULTED`
@@ -4722,12 +4722,12 @@ queue.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `SUM_CONTACTS_DISCONNECTED`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Contacts disconnected
 
@@ -4759,14 +4759,14 @@ handled by their agents.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetCurrentMetricData](../APIReference/API_GetCurrentMetricData.md "../APIReference/API_GetCurrentMetricData.md") API metric identifier:
   `CONTACTS_HANDLED`
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CONTACTS_HANDLED`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Handled
 - Historical metrics reports: Contacts handled
@@ -4794,12 +4794,12 @@ the `CONNECTED_TO_AGENT` timestamp.
 
 **Metric category**: Contact event-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CONTACTS_HANDLED_CONNECTED_TO_AGENT_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Contacts handled (connected to agent
   timestamp)
@@ -4821,8 +4821,8 @@ the `CONNECTED_TO_AGENT` timestamp.
 - Data for this metric is available starting from January 12, 2024 0:00:00
   GMT.
 - Contact events are from a near real-time stream of contact (voice calls, chat,
-  task, and email) events (for example, call is queued) in your Amazon Connect contact
-  center. For more information, see [Amazon Connect contact events](contact-events.md "contact-events.md").
+  task, and email) events (for example, call is queued) in your Connect Customer contact
+  center. For more information, see [Connect Customer contact events](contact-events.md "contact-events.md").
 - To see the count of contacts handled when a contact disconnects, see [Contacts handled](#contacts-handled "#contacts-handled").
 
 ## Contacts handled - customer first callback
@@ -4834,7 +4834,7 @@ dialed for their first callback.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CONTACTS_HANDLED`
@@ -4843,7 +4843,7 @@ dialed for their first callback.
   - MetricFilterKey = INITIATION_METHOD
   - MetricFilterValues = CALLBACK_CUSTOMER_FIRST_DIALED
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: Contacts handled - customer first callback
 
@@ -4858,7 +4858,7 @@ dialed for their first callback.
 
 **Notes**:
 
-- This metric is available when next generation Amazon Connect is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance. It provides
+- This metric is available when next generation Connect Customer is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance. It provides
   unlimited AI capabilities.
 
 ## Contacts handled incoming
@@ -4879,7 +4879,7 @@ email.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") API metric identifier:
   `CONTACTS_HANDLED_INCOMING`
@@ -4893,7 +4893,7 @@ MetricFilters parameter set as follows:
     + `MetricFilterValues` = `INBOUND`,
      `TRANSFER`, `QUEUE_TRANSFER`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Handled in
 - Historical metrics reports: Contacts handled incoming
@@ -4910,13 +4910,13 @@ This metric counts the outbound contacts that were handled by an agent. This inc
 contacts that were initiated by an agent using the CCP.
 
 All calls made by agents are counted, as long as they use the CCP, a custom CCP or
-other client app that use the Amazon Connect Streams API.
+other client app that use the Connect Customer Streams API.
 
 **Metric type**: Integer
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") API metric identifier:
   `CONTACTS_HANDLED_OUTBOUND`
@@ -4929,7 +4929,7 @@ MetricFilters parameter set as follows:
     + `MetricFilterKey` = `INITIATION_METHOD`
     + `MetricFilterValues` = `OUTBOUND`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Handled out
 - Historical metrics reports: Contacts handled outbound
@@ -4943,12 +4943,12 @@ was on hold.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CONTACTS_ON_HOLD_AGENT_DISCONNECT`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Contacts hold agent disconnect
 
@@ -4971,12 +4971,12 @@ customer was on hold.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CONTACTS_ON_HOLD_CUSTOMER_DISCONNECT`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Contacts hold customer disconnect
 
@@ -4993,14 +4993,14 @@ hold times or inefficient call handling procedures.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") API metric identifier:
   `CONTACTS_HOLD_ABANDONS`
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CONTACTS_HOLD_ABANDONS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Hold abandons
 - Historical metrics reports: Contacts hold disconnect
@@ -5027,7 +5027,7 @@ staffing decisions. When queue size reaches 95% of capacity, a warning message i
 displayed.
 
 To learn how this is different from Scheduled contacts in a callback scenario, see
-[How Initial delay affects Scheduled and In queue metrics in Amazon Connect](scheduled-vs-inqueue.md "scheduled-vs-inqueue.md").
+[How Initial delay affects Scheduled and In queue metrics in Connect Customer](scheduled-vs-inqueue.md "scheduled-vs-inqueue.md").
 
 In the real-time metrics report, when queue size is greater than 95% of capacity, a
 message is displayed, as shown in the following image. For more information about queue
@@ -5042,12 +5042,12 @@ capacity, see [Set queue capacity](set-maximum-queue-limit.md "set-maximum-queue
 
 **Metric category**: Current Queue Metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetCurrentMetricData](../APIReference/API_GetCurrentMetricData.md "../APIReference/API_GetCurrentMetricData.md") API metric identifier:
   `CONTACTS_IN_QUEUE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: In queue
 - Dashboard: Queue size
@@ -5061,7 +5061,7 @@ contacts.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier: `CONTACTS_CREATED`
 
@@ -5072,7 +5072,7 @@ parameter set as follows:
     + `MetricFilterValues` = `INBOUND`,
      `TRANSFER`, `QUEUE_TRANSFER`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Contacts incoming
 
@@ -5090,12 +5090,12 @@ This metric counts the contacts put on hold by an agent one or more times.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CONTACTS_PUT_ON_HOLD`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Contacts put on hold
 
@@ -5119,14 +5119,14 @@ center performance.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") API metric identifier:
   `CONTACTS_QUEUED`
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CONTACTS_QUEUED`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Queued
 - Historical metrics reports: Contacts queued
@@ -5154,12 +5154,12 @@ enqueued. **Contacts queued (enqueue timestamp)** is aggregated on the
 
 **Metric category**: Contact event-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CONTACTS_QUEUED_BY_ENQUEUE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Contacts queued (enqueue timestamp)
 
@@ -5169,7 +5169,7 @@ enqueued. **Contacts queued (enqueue timestamp)** is aggregated on the
   GMT.
 - Contact events are from a near real-time stream of contact (voice calls, chat,
   task, and email) events (for example, call is queued) in your Amazon Connect
-  contact center. For more information, see [Amazon Connect contact events](contact-events.md "contact-events.md").
+  contact center. For more information, see [Connect Customer contact events](contact-events.md "contact-events.md").
 - To see the count of contacts queued when a contact disconnects, see [Contacts queued](#contacts-queued "#contacts-queued").
 
 ## Contacts removed from queue in X seconds
@@ -5186,7 +5186,7 @@ For X you can choose from pre-set times in seconds: 15, 20, 25, 30, 45, 60, 90, 
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CONTACTS_REMOVED_FROM_QUEUE_IN_X`
@@ -5208,7 +5208,7 @@ resolution time for a contact is defined as: beginning from [InitiationTimestamp
 
 You can create custom duration to get this metric. Choose from additional durations,
 such as minutes, hours, or days. The maximum duration for a custom value is 7 days.
-That's because in Amazon Connect you can't have a contact that lasts longer than 7 days.
+That's because in Connect Customer you can't have a contact that lasts longer than 7 days.
 
 This metric helps measure the efficiency of your contact center in resolving customer
 inquiries within a specified time threshold.
@@ -5217,12 +5217,12 @@ inquiries within a specified time threshold.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CONTACTS_RESOLVED_IN_X`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Contacts Resolved in X
 
@@ -5251,7 +5251,7 @@ by an agent using the CCP.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") API metric identifier:
   `CONTACTS_TRANSFERRED_IN`
@@ -5265,7 +5265,7 @@ parameter set as follows:
     + `MetricFilterValues` = `TRANSFER`,
      `QUEUE_TRANSFER`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Transferred in
 - Historical metrics reports: Contacts transferred in
@@ -5278,7 +5278,7 @@ This metric counts the contacts transferred in by an agent using the CCP.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") API metric identifier:
   `CONTACTS_TRANSFERRED_IN_BY_AGENT`
@@ -5291,7 +5291,7 @@ parameter set as follows:
     + `MetricFilterKey` = `INITIATION_METHOD`
     + `MetricFilterValues` = `TRANSFER`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Transferred in by agent
 - Historical metrics reports: Contacts transferred in by agent
@@ -5309,7 +5309,7 @@ The count of contacts transferred into the queue from another queue during a
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") API metric identifier:
   `CONTACTS_TRANSFERRED_IN_FROM_Q`
@@ -5322,7 +5322,7 @@ parameter set as follows:
     + `MetricFilterKey` = `INITIATION_METHOD`
     + `MetricFilterValues` = `TRANSFER`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Transferred in from queue
 - Historical metrics reports: Contacts transferred in from queue
@@ -5346,14 +5346,14 @@ Following is the difference between **Contacts transferred out** and
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") API metric identifier:
   `CONTACTS_TRANSFERRED_OUT`
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CONTACTS_TRANSFERRED_OUT`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Transferred out
 - Historical metrics reports: Contacts transferred out
@@ -5385,14 +5385,14 @@ Following is the difference between **Contacts transferred out** and
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") API metric identifier:
   `CONTACTS_TRANSFERRED_OUT_BY_AGENT`
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CONTACTS_TRANSFERRED_OUT_BY_AGENT`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Transferred out by agent
 - Historical metrics reports: Contacts transferred out by agent
@@ -5407,12 +5407,12 @@ center.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CONTACTS_TRANSFERRED_OUT_EXTERNAL`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Contacts transferred out external
 
@@ -5426,12 +5426,12 @@ can be added as a quick connect.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CONTACTS_TRANSFERRED_OUT_INTERNAL`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Contacts transferred out internal
 
@@ -5449,14 +5449,14 @@ out from their original queue to a different queue.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") API metric identifier:
   `CONTACTS_TRANSFERRED_OUT_FROM_QUEUE`
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CONTACTS_TRANSFERRED_OUT_FROM_QUEUE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Transferred out from queue
 - Historical metrics reports: Contacts transferred out queue
@@ -5485,12 +5485,12 @@ CHAT.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CONVERSATIONS_ABANDONED`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: Conversations abandoned
 
@@ -5513,12 +5513,12 @@ domain for a specific point in time.
 
 **Metric category**: Case driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CURRENT_CASES`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Current cases
 
@@ -5537,7 +5537,7 @@ domain for a specific point in time.
 - Based on case snapshot timestamp.
 - Data for this metric is available starting from January 26, 2024 0:00:00 GMT.
 
-For a list of all case driven metrics, see [Amazon Connect Cases metrics](case-management-metrics.md "case-management-metrics.md").
+For a list of all case driven metrics, see [Connect Customer Cases metrics](case-management-metrics.md "case-management-metrics.md").
 
 ## Customer hold time
 
@@ -5549,12 +5549,12 @@ does not include time spent in a queue.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `SUM_HOLD_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Customer hold time
 
@@ -5582,12 +5582,12 @@ conversation duration.
 
 **Metric category**: Conversational analytics driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `PERCENT_TALK_TIME_CUSTOMER`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Customer talk time percent
 
@@ -5601,24 +5601,24 @@ conversation duration.
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Delivery attempts
 
 This metric measures the delivery outcome of a campaign outreach attempt.
-The count of outbound campaign contact outcomes from the Amazon Connect dialer, or the count of outbound campaign email
-or SMS message outcomes that were successfully sent to Amazon Connect to be delivered.
+The count of outbound campaign contact outcomes from the Connect Customer dialer, or the count of outbound campaign email
+or SMS message outcomes that were successfully sent to Connect Customer to be delivered.
 
 **Metric type**: Integer
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `DELIVERY_ATTEMPTS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"), Delivery attempts
 
@@ -5632,13 +5632,13 @@ or SMS message outcomes that were successfully sent to Amazon Connect to be deli
 - Data for this metric is available starting from June 25, 2024 0:00:00 GMT for the Telephony delivery mode and
   November 6, 2024 0:00:00 GMT for the Email and SMS delivery modes.
 
-For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Amazon Connect](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
+For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Connect Customer](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
 
 ## Delivery attempt disposition rate
 
 This metric measures the percentage of each delivery outcome from a campaign outreach.
-The percent of call classification by answering machine detection or disconnect reason from outbound campaign contacts executed by the Amazon Connect dialer,
-or the percent of outbound campaign email or SMS message outcomes that was successfully sent to Amazon Connect to be delivered.
+The percent of call classification by answering machine detection or disconnect reason from outbound campaign contacts executed by the Connect Customer dialer,
+or the percent of outbound campaign email or SMS message outcomes that was successfully sent to Connect Customer to be delivered.
 
 **Metric type**: Percent
 
@@ -5647,7 +5647,7 @@ or the percent of outbound campaign email or SMS message outcomes that was succe
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `DELIVERY_ATTEMPT_DISPOSITION_RATE`
@@ -5659,7 +5659,7 @@ or the percent of outbound campaign email or SMS message outcomes that was succe
 - Data for this metric is available starting from June 25, 2024 0:00:00 GMT for the Telephony delivery mode and
   November 6, 2024 0:00:00 GMT for the Email and SMS delivery modes.
 
-For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Amazon Connect](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
+For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Connect Customer](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
 
 ## Duration
 
@@ -5667,7 +5667,7 @@ This column heading appears on Real-time metrics reports. It's not a metric exac
 but a indicator of the amount of time that the agent has been in the current Agent
 Activity State.
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Access the performance dashboard directly in the agent workspace](performance-dashboard-aw.md "performance-dashboard-aw.md")
 
@@ -5686,12 +5686,12 @@ status. This metric can't be grouped or filtered by queue.
 
 **Metric category**: Agent activity-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDrror status timeataV2.md "../APIReference/API_GetMetricDrror status timeataV2.md") API metric identifier:
   `SUM_ERROR_STATUS_TIME_AGENT`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Error status time
 
@@ -5716,7 +5716,7 @@ and contact level (for contacts already in queue).
 
 **Metric category**: Estimated metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetContactMetrics](../APIReference/API_GetContactMetrics.md "../APIReference/API_GetContactMetrics.md") API identifier:
   `ESTIMATED_WAIT_TIME`
@@ -5726,7 +5726,7 @@ and contact level (for contacts already in queue).
 **Requirements**:
 
 - To use Estimated Wait Time you must enable [Next
-  Generation Amazon Connect](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance.
+  Generation Connect Customer](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance.
 
 **Notes**:
 
@@ -5745,12 +5745,12 @@ Evaluations for calibrations are excluded from this metric.
 
 **Metric category**: Contact evaluation driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `EVALUATIONS_PERFORMED`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md")
 
@@ -5784,7 +5784,7 @@ the specified interval
 
 **Metric category**: Flow driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `FLOWS_OUTCOME`
@@ -5834,7 +5834,7 @@ filter.
 
 **Metric category**: Flow driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `PERCENT_FLOWS_OUTCOME`
@@ -5869,7 +5869,7 @@ where the start time is between the start and end interval specified.
 
 **Metric category**: Flow driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `FLOWS_STARTED`
@@ -5898,12 +5898,12 @@ This metric is available only when answering machine detection is enabled.
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `HUMAN_ANSWERED_CALLS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Human answered
@@ -5915,7 +5915,7 @@ This metric is available only when answering machine detection is enabled.
 - Data for this metric is available starting from June 25, 2024 0:00:00
   GMT.
 
-For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Amazon Connect](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
+For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Connect Customer](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
 
 ## Maximum flow time
 
@@ -5926,7 +5926,7 @@ start time and end time.
 
 **Metric category**: Flow driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `MAX_FLOW_TIME`
@@ -5961,14 +5961,14 @@ the queue management process.
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") API metric identifier:
   `QUEUED_TIME`
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `MAX_QUEUED_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Max Queued
 - Historical metrics reports: Maximum queued time
@@ -5981,7 +5981,7 @@ The max duration of test runs that successfully started and completed.
 
 **Metric category**: Flow driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API.
 
@@ -6002,7 +6002,7 @@ start time and end time.
 
 **Metric category**: Flow driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `MIN_FLOW_TIME`
@@ -6034,16 +6034,16 @@ This metric measures the total time an agent did not adhere to their schedule.
 
 **Metric category**: Agent activity-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AGENT_NON_ADHERENT_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Non-Adherent time
 
-For a list of all schedule adherence metrics, see [Schedule Adherence metrics in Amazon Connect](scheduling-metrics.md "scheduling-metrics.md").
+For a list of all schedule adherence metrics, see [Schedule Adherence metrics in Connect Customer](scheduling-metrics.md "scheduling-metrics.md").
 
 ## Non-talk time percent
 
@@ -6054,12 +6054,12 @@ conversation duration.
 
 **Metric category**: Conversational analytics driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `PERCENT_NON_TALK_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Non-talk time percent
 
@@ -6073,7 +6073,7 @@ conversation duration.
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Occupancy
 
@@ -6090,13 +6090,13 @@ for that entire duration.
 
 **Metric category**: Agent activity-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") API metric identifier: `OCCUPANCY`
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AGENT_OCCUPANCY`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Occupancy
 - Historical metrics reports: Occupancy
@@ -6121,13 +6121,13 @@ for that entire duration.
 This metric measures the length of time in the queue for the contact that has been in
 the queue the longest.
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Oldest
 - Dashboard: [Queue and agent performance
   dashboard](queue-performance-dashboard.md "queue-performance-dashboard.md"), Oldest contact age
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetCurrentMetricData](../APIReference/API_GetCurrentMetricData.md "../APIReference/API_GetCurrentMetricData.md") API metric identifier:
   `OLDEST_CONTACT_AGE`
@@ -6161,12 +6161,12 @@ This means 30 agents have set their status in the CCP to a custom status. 1 of t
 
 **Metric category**: Current Agent Metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetCurrentMetricData](../APIReference/API_GetCurrentMetricData.md "../APIReference/API_GetCurrentMetricData.md") API metric identifier:
   `AGENTS_ONLINE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Online
 - Historical metrics reports: Online agents
@@ -6183,12 +6183,12 @@ filtered by queue, phone number, or channels.
 
 **Metric category**: Agent activity-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `SUM_ONLINE_TIME_AGENT`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Online time
 
@@ -6237,7 +6237,7 @@ with at least one contact, they are not considered idle.
 
 **Metric category**: Agent activity-driven metric
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: Agent performance evaluation dashboard, the [Agent online time breakdown chart](agent-performance-evaluation-dashboard.md#agent-online-time-breakdown-chart "agent-performance-evaluation-dashboard.md#agent-online-time-breakdown-chart")
 
@@ -6257,7 +6257,7 @@ This metric doesn't mean that the agent was spending their time unproductively.
 
 **Metric category**: Agent activity-driven metric
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: Agent performance evaluation dashboard, the [Agent online time breakdown chart](agent-performance-evaluation-dashboard.md#agent-online-time-breakdown-chart "agent-performance-evaluation-dashboard.md#agent-online-time-breakdown-chart")
 
@@ -6277,12 +6277,12 @@ between the specified start and end time.
 
 **Metric category**: Flow driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `PERCENT_BOT_CONVERSATIONS_OUTCOME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 **Calculation logic**:
 
@@ -6294,7 +6294,7 @@ between the specified start and end time.
 - Data for this metric is available starting from December 2, 2024 00:00:00
   GMT.
 
-For a list of all bot metrics, see [Amazon Connect bot metrics and analytics](bot-metrics.md "bot-metrics.md").
+For a list of all bot metrics, see [Connect Customer bot metrics and analytics](bot-metrics.md "bot-metrics.md").
 
 ## Percent bot intents outcome
 
@@ -6307,19 +6307,19 @@ module) started between the specified start and end time.
 
 **Metric category**: Flow driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `PERCENT_BOT_INTENTS_OUTCOME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 **Calculation logic**:
 
 - (Count of intents with BOT_INTENT_OUTCOME_TYPE)/(Total
   count of intents) \* 100
 
-For a list of all bot metrics, see [Amazon Connect bot metrics and analytics](bot-metrics.md "bot-metrics.md").
+For a list of all bot metrics, see [Connect Customer bot metrics and analytics](bot-metrics.md "bot-metrics.md").
 
 ## Position in Queue
 
@@ -6340,12 +6340,12 @@ This metric helps organizations:
 
 **Metric category**: Contact record driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetContactMetrics](../APIReference/API_GetContactMetrics.md "../APIReference/API_GetContactMetrics.md") API metric identifier:
   `POSITION_IN_QUEUE`
 
-**How to access using the Amazon Connect admin website**: Not available
+**How to access using the Connect Customer admin website**: Not available
 
 **Notes**:
 
@@ -6362,12 +6362,12 @@ This metric measures the approximate count of outbound campaign recipients attem
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `RECIPIENTS_ATTEMPTED`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Recipients attempted
@@ -6377,7 +6377,7 @@ This metric measures the approximate count of outbound campaign recipients attem
 - This metric is only available for outbound campaigns initiated using a customer segment. It is not available for event triggered campaigns.
 - Data for this metric is available starting from April 30, 2025 0:00:00 GMT.
 
-For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Amazon Connect](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
+For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Connect Customer](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
 
 ## Recipients interacted
 
@@ -6389,12 +6389,12 @@ with the engagement after a successful delivery attempt. Example interactions in
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `RECIPIENTS_INTERACTED`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md")
 
@@ -6403,7 +6403,7 @@ with the engagement after a successful delivery attempt. Example interactions in
 - This metric is only available for outbound campaigns initiated using a customer segment. It is not available for event triggered campaigns.
 - Data for this metric is available starting from April 30, 2025 0:00:00 GMT.
 
-For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Amazon Connect](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
+For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Connect Customer](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
 
 ## Recipients targeted
 
@@ -6413,12 +6413,12 @@ This metric measures the count of outbound campaign recipients identified as the
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `RECIPIENTS_TARGETED`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Recipients targeted
@@ -6428,7 +6428,7 @@ This metric measures the count of outbound campaign recipients identified as the
 - This metric is only available for outbound campaigns initiated using a customer segment. It is not available for event triggered campaigns.
 - Data for this metric is available starting from April 30, 2025 0:00:00 GMT.
 
-For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Amazon Connect](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
+For a list of all Outbound campaigns driven metrics, see [Outbound campaign metrics in Connect Customer](outbound-campaign-metrics.md "outbound-campaign-metrics.md").
 
 ## Scheduled time
 
@@ -6443,16 +6443,16 @@ time) and _Adherence_ for those shifts was set to
 
 **Metric category**: Agent activity-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AGENT_SCHEDULED_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Scheduled time
 
-For a list of all schedule adherence metrics, see [Schedule Adherence metrics in Amazon Connect](scheduling-metrics.md "scheduling-metrics.md").
+For a list of all schedule adherence metrics, see [Schedule Adherence metrics in Connect Customer](scheduling-metrics.md "scheduling-metrics.md").
 
 ## Scheduled
 
@@ -6460,14 +6460,14 @@ This metric counts the customers in the queue for which there is a callback
 scheduled.
 
 To learn how this is different from In queue contacts in a callback scenario, see
-[How Initial delay affects Scheduled and In queue metrics in Amazon Connect](scheduled-vs-inqueue.md "scheduled-vs-inqueue.md").
+[How Initial delay affects Scheduled and In queue metrics in Connect Customer](scheduled-vs-inqueue.md "scheduled-vs-inqueue.md").
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetCurrentMetricData](../APIReference/API_GetCurrentMetricData.md "../APIReference/API_GetCurrentMetricData.md") API metric identifier:
   `CONTACTS_SCHEDULED`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Scheduled
 - Dashboard: [Queue and agent performance
@@ -6490,14 +6490,14 @@ For _X_ you can choose from pre-set times in seconds: 15, 20, 25,
 
 **Metric category**: Contact record-driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") API metric identifier:
   `SERVICE_LEVEL`
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `SERVICE_LEVEL`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: SL _X_
 - Historical metrics reports: Service level _X_
@@ -6520,7 +6520,7 @@ page and then create another report. The custom service level 75 won't exist in 
 second report. You'll need to create it again.
 
 The maximum duration for a custom service level is 7 days. That's because in
-Amazon Connect you can't have a contact that goes longer than 7 days.
+Connect Customer you can't have a contact that goes longer than 7 days.
 
 You can add up to 10 custom service levels per report.
 
@@ -6562,12 +6562,12 @@ This metric helps organizations:
 
 **Metric category**: Current Agent Metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetCurrentMetricData](../APIReference/API_GetCurrentMetricData .md "../APIReference/API_GetCurrentMetricData .md") API metric identifier:
   `AGENTS_STAFFED`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Staffed
 - Dashboard: Staffed agents
@@ -6614,12 +6614,12 @@ This metric helps organizations:
 This metric counts the contacts that entered a specific routing step in the queue. If
 a contact goes through multiple routing steps it will be counted each time.
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `STEP_CONTACTS_QUEUED`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Not available
 
@@ -6628,12 +6628,12 @@ a contact goes through multiple routing steps it will be counted each time.
 This metric provides the percentage of contacts for which the specific routing step
 expired.
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `PERCENT_CONTACTS_STEP_EXPIRED`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Not available
 
@@ -6648,12 +6648,12 @@ expired.
 This metric provides the percentage of contacts that joined with an agent at the
 routing step.
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `PERCENT_CONTACTS_STEP_JOINED`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Not available
 
@@ -6672,12 +6672,12 @@ duration.
 
 **Metric category**: Conversational analytics driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `PERCENT_TALK_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Talk time percent
 
@@ -6693,7 +6693,7 @@ duration.
 - This metric is available only for contacts analyzed by Contact Lens conversational
   analytics.
 
-For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Amazon Connect](contact-lens-metrics.md "contact-lens-metrics.md").
+For a list of all metrics driven by Contact Lens Conversational analytics, see [Conversational analytics metrics in Connect Customer](contact-lens-metrics.md "contact-lens-metrics.md").
 
 ## Test case execution count
 
@@ -6703,7 +6703,7 @@ The total number of test case executions performed in automated testing scenario
 
 **Metric category**: Flow driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API.
 
@@ -6720,7 +6720,7 @@ The percentage of test runs completed with a failed outcome.
 
 **Metric category**: Flow driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API.
 
@@ -6736,7 +6736,7 @@ The percentage of test runs completed with a successful outcome.
 
 **Metric category**: Flow driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API.
 

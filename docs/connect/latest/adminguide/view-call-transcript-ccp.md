@@ -1,4 +1,4 @@
-# View a call transcript during ACW in the CCP or Amazon Connect agent workspace
+# View a call transcript during ACW in the CCP or Connect Customer agent workspace
 
 At the end of a call, you can see an unredacted transcript of your conversation in
 the CCP or agent workspace. You can view the entire transcript for reference, and
@@ -20,7 +20,7 @@ Customer sentiment score is not included in the CCP or agent workspace.
 in the CCP and the agent workspace. To make this feature available to agents:
 
 1. [Enable conversational
-   analytics](enable-analytics.md "enable-analytics.md") for your Amazon Connect
+   analytics](enable-analytics.md "enable-analytics.md") for your Connect Customer
    instance.
 2. Add the following permissions to the agent's security profile:
    - **Analytics and Optimization** -

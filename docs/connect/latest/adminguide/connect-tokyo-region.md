@@ -1,16 +1,16 @@
-# Claim phone numbers for Amazon Connect in the Asia Pacific (Tokyo) Region
+# Claim phone numbers for Connect Customer in the Asia Pacific (Tokyo) Region
 
-To claim a phone number for an Amazon Connect instance you create in the Asia Pacific (Tokyo) Region, open
+To claim a phone number for an Connect Customer instance you create in the Asia Pacific (Tokyo) Region, open
 an AWS support case and provide documentation that your business is located in Japan.
 
 ###### Important
 
-You must provide three pieces of required documentation. For a list of acceptable identification, see [Japan (JP)](phone-number-requirements.md#japan-requirements "phone-number-requirements.md#japan-requirements"), in the [Region requirements for ordering and porting phone numbers in Amazon Connect](phone-number-requirements.md "phone-number-requirements.md")
+You must provide three pieces of required documentation. For a list of acceptable identification, see [Japan (JP)](phone-number-requirements.md#japan-requirements "phone-number-requirements.md#japan-requirements"), in the [Region requirements for ordering and porting phone numbers in Connect Customer](phone-number-requirements.md "phone-number-requirements.md")
 topic.
 
 You cannot claim numbers for personal use, only for business use.
 
-Amazon Connect supports claiming the following phone numbers for instances created in the
+Connect Customer supports claiming the following phone numbers for instances created in the
 Asia Pacific (Tokyo) Region.
 
 - **Direct Inward Dialing (DID) numbers**—DID
@@ -24,10 +24,10 @@ Asia Pacific (Tokyo) Region.
       + 0120 prefix numbers.
       + 0800 prefix numbers.
 
-  Amazon Connect does not offer phone numbers for other cities in Japan at this time.
+  Connect Customer does not offer phone numbers for other cities in Japan at this time.
 
 ###### Note
 
-When you claim a toll free phone number for Amazon Connect, there is no corresponding DID
+When you claim a toll free phone number for Connect Customer, there is no corresponding DID
 number with a 03 prefix also assigned, as with other toll free numbers in Japan. If you
-need to use a DID number, you can claim one in Amazon Connect.
+need to use a DID number, you can claim one in Connect Customer.

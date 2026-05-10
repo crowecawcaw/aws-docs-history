@@ -1,6 +1,6 @@
 # Set up integration for external applications using Amazon AppFlow
 
-These integrations use Amazon AppFlow to provide periodic updates to Amazon Connect Customer Profiles. The below
+These integrations use Amazon AppFlow to provide periodic updates to Connect Customer Customer Profiles. The below
 steps provide guidance on configuring a connector of your choosing using Amazon AppFlow,
 configure data mappings, and configure integrations to ingest your customer
 data.
@@ -12,26 +12,26 @@ destination applications](../../../appflow/latest/userguide/app-specific.md "../
 
 ## Before you begin
 
-When you enable Amazon Connect Customer Profiles you create a Customer Profiles domain,
+When you enable Connect Customer Customer Profiles you create a Customer Profiles domain,
 which is a container for all data, such as customer profiles, object types,
 profile keys, and encryption keys. The following are guidelines for creating
 Customer Profile domains:
 
-- Each Amazon Connect instance can only be associated with one domain.
+- Each Connect Customer instance can only be associated with one domain.
 - You can create multiple domains, but they don't share external
   application integrations or customer data between each other.
 - All the external application integrations you create are at a domain
-  level. All of the Amazon Connect instances associated with a domain inherit the
+  level. All of the Connect Customer instances associated with a domain inherit the
   domain's integrations.
 
-**Prerequisite: Enable Customer profiles in your Amazon Connect
+**Prerequisite: Enable Customer profiles in your Connect Customer
 instance**
 
-1. Open the Amazon Connect console at
+1. Open the Connect Customer console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 2. On the instances page, choose the instance alias. The instance alias is also
-   your **instance name**, which appears in your Amazon Connect
-   URL. The following image shows the **Amazon Connect virtual contact center instances** page, with a box
+   your **instance name**, which appears in your Connect Customer
+   URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box
    around the instance alias.
 3. In the navigation pane, choose **Customer
    profiles**.
@@ -53,9 +53,9 @@ create a Customer Profiles domain by following the steps below:
 
 ### Set up an external application using Amazon AppFlow
 
-You can add an external application integration to an Amazon Connect Customer
+You can add an external application integration to an Connect Customer Customer
 Profiles domain by using Amazon AppFlow by following steps below. You must create a
-flow for your data source in the Amazon AppFlow console and set Amazon Connect Customer
+flow for your data source in the Amazon AppFlow console and set Connect Customer Customer
 Profiles as the destination prior to continuing in the Customer Profiles
 console. If you created a flow more than 14 days ago, it has expired and you
 will need to create a new flow for your integration.
@@ -72,7 +72,7 @@ You can optionally perform data transformations such as
 ![The Amazon AppFlow page.](images/customer-profiles-ea-create-flow-step1.png) 2. Enter the flow name and an optional flow description.
 
 ![The Flow details page.](images/customer-profiles-ea-create-flow-step2.png) 3. You can leave the **Data encryption** section as
-it is since your Amazon Connect Customer Profiles domain already has an existing AWS KMS key
+it is since your Connect Customer Customer Profiles domain already has an existing AWS KMS key
 that will be used for this Flow. You can optionally create tags and
 then choose **Next**.
 
@@ -95,7 +95,7 @@ choosing an existing Slack connection, you can select
 the specific Slack channel that will be used.
 
 ![The source details page.](images/customer-profiles-ea-create-flow-step6.png) 7. In the **Destination details** section, select
-Amazon Connect as the Destination name in the dropdown and select the
+Connect Customer as the Destination name in the dropdown and select the
 Customer profile domain created in the previous prerequisite
 step.
 
@@ -134,10 +134,10 @@ after creating the integration.
 For more detailed information on data mappings, see [Object type mapping](customer-profiles-object-type-mapping.md "customer-profiles-object-type-mapping.md").
 
 1. Log into your AWS Management Console, select
-   **Amazon Connect**. and choose Customer Profiles under your connect
+   **Connect Customer**. and choose Customer Profiles under your connect
    instance alias.
 
-![The Amazon Connect Customer Profiles page.](images/customer-profiles-ea-mapping-step1.png) 2. Choose **Data mappings** and then choose
+![The Connect Customer Customer Profiles page.](images/customer-profiles-ea-mapping-step1.png) 2. Choose **Data mappings** and then choose
 **Create data mapping**. Provide a Data Mapping
 name and a description.
 
@@ -173,7 +173,7 @@ Once the data mapping set up is done for an external application, you will
 set up the Data source integration to ingest your customer data.
 
 1. Log into your AWS Management Console, select
-   **Amazon Connect**. and choose Customer Profiles under
+   **Connect Customer**. and choose Customer Profiles under
    your connect instance alias.
 2. Under the **Data source integrations** section
    choose **Add data source integration**.
@@ -199,11 +199,11 @@ active state.
 
 ![Review and integrate page, add data source integration button.](images/customer-profiles-ea-data-source-integ-step6.png)
 
-### View the unified customer profile in Amazon Connect Customer Profile Agent CCP
+### View the unified customer profile in Connect Customer Customer Profile Agent CCP
 
 Your agents will now be able to view customer data that has been imported
-from an external application by logging in to the Amazon Connect Agent CCP. For more
-information on connecting to the Amazon Connect Agent CCP, see [Agent application: Everything in one place](amazon-connect-contact-control-panel.md#use-agent-application "amazon-connect-contact-control-panel.md#use-agent-application").
+from an external application by logging in to the Connect Customer Agent CCP. For more
+information on connecting to the Connect Customer Agent CCP, see [Agent application: Everything in one place](amazon-connect-contact-control-panel.md#use-agent-application "amazon-connect-contact-control-panel.md#use-agent-application").
 
 Your agent will need to have the appropriate security profile permissions
 to view Customer Profiles and will be able to perform searches using a key

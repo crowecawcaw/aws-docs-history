@@ -1,6 +1,6 @@
-# Set up your agent's experience with Amazon Connect Global Resiliency
+# Set up your agent's experience with Connect Customer Global Resiliency
 
-Amazon Connect Global Resiliency enables you to provide a global experience for agents with
+Connect Customer Global Resiliency enables you to provide a global experience for agents with
 global sign-in, agent distribution API, and Agent Workspace enhancements. With this
 set of features, you can:
 
@@ -14,7 +14,7 @@ set of features, you can:
 
 ###### Contents
 
-- [Integrate your IdP with an Amazon Connect
+- [Integrate your IdP with an Connect Customer
   Global Resiliency SAML sign in endpoint](integrate-idp.md "integrate-idp.md")
 - [Associate agents
   to instances across multiple AWS Regions](associate-agents-across-regions.md "associate-agents-across-regions.md")

@@ -1,9 +1,9 @@
-# Create an object type mapping in Amazon Connect Customer Profiles
+# Create an object type mapping in Connect Customer Customer Profiles
 
 An object type mapping tells Customer Profiles how to ingest a specific type of data from a
 source application—such as Salesforce, Zendesk, or S3—into a unified
 standard profile object. You can then display data in that object (for example,
-customer address and email) to your agents using the [Amazon Connect agent application](customer-profile-access.md "customer-profile-access.md").
+customer address and email) to your agents using the [Connect Customer agent application](customer-profile-access.md "customer-profile-access.md").
 
 The object type mapping provides Customer Profiles with the following information:
 
@@ -13,16 +13,16 @@ The object type mapping provides Customer Profiles with the following informatio
   then be used to assign objects of this type to a specific profile.
   There are two ways you can create an object type mapping:
 
-- Use the Amazon Connect console. The user interface makes data mapping features
+- Use the Connect Customer console. The user interface makes data mapping features
   readily accessible. For example, you can add custom attributes, and define
   search and unique identifiers for contact models. No coding required!
-- Use the Customer Profiles API. For more information, see the [Amazon Connect Customer Profiles API
+- Use the Customer Profiles API. For more information, see the [Connect Customer Customer Profiles API
   Reference](../../../customerprofiles/latest/APIReference/Welcome.md "../../../customerprofiles/latest/APIReference/Welcome.md").
-  This topic explains how to create a mapping using the Amazon Connect console.
+  This topic explains how to create a mapping using the Connect Customer console.
 
-## Create a data mapping using the Amazon Connect console
+## Create a data mapping using the Connect Customer console
 
-Amazon Connect provides a no-code experience for mapping customer data from homegrown
+Connect Customer provides a no-code experience for mapping customer data from homegrown
 and third-party applications with Amazon S3, Salesforce, ServiceNow, Zendesk, and
 Marketo.
 
@@ -33,14 +33,14 @@ they can be used to assign the data to a specific profile.
 
 ### Step 1: Set up data mapping
 
-1. Open the Amazon Connect console at
+1. Open the Connect Customer console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 2. On the instances page, choose the instance alias. The instance alias is also
-   your **instance name**, which appears in your Amazon Connect
-   URL. The following image shows the **Amazon Connect virtual contact center instances** page, with a box
+   your **instance name**, which appears in your Connect Customer
+   URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box
    around the instance alias.
 
-![The Amazon Connect virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **Customer
+![The Connect Customer virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **Customer
 profiles**, **Data mappings**. 4. Choose **Create data mapping** to get
 started. 5. At the **Set up data mapping** page, in the
 **Description** section, add a name that will
@@ -48,7 +48,7 @@ help you identify the source or purpose of this mapping. This is the
 meta-data of the object type. 6. In the **Data source** section:
 
     1. Choose where the data is coming from, such as Salesforce
-     or Zendesk. Based on your selection, Amazon Connect automatically
+     or Zendesk. Based on your selection, Connect Customer automatically
      selects the available destinations based on the predefined
      template.
     2. Choose the source object. This is used for you to build
@@ -61,7 +61,7 @@ meta-data of the object type. 6. In the **Data source** section:
 
 
     For more information about supported mapping destinations,
-     see [About mapping destinations in Amazon Connect](about-mapping-destinations.md "about-mapping-destinations.md").
+     see [About mapping destinations in Connect Customer](about-mapping-destinations.md "about-mapping-destinations.md").
     4. In the **Additional options** section,
      you can choose when to opt out of creating new profiles, and
      how long to retain them. These options help you manage
@@ -96,7 +96,7 @@ different destination, or enter one of your own custom attributes.
 The following image shows an example of the page filled with customer
 attributes from the template.
 
-![The Amazon Connect navigation menu, the Map customer attributes page.](images/customer-profiles-data-mapping-2.png)
+![The Connect Customer navigation menu, the Map customer attributes page.](images/customer-profiles-data-mapping-2.png)
 
 You can remove what you don’t want populated in the customer profile,
 change the source, and add custom attributes.
@@ -109,7 +109,7 @@ attributes from the standard profile template.
 
 - If you choose to add custom attributes, the destination will
   always have the prefix `Attributes.` added to it.
-  This enables Amazon Connect to recognize that it is a custom attribute.
+  This enables Connect Customer to recognize that it is a custom attribute.
 
 ![Customer attribute mapping interface showing source fields mapped to destination fields.](images/custom-attribute-cp.png)
 
@@ -229,4 +229,4 @@ your object was last updated.
 After the data mapping is created, you can choose **Add data
 source integration** to use this object type.
 
-![Amazon Connect Customer Profiles interface showing sample data mapping details and integration status.](images/customer-profiles-data-mapping-3.png)
+![Connect Customer Customer Profiles interface showing sample data mapping details and integration status.](images/customer-profiles-data-mapping-3.png)

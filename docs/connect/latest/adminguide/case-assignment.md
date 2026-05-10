@@ -1,4 +1,4 @@
-# Set up a case assignment in Amazon Connect Cases
+# Set up a case assignment in Connect Customer Cases
 
 To help your organization clearly track ownership of cases and resolve them faster,
 you can ensure every case has an assigned owner who is responsible for case resolution.
@@ -24,7 +24,7 @@ list.
 
 ## Set up agents and flows case assignment
 
-To enable case assignment in your Amazon Connect instance, configure the following
+To enable case assignment in your Connect Customer instance, configure the following
 resources:
 
 1. **Case template**. Add the following [system case fields](case-fields.md#system-case-fields "case-fields.md#system-case-fields") to a new or
@@ -39,11 +39,11 @@ resources:
      see [Required queue, quick connect, and user view permissions](assign-security-profile-cases.md#required-cases-queue-permissions "assign-security-profile-cases.md#required-cases-queue-permissions").
    - **Quick connects**. Create user and queue quick
      connects for each user and queue that you want to appear in the
-     dropdown lists. For instructions, see [Create quick connects in Amazon Connect](quick-connects.md "quick-connects.md").
+     dropdown lists. For instructions, see [Create quick connects in Connect Customer](quick-connects.md "quick-connects.md").
    - **Queues**. Add the quick connects to the agent's
-     queue. For instructions, see [Create a queue using the Amazon Connect admin website](create-queue.md "create-queue.md").
+     queue. For instructions, see [Create a queue using the Connect Customer admin website](create-queue.md "create-queue.md").
    - **Routing profile**. Add the queue to the agent's
-     routing profile. For instructions, see [Create a routing profile in Amazon Connect to link queues to agents](routing-profiles.md "routing-profiles.md").
+     routing profile. For instructions, see [Create a routing profile in Connect Customer to link queues to agents](routing-profiles.md "routing-profiles.md").
 
    Agents see only those quick connects that are added to the queues
    assigned to their routing profile.

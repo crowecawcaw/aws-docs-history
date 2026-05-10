@@ -1,4 +1,4 @@
-# Mapping Marketo objects to the standard profile in Amazon Connect Customer Profiles
+# Mapping Marketo objects to the standard profile in Connect Customer Customer Profiles
 
 This topic lists which fields in Marketo objects map to fields in the
 standard profile object in Customer Profiles.
@@ -58,7 +58,7 @@ profile.
 | dataOfBirth                | BirthDate                     |
 
 The Marketo-leads customer data from Marketo is associated with an
-Amazon Connect customer profile using the indexes in the following table.
+Connect Customer customer profile using the indexes in the following table.
 
 | Standard Index Name   | Marketo-leads source field |
 | --------------------- | -------------------------- |
@@ -68,7 +68,7 @@ Amazon Connect customer profile using the indexes in the following table.
 
 For example, you can use `_marketoLeadId`,
 `_salesforceAccountId`, and
-`_salesforceContactId` as a key name with the [SearchProfiles](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md") API to find an Amazon Connect customer profile. You
+`_salesforceContactId` as a key name with the [SearchProfiles](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md") API to find an Connect Customer customer profile. You
 can find the Marketo-leads objects associated with a specific customer
 profile by using the [ListProfileObjects](../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md") API with the `ProfileId` and
 `ObjectTypeName` set to

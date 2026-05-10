@@ -1,17 +1,17 @@
-# Allow Amazon Connect Cases to send updates to Contact Lens rules
+# Allow Connect Customer Cases to send updates to Contact Lens rules
 
 ###### Note
 
 To perform the instructions in this procedure, you need to have developer skills,
-or be experienced with Amazon Connect CLI.
+or be experienced with Connect Customer CLI.
 
 Complete this one-time procedure so your users can set up rules that run when a case
 is created or updated.
 
-1.  Verify Amazon Connect Cases is [enabled](enable-cases.md "enable-cases.md") for your
-    Amazon Connect instance.
-2.  Complete the steps to enable Amazon Connect Cases event streams. For more information
-    see [Set up Amazon Connect Cases event streams](case-event-streams-enable.md "case-event-streams-enable.md"). Note the following changes to
+1.  Verify Connect Customer Cases is [enabled](enable-cases.md "enable-cases.md") for your
+    Connect Customer instance.
+2.  Complete the steps to enable Connect Customer Cases event streams. For more information
+    see [Set up Connect Customer Cases event streams](case-event-streams-enable.md "case-event-streams-enable.md"). Note the following changes to
     the procedure:
     1. You can skip the part that asks you to create a SQS queue, as it is
        not required.

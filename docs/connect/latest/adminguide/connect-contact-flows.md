@@ -1,7 +1,7 @@
-# Flows in Amazon Connect
+# Flows in Connect Customer
 
 A _flow_ defines the customer experience with your contact center from
-start to finish. Amazon Connect includes a set of [default
+start to finish. Connect Customer includes a set of [default
 flows](contact-flow-default.md "contact-flow-default.md") so you can quickly set up and run a contact center. However, you may want
 to create custom flows for your specific scenario.
 

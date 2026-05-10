@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Get metrics
+# Flow block in Connect Customer: Get metrics
 
 By default, this block returns queue metrics for the current queue. You can optionally choose to return metrics for a different queue/channel combination, or contact-level metrics such as the contact's position in queue. Metrics are returned as attributes that can be referenced via JSONPath or the Check contact attributes block.
 
@@ -147,4 +147,4 @@ configured. It has two branches: **Success** and
 
 See these topics for scenarios that use this block:
 
-- [How to reference contact attributes in Amazon Connect](how-to-reference-attributes.md "how-to-reference-attributes.md")
+- [How to reference contact attributes in Connect Customer](how-to-reference-attributes.md "how-to-reference-attributes.md")

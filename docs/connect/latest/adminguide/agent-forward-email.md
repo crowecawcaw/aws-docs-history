@@ -1,6 +1,6 @@
 # Forward email contacts to external email addresses
 
-Agents can forward email contacts to external email addresses (for example, `firstname.lastname@anycompany.com`) or distribution lists (for example, `support-team-distro@anycompany.com`) when they need to involve other parties outside of Amazon Connect. This feature allows agents to share customer emails with external teams, partners, or systems while maintaining the email thread within Amazon Connect.
+Agents can forward email contacts to external email addresses (for example, `firstname.lastname@anycompany.com`) or distribution lists (for example, `support-team-distro@anycompany.com`) when they need to involve other parties outside of Connect Customer. This feature allows agents to share customer emails with external teams, partners, or systems while maintaining the email thread within Connect Customer.
 
 ## Overview of email forwarding
 
@@ -12,7 +12,7 @@ Email forwarding enables agents to:
 
 ###### Important
 
-Forwarding an email contact sends a copy to external recipients but does not transfer the contact out of Amazon Connect. The agent remains responsible for the contact until they end it or transfer it to another agent or queue within Amazon Connect.
+Forwarding an email contact sends a copy to external recipients but does not transfer the contact out of Connect Customer. The agent remains responsible for the contact until they end it or transfer it to another agent or queue within Connect Customer.
 
 ## How to forward an email contact
 
@@ -46,7 +46,7 @@ Common use cases for forwarding to distribution lists include:
 
 ## Permissions and restrictions
 
-Email forwarding capabilities are controlled by your security profile permissions. Your administrator configures which agents can forward emails ("Initiate email conversation" must be enabled on your [Contact Control Panel (CCP)](security-profile-list.md#ccp-permissions-list "security-profile-list.md#ccp-permissions-list")) and to which external addresses (based on checking contact attributes in the [Default outbound flow in Amazon Connect: "This call is not being recorded"](default-outbound.md "default-outbound.md")).
+Email forwarding capabilities are controlled by your security profile permissions. Your administrator configures which agents can forward emails ("Initiate email conversation" must be enabled on your [Contact Control Panel (CCP)](security-profile-list.md#ccp-permissions-list "security-profile-list.md#ccp-permissions-list")) and to which external addresses (based on checking contact attributes in the [Default outbound flow in Connect Customer: "This call is not being recorded"](default-outbound.md "default-outbound.md")).
 
 Potential restrictions may include:
 
@@ -74,7 +74,7 @@ Follow these best practices when forwarding email contacts:
 
 It's important to understand the difference between forwarding and transferring an email contact:
 
-- **Forwarding**: Sends a copy of the email to external recipients outside of Amazon Connect. You remain responsible for the contact and must continue to handle it or end it.
-- **Transferring**: [Quick connect scenarios for transferring contacts](how-quick-connects-work.md "how-quick-connects-work.md"), transfers the email contact to another agent or queue within Amazon Connect. The contact is removed from your queue and assigned to the transfer destination.
+- **Forwarding**: Sends a copy of the email to external recipients outside of Connect Customer. You remain responsible for the contact and must continue to handle it or end it.
+- **Transferring**: [Quick connect scenarios for transferring contacts](how-quick-connects-work.md "how-quick-connects-work.md"), transfers the email contact to another agent or queue within Connect Customer. The contact is removed from your queue and assigned to the transfer destination.
 
 Use forwarding when you need to share information with external parties while maintaining ownership of the contact. Use transferring when you need to hand off the contact to another agent or team within your contact center.

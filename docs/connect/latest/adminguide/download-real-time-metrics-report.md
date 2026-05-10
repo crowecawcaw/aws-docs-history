@@ -1,4 +1,4 @@
-# Download real-time metrics for Amazon Connect
+# Download real-time metrics for Connect Customer
 
 You can download the data included in your report as a comma-separated value (CSV)
 file so that you can use it with other applications. If there is no data for one of
@@ -19,5 +19,5 @@ All exported times are in seconds.
 
 ![Data in a queue table and the same data in a CSV file.](images/example-downloaded-metrics-report.png)
 You can convert the seconds to minutes using an Excel formula. Alternatively, if
-you have a short report, you can copy and paste the data from Amazon Connect to
+you have a short report, you can copy and paste the data from Connect Customer to
 Excel and it will preserve the format.

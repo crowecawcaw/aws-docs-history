@@ -1,4 +1,4 @@
-# Real-time Schedule Adherence in Amazon Connect
+# Real-time Schedule Adherence in Connect Customer
 
 ###### Note
 
@@ -6,7 +6,7 @@ The real-time adherence data may take up to 4 minutes to refresh. It captures
 the complete duration of adherence or non-adherence.
 
 You can access real-time agent adherence metrics in the following areas on the
-Amazon Connect admin website:
+Connect Customer admin website:
 
 - **Agent schedule adherence** table
 

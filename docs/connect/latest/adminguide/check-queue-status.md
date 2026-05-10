@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Check queue status
+# Flow block in Connect Customer: Check queue status
 
 This topic defines the flow block for checking the status of a customer queue based on
 conditions set for that queue.
@@ -91,4 +91,4 @@ condition, **No Match**, and **Error**.
 
 See these topics for scenarios that use this block:
 
-- [Set up a flow to manage contacts in a queue in Amazon Connect](queue-to-queue-transfer.md "queue-to-queue-transfer.md")
+- [Set up a flow to manage contacts in a queue in Connect Customer](queue-to-queue-transfer.md "queue-to-queue-transfer.md")

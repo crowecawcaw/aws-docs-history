@@ -1,16 +1,16 @@
-# Create a template for an agent's weekly shift in Amazon Connect
+# Create a template for an agent's weekly shift in Connect Customer
 
 Use shift profiles to create templates for weekly shifts. The template includes
 the days of the week worked, the earliest start time and the latest end times the
 staff can be scheduled, the activities they would do during their shift, and various
 roles.
 
-1. Log in to the Amazon Connect admin website with an account that has security profile permissions
+1. Log in to the Connect Customer admin website with an account that has security profile permissions
    for **Scheduling**, **Schedule manager -
    Edit**.
 
 For more information, see [Assign
-permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Amazon Connect navigation menu, select **Analytics and
+permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Connect Customer navigation menu, select **Analytics and
 optimization**, **Scheduling**. 3. Choose the **Shift Profiles** tab, and then choose
 **Add shift profiles**. 4. On the **Add shift profile** page, choose a time-zone for
 this shift profile. This time-zone configuration will automatically adjust
@@ -26,10 +26,10 @@ as follows:
 
 
 
-    	+ **Working**: This means when Amazon Connect
+    	+ **Working**: This means when Connect Customer
     	 generates the schedule, it must schedule the staff to work
     	 between the specified hours and minutes.
-    	+ **Flex**: This means if Amazon Connect predicts
+    	+ **Flex**: This means if Connect Customer predicts
     	 enough contact volume to warrant scheduling the agent, it
     	 may schedule them to work between the specified hours and
     	 minutes.
@@ -55,7 +55,7 @@ as follows:
      activities, see [Create shift
      activities](scheduling-create-shift-activities.md "scheduling-create-shift-activities.md").
 
-Depending on the contact demand pattern forecast, Amazon Connect determines the
+Depending on the contact demand pattern forecast, Connect Customer determines the
 best possible start and end times for shifts, while adhering to the minimum
 and maximum hours per day and week worked. 6. Choose **Add shift activities**. Select the shift
 activities the staff will do during their shift. (You [create the shift
@@ -64,7 +64,7 @@ and Non-Productive.) 7. For each activity, set placement rules. The rules includ
 
     * The time duration from the beginning to end of the shift where the
      activities need to be placed.
-    * The time window for Amazon Connect to pick the best spot to maximize
+    * The time window for Connect Customer to pick the best spot to maximize
      efficiency of the generated schedules to meet the goals, such as the
      service level percent (SL%) targets.
 

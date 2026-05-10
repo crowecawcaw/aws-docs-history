@@ -31,7 +31,7 @@ For more information, see [Object type mapping for Item Catalog](standard-loyalt
 
 ## Step 3: Creating Predictive Insights
 
-Amazon Connect enables you to build and deploy specialized AI models tailored to
+Connect Customer enables you to build and deploy specialized AI models tailored to
 your specific product recommendation needs. These models can be configured through
 either the Connect Web UI or programmatically via APIs to match your unique business
 scenarios. Predictive Insights offers several types of recommendations:
@@ -195,7 +195,7 @@ recommendations for your customers during their contacts.
 
 ### Using Customer Profile Recommendations in Outbound Campaigns
 
-You can integrate Predictive Insights with Amazon Connect outbound campaigns to deliver
+You can integrate Predictive Insights with Connect Customer outbound campaigns to deliver
 personalized recommendations through email and SMS channels. When you create an
 event-triggered campaign, you can configure the Recommendations section to
 automatically generate AI-powered recommendations for customer profiles
@@ -217,7 +217,7 @@ cross-sell scenarios.
 
 **Getting Started**
 
-To begin implementation, access the AWS Management Console and navigate to Amazon Connect. After
+To begin implementation, access the AWS Management Console and navigate to Connect Customer. After
 logging into your Connect instance through the Access URL, locate Amazon Q from
 the left side menu and select AI agents. You'll find a pre-configured AI Agent
 of Type Orchestration (SalesAgent) in draft status on the QiC page under AI
@@ -253,7 +253,7 @@ value as $Customer.ProfileId.
 The implementation supports both chat contacts and voice calls, with customer
 input seamlessly passing to the QIC agent on the Lex bot. This comprehensive
 setup enables AI-driven sales recommendations and upsell opportunities within
-your Amazon Connect environment. The system's flexibility allows for
+your Connect Customer environment. The system's flexibility allows for
 customization based on specific industry needs while maintaining the core
 functionality of intelligent sales assistance. This solution provides a
 framework for enhancing customer interactions with AI-powered recommendations,

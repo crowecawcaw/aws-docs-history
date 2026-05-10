@@ -1,4 +1,4 @@
-# Multi skill forecasting in Amazon Connect
+# Multi skill forecasting in Connect Customer
 
 The multi-skill feature optimizes staffing by scheduling agents based on their specialized capabilities. It introduces "demand groups" as distinct subsets of work within forecast groups, where each demand group represents specific workloads that are independently forecasted and require specialized agent skills. A demand group can contain one or more queues.
 

@@ -1,9 +1,9 @@
-# Encrypt sensitive customer input in Amazon Connect
+# Encrypt sensitive customer input in Connect Customer
 
 You can encrypt sensitive data that is collected by flows. To do this, you need to
 use public-key cryptography.
 
-When configuring Amazon Connect, you first provide the public key. This is the key
+When configuring Connect Customer, you first provide the public key. This is the key
 used when encrypting data. Later, you provide the X.509 certificate, which includes a signature that proves you
 possess the private key.
 
@@ -19,7 +19,7 @@ You can have up to two encryption keys active at one time to facilitate rotation
 To decrypt the data in the **Stored customer input** attribute, use the
 AWS Encryption SDK. For more information, see the [AWS Encryption SDK Developer Guide](../../../encryption-sdk/latest/developer-guide.md "../../../encryption-sdk/latest/developer-guide.md").
 
-## How to decrypt data encrypted by Amazon Connect
+## How to decrypt data encrypted by Connect Customer
 
 The following code sample shows how to decrypt data using the AWS Encryption SDK.
 

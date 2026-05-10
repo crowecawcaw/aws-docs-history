@@ -11,7 +11,7 @@ your data for all services with service principals that have been given access t
 your account.
 
 We recommend using the [`aws:SourceArn`](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn") and [`aws:SourceAccount`](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount") global condition context keys in resource policies
-to limit the permissions that Amazon Connect gives another service to the resource. If you
+to limit the permissions that Connect Customer gives another service to the resource. If you
 use both global condition context keys, the `aws:SourceAccount` value and the account
 in the `aws:SourceArn` value must use the same account ID when used in the same
 policy statement.
@@ -24,16 +24,16 @@ ARN. For example,
 `arn:aws:`servicename`::`region-name`::`your
 AWS account ID`:*`.
 
-## Amazon Connect Customer Profiles cross-service confused deputy prevention
+## Connect Customer Customer Profiles cross-service confused deputy prevention
 
 The following examples show policies that apply to cases where someone else is set up as
-the administrator for Amazon Connect Customer Profiles. Use these policies to prevent the confused deputy
+the administrator for Connect Customer Customer Profiles. Use these policies to prevent the confused deputy
 problem.
 
-**Example Amazon Connect Customer Profiles policy to create Customer Profile
+**Example Connect Customer Customer Profiles policy to create Customer Profile
 domains**
 
-**Example Amazon Connect Customer Profiles policy to create Customer Profiles object
+**Example Connect Customer Customer Profiles policy to create Customer Profiles object
 types**
 
 JSON
@@ -68,7 +68,7 @@ JSON
 
 ```
 
-**Example Amazon Connect Customer Profiles policy to create and update dead-letter
+**Example Connect Customer Customer Profiles policy to create and update dead-letter
 queues**
 
 JSON
@@ -98,12 +98,12 @@ JSON
 
 ```
 
-**Example Amazon Connect Customer Profiles policy to protect the Amazon S3 bucket used as part of
+**Example Connect Customer Customer Profiles policy to protect the Amazon S3 bucket used as part of
 the Identity Resolution process**
 
 ```
 {
-    "Sid": "Allow Amazon Connect Customer Profiles to put S3 objects to your bucket",
+    "Sid": "Allow Connect Customer Customer Profiles to put S3 objects to your bucket",
     "Effect": "Allow",
     "Principal": {
         "Service": "profile.amazonaws.com"
@@ -121,7 +121,7 @@ the Identity Resolution process**
 }
 ```
 
-## Amazon Connect Voice ID cross-service confused deputy prevention
+## Connect Customer Voice ID cross-service confused deputy prevention
 
 The following Voice ID example shows a resource policy to apply to prevent the confused
 deputy problem.
@@ -151,9 +151,9 @@ JSON
 
 ```
 
-## Amazon Connect chat message streaming cross-service confused deputy prevention
+## Connect Customer chat message streaming cross-service confused deputy prevention
 
-The following Amazon Connect example shows a resource policy to apply to prevent the confused
+The following Connect Customer example shows a resource policy to apply to prevent the confused
 deputy problem.
 
 JSON

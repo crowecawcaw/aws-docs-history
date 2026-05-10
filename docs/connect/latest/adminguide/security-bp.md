@@ -1,18 +1,18 @@
-# Design principles for developing a secure contact center in Amazon Connect
+# Design principles for developing a secure contact center in Connect Customer
 
 Security includes the ability to protect information, systems, and assets while
 delivering business value through risk assessments and mitigation strategies. This
 section provides an overview of design principles, best practices, and questions
-surrounding security for Amazon Connect workloads.
+surrounding security for Connect Customer workloads.
 
-## Amazon Connect Security Journey
+## Connect Customer Security Journey
 
-After you’ve made the decision to move your workload to Amazon Connect, in addition to
-reviewing [Security in Amazon Connect](security.md "security.md") and [Security Best Practices for Amazon Connect](security-best-practices.md "security-best-practices.md"),
+After you’ve made the decision to move your workload to Connect Customer, in addition to
+reviewing [Security in Connect Customer](security.md "security.md") and [Security Best Practices for Connect Customer](security-best-practices.md "security-best-practices.md"),
 follow these guidelines and steps to understand and implement your security
 requirements relative to the following core security areas:
 
-![A diagram showing the core security areas to implement in Amazon Connect.](images/architecture/securityjourney.png)
+![A diagram showing the core security areas to implement in Connect Customer.](images/architecture/securityjourney.png)
 
 ### Understanding the AWS Security Model
 
@@ -24,15 +24,15 @@ responsible for anything you put on the cloud or connect to the cloud.
 ![Understanding the AWS Security Model.](images/architecture/shareresponsibilitymodel.png)
 
 Which AWS services you use will determine how much configuration work you
-have to perform as part of your security responsibilities. When you use Amazon Connect,
+have to perform as part of your security responsibilities. When you use Connect Customer,
 the shared model reflects AWS and customer responsibilities at a high-level,
 as shown in the following diagram.
 
-![AWS shared responsibility model for Amazon Connect.](images/architecture/shareresponsibilitymodelforamazonconnect.png)
+![AWS shared responsibility model for Connect Customer.](images/architecture/shareresponsibilitymodelforamazonconnect.png)
 
 ### Compliance Foundations
 
-Third-party auditors assess the security and compliance of Amazon Connect as part of
+Third-party auditors assess the security and compliance of Connect Customer as part of
 multiple AWS compliance programs. These include [SOC](https://aws.amazon.com/compliance/soc-faqs/ "https://aws.amazon.com/compliance/soc-faqs/"), [PCI](https://aws.amazon.com/compliance/pci-dss-level-1-faqs/ "https://aws.amazon.com/compliance/pci-dss-level-1-faqs/"), [HIPAA](https://aws.amazon.com/compliance/hipaa-compliance/ "https://aws.amazon.com/compliance/hipaa-compliance/"), [C5 (Frankfurt)](https://aws.amazon.com/compliance/bsi-c5/ "https://aws.amazon.com/compliance/bsi-c5/"), and [HITRUST CSF](https://aws.amazon.com/compliance/hitrust/ "https://aws.amazon.com/compliance/hitrust/").
 
 For a list of AWS services in scope of specific compliance programs, see
@@ -42,13 +42,13 @@ Programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/co
 
 ### Region selection
 
-Region selection to host the Amazon Connect instance depends on data sovereignty
+Region selection to host the Connect Customer instance depends on data sovereignty
 restrictions and where the contacts and agents are based. After that decision is
-made, review network requirements for Amazon Connect and ports and protocols that you
+made, review network requirements for Connect Customer and ports and protocols that you
 need to allow. Additionally, to reduce the blast radius use the domain allow
-list or allowed IP address ranges for your Amazon Connect instance.
+list or allowed IP address ranges for your Connect Customer instance.
 
-For more information, see [Set up your network to use the Amazon Connect Contact Control Panel (CCP)](ccp-networking.md "ccp-networking.md").
+For more information, see [Set up your network to use the Connect Customer Contact Control Panel (CCP)](ccp-networking.md "ccp-networking.md").
 
 ### AWS services integration
 
@@ -62,14 +62,14 @@ security requirements of your organization. See the following resources:
 - [Security
   in Amazon Lex](../../../lex/latest/dg/security.md "../../../lex/latest/dg/security.md")
 
-## Data Security in Amazon Connect
+## Data Security in Connect Customer
 
 During your security journey, your security teams may require a deeper
-understanding of how data is handled in Amazon Connect. See the following resources:
+understanding of how data is handled in Connect Customer. See the following resources:
 
-- [Detailed network paths for Amazon Connect](detailed-network-paths.md "detailed-network-paths.md")
-- [Infrastructure security in Amazon Connect](infrastructure-security.md "infrastructure-security.md")
-- [Compliance validation in Amazon Connect](compliance-validation.md "compliance-validation.md")
+- [Detailed network paths for Connect Customer](detailed-network-paths.md "detailed-network-paths.md")
+- [Infrastructure security in Connect Customer](infrastructure-security.md "infrastructure-security.md")
+- [Compliance validation in Connect Customer](compliance-validation.md "compliance-validation.md")
 
 ### Workload diagram
 
@@ -80,46 +80,46 @@ need to be integrated.
 
 ## AWS Identity and Access Management (IAM)
 
-### Types of Amazon Connect Personas
+### Types of Connect Customer Personas
 
-There are four types of Amazon Connect personas, based on the activities being
+There are four types of Connect Customer personas, based on the activities being
 performed.
 
-![Types of Amazon Connect personas.](images/architecture/amazonconnectpersonas.png)
+![Types of Connect Customer personas.](images/architecture/amazonconnectpersonas.png)
 
-1. AWS administrator – AWS administrators create or modify Amazon Connect
+1. AWS administrator – AWS administrators create or modify Connect Customer
    resources and may also delegate administrative access to other
    principals by using the AWS Identity and Access Management (IAM) service. The scope of this
-   persona is focused on creating and administering your Amazon Connect
+   persona is focused on creating and administering your Connect Customer
    instance.
-2. Amazon Connect administrator – Service administrators determine which Amazon Connect
-   features and resources employees should access within the Amazon Connect admin website. The
+2. Connect Customer administrator – Service administrators determine which Connect Customer
+   features and resources employees should access within the Connect Customer admin website. The
    service administrator assigns security profiles to determine who can
-   access the Amazon Connect admin website and what tasks they can perform. The scope of this
-   persona is focused on creating and administering your Amazon Connect contact
+   access the Connect Customer admin website and what tasks they can perform. The scope of this
+   persona is focused on creating and administering your Connect Customer contact
    center.
-3. Amazon Connect agent – Agents interact with Amazon Connect to perform their job duties.
+3. Connect Customer agent – Agents interact with Connect Customer to perform their job duties.
    Service users may be contact center agents or supervisors.
-4. Amazon Connect Service contact – The customer who interacts with your Amazon Connect
+4. Connect Customer Service contact – The customer who interacts with your Connect Customer
    contact center.
 
 ### IAM Administrator Best Practices
 
 IAM Administrative access should be limited to approved personnel within
 your organization. IAM administrators should also understand what IAM
-features are available to use with Amazon Connect. For IAM best practices, see [Security best practices in
-IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_. Also see [Amazon Connect identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+features are available to use with Connect Customer. For IAM best practices, see [Security best practices in
+IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_. Also see [Connect Customer identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-### Amazon Connect Service Administrator Best Practices
+### Connect Customer Service Administrator Best Practices
 
-Service administrators are responsible for managing Amazon Connect users, including
-adding users to Amazon Connect give them their credentials, and assign the appropriate
+Service administrators are responsible for managing Connect Customer users, including
+adding users to Connect Customer give them their credentials, and assign the appropriate
 permissions so they can access the features needed to do their job.
 Administrators should start with a minimum set of permissions and grant
 additional permissions as necessary.
 
-[Security profiles for Amazon Connect and Contact Control Panel (CCP) access](connect-security-profiles.md "connect-security-profiles.md") help you manage who can access
-the Amazon Connect dashboard and Contact Control Panel, and who can perform specific
+[Security profiles for Connect Customer and Contact Control Panel (CCP) access](connect-security-profiles.md "connect-security-profiles.md") help you manage who can access
+the Connect Customer dashboard and Contact Control Panel, and who can perform specific
 tasks. Review the granular permissions granted within the default security
 profiles available natively. Custom security profiles can be set up to meet
 specific requirements. For example, a power agent who can take calls but also
@@ -133,14 +133,14 @@ For extra security, we recommend that you require multi-factor authentication
 up
 through AWS IAM](../../../IAM/latest/UserGuide/id_credentials_mfa.md "../../../IAM/latest/UserGuide/id_credentials_mfa.md") or your SAML 2.0 identity
 provider, or Radius server, if that's more applicable for your use case. After
-MFA is set up, a third text box becomes visible on the Amazon Connect login page to
+MFA is set up, a third text box becomes visible on the Connect Customer login page to
 provide the second factor.
 
 ### Identity Federation
 
-In addition to storing users in Amazon Connect, you can [enable single sign-on (SSO) to Amazon Connect](configure-saml.md "configure-saml.md") by using identity federation.
+In addition to storing users in Connect Customer, you can [enable single sign-on (SSO) to Connect Customer](configure-saml.md "configure-saml.md") by using identity federation.
 Federation is a recommended practice to allow for employee lifecycle events to
-be reflected in Amazon Connect when they are made in the source identity provider.
+be reflected in Connect Customer when they are made in the source identity provider.
 
 ### Access to Integrated Applications
 
@@ -159,12 +159,12 @@ Secrets Manager to retrieve the secret programmatically.
 ## Detective controls
 
 Logging and monitoring are important for the availability, reliability and,
-performance of contact center. You should log relevant information from Amazon Connect Flows
+performance of contact center. You should log relevant information from Connect Customer Flows
 to Amazon CloudWatch and build alerts and notifications based on the same.
 
 You should define log retention requirements and lifecycle policies early on, and
 plan to move log files to cost-efficient storage locations as soon as practical.
-Amazon Connect public APIs log to AWS CloudTrail. You should review and automate actions set up
+Connect Customer public APIs log to AWS CloudTrail. You should review and automate actions set up
 based on CloudTrail logs.
 
 Amazon S3 is the best choice for long-term retention and archiving of log data,
@@ -180,23 +180,23 @@ sophisticated in cooperation with offerings and self-managed centralized-logging
 solutions. This includes solutions such as Amazon OpenSearch Service and Amazon CloudWatch Logs.
 
 Fraud detection and prevention for incoming contacts can be implemented by
-customizing Amazon Connect Flows per the customer requirements. As an example, customers can
+customizing Connect Customer Flows per the customer requirements. As an example, customers can
 check incoming contacts against previous contact activity in DynamoDB, and then take
 action, such as disconnecting a contact because they are a blocked contact.
 
 ## Infrastructure protection
 
-Although there is no infrastructure to manage in Amazon Connect, there could be scenarios
-where your Amazon Connect instance needs to interact with other components or applications
+Although there is no infrastructure to manage in Connect Customer, there could be scenarios
+where your Connect Customer instance needs to interact with other components or applications
 deployed in infrastructure residing on-premises. Consequently, it is important to
 ensure that networking boundaries are considered under this assumption. Review and
-implement specific Amazon Connect infrastructure security considerations. Also, review
+implement specific Connect Customer infrastructure security considerations. Also, review
 contact center agent and supervisor desktops or VDI solutions for security
 considerations.
 
 You can configure a Lambda function to connect to private subnets in a virtual
 private cloud (VPC) in your account. Use Amazon Virtual Private Cloud to create a private network for
-resources such as databases, cache instances, or internal services. Amazon Connect your
+resources such as databases, cache instances, or internal services. Connect Customer your
 function to the VPC to access private resources during
 execution.
 
@@ -206,19 +206,19 @@ Customers should analyze the data traversing through and interacting with the
 contact center solution.
 
 - Third party and external data
-- On-premises data in hybrid Amazon Connect architectures
+- On-premises data in hybrid Connect Customer architectures
 
 After analyzing the scope of the data, data classifications should be performed
-paying attention to identifying sensitive data. Amazon Connect conforms to the AWS shared
-responsibility model. [Data protection in Amazon Connect](data-protection.md "data-protection.md") includes best practices like using MFA and TLS
+paying attention to identifying sensitive data. Connect Customer conforms to the AWS shared
+responsibility model. [Data protection in Connect Customer](data-protection.md "data-protection.md") includes best practices like using MFA and TLS
 and the use of other AWS services, including Amazon Macie.
 
-Amazon Connect [handles variety of data related to
+Connect Customer [handles variety of data related to
 contact centers](data-handled-by-connect.md "data-handled-by-connect.md"). This includes phone call media, call recordings, chat
-transcripts, contact metadata as well as flows, routing profiles and queues. Amazon Connect
+transcripts, contact metadata as well as flows, routing profiles and queues. Connect Customer
 handles data at rest by segregating data by account ID and instance ID. All data
-exchanged with Amazon Connect is protected in transit between the user's web browser and
-Amazon Connect using open standard TLS encryption.
+exchanged with Connect Customer is protected in transit between the user's web browser and
+Connect Customer using open standard TLS encryption.
 
 You can specify AWS KMS keys to be used for encryption including bring your own key
 (BYOK). Additionally, you can use key management options within Amazon S3.
@@ -240,43 +240,43 @@ the flow. This should happen as early as possible in the flow. For example, when
 prompting a customer to say or enter a telephone number, they may or may not
 include the country code.
 
-## Amazon Connect security vectors
+## Connect Customer security vectors
 
-Amazon Connect security can be divided into three logical layers as illustrated in the
+Connect Customer security can be divided into three logical layers as illustrated in the
 following diagram:
 
-![Amazon Connect security vectors.](images/architecture/securityvectors.png)
+![Connect Customer security vectors.](images/architecture/securityvectors.png)
 
 1. **Agent workstation**. The agent workstation
    layer is not managed by AWS and consists of any physical equipment and
    third-party technologies, services, and endpoints that facilitate your
-   agent’s voice, data, and access the Amazon Connect interface layer.
+   agent’s voice, data, and access the Connect Customer interface layer.
 
 Follow your security best practices for this layer with special attention
 to the following:
 
     * Plan identity management keeping in mind best practices noted in
-     [Security Best Practices for Amazon Connect](security-best-practices.md "security-best-practices.md").
+     [Security Best Practices for Connect Customer](security-best-practices.md "security-best-practices.md").
     * Mitigate insider threat and compliance risk associated with
      workloads that handle sensitive information, by creating a secure
      IVR solution that enables you to bypass agent access to sensitive
      information. By encrypting contact input in your flows, you’re able
      to capture information securely without exposing it to your agents,
      their workstations, or their operating environments. For more
-     information, see [Encrypt sensitive customer input in Amazon Connect](encrypt-data.md "encrypt-data.md").
+     information, see [Encrypt sensitive customer input in Connect Customer](encrypt-data.md "encrypt-data.md").
     * You are responsible for maintaining the allowlist of AWS IP
-     addresses, ports, and protocols needed to use Amazon Connect.
+     addresses, ports, and protocols needed to use Connect Customer.
 
-2. **AWS**: The AWS layer includes Amazon Connect and
+2. **AWS**: The AWS layer includes Connect Customer and
    AWS integrations including AWS Lambda, Amazon DynamoDB, Amazon API Gateway, Amazon S3, and
    other services. Follow the security pillar guidelines for AWS services,
    with special attention to the following:
    - Plan identity management, keeping in mind best practices noted in
-     [Security Best Practices for Amazon Connect](security-best-practices.md "security-best-practices.md").
+     [Security Best Practices for Connect Customer](security-best-practices.md "security-best-practices.md").
    - Integrations with other AWS services: Identify each AWS
      service in the use case as well as any third-party integration
      points applicable for this use case.
-   - Amazon Connect can integrate with AWS Lambda functions that run inside of a
+   - Connect Customer can integrate with AWS Lambda functions that run inside of a
      customer VPC through the [VPC endpoints for
      Lambda](../../../lambda/latest/dg/configuration-vpc.md "../../../lambda/latest/dg/configuration-vpc.md").
 
@@ -301,10 +301,10 @@ securing the external layer:
      period of time. This approach allows you to query and add contacts
      to deny lists, automatically disconnecting them if they exceed
      reasonable levels.
-    * ANI Fraud detection solutions using [Amazon Connect telephony
+    * ANI Fraud detection solutions using [Connect Customer telephony
      metadata](connect-attrib-list.md#telephony-call-metadata-attributes "connect-attrib-list.md#telephony-call-metadata-attributes") and [partner solutions](https://aws.amazon.com/connect/partners/ "https://aws.amazon.com/connect/partners/") can be used to
      protect against caller ID spoofing.
-    * [Amazon Connect Voice ID](voice-id.md "voice-id.md") and other voice
+    * [Connect Customer Voice ID](voice-id.md "voice-id.md") and other voice
      biometric partner solutions can be used to enhance and streamline
      the authentication process. Active voice biometric authentication
      allows contacts the option to speak specific phrases and use those
@@ -313,7 +313,7 @@ securing the external layer:
      voiceprint to authenticate with any voice input that meets
      sufficient length requirements for authentication.
     * Maintain the [application
-     integration](app-integration.md "app-integration.md") section in the Amazon Connect console for adding any
+     integration](app-integration.md "app-integration.md") section in the Connect Customer console for adding any
      third-party application or integration points to your allowlist, and
      remove unused endpoints.
     * Send only the data necessary to meet minimum requirements to
@@ -329,8 +329,8 @@ securing the external layer:
      unnecessary recordings.
 
 
-    For an integration that enables Amazon Connect to communicate with Amazon Kinesis
-     and Amazon Redshift to enable the streaming of contact records, see [Amazon Connect
+    For an integration that enables Connect Customer to communicate with Amazon Kinesis
+     and Amazon Redshift to enable the streaming of contact records, see [Connect Customer
      integration: Data streaming](https://aws.amazon.com/quickstart/connect/data-streaming/ "https://aws.amazon.com/quickstart/connect/data-streaming/").
 
 ## Resources
@@ -338,7 +338,7 @@ securing the external layer:
 **Documentation**
 
 - [AWS Cloud Security](https://aws.amazon.com/security/ "https://aws.amazon.com/security/")
-- [Security in Amazon Connect](security.md "security.md")
+- [Security in Connect Customer](security.md "security.md")
 - [IAM Best
   Practices](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md")
 - [AWS Compliance](https://aws.amazon.com/compliance/ "https://aws.amazon.com/compliance/")

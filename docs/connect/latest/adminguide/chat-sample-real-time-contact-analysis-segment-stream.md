@@ -14,7 +14,7 @@ and FAILED events that occur during a chat contact.
     "Version": "2.0.0",
     "Channel": "CHAT",
     "AccountId": "123456789012", // your AWS account ID
-    "InstanceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",  // your Amazon Connect instance ID
+    "InstanceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",  // your Connect Customer instance ID
     "ContactId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", // the ID of the contact
     "StreamingEventType": "STARTED",
     "StreamingSettings": {
@@ -48,7 +48,7 @@ and FAILED events that occur during a chat contact.
     "Version": "2.0.0",
     "Channel": "CHAT",
     "AccountId": "123456789012", // your AWS account ID
-    "InstanceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",  // your Amazon Connect instance ID
+    "InstanceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",  // your Connect Customer instance ID
     "ContactId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", // the ID of the contact
     "OutputType": "Redacted",
     "StreamingEventType": "SEGMENTS",
@@ -154,7 +154,7 @@ and FAILED events that occur during a chat contact.
     "Version": "2.0.0",
     "Channel": "CHAT",
     "AccountId": "123456789012", // your AWS account ID
-    "InstanceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",  // your Amazon Connect instance ID
+    "InstanceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",  // your Connect Customer instance ID
     "ContactId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", // the ID of the contact
     "StreamingEventType": "COMPLETED",
     "StreamingEventSettings": {
@@ -181,7 +181,7 @@ and FAILED events that occur during a chat contact.
     "Version": "2.0.0",
     "Channel": "CHAT",
     "AccountId": "123456789012", // your AWS account ID
-    "InstanceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",  // your Amazon Connect instance ID
+    "InstanceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",  // your Connect Customer instance ID
     "ContactId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", // the ID of the contact
     "StreamingEventType": "FAILED",
     "StreamingEventSettings": {

@@ -23,7 +23,7 @@ Optimization** security profile permissions:
 
 - **Access metrics - Access permission** or the
   **Dashboard - Access permission**. For information
-  about the difference in behavior, see [Assign permissions to view dashboards and reports in Amazon Connect](dashboard-required-permissions.md "dashboard-required-permissions.md").
+  about the difference in behavior, see [Assign permissions to view dashboards and reports in Connect Customer](dashboard-required-permissions.md "dashboard-required-permissions.md").
 - **Forecasting - View**. If you don't see this permission
   on the security profiles page, ask your Administrator to [enable
   forecasting, capacity planning, and scheduling](enable-forecasting-capacity-planning-scheduling.md "enable-forecasting-capacity-planning-scheduling.md") in the AWS

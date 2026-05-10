@@ -1,19 +1,19 @@
 # Use the agent workspace to optimize audio for Citrix, Amazon WorkSpaces, and Omnissa cloud desktops
 
-You can use the Amazon Connect agent workspace to simplify the delivery of high-quality voice
+You can use the Connect Customer agent workspace to simplify the delivery of high-quality voice
 experiences in Amazon WorkSpaces, Citrix, and Omnissa Virtual Desktop Infrastructure (VDI)
 environments.
 
-Amazon Connect supports [audio optimization for
+Connect Customer supports [audio optimization for
 Amazon WorkSpaces](using-ccp-vdi-workspaces.md "using-ccp-vdi-workspaces.md"), [Citrix](using-ccp-vdi-citrix-step-by-step.md "using-ccp-vdi-citrix-step-by-step.md"), and [Omnissa](using-ccp-vdi-omnissa-step-by-step.md "using-ccp-vdi-omnissa-step-by-step.md") cloud desktops. This optimization redirects media from an
-agent's local desktop to Amazon Connect. It streamlines the agent experience and improves
+agent's local desktop to Connect Customer. It streamlines the agent experience and improves
 audio quality by reducing network hops. Your agents can leverage these audio
 optimizations in the agent workspace.
 
 ## Important things to know
 
 - For non SSO users, if the agents navigate to the agent workspace from the
-  Amazon Connect admin website, there will be a query parameter for referrer already appended to
+  Connect Customer admin website, there will be a query parameter for referrer already appended to
   the URL. The format of the URL is
   `https://`your-instance-url`/agent-app-v2?referrer=admin`.
   To form the VDI platform query parameter, remove the referrer parameter
@@ -43,7 +43,7 @@ environment.
 
 ### Use without SSO based login
 
-1. Go to the Amazon Connect agent workspace, and copy the URL for the agent
+1. Go to the Connect Customer agent workspace, and copy the URL for the agent
    workspace to Notepad.
 2. Append a query parameter with the key `VDIPlatform` and
    the value equal to the specific VDI environment you have. For
@@ -70,7 +70,7 @@ environment.
 
 ### Use with SSO based login
 
-1. If you use SSO to directly login into the Amazon Connect agent workspace, you
+1. If you use SSO to directly login into the Connect Customer agent workspace, you
    need to change the relay state URL of your SSO setup to append the
    VDI query parameter. Complete the following steps to do this:
    1. Copy and paste the relay state you are using to access the
@@ -82,7 +82,7 @@ environment.
    3. Add the `VDIPlatform` parameter with the
       appropriate value to this relay state. Using the example
       from the above link, the complete relay state URL for the
-      Amazon Connect agent workspace would look like the following:
+      Connect Customer agent workspace would look like the following:
       1. In Citrix Desktop
 
       `https://us-east-1.console.aws.amazon.com/connect/federate/instance-id?destination=%2Fagent-app-v2?VDIPlatform=CITRIX` 2. In Amazon WorkSpaces

@@ -1,4 +1,4 @@
-# Schedule Adherence for agent productivity in Amazon Connect
+# Schedule Adherence for agent productivity in Connect Customer
 
 Contact center supervisors or managers track schedule adherence to understand when
 agents are following the schedule that you have created. This helps ensure you achieve
@@ -8,7 +8,7 @@ satisfaction.
 Before you begin, note the following:
 
 1. Schedule Adherence requires that schedules are created and published. For more
-   information, see [Scheduling in Amazon Connect](scheduling.md "scheduling.md").
+   information, see [Scheduling in Connect Customer](scheduling.md "scheduling.md").
 2. Ensure you have the right permissions to access metrics and scheduling
    information. For more information about the required permissions, see [Assign
    permissions](required-optimization-permissions.md "required-optimization-permissions.md").
@@ -38,7 +38,7 @@ Before you begin, note the following:
 
 ## How adherence is determined
 
-Amazon Connect begins generating schedule adherence automatically as soon as a published
+Connect Customer begins generating schedule adherence automatically as soon as a published
 schedule starts that has shift activities where `Adherence = yes`.
 
 Adherence for a given shift activity is determined using the
@@ -53,7 +53,7 @@ Non-Productive activities and have the "Offline" status or any custom
 status.
 
 For example, when an agent is scheduled for the Productive activity
-"Back-office work" and their status in Amazon Connect is "Offline," they are
+"Back-office work" and their status in Connect Customer is "Offline," they are
 considered non-adherent to their schedule.
 
 - The **Custom** method enables you to map specific shift
@@ -97,7 +97,7 @@ following two images show these options.
 
 Complete the following steps to configure activity-based thresholds.
 
-1. In Amazon Connect admin website, navigate to **Schedule Management**,
+1. In Connect Customer admin website, navigate to **Schedule Management**,
    **Shift Activities.**
 2. Select an activity, and then choose **Edit**.
 3. On the **Add shift activity** page, under
@@ -117,7 +117,7 @@ thresholds**. 5. Configure the following options:
 You can configure specific thresholds for activities within a staffing group.
 Complete the following steps.
 
-1. In Amazon Connect admin website, navigate to **Scheduling**,
+1. In Connect Customer admin website, navigate to **Scheduling**,
    **Staffing Groups**.
 2. Select a staffing group.
 3. Under **Adherence Settings**, you can:
@@ -245,7 +245,7 @@ threshold.
 You can use Contact Lens rules to configure notifications to be sent when
 agents are out of adherence.
 
-1.  In the Amazon Connect admin website, navigate to **Analytics and Optimization**,
+1.  In the Connect Customer admin website, navigate to **Analytics and Optimization**,
     **Contact Lens**,
     **Rules**, and then choose **Create a
     rule**, **Real-time metrics**.

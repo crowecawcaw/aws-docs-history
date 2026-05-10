@@ -1,12 +1,12 @@
-# Testing the new Amazon Connect sign-in experience
+# Testing the new Connect Customer sign-in experience
 
 ## Overview
 
-Amazon Connect is implementing an enhanced sign-in experience with improved security features. This topic explains how to test the new sign-in interface before the mandatory transition.
+Connect Customer is implementing an enhanced sign-in experience with improved security features. This topic explains how to test the new sign-in interface before the mandatory transition.
 
 ###### Important
 
-The new sign-in experience applies only to instances that use Amazon Connect Managed or Managed identity management. If your instance uses SAML 2.0-based authentication, this change does not apply to you.
+The new sign-in experience applies only to instances that use Connect Customer Managed or Managed identity management. If your instance uses SAML 2.0-based authentication, this change does not apply to you.
 
 ### New sign-in experience features
 
@@ -43,16 +43,16 @@ If you are an AWS GovCloud (US) user, also allowlist the following endpoints:
 
 ###### To test the new sign-in experience
 
-1. Navigate to the Amazon Connect console `https://`[region]`.console.aws.amazon.com/connect/v2/app/instances?region=`[region]``
+1. Navigate to the Connect Customer console `https://`[region]`.console.aws.amazon.com/connect/v2/app/instances?region=`[region]``
 
-For example, if operating in the us-west-2 region, the URL will be `https://us-west-2.console.aws.amazon.com/connect/v2/app/instances?region=us-west-2` 2. **Locate your instance URL** – Your Amazon Connect instance URL will be in one of these formats:
+For example, if operating in the us-west-2 region, the URL will be `https://us-west-2.console.aws.amazon.com/connect/v2/app/instances?region=us-west-2` 2. **Locate your instance URL** – Your Connect Customer instance URL will be in one of these formats:
 
     * `https://`[instance-alias]`.my.connect.aws`
     * `https://`[instance-alias]`.awsapps.com/connect`
 
 You can find this in the AWS console as shown in the following image.
 
-![The Amazon Connect instances page showing the instance access URL.](images/new-signin-instance-url.png) 3. **Add the testing parameter** – To access the new sign-in experience, append `?use-new-experience=true` to your instance's login URL:
+![The Connect Customer instances page showing the instance access URL.](images/new-signin-instance-url.png) 3. **Add the testing parameter** – To access the new sign-in experience, append `?use-new-experience=true` to your instance's login URL:
 
     * `https://`[instance-alias]`.my.connect.aws/login?use-new-experience=true`
 
@@ -64,7 +64,7 @@ The new experience looks like the following:
 
 ![The new sign-in page showing the username field.](images/new-signin-username.png)
 
-![The new sign-in page showing the password field.](images/new-signin-password.png) 4. **Verify access** – Navigate to the modified URL and attempt to sign in using your existing credentials. Confirm that you can successfully access your Amazon Connect instance.
+![The new sign-in page showing the password field.](images/new-signin-password.png) 4. **Verify access** – Navigate to the modified URL and attempt to sign in using your existing credentials. Confirm that you can successfully access your Connect Customer instance.
 
 ## Testing recommendations
 
@@ -77,7 +77,7 @@ We recommend the following when testing the new sign-in experience:
 
 ## Support resources
 
-When seeking support, prepare your instance ID and document any error messages you encounter. Screenshots of issues can be helpful for faster resolution. For more information about contacting AWS Support, see [Get administrative support for Amazon Connect](get-admin-support.md "get-admin-support.md").
+When seeking support, prepare your instance ID and document any error messages you encounter. Screenshots of issues can be helpful for faster resolution. For more information about contacting AWS Support, see [Get administrative support for Connect Customer](get-admin-support.md "get-admin-support.md").
 
 ## FAQs
 

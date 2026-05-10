@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Hold customer or agent
+# Flow block in Connect Customer: Hold customer or agent
 
 This topic defines the flow block for placing a customer or agent on hold, and
 resuming the call afterward.

@@ -1,4 +1,4 @@
-# Add comments to a flow block in the flow designer in Amazon Connect
+# Add comments to a flow block in the flow designer in Connect Customer
 
 To add notes to a block, on the toolbar choose **Annotation**. Or,
 with your cursor on the flow designer canvas, use the shortcut keys: Ctrl + Alt +N. A

@@ -1,20 +1,20 @@
-# Apply granular access control to historical metrics reports in Amazon Connect
+# Apply granular access control to historical metrics reports in Connect Customer
 
 You can use resource tags and access control tags to apply granular access to
 users, queues, and routing profiles for historical metrics. For example, you can
 control who has access to view specific users, queues, and routing profile
 historical metrics.
 
-Amazon Connect also supports tag-based access controls for real-time metrics, agent
+Connect Customer also supports tag-based access controls for real-time metrics, agent
 activity audit, dashboards and the login/logout report. For more information, see
-[Apply tag-based access controls to dashboards and reports in Amazon Connect](dashboard-tag-based-access-control.md "dashboard-tag-based-access-control.md").
+[Apply tag-based access controls to dashboards and reports in Connect Customer](dashboard-tag-based-access-control.md "dashboard-tag-based-access-control.md").
 
 Tag-based access controls enable you to configure granular access to specific
 resources based on assigned resource tags. You can configure tag-based access
-controls by using the API or the Amazon Connect admin website for supported resources. You must configure
+controls by using the API or the Connect Customer admin website for supported resources. You must configure
 resource tags and access control tags before tag-based access control is applied to
 users, queues, and routing profiles for real-time metrics. For more information, see
-[Add tags to resources in Amazon Connect](tagging.md "tagging.md") and [Apply tag-based access control in Amazon Connect](tag-based-access-control.md "tag-based-access-control.md").
+[Add tags to resources in Connect Customer](tagging.md "tagging.md") and [Apply tag-based access control in Connect Customer](tag-based-access-control.md "tag-based-access-control.md").
 
 ## How to enable tag-based access control for historical metrics reports
 
@@ -23,7 +23,7 @@ in historical metrics reports:
 
 1.  Apply tags to the resources that you're going use in the historical
     metrics report, such as users, queues, and routing profiles. For more
-    information, see [Add tags to resources in Amazon Connect](tagging.md "tagging.md").
+    information, see [Add tags to resources in Connect Customer](tagging.md "tagging.md").
 2.  You need to be assigned to a security profile that specifically grants
     you access to the resources that have been tagged. On the Security
     profiles page, choose **Show advanced** options to

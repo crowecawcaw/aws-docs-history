@@ -1,4 +1,4 @@
-# Use scoring and weights on agent evaluation forms in Amazon Connect
+# Use scoring and weights on agent evaluation forms in Connect Customer
 
 By using _weights_, you can increase or decrease the impact of a
 question or section score on the overall evaluation score.
@@ -61,7 +61,7 @@ tab.
 
 ![The Answers tab, the Enable "Not Applicable" option.](images/evaluationforms-weightsoptional.png)
 
-After an evaluation is completed, Amazon Connect calculates the evaluation score:
+After an evaluation is completed, Connect Customer calculates the evaluation score:
 
 - Questions that are answered as **Not Applicable** do not
   count toward the form's final score.

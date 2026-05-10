@@ -1,19 +1,19 @@
-# Access Amazon Connect Customer Profiles in the agent workspace
+# Access Connect Customer Customer Profiles in the agent workspace
 
-After you enable Amazon Connect Customer Profiles, agents can begin interacting with customers
+After you enable Connect Customer Customer Profiles, agents can begin interacting with customers
 and access [customer information](customer-profiles.md "customer-profiles.md")
-to provide personalized service. This topic explains how to access the Amazon Connect agent workspace.
+to provide personalized service. This topic explains how to access the Connect Customer agent workspace.
 
 ###### Tip
 
 Make sure your agents have **Customer profiles** permissions in
-their security profile so they can access Customer Profiles. For more information, see [Security profile permissions for Amazon Connect Customer Profiles](assign-security-profile-customer-profile.md "assign-security-profile-customer-profile.md").
+their security profile so they can access Customer Profiles. For more information, see [Security profile permissions for Connect Customer Customer Profiles](assign-security-profile-customer-profile.md "assign-security-profile-customer-profile.md").
 
 ## Option 1: Use Customer Profiles with the CCP out-of-the-box
 
 Customer Profiles is already embedded alongside the Contact Control Panel (CCP). Your agents
-can access the CCP, Customer Profiles, and Amazon Connect's Case management all in the same
-browser window by logging into their Amazon Connect instance and choosing the
+can access the CCP, Customer Profiles, and Connect Customer's Case management all in the same
+browser window by logging into their Connect Customer instance and choosing the
 **Agent Workspace** button located at the top right corner as
 shown in the following image.
 
@@ -29,7 +29,7 @@ You can also access the agent workspace by using the following URL:
 
 - **https://`instance
  name`.awsapps.com/connect/agent-app-v2/**
-  For help finding your instance name, see [Find your Amazon Connect instance name](find-instance-name.md "find-instance-name.md").
+  For help finding your instance name, see [Find your Connect Customer instance name](find-instance-name.md "find-instance-name.md").
 
 Following is an example of what Customer Profiles looks like in the agent workspace.
 
@@ -41,12 +41,12 @@ When you embed your Contact Control Panel (CCP), you have the option of showing 
 hiding the pre-built CCP user interface. For example, you may want to develop a
 custom agent workspace that has a user interface you design, with customized buttons
 to accept and reject calls. Or, you may want to embed the pre-built CCP that's
-included with Amazon Connect into another custom app.
+included with Connect Customer into another custom app.
 
 Regardless of whether you display the pre-built CCP user interface, or hide it and
-build your own, you use the [Amazon Connect Streams](https://github.com/aws/amazon-connect-streams "https://github.com/aws/amazon-connect-streams")
+build your own, you use the [Connect Customer Streams](https://github.com/aws/amazon-connect-streams "https://github.com/aws/amazon-connect-streams")
 library to embed the CCP and Customer Profiles into the agent's workspace. This way,
-Amazon Connect Streams is initialized, and the agent can connect and authenticate to Amazon Connect,
+Connect Customer Streams is initialized, and the agent can connect and authenticate to Connect Customer,
 and Customer Profiles.
 
 For information about embedding Customer Profiles, see [Initialization for CCP, Customer Profiles, and Wisdom](https://github.com/amazon-connect/amazon-connect-streams/blob/master/Documentation.md#initialization-for-ccp-customer-profiles-and-wisdom "https://github.com/amazon-connect/amazon-connect-streams/blob/master/Documentation.md#initialization-for-ccp-customer-profiles-and-wisdom").
@@ -59,5 +59,5 @@ source library.
 
 When you customize the agent's workspace, you determine the URL agents will
 use to access their agent workspace, and it might very different from the one
-provided by Amazon Connect. For example, your URL could be
+provided by Connect Customer. For example, your URL could be
 https://example-corp.com/agent-support-app.

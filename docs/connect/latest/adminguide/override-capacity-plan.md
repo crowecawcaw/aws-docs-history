@@ -1,4 +1,4 @@
-# Override a capacity plan in Amazon Connect
+# Override a capacity plan in Connect Customer
 
 You can upload a .csv file that overrides the **Required FTEs (without
 Shrinkage)** data in the **Plan outputs** section of a
@@ -8,12 +8,12 @@ capacity plan. This section is shown in the following image.
 You might want to do this, for example, to give your team of agents a
 buffer.
 
-1. Log in to the Amazon Connect admin website with an account that has security profile permissions
+1. Log in to the Connect Customer admin website with an account that has security profile permissions
    for **Analytics**, **Capacity planning -
    Edit**.
 
 For more information, see [Assign
-permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Amazon Connect navigation menu, select **Analytics and
+permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Connect Customer navigation menu, select **Analytics and
 optimization**, **Capacity Planning**. 3. On the **Capacity Plans** tab, choose the plan. 4. On the detailed page for the capacity plan, choose
 **Actions**, **Upload plan override**,
 and then choose **download the CSV template file**. This

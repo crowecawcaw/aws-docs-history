@@ -1,8 +1,8 @@
-# Set up outbound calling in Amazon Connect
+# Set up outbound calling in Connect Customer
 
 You can send outbound calls to customers for a variety of reasons, such as appointment
-reminders, subscription renewals, and debt collection. Amazon Connect provides both normal and
-outbound campaign capabilities. For more information about campaigns, see [Set up Amazon Connect outbound campaigns](enable-outbound-campaigns.md "enable-outbound-campaigns.md") in this
+reminders, subscription renewals, and debt collection. Connect Customer provides both normal and
+outbound campaign capabilities. For more information about campaigns, see [Set up Connect Customer outbound campaigns](enable-outbound-campaigns.md "enable-outbound-campaigns.md") in this
 guide.
 
 ###### Contents

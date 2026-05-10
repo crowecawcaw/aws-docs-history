@@ -1,4 +1,4 @@
-# Add the Amazon Connect widget to your website to accept chat, task, email, and web calling contacts
+# Add the Connect Customer widget to your website to accept chat, task, email, and web calling contacts
 
 The topics in this section explain how to create and customize a communications widget for
 your website. You'll create a contact form that determines the behavior for contacts created
@@ -16,7 +16,7 @@ through your widget, and then customize the widget's appearance and functionalit
 In this step, you create and customize a View that determines the behavior
 for contacts created through your widget.
 
-1.  Log in to the Amazon Connect admin website at [https://instance name.my.connect.aws/](https://instance name.my.connect.aws/ "https://instance name.my.connect.aws/"). Under the
+1.  Log in to the Connect Customer admin website at [https://instance name.my.connect.aws/](https://instance name.my.connect.aws/ "https://instance name.my.connect.aws/"). Under the
     **Routing** tab, select **Flows**.
 2.  At the top left, click **Views**.
 3.  Select **Create View**.
@@ -39,7 +39,7 @@ for contacts created through your widget.
           + StartChatContact
 
       Both Email and Task can be used in a contact form. To create a pre-chat
-      form for chat contacts, see [Add a chat user interface to your website hosted by Amazon Connect](add-chat-to-website.md "add-chat-to-website.md").
+      form for chat contacts, see [Add a chat user interface to your website hosted by Connect Customer](add-chat-to-website.md "add-chat-to-website.md").
 
     - There are many style options for the View components, allowing you to
       customize the form to fit your environment.
@@ -79,7 +79,7 @@ customers.
 ###### Note
 
 The Name must be unique for each communications widget created in an
-Amazon Connect instance. 4. In the **Communications options** section, select
+Connect Customer instance. 4. In the **Communications options** section, select
 **Add Contact Form**. 5. Select the View you configured in the previous step. If the Connect Action
 component in the View does not have a contact flow set, you will need to set one
 here. 6. Click **Save and Continue**.
@@ -165,16 +165,16 @@ Domain allowlist behavior:
    recommend choosing **Yes**, and working with your website
    administrator to set up your web servers to issue JSON Web Tokens (JWTs) for new
    contact requests. This provides you more control when initiating new contacts,
-   including the ability to verify that requests sent to Amazon Connect are from
+   including the ability to verify that requests sent to Connect Customer are from
    authenticated users.
 
 ![The activation of security for new communication widget requests.](images/chatwidget-choose-security.png)
 
 Choosing **Yes** results in the following:
 
-    * Amazon Connect provides a 44-character security key on the next page that you
+    * Connect Customer provides a 44-character security key on the next page that you
      can use to create JSON Web Tokens (JWTs).
-    * Amazon Connect adds a callback function within the communications widget embed
+    * Connect Customer adds a callback function within the communications widget embed
      script that checks for a JSON Web Token (JWT) when a contact is
      initiated.
 
@@ -208,17 +208,17 @@ keys for creating them.
 
 Use this 44-character security key to generate JSON web tokens from your web
 server. You can also update, or rotate, keys if you need to change them. When you do
-this, Amazon Connect provides you with a new key and maintains the previous key until you
+this, Connect Customer provides you with a new key and maintains the previous key until you
 have a chance to replace it. After you have the new key deployed, you can come back
-to Amazon Connect and delete the previous key.
+to Connect Customer and delete the previous key.
 
-![The security key provided by Amazon Connect.](images/chatwidget-security-key.png)
+![The security key provided by Connect Customer.](images/chatwidget-security-key.png)
 
 When your customers interact with the communications widget on your website, the
 widget requests your web server for a JWT. When this JWT is provided, the widget
-will then include it as part of the end customer's contact request to Amazon Connect. Amazon Connect
+will then include it as part of the end customer's contact request to Connect Customer. Connect Customer
 then uses the secret key to decrypt the token. If successful, this confirms that the
-JWT was issued by your web server and Amazon Connect routes the contact request to your
+JWT was issued by your web server and Connect Customer routes the contact request to your
 contact center agents.
 
 #### JSON Web Token specifics
@@ -246,7 +246,7 @@ contact center agents.
        valid contact id. The relatedContactId must follow limitations
        set by the [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") API.
       + **customerId (optional)**: This can be either
-       an Amazon Connect Customer Profiles ID or a custom identifier from an external system,
+       an Connect Customer Customer Profiles ID or a custom identifier from an external system,
        such as a CRM.
 
   \* For information about the date format, see the following Internet

@@ -1,9 +1,9 @@
-# Sample Lambda integration flow in Amazon Connect
+# Sample Lambda integration flow in Connect Customer
 
 ###### Note
 
-This topic explains a sample flow that is included with Amazon Connect. For information
-about locating the sample flows in your instance, see [Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md").
+This topic explains a sample flow that is included with Connect Customer. For information
+about locating the sample flows in your instance, see [Sample flows in Connect Customer](contact-flow-samples.md "contact-flow-samples.md").
 
 Type: Flow (inbound)
 
@@ -25,9 +25,9 @@ fun fact. Here's how it works:
 4. If voice, the second **Check contact attributes** block is
    triggered. It checks the match conditions of **State**, which
    is an external attribute. It uses an external contact attribute because it's
-   getting data by using a process that's external to Amazon Connect
+   getting data by using a process that's external to Connect Customer
 5. A prompt tells you that it's returning you back to **Sample inbound
    flow**, and then starts the **Transfer flow**
    block.
 6. If the transfer fails, it plays a prompt and then disconnects the contact.
-   For more information about using attributes, see [Store a value from a Lambda functions as a contact attribute in Amazon Connect](attribs-with-lambda.md "attribs-with-lambda.md").
+   For more information about using attributes, see [Store a value from a Lambda functions as a contact attribute in Connect Customer](attribs-with-lambda.md "attribs-with-lambda.md").

@@ -1,11 +1,11 @@
 # View historical changes to user records
 
-1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/. Use an **Admin** account, or an account
+1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/. Use an **Admin** account, or an account
    assigned to a security profile that has \*\*Users and permissions - Users
 
 - View\*\* permissions.
 
-2. In Amazon Connect, on the left navigation menu, choose **Users**,
+2. In Connect Customer, on the left navigation menu, choose **Users**,
    **User management**.
 3. On the **User management** page, choose **View
    historical changes**, as shown in the following image.

@@ -9,7 +9,7 @@ can also transfer calls to external phone numbers that you enter.
    connects** on the CCP.
 
 ![The CCP connected to call, quick connects button.](images/transfer-calls-quick-connect-button.png) 2. From the list of quick connects, choose the name of another agent to
-transfer the call to. (Your Amazon Connect administrator adds the names of agents to
+transfer the call to. (Your Connect Customer administrator adds the names of agents to
 the list of quick connects.)
 
 ###### Tip
@@ -70,4 +70,4 @@ Each time a contact is connected to an agent, a new contact record is created.
 The contact records for a contact are linked together through the contactId
 fields: initial, next, and previous.
 
-For more information, see [About contact states in Amazon Connect](about-contact-states.md "about-contact-states.md").
+For more information, see [About contact states in Connect Customer](about-contact-states.md "about-contact-states.md").

@@ -1,6 +1,6 @@
-# Default flows in Amazon Connect for your contact center
+# Default flows in Connect Customer for your contact center
 
-Amazon Connect includes a set of default flows that have already been published. It uses them to
+Connect Customer includes a set of default flows that have already been published. It uses them to
 power your contact center.
 
 For example, say you create a flow that includes putting the customer on hold, but you
@@ -15,7 +15,7 @@ customized flow based on the default. Then call the new flow intentionally in yo
 rather than defaulting to it. This gives you better control over how your flows
 work.
 
-To see the list of default flows in the Amazon Connect admin website, go to **Routing**,
+To see the list of default flows in the Connect Customer admin website, go to **Routing**,
 **Flows**. They all start with **Default** in their
 name.
 

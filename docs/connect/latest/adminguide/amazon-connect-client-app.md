@@ -1,6 +1,6 @@
-# Amazon Connect Client Application
+# Connect Customer Client Application
 
-Amazon Connect screen recording is supported in Windows and Chrome OS. This page provides the
+Connect Customer screen recording is supported in Windows and Chrome OS. This page provides the
 download and installation instructions for the screen recording application in each
 operating system, and the minimum system requirements for the agent devices.
 
@@ -25,7 +25,7 @@ contains the
 **Amazon.Connect.Client.Service.Setup.[version].msi** file.
 For installation instructions, see [Enable screen recording](enable-sr.md "enable-sr.md").
 
-To be notified when there is an update to the Amazon Connect Client Application, we recommend
+To be notified when there is an update to the Connect Customer Client Application, we recommend
 subscribing to the RSS feed of this administrator guide. Choose the
 **RSS** link that appears under the title of this page
 (it's next to the PDF link).
@@ -35,18 +35,18 @@ subscribing to the RSS feed of this administrator guide. Choose the
 In this step you install the
 **Amazon.Connect.Client.Service** file onto the agent's
 desktop, or into the virtual environment that the agent uses. This is the
-Amazon Connect Client Application.
+Connect Customer Client Application.
 
 ###### Note
 
 - In case of Windows multi-session OS, run the installer only once
   on the machine. Screen recording on Windows multi-session OS is
   supported only by version 2.0.0 or later.
-- If your Amazon Connect instance is in AWS GovCloud (US-West), you must install
+- If your Connect Customer instance is in AWS GovCloud (US-West), you must install
   version 2.0.3 or later.
-- You need to configure an allowlist of Amazon Connect domains that are
+- You need to configure an allowlist of Connect Customer domains that are
   allowed to communicate with the client application. Screen
-  recordings are captured only from Amazon Connect domains specified in your
+  recordings are captured only from Connect Customer domains specified in your
   allowlist.
 
 #### Programmatic installation by using software distribution tools
@@ -73,7 +73,7 @@ msiexec /i Amazon.Connect.Client.Service.Setup.msi ALLOWED_CONNECT_DOMAINS="conn
 - Download the latest version of the
   **Amazon.Connect.Client.Service.Setup.msi** file.
 - Double-click the installer file.
-- Enter the Amazon Connect domains allowlist when prompted. The following
+- Enter the Connect Customer domains allowlist when prompted. The following
   image shows an example of how to specify a domain in the allowlist
   on the **Configure Installation Settings** dialog
   box. For more examples, see _Guidelines for specifying your
@@ -84,13 +84,13 @@ msiexec /i Amazon.Connect.Client.Service.Setup.msi ALLOWED_CONNECT_DOMAINS="conn
 - Choose **Install** to complete the
   installation.
 
-#### Verify the Amazon Connect Client Application is running and functioning correctly
+#### Verify the Connect Customer Client Application is running and functioning correctly
 
 ##### To verify that the application is running:
 
 - In Windows Task Manager, check for a background process named
   **Amazon.Connect.Client.Service**. This is
-  the Amazon Connect Client Application.
+  the Connect Customer Client Application.
 - In Windows Task Manager, under **Users
   processes**, check for another process named
   **Amazon.Connect.Client.RecordingSession**
@@ -118,14 +118,14 @@ running, result : true`
    following line: `Session initiation completed
 with result: True`
 
-#### Guidelines for specifying your Amazon Connect domains allowlist
+#### Guidelines for specifying your Connect Customer domains allowlist
 
 Be sure to adhere to the following guidelines when you enter domains in
 the **Allowed Connect Domains** box. Otherwise your
 installation will fail.
 
-- Format: Comma-separated Amazon Connect domains
-- Valid characters for Amazon Connect domains: Use only A-Z, a-z, 0-9, hyphen
+- Format: Comma-separated Connect Customer domains
+- Valid characters for Connect Customer domains: Use only A-Z, a-z, 0-9, hyphen
   (-), period (.)
 - Protocol prefixes such as https:// or http:// are not
   required.
@@ -152,7 +152,7 @@ Following are examples of how to specify your domain.
 
 ## Chrome OS
 
-Amazon Connect screen recording feature on ChromeOS requires two components:
+Connect Customer screen recording feature on ChromeOS requires two components:
 
 - Isolated Web App
 - Google Chrome Browser Extension
@@ -199,7 +199,7 @@ enabled.
 automatically when a computer is logged into and restarts.
 
 ![The Installation policy and Launch on login sections.](images/installationpolicy.png) 5. Configure **Managed configuration** to allowlist
-your Amazon Connect domains that are allowed to initiate screen recording on
+your Connect Customer domains that are allowed to initiate screen recording on
 agent machines. An example of **Managed
 configuration** is shown in the following image.
 
@@ -209,7 +209,7 @@ configuration** is shown in the following image.
      Domain names should not include any paths, query strings, or
      trailing slashes (/).
     * Replace `your-instance-alias-*` with your
-     actual Amazon Connect instance alias.
+     actual Connect Customer instance alias.
 
 ```
 {

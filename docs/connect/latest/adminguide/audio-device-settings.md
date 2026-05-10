@@ -6,7 +6,7 @@ from a desktop/laptop speaker instead of a headset, for example.
 
 ###### Important
 
-Your speaker, ringer, and microphone settings are saved in your browser storage, not in Amazon Connect.
+Your speaker, ringer, and microphone settings are saved in your browser storage, not in Connect Customer.
 
 - If your browser cache is cleared when you log off, these settings
   are also cleared.
@@ -64,7 +64,7 @@ Following are the top tips for resolving issues with audio devices.
   their security profile to access this feature.
 - **Developers**: If you are embedding the CCP
   into a CRM or custom desktop, you can use either the **Audio device
-  settings** security profile permission or [Amazon Connect
+  settings** security profile permission or [Connect Customer
   Streams](https://github.com/aws/amazon-connect-streams "https://github.com/aws/amazon-connect-streams") to pass the `enableAudioDeviceSettings`
   parameter to enable audio device settings upon initialization. If either of
   those flags is true, the audio device settings user interface is displayed

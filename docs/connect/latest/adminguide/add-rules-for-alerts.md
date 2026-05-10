@@ -27,7 +27,7 @@ The following image shows a sample real-time transcript.
 
 ## Add rules for real-time alerts for calls
 
-1. Log in to Amazon Connect with a user account that is assigned the
+1. Log in to Connect Customer with a user account that is assigned the
    **CallCenterManager** security profile, or that
    is enabled for **Rules** permissions.
 2. On the navigation menu, choose **Analytics and
@@ -68,7 +68,7 @@ or phrases**. In the following image, the first group
 of words or phrases are what the agent might utter. The second group
 is what the customer might utter.
 
-![A words and phrases rule with multiple phrases for customer and agent.](/images/connect/latest/adminguide/images/contact-lens-add-category-rules-script3.png)
+![A words and phrases rule with multiple phrases for customer and agent.](images/contact-lens-add-category-rules-script3.png)
 
     1. In this first card, Contact Lens reads each line as
      an OR. For example: (Hello) OR (thank OR you OR for OR

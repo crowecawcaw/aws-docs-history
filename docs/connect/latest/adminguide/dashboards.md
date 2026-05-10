@@ -1,10 +1,10 @@
-# Dashboards in Amazon Connect for getting contact center performance data
+# Dashboards in Connect Customer for getting contact center performance data
 
 Understanding your contact center at the most granular level is key to improving
-performance and lowering costs. You can use the Amazon Connect visual dashboards to understand the
+performance and lowering costs. You can use the Connect Customer visual dashboards to understand the
 performance of your contact center.
 
-Amazon Connect dashboards show real-time and historical metrics information and insights about your
+Connect Customer dashboards show real-time and historical metrics information and insights about your
 contact center performance.
 
 - Real-time dashboards are updated every 15 seconds, with the exception of
@@ -52,14 +52,14 @@ contact center performance.
    can access the dashboards they need and view the metrics:
    - **Access metrics - Access permission** or the
      **Dashboard - Access permission**. For information
-     about the difference in behavior, see [Assign permissions to view dashboards and reports in Amazon Connect](dashboard-required-permissions.md "dashboard-required-permissions.md").
+     about the difference in behavior, see [Assign permissions to view dashboards and reports in Connect Customer](dashboard-required-permissions.md "dashboard-required-permissions.md").
    - Viewing the data on each dashboard requires the appropriate
      permissions. For example, to view flows data, you need **Flows -
      View** permissions. See the topics about each dashboard for
      the specific permissions.
 
-2. In the Amazon Connect admin website, navigate to **Analytics and Optimization**,
-   **Dashboards and reports**. Select the Amazon Connect dashboard you
+2. In the Connect Customer admin website, navigate to **Analytics and Optimization**,
+   **Dashboards and reports**. Select the Connect Customer dashboard you
    want to view. The following image shows an example **Dashboards and
    reports** page with four dashboards you can select.
 
@@ -146,7 +146,7 @@ Use the following actions on your dashboards to save, download, and share them.
    PDF by choosing **Actions** > **Download
    PDF**.
 5. **Share**: You can share and publish the dashboard like other
-   Amazon Connect reports by choosing **Actions** >
+   Connect Customer reports by choosing **Actions** >
    **Share**. For more information about sharing and
    publishing, see [Share reports](share-reports.md "share-reports.md"),
    [View shared

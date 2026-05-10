@@ -1,4 +1,4 @@
-# Set group allowance for time off in Amazon Connect
+# Set group allowance for time off in Connect Customer
 
 Managers can set the maximum time off hours that agents combined can take within
 the Forecast Group: by hour, for each calendar day, for specific time off
@@ -11,7 +11,7 @@ and other time off types that you specified when you [created shift activities](
 ###### Tip
 
 **IT admins**: For the endpoints to add to your
-proxy exception list for this feature, see [Allow upload of time-off balances and allowances in Amazon Connect scheduling](ccp-networking.md#endpoints-scheduling "ccp-networking.md#endpoints-scheduling").
+proxy exception list for this feature, see [Allow upload of time-off balances and allowances in Connect Customer scheduling](ccp-networking.md#endpoints-scheduling "ccp-networking.md#endpoints-scheduling").
 
 ###### Contents
 
@@ -65,7 +65,7 @@ following:
 
 ![The scheduling page, the time off tab, the download menu.](images/schedule-timeoff-download.png)
 
-The .csv file includes the data that was last uploaded to Amazon Connect. For
+The .csv file includes the data that was last uploaded to Connect Customer. For
 example, the following image shows the download time off allowance .csv
 file.
 
@@ -79,7 +79,7 @@ file.
 
 ## Import group allowance .csv file
 
-You can upload multiple csv files for group allowance, Amazon Connect will combine them
+You can upload multiple csv files for group allowance, Connect Customer will combine them
 into a single csv file when you download it. If the same combination of forecast group,
 time off activities, and datetime exists in multiple files, most recent uploaded file will
 override the data from previous uploads. For example, you can upload one csv file with
@@ -94,7 +94,7 @@ upload of time off group allowance data_ in [Forecasting, capacity planning, and
 1. On the **Scheduling** page, choose the **Time
    off** tab.
 2. Choose the Forecast group the group allowance applies to, and then
-   choose **Upload group allowance**. Amazon Connect does the
+   choose **Upload group allowance**. Connect Customer does the
    following:
    - Validates the data and provides details if there are
      errors.
@@ -113,7 +113,7 @@ use the time off allowances feature:
   to a maximum of 12 hours on December 20th, from 9AM to 9PM.
 - They can automatically decline those types of time off requests on
   December 22nd by giving a value of `0` - Zero hours.
-- Adding value `0` allows them to specify blocked days. Amazon Connect
+- Adding value `0` allows them to specify blocked days. Connect Customer
   ignores a group allowance check if no value is specified.
 
 This allows the workforce managers to balance an agent's personal time off

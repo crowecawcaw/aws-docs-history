@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Loop
+# Flow block in Connect Customer: Loop
 
 This topic defines the flow block for counting the number of times that
 customers are looped through the **Looping** branch.

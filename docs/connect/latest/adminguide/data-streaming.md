@@ -1,18 +1,18 @@
-# Enable data streaming for your Amazon Connect instance
+# Enable data streaming for your Connect Customer instance
 
-You can export contact records and agent events from Amazon Connect and perform real-time
+You can export contact records and agent events from Connect Customer and perform real-time
 analysis on contacts. Data streaming sends data to Amazon Kinesis.
 
 ###### To enable data streaming for your instance
 
-1. Open the Amazon Connect console at
+1. Open the Connect Customer console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 2. On the instances page, choose the instance alias. The instance alias is also
-   your **instance name**, which appears in your Amazon Connect
-   URL. The following image shows the **Amazon Connect virtual contact center instances** page, with a box
+   your **instance name**, which appears in your Connect Customer
+   URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box
    around the instance alias.
 
-![The Amazon Connect virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **Data streaming**. 4. Choose **Enable data streaming**. 5. For **Contact records**, do one of the following:
+![The Connect Customer virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **Data streaming**. 4. Choose **Enable data streaming**. 5. For **Contact records**, do one of the following:
 
     * Choose **Kinesis Firehose** and select an existing
      delivery stream, or choose **Create a new Kinesis
@@ -30,16 +30,16 @@ analysis on contacts. Data streaming sends data to Amazon Kinesis.
 
 ## Use server-side encryption for the Kinesis stream
 
-Amazon Connect supports streaming to Amazon Kinesis Data Streams and Firehose streams that have server-side
+Connect Customer supports streaming to Amazon Kinesis Data Streams and Firehose streams that have server-side
 encryption with a [customer managed key](../../../kms/latest/developerguide/concepts.md#key-mgmt "../../../kms/latest/developerguide/concepts.md#key-mgmt")
 enabled. For a general overview of this feature, see [What Is Server-Side Encryption for
 Kinesis Data Streams?](../../../streams/latest/dev/what-is-sse.md "../../../streams/latest/dev/what-is-sse.md")
 
-To stream to Kinesis Data Streams, you need to grant your Amazon Connect instance permission to use a
-customer managed key. For details on the permissions needed for KMS keys, see [Permissions to Use User-Generated KMS Master Keys](../../../streams/latest/dev/permissions-user-key-KMS.md "../../../streams/latest/dev/permissions-user-key-KMS.md"). (Amazon Connect acts as the
+To stream to Kinesis Data Streams, you need to grant your Connect Customer instance permission to use a
+customer managed key. For details on the permissions needed for KMS keys, see [Permissions to Use User-Generated KMS Master Keys](../../../streams/latest/dev/permissions-user-key-KMS.md "../../../streams/latest/dev/permissions-user-key-KMS.md"). (Connect Customer acts as the
 Kinesis stream producer that is described in that topic.)
 
-When Amazon Connect puts records into your Kinesis Data Streams, it uses the service-linked role of the
+When Connect Customer puts records into your Kinesis Data Streams, it uses the service-linked role of the
 instance for authorization. This role needs permission to use the KMS key that
 encrypts the data stream. To assign permissions to the role, perform the following
 steps to update the [key policy](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") of that
@@ -48,20 +48,20 @@ KMS key.
 ###### Note
 
 To avoid missing data, update the permission of the KMS key before using a
-KMS key with Amazon Connect streaming.
+KMS key with Connect Customer streaming.
 
-### Step 1: Obtain the ARN for the service-linked role of your Amazon Connect instance
+### Step 1: Obtain the ARN for the service-linked role of your Connect Customer instance
 
-You can use the Amazon Connect console or the AWS CLI to obtain the ARN.
+You can use the Connect Customer console or the AWS CLI to obtain the ARN.
 
-###### Use the Amazon Connect console to obtain the ARN
+###### Use the Connect Customer console to obtain the ARN
 
-1. Open the Amazon Connect console at
+1. Open the Connect Customer console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 2. On the instances page, choose the instance name, as shown in the
    following image.
 
-![The Amazon Connect virtual contact center instances page, the instance alias.](images/instance.png) 3. On the **Account overview** page, in the
+![The Connect Customer virtual contact center instances page, the instance alias.](images/instance.png) 3. On the **Account overview** page, in the
 **Distribution settings** section, the
 service-linked role is displayed.
 
@@ -77,16 +77,16 @@ that ARN. You're going to use it in [Step 2: Construct a policy statement](#step
 
 ### Step 2: Construct a policy statement
 
-Construct a policy statement that gives permission to the ARN of the Amazon Connect
+Construct a policy statement that gives permission to the ARN of the Connect Customer
 service-link role to generate data keys. The following code shows a sample
 policy.
 
 ```
 {
-    "Sid": "Allow use of the key for Amazon Connect streaming",
+    "Sid": "Allow use of the key for Connect Customer streaming",
     "Effect": "Allow",
     "Principal": {
-        "AWS": "`the ARN of the Amazon Connect service-linked role`"
+        "AWS": "`the ARN of the Connect Customer service-linked role`"
     },
     "Action": "kms:GenerateDataKey",
     "Resource": "*"

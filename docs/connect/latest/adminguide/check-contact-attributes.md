@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Check contact attributes
+# Flow block in Connect Customer: Check contact attributes
 
 This topic defines the flow block for branching based on a comparison to the value of
 a contact attribute.
@@ -67,7 +67,7 @@ accordingly.
     1. **Intent name** is the name of an alternate
      intent in Lex. It's case sensitive and must match what's in Lex
      exactly.
-    2. **Intent Attribute** is what Amazon Connect is going
+    2. **Intent Attribute** is what Connect Customer is going
      to check. In this example, it's going to check the
      **Intent Confidence Score**.
     3. **Conditions to check**: If Lex is 70%
@@ -104,11 +104,11 @@ accordingly.
 
 ## Configuration tips
 
-- If you have multiple conditions to compare, Amazon Connect checks them in the order
+- If you have multiple conditions to compare, Connect Customer checks them in the order
   they are listed.
 
 For example, in the following image of the **Check contact
-attributes** properties page, it is configured so Amazon Connect
+attributes** properties page, it is configured so Connect Customer
 compares the **greater than 60** condition first and
 compares **greater than 2** last.
 
@@ -130,16 +130,16 @@ greater or equal to 60, greater to equal to 10, greater or equal to 2, or
 
 ## Sample flows
 
-Amazon Connect includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
-[Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
+Connect Customer includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
+[Sample flows in Connect Customer](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-- [Sample inbound flow in Amazon Connect for the first contact experience](sample-inbound-flow.md "sample-inbound-flow.md")
-- [Sample interruptible queue flow with callback in Amazon Connect](sample-interruptible-queue.md "sample-interruptible-queue.md")
+- [Sample inbound flow in Connect Customer for the first contact experience](sample-inbound-flow.md "sample-inbound-flow.md")
+- [Sample interruptible queue flow with callback in Connect Customer](sample-interruptible-queue.md "sample-interruptible-queue.md")
 
 ## Scenarios
 
 See these topics for scenarios that use this block:
 
-- [How to reference contact attributes in Amazon Connect](how-to-reference-attributes.md "how-to-reference-attributes.md")
+- [How to reference contact attributes in Connect Customer](how-to-reference-attributes.md "how-to-reference-attributes.md")
 - [Personalize a contact's experience based on how they contact your contact center](use-channel-contact-attribute.md "use-channel-contact-attribute.md")

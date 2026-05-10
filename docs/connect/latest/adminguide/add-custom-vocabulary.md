@@ -1,10 +1,10 @@
-# Add custom vocabularies to Contact Lens using the Amazon Connect admin website
+# Add custom vocabularies to Contact Lens using the Connect Customer admin website
 
 You can improve the accuracy of speech recognition for product names, brand names,
 and domain-specific terminology, by expanding and tailoring the vocabulary of the
 speech-to-text engine in Contact Lens.
 
-This topic explains how to add custom vocabularies using the Amazon Connect admin website. You can also
+This topic explains how to add custom vocabularies using the Connect Customer admin website. You can also
 add them using the [CreateVocabulary](../APIReference/API_CreateVocabulary.md "../APIReference/API_CreateVocabulary.md") and [AssociateDefaultVocabulary](../APIReference/API_AssociateDefaultVocabulary.md "../APIReference/API_AssociateDefaultVocabulary.md") APIs.
 
 ## Things to know about custom vocabularies
@@ -38,21 +38,21 @@ add them using the [CreateVocabulary](../APIReference/API_CreateVocabulary.md ".
 
 ## Required permissions
 
-Before you can add custom vocabularies to Amazon Connect, you need the
+Before you can add custom vocabularies to Connect Customer, you need the
 **Analytics and Optimization**,
 **Contact Lens - custom vocabularies**
 permission assigned to your security profile.
 
-By default, in new instances of Amazon Connect the **Admin** and
+By default, in new instances of Connect Customer the **Admin** and
 **CallCenterManager** security profiles have this
 permission.
 
 For information about how to add more permissions to an existing security profile,
-see [Update security profiles in Amazon Connect](update-security-profiles.md "update-security-profiles.md").
+see [Update security profiles in Connect Customer](update-security-profiles.md "update-security-profiles.md").
 
 ## Add a custom vocabulary
 
-1. Log in to Amazon Connect with a user account that has the required permissions
+1. Log in to Connect Customer with a user account that has the required permissions
    to add custom vocabularies.
 2. Navigate to **Analytics and optimization**,
    **Custom vocabularies**.
@@ -97,14 +97,14 @@ separate each word with a hyphen (-); do not use spaces.
 - **Ready**: The vocabulary is not being applied to
   analyses, but it is a valid file and available. To apply it to analyses,
   set it to default.
-- **Processing**: Amazon Connect is validating your uploaded
+- **Processing**: Connect Customer is validating your uploaded
   vocabulary and trying to apply it to the analyses to generate
   transcripts.
 - **Deleting**: You chose to
-  **Remove** the vocabulary, and Amazon Connect is deleting it
+  **Remove** the vocabulary, and Connect Customer is deleting it
   now.
 
-It takes about 90 minutes for Amazon Connect to delete a vocabulary.
+It takes about 90 minutes for Connect Customer to delete a vocabulary.
 
 If you attempt to upload a vocabulary that does not validate, it results in a
 **Failed** state. For example, if you add multiple-word

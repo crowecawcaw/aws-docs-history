@@ -7,13 +7,13 @@ as a snapshot that can help you track the progress and status of the template. T
 to say, you can use versioning to store, track, and manage a template as it changes over
 time. You can:
 
-- Track the history of a template – For each template, Amazon Connect provides a list of
+- Track the history of a template – For each template, Connect Customer provides a list of
   versions of the template. This list displays the name of each version. The list
   is sorted in descending chronological order with the most recent version listed
   first.
 - View and compare versions of a template – By using the version list, you can
   browse previous versions of a template. If you choose a version from the list,
-  Amazon Connect displays the contents and settings that are stored in that version.
+  Connect Customer displays the contents and settings that are stored in that version.
 - Restore a previous version of a template – If you find issues in the most
   recent version of a template, you can restore a previous version that doesn't
   contain the issues. You can then save that previous version as a new version of

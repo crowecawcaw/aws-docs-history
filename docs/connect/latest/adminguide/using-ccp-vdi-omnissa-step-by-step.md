@@ -1,20 +1,20 @@
-# Optimize Amazon Connect audio for Omnissa cloud desktops
+# Optimize Connect Customer audio for Omnissa cloud desktops
 
-Amazon Connect makes it easier to deliver high-quality voice experiences when your agents
+Connect Customer makes it easier to deliver high-quality voice experiences when your agents
 are using Omnissa Virtual Desktop Infrastructure (VDI) environments. Your agents can
 leverage their Omnissa remote desktop applications, such as Omnissa Horizon Client,
 to offload audio processing to the agent's local device and to automatically
-redirect audio to Amazon Connect, resulting in improved audio quality over challenging
+redirect audio to Connect Customer, resulting in improved audio quality over challenging
 networks.
 
-To get started, you can use the [Amazon Connect open source
+To get started, you can use the [Connect Customer open source
 libraries](https://github.com/amazon-connect/amazon-connect-streams "https://github.com/amazon-connect/amazon-connect-streams") to create a new or update an existing agent user interface,
 such as a custom Contact Control Panel (CCP).
 
 ## System requirements
 
 This section describes the system requirements for using the Omnissa Horizon
-SDK with Amazon Connect.
+SDK with Connect Customer.
 
 - **Omnissa Horizon Client Version**
   - Minimum required version: 8.15.0 (Horizon 2503) for both agent
@@ -143,8 +143,8 @@ Manager.
     configuration**
 
   This solution requires the media connection between agent thin
-  client to Amazon Connect. Follow the [Set up your network](ccp-networking.md "ccp-networking.md") topic to allow the
-  traffic between agent's machine and Amazon Connect Softphone Media UDP
+  client to Connect Customer. Follow the [Set up your network](ccp-networking.md "ccp-networking.md") topic to allow the
+  traffic between agent's machine and Connect Customer Softphone Media UDP
   Port 3478.
 
   The following diagram illustrates the use of UDP Port 3478.
@@ -257,7 +257,7 @@ information, see the the Wireshark [website](https://www.wireshark.org/ "https:/
     (udp.srcport == 3478 or udp.dstport == 3478) and ((ip.dst_host = "15.193.6.0/24"))
     ```
     4. Verify you can see the media packets flow between agent's
-     machine and Amazon Connect.
+     machine and Connect Customer.
     5. If no packets are visible:
 
 

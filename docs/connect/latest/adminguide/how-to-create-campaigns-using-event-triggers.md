@@ -1,6 +1,6 @@
 # Create an outbound campaign using event triggers
 
-###### Set up event triggers in the Amazon Connect admin website
+###### Set up event triggers in the Connect Customer admin website
 
 1. On the **Campaign set up** page, select **Customer
    event** under **Recipients**.
@@ -49,7 +49,7 @@ For more information about Predictive Insights, see [Get started with Predictive
 
 ## Create outbound campaigns with event triggers using APIs
 
-###### Amazon Connect Customer Profiles event trigger APIs
+###### Connect Customer Customer Profiles event trigger APIs
 
 - Two API calls are made to create a functioning event trigger:
   - [CreateEventTrigger](../APIReference/API_connect-customer-profiles_CreateEventTrigger.md "../APIReference/API_connect-customer-profiles_CreateEventTrigger.md"): Defines which action to perform based on a specified

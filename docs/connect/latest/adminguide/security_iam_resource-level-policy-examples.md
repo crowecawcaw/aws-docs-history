@@ -1,28 +1,28 @@
-# Amazon Connect resource-level policy examples
+# Connect Customer resource-level policy examples
 
-Amazon Connect supports resource-level permissions for users, so you can specify actions for them
+Connect Customer supports resource-level permissions for users, so you can specify actions for them
 for an instance, as shown in the following policies.
 
 ###### Contents
 
-- [Deny all actions on an Amazon Connect instance](#connect-access-control-resources-example-all "#connect-access-control-resources-example-all")
+- [Deny all actions on an Connect Customer instance](#connect-access-control-resources-example-all "#connect-access-control-resources-example-all")
 - [Deny the "delete" and "update" actions](#connect-access-control-resources-example2 "#connect-access-control-resources-example2")
 - [Allow actions for integrations with specific names](#connect-access-control-resources-integration-example "#connect-access-control-resources-integration-example")
 - [Allow "create users" but deny if you're assigned to a specific security profile](#connect-access-control-resources-example3 "#connect-access-control-resources-example3")
 - [Allow recording actions on a contact](#connect-access-control-resources-example4 "#connect-access-control-resources-example4")
 - [Allow or Deny queue API actions for phone numbers in a replica Region](#allow-deny-queue-actions-replica-region "#allow-deny-queue-actions-replica-region")
 - [View specific Amazon AppIntegrations resources](#view-specific-appintegrations-resources "#view-specific-appintegrations-resources")
-- [Grant access to Amazon Connect Customer Profiles](#grant-access-to-customer-profiles "#grant-access-to-customer-profiles")
+- [Grant access to Connect Customer Customer Profiles](#grant-access-to-customer-profiles "#grant-access-to-customer-profiles")
 - [Grant read-only access to Customer Profiles data](#grant-read-only-access-to-customer-profiles "#grant-read-only-access-to-customer-profiles")
 - [Query Connect AI agents only for a specific Assistant](#query-wisdom-assistant "#query-wisdom-assistant")
-- [Grant full access to Amazon Connect Voice ID](#grant-read-only-access-to-voiceid "#grant-read-only-access-to-voiceid")
-- [Grant access to Amazon Connect outbound campaigns resources](#grant-read-only-access-to-outboundcommunications "#grant-read-only-access-to-outboundcommunications")
-- [Restrict the ability to search on transcripts analyzed by Amazon Connect Contact Lens](#restrict-ability-to-search-transcripts-contact-lens "#restrict-ability-to-search-transcripts-contact-lens")
+- [Grant full access to Connect Customer Voice ID](#grant-read-only-access-to-voiceid "#grant-read-only-access-to-voiceid")
+- [Grant access to Connect Customer outbound campaigns resources](#grant-read-only-access-to-outboundcommunications "#grant-read-only-access-to-outboundcommunications")
+- [Restrict the ability to search on transcripts analyzed by Connect Customer Contact Lens](#restrict-ability-to-search-transcripts-contact-lens "#restrict-ability-to-search-transcripts-contact-lens")
 
-## Deny all actions on an Amazon Connect instance
+## Deny all actions on an Connect Customer instance
 
-An Amazon Connect instance is the top-level resource within Amazon Connect. All other sub-resources are
-created within its scope. To deny all actions on all resources within an Amazon Connect instance,
+An Connect Customer instance is the top-level resource within Connect Customer. All other sub-resources are
+created within its scope. To deny all actions on all resources within an Connect Customer instance,
 you can use one of the following methods:
 
 - Use `connect:instanceId` context keys.
@@ -78,8 +78,8 @@ JSON
 ## Deny the "delete" and "update" actions
 
 This following sample policy denies the "delete" and "update" actions for users in
-one Amazon Connect instance. It uses a wild card at the end of the Amazon Connect user ARN so that "delete
-user" and "update user" are denied on the full user ARN (that is, all Amazon Connect users in the
+one Connect Customer instance. It uses a wild card at the end of the Connect Customer user ARN so that "delete
+user" and "update user" are denied on the full user ARN (that is, all Connect Customer users in the
 provided instance, such as
 arn:aws:connect:us-east-1:123456789012:instance/00fbeee1-123e-111e-93e3-11111bfbfcc1/agent/00dtcddd1-123e-111e-93e3-11111bfbfcc1).
 
@@ -342,11 +342,11 @@ JSON
 
 ```
 
-## Grant access to Amazon Connect Customer Profiles
+## Grant access to Connect Customer Customer Profiles
 
-Amazon Connect Customer Profiles use `profile` as the prefix for actions instead of
+Connect Customer Customer Profiles use `profile` as the prefix for actions instead of
 `connect`. The following policy grants full access to a specific domain in
-Amazon Connect Customer Profiles.
+Connect Customer Customer Profiles.
 
 JSON
 
@@ -370,7 +370,7 @@ Set up a trusted relationship with accountID to domain domainName.
 
 ## Grant read-only access to Customer Profiles data
 
-Following is an example for granting read access to the data in Amazon Connect Customer
+Following is an example for granting read access to the data in Connect Customer Customer
 Profiles.
 
 JSON
@@ -413,10 +413,10 @@ JSON
 
 ```
 
-## Grant full access to Amazon Connect Voice ID
+## Grant full access to Connect Customer Voice ID
 
-Amazon Connect Voice ID uses `voiceid` as the prefix for actions instead of connect.
-The following policy grants full access to a specific domain in Amazon Connect Voice ID:
+Connect Customer Voice ID uses `voiceid` as the prefix for actions instead of connect.
+The following policy grants full access to a specific domain in Connect Customer Voice ID:
 
 JSON
 
@@ -438,7 +438,7 @@ JSON
 
 Set up a trusted relationship with accountID to domain domainName.
 
-## Grant access to Amazon Connect outbound campaigns resources
+## Grant access to Connect Customer outbound campaigns resources
 
 Outbound campaigns uses `connect-campaign` as the prefix for actions instead of
 `connect`. The following policy grants full access to a specific
@@ -463,10 +463,10 @@ outbound campaign.
     }
 ```
 
-## Restrict the ability to search on transcripts analyzed by Amazon Connect Contact Lens
+## Restrict the ability to search on transcripts analyzed by Connect Customer Contact Lens
 
 The following policy allows search and describe contacts, but denies searching a
-contact using transcripts analyzed by Amazon Connect Contact Lens.
+contact using transcripts analyzed by Connect Customer Contact Lens.
 
 JSON
 

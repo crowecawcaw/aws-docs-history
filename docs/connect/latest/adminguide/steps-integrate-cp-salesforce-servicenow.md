@@ -1,20 +1,20 @@
-# Set up Amazon Connect integration with Salesforce, ServiceNow, Marketo, or Zendesk
+# Set up Connect Customer integration with Salesforce, ServiceNow, Marketo, or Zendesk
 
-To provide periodic updates to Amazon Connect Customer Profiles, you can integrate with Salesforce,
+To provide periodic updates to Connect Customer Customer Profiles, you can integrate with Salesforce,
 ServiceNow, Marketo, or Zendesk using Amazon AppFlow. You first set up the connection in
-Amazon Connect and the application of your choice, and then verify the
+Connect Customer and the application of your choice, and then verify the
 integration.
 
-## Set up the connection in Amazon Connect and Salesforce, ServiceNow, Marketo, or Zendesk
+## Set up the connection in Connect Customer and Salesforce, ServiceNow, Marketo, or Zendesk
 
-1. Open the Amazon Connect console at
+1. Open the Connect Customer console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 2. On the instances page, choose the instance alias. The instance alias is also
-   your **instance name**, which appears in your Amazon Connect
-   URL. The following image shows the **Amazon Connect virtual contact center instances** page, with a box
+   your **instance name**, which appears in your Connect Customer
+   URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box
    around the instance alias.
 
-![The Amazon Connect virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **Customer
+![The Connect Customer virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **Customer
 profiles**. 4. On the **Customer profiles configuration** page,
 choose **Add integration**, as shown in the
 following image.

@@ -1,4 +1,4 @@
-# Default agent hold flow in Amazon Connect: You are on hold
+# Default agent hold flow in Connect Customer: You are on hold
 
 The **Default agent hold** flow is the experience the agent receives
 when placed on hold. During this flow, a **Loop prompt** block plays
@@ -16,7 +16,7 @@ messages:
 - Add another prompt with a blank message and break time="10s".
 
 ![break time = 10s in the text-to-speech box.](images/default-agent-hold-loop-prompt-example.png)
-For instructions about how to override and change a default flow, see [Change a default flow in your Amazon Connect contact center](change-default-contact-flow.md "change-default-contact-flow.md").
+For instructions about how to override and change a default flow, see [Change a default flow in your Connect Customer contact center](change-default-contact-flow.md "change-default-contact-flow.md").
 
 ###### Tip
 

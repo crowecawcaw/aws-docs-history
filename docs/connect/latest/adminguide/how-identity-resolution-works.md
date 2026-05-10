@@ -1,4 +1,4 @@
-# How machine learning Identity Resolution works in Amazon Connect
+# How machine learning Identity Resolution works in Connect Customer
 
 This topic describes how Identity Resolution performs automatic profile matching, and if set
 up, how it automatically merges similar profiles.

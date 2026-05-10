@@ -1,8 +1,8 @@
-# Create segments from imported files in Amazon Connect
+# Create segments from imported files in Connect Customer
 
 ###### Note
 
-To access the segmentation builder experience in the Amazon Connect admin website, ensure that the
+To access the segmentation builder experience in the Connect Customer admin website, ensure that the
 appropriate security profiles permissions are configured. For more information,
 see [Assign security profile permissions to manage customer segments](security-profile-customer-profile-segmentation.md "security-profile-customer-profile-segmentation.md").
 
@@ -25,7 +25,7 @@ segment:
 
 1. To create a segment, ensure that you have created security profiles
    permissions as a prerequisite. For more information, see [Assign security profile permissions to manage customer segments](security-profile-customer-profile-segmentation.md "security-profile-customer-profile-segmentation.md").
-2. In the Amazon Connect admin website, navigate to
+2. In the Connect Customer admin website, navigate to
 3. Choose **Create segment** and select **From
    file upload** from the dropdown
 
@@ -62,9 +62,9 @@ for your segment. This field is required.
 
 ###### Note
 
-The Amazon Connect admin website uses this name as the `DisplayName` of the segment
+The Connect Customer admin website uses this name as the `DisplayName` of the segment
 and generates a unique `SegmentDefinitionName` identifier. This
-identifier is used when accessing the segment through Amazon Connect Customer Profiles APIs.
+identifier is used when accessing the segment through Connect Customer Customer Profiles APIs.
 
 For **Description**, (optional), add details
 about your segment:
@@ -100,7 +100,7 @@ Choose one of these options to map your CSV columns to Customer Profiles attribu
 
 1. Map each CSV column header to a profile attribute:
    - Use standard profile attributes. For a complete list, see
-     [Standard profile definition in the Amazon Connect Customer Profiles](standard-profile-definition.md "standard-profile-definition.md").
+     [Standard profile definition in the Connect Customer Customer Profiles](standard-profile-definition.md "standard-profile-definition.md").
    - Create custom attributes using the format:
      `Attributes.`attribute-name``.
 
@@ -112,7 +112,7 @@ key).
 ### Choose a customer identifier
 
 After completing the mapping, choose one mapped attribute as the customer
-identifier. Amazon Connect Customer Profiles uses this identifier to:
+identifier. Connect Customer Customer Profiles uses this identifier to:
 
 - Create new profiles or update existing ones.
 - Match incoming data with existing profiles.

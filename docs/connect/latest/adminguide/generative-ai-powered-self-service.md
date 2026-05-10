@@ -126,7 +126,7 @@ routing to an agent. This requires:
 - No knowledge base configuration.
 - Simple instructions to collect information.
 - Step-by-step guides to present the information to the agents. For more
-  information, see [Display contact context in the agent workspace when a contact begins in Amazon Connect](display-contact-attributes-sg.md "display-contact-attributes-sg.md").
+  information, see [Display contact context in the agent workspace when a contact begins in Connect Customer](display-contact-attributes-sg.md "display-contact-attributes-sg.md").
 
 Following is an example tool definition for disambiguation. You can remove all
 default tools except CONVERSATION and add one new custom tool called
@@ -162,9 +162,9 @@ tools:
 
 ### Example: Recommend an action for a customer
 
-You can configure next best actions in Amazon Connect by using flows. You
+You can configure next best actions in Connect Customer by using flows. You
 can also configure automated actions and create step-by-step guides to provide
-UI-based actions to customers. For more information, see [Step-by-step Guides to set up your Amazon Connect agent workspace](step-by-step-guided-experiences.md "step-by-step-guided-experiences.md").  Connect AI agents saves the selected
+UI-based actions to customers. For more information, see [Step-by-step Guides to set up your Connect Customer agent workspace](step-by-step-guided-experiences.md "step-by-step-guided-experiences.md").  Connect AI agents saves the selected
 tool name as a Lex session attribute. The attribute can then be accessed by
 using the **Check contact attributes** flow block.  
 
@@ -194,7 +194,7 @@ wants to book a trip during a self-service chat interaction, you can:
   window.
 
 For more information about implementing step-by-step guides in chat, see
-[Deploy step-by-step guides in Amazon Connect chats](step-by-step-guides-chat.md "step-by-step-guides-chat.md").
+[Deploy step-by-step guides in Connect Customer chats](step-by-step-guides-chat.md "step-by-step-guides-chat.md").
 
 ## FOLLOW_UP_QUESTION tool
 

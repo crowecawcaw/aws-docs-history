@@ -1,9 +1,9 @@
-# Invoke a guide at the start of a contact in Amazon Connect
+# Invoke a guide at the start of a contact in Connect Customer
 
 After you've created your flows, you can dynamically determine which guides to show to
 users. To do this:
 
-1. Add a [Flow block in Amazon Connect: Set event flow](set-event-flow.md "set-event-flow.md") block to
+1. Add a [Flow block in Connect Customer: Set event flow](set-event-flow.md "set-event-flow.md") block to
    your flow.
 2. In the **Set event flow** block, configure a
    **DefaultFlowForAgentUI** event hook

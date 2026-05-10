@@ -1,9 +1,9 @@
 # Use message template helpers
 
-With Amazon Connect message templates, customers can create reusable message templates based on
+With Connect Customer message templates, customers can create reusable message templates based on
 the Handlebars.js language. Helpers provide a variety of features like formatting a
 price to a specific Region's currency or adding a time zone-based location. A helper can
-use a specific string or integer for the value or a specific Amazon Connect message
+use a specific string or integer for the value or a specific Connect Customer message
 variable.
 
 These are the categories of helpers, described in the following sections.
@@ -1585,7 +1585,7 @@ information, see [handlebarsjs.com](https://handlebarsjs.com/ "https://handlebar
 
 ## Use variables with message template helpers
 
-Amazon Connect custom attribute names support spaces. To have a custom attribute named
+Connect Customer custom attribute names support spaces. To have a custom attribute named
 `"Last Name"`, you must format the attribute as
 `Attributes.[Last Name]`.
 

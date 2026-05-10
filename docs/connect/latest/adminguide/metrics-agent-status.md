@@ -17,7 +17,7 @@ Agents have a status. It's manually set in the Contact Control Panel (CCP).
 - **Available** is the only status that will allow them to
   take inbound calls; custom statuses can be added to track how offline time
   is spent.
-- Users with access to the Amazon Connect admin website agent status
+- Users with access to the Connect Customer admin website agent status
   configuration page can change the sequence of statuses.
   The following diagram illustrates how the agent's status in the CCP stays constant
   while they are handling contacts, but in the real-time metrics report, the

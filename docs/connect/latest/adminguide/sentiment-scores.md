@@ -44,7 +44,7 @@ For more information, see [Search for sentiment score or evaluate sentiment shif
 
 ## How sentiment scores are determined
 
-Amazon Connect Contact Lens analyzes the sentiment of each speaker turn in a
+Connect Customer Contact Lens analyzes the sentiment of each speaker turn in a
 conversation as positive, negative, or neutral. It then considers two factors
 for each participant turn to assign a score that ranges from -5 to +5 for each
 period of the call:

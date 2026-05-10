@@ -1,17 +1,17 @@
-# Archive, delete, and restore flows in Amazon Connect
+# Archive, delete, and restore flows in Connect Customer
 
-Flows and modules must be archived before you can delete them from your Amazon Connect
+Flows and modules must be archived before you can delete them from your Connect Customer
 instance. Archived flows and modules can be restored.
 
 ###### Warning
 
 Deleted flows and modules cannot be restored. They are permanently deleted from
-your Amazon Connect instance.
+your Connect Customer instance.
 
 ## Important things to know
 
 - **Use caution when archiving flows or
-  modules**. Amazon Connect does not validate whether the flow or module
+  modules**. Connect Customer does not validate whether the flow or module
   you are archiving is being used in other published flows. It does not warn
   you that the flow is in use.
 - Default flows cannot be archived or deleted. If you attempt to archive a
@@ -25,7 +25,7 @@ your Amazon Connect instance.
 - Archived flows and modules count towards your **Flows per
   instance** and **Modules per instance**
   service quotas. You must delete them to not have them counted. For more
-  information about quotas, see [Amazon Connect service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
+  information about quotas, see [Connect Customer service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
 
 ## Archive a flow or module
 
@@ -33,7 +33,7 @@ There are two ways you can archive flows or modules.
 
 ###### Option 1: Open the flow or module and then archive it
 
-1. Log in to Amazon Connect with a user account that has the **Numbers and
+1. Log in to Connect Customer with a user account that has the **Numbers and
    flows** - **Flows** -
    **Edit** permission in its security profile. If you are
    archiving a flow module, you need **Flow modules** -
@@ -61,7 +61,7 @@ There are two ways you can restore flows or modules.
 
 ###### Option 1: View list of archived flows or modules, and choose Restore
 
-1. Log in to the Amazon Connect admin website with a user account that
+1. Log in to the Connect Customer admin website with a user account that
    has the **Numbers and flows** - **Flows**
 
 - **Edit** permission in its security profile. If you are
@@ -93,17 +93,17 @@ There are two ways you can restore flows or modules.
 
 ## Delete an archived flow or module
 
-You can delete archived flows and modules manually by using the Amazon Connect admin
+You can delete archived flows and modules manually by using the Connect Customer admin
 website, or programmatically by using the [DeleteContactFlow](../APIReference/API_DeleteContactFlow.md "../APIReference/API_DeleteContactFlow.md") API.
 
 ###### Warning
 
 Deleted flows and modules cannot be restored. They are permanently deleted
-from your Amazon Connect instance.
+from your Connect Customer instance.
 
 ###### Option 1: View list of archived flows or modules, and choose Delete
 
-1. Log in to the Amazon Connect admin website with a user account that
+1. Log in to the Connect Customer admin website with a user account that
    has the **Numbers and flows** - **Flows**
 
 - **Remove** permission in its security profile. If you are

@@ -1,6 +1,6 @@
-# Amazon Connect identity-based policy examples
+# Connect Customer identity-based policy examples
 
-By default, IAM entities don't have permission to create or modify Amazon Connect
+By default, IAM entities don't have permission to create or modify Connect Customer
 resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API. An IAM
 administrator must create IAM policies that grant IAM entities permission to perform
 specific API operations on the specified resources they need. The IAM administrator must
@@ -16,15 +16,15 @@ _IAM User Guide_.
 - [Allow IAM users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 - [Grant "View User" permissions](#security_iam_id-based-policy-example-view-user-permissions "#security_iam_id-based-policy-example-view-user-permissions")
 - [Allow users to integrate with external applications](#security_iam_id-based-policy-examples-integrate "#security_iam_id-based-policy-examples-integrate")
-- [Describe and update Amazon Connect users based on tags](#security_iam_id-based-policy-examples-view-widget-tags "#security_iam_id-based-policy-examples-view-widget-tags")
-- [Create Amazon Connect users based on tags](#connect-access-control-resources-example1 "#connect-access-control-resources-example1")
+- [Describe and update Connect Customer users based on tags](#security_iam_id-based-policy-examples-view-widget-tags "#security_iam_id-based-policy-examples-view-widget-tags")
+- [Create Connect Customer users based on tags](#connect-access-control-resources-example1 "#connect-access-control-resources-example1")
 - [Create and view Amazon AppIntegrations resources](#appintegration-resources-example1 "#appintegration-resources-example1")
 - [Create and view Connect AI agents Assistants](#wisdom-resources-example1 "#wisdom-resources-example1")
 - [Manage outbound campaigns resources](#outboundcommunications-policy-example1 "#outboundcommunications-policy-example1")
 
 ## Policy best practices
 
-Identity-based policies determine whether someone can create, access, or delete Amazon Connect resources in your
+Identity-based policies determine whether someone can create, access, or delete Connect Customer resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
 recommendations:
 
@@ -104,7 +104,7 @@ that you want to grant.
 For example, imagine you have a group of entry-level developers. You can create an
 IAM group named `Junior application developers`, and include all entry-level
 developers. Then, associate a policy with that group that grants them permissions to
-view Amazon Connect users. In this scenario, you might have a policy such as the following
+view Connect Customer users. In this scenario, you might have a policy such as the following
 sample.
 
 JSON
@@ -168,13 +168,13 @@ JSON
 
 ```
 
-## Describe and update Amazon Connect users based on tags
+## Describe and update Connect Customer users based on tags
 
 In an IAM policy, you can optionally specify conditions that control when a policy is
 in effect. For example, you can define a policy that allows users to update only an
-Amazon Connect user who is working in the test environment.
+Connect Customer user who is working in the test environment.
 
-You can define some conditions that are specific to Amazon Connect, and define other
+You can define some conditions that are specific to Connect Customer, and define other
 conditions that apply to all of AWS. For more information and a list of AWS-wide
 conditions, see Condition in [IAM JSON Policy
 Elements Reference](../../../IAM/latest/UserGuide/reference_policies_elements.md#Condition "../../../IAM/latest/UserGuide/reference_policies_elements.md#Condition") in the _IAM User Guide_.
@@ -206,11 +206,11 @@ JSON
 
 ```
 
-This policy allows "describe user" and "update user" but only for those Amazon Connect users
+This policy allows "describe user" and "update user" but only for those Connect Customer users
 tagged with tag "Department: Test" where "Department" is the tag key and "Test" is the
 tag value.
 
-## Create Amazon Connect users based on tags
+## Create Connect Customer users based on tags
 
 The following sample policy allows the create actions for users with specific request
 tags.
@@ -319,7 +319,7 @@ JSON
 
 ## Manage outbound campaigns resources
 
-Onboarding permissions: The following sample policy allows Amazon Connect instances to be
+Onboarding permissions: The following sample policy allows Connect Customer instances to be
 onboarded to outbound campaigns.
 
 ```
@@ -448,7 +448,7 @@ campaigns.
 ```
 
 Tag-based permissions: The following sample policy restricts access to the campaigns
-integrated with a particular Amazon Connect instance using tags. More permissions can be added
+integrated with a particular Connect Customer instance using tags. More permissions can be added
 based on the use case.
 
 ```

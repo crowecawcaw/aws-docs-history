@@ -7,7 +7,7 @@ monitor performance evaluation failure events.
 
 ## Step-by-step guide
 
-This is a guide on how to create an EventBridge rule to log Amazon Connect failed auto-evaluation
+This is a guide on how to create an EventBridge rule to log Connect Customer failed auto-evaluation
 submission events and failed S3 exports of contact evaluations in your AWS console.
 
 1. Log into your AWS account and navigate to the EventBridge console. Choose
@@ -87,12 +87,12 @@ after multiple retry attempts.
 
 ### Automated evaluation submission errors
 
-| Error                         | Error message                                                                                                                                                                              |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `AUTOMATED_SUBMISSION_FAILED` | Automated contact evaluation submission failed because some of<br>the questions could not be answered. Please verify the evaluation<br>form and/or the Amazon Connect rule configurations. |
-| `ANALYSIS_FILE_ERROR`         | Automated contact evaluation submission failed due to an error<br>when searching/retrieving/parsing the analysis file.                                                                     |
-| `INTERNAL_SERVER_ERROR`       | Automated contact evaluation submission failed due to an internal<br>server error. Please expect delayed processing.                                                                       |
-| `QUOTA_EXCEEDED_ERROR`        | Automated contact evaluation submission failed because the<br>remaining quota for using Gen AI to automatically answer evaluation<br>questions for the contact is insufficient.            |
+| Error                         | Error message                                                                                                                                                                                |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AUTOMATED_SUBMISSION_FAILED` | Automated contact evaluation submission failed because some of<br>the questions could not be answered. Please verify the evaluation<br>form and/or the Connect Customer rule configurations. |
+| `ANALYSIS_FILE_ERROR`         | Automated contact evaluation submission failed due to an error<br>when searching/retrieving/parsing the analysis file.                                                                       |
+| `INTERNAL_SERVER_ERROR`       | Automated contact evaluation submission failed due to an internal<br>server error. Please expect delayed processing.                                                                         |
+| `QUOTA_EXCEEDED_ERROR`        | Automated contact evaluation submission failed because the<br>remaining quota for using Gen AI to automatically answer evaluation<br>questions for the contact is insufficient.              |
 
 ### Evaluation S3 export errors
 

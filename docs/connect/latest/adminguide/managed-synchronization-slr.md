@@ -1,4 +1,4 @@
-# Using service-linked roles for Amazon Connect Managed Synchronization
+# Using service-linked roles for Connect Customer Managed Synchronization
 
 Amazon Connect managed synchronization uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that
 is linked directly to Managed Synchronization. Service-linked roles are predefined by Managed Synchronization
@@ -38,7 +38,7 @@ The role permissions policy named [AmazonConnectSynchronizationServiceRolePolicy
 allows Managed Synchronization to complete the following actions on the specified
 resources:
 
-- Action: Amazon Connect for all Amazon Connect resources
+- Action: Connect Customer for all Connect Customer resources
   - `connect:Create*`
   - `connect:Update*`
   - `connect:Delete*`
@@ -58,7 +58,7 @@ resources:
   - `connect:UntagResource`
 
 - Action: Amazon CloudWatch metrics `cloudwatch:PutMetricData` to publish
-  Amazon Connect usage metrics for an instance to your account.
+  Connect Customer usage metrics for an instance to your account.
 
 The role permissions policy named [AmazonConnectSynchronizationServiceRolePolicy](security_iam_awsmanpol.md#amazonconnectsynchronizationservicerolepolicy "security_iam_awsmanpol.md#amazonconnectsynchronizationservicerolepolicy") disallows Managed
 Synchronization from completing the following actions on the specified resources:
@@ -102,12 +102,12 @@ _IAM User Guide_.
 
 ## Creating a service-linked role for Managed Synchronization
 
-You don't need to manually create a service-linked role. When you replicate an Amazon Connect
+You don't need to manually create a service-linked role. When you replicate an Connect Customer
 instance by invoking the `ReplicateInstance` API, Managed Synchronization creates the
 service-linked role for you.
 
 If you delete this service-linked role, and then need to create it again, you can use
-the same process to recreate the role in your account. When you replicate the Amazon Connect
+the same process to recreate the role in your account. When you replicate the Connect Customer
 instance again, Managed Synchronization creates the service-linked role for you again.
 
 ## Editing a service-linked role for Managed Synchronization
@@ -145,7 +145,7 @@ _IAM User Guide_.
 ## Supported Regions for Managed Synchronization service-linked roles
 
 Managed Synchronization supports using service-linked roles in all of the Regions where Amazon
-Connect Global Resiliency is available. For more information, see [Set up Amazon Connect Global Resiliency](setup-connect-global-resiliency.md "setup-connect-global-resiliency.md").
+Connect Global Resiliency is available. For more information, see [Set up Connect Customer Global Resiliency](setup-connect-global-resiliency.md "setup-connect-global-resiliency.md").
 
 | Region name           | Region identity | Support in Managed Synchronization |
 | --------------------- | --------------- | ---------------------------------- |

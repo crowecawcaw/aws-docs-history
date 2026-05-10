@@ -1,4 +1,4 @@
-# Use an allowlist for integrated applications in Amazon Connect
+# Use an allowlist for integrated applications in Connect Customer
 
 All domains that embed the CCP for a particular instance must be explicitly allowed
 for cross-domain access to the instance. For example, to integrate with Salesforce, you
@@ -6,7 +6,7 @@ must place your Salesforce Visualforce domain in an allowlist.
 
 ###### To allow a domain URL
 
-1. Open the Amazon Connect console at
+1. Open the Connect Customer console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 2. Choose the name of the instance from **Instance
    Alias**.
@@ -16,10 +16,10 @@ must place your Salesforce Visualforce domain in an allowlist.
 
 ###### Note
 
-When Amazon Connect is embedded in another app, it's possible for users to get a
+When Connect Customer is embedded in another app, it's possible for users to get a
 **Session expired** error message when the close and then
-reopen Amazon Connect, and then log in.
+reopen Connect Customer, and then log in.
 
 If you see the **Session expired** message while logging in, you probably just need to
 refresh the session token. Go to your identity provider and log in. Refresh the
-Amazon Connect page. If you still get this message, contact your IT team.
+Connect Customer page. If you still get this message, contact your IT team.

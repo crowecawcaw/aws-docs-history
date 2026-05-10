@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Start media streaming
+# Flow block in Connect Customer: Start media streaming
 
 This topic defines the flow block for capturing what the customer hears and says
 during a contact. You can then analyze this information for training or determining
@@ -49,7 +49,7 @@ stream from the customer or to the customer.
 ## Configuration tips
 
 - You must enable live media streaming in your instance to successfully
-  capture customer audio. For instructions, see [Set up live media streaming of customer audio in Amazon Connect](customer-voice-streams.md "customer-voice-streams.md").
+  capture customer audio. For instructions, see [Set up live media streaming of customer audio in Connect Customer](customer-voice-streams.md "customer-voice-streams.md").
 - Customer audio is captured until a **Stop media
   streaming** block is invoked, even if the contact is passed to
   another flow.
@@ -68,8 +68,8 @@ configured. It has the following branches: **Success** and
 
 ## Sample flows
 
-Amazon Connect includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
-[Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
+Connect Customer includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
+[Sample flows in Connect Customer](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-[Example flow for testing live media streaming in Amazon Connect](use-media-streams-blocks.md "use-media-streams-blocks.md")
+[Example flow for testing live media streaming in Connect Customer](use-media-streams-blocks.md "use-media-streams-blocks.md")

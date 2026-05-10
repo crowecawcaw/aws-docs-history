@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Set Touchtone Buffer Behavior
+# Flow block in Connect Customer: Set Touchtone Buffer Behavior
 
 ## Description
 
@@ -51,7 +51,7 @@ types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact
 ## How to configure this block
 
 You can configure the **Set Touchtone Buffer Behavior** block by
-using the Amazon Connect admin website, or by using the [GetParticipantInput](../APIReference/participant-actions-getparticipantinput.md "../APIReference/participant-actions-getparticipantinput.md") action in the Amazon Connect flow language.
+using the Connect Customer admin website, or by using the [GetParticipantInput](../APIReference/participant-actions-getparticipantinput.md "../APIReference/participant-actions-getparticipantinput.md") action in the Connect Customer flow language.
 
 ### Enable Buffering
 
@@ -131,7 +131,7 @@ situations:
 ## Flow language
 
 The **Set Touchtone Buffer Behavior** block is represented as a
-`GetParticipantInput` action in the Amazon Connect flow language, using the
+`GetParticipantInput` action in the Connect Customer flow language, using the
 `EnableDTMFBuffer` parameter.
 
 **Enable buffering:**

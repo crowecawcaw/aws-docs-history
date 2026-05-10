@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Set working queue
+# Flow block in Connect Customer: Set working queue
 
 This topic defines the flow block for specifying the queue to transfer a contact when
 **Transfer to queue** is invoked.
@@ -60,16 +60,16 @@ configured. It has the following branches: **Success** and
 
 ## Sample flows
 
-Amazon Connect includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
-[Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
+Connect Customer includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
+[Sample flows in Connect Customer](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-- [Sample queue customer flow in Amazon Connect](sample-queue-customer.md "sample-queue-customer.md")
-- [Sample queue configurations flow in Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md")
+- [Sample queue customer flow in Connect Customer](sample-queue-customer.md "sample-queue-customer.md")
+- [Sample queue configurations flow in Connect Customer](sample-queue-configurations.md "sample-queue-configurations.md")
 
 ## Scenarios
 
 See these topics for scenarios that use this block:
 
-- [Set up agent-to-agent transfers in Amazon Connect](setup-agent-to-agent-transfers.md "setup-agent-to-agent-transfers.md")
-- [Transfer contacts to a specific agent in Amazon Connect](transfer-to-agent.md "transfer-to-agent.md")
+- [Set up agent-to-agent transfers in Connect Customer](setup-agent-to-agent-transfers.md "setup-agent-to-agent-transfers.md")
+- [Transfer contacts to a specific agent in Connect Customer](transfer-to-agent.md "transfer-to-agent.md")

@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: End flow / Resume
+# Flow block in Connect Customer: End flow / Resume
 
 ## Description
 

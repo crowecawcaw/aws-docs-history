@@ -1,6 +1,6 @@
-# Best practices for PII compliance in Amazon Connect
+# Best practices for PII compliance in Connect Customer
 
-Following this list of best practices can help you ensure your Amazon Connect contact center is
+Following this list of best practices can help you ensure your Connect Customer contact center is
 PII (Personally Identifiable Information) compliant.
 
 - Conduct compliance eligibility audits for all services used in your contact
@@ -10,12 +10,12 @@ PII (Personally Identifiable Information) compliant.
   transit and at rest rules apply downstream or to third party apps.
 - Use encryption in the **Store customer input** block for
   sensitive DTMF information.
-- Use your own KMS key when ingesting data in Amazon Connect Customer Profile
+- Use your own KMS key when ingesting data in Connect Customer Customer Profile
   domains.
 - Do not upload content containing customer PII to Connect AI agents.
-- When using Amazon Connect Voice ID, do not use PII in the
+- When using Connect Customer Voice ID, do not use PII in the
   `CustomerSpeakerId`.
 - As with any AWS service, we strongly recommend that you not use sensitive
   information to name resources.
-- When using pre-defined attributes in an Amazon Connect instance, do not use sensitive
+- When using pre-defined attributes in an Connect Customer instance, do not use sensitive
   information in it's name and values.

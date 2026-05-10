@@ -1,6 +1,6 @@
 # Enable AI agents to retrieve information and complete actions with MCP tools
 
-Amazon Connect supports Model Context Protocol (MCP), enabling AI agents for both end-customer
+Connect Customer supports Model Context Protocol (MCP), enabling AI agents for both end-customer
 self-service and employee assistance to use standardized tools for retrieving information
 and completing actions. With MCP support, you can enhance your AI agents with extensible
 tool capabilities that reduce contact handle time and increase issue resolution across
@@ -14,11 +14,11 @@ controls.
 
 ## Tool types and integration options
 
-Amazon Connect provides multiple ways to add tools to AI agent configurations:
+Connect Customer provides multiple ways to add tools to AI agent configurations:
 
 Out-of-the-box tools
 
-Amazon Connect includes prebuilt tools for common tasks such as updating contact
+Connect Customer includes prebuilt tools for common tasks such as updating contact
 attributes and retrieving case information, enabling immediate functionality
 without additional configuration.
 
@@ -33,7 +33,7 @@ Third-party MCP tools
 
 You can use third-party integrations through Amazon Bedrock AgentCore Gateway. By
 registering AgentCore Gateways in the AWS Management Console, similar to
-how third-party applications are registered to Amazon Connect today, you gain access
+how third-party applications are registered to Connect Customer today, you gain access
 to whatever tools are available on those servers, including remote MCP
 servers.
 
@@ -50,11 +50,11 @@ advanced configuration options:
 - Override input values to ensure proper tool execution.
 - Filter output values to boost accuracy and relevance.
 
-Amazon Connect reuses security profiles for Amazon Connect users for AI agents, allowing you to govern
+Connect Customer reuses security profiles for Connect Customer users for AI agents, allowing you to govern
 the boundaries of what abilities your AI agents can perform, just as you govern the
-abilities your customer service representatives can take in the Amazon Connect system.
+abilities your customer service representatives can take in the Connect Customer system.
 
-MCP support is available through the same interfaces as other Amazon Connect AI agent features
-and integrates seamlessly with existing Amazon Connect workflows and third-party systems. For
-more information, see the [Amazon Connect Model Context Protocol API
+MCP support is available through the same interfaces as other Connect Customer AI agent features
+and integrates seamlessly with existing Connect Customer workflows and third-party systems. For
+more information, see the [Connect Customer Model Context Protocol API
 Reference Guide](../APIReference/Welcome.md "../APIReference/Welcome.md").

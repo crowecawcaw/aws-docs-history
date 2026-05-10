@@ -9,8 +9,8 @@ changed over time.
 2. Choose the **Latest: Published** dropdown to view a list
    of previously published versions of the flow.
 
-For default flows that are provided with your Amazon Connect instance, the oldest
-flow in the list is the original version. The date matches when your Amazon Connect
+For default flows that are provided with your Connect Customer instance, the oldest
+flow in the list is the original version. The date matches when your Connect Customer
 instance was created. For example, in the following image, the original
 default flow is dated 07/21/22.
 
@@ -21,8 +21,8 @@ default flow is dated 07/21/22.
 For users with tag-based access controls configured on their security
 profile, the dropdown will be restricted to **Latest:
 Published** and **Latest: Saved**
-versions. To learn more about tag-based access controls in Amazon Connect, see
-[Apply tag-based access control in Amazon Connect](tag-based-access-control.md "tag-based-access-control.md"). 3. Choose the version of the flow to open and view it. You can view all the
+versions. To learn more about tag-based access controls in Connect Customer, see
+[Apply tag-based access control in Connect Customer](tag-based-access-control.md "tag-based-access-control.md"). 3. Choose the version of the flow to open and view it. You can view all the
 blocks and how they are configured. 4. Next, you can do one of the following:
 
     * To return to the most recently published version, choose it from

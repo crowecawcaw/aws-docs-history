@@ -1,6 +1,6 @@
-# Add shift activities in draft or published schedules in Amazon Connect
+# Add shift activities in draft or published schedules in Connect Customer
 
-Amazon Connect scheduling allows contact center managers, supervisors, and schedulers to
+Connect Customer scheduling allows contact center managers, supervisors, and schedulers to
 insert activities into agent schedules, both draft and published. For example,
 activities such as team meetings, 1:1 coaching sessions, and trainings can be added
 into an agent's schedule.
@@ -17,12 +17,12 @@ into an agent's schedule.
 
 ## Add a shift activity
 
-1. Log in to the Amazon Connect admin website with an account that has security profile
+1. Log in to the Connect Customer admin website with an account that has security profile
    permissions for **Scheduling**, **Schedule
    manager - Edit**.
 
 For more information, see [Assign
-permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Amazon Connect admin website, on the navigation menu, choose **Analytics and
+permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Connect Customer admin website, on the navigation menu, choose **Analytics and
 optimization**, **Scheduling**, and then
 select the **Published scheduled calendar** tab. 3. Choose the agents you want to include in the activity by selecting the
 check-boxes next to their names. 4. Choose the **Actions** drop-down and select

@@ -1,4 +1,4 @@
-# What is Amazon Connect Customer?
+# What is Connect Customer Customer?
 
 ###### Note
 
@@ -6,13 +6,13 @@ Amazon Connect now refers to a portfolio of agentic solutions for business funct
 The legacy product is now called Amazon Connect Customer, or simply Customer. The
 legacy name is used interchangeably in this documentation.
 
-Amazon Connect Customer engages customers at every touchpoint and creates deeper relationships
+Connect Customer Customer engages customers at every touchpoint and creates deeper relationships
 with AI powered capabilities.
 
 Build and manage customer communication experiences. Connect customers to agents, enable
 intelligent routing, and track performance in real-time.
 
-Amazon Connect Customer helps a variety of personas:
+Connect Customer Customer helps a variety of personas:
 
 ![One application that provides a seamless experience for customers, agents, supervisors and administrators. Amazon Connect Customer.](images/firstcallimage.png)
 
@@ -28,23 +28,23 @@ Amazon Connect Customer helps a variety of personas:
   most of their day monitoring their team's metrics and readjusting their
   configuration to be optimal for their business. They onboard most new agents, and
   provide coaching to help their team members grow.
-- **Administrators** handle the entire Amazon Connect
-  Customer configuration. They provision phone numbers and integrate Amazon Connect Customer with other products.
+- **Administrators** handle the entire Connect Customer
+  Customer configuration. They provision phone numbers and integrate Connect Customer Customer with other products.
   Along with contact center managers, they define queues and routing profiles,
   implement flows, and create rules to set up alerts and notifications.
-  Get more information in the [Amazon Connect feature overview](connect-feature-overview.md "connect-feature-overview.md").
+  Get more information in the [Connect Customer feature overview](connect-feature-overview.md "connect-feature-overview.md").
 
 ## How to get started
 
-If you are a first-time user of Amazon Connect Customer, we recommend that you do the following:
+If you are a first-time user of Connect Customer Customer, we recommend that you do the following:
 
-- Check out the [Getting Started with Amazon Connect](https://catalog.workshops.aws/amazon-connect-getting-started/en-US "https://catalog.workshops.aws/amazon-connect-getting-started/en-US") for an introduction to Amazon Connect Customer with a
+- Check out the [Getting Started with Connect Customer](https://catalog.workshops.aws/amazon-connect-getting-started/en-US "https://catalog.workshops.aws/amazon-connect-getting-started/en-US") for an introduction to Connect Customer Customer with a
   series of hands-on labs.
-- Explore Amazon Connect Customer with our [tutorials](tutorials.md "tutorials.md").
+- Explore Connect Customer Customer with our [tutorials](tutorials.md "tutorials.md").
 - Read the [architectural
   guidance](architecture-guidance.md "architecture-guidance.md").
-- [Set up your contact center in Amazon Connect](amazon-connect-contact-centers.md "amazon-connect-contact-centers.md").
+- [Set up your contact center in Connect Customer](amazon-connect-contact-centers.md "amazon-connect-contact-centers.md").
 
 ## Pricing
 
-With Amazon Connect Customer, you pay only for what you use. For more information, see [Amazon Connect pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
+With Connect Customer Customer, you pay only for what you use. For more information, see [Connect Customer pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").

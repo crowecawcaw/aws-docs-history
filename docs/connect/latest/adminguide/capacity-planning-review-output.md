@@ -1,4 +1,4 @@
-# Review capacity plan output in Amazon Connect
+# Review capacity plan output in Connect Customer
 
 To review capacity plan output, choose the hyperlink for the plan you generated.
 The first half of the page summarizes the input you used in scenario and capacity

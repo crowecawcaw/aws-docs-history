@@ -33,10 +33,10 @@ Problems with the agent's headset are usually caused by two issues:
 ###### Important
 
 A change introduced in Google Chrome version 64 may result in issues with receiving
-calls if you are using an embedded Contact Control Panel (CCP) softphone using the Amazon Connect
+calls if you are using an embedded Contact Control Panel (CCP) softphone using the Connect Customer
 Streams library. If you are experiencing issues with your microphone when using Chrome
 version 64, you can resolve the issue by building and deploying the latest version of
-the [Amazon Connect Streams API](https://github.com/aws/amazon-connect-streams/blob/master/Documentation.md#downloading-streams "https://github.com/aws/amazon-connect-streams/blob/master/Documentation.md#downloading-streams"), following the steps under _Downloading
+the [Connect Customer Streams API](https://github.com/aws/amazon-connect-streams/blob/master/Documentation.md#downloading-streams "https://github.com/aws/amazon-connect-streams/blob/master/Documentation.md#downloading-streams"), following the steps under _Downloading
 Streams_.
 
 You can also resolve the issue by using Firefox or Edge as your browser.

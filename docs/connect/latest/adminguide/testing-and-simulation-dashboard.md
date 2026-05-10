@@ -1,7 +1,7 @@
 # Testing and simulation dashboard
 
 The testing and simulation dashboard helps you monitor the quality and effectiveness
-of your automated testing across Amazon Connect flows. You can track key metrics such as
+of your automated testing across Connect Customer flows. You can track key metrics such as
 test execution volume, success and failure rates, average test run duration, and failure
 patterns by step type. Use the dashboard to identify top failing tests and flows,
 compare performance against benchmark periods, and view execution trends over time.
@@ -14,7 +14,7 @@ Ensure users are assigned the appropriate security profile permissions:
 
 - **Access metrics - Access** permission or the
   **Dashboard - Access** permission. For information
-  about the difference in behavior, see [Assign permissions to view dashboards and reports in Amazon Connect](dashboard-required-permissions.md "dashboard-required-permissions.md").
+  about the difference in behavior, see [Assign permissions to view dashboards and reports in Connect Customer](dashboard-required-permissions.md "dashboard-required-permissions.md").
 - **Test Management > Test Cases - View** permissions: This permission is required to see data in your dashboard.
 
 ###### Note

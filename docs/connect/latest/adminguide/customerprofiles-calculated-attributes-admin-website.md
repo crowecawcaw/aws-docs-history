@@ -1,4 +1,4 @@
-# Getting started with calculated attributes in Amazon Connect Customer Profiles
+# Getting started with calculated attributes in Connect Customer Customer Profiles
 
 Use calculated attributes to define your own business logic to transform your
 customer profile data into actionable data points to personalize automated

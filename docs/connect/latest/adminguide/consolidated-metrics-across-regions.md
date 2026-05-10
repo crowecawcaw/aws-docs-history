@@ -5,7 +5,7 @@
 To enable consolidated agent and contact metrics for your ACGR
 instance, please reach out to [AWS Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home").
 
-When you view metrics in Amazon Connect, you see a consolidated view of agent and contact
+When you view metrics in Connect Customer, you see a consolidated view of agent and contact
 metrics across all your paired Regions, regardless of which Region you are currently
 logged into.
 
@@ -33,4 +33,4 @@ The consolidated view is available across:
 Agent and contact metrics are consolidated across Regions. Other metrics
 such as analytics remain Region-specific.
 
-For more information about Amazon Connect reporting, see [Metrics, dashboards, and reports in Amazon Connect](amazon-connect-metrics.md "amazon-connect-metrics.md").
+For more information about Connect Customer reporting, see [Metrics, dashboards, and reports in Connect Customer](amazon-connect-metrics.md "amazon-connect-metrics.md").

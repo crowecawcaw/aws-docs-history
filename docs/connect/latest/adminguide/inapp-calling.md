@@ -1,8 +1,8 @@
 # Set up in-app, web, video calling, and screen sharing capabilities
 
-The Amazon Connect in-app, web, and video calling capabilities enable your customers
+The Connect Customer in-app, web, and video calling capabilities enable your customers
 to contact you without ever leaving your web or mobile application. You can use these
-capabilities to pass contextual information to Amazon Connect. This enables you to
+capabilities to pass contextual information to Connect Customer. This enables you to
 personalize the customer experience based on attributes such as the customer's profile or
 other information, like actions previously taken within the app.
 
@@ -36,7 +36,7 @@ To learn how to enable multi-user web, in-app and video calling, see [Enable mul
 
 ## How to set up in-app, web, video calling, and screen sharing
 
-There are two ways to embed Amazon Connect in-app, web, and video calling, and
+There are two ways to embed Connect Customer in-app, web, and video calling, and
 screen sharing onto your website or mobile application:
 
 - Option 1: [Configure an out-of-the-box
@@ -46,11 +46,11 @@ screen sharing onto your website or mobile application:
 - Option 2: [Integrate in-app, web, and video
   calling natively into your mobile application](config-com-widget2.md "config-com-widget2.md") . Choose this option to
   build a communications widget from scratch and integrate it with your mobile application
-  or website. Use the Amazon Connect APIs and Amazon Chime SDK client
+  or website. Use the Connect Customer APIs and Amazon Chime SDK client
   APIs to integrate natively into your mobile application or website.
 
 ###### Note
 
-If you have custom agent desktops, you don't need to make any changes for Amazon Connect
+If you have custom agent desktops, you don't need to make any changes for Connect Customer
 in-app and web calling. However, you need to [integrate video calling and screen
 sharing](integrate-video-calling-for-agents.md "integrate-video-calling-for-agents.md").

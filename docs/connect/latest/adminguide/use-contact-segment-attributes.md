@@ -13,7 +13,7 @@ use the [Set contact
 attributes](set-contact-attributes.md "set-contact-attributes.md") block to attach them to the contact as contact segment attributes. There are two ways you
 can do this:
 
-- Use the Amazon Connect admin website, as described in this topic.
+- Use the Connect Customer admin website, as described in this topic.
 - Use the [CreatePredefinedAttribute](../APIReference/API_CreatePredefinedAttribute.md "../APIReference/API_CreatePredefinedAttribute.md") to create the predefined attributes
   programmatically, and use the [UpdateContact](../APIReference/API_UpdateContact.md "../APIReference/API_UpdateContact.md")
   API to attach a predefined attribute as a contact segment attribute.
@@ -25,12 +25,12 @@ can do this:
 
 ## Step 1: Create a predefined attribute
 
-1. Log in to the Amazon Connect admin website at https://`instance
+1. Log in to the Connect Customer admin website at https://`instance
 name`.my.connect.aws/. Use an **Admin** account,
    or an account assigned to a security profile that has
    **Routing** - **Predefined attributes** -
    **Create** permission.
-2. In Amazon Connect, on the left navigation menu, choose **Routing**,
+2. In Connect Customer, on the left navigation menu, choose **Routing**,
    **Predefined attributes**.
 3. On the **Attribute management** page, choose **Add
    attribute**, as shown in the following image.

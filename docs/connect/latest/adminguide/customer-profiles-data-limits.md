@@ -1,6 +1,6 @@
-# Amazon Connect Customer Profiles data limits
+# Connect Customer Customer Profiles data limits
 
-Amazon Connect Customer Profiles allows you to customize your data onboarding by setting data ingestion
+Connect Customer Customer Profiles allows you to customize your data onboarding by setting data ingestion
 limits on various types of customer data that you use to create a unified profile.
 Setting limits on your data mappings enables you to prioritize how much data to
 ingest across mappings. The default maximum limit across all mappings per profile is 1000.
@@ -13,7 +13,7 @@ profile.
 
 ## How to configure Customer Profiles data limits
 
-1. Open the Amazon Connect Customer Profiles console.
+1. Open the Connect Customer Customer Profiles console.
 2. Choose the **Data limits** tab to configure limits
    for data objects.
 

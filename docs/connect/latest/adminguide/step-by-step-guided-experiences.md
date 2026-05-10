@@ -1,6 +1,6 @@
-# Step-by-step Guides to set up your Amazon Connect agent workspace
+# Step-by-step Guides to set up your Connect Customer agent workspace
 
-In the Amazon Connect agent workspace, you can create workflows that walk agents through custom
+In the Connect Customer agent workspace, you can create workflows that walk agents through custom
 UI pages that suggest what to do at a given moment during a customer interaction. You
 can create workflows that give your agents screen pops and single page forms, or you can
 create detailed step-by-step guides that give your agents clear instructions on how to
@@ -9,7 +9,7 @@ see.
 
 To learn more about the possible UI configurations, see our interactive [documentation](https://d3irlmavjxd3d8.cloudfront.net/?path=/story/overview--page "https://d3irlmavjxd3d8.cloudfront.net/?path=/story/overview--page").
 
-To learn more about the pricing of step-by-step guides, on the Amazon Connect [pricing page](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/"), scroll to the
+To learn more about the pricing of step-by-step guides, on the Connect Customer [pricing page](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/"), scroll to the
 **Agent productivity** section, and then choose the
 **Guides** tab.
 
@@ -21,10 +21,10 @@ agent's UI. All pre-existing flow blocks can be used to create branching decisio
 trees and send and receive data from external systems.
 
 When using a flow with the **Show view** block to run the
-step-by-step guide, a separate chat contact is created in your Amazon Connect instance. This
+step-by-step guide, a separate chat contact is created in your Connect Customer instance. This
 contact creates a unique CTR. If you also use a [Set event flow](set-event-flow.md "set-event-flow.md") block, the contact is associated with the
 inbound contact. Neither agents nor customers are aware of this underlying contact
-while interacting with the agent workspace or the Amazon Connect widget.
+while interacting with the agent workspace or the Connect Customer widget.
 
 When mapping a view to a **Show view** block, you will be able to
 select from a list of pre-built Views. For details and best practices about creating
@@ -33,7 +33,7 @@ Guides, see [Show view](show-view-block.md "show-view-block.md").
 ## Complex JSON Object support
 
 Use the [Show view](show-view-block.md "show-view-block.md")
-block to pass complex JSON objects between Amazon Connect agent workspaces and
+block to pass complex JSON objects between Connect Customer agent workspaces and
 flows. Use the [AWS Lambda
 function](invoke-lambda-function-block.md "invoke-lambda-function-block.md") block specify JSON objects
 as input and output parameters. These blocks allow you to pass larger quantities of

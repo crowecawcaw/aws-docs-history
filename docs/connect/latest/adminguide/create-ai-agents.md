@@ -1,11 +1,11 @@
-# Create AI agents in Amazon Connect
+# Create AI agents in Connect Customer
 
 An _AI agent_ is a resource that configures and customizes
 the end-to-end AI agent experience. For example, the AI agent tells the AI Assistant how to
 handle a manual search: which AI prompts and AI guardrails it should use, and which
 locale to use for the response.
 
-Amazon Connect provides the following out of the box system AI agents:
+Connect Customer provides the following out of the box system AI agents:
 
 - Orchestration
 - Answer Recommendation
@@ -23,7 +23,7 @@ For example, the following image shows a Connect AI agents experience that is co
 a customized AI agent for the Agent Assistance use case and uses the system
 default AI agents for the rest.
 
-![The default and custom AI agents specified for Amazon Connect](images/ai-agent-default.png)
+![The default and custom AI agents specified for Connect Customer](images/ai-agent-default.png)
 Here's how customized AI agents work:
 
 - You can override one or more of the system AI agents with your customized AI
@@ -42,7 +42,7 @@ Here's how customized AI agents work:
 
 ## How to create AI agents
 
-1. Log in to the Amazon Connect admin website at https://`instance
+1. Log in to the Connect Customer admin website at https://`instance
 name`.my.connect.aws/. Use an admin account, or an account with
    **AI agent designer** - **AI agents** -
    **Create** permission in it's security profile.
@@ -291,7 +291,7 @@ Assistant.
 
 Use the following sample AWS CLI command to set the AI agent version as
 the default. After the AI agent version is set, it will be used when the
-next Amazon Connect contact and associated Connect AI agents session are created.
+next Connect Customer contact and associated Connect AI agents session are created.
 
 ```
 aws qconnect update-assistant-ai-agent \
@@ -325,7 +325,7 @@ level of the Connect AI agents Assistant, which in turn takes precedence over sy
 defaults. This order of precedence can be used to set AI agent versions on
 sessions created for particular contact center business segments. For
 example, by using flows to automate the setting of AI agent versions for
-particular Amazon Connect queues [using a
+particular Connect Customer queues [using a
 Lambda flow block](connect-lambda-functions.md "connect-lambda-functions.md").
 
 ### Revert to system defaults

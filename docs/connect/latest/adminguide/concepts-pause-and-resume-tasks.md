@@ -1,4 +1,4 @@
-# Pause and resume tasks in Amazon Connect Tasks
+# Pause and resume tasks in Connect Customer Tasks
 
 You can pause and resume all tasks that aren't expired, disconnected, or scheduled for
 a later time. The benefit of pausing and resuming tasks is that it enables agents to

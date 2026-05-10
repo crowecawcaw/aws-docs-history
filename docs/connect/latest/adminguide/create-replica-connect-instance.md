@@ -1,22 +1,22 @@
-# Create a replica of your existing Amazon Connect instance
+# Create a replica of your existing Connect Customer instance
 
 ###### Note
 
-**New user?** Check out the [Amazon Connect Global Resiliency
+**New user?** Check out the [Connect Customer Global Resiliency
 Workshop](https://catalog.workshops.aws/amazon-connect-global-resiliency/en-US "https://catalog.workshops.aws/amazon-connect-global-resiliency/en-US"). This online course guides you through the process of onboarding and testing phone number
 and agent failover using new APIs through the AWS CLI.
 
-Global Resiliency is available only for Amazon Connect instances created in the following AWS Regions: US East (N. Virginia),
+Global Resiliency is available only for Connect Customer instances created in the following AWS Regions: US East (N. Virginia),
 US West (Oregon), Asia Pacific (Osaka), Asia Pacific (Tokyo), Europe (Frankfurt), and Europe (London).
 
 - You can only create a replica in the US East (N. Virginia) Region if your source is US West (Oregon), or the other way around.
 - You can only create a replica in the Europe (Frankfurt) Region if your source
   is Europe (London), or the other way around.
 - You can only create a replica in Asia Pacific (Osaka) Region if your source is Asia Pacific (Tokyo).
-  To obtain access to this feature, contact your Amazon Connect Solutions Architect or Technical Account Manager.
+  To obtain access to this feature, contact your Connect Customer Solutions Architect or Technical Account Manager.
 
-You call the [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") API to create a replica of your Amazon Connect instance in
-another AWS Region and to copy configuration information for Amazon Connect
+You call the [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") API to create a replica of your Connect Customer instance in
+another AWS Region and to copy configuration information for Connect Customer
 resources across AWS Regions.
 
 ###### Contents
@@ -40,7 +40,7 @@ resources across AWS Regions.
 
 - Before running [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md"):
   - Make sure you have the minimum required IAM permissions to
-    create an instance. See [Required permissions for using custom IAM policies to manage access to the Amazon Connect console](security-iam-amazon-connect-permissions.md "security-iam-amazon-connect-permissions.md").
+    create an instance. See [Required permissions for using custom IAM policies to manage access to the Connect Customer console](security-iam-amazon-connect-permissions.md "security-iam-amazon-connect-permissions.md").
   - Update your flows to replace any hardcoded Regions with a
     `$.AwsRegion` or `$['AwsRegion']`
     parameter. At flow runtime, these parameters are replaced with
@@ -58,11 +58,11 @@ resources across AWS Regions.
     ![The properties page of the check contact attributes block.](images/acgr-requirements.png)
 
   - To allow AWS managed keys in the replica instance, using the
-    AWS console, create a temporary Amazon Connect instance in the Region
+    AWS console, create a temporary Connect Customer instance in the Region
     where you are planning to create the replica instance. This will
-    create the default AWS managed keys for Amazon Connect.
+    create the default AWS managed keys for Connect Customer.
 
-- [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") copies the Amazon Connect configuration across
+- [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") copies the Connect Customer configuration across
   AWS Regions as part of the initial replication
   process. After this first step completes, any changes made to either the
   original or [mirrored resources](#mirrored-resources "#mirrored-resources")
@@ -75,7 +75,7 @@ resources across AWS Regions.
   available in both source and replica Regions, and enables phone
   number-flow associations to be mirrored across AWS Regions.
 - For instances in Asia Pacific (Tokyo), only phone numbers that are
-  explicitly enabled for Amazon Connect Global Resiliency (ACGR) will support
+  explicitly enabled for Connect Customer Global Resiliency (ACGR) will support
   complete replication behavior to Asia Pacific (Osaka). When routing
   through Asia Pacific (Osaka), inbound calls may experience delivery
   times of up to 20 seconds.
@@ -83,7 +83,7 @@ resources across AWS Regions.
   after the default routing profile and queue have been mirrored across
   the Regions.
 - As the configuration is propagated across AWS Regions,
-  you can view the progress in AWS CloudTrail logs. Or, in the Amazon Connect admin website you can
+  you can view the progress in AWS CloudTrail logs. Or, in the Connect Customer admin website you can
   navigate to **User management**, **View
   historical changes** to view an audit trail of changes to
   the users. Audit trails are also available for other
@@ -118,8 +118,8 @@ resource.
 
 ## Characteristics of the replica instance
 
-- The replica Amazon Connect instance is created in the same AWS
-  account as your existing Amazon Connect instance.
+- The replica Connect Customer instance is created in the same AWS
+  account as your existing Connect Customer instance.
 - [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") creates a default traffic distribution group if one doesn't
   already exist. This default traffic distribution group has three types of traffic
   distribution:
@@ -136,17 +136,17 @@ resource.
   `SignInConfig` distribution. See the
   `IsDefault` parameter in the [TrafficDistributionGroup](../APIReference/API_TrafficDistributionGroup.md "../APIReference/API_TrafficDistributionGroup.md") data type.
 - You use `SignInConfig` to choose the backend sign-in
-  servers to facilitate the agent signing in to their Amazon Connect instance. For
+  servers to facilitate the agent signing in to their Connect Customer instance. For
   example, if you call `UpdateTrafficDistribution` with a
   modified `SignInConfig` and a non-default
   `TrafficDistributionGroup`, an
   `InvalidRequestException` is returned.
-- The replica instance has the same instance ID as the Amazon Connect instance it
+- The replica instance has the same instance ID as the Connect Customer instance it
   is replicated from.
 
 ## What resources are mirrored in the replica instance
 
-[ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") mirrors the following Amazon Connect
+[ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") mirrors the following Connect Customer
 resources across AWS Regions.
 
 ###### Important
@@ -201,11 +201,11 @@ AWS Regions:
 
 After initial replication, configuration changes are replicated
 bidirectionally between replicated instances in near real-time. If this fails,
-Amazon Connect Global Resiliency attempts to sync updates within 30 minutes.
+Connect Customer Global Resiliency attempts to sync updates within 30 minutes.
 
 ## What to do after the replica instance is created
 
-After your replica Amazon Connect instance is created, you need to configure it:
+After your replica Connect Customer instance is created, you need to configure it:
 
 1. Ensure redundancy for front-end and back-end integrations (for
    example, SSO, Lambda, Lex) across Regions.
@@ -223,7 +223,7 @@ added to source instance and not yet in the replica.
 Contact AWS Support for help with the following activities:
 
 - To understand mirroring status beyond what's available in the CloudTrail
-  logs and audit trail in the Amazon Connect admin website.
+  logs and audit trail in the Connect Customer admin website.
 
 ## Why a ReplicateInstance call fails
 
@@ -238,9 +238,9 @@ A [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/
 5. The instance does not have SAML enabled.
 6. There is a resource name conflict.
 
-## How to find the source Region of your Amazon Connect instances
+## How to find the source Region of your Connect Customer instances
 
-If you forget which Region is your source Region for your Amazon Connect instances,
+If you forget which Region is your source Region for your Connect Customer instances,
 perform the following steps to find it:
 
 1. Call the [ListTrafficDistributionGroups](../APIReference/API_ListTrafficDistributionGroups.md "../APIReference/API_ListTrafficDistributionGroups.md") API with your
@@ -248,7 +248,7 @@ perform the following steps to find it:
 2. For any traffic distribution group in the response list, the returned
    `InstanceARN` includes the source Region. For example in
    the following ARN, `source-region` would be the
-   Region of your Amazon Connect instance.
+   Region of your Connect Customer instance.
 
 `arn:aws:connect:`source-region`:`account-id`:traffic-distribution-group/
  `traffic-distribution-group-id``

@@ -1,4 +1,4 @@
-# Search for contacts in Amazon Connect by using custom contact attributes or contact segment attributes
+# Search for contacts in Connect Customer by using custom contact attributes or contact segment attributes
 
 You can create search filters based on custom contact attributes (also called [user-defined contact attributes](connect-attrib-list.md#user-defined-attributes "connect-attrib-list.md#user-defined-attributes")) or contact
 segment attributes.
@@ -52,7 +52,7 @@ Assign the following permissions to their security profile:
 
 ![The contact search page, the filters dropdown menu, the Customer contact attribute option.](images/contact-search-custom-attributes-specify1.png) 2. The first time you choose **Custom contact attribute**,
 the following box appears, indicating no attributes have been configured for
-this Amazon Connect instance. Choose **Specify searchable attribute
+this Connect Customer instance. Choose **Specify searchable attribute
 keys**.
 
 ![The add filter option, a message that no keys have been specified for search.](images/contact-search-custom-attributes-specify2.png) 3. In the **Attribute key** box, type the name of your

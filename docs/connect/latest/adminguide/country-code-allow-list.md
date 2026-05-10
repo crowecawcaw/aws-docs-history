@@ -1,15 +1,15 @@
-# Countries that call centers using Amazon Connect can call by default
+# Countries that call centers using Connect Customer can call by default
 
 The Region where your instance is created determines which countries you can call by
 default.
 
 ###### Note
 
-Amazon Connect country allowlisting supports a default deny model; unless you have
+Connect Customer country allowlisting supports a default deny model; unless you have
 specifically been allowed to call countries you will be blocked when attempting to
 call.
 
-For a list of all the countries available for outbound calling, see [Amazon Connect pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
+For a list of all the countries available for outbound calling, see [Connect Customer pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
 
 If you already have an instance, the countries that you are allowed to call may be
 different that those listed in the following sections because we have changed the
@@ -55,7 +55,7 @@ limit the countries that you can call from.
       preferred contact method.
 
 9. Choose **Submit**.
-10. The Amazon Connect team will review your ticket and get back to
+10. The Connect Customer team will review your ticket and get back to
     you.
 
 ## Instances created in US East, US West, Canada (Central) and AWS GovCloud (US-West)

@@ -1,7 +1,7 @@
-# Create a routing profile in Amazon Connect to link queues to agents
+# Create a routing profile in Connect Customer to link queues to agents
 
 This topic is for administrators and contact center managers. It explains how to
-create routing profiles using the Amazon Connect admin website. For the APIs used to create and manage routing
+create routing profiles using the Connect Customer admin website. For the APIs used to create and manage routing
 profiles programmatically, see [APIs to create and manage routing profiles](#apis-routing-profiles "#apis-routing-profiles").
 
 While queues are a 'waiting area' for contacts, a routing profile links queues to
@@ -12,7 +12,7 @@ agents. When you create a routing profile, you specify:
 - Queues: Which queues are in the routing profile; whether one queue should be
   prioritized over another.
   Each agent is assigned to one routing profile. For more information about routing
-  profiles and queues, see [How Amazon Connect uses routing profiles](concepts-routing.md "concepts-routing.md").
+  profiles and queues, see [How Connect Customer uses routing profiles](concepts-routing.md "concepts-routing.md").
 
 **How many routing profiles can I create?** To view your
 quota of **Routing profiles per instance**, open the Service Quotas console
@@ -42,13 +42,13 @@ at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.co
 | **Name**                                              | Use the dropdown menu or text field to choose a queue that<br>you've already set up. You can add multiple queues to a<br>routing profile.                                                                                                                                                                                                                                                                                                                                                                                           |
 | **Channels**                                          | Choose whether the queue is for chat, voice, email, task,<br>or all of them.<br>ImportantThe channel that you specify here must also be<br>specified in the **Channel Settings**<br>section. If it isn't, contacts from that channel won't<br>be routed to agents.                                                                                                                                                                                                                                                                  |
 | **Priority**                                          | Specify the order in which contacts are to be handled for<br>that queue. For example, a contact in a queue with a<br>priority of 2 would be a lower priority than a contact in a<br>queue with a priority of 1.                                                                                                                                                                                                                                                                                                                     |
-| **Delay (in seconds)**                                | Enter the minimum amount of time a contact should be in<br>the queue before they are routed to an available<br>agent.<br>To learn more about how Priority and Delay work together,<br>see [Queue priority and delay examples to help you load balance Amazon Connect contacts](concepts-routing-profiles-priority.md "concepts-routing-profiles-priority.md").                                                                                                                                                                      |
-| **Default outbound queue**                            | Choose a queue to be associated with outbound calls or<br>emails initiated by the agents. Outbound contacts respect<br>the settings from the default outbound queue, such as caller<br>ID and "From" email address. For more information, see [Create a queue using the Amazon Connect admin website](create-queue.md "create-queue.md").                                                                                                                                                                                           |
-| **Set routing order**                                 | By default Amazon Connect routes new contacts to<br>agents that have been in **Available**<br>status the longest. You can customize this behavior, for<br>example, to change the impact that outbound contacts have on<br>the assignment of new inbound<br>contacts.                                                                                                                                                                                                                                                                |
+| **Delay (in seconds)**                                | Enter the minimum amount of time a contact should be in<br>the queue before they are routed to an available<br>agent.<br>To learn more about how Priority and Delay work together,<br>see [Queue priority and delay examples to help you load balance Connect Customer contacts](concepts-routing-profiles-priority.md "concepts-routing-profiles-priority.md").                                                                                                                                                                    |
+| **Default outbound queue**                            | Choose a queue to be associated with outbound calls or<br>emails initiated by the agents. Outbound contacts respect<br>the settings from the default outbound queue, such as caller<br>ID and "From" email address. For more information, see [Create a queue using the Connect Customer admin website](create-queue.md "create-queue.md").                                                                                                                                                                                         |
+| **Set routing order**                                 | By default Connect Customer routes new contacts to<br>agents that have been in **Available**<br>status the longest. You can customize this behavior, for<br>example, to change the impact that outbound contacts have on<br>the assignment of new inbound<br>contacts.                                                                                                                                                                                                                                                              |
 | **Outbound calls should not impact routing<br>order** | Use this setting if you don't want agents who make<br>outbound contacts to move to the bottom of the list for<br>receiving inbound contacts.<br>By default new contacts are routed to the agent who has<br>been in \*_Available_<br>• status longest. By<br>making an outbound contact, the agent drops to the bottom of<br>the list waiting for inbound contacts. You can use this<br>setting to override that default logic and ensure that<br>agents making outbound contacts still get their fair share<br>of inbound contacts. |
 
 5. Optionally, add tags to identify, organize, search for, filter, and control
-   who can access this routing profile. For more information, see [Add tags to resources in Amazon Connect](tagging.md "tagging.md").
+   who can access this routing profile. For more information, see [Add tags to resources in Connect Customer](tagging.md "tagging.md").
 6. Choose **Save**.
 
 ## Tips for setting up channels and concurrency
@@ -64,7 +64,7 @@ stop all voice calls to these agents, across all queues in the profile. When
 you want to restart voice contacts for these agents again, select
 **Voice**.
 
-- When using **Cross-channel concurrency**, Amazon Connect checks
+- When using **Cross-channel concurrency**, Connect Customer checks
   which contact to offer the agent as follows:
 
       1. It checks what contacts/channels the agent is currently
@@ -72,7 +72,7 @@ you want to restart voice contacts for these agents again, select
       2. Based on what channels they are currently handling, and the
        cross-channel configuration in the agent's routing profile, it
        determines whether the agent can be routed the next contact.
-      3. Amazon Connect prioritizes the longest waiting contact if Priority and
+      3. Connect Customer prioritizes the longest waiting contact if Priority and
        Delay are equal. Even though it's evaluating multiple channels at
        the same time, First-In First-Out is still respected.
 
@@ -141,7 +141,7 @@ The agent will experience the following routing behavior:
 
 7. Now there is another task in queue.
    - The agent is currently working on a voice call AND a task. Once
-     again, Amazon Connect checks the cross channel settings and Voice is set to
+     again, Connect Customer checks the cross channel settings and Voice is set to
      **No other channels while agent is on a Voice
      contact**.
    - Because the agent is working on a voice call, they cannot be

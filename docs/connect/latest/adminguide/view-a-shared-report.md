@@ -1,4 +1,4 @@
-# View a shared report in Amazon Connect
+# View a shared report in Connect Customer
 
 To view a report that someone has shared with you, you need the following:
 

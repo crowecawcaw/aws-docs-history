@@ -1,6 +1,6 @@
 # Contacts, contact chains, and contact attributes
 
-This topic explains how Amazon Connect organizes and tracks
+This topic explains how Connect Customer organizes and tracks
 customer interactions while maintaining relevant contextual information throughout the
 customer journey.
 
@@ -12,12 +12,12 @@ customer journey.
 
 ## Contacts
 
-In Amazon Connect a _contact_ represents either a segment of customer
+In Connect Customer a _contact_ represents either a segment of customer
 interaction, or it represents an agent's designated task.
 
 ## Contact chains
 
-As a customer interaction proceeds through the Amazon Connect infrastructure, it is represented
+As a customer interaction proceeds through the Connect Customer infrastructure, it is represented
 by a _contact chain_. A contact chain encompasses the complete
 pathway from initial engagement to final resolution. This journey is orchestrated by a
 _flow_, a sophisticated routing mechanism that governs both the
@@ -36,7 +36,7 @@ correspondence has the potential to generate its own contact chain, particularly
 routing occurs across multiple queues or agent transfers.
 
 The following image illustrates the hierarchical relationship among initial contact
-ID, related contact ID, and associated contact ID within the Amazon Connect contact management
+ID, related contact ID, and associated contact ID within the Connect Customer contact management
 framework. This hierarchical relationship enables you to trace and analyze the complete
 lifecycle of customer interactions.
 
@@ -49,7 +49,7 @@ attributes.
 
 ### System-defined attributes
 
-Amazon Connect defines attribute names (such as channel), and manages attribute values
+Connect Customer defines attribute names (such as channel), and manages attribute values
 (such as voice and chat). You can create personalized customer experiences in your
 contact center by leveraging these system-defined contact attributes.
 
@@ -64,7 +64,7 @@ processing customer interactions.
 
 You can capture specific contextual information for your business through
 user-defined attributes. These attributes encompass details such as line-of-business
-names, customer account types, and contact drivers. Amazon Connect offers two types of
+names, customer account types, and contact drivers. Connect Customer offers two types of
 user-defined attributes:
 
 - **Contact attributes**: These allow you to
@@ -84,10 +84,10 @@ Important things to know about contact attributes:
      are immediately propagated to all interaction segments within the
      contact chain.
     + When you update an attribute's value for a specific interaction
-     segment, Amazon Connect automatically applies this change across all
+     segment, Connect Customer automatically applies this change across all
      interaction segments in the contact chain.
 
-For more information, see [How contact attributes work in Amazon Connect](what-is-a-contact-attribute.md "what-is-a-contact-attribute.md").
+For more information, see [How contact attributes work in Connect Customer](what-is-a-contact-attribute.md "what-is-a-contact-attribute.md").
 
 - **Contact segment attributes**: Unlike
   contact attributes, contact segment attributes keep the values that remain
@@ -104,7 +104,7 @@ Important things to know about contact segment attributes:
 
     + Changes to segment attributes in one contact segment (such as C3)
      remain isolated from other segments (such as C1 and C2).
-    + To maintain the continuity of the business context, Amazon Connect
+    + To maintain the continuity of the business context, Connect Customer
      transfers attributes and values from previous contacts to subsequent
      ones. This allows a value to be changed in each new segment.
 

@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Set contact attributes
+# Flow block in Connect Customer: Set contact attributes
 
 This topic defines the flow block for storing key-value pairs as contact attributes,
 and then setting a value that is later referenced in a flow.
@@ -17,7 +17,7 @@ The **Set contact attributes** block is useful, for example, for
 copying attributes retrieved from external sources to user-defined
 attributes.
 
-For more information about contact attributes, see [Use Amazon Connect contact attributes](connect-contact-attributes.md "connect-contact-attributes.md").
+For more information about contact attributes, see [Use Connect Customer contact attributes](connect-contact-attributes.md "connect-contact-attributes.md").
 
 ## Supported channels
 
@@ -52,7 +52,7 @@ You can choose to set attributes on:
 
 - **Current contact**: The attributes are set on the
   contact that this flow is running on. The attributes are accessible by other
-  areas of Amazon Connect, such as other flows, modules, Lambdas, contact records, and
+  areas of Connect Customer, such as other flows, modules, Lambdas, contact records, and
   the GetMetricDataV2 API.
 - **Related contact**: The attributes are associated with a
   new contact that contains a copy of the original contact properties.
@@ -84,7 +84,7 @@ customer's credit card number to do a Lambda data dip.
 
 ## How to reference attributes
 
-- For the JSON syntax for each attribute, see [List of available contact attributes in Amazon Connect and their JSONPath references](connect-attrib-list.md "connect-attrib-list.md").
+- For the JSON syntax for each attribute, see [List of available contact attributes in Connect Customer and their JSONPath references](connect-attrib-list.md "connect-attrib-list.md").
 - To reference attributes that contain special characters in their name,
   such as spaces, place brackets and single quotations around the attribute
   name. For example: `$.Attributes.['user attribute name']`.
@@ -102,7 +102,7 @@ customer's credit card number to do a Lambda data dip.
 - To reference a customer name from a Lambda function lookup, use
   $.External.AttributeKey, replacing AttributeKey with the key (or name)
   of the attribute returned from the Lambda function.
-- To use an Amazon Connect prompt in a Lambda function, set a user-defined
+- To use an Connect Customer prompt in a Lambda function, set a user-defined
   attribute to the ARN for the prompt, and then access that attribute from
   the Lambda function.
 
@@ -137,7 +137,7 @@ following options:
   defining the attribute paths in JSONPath.
 - You can use the **Set contact attribute** block to set
   the language attribute required for an Amazon Lex V2 bot. (Your language
-  attribute in Amazon Connect must match the language model used to build your Amazon Lex
+  attribute in Connect Customer must match the language model used to build your Amazon Lex
   V2 bot.) The following image shows a language attribute set to
   Spanish.
 
@@ -146,7 +146,7 @@ following options:
 Or, you can use the [Set voice](set-voice.md "set-voice.md") block to set the language required for
 an Amazon Lex V2 bot.
 
-For more information about how to use contact attributes, see [Use Amazon Connect contact attributes](connect-contact-attributes.md "connect-contact-attributes.md").
+For more information about how to use contact attributes, see [Use Connect Customer contact attributes](connect-contact-attributes.md "connect-contact-attributes.md").
 
 ## Configured block
 
@@ -158,14 +158,14 @@ configured. It has two branches: **Success** and
 
 ## Sample flows
 
-Amazon Connect includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
-[Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
+Connect Customer includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
+[Sample flows in Connect Customer](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-- [Sample inbound flow in Amazon Connect for the first contact experience](sample-inbound-flow.md "sample-inbound-flow.md")
+- [Sample inbound flow in Connect Customer for the first contact experience](sample-inbound-flow.md "sample-inbound-flow.md")
 
 ## Scenarios
 
 See these topics for scenarios that use this block:
 
-- [How to reference contact attributes in Amazon Connect](how-to-reference-attributes.md "how-to-reference-attributes.md")
+- [How to reference contact attributes in Connect Customer](how-to-reference-attributes.md "how-to-reference-attributes.md")

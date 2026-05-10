@@ -1,4 +1,4 @@
-# Validate calculated attribute values in Amazon Connect Customer Profiles using APIs
+# Validate calculated attribute values in Connect Customer Customer Profiles using APIs
 
 There are two APIs, `GetCalculatedAttributeForProfile` and
 `ListCalculatedAttributesForProfile`, that are at the profile

@@ -4,7 +4,7 @@ When you configure dependent field options for case templates, you can upload a 
 
 ## What is CSV upload for dependent field options?
 
-CSV upload is a bulk configuration method for dependent field options in Amazon Connect Cases. Dependent field options create cascading dropdown menus. The available choices in one field (the target field) depend on the value selected in another field (the source field).
+CSV upload is a bulk configuration method for dependent field options in Connect Customer Cases. Dependent field options create cascading dropdown menus. The available choices in one field (the target field) depend on the value selected in another field (the source field).
 
 You can prepare your mappings in a CSV file and upload it. This saves time compared to manually configuring each source-target value relationship through the Amazon Connect admin website. The system parses your CSV file and validates the field names and values against your case template. The system then pre-populates the rule creation form with your data. You create the rule using the standard workflow.
 

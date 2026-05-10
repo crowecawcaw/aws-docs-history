@@ -1,4 +1,4 @@
-# Assign claimed phone numbers to traffic distribution groups in Amazon Connect
+# Assign claimed phone numbers to traffic distribution groups in Connect Customer
 
 - You created a new traffic distribution group and it's status is
   `ACTIVE`. We recommend using the [DescribeTrafficDistributionGroup](../APIReference/API_DescribeTrafficDistributionGroup.md "../APIReference/API_DescribeTrafficDistributionGroup.md") API to verify the
@@ -11,7 +11,7 @@
 
 ###### Note
 
-To update the **Description** field, you must use the Amazon Connect
+To update the **Description** field, you must use the Connect Customer
 console.
 
 ## Example workflow
@@ -22,14 +22,14 @@ traffic distribution group:
 1. Call the [UpdatePhoneNumber](../APIReference/API_UpdatePhoneNumber.md "../APIReference/API_UpdatePhoneNumber.md") API to assign the phone number to a new
    `TargetArn`.
 
-The `TargetArn` can be for another Amazon Connect instance or for a
+The `TargetArn` can be for another Connect Customer instance or for a
 traffic distribution group created in the same Region where the phone
 number was initially claimed. 2. Perform the following steps to associate flows to phone numbers.
 
 These steps ensure your telephony traffic will route correctly to your
 flows to support your traffic distribution configuration.
 
-    1. In your existing Amazon Connect instance in the Region where the traffic distribution group
+    1. In your existing Connect Customer instance in the Region where the traffic distribution group
      was created, do the following steps:
 
 
@@ -37,7 +37,7 @@ flows to support your traffic distribution configuration.
     	 `InstanceId` that corresponds to the
     	 instance that was replicated.
     	2. A list of flow ARNs is returned. Use these flow ARNs
-    	 to associate a flow to a phone number; call the [AssociatePhoneNumberContactFlow](../APIReference/API_AssociatePhoneNumberContactFlow.md "../APIReference/API_AssociatePhoneNumberContactFlow.md") API.The phone number to flow association will be mirrored between Amazon Connect
+    	 to associate a flow to a phone number; call the [AssociatePhoneNumberContactFlow](../APIReference/API_AssociatePhoneNumberContactFlow.md "../APIReference/API_AssociatePhoneNumberContactFlow.md") API.The phone number to flow association will be mirrored between Connect Customer
 
 instances across AWS Regions.
 

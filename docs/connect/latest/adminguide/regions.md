@@ -1,11 +1,11 @@
-# Availability of Amazon Connect features by Region
+# Availability of Connect Customer features by Region
 
-This topic lists the AWS Regions where Amazon Connect features are
+This topic lists the AWS Regions where Connect Customer features are
 available.
 
 ###### Contents
 
-- [Amazon Connect](#amazonconnect_region "#amazonconnect_region")
+- [Connect Customer](#amazonconnect_region "#amazonconnect_region")
 - [Agent workspace and step-by-step
   guides](#agentworkspace_region "#agentworkspace_region")
 - [Agent workspace third-party
@@ -36,7 +36,7 @@ available.
 - [Tasks](#tasks_region "#tasks_region")
 - [Voice ID](#voiceid_region "#voiceid_region")
 
-## Amazon Connect availability by Region
+## Connect Customer availability by Region
 
 | Region Name              | Region         | Endpoint                                                                      | Protocol       |
 | ------------------------ | -------------- | ----------------------------------------------------------------------------- | -------------- |
@@ -267,7 +267,7 @@ The calculated attributes API is available in the following AWS Regions:
 - US West (Oregon)
 - Asia Pacific (Tokyo) Region
 - Asia Pacific (Osaka) Region - This Region is for replicas only. For more information,
-  see the Note at the top of [Create a replica of your existing Amazon Connect instance](create-replica-connect-instance.md "create-replica-connect-instance.md").
+  see the Note at the top of [Create a replica of your existing Connect Customer instance](create-replica-connect-instance.md "create-replica-connect-instance.md").
 - Europe (Frankfurt)
 - Europe (London)
 
@@ -310,7 +310,7 @@ The calculated attributes API is available in the following AWS Regions:
 - Europe (London)
 
 The phone numbers that outbound campaigns can call are based on the AWS Region where
-your Amazon Connect instance is created.
+your Connect Customer instance is created.
 
 - From instances created in US East (N. Virginia) or US West (Oregon) you can
   call all phone numbers based in the US, Mexico, and Brazil.
@@ -324,7 +324,7 @@ your Amazon Connect instance is created.
   numbers based in Singapore, Thailand, Malaysia, Philippines, and Vietnam.
 - From instances created in Asia Pacific (Sydney) you can call phone numbers
   based in Australia and New Zealand. There are a few specific restrictions
-  explained in [Make predictive and progressive calls using Amazon Connect
+  explained in [Make predictive and progressive calls using Connect Customer
   outbound campaigns](https://aws.amazon.com/blogs//contact-center/make-predictive-and-progressive-calls-using-amazon-connect-high-volume-outbound-communications/ "https://aws.amazon.com/blogs//contact-center/make-predictive-and-progressive-calls-using-amazon-connect-high-volume-outbound-communications/")).
 - From instances created in Europe (Frankfurt) or Europe (London) you can
   call all phone numbers based in the Belgium, Denmark, France, Germany, Ireland,

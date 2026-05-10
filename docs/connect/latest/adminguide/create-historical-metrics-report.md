@@ -1,4 +1,4 @@
-# Create a custom historical metrics report in Amazon Connect
+# Create a custom historical metrics report in Connect Customer
 
 Create your own customized historical metrics reports to look at specific data.
 
@@ -6,7 +6,7 @@ Create your own customized historical metrics reports to look at specific data.
 
 - You must have permission to access metric data. The following security
   profiles include this permission: **CallCenterManager** and
-  **QualityAnalyst**. For more information, see [Security profiles for Amazon Connect and Contact Control Panel (CCP) access](connect-security-profiles.md "connect-security-profiles.md").
+  **QualityAnalyst**. For more information, see [Security profiles for Connect Customer and Contact Control Panel (CCP) access](connect-security-profiles.md "connect-security-profiles.md").
 
 ## Grouping options
 
@@ -95,7 +95,7 @@ following:
 
 ## How to create a historical metrics report
 
-1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/.
+1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/.
 2. Choose **Analytics and optimization**,
    **Historical metrics**.
 3. Choose one of the following report types, which group and order the
@@ -106,7 +106,7 @@ following:
 
    - **Agents**
      - **Agent performance**
-     - [Agent activity audit report in Amazon Connect](agent-activity-audit-report.md "agent-activity-audit-report.md")
+     - [Agent activity audit report in Connect Customer](agent-activity-audit-report.md "agent-activity-audit-report.md")
 
    - **Phone numbers**
      - **Contact metrics**
@@ -152,7 +152,7 @@ following:
 8. On the **Metrics** tab, choose the metrics and fields
    to include in the report. An exclamation point (!) is displayed next to
    any metrics that are not available based on the groupings that you
-   selected. For more information, see [Metric definitions in Amazon Connect](metrics-definitions.md "metrics-definitions.md").
+   selected. For more information, see [Metric definitions in Connect Customer](metrics-definitions.md "metrics-definitions.md").
 9. When you are finished customizing your report, choose
    **Apply**.
 10. (Optional) To save your report for future use, choose

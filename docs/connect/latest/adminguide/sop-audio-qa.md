@@ -5,12 +5,12 @@
 The topics and content in this section are for IT administrators who have experience
 with investigating network and telephony issues.
 
-You also need to be familiar with how to access data in an Amazon Connect contact
+You also need to be familiar with how to access data in an Connect Customer contact
 record.
 
 ## Where to find QualityMetrics
 
-Amazon Connect provides QualityMetrics in the contact record for each connected call.
+Connect Customer provides QualityMetrics in the contact record for each connected call.
 
 QualityMetrics is part of the contact object that you get as a response when you call
 the [DescribeContact](../APIReference/API_DescribeContact.md "../APIReference/API_DescribeContact.md")
@@ -37,14 +37,14 @@ it looks like:
 QualityMetrics is also a sub-section of the [QualityMetrics](ctr-data-model.md#ctr-qualitymetrics "ctr-data-model.md#ctr-qualitymetrics") object that you receive through Kinesis CTR
 events.
 
-QualityMetrics is not available by using the Amazon Connect admin website to view the contact record.
+QualityMetrics is not available by using the Connect Customer admin website to view the contact record.
 
 QualityMetrics is not part of EventBridge events.
 
 ## Symptoms of call quality issues
 
 Following is a list of common symptoms that indicate call quality issues on a
-participant media connection. You can observe these symptoms on a Amazon Connect call recording
+participant media connection. You can observe these symptoms on a Connect Customer call recording
 on the participant channel.
 
 - Choppy/broken audio
@@ -101,12 +101,12 @@ overall impact:
 - What percentage of calls are affected in a given day and out of how many
   calls?
 - Is the issue observed on incoming calls, outgoing calls or both?
-- Is an entity forwarding calls to Amazon Connect? If so, does the audio quality issue
-  occur in case of direct dials to Amazon Connect without the call quality issue.
+- Is an entity forwarding calls to Connect Customer? If so, does the audio quality issue
+  occur in case of direct dials to Connect Customer without the call quality issue.
 
 ## Use `QualityMetrics`
 
-Amazon Connect provides [QualityMetrics](ctr-data-model.md#ctr-qualitymetrics "ctr-data-model.md#ctr-qualitymetrics")
+Connect Customer provides [QualityMetrics](ctr-data-model.md#ctr-qualitymetrics "ctr-data-model.md#ctr-qualitymetrics")
 in the contact record for each connected call. Use the metrics help you to identify the
 source of the issue.
 
@@ -132,7 +132,7 @@ investigation.
   observed on the outbound audio (egress) stream for the participant.
   - Causes:
     - This can occur in the path the packets traverse the network
-      between the participant and the Amazon Connect endpoint which could be
+      between the participant and the Connect Customer endpoint which could be
       due to a bad/poor network, congestion in network, constrained
       network bandwidth.
     - It can also occur when there could be other applications on
@@ -161,7 +161,7 @@ investigation.
   and back, not including the processing time at its destination. High RTT results
   in callers experiencing noticeable delays (speech overlap) on the call.
   RoundTripTime (RTT) is the estimated network round trip time between the
-  participant's device and Amazon Connect endpoint.
+  participant's device and Connect Customer endpoint.
   - Causes:
     - The most common cause of high round trip time is a
       low-bandwidth or constrained network.
@@ -170,7 +170,7 @@ investigation.
       past, some of our customers have reported VPN applications being
       cause of the issue.
     - If the agent's physical location is distant from the AWS
-      Region of the Amazon Connect instance, it results in an increase to
+      Region of the Connect Customer instance, it results in an increase to
       RoundTripTime adding latency.
     - Routing audio through a virtualized desktop (as opposed to
       redirecting the WebRTC session directly to agent workstation)

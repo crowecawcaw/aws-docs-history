@@ -1,6 +1,6 @@
-# Accept incoming contacts with Amazon Connect Customer Profiles
+# Accept incoming contacts with Connect Customer Customer Profiles
 
-When a call or chat is connected to your Contact Control Panel (CCP), Amazon Connect Customer Profiles, in the
+When a call or chat is connected to your Contact Control Panel (CCP), Connect Customer Customer Profiles, in the
 same browser window, automatically populates the customer profile that may match the
 incoming phone number for a voice interaction and _Name_ for a chat
 interaction.
@@ -11,9 +11,9 @@ You can change autopopulation behavior if you wish. For more information, see
 [Use contact
 attributes to autopopulate customer profiles](auto-pop-customer-profile.md "auto-pop-customer-profile.md").
 
-Before agents can access customer profiles, the Amazon Connect administrator must enable the
+Before agents can access customer profiles, the Connect Customer administrator must enable the
 Customer Profiles feature, grant agents the appropriate permissions, and integrate
-Customer Profiles into your agent workspace. For more information, see [Enable Customer Profiles for your Amazon Connect instance](enable-customer-profiles.md "enable-customer-profiles.md").
+Customer Profiles into your agent workspace. For more information, see [Enable Customer Profiles for your Connect Customer instance](enable-customer-profiles.md "enable-customer-profiles.md").
 
 ###### Contents
 
@@ -30,20 +30,20 @@ Customer Profiles into your agent workspace. For more information, see [Enable C
 
 ## Example 1: Auto-populate the customer profile
 
-As soon as Amazon Connect Customer Profiles matches the phone number (voice) or customer
+As soon as Connect Customer Customer Profiles matches the phone number (voice) or customer
 name (chat) with an existing customer profile, it automatically displays the profile
 even though you may not have accepted the contact yet.
 
 The following image shows what your Contact Control Panel (CCP) may look like when
 there's an incoming chat. A customer profile has been found that matches the
-customer, and Amazon Connect is loading the data.
+customer, and Connect Customer is loading the data.
 
 ![The Customer profile tab, incoming chat.](images/customer-profiles-incoming-chat-example1.png)
 
 This next example shows what it might look like after you've accepted and joined
-the chat, and Amazon Connect displays the customer's profile. In this case, Amazon Connect found the
+the chat, and Connect Customer displays the customer's profile. In this case, Connect Customer found the
 customer's profile based on their email address. If this were a voice call, by
-default Amazon Connect would match the customer's profile based on their phone number. Your
+default Connect Customer would match the customer's profile based on their phone number. Your
 IT department can [customize](auto-pop-customer-profile.md "auto-pop-customer-profile.md") this
 behavior to search for the profile based on other information about the
 contact.

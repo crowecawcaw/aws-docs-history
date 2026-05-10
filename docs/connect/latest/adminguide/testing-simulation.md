@@ -1,8 +1,8 @@
-# Amazon Connect Testing and Simulation
+# Connect Customer Testing and Simulation
 
-Amazon Connect Testing and Simulation capabilities enable you to simulate your contact center experiences,
+Connect Customer Testing and Simulation capabilities enable you to simulate your contact center experiences,
 including self-service interactions and post-contact activities such as automated surveys.
-With minimal configuration within Amazon Connect, you can set up and run automated tests using the
+With minimal configuration within Connect Customer, you can set up and run automated tests using the
 new visual test configuration experience. The test designer allows you to specify which
 experiences to observe, what attributes to assert and validate when the test reaches the
 expected interaction, and whether the validation of the experience passes or fails.

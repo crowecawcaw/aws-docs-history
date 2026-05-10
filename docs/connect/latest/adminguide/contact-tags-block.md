@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Contact tags
+# Flow block in Connect Customer: Contact tags
 
 This topic defines the flow block for creating and applying tags to your
 contacts.
@@ -12,7 +12,7 @@ contacts.
   remove tags in a flow, for example, if the tags aren't relevant to the
   segment anymore.
 - For more information about how to use tags to obtain a more detailed view
-  of your Amazon Connect usage, see [Set up granular billing for a detailed view of your Amazon Connect usage](granular-billing.md "granular-billing.md").
+  of your Connect Customer usage, see [Set up granular billing for a detailed view of your Connect Customer usage](granular-billing.md "granular-billing.md").
 
 ## Supported channels
 
@@ -49,7 +49,7 @@ image.
 
 ## Configuration tips
 
-- For more information about how Amazon Connect processes user-defined tags, see
+- For more information about how Connect Customer processes user-defined tags, see
   [Things to know about user-defined tags](granular-billing.md#about-user-defined-tags "granular-billing.md#about-user-defined-tags").
 
 ## Configured block

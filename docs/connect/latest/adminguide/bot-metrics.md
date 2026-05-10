@@ -1,4 +1,4 @@
-# Amazon Connect bot metrics and analytics
+# Connect Customer bot metrics and analytics
 
 The following flow driven metrics are available on the [Flows and conversational bot performance dashboard](flows-performance-dashboard.md "flows-performance-dashboard.md") and the
 [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md").
@@ -12,7 +12,7 @@ resource (flow or flow module) started between the specified start and end time.
 
 **Metric category**: Flow driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_BOT_CONVERSATION_TIME`
@@ -42,7 +42,7 @@ bot.
 
 **Metric category**: Flow driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_BOT_CONVERSATION_TURNS`
@@ -82,7 +82,7 @@ module):
 
 **Metric category**: Flow driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `BOT_CONVERSATIONS_COMPLETED`
@@ -118,7 +118,7 @@ the specified start and end time.
 
 **Metric category**: Flow driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `BOT_INTENTS_COMPLETED`
@@ -181,12 +181,12 @@ between the specified start and end time.
 
 **Metric category**: Flow driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `PERCENT_BOT_CONVERSATIONS_OUTCOME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 **Calculation logic**:
 
@@ -209,12 +209,12 @@ module) started between the specified start and end time.
 
 **Metric category**: Flow driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `PERCENT_BOT_INTENTS_OUTCOME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 **Calculation logic**:
 

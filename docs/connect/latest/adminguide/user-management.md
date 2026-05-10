@@ -1,19 +1,19 @@
-# Add users to Amazon Connect
+# Add users to Connect Customer
 
-When you add users to Amazon Connect, you can configure them with information appropriate to
-their roles. For example, you specify their [security profile](connect-security-profiles.md "connect-security-profiles.md"), which indicates the tasks they can perform in Amazon Connect admin website. For
+When you add users to Connect Customer, you can configure them with information appropriate to
+their roles. For example, you specify their [security profile](connect-security-profiles.md "connect-security-profiles.md"), which indicates the tasks they can perform in Connect Customer admin website. For
 agents you specify their [routing profile](routing-profiles.md "routing-profiles.md"), which
 indicates the contacts that can be routed to them.
 
-This topic explains how to add users using the Amazon Connect admin website. To add users programmatically,
-see [CreateUser](../APIReference/API_CreateUser.md "../APIReference/API_CreateUser.md") in the _Amazon Connect API Reference Guide_. To use the CLI, see [create-user](../../../cli/latest/reference/connect/create-user.md "../../../cli/latest/reference/connect/create-user.md").
+This topic explains how to add users using the Connect Customer admin website. To add users programmatically,
+see [CreateUser](../APIReference/API_CreateUser.md "../APIReference/API_CreateUser.md") in the _Connect Customer API Reference Guide_. To use the CLI, see [create-user](../../../cli/latest/reference/connect/create-user.md "../../../cli/latest/reference/connect/create-user.md").
 
 ## Add a user individually
 
-1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/. Use an **Admin** account, or an account
+1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/. Use an **Admin** account, or an account
    assigned to a security profile that has **Users - Create**
    permission.
-2. In Amazon Connect, on the left navigation menu, choose **Users**,
+2. In Connect Customer, on the left navigation menu, choose **Users**,
    **User management**.
 3. Choose **Add new users**.
 4. Choose **Create and set up a new user** and then choose
@@ -25,18 +25,18 @@ see [CreateUser](../APIReference/API_CreateUser.md "../APIReference/API_CreateUs
 
 SAML users don't have primary email addresses, they have username logins. A username login
 is typically an email address but it doesn't have to be. For these users the field label
-**Email address** is empty inside Amazon Connect. When email notifications are sent for SAML users, they must have
+**Email address** is empty inside Connect Customer. When email notifications are sent for SAML users, they must have
 a secondary email configured in order to get it. If a secondary email is not configured, the user won't receive the email.
 
 ###### Tip
 
-Mobile number is not currently used by Amazon Connect. 6. Choose a routing profile and a security profile. 7. Optionally, add tags to identify, organize, search for, filter, and
+Mobile number is not currently used by Connect Customer. 6. Choose a routing profile and a security profile. 7. Optionally, add tags to identify, organize, search for, filter, and
 control who can access this hours of operation record. For more information,
-see [Add tags to resources in Amazon Connect](tagging.md "tagging.md"). 8. Choose **Save**. If the Save button isn't active, it
-means you're logged in with an Amazon Connect account that doesn't have
+see [Add tags to resources in Connect Customer](tagging.md "tagging.md"). 8. Choose **Save**. If the Save button isn't active, it
+means you're logged in with an Connect Customer account that doesn't have
 the required security profile permissions.
 
-To fix this issue, log in with an account that is assigned to the Amazon Connect Admin security profile. Or, ask another Admin to help. 9. For information about adding agents, see [Configure agent settings in Amazon Connect](configure-agents.md "configure-agents.md").
+To fix this issue, log in with an account that is assigned to the Connect Customer Admin security profile. Or, ask another Admin to help. 9. For information about adding agents, see [Configure agent settings in Connect Customer](configure-agents.md "configure-agents.md").
 
 ## Add users in bulk from a .csv file
 
@@ -49,15 +49,15 @@ add more than 100 different routing profiles. This may cause a timeout or
 failure during the validation process.
 
 Bulk upload is for adding new records, not for editing existing records. To
-edit user records in bulk, see [Edit users in bulk in Amazon Connect](edit-users-in-bulk.md "edit-users-in-bulk.md").
+edit user records in bulk, see [Edit users in bulk in Amazon Connect Customer](edit-users-in-bulk.md "edit-users-in-bulk.md").
 
 Use these steps to add several users from a .csv file such as an Excel
 spreadsheet.
 
-1. Log in to Amazon Connect with an **Admin** account,
+1. Log in to Connect Customer with an **Admin** account,
    or an account assigned to a security profile that has **Users -
    Create** permission.
-2. In Amazon Connect, on the left navigation menu, choose **Users**,
+2. In Connect Customer, on the left navigation menu, choose **Users**,
    **User management**.
 3. Choose **Add new users**.
 4. Choose **Import users using a .csv template** and then
@@ -82,8 +82,8 @@ The following image shows a sample of what the .csv template looks like in
 an Excel spreadsheet. The first row in the spreadsheet contains the column
 headings, and the second row contains sample user data.
 
-![The csv template in an Excel spreadsheet.](images/add-bulk-users-2.png) 5. Add your users to the template and upload it to Amazon Connect. Choose
-**Upload file and verify**. 6. Amazon Connect validates the data in the file. Choose **Save** to
+![The csv template in an Excel spreadsheet.](images/add-bulk-users-2.png) 5. Add your users to the template and upload it to Connect Customer. Choose
+**Upload file and verify**. 6. Connect Customer validates the data in the file. Choose **Save** to
 create the new user records.
 
 ![The uploaded users and Save button.](images/save-bulk-users.png)
@@ -111,14 +111,14 @@ another batch of user records to create, edit, or delete, in bulk or
 individually. This is useful for quickly updating settings such as
 routing profiles for groups of agents.
 
-Amazon Connect sequentially processes the records in bulk. 9. Choose **Refresh** to update the **User
+Connect Customer sequentially processes the records in bulk. 9. Choose **Refresh** to update the **User
 management** page with the users that have been created.
 
 ![A banner that users have been created.](images/save-bulk-users-banner.png)
 
 ## Required permissions for adding users
 
-Before you can add users to Amazon Connect, you need the following permissions
+Before you can add users to Connect Customer, you need the following permissions
 assigned to your security profile: **Users - Create**. The
 following image shows that this security profile permission is in the
 **Users and permissions** section of the **Add/Edit
@@ -126,8 +126,8 @@ security profile** page.
 
 ![The Users and permissions section of the security profile page.](images/security-profile-create-user-accounts.png)
 
-By default, the Amazon Connect
+By default, the Connect Customer
 **Admin** security profile has these permissions.
 
 For information about how to add more permissions to an existing security profile,
-see [Update security profiles in Amazon Connect](update-security-profiles.md "update-security-profiles.md").
+see [Update security profiles in Connect Customer](update-security-profiles.md "update-security-profiles.md").

@@ -1,22 +1,22 @@
-# Flow block in Amazon Connect: Check Voice ID
+# Flow block in Connect Customer: Check Voice ID
 
 ###### Note
 
 End of support notice: On May 20, 2026, AWS will end support for Amazon Connect
 Voice ID. After May 20, 2026, you will no longer be able to access Voice ID on the
-Amazon Connect console, access Voice ID features on the Amazon Connect admin website or Contact Control Panel, or access Voice ID
+Amazon Connect console, access Voice ID features on the Connect Customer admin website or Contact Control Panel, or access Voice ID
 resources. For more information, visit [Amazon Connect
 Voice ID end of support](amazonconnect-voiceid-end-of-support.md "amazonconnect-voiceid-end-of-support.md").
 
 This topic describes how the Check Voice ID block branches based on data returned by
-Amazon Connect Voice ID.
+Connect Customer Voice ID.
 
 ## Description
 
 ###### Note
 
 The [Set Voice ID](set-voice-id.md "set-voice-id.md") block
-needs to be set in the flow before this one. That block sends audio to [Amazon Connect Voice ID](voice-id.md "voice-id.md") to verify the customer's identity,
+needs to be set in the flow before this one. That block sends audio to [Connect Customer Voice ID](voice-id.md "voice-id.md") to verify the customer's identity,
 and returns a status.
 
 The **Check Voice ID** block branches based on the results of
@@ -149,5 +149,5 @@ check for:
 
 See the following topics for more information about this block:
 
-- [Use real-time caller authentication with Voice ID in Amazon Connect](voice-id.md "voice-id.md")
+- [Use real-time caller authentication with Voice ID in Connect Customer](voice-id.md "voice-id.md")
 - [Enroll callers in Voice ID in the Contact Control Panel (CCP)](use-voiceid.md "use-voiceid.md")

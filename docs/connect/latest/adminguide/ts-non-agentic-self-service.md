@@ -44,7 +44,7 @@ configuration. These issues are described below.
 
 ### Timeouts from Amazon Lex
 
-- **Symptoms**: Amazon Connect logs show
+- **Symptoms**: Connect Customer logs show
   "Internal Server Error" for the [Get customer input](get-customer-input.md "get-customer-input.md") block
 - **Cause**: Your self-service bot
   timed out while providing results within the 10-second limit.

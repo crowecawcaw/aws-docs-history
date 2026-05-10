@@ -1,22 +1,22 @@
-# Tagging an Amazon Connect instance
+# Tagging an Connect Customer instance
 
-Instance Tagging provides the ability for you to tag Amazon Connect instances and
+Instance Tagging provides the ability for you to tag Connect Customer instances and
 build tailored authorization through tag-based access control (TBAC). To help you manage
-your Amazon Connect instances, you can assign your own metadata in the form of tags
-to the instance. If you have multiple Amazon Connect instances in a single AWS account, each serving different functions or catering to specific lines
+your Connect Customer instances, you can assign your own metadata in the form of tags
+to the instance. If you have multiple Connect Customer instances in a single AWS account, each serving different functions or catering to specific lines
 of business, using tags can help you better organize and apply tag-based access control
 (TBAC) policies to these instances for improved management and control.
 
 [AWS Tags](tagging.md "tagging.md") serve as a useful tool for organizing your
 AWS resources. They consist of key-value pairs that help you
 categorize resources based on criteria like purpose, owner, or environment. This enables
-you to identify and manage your resources. Amazon Connect, allows you to add tags to
+you to identify and manage your resources. Connect Customer, allows you to add tags to
 your instances directly from the AWS console, or by utilizing public
 APIs.
 
-## Tagging Amazon Connect instances at creation
+## Tagging Connect Customer instances at creation
 
-1. Open the Amazon Connect console at
+1. Open the Connect Customer console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 2. Choose **Add an instance**.
 
@@ -40,9 +40,9 @@ will appear in the **Tags** section.
 
 ![The characters after the last /.](images/tag-instance-at-creation-5.png)
 
-## Tagging an existing Amazon Connect instance
+## Tagging an existing Connect Customer instance
 
-1. Open the Amazon Connect console at
+1. Open the Connect Customer console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 2. Select an existing instance that you would like to add tags too.
 
@@ -57,9 +57,9 @@ instance.
 
 ![Choose save to add your tags to your instance.](images/tag-existing-instance-4.png)
 
-## Tagging an Amazon Connect instance using the API
+## Tagging an Connect Customer instance using the API
 
-To tag Amazon Connect instances using the public APIs, see [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md") and [UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md").
+To tag Connect Customer instances using the public APIs, see [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md") and [UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md").
 
 ## Sample IAM policies for scenarios with and without instance tags
 
@@ -69,7 +69,7 @@ sample scenarios and sample IAM policies for how to use conditions on tags or
 conditions on resource IDs.
 
 **Scenario 1**: Controlling access to a specific
-Amazon Connect instance through an IAM role using tags associated with the
+Connect Customer instance through an IAM role using tags associated with the
 instance. The following policy allows access only to instances which are tagged with
 key:`Environment` and value:`Dev`.
 
@@ -135,12 +135,12 @@ JSON
 
 ## Additional information about instance tagging
 
-**Replicating instances:** When you create a [replica of your existing Amazon Connect instance](create-replica-connect-instance.md "create-replica-connect-instance.md") to another region using the [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") API, tags from the source instance will not be
+**Replicating instances:** When you create a [replica of your existing Connect Customer instance](create-replica-connect-instance.md "create-replica-connect-instance.md") to another region using the [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") API, tags from the source instance will not be
 automatically tagged to the newly replicated instance. You will have to tag the
 replicated instance manually.
 
-**Tag inheritance:** When you tag an Amazon Connect instance, all underlying resources in Amazon Connect, such as routing
+**Tag inheritance:** When you tag an Connect Customer instance, all underlying resources in Connect Customer, such as routing
 profiles, queues, will not inherit the instance tags. To learn how to control
-granular access to specific resources in Amazon Connect, see how to configure
+granular access to specific resources in Connect Customer, see how to configure
 more granular access by using [tag-based
 access control](tag-based-access-control.md "tag-based-access-control.md").

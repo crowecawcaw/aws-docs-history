@@ -1,6 +1,6 @@
 # Use generative AI-powered case summarization
 
-To help agents to handle cases more efficiently, they can use generative AI-powered case summarization. This AI agent and Amazon Connect Cases feature – available to unlimited AI customers – helps agents gather context faster and expedites their time to resolution of customer issues.
+To help agents to handle cases more efficiently, they can use generative AI-powered case summarization. This AI agent and Connect Customer Cases feature – available to unlimited AI customers – helps agents gather context faster and expedites their time to resolution of customer issues.
 
 To view the permissions needed to use the feature, see [Required Cases and Agent Applications permissions to generate AI-powered case summarization](assign-security-profile-cases.md#required-cases-agent-app-ai-summary-permissions "assign-security-profile-cases.md#required-cases-agent-app-ai-summary-permissions").
 

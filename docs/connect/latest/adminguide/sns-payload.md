@@ -1,4 +1,4 @@
-# Use the Amazon SNS payload after enabling message streaming in Amazon Connect
+# Use the Amazon SNS payload after enabling message streaming in Connect Customer
 
 After you’ve enabled message streaming successfully, you may need to filter the
 message to send it to the intended participant: agent, customer, or all.
@@ -34,7 +34,7 @@ Following is a description of each message attribute in the Amazon SNS payload:
   there has been new agent in the chat or the queue-to-queue contact
   flow.
 - `ParticipantRole`: The participant who sent the message.
-- `InstanceId`: The Amazon Connect instance ID.
+- `InstanceId`: The Connect Customer instance ID.
 - `AccountId`: The AWS account ID.
 - `Type`: Possible values: `EVENT`,
   `MESSAGE`.

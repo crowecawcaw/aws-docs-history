@@ -1,4 +1,4 @@
-# Evaluate agent performance in Amazon Connect using generative AI
+# Evaluate agent performance in Connect Customer using generative AI
 
 ###### Note
 
@@ -55,7 +55,7 @@ The following is the overview of the automation process:
 
 ## Use Ask AI to get generative AI answer recommendations
 
-1. Log into Amazon Connect with a user account that has [permissions to perform
+1. Log into Connect Customer with a user account that has [permissions to perform
    evaluations](evaluation-and-coaching-permissions.md "evaluation-and-coaching-permissions.md") and [ask
    AI assistant](evaluation-and-coaching-permissions.md "evaluation-and-coaching-permissions.md").
 2. Choose the **Ask AI** button below a question to receive
@@ -87,7 +87,7 @@ AI-powered evaluations.
 
 You can pre-configure on an evaluation form whether a question will be
 automatically answered using generative AI. Then, if you start an evaluation using
-the evaluation form on the Amazon Connect UI, answers to these questions will get
+the evaluation form on the Connect Customer UI, answers to these questions will get
 automatically filled using generative AI (without requiring you to click Ask AI).
 You can also use generative AI to automatically fill and submit evaluations. For
 automatically submitted evaluations, you can use generative AI to answer up to 10

@@ -1,4 +1,4 @@
-# Customize widget launch behavior and button icon for your website hosted in Amazon Connect
+# Customize widget launch behavior and button icon for your website hosted in Connect Customer
 
 To further customize how your website renders and launches the hosted widget icon, you
 can configure the launch behavior and hide the default icon. For example, you can
@@ -58,7 +58,7 @@ The following example shows changes you would need to make in the widget to
 configure programmatic launch to open only when the user chooses a custom button
 element rendered anywhere on your website. For example, they may choose a button
 named **Contact Us** or **Chat With Us**.
-Optionally, you can hide the default Amazon Connect widget icon until the widget has been
+Optionally, you can hide the default Connect Customer widget icon until the widget has been
 opened.
 
 ```
@@ -129,7 +129,7 @@ The following example shows changes you would need to make in the widget to
 make your website page load faster by fetching the widget's static assets when a
 user clicks the **Chat With Us** button. Typically, only small
 percentage of customers visiting a **Contact Us** page open the
-Amazon Connect widget. The widget could be adding latency on page load by fetching files
+Connect Customer widget. The widget could be adding latency on page load by fetching files
 from CDN, even though customers never open the widget.
 
 An alternative solution is to run the snippet code asynchronously (or never)

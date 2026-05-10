@@ -1,4 +1,4 @@
-# Set up shift rotation patterns in Amazon Connect
+# Set up shift rotation patterns in Connect Customer
 
 Use shift rotation patterns to create a set of shift profiles that are rotated
 based on sequential order and a defined set of weeks. The shift rotation pattern
@@ -20,10 +20,10 @@ feature specifications, see [Forecasting, capacity planning, and scheduling feat
 
 ## Set up shift rotation patterns
 
-1.  Log in to the Amazon Connect admin website with an account that has security profile
+1.  Log in to the Connect Customer admin website with an account that has security profile
     permissions for **Scheduling, Schedule manager -
     Edit**.
-2.  On the Amazon Connect navigation menu, select **Analytics and
+2.  On the Connect Customer navigation menu, select **Analytics and
     Optimization**, **Scheduling**.
 3.  On the **Scheduling** page, choose the
     **Shift rotations patterns** tab, and then choose
@@ -135,7 +135,7 @@ in the following image.
 
 ![The Staff rules page, the Upload data option.](images/shift-rotation-upload.png)
 
-If there is a problem with your .csv file, Amazon Connect displays an error message
+If there is a problem with your .csv file, Connect Customer displays an error message
 that indicates which fields have mismatches. This makes it easier for you to
 troubleshoot your file uploads. The following image shows example error
 messages.

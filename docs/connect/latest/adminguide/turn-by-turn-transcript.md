@@ -1,4 +1,4 @@
-# Navigate transcripts and audio in Amazon Connect Contact Lens
+# Navigate transcripts and audio in Connect Customer Contact Lens
 
 Supervisors are often required to review the contacts for many agents, for quality
 assurance purposes. The turn-by-turn transcript and sentiment data helps you quickly

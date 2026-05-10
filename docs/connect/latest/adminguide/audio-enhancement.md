@@ -1,4 +1,4 @@
-# Enable Audio Enhancement for agents in Amazon Connect
+# Enable Audio Enhancement for agents in Connect Customer
 
 Audio Enhancement improves audio quality and reliability on the agent's side by reducing
 background noise and isolating the agent's voice during calls. This feature includes
@@ -40,7 +40,7 @@ specific agents through user management settings.
 
 ###### To enable Audio Enhancement
 
-1. In the Amazon Connect admin website, choose **Users** and then choose
+1. In the Connect Customer admin website, choose **Users** and then choose
    **User management**.
 2. Review the **Audio Enhancement** column to see current
    settings for each agent.
@@ -78,7 +78,7 @@ you must enable the appropriate security profile permission.
 
 ###### To allow agents to control Audio Enhancement
 
-1. In the Amazon Connect admin website, choose **Users**,
+1. In the Connect Customer admin website, choose **Users**,
    **Security profiles**.
 2. Select the security profile assigned to your agents.
 3. Expand **Contact Control Panel (CCP)** permissions.
@@ -104,9 +104,9 @@ their CCP.
 - When both administrators and agents can control Audio Enhancement,
   the most recent change takes effect.
 
-## Set up Audio Enhancement mode through Amazon Connect APIs
+## Set up Audio Enhancement mode through Connect Customer APIs
 
-If you are using the Amazon Connect APIs, you can set the Audio Enhancement mode by
+If you are using the Connect Customer APIs, you can set the Audio Enhancement mode by
 including the [VoiceEnhancementConfigs](../APIReference/API_CreateUser.md#connect-CreateUser-request-VoiceEnhancementConfigs "../APIReference/API_CreateUser.md#connect-CreateUser-request-VoiceEnhancementConfigs")
 parameter in the [CreateUser](../APIReference/API_CreateUser.md "../APIReference/API_CreateUser.md") or
 [UpdateUserConfig](../APIReference/API_UpdateUserConfig.md "../APIReference/API_UpdateUserConfig.md")
@@ -133,7 +133,7 @@ For both endpoints, the accepted values of `VoiceEnhancementMode` are
 
 ## Set up Audio Enhancement mode for custom CCP
 
-If you are using a custom CCP with the Amazon Connect Streams API, you can set the Audio
+If you are using a custom CCP with the Connect Customer Streams API, you can set the Audio
 Enhancement mode in either of the following ways:
 
 - **Using agent.setVoiceEnhancementMode API**
@@ -159,7 +159,7 @@ agent.setConfiguration({
 
 In all cases, the accepted values are `VOICE_ISOLATION`,
 `NOISE_SUPPRESSION`, or `NONE`. Once the mode is set,
-Amazon Connect Streams will apply the selected Audio Enhancement.
+Connect Customer Streams will apply the selected Audio Enhancement.
 
 ## Troubleshooting
 
@@ -179,6 +179,6 @@ If you require additional support, contact AWS Support and include:
 ## Related topics
 
 - [Agent headset and workstation requirements for using the Contact Control Panel (CCP)](ccp-agent-hardware.md "ccp-agent-hardware.md")
-- [Security profiles for Amazon Connect and Contact Control Panel (CCP) access](connect-security-profiles.md "connect-security-profiles.md")
-- [Provide agents with access to the Amazon Connect Contact Control Panel (CCP)](amazon-connect-contact-control-panel.md "amazon-connect-contact-control-panel.md")
-- [Set up your contact center in Amazon Connect](amazon-connect-contact-centers.md "amazon-connect-contact-centers.md")
+- [Security profiles for Connect Customer and Contact Control Panel (CCP) access](connect-security-profiles.md "connect-security-profiles.md")
+- [Provide agents with access to the Connect Customer Contact Control Panel (CCP)](amazon-connect-contact-control-panel.md "amazon-connect-contact-control-panel.md")
+- [Set up your contact center in Connect Customer](amazon-connect-contact-centers.md "amazon-connect-contact-centers.md")

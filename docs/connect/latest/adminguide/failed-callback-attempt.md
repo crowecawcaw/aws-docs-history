@@ -1,4 +1,4 @@
-# Failed callback attempts in Amazon Connect
+# Failed callback attempts in Connect Customer
 
 If an agent doesn't accept an offered callback, it doesn't count as an failed
 callback attempt. Rather, the routing engine offers the callback to the next
@@ -11,13 +11,13 @@ customer.
 The contact is considered to be in the callback queue until an agent accepts the
 offered callback contact.
 
-Amazon Connect removes the callback from the queue when it's connected to the
-agent. At that time, Amazon Connect starts dialing the customer.
+Connect Customer removes the callback from the queue when it's connected to the
+agent. At that time, Connect Customer starts dialing the customer.
 
 The following image shows what this looks like in a contact record:
 
 - Dequeued At: The timestamp of when the callback was connected to the
-  agent. It's also when Amazon Connect starts dialing the customer.
+  agent. It's also when Connect Customer starts dialing the customer.
 
 ![A contact record that contains a dequeued at time.](images/ctr-enqueue-and-dequeue.png)
 The enqueued time on the contact record for a particular callback leg corresponds

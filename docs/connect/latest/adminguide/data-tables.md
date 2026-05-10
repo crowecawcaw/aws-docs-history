@@ -2,7 +2,7 @@
 
 ###### Understanding data tables
 
-Data tables allow you to store and manage data that impacts your configurations within Amazon Connect. Data tables can be referenced by other resources, for example Flows and Views. When changes or additions are made to data tables, they are available immediately via public APIs and on-screen, no redeployment necessary.
+Data tables allow you to store and manage data that impacts your configurations within Connect Customer. Data tables can be referenced by other resources, for example Flows and Views. When changes or additions are made to data tables, they are available immediately via public APIs and on-screen, no redeployment necessary.
 
 Use data tables to support scenarios ranging from simple routing rules to complex, time-based configurations, accessible and modifiable in real time. In contrast to [Predefined Attributes](predefined-attributes.md "predefined-attributes.md") which store simple key-value pairs, data tables support multiple columns, various data types, and complex relationships.
 
@@ -128,11 +128,11 @@ It's also possible to query for the exact message by adding a third dimension fo
 
 ###### Using data tables for dynamic lookups in flows
 
-Flows can read and write values from data tables. For more information, see [Flow block in Amazon Connect: Data Table](data-table-block.md "data-table-block.md").
+Flows can read and write values from data tables. For more information, see [Flow block in Connect Customer: Data Table](data-table-block.md "data-table-block.md").
 
 ###### Leverage Data tables to build custom user interfaces
 
-Data tables can empower business users to make routine contact center operational adjustments without requiring direct access to underlying Amazon Connect systems. Custom interfaces can be created from Data tables using the Views no-code UI builder, then assigned to workspaces. Operations teams can then use the custom UIs to respond quickly to changing conditions, without requiring IT intervention and working within approved governance and security frameworks. Data tables can combine multiple resources, so business users do not need permission to each (e.g. flows, prompts, queues).
+Data tables can empower business users to make routine contact center operational adjustments without requiring direct access to underlying Connect Customer systems. Custom interfaces can be created from Data tables using the Views no-code UI builder, then assigned to workspaces. Operations teams can then use the custom UIs to respond quickly to changing conditions, without requiring IT intervention and working within approved governance and security frameworks. Data tables can combine multiple resources, so business users do not need permission to each (e.g. flows, prompts, queues).
 
 Purpose-built interfaces can allow authorized business users to control scenarios such as:
 
@@ -157,7 +157,7 @@ Connect provides:
 - Values (cells) — 1000 per table
 - Lists — 100 items for text and number list values
 - Characters — 5k for non-primary text values, 1k for TEXT_LIST items and primary text values
-  To learn more about service quotas and how to manage them, see [Amazon Connect service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
+  To learn more about service quotas and how to manage them, see [Connect Customer service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
 
 ###### Track changes to Data tables
 
@@ -165,4 +165,4 @@ On-screen audit history provides recent changes to a resource and its before and
 
 ###### Note
 
-AWS CloudTrail tracks the history of all resource changes. For more information, see [Log Amazon Connect API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+AWS CloudTrail tracks the history of all resource changes. For more information, see [Log Connect Customer API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").

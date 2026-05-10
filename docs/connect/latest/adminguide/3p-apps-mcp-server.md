@@ -1,6 +1,6 @@
-# Integrate an MCP server with Amazon Connect
+# Integrate an MCP server with Connect Customer
 
-To integrate an MCP server with Amazon Connect, you must configure a Bedrock AgentCore gateway. The gateway transforms your APIs, Lambda functions, and services into MCP-compatible tools for AI agents.
+To integrate an MCP server with Connect Customer, you must configure a Bedrock AgentCore gateway. The gateway transforms your APIs, Lambda functions, and services into MCP-compatible tools for AI agents.
 
 ###### Note
 
@@ -16,7 +16,7 @@ Only one instance can be associated with a gateway, and that instance must be co
 
    ![The Add integration page showing Basic information fields for an MCP server application.](images/integrations-3p-mcp-app.png) 2. **Application details**
 
-   Select a Bedrock AgentCore gateway to connect with Amazon Connect. Gateways convert APIs, Lambda functions, and services into MCP-compatible tools for AI agents. If no gateways currently exist, create a new one using Bedrock AgentCore.
+   Select a Bedrock AgentCore gateway to connect with Connect Customer. Gateways convert APIs, Lambda functions, and services into MCP-compatible tools for AI agents. If no gateways currently exist, create a new one using Bedrock AgentCore.
 
    ![The Application details section showing gateway selection.](images/integrations-3p-mcp-select-gateway.png)
 

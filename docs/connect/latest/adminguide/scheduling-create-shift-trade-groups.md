@@ -2,17 +2,17 @@
 
 You create shift trade groups so that agents within the same forecast group can
 trade shifts with each other. For information about the shift exchange capability,
-see [Set up shift exchange in Amazon Connect](shift-exchange.md "shift-exchange.md").
+see [Set up shift exchange in Connect Customer](shift-exchange.md "shift-exchange.md").
 
-You can create up to 500 trade groups per Amazon Connect instance. You can create up to 100
+You can create up to 500 trade groups per Connect Customer instance. You can create up to 100
 custom trade groups.
 
-1. Log in to the Amazon Connect admin website with an account that has security profile permissions
+1. Log in to the Connect Customer admin website with an account that has security profile permissions
    for **Scheduling**, **Schedule manager -
    Edit**.
 
 For more information, see [Assign
-permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Amazon Connect navigation menu, select **Analytics and
+permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Connect Customer navigation menu, select **Analytics and
 optimization**, **Scheduling**. 3. On the **Scheduling** page, choose the **Shift
 trade groups** tab, and then choose
 **Create**, as shown in the following image.

@@ -1,6 +1,6 @@
 # Endpoints and Regions for third-party STT providers
 
-By default, Amazon Connect communicates with the following endpoints:
+By default, Connect Customer communicates with the following endpoints:
 
 **Deepgram**: [https://api.deepgram.com](https://api.deepgram.com "https://api.deepgram.com")
 

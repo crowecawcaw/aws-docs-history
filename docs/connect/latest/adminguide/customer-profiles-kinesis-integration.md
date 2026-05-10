@@ -1,7 +1,7 @@
-# Create a Kinesis Integration with Amazon Connect Customer Profiles
+# Create a Kinesis Integration with Connect Customer Customer Profiles
 
 The following steps outline the process of streaming objects from an Amazon Kinesis Data
-Stream into Amazon Connect Customer Profiles. The integration consists of two main steps:
+Stream into Connect Customer Customer Profiles. The integration consists of two main steps:
 
 1. Configure an EventBridge Pipe to stream data from your Kinesis Data Stream to an EventBridge
    bus.
@@ -57,5 +57,5 @@ EventBridge. Next, we will create an integration with Customer Profiles.
    integrate** page and choose **Add data
    source integration** to complete the setup.
 
-Your Kinesis Data Stream is now integrated with Amazon Connect Customer Profiles, and you are now ready to
+Your Kinesis Data Stream is now integrated with Connect Customer Customer Profiles, and you are now ready to
 send events from Kinesis to Customer Profiles.

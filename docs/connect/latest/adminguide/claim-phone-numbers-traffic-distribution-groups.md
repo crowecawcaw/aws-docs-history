@@ -1,19 +1,19 @@
-# Claim phone numbers to traffic distribution groups using Amazon Connect
+# Claim phone numbers to traffic distribution groups using Connect Customer
 
 ###### Note
 
-**New user?** Check out the [Amazon Connect Global Resiliency
+**New user?** Check out the [Connect Customer Global Resiliency
 Workshop](https://catalog.workshops.aws/amazon-connect-global-resiliency/en-US "https://catalog.workshops.aws/amazon-connect-global-resiliency/en-US"). This online course guides you through the process of onboarding and testing phone number
 and agent failover using new APIs through the AWS CLI.
 
-Global Resiliency is available only for Amazon Connect instances created in the following AWS Regions: US East (N. Virginia),
+Global Resiliency is available only for Connect Customer instances created in the following AWS Regions: US East (N. Virginia),
 US West (Oregon), Asia Pacific (Osaka), Asia Pacific (Tokyo), Europe (Frankfurt), and Europe (London).
 
 - You can only create a replica in the US East (N. Virginia) Region if your source is US West (Oregon), or the other way around.
 - You can only create a replica in the Europe (Frankfurt) Region if your source
   is Europe (London), or the other way around.
 - You can only create a replica in Asia Pacific (Osaka) Region if your source is Asia Pacific (Tokyo).
-  To obtain access to this feature, contact your Amazon Connect Solutions Architect or Technical Account Manager.
+  To obtain access to this feature, contact your Connect Customer Solutions Architect or Technical Account Manager.
 
 After your traffic distribution group is created successfully (`Status` is
 `ACTIVE`), you can use [SearchAvailablePhoneNumbers](../APIReference/API_SearchAvailablePhoneNumbers.md "../APIReference/API_SearchAvailablePhoneNumbers.md") to search for available phone numbers and
@@ -30,7 +30,7 @@ instance to a traffic distribution group.
 
 ###### Note
 
-To update the **Description** field, you must use the Amazon Connect
+To update the **Description** field, you must use the Connect Customer
 console.
 
 ## Example workflow
@@ -76,7 +76,7 @@ them in both Regions where the traffic distribution group operates.
 These steps ensure your telephony traffic will route correctly to your
 flows to support your traffic distribution configuration.
 
-    1. In your existing Amazon Connect instance in the Region where the traffic distribution group
+    1. In your existing Connect Customer instance in the Region where the traffic distribution group
      was created, do the following steps:
 
 
@@ -85,7 +85,7 @@ flows to support your traffic distribution configuration.
     	 instance that was replicated.
     	2. A list of flow ARNs is returned. Use these flow ARNs
     	 to associate a flow to a phone number; call the [AssociatePhoneNumberContactFlow](../APIReference/API_AssociatePhoneNumberContactFlow.md "../APIReference/API_AssociatePhoneNumberContactFlow.md") API.
-    2. In the replicated Amazon Connect instance in the other AWS Region, do
+    2. In the replicated Connect Customer instance in the other AWS Region, do
      the following steps:
 
 

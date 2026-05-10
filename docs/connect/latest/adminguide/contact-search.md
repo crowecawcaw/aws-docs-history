@@ -1,15 +1,15 @@
-# Search for completed and in-progress contacts in Amazon Connect
+# Search for completed and in-progress contacts in Connect Customer
 
 ###### Note
 
 End of support notice: On May 20, 2026, AWS will end support for Amazon Connect
 Voice ID. After May 20, 2026, you will no longer be able to access Voice ID on the
-Amazon Connect console, access Voice ID features on the Amazon Connect admin website or Contact Control Panel, or access Voice ID
+Amazon Connect console, access Voice ID features on the Connect Customer admin website or Contact Control Panel, or access Voice ID
 resources. For more information, visit [Amazon Connect
 Voice ID end of support](amazonconnect-voiceid-end-of-support.md "amazonconnect-voiceid-end-of-support.md").
 
 This topic is for administrators and contact center managers who need to search for
-contacts using the Amazon Connect admin website. For the APIs used to search for contacts programmatically, see
+contacts using the Connect Customer admin website. For the APIs used to search for contacts programmatically, see
 [APIs to search contacts](#apis-search-contacts "#apis-search-contacts").
 
 ###### Contents
@@ -21,8 +21,8 @@ contacts using the Amazon Connect admin website. For the APIs used to search for
 - [Additional fields: Add columns to your search results](#additional-fields "#additional-fields")
 - [Download search results](#download-search-results "#download-search-results")
 - [APIs to search contacts](#apis-search-contacts "#apis-search-contacts")
-- [Search for in-progress contacts in Amazon Connect](search-in-progress-contacts.md "search-in-progress-contacts.md")
-- [Search for contacts in Amazon Connect by using custom contact attributes or contact segment attributes](search-custom-attributes.md "search-custom-attributes.md")
+- [Search for in-progress contacts in Connect Customer](search-in-progress-contacts.md "search-in-progress-contacts.md")
+- [Search for contacts in Connect Customer by using custom contact attributes or contact segment attributes](search-custom-attributes.md "search-custom-attributes.md")
 
 ## Important things to know
 
@@ -87,7 +87,7 @@ on the next hierarchy level(s).
 - Filter to search for email contacts using email address (To, From and CC) and
   email subject. Searching on an email subject is not case sensitive. Also,
   searching for a subset of words within an email subject provides search results.
-  For example, if you enter **inquiry**, Amazon Connect return emails with
+  For example, if you enter **inquiry**, Connect Customer return emails with
   the subject **Customer Inquiry**.
 - Filters for [conversation analytics](analyze-conversations.md "analyze-conversations.md").
   You can search for contacts that have conversational analytics enabled.
@@ -118,14 +118,14 @@ list, remove the following permissions from their security profile:
 
 - Filters for recordings. Using the **recording** filter, you can filter for contacts with a screen recording (video) or audio recording (voice).
 - Filter for Active Region. Search for contacts by the AWS region where they
-  were handled. This filter is available for Amazon Connect instances using global
+  were handled. This filter is available for Connect Customer instances using global
   resiliency, where contacts may be handled in a different AWS region than the
   region you are logged into.
 
 ###### Important
 
-Some Amazon Connect features may be unavailable when accessing cross-region contact
-data. For complete details, refer to the [Set up Amazon Connect Global Resiliency](setup-connect-global-resiliency.md "setup-connect-global-resiliency.md").
+Some Connect Customer features may be unavailable when accessing cross-region contact
+data. For complete details, refer to the [Set up Connect Customer Global Resiliency](setup-connect-global-resiliency.md "setup-connect-global-resiliency.md").
 
 - Filters for [Voice ID](voice-id.md "voice-id.md"). You can search for the
   Voice ID authentication and fraud detection status of contacts, if your
@@ -142,7 +142,7 @@ result**, **Speaker actions**.
 
 ## Manage who can search for contacts and access detailed information
 
-Before users can search for contacts in Amazon Connect, or access detailed contact information,
+Before users can search for contacts in Connect Customer, or access detailed contact information,
 they need to be assigned to the **CallCenterManager** security profile,
 or have the following **Analytics and Optimization**
 permissions:
@@ -235,18 +235,18 @@ what is shown in the preceding table.
   use the **Agent** filter on the **Contact
   search** page.
 
-By default, the Amazon Connect **Admin** and
+By default, the Connect Customer **Admin** and
 **CallCenterManager** security profiles have these
 permissions.
 
 For information about how to add more permissions to an existing security profile,
-see [Update security profiles in Amazon Connect](update-security-profiles.md "update-security-profiles.md").
+see [Update security profiles in Connect Customer](update-security-profiles.md "update-security-profiles.md").
 
 ## How to search for a contact
 
-1. Log in to Amazon Connect with a user account that has [permissions to access contact
+1. Log in to Connect Customer with a user account that has [permissions to access contact
    records](#required-permissions-search-contacts "#required-permissions-search-contacts").
-2. In Amazon Connect choose **Analytics and optimization**,
+2. In Connect Customer choose **Analytics and optimization**,
    **Contact search**.
 3. Use the filters on the page to narrow your search. For date, you can search up
    to 8 weeks at a time.

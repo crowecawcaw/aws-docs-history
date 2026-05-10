@@ -1,9 +1,9 @@
-# Sample queued callback flow in Amazon Connect
+# Sample queued callback flow in Connect Customer
 
 ###### Note
 
-This sample flow is available in previous Amazon Connect instances. In new instances, you
-can see examples of queued callback in [Sample interruptible queue flow with callback in Amazon Connect](sample-interruptible-queue.md "sample-interruptible-queue.md") and [Sample queue configurations flow in Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md").
+This sample flow is available in previous Connect Customer instances. In new instances, you
+can see examples of queued callback in [Sample interruptible queue flow with callback in Connect Customer](sample-interruptible-queue.md "sample-interruptible-queue.md") and [Sample queue configurations flow in Connect Customer](sample-queue-configurations.md "sample-queue-configurations.md").
 
 Type: Flow (inbound)
 
@@ -23,6 +23,6 @@ This flow provides callback queue logic. Here's how it works:
    callback number is set, and they are transferred to the callback queue.
    For information about queued callbacks, see the following topics:
 
-- [Set up queued callback by creating flows, queues, and routing profiles in Amazon Connect](setup-queued-cb.md "setup-queued-cb.md")
-- [Flow block in Amazon Connect: Transfer to queue](transfer-to-queue.md "transfer-to-queue.md")
-- [Queued callbacks in real-time metrics in Amazon Connect](about-queued-callbacks.md "about-queued-callbacks.md")
+- [Set up queued callback by creating flows, queues, and routing profiles in Connect Customer](setup-queued-cb.md "setup-queued-cb.md")
+- [Flow block in Connect Customer: Transfer to queue](transfer-to-queue.md "transfer-to-queue.md")
+- [Queued callbacks in real-time metrics in Connect Customer](about-queued-callbacks.md "about-queued-callbacks.md")

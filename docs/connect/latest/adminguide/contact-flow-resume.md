@@ -1,7 +1,7 @@
-# Set up a flow in Amazon Connect to resume a call with a customer after a transfer
+# Set up a flow in Connect Customer to resume a call with a customer after a transfer
 
 Let's say you need to transfer a contact to an external department that's not using
-Amazon Connect. For example, maybe you need to transfer the caller to a shipping provider to
+Connect Customer. For example, maybe you need to transfer the caller to a shipping provider to
 check the status of their delivery. After the contact is disconnected from the phone
 number, you want them to be returned to your agent, for example, when the delivery
 company couldn't resolve their issue.

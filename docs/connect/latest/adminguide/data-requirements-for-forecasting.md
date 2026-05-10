@@ -1,6 +1,6 @@
-# Data requirements for forecasting in Amazon Connect
+# Data requirements for forecasting in Connect Customer
 
-Amazon Connect generates forecasts using a machine-learning model tailored for contact
+Connect Customer generates forecasts using a machine-learning model tailored for contact
 center operations. The following are the historical input data requirements for both
 short-term and long-term forecasts.
 

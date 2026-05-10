@@ -1,6 +1,6 @@
-# Touchtone buffering in Amazon Connect
+# Touchtone buffering in Connect Customer
 
-Touchtone buffering in Amazon Connect eliminates a common frustration in IVR systems by allowing
+Touchtone buffering in Connect Customer eliminates a common frustration in IVR systems by allowing
 customers to enter their complete menu path immediately (such as pressing 1-2-3 in rapid
 succession) or input identification numbers (such as account IDs or order numbers) without
 waiting for each prompt to finish or losing their inputs. This "type-ahead" capability
@@ -47,7 +47,7 @@ The following flow blocks support touchtone buffering:
 
 ## Configure a flow for touchtone buffering
 
-Touchtone buffering in Amazon Connect works best when integrated with the existing [Get customer input](get-customer-input.md "get-customer-input.md") and [Store customer input](store-customer-input.md "store-customer-input.md") flow
+Touchtone buffering in Connect Customer works best when integrated with the existing [Get customer input](get-customer-input.md "get-customer-input.md") and [Store customer input](store-customer-input.md "store-customer-input.md") flow
 blocks, which are specifically designed to capture touchtone keypad entries from callers.
 Repeat callers, who are typically familiar with the navigation menu of the call, can use
 touchtone buffering to input information ahead of time. This allows them to bypass
@@ -57,7 +57,7 @@ thereby reducing call handling time and improving efficiency.
 ## The buffer lifecycle
 
 - **Enable buffering**: Use the [Set Touchtone Buffer
-  Behavior](set-touchtone-buffer-behavior.md "set-touchtone-buffer-behavior.md") block from the Amazon Connect flow
+  Behavior](set-touchtone-buffer-behavior.md "set-touchtone-buffer-behavior.md") block from the Connect Customer flow
   designer UI to start capturing inputs.
 - **Automatic collection and processing**: Use
   this block at the start of the flow to enable touchtone buffering. From that point

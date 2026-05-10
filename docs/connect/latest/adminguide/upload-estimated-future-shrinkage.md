@@ -1,18 +1,18 @@
-# Import estimated future shrinkage and available full-time employees in Amazon Connect
+# Import estimated future shrinkage and available full-time employees in Connect Customer
 
 You can increase capacity planning accuracy by providing estimated future data
 (Available FTE and Shrinkage) for your existing forecast groups. Providing Available
-FTE and shrinkage data is optional. Amazon Connect can generate a capacity plan without it,
+FTE and shrinkage data is optional. Connect Customer can generate a capacity plan without it,
 but providing it improves the accuracy of your plan.
 
 ## How to import data
 
-1. Log in to the Amazon Connect admin website with an account that has security profile
+1. Log in to the Connect Customer admin website with an account that has security profile
    permissions for **Analytics**, **Capacity
    planning - Edit**.
 
 For more information, see [Assign
-permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Amazon Connect navigation menu, select **Analytics and
+permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Connect Customer navigation menu, select **Analytics and
 optimization**, **Capacity
 Planning**. 3. On the **Import Data** tab, choose **Upload
 data**.

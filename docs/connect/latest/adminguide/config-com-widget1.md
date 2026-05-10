@@ -1,13 +1,13 @@
-# Configure an out-of-the-box communication widget in Amazon Connect
+# Configure an out-of-the-box communication widget in Connect Customer
 
-Use this option to create communication widgets for desktop and mobile [browsers](connect-supported-browsers.md#browsers-inapp "connect-supported-browsers.md#browsers-inapp"). At the end of this procedure, Amazon Connect
+Use this option to create communication widgets for desktop and mobile [browsers](connect-supported-browsers.md#browsers-inapp "connect-supported-browsers.md#browsers-inapp"). At the end of this procedure, Connect Customer
 generates a custom HTML code snippet that you copy into your website's source
 code.
 
-1. Log in to Amazon Connect admin website using an Admin account or a user account that has
+1. Log in to Connect Customer admin website using an Admin account or a user account that has
    **Channels and flows**, **Communication widget -
    Create** permission in its security profile.
-2. In Amazon Connect, on the left navigation menu, choose
+2. In Connect Customer, on the left navigation menu, choose
    **Channels**, **Communication widgets**.
 3. The wizard guides you through the next three steps.
 
@@ -19,7 +19,7 @@ code.
 
 ###### Note
 
-The Name must be unique for each communications widget created in an Amazon Connect
+The Name must be unique for each communications widget created in an Connect Customer
 instance. 2. In the **Communications options** section, choose how
 your customers can engage with your widget. The following image shows
 options to allow web calling, video, and screen sharing for customers.
@@ -94,7 +94,7 @@ Choose **Add domain** to add up to 50 domains.
    skip**.
 
 We recommend choosing **Yes** for the ability to verify
-the user is authenticated. For more information, see [Personalize the customer experience for in-app, web, and video calling in Amazon Connect](optional-widget-steps.md "optional-widget-steps.md"). 3. Choose **Save and continue**.
+the user is authenticated. For more information, see [Personalize the customer experience for in-app, web, and video calling in Connect Customer](optional-widget-steps.md "optional-widget-steps.md"). 3. Choose **Save and continue**.
 
 Success! Your widget has been created. Copy the generated code and paste
 it on each page of your website where you want the communications widget to
@@ -105,13 +105,13 @@ appear.
 To enable agents to use video calling and screen sharing, assign the **Contact Control Panel (CCP)**, **Video calls -
 Access** permissions to their security profile.
 
-The Amazon Connect agent workspace supports Amazon Connect in-app, web,
+The Connect Customer agent workspace supports Connect Customer in-app, web,
 and video calling, and screen sharing. You can use the same configuration, routing,
 analytics, and agent application as with telephone calls and chats. To get started,
 the only step is to enable your agent's security profiles with the permissions to
 have video calls and screen sharing.
 
-For custom agent desktops, there are no changes required for the Amazon Connect in-app and web calling. Enable your agent's security profiles with the
+For custom agent desktops, there are no changes required for the Connect Customer in-app and web calling. Enable your agent's security profiles with the
 permissions to have video calls and screen sharing, and follow the guide below on
 how to integrate video calling into your agent desktop.
 
@@ -125,7 +125,7 @@ application or browser) to initiate an in-app or web call.
 1. (Optional) You can pass attributes captured in the website and validate
    them with JSON web token (JWT).
 2. The customer clicks on the communications widget in your website or mobile app.
-3. The communications widget starts the web call to Amazon Connect by passing
+3. The communications widget starts the web call to Connect Customer by passing
    attributes contained in the JWT.
 4. The contact reaches the flow, is routed, and placed in queue.
 5. The agent accepts the contact.
@@ -137,5 +137,5 @@ application or browser) to initiate an in-app or web call.
 For additional information about requirements for in-app, web, and video calling
 capabilities, see the following topics:
 
-- [Agent workstation requirements for app, web, and video calling in Amazon Connect](videocalling-networking-requirements.md "videocalling-networking-requirements.md")
+- [Agent workstation requirements for app, web, and video calling in Connect Customer](videocalling-networking-requirements.md "videocalling-networking-requirements.md")
 - [Supported browsers and mobile OS for in-app, web, and video calling capabilities](connect-supported-browsers.md#browsers-inapp "connect-supported-browsers.md#browsers-inapp")

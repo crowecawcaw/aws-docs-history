@@ -1,4 +1,4 @@
-# Enable step-by-step guides in Amazon Connect
+# Enable step-by-step guides in Connect Customer
 
 The following steps allow you to provide your users with the ability to create guided
 experiences, and allow agents to interact with the experiences.
@@ -23,12 +23,12 @@ workspace.
 ![The Security profile permissions page, the agent applications section, the custom views permission](images/sec-perms-agent-view-sq.png) 3. **Increase your service quota for concurrent active chats
 per instance**
 
-The workflows that agents interact with run as chat contacts in Amazon Connect. We
+The workflows that agents interact with run as chat contacts in Connect Customer. We
 recommend that you increase your **concurrent active chats per
 instance** quota by the number of concurrent contacts you expect to
 have this feature enabled for.
 
-For more information about quotas, see [Amazon Connect quotas](amazon-connect-service-limits.md#connect-quotas "amazon-connect-service-limits.md#connect-quotas").
+For more information about quotas, see [Connect Customer quotas](amazon-connect-service-limits.md#connect-quotas "amazon-connect-service-limits.md#connect-quotas").
 
 ###### Note
 

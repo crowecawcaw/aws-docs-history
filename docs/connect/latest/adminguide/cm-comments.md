@@ -1,4 +1,4 @@
-# Add comments to a case in Amazon Connect
+# Add comments to a case in Connect Customer
 
 Agents have the ability to view and add comments to a case.
 

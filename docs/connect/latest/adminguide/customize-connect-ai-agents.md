@@ -1,6 +1,6 @@
 # Customize Connect AI agents
 
-You can customize how Connect AI agents work by using the Amazon Connect admin website, no coding required. For example, you
+You can customize how Connect AI agents work by using the Connect Customer admin website, no coding required. For example, you
 can customize the tone or format of the responses, the language, or the behavior.
 
 Following are a few use cases for how you can customize Connect AI agents:
@@ -20,7 +20,7 @@ Following are a few use cases for how you can customize Connect AI agents:
    available inventory, determine which orders can be fulfilled and which items
    have to be restocked_.
 
-To make it easy for non-developers to create AI prompts, Amazon Connect provides a set of
+To make it easy for non-developers to create AI prompts, Connect Customer provides a set of
 templates that already contain instructions. The templates contain placeholder
 instructions written in an easy-to-understand language called YAML. You just replace
 the placeholder instructions with your own instructions. 2. [AI guardrail](create-ai-guardrails.md "create-ai-guardrails.md"): Safeguards based on your

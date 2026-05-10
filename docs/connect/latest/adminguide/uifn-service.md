@@ -1,15 +1,15 @@
-# Amazon Connect support of the inbound only UIFN service
+# Connect Customer support of the inbound only UIFN service
 
 A Universal International Freephone number (UIFN) is a unique **inbound only** freephone number that can be used throughout the world. It
 provides toll-free calling from international locations to your contact center.
 
-Amazon Connect supports UIFN in more than [60
+Connect Customer supports UIFN in more than [60
 countries](#list-of-uifn-countries "#list-of-uifn-countries") that are registered with the International Telecommunications
 Union, an organization that supports the administration of the UIFN service.
 
 ###### Note
 
-Amazon Connect allows you to enable UIFNs in as many countries as you need, however, it
+Connect Customer allows you to enable UIFNs in as many countries as you need, however, it
 requires a minimum of 5 countries.
 
 A UIFN is composed of a 3-digit country code for a global service application, such as
@@ -18,7 +18,7 @@ This results in an 11-digit fixed format.
 
 For example, your UIFN could be +800 12345678, where 12345678 is your number.
 
-Due to the special nature of UIFN, attempting to call a UIFN from Amazon Connect in a "loopback
+Due to the special nature of UIFN, attempting to call a UIFN from Connect Customer in a "loopback
 mode" is not supported. UIFNs are designed to be called from end phone configurations in
 the country's public telephone network.
 
@@ -28,30 +28,30 @@ To request a UIFN within a specific AWS Region, create an AWS Support case. In t
 support case, provide the following information.
 
 - Choose the countries you want to enable from the [list of available countries](#list-of-uifn-countries "#list-of-uifn-countries").
-- The Amazon Connect instance(s) associated with the new UIFN numbers. Amazon Connect can
+- The Connect Customer instance(s) associated with the new UIFN numbers. Connect Customer can
   support routing numbers to multiple Regions, such as Australia to the
   Asia Pacific (Sydney) Region, United States to a US Region, or if desired to a single
   global instance.
 - The required ID verification for your country. Most countries subscribe to
   [standard ID verification
   requirements](phone-number-requirements.md#uifn-requirements "phone-number-requirements.md#uifn-requirements") for ordering UIFN numbers. However, we recommend
-  checking [Region requirements for ordering and porting phone numbers in Amazon Connect](phone-number-requirements.md "phone-number-requirements.md") for your country to be sure.
+  checking [Region requirements for ordering and porting phone numbers in Connect Customer](phone-number-requirements.md "phone-number-requirements.md") for your country to be sure.
 
 For number portability, after you open a case, Amazon will provide you
 with _Service Provider Change Authorization and Designation of
 Agency_ document.
 
-Amazon Connect can route UIFNs to multiple AWS Regions. For example, if a UIFN is enabled
-for Australia, it can be routed to your Amazon Connect instance that is located in the
+Connect Customer can route UIFNs to multiple AWS Regions. For example, if a UIFN is enabled
+for Australia, it can be routed to your Connect Customer instance that is located in the
 Asia Pacific (Sydney) Region. If a UIFN is enabled for **more**
-countries, each country can be routed to your Amazon Connect instance, which may be in any
+countries, each country can be routed to your Connect Customer instance, which may be in any
 supported AWS Region.
 
 The following image shows the body of a sample UIFN request submitted to
 AWS Support. This request is for two UIFNs. The first is for a UIFN that is enabled
-for Argentina, Brazil, and Colombia, and connected to an Amazon Connect instance in the
+for Argentina, Brazil, and Colombia, and connected to an Connect Customer instance in the
 US West (Oregon) Region. The second request is for a UIFN that is enabled for Japan,
-Australia, and New Zealand and connected to an Amazon Connect instance located in the
+Australia, and New Zealand and connected to an Connect Customer instance located in the
 Asia Pacific (Singapore) Region.
 
 ![A support case requesting two UIFNs.](images/uifn-example-request.png)

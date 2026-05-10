@@ -1,4 +1,4 @@
-# Download recordings and transcripts of past conversations in Amazon Connect
+# Download recordings and transcripts of past conversations in Connect Customer
 
 These are the steps that a manager does to download past recordings or transcripts of
 conversations.
@@ -10,14 +10,14 @@ conversations.
 
 ###### Tip
 
-To have Amazon Connect create transcripts of phone calls, see the Contact Lens
+To have Connect Customer create transcripts of phone calls, see the Contact Lens
 feature.
 
 ## Download a voice recording as a .wav file
 
-1. Log in to the Amazon Connect admin website with a user account that has [permissions to access
+1. Log in to the Connect Customer admin website with a user account that has [permissions to access
    recordings](assign-permissions-to-review-recordings.md "assign-permissions-to-review-recordings.md").
-2. In Amazon Connect choose **Analytics and optimization**,
+2. In Connect Customer choose **Analytics and optimization**,
    **Contact search**.
 3. Filter the list of contacts by date, agent login, phone number, or other
    criteria. Choose **Search**.

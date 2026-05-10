@@ -1,4 +1,4 @@
-# Add an Amazon Lex bot to Amazon Connect
+# Add an Amazon Lex bot to Connect Customer
 
 ###### Important
 
@@ -7,21 +7,21 @@ longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. T
 to Amazon Lex V2, see [Migrating a
 bot](../../../lex/latest/dg/migrate.md "../../../lex/latest/dg/migrate.md").
 
-In this article we guide you through the steps to add an Amazon Lex bot to Amazon Connect.
+In this article we guide you through the steps to add an Amazon Lex bot to Connect Customer.
 
 With Amazon Lex, you can build conversational interactions (bots) that feel natural to your
-customers. Amazon Connect with Amazon Lex bots can also capture customer input as digits that customers enter
-on their numeric keypad when used in an Amazon Connect flow. This way customers can choose how they want to
+customers. Connect Customer with Amazon Lex bots can also capture customer input as digits that customers enter
+on their numeric keypad when used in an Connect Customer flow. This way customers can choose how they want to
 enter sensitive information such as account numbers.
 
 To follow along with this walkthrough, you need the following:
 
 - An active AWS account.
-- An Amazon Connect instance.
+- An Connect Customer instance.
 
 ###### Tip
 
-You can also use Amazon Lex to power interactive messages for Amazon Connect chat. Interactive messages
+You can also use Amazon Lex to power interactive messages for Connect Customer chat. Interactive messages
 are rich messages that present a prompt and pre-configured display options that a customer can
 select from. These messages are powered by Amazon Lex and configured through Amazon Lex using a
 Lambda. For more information, see [Add Amazon Lex interactive messages for customers in chat](interactive-messages.md "interactive-messages.md").
@@ -29,7 +29,7 @@ Lambda. For more information, see [Add Amazon Lex interactive messages for custo
 ## Create an Amazon Lex bot
 
 In this step you'll create a custom bot to demonstrate the Press or Say integration with
-Amazon Connect. The bot prompts callers to press or say a number that matches the menu option for the
+Connect Customer. The bot prompts callers to press or say a number that matches the menu option for the
 task to complete. In this case, the input is checking their account balance.
 
 Amazon Lex
@@ -58,7 +58,7 @@ Amazon Lex
      supported by Amazon Lex](../../../lexv2/latest/dg/how-languages.md "../../../lexv2/latest/dg/how-languages.md").
    - **Voice interaction** — Select the voice
      for your bot to use when speaking to callers. The default voice
-     for Amazon Connect is Joanna.
+     for Connect Customer is Joanna.
 
 6. Choose **Done**. The AccountBalance bot is created, and
    the **Intent** page is displayed.
@@ -77,7 +77,7 @@ Amazon Lex (Classic)
      the bot **AccountBalance**.
    - **Output voice** — Select the voice for
      your bot to use when speaking to callers. The default voice for
-     Amazon Connect is Joanna.
+     Connect Customer is Joanna.
    - **Session timeout** — Choose how long the
      bot should wait to get input from a caller before ending the
      session.
@@ -317,16 +317,16 @@ Amazon Lex and **$LATEST** for Amazon Lex classic. **TestBotAlias** and **$LATES
 support a limited number of concurrent calls to an Amazon Lex bot.
 For more information, see [Runtime Service Quotas](../../../lex/latest/dg/gl-limits.md#gl-limits-runtime "../../../lex/latest/dg/gl-limits.md#gl-limits-runtime"). 3. Choose **Publish**.
 
-## Add the Amazon Lex bot to your Amazon Connect instance
+## Add the Amazon Lex bot to your Connect Customer instance
 
 Amazon Lex
 
-1. Open the [Amazon Connect
+1. Open the [Connect Customer
    console.](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/")
-2. Select the Amazon Connect instance that you want to integrate with your Amazon Lex
+2. Select the Connect Customer instance that you want to integrate with your Amazon Lex
    bot.
 
-![The Amazon Connect virtual contact center instances page, the instance alias.](images/instance.png) 3. On the navigation menu, choose **Flows**. 4. Under **Amazon Lex**, use the dropdown to select the Region
+![The Connect Customer virtual contact center instances page, the instance alias.](images/instance.png) 3. On the navigation menu, choose **Flows**. 4. Under **Amazon Lex**, use the dropdown to select the Region
 of your Amazon Lex bot, and then select your Amazon Lex bot,
 **AccountBalance**. 5. Select the Amazon Lex bot alias name from the dropdown
 (**Test**), and then choose **+ Add Lex
@@ -337,16 +337,16 @@ been configured.
 
 ###### Note
 
-Amazon Connect uses Amazon Lex resource-based policies to make calls to your Amazon Lex
-bot. When you associate an Amazon Lex bot with your Amazon Connect instance, the
-resource-based policy on the bot is updated to give Amazon Connect permission to invoke
+Connect Customer uses Amazon Lex resource-based policies to make calls to your Amazon Lex
+bot. When you associate an Amazon Lex bot with your Connect Customer instance, the
+resource-based policy on the bot is updated to give Connect Customer permission to invoke
 the bot. For more information on Amazon Lex resource-based policies, see [How Amazon Lex works with IAM](../../../lexv2/latest/dg/security_iam_service-with-iam.md#security_iam_service-with-iam-resource-based-policies "../../../lexv2/latest/dg/security_iam_service-with-iam.md#security_iam_service-with-iam-resource-based-policies").
 
 Amazon Lex (Classic)
 
-1. Open the [Amazon Connect
+1. Open the [Connect Customer
    console.](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/")
-2. Select the Amazon Connect instance that you want to integrate with your Amazon Lex
+2. Select the Connect Customer instance that you want to integrate with your Amazon Lex
    bot.
 3. On the navigation menu, choose **Contact
    flows**.
@@ -359,16 +359,16 @@ Amazon Lex (Classic)
 
 ###### Important
 
-If you're using an Amazon Lex V2 bot, your language attribute in Amazon Connect must match the
+If you're using an Amazon Lex V2 bot, your language attribute in Connect Customer must match the
 language model used to build your Lex bot. This is different than Amazon Lex (Classic). Use a
-[Set voice](set-voice.md#set-voice-lexv2bot "set-voice.md#set-voice-lexv2bot") block to indicate the Amazon Connect
+[Set voice](set-voice.md#set-voice-lexv2bot "set-voice.md#set-voice-lexv2bot") block to indicate the Connect Customer
 language model, or use a [Set contact
 attributes](set-contact-attributes.md "set-contact-attributes.md") block.
 
 Next, create a new flow that uses your Amazon Lex bot. When you create the flow, you configure
 the message played to callers.
 
-1. Log in to your Amazon Connect instance with an account that has permissions for contact flows
+1. Log in to your Connect Customer instance with an account that has permissions for contact flows
    and Amazon Lex bots.
 2. On the navigation menu, choose **Routing, Flows, Create Flow**, and
    type a name for the flow.
@@ -458,7 +458,7 @@ When customers call in to your contact center, the flow to which they are sent i
 assigned to the telephone number that they called. To make the new flow active, assign it to a
 phone number for your instance.
 
-1. Open the Amazon Connect console.
+1. Open the Connect Customer console.
 2. Choose **Routing, Phone numbers**.
 3. On the **Manage Phone numbers** page, select the phone number to
    assign to the flow.

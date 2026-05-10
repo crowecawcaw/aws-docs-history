@@ -1,8 +1,8 @@
-# Create an outbound campaign in Amazon Connect
+# Create an outbound campaign in Connect Customer
 
-1. Open the Amazon Connect Outbound campaigns page from the Amazon Connect admin website.
+1. Open the Connect Customer Outbound campaigns page from the Connect Customer admin website.
 
-![The Amazon Connect navigation menu showing the Outbound campaigns option highlighted in the left navigation pane.](images/how-to-create-campaigns-1.png) 2. From the **Output Campaigns**, choose Create Campaign.
+![The Connect Customer navigation menu showing the Outbound campaigns option highlighted in the left navigation pane.](images/how-to-create-campaigns-1.png) 2. From the **Output Campaigns**, choose Create Campaign.
 
 You have two options to create an outbound campaigns. Use visual journey builder to
 create multi-channel and multi-steps using an intuitive drag-and-drop canvas, or use guided
@@ -15,7 +15,7 @@ campaign builder to create a single-channel using step-by-step guidance.
 You can also use your own recipient list or campaign management tool by choosing
 **Host external campaign**. For more information on setting up a campaign
 with your own resources, see the [High
-Volume Outbound Communication with Amazon Connect Outbound Campaigns](https://aws.amazon.com/blogs/aws/new-high-volume-outbound-communication-with-amazon-connect-outbound-campaigns/ "https://aws.amazon.com/blogs/aws/new-high-volume-outbound-communication-with-amazon-connect-outbound-campaigns/") blog
+Volume Outbound Communication with Connect Customer Outbound Campaigns](https://aws.amazon.com/blogs/aws/new-high-volume-outbound-communication-with-amazon-connect-outbound-campaigns/ "https://aws.amazon.com/blogs/aws/new-high-volume-outbound-communication-with-amazon-connect-outbound-campaigns/") blog
 post.
 
 ![Host external campaign link.](images/how-to-create-campaigns-external-campaign.png)
@@ -43,7 +43,7 @@ not valid and will not be processed.
 Email
 
 1. Select an [Outgoing email address](create-email-address1.md "create-email-address1.md") to send
-   the email from.  This address must be one already added to your Amazon Connect Instance.
+   the email from.  This address must be one already added to your Connect Customer Instance.
 2. Optionally enter a **Friendly Sender Name**.  This is
    the name that the recipients' email client will display.
 3. Select an **Email Message Template** to use when
@@ -65,16 +65,16 @@ Agent Assisted Voice
 2. Select an **Agent Queue** to use for the outbound
    calls.  Any call originating from the campaign is routed to agents assigned to this queue.
 3. Select a **Source Phone Number**.  This is a phone
-   number associated with the Amazon Connect instance.
+   number associated with the Connect Customer instance.
 
 ###### Important
 
-- Not all phone numbers can be used for Amazon Connect Outbound campaigns. Outside of the US,
+- Not all phone numbers can be used for Connect Customer Outbound campaigns. Outside of the US,
   UK, Japan, you need to check whether your number is outbound campaigns capable. If you
   have problems with a specific number not working, contact AWS Support to
   verify whether your number can be enabled for Outbound campaigns calls.
 - Telecom regulations in certain countries dictate use of phone numbers from specific
-  carriers for outbound calling. For more information, see the [Amazon Connect
+  carriers for outbound calling. For more information, see the [Connect Customer
   Telecoms Country Coverage Guide](https://d1v2gagwb6hfe1.cloudfront.net/Amazon_Connect_Telecoms_Coverage.pdf "https://d1v2gagwb6hfe1.cloudfront.net/Amazon_Connect_Telecoms_Coverage.pdf") to learn more.
 - Select the dialing mode.  See [Best practices for Outbound
   Campaigns](campaign-best-practices.md "campaign-best-practices.md") for more information on the dialing modes.
@@ -114,7 +114,7 @@ capacity reduces if any other campaigns start actively dialing.
   progress](check-call-progress.md "check-call-progress.md") block, the contact is routed down the Error branch.
 - For preview dialing mode, a contact is enqueued only when there is a [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") set in the flow. For a list of
   supported blocks, see **Chat** channel of
-  [Supported channels for flow blocks in Amazon Connect](block-support-by-channel.md "block-support-by-channel.md").
+  [Supported channels for flow blocks in Connect Customer](block-support-by-channel.md "block-support-by-channel.md").
 - Preview dialing mode does not support [agent
   whisper flow](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"), however the [outbound whisper
   flow](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types") can play the intended whisper to the customer.
@@ -145,11 +145,11 @@ Automated Voice
    a prompt is desired, then the flow must contain a [Check call progress](check-call-progress.md "check-call-progress.md")
    block.
 2. Select a **Source Phone Number**.  This is a phone
-   number associated with your Amazon Connect instance.
+   number associated with your Connect Customer instance.
 
 ###### Important
 
-- Not all phone numbers can be used for Amazon Connect Outbound campaigns. Outside of the US,
+- Not all phone numbers can be used for Connect Customer Outbound campaigns. Outside of the US,
   UK, Japan, you need to check whether your number is outbound campaigns capable. If you
   have problems with a specific number not working, contact AWS Support to
   verify whether your number can be enabled for Outbound campaigns calls.
@@ -178,11 +178,11 @@ WhatsApp
 
 ###### Important
 
-To enable Amazon Connect Outbound Campaigns to send messages and Amazon Q Connect to manage and
+To enable Connect Customer Outbound Campaigns to send messages and Amazon Q Connect to manage and
 create WhatsApp message templates, your WhatsApp Business Account (WABA) in AWS End User Messaging Social
 must be tagged with `AmazonConnectEnabled`: `True`.
 
-If you linked your WABA to Amazon Connect after WhatsApp support for Amazon Connect Outbound Campaigns
+If you linked your WABA to Connect Customer after WhatsApp support for Connect Customer Outbound Campaigns
 was launched, this tag is automatically applied. For WABAs linked before this launch, you
 must manually add this tag to enable these capabilities.
 
@@ -245,7 +245,7 @@ campaigns.
   the total communication count by the time the second campaign checks.
 - All communications across all campaigns in the active state are considered when
   determining if a recipient has breached their total limits.
-- Amazon Connect Outbound Campaigns measures a day as a rolling 24 hour window from the current
+- Connect Customer Outbound Campaigns measures a day as a rolling 24 hour window from the current
   moment.
 - Any communications sent from a campaign that **ignores total limits**
   will **not count** toward the instance's total communication limits. These
@@ -288,9 +288,9 @@ preferences and upload data into Customer Profiles.
 
 - **Email channel**
 
-| Disposition code in the UI | Campaign event ID | Description                                                                                                                                   |
-| -------------------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Bounced**                | `Bounce`          | An issue related to the recipient's email or server permanently rejected the email,<br>preventing Amazon Connect from delivering the message. |
+| Disposition code in the UI | Campaign event ID | Description                                                                                                                                     |
+| -------------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Bounced**                | `Bounce`          | An issue related to the recipient's email or server permanently rejected the email,<br>preventing Connect Customer from delivering the message. |
 
 - **SMS channel**
 
@@ -429,34 +429,51 @@ zone**. Recipients with no time zone specified are excluded from message deliver
 - **Standard time zone**:
 
 The time zone selected will be used for all recipients.  Select this option if you know
-the time zone of all recipients in your segment or if you want all communications sent at the
-same moment in time.
+the time zone of all recipients in your segment or if you want to send all communications in the
+same time zone.
 
 - **Recipient's local time zone**:
 
-Amazon Connect Outbound Campaigns use the provided [Address](../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-Address "../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-Address") and/or the area code from the [Phone Number](../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-PhoneNumber "../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-PhoneNumber") to infer the recipients time zone. If the time zone cannot be
+Connect Customer Outbound Campaigns use the provided [Address](../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-Address "../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-Address") and/or the area code from the [Phone Number](../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-PhoneNumber "../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-PhoneNumber") to infer the recipients time zone. If the time zone can't be
 determined (for example, if either the Address and/or Phone Number is missing or is invalid),
 the recipient will be dropped from the Campaign. Select this option if it's important to send
 communications to recipients only during their specific local times.
+
+When you select **Recipient's local time zone**, you configure the
+following settings:
+
+    + **Detect recipient's local time zone** — Choose the method
+     used to detect the recipient's time zone. Connect Customer Outbound Campaigns use a profile's [Address](../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-Address "../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-Address") and/or [Phone Number](../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-PhoneNumber "../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-PhoneNumber")'s area code to infer the recipient's time zone.
+    + **Profile attributes to use for time zone detection** — Choose
+     the scope of profile attributes used for time zone detection:
+
+
+
+
+    	- **Primary only** — Uses only the primary phone number and/or
+    	 address attributes from the recipient's customer profile to determine the time
+    	 zone.
+    	- **All available** — Uses all phone number and/or address
+    	 attributes from the recipient's customer profile to determine the time zone.
 
 ![Time zone configuration panel for setting campaign contact hours by geographic region.](images/time-zone-1.png)
 
 ### Active communication time
 
 The **Active communication time** represents the times
-during which Amazon Connect Outbound campaigns may send communications for this campaign. To add
+during which Connect Customer Outbound campaigns may send communications for this campaign. To add
 active communication times:
 
 1. Select the channel. Alternatively, select **Apply to all
    channels** to apply the active communication times to each channel.
 2. Select the day of the week to configure. You can add multiple active communication
    times for each day, if desired.
-3. Select the time frame during which Amazon Connect Outbound campaigns can send
+3. Select the time frame during which Connect Customer Outbound campaigns can send
    communications on the given day.
 
 ###### Note
 
-- Amazon Connect Outbound campaigns will evaluate the **From** and **To** times relative to either the
+- Connect Customer Outbound campaigns will evaluate the **From** and **To** times relative to either the
   **Standard time zone** or the **Recipient's local time zone**, whichever is specified.
 - If no **Active communication time** is provided, communications to
   intended recipients will be attempted as soon as the campaign is published.
@@ -490,7 +507,7 @@ Specify when you want your campaign to begin:
 - **Start now**: Start the campaign right away.
 - **Start later**: Select the specific day and time for the
   campaign to begin.
-- **Expiry Date and Time**: The date and time at which Amazon Connect Outbound campaigns should end the campaign. An expired campaign appears with a
+- **Expiry Date and Time**: The date and time at which Connect Customer Outbound campaigns should end the campaign. An expired campaign appears with a
   **Completed** status a few moments after expiry time.
 
 The start and end times of a campaign are based on your local time zone.

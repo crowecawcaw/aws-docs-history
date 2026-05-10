@@ -1,4 +1,4 @@
-# Edit users in bulk in Amazon Connect
+# Edit users in bulk in Amazon Connect Customer
 
 Bulk edit mode enables you to quickly edit the attributes that are common across user
 records, such as routing profiles, security profiles, and tags.
@@ -10,9 +10,9 @@ While a batch of bulk edits is being processed, you can continue working on the
 edit or delete, in bulk or individually. This is useful for quickly updating
 settings, such as routing profiles for groups of agents.
 
-1. Log in to Amazon Connect with an Admin account, or an account assigned to
+1. Log in to Connect Customer with an Admin account, or an account assigned to
    a security profile that has **Users - Edit** permission.
-2. In Amazon Connect, on the left navigation menu, choose **Users**,
+2. In Connect Customer, on the left navigation menu, choose **Users**,
    **User management**.
 3. If needed, choose **Add filter** to specify a subset of
    users, such as users with a specific **Routing profile**. This
@@ -57,16 +57,16 @@ update request will continue to be processed. Review the messages at the top of
 the page for the status of the update.
 
 The following image shows an example of message at the top of the **User
-management** page that Amazon Connect is updating a batch of user records.
+management** page that Connect Customer is updating a batch of user records.
 
-![A banner showing Amazon Connect in the process of updating a batch of user records.](images/user-management-bulk-edit-banner3.png)
+![A banner showing Connect Customer in the process of updating a batch of user records.](images/user-management-bulk-edit-banner3.png)
 
 When you perform additional tasks on the **User management**
-page, Amazon Connect appends the next request to create, edit, or delete user records to the
-existing status message at the top of the page. Amazon Connect sequentially processes them in
+page, Connect Customer appends the next request to create, edit, or delete user records to the
+existing status message at the top of the page. Connect Customer sequentially processes them in
 bulk.
 
-Following are some tips about how Amazon Connect processes bulk edit requests.
+Following are some tips about how Connect Customer processes bulk edit requests.
 
 - If you choose **Cancel** during a bulk create, edit, or
   delete, **only those requests not yet processed are
@@ -75,7 +75,7 @@ Following are some tips about how Amazon Connect processes bulk edit requests.
   **Refresh** to refresh the page with the list of the
   updated users.
 
-![The button to refresh the results of Amazon Connect processing bulk edit requests.](images/user-management-bulk-cancel-refresh.png)
+![The button to refresh the results of Connect Customer processing bulk edit requests.](images/user-management-bulk-cancel-refresh.png)
 
 - If some user records fail to be updated, a message similar to the
   following image is displayed:

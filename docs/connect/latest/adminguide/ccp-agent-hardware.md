@@ -1,6 +1,6 @@
 # Agent headset and workstation requirements for using the Contact Control Panel (CCP)
 
-Agent headsets and workstations in the contact center vary widely. While the Amazon Connect CCP is
+Agent headsets and workstations in the contact center vary widely. While the Connect Customer CCP is
 built to handle high levels of jitter and high latency environments, the architecture of the
 **workstations** that agents use, and the location and
 environment in which they take contacts, can impact the quality of experience.
@@ -36,7 +36,7 @@ You'll need to scope additional memory, bandwidth, and CPU for the operating sys
 anything else running on the workstation to avoid resource contention.
 
 - **Browser**: For a list of all supported browsers, see
-  [Browsers supported by Amazon Connect](connect-supported-browsers.md "connect-supported-browsers.md").
+  [Browsers supported by Connect Customer](connect-supported-browsers.md "connect-supported-browsers.md").
 - **Network**
   - **Audio**
     - **1:1 call:** 54 Kbps up and
@@ -65,7 +65,7 @@ anything else running on the workstation to avoid resource contention.
 
 ## iPhone and other mobile devices are not supported
 
-The Amazon Connect console, Contact Control Panel (CCP), and agent workspace do not support mobile
+The Connect Customer console, Contact Control Panel (CCP), and agent workspace do not support mobile
 browsers.
 
 ## How to determine whether a workstation is the source of problems
@@ -82,14 +82,14 @@ Collect additional historical logging and data sources for correlation. If you s
 correlation between the time of the event and the time the issue was reported, you may
 be able to determine the root cause with the following information:
 
-- Round trip time (RTT) and packet loss to endpoints located within your Amazon Connect
+- Round trip time (RTT) and packet loss to endpoints located within your Connect Customer
   Region from your agent workstation, or an identical workstation on the same
   network segment. If no Region endpoints are available because of security
   policies, any public WAN endpoint suffices, for example, www.Amazon.com.
   Ideally, use your instance alias address (https://`your-instance-alias`.my.connect.aws/),
   and also your signaling address for endpoints.
 
-You can find your Region endpoints here: [Amazon Connect endpoints and
+You can find your Region endpoints here: [Connect Customer endpoints and
 quotas](../../../general/latest/gr/connect_region.md "../../../general/latest/gr/connect_region.md").
 
 - Regular monitoring of workstations that show processes running, and the

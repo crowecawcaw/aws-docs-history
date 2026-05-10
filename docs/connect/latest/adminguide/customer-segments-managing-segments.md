@@ -1,9 +1,9 @@
-# Manage customer segments in Amazon Connect
+# Manage customer segments in Connect Customer
 
-You can use the Amazon Connect admin website to create, view, copy, and perform other management tasks
+You can use the Connect Customer admin website to create, view, copy, and perform other management tasks
 for customer segments. If you open a customer segment to view its settings, you can
 also quickly create a campaign that uses the segment. For more information on
-creating segments, see [Build customer segments in Amazon Connect](customer-segments-building-segments.md "customer-segments-building-segments.md") in the Amazon Connect
+creating segments, see [Build customer segments in Connect Customer](customer-segments-building-segments.md "customer-segments-building-segments.md") in the Connect Customer
 Developer Guide.
 
 ###### To manage customer segments
@@ -18,24 +18,24 @@ Developer Guide.
    1. **View details** — Choose this option
       to show information about the customer segment, including the date
       and time when the segment was created, and the date and time when
-      the segment was last updated. The Amazon Connect user needs the
+      the segment was last updated. The Connect Customer user needs the
       **CustomerProfiles.Segments.View** security
       profile permission to perform this action.
    2. **Duplicate** — Choose this option to
       create a new customer segment that's a copy of the selected segment.
       You can then modify any settings in the new segment, without
-      changing the original segment. The Amazon Connect user needs the
+      changing the original segment. The Connect Customer user needs the
       **CustomerProfiles.Segments.Create** security
       profile permission to perform this action.
    3. **Export CSV** — Choose this option to
       export the customer segment to a file on your computer. For more
-      information, see [Export customer segments to a CSV file in Amazon Connect](customer-segments-exporting-segments.md "customer-segments-exporting-segments.md"). The
-      Amazon Connect user needs the
+      information, see [Export customer segments to a CSV file in Connect Customer](customer-segments-exporting-segments.md "customer-segments-exporting-segments.md"). The
+      Connect Customer user needs the
       **CustomerProfiles.Segments.Export** security
       profile permission to perform this action.
    4. **Delete** — Choose this option to
       delete the customer segment permanently. You can't recover a segment
-      after you delete it. The Amazon Connect user needs the
+      after you delete it. The Connect Customer user needs the
       **CustomerProfiles.Segments.Delete** security
       profile permission to perform this action.
 

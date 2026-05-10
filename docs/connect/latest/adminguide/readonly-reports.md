@@ -1,4 +1,4 @@
-# Make a report in Amazon Connect read-only
+# Make a report in Connect Customer read-only
 
 To prevent others from saving changes to your report, you can make the report
 read-only before sharing it.

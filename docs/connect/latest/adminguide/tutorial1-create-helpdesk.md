@@ -1,4 +1,4 @@
-# Create an IT help desk in Amazon Connect
+# Create an IT help desk in Connect Customer
 
 This tutorial shows you how to create an IT Help Desk. It shows how to create an Amazon Lex
 bot that finds out why the customer is calling. You next create a flow to use the
@@ -10,8 +10,8 @@ This tutorial is part of a series. If you performed Tutorial 1, you're ready to 
 not, here's what you need:
 
 - An AWS account
-- A configured Amazon Connect instance
-- An Amazon Connect administrative account
+- A configured Connect Customer instance
+- An Connect Customer administrative account
 - A claimed phone number
 
 ###### Contents
@@ -32,7 +32,7 @@ Bots provide an efficient way to offload repetitive tasks from your agents. This
 tutorial shows how to use the bot to find out why customers are calling the IT Help
 Desk. Later, we use the customer's response to route them to the right queue.
 
-In previous tutorials, you used the Amazon Connect console. In this tutorial to set up a
+In previous tutorials, you used the Connect Customer console. In this tutorial to set up a
 bot, you use the Amazon Lex console.
 
 This step has five parts to it.
@@ -82,7 +82,7 @@ this section.
 5. Choose **Next**.
 6. On the **Add language to bot** page, choose the
    language and voice for your bot to use when speaking to callers. The
-   default voice for Amazon Connect is Joanna.
+   default voice for Connect Customer is Joanna.
 
 ![The Add language to bot page, the select language dropdown menu set to English.](images/tutorial1-bot-config2.png) 7. Choose **Done**.
 
@@ -141,40 +141,40 @@ Go to [Step 2: Add permissions to Amazon Lex bot](#tutorial1-add-permissions-for
 
 ## Step 2: Add permissions to Amazon Lex bot
 
-To use a bot in your flow, add it to your Amazon Connect instance.
+To use a bot in your flow, add it to your Connect Customer instance.
 
-1. Open the [Amazon Connect
+1. Open the [Connect Customer
    console (https://console.aws.amazon.com/connect/).](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/")
 2. Choose the name of the instance that you created.
 
-![The Amazon Connect virtual contact center instances page, the instance alias.](images/tutorial1-lex-custom-bot18.png) 3. Do not log in on the name page (this method of logging in is for emergency
+![The Connect Customer virtual contact center instances page, the instance alias.](images/tutorial1-lex-custom-bot18.png) 3. Do not log in on the name page (this method of logging in is for emergency
 access only). Rather, choose **Flows**.
 
-![The Amazon Connect left-side navigation pane, the flows option.](images/tutorial1-lex-custom-bot19.png) 4. Under **Amazon Lex**, use the drop-down arrow to choose
+![The Connect Customer left-side navigation pane, the flows option.](images/tutorial1-lex-custom-bot19.png) 4. Under **Amazon Lex**, use the drop-down arrow to choose
 **HelpDesk**. Under **Alias**, choose
 **TestBotAlias**, and then choose **+ Add Lex
 Bot**, and then choose **Add Amazon Lex
 Bot**.
 
-![The flows page, the Amazon Lex section.](images/tutorial1-lex-custom-bot20.png) 5. When you're done, choose Amazon Connect to navigate back to instances page.
+![The flows page, the Amazon Lex section.](images/tutorial1-lex-custom-bot20.png) 5. When you're done, choose Connect Customer to navigate back to instances page.
 
 ![The instance name in a breadcrumb at the top of the Contact flows page.](images/tutorial-connect-instances2.png) 6. Choose the access URL of your instance.
 
-![The Amazon Connect console, the Account overview page, the Access information section, the Access URL.](images/tutorial1-instance-url.png)
+![The Connect Customer console, the Account overview page, the Access information section, the Access URL.](images/tutorial1-instance-url.png)
 
-The **Access URL** takes you back to the Amazon Connect
+The **Access URL** takes you back to the Connect Customer
 dashboard.
 
 ## Step 3: Set up routing
 
-In this step, you start at the Amazon Connect console for your instance. This step shows
+In this step, you start at the Connect Customer console for your instance. This step shows
 how to set up your queues, create a routing profile, and then assign your user
 account to the profile.
 
 1. On the navigation menu, go to **Routing**,
    **Queues**.
 
-![The Amazon Connect navigation menu, the Routing icon, the Queues option.](images/tutorial1-routing-queues.png) 2. Choose **Add queue**.
+![The Connect Customer navigation menu, the Routing icon, the Queues option.](images/tutorial1-routing-queues.png) 2. Choose **Add queue**.
 
 ![The Queues page, the Add queue button.](images/tutorial1-add-new-queue-button.png) 3. Complete the **Add queue** page, as shown in the
 following image, to add a queue named **PasswordReset**.
@@ -198,7 +198,7 @@ When done, you'll have three queues.
 ![The Queues page, the Basic queue, the Network Issue queue, and the Password Reset queue.](images/tutorial1-queues.png) 5. On the navigation menu, go to **Users**,
 **Routing Profiles**.
 
-![The Amazon Connect navigation menu, the Users icon, the Routing profiles option.](images/tutorial1-routing-profiles.png) 6. Choose **Add routing profile**.
+![The Connect Customer navigation menu, the Users icon, the Routing profiles option.](images/tutorial1-routing-profiles.png) 6. Choose **Add routing profile**.
 
 ![The Routing profiles page, the Add routing profile button.](images/tutorial1-add-new-profile.png) 7. Assign a name to the new profile (for example, **Test routing
 profile**). Enter a description, select
@@ -219,7 +219,7 @@ to choose **BasicQueue**.
 **Save** to save the profile. 12. On the navigation menu, go to **Users**, **User
 management**.
 
-![The Amazon Connect navigation menu, Users icon, User management option.](images/tutorial1-user-management.png) 13. On the **User management** page, select your login
+![The Connect Customer navigation menu, Users icon, User management option.](images/tutorial1-user-management.png) 13. On the **User management** page, select your login
 name. 14. On the **Edit** page, in the
 **Settings** section, in the **Routing
 profile** dropdown menu, choose the routing profile you
@@ -232,7 +232,7 @@ Routing is all set up and ready to go.
 
 ## Step 4: Create a contact flow
 
-Although Amazon Connect comes with a set of [built-in
+Although Connect Customer comes with a set of [built-in
 flows](contact-flow-default.md "contact-flow-default.md"), you can create your own flows to determine how a customer
 experiences your contact center. The flows contain the prompts that customers hear
 or see, and they transfer them to the right queue or agent, among other
@@ -241,7 +241,7 @@ things.
 In this step, create a flow that's specific to the IT Help Desk experience that
 you're creating.
 
-1. On the Amazon Connect navigation menu, go to **Routing**,
+1. On the Connect Customer navigation menu, go to **Routing**,
    **Flows**.
 
 ![The navigation menu, Routing icon, flows option.](images/tutorial1-routing-contact-flows.png) 2. Choose **Create flow**.
@@ -353,7 +353,7 @@ to [Step 6: Test a custom voice and chat experience](#tutorial1-try-it "#tutoria
 ## Step 6: Test a custom voice and chat experience
 
 You're ready to try out the Amazon Lex bot, routing, and flow. The first step is to
-tell Amazon Connect which flow you want to test.
+tell Connect Customer which flow you want to test.
 
 1. On the navigation menu, go to the **Dashboard** and
    choose **Test chat**.
@@ -369,7 +369,7 @@ tell Amazon Connect which flow you want to test.
 
 1. If needed, choose the chat bubble to start a chat.
 
-![The test chat page, the chat bubble.](images/tutorial1-chat-bubble.png) 2. Amazon Connect automatically detects a contact and runs the flow that you
+![The test chat page, the chat bubble.](images/tutorial1-chat-bubble.png) 2. Connect Customer automatically detects a contact and runs the flow that you
 created. It displays messages from the flow.
 
 ![Chat widget showing automated messages from the bot.](images/tutorial1-test-chat2.png) 3. Enter that you need help resetting a password. Then accept the
@@ -414,4 +414,4 @@ voice.
 ###### Tip
 
 If you don't want to keep the phone number that you claimed for testing,
-you can release it back to inventory. For instructions, see [Release a phone number from Amazon Connect back to inventory](release-phone-number.md "release-phone-number.md").
+you can release it back to inventory. For instructions, see [Release a phone number from Connect Customer back to inventory](release-phone-number.md "release-phone-number.md").

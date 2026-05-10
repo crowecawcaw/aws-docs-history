@@ -1,6 +1,6 @@
-# Security Best Practices for Amazon Connect
+# Security Best Practices for Connect Customer
 
-Amazon Connect provides a number of security features to consider as you develop and implement your
+Connect Customer provides a number of security features to consider as you develop and implement your
 own security policies. The following best practices are general guidelines and don't
 represent a complete security solution. Because these best practices might not be
 appropriate or sufficient for your environment, treat them as helpful considerations rather
@@ -8,27 +8,27 @@ than prescriptions.
 
 ###### Contents
 
-- [Amazon Connect preventative security best practices](#bp-security-profiles "#bp-security-profiles")
-- [Amazon Connect detective security best practices](#bp-security-detective "#bp-security-detective")
-- [Amazon Connect Chat security best practices](#bp-security-chat "#bp-security-chat")
-- [Amazon Connect WebRTC security best practices](#bp-webrtc-security "#bp-webrtc-security")
+- [Connect Customer preventative security best practices](#bp-security-profiles "#bp-security-profiles")
+- [Connect Customer detective security best practices](#bp-security-detective "#bp-security-detective")
+- [Connect Customer Chat security best practices](#bp-security-chat "#bp-security-chat")
+- [Connect Customer WebRTC security best practices](#bp-webrtc-security "#bp-webrtc-security")
 
-## Amazon Connect preventative security best practices
+## Connect Customer preventative security best practices
 
 - Ensure that all profile permissions are as restrictive as possible. Allow
   access to only those resources absolutely required for the user's role. For
   example, don't give agents permissions to create, read, or update users in
-  Amazon Connect.
+  Connect Customer.
 - Ensure that multi-factor authentication (MFA) is set up through your SAML 2.0
   identity provider, or Radius server, if that's more applicable for your use
-  case. After MFA is set up, a third text box becomes visible on the Amazon Connect login
+  case. After MFA is set up, a third text box becomes visible on the Connect Customer login
   page to provide the second factor.
 - If you use an existing directory through Directory Service or SAML-based authentication
   for identity management, ensure that you follow all security requirements
   appropriate for your use case.
 - Use the **Log in for emergency access** URL on the instance
   page of the AWS console only in emergency situations, not for daily use. For
-  more information, see [Emergency login to the Amazon Connect admin website](emergency-admin-login.md "emergency-admin-login.md").
+  more information, see [Emergency login to the Connect Customer admin website](emergency-admin-login.md "emergency-admin-login.md").
 
 ### Use service control policies (SCPs)
 
@@ -36,22 +36,22 @@ Service control policies (SCPs) are a type of organization policy that you can u
 to manage permissions in your organization. An SCP defines a guardrail, or sets
 limits, on the actions that the account's administrator can delegate to users and
 roles in the affected accounts. You can use SCPs to protect critical resources
-associated with your Amazon Connect workload.
+associated with your Connect Customer workload.
 
 #### Set a Service Control Policy to prevent the deletion critical resources
 
 If you’re using SAML 2.0-based authentication and delete the AWS IAM Role
-that is used for authenticating Amazon Connect users, users won't be able to log in to
-the Amazon Connect instance. You will need to delete and recreate users to be associated
+that is used for authenticating Connect Customer users, users won't be able to log in to
+the Connect Customer instance. You will need to delete and recreate users to be associated
 with a new Role. This results in the deletion of all data associated with those
 users.
 
 To prevent the accidental deletion of critical resources and to protect the
-availability of your Amazon Connect instance, you can set a [Service Control
+availability of your Connect Customer instance, you can set a [Service Control
 Policy](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md") (SCP) as an additional control.
 
 Following is an example SCP that can be applied at the AWS Account,
-Organizational Unit, or Organizational Root to prevent the deletion of the Amazon Connect
+Organizational Unit, or Organizational Root to prevent the deletion of the Connect Customer
 instance and associated Role:
 
 JSON
@@ -85,16 +85,16 @@ JSON
 
 ```
 
-## Amazon Connect detective security best practices
+## Connect Customer detective security best practices
 
 Logging and monitoring are important for the availability, reliability and,
 performance of contact center. You should [log relevant
-information from Amazon Connect flows to CloudWatch](contact-flow-logs.md "contact-flow-logs.md") and [build alerts and notifications](contact-flow-log-alerts.md "contact-flow-log-alerts.md") based on the
+information from Connect Customer flows to CloudWatch](contact-flow-logs.md "contact-flow-logs.md") and [build alerts and notifications](contact-flow-log-alerts.md "contact-flow-log-alerts.md") based on the
 same.
 
 Define log retention requirements and lifecycle policies early on, and plan to move
-log files to cost-efficient storage locations as soon as practical. Amazon Connect public APIs
-log to CloudTrail; for more information, see [Log Amazon Connect API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md"). Review and automate actions based on
+log files to cost-efficient storage locations as soon as practical. Connect Customer public APIs
+log to CloudTrail; for more information, see [Log Connect Customer API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md"). Review and automate actions based on
 CloudTrail logs.
 
 We recommend Amazon S3 for long-term retention and archiving of log data, especially for
@@ -109,13 +109,13 @@ sophisticated partner offerings and self-managed centralized-logging solutions. 
 includes solutions such as Amazon OpenSearch Service and Amazon CloudWatch Logs.
 
 You can implement fraud detection and prevention for incoming contacts by customizing
-Amazon Connect flows per your requirements. For example, you can check incoming contacts against
+Connect Customer flows per your requirements. For example, you can check incoming contacts against
 previous contact activity in Dynamo DB and then take actions such as disconnecting a
 contact who is on a deny list.
 
-## Amazon Connect Chat security best practices
+## Connect Customer Chat security best practices
 
-When you integrate with the Amazon Connect Participant Service directly (or use the Amazon Connect Chat
+When you integrate with the Connect Customer Participant Service directly (or use the Connect Customer Chat
 Java Script library) and use WebSocket or streaming endpoints to receive messages for
 your frontend applications or websites, you must protect your application from DOM-based
 XSS (cross-site scripting) attacks.
@@ -132,7 +132,7 @@ The following security recommendations can help safeguard against XSS attacks:
   your application can load scripts, styles, and other resources. This adds an
   extra layer of protection.
 
-## Amazon Connect WebRTC security best practices
+## Connect Customer WebRTC security best practices
 
 For both WebRTC and chat contacts, participants are issued a Participant Token, which
 is a bearer token that uniquely identifies them within a contact session. Because

@@ -59,7 +59,7 @@ intent to book a flight.
 - **Input type** – Text/Utterance
 - **Input Parameter** – "I want to book a flight"
 
-![Amazon Connect flow designer showing multiple validation blocks with observe and action components.](images/test-case-simulate-input-to-bot.png)
+![Connect Customer flow designer showing multiple validation blocks with observe and action components.](images/test-case-simulate-input-to-bot.png)
 **Interaction group 2: Validate bot collecting origin city**
 
 This group validates that the bot collects the correct slot for the

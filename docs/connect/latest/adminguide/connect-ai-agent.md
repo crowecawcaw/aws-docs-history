@@ -8,7 +8,7 @@ Connect AI agents dynamically navigate your organization's resources to find sol
 take action to resolve customer needs. They handle many issues on their own, but also work in
 collaboration with your workforce to deliver personal, effortless customer experiences.
 
-Amazon Connect enables agentic self-service by allowing AI agents to directly engage with end
+Connect Customer enables agentic self-service by allowing AI agents to directly engage with end
 customers over voice and chat channels. These AI agents can solve customer issues
 autonomously by answering questions and taking actions on behalf of customers. When
 necessary, an AI agent seamlessly escalates to a human agent, adding a human in the loop
@@ -22,7 +22,7 @@ on their behalf.
 
 In addition to receiving automatic recommendations, agents can query a Connect AI agent
 directly using natural language or keywords to answer customer requests. Connect AI agents
-work right within the Amazon Connect agent workspace.
+work right within the Connect Customer agent workspace.
 
 You can customize Connect AI agents to meet your business needs. For example, you can:
 
@@ -30,7 +30,7 @@ You can customize Connect AI agents to meet your business needs. For example, yo
 - [Integrate Connect AI agents with step-by-step
   guides](integrate-guides-with-ai-agents.md "integrate-guides-with-ai-agents.md") to help agents arrive at solutions faster.
 - Integrate Connect AI agents with knowledge bases.
-  Connect AI agents can be configured both in the Amazon Connect UI as well as via API. For more information, see the
+  Connect AI agents can be configured both in the Connect Customer UI as well as via API. For more information, see the
   [Connect AI agents API Reference Guide](../APIReference/API_Operations_Amazon_Connect_AI_Agents.md "../APIReference/API_Operations_Amazon_Connect_AI_Agents.md").
 
 Connect AI agents can be used in compliance with GDPR and is HIPAA eligible.

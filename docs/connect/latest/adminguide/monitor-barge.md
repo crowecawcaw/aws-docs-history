@@ -2,26 +2,26 @@
 
 ###### Tip
 
-**New user?** Check out the [Amazon Connect Supervisor Experience
+**New user?** Check out the [Connect Customer Supervisor Experience
 Workshop](https://catalog.workshops.aws/amazon-connect-supervisor-experience "https://catalog.workshops.aws/amazon-connect-supervisor-experience"). This online course has a section on how to monitor contacts.
 
 Supervisors and managers can barge into live voice and chat conversations between agents and customers.
 To set this up, you need to turn on the **Enhanced monitoring** capability
-in the Amazon Connect console, provide managers with the appropriate permissions, and show them how
+in the Connect Customer console, provide managers with the appropriate permissions, and show them how
 to barge into conversations.
 
 **Looking for how many people can barge the same conversation at one
-time?** See [Amazon Connect feature specifications](feature-limits.md "feature-limits.md").
+time?** See [Connect Customer feature specifications](feature-limits.md "feature-limits.md").
 
 There is no limit to the number of conversations that you can barge in an instance.
 
-The barge feature is included in Amazon Connect voice service fees. For pricing, see
-the [Amazon Connect Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/")
+The barge feature is included in Connect Customer voice service fees. For pricing, see
+the [Connect Customer Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/")
 page.
 
 ## Set up barge for voice and chat
 
-In the Amazon Connect console, select the following telephony options:
+In the Connect Customer console, select the following telephony options:
 
 - **Enable Multi-Party Calls and Enhanced
   Monitoring for Voice**. This option enables access to multi-party calling, detailed
@@ -41,7 +41,7 @@ page.
   _UpdateInstanceAttribute_ API with the
   `ENHANCED_CONTACT_MONITORING` attribute for the first time.
   Or, you can turn the feature OFF and then back ON to update your settings.
-  For more information, see [UpdateInstanceAttribute](../APIReference/API_UpdateInstanceAttribute.md "../APIReference/API_UpdateInstanceAttribute.md") in the _Amazon Connect API Reference
+  For more information, see [UpdateInstanceAttribute](../APIReference/API_UpdateInstanceAttribute.md "../APIReference/API_UpdateInstanceAttribute.md") in the _Connect Customer API Reference
   Guide_.
 - Any new instances will automatically have this feature enabled.
 - Before enabling **Enhanced contact monitoring capabilities**,
@@ -52,7 +52,7 @@ page.
 - For instances that do not have a service-linked role, you must create one
   in order to enable the feature. For more information on how to enable
   service-linked roles, see [Use service-linked
-  roles for Amazon Connect](connect-slr.md "connect-slr.md").
+  roles for Connect Customer](connect-slr.md "connect-slr.md").
 
 ## Assign security profile permissions
 
@@ -74,13 +74,13 @@ security profile specific for this purpose. They need the following security pro
 
 ###### Tip
 
-For the number of supervisors who can monitor a call at the same time, see [Amazon Connect feature specifications](feature-limits.md "feature-limits.md").
+For the number of supervisors who can monitor a call at the same time, see [Connect Customer feature specifications](feature-limits.md "feature-limits.md").
 
-1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/. Use an account that is assigned the
+1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/. Use an account that is assigned the
    **CallCenterManager** security profile or that has the
    required security profile permissions.
 2. Open your CCP. It must be open before you can barge a call.
-3. On the Amazon Connect admin website navigation menu, choose **Analytics and
+3. On the Connect Customer admin website navigation menu, choose **Analytics and
    optimization**, **Real-time metrics**,
    **Agents**.
 4. Choose the eye icon that appears next to the **Voice**
@@ -95,11 +95,11 @@ You can monitor the call and toggle between the **Monitor** and
 
 ## Barge live chats with contacts
 
-1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/. Use an account that is assigned the
+1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/. Use an account that is assigned the
    **CallCenterManager** security profile or that has the
    required security profile permissions.
 2. Open your CCP. It must be open before you can barge a chat.
-3. On the Amazon Connect admin website navigation menu, choose **Analytics and
+3. On the Connect Customer admin website navigation menu, choose **Analytics and
    optimization**, **Real-time metrics**,
    **Agents**.
 4. Choose the eye icon that appears next to the **Chat**

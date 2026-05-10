@@ -1,4 +1,4 @@
-# Pass custom properties to override the defaults in the communications widget in Amazon Connect
+# Pass custom properties to override the defaults in the communications widget in Connect Customer
 
 To further customize your chat user interface, you can override the default properties
 by passing your own values. For example, you can set the widget width to 400 pixels and
@@ -8,7 +8,7 @@ You can also use your preferred font colors and sizes.
 ## How to pass custom styles for the communications widget
 
 To pass custom styles, use the following example code block and embed it in your
-widget. Amazon Connect retrieves the custom styles automatically. All of the
+widget. Connect Customer retrieves the custom styles automatically. All of the
 fields shown in the following example are optional.
 
 ```
@@ -107,7 +107,7 @@ Following are the elements that make up the communications widget.
 
 ## How to pass override system and bot display names and logos for the communications widget
 
-To override the System/Bot display name and logo configurations set in the Amazon Connect admin website,
+To override the System/Bot display name and logo configurations set in the Connect Customer admin website,
 embed the following code block into your widget code snippet. All of the fields
 shown in the following example are optional.
 

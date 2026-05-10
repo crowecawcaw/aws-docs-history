@@ -1,4 +1,4 @@
-# Create case templates to document customer issues in Amazon Connect Cases
+# Create case templates to document customer issues in Connect Customer Cases
 
 _Case templates_ are forms that ensure agents collect and reference
 the right information for different types of customer issues. For example, you can
@@ -44,18 +44,18 @@ fields, such as **Customer**, **Summary**, and
 **Reference number**, appear by default on the case details
 page. You can remove or rearrange these fields.
 
-Each case that is created is connected to a customer profile from your Amazon Connect
+Each case that is created is connected to a customer profile from your Connect Customer
 instance. On new case templates, the customer name appears by default on the case
 details page. You can remove or rearrange this field from your templates from the
-Amazon Connect admin website.
+Connect Customer admin website.
 
 ## How to create a template
 
-1. Log in to the Amazon Connect admin website with an **Admin** account, or an
+1. Log in to the Connect Customer admin website with an **Admin** account, or an
    account assigned to a security profile that has permissions to create
-   templates. For a list of required permissions, see [Security profile permissions for Amazon Connect Cases](assign-security-profile-cases.md "assign-security-profile-cases.md").
+   templates. For a list of required permissions, see [Security profile permissions for Connect Customer Cases](assign-security-profile-cases.md "assign-security-profile-cases.md").
 2. Verify the quota for case templates and request an increase if needed. For
-   more information, see [Amazon Connect Cases service quotas](amazon-connect-service-limits.md#cases-quotas "amazon-connect-service-limits.md#cases-quotas").
+   more information, see [Connect Customer Cases service quotas](amazon-connect-service-limits.md#cases-quotas "amazon-connect-service-limits.md#cases-quotas").
 3. Verify the [case fields](case-fields.md "case-fields.md") you want to add
    to your case template have already been created.
 4. On the left navigation menu, choose **Agent

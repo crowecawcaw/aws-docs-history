@@ -1,13 +1,13 @@
-# Create a bot by using the Amazon Connect admin website
+# Create a bot by using the Connect Customer admin website
 
-You can build complete Lex bots in the Amazon Connect admin website without ever leaving the Amazon Connect interface. There is
-no charge for building or editing bots in Amazon Connect. Instead, you are billed by Amazon Lex for usage. For
+You can build complete Lex bots in the Connect Customer admin website without ever leaving the Connect Customer interface. There is
+no charge for building or editing bots in Connect Customer. Instead, you are billed by Amazon Lex for usage. For
 pricing information, see the [Amazon Lex pricing](https://aws.amazon.com/lex/pricing/ "https://aws.amazon.com/lex/pricing/")
 page.
 
 ###### To create a bot
 
-1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/. Use an Admin account or an account that has **Channels and
+1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/. Use an Admin account or an account that has **Channels and
    Flows** - **Bots** - **Create** permission
    in its security profile.
 2. In the left navigation menu, choose **Routing**,

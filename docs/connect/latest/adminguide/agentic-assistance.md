@@ -1,13 +1,13 @@
-# Use Amazon Connect agentic assistance
+# Use Connect Customer agentic assistance
 
-Amazon Connect provides AI agents that help customer service representatives solve live
+Connect Customer provides AI agents that help customer service representatives solve live
 interactions with end customers. These AI agents make proactive recommendations based on
 real-time customer interactions and help guide representatives down the right path to
 resolve issues efficiently. The AI agents can look up information from disparate
-sources, complete transactions both in Amazon Connect and third-party applications, and perform
+sources, complete transactions both in Connect Customer and third-party applications, and perform
 traditional retrieval augmented generation (RAG) Q&A.
 
-Amazon Connect AI agents automatically detect customer intent during calls, chats, tasks, and emails
+Connect Customer AI agents automatically detect customer intent during calls, chats, tasks, and emails
 by using conversational analytics and natural language understanding (NLU). They then
 provide representatives with immediate, real-time generative responses, suggested
 actions, and links to relevant documents and articles. The AI agents can complete
@@ -18,18 +18,18 @@ interactions. The service also provides automatic case summarization support to 
 representatives quickly complete their work.
 
 In addition to receiving automatic recommendations, representatives can also query
-Amazon Connect AI agents directly using natural language to answer customer requests. Connect
-agentic assistance works within the Amazon Connect agent workspace and can be embedded into your
+Connect Customer AI agents directly using natural language to answer customer requests. Connect
+agentic assistance works within the Connect Customer agent workspace and can be embedded into your
 own employee workspace or CRM.
 
-You can customize Amazon Connect agentic assistance to meet your business needs. For example,
+You can customize Connect Customer agentic assistance to meet your business needs. For example,
 you can do the following:
 
 - Integrate the AI agent with step-by-step guides to help representatives arrive
   at solutions faster.
-- Customize the default that powers Amazon Connect agentic assistance out-of-the-box,
+- Customize the default that powers Connect Customer agentic assistance out-of-the-box,
   including AI prompts, AI guardrails, and AI agents configurations.
-- Embed the Amazon Connect Assistant application into your existing employee workspace or
+- Embed the Connect Customer Assistant application into your existing employee workspace or
   CRM system.
   Connect agentic assistance is available through an out-of-the-box UI and by API for
   integration into existing agent workspaces. For more information, see [Connect AI agents

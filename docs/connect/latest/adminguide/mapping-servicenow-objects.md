@@ -1,7 +1,7 @@
-# Mapping ServiceNow objects to the standard profile object in Amazon Connect Customer Profiles
+# Mapping ServiceNow objects to the standard profile object in Connect Customer Customer Profiles
 
 This topic lists which fields in ServiceNow objects map to fields in the
-standard profile object in Amazon Connect Customer Profiles.
+standard profile object in Connect Customer Customer Profiles.
 
 ## Servicenow-sys_user object
 
@@ -95,7 +95,7 @@ Servicenow-sys_users object to the standard profile.
 | zip                               | Address.PostalCode             |
 
 The Servicenow-sys_user customer data from Servicenow object is
-associated with an Amazon Connect customer profile using the indexes in the
+associated with an Connect Customer customer profile using the indexes in the
 following table.
 
 | Standard Index Name  | Servicenow-sys_user source field |
@@ -103,7 +103,7 @@ following table.
 | \_serviceNowSystemId | sys_id                           |
 
 For example, you can use `_serviceNowSystemId` and
-`_serviceNowIncidentId` as a key name with the [SearchProfiles](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md") API to find an Amazon Connect customer profile. You
+`_serviceNowIncidentId` as a key name with the [SearchProfiles](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md") API to find an Connect Customer customer profile. You
 can find the Servicenow-sys_user objects associated with a specific
 profile by using the [ListProfileObjects](../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md") API with the `ProfileId` and
 `ObjectTypeName` set to

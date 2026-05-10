@@ -1,6 +1,6 @@
-# When a rule or category fails to be evaluated by Amazon Connect Contact Lens
+# When a rule or category fails to be evaluated by Connect Customer Contact Lens
 
-When Amazon Connect Contact Lens evaluates a rule or category during a
+When Connect Customer Contact Lens evaluates a rule or category during a
 post-contact analysis for a voice or chat contact, it is possible that the rule
 or category fails to evaluate.
 

@@ -1,4 +1,4 @@
-# Set up agent-to-agent transfers in Amazon Connect
+# Set up agent-to-agent transfers in Connect Customer
 
 We recommend using these instructions to set up agent-to-agent voice, chat, and task
 transfers. You use a [Set working queue](set-working-queue.md "set-working-queue.md") block to transfer the contact to the
@@ -8,7 +8,7 @@ experience, whereas the [Transfer to agent
 
 ## Step 1: Create the quick connect
 
-Following are the instructions to add quick connects manually using the Amazon Connect admin website. To
+Following are the instructions to add quick connects manually using the Connect Customer admin website. To
 add quick connects programmatically, use the [CreateQuickConnect](../APIReference/API_CreateQuickConnect.md "../APIReference/API_CreateQuickConnect.md")
 API.
 
@@ -77,4 +77,4 @@ and use a [Set working queue](set-working-queue.md "set-working-queue.md") block
 
 ![The transfer to queue block on the flow designer.](images/agent-to-agent-transfer.png) 7. Save and publish this flow. 8. To show your agents how to transfer chats to another agent, see [Transfer a chat to an agent's queue, with all context preserved](transfer-chats.md "transfer-chats.md").
 
-To show your agents how to transfer tasks to another agent, see [Transfer a task to another agent or queue in the Amazon Connect Contact Control Panel (CCP)](transfer-task.md "transfer-task.md").
+To show your agents how to transfer tasks to another agent, see [Transfer a task to another agent or queue in the Connect Customer Contact Control Panel (CCP)](transfer-task.md "transfer-task.md").

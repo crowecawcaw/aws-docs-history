@@ -1,4 +1,4 @@
-# Edit a case in Amazon Connect
+# Edit a case in Connect Customer
 
 To edit a case, the agent chooses **Edit** and
 **Save** to save any changes.

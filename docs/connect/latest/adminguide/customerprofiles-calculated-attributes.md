@@ -1,4 +1,4 @@
-# Set up calculated attributes in Amazon Connect Customer Profiles
+# Set up calculated attributes in Connect Customer Customer Profiles
 
 _Calculated attributes_ are values that are derived from other
 attributes by using formulas. You can use them to identify users' aggregate

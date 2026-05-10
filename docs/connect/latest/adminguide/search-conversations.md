@@ -60,7 +60,7 @@ If you enter _"thank you for your business", two,
 
 ###### To search conversations for words or phrases
 
-1. In Amazon Connect, log in with a user account that is assigned the
+1. In Connect Customer, log in with a user account that is assigned the
    **CallCenterManager** security profile, or that is
    enabled for the **Search contacts by keywords**
    permission.
@@ -134,7 +134,7 @@ scores](sentiment-scores.md "sentiment-scores.md").
 
 ###### To search for sentiment scores or evaluate sentiment shift
 
-1.  In Amazon Connect, log in with a user account that is assigned the
+1.  In Connect Customer, log in with a user account that is assigned the
     **CallCenterManager** security profile, or that is
     enabled for the **Search contacts by conversation
     characteristics** permission.
@@ -196,7 +196,7 @@ You can search by the:
 You specify whether the duration is less or greater than or equal to a
 specific time. For information about how to use this metric, see [Investigate response time during chats in Contact Lens](response-time.md "response-time.md").
 
-For the supported minimum and maximum response times, see [Amazon Connect Rules feature specifications](feature-limits.md#rules-feature-specs "feature-limits.md#rules-feature-specs").
+For the supported minimum and maximum response times, see [Connect Customer Rules feature specifications](feature-limits.md#rules-feature-specs "feature-limits.md#rules-feature-specs").
 
 The following image shows a search for contacts where the agent's average
 response time was greater than or equal to 1 minute.

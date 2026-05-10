@@ -1,17 +1,17 @@
-# Required permissions for using custom IAM policies to manage Amazon Connect Cases
+# Required permissions for using custom IAM policies to manage Connect Customer Cases
 
-If you're using custom IAM policies to manage access to the Amazon Connect Cases, your
+If you're using custom IAM policies to manage access to the Connect Customer Cases, your
 users need some or all of the permissions listed in this article, depending on the tasks
 they need to do.
 
 ## View Cases domain details
 
 There are two options for granting users IAM permissions to view Cases
-domain details on the Amazon Connect console.
+domain details on the Connect Customer console.
 
 ### Option 1: Minimum required IAM permissions
 
-To view Cases domain details in the Amazon Connect console, users must have the
+To view Cases domain details in the Connect Customer console, users must have the
 following IAM permissions:
 
 - `connect:ListInstances`
@@ -62,9 +62,9 @@ Note the following:
 - `cases:GetDomain` Action is required on Resource
   `*`
 - `connect:ListIntegrationAssociations` action supports the
-  `instance` resource type. See the table in [Actions defined by Amazon Connect](../../../service-authorization/latest/reference/list_amazonconnect.md#amazonconnect-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonconnect.md#amazonconnect-actions-as-permissions").
+  `instance` resource type. See the table in [Actions defined by Connect Customer](../../../service-authorization/latest/reference/list_amazonconnect.md#amazonconnect-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonconnect.md#amazonconnect-actions-as-permissions").
 
-### Option 2: Update the existing Amazon Connect policy with `cases:GetDomain` and `profile:SearchProfiles`
+### Option 2: Update the existing Connect Customer policy with `cases:GetDomain` and `profile:SearchProfiles`
 
 Include the [AmazonConnectReadOnlyAccess](security-iam-amazon-connect-permissions.md#amazonconnectreadonlyaccesspolicy "security-iam-amazon-connect-permissions.md#amazonconnectreadonlyaccesspolicy") policy, and add
 `cases:GetDomain`, as shown in the following example.
@@ -91,11 +91,11 @@ JSON
 ## Onboard to Cases
 
 There are two options for granting users IAM permissions to onboard to
-Cases using the Amazon Connect console.
+Cases using the Connect Customer console.
 
 ### Option 1: Minimum required permissions
 
-To onboard to Cases by using the Amazon Connect console, users must have the
+To onboard to Cases by using the Connect Customer console, users must have the
 following IAM permissions:
 
 - `connect:ListInstances`
@@ -181,8 +181,8 @@ Note the following:
 
 - `cases:GetDomain` Action is required on Resource
   `*`
-- You can scope the permissions to specific Amazon Connect tasks by using the
-  information in [Actions, resources, and condition keys for Amazon Connect](../../../service-authorization/latest/reference/list_amazonconnect.md "../../../service-authorization/latest/reference/list_amazonconnect.md").
+- You can scope the permissions to specific Connect Customer tasks by using the
+  information in [Actions, resources, and condition keys for Connect Customer](../../../service-authorization/latest/reference/list_amazonconnect.md "../../../service-authorization/latest/reference/list_amazonconnect.md").
 - `profile:SearchProfiles` Action is required because the
   `CreateCase` API calls the `SearchProfiles`
   API to search for customer profiles to validate against, and then

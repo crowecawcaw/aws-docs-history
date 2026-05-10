@@ -25,7 +25,7 @@ agent.
 
 ## Add rules for real-time alerts for chats
 
-1. Log in to Amazon Connect with a user account that is assigned the
+1. Log in to Connect Customer with a user account that is assigned the
    **CallCenterManager** security profile, or that
    is enabled for **Rules** permissions.
 2. On the navigation menu, choose **Analytics and
@@ -99,7 +99,7 @@ Seattle.
 ![A words and phrases rule with multiple conditions.](images/contact-lens-add-category-rules-3.png) 11. When done, choose **Next**. 12. In the **Assign contact category** box, add a
 name for the category. For example, **Compliant**
 or **Not_Compliant**. 13. Choose **Add action** to specify what action
-Amazon Connect should take when the conditions are met. You can configure
+Connect Customer should take when the conditions are met. You can configure
 supervisor alerts by using email notifications or by developing a
 custom integration with EventBridge.
 

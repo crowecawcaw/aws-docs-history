@@ -6,13 +6,13 @@ template as a starting point each time you need to send that type of message, in
 designing and writing the message again.
 
 This topic is for administrators and contact center managers who want to create message
-templates using the Amazon Connect admin website.
+templates using the Connect Customer admin website.
 
 ###### Tip
 
 Even though message templates use the Connect AI agents APIs, message templates don't lead to
 additional billing. You only pay for the chat message price or email price. For more
-information, see [Amazon Connect
+information, see [Connect Customer
 Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
 
 ## What are message templates?
@@ -25,10 +25,10 @@ that you want to reuse in various components of messages that are based on the
 template.
 
 When you create a message, you can choose a template to use for the message. If you
-choose a template, Amazon Connect populates the message with the content and settings in the
+choose a template, Connect Customer populates the message with the content and settings in the
 template.
 
-You can design the following types of message templates in Amazon Connect:
+You can design the following types of message templates in Connect Customer:
 
 - **Email templates** for email messages that you send in reply
   to customer emails to your contact sent, or that agents can use for frequently
@@ -49,14 +49,14 @@ You can create templates that have the following features:
 - Attributes within the email template to define personalize details such as
   customer name, customer email, customer account number, customer phone number,
   customer address, and agent name.
-- Attachments up to 1 MB. For a list of supported attachment types, see [Amazon Connect feature specifications](feature-limits.md "feature-limits.md").
+- Attachments up to 1 MB. For a list of supported attachment types, see [Connect Customer feature specifications](feature-limits.md "feature-limits.md").
 
-When you create an email message that's based on a template, Amazon Connect populates the
+When you create an email message that's based on a template, Connect Customer populates the
 message with the content and settings that you defined in the template.
 
 ## How to create message templates
 
-1. Log in to Amazon Connect admin website with an Admin account or a user account that has
+1. Log in to Connect Customer admin website with an Admin account or a user account that has
    **Content Management** - **Message
    templates** - **Create** in it's security profile.
 2. In the navigation pane, choose **Message templates**.
@@ -98,14 +98,14 @@ For email templates:
     		 include in the message.
     	You can also include personalized content in the subject and body of
     	 the template by using attributes. To do this, add message variables that
-    	 refer to specific attributes that you or Amazon Connect created, such as an
+    	 refer to specific attributes that you or Connect Customer created, such as an
     	 attribute that stores a user's first name. By using message
     	 variables, you can display different content for each recipient of a
     	 message that uses the template.
 
 
     	To use a message variable, choose the name of an existing attribute
-    	 from the **Attribute finder**. Amazon Connect drops it into your
+    	 from the **Attribute finder**. Connect Customer drops it into your
     	 message. You can copy and paste it to the location that you want. For
     	 more information, see [Add personalized content to message templates](personalize-templates.md "personalize-templates.md").
 
@@ -152,7 +152,7 @@ For email templates:
 1. Under **WhatsApp details**, select the template from dropdown. Please note only Meta approved templates can be used to create message templates. Ensure your imported templates are approved in Meta Business WhatsApp Manager before proceeding.
 2. Define a name for the template and add descriptions if needed.
 3. Once you selected Meta approved template, you will see the details displayed in **Body** and **Template Metadata (JSON)** format.
-4. **Attribute mapping:** To enable personalized message delivery in Amazon Connect, you will need to map your imported Meta attributes to custom text. By combining your existing Connect attributes with plain text, you can create customized messages for your customers. For example, you might see Hello {{1}} in the **Body**, and you can choose to `Attributes.Customer.FirstName` from Connect attribute list to match.
+4. **Attribute mapping:** To enable personalized message delivery in Connect Customer, you will need to map your imported Meta attributes to custom text. By combining your existing Connect attributes with plain text, you can create customized messages for your customers. For example, you might see Hello {{1}} in the **Body**, and you can choose to `Attributes.Customer.FirstName` from Connect attribute list to match.
 5. There are a variety of button types that can be added into a content template. If your selected template includes buttons, such as a Website URL that includes attributes, you can either select Connect attributes to map or type in static text.
 6. When you completed attributes mapping, choose **Save**.
 7. Before making the template available to users we recommend that you send a test message to make sure the template works as intended.

@@ -16,4 +16,4 @@ To see the queue names so you can add them to rules, you need
 **Routing: Queues - View** permissions in your security
 profile.
 
-For more information, see [Assign permissions to use Contact Lens conversational analytics in Amazon Connect](permissions-for-contact-lens.md "permissions-for-contact-lens.md").
+For more information, see [Assign permissions to use Contact Lens conversational analytics in Connect Customer](permissions-for-contact-lens.md "permissions-for-contact-lens.md").

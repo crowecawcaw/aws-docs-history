@@ -1,4 +1,4 @@
-# Set up matching rules for rule-based Identity Resolution in Amazon Connect
+# Set up matching rules for rule-based Identity Resolution in Connect Customer
 
 ## Limits
 

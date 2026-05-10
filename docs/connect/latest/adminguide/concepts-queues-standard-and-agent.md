@@ -1,4 +1,4 @@
-# Standard queues and agent queues in your Amazon Connect contact center
+# Standard queues and agent queues in your Connect Customer contact center
 
 There are two types of queues:
 
@@ -14,7 +14,7 @@ you might use agent queues to route to an agent's voice-mail.
 Contacts waiting in agent queues are higher priority than contacts waiting in standard
 queues. Contacts in agent queues have the highest priority and zero delay:
 
-- Highest priority: If there's another contact in the basic queue, Amazon Connect chooses
+- Highest priority: If there's another contact in the basic queue, Connect Customer chooses
   to give the agent the contact from the agent queue first.
 - Zero delay: If the agent is available, the contact immediately gets routed to
   them.
@@ -53,7 +53,7 @@ The metrics APIs don't support agent queues.
 
 ## Default queue: BasicQueue
 
-Amazon Connect includes a default queue named **BasicQueue**. Along with
+Connect Customer includes a default queue named **BasicQueue**. Along with
 the [default flows](contact-flow-default.md "contact-flow-default.md") and default routing
 profile (named **Basic routing profile**), it powers your contact
 center so you don't need to do any customization. This is what enables you to get

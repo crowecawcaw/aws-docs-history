@@ -1,6 +1,6 @@
-# Edit a forecast in Amazon Connect
+# Edit a forecast in Connect Customer
 
-In the Amazon Connect admin website, there are two ways you can edit a forecast at the queue channel
+In the Connect Customer admin website, there are two ways you can edit a forecast at the queue channel
 level: you can make your edits directly in the user interface, or you can upload a
 CSV file that contains your edits.
 
@@ -18,12 +18,12 @@ you can also remove the changes.
 
 ## How to edit a forecast
 
-1. Log in to the Amazon Connect admin website with an account that has security profile
+1. Log in to the Connect Customer admin website with an account that has security profile
    permissions for **Analytics and Optimization**,
    **Forecasting - Edit**.
 
 For more information, see [Assign
-permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Amazon Connect navigation menu, select **Analytics and
+permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Connect Customer navigation menu, select **Analytics and
 optimization**, **Forecasting**, and then
 choose the **Forecast** tab. 3. Choose the forecast to edit, and then choose
 **Actions**, **Edit
@@ -179,9 +179,9 @@ The following image shows an example CSV file with data in it.
 
 Following are the requirements for imported data:
 
-    + `QueueName`: Enter the Amazon Connect queue name.
-    + `QueueId`: Enter the Amazon Connect queue ID. To find the
-     queue ID in the Amazon Connect admin website, on the left navigation, go to
+    + `QueueName`: Enter the Connect Customer queue name.
+    + `QueueId`: Enter the Connect Customer queue ID. To find the
+     queue ID in the Connect Customer admin website, on the left navigation, go to
      **Routing**, **Queues**,
      choose the queue, select **Show additional queue
      information**. The queue ID is the last number
@@ -231,7 +231,7 @@ Following are the requirements for imported data:
 
 ###### Note
 
-Amazon Connect supports one, which would be the latest, override file per
+Connect Customer supports one, which would be the latest, override file per
 forecast group.
 
     * When you choose to download a template, your template will
@@ -242,7 +242,7 @@ forecast group.
 
 If you need to make changes later on to the same forecast, you must
 download the last uploaded file, make your changes, and then upload the
-file. Amazon Connect retains only the last uploaded file. 5. Add override data, and then choose **Upload CSV** to
+file. Connect Customer retains only the last uploaded file. 5. Add override data, and then choose **Upload CSV** to
 upload it. Choose **Save** to confirm forecast
 override.
 

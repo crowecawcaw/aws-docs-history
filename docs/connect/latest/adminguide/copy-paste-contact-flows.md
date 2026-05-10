@@ -1,4 +1,4 @@
-# Copy and paste flows in Amazon Connect
+# Copy and paste flows in Connect Customer
 
 You can select, cut, copy, and paste a complete flow or multiple blocks within or
 across flows. The following information is copied:
@@ -28,6 +28,6 @@ Or, if desired, use the shortcut keys.
 
 ###### Tip
 
-Amazon Connect uses the clipboard for this feature. Paste won't work if you edit the JSON
+Connect Customer uses the clipboard for this feature. Paste won't work if you edit the JSON
 in your clipboard and introduce a typo or other error, or if you have multiple items
 saved to your clipboard.

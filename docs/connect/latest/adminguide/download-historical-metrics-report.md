@@ -1,4 +1,4 @@
-# Download a historical metrics report in Amazon Connect
+# Download a historical metrics report in Connect Customer
 
 You can download the data included in a report as a comma-separated value (CSV)
 file so you can use it with other applications. If there's no data for one of the
@@ -6,7 +6,7 @@ selected metrics, the field in the downloaded CSV file contains a dash.
 
 ###### To download a historical metrics report as a CSV file
 
-1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/.
+1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/.
 2. Create a new report or open a saved report.
 3. Choose the down arrow next to **Save** in the top-right
    corner of the page and choose **Download CSV**.
@@ -18,7 +18,7 @@ selected metrics, the field in the downloaded CSV file contains a dash.
 
 ![Data in a queue table and the same data in a CSV file.](images/example-downloaded-metrics-report.png)
 You can convert the seconds to minutes using an Excel formula. Alternatively, if
-you have a short report, you can copy and paste the data from Amazon Connect to
+you have a short report, you can copy and paste the data from Connect Customer to
 Excel and it will preserve the format.
 
 ## Interval downloaded in ISO date format
@@ -40,4 +40,4 @@ recommend using the following steps:
 For example, you might schedule the Login/Logout report to run daily
 at midnight. 2. The full report is saved to your Amazon S3 bucket. 3. Go to your Amazon S3 bucket and download the report.
 
-To learn how scheduled reports work, see [Schedule a historical metrics report in Amazon Connect](schedule-historical-metrics-report.md "schedule-historical-metrics-report.md").
+To learn how scheduled reports work, see [Schedule a historical metrics report in Connect Customer](schedule-historical-metrics-report.md "schedule-historical-metrics-report.md").

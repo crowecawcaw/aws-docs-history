@@ -4,11 +4,11 @@ You can create a real-time metrics report to view real-time or near-real time
 metrics data for activity in your contact center. You must have permission to access
 metric data. The **CallCenterManager** and
 **QualityAnalyst** security profiles include this permission.
-For more information, see [Security profiles for Amazon Connect and Contact Control Panel (CCP) access](connect-security-profiles.md "connect-security-profiles.md").
+For more information, see [Security profiles for Connect Customer and Contact Control Panel (CCP) access](connect-security-profiles.md "connect-security-profiles.md").
 
 ###### To create a real-time metrics report
 
-1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/.
+1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/.
 2. Choose **Analytics and optimization**,
    **Real-time metrics**.
 3. Choose one of the following report types. They group and order the data in
@@ -52,7 +52,7 @@ experiencing performance issues if you add a lot of them. 5. To customize a repo
 
 8. On the **Metrics** tab, choose the metrics and fields to
    include in the report. The available metrics and fields depend on the report
-   type and filters that you select. For more information, see [Metric definitions in Amazon Connect](metrics-definitions.md "metrics-definitions.md").
+   type and filters that you select. For more information, see [Metric definitions in Connect Customer](metrics-definitions.md "metrics-definitions.md").
 9. When you are finished customizing the report, choose
    **Apply**.
 10. (Optional) To save your report for future reference, choose

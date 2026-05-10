@@ -1,4 +1,4 @@
-# Request numbers or international numbers for Amazon Connect
+# Request numbers or international numbers for Connect Customer
 
 ###### Important
 
@@ -7,7 +7,7 @@ require:
 
 - A local office address.
 - Specific identification documents.
-  For identification requirements by country, see [Region requirements for ordering and porting phone numbers in Amazon Connect](phone-number-requirements.md "phone-number-requirements.md").
+  For identification requirements by country, see [Region requirements for ordering and porting phone numbers in Connect Customer](phone-number-requirements.md "phone-number-requirements.md").
 
 In most countries it takes 2-6 weeks for us to fulfill your request. In some
 cases it can take up to 60 days. If you need a number by a certain date, let us
@@ -20,16 +20,16 @@ Amazon does not provide the following:
 - Premium rate or higher cost services
 - Vanity numbers such as 1-888-555-0000 or an exact number
   If you want these services we recommend you contract with specialist
-  providers. For premium rate services you can route calls into Amazon Connect DIDs
+  providers. For premium rate services you can route calls into Connect Customer DIDs
   following local country regulations. For vanity numbers, after you've purchased
-  them you can move these numbers across to Amazon Connect by porting them.
+  them you can move these numbers across to Connect Customer by porting them.
 
 To request international phone numbers that require documentation, or numbers not
 available within a specific region, create an AWS Support case. In the support case,
 you must specify exactly how many numbers you want for each country.
 
-Submit an Amazon Connect support ticket to verify if your phone number can be ported to
-Amazon Connect.
+Submit an Connect Customer support ticket to verify if your phone number can be ported to
+Connect Customer.
 
 1. Choose [Account and billing](https://console.aws.amazon.com/support/home#/case/create?issueType=customer-service&serviceCode=service-connect-number-management "https://console.aws.amazon.com/support/home#/case/create?issueType=customer-service&serviceCode=service-connect-number-management") to access a pre-populated form in the
    AWS Support console. You must be signed in to your AWS account
@@ -60,9 +60,9 @@ Amazon Connect.
       preferred contact method.
 
 9. Choose **Submit**.
-10. The Amazon Connect team will review your ticket and get back to you.
+10. The Connect Customer team will review your ticket and get back to you.
     They will provide a link to our secured storage (Amazon S3) so you can
     submit the required documents.
     After your request is approved, the exact number of requested phone numbers appear
-    in your Amazon Connect console for you to claim. You won't have access to all available
+    in your Connect Customer console for you to claim. You won't have access to all available
     numbers in that country.

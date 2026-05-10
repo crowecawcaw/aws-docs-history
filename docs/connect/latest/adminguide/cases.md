@@ -1,12 +1,12 @@
-# Amazon Connect Cases
+# Connect Customer Cases
 
 ###### Tip
 
-**New user?** Check out the [Amazon Connect
+**New user?** Check out the [Connect Customer
 Cases Workshop](https://catalog.workshops.aws/amazon-connect-cases/en-US/1-introduction "https://catalog.workshops.aws/amazon-connect-cases/en-US/1-introduction"). This online course guides you through setting up and using
-Amazon Connect Cases.
+Connect Customer Cases.
 
-Amazon Connect Cases enables your customer service organization to track, collaborate, and
+Connect Customer Cases enables your customer service organization to track, collaborate, and
 resolve customer cases.
 
 A _case_ represents a customer's issue. It is created to record the
@@ -28,15 +28,15 @@ The following image shows an example case as it appears in the agent application
 We recommend reviewing these topics to help you get started.
 
 **Contact center manager or Admin actions on the
-Amazon Connect admin website**
+Connect Customer admin website**
 
 - [Enable Cases](enable-cases.md "enable-cases.md")
 - [Assign
   permissions](assign-security-profile-cases.md "assign-security-profile-cases.md")
 - [Create case fields](case-fields.md "case-fields.md") and [case templates](case-templates.md "case-templates.md")
-- [Set up a case assignment in Amazon Connect Cases](case-assignment.md "case-assignment.md")
-- [Automatically monitor and update cases in Amazon Connect Cases](create-alerts-on-cases.md "create-alerts-on-cases.md")
-- [Amazon Connect Cases metrics](case-management-metrics.md "case-management-metrics.md")
+- [Set up a case assignment in Connect Customer Cases](case-assignment.md "case-assignment.md")
+- [Automatically monitor and update cases in Connect Customer Cases](create-alerts-on-cases.md "create-alerts-on-cases.md")
+- [Connect Customer Cases metrics](case-management-metrics.md "case-management-metrics.md")
 - [Cases block](cases-block.md "cases-block.md")
 - [Case event streams](case-event-streams.md "case-event-streams.md")
 - [Cases quotas](amazon-connect-service-limits.md#cases-quotas "amazon-connect-service-limits.md#cases-quotas")
@@ -44,7 +44,7 @@ Amazon Connect admin website**
 
 **Agent actions in the agent workspace**
 
-- [Search cases in Amazon Connect to view customer contact details](search-cases.md "search-cases.md")
+- [Search cases in Connect Customer to view customer contact details](search-cases.md "search-cases.md")
 - [Edit an existing case](cm-editcases.md "cm-editcases.md")
 - [Add comments to a case](cm-comments.md "cm-comments.md")
 - [Associate a contact with a

@@ -30,9 +30,9 @@ NAT (TURN)](https://datatracker.ietf.org/doc/html/rfc5766 "https://datatracker.i
 peer-to-peer connectivity. These are in addition to protocol specifications for
 reliable and secure real-time media and data streaming.
 
-Because Amazon Connect uses WebRTC, you don't need to build and maintain complex
+Because Connect Customer uses WebRTC, you don't need to build and maintain complex
 infrastructure for real-time communication. It enables you to rapidly deploy
-omnichannel customer engagement solutions through Amazon Connect, while benefiting from the
+omnichannel customer engagement solutions through Connect Customer, while benefiting from the
 low latency, high-quality media streaming, and secure peer-to-peer connectivity that
 WebRTC offers.
 
@@ -108,39 +108,39 @@ and establish peer-to-peer connections across NAT gateways and firewalls.
 ## How STUN, TURN and ICE work together
 
 Let's consider the scenario where the agent CCP (Contact Control Panel) is peer A
-and Amazon Connect is peer B, using WebRTC for a two-way media stream (for example, a voice
+and Connect Customer is peer B, using WebRTC for a two-way media stream (for example, a voice
 call).
 
 Here's what happens when the agent CCP wants to establish a connection with
-Amazon Connect:
+Connect Customer:
 
 1. The agent CCP generates an SDP offer containing information about the
    desired session, such as the codecs to use, whether it's an audio or video
    session, and more. It also includes a list of ICE candidates, which are the
-   IP/port pairs that Amazon Connect can attempt to use to connect to the agent
+   IP/port pairs that Connect Customer can attempt to use to connect to the agent
    CCP.
 2. To gather the ICE candidates, CCP makes a series of requests to a STUN
    server. The STUN server returns the public IP address and port pair that
-   originated the request. The agent CCP also creates a TURN channel to Amazon Connect's
+   originated the request. The agent CCP also creates a TURN channel to Connect Customer's
    TURN service to obtain a media relay address. This relay address is an
    IP/port pair that can forward packets between the agent CCP and other media
-   services in Amazon Connect. The agent CCP adds each IP/port pair to the list of ICE
-   candidates. Next, the agent CCP sends the SDP offer to Amazon Connect through a
+   services in Connect Customer. The agent CCP adds each IP/port pair to the list of ICE
+   candidates. Next, the agent CCP sends the SDP offer to Connect Customer through a
    signaling channel over a WebSocket.
-3. Amazon Connect generates an SDP answer following the same process: it gathers ICE
+3. Connect Customer generates an SDP answer following the same process: it gathers ICE
    candidates and sends them with the SDP answer to the agent CCP over the
-   WebSocket. After exchanging SDPs, the agent CCP and Amazon Connect perform a series
+   WebSocket. After exchanging SDPs, the agent CCP and Connect Customer perform a series
    of connectivity checks. Each side takes a candidate IP/port pair from the
    other's SDP and sends a STUN request to it. If a response is received, that
    IP/port pair is marked as a valid ICE candidate pair.
 4. After the connectivity checks are completed for all IP/port pairs, the
-   agent CCP and Amazon Connect negotiate and decide on one of the valid pairs to use
+   agent CCP and Connect Customer negotiate and decide on one of the valid pairs to use
    for the media stream.
 
-The following diagram illustrates the communication between CCP and Amazon Connect using
+The following diagram illustrates the communication between CCP and Connect Customer using
 WebRTC.
 
-![The flow of communication between CCP and Amazon Connect using WebRTC.](images/webrtc-diagram.png)
+![The flow of communication between CCP and Connect Customer using WebRTC.](images/webrtc-diagram.png)
 
 ## Best practices
 
@@ -156,15 +156,15 @@ WebRTC.
 - If you're using [Option 2 (not recommended): Allow IP address ranges](ccp-networking.md#option2 "ccp-networking.md#option2"), we
   recommend the following to mitigate error behaviors:
   - Monitor the IP ranges allow-listed by your business for
-    Amazon Connect.
+    Connect Customer.
   - Ensure changes within the IP ranges are monitored.
   - Ensure any new additions to the list are accompanied by 3478 (UDP)
     port and protocol allow-listings for SEND/RECEIVE traffic.
 
 - Before moving to production, do the following
-  - Test WebRTC connectivity by using the [Amazon Connect Endpoint Connectivity
+  - Test WebRTC connectivity by using the [Connect Customer Endpoint Connectivity
     testing tool](check-connectivity-tool.md "check-connectivity-tool.md"). This tool helps you ascertain whether the
-    Amazon Connect WebRTC Media endpoints are accessible from the agent
+    Connect Customer WebRTC Media endpoints are accessible from the agent
     stations.
   - Test and track changes to [networking environments](network-ts.md#investigate-ndc "network-ts.md#investigate-ndc"), and on-premise networking
     architectures such as firewall updates, edge routers and

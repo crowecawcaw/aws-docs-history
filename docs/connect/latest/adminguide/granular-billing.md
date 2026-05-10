@@ -1,6 +1,6 @@
-# Set up granular billing for a detailed view of your Amazon Connect usage
+# Set up granular billing for a detailed view of your Connect Customer usage
 
-By default bills for Amazon Connect channels (voice calls, chat, tasks, and emails) are summarized
+By default bills for Connect Customer channels (voice calls, chat, tasks, and emails) are summarized
 at the AWS account level by usage type. For example:
 
 - Voice calls - by outbound (telephony) / inbound (telephony) / service
@@ -12,9 +12,9 @@ at the AWS account level by usage type. For example:
   (key:value pairs) to contacts, and then use the tags to aggregate and analyze the data in
   the AWS Billing and Cost Management console.
 
-- Amazon Connect automatically adds the following system-defined tags to each contact:
+- Connect Customer automatically adds the following system-defined tags to each contact:
   - **aws:connect:instanceId**: This represents the ID of the
-    Amazon Connectinstance. If you have multiple instances under multiple AWS accounts
+    Connect Customerinstance. If you have multiple instances under multiple AWS accounts
     for each line-of-business, you can view usage bills aggregated against
     different instances.
   - (**aws:connect:systemEndpoint**): This represents the
@@ -60,7 +60,7 @@ view them in the AWS Billing dashboard.
 
 ## Things to know about user-defined tags
 
-- Amazon Connect automatically applies user-defined tags to new contact segments for
+- Connect Customer automatically applies user-defined tags to new contact segments for
   scenarios like transfers or contact re-hydration (for example, persistent chat,
   and tasks related to contacts).
 - Use the [DescribeContact](../APIReference/API_DescribeContact.md "../APIReference/API_DescribeContact.md") API to list the tags on a contact.
@@ -74,17 +74,17 @@ view them in the AWS Billing dashboard.
   not reflected in the billing system. For example, you make a change to the value
   of a tag within 3 hours after the contact was disconnected. The AWS Billing console will show the old value of the tag, but the S3
   bucket and contact record have the new value.
-- After you add tags to Amazon Connect, they are available across all contact interfaces:
+- After you add tags to Connect Customer, they are available across all contact interfaces:
   contact records, contact events, and the **Contact details**
   page. You can also access them by using the `$.Tags` JSONPath
-  Reference, and by using [Amazon Connect
+  Reference, and by using [Connect Customer
   Streams](https://github.com/aws/amazon-connect-streams "https://github.com/aws/amazon-connect-streams").
 - You cannot use tags as filters on the **Contact search**
   page. In addition, they cannot be included in any of the analytics or reporting
   pages.
 - Contact tags only function as cost allocations tags. You cannot use them for
   tag-based access controls on contacts.
-- Tags are available in the Amazon Connect data lake [Contact record table](data-type-definitions.md#data-lake-contacts-record "data-type-definitions.md#data-lake-contacts-record") under
+- Tags are available in the Connect Customer data lake [Contact record table](data-type-definitions.md#data-lake-contacts-record "data-type-definitions.md#data-lake-contacts-record") under
   tags_references_items.
 
 ## Step 1: Add user-defined tags to contacts
@@ -147,13 +147,13 @@ allocation tags.
 The following image of AWS Cost Explorer shows a sample report where
 **department** is a filtered cost allocation tag.
 
-![The AWS Cost Explorer, Amazon Connect cost and usage trends.](images/granularbilling-awscostmanagement.png)
+![The AWS Cost Explorer, Connect Customer cost and usage trends.](images/granularbilling-awscostmanagement.png)
 
 If you use the AWS account level bill summary to view the service level cost
 breakdown in the AWS Billing dashboard, you won't see any changes on the
 dashboard after implementing contact tags. The following image shows an example AWS Billing dashboard.
 
-![The AWS billing dashboard, a sample Amazon Connect bill.](images/granularbilling-billingdashboard.png)
+![The AWS billing dashboard, a sample Connect Customer bill.](images/granularbilling-billingdashboard.png)
 
 For more information about using AWS Cost Explorer, see [Analyzing your costs with
 AWS Cost Explorer](../../../cost-management/latest/userguide/ce-what-is.md "../../../cost-management/latest/userguide/ce-what-is.md") in the _AWS Cost Management User Guide_.
@@ -171,12 +171,12 @@ in the _AWS Data Exports User Guide_.
 The following image shows what a Cost and Usage report looks like with columns for
 system and user-defined tags.
 
-![An Amazon Connect cost and usage report with tags.](images/granularbilling-after-cur.png)
+![An Connect Customer cost and usage report with tags.](images/granularbilling-after-cur.png)
 
 The following image shows what a cost and usage report looks likes without system or
 user-defined tags.
 
-![An Amazon Connect cost and usage report without granular billing.](images/granularbilling-before-cur.png)
+![An Connect Customer cost and usage report without granular billing.](images/granularbilling-before-cur.png)
 
 ## More reporting options
 

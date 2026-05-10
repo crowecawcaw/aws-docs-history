@@ -1,4 +1,4 @@
-# Use Identity Resolution to consolidate similar profiles in Amazon Connect
+# Use Identity Resolution to consolidate similar profiles in Connect Customer
 
 A _similar profile_ is when two or more profiles are determined to
 be for the same contact. There can be multiple profiles when customer records are
@@ -15,6 +15,6 @@ Identity Resolution Job on a weekly basis, which performs the following steps:
    The metrics show the number of profiles it reviewed, the number of match groups found,
    and the number of profiles consolidated.
 
-Additional charges may apply for enabling Identity Resolution. For more information, see [Amazon Connect pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
+Additional charges may apply for enabling Identity Resolution. For more information, see [Connect Customer pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
 
-![The Amazon Connect Customer Profiles page, the Enable Identity Resolution button.](images/customer-profiles-enable-ir.png)
+![The Connect Customer Customer Profiles page, the Enable Identity Resolution button.](images/customer-profiles-enable-ir.png)

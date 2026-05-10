@@ -1,4 +1,4 @@
-# Create groups and rules for staffing and scheduling in Amazon Connect
+# Create groups and rules for staffing and scheduling in Connect Customer
 
 A _staffing group_ is a group or team of agents who are skilled
 to take specific types of contacts.
@@ -37,7 +37,7 @@ groups in this case:
 - Even after an agent is in a staffing group, you can assign them their
   own shift profile by using the **Staff rules** tab. The
   agent-level shift profile overrides the profile set at the staffing
-  group level. For more information, see [Create staff rules for scheduling in Amazon Connect](scheduling-create-staff-rules.md "scheduling-create-staff-rules.md").
+  group level. For more information, see [Create staff rules for scheduling in Connect Customer](scheduling-create-staff-rules.md "scheduling-create-staff-rules.md").
 - If a user needs to view published agent schedules from the
   **Published** calendar view, then the user must be
   added to the staffing group as a supervisor.
@@ -51,12 +51,12 @@ groups in this case:
 
 ## Create group and add staff
 
-1. Log in to the Amazon Connect admin website with an account that has security profile
+1. Log in to the Connect Customer admin website with an account that has security profile
    permissions for **Scheduling**, **Schedule
    manager - Edit**.
 
 For more information, see [Assign
-permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Amazon Connect navigation menu, select **Analytics and
+permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Connect Customer navigation menu, select **Analytics and
 optimization**, **Scheduling**. 3. Choose the **Staffing Groups** tab, and then choose
 **Create staffing group**. 4. On the **Create Staffing Group** page, under
 **Associate to forecast group**, use the dropdown
@@ -65,7 +65,7 @@ to choose the forecast group to associate with this staffing group.
 In the following example, contacts from the queues in the
 Forecast_Group_20220124 will be routed to the agents in this staffing
 group. 5. Choose **Add staff** to add agents and supervisors to
-this staffing group. Only names for Amazon Connect users appear in the list of
+this staffing group. Only names for Connect Customer users appear in the list of
 staff. The following image shows the name Jane Doe, which can be added
 to the agent list.
 
@@ -73,7 +73,7 @@ to the agent list.
 
 ## Add rules
 
-To generate a schedule, Amazon Connect uses information from the forecast group, which
+To generate a schedule, Connect Customer uses information from the forecast group, which
 reflects the historical demand pattern for your contact center. Staffing rules
 enable you to specify conditions that must be accounted for in the schedule,
 regardless of what the forecast predicts.
@@ -81,7 +81,7 @@ regardless of what the forecast predicts.
 For example, your contact center opens at 9AM but the forecast says no
 contacts arrive between 9AM-9:30AM. You can add a rule that, despite what the
 forecast predicts based on historical demand, there should be a minimum of one
-agent during this time. This forces Amazon Connect to keep one agent in the schedule from
+agent during this time. This forces Connect Customer to keep one agent in the schedule from
 9-9:30AM. In addition, you can add a rule to set the **Working
 Hours** to start at 9AM, even though the forecast would start it at
 9:30AM.
@@ -110,7 +110,7 @@ Hours** to start at 9AM, even though the forecast would start it at
   - **Working time**: Specify the group's minimum
     and maximum working hours per day or week. This setting applies
     to all staff in the staffing group. You can override this
-    setting for individual staff. For instructions, see [Create staff rules for scheduling in Amazon Connect](scheduling-create-staff-rules.md "scheduling-create-staff-rules.md").
+    setting for individual staff. For instructions, see [Create staff rules for scheduling in Connect Customer](scheduling-create-staff-rules.md "scheduling-create-staff-rules.md").
   - **Minimum rest between shifts**: Specify the
     minimum number of hours of rest period a staff should receive
     between the end of one shift and start of next shift. This

@@ -1,6 +1,6 @@
-# Amazon Connect: Single Instance or Multiple Instances?
+# Connect Customer: Single Instance or Multiple Instances?
 
-## Single instance of Amazon Connect (including single ACGR pair)
+## Single instance of Connect Customer (including single ACGR pair)
 
 ### Best For
 
@@ -28,7 +28,7 @@ customer experience.
   quota management can be more challenging due to difficulty in
   anticipating usage and growth across multiple business units.
 
-## Multiple instances of Amazon Connect
+## Multiple instances of Connect Customer
 
 ### Best For
 
@@ -66,6 +66,6 @@ physical distance, etc.).
 
 The decision of single- vs. multiple-instance architecture is nuanced, and highly
 dependent on the nature of the customer's requirements. Considering the scalability,
-customizability, programmability, and security of Amazon Connect, we generally recommend
-single-instance Amazon Connect architectures (including a single Amazon Connect Global Resiliency
+customizability, programmability, and security of Connect Customer, we generally recommend
+single-instance Connect Customer architectures (including a single Connect Customer Global Resiliency
 pair) in the absence of compelling requirements requiring multiple regions.

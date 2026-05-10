@@ -1,11 +1,11 @@
-# Add quick responses for use with chat and email contacts in Amazon Connect
+# Add quick responses for use with chat and email contacts in Connect Customer
 
-This topic explains how to add a quick response by using the Amazon Connect admin website. For the APIs used to
+This topic explains how to add a quick response by using the Connect Customer admin website. For the APIs used to
 create and manage quick responses programmatically, see [APIs to create and manage quick responses](#apis-quick-responses "#apis-quick-responses").
 
 ###### To add responses
 
-1. Log in to the Amazon Connect admin website at https://_instance
+1. Log in to the Connect Customer admin website at https://_instance
    name_.my.connect.aws/. Use an **Admin** account, or an
    account assigned to a security profile that has \*\*Content Management - Quick responses
 

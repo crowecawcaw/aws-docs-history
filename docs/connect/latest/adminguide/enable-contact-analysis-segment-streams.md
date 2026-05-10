@@ -5,7 +5,7 @@ explains how to enable them.
 
 ## Step 1: Create a Kinesis stream
 
-Create the data stream on the same account and Region where your Amazon Connect
+Create the data stream on the same account and Region where your Connect Customer
 instance resides. For instructions, see [Step 1: Create a Data Stream](../../../streams/latest/dev/tutorial-stock-data-kplkcl-create-stream.md "../../../streams/latest/dev/tutorial-stock-data-kplkcl-create-stream.md") in the
 _Amazon Kinesis Data Streams Developer Guide_.
 
@@ -25,17 +25,17 @@ There are several ways you can do this.
   (`aws/kinesis`). This works with no additional setup from
   you.
 - Option 2: Use the same customer managed key for call recordings, chat
-  transcripts, or exported reports in your Amazon Connect instance.
+  transcripts, or exported reports in your Connect Customer instance.
 
 Enable encryption, and use a customer managed key for call recordings, chat
-transcripts, or exported reports in your Amazon Connect instance. Then choose
+transcripts, or exported reports in your Connect Customer instance. Then choose
 the same KMS key for your Kinesis data stream. This key already has
 the permission (grant) required to be used.
 
 - Option 3: Use a different customer managed key.
 
 Use an existing customer managed key or create a new one and add required
-permissions for Amazon Connect role to use the key. To add permissions using
+permissions for Connect Customer role to use the key. To add permissions using
 AWS KMS grants, see the following example:
 
 ```
@@ -47,14 +47,14 @@ aws kms create-grant \
 ```
 
 Where `grantee-principal` is the ARN of the
-service-linked role associated to your Amazon Connect instance. To find the
-ARN of the service-linked role, in the Amazon Connect console, go to
+service-linked role associated to your Connect Customer instance. To find the
+ARN of the service-linked role, in the Connect Customer console, go to
 **Overview**, **Distribution
 settings**, **Service-linked role**.
 
 ## Step 3: Associate the Kinesis stream
 
-Use the Amazon Connect [AssociateInstanceStorageConfig](../APIReference/API_AssociateInstanceStorageConfig.md "../APIReference/API_AssociateInstanceStorageConfig.md") API to associate the following
+Use the Connect Customer [AssociateInstanceStorageConfig](../APIReference/API_AssociateInstanceStorageConfig.md "../APIReference/API_AssociateInstanceStorageConfig.md") API to associate the following
 resource types:
 
 - For voice contacts, use
@@ -108,7 +108,7 @@ error.
 ```
 aws connect associate-instance-storage-config \
 --region "us-west-2" \
---instance-id `your Amazon Connect instance ID` \
+--instance-id `your Connect Customer instance ID` \
 --resource-type REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS \
 --storage-config StorageType=KINESIS_STREAM,KinesisStreamConfig={StreamArn=`the ARN of your Kinesis stream`}
 
@@ -123,14 +123,14 @@ import { Connect } from 'aws-sdk';
 
 async function associate (): Promise <void> {
   const clientConfig: Connect.ClientConfiguration = {
-    region: '`the Region of your Amazon Connect instance`',
+    region: '`the Region of your Connect Customer instance`',
   };
 
   const connect = new Connect(clientConfig);
 
   // Build request
   const request: Connect.Types.AssociateInstanceStorageConfigRequest = {
-    InstanceId: '`your Amazon Connect instance ID`',
+    InstanceId: '`your Connect Customer instance ID`',
     ResourceType: 'REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS',
     StorageConfig: {
       StorageType: 'KINESIS_STREAM',
@@ -155,9 +155,9 @@ async function associate (): Promise <void> {
 associate().then(r => console.log('`Done`'));
 ```
 
-## Step 4: Enable Contact Lens for your Amazon Connect instance
+## Step 4: Enable Contact Lens for your Connect Customer instance
 
-For instructions, see [Enable conversational analytics in Amazon Connect Contact Lens](enable-analytics.md "enable-analytics.md").
+For instructions, see [Enable conversational analytics in Connect Customer Contact Lens](enable-analytics.md "enable-analytics.md").
 
 ## Step 5 (Optional): Review a sample segment stream
 

@@ -1,6 +1,6 @@
-# Set the hours of operation and time zone for a queue using Amazon Connect
+# Set the hours of operation and time zone for a queue using Connect Customer
 
-This topic explains how to set hours of operating by using the Amazon Connect admin website. To set hours
+This topic explains how to set hours of operating by using the Connect Customer admin website. To set hours
 programmatically, see [Hours of operations actions](../APIReference/hours-of-operation-api.md "../APIReference/hours-of-operation-api.md").
 
 The first thing you need to do when you set up a queue is to specify the hours of
@@ -32,7 +32,7 @@ instance**, open the Service Quotas console at [https://console.aws.amazon.com/s
 
 ## Set the hours of operation
 
-1. Log in to the Amazon Connect admin website with an Admin account or an account that has
+1. Log in to the Connect Customer admin website with an Admin account or an account that has
    **Routing - Hours of operation - Create** security
    profile permission.
 2. On the navigation menu, choose **Routing**,
@@ -43,7 +43,7 @@ instance**, open the Service Quotas console at [https://console.aws.amazon.com/s
 5. Choose **Operational hours** to set new hours.
 6. Optionally, in the **Tags** section, add tags to
    identify, organize, search for, or filter who can access this hours of
-   operation record. For more information, see [Add tags to resources in Amazon Connect](tagging.md "tagging.md").
+   operation record. For more information, see [Add tags to resources in Connect Customer](tagging.md "tagging.md").
 7. Choose **Save**.
 8. Now you can specify these the hours of operation when you [create a queue](create-queue.md "create-queue.md"), and check them in the
    [Check hours of
@@ -100,21 +100,21 @@ report.
 
 For more information, see these topics:
 
-- [Add a custom agent status to the Amazon Connect Contact Control Panel (CCP)](agent-custom.md "agent-custom.md")
+- [Add a custom agent status to the Connect Customer Contact Control Panel (CCP)](agent-custom.md "agent-custom.md")
 - [Agent status in the Contact Control Panel (CCP)](metrics-agent-status.md "metrics-agent-status.md")
 - [Change the "Agent activity" status in a metrics report in the Contact Control Panel (CCP)](rtm-change-agent-activity-state.md "rtm-change-agent-activity-state.md")
 
 ## What happens during daylight saving time
 
-Amazon Connect uses the timezone to determine whether daylight saving time is in effect for
+Connect Customer uses the timezone to determine whether daylight saving time is in effect for
 the queues, and **adjusts automatically** for all
-timezones that observe daylight saving time. When a contact comes in, Amazon Connect looks at
+timezones that observe daylight saving time. When a contact comes in, Connect Customer looks at
 the hours and timezone of your contact center to determine whether the contact can
 be routed to the given queue.
 
 ###### Important
 
-Amazon Connect provides options for EST5EDT, PST8PDT, CST6CDT, and more.
+Connect Customer provides options for EST5EDT, PST8PDT, CST6CDT, and more.
 For example, EST5EDT is defined as:
 
 [Eastern Standard
@@ -131,7 +131,7 @@ it.
 ### Example
 
 1. A person initiates a call or chat with your contact center.
-2. Amazon Connect looks at the hours of operation for your call center right
+2. Connect Customer looks at the hours of operation for your call center right
    now.
    - The contact is from timezone A.
    - Your call center's hours are 9 AM - 5 PM in timezone B.

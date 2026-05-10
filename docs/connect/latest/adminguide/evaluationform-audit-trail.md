@@ -1,4 +1,4 @@
-# View an evaluation form audit trail in Amazon Connect
+# View an evaluation form audit trail in Connect Customer
 
 1. Select the evaluation form that you want to research.
 

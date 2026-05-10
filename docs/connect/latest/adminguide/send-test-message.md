@@ -1,4 +1,4 @@
-# Send a test message for Apple Messages for Business to test integration with Amazon Connect
+# Send a test message for Apple Messages for Business to test integration with Connect Customer
 
 After onboarding to the Apple Messages for Business account, use the following steps to send a test message
 to make sure the integration is set up properly.
@@ -71,7 +71,7 @@ If you encounter any issues when sending a test message, follow these steps:
 
 3.  Check that you're using a supported iOS. Apple devices running iOS 11.3
     and later or macOS 10.13.4 and later support Messages for Business.
-4.  When you selected Amazon Connect as your MSP in your Apple Account, did you select
+4.  When you selected Connect Customer as your MSP in your Apple Account, did you select
     **Amazon Connect** from the dropdown? Or did you enter
     the following URL:
 

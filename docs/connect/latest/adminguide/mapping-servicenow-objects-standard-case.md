@@ -1,7 +1,7 @@
-# Mapping ServiceNow objects to the standard case in Amazon Connect Customer Profiles
+# Mapping ServiceNow objects to the standard case in Connect Customer Customer Profiles
 
 This topic lists which fields in ServiceNow objects map to fields in the
-standard case in Amazon Connect Customer Profiles.
+standard case in Connect Customer Customer Profiles.
 
 ## Servicenow-task object
 
@@ -95,7 +95,7 @@ Servicenow-task object to the standard case.
 | sys_updated_on               | UpdatedDate                       |
 
 The Servicenow-task customer data from Servicenow is associated with
-an Amazon Connect standard case using the indexes in the following table.
+an Connect Customer standard case using the indexes in the following table.
 
 | Standard Index Name  | Servicenow-task source field |
 | -------------------- | ---------------------------- |
@@ -156,7 +156,7 @@ Servicenow-incident object to the standard case.
 | category                         | Reason                            |
 
 The Servicenow-incident customer data from the Servicenow object is
-associated with an Amazon Connect standard case using the indexes in the
+associated with an Connect Customer standard case using the indexes in the
 following table.
 
 | Standard Index Name    | Servicenow source field |

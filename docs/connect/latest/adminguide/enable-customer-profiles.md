@@ -1,7 +1,7 @@
-# Enable Customer Profiles for your Amazon Connect instance
+# Enable Customer Profiles for your Connect Customer instance
 
-Amazon Connect provides pre-built integrations so you can quickly combine customer information
-from multiple external applications, with contact history from Amazon Connect. This allows you to
+Connect Customer provides pre-built integrations so you can quickly combine customer information
+from multiple external applications, with contact history from Connect Customer. This allows you to
 create a customer profile that has all the information agents need during customer
 interactions in a single place.
 
@@ -12,18 +12,18 @@ prompted for during the setup process.
 
 ### About the customer profiles domain
 
-When you enable Amazon Connect Customer Profiles, you create a customer profiles
+When you enable Connect Customer Customer Profiles, you create a customer profiles
 domain: a container for all data, such as customer profiles, object types,
 profile keys, and encryption keys. Following are guidelines for creating
 Customer Profile domains:
 
-- Each Amazon Connect instance can only be associated with one domain.
+- Each Connect Customer instance can only be associated with one domain.
 - You can create multiple domains, but they don't share external
   application integrations or customer data between each other.
 - All the external application integrations you create are at a domain
-  level. All of the Amazon Connect instances associated with a domain inherit the
+  level. All of the Connect Customer instances associated with a domain inherit the
   domain's integrations.
-- You can change the association of your Amazon Connect instance from your
+- You can change the association of your Connect Customer instance from your
   current domain to a new domain at any time, by choosing a different
   domain. This isn't recommended, however, because the customer profiles
   from the earlier domain won't be moved to the new domain.
@@ -55,17 +55,17 @@ A dead-letter queue is used for reporting errors associated with processing
 data from external applications.
 
 Amazon AppFlow handles connecting to the external application and moving data from it
-to Amazon Connect Customer Profiles. Amazon Connect then processes the file.
+to Connect Customer Customer Profiles. Connect Customer then processes the file.
 
 - If an error occurs during the connection or while transporting the
-  data to Amazon Connect, Amazon AppFlow surfaces the error but it doesn't write the error
+  data to Connect Customer, Amazon AppFlow surfaces the error but it doesn't write the error
   to the dead-letter queue.
 
 For example, a processing error could be that the external data didn’t
 match the specified schema or that the format of the external data
 format isn't correct (currently only JSON is supported).
 
-- If Amazon Connect encounters an error while processing the file, it writes the
+- If Connect Customer encounters an error while processing the file, it writes the
   error to your dead-letter queue. You can look at the queue later and try
   to reprocess the error.
 - You might find SQS messages in the dead-letter queue defined with your
@@ -98,7 +98,7 @@ to that queue:
 }
 ```
 
-To prevent a confused deputy security issue, see [Amazon Connect Customer Profiles cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md#customer-profiles-cross-service "cross-service-confused-deputy-prevention.md#customer-profiles-cross-service") for an example policy to
+To prevent a confused deputy security issue, see [Connect Customer Customer Profiles cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md#customer-profiles-cross-service "cross-service-confused-deputy-prevention.md#customer-profiles-cross-service") for an example policy to
 apply.
 
 Step-by-step instructions for creating a dead-letter queue are provided later
@@ -159,14 +159,14 @@ When using Data Vault, Customer Profiles stores your data by object type and enc
 5. Appending “domain_standard” to any Customer Profiles standard domain object type
    You can't enable Data Store if Customer Profiles detects naming conflicts. After you enable Data Store, you can't create object types that conflict with existing object type names under these normalization rules.
 
-6. Open the Amazon Connect console at
+6. Open the Connect Customer console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 7. On the instances page, choose the instance alias. The instance alias is also
-   your **instance name**, which appears in your Amazon Connect
-   URL. The following image shows the **Amazon Connect virtual contact center instances** page, with a box
+   your **instance name**, which appears in your Connect Customer
+   URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box
    around the instance alias.
 
-![The Amazon Connect virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **Customer
+![The Connect Customer virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **Customer
 profiles**.
 
 The **Customer profiles domain** page lists the
@@ -242,7 +242,7 @@ Following are the steps to create a dead-letter queue:
 
     ![The Access policy section, the Resource information.](images/customer-profiles-create-dlq-copyandpaste.png)
     * Choose **Create queue**.
-    * Return to the tab in your browser for the Amazon Connect console,
+    * Return to the tab in your browser for the Connect Customer console,
      **Customer profiles enable** page. Click or tap
      in the **Choose existing SQS queue** box to select
      the queue you just created from the dropdown list.
@@ -290,7 +290,7 @@ AWS KMS key:
 
 
     ![The customer managed keys page.](images/customer-profiles-create-kms-key-note-key.png)
-    * Return to the tab in your browser for the Amazon Connect console,
+    * Return to the tab in your browser for the Connect Customer console,
      **Customer profiles enable** page. Click or tap
      in the **Specify KMS key box** for the key you
      created to appear in a dropdown list. Choose the key you
@@ -310,8 +310,8 @@ dead-letter queue, and the KMS key.
 
 ![The completed customer profiles domain page.](images/customer-profiles-enable-final.png)
 
-You're done! Amazon Connect Customer Profiles is enabled. Now with every new contact that
-comes in, Amazon Connect creates a customer profile record. It then tracks the contact
+You're done! Connect Customer Customer Profiles is enabled. Now with every new contact that
+comes in, Connect Customer creates a customer profile record. It then tracks the contact
 history for that phone number (voice) or email address (chat).
 
 Your agents can [create new customer profiles](ag-cp-create.md "ag-cp-create.md")

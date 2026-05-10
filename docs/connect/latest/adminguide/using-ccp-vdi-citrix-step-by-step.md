@@ -1,19 +1,19 @@
-# Optimize Amazon Connect audio for Citrix cloud desktops
+# Optimize Connect Customer audio for Citrix cloud desktops
 
-Amazon Connect makes it easier to deliver high-quality voice experiences when your agents
+Connect Customer makes it easier to deliver high-quality voice experiences when your agents
 are using Citrix Virtual Desktop Infrastructure (VDI) environments. Your agents can
 leverage their Citrix remote desktop applications such as Citrix Workspaces, to
 offload audio processing to the agent's local device and to automatically redirect
-audio to Amazon Connect, resulting in improved audio quality over challenging networks.
+audio to Connect Customer, resulting in improved audio quality over challenging networks.
 
-To get started, you can use the [Amazon Connect open source
+To get started, you can use the [Connect Customer open source
 libraries](https://github.com/amazon-connect/amazon-connect-streams "https://github.com/amazon-connect/amazon-connect-streams") to create a new or update an existing agent user interface,
 such as a custom Contact Control Panel (CCP).
 
 ## System requirements
 
 This section describes the system requirements for using the Citrix Unified
-Communications SDK with Amazon Connect.
+Communications SDK with Connect Customer.
 
 ###### Important
 
@@ -65,22 +65,22 @@ Manager** to finish the setup.
   - **Citrix server
     configuration**
 
-  The admin needs to allow the Citrix server to access Amazon Connect
+  The admin needs to allow the Citrix server to access Connect Customer
   TCP/443 traffic to the domains mentioned in the following
   diagram. For more information, see [Set up your network](ccp-networking.md "ccp-networking.md").
   - **Agent machine
     configuration**
 
   This solution requires a media connection between the agent's
-  thin client and Amazon Connect. To allow traffic between the agent's
-  machine and Amazon Connect's Softphone Media UDP Port 3478, see [Set up your network](ccp-networking.md "ccp-networking.md").
+  thin client and Connect Customer. To allow traffic between the agent's
+  machine and Connect Customer's Softphone Media UDP Port 3478, see [Set up your network](ccp-networking.md "ccp-networking.md").
 
 ![Citrix server and agent machine firewall settings.](images/using-ccp-vdi-citrix-server-firewall.png)
 
 - **Unsupported CCP Deployment**
   - Native CCP
 
-## Confirm media flows between thin client and Amazon Connect during the call
+## Confirm media flows between thin client and Connect Customer during the call
 
 - **Use Task Manager (Windows) to
   verify**

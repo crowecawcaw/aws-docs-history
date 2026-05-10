@@ -1,13 +1,13 @@
-# Operational excellence in Amazon Connect workloads
+# Operational excellence in Connect Customer workloads
 
 Operational excellence includes the ability to run and monitor systems to deliver
 business value and continually improve supporting processes and procedures. This section
 consists of design principles, best practices, and questions surrounding the operational
-excellence of Amazon Connect workloads.
+excellence of Connect Customer workloads.
 
 ## Prepare
 
-Consider the following areas to prepare for an Amazon Connect workload.
+Consider the following areas to prepare for an Connect Customer workload.
 
 ### AWS account
 
@@ -22,7 +22,7 @@ framework.
 
 ### Region selection
 
-Amazon Connect Region selection is contingent upon data governance requirements, use
+Connect Customer Region selection is contingent upon data governance requirements, use
 case, services available in each Region, telephony costs in each region, and
 latency in relation to your agents, contacts, and external transfer endpoint
 geography.
@@ -38,13 +38,13 @@ months before the go-live date. This includes requests for live cutover
 support, communication prior, during, and after cutover, monitoring, and
 anything else specific to your use case.
 
-For detailed information about porting your numbers, see [Port a current phone number to Amazon Connect](port-phone-number.md "port-phone-number.md").
+For detailed information about porting your numbers, see [Port a current phone number to Connect Customer](port-phone-number.md "port-phone-number.md").
 
 - **Carrier diversity** In the US, you
-  should use Amazon Connect telephony services for US toll-free numbers, allowing
+  should use Connect Customer telephony services for US toll-free numbers, allowing
   you to route toll-free traffic across multiple suppliers in an
   active-active fashion at no additional charge. In situations where you
-  are forwarding inbound traffic to an Amazon Connect phone number, you should
+  are forwarding inbound traffic to an Connect Customer phone number, you should
   request redundant DID or Toll-Free numbers across multiple telephony
   providers. If you are claiming or porting multiple DID or Toll-Free
   numbers outside of the US, you should request that those numbers be
@@ -68,15 +68,15 @@ For detailed information about porting your numbers, see [Port a current phone n
 
 ### Agent workstation
 
-The Amazon Connect Call Control Panel (CCP) has specific network and hardware
+The Connect Customer Call Control Panel (CCP) has specific network and hardware
 requirements that must be met to ensure the highest quality of service for your
 agents and contacts:
 
 - Set Up Your Network for CCP use and ensure that your agent hardware
   meets minimum requirements.
 - Ensure that you have used the
-  Amazon Connect
-  Check Amazon Connectivity Tool on the same network segment as
+  Connect Customer
+  Check Connect Customerivity Tool on the same network segment as
   your agents to verify that your network and environment is configured
   correctly for CCP use.
 - Calculate PSTN latency for use cases that require agents and contacts
@@ -88,7 +88,7 @@ agents and contacts:
   solutions for call quality monitoring. Your goal with monitoring your
   agent workstations should be the ability to identify the source of any
   potential network and resource contention. For example, consider a
-  typical agent’s softphone network connection path to Amazon Connect:
+  typical agent’s softphone network connection path to Connect Customer:
 
 ![Agent workstation monitoring.](images/architecture/agentworkstation-oe.png)
 
@@ -103,8 +103,8 @@ quality.
 ### Configure your existing directory
 
 If you are already using an Directory Service directory to manage users, you can use the
-same directory to manage user accounts in Amazon Connect. This must be decided and
-configured when you create your Amazon Connect instance. You cannot change the identity
+same directory to manage user accounts in Connect Customer. This must be decided and
+configured when you create your Connect Customer instance. You cannot change the identity
 option you select after you create the instance. For example, if you decide to
 change the directory you selected to enable Single Sign On (SSO) for your
 instance, you can delete the instance and create a new one. When you delete an
@@ -113,8 +113,8 @@ instance, you lose all configuration settings and metrics data for it
 ### Service Quotas
 
 Review the default service quotas for each service involved in your workload
-as well as the default service quotas for Amazon Connect and request increases where
-applicable. When requesting an increase for Amazon Connect, be sure to use expected
+as well as the default service quotas for Connect Customer and request increases where
+applicable. When requesting an increase for Connect Customer, be sure to use expected
 values without additional padding for fluctuations. Fluctuations are considered
 automatically when you make your request.
 
@@ -122,12 +122,12 @@ automatically when you make your request.
 
 AWS Enterprise Support is recommended for business and/or mission-critical
 workloads on AWS. Both Enterprise Support and Well-Architected Review with an
-AWS Solutions Architect are required to qualify for the Amazon Connect Service Level
+AWS Solutions Architect are required to qualify for the Connect Customer Service Level
 Agreement.
 
 ### AWS well-architected review
 
-Before any migration or implementation to Amazon Connect, follow our best practices by
+Before any migration or implementation to Connect Customer, follow our best practices by
 using the AWS Well-Architected Framework, Operational Excellence. The
 Framework provides a consistent approach for you to evaluate architectures and
 implement designs that will scale over time based on five pillars — operational
@@ -135,19 +135,19 @@ excellence, security, reliability, performance efficiency, and cost
 optimization. We also recommend using AWS Enterprise Support for business and
 mission-critical workloads in AWS. Both Enterprise Support and
 Well-Architected Review with your AWS Solutions Architect are required to
-qualify for the Amazon Connect Service Level Agreement.
+qualify for the Connect Customer Service Level Agreement.
 
 ## Operate
 
-Consider the following areas to operate an Amazon Connect workload.
+Consider the following areas to operate an Connect Customer workload.
 
 ### Logging and monitoring
 
-See [Monitoring your Amazon Connect instance using CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md") and [Log Amazon Connect API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+See [Monitoring your Connect Customer instance using CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md") and [Log Connect Customer API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
 ### Contact attributes
 
-Amazon Connect allows you to dynamically set and reference contact attributes within
+Connect Customer allows you to dynamically set and reference contact attributes within
 flows to create dynamic and personalized experiences for your contacts, create
 powerful self-service applications, data-driven IVRs, integrations with other
 AWS services, simplify phone number management, and allows for custom
@@ -185,7 +185,7 @@ Note the following considerations:
 - Clean-up – If data persistence isn’t required, you can set an
   attribute with the same name and a blank value to prevent the data from
   being stored to the contact record or passed in a screen pop to an agent
-  using the [Amazon Connect Streams](https://github.com/aws/amazon-connect-streams "https://github.com/aws/amazon-connect-streams") API while freeing up the bytes that data
+  using the [Connect Customer Streams](https://github.com/aws/amazon-connect-streams "https://github.com/aws/amazon-connect-streams") API while freeing up the bytes that data
   would have otherwise used in the contact record.
 - Sensitive data – Use the **Store customer input**
   block to collect sensitive DTMF input from your contacts and use
@@ -195,7 +195,7 @@ Note the following considerations:
   behavior** flow block to disable logging whenever sensitive
   information is referenced, and remove, clean up, or obfuscate sensitive
   data using the **Set contact attributes** block
-  Clean-up method outlined previously. For more information, see [Compliance validation in Amazon Connect](compliance-validation.md "compliance-validation.md").
+  Clean-up method outlined previously. For more information, see [Compliance validation in Connect Customer](compliance-validation.md "compliance-validation.md").
 
 ### Telephony
 
@@ -209,27 +209,27 @@ appropriately, and implement the best practices, requirements, and
 recommendations located in [Troubleshooting Issues with the Contact Control Panel (CCP)](troubleshooting.md "troubleshooting.md").
 
 If you’re forwarding your existing telephony provider’s phone numbers to
-Amazon Connect, ensure that the process to change the forward destination to an
+Connect Customer, ensure that the process to change the forward destination to an
 alternative DID/toll-free number or otherwise remove the forward is defined and
 well-understood by your operations team. Ensure that you have Runbooks and
 Playbooks specifically for production readiness assessments, phone number
 porting and forwarding processes, and troubleshooting audio issues that could
 arise when transferring calls from your existing telephony provider. You also
 want a repeatable process that your operations team can follow to determine if
-the source of these audio issues is Amazon Connect or your existing telephony
+the source of these audio issues is Connect Customer or your existing telephony
 provider.
 
-### Amazon Connect APIs
+### Connect Customer APIs
 
-Amazon Connect throttling quotas are by account, and not instance. You should consider
-the following best practices when working with Amazon Connect APIs:
+Connect Customer throttling quotas are by account, and not instance. You should consider
+the following best practices when working with Connect Customer APIs:
 
 #### Implement a caching/queuing solution
 
 To decrease API data query overhead and avoid throttling, you can use an
 intermediary database like Amazon DynamoDB to store API call results rather than
 calling the API from all endpoints interested in the API data. For example,
-the following diagram represents the use of the Amazon Connect metric API from
+the following diagram represents the use of the Connect Customer metric API from
 multiple sources that need to consume this information:
 
 ![Implement a caching and queuing solution.](images/architecture/amazonconnectapis-oe.png)
@@ -246,7 +246,7 @@ This architecture allows you to change polling intervals and add
 endpoints, as needed, without worrying about exceeding service quotas,
 giving you the ability to scale to however many concurrent connections your
 database solution supports. You can use this same concept with querying any
-real-time data feeds from Amazon Connect. For situations where you need to perform an
+real-time data feeds from Connect Customer. For situations where you need to perform an
 API action, like an Outbound API call, you can use this same concept in
 combination with Amazon Simple Queue Service to queue API requests Using AWS Lambda with
 SQS.
@@ -263,11 +263,11 @@ and queueing.
 
 ### Change management
 
-Two of the primary drivers for moving workloads to the Amazon Connect are flexibility
+Two of the primary drivers for moving workloads to the Connect Customer are flexibility
 and speed to market. To ensure operational excellence without sacrificing
 agility, follow these best practices:
 
-- **Modular flows**: Flows in Amazon Connect are
+- **Modular flows**: Flows in Connect Customer are
   similar to modern application building where smaller, purpose-built
   components allow for more flexibility, control, and ease of management
   when compared to monolithic alternatives. You can make your flows small
@@ -301,13 +301,13 @@ agility, follow these best practices:
 
 ### Routing profiles
 
-Understanding how priority, delay, and overflow routing work within Amazon Connect is
+Understanding how priority, delay, and overflow routing work within Connect Customer is
 critical to maximizing agent productivity, reducing contact wait times, and
 ensuring the best quality of experience for your contacts.
 
-### Routing in Amazon Connect
+### Routing in Connect Customer
 
-Contact routing in Amazon Connect is done through a collection of queues and routing
+Contact routing in Connect Customer is done through a collection of queues and routing
 configurations called a routing profile. A queue is equivalent to a skill or
 proficiency that agent needs to possess to service contacts for that queue. A
 routing profile can be viewed a set of skills that you can match to your
@@ -384,14 +384,14 @@ queue. The Savings queue immediately looks for an agent in the "Savings" routing
 profile due to the configuration of 0 delay in the profile for the queue.
 Because of the configuration of 15 delay for Senior Agents, they will not be
 eligible to receive the Savings contact for 15 seconds. After 15 seconds
-elapses, the contact becomes available for a Senior Level agent and Amazon Connect looks
+elapses, the contact becomes available for a Senior Level agent and Connect Customer looks
 for the Longest Available across both routing profiles.
 
 ### Path to service
 
-When you are designing customer experiences in Amazon Connect, plan to ensure a path to
+When you are designing customer experiences in Connect Customer, plan to ensure a path to
 service. There are many planned and unplanned events that can impact the
-customer experience as they traverse through Amazon Connect Flows. The following sample
+customer experience as they traverse through Connect Customer Flows. The following sample
 customer experience shows some suggested checks to ensure a consistent quality
 experience for your contacts:
 
@@ -442,7 +442,7 @@ diagram:
   impacts your contact center, you can store an emergency True/False flag
   in an intermediary database like DynamoDB. To allow your supervisors and
   administrators to set this flag dynamically, with no code, you can build
-  a separate IVR that authenticates your Amazon Connect administrators based upon
+  a separate IVR that authenticates your Connect Customer administrators based upon
   ANI and PIN number verification for internal use only. In the event of
   emergency, your supervisors can call into that dedicated line from their
   phones and after authentication set the Emergency flag to true for
@@ -453,7 +453,7 @@ diagram:
   back end to set the Emergency flag to true/false securely in the
   database. Your supervisors can securely access that API through web to
   toggle disaster mode or dynamically toggle it in response to an external
-  event. In your Amazon Connect instance, every contact that comes in through the
+  event. In your Connect Customer instance, every contact that comes in through the
   flow will use AWS Lambda to check for that emergency flag and, in case of
   disaster mode, you can dynamically make announcements and provide a
   customer with a path to service. This will further ensure business
@@ -469,7 +469,7 @@ diagram:
   for an agent to become available.
 - **Route to service**: When you transfer
   the call to the queue, you can offer queued callbacks, queue overflows,
-  or tiered routing using Amazon Connect routing profiles to offer a consistent,
+  or tiered routing using Connect Customer routing profiles to offer a consistent,
   high-quality experience for your callers that meet your Service Level
   requirements.
 
@@ -478,12 +478,12 @@ diagram:
 **Documentation**
 
 - [DevOps and AWS](https://aws.amazon.com/devops/ "https://aws.amazon.com/devops/")
-- [Amazon Connect Service API
+- [Connect Customer Service API
   Documentation](../APIReference/welcome.md "../APIReference/welcome.md")
 
 **Blog**
 
-- [How to handle unexpected contact spikes with Amazon Connect](https://aws.amazon.com/blogs/contact-center/how-to-handle-unexpected-contact-spikes-with-amazon-connect/ "https://aws.amazon.com/blogs/contact-center/how-to-handle-unexpected-contact-spikes-with-amazon-connect/")
+- [How to handle unexpected contact spikes with Connect Customer](https://aws.amazon.com/blogs/contact-center/how-to-handle-unexpected-contact-spikes-with-amazon-connect/ "https://aws.amazon.com/blogs/contact-center/how-to-handle-unexpected-contact-spikes-with-amazon-connect/")
 
 **Video**
 

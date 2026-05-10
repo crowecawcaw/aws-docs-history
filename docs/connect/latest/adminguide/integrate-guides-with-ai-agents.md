@@ -58,11 +58,11 @@ guide. Copy and save the `contentId`. You'll use it in [Step 2](#associate-guide
 
 You need to get the `flowARN` of the step-by-step guide that you
 want to associate with the content. There are two ways you can get the
-`flowARN`: use the Amazon Connect admin website or the CLI.
+`flowARN`: use the Connect Customer admin website or the CLI.
 
-Amazon Connect admin website
+Connect Customer admin website
 
-1. In the Amazon Connect admin website, on the navigation menu choose
+1. In the Connect Customer admin website, on the navigation menu choose
    **Routing**,
    **Flows**.
 2. On the **Flows** page, choose the
@@ -79,7 +79,7 @@ You'll use the `flowARN` in [Step 2](#associate-guide-content "#associate-guide-
 
 AWS CLI
 
-1. You can call the Amazon Connect [ListInstances](../APIReference/API_ListInstances.md "../APIReference/API_ListInstances.md") API or run the
+1. You can call the Connect Customer [ListInstances](../APIReference/API_ListInstances.md "../APIReference/API_ListInstances.md") API or run the
    `list-instances` CLI command to get the
    `instanceId` of the instance you want to
    use.
@@ -91,7 +91,7 @@ command:
 aws connect list-instances
 ```
 
-Copy and save the `instanceId`. 2. You can call the Amazon Connect [ListContactFlows](../APIReference/API_ListContactFlows.md "../APIReference/API_ListContactFlows.md") API or run the
+Copy and save the `instanceId`. 2. You can call the Connect Customer [ListContactFlows](../APIReference/API_ListContactFlows.md "../APIReference/API_ListContactFlows.md") API or run the
 `list-contact-flows` CLI command to determine
 the step-by-step guide to use.
 
@@ -188,4 +188,4 @@ step-by-step guides.
   step-by-step guides in their agent workspace.
 
 For information about how to add more permissions to an existing security profile,
-see [Update security profiles in Amazon Connect](update-security-profiles.md "update-security-profiles.md").
+see [Update security profiles in Connect Customer](update-security-profiles.md "update-security-profiles.md").

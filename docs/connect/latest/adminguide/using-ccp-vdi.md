@@ -1,4 +1,4 @@
-# Use Amazon Connect in a VDI environment
+# Use Connect Customer in a VDI environment
 
 Virtual Desktop Infrastructure (VDI) environments add another layer of complexity to
 your solution that warrants separate POC efforts and performance testing to optimize.
@@ -11,7 +11,7 @@ helpful for our VDI-based customers.
 ## Use a split CCP model
 
 We recommend using a split CCP model with a medialess CCP running in the VDI and a
-CCP carrying the media on the local PC. You can build a custom CCP with the Amazon Connect
+CCP carrying the media on the local PC. You can build a custom CCP with the Connect Customer
 Streams API by creating a CCP with no media for application data and call signaling.
 This way, the media is delivered to the local desktop using standard CCP, with data
 and call controls delivered to the remote connection with the medialess CCP. For
@@ -25,18 +25,18 @@ conforms to Firefox microphone usage guidance, and only has access to connect to
 the user's microphone when the CCP tab is in focus.
 
 The following diagram shows how the agent workstation is comprised of a local
-browser and virtual desktop. It connects to Amazon Connect through WebRTC, and connects to
+browser and virtual desktop. It connects to Connect Customer through WebRTC, and connects to
 the corporate virtual infrastructure through a VDI connection.
 
-![The agent workstation, virtual desktop, corporate virtual infrastructure, and Amazon Connect.](images/use-split-ccp.png)
+![The agent workstation, virtual desktop, corporate virtual infrastructure, and Connect Customer.](images/use-split-ccp.png)
 
 ## Cloud desktops
 
 If you use Citrix, Amazon WorkSpaces, or Omnissa cloud desktops, you can create a new or
 update an existing agent user interface, such as a custom CCP, to offload audio
 processing to your agent's local device and to automatically redirect audio to
-Amazon Connect. This results in a more streamlined agent experience and improves audio
-quality over challenging networks. To get started, you can use the [Amazon Connect open source libraries](https://github.com/amazon-connect/amazon-connect-streams "https://github.com/amazon-connect/amazon-connect-streams") to create a new or update an existing agent
+Connect Customer. This results in a more streamlined agent experience and improves audio
+quality over challenging networks. To get started, you can use the [Connect Customer open source libraries](https://github.com/amazon-connect/amazon-connect-streams "https://github.com/amazon-connect/amazon-connect-streams") to create a new or update an existing agent
 user interface, such as a custom CCP.
 
 ## Things to consider when designing your VDI environment
@@ -63,7 +63,7 @@ user interface, such as a custom CCP.
 - **Dedicated resources**—at the Network
   and desktop level are recommended to prevent an impact to available agent
   resources from activities, such as backups and large file transfers. One way
-  to prevent resource contention is by restricting the desktop access to Amazon Connect
+  to prevent resource contention is by restricting the desktop access to Connect Customer
   users who will be using their environment similarly, instead of sharing
   resources with other business units who may use those resources
   differently.

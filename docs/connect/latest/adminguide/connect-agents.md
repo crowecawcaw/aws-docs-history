@@ -1,4 +1,4 @@
-# Set up your contact center agents in Amazon Connect
+# Set up your contact center agents in Connect Customer
 
 You can manage and load-balance customer contacts using agent hierarchy organization and
 agent status management. These tools provide filtering and agent availability management per

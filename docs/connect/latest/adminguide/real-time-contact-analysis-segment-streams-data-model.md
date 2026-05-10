@@ -36,7 +36,7 @@ Type: String
 Valid values: `VOICE`, `CHAT`,
 `TASK`
 
-For more information about channels, see [Channels and concurrency for routing contacts in Amazon Connect](channels-and-concurrency.md "channels-and-concurrency.md").
+For more information about channels, see [Channels and concurrency for routing contacts in Connect Customer](channels-and-concurrency.md "channels-and-concurrency.md").
 
 **AccountId**
 

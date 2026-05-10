@@ -1,4 +1,4 @@
-# How often real-time metrics refresh in Amazon Connect
+# How often real-time metrics refresh in Connect Customer
 
 Data in real-time metrics reports is refreshed as follows:
 

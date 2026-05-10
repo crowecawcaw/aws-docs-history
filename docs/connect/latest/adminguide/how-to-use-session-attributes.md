@@ -2,7 +2,7 @@
 
 When a customer starts a conversation with your bot, Amazon Lex creates a
 _session_. With _session attributes_, also known as
-_Lex attributes_, you can pass information between the bot and Amazon Connect
+_Lex attributes_, you can pass information between the bot and Connect Customer
 during the session. For a list of Amazon Lex attributes that you can use, see [Amazon Lex contact attributes](connect-attrib-list.md#attribs-lex-table "connect-attrib-list.md#attribs-lex-table").
 
 ## Life cycle of session attributes
@@ -13,7 +13,7 @@ order:
 
 - Service defaults: These attributes are only used if no attributes are
   defined.
-- Session attributes provided by Amazon Connect: These attributes are defined in the [Get customer input](get-customer-input.md "get-customer-input.md")
+- Session attributes provided by Connect Customer: These attributes are defined in the [Get customer input](get-customer-input.md "get-customer-input.md")
   block.
 - Session attributes provided by Lambda override everything prior: When an AWS Lambda
   function is invoked and it does some processing, it overrides any session attributes

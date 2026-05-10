@@ -1,4 +1,4 @@
-# Set up queued callback by creating flows, queues, and routing profiles in Amazon Connect
+# Set up queued callback by creating flows, queues, and routing profiles in Connect Customer
 
 You can allow your customers to maintain their position in queue without requiring them to
 stay on the call during high wait times, and get a callback from an available agent when
@@ -23,15 +23,15 @@ real time reports.
 
 You can ensure that the callback maintains its position in queue even when you place
 it in a dedicated queue by configuring it at the same priority as the original inbound
-queue in the routing profile. This configuration ensures that Amazon Connect continues to look at
+queue in the routing profile. This configuration ensures that Connect Customer continues to look at
 the original start time of the inbound call to maintain order, regardless of whether the
 customer opted for a callback or to stay on the call for the next available
 agent.
 
-Amazon Connect evaluates the routing profiles first so if the two queues have the same
+Connect Customer evaluates the routing profiles first so if the two queues have the same
 priority, the oldest call is pushed first across all queues with the same priorities.
 For example, if your original call arrived at 10:00 and left a callback request at
-10:05, Amazon Connect looks for the call start time of 10:00, not 10:05.
+10:05, Connect Customer looks for the call start time of 10:00, not 10:05.
 
 ## Steps to set up queued callbacks
 
@@ -74,16 +74,16 @@ Use the steps provided in the following overview to set up queued callback.
   example, "You're about to be connected to Customer John, who requested a refund
   for..."
 - (Optional) Provide a caller ID. This is what the customer sees when dialed.
-  Must be a valid phone number claimed in your Amazon Connect instance. This field is
+  Must be a valid phone number claimed in your Connect Customer instance. This field is
   reflected as the system endpoint in contact records. The number set here takes
   precedence over the outbound phone number set on the queue.
 - Choose a dial mode between agent first and customer first.
 
 ###### Important
 
-    + This option is available only when Next Generation Amazon Connect is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for
-     your Amazon Connect instance.
-    + If you disable Next Generation Amazon Connect after you've already
+    + This option is available only when Next Generation Connect Customer is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for
+     your Connect Customer instance.
+    + If you disable Next Generation Connect Customer after you've already
      activated and started using customer first callback, customer first
      callback is also disabled. It is not available in the
      pay-per-feature pricing model.
@@ -92,20 +92,20 @@ Use the steps provided in the following overview to set up queued callback.
 
 1. When a customer leaves their number it's put in a queue and then routed to the
    next available agent.
-2. After an agent accepts the callback in the CCP, Amazon Connect calls the
+2. After an agent accepts the callback in the CCP, Connect Customer calls the
    customer.
 
 If no agents are available to work on callbacks, the callbacks can stay in
-queue for up to 7 days after they are created before Amazon Connect automatically removes
+queue for up to 7 days after they are created before Connect Customer automatically removes
 them.
 
 ###### Tip
 
-To manually remove a callback from the queue, use the [StopContact](../APIReference/API_StopContact.md "../APIReference/API_StopContact.md") API. 3. If there is no answer when the Amazon Connect calls the customer, it retries based on
+To manually remove a callback from the queue, use the [StopContact](../APIReference/API_StopContact.md "../APIReference/API_StopContact.md") API. 3. If there is no answer when the Connect Customer calls the customer, it retries based on
 the number of times you've specified. 4. If the call goes to **voicemail**, it's
 considered connected. 5. If the customer calls again while in the callback queue, it's treated as a new
 call and will be handled as usual. To avoid duplicate callback requests in a
-callback queue, see this blog: [Preventing duplicate callback requests in Amazon Connect](https://aws.amazon.com/blogs/contact-center/preventing-duplicate-callback-requests-in-amazon-connect/ "https://aws.amazon.com/blogs/contact-center/preventing-duplicate-callback-requests-in-amazon-connect/").
+callback queue, see this blog: [Preventing duplicate callback requests in Connect Customer](https://aws.amazon.com/blogs/contact-center/preventing-duplicate-callback-requests-in-amazon-connect/ "https://aws.amazon.com/blogs/contact-center/preventing-duplicate-callback-requests-in-amazon-connect/").
 
 ## How queued callbacks affect queue limits
 
@@ -123,8 +123,8 @@ callback queue, see this blog: [Preventing duplicate callback requests in Amazon
 
 ## Create a flow for queued callbacks
 
-To see what a flow looks like with queued callback, in new Amazon Connect instances see [Sample queue configurations flow in Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md").
-In previous instances, see [Sample queued callback flow in Amazon Connect](sample-queued-callback.md "sample-queued-callback.md").
+To see what a flow looks like with queued callback, in new Connect Customer instances see [Sample queue configurations flow in Connect Customer](sample-queue-configurations.md "sample-queue-configurations.md").
+In previous instances, see [Sample queued callback flow in Connect Customer](sample-queued-callback.md "sample-queued-callback.md").
 
 The following procedure shows how to:
 
@@ -147,7 +147,7 @@ Following are the steps to create this flow.
 
 ###### To create a flow for queued callbacks
 
-1. In Amazon Connect, choose **Routing**, **Contact
+1. In Connect Customer, choose **Routing**, **Contact
    flows**.
 2. Select an existing flow, or choose **Create flow** to create
    a new one.
@@ -173,7 +173,7 @@ number**, and then choose one of the following:
 
     * **Local format**: Your customers are calling from
      phone numbers that are in the same country as the AWS Region where you
-     created your Amazon Connect instance.
+     created your Connect Customer instance.
     * **International format/Enforce E.164**: Your
      customers are calling from phone numbers in countries or regions other
      than the one where you created your instance.
@@ -200,12 +200,12 @@ The following properties are available:
      is put in queue for the next available agent. In the previous example,
      the time is 99 seconds.
     * **Maximum number of retries**: If this is set to 2,
-     then Amazon Connect tries to call back the customer a maximum of three times: the
+     then Connect Customer tries to call back the customer a maximum of three times: the
      initial callback, and two retries.
 
 
     A retry only happens if it rings but there's no answer. If the
-     callback goes to voicemail, it's considered connected and Amazon Connect does not
+     callback goes to voicemail, it's considered connected and Connect Customer does not
      retry again.
 
 
@@ -230,7 +230,7 @@ The following properties are available:
 Creating a queue just for callbacks lets you view in your real-time metrics
 reports how many customers are waiting for callbacks.
 
-If you don't set a working queue, Amazon Connect uses the queue that was set previously
+If you don't set a working queue, Connect Customer uses the queue that was set previously
 in the flow. 14. You can optionally specify the caller ID that customers see when they receive
 the callback by configuring the **Caller ID number to display**
 option in the [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") block,
@@ -244,7 +244,7 @@ block, as shown in the following image.
 
 ![The properties page of the Transfer to queue block, the Transfer to Callback tab.](images/transfer-to-queue-properties1a.png)
 
-    * If Next Generation Amazon Connect is enabled for your Amazon Connect instance (learn how
+    * If Next Generation Connect Customer is enabled for your Connect Customer instance (learn how
      to [check whether it's enabled](enable-nextgeneration-amazonconnect.md#how-to-enable-ac "enable-nextgeneration-amazonconnect.md#how-to-enable-ac")),
      you can choose either agent first callback mode (the default) or
      customer first callback mode. For more information about these options,
@@ -299,10 +299,10 @@ block, as shown in the following image.
     		 number.
 
 16. To save and test this flow, configure the other branches and add error
-    handling. To see an example of how this is done, see [Sample queue configurations flow in Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md"). For previous instances, see
-    [Sample queued callback flow in Amazon Connect](sample-queued-callback.md "sample-queued-callback.md").
+    handling. To see an example of how this is done, see [Sample queue configurations flow in Connect Customer](sample-queue-configurations.md "sample-queue-configurations.md"). For previous instances, see
+    [Sample queued callback flow in Connect Customer](sample-queued-callback.md "sample-queued-callback.md").
 17. For information about how callbacks appear in real-time metrics reports and
-    contact records, see [Queued callbacks in real-time metrics in Amazon Connect](about-queued-callbacks.md "about-queued-callbacks.md").
+    contact records, see [Queued callbacks in real-time metrics in Connect Customer](about-queued-callbacks.md "about-queued-callbacks.md").
 
 ## Callbacks from a chat, task, or email contact
 
@@ -314,7 +314,7 @@ request a voice callback by sending a chat message or completing a webform reque
 (which uses tasks).
 
 The following video shows how to use Contact Lens to allow customers who
-contact you through Amazon Connect chat to request a callback. This creates a more personalized
+contact you through Connect Customer chat to request a callback. This creates a more personalized
 customer experience. It shows how to configure this capability that allows customers to
 request callbacks from any channel, not just voice calls.
 
@@ -322,7 +322,7 @@ request callbacks from any channel, not just voice calls.
 
 See the following topics to learn more about queued callbacks:
 
-- [Queued callbacks in real-time metrics in Amazon Connect](about-queued-callbacks.md "about-queued-callbacks.md")
-- [How Initial delay affects Scheduled and In queue metrics in Amazon Connect](scheduled-vs-inqueue.md "scheduled-vs-inqueue.md")
-- [Failed callback attempts in Amazon Connect](failed-callback-attempt.md "failed-callback-attempt.md")
-- [Amazon Connect real-time metrics example for a queued callback flow](queued-callback-example.md "queued-callback-example.md")
+- [Queued callbacks in real-time metrics in Connect Customer](about-queued-callbacks.md "about-queued-callbacks.md")
+- [How Initial delay affects Scheduled and In queue metrics in Connect Customer](scheduled-vs-inqueue.md "scheduled-vs-inqueue.md")
+- [Failed callback attempts in Connect Customer](failed-callback-attempt.md "failed-callback-attempt.md")
+- [Connect Customer real-time metrics example for a queued callback flow](queued-callback-example.md "queued-callback-example.md")

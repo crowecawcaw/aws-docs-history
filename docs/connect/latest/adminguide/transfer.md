@@ -1,6 +1,6 @@
-# Set up contact transfers in Amazon Connect
+# Set up contact transfers in Connect Customer
 
-Amazon Connect enables you to set up different kinds of transfers:
+Connect Customer enables you to set up different kinds of transfers:
 
 - [Agent-to-agent transfers](setup-agent-to-agent-transfers.md "setup-agent-to-agent-transfers.md"):
   For example, if you want agents to be able to transfer calls or tasks to other

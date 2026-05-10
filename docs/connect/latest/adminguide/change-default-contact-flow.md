@@ -1,4 +1,4 @@
-# Change a default flow in your Amazon Connect contact center
+# Change a default flow in your Connect Customer contact center
 
 You can override the way the default flows work by editing them directly.
 
@@ -7,7 +7,7 @@ the default flow directly. You can make a copy of the default flow, assign a nam
 indicates it's a custom version, and then edit that one. This gives you more control
 over how your flows work.
 
-## Change how a default flow works in Amazon Connect
+## Change how a default flow works in Connect Customer
 
 The following steps show how to change the default message customers hear when
 they are put in a queue to wait for the next available agent.
@@ -31,7 +31,7 @@ For example, the following image shows the message "_Thank you
 for calling. Did you know you can reset your own password at the login
 page? Choose Reset now, and following the prompts._"
 
-![A text message on the Properties page.](images/customize-default-contact-flow3.png) 5. Choose **Save** at the bottom of the properties page. 6. Choose **Publish**. Amazon Connect starts playing the new message
+![A text message on the Properties page.](images/customize-default-contact-flow3.png) 5. Choose **Save** at the bottom of the properties page. 6. Choose **Publish**. Connect Customer starts playing the new message
 almost immediately (it may take a few moments for it to fully take
 effect).
 

@@ -1,10 +1,10 @@
 # Enable outbound campaigns and Customer Profiles
 
-**To enable Amazon Connect Customer Profiles and Amazon Connect outbound campaigns**
+**To enable Connect Customer Customer Profiles and Connect Customer outbound campaigns**
 
-1. When creating an Amazon Connect instance, when you get to **Step 4 - Data
+1. When creating an Connect Customer instance, when you get to **Step 4 - Data
    storage**, keep **Enable Customer Profiles** selected, as shown in
-   the following image. This option enables  Amazon Connect Customer Profiles and outbound
+   the following image. This option enables  Connect Customer Customer Profiles and outbound
    campaigns.
 
 ![The Data storage page the Enable Customer Profiles option.](images/enable-outbound-campaigns-customer-profiles-1.png)
@@ -12,14 +12,14 @@
 1. Select **Customize data storage (advanced)** to select a customer
    managed key for Customer Profiles and outbound campaigns from a dropdown list. An AWS owned
    key is used if you don't provide a custom key.
-2. When a Amazon Connect instance is created successfully, outbound campaigns and Customer Profiles
+2. When a Connect Customer instance is created successfully, outbound campaigns and Customer Profiles
    is enabled by default.
 
 ## Existing customers enable outbound campaigns
 
-###### To enable Amazon Connect Outbound campaigns
+###### To enable Connect Customer Outbound campaigns
 
-1. Select the Amazon Connect instance you wish to enable outbound campaigns for.
+1. Select the Connect Customer instance you wish to enable outbound campaigns for.
 2. Choose **Outbound campaigns** in the left navigation pane.
 3. If you are setting up outbound campaigns for the first time, you will see an
    **Enable** button.
@@ -45,15 +45,15 @@ Connect Email console. In the AWS Connect Email console, you can set up and
 configure your email domain, including verifying the domain, creating email addresses, and
 managing email sending and receiving settings. 10. Choose **Manage SMS** to be directed to the AWS End User Messaging SMS console. In the
 AWS End User Messaging SMS, you can configure and set up SMS phone numbers for your application, including
-purchasing numbers, managing sender IDs, and configuring SMS messaging settings. 11. Choose **Manage voice** to be redirected to the Amazon Connect admin
-website. In the Amazon Connect admin website, you can claim and manage voice phone numbers
+purchasing numbers, managing sender IDs, and configuring SMS messaging settings. 11. Choose **Manage voice** to be redirected to the Connect Customer admin
+website. In the Connect Customer admin website, you can claim and manage voice phone numbers
 for your contact center, set up call routing, and configure various voice-related
 features.
 
-**To upgrade outbound campaigns if you have a Amazon Connect instance with outbound
+**To upgrade outbound campaigns if you have a Connect Customer instance with outbound
 campaigns enabled**
 
-1. Select the Amazon Connect instance you wish to upgrade outbound campaigns for.
+1. Select the Connect Customer instance you wish to upgrade outbound campaigns for.
 2. Choose **Outbound campaigns**.
 3. If outbound campaigns was previously enabled, the **Upgrade** button
    will be displayed.
@@ -61,7 +61,7 @@ campaigns enabled**
 ###### Note
 
     * Upgrading outbound campaigns will allow you to use segmentation and orchestration
-     capabilities in the Amazon Connect admin website
+     capabilities in the Connect Customer admin website
     * Upgrading outbound campaigns will update the current outbound campaigns page to new
      experience.
 
@@ -73,14 +73,14 @@ campaigns enabled**
 
 1. After successfully upgrading an outbound campaign, the KMS (AWS Key Management Service) key that was
    previously selected for the campaign will be displayed.
-2. Choose **Manage email** to be redirected to the Amazon Connect Email console. In
-   the Amazon Connect Email console, you can set up and configure your email domain, including verifying
+2. Choose **Manage email** to be redirected to the Connect Customer Email console. In
+   the Connect Customer Email console, you can set up and configure your email domain, including verifying
    the domain, creating email addresses, and managing email sending and receiving settings.
 3. Choose **Manage SMS** to be directed to the Amazon End User Messaging
    console. In the End User Messaging console, you can configure and set up SMS phone numbers for
    your application, including purchasing numbers, managing sender IDs, and configuring SMS
    messaging settings.
-4. Choose **Manage voice** to be redirected to the Amazon Connect admin website. In the Amazon Connect admin website, you
+4. Choose **Manage voice** to be redirected to the Connect Customer admin website. In the Connect Customer admin website, you
    can claim and manage voice phone numbers for your contact center, set up call routing, and
    configure various voice-related features.
 
@@ -89,7 +89,7 @@ campaigns enabled**
 You can delete the Outbound campaigns configuration by using the Outbound campaigns
 `DeleteConnectInstanceConfig` API. The option to toggle the Outbound campaigns
 configuration on/off has been removed. The only way to turn off the Outbound campaigns feature in the
-UI is to delete your Amazon Connect instance.
+UI is to delete your Connect Customer instance.
 
 ### Error state and troubleshooting
 
@@ -105,11 +105,11 @@ limits.
 
 ![Warning banner showing total communications limits permission issues.](images/error-state-and-troubleshooting-4.png)
 
-In order to enable total limits permissions, you can navigate to the Amazon Connect admin website and under
+In order to enable total limits permissions, you can navigate to the Connect Customer admin website and under
 **Outbound campaigns**, choose **Upgrade
 permission**.
 
-![Upgrade permission button in the Outbound campaigns section of the Amazon Connect admin website](images/error-state-and-troubleshooting-5.png)
+![Upgrade permission button in the Outbound campaigns section of the Connect Customer admin website](images/error-state-and-troubleshooting-5.png)
 
 | **Error message**                                                                                                                  | **Cause**                                                                                                                                             | **Resolution**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **Screenshot**                                                                                      |
 | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------- |

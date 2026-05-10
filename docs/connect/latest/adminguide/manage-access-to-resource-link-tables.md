@@ -26,7 +26,7 @@ However, if the QuickSight user tries to preview or visualize the data at this s
 an exception will be raised since the user does not have access to the underlying data.
 
 Now, we will grant the user read access to the data in the resource link's target,
-which is the table shared by Amazon Connect. To do that, complete the following steps:
+which is the table shared by Connect Customer. To do that, complete the following steps:
 
 1. Log into the consumer account as the data lake administrator and go to the
    Lake Formation Console.

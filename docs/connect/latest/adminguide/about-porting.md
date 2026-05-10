@@ -1,4 +1,4 @@
-# How to port your numbers to Amazon Connect
+# How to port your numbers to Connect Customer
 
 The following steps are for a typical porting request. This process requires
 timely communication to make progress. If you take longer than 30 days to
@@ -6,9 +6,9 @@ respond to requests for information, your porting request may be cancelled,
 rescheduled, or restarted from the beginning.
 
 **Documentation requirements**: For a list of
-country-specific requirements for porting numbers, see [Region requirements for ordering and porting phone numbers in Amazon Connect](phone-number-requirements.md "phone-number-requirements.md").
+country-specific requirements for porting numbers, see [Region requirements for ordering and porting phone numbers in Connect Customer](phone-number-requirements.md "phone-number-requirements.md").
 
-## Step 1: Create an Amazon Connect support case
+## Step 1: Create an Connect Customer support case
 
 ###### Important
 
@@ -35,15 +35,15 @@ information** 6. On the **Additional information** page:
 
 
 
-    	* Amazon Connect instance ARN. For instructions about how to
-    	 find it, see [Find your Amazon Connect instance ID or ARN](find-instance-arn.md "find-instance-arn.md").
+    	* Connect Customer instance ARN. For instructions about how to
+    	 find it, see [Find your Connect Customer instance ID or ARN](find-instance-arn.md "find-instance-arn.md").
 
 
     	If you provide the ARN for a development instance
     	 instead of a production instance, you can self-move
     	 the phone numbers across instances only if the
     	 instances are in the same Region and same AWS
-    	 account. For limitations and instructions, see [Move an Amazon Connect phone number across instances](move-phone-number-across-instances.md "move-phone-number-across-instances.md").
+    	 account. For limitations and instructions, see [Move an Connect Customer phone number across instances](move-phone-number-across-instances.md "move-phone-number-across-instances.md").
     	* Phone number. Use E.164 format for example:
     	 [+][country code][phone number including area code].
 
@@ -83,19 +83,19 @@ information** 6. On the **Additional information** page:
       your preferred contact method.
 
 9. Choose **Submit**.
-10. The Amazon Connect team will review your ticket and get back
+10. The Connect Customer team will review your ticket and get back
     to you.
 
 ## Step 2: Complete Letter of Authorization (LOA)
 
-If the phone number qualifies for porting, the Amazon Connect team will provide you
+If the phone number qualifies for porting, the Connect Customer team will provide you
 a Letter of Authorization (LOA) to be completed by you. Complete all
 mandatory fields and sign the LOA.
 
 Along with the LOA, Telecom regulations in many countries require
 additional documents to register a number, such as proof of business, proof
 of address, and proof of ID. For a list of country-specific requirements for
-porting numbers, see [Region requirements for ordering and porting phone numbers in Amazon Connect](phone-number-requirements.md "phone-number-requirements.md").
+porting numbers, see [Region requirements for ordering and porting phone numbers in Connect Customer](phone-number-requirements.md "phone-number-requirements.md").
 
 All portings require the completion of a Letter of Authorization
 (LOA). The LOA authorizes your current carrier to release your
@@ -150,7 +150,7 @@ Your LOA form must meet the following criteria:
 
 ## Step 3: Submit the required documents by using a link we provide to you
 
-After the Amazon Connect team says you can port phone numbers, you
+After the Connect Customer team says you can port phone numbers, you
 need to submit any required documents. The following steps explain
 how.
 
@@ -161,7 +161,7 @@ documents. Do not proceed until you receive the link.
 
 ###### To submit required documents
 
-1. Open the Amazon Connect console at
+1. Open the Connect Customer console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 2. Sign in to your AWS account, then open the Amazon S3 upload link
    generated specifically for your account.
@@ -179,14 +179,14 @@ box. 6. Under **Objects**, choose the
 **Read** checkbox, then choose Upload.
 
 After you provide the Letter of Authorization (LOA) and any other required
-documents, Amazon Connect team confirms with your existing phone carrier that the
+documents, Connect Customer team confirms with your existing phone carrier that the
 information on the LOA is correct. If the information provided on the LOA
-does not match the information that your phone carrier has on file, Amazon Connect
+does not match the information that your phone carrier has on file, Connect Customer
 team contacts you to update the information provided on the LOA.
 
-## Step 4: The porting request goes to the Amazon Connect carrier
+## Step 4: The porting request goes to the Connect Customer carrier
 
-After you have submitted all required documentation, the Amazon Connect team
+After you have submitted all required documentation, the Connect Customer team
 submits the porting request on your behalf to the winning carrier.
 
 - The losing and winning carrier follow an industry standard process
@@ -208,17 +208,17 @@ be given different "mutually agreed dates." Check the status and
 dates/times for each one.
 
 Most carriers require that portings are completed during normal business
-hours. For country-specific business hours, see [Region requirements for ordering and porting phone numbers in Amazon Connect](phone-number-requirements.md "phone-number-requirements.md").
+hours. For country-specific business hours, see [Region requirements for ordering and porting phone numbers in Connect Customer](phone-number-requirements.md "phone-number-requirements.md").
 
 ## Step 5: Validate number(s) in the instance, assign the phone number to the flow, request service quota increases
 
-About 3-4 days before the mutually agreed date and time, the Amazon Connect support
+About 3-4 days before the mutually agreed date and time, the Connect Customer support
 team loads the phone number that will be ported into the instance ARN you
 have provided, and then notifies you. Now it's time for you to perform the
 following steps:
 
-1. Log into your Amazon Connect admin website and validate that your phone number(s) are
-   listed. For instructions, see [List or export to a CSV the phone numbers claimed to your Amazon Connect instance](list-claimed-phone-numbers.md "list-claimed-phone-numbers.md").
+1. Log into your Connect Customer admin website and validate that your phone number(s) are
+   listed. For instructions, see [List or export to a CSV the phone numbers claimed to your Connect Customer instance](list-claimed-phone-numbers.md "list-claimed-phone-numbers.md").
 2. [Associate the phone number to the desired flow](associate-claimed-ported-phone-number-to-flow.md "associate-claimed-ported-phone-number-to-flow.md") so the
    phone number will be ready to receive phone calls after the porting
    is completed. If you require assistance assigning multiple phone
@@ -256,29 +256,29 @@ steps:
 
 - Double-check that the activities listed in [Step 5](#step4-porting "#step4-porting") have been completed:
   1.  Verify that the number(s) you had ported are in the
-      requested Amazon Connect instance, and they have been assigned to
+      requested Connect Customer instance, and they have been assigned to
       the appropriate flow.
   2.  Verify that any required service quota increases or
-      changes for your Amazon Connect instance were implemented. For
+      changes for your Connect Customer instance were implemented. For
       example, increase the number of concurrent calls per
       instance, or enable countries for outbound
       calling.
 
 - Monitor call traffic from your existing contact center to
   confirm that incoming traffic has stopped.
-- Place test calls to your Amazon Connect instance to verify calls are
+- Place test calls to your Connect Customer instance to verify calls are
   being routed to the correct flows.
 - Ensure agents are logged in to the Contact Control Panel (CCP)
   and can answer calls as they are received.
-- Monitor call traffic to your Amazon Connect instance to confirm that
+- Monitor call traffic to your Connect Customer instance to confirm that
   you are receiving the expected levels of traffic.
 
-### Steps the Amazon Connect team performs to ensure a smooth transition
+### Steps the Connect Customer team performs to ensure a smooth transition
 
-1. After the Amazon Connect team receives confirmation that the porting
+1. After the Connect Customer team receives confirmation that the porting
    has been completed, we will perform final testing to confirm
    that the porting was successful and the phone number is
-   receiving calls to Amazon Connect.
+   receiving calls to Connect Customer.
 2. After we have completed our testing, we will notify you and
    ask you to verify the successful completion of the
    porting.

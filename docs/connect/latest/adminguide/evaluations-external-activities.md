@@ -1,17 +1,17 @@
 # Ingest agent activities from third-party applications to evaluate agent performance
 
-You can import agent activities completed in third-party applications into Amazon Connect.
-These activities are imported as Amazon Connect tasks, which you can evaluate alongside work
-completed in Amazon Connect. This provides managers with a unified application for quality
+You can import agent activities completed in third-party applications into Connect Customer.
+These activities are imported as Connect Customer tasks, which you can evaluate alongside work
+completed in Connect Customer. This provides managers with a unified application for quality
 management.
 
 To import activities completed in third-party applications (such as application
 processing or social media interactions) as completed tasks, use the [CreateContact](../APIReference/API_CreateContact.md "../APIReference/API_CreateContact.md") API. When you import these activities, you can capture
 details relevant for performance evaluation as task attributes. Unlike tasks created in
-the Amazon Connect admin website, these imported tasks are already marked as completed and don't need to be
+the Connect Customer admin website, these imported tasks are already marked as completed and don't need to be
 accepted by the agent who completed the activity in the external application.
 
-Managers can then evaluate these external activities alongside native Amazon Connect
+Managers can then evaluate these external activities alongside native Connect Customer
 interactions and back-office tasks. This gives managers a unified view of agent
 performance in the [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md").
 
@@ -20,9 +20,9 @@ performance in the [Agent performance evaluations dashboard](agent-performance-e
 The following steps are typically performed by an IT admin.
 
 - Ensure that agents or back-office workers who you want to evaluate are
-  users on Amazon Connect. To add new users, see [Add users to Amazon Connect](user-management.md "user-management.md").
+  users on Connect Customer. To add new users, see [Add users to Connect Customer](user-management.md "user-management.md").
 - Use the [CreateContact](../APIReference/API_CreateContact.md "../APIReference/API_CreateContact.md") API to ingest all external activities completed
-  by these agents into Amazon Connect as completed Amazon Connect tasks.
+  by these agents into Connect Customer as completed Connect Customer tasks.
 
 You can ingest:
 
@@ -76,7 +76,7 @@ references. These links enable managers to reference additional information
 that's not included with the task.
 
 - To enable managers to search for activities using these attributes, you
-  need to enable search on these attributes. For more information, see [Search for contacts in Amazon Connect by using custom contact attributes or contact segment attributes](search-custom-attributes.md "search-custom-attributes.md").
+  need to enable search on these attributes. For more information, see [Search for contacts in Connect Customer by using custom contact attributes or contact segment attributes](search-custom-attributes.md "search-custom-attributes.md").
 
 ###### Note
 
@@ -87,8 +87,8 @@ searchable using these attributes.
 
 The following steps are typically performed by managers.
 
-Managers can evaluate ingested activities in Amazon Connect the same way that they
-evaluate native Amazon Connect contacts. For more information, see [Evaluate performance](evaluations.md "evaluations.md").
+Managers can evaluate ingested activities in Connect Customer the same way that they
+evaluate native Connect Customer contacts. For more information, see [Evaluate performance](evaluations.md "evaluations.md").
 
 If your admin has configured search on custom contact attributes, you can search
 for external activities with identifiers, such as the type of activity and ID.

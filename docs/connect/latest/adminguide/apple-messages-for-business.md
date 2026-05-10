@@ -1,4 +1,4 @@
-# Enable Apple Messages for Business with Amazon Connect
+# Enable Apple Messages for Business with Connect Customer
 
 Your customers can engage directly with your contact center from within their Messages
 application on their iPhone, iPad, and Mac.
@@ -9,8 +9,8 @@ day to chat with friends and family. Any time customers use Search, Safari, Spot
 or Maps to call your registered phone number, they will be provided with the option to chat
 with your contact center.
 
-Apple Messages for Business integration with Amazon Connect enables you to use the same configuration, analytics,
-routing, and agent UI that you already use for [Amazon Connect
+Apple Messages for Business integration with Connect Customer enables you to use the same configuration, analytics,
+routing, and agent UI that you already use for [Connect Customer
 Chat](web-and-mobile-chat.md "web-and-mobile-chat.md").
 
 ## Prerequisites: Determine if Apple Messages for Business is the right channel for your use case
@@ -26,8 +26,8 @@ following forms:
 
 ## Step 1: Register with Apple
 
-Integrate Apple Messages for Business with Amazon Connect by first registering with Apple as a brand. When you do,
-you'll get a unique Apple Messages for Business Account ID, and you can then link your Apple Messages for Business account to Amazon Connect.
+Integrate Apple Messages for Business with Connect Customer by first registering with Apple as a brand. When you do,
+you'll get a unique Apple Messages for Business Account ID, and you can then link your Apple Messages for Business account to Connect Customer.
 
 1. Go to the [Apple Messages for Business](https://register.apple.com/business-chat "https://register.apple.com/business-chat")
    page. In the box that says **As a business, I want to connect with my
@@ -42,8 +42,8 @@ your organization’s email address to administer Messages for Business. A separ
 Apple ID lets you distinguish Messages for Business communications from personal Apple
 communications. 3. Register a profile for a new Messages for Business account by accepting **Apple’s Terms
 of Service**. We recommend creating a [Commercial Messages for Business Account](https://register.apple.com/resources/messages/messaging-documentation/register-your-acct#create-a-commercial-business-chat-account "https://register.apple.com/resources/messages/messaging-documentation/register-your-acct#create-a-commercial-business-chat-account"). You then provide business details, such as
-a logo and support hours. 4. Select Amazon Connect as your Messaging Service Provider. You can do this by selecting
-Amazon Connect from the drop-down or by entering the following URL:
+a logo and support hours. 4. Select Connect Customer as your Messaging Service Provider. You can do this by selecting
+Connect Customer from the drop-down or by entering the following URL:
 
     * **https://messagingintegrations.connect.amazonaws.com/applebusinesschat**
 
@@ -60,15 +60,15 @@ in Step 3:
 
 1. **Apple Messages for Business Account ID**: After you’ve been approved by Apple Messages for Business,
    you will be issued an Apple Messages for Business Account ID. For information about locating your Apple Messages for Business Account ID, see
-   [Find your Apple Messages for Business Account ID for your integration with Amazon Connect](find-apple-messages-for-business-account-id.md "find-apple-messages-for-business-account-id.md").
+   [Find your Apple Messages for Business Account ID for your integration with Connect Customer](find-apple-messages-for-business-account-id.md "find-apple-messages-for-business-account-id.md").
 
 ###### Note
 
 Your Apple Messages for Business Account ID is a randomized string of numbers and letters. It is not the
 same as your Apple ID. 2. **Apple Token**: This is a unique ID that
-authenticates your account. For help locating your Apple token, see [Find your Apple token when integrating Apple Messages for Business with Amazon Connect](find-apple-token-id.md "find-apple-token-id.md"). 3. **Amazon Connect instance ARN**: This is the identifier
+authenticates your account. For help locating your Apple token, see [Find your Apple token when integrating Apple Messages for Business with Connect Customer](find-apple-token-id.md "find-apple-token-id.md"). 3. **Connect Customer instance ARN**: This is the identifier
 for the instance you want to link to your Apple business account. For
-information about locating your instance ID, see [Find your Amazon Connect instance ID or ARN](find-instance-arn.md "find-instance-arn.md").
+information about locating your instance ID, see [Find your Connect Customer instance ID or ARN](find-instance-arn.md "find-instance-arn.md").
 
 ###### Note
 
@@ -76,16 +76,16 @@ Make sure you have service-linked roles enabled for the integration.
 
 If your instance was created before **October
 2018**, add the `connect:*` policy on the role that
-is associated with your Amazon Connect instance. For more information about
-service-linked roles, see [Use service-linked roles and role permissions for Amazon Connect](connect-slr.md "connect-slr.md"). 4. **Amazon Connect flow ID**: This is the identifier for the
+is associated with your Connect Customer instance. For more information about
+service-linked roles, see [Use service-linked roles and role permissions for Connect Customer](connect-slr.md "connect-slr.md"). 4. **Connect Customer flow ID**: This is the identifier for the
 flow you want to use for inbound chats. For information about locating your flow
 ID, see [Find the flow ID when integrating Apple Messages for Business with Amazon Connect](find-contact-flow-id.md "find-contact-flow-id.md").
 
-## Step 3: Link your Apple Messages for Business ID to Amazon Connect
+## Step 3: Link your Apple Messages for Business ID to Connect Customer
 
-In this step you create an Amazon Connect support ticket to link your Apple Messages for Business ID to Amazon Connect.
+In this step you create an Connect Customer support ticket to link your Apple Messages for Business ID to Connect Customer.
 
-1. Create a [special Support ticket](https://support.console.aws.amazon.com/support/home#/case/create?issueType=customer-service&serviceCode=service-chime-end-user&categoryCode=other "https://support.console.aws.amazon.com/support/home#/case/create?issueType=customer-service&serviceCode=service-chime-end-user&categoryCode=other") to link your Apple Messages for Business to Amazon Connect.
+1. Create a [special Support ticket](https://support.console.aws.amazon.com/support/home#/case/create?issueType=customer-service&serviceCode=service-chime-end-user&categoryCode=other "https://support.console.aws.amazon.com/support/home#/case/create?issueType=customer-service&serviceCode=service-chime-end-user&categoryCode=other") to link your Apple Messages for Business to Connect Customer.
 
 If prompted, login using your AWS account.
 
@@ -104,8 +104,8 @@ Subject: Apple Messages for Business Integration request
 
    Apple Messages for Business Account ID (required): `enter your account ID`
    Apple Token (required): `enter your Apple token`
-   Amazon Connect Instance ARN (required): `enter your instance ARN`
-   Amazon Connect Flow ID (required): `enter your flow ID`
+   Connect Customer Instance ARN (required): `enter your instance ARN`
+   Connect Customer Flow ID (required): `enter your flow ID`
 
 ```
 
@@ -123,12 +123,12 @@ The following image shows an example of a completed ticket:
 contact language**, and then choose **Web** as the
 contact method, if it's not selected by default.
 
-![The contact methods.](images/abc-contact-support-options.png) 9. Choose **Submit**. 10. Support will work directly with the Amazon Connect team on your request and follow up
+![The contact methods.](images/abc-contact-support-options.png) 9. Choose **Submit**. 10. Support will work directly with the Connect Customer team on your request and follow up
 with any additional questions.
 
 ### Next steps
 
-After Apple Messages for Business is enabled for your Amazon Connect instance, you can [add Apple Messages for Business features](add-apple-messages-for-business-features.md "add-apple-messages-for-business-features.md") to
+After Apple Messages for Business is enabled for your Connect Customer instance, you can [add Apple Messages for Business features](add-apple-messages-for-business-features.md "add-apple-messages-for-business-features.md") to
 your messages. For example:
 
 - Deflect calls with Apple's Message Suggest.
@@ -145,7 +145,7 @@ Additionally, pass the [Apple experience review](https://register.apple.com/reso
 
 ## Step 4: Create and Submit Experience Review Recording
 
-Record a demo experience for review by Amazon Connect and Apple Messages for Business. The video must accurately
+Record a demo experience for review by Connect Customer and Apple Messages for Business. The video must accurately
 represent the user journey that occurs when the account is in production (all use
 cases). Only upload a recording of the user's point of view (user's device). You don't
 need to send recordings from the agent console or the bot activated on the backend. You
@@ -203,8 +203,8 @@ interaction, and any [out of hours messages](https://register.apple.com/resource
   messages in sequence, use only a 1-second typing indicators before each message.
   For more information, see [Typing Indicator Message](https://register.apple.com/resources/messages/msp-rest-api/common-specs#typingindicatormessage "https://register.apple.com/resources/messages/msp-rest-api/common-specs#typingindicatormessage").
 
-After your experience review recording is created, you can once again create an Amazon Connect
-support ticket to share. Feedback will be provided by Amazon Connect and Apple Messages for Business before final
+After your experience review recording is created, you can once again create an Connect Customer
+support ticket to share. Feedback will be provided by Connect Customer and Apple Messages for Business before final
 approval.
 
 1. Create a [special Support ticket](https://support.console.aws.amazon.com/support/home#/case/create?issueType=customer-service&serviceCode=service-chime-end-user&categoryCode=other "https://support.console.aws.amazon.com/support/home#/case/create?issueType=customer-service&serviceCode=service-chime-end-user&categoryCode=other") to share your experience review recording. If
@@ -232,5 +232,5 @@ Body:
    contact language**, and then choose **Web** as the
    contact method, if it's not selected by default.
 9. Choose **Submit**.
-10. Support will work directly with the Amazon Connect team on your request and follow up
+10. Support will work directly with the Connect Customer team on your request and follow up
     with any feedback.

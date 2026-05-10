@@ -7,7 +7,7 @@ To allow users to create, automate, and access evaluation forms, assign the foll
   and managers to [create](create-evaluation-forms.md "create-evaluation-forms.md") and [manage](evaluationform-audit-trail.md "evaluationform-audit-trail.md") evaluation forms.
 - **Evaluation forms - perform contact evaluations**: Allows a user,
   such as a Quality Assurance team member, to use an evaluation form to review a
-  contact. For an example image, see [Evaluate agent and self-service interaction performance in Amazon Connect](evaluations.md "evaluations.md").
+  contact. For an example image, see [Evaluate agent and self-service interaction performance in Connect Customer](evaluations.md "evaluations.md").
 
 This permission allows users to [search](search-evaluations.md "search-evaluations.md") evaluations by evaluation form, score, last updated
 date/range, evaluator, and status. It also allows them to view the evaluation
@@ -76,4 +76,4 @@ form audit trail.
   The **Admin** security profile has these permissions by default.
 
 For information about how to add more permissions to an existing security profile,
-see [Update security profiles in Amazon Connect](update-security-profiles.md "update-security-profiles.md").
+see [Update security profiles in Connect Customer](update-security-profiles.md "update-security-profiles.md").

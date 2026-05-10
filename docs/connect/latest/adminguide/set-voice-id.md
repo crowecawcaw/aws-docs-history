@@ -1,10 +1,10 @@
-# Flow block in Amazon Connect: Set Voice ID
+# Flow block in Connect Customer: Set Voice ID
 
 ###### Note
 
 End of support notice: On May 20, 2026, AWS will end support for Amazon Connect
 Voice ID. After May 20, 2026, you will no longer be able to access Voice ID on the
-Amazon Connect console, access Voice ID features on the Amazon Connect admin website or Contact Control Panel, or access Voice ID
+Amazon Connect console, access Voice ID features on the Connect Customer admin website or Contact Control Panel, or access Voice ID
 resources. For more information, visit [Amazon Connect
 Voice ID end of support](amazonconnect-voiceid-end-of-support.md "amazonconnect-voiceid-end-of-support.md").
 
@@ -15,7 +15,7 @@ voice authentication and fraud detection.
 
 - Enables audio streaming and sets thresholds for voice authentication and
   detection of fraudsters in a watchlist. For more information about this feature, see [Voice ID](voice-id.md "voice-id.md").
-- Sends audio to Amazon Connect Voice ID to verify the caller's identity and match
+- Sends audio to Connect Customer Voice ID to verify the caller's identity and match
   against fraudsters in watch list, as soon as the call is connected to a
   flow.
 - Use a [Play prompt](play.md "play.md") block before
@@ -39,7 +39,7 @@ UUID. For more information, see `CustomerSpeakerId` in the [Speaker](../../../vo
 - For information about how to use **Set Voice ID** in a
   flow, along with [Check Voice ID](check-voice-id.md "check-voice-id.md") and [Set contact
   attributes](set-contact-attributes.md "set-contact-attributes.md"), see [Step 2: Create a new Voice ID domain and encryption key](enable-voiceid.md#enable-voiceid-step2 "enable-voiceid.md#enable-voiceid-step2") in
-  [Get started enabling Voice ID in Amazon Connect](enable-voiceid.md "enable-voiceid.md").
+  [Get started enabling Voice ID in Connect Customer](enable-voiceid.md "enable-voiceid.md").
 
 ## Supported channels
 
@@ -77,7 +77,7 @@ Threshold** is set to 90. This is the recommended threshold.
 
 ### Start streaming audio for Voice ID
 
-When this option is selected, Amazon Connect begins streaming audio from the customer's
+When this option is selected, Connect Customer begins streaming audio from the customer's
 channel to Voice ID.
 
 You can add this block several places in a flow, but after **Start
@@ -199,6 +199,6 @@ configured. It has the following branches: **Success** and
 
 See the following topic for more information about this block:
 
-- [Use real-time caller authentication with Voice ID in Amazon Connect](voice-id.md "voice-id.md")
-- [Flow block in Amazon Connect: Check Voice ID](check-voice-id.md "check-voice-id.md")
+- [Use real-time caller authentication with Voice ID in Connect Customer](voice-id.md "voice-id.md")
+- [Flow block in Connect Customer: Check Voice ID](check-voice-id.md "check-voice-id.md")
 - [Enroll callers in Voice ID in the Contact Control Panel (CCP)](use-voiceid.md "use-voiceid.md")

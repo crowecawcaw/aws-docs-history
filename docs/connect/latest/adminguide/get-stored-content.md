@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Get stored content
+# Flow block in Connect Customer: Get stored content
 
 This topic specifies the flow block for getting stored content to be used within flows.
 
@@ -16,7 +16,7 @@ present in your S3 bucket and store it on the
 `$.Email.EmailMessage.Plaintext` flow attribute. The
 email message content is downloaded as a plain text file and the maximum
 size supported is currently 32 KB due to the maximum size of flow
-attributes limits. Make sure to [Enable email for your Amazon Connect instance](enable-email1.md "enable-email1.md") before using this option.
+attributes limits. Make sure to [Enable email for your Connect Customer instance](enable-email1.md "enable-email1.md") before using this option.
 
 ## Use cases for this block
 
@@ -69,13 +69,13 @@ types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact
 
 ## How to configure this block
 
-You can configure the **Get stored content** block by using the Amazon Connect admin
-website or by using the `LoadContactContent` in the Amazon Connect Flow
+You can configure the **Get stored content** block by using the Connect Customer admin
+website or by using the `LoadContactContent` in the Connect Customer Flow
 language.
 
 ## Flow language representation
 
-The following code example shows how to use the `LoadContactContent` in the Amazon Connect Flow
+The following code example shows how to use the `LoadContactContent` in the Connect Customer Flow
 language.
 
 ```
@@ -104,7 +104,7 @@ the following error scenarios:
 
 - When using Email message (Plain text):
   - When the size of the email message in plaintext format is more than 32KB.
-  - Amazon Connect is unable to download the email body from the S3
+  - Connect Customer is unable to download the email body from the S3
     bucket. This may be due to the S3 bucket policy not being set up
     correctly (see [Step 4: Enable email and create an Amazon S3 bucket](enable-email1.md#enable-email-buckets "enable-email1.md#enable-email-buckets")),
     Amazon Connect does not have proper access to the S3 bucket (see

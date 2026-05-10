@@ -1,4 +1,4 @@
-# System and network requirements for screen recording in Amazon Connect
+# System and network requirements for screen recording in Connect Customer
 
 This topic provides the system requirements for using screen recording, and describes
 the detailed dataflow it uses in each platform.
@@ -29,7 +29,7 @@ recommended resource availability for each concurrent session.
 ## Network requirements
 
 - **Port used for screen recording**: The
-  Amazon Connect Client Application communicates with the CCP through a local websocket on port 5431
+  Connect Customer Client Application communicates with the CCP through a local websocket on port 5431
   (on Windows) and 25431 (on Chrome OS).
 - **URLs to add to your firewall allowlist**:
   To ensure smooth screen recording functionality, add the following URL
@@ -51,10 +51,10 @@ recommended resource availability for each concurrent session.
 
 ![A sequence diagram shows the network calls between different components involved in screen recording.](images/sequence-diagram.png)
 
-    + In Windows, the Amazon Connect Client is the combination of the
+    + In Windows, the Connect Customer Client is the combination of the
      Amazon.Connect.Client.Service background process and
      Amazon.Connect.Client.RecordingSession.
-    + In ChromeOS, the Amazon Connect Client is the combination of Isolated Web
+    + In ChromeOS, the Connect Customer Client is the combination of Isolated Web
      App and Browser extension.
 
 ## Browser enterprise policy for local network access
@@ -63,13 +63,13 @@ Starting with Google Chrome version 147 (released April 7, 2026) and
 Microsoft Edge version 147 (released April 10, 2026), Chromium-based browsers
 enforce Local Network Access (LNA) restrictions on WebSocket connections. This
 restriction blocks the local WebSocket connection between the Contact Control
-Panel and the Amazon Connect Client Application, causing screen recordings to fail.
+Panel and the Connect Customer Client Application, causing screen recordings to fail.
 
 To ensure screen recording works on Chrome 147 or later and Edge 147 or
 later, deploy the **LoopbackNetworkAllowedForUrls**
 enterprise policy to your agents' workstations. This policy pre-grants
 loopback network access permission for your Contact Control Panel domain, so
-agents are not blocked or prompted. Configure this policy with your Amazon Connect
+agents are not blocked or prompted. Configure this policy with your Connect Customer
 Contact Control Panel URL. Example policy value:
 `[*.]my.connect.aws`
 

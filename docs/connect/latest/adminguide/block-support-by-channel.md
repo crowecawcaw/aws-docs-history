@@ -1,4 +1,4 @@
-# Supported channels for flow blocks in Amazon Connect
+# Supported channels for flow blocks in Connect Customer
 
 The following table lists all available flow blocks, and whether they support routing
 a contact through the specified channels.

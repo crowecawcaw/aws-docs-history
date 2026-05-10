@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Create persistent contact association
+# Flow block in Connect Customer: Create persistent contact association
 
 This topic defines the flow block for creating a persistent contact association,
 enabling conversations with contacts to continue where they left off.
@@ -7,7 +7,7 @@ enabling conversations with contacts to continue where they left off.
 
 - Enables persistent chat experience on the current chat.
 - This allows you to select the required rehydration mode. For more
-  information about chat rehydration, see [Enable customers to resume chat conversations in Amazon Connect](chat-persistence.md "chat-persistence.md").
+  information about chat rehydration, see [Enable customers to resume chat conversations in Connect Customer](chat-persistence.md "chat-persistence.md").
 
 ## Supported channels
 
@@ -54,13 +54,13 @@ We recommend that you enable persistent chat by using the **Create
 persistent contact association** block when using the following
 features:
 
-    + [Amazon Connect chat
+    + [Connect Customer chat
      widget](add-chat-to-website.md "add-chat-to-website.md")
     + [Apple Messages for Business](apple-messages-for-business.md "apple-messages-for-business.md")
 
 - You can configure persistent chats to rehydrate the entire past chat
   conversation or rehydrate from a specific segment of a past chat
-  conversation. For information about rehydration types, see [Enable customers to resume chat conversations in Amazon Connect](chat-persistence.md "chat-persistence.md").
+  conversation. For information about rehydration types, see [Enable customers to resume chat conversations in Connect Customer](chat-persistence.md "chat-persistence.md").
 
 ## Configured block
 

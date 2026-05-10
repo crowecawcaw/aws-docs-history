@@ -12,7 +12,7 @@ stream, see [July 2021 Updates](amazon-connect-release-notes.md#july21-release-n
 notes_.
 
 Use the **Next status** feature to pause new contacts being routed to
-you, while you finish your current contacts. When all your slots are cleared, Amazon Connect
+you, while you finish your current contacts. When all your slots are cleared, Connect Customer
 automatically sets your CCP to the next status, such as
 **Lunch**.
 
@@ -36,7 +36,7 @@ feature.
 You can easily switch from **Next status** back to
 **Available**. The ability to switch your status is useful, for
 example, if you accidentally choose **Next status: Lunch**, or if
-you decide not to go to **Lunch** before Amazon Connect automatically sets
+you decide not to go to **Lunch** before Connect Customer automatically sets
 to that status.
 
 The following images show this workflow.
@@ -63,10 +63,10 @@ Here's what happens in this scenario:
 
 1. Agent finishes ACW and chooses **Lunch** instead of
    **Close contact**.
-2. Amazon Connect stops routing new contacts to them.
+2. Connect Customer stops routing new contacts to them.
 3. All their slots are cleared. This is so the agent doesn't have to choose
    **Close contact** to end the ACW.
-4. Because all the ACWs have been cleared, Amazon Connect immediately starts the
+4. Because all the ACWs have been cleared, Connect Customer immediately starts the
    automatic transition that sets the agent's status to
    **Lunch**.
 
@@ -77,7 +77,7 @@ This order of events mirrors how the CCP works when agents change their status
 while working on ACW. For example, an agent is finishing ACW and they set their
 status to **Lunch**. Here's what happens next:
 
-1. Amazon Connect stops routing new contacts to them.
+1. Connect Customer stops routing new contacts to them.
 2. The ACW slot is cleared for the agent so they don't have to choose
    **Close contact**.
 3. The agent is set to **Lunch**.
@@ -96,7 +96,7 @@ Offline** state.
 Here's what happens in this scenario:
 
 1. The agent sets their status to **Offline**.
-2. Amazon Connect stops routing new contacts to them.
+2. Connect Customer stops routing new contacts to them.
 3. The contact that is in ACW is cleared so the agent doesn't have to choose
    **Close contact**. Only the connected chat
    remains.
@@ -104,5 +104,5 @@ Here's what happens in this scenario:
    continue working on their connected chat.
 5. After they finish work on that contact, the agent chooses **Clear
    contact** to end the ACW.
-6. Amazon Connect automatically sets the agent's status to
+6. Connect Customer automatically sets the agent's status to
    **Offline**.

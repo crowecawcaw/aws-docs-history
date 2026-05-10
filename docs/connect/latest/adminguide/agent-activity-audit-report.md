@@ -1,4 +1,4 @@
-# Agent activity audit report in Amazon Connect
+# Agent activity audit report in Connect Customer
 
 The agent activity audit is like a report version of the [agent event stream](agent-event-streams.md "agent-event-streams.md"). All of the data in this
 report is also in the agent event stream.
@@ -22,7 +22,7 @@ stream.
 For a list of required permissions to perform this procedure, see [Assign
 permissions](dashboard-required-permissions.md "dashboard-required-permissions.md").
 
-1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/.
+1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/.
 2. Choose **Analytics and optimization**,
    **Historical metrics**,
    **Agents**, **Agent activity
@@ -79,7 +79,7 @@ agent activity audit report.
 ###### Note
 
 If a status appears in your report but is not listed on this page, it is a
-custom status created by your organization. Contact your Amazon Connect
+custom status created by your organization. Contact your Connect Customer
 admin to learn the definition.
 
 ## Status changes

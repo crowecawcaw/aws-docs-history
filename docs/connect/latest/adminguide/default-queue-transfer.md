@@ -1,4 +1,4 @@
-# Default queue transfer flow in Amazon Connect: "Now transferring"
+# Default queue transfer flow in Connect Customer: "Now transferring"
 
 This flow manages what the agent experiences when they transfer a customer to another
 queue.
@@ -13,7 +13,7 @@ If it returns **True** (agents are available), the flow goes to the
 **False** (no agents are available), the flow plays a prompt and
 disconnects the call.
 
-For instructions about how to override and change a default flow, see [Change a default flow in your Amazon Connect contact center](change-default-contact-flow.md "change-default-contact-flow.md").
+For instructions about how to override and change a default flow, see [Change a default flow in your Connect Customer contact center](change-default-contact-flow.md "change-default-contact-flow.md").
 
 ###### Tip
 

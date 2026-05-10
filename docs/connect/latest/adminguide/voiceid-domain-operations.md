@@ -1,14 +1,14 @@
-# Manage Amazon Connect Voice ID domains
+# Manage Connect Customer Voice ID domains
 
 ###### Note
 
 End of support notice: On May 20, 2026, AWS will end support for Amazon Connect
 Voice ID. After May 20, 2026, you will no longer be able to access Voice ID on the
-Amazon Connect console, access Voice ID features on the Amazon Connect admin website or Contact Control Panel, or access Voice ID
+Amazon Connect console, access Voice ID features on the Connect Customer admin website or Contact Control Panel, or access Voice ID
 resources. For more information, visit [Amazon Connect
 Voice ID end of support](amazonconnect-voiceid-end-of-support.md "amazonconnect-voiceid-end-of-support.md").
 
-Amazon Connect Voice ID provides APIs for you manage Voice ID domains. You can find
+Connect Customer Voice ID provides APIs for you manage Voice ID domains. You can find
 equivalents for Create, Describe, List, and Update in the AWS Console.
 
 1. [CreateDomain](../../../voiceid/latest/APIReference/API_CreateDomain.md "../../../voiceid/latest/APIReference/API_CreateDomain.md"): To create a new Voice ID domain, use the
@@ -23,13 +23,13 @@ API:
      acknowledged the BIPA Consent in the AWS console.
     * You must also specify the KMS key for the Voice ID domain at
      the time of creation.
-    * After creating a Voice ID domain, use the [Amazon Connect
-     association APIs](../APIReference.md "../APIReference.md") to associate it with an Amazon Connect
+    * After creating a Voice ID domain, use the [Connect Customer
+     association APIs](../APIReference.md "../APIReference.md") to associate it with an Connect Customer
      instance.
 
 2. [DeleteDomain](../../../voiceid/latest/APIReference/API_DeleteDomain.md "../../../voiceid/latest/APIReference/API_DeleteDomain.md"): To delete a Voice ID domain, you must invoke the
    `DeleteDomain` Voice ID API and provide the domain ID. If
-   this domain was associated with an Amazon Connect instance, Voice ID API calls, and
+   this domain was associated with an Connect Customer instance, Voice ID API calls, and
    Voice ID flow blocks will return runtime error. Deleting a Voice ID domain
    deletes all stored customer data such as audio recordings, voiceprints and
    speaker identifiers, as well as fraudster lists that you managed.

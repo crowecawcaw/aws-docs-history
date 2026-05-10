@@ -1,4 +1,4 @@
-# Test voice, chat, and task experiences in Amazon Connect
+# Test voice, chat, and task experiences in Connect Customer
 
 To learn what the voice, chat, and task experiences are like for your agents and
 customers, you can test them without doing any development.
@@ -6,7 +6,7 @@ customers, you can test them without doing any development.
 ## Test voice
 
 At the basic level, after you claim a number you can immediately call it to hear what
-the experience will be like for your customers. Amazon Connect uses the [default flows](contact-flow-default.md "contact-flow-default.md") to power your initial
+the experience will be like for your customers. Connect Customer uses the [default flows](contact-flow-default.md "contact-flow-default.md") to power your initial
 experience.
 
 To test a customized flow, [assign a phone number](associate-claimed-ported-phone-number-to-flow.md "associate-claimed-ported-phone-number-to-flow.md")
@@ -16,18 +16,18 @@ to it and then call that number.
 
 Call latency significantly impacts the quality of your customer's experience.
 For guidance about designing your contact center for optimal call
-quality and then testing latency, see [Design your Amazon Connect contact center for low latency to help ensure call quality](low-latency-design.md "low-latency-design.md").
+quality and then testing latency, see [Design your Connect Customer contact center for low latency to help ensure call quality](low-latency-design.md "low-latency-design.md").
 
 ## Test chat
 
-Amazon Connect includes a simulated web page that shows how your customers can interact with
+Connect Customer includes a simulated web page that shows how your customers can interact with
 you, and a Contact Control Panel (CCP) that shows the agent experience. Here's how to
 test chat:
 
 1. On the navigation menu, choose **Dashboard**, as shown in the
    following image.
 
-![The dashboard icon on the Amazon Connect navigation menu.](images/tutorial1-dashboard-menu.png) 2. Choose **Test chat**.
+![The dashboard icon on the Connect Customer navigation menu.](images/tutorial1-dashboard-menu.png) 2. Choose **Test chat**.
 
 If you don't see the option to test chat, click [here](https://github.com/amazon-connect/amazon-connect-chat-ui-examples#enabling-chat-in-an-existing-amazon-connect-contact-center "https://github.com/amazon-connect/amazon-connect-chat-ui-examples#enabling-chat-in-an-existing-amazon-connect-contact-center"). 3. On the **Test Chat** page, choose **Test
 Settings**. 4. Under **System Settings**, choose the flow you want to test
@@ -42,7 +42,7 @@ image:
 
 ![The test settings section, with a name in Contact attributes surrounded by quotes and brackets.](images/test-chat-contact-attributes.png) 5. In the chat window, click the icon as shown in the following image.
 
-![The Amazon Connect chat icon on the test page.](images/test-chat-icon.png) 6. Type a message similar to what one of your customers might type. In the agent
+![The Connect Customer chat icon on the test page.](images/test-chat-icon.png) 6. Type a message similar to what one of your customers might type. In the agent
 window, type a reply. 7. To see what it's like for an agent to handle multiple chat conversations, copy
 the dashboard URL into another browser window, and start another chat. The chat
 goes to the same instance of the CCP that you already have open.
@@ -52,10 +52,10 @@ goes to the same instance of the CCP that you already have open.
 The test environment uses the BasicQueue and Basic Routing Profile. The
 Basic Routing Profile is set up for 2 chats. If you want to test what it's
 like to have more than two chats, change the Basic Routing Profile to 5
-chats. For instructions, see [Create a routing profile in Amazon Connect to link queues to agents](routing-profiles.md "routing-profiles.md").
+chats. For instructions, see [Create a routing profile in Connect Customer to link queues to agents](routing-profiles.md "routing-profiles.md").
 
 To learn more about what the agent experiences when managing chat
-conversations, see [Use the Contact Control Panel (CCP) in Amazon Connect to chat with contacts](chat-with-connect-contacts.md "chat-with-connect-contacts.md").
+conversations, see [Use the Contact Control Panel (CCP) in Connect Customer to chat with contacts](chat-with-connect-contacts.md "chat-with-connect-contacts.md").
 
 ## Test tasks
 

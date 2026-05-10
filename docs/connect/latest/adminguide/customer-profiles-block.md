@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Customer profiles
+# Flow block in Connect Customer: Customer profiles
 
 This topic defines the flow block for retrieving, creating, and updating a customer
 profile.
@@ -60,11 +60,11 @@ types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact
 
 ## Configuration tips
 
-- Before using this block, make sure Customer Profiles is enabled for your Amazon Connect
-  instance. For instructions, see [Use Amazon Connect Customer Profiles](customer-profiles.md "customer-profiles.md").
+- Before using this block, make sure Customer Profiles is enabled for your Connect Customer
+  instance. For instructions, see [Use Connect Customer Customer Profiles](customer-profiles.md "customer-profiles.md").
 - A contact is routed down the **Error** branch in the
   following situations:
-  - Customer Profiles is not enabled for your Amazon Connect instance.
+  - Customer Profiles is not enabled for your Connect Customer instance.
   - Request data values are not valid. The request values cannot be
     over 255 characters.
   - The Customer Profiles API request has been throttled.
@@ -193,7 +193,7 @@ blocks.
 
 ###### Important
 
-To use this action, your Amazon Connect instance must have permission for the
+To use this action, your Connect Customer instance must have permission for the
 following APIs: ListSegmentDefinitions, GetSegmentMembership, BatchGetProfile,
 and BatchGetCalculatedAttributeForProfile in either of the following Policies:
 **AmazonConnectServiceLinkedRolePolicy** or
@@ -251,7 +251,7 @@ on the **View segment details** page.
   to check the segment membership. This may be due to a system error or
   misconfiguration of the **Check segment
   membership** action. To learn more about flow error logging,
-  see [Enable Amazon Connect flow logs in an Amazon CloudWatch log group](contact-flow-logs.md "contact-flow-logs.md").
+  see [Enable Connect Customer flow logs in an Amazon CloudWatch log group](contact-flow-logs.md "contact-flow-logs.md").
 
 ## Properties: Get profile object
 
@@ -307,7 +307,7 @@ blocks.
 
 ###### Important
 
-To use this action, your Amazon Connect instance must have permission for the following
+To use this action, your Connect Customer instance must have permission for the following
 APIs: `ListCalculatedAttributeDefinitions` and
 `GetCalculatedAttributeForProfile` in either of the following
 Policies: **AmazonConnectServiceLinkedRolePolicy** or
@@ -367,7 +367,7 @@ contact attributes: **Average Call Duration**, and
 
 ###### Important
 
-To use this action, your Amazon Connect instance must have permission for the following
+To use this action, your Connect Customer instance must have permission for the following
 APIs: `ListCalculatedAttributeDefinitions` and
 `GetCalculatedAttributeForProfile` in either of the following
 Policies: **AmazonConnectServiceLinkedRolePolicy** or
@@ -416,7 +416,7 @@ contact attributes.
 
 ###### Important
 
-To use this action, your Amazon Connect instance must have permission for the following
+To use this action, your Connect Customer instance must have permission for the following
 API: `GetProfileRecommendations` in either of the following Policies:
 **AmazonConnectServiceLinkedRolePolicy** or
 **AmazonConnectServiceCustomerProfileAccess**.

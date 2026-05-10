@@ -1,18 +1,18 @@
-# Set up integration for Amazon Connect Cases
+# Set up integration for Connect Customer Cases
 
-To update your Amazon Connect Cases data in Amazon Connect Customer Profiles and use features like
+To update your Connect Customer Cases data in Connect Customer Customer Profiles and use features like
 calculated attributes, you can integrate using Amazon AppIntegrations. Start by setting up a
 Cases event stream to send system fields to an EventBridge bus, then use Amazon AppIntegrations to
 forward these events to Customer Profiles.
 
-## Stream data from Amazon Connect Cases to Event Bridge
+## Stream data from Connect Customer Cases to Event Bridge
 
-1. Open the Amazon Connect console at
+1. Open the Connect Customer console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 2. On the instances page, choose the instance alias. The instance
    alias is also your **instance name**,
-   which appears in your Amazon Connect URL. The following image shows the
-   **Amazon Connect virtual contact center
+   which appears in your Connect Customer URL. The following image shows the
+   **Connect Customer virtual contact center
    instances** page, with a box around the instance alias.
 
 ![The instance alias.](images/stream-data-from-connect-cases-to-event-bridge-1.png)
@@ -22,7 +22,7 @@ forward these events to Customer Profiles.
 
 ![The Cases page, the Domain details section, an arrow pointing to the domain ID.](images/stream-data-from-connect-cases-to-event-bridge-2.png)
 
-1. Using the AWS CLI, create a Case event configuration to send Amazon Connect
+1. Using the AWS CLI, create a Case event configuration to send Connect Customer
    Cases Events to your AWS account's default Event Bridge bus.
 
 ```
@@ -103,7 +103,7 @@ aws connectcases put-case-event-configuration --domain-id <YOUR_CASES_DOMAIN_ID>
 
 1. Using the AWS CLI, create an Event Integration with AppIntegrations
    and record the ARN output.  This represents a source data that a
-   Amazon Connect instance can use.
+   Connect Customer instance can use.
 
 ```
 
@@ -130,7 +130,7 @@ aws customer-profiles put-integration --region
 
 ## Verify your Cases integration
 
-1. Create a case in Amazon Connect Cases.
+1. Create a case in Connect Customer Cases.
 2. The event delivery should be almost instantaneous but allow a
    minute for it to be delivered and associate with the customer
    profile.

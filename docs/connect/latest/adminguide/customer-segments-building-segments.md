@@ -1,4 +1,4 @@
-# Build customer segments in Amazon Connect
+# Build customer segments in Connect Customer
 
 ###### Note
 
@@ -6,18 +6,18 @@
 
 ###### Note
 
-- To navigate to the segmentation builder experience in the Amazon Connect admin website, you
+- To navigate to the segmentation builder experience in the Connect Customer admin website, you
   need security profiles permissions for this feature. For more
   information, see [Assign security profile permissions to manage customer segments](security-profile-customer-profile-segmentation.md "security-profile-customer-profile-segmentation.md").
 - Before building segments, we recommend your Customer Profiles domain
   setup data integrations to populate profiles in your Customer Profiles
   Domain. For more information on how to configure data integrations with
-  Customer Profiles, see [Integrate external applications with Amazon Connect Customer Profiles](integrate-external-apps-customer-profiles.md "integrate-external-apps-customer-profiles.md").
+  Customer Profiles, see [Integrate external applications with Connect Customer Customer Profiles](integrate-external-apps-customer-profiles.md "integrate-external-apps-customer-profiles.md").
 - Segments can include events you captured using Calculated Attributes.
   For more information on how to configure custom Calculated Attributes
   and review the default Calculated Attributes Customer Profiles offers,
-  see [Set up calculated attributes in Amazon Connect Customer Profiles](customerprofiles-calculated-attributes.md "customerprofiles-calculated-attributes.md").
-  Amazon Connect provides two ways to build customer segments: 1/ Define segments through
+  see [Set up calculated attributes in Connect Customer Customer Profiles](customerprofiles-calculated-attributes.md "customerprofiles-calculated-attributes.md").
+  Connect Customer provides two ways to build customer segments: 1/ Define segments through
   Spark SQL (Beta; requires Data store to be enabled); 2/ Define segments through
   audience groups and filters (Classic Segmentation). For both, you can use natural
   language prompts via Generative AI-powered Segment AI assistant. If you define
@@ -80,7 +80,7 @@ The following steps describe creating and configuring a customer segment:
    see [Assign security profile permissions to manage customer segments](security-profile-customer-profile-segmentation.md "security-profile-customer-profile-segmentation.md"). In addition, to best visualize the membership of your segment,
    we recommend data ingestion prior to segment creation. To ingest
    profiles through S3 or external applications, see [Create and ingest customer data into Customer Profiles](customer-profiles-object-type-mappings.md "customer-profiles-object-type-mappings.md")
-   or [Integrate external applications with Amazon Connect Customer Profiles](integrate-external-apps-customer-profiles.md "integrate-external-apps-customer-profiles.md").
+   or [Integrate external applications with Connect Customer Customer Profiles](integrate-external-apps-customer-profiles.md "integrate-external-apps-customer-profiles.md").
 2. Choose **Create a segment** in the Customer
    segment table view.
 
@@ -93,7 +93,7 @@ The following steps describe creating and configuring a customer segment:
 
 ###### Note
 
-The Amazon Connect admin website uses the entered name as
+The Connect Customer admin website uses the entered name as
 the `DisplayName` of the segment, and generates an
 identifier based on it. The generated identifier is used as the
 `SegmentDefinitionName` when you access the
@@ -185,13 +185,13 @@ attributes.
    1. **Calculated attributes** -
       Filter the audience based on one of calculated attributes.
 
-   See [Set up calculated attributes in Amazon Connect Customer Profiles](customerprofiles-calculated-attributes.md "customerprofiles-calculated-attributes.md")
+   See [Set up calculated attributes in Connect Customer Customer Profiles](customerprofiles-calculated-attributes.md "customerprofiles-calculated-attributes.md")
    to learn about the default Calculated Attributes and how to
    configure custom Calculated Attributes. 2. **Standard attributes** -
    Filter the audience based on one of standard profile
    attributes.
 
-   See [Standard profile definition in the Amazon Connect Customer Profiles](standard-profile-definition.md "standard-profile-definition.md") for the
+   See [Standard profile definition in the Connect Customer Customer Profiles](standard-profile-definition.md "standard-profile-definition.md") for the
    list of standard profile attributes. 3. **Custom attributes** -
    Filter the audience based on one of custom profile
    attributes.
@@ -230,7 +230,7 @@ attributes.
 
 ###### Note
 
-Customer segments in the Amazon Connect admin website uses UTC
+Customer segments in the Connect Customer admin website uses UTC
 timezone and a default time of 00:00:00 UTC for all time-based
 filters. You can filter on dates but times are recorded as the same
 value. If you enter a date of 2024-01-01, the console passes the time as
@@ -242,7 +242,7 @@ When you specify a filter for a calculated attribute, you can override
 the time period of the calculated attribute definition. For example, the
 filter `Frequent caller is true for the event time period of 60
  days` will override the _Frequent caller_
-[Default calculated attributes in Amazon Connect Customer Profiles](customerprofiles-default-calculated-attributes.md "customerprofiles-default-calculated-attributes.md") to
+[Default calculated attributes in Connect Customer Customer Profiles](customerprofiles-default-calculated-attributes.md "customerprofiles-default-calculated-attributes.md") to
 evaluate the value within the past 60 days instead of the [time period
 configured in the calculated attribute definition](customerprofiles-calculated-attributes-apis.md "customerprofiles-calculated-attributes-apis.md"). This
 override is specific to the segment, and does not affect the calculated
@@ -280,7 +280,7 @@ _average hold time_ is more than 10 seconds will
 belong to the segment.
 
 When you have multiple filter groups in an audience group, Customer
-segments in the Amazon Connect admin website use OR relationships to connect between the filter
+segments in the Connect Customer admin website use OR relationships to connect between the filter
 groups.
 
 ![Two audience filters.](images/step-4-choose-and-apply-audience-filters-optional-3.png)
@@ -291,7 +291,7 @@ groups.
 ### Step 5: Add the second audience group (optional)
 
 Optionally add the second audience group and define a relationship with
-audience group 1. When you create a customer segment by using the Amazon Connect admin website, you
+audience group 1. When you create a customer segment by using the Connect Customer admin website, you
 can have a maximum of two audience groups per segment. If you add a second
 audience group to your segment, you can choose one of two ways to specify
 how the two audience groups are connected:

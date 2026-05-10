@@ -1,6 +1,6 @@
 # Set up tag-based-access controls on performance evaluations
 
-Amazon Connect enables businesses to restrict access to specific performance
+Connect Customer enables businesses to restrict access to specific performance
 evaluation forms, preventing unauthorized access to evaluation form templates and
 completed evaluations. Businesses can provide managers access to modify or use only the
 evaluation form templates that are relevant to their business line or function,
@@ -17,7 +17,7 @@ to restrict access to specific evaluation forms and evaluations. Once tag-based-
 control on evaluation forms is enabled, users will be able to modify only specific
 evaluation forms on the **Evaluation forms** page. On Contact Search,
 users will only be able to search for evaluation forms for which they have access, and
-use the evaluation forms to start evaluations. Similarly within Amazon Connect
+use the evaluation forms to start evaluations. Similarly within Connect Customer
 **Dashboards**, users will only be able to view aggregated scores for
 evaluation forms for which they have access. Tag-based access control on evaluations
 restricts users to only be able to view specific evaluations on the **Contact
@@ -46,7 +46,7 @@ control granted on your security profile(s):
   then you can create or update a form with any tag(s).
 - If you have one security profile with tag-based-access control enabled on an evaluation forms,
   then evaluation form tags from your security profile will be added automatically while creating
-  evaluation forms through the Amazon Connect UI. You will not be able to update tags on evaluation forms
+  evaluation forms through the Connect Customer UI. You will not be able to update tags on evaluation forms
   in this scenario.
 - If you have multiple security profiles, you must add all the tags from one of your security
   profiles to the evaluation form while creating or updating an evaluation form. For example, if one
@@ -81,7 +81,7 @@ require you to save or activate the form.
 
 ## Tag inheritance from evaluation forms to evaluations
 
-While creating an evaluation from the Amazon Connect UI, the tags from the evaluation form are copied
+While creating an evaluation from the Connect Customer UI, the tags from the evaluation form are copied
 over to the evaluation upon creation. For example, if the evaluation form is tagged as "Department: Sales"
 then the evaluation created with this evaluation will also carry the same tag. If the evaluation form
 contains multiple tags (Department: Sales, Product: Dishwasher) then those will also be carried over to
@@ -95,7 +95,7 @@ updating tags on evaluation forms will not change evaluations on historically co
 
 ## Set up tag-based access to evaluation forms and evaluations
 
-1. Login to **Amazon Connect** with a user profile that has access to
+1. Login to **Connect Customer** with a user profile that has access to
    **Security Profiles - View** and **Edit** permissions.
 2. Go to the **Users > Security Profiles** page within security profiles,
    and select a security profile that you want to modify.

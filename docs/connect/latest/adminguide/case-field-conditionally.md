@@ -37,7 +37,7 @@ set up:
 
 ## Step 1: Create case field conditions
 
-1. Log in to the Amazon Connect admin website with an **Admin** account, or an
+1. Log in to the Connect Customer admin website with an **Admin** account, or an
    account assigned to a security profile that has the following permission in
    it's security profile: **Cases** - **Case
    Templates** - **Create**.
@@ -84,7 +84,7 @@ the condition to your template.
 
 In this step, you specify which case fields the condition will apply to.
 
-1. Log in to the Amazon Connect admin website with an **Admin** account, or an
+1. Log in to the Connect Customer admin website with an **Admin** account, or an
    account assigned to a security profile that has the following permission in
    it's security profile: **Cases** - **Case
    Templates** - **Create** or

@@ -1,13 +1,13 @@
-# Port a current phone number to Amazon Connect
+# Port a current phone number to Connect Customer
 
-You can port your existing phone numbers to your Amazon Connect contact center.
+You can port your existing phone numbers to your Connect Customer contact center.
 
 ###### Contents
 
 - [Things to know before
   porting](things-to-know-before-porting.md "things-to-know-before-porting.md")
 - [South Korean porting regulations
-  for your Amazon Connect instance](porting-numbers-sk.md "porting-numbers-sk.md")
+  for your Connect Customer instance](porting-numbers-sk.md "porting-numbers-sk.md")
 - [Things to know about Thailand
   number porting](porting-numbers-th.md "porting-numbers-th.md")
 - [Porting your phone

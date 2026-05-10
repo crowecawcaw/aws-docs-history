@@ -50,7 +50,7 @@ simulated contact ID, and the pass or fail status of each step.
 ![Test run details showing passed status with session metrics, contact flow information, and test steps.](images/test-execution-detail-page.png)
 You can also view all the test runs across all test cases in the
 **Test runs** tab. This page lists all of the test executions
-in the same Amazon Connect instance. You will only see the detail test results for the test
+in the same Connect Customer instance. You will only see the detail test results for the test
 cases you created or test cases you have permission to view.
 
 ![Test runs tab showing eight test executions with names, dates, and pass or fail outcomes.](images/test-run-list-page.png)

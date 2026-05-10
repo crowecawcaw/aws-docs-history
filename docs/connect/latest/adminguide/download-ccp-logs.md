@@ -1,4 +1,4 @@
-# Download and review Amazon Connect Contact Control Panel (CCP) logs
+# Download and review Connect Customer Contact Control Panel (CCP) logs
 
 This topic is for IT admins and developers who need to troubleshoot issues with an
 agent's Contact Control Panel (CCP).
@@ -14,9 +14,9 @@ the same way you rename any other file on your computer. You can't customize
 the file name before the file is
 downloaded.
 
-## Review CCP logs using Amazon Connect CCP Log Parser
+## Review CCP logs using Connect Customer CCP Log Parser
 
-After downloading the agent's CCP logs, you can use the Amazon Connect CCP Log Parser to
+After downloading the agent's CCP logs, you can use the Connect Customer CCP Log Parser to
 troubleshoot further and get a better view of the errors and verbose details on how
 the error occurs. Viewing CCP logs will also enable you to identify errors and
 resolve where possible.
@@ -41,7 +41,7 @@ expand or collapse the log lines with more information.
 CCP logs do not persist through browser refreshes.
 
 ![The CCP Log Parser displaying parsed agent log entries with expandable details.](images/log-parser-agent-txt.png) 4. On the left side of log entry, you can choose Snapshots. CCP periodically
-retrieves an AgentSnapshot from Amazon Connect. The Snapshot displays the agent
+retrieves an AgentSnapshot from Connect Customer. The Snapshot displays the agent
 status that was captured during these retrieval periods. Clicking on one
 Snapshot highlights the section from that snapshot until the subsequent
 snapshot.
@@ -53,7 +53,7 @@ metrics:
 
     * **Skew Metrics** shows difference between the
      client-side (agent's workstation) local timestamp and server-side
-     (Amazon Connect service) timestamp in milliseconds.
+     (Connect Customer service) timestamp in milliseconds.
     * **API Call Metrics** shows the latency of the API
      call from CCP.
     * **WebRTC Metrics**: Available if the call was

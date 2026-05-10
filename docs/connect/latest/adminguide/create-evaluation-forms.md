@@ -1,6 +1,6 @@
-# Create an evaluation form in Amazon Connect
+# Create an evaluation form in Connect Customer
 
-In Amazon Connect, you can create [many different
+In Connect Customer, you can create [many different
 evaluation forms](feature-limits.md#evaluationforms-feature-specs "feature-limits.md#evaluationforms-feature-specs"). For example, you may need a different evaluation form for
 each business unit, and for different queues. You can also create different evaluation forms for evaluating the agent interaction and the self-service interaction with a Lex bot or AI agent.
 
@@ -11,9 +11,9 @@ Each form can contain multiple sections and questions.
 - You can configure automation on each question so that answers to those
   questions are automatically filled using insights and metrics from
   Contact Lens conversational analytics.
-  This topic explains how to create a form and configure automation using the Amazon Connect admin website. To
+  This topic explains how to create a form and configure automation using the Connect Customer admin website. To
   create and manage forms programmatically, see [Evaluation actions](../APIReference/evaluation-api.md "../APIReference/evaluation-api.md") in
-  the _Amazon Connect API Reference_.
+  the _Connect Customer API Reference_.
 
 ###### Contents
 
@@ -32,7 +32,7 @@ Each form can contain multiple sections and questions.
 The following steps explain how to create or duplicate an evaluation form and set
 a title.
 
-1. Log in to Amazon Connect with a user account that has the following security
+1. Log in to Connect Customer with a user account that has the following security
    profile permission: **Analytics and Optimization** -
    **Evaluation forms - manage form definitions** -
    **Create**.
@@ -226,7 +226,7 @@ automate the question of certain questions, or continue to [preview the evaluati
 
 ## Step 6: Enable automated evaluations
 
-Amazon Connect enables you to automatically answer questions within
+Connect Customer enables you to automatically answer questions within
 evaluation forms (for example, did the agent adhere to the greeting script?) using
 insights and metrics from conversational analytics. Automation can be used
 to:
@@ -245,7 +245,7 @@ to:
 The ways of automation vary by whether you are evaluating the agent interaction or automated interaction (for example, self-service while interacting with a Lex bot or AI agent). You can choose between agent and automated interaction by choosing the **Additional settings**, under **Contact interaction type**.
 
 Both for assisting evaluators, and for automated submission of evaluations, you need to first set up automation on individual questions
-within an evaluation form. Amazon Connect provides three ways of automating
+within an evaluation form. Connect Customer provides three ways of automating
 evaluations:
 
 - **Contact categories**:
@@ -253,7 +253,7 @@ evaluations:
   agent properly greet the customer (Yes/ No)?), and _Multiple selection_
   questions (for example, what parts of the greeting script did the agent state correctly?)
   can be automatically answered using contact categories defined with rules. For more
-  information, see [Create Contact Lens rules using the Amazon Connect admin website](build-rules-for-contact-lens.md "build-rules-for-contact-lens.md").
+  information, see [Create Contact Lens rules using the Connect Customer admin website](build-rules-for-contact-lens.md "build-rules-for-contact-lens.md").
 - **Generative AI**: Both _Single
   selection_ and _Text field_ questions can
   be automatically answered using generative AI.
@@ -318,7 +318,7 @@ contacts](rules.md "rules.md").
   instructions of the evaluation question, and using it to analyze the
   conversation transcript. Using complete sentences to phrase the evaluation
   question and clearly specifying the evaluation criteria within the
-  instructions improves accuracy of generative AI. For information, see [Evaluate agent performance in Amazon Connect using generative AI](generative-ai-performance-evaluations.md "generative-ai-performance-evaluations.md").
+  instructions improves accuracy of generative AI. For information, see [Evaluate agent performance in Connect Customer using generative AI](generative-ai-performance-evaluations.md "generative-ai-performance-evaluations.md").
 
 ![A question section, the generative AI Contact Lens option.](images/evaluationforms-automation-genai.png)
 
@@ -358,7 +358,7 @@ contacts](rules.md "rules.md").
 
 After an evaluation form is activated with automation configured on some of the
 questions, then you will receive automated responses to those questions when you
-start an evaluation from within the Amazon Connect admin website.
+start an evaluation from within the Connect Customer admin website.
 
 ###### To automatically fill and submit evaluations
 

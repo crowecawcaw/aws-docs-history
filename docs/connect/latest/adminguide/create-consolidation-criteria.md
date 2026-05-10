@@ -1,9 +1,9 @@
-# Set up consolidation criteria for Identity Resolution in Amazon Connect
+# Set up consolidation criteria for Identity Resolution in Connect Customer
 
 ###### Note
 
 You must enable Identity Resolution in
-order to access the option to create consolidation criteria using the Amazon Connect
+order to access the option to create consolidation criteria using the Connect Customer
 admin console.
 
 When similar profiles are detected by an Identity Resolution Job, the process can automatically

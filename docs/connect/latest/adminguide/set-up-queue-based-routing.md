@@ -1,4 +1,4 @@
-# Set up queue-based, or skills-based, routing in Amazon Connect
+# Set up queue-based, or skills-based, routing in Connect Customer
 
 Here's an overview of the steps to set up queue-based routing:
 

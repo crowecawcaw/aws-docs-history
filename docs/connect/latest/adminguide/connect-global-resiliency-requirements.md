@@ -1,16 +1,16 @@
-# Amazon Connect Global Resiliency requirements
+# Connect Customer Global Resiliency requirements
 
-If you have decided that Amazon Connect Global Resiliency is the appropriate deployment for
+If you have decided that Connect Customer Global Resiliency is the appropriate deployment for
 you, ensure you adhere to the following pre-requisites before onboarding:
 
 - [Port](about-porting.md "about-porting.md") all phone numbers you want to enable
-  to be multi-region to Amazon Connect.
-- AWS Enterprise Support or AWS Unified Operations is required to onboard to Amazon Connect Global Resiliency.
+  to be multi-region to Connect Customer.
+- AWS Enterprise Support or AWS Unified Operations is required to onboard to Connect Customer Global Resiliency.
   For more information about AWS Support plans, see
   [AWS Support Plans](https://aws.amazon.com/premiumsupport/plans/ "https://aws.amazon.com/premiumsupport/plans/") .
-- You must have an existing production [SAML 2.0-enabled](connect-identity-management.md "connect-identity-management.md") Amazon Connect instance
-  in a Region where Amazon Connect Global Resiliency is available. To confirm, see [Global Resiliency availability by Region](regions.md#gr_region "regions.md#gr_region").
-- It is recommended to onboard and test Amazon Connect Global Resiliency services in a
+- You must have an existing production [SAML 2.0-enabled](connect-identity-management.md "connect-identity-management.md") Connect Customer instance
+  in a Region where Connect Customer Global Resiliency is available. To confirm, see [Global Resiliency availability by Region](regions.md#gr_region "regions.md#gr_region").
+- It is recommended to onboard and test Connect Customer Global Resiliency services in a
   test environment before onboarding production traffic.
 - Request that ALL service quotas in the replica instance match the service
   quotas in the source instance: [Create a service quota

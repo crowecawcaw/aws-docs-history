@@ -1,8 +1,8 @@
-# Save custom reports in Amazon Connect
+# Save custom reports in Connect Customer
 
 You can create custom real-time, historical, and login/logout reports that include
 only the metrics you're interested in. For instructions, see [Create a real-time metrics report for your contact center](create-real-time-report.md "create-real-time-report.md") and
-[Create a custom historical metrics report in Amazon Connect](create-historical-metrics-report.md "create-historical-metrics-report.md").
+[Create a custom historical metrics report in Connect Customer](create-historical-metrics-report.md "create-historical-metrics-report.md").
 
 After you create a report, you can:
 
@@ -21,11 +21,11 @@ Personal saved reports count towards your service quota of reports per instance.
 For example, if you save a report every day, it will count towards your
 organization's number of saved reports for the instance.
 
-For more information about quotas, see [Amazon Connect service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
+For more information about quotas, see [Connect Customer service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
 
 ## Create a naming convention
 
-All saved reports in your Amazon Connect instance must have a unique name. We
+All saved reports in your Connect Customer instance must have a unique name. We
 recommend creating a naming convention that indicates who the owner of the report
 is. For example, use the team name or owner alias as the report suffix: Agent
 Performance - _team name_. That way, if the report is published,
@@ -61,7 +61,7 @@ real-time metrics reports, as shown in the following image.
 
 ## How to delete saved reports
 
-1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/. Use an Admin account or an account that has **Saved
+1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/. Use an Admin account or an account that has **Saved
    reports - Delete** permissions in its security profile.
 2. On the navigation menu, choose **Analytics and
    optimization**, **Dashboards and

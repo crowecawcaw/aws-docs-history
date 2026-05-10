@@ -1,6 +1,6 @@
-# How contact attributes work in Amazon Connect
+# How contact attributes work in Connect Customer
 
-Amazon Connect treats each interaction with a customer as a **contact**. The
+Connect Customer treats each interaction with a customer as a **contact**. The
 interaction can be a phone call (voice), a chat, or an automated interaction with an Amazon Lex
 bot.
 
@@ -54,7 +54,7 @@ types of attributes that work with it.
 Another way to think about types of contact attributes is to categorize them based on
 where the value comes from. The values for contact attributes have the following sources:
 
-- Amazon Connect provides the value, such as the agent's name, during the contact interaction.
+- Connect Customer provides the value, such as the agent's name, during the contact interaction.
   This is known as providing the value at runtime.
 - An external process, such as Amazon Lex or AWS Lambda, provides the value.
 - [User-defined](connect-attrib-list.md#user-defined-attributes "connect-attrib-list.md#user-defined-attributes").
@@ -70,7 +70,7 @@ where the value comes from. The values for contact attributes have the following
   the flow in which they are configured.
 
 The following illustration lists the types of available contact attributes, and maps
-them to the three sources for the values: Amazon Connect, external process such as Amazon Lex, and
+them to the three sources for the values: Connect Customer, external process such as Amazon Lex, and
 user-defined.
 
 ![The types of available contact attributes, the sources for their values.](images/contact-attributes-types.png)
@@ -96,7 +96,7 @@ updates the Transfer contact segment attributes).
 
 ## "$" is a special character
 
-Amazon Connect treats the "$" character as a special character. You can't use it in a key when
+Connect Customer treats the "$" character as a special character. You can't use it in a key when
 setting an attribute.
 
 For example, let's say you're creating an interact block with text-to-speech. You set
@@ -104,11 +104,11 @@ an attribute like this:
 
 `{"$one":"please read this text"}`
 
-When Amazon Connect reads this text, it reads "dollar sign one" to the contact instead of "please
+When Connect Customer reads this text, it reads "dollar sign one" to the contact instead of "please
 read this text." Also, if you were to include $ in a key and try to reference the value
-later using Amazon Connect, it wouldn't retrieve the value.
+later using Connect Customer, it wouldn't retrieve the value.
 
-Amazon Connect does log and pass the full key:value pair `({"_$one":"please read this
+Connect Customer does log and pass the full key:value pair `({"_$one":"please read this
  text"})` to integrations such as Lambda.
 
 ## What happens if an attribute doesn't exist

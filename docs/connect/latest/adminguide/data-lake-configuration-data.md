@@ -1,12 +1,12 @@
-# Configuration data in the Amazon Connect data lake
+# Configuration data in the Connect Customer data lake
 
-This topic details the content in the Amazon Connect data lake configuration
+This topic details the content in the Connect Customer data lake configuration
 tables. The tables list the column, type, and description of the content.
 
 There are two ways to access the analytics data lake and configure data to be
 shared:
 
-- [Option 1: Use the Amazon Connect console](access-datalake.md#option1-configure-data-to-be-shared "access-datalake.md#option1-configure-data-to-be-shared")
+- [Option 1: Use the Connect Customer console](access-datalake.md#option1-configure-data-to-be-shared "access-datalake.md#option1-configure-data-to-be-shared")
 - [Option 2: Use CLI or CloudShell](access-datalake.md#option2-configure-data-to-be-shared "access-datalake.md#option2-configure-data-to-be-shared")
   If you are unable to access the scheduling tables by using Option 1, try using
   Option 2.
@@ -25,8 +25,8 @@ Composite Primary Key: agent_hierarchy_group_id
 
 | Column                             | Type      | Description                                                                                                                                                                                          |
 | ---------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | string    | The ID of the Amazon Connect instance.                                                                                                                                                               |
-| instance_arn                       | string    | The ARN of the Amazon Connect instance.                                                                                                                                                              |
+| instance_id                        | string    | The ID of the Connect Customer instance.                                                                                                                                                             |
+| instance_arn                       | string    | The ARN of the Connect Customer instance.                                                                                                                                                            |
 | aws_account_id                     | string    | The ID of the AWS account that owns the contact.                                                                                                                                                     |
 | agent_hierarchy_group_id           | string    | The identifier of the hierarchy group for the user.                                                                                                                                                  |
 | agent_hierarchy_group_arn          | string    | The ARN of the hierarchy group.                                                                                                                                                                      |
@@ -47,8 +47,8 @@ Composite Primary Key: agent_routing_profile_id
 | agent_routing_profile_id           | string    | The identifier of the routing profile.                                                                                                                                                               |
 | agent_routing_profile_arn          | string    | The ARN of the routing profile.                                                                                                                                                                      |
 | routing_profile_name               | string    | The name of the routing profile.                                                                                                                                                                     |
-| instance_id                        | string    | The ID of the Amazon Connect instance.                                                                                                                                                               |
-| instance_arn                       | string    | The ARN of the Amazon Connect instance.                                                                                                                                                              |
+| instance_id                        | string    | The ID of the Connect Customer instance.                                                                                                                                                             |
+| instance_arn                       | string    | The ARN of the Connect Customer instance.                                                                                                                                                            |
 | agent_availability_timer           | string    | Whether agents with this routing profile will have their<br>routing order calculated based on *longest idle<br>time<br>• or *time since their last inbound<br>contact\*.                             |
 | default_outbound_queue_id          | string    | The default outbound queue for the routing profile.                                                                                                                                                  |
 | routing_profile_description        | string    | Description of the routing profile.                                                                                                                                                                  |
@@ -80,9 +80,9 @@ Composite Primary Key: user_id
 | first_name                         | string        | The first name of the agent.                                                                                                                                                                         |
 | last_name                          | string        | The last name of the agent.                                                                                                                                                                          |
 | mobile                             | string        | The user's mobile number.                                                                                                                                                                            |
-| agent_username                     | string        | The user name of the agent, as entered in their Amazon Connect user<br>account.                                                                                                                      |
-| instance_id                        | string        | The ID of the Amazon Connect instance.                                                                                                                                                               |
-| instance_arn                       | string        | The ARN of the Amazon Connect instance.                                                                                                                                                              |
+| agent_username                     | string        | The user name of the agent, as entered in their Connect Customer user<br>account.                                                                                                                    |
+| instance_id                        | string        | The ID of the Connect Customer instance.                                                                                                                                                             |
+| instance_arn                       | string        | The ARN of the Connect Customer instance.                                                                                                                                                            |
 | agent_routing_profile_id           | string        | The ID of the routing profile for the agent.                                                                                                                                                         |
 | agent_routing_profile_arn          | string        | The ARN of the routing profile for the agent.                                                                                                                                                        |
 | agent_security_profile_ids         | array<string> | The IDs of the security profiles for the user.                                                                                                                                                       |

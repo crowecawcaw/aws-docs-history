@@ -1,14 +1,14 @@
-# Not receiving calls on the phone number ported to Amazon Connect
+# Not receiving calls on the phone number ported to Connect Customer
 
 After the scheduled porting window has completed, if you are not receiving
 phone calls on the ported phone number, update your support ticket. We will
 troubleshoot with our carrier to verify the porting status and identify the next
 steps to resolve issue.
 
-Amazon Connect and our carriers make every effort to ensure number porting occurs with
+Connect Customer and our carriers make every effort to ensure number porting occurs with
 minimal downtime and without issues. In most cases, the losing carrier is
 responsible for initiating the number porting and releasing your number to the
 winning carrier.
 
 In rare situations, a number routing issue can occur, resulting in calls not
-arriving to Amazon Connect from the carrier.
+arriving to Connect Customer from the carrier.

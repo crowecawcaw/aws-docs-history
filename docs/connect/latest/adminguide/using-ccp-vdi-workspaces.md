@@ -1,20 +1,20 @@
-# Optimize Amazon Connect audio for Amazon WorkSpaces cloud desktops
+# Optimize Connect Customer audio for Amazon WorkSpaces cloud desktops
 
-Amazon Connect simplifies delivery of high-quality voice experiences for agents operating
+Connect Customer simplifies delivery of high-quality voice experiences for agents operating
 within Amazon WorkSpaces Virtual Desktop Infrastructure (VDI) environments. By leveraging
-Amazon WorkSpaces with the WebRTC redirection feature, agents can redirect Amazon Connect audio
+Amazon WorkSpaces with the WebRTC redirection feature, agents can redirect Connect Customer audio
 processing to their local devices. This approach results in enhanced audio quality,
 even over challenging network conditions. To take advantage of this feature, you
 need to do the following:
 
-- Use [Amazon Connect
+- Use [Connect Customer
   open source libraries](https://github.com/amazon-connect/amazon-connect-streams "https://github.com/amazon-connect/amazon-connect-streams") to create a new or update an existing
   agent user interface, such as a custom Contact Control Panel (CCP).
 - Configure Amazon WorkSpaces to enable WebRTC redirection.
 
 ## System requirements
 
-This section describes the system requirements for using Amazon Connect with WorkSpaces
+This section describes the system requirements for using Connect Customer with WorkSpaces
 WebRTC redirection.
 
 - **WorkSpaces Protocol**
@@ -38,22 +38,22 @@ DCV** and complete those instructions.
   - **Workspace VDI
     configuration**
 
-  The admin needs to allow the Workspaces to access Amazon Connect
+  The admin needs to allow the Workspaces to access Connect Customer
   TCP/443 traffic to the domains mentioned in the following
   diagram. For more information, see [Set up your network](ccp-networking.md "ccp-networking.md").
   - **Agent machine
     configuration**
 
   This solution requires a media connection between the agent
-  thin client to Amazon Connect. To allow traffic between the agent's
-  machine and Amazon Connect Softphone Media UDP Port 3478, see [Set up your network](ccp-networking.md "ccp-networking.md").
+  thin client to Connect Customer. To allow traffic between the agent's
+  machine and Connect Customer Softphone Media UDP Port 3478, see [Set up your network](ccp-networking.md "ccp-networking.md").
 
 ![Workspace VDI and agent machine firewall settings.](images/vdi-workspaces.png)
 
 - **Unsupported CCP Deployment**
   - Native CCP
 
-## Confirm media flows between agent machine and Amazon Connect during the call
+## Confirm media flows between agent machine and Connect Customer during the call
 
 - Ensure DCV WebRTC browser extension is enabled and in Ready
   state.

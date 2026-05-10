@@ -1,9 +1,9 @@
-# How to reference contact attributes in Amazon Connect
+# How to reference contact attributes in Connect Customer
 
 The way you reference contact attributes depends on how they were created and how you are
 accessing them.
 
-- For the JSON syntax for each attribute, see [List of available contact attributes in Amazon Connect and their JSONPath references](connect-attrib-list.md "connect-attrib-list.md").
+- For the JSON syntax for each attribute, see [List of available contact attributes in Connect Customer and their JSONPath references](connect-attrib-list.md "connect-attrib-list.md").
 - To reference attributes that contain special characters in their name, such as spaces,
   place brackets and single quotations around the attribute name. For example: `$.Attributes.['user attribute name']`.
 - To reference attributes in the same namespace, such as a system attribute, you use the
@@ -20,7 +20,7 @@ accessing them.
 - To reference a customer name from a Lambda function lookup, use
   $.External.AttributeKey, replacing AttributeKey with the key (or name) of the attribute
   returned from the Lambda function.
-- To use an Amazon Connect prompt in a Lambda function, set a user-defined attribute to the ARN
+- To use an Connect Customer prompt in a Lambda function, set a user-defined attribute to the ARN
   for the prompt, and then access that attribute from the Lambda function.
 
 ## Amazon Lex examples
@@ -46,7 +46,7 @@ retrieved from external sources to user-defined attributes.
 
 attributes](set-contact-attributes.md "set-contact-attributes.md") block
 
-1. In Amazon Connect, choose **Routing**, **Contact
+1. In Connect Customer, choose **Routing**, **Contact
    flows**.
 2. Select an existing flow, or create a new one.
 3. Add a [Set contact

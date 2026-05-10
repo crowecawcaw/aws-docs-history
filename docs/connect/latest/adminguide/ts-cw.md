@@ -1,7 +1,7 @@
-# Troubleshoot issues with your Amazon Connect communications widget
+# Troubleshoot issues with your Connect Customer communications widget
 
 This topic is for developers who need to investigate issues that may occur when
-configuring a communications widget in the Amazon Connect admin website.
+configuring a communications widget in the Connect Customer admin website.
 
 ###### Contents
 
@@ -77,7 +77,7 @@ exist:
   archived
 - The widget hasn't been published, or it has been deleted
 
-Verify that your snippet is exactly how it was copied from the Amazon Connect admin website, and none
+Verify that your snippet is exactly how it was copied from the Connect Customer admin website, and none
 of the identifiers have changed.
 
 If the identifiers have not changed and you are seeing a 404, contact AWS
@@ -86,12 +86,12 @@ Support.
 ### 500 Internal server error
 
 This can be caused by your service-linked role not having the required
-permissions to start chat. This happens if your Amazon Connect instance was created
+permissions to start chat. This happens if your Connect Customer instance was created
 before October 2018 because you don’t have service-linked roles set up.
 
 **Solution**: Add the `connect:*`
-policy on the role that is associated with your Amazon Connect instance. For more
-information, see [Use service-linked roles and role permissions for Amazon Connect](connect-slr.md "connect-slr.md").
+policy on the role that is associated with your Connect Customer instance. For more
+information, see [Use service-linked roles and role permissions for Connect Customer](connect-slr.md "connect-slr.md").
 
 If your service-linked role has the correct permissions, contact AWS
 Support.
@@ -120,7 +120,7 @@ messages that were sent to it while disconnected:
   that were sent while the customer was disconnected.
 
 If the agent sends a message while the customer's chat user interface is
-disconnected, the message is successfully stored in the Amazon Connect back end: the CCP is
+disconnected, the message is successfully stored in the Connect Customer back end: the CCP is
 working as expected and messages are all recorded in transcript, but the customer's
 device is unable to receive messages. When the client reconnects to the WebSocket,
 there is a gap in messages. Future incoming messages will appear again from the

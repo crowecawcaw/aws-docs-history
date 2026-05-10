@@ -1,4 +1,4 @@
-# Personalize the customer experience for in-app, web, and video calling in Amazon Connect
+# Personalize the customer experience for in-app, web, and video calling in Connect Customer
 
 The steps in this topic are optional but recommended. They enable you to personalize
 the customer's experience based on their actions previously taken within your app. This
@@ -15,12 +15,12 @@ up your web servers to issue JSON Web Tokens (JWTs) for new calls
 3. Under **Add security for your communications widget requests**, choose
    **Yes**.
 
-![The Yes option.](images/chatwidget-choose-security.png) 4. Choose **Save and continue**. Amazon Connect creates the widget along
+![The Yes option.](images/chatwidget-choose-security.png) 4. Choose **Save and continue**. Connect Customer creates the widget along
 with the following:
 
-    * Amazon Connect provides a 44-character security key on the next page that you
+    * Connect Customer provides a 44-character security key on the next page that you
      can use to create JWTs.
-    * Amazon Connect adds a callback function within the communications widget embed script
+    * Connect Customer adds a callback function within the communications widget embed script
      that checks for a JWT when a call is initiated.
 
 
@@ -88,17 +88,17 @@ JWTs.
 
 Use this 44-character security key to generate JSON web tokens from your web
 server. You can also update, or rotate, keys if you need to change them. When
-you do this, Amazon Connect provides you with a new key and maintains the previous key
+you do this, Connect Customer provides you with a new key and maintains the previous key
 until you have a chance to replace it. After you have the new key deployed, you
-can come back to Amazon Connect and delete the previous key.
+can come back to Connect Customer and delete the previous key.
 
 ![The security key.](images/chatwidget-security-key.png)
 
 When your customers interact with the start call icon on your website, the
 communications widget requests your web server for a JWT. When this JWT is provided, the
-widget will then include it as part of the end customer’s call to Amazon Connect. Amazon Connect
+widget will then include it as part of the end customer’s call to Connect Customer. Connect Customer
 then uses the secret key to decrypt the token. If successful, this confirms that
-the JWT was issued by your web server and Amazon Connect routes the call to your contact
+the JWT was issued by your web server and Connect Customer routes the call to your contact
 center agents.
 
 #### JSON Web Token specifics

@@ -21,4 +21,4 @@ Use any of the following methods to search for quick responses:
 
 ![Image of a chat window with a welcome message and /#G1.](images/response-example.png)
 For information about creating, importing, and managing quick responses, including
-required permissions, see [Create quick responses for use with chat and email contacts in Amazon Connect](create-quick-responses.md "create-quick-responses.md").
+required permissions, see [Create quick responses for use with chat and email contacts in Connect Customer](create-quick-responses.md "create-quick-responses.md").

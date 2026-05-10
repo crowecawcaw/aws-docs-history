@@ -1,6 +1,6 @@
 # Enable in-flight sensitive data redaction and message processing
 
-Amazon Connect supports message processing that intercepts and modifies chat messages before
+Connect Customer supports message processing that intercepts and modifies chat messages before
 they reach any participant. This capability enables automatic redaction of sensitive
 data and custom message processing, helping businesses maintain compliance and security
 standards.
@@ -12,7 +12,7 @@ The following are processing options, along with features of each option:
     numbers, and other PII
   - Supports multiple languages, including English, French, Portuguese,
     German, Italian, and Spanish variants. For a list of the languages
-    supported by Contact Lens redaction, see [Languages supported by Amazon Connect features](supported-languages.md "supported-languages.md").
+    supported by Contact Lens redaction, see [Languages supported by Connect Customer features](supported-languages.md "supported-languages.md").
   - Choose to redact selected or all sensitive data entities
   - Replace with generic placeholders ([PII]) or entity-specific
     placeholders ([NAME], [CREDIT\_CARD])

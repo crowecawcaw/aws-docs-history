@@ -45,6 +45,6 @@ the required permissions:
 - **Amazon Bedrock AgentCore Gateway role** –
   The gateway's execution role must have permission to invoke the backend
   APIs or Lambda functions that your MCP tools connect to.
-- **Amazon Connect service-linked role** –
-  The Amazon Connect service-linked role must have permission to invoke the Amazon Bedrock
+- **Connect Customer service-linked role** –
+  The Connect Customer service-linked role must have permission to invoke the Amazon Bedrock
   AgentCore Gateway.

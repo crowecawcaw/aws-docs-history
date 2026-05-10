@@ -1,4 +1,4 @@
-# Agent evaluation form output in Amazon Connect
+# Agent evaluation form output in Connect Customer
 
 This section shows the export output path for evaluations, provides an example of
 evaluation form scores, and describes the evaluation form metadata.
@@ -19,7 +19,7 @@ evaluation form scores, and describes the evaluation form metadata.
 
 ## Verify your S3 bucket
 
-When you enable **Contact evaluations** in the Amazon Connect
+When you enable **Contact evaluations** in the Connect Customer
 console, you are prompted to create or choose an S3 bucket to store the evaluations.
 To verify the name of the bucket, go to your instance alias, choose **Data
 storage**, **Contact evaluations**, then
@@ -235,7 +235,7 @@ length of 1, maximum length of 256
 **accountId**
 
 The identifier of AWS account running the instance of
-Amazon Connect.
+Connect Customer.
 
 _Type_ – String
 
@@ -323,7 +323,7 @@ The evaluation's score.
 The entity that created the evaluation the very first
 time (as opposed to "evaluator" which represents the entity
 that last submitted the evaluation). When the call is made
-from the Amazon Connect admin website it contains the username. Wen the call comes
+from the Connect Customer admin website it contains the username. Wen the call comes
 from the API it contains the ARN of the caller.
 
 _Type_ – String

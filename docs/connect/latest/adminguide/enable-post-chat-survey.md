@@ -20,11 +20,11 @@ If you're using a custom chat implementation:
 }
 ```
 
-### For Amazon Connect Communication Widget
+### For Connect Customer Communication Widget
 
-If you're using the Amazon Connect Communication Widget:
+If you're using the Connect Customer Communication Widget:
 
-1. Open the Amazon Connect console and navigate to **Communication widgets**.
+1. Open the Connect Customer console and navigate to **Communication widgets**.
 2. Enable the post-chat survey setting through the Communication Widgets page.
 
 ![The Communication Widget settings page showing the post-chat survey option.](images/post-chat-survey-communication-widget.png)
@@ -37,18 +37,18 @@ For information about creating a disconnect flow, see [Example chat scenario](we
 
 There are two ways to implement a survey in your disconnect flow:
 
-- **Option #1: Using ShowView block** - Use the [Flow block in Amazon Connect: Show view](show-view-block.md "show-view-block.md") to display a custom survey interface.
-- **Option #2: Using Lex** - Integrate with Amazon Lex for text-based survey collection. For more information, see [Add an Amazon Lex bot to Amazon Connect](amazon-lex.md "amazon-lex.md").
+- **Option #1: Using ShowView block** - Use the [Flow block in Connect Customer: Show view](show-view-block.md "show-view-block.md") to display a custom survey interface.
+- **Option #2: Using Lex** - Integrate with Amazon Lex for text-based survey collection. For more information, see [Add an Amazon Lex bot to Connect Customer](amazon-lex.md "amazon-lex.md").
 
 ###### Note
 
-For supervisor barge-in scenarios, ensure you add a [Flow block in Amazon Connect: Set working queue](set-working-queue.md "set-working-queue.md") block before **Transfer to Queue**. Omitting it will cause chat contacts to terminate rather than transfer for this feature.
+For supervisor barge-in scenarios, ensure you add a [Flow block in Connect Customer: Set working queue](set-working-queue.md "set-working-queue.md") block before **Transfer to Queue**. Omitting it will cause chat contacts to terminate rather than transfer for this feature.
 
 ![A flow diagram showing the Set Working Queue block before Transfer to Queue for supervisor barge-in scenarios.](images/post-chat-survey-set-working-queue-block.png)
 
 ###### Contact Trace Records
 
-When a customer ends a chat session, Amazon Connect sets `disconnectReason` to `CUSTOMER_DISCONNECT` in the [ContactTraceRecord](ctr-data-model.md#ctr-ContactTraceRecord "ctr-data-model.md#ctr-ContactTraceRecord"). When `DisconnectOnCustomerExit` is configured, the system generates a new contact ID (`nextContactId`) and initiates the configured disconnect flow.
+When a customer ends a chat session, Connect Customer sets `disconnectReason` to `CUSTOMER_DISCONNECT` in the [ContactTraceRecord](ctr-data-model.md#ctr-ContactTraceRecord "ctr-data-model.md#ctr-ContactTraceRecord"). When `DisconnectOnCustomerExit` is configured, the system generates a new contact ID (`nextContactId`) and initiates the configured disconnect flow.
 
 Example:
 
@@ -62,17 +62,17 @@ Example:
 }
 ```
 
-[How contact attributes work in Amazon Connect](what-is-a-contact-attribute.md "what-is-a-contact-attribute.md") will update in Contact Search and Contact Details.
+[How contact attributes work in Connect Customer](what-is-a-contact-attribute.md "what-is-a-contact-attribute.md") will update in Contact Search and Contact Details.
 
 ![Contact details showing the contact attributes for a post-chat survey.](images/post-chat-survey-contact-attributes.png)
 
 ## Additional resources
 
 - [StartChatContact API](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md")
-- [Sample inbound flow in Amazon Connect for the first contact experience](sample-inbound-flow.md "sample-inbound-flow.md")
+- [Sample inbound flow in Connect Customer for the first contact experience](sample-inbound-flow.md "sample-inbound-flow.md")
 - [Example chat scenario](web-and-mobile-chat.md#example-chat-scenario "web-and-mobile-chat.md#example-chat-scenario")
-- [Flow block in Amazon Connect: Set working queue](set-working-queue.md "set-working-queue.md")
-- [Flow block in Amazon Connect: Transfer to queue](transfer-to-queue.md "transfer-to-queue.md")
-- [Amazon Connect ShowView](show-view-block.md "show-view-block.md")
-- [Amazon Connect with Lex](amazon-lex.md "amazon-lex.md")
-- [How contact attributes work in Amazon Connect](what-is-a-contact-attribute.md "what-is-a-contact-attribute.md")
+- [Flow block in Connect Customer: Set working queue](set-working-queue.md "set-working-queue.md")
+- [Flow block in Connect Customer: Transfer to queue](transfer-to-queue.md "transfer-to-queue.md")
+- [Connect Customer ShowView](show-view-block.md "show-view-block.md")
+- [Connect Customer with Lex](amazon-lex.md "amazon-lex.md")
+- [How contact attributes work in Connect Customer](what-is-a-contact-attribute.md "what-is-a-contact-attribute.md")

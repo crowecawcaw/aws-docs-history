@@ -1,9 +1,9 @@
-# Set IP address restrictions and session timeouts in Amazon Connect
+# Set IP address restrictions and session timeouts in Connect Customer
 
 ###### Note
 
 This feature is in preview release and subject to change. To obtain access to this
-feature, contact your Amazon Connect Solutions Architect, Technical Account Manager, or
+feature, contact your Connect Customer Solutions Architect, Technical Account Manager, or
 Support.
 
 To further lock down your contact center, for example, to comply with requirements and
@@ -11,14 +11,14 @@ regulations in your industry, you can set up IP address restrictions and session
 
 - IP address restrictions require agents to sign in only from your VPN, or block
   access from specific countries or subnets.
-- Session timeouts require agents to log in to Amazon Connect again.
-  In Amazon Connect you configure an _authentication profile_ to set IP address
+- Session timeouts require agents to log in to Connect Customer again.
+  In Connect Customer you configure an _authentication profile_ to set IP address
   restrictions and session durations of logged in agents. An authentication profile is a
   resource that stores the authentication settings for users in your contact center.
 
 ## Getting started with authentication profiles
 
-Your Amazon Connect instance includes a default authentication profile. This authentication
+Your Connect Customer instance includes a default authentication profile. This authentication
 profile applies to **all users** in your
 contact center by default and does not need to be assigned.
 
@@ -27,8 +27,8 @@ commands.
 
 ###### Tip
 
-You need your Amazon Connect instance ID to run these commands. For instructions about how
-to locate your instance ID, see [Find your Amazon Connect instance ID or ARN](find-instance-arn.md "find-instance-arn.md").
+You need your Connect Customer instance ID to run these commands. For instructions about how
+to locate your instance ID, see [Find your Connect Customer instance ID or ARN](find-instance-arn.md "find-instance-arn.md").
 
 1. List the authentication profiles in your instance to get the profile ID of the
    authentication profile you want to update. You can call the [ListAuthenticationProfile](../APIReference/API_ListAuthenticationProfile.md "../APIReference/API_ListAuthenticationProfile.md") API or run the
@@ -95,7 +95,7 @@ Following is an example of the information returned by the
 }
 ```
 
-For a description of each field, see [AuthenticationProfile](../APIReference/API_AuthenticationProfile.md "../APIReference/API_AuthenticationProfile.md") in the _Amazon Connect API
+For a description of each field, see [AuthenticationProfile](../APIReference/API_AuthenticationProfile.md "../APIReference/API_AuthenticationProfile.md") in the _Connect Customer API
 Reference_. 3. Configure the authentication profile by using the [UpdateAuthenticationProfile](../APIReference/API_UpdateAuthenticationProfile.md "../APIReference/API_UpdateAuthenticationProfile.md") API or the
 `update-authentication-profile` CLI command. All fields except
 `InstanceId` and `ProfileId` are optional. Only the
@@ -176,10 +176,10 @@ Following is what happens if the IP address fails the check:
       they are placed back into the active call and can take action
       again.
 
-**Admins and users using the Amazon Connect admin website**
+**Admins and users using the Connect Customer admin website**
 
 When the IP address check fails for admins and other users taking actions on the
-Amazon Connect admin website, such as saving updates to resources or barging in to active calls, they are
+Connect Customer admin website, such as saving updates to resources or barging in to active calls, they are
 automatically logged out.
 
 ## Example IP address configurations
@@ -237,7 +237,7 @@ center unless explicitly blocked by the `blockedIps` list.
 
 ## Configure user session timeouts
 
-An Amazon Connect session is defined as a continuous period of authenticated access to your
+An Connect Customer session is defined as a continuous period of authenticated access to your
 contact center’s website. There are two session timeouts that apply to user sessions in
 your contact center:
 
@@ -248,7 +248,7 @@ your contact center:
   the period before an agent is automatically signed out of the contact center
   when they go inactive.
 
-By default, users in your Amazon Connect instance remain signed in until the maximum
+By default, users in your Connect Customer instance remain signed in until the maximum
 session duration of 12 hours elapses, with no automatic logout for inactivity. However,
 organizations with stricter security and compliance requirements can leverage
 authentication profiles to enable automatic sign-out when users become inactive. Once
@@ -263,7 +263,7 @@ A contact center user is considered active when performing any of the following 
 If the user is determined to be inactive, a pop-up will appear on the screen
 warning the user that their session is about to expire due to inactivity. A user can choose to remain logged in or log out.
 
-To opt-in to automatic logout on user inactivity, perform the following API calls on an authentication profile in your instance using the Amazon Connect SDK.
+To opt-in to automatic logout on user inactivity, perform the following API calls on an authentication profile in your instance using the Connect Customer SDK.
 
 ```
 aws connect update-authentication-profile
@@ -283,7 +283,7 @@ inactivity.
 ###### Note
 
 Customers who leverage AmazonConnectStreams or the AmazonConnectSDK to integrate their
-existing web applications with Amazon Connect must implement activity handling as part
+existing web applications with Connect Customer must implement activity handling as part
 of their integration before enabling automatic log-out on user inactivity. See the
 AmazonConnectStreams or AmazonConnectSDK documentation for more information.
 

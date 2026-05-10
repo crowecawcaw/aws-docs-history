@@ -1,4 +1,4 @@
-# Allow the Amazon Connect Contact Control Panel (CCP) to access cookies
+# Allow the Connect Customer Contact Control Panel (CCP) to access cookies
 
 When logging into the CCP you may see one of these banners:
 
@@ -6,8 +6,8 @@ When logging into the CCP you may see one of these banners:
 OR
 
 ![A Grant access banner.](images/3pcookies-custom-grant-access.png)
-Amazon Connect uses cookies for authentication. Google Chrome requires you to authorize the use
-of Amazon Connect cookies.
+Connect Customer uses cookies for authentication. Google Chrome requires you to authorize the use
+of Connect Customer cookies.
 
 1. When you log in to the CCP, on the **Allow access to
    cookies** banner choose **Grant access**.

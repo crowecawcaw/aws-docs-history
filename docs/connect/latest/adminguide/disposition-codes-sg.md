@@ -1,4 +1,4 @@
-# Enable Amazon Connect contact center agents to enter disposition codes when a contact ends
+# Enable Connect Customer contact center agents to enter disposition codes when a contact ends
 
 A simple use case of step-by-step guides is to have an agent enter a disposition code
 at the end of the contact. To give your agents the ability to set disposition codes at

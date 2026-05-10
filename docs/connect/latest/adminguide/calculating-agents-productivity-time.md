@@ -1,7 +1,7 @@
-# Examples of Agent Adherence calculations in Amazon Connect
+# Examples of Agent Adherence calculations in Connect Customer
 
 This topic shows two examples that illustrate how Agent Adherent and Non-Adherent
-Time are calculated in Amazon Connect. It also includes a third example that shows adherence
+Time are calculated in Connect Customer. It also includes a third example that shows adherence
 with thresholds.
 
 ## Example 1

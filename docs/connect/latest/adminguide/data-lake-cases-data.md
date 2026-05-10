@@ -1,12 +1,12 @@
-# Cases data in the Amazon Connect analytics data lake
+# Cases data in the Connect Customer analytics data lake
 
-This topic details the content in the Amazon Connect data lake cases tables. The
+This topic details the content in the Connect Customer data lake cases tables. The
 tables list the column, type, and description of the content.
 
 There are two ways to access the analytics data lake and configure data to be
 shared:
 
-- [Option 1: Use the Amazon Connect console](access-datalake.md#option1-configure-data-to-be-shared "access-datalake.md#option1-configure-data-to-be-shared")
+- [Option 1: Use the Connect Customer console](access-datalake.md#option1-configure-data-to-be-shared "access-datalake.md#option1-configure-data-to-be-shared")
 - [Option 2: Use CLI or CloudShell](access-datalake.md#option2-configure-data-to-be-shared "access-datalake.md#option2-configure-data-to-be-shared")
   If you are unable to access the scheduling tables by using Option 1, try using
   Option 2.
@@ -24,7 +24,7 @@ Composite primary key: {instance_id, event_id}
 
 | **Column**                 | **Type**      | **Description**                                                                                                                                                                                                            |
 | -------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                | string        | The ID of the Amazon Connect instance.                                                                                                                                                                                     |
+| instance_id                | string        | The ID of the Connect Customer instance.                                                                                                                                                                                   |
 | aws_account_id             | string        | The ID of the AWS account that owns the case.                                                                                                                                                                              |
 | event_id                   | string        | The unique ID of the case event.                                                                                                                                                                                           |
 | case_id                    | string        | The ID of the case.                                                                                                                                                                                                        |
@@ -34,7 +34,7 @@ Composite primary key: {instance_id, event_id}
 | performed_by_iam_principal | string        | The IAM principal ARN of the entity that triggered the event.                                                                                                                                                              |
 | performed_by_user_arn      | string        | The ARN of the user that performed the action.                                                                                                                                                                             |
 | performed_by_custom_entity | string        | The custom entity that performed the action.                                                                                                                                                                               |
-| cases_domain_arn           | string        | The ARN of the Amazon Connect Cases domain.                                                                                                                                                                                |
+| cases_domain_arn           | string        | The ARN of the Connect Customer Cases domain.                                                                                                                                                                              |
 | template_id                | string        | The ID of the case template used to create the case.                                                                                                                                                                       |
 | template_name              | string        | The name of the case template. This value is empty if the template has been deleted.                                                                                                                                       |
 | last_updated_user          | string        | The last user who updated the case. This references the `last_updated_user` system field value.                                                                                                                            |
@@ -110,7 +110,7 @@ Composite primary key: {instance_id, event_id}
 
 | **Column**                 | **Type**      | **Description**                                                                                                                                                                                                                    |
 | -------------------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                | string        | The ID of the Amazon Connect instance.                                                                                                                                                                                             |
+| instance_id                | string        | The ID of the Connect Customer instance.                                                                                                                                                                                           |
 | aws_account_id             | string        | The ID of the AWS account that owns the related item.                                                                                                                                                                              |
 | event_id                   | string        | The unique ID of the related item event.                                                                                                                                                                                           |
 | related_item_id            | string        | The ID of the related item.                                                                                                                                                                                                        |
@@ -119,7 +119,7 @@ Composite primary key: {instance_id, event_id}
 | performed_by_iam_principal | string        | The IAM principal ARN of the entity that triggered the event.                                                                                                                                                                      |
 | performed_by_user_arn      | string        | The ARN of the user who performed the action.                                                                                                                                                                                      |
 | performed_by_custom_entity | string        | The custom entity identifier that performed the action.                                                                                                                                                                            |
-| cases_domain_arn           | string        | The ARN of the Amazon Connect Cases domain.                                                                                                                                                                                        |
+| cases_domain_arn           | string        | The ARN of the Connect Customer Cases domain.                                                                                                                                                                                      |
 | associated_case_id         | string        | The ID of the case that this related item is associated with.                                                                                                                                                                      |
 | related_item_type          | string        | The type of related item. Valid values: comment, file, sla, connect, contact, custom.                                                                                                                                              |
 | created_timestamp          | Timestamp     | The timestamp when the related item was created, in UTC.                                                                                                                                                                           |

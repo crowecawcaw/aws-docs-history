@@ -3,7 +3,7 @@
 Performance eﬃciency includes the ability to use computing resources eﬃciently to meet
 system requirements, and to maintain that eﬃciency as demand changes and technologies
 evolve. This section provides an overview of design principles, best practices, and
-questions surrounding performance efficiency for Amazon Connect workloads. You can ﬁnd
+questions surrounding performance efficiency for Connect Customer workloads. You can ﬁnd
 prescriptive guidance on implementation in the [Performance Eﬃciency Pillar](https://d0.awsstatic.com/whitepapers/architecture/AWS-Performance-Efficiency-Pillar.pdf "                 https://d0.awsstatic.com/whitepapers/architecture/AWS-Performance-Efficiency-Pillar.pdf") whitepaper.
 
 ## Architectural design
@@ -67,7 +67,7 @@ finish. Your flow configuration can have a direct impact on performance, operati
 efficiency, and ease of maintenance.
 
 Many Large businesses support multiple phone numbers, business units, prompts,
-queues, and other Amazon Connect resources. While it is possible to have unique flows for
+queues, and other Connect Customer resources. While it is possible to have unique flows for
 each phone number and line of business, it can lead to a one-to-one mapping of phone
 numbers and flows. This results in unnecessary service quota requests and a large
 number of flows to support and maintain. A one-to-one mapping of DNIS and Flow
@@ -76,10 +76,10 @@ implementation is illustrated in the following figure:
 ![Flow design example showing a one-to-one mapping of a DNIS and Flow implementation.](images/architecture/contactflowdesign.png)
 
 Alternatively, you should consider an approach that results in Multiple DNIS to
-one or few flows by using the dynamic nature of Amazon Connect Flows. With this approach, you
+one or few flows by using the dynamic nature of Connect Customer Flows. With this approach, you
 can store configuration information like Prompts, Queues, Business Hours, Whisper
 Prompts/Flows, Queues, Queue Treatments and Hold Messages etc., in NoSQL Database
-DynamoDB. In Amazon Connect, you can associate multiple phone numbers to the same flow and use
+DynamoDB. In Connect Customer, you can associate multiple phone numbers to the same flow and use
 the Lambda function to look up configurations for that phone number. This allows you
 to dynamically define the contact’s experience based on the attributes returned from
 DynamoDB.
@@ -94,18 +94,18 @@ that is efficient to build, maintain, and support:
 ## Load testing
 
 If you need to run load or scale testing, you can employ third-party or partner
-solutions to run load tests, or develop your own custom solution using the Amazon Connect
+solutions to run load tests, or develop your own custom solution using the Connect Customer
 [StartOutboundVoiceContact](../APIReference/API_StartOutboundVoiceContact.md "../APIReference/API_StartOutboundVoiceContact.md") API to generate calls combined with browser
 automation scripts to simulate agent behavior. Before to performing load tests,
-review and follow [Load and penetration / security testing policies for Amazon Connect](load-and-penetration-testing.md "load-and-penetration-testing.md").
+review and follow [Load and penetration / security testing policies for Connect Customer](load-and-penetration-testing.md "load-and-penetration-testing.md").
 
 ## Agent enablement
 
-Amazon Connect provides a readily available browser-based Contact Control Panel (CCP) for
+Connect Customer provides a readily available browser-based Contact Control Panel (CCP) for
 agents to interact with customer contacts. Your agents use the CCP to accept
 contacts, chat with contacts, transfer them to other agents, put them on hold, and
 perform other key tasks. You can realize significant performance efficiency through
-the creation of custom agent desktop solutions using the [Amazon Connect Streams](https://github.com/aws/amazon-connect-streams "https://github.com/aws/amazon-connect-streams") API.
+the creation of custom agent desktop solutions using the [Connect Customer Streams](https://github.com/aws/amazon-connect-streams "https://github.com/aws/amazon-connect-streams") API.
 Consider using the Streams API to increase performance efficiency in the following
 areas:
 
@@ -113,11 +113,11 @@ areas:
   application, create your own interface, or integrate with other AWS
   services and partner solutions to provide your agents with the tools and
   resources they need to service your contacts. With a custom desktop, like
-  the Amazon Connect and [Salesforce
+  the Connect Customer and [Salesforce
   integration](salesforce-integration.md "salesforce-integration.md"), your agents can get a comprehensive view of customer
   and contact in a single interface without managing multiple screens and
   interfaces.
-- Authentication - You can configure SAML for identity management in Amazon Connect
+- Authentication - You can configure SAML for identity management in Connect Customer
   and use IAM Identity Center (SSO) to allow your agents to use the same credentials they
   use to access your other systems and avoid the need to enter them multiple
   times.
@@ -143,7 +143,7 @@ identify areas of opportunity, and gain valuable insights into your contact data
 
 ### AWS Lambda
 
-You can use AWS Lambda in your Amazon Connect Flows to perform data dips for customer
+You can use AWS Lambda in your Connect Customer Flows to perform data dips for customer
 information, send SMS text messages, and with other services like Amazon S3 to
 automatically distribute scheduled reports. For more information, see [Best
 Practices for Working with AWS Lambda functions](../../../lambda/latest/dg/best-practices.md "../../../lambda/latest/dg/best-practices.md").
@@ -173,13 +173,13 @@ able to take full advantage of Direct Connect.
 
 Do not use Direct Connect for "QoS" or "increased security." Direct Connect can cause
 performance degradation in cases where the latency from the agent workstation is
-higher than the ISP’s path to the Amazon Connect instance. Direct Connect does not offer
-additional security when compared to an ISP as Amazon Connect voice and data is already
+higher than the ISP’s path to the Connect Customer instance. Direct Connect does not offer
+additional security when compared to an ISP as Connect Customer voice and data is already
 encrypted.
 
 ### Amazon Polly
 
-Amazon Connect offers a native integration with Amazon Polly, allowing you to play dynamic and
+Connect Customer offers a native integration with Amazon Polly, allowing you to play dynamic and
 natural Text-to-Speech (TTS), use Speech Synthesis Markup Language (SSML), and
 take advantage of Neural Text-to-Speech (NTTS) to achieve the most natural and
 human-like text-to-speech voices possible.
@@ -198,10 +198,10 @@ requesting a balance on an account, or scheduling an appointment without ever
 speaking to an agent.
 
 Amazon Lex is a service that allows you to create intelligent conversational
-chatbots. It lets you turn your Amazon Connect contact center flows into natural
+chatbots. It lets you turn your Connect Customer contact center flows into natural
 conversations that provide personalized experiences for your callers. Using the
 same technology that powers Amazon Alexa, an Amazon Lex chatbot can be attached to
-your Amazon Connect Flow to recognize the intent of your caller, ask follow-up questions,
+your Connect Customer Flow to recognize the intent of your caller, ask follow-up questions,
 and provide answers. Amazon Lex maintains context and manages the dialogue,
 dynamically adjusting the responses based on the conversation, so your contact
 center can perform common tasks for callers, to address many customer inquiries
@@ -222,26 +222,26 @@ review. For more information, see the following resources:
 ### Amazon Kinesis
 
 For situations where you need to gain additional insight from your contact
-metrics and real-time data from Amazon Connect, you can:
+metrics and real-time data from Connect Customer, you can:
 
 - Export your contact record data to Amazon Redshift using Amazon Kinesis.
 - Use Amazon Kinesis video stream (KVS) and AWS Lambda to transcribe call recordings
   or voice contacts in real-time using Amazon Transcribe and send the resulting text
   to Amazon Comprehend for sentiment analysis.
-- Leverage the [Amazon Connect Agent Event
+- Leverage the [Connect Customer Agent Event
   Kinesis Stream](agent-event-streams.md "agent-event-streams.md") for real-time agent CTI and schedule adherence
   data.
 
 ### Amazon OpenSearch Service and Kibana
 
-Using Amazon OpenSearch Service and Kibana to process real-time Amazon Connect data gives you a flexible
-way to query and visualize real-time and historical Amazon Connect data beyond native
+Using Amazon OpenSearch Service and Kibana to process real-time Connect Customer data gives you a flexible
+way to query and visualize real-time and historical Connect Customer data beyond native
 reporting capabilities.
 
-### Amazon Connect Contact Lens
+### Connect Customer Contact Lens
 
 Contact Lens is a set of machine learning (ML) capabilities integrated
-into Amazon Connect that allow contact center supervisors to better understand the
+into Connect Customer that allow contact center supervisors to better understand the
 sentiment, trends, and compliance risks of customer conversations to effectively
 train agents, replicate successful interactions, and identify crucial company
 and product feedback. Contact Lens transcribes contact center calls to

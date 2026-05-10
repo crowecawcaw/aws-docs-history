@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Set callback number
+# Flow block in Connect Customer: Set callback number
 
 This topic defines the flow block for setting the number to call back the
 customer.
@@ -52,24 +52,24 @@ dialable**.
 
 1. **Invalid number**: The customer entered phone number
    that is not valid.
-2. **Not dialable**: Amazon Connect is unable to dial that number.
+2. **Not dialable**: Connect Customer is unable to dial that number.
    For example, if your instance is not allowed to make calls to +447 prefix
    phone numbers, and the customer requested callback to a +447 prefix number.
-   Even though number is valid, Amazon Connect cannot call it.
+   Even though number is valid, Connect Customer cannot call it.
 
 ## Sample flows
 
-Amazon Connect includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
-[Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
+Connect Customer includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
+[Sample flows in Connect Customer](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-- [Sample queue configurations flow in Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md")
-- [Sample queued callback flow in Amazon Connect](sample-queued-callback.md "sample-queued-callback.md"): this sample only applies to
-  previous instances of Amazon Connect.
+- [Sample queue configurations flow in Connect Customer](sample-queue-configurations.md "sample-queue-configurations.md")
+- [Sample queued callback flow in Connect Customer](sample-queued-callback.md "sample-queued-callback.md"): this sample only applies to
+  previous instances of Connect Customer.
 
 ## Scenarios
 
 See these topics for scenarios that use this block:
 
-- [Set up queued callback by creating flows, queues, and routing profiles in Amazon Connect](setup-queued-cb.md "setup-queued-cb.md")
-- [Queued callbacks in real-time metrics in Amazon Connect](about-queued-callbacks.md "about-queued-callbacks.md")
+- [Set up queued callback by creating flows, queues, and routing profiles in Connect Customer](setup-queued-cb.md "setup-queued-cb.md")
+- [Queued callbacks in real-time metrics in Connect Customer](about-queued-callbacks.md "about-queued-callbacks.md")

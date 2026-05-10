@@ -27,7 +27,7 @@ or Guided Campaign Builder to create a single-channel with step-by-step guidance
 You can control how often each recipient is contacted by setting communication limits for
 the Journey. Simply specify the maximum number of messages a recipient can receive within a
 defined time frame (e.g., per day, week, or month). If a recipient has already received the
-maximum number of communications within any of the time frames you set, Amazon Connect Outbound
+maximum number of communications within any of the time frames you set, Connect Customer Outbound
 Campaigns will automatically skip that recipient and they won’t receive additional messages
 from the Journey.
 
@@ -37,7 +37,7 @@ If you set a limit of 4 communications per 2 days and 6 communications per 2 wee
 days), any recipient who has already received 4 messages in the last 2 days or 6 messages in
 the last 14 days will not be contacted again by this Journey.
 
-Amazon Connect Outbound Campaigns
+Connect Customer Outbound Campaigns
 considers any time a recipient has been contacted, regardless of the recipients interaction
 with the message, as a communication. For example, a phone call ending in a voicemail is still
 considered a communication. Amazon Connect Outbound Campaigns will adjust the count of
@@ -67,7 +67,7 @@ All communications across
 all journeys in the active state are considered when determining if a recipient has breached
 their total limits.
 
-Amazon Connect Outbound Campaigns measures a day as a rolling 24 hour
+Connect Customer Outbound Campaigns measures a day as a rolling 24 hour
 window from the current moment.
 
 Any communications sent from a journey that
@@ -90,21 +90,36 @@ particular recipient, you need to provide a
 zone**, which will be used for all recipients, or you may specify the
 **Recipient's local time zone**. Recipients with no time zone specified are excluded from message deliveries.
 
-- Standard
-  time zone: The time zone selected will be used for all recipients. Select this option if you
-  know the time zone of all recipients in your segment or if you want all communications sent at
-  the same moment in time.
-- Recipient's local time zone: Amazon Connect Outbound Campaigns use the provided Address
-  and/or the area code from the Phone Number to infer the recipients time zone. If the time
-  zone cannot be determined (for example, if either the [Address](../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-Address "../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-Address") and/or [Phone Number](../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-PhoneNumber "../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-PhoneNumber") is missing
-  or is invalid), the recipient will be dropped from the Journey. Select this option if it's
-  important to send communications to recipients only during their specific local
-  times.
+- **Standard
+  time zone**: The time zone selected will be used for all recipients. Select this option if you
+  know the time zone of all recipients in your segment or if you want to send all communications in
+  the same time zone.
+- **Recipient's local time zone**: Connect Customer Outbound Campaigns use profile attributes to infer each
+  recipient's time zone. If the time zone cannot be determined, the recipient will be dropped
+  from the Journey. Select this option if it's important to send communications to recipients
+  only during their specific local times.
+
+When you select **Recipient's local time zone**, you configure the
+following settings:
+
+    + **Detect recipient's local time zone** — Choose the method
+     used to detect the recipient's time zone. Connect Customer Outbound Campaigns use a profile's [Address](../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-Address "../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-Address") and/or [Phone Number](../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-PhoneNumber "../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-PhoneNumber")'s area code to infer the recipient's time zone.
+    + **Profile attributes to use for time zone detection** — Choose
+     the scope of profile attributes used for time zone detection:
+
+
+
+
+    	- **Primary only** — Uses only the primary phone number and/or
+    	 address attributes from the recipient's customer profile to determine the time
+    	 zone.
+    	- **All available** — Uses all phone number and/or address
+    	 attributes from the recipient's customer profile to determine the time zone.
 
 #### Active communication time (optional)
 
 The **Active communication time** represents the times during which
-Amazon Connect Outbound campaigns may send communications for this journey. To add active
+Connect Customer Outbound campaigns may send communications for this journey. To add active
 communication times: Select the channel. Alternatively, select Apply to all channels to apply
 the active communication times to each channel. Select the day of the week to configure. You
 can add multiple active communication times for each day, if desired. Select the time frame
@@ -128,7 +143,7 @@ Specify when you want your journey to begin:
 - **Start now**: Start the journey right away.
 - **Start later**: Select the specific day and time for the journey to
   begin.
-- **Expiry Date and Time**: The date and time at which Amazon Connect
+- **Expiry Date and Time**: The date and time at which Connect Customer
   Outbound campaigns should end the journey. An expired journey appears with a
   **Completed** status a few moments after expiry time.
 

@@ -1,7 +1,7 @@
-# Pass the customer display name when an Amazon Connect chat starts
+# Pass the customer display name when an Connect Customer chat starts
 
 To deliver a more personalized experience for both your customers and agents, you can
-customize the Amazon Connect communications widget to pass the customer display name during contact
+customize the Connect Customer communications widget to pass the customer display name during contact
 initialization. The name is visible to both the customer and agent throughout the chat
 interaction. This display name is recorded in the chat transcript.
 
@@ -17,9 +17,9 @@ their name in the agent's CCP.
 ## How to pass a customer display name in the communications widget
 
 To pass a customer display name, implement your callback function in the snippet.
-Amazon Connect retrieves the display name automatically.
+Connect Customer retrieves the display name automatically.
 
-1. Complete the steps in [Add a chat user interface to your website hosted by Amazon Connect](add-chat-to-website.md "add-chat-to-website.md"), if you haven't already.
+1. Complete the steps in [Add a chat user interface to your website hosted by Connect Customer](add-chat-to-website.md "add-chat-to-website.md"), if you haven't already.
 2. Augment your existing widget snippet to add a
    `customerDisplayName` callback. It might look something like
    the following example:

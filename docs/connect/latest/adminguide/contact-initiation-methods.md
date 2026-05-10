@@ -1,6 +1,6 @@
-# Contact initiation methods and flow types in your Amazon Connect contact center
+# Contact initiation methods and flow types in your Connect Customer contact center
 
-Every contact in your Amazon Connect contact center is initiated by one of the following methods:
+Every contact in your Connect Customer contact center is initiated by one of the following methods:
 
 - INBOUND
 - OUTBOUND
@@ -65,7 +65,7 @@ prompt** are run. After the customer picks up, the first **Play
 prompt** and all the blocks after it are run.
 
 To summarize, an **Outbound flow** type is the only one involved in
-an outbound call initiated from Amazon Connect.
+an outbound call initiated from Connect Customer.
 
 ## TRANSFER
 
@@ -183,7 +183,7 @@ To summarize, for callback contacts, the following flow types are played:
 
 ## API
 
-The contact was initiated with Amazon Connect by API. This could be:
+The contact was initiated with Connect Customer by API. This could be:
 
 1. An outbound contact you created and queued to an agent using the [StartOutboundVoiceContact](../APIReference/API_StartOutboundVoiceContact.md "../APIReference/API_StartOutboundVoiceContact.md") API.
 2. A live chat that was initiated by the customer with your contact center where
@@ -278,7 +278,7 @@ For all of the initiation methods discussed in this topic, if you don't specify 
 for **Agent whisper flow**, **Customer whisper flow**,
 **Customer queue flow**, or **Outbound whisper
 flow**, then the default flow of that type runs instead. For a list of
-default flows, see [Default flows in Amazon Connect for your contact center](contact-flow-default.md "contact-flow-default.md").
+default flows, see [Default flows in Connect Customer for your contact center](contact-flow-default.md "contact-flow-default.md").
 
 To override the defaults and use your own flows, use the following blocks:
 
@@ -287,4 +287,4 @@ To override the defaults and use your own flows, use the following blocks:
 - [Set hold flow](set-hold-flow.md "set-hold-flow.md")
 - [Set whisper flow](set-whisper-flow.md "set-whisper-flow.md")
 
-For more information, see [Default flows in Amazon Connect for your contact center](contact-flow-default.md "contact-flow-default.md").
+For more information, see [Default flows in Connect Customer for your contact center](contact-flow-default.md "contact-flow-default.md").

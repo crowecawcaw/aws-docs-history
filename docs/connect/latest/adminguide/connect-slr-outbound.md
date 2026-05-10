@@ -1,8 +1,8 @@
-# Use service-linked roles for outbound campaigns in Amazon Connect
+# Use service-linked roles for outbound campaigns in Connect Customer
 
-Amazon Connect outbound campaigns uses AWS Identity and Access Management service-linked roles. When an Amazon Connect instance is enabled to
+Connect Customer outbound campaigns uses AWS Identity and Access Management service-linked roles. When an Connect Customer instance is enabled to
 use outbound campaigns, it creates a unique service linked role that allows it to perform actions on
-the Amazon Connect instance.
+the Connect Customer instance.
 
 A service-linked role makes setting up outbound campaigns easier because you don't have to manually
 add the necessary permissions. Outbound campaigns defines the permissions of its service-linked
@@ -33,14 +33,14 @@ permissions are added for the service-linked role to access the resources:
 
 - Action: Outbound campaigns `connect-campaigns:ListCampaigns` for the
   AWS account.
-- Action: Amazon Connect
+- Action: Connect Customer
 
       + `connect:BatchPutContact`
       + `connect:StopContact`
 
-  for all Amazon Connect instances.
+  for all Connect Customer instances.
 
-- Action: Amazon Connect
+- Action: Connect Customer
 
       + `connect:StartOutboundVoiceContact`
       + `connect:GetMetricData`
@@ -51,7 +51,7 @@ permissions are added for the service-linked role to access the resources:
       + `connect:DescribeContactFlow`
       + `connect:SendOutboundEmail`
 
-  For the Amazon Connect instance specified.
+  For the Connect Customer instance specified.
 
 - Action: EventBridge:
 
@@ -78,7 +78,7 @@ permissions are added for the service-linked role to access the resources:
   on all resources tagged with
   `aws:ResourceTag/AmazonConnectCampaignsEnabled`.
 
-Permissions for Amazon Connect Customer Profiles will be added to ezCRC template:
+Permissions for Connect Customer Customer Profiles will be added to ezCRC template:
 `ConnectCampaignsCustomerProfilesIntegrationAccess`.
 
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
@@ -87,13 +87,13 @@ _IAM User Guide_.
 
 ## Create a service-linked role for outbound campaigns
 
-You don't need to manually create a service-linked role. When you associate an Amazon Connect
+You don't need to manually create a service-linked role. When you associate an Connect Customer
 instance with outbound campaigns by invoking the `StartInstanceOnboardingJob` API,
 outbound campaigns creates the service-linked role for you.
 
 If you delete this service-linked role, and then need to create it again, you can use
-the same process to recreate the role in your account. When you associate a new Amazon Connect
-instance with outbound campaigns, Amazon Connect creates the service-linked role for you again.
+the same process to recreate the role in your account. When you associate a new Connect Customer
+instance with outbound campaigns, Connect Customer creates the service-linked role for you again.
 
 ## Edit a service-linked role for outbound campaigns
 

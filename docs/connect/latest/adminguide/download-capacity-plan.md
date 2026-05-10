@@ -1,4 +1,4 @@
-# Download a capacity plan in Amazon Connect
+# Download a capacity plan in Connect Customer
 
 When you download a capacity plan file, it downloads as a .csv file type with
 multiple tabs. It's helpful to open this file using Excel. The following image shows
@@ -18,12 +18,12 @@ Following is a description of each worksheet:
 
 ## How to download capacity plan results
 
-1. Log in to the Amazon Connect admin website with an account that has security profile
+1. Log in to the Connect Customer admin website with an account that has security profile
    permissions for **Analytics**, **Capacity
    planning - Edit**.
 
 For more information, see [Assign
-permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Amazon Connect navigation menu, select **Analytics and
+permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Connect Customer navigation menu, select **Analytics and
 optimization**, **Capacity
 Planning**. 3. On the **Capacity Plans** tab, choose the plan. 4. On the detailed page for the capacity plan, choose
 **Actions**, **Download capacity

@@ -26,11 +26,11 @@ filters. An event filter consists of the following components:
   to filter by. You can select attributes from objects stored in the
   Customer Profiles domain or use the field names defined in the object
   type definition. for more information about object type mappings, see
-  [Object type mapping definition details in Amazon Connect Customer Profiles](object-type-mapping-definition-details.md "object-type-mapping-definition-details.md").
+  [Object type mapping definition details in Connect Customer Customer Profiles](object-type-mapping-definition-details.md "object-type-mapping-definition-details.md").
 
 ###### Note
 
-    + In Amazon Connect admin website, the attribute
+    + In Connect Customer admin website, the attribute
      dropdown shows the timestamp of the last time any profile
      object was saved or updated with the attribute.
     + If there is both an attribute of a profile object and a
@@ -51,7 +51,7 @@ filters. An event filter consists of the following components:
   Registered_. Note that values are case-sensitive. For example,
   _Asset's Status is Installed_ returns different
   results than _Asset's Status is installed_. To view
-  profile objects, use the Amazon Connect Customer Profiles [ListProfileObjects](../APIReference/API_connect-customer-profiles_ListProfileObjects.md "../APIReference/API_connect-customer-profiles_ListProfileObjects.md") API.
+  profile objects, use the Connect Customer Customer Profiles [ListProfileObjects](../APIReference/API_connect-customer-profiles_ListProfileObjects.md "../APIReference/API_connect-customer-profiles_ListProfileObjects.md") API.
   You can optionally create up to two event filters and create a relationship
   (AND/OR/EXCLUDE) between them. For more details about the relationship,
   see [Relationship between event filters](#calculated-attributes-admin-website-relationship-between-event-filters "#calculated-attributes-admin-website-relationship-between-event-filters").
@@ -83,7 +83,7 @@ enter. The following table describes the available operators.
 
 ###### Note
 
-Calculated attributes in the Amazon Connect admin website use the UTC timezone and a default
+Calculated attributes in the Connect Customer admin website use the UTC timezone and a default
 time of 00:00:00 UTC for all time-based filters. You can filter on dates
 but times are recorded as the same value. If you enter a date
 of 2024-01-01, the console passes the time as 2024-01-01T00:00:00Z.
@@ -102,7 +102,7 @@ updated.
 
 Optionally, you can add the second event filter and define a relationship
 with the first event filter. When you create a calculated attribute in the
-Amazon Connect admin website, you can have a maximum of two event filters per calculated attribute.
+Connect Customer admin website, you can have a maximum of two event filters per calculated attribute.
 If you add the second event filter to your calculated attribute, you can
 choose one of two ways to specify how the two event filters are connected:
 

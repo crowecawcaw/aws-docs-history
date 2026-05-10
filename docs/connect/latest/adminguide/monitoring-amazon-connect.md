@@ -1,10 +1,10 @@
-# Monitor live and recorded conversations using Amazon Connect Contact Lens
+# Monitor live and recorded conversations using Connect Customer Contact Lens
 
 Managers can monitor or listen-in to live conversations between agents and contacts. They
 can also review and download recordings of past interactions for both automated interactions
 (IVR) and agent interactions.
 
-Amazon Connect provides two options to set up contact monitoring:
+Connect Customer provides two options to set up contact monitoring:
 
 - **Multi-party contacts**: Monitor live conversations
   that have up to six participants. There's no additional charge for this
@@ -13,7 +13,7 @@ Amazon Connect provides two options to set up contact monitoring:
 This option enables you to [barge](monitor-barge.md "monitor-barge.md") into live
 conversations (voice and chats), and record chat transcripts.
 
-You enable this capability on the Amazon Connect console by choosing **Enable
+You enable this capability on the Connect Customer console by choosing **Enable
 Multi-Party Calls and Enhanced Monitoring for Voice** and
 **Enable Multi-Party Chats and Enhanced Monitoring for Chat**,
 as shown in the following image.
@@ -29,7 +29,7 @@ You cannot barge into calls or chats.
 You enable this capability by adding a [Set recording and analytics
 behavior](set-recording-behavior.md "set-recording-behavior.md") block to your flow.
 How agents manage the conferencing experience is very different between these two options.
-Enhanced monitoring provides more functionality for the agents. See [Comparison of enhanced contact monitoring (multi-party) and three-party functionality in Amazon Connect](three-party-multi-party-comparison.md "three-party-multi-party-comparison.md").
+Enhanced monitoring provides more functionality for the agents. See [Comparison of enhanced contact monitoring (multi-party) and three-party functionality in Connect Customer](three-party-multi-party-comparison.md "three-party-multi-party-comparison.md").
 
 ###### Important
 

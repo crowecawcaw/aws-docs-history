@@ -1,4 +1,4 @@
-# How long does it take to port phone numbers to Amazon Connect?
+# How long does it take to port phone numbers to Connect Customer?
 
 ###### Important
 
@@ -11,10 +11,10 @@ advance of your pending go-live date as possible.
 The amount of time that it takes to port numbers depends on the country,
 complexity of the request, the type and quantity of numbers being ported, and
 your current carrier. Telecom carriers also may implement porting block days
-because of holidays and network maintenance. Because of this, Amazon Connect requires
+because of holidays and network maintenance. Because of this, Connect Customer requires
 porting requests to be open several months before pending go-live dates.
 
-For a list of countries and their portability windows, see [Region requirements for ordering and porting phone numbers in Amazon Connect](phone-number-requirements.md "phone-number-requirements.md").
+For a list of countries and their portability windows, see [Region requirements for ordering and porting phone numbers in Connect Customer](phone-number-requirements.md "phone-number-requirements.md").
 
 ## Inside the US and Canada
 
@@ -28,14 +28,14 @@ Phone numbers outside the US and Canada require between two to six months
 to complete the full porting process. This includes:
 
 - Time for you to submit all the documents to AWS Support.
-- Time for the Amazon Connect service provider to verify whether they can
+- Time for the Connect Customer service provider to verify whether they can
   port all of the phone numbers that you have requested.
 - Time for the losing provider to verify the provided
   documents.
 
 After all documents are verified by the losing provider, the losing
-provider and the Amazon Connect service provider will schedule a mutually agreed date
-to port the numbers to Amazon Connect.
+provider and the Connect Customer service provider will schedule a mutually agreed date
+to port the numbers to Connect Customer.
 
 ## What affects porting timelines?
 
@@ -51,7 +51,7 @@ elsewhere in this topic do not apply to complex porting requests.
 Complex porting requests for more than 10 distinct number ranges or 10
 distinct locations are considered a project and require advanced
 coordination with your AWS Account team. If you are a Business or
-Enterprise customer, engage your Amazon Connect Solutions Architect (SA) or Technical
+Enterprise customer, engage your Connect Customer Solutions Architect (SA) or Technical
 Account Manager (TAM) for assistance in planning your number porting.
 
 To help make the process as smooth as possible, gather the following
@@ -59,7 +59,7 @@ information before submitting a porting request:
 
 - Your most recent telephony bill from the carriers that currently
   service the numbers to be ported.
-- The country specific documentation required; see [Region requirements for ordering and porting phone numbers in Amazon Connect](phone-number-requirements.md "phone-number-requirements.md").
+- The country specific documentation required; see [Region requirements for ordering and porting phone numbers in Connect Customer](phone-number-requirements.md "phone-number-requirements.md").
 - The contact information for a central point of contact who can act
   on behalf of your organization in support of the porting
   requests.
@@ -68,13 +68,13 @@ information before submitting a porting request:
 
 ###### Important
 
-The Amazon Connect service team supports porting phone numbers FROM 9am Monday
+The Connect Customer service team supports porting phone numbers FROM 9am Monday
 in Sydney NSW, Australia Time, TO 5pm Friday in Seattle, WA, USA
 time.
 
 Depending on the country and carriers involved, you may be able to choose
 the porting date and time. In most cases, however, the losing carrier picks
-the date and time and communicates it to Amazon Connect based on their schedule.
+the date and time and communicates it to Connect Customer based on their schedule.
 
 If you have a specific date and time you want to request, provide the
 information in your support case. We will work with our carrier to determine
@@ -84,4 +84,4 @@ if they can support the requested date and time.
 
 Most carriers only support porting activity during their normal
 business hours. For detailed information about available porting dates
-and times for your country, see [Region requirements for ordering and porting phone numbers in Amazon Connect](phone-number-requirements.md "phone-number-requirements.md").
+and times for your country, see [Region requirements for ordering and porting phone numbers in Connect Customer](phone-number-requirements.md "phone-number-requirements.md").

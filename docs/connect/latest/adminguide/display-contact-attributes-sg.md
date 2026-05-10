@@ -1,4 +1,4 @@
-# Display contact context in the agent workspace when a contact begins in Amazon Connect
+# Display contact context in the agent workspace when a contact begins in Connect Customer
 
 When you design step-by-step guides for the agent workspace, you can set them up to
 display contact attributes at the start of the contact. This gives agents the context
@@ -44,8 +44,8 @@ page heading, description, and four examples.
   **Copyable** and **Url**. For more
   information see, [Attribute](https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/aws-managed-views-common-configuration--page#attribute "https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/aws-managed-views-common-configuration--page#attribute").
 
-      + **LinkType** can be external or an Amazon Connect application
-       such as Amazon Connect Cases.
+      + **LinkType** can be external or an Connect Customer application
+       such as Connect Customer Cases.
 
 
 

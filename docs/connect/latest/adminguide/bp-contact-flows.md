@@ -1,4 +1,4 @@
-# Best practices for flows in Amazon Connect
+# Best practices for flows in Connect Customer
 
 Use the list of recommended best practices in this topic when you are using and
 creating flows.

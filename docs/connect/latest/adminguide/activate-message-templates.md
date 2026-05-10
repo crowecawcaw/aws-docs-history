@@ -1,6 +1,6 @@
 # Activate a message template
 
-To help you manage the development and use of individual message templates, Amazon Connect
+To help you manage the development and use of individual message templates, Connect Customer
 supports versioning for all types of message templates. Versioning provides a way for
 you to create a history of changes to a template—each version is a snapshot of a
 template at a certain point in time. Versioning also provides a way for you to control
@@ -11,12 +11,12 @@ version**. This is to prevent accidentally activating templates that are
 drafts.
 
 When a template version is **Activated**, it is available to be added
-to the [Flow block in Amazon Connect: Send message](send-message.md "send-message.md") and may be available
+to the [Flow block in Connect Customer: Send message](send-message.md "send-message.md") and may be available
 to agents through the agent workspace.
 
 ###### To activate a messaging template
 
-Log in to Amazon Connect admin website with an Admin account or a user account that has **Content
+Log in to Connect Customer admin website with an Admin account or a user account that has **Content
 Management** - **Message templates** -
 **Create** in it's security profile.
 

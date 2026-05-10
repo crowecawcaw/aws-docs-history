@@ -1,11 +1,11 @@
-# Object type mapping definition details in Amazon Connect Customer Profiles
+# Object type mapping definition details in Connect Customer Customer Profiles
 
 The object type mapping definition has two parts: the field definition and the key
 definition.
 
 ###### Tip
 
-To learn how to create an object type mapper, see this blog post: [Unify and organize customer information with Amazon Connect Customer Profiles with
+To learn how to create an object type mapper, see this blog post: [Unify and organize customer information with Connect Customer Customer Profiles with
 the pre-built Amazon S3 connector](https://aws.amazon.com/blogs/contact-center/unify-and-organize-customer-information-with-amazon-connect-customer-profiles-with-the-pre-built-amazon-s3-connector/ "https://aws.amazon.com/blogs/contact-center/unify-and-organize-customer-information-with-amazon-connect-customer-profiles-with-the-pre-built-amazon-s3-connector/"). Or, check out this video on YouTube:
 [How to
 Integrate Customer Profile Data into your Contact Center

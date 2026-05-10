@@ -1,7 +1,7 @@
-# Encryption at rest in Amazon Connect
+# Encryption at rest in Connect Customer
 
 Contact data classified as PII, or data that represents customer content being stored
-by Amazon Connect, is encrypted at rest (that is, before it is put, stored, or saved to a disk)
+by Connect Customer, is encrypted at rest (that is, before it is put, stored, or saved to a disk)
 using AWS KMS encryption keys owned by AWS. For information
 about AWS KMS keys, see [What is AWS Key Management Service?](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md") in the
 _AWS Key Management Service Developer Guide_. Contact data in non-temporary storage is
@@ -12,21 +12,21 @@ Amazon S3 server-side encryption is used to encrypt conversation recordings (voi
 chat). Call recordings, screen recordings, and transcripts are stored in two
 phases:
 
-- Recordings intermediately held within Amazon Connect during and after the contact, but
+- Recordings intermediately held within Connect Customer during and after the contact, but
   before delivery.
 - Recordings delivered to your Amazon S3 bucket.
   The recordings and chat transcripts that are stored in your Amazon S3 bucket are secured
   using a KMS key that was configured when your instance was created.
 
-For more information about key management in Amazon Connect, see [Key management in Amazon Connect](key-management.md "key-management.md").
+For more information about key management in Connect Customer, see [Key management in Connect Customer](key-management.md "key-management.md").
 
 ###### Contents
 
 - [Amazon AppIntegrations](#encryption-at-rest-appintegrations "#encryption-at-rest-appintegrations")
-- [Amazon Connect Cases](#encryption-at-rest-cases "#encryption-at-rest-cases")
-- [Amazon Connect Customer Profiles](#encryption-at-rest-customer-profiles "#encryption-at-rest-customer-profiles")
+- [Connect Customer Cases](#encryption-at-rest-cases "#encryption-at-rest-cases")
+- [Connect Customer Customer Profiles](#encryption-at-rest-customer-profiles "#encryption-at-rest-customer-profiles")
 - [Connect AI agents](#encryption-at-rest-wisdom "#encryption-at-rest-wisdom")
-- [Amazon Connect Voice ID encryption at rest](#encryption-at-rest-voiceid "#encryption-at-rest-voiceid")
+- [Connect Customer Voice ID encryption at rest](#encryption-at-rest-voiceid "#encryption-at-rest-voiceid")
 - [Outbound campaigns encryption at rest](#encryption-at-rest-outboundcommunications "#encryption-at-rest-outboundcommunications")
 - [Forecasts, capacity plans, and schedules](#forecasts-encryption-at-rest- "#forecasts-encryption-at-rest-")
 
@@ -54,21 +54,21 @@ operations:
 - Send `Decrypt` requests to AWS KMS to decrypt encrypted data keys
   so that they can be used to encrypt your data.
 
-## Amazon Connect Cases encryption at rest
+## Connect Customer Cases encryption at rest
 
 All customer provided data in case fields, case comments, descriptions of the
-fields and templates stored by Amazon Connect Cases is encrypted at rest using encryption
+fields and templates stored by Connect Customer Cases is encrypted at rest using encryption
 keys stored in AWS Key Management Service (AWS KMS).
 
-Amazon Connect Cases service owns, manages, monitors, and rotates the encryption keys
+Connect Customer Cases service owns, manages, monitors, and rotates the encryption keys
 (that is, AWS owned keys) to meet the high security standards. Payload of the case
 event streams is temporarily (typically for a few seconds) stored in Amazon EventBridge before
 it is made available through the default-bus in customers account. EventBridge also
 encrypts the entire payload at rest using AWS owned keys.
 
-## Amazon Connect Customer Profiles encryption at rest
+## Connect Customer Customer Profiles encryption at rest
 
-All user data stored in Amazon Connect Customer Profiles is encrypted at rest. Amazon Connect
+All user data stored in Connect Customer Customer Profiles is encrypted at rest. Connect Customer
 Customer Profiles encryption at rest provides enhanced security by encrypting all
 your data at rest using encryption keys stored in AWS Key Management Service (AWS KMS). This
 functionality helps reduce the operational burden and complexity involved in
@@ -89,8 +89,8 @@ apply).
 
 You can specify an encryption key when you create a new domain or profile object
 type or switch the encryption keys on an existing resources by using the AWS
-Command Line Interface (AWS CLI), or the Amazon Connect Customer Profiles Encryption API. When
-you choose a customer managed key, Amazon Connect Customer Profiles creates a grant to the customer managed key
+Command Line Interface (AWS CLI), or the Connect Customer Customer Profiles Encryption API. When
+you choose a customer managed key, Connect Customer Customer Profiles creates a grant to the customer managed key
 that grants it access to the customer managed key.
 
 AWS KMS charges apply for a customer managed key. For more information about pricing, see
@@ -109,11 +109,11 @@ AWS KMS charges apply when using a key that you provide. For more information ab
 pricing, see [AWS KMS
 pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
 
-## Amazon Connect Voice ID encryption at rest
+## Connect Customer Voice ID encryption at rest
 
-Amazon Connect Voice ID stores customer voiceprints which cannot be reverse-engineered to
+Connect Customer Voice ID stores customer voiceprints which cannot be reverse-engineered to
 obtain the enrolled customer's speech or identify a customer. All user data stored
-in Amazon Connect Voice ID is encrypted at rest. When creating a new Voice ID domain, you
+in Connect Customer Voice ID is encrypted at rest. When creating a new Voice ID domain, you
 must provide a customer managed key that the service uses to encrypt your data at rest. The
 customer managed key is created, owned, and managed by you. You have full control over the
 key.
@@ -129,7 +129,7 @@ your domain's data will be encrypted under the new KMS key, and you may safely
 retire the old key. For more information, see [UpdateDomain](../../../voiceid/latest/APIReference/API_UpdateDomain.md "../../../voiceid/latest/APIReference/API_UpdateDomain.md").
 
 Voice ID creates a grant to the customer managed key that grants it access to the key. For
-more information, see [How Amazon Connect Voice ID uses grants in AWS KMS](#voiceid-uses-grants "#voiceid-uses-grants").
+more information, see [How Connect Customer Voice ID uses grants in AWS KMS](#voiceid-uses-grants "#voiceid-uses-grants").
 
 Following is a list of data that is encrypted at rest using the customer managed key:
 
@@ -148,9 +148,9 @@ Following is a list of data that is encrypted at rest using the customer managed
 AWS KMS charges apply for a customer managed key. For more information about pricing, see
 [AWS KMS pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
 
-### How Amazon Connect Voice ID uses grants in AWS KMS
+### How Connect Customer Voice ID uses grants in AWS KMS
 
-Amazon Connect Voice ID requires a grant to use your customer managed key. When you create a
+Connect Customer Voice ID requires a grant to use your customer managed key. When you create a
 domain, Voice ID creates a grant on your behalf by sending a see [CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") request to AWS KMS. The grant is required to use your
 customer managed key for the following internal operations:
 
@@ -252,7 +252,7 @@ You can use the encryption context in key policies and IAM policies as
 conditions to control access to your symmetric customer managed key. You can also use
 encryption context constraints in a grant.
 
-Amazon Connect Voice ID uses an encryption context constraint in grants to control
+Connect Customer Voice ID uses an encryption context constraint in grants to control
 access to the customer managed key in your account or Region. The grant constraint
 requires that the operations that the grant allows use the specified
 encryption context.
@@ -538,7 +538,7 @@ ReEncrypt
 
 Outbound campaigns stores customer phone numbers and relevant attributes. This
 information is always encrypted at rest, using either a customer managed key or an
-AWS owned key. The data is separated by the Amazon Connect instance ID and is
+AWS owned key. The data is separated by the Connect Customer instance ID and is
 encrypted by instance specific keys.
 
 You can provide your own customer managed key when onboarding to
@@ -549,7 +549,7 @@ This key is created, owned, and fully managed by you, giving you complete contro
 over its usage and security.
 
 If you do not provide your own customer managed key, then Outbound campaigns encrypts
-sensitive data at rest using an AWS owned key specific to your Amazon Connect
+sensitive data at rest using an AWS owned key specific to your Connect Customer
 instance. You can't view, manage, use, or audit AWS owned keys. However, you don't
 have to take any action or change any programs to protect the keys that encrypt your
 data. For more information, see [AWS owned
@@ -564,7 +564,7 @@ Outbound campaigns requires a grant to use your customer managed key. When
 you onboard to outbound campaigns using the AWS console or the
 `StartInstanceOnboardingJob` API, Outbound campaigns creates a grant
 on your behalf by sending a `CreateGrant` request to AWS KMS. Grants in
-AWS KMS are used to give the Amazon Connect Outbound campaigns service-linked role
+AWS KMS are used to give the Connect Customer Outbound campaigns service-linked role
 access to a KMS key in your account.
 
 Outbound campaigns requires the grant to use the customer managed key for the

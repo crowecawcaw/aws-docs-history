@@ -1,8 +1,8 @@
-# Enable conversational analytics in Amazon Connect Contact Lens
+# Enable conversational analytics in Connect Customer Contact Lens
 
 You can enable Contact Lens conversational analytics in a few steps:
 
-1. Enable Contact Lens on your Amazon Connect instance.
+1. Enable Contact Lens on your Connect Customer instance.
 2. Add a [Set recording and analytics
    behavior](set-recording-behavior.md "set-recording-behavior.md") block to a flow, and
    configure it to enable conversational analytics for voice, chat, email, or
@@ -21,7 +21,7 @@ for calls, chats, or emails.
 - [Important things to
   know](#important-set-behaviorblock "#important-set-behaviorblock")
 - [Enable Contact Lens for your
-  Amazon Connect instance](#enable-cl "#enable-cl")
+  Connect Customer instance](#enable-cl "#enable-cl")
 - [Enable call
   recording and speech analytics](#enable-callrecording-speechanalytics "#enable-callrecording-speechanalytics")
 - [Enable chat
@@ -74,19 +74,19 @@ contact.
   information, see [Design a flow for key
   highlights](#call-summarization-agent "#call-summarization-agent").
 
-## Enable Contact Lens for your Amazon Connect instance
+## Enable Contact Lens for your Connect Customer instance
 
 Before you can enable conversational analytics, you first need to enable
 Contact Lens for your instance.
 
-1. Open the Amazon Connect console at
+1. Open the Connect Customer console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 2. On the instances page, choose the instance alias. The instance alias is also
-   your **instance name**, which appears in your Amazon Connect
-   URL. The following image shows the **Amazon Connect virtual contact center instances** page, with a box
+   your **instance name**, which appears in your Connect Customer
+   URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box
    around the instance alias.
 
-![The Amazon Connect virtual contact center instances page, the instance alias.](images/instance.png) 3. In the Amazon Connect console, in the navigation pane, choose
+![The Connect Customer virtual contact center instances page, the instance alias.](images/instance.png) 3. In the Connect Customer console, in the navigation pane, choose
 **Analytics tools**, and then choose
 **Enable Contact Lens**. 4. Choose **Save**.
 
@@ -112,9 +112,9 @@ conversational analytics for voice contacts. 3. Under **Analytics**, choose **En
 Contact Lens conversational analytics**,
 **Enable speech analytics**.
 
-If you don't see this option, Amazon Connect Contact Lens hasn't been
+If you don't see this option, Connect Customer Contact Lens hasn't been
 enabled for your instance. For instructions to enable it, see [Enable Contact Lens for your
-Amazon Connect instance](#enable-cl "#enable-cl"). 4. Choose one of the following:
+Connect Customer instance](#enable-cl "#enable-cl"). 4. Choose one of the following:
 
     1. **Post-call analytics**: Contact Lens
      analyzes the call recording after the conversation and After
@@ -166,9 +166,9 @@ analytics** enabled.
 By choosing this option you will receive both real-time and
 post-chat analytics.
 
-If you don't see this option, Amazon Connect Contact Lens hasn't been
+If you don't see this option, Connect Customer Contact Lens hasn't been
 enabled for your instance. For instructions to enable it, see [Enable Contact Lens for your
-Amazon Connect instance](#enable-cl "#enable-cl"). 2. Choose from the [list
+Connect Customer instance](#enable-cl "#enable-cl"). 2. Choose from the [list
 of available languages](supported-languages.md#supported-languages-contact-lens "supported-languages.md#supported-languages-contact-lens").
 
 For instructions on choosing the language and redaction dynamically,
@@ -196,9 +196,9 @@ contact summaries.
    Contact Lens conversational analytics**, and
    **Enable email analytics**.
 
-If you don't see this option, Amazon Connect Contact Lens hasn't been
+If you don't see this option, Connect Customer Contact Lens hasn't been
 enabled for your instance. For instructions to enable it, see [Enable Contact Lens for your
-Amazon Connect instance](#enable-cl "#enable-cl"). 5. Choose from the [list
+Connect Customer instance](#enable-cl "#enable-cl"). 5. Choose from the [list
 of available languages](supported-languages.md#supported-languages-contact-lens "supported-languages.md#supported-languages-contact-lens"). 6. Optionally, enable redaction of sensitive data. For more information,
 see [Enable redaction](#enable-redaction "#enable-redaction"). 7. Optionally, under **Contact Lens Generative AI
 capabilities**, enable **Contact

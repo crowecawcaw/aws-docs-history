@@ -1,10 +1,10 @@
-# Comparison of enhanced contact monitoring (multi-party) and three-party functionality in Amazon Connect
+# Comparison of enhanced contact monitoring (multi-party) and three-party functionality in Connect Customer
 
 This topic describes how the agent's experience differs when [enhanced contact monitoring](monitor-conversations.md "monitor-conversations.md") (multi-party) is
 enabled instead of the default three-party capability.
 
 For information about new functionality in the existing Connection and Contact API in
-Amazon Connect Streams, see the [Amazon Connect Streams Readme](https://github.com/amazon-connect/amazon-connect-streams/blob/master/README.md "https://github.com/amazon-connect/amazon-connect-streams/blob/master/README.md").
+Connect Customer Streams, see the [Connect Customer Streams Readme](https://github.com/amazon-connect/amazon-connect-streams/blob/master/README.md "https://github.com/amazon-connect/amazon-connect-streams/blob/master/README.md").
 
 Following are key features for agents who use multi-party monitoring:
 

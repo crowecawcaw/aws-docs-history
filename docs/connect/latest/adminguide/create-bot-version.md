@@ -1,4 +1,4 @@
-# Create bot versions and aliases in Amazon Connect
+# Create bot versions and aliases in Connect Customer
 
 To control which bot implementation your client uses, you create versions and aliases.
 
@@ -12,7 +12,7 @@ To control which bot implementation your client uses, you create versions and al
 ## Create a version
 
 Creating a new version preserves the current state of your bot configuration. Complete the
-following steps to create a new version of your Amazon Lex bot in Amazon Connect.
+following steps to create a new version of your Amazon Lex bot in Connect Customer.
 
 1. Open the bot for which you want to create a new version.
 2. Choose the **Versions** tab, and then choose **Create

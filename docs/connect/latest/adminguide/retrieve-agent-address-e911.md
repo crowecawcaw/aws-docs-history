@@ -1,11 +1,11 @@
-# Retrieve an agent's address from Amazon Connect when they call 911
+# Retrieve an agent's address from Connect Customer when they call 911
 
-To retrieve an agent's validated address from the Amazon Connect, create an outbound
+To retrieve an agent's validated address from the Connect Customer, create an outbound
 whisper flow that calls a Lambda function. Code the Lambda function to retrieve the
 address from the agent's customer profile, as shown in the following
 illustration:
 
-![Amazon Connect E911 address retrieval process.](images/e911-workflow-2.png)
+![Connect Customer E911 address retrieval process.](images/e911-workflow-2.png)
 
 1. Create an AWS Lambda function that uses the [SearchProfiles](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md") API to retrieve the physical address for a given
    agent from Customer Profiles.
@@ -17,7 +17,7 @@ illustration:
 
 ## Create an outbound whisper flow that relays the physical address
 
-For outbound voice calls within Amazon Connect, an [outbound whisper flow](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types") usually specifies the whisper to be played to
+For outbound voice calls within Connect Customer, an [outbound whisper flow](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types") usually specifies the whisper to be played to
 customer. However, in this case you need to configure an [outbound whisper flow](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types") to do the
 following:
 
@@ -46,7 +46,7 @@ attributes](set-contact-attributes.md "set-contact-attributes.md"), and [Call ph
 
 ![The properties page of an Invoke AWS Lambda function block.](images/e911-invoke-lambda-block.png)
 
-- Step 2: Attach the location received to a contact attribute (see [Format a physical address for E911 to pass to Amazon Connect](connect-format-physical-address-e911.md "connect-format-physical-address-e911.md") for the
+- Step 2: Attach the location received to a contact attribute (see [Format a physical address for E911 to pass to Connect Customer](connect-format-physical-address-e911.md "connect-format-physical-address-e911.md") for the
   required format).
 - Step 3: Update the call origination to the agent's phone number and
   continue with the outbound call.
@@ -66,7 +66,7 @@ agent in case the initial phone call was disconnected.
     For example, when an agent places an outbound call, if an
      invalid US phone number is passed to the carrier network,
      the carrier can reject the call. To avoid this situation, if
-     the agent uses an invalid number from Amazon Connect, Amazon Connect defaults
+     the agent uses an invalid number from Connect Customer, Connect Customer defaults
      to the Caller ID that is assigned to the queue in the
      agent's routing profile.
     + The capability does not place any other rules on this
@@ -78,7 +78,7 @@ agent in case the initial phone call was disconnected.
 When an agent calls 911 it is important to notify in real time the appropriate
 people in your organization, such as corporate security or a human resources
 administrator, that someone from the contact center has placed an E911 call. To
-do this, create an Amazon Connect task in the [outbound
+do this, create an Connect Customer task in the [outbound
 whisper flow](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"). Then add custom notification logic to the task.
 
 The following image shows an example of a [Create task](create-task-block.md "create-task-block.md") block in an [outbound whisper flow](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"). It is located

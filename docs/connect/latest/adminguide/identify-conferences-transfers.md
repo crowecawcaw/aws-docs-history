@@ -1,11 +1,11 @@
-# Identify conferences and transfers by using Amazon Connect contact records
+# Identify conferences and transfers by using Connect Customer contact records
 
 Contact records capture the events associated with a contact in your contact center. For
-every new contact, Amazon Connect creates a contact record and assigns a unique Contact ID to the
+every new contact, Connect Customer creates a contact record and assigns a unique Contact ID to the
 contact.
 
-Each time an agent consults with another agent (internal to Amazon Connect or external, by using a
-toll free or direct inward dial number), Amazon Connect creates a consult leg contact record and
+Each time an agent consults with another agent (internal to Connect Customer or external, by using a
+toll free or direct inward dial number), Connect Customer creates a consult leg contact record and
 issues a new Contact ID for this leg.
 
 The main contact record and any subsequent consult leg contact record can be linked
@@ -45,10 +45,10 @@ conference call.
 **Consult call**
 
 A call in which the recipient agent consults with another participant (for
-example, an agent in the same Amazon Connect instance or an external entity), while
+example, an agent in the same Connect Customer instance or an external entity), while
 the initiator is placed on hold.
 
-After a call is disconnected, Amazon Connect places the agent in an After Call Work
+After a call is disconnected, Connect Customer places the agent in an After Call Work
 (ACW) state. The contact record is updated with the timestamp when this
 state was entered. In the case of consult calls, the consulted participant
 disconnects earlier than the customer.
@@ -66,7 +66,7 @@ this case, the recipient agent enters ACW earlier than the consulted agent.
 The recipient conferences the initiator to the consulted participant
 (three-way call).
 
-Amazon Connect allows more than three participants to be conferenced together. For
+Connect Customer allows more than three participants to be conferenced together. For
 internal calls, the consulted participant enters ACW earlier than the
 recipient in both Consult and Conference situations. The difference,
 however, is that in a conference situation, the consulted participant also
@@ -224,7 +224,7 @@ relevant fields have been marked as `code`.
 
 #### Consult calls
 
-Initiator consults with another party - within the same Amazon Connect instance
+Initiator consults with another party - within the same Connect Customer instance
 (Internal) or external to that instance (External), using a DID or toll-free
 number.
 
@@ -243,7 +243,7 @@ number.
 
 #### Conference calls
 
-Initiator conferences with another participant within the same Amazon Connect instance
+Initiator conferences with another participant within the same Connect Customer instance
 (Internal) or external to that instance (External), using a DID or toll-free
 number.
 
@@ -262,7 +262,7 @@ number.
 
 #### Transfer calls
 
-Initiator consults with another party - within the same Amazon Connect instance
+Initiator consults with another party - within the same Connect Customer instance
 (Internal) or external to that instance (External), using a DID or toll-free
 number.
 

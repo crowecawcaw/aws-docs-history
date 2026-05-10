@@ -1,7 +1,7 @@
-# Set up integration for featured applications in Amazon Connect
+# Set up integration for featured applications in Connect Customer
 
-These integrations use Amazon Connect featured applications to provide periodic updates to
-Amazon Connect Customer Profiles.
+These integrations use Connect Customer featured applications to provide periodic updates to
+Connect Customer Customer Profiles.
 
 ## Before you begin
 
@@ -37,7 +37,7 @@ workflow is complete, Customer Profiles creates a standard, continuous integrati
 ingests your new data as it is updated in your source.
 
 The role created in the console is only usable by the domain it was
-created on. This is because Amazon Connect limits the access of the role to only the
+created on. This is because Connect Customer limits the access of the role to only the
 KMS key used by the domain.
 
 For more information, see [Grant least privilege access to your Customer Profiles execution role](#grant-least-privilege-cp "#grant-least-privilege-cp").

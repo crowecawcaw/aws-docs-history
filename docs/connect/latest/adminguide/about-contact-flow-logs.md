@@ -1,6 +1,6 @@
-# Use flow logs to track events in Amazon Connect flows
+# Use flow logs to track events in Connect Customer flows
 
-Amazon Connect flow logs provide you with real-time details about events in your flows
+Connect Customer flow logs provide you with real-time details about events in your flows
 as customers interact with them. You can also use flow logs to help debug your flows as you
 are creating them. If needed, you can always [roll back](flow-version-control.md#rollback "flow-version-control.md#rollback") to a
 previous version of a flow.
@@ -16,16 +16,16 @@ the contact in each log entry. You can query the logs for the contact ID to trac
 the customer interaction through each flow.
 
 The CloudWatch group log is created automatically when [Enable flow logging](contact-flow-logs.md#enable-contact-flow-logs "contact-flow-logs.md#enable-contact-flow-logs") is selected for
-your instance on the Amazon Connect console. However, to enable logging, you also need to add
+your instance on the Connect Customer console. However, to enable logging, you also need to add
 a **Set logging behavior** block to your flow. For instructions,
-see [Enable Amazon Connect flow logs in an Amazon CloudWatch log group](contact-flow-logs.md "contact-flow-logs.md").
+see [Enable Connect Customer flow logs in an Amazon CloudWatch log group](contact-flow-logs.md "contact-flow-logs.md").
 
 - **Automated interaction logs**. Use these logs to
   analyze the quality of conversations between customers and bots, understand common
   customer queries, and improve bot responses.
 
 These logs are saved in an S3 bucket that is created when you [select](monitor-automated-interaction-logs.md "monitor-automated-interaction-logs.md") the following options
-for your instance on the Amazon Connect console:
+for your instance on the Connect Customer console:
 
     + **Enable call recording** and create or select your S3
      bucket on the **Data storage** page. The automated
@@ -35,8 +35,8 @@ for your instance on the Amazon Connect console:
      **Flows** page. This option enables the logging of key
      interaction points such as flows, prompts, menus, and keypad selections.
      This automated log is available in your S3 storage and in the
-     **Contact details** page on the Amazon Connect admin website.
-    + **Enable Bot Analytics and Transcripts** in Amazon Connect on the
+     **Contact details** page on the Connect Customer admin website.
+    + **Enable Bot Analytics and Transcripts** in Connect Customer on the
      **Flows** page. This option ensures the log includes
      the Amazon Lex bot transcript.
 

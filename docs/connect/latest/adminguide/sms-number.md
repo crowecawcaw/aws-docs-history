@@ -8,7 +8,7 @@ request after it is submitted. We strongly recommend you begin this process
 early. For more information about registering, see [Registrations](../../../sms-voice/latest/userguide/registrations.md "../../../sms-voice/latest/userguide/registrations.md").
 
 Using AWS End User Messaging SMS, you can request new SMS-enabled phone numbers or reuse existing
-SMS-enabled phone numbers for use in Amazon Connect. You can request short codes, 10-digit
+SMS-enabled phone numbers for use in Connect Customer. You can request short codes, 10-digit
 long codes (10DLC), and toll-free numbers. These are also known as Origination
 Identities (OIDs).
 

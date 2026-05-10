@@ -1,14 +1,14 @@
-# Map third-party numbers to your Amazon Connect account
+# Map third-party numbers to your Connect Customer account
 
 In some countries you may need to obtain a third-party phone number that is hosted
-directly by a carrier in that country instead of being hosted by Amazon Connect. The carrier is
-interconnected with Amazon Connect and provides billing services. In these situations you need to
-open a ticket to AWS Support to map your AWS account ID and Amazon Connect instance to the phone
+directly by a carrier in that country instead of being hosted by Connect Customer. The carrier is
+interconnected with Connect Customer and provides billing services. In these situations you need to
+open a ticket to AWS Support to map your AWS account ID and Connect Customer instance to the phone
 number.
 
 ###### To map third-party numbers to your account
 
-Submit an Amazon Connect support ticket to map third-party numbers. Following are
+Submit an Connect Customer support ticket to map third-party numbers. Following are
 instructions if you don't have an AWS Support account.
 
 1. Go to [Support Center](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") and
@@ -43,6 +43,6 @@ instructions if you don't have an AWS Support account.
        contact method.
 
 11. Choose **Submit**.
-12. The Amazon Connect team will review your ticket and get back to you. They will provide
+12. The Connect Customer team will review your ticket and get back to you. They will provide
     a link to our secured storage (Amazon S3) so you can submit required
     documents.

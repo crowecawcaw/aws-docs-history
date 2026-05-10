@@ -20,7 +20,7 @@ Customer Profiles does not support ingesting data from CSV headers that contain 
 notation.
 
 For a list of the required IAM permissions needed for Customer Profiles to access data from the
-Amazon S3 bucket for data mapping, see `PutProfileObject` in the table in [Actions defined by Amazon Connect Customer Profiles](../../../service-authorization/latest/reference/list_amazonconnectcustomerprofiles.md#amazonconnectcustomerprofiles-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonconnectcustomerprofiles.md#amazonconnectcustomerprofiles-actions-as-permissions").
+Amazon S3 bucket for data mapping, see `PutProfileObject` in the table in [Actions defined by Connect Customer Customer Profiles](../../../service-authorization/latest/reference/list_amazonconnectcustomerprofiles.md#amazonconnectcustomerprofiles-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonconnectcustomerprofiles.md#amazonconnectcustomerprofiles-actions-as-permissions").
 
 ## Customer Profile ingestion
 
@@ -217,7 +217,7 @@ based profiles**
 
 - Ingesting account-based profiles should only happen after verifying
   successful ingestion of profiles referenced in account-based profiles by
-  using the [SearchProfiles](../APIReference/API_connect-customer-profiles_SearchProfiles.md "../APIReference/API_connect-customer-profiles_SearchProfiles.md") API or Profile metrics in the Amazon Connect Customer Profiles
+  using the [SearchProfiles](../APIReference/API_connect-customer-profiles_SearchProfiles.md "../APIReference/API_connect-customer-profiles_SearchProfiles.md") API or Profile metrics in the Connect Customer Customer Profiles
   console.
 - Auto-generate mapping doesn't work for ingesting account-based
   profiles and it's sub-profiles.

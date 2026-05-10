@@ -1,4 +1,4 @@
-# Use theme detection in Amazon Connect Contact Lens to discover issues with contacts
+# Use theme detection in Connect Customer Contact Lens to discover issues with contacts
 
 Use theme detection to discover previously unknown or emerging contact themes from
 thousands of customer interactions. For example, you can spot common reasons for
@@ -10,7 +10,7 @@ training.
 ## Important things to know
 
 - Theme detection is available in the following languages supported by
-  Amazon Connect Contact Lens:
+  Connect Customer Contact Lens:
 
 | Language (country)       | Language code |
 | ------------------------ | ------------- |
@@ -42,7 +42,7 @@ training.
 
 ## How to generate a theme report
 
-1. Login to Amazon Connect using an account that has the following security
+1. Login to Connect Customer using an account that has the following security
    profile permissions:
    - **Contact search - Access**
    - **Contact Lens - theme detection -
@@ -50,7 +50,7 @@ training.
    - **Contact Lens - theme detection -
      View**
 
-2. In Amazon Connect, on the left navigation menu, choose **Analytics and
+2. In Connect Customer, on the left navigation menu, choose **Analytics and
    optimization**, **Contact search**.
 3. On the **Contact search** page, apply filters to
    select a group of contacts that have been analyzed by

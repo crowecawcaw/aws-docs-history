@@ -7,18 +7,18 @@ can use quick connects to add participants.
 ## Prerequisites
 
 - This feature is only available in CCPv2, agent workspace, and custom
-  CCP using Amazon Connect Streams.js.
+  CCP using Connect Customer Streams.js.
   - **IT administrators**:
     - By default, chats can have two participants, such as
       an agent and a customer. To enable agents to connect up
       to six parties on a chat, you need to select
       **Enable Multi-party Chats and Enhanced
-      Monitoring for Chat** in the Amazon Connect console.
+      Monitoring for Chat** in the Connect Customer console.
       For instructions, see [Update telephony and chat options](update-instance-settings.md#update-telephony-options "update-instance-settings.md#update-telephony-options").
 
   - **Developers**: In custom CCPs,
-    use the updated Amazon Connect Streams API to enable multi-party chats,
-    up to six parties. See the [Amazon Connect Streams](https://github.com/amazon-connect/amazon-connect-streams/blob/master/Documentation.md#connectcoreinitccp "https://github.com/amazon-connect/amazon-connect-streams/blob/master/Documentation.md#connectcoreinitccp") documentation on GitHub.
+    use the updated Connect Customer Streams API to enable multi-party chats,
+    up to six parties. See the [Connect Customer Streams](https://github.com/amazon-connect/amazon-connect-streams/blob/master/Documentation.md#connectcoreinitccp "https://github.com/amazon-connect/amazon-connect-streams/blob/master/Documentation.md#connectcoreinitccp") documentation on GitHub.
 
 - **AWS GovCloud (US-West)**: This feature
   is not available in the AWS GovCloud (US-West) Region.
@@ -40,7 +40,7 @@ can use quick connects to add participants.
   multiparty chats you need to use the UpdateInstanceAttribute API with
   the `MULTI_PARTY_CHAT_CONFERENCE` attribute for the first
   time. Or, you can turn the feature OFF and then back ON to update your
-  settings. For more information, see [UpdateInstanceAttribute](../APIReference/API_UpdateInstanceAttribute.md "../APIReference/API_UpdateInstanceAttribute.md") in the _Amazon Connect API Reference
+  settings. For more information, see [UpdateInstanceAttribute](../APIReference/API_UpdateInstanceAttribute.md "../APIReference/API_UpdateInstanceAttribute.md") in the _Connect Customer API Reference
   Guide_.
 
 ## How to add participants to a multi-party chat
@@ -69,7 +69,7 @@ to join the chat.
      example of a custom message that an Admin or Contact Center
      Manager can configure in the [Play prompt](play.md "play.md") block.
     2. **Another participant has been invited** -
-     This is a message from Amazon Connect to let the agent know that they
+     This is a message from Connect Customer to let the agent know that they
      (the agent) made a request to add a participant to this
      chat.
     3. **Chat started with Agent2** - This message

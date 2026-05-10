@@ -70,7 +70,7 @@ You can configure your orchestrator AI agent for self-service with the following
 
 Follow these high-level steps to set up agentic self-service:
 
-1. Create an orchestrator AI agent. In the Amazon Connect admin website, go to
+1. Create an orchestrator AI agent. In the Connect Customer admin website, go to
    **AI agent designer**, choose **AI
    agents**, and choose **Create AI agent**. Select
    **Orchestration** as the AI agent type. For
@@ -102,7 +102,7 @@ Agents** page, scroll to **Default AI Agent
 Configurations** and select your agent in the
 **Self Service** row. 6. Create a Conversational AI bot. Go to **Routing**,
 **Flows**, **Conversational AI**, and
-create a bot with the Amazon Connect AI agent intent enabled. For more information, see
+create a bot with the Connect Customer AI agent intent enabled. For more information, see
 [Create an Connect AI agents intent](create-qic-intent-connect.md "create-qic-intent-connect.md"). 7. Build a contact flow that routes contacts to your AI agent. Add a [Get customer input](get-customer-input.md "get-customer-input.md")
 block that invokes your Conversational AI bot, and a [Check contact
 attributes](check-contact-attributes.md "check-contact-attributes.md") block to route based on

@@ -1,17 +1,17 @@
-# Amazon Connect workload layers
+# Connect Customer workload layers
 
-You can separate Amazon Connect workloads into the following layers: telephony, Amazon Connect
+You can separate Connect Customer workloads into the following layers: telephony, Connect Customer
 interface/API, flows/IVR, agent workstation, and metric and reporting.
 
 ## Telephony
 
-![A graphic showing how telephony works for Amazon Connect.](images/architecture/telephony.png)
+![A graphic showing how telephony works for Connect Customer.](images/architecture/telephony.png)
 
 ###### Important
 
 TFN connecting to multiple carriers is only available in the US.
 
-Amazon Connect is integrated with multiple telephony providers with redundant dedicated
+Connect Customer is integrated with multiple telephony providers with redundant dedicated
 network paths to three or more Availability Zones in every Region where the service
 is offered today. Capacity, platform resiliency, and scaling are handled as part of
 the managed service, allowing you to efficiently ramp from 10 to 10,000+ agents
@@ -23,50 +23,50 @@ center, or an entire Availability Zone experiences failure, the affected endpoin
 taken out of rotation, allowing you to continue to provide a consistent quality
 experience for your customers.
 
-![A graphic showing how telephony works for Amazon Connect.](images/architecture/telephony2.png)
+![A graphic showing how telephony works for Connect Customer.](images/architecture/telephony2.png)
 
-When a voice call is placed to an Amazon Connect instance, the telephony layer is
+When a voice call is placed to an Connect Customer instance, the telephony layer is
 responsible for controlling the endpoint that your customer calls into through their
-carrier, across the PSTN and into Amazon Connect. This layer represents the audio path
-established between Amazon Connect and the customer. Through the Amazon Connect interface layer, you
+carrier, across the PSTN and into Connect Customer. This layer represents the audio path
+established between Connect Customer and the customer. Through the Connect Customer interface layer, you
 can configure things like outbound caller ID, assign flow/IVRs to phone numbers,
 enable live media streaming, enable call recording, and the ability to claim phone
 numbers without any prior traditional telephony knowledge or experience.
-Additionally, when migrating workloads to Amazon Connect, you have the option to port your
+Additionally, when migrating workloads to Connect Customer, you have the option to port your
 existing phone numbers by opening a support case in your AWS Management Console.
 You can also forward your existing phone numbers to numbers that you’ve claimed in
-your Amazon Connect instance until you are fully migrated.
+your Connect Customer instance until you are fully migrated.
 
-## Amazon Connect Interface/API
+## Connect Customer Interface/API
 
-The Amazon Connect interface layer is the access point that your agents and contact center
-supervisors and administrators will use to access Amazon Connect components like reporting
+The Connect Customer interface layer is the access point that your agents and contact center
+supervisors and administrators will use to access Connect Customer components like reporting
 and metrics, user configuration, call recordings, and the Contact Control Panel
 (CCP). This is also the layer responsible for:
 
 - Single Sign-On (SSO) integration user authentication
-- Custom desktop applications created using the [Amazon Connect
+- Custom desktop applications created using the [Connect Customer
   Streams](https://github.com/aws/amazon-connect-streams "https://github.com/aws/amazon-connect-streams") API that may provide additional functionality and/or
   integrate with existing Customer Relationship Management (CRM) systems
-  including the [Amazon Connect Salesforce CTI
+  including the [Connect Customer Salesforce CTI
   Adapter](salesforce-integration.md "salesforce-integration.md").
-- Amazon Connect contact-facing chat interface
-- Chat web server hosting the Amazon Connect Chat API
+- Connect Customer contact-facing chat interface
+- Chat web server hosting the Connect Customer Chat API
 - Any Amazon API Gateway endpoints and corresponding AWS Lambda functions necessary to
-  route chat contacts to Amazon Connect.
+  route chat contacts to Connect Customer.
 
 Anything your agents, managers, supervisors, or contacts use to access, configure,
-or manage Amazon Connect components from a web browser or API is considered the Amazon Connect
+or manage Connect Customer components from a web browser or API is considered the Connect Customer
 interface layer.
 
-![A graphic showing Amazon Connect interface and API.](images/architecture/connectinterface.png)
+![A graphic showing Connect Customer interface and API.](images/architecture/connectinterface.png)
 
 ### Flow / IVR
 
-The Flow/IVR layer is the primary architectural vehicle for Amazon Connect and serves
+The Flow/IVR layer is the primary architectural vehicle for Connect Customer and serves
 as the point of entry and first line of communication with customers reaching
-out to your contact center. After a customer contacts your Amazon Connect instance, a
-flow controls the interaction between Amazon Connect, the contact, and the agent,
+out to your contact center. After a customer contacts your Connect Customer instance, a
+flow controls the interaction between Connect Customer, the contact, and the agent,
 allowing you to:
 
 - Dynamically invoke AWS Lambda functions to make API calls.
@@ -87,7 +87,7 @@ allowing you to:
 
 Flows enable you to dynamically prompt contacts, collect and store contact
 attributes, and route appropriately. You can assign a flow to multiple phone
-numbers, and manage and configure it through Amazon Connect.
+numbers, and manage and configure it through Connect Customer.
 
 ![A graphic showing flows and IVR.](images/architecture/contactflowivr.png)
 
@@ -95,7 +95,7 @@ numbers, and manage and configure it through Amazon Connect.
 
 The agent workstation layer is not managed by AWS. It consists of any physical
 equipment and third-party technologies, services, and endpoints that facilitate your
-agent’s voice, data, and access the Amazon Connect interface layer. Components in the agent
+agent’s voice, data, and access the Connect Customer interface layer. Components in the agent
 workstation layer include:
 
 - The Contact Control Panel (CCP) agent hardware

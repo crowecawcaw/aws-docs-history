@@ -1,4 +1,4 @@
-# Port phone numbers away from Amazon Connect
+# Port phone numbers away from Connect Customer
 
 1. Choose [Account and billing](https://console.aws.amazon.com/support/home#/case/create?issueType=customer-service&serviceCode=service-connect-number-management&categoryCode=phone-number-port-out "https://console.aws.amazon.com/support/home#/case/create?issueType=customer-service&serviceCode=service-connect-number-management&categoryCode=phone-number-port-out") to go to the pre-populated form in the
    AWS Support console. You must be signed in to your AWS
@@ -13,7 +13,7 @@
    1. Enter the subject.
    2. Under **Description**:
       1. Let us know you're porting away.
-      2. The name of your Amazon Connect instance and the numbers you
+      2. The name of your Connect Customer instance and the numbers you
          are porting away.
       3. The name of your new carrier.
 
@@ -24,7 +24,7 @@
       preferred contact method.
 
 9. Choose **Submit**.
-10. The Amazon Connect team will review your ticket and get back to
+10. The Connect Customer team will review your ticket and get back to
     you.
     Here's what happens next:
 
@@ -33,7 +33,7 @@
 12. The winning carrier will request that you provide them with following
     information:
     - Proof of ownership of the numbers you want to port away.
-      Provide them with screenshots of the Amazon Connect instance with the
+      Provide them with screenshots of the Connect Customer instance with the
       phone numbers you want to port away, and screenshots of your
       AWS bill.
     - Usually the winning carrier will require a LOA (Letter of

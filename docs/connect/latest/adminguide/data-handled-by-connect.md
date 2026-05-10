@@ -1,10 +1,10 @@
-# Data handled by Amazon Connect
+# Data handled by Connect Customer
 
-Data held within Amazon Connect is segregated by the AWS account ID and the Amazon Connect instance
+Data held within Connect Customer is segregated by the AWS account ID and the Connect Customer instance
 ID. This ensures that data can be accessed only by the authorized users of a specific
-Amazon Connect instance.
+Connect Customer instance.
 
-Amazon Connect handles a variety of data related to the contact center, including but not
+Connect Customer handles a variety of data related to the contact center, including but not
 limited to the following categories.
 
 - **Resources and configurations** – This includes
@@ -27,29 +27,29 @@ limited to the following categories.
   applications.
 - **Knowledge documents** – This includes documents
   used by agents to handle contacts.
-- **Voiceprints** – When Amazon Connect Voice ID is enabled,
+- **Voiceprints** – When Connect Customer Voice ID is enabled,
   a voiceprint is created from the customer's voice for future authentication.
   Similarly, a voiceprint is created while registering a fraudster in the
   Voice ID system for future fraud detection.
 - **Speaker and Fraudster Audio** – When
-  Amazon Connect Voice ID is enabled, the audio used for enrolling speakers and registering
+  Connect Customer Voice ID is enabled, the audio used for enrolling speakers and registering
   fraudsters is stored so that Voice ID can re-enroll and reregister them in
   future when there is a need to do so.
 - **Forecasts, capacity plans, and schedules** –
   Included only if enabled and created.
-  Amazon Connect stores the following Personally Identifiable Information (PII) data related to
+  Connect Customer stores the following Personally Identifiable Information (PII) data related to
   your customers:
 
 - The customer's phone number: ANI for inbound calls, and DNIS for outbound
   calls or transfers.
-- If you are using Amazon Connect Customer Profiles, all this data could potentially be
+- If you are using Connect Customer Customer Profiles, all this data could potentially be
   PII. This data is always encrypted at rest using either a customer managed key or an
-  AWS owned key. The Amazon Connect Customer Profiles data is segregated by the AWS
-  account ID and the domain. Multiple Amazon Connect instances can share a single Customer
+  AWS owned key. The Connect Customer Customer Profiles data is segregated by the AWS
+  account ID and the domain. Multiple Connect Customer instances can share a single Customer
   Profiles domain.
 - For outbound campaigns, Amazon Pinpoint passes customer phone numbers and relevant attributes to
-  Amazon Connect. On the Amazon Connect side, these are always encrypted at rest using either a
-  customer managed key or an AWS owned key. The outbound campaigns data is segregated by the Amazon Connect
+  Connect Customer. On the Connect Customer side, these are always encrypted at rest using either a
+  customer managed key or an AWS owned key. The outbound campaigns data is segregated by the Connect Customer
   instance ID and are encrypted by instance-specific keys.
 
 ## External application data
@@ -57,12 +57,12 @@ limited to the following categories.
 Amazon AppIntegrations enables you to integrate with external applications. It stores
 references to other AWS resources and client-service specified metadata. No data
 is stored other than incidentally while being processed. When syncing data
-periodically with an Amazon Connect service, data is encrypted using a customer managed key and stored
+periodically with an Connect Customer service, data is encrypted using a customer managed key and stored
 temporarily for one month.
 
 ## Phone call media
 
-Amazon Connect is in the audio path for calls handled by the service. It is therefore
+Connect Customer is in the audio path for calls handled by the service. It is therefore
 responsible for relaying the call’s media stream between participants. This can
 include the audio between a customer and a flow / IVR, the audio between a customer
 and an agent, or mixing the audio between multiple parties in a conference or during
@@ -73,8 +73,8 @@ a transfer. There are two types of phone calls:
   has been enabled in the Contact Control Panel (CCP).
 - Softphone calls placed to the agent’s browser.
 
-PSTN calls are connected between Amazon Connect and various telecommunications carriers
-using either private circuits maintained between Amazon Connect and our providers or existing
+PSTN calls are connected between Connect Customer and various telecommunications carriers
+using either private circuits maintained between Connect Customer and our providers or existing
 AWS internet connectivity. For PSTN calls routed over the public internet,
 signaling is encrypted with TLS and the audio media is encrypted with SRTP.
 
@@ -96,7 +96,7 @@ Note the following behavior for call recordings:
 - There are a total of two possible recordings per contact: one for automated interactions (that is, IVR)
   and one for agent interactions. Enabling or disabling recording for automated interactions takes effect immediately.
   Conversely, modifying recording for agent interactions only takes effect after the agent joins the call.
-- Agent audio is NOT transmitted to Amazon Connect when the agent is not on a call. On November 9, 2023, Amazon Connect deployed an optimization to
+- Agent audio is NOT transmitted to Connect Customer when the agent is not on a call. On November 9, 2023, Connect Customer deployed an optimization to
   improve agent productivity that pre-configures the microphone media stream of the agent's browser before the contact arrives.
   This reduces setup time for both incoming and outgoing calls. As a result, the microphone icon in the agent's browser appears to be on, even
   when the agent is not on a call.
@@ -122,13 +122,13 @@ responsibility to handle PII accordingly. If you want to change this behavior, y
 custom CCP and communication widget. For more information, see [Integrate in-app, web, video calling, and screen sharing natively into your application](config-com-widget2.md "config-com-widget2.md").
 
 You can limit access to the call and screen recordings based on user permissions.
-Recordings can be searched and played back within the Amazon Connect admin website.
+Recordings can be searched and played back within the Connect Customer admin website.
 
 ### Call recording and screen recording storage
 
 Call and screen recordings are stored in two phases:
 
-- Recordings intermediately held within Amazon Connect during and after the
+- Recordings intermediately held within Connect Customer during and after the
   contact, but before delivery.
 - Recordings delivered to your Amazon S3 bucket.
 
@@ -141,30 +141,30 @@ delivered to your Amazon S3 bucket.
 ### Access to call recordings and screen recordings
 
 You can search for and listen to call recordings or view screen recordings in
-Amazon Connect. To determine which users can do this, assign them the appropriate
+Connect Customer. To determine which users can do this, assign them the appropriate
 permissions in their security profile. If AWS CloudTrail is enabled, access to
-specific recordings by Amazon Connect users is captured in CloudTrail.
+specific recordings by Connect Customer users is captured in CloudTrail.
 
 The capabilities of Amazon S3, AWS KMS, and IAM put you in full control of who has
 access to call recording data.
 
 ## Contact metadata
 
-Amazon Connect stores metadata related to contacts that flow through the system and allows
+Connect Customer stores metadata related to contacts that flow through the system and allows
 authorized users to access this information. The Contact Search feature allows you
 to search and view contact data, such as origination phone numbers or other
 attributes set by the flow, that are associated with a contact for diagnostics or
 reporting purposes.
 
 Contact
-data classified as PII that is stored by Amazon Connect is encrypted at rest using a key that
-is time-limited and specific to the Amazon Connect instance. Specifically, the customer
+data classified as PII that is stored by Connect Customer is encrypted at rest using a key that
+is time-limited and specific to the Connect Customer instance. Specifically, the customer
 origination phone number is cryptographically hashed with a key that is specific to
 the instance to allow for use in contact search.
 For
 contact search, the encryption key is not time-sensitive.
 
-The following data stored by Amazon Connect is treated as sensitive:
+The following data stored by Connect Customer is treated as sensitive:
 
 - Origination phone number
 - Outbound phone number
@@ -180,13 +180,13 @@ The following data stored by Amazon Connect is treated as sensitive:
 Content processed by Contact Lens in real-time is encrypted at rest and in
 transit. Data is encrypted with keys owned by Contact Lens.
 
-Contact Lens persists data (transcript, category names, etc.) on the Amazon Connect
+Contact Lens persists data (transcript, category names, etc.) on the Connect Customer
 side for a short period of time. This is to ensure that the API serves data
 continuously, for up to 24h after contact terminates.
 
 ## Voiceprints and Voice ID audio recordings
 
-When you enable Amazon Connect Voice ID, it computes voiceprints out of your customer's
+When you enable Connect Customer Voice ID, it computes voiceprints out of your customer's
 speech for authenticating them in future, and stores the data. Similarly, when you
 enable fraud detection, it stores the voiceprint for each fraudster registered in
 Voice ID.
@@ -198,7 +198,7 @@ identifier that does not contain PII in the `CustomerSpeakerId` field.
 
 ## Speaker and Fraudster Audio
 
-When you enable Amazon Connect Voice ID, it stores a compacted version of the audio (called
+When you enable Connect Customer Voice ID, it stores a compacted version of the audio (called
 utterances) that it aggregated while enrolling a speaker or registering a fraudster.
 This audio is used in the future whenever the voiceprints for the speakers and
 fraudsters need to be regenerated. The data is retained until the speaker/fraudster
@@ -210,13 +210,13 @@ The data is retained until the speaker/fraudster is deleted or opted out.
 ## Outbound campaigns
 
 For outbound campaigns, Amazon Pinpoint passes customer phone numbers and relevant attributes to
-Amazon Connect. On Amazon Connect, these are always encrypted at rest using either a customer managed key or an
-AWS owned key. The outbound campaigns data is segregated by the Amazon Connect instance ID and are
+Connect Customer. On Connect Customer, these are always encrypted at rest using either a customer managed key or an
+AWS owned key. The outbound campaigns data is segregated by the Connect Customer instance ID and are
 encrypted by instance specific keys.
 
 ## Task templates
 
-Any processing of task template resources in Amazon Connect is encrypted at rest and in
+Any processing of task template resources in Connect Customer is encrypted at rest and in
 transit. Data is encrypted with an AWS KMS key.
 
 ## Forecasts, Capacity Plans, and Schedules

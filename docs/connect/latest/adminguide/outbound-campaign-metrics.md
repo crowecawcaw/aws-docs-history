@@ -1,4 +1,4 @@
-# Outbound campaign metrics in Amazon Connect
+# Outbound campaign metrics in Connect Customer
 
 The following outbound campaign driven metrics are available on the [outbound campaigns performance
 dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md") and by using the GetMetricDataV2 API.
@@ -13,12 +13,12 @@ start time and end time.
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_DIALS_PER_MINUTE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Avg. dials per minute
@@ -33,13 +33,13 @@ start time and end time.
 ## Average wait time after customer connection
 
 This metric measures the average duration of total wait time by the customer after they answer the
-outbound call through the Amazon Connect dialer.
+outbound call through the Connect Customer dialer.
 
 **Metric type**: String (_hh:mm:ss_)
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_WAIT_TIME_AFTER_CUSTOMER_CONNECTION`
@@ -62,12 +62,12 @@ This metric is only available with answering machine detection enabled. For more
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CAMPAIGN_CONTACTS_ABANDONED_AFTER_X`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Campaign contacts abandoned after x seconds rate
@@ -92,12 +92,12 @@ The possible values for X are from 1 to 604800 inclusive.
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CAMPAIGN_CONTACTS_ABANDONED_AFTER_X_RATE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Campaign contacts abandoned rate
@@ -120,7 +120,7 @@ Example interactions include `Open`, `Click`, and `Compliant`.
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CAMPAIGN_INTERACTIONS`
@@ -144,7 +144,7 @@ recipients attempted for delivery, out of the total number of recipients targete
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CAMPAIGN_PROGRESS_RATE`
@@ -159,19 +159,19 @@ recipients attempted for delivery, out of the total number of recipients targete
 ## Campaign send attempts
 
 This metric counts the outbound campaign
-send requests sent by Amazon Connect for delivery.
+send requests sent by Connect Customer for delivery.
 A campaign send request represents a send attempt made to reach out to an recipient using email, SMS, or telephony delivery mode.
 
 **Metric type**: Integer
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CAMPAIGN_SEND_ATTEMPTS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Send attempts
@@ -188,12 +188,12 @@ This metric measures the count of outbound campaign send attempts that were excl
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CAMPAIGN_SEND_EXCLUSIONS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Campaign send exclusions
@@ -206,19 +206,19 @@ This metric measures the count of outbound campaign send attempts that were excl
 ## Delivery attempts
 
 This metric measures the delivery outcome of a campaign outreach attempt.
-The count of outbound campaign contact outcomes from the Amazon Connect dialer, or the count of outbound campaign email
-or SMS message outcomes that were successfully sent to Amazon Connect to be delivered.
+The count of outbound campaign contact outcomes from the Connect Customer dialer, or the count of outbound campaign email
+or SMS message outcomes that were successfully sent to Connect Customer to be delivered.
 
 **Metric type**: Integer
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `DELIVERY_ATTEMPTS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"), Delivery attempts
 
@@ -235,8 +235,8 @@ or SMS message outcomes that were successfully sent to Amazon Connect to be deli
 ## Delivery attempt disposition rate
 
 This metric measures the percentage of each delivery outcome from a campaign outreach.
-The percent of call classification by answering machine detection or disconnect reason from outbound campaign contacts executed by the Amazon Connect dialer,
-or the percent of outbound campaign email or SMS message outcomes that was successfully sent to Amazon Connect to be delivered.
+The percent of call classification by answering machine detection or disconnect reason from outbound campaign contacts executed by the Connect Customer dialer,
+or the percent of outbound campaign email or SMS message outcomes that was successfully sent to Connect Customer to be delivered.
 
 **Metric type**: Percent
 
@@ -245,7 +245,7 @@ or the percent of outbound campaign email or SMS message outcomes that was succe
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `DELIVERY_ATTEMPT_DISPOSITION_RATE`
@@ -266,12 +266,12 @@ This metric is available only when answering machine detection is enabled.
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `HUMAN_ANSWERED_CALLS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Human answered
@@ -291,12 +291,12 @@ This metric measures the approximate count of outbound campaign recipients attem
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `RECIPIENTS_ATTEMPTED`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Recipients attempted
@@ -316,12 +316,12 @@ with the engagement after a successful delivery attempt. Example interactions in
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `RECIPIENTS_INTERACTED`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md")
 
@@ -338,12 +338,12 @@ This metric measures the count of outbound campaign recipients identified as the
 
 **Metric category**: Outbound campaigns driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `RECIPIENTS_TARGETED`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md "outbound-campaigns-performance-dashboard.md"),
   Recipients targeted

@@ -1,14 +1,14 @@
-# Data model for Amazon Connect contact records
+# Data model for Connect Customer contact records
 
 ###### Note
 
 End of support notice: On May 20, 2026, AWS will end support for Amazon Connect
 Voice ID. After May 20, 2026, you will no longer be able to access Voice ID on the
-Amazon Connect console, access Voice ID features on the Amazon Connect admin website or Contact Control Panel, or access Voice ID
+Amazon Connect console, access Voice ID features on the Connect Customer admin website or Contact Control Panel, or access Voice ID
 resources. For more information, visit [Amazon Connect
 Voice ID end of support](amazonconnect-voiceid-end-of-support.md "amazonconnect-voiceid-end-of-support.md").
 
-This article describes the data model for Amazon Connect contact records. Contact
+This article describes the data model for Connect Customer contact records. Contact
 records capture the events associated with a contact in your contact center. Real-time and
 historical metrics are based on the data captured in the contact records.
 
@@ -19,10 +19,10 @@ historical metrics are based on the data captured in the contact records.
   backward compatible. When you develop applications, we recommend that you build
   them to ignore the addition of new fields in the contact records data model.
   This will help ensure your applications are resilient.
-- Amazon Connect delivers contact records at least once. Contact records may
+- Connect Customer delivers contact records at least once. Contact records may
   be delivered again for multiple reasons, such as new information arriving after
   initial delivery. For example, when you use the [update-contact-attributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/connect/update-contact-attributes.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/connect/update-contact-attributes.html") CLI command to update a contact record,
-  Amazon Connect delivers a new contact record. This contact record is
+  Connect Customer delivers a new contact record. This contact record is
   available for 24 months from the time the associated contact was
   initiated.
 
@@ -37,11 +37,11 @@ contains new data than previous copies. Then use the
   contact exceeds a threshold, such as an internal storage limit, then any actions
   that follow will not appear on that contact record.
 - For the contact record retention period and maximum size of the attributes
-  section of a contact record, see [Amazon Connect feature specifications](feature-limits.md "feature-limits.md").
+  section of a contact record, see [Connect Customer feature specifications](feature-limits.md "feature-limits.md").
 - For information about when a contact record is created (and thus can be
   exported or used for data reporting), see [Events in the contact record](about-contact-states.md#ctr-events "about-contact-states.md#ctr-events").
 - For a list of all contact attributes, including telephony call and case
-  attributes, see [List of available contact attributes in Amazon Connect and their JSONPath references](connect-attrib-list.md "connect-attrib-list.md").
+  attributes, see [List of available contact attributes in Connect Customer and their JSONPath references](connect-attrib-list.md "connect-attrib-list.md").
 - In the past we referred to _contact records_ as
   _Contact Trace Records (CTR)_. Now we use the term
   _contact record_ only. There is no difference between the
@@ -551,7 +551,7 @@ Type: [Customer](#ctr-Customer "#ctr-Customer")
 
 **AgentConnectionAttempts**
 
-The number of times Amazon Connect attempted to connect this contact
+The number of times Connect Customer attempted to connect this contact
 with an agent.
 
 Type: Integer
@@ -587,7 +587,7 @@ Valid values: `VOICE`, `CHAT`, `TASK`,
 
 **ConnectedToSystemTimestamp**
 
-The date and time the customer endpoint connected to Amazon Connect,
+The date and time the customer endpoint connected to Connect Customer,
 in UTC time. For `INBOUND`, this matches
 InitiationTimestamp. For `OUTBOUND`,
 `CALLBACK`, and `API`, this is when the customer
@@ -615,7 +615,7 @@ Type: [ContactLens](#ctr-ContactLens "#ctr-ContactLens")
 
 The customer's identification number. For example, the CustomerId may be a
 customer number from your CRM. You can create a Lambda function to pull the
-unique customer ID of the caller from your CRM system. If you enable Amazon Connect
+unique customer ID of the caller from your CRM system. If you enable Connect Customer
 Voice ID capability, this attribute is populated with the CustomerSpeakerId
 of the caller.
 
@@ -664,7 +664,7 @@ Type: String
 **DisconnectReason**
 
 Indicates how the contact was terminated. This data is available in the
-Amazon Connect contact record stream and **Contact
+Connect Customer contact record stream and **Contact
 details** page.
 
 The disconnect reason standardizes responses across different telephony
@@ -851,7 +851,7 @@ Emails can have the following disconnect reasons:
 
 Indicates how an [outbound
 campaign](how-to-create-campaigns.md "how-to-create-campaigns.md") call is actually disposed if the contact is connected to
-Amazon Connect.
+Connect Customer.
 
 Valid values:
 
@@ -891,7 +891,7 @@ Length: 1-256
 
 **InitiationMethod**
 
-Indicates how the contact was initiated. For more information, see [Contact initiation methods and flow types in your Amazon Connect contact center](contact-initiation-methods.md "contact-initiation-methods.md").
+Indicates how the contact was initiated. For more information, see [Contact initiation methods and flow types in your Connect Customer contact center](contact-initiation-methods.md "contact-initiation-methods.md").
 
 Valid values:
 
@@ -906,9 +906,9 @@ Valid values:
   callback flow.
 
 For more information about the InitiationMethod in this
-scenario, see [Queued callbacks in real-time metrics in Amazon Connect](about-queued-callbacks.md "about-queued-callbacks.md").
+scenario, see [Queued callbacks in real-time metrics in Connect Customer](about-queued-callbacks.md "about-queued-callbacks.md").
 
-- `API`: The contact was initiated with Amazon Connect by API.
+- `API`: The contact was initiated with Connect Customer by API.
   This could be an outbound contact you created and queued to an
   agent, using the [StartOutboundVoiceContact](../APIReference/API_StartOutboundVoiceContact.md "../APIReference/API_StartOutboundVoiceContact.md") API, or it could be a
   live chat that was initiated by the customer with your contact
@@ -979,7 +979,7 @@ tasks expire just beyond 7 days ( 7.01 days )
 
 **InstanceARN**
 
-The Amazon Resource Name of the Amazon Connect instance.
+The Amazon Resource Name of the Connect Customer instance.
 
 Type: ARN
 
@@ -1129,7 +1129,7 @@ Type: String
 **SegmentAttributes**
 
 A set of system defined key-value pairs stored on individual contact
-segments using an attribute map. The attributes are standard Amazon Connect attributes and can be accessed in flows. Attribute keys can
+segments using an attribute map. The attributes are standard Connect Customer attributes and can be accessed in flows. Attribute keys can
 include only alphanumeric, -, and \_ characters.
 
 SegmentAttributes are where the email subject and SES flags are stored for
@@ -1209,7 +1209,7 @@ Type: String
 
 **TransferredToEndpoint**
 
-If this contact was transferred out of Amazon Connect, the transfer
+If this contact was transferred out of Connect Customer, the transfer
 endpoint.
 
 Type: [Endpoint](#ctr-endpoint "#ctr-endpoint")
@@ -1256,7 +1256,7 @@ Type: [Configuration](#ctr-Configuration "#ctr-Configuration")
 
 Configuration for Contact Lens conversational analytics. You configure
 conversational analytics by using the [Set recording and analytics
-behavior](set-recording-behavior.md "set-recording-behavior.md") flow block in the Amazon Connect admin website, or by using
+behavior](set-recording-behavior.md "set-recording-behavior.md") flow block in the Connect Customer admin website, or by using
 the [UpdateContactRecordingBehavior](../APIReference/contact-actions-updatecontactrecordingbehavior.md "../APIReference/contact-actions-updatecontactrecordingbehavior.md") contact action in the Flow language.
 
 **Enabled**
@@ -1497,7 +1497,7 @@ Valid values:
 
 ## Endpoint
 
-Information about an endpoint. In Amazon Connect, an endpoint is the destination
+Information about an endpoint. In Connect Customer, an endpoint is the destination
 for a contact, such as a customer phone number, or a phone number for your contact
 center.
 
@@ -2018,9 +2018,9 @@ Valid values: `SILENT_MONITOR | BARGE`.
 
 ## Steps
 
-When Amazon Connect doesn't find an available agent who meet the requirements in a step for a
+When Connect Customer doesn't find an available agent who meet the requirements in a step for a
 given step duration, the routing criteria moves onto the next step sequentially until a
-join is completed with an agent. When all steps are exhausted, Amazon Connect offers the contact
+join is completed with an agent. When all steps are exhausted, Connect Customer offers the contact
 to any agent in the queue.
 
 **Status**

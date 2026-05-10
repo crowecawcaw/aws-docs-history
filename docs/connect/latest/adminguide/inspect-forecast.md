@@ -1,10 +1,10 @@
-# Inspect a forecast in Amazon Connect
+# Inspect a forecast in Amazon Connect Customer
 
 You can inspect your forecasts before publishing them. You can do this in the
-online Amazon Connect admin website, or [download the forecasts](download-forecasts.md "download-forecasts.md")
+online Connect Customer admin website, or [download the forecasts](download-forecasts.md "download-forecasts.md")
 for offline analysis.
 
-To help make it easier to inspect a forecast in the Amazon Connect admin website, the forecast data is
+To help make it easier to inspect a forecast in the Connect Customer admin website, the forecast data is
 displayed in both a graph and a table. Use the controls on the report settings panel
 and calendar picker to adjust and filter the data for a more granular view. For
 example, you can:
@@ -16,10 +16,16 @@ example, you can:
 - Compare **Last computed forecast** and **Last
   published forecast** as shown in the following image.
 - Compare **Actuals** and forecasts to identify any
-  abnormalities in either the line chart or the "Variance" chart. The
-  following image shows the forecast data is displayed as graphs.
+  abnormalities in either the line chart or the **Variance**
+  chart. The Actuals data distinguishes between live data from Connect Customer and
+  data supplied from historical uploads. Historical upload data is indicated
+  by **Actuals Overrides** in the graph legend.
+  **Actuals Prior Year** and
+  **Actuals Prior Year Overrides** show data from
+  the same date one year prior. The following image shows the forecast data displayed as
+  graphs.
 
-![Forecasts in a graph.](images/wfm-forecasting-inspect.png)
+![Forecast graph showing actuals data and actuals overrides from historical uploads.](images/wfm-forecasting-inspect.png)
 
 Choose the **Override** setting to inspect the effect of
 any override you uploaded. The **Override** option is

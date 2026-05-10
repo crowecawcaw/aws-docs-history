@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Distribute by percentage
+# Flow block in Connect Customer: Distribute by percentage
 
 This topic defines the flow block for routing customers randomly to a queue based on a
 percentage.
@@ -53,7 +53,7 @@ For example, say a block is configure like this:
 - 40% = B
 - 40% remaining = Default
 
-When contact a is being routed through a flow, Amazon Connect generates the random number.
+When contact a is being routed through a flow, Connect Customer generates the random number.
 
 - If number is between 0-20, the contact is routed down the A branch.
 - Between 21-60 it's routed down the B branch.
@@ -69,8 +69,8 @@ configured. It shows two branches: **50% test** and
 
 ## Sample flows
 
-Amazon Connect includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
-[Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
+Connect Customer includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
+[Sample flows in Connect Customer](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-- [Sample flow in Amazon Connect for A/B contact distribution testing](sample-ab-test.md "sample-ab-test.md")
+- [Sample flow in Connect Customer for A/B contact distribution testing](sample-ab-test.md "sample-ab-test.md")

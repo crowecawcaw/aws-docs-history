@@ -1,4 +1,4 @@
-# Standard profile definition in the Amazon Connect Customer Profiles
+# Standard profile definition in the Connect Customer Customer Profiles
 
 The following table lists all the fields in the Customer Profiles standard
 profile object.

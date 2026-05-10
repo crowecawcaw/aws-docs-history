@@ -1,4 +1,4 @@
-# Create a new customer profile in the Amazon Connect agent workspace
+# Create a new customer profile in the Connect Customer agent workspace
 
 Let's say you're on a chat and there's no customer profile for the contact. You
 can create a new customer profile for them.
@@ -6,7 +6,7 @@ can create a new customer profile for them.
 1. Choose **Create profile**.
 
 ![The Customer profile tab, the create profile option.](images/customer-profiles-no-profiles-found.png) 2. Choose **This is the current connected customer**. This
-tells Amazon Connect to link the customer profile to the contact ID for the current
+tells Connect Customer to link the customer profile to the contact ID for the current
 customer.
 
 If you don't select this check box, the profile isn't associated with the

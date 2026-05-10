@@ -1,7 +1,7 @@
-# Historical metrics reports in Amazon Connect
+# Historical metrics reports in Connect Customer
 
 Historical metrics reports include data about past, completed activity and performance
-in your contact center. Amazon Connect includes built-in historical reports that you
+in your contact center. Connect Customer includes built-in historical reports that you
 can start using right away. You can also build your own custom reports.
 
 When creating and analyzing your historical metrics reports, keep in mind that there
@@ -41,14 +41,14 @@ report using a recurring schedule that you define.
 
 - [Apply tag-based access
   control](hm-tag-based-access-control.md "hm-tag-based-access-control.md")
-- [Create a custom historical metrics report in Amazon Connect](create-historical-metrics-report.md "create-historical-metrics-report.md")
+- [Create a custom historical metrics report in Connect Customer](create-historical-metrics-report.md "create-historical-metrics-report.md")
 - [Report
   limits](historical-reporting-limits.md "historical-reporting-limits.md")
-- [Schedule a historical metrics report in Amazon Connect](schedule-historical-metrics-report.md "schedule-historical-metrics-report.md")
+- [Schedule a historical metrics report in Connect Customer](schedule-historical-metrics-report.md "schedule-historical-metrics-report.md")
 - [Update a historical metrics report](update-historical-metrics-report.md "update-historical-metrics-report.md")
-- [Download a historical metrics report in Amazon Connect](download-historical-metrics-report.md "download-historical-metrics-report.md")
+- [Download a historical metrics report in Connect Customer](download-historical-metrics-report.md "download-historical-metrics-report.md")
 - [Show agent queues in a Queues
   table](show-agent-queues.md "show-agent-queues.md")
 - [How many contacts
   in queue on a specific date](contacts-in-queue-on-specific-date.md "contacts-in-queue-on-specific-date.md")
-- [Agent activity audit report in Amazon Connect](agent-activity-audit-report.md "agent-activity-audit-report.md")
+- [Agent activity audit report in Connect Customer](agent-activity-audit-report.md "agent-activity-audit-report.md")

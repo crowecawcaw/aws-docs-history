@@ -1,6 +1,6 @@
-# Enable text formatting in Amazon Connect for your customer's chat experience
+# Enable text formatting in Connect Customer for your customer's chat experience
 
-With Amazon Connect message formatting, you can enable your customers and agents to quickly add
+With Connect Customer message formatting, you can enable your customers and agents to quickly add
 structure and clarity to their chat messages.
 
 ###### Contents
@@ -49,7 +49,7 @@ agent application using markdown:
 ```
 
 The code that is highlighted in red is set to the correct values when you get
-the snippet from the Amazon Connect console. The only content you choose to add or remove
+the snippet from the Connect Customer console. The only content you choose to add or remove
 is the last line in bold for `supportedMessagingContentTypes`. 3. To add text formatting capabilities to your own custom chat user interface
 (for example, [Chat
 Interface](https://github.com/amazon-connect/amazon-connect-chat-interface "https://github.com/amazon-connect/amazon-connect-chat-interface") or your own UI solution on top of [ChatJS](https://github.com/amazon-connect/amazon-connect-chatjs "https://github.com/amazon-connect/amazon-connect-chatjs")), follow these steps:
@@ -62,7 +62,7 @@ Interface](https://github.com/amazon-connect/amazon-connect-chat-interface "http
 
 
     ```
-    // Amazon Connect StartChatContact API
+    // Connect Customer StartChatContact API
     {
         "Attributes": {
             "string" : "`string`"
@@ -101,7 +101,7 @@ Interface](https://github.com/amazon-connect/amazon-connect-chat-interface "http
     ```
 
     If you don't use ChatJs, see these topics for information about
-     sending markdown text through Amazon Connect APIs: [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") and [SendMessage](../../../connect-participant/latest/APIReference/API_SendMessage.md "../../../connect-participant/latest/APIReference/API_SendMessage.md").
+     sending markdown text through Connect Customer APIs: [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") and [SendMessage](../../../connect-participant/latest/APIReference/API_SendMessage.md "../../../connect-participant/latest/APIReference/API_SendMessage.md").
     3. Send messages with markdown. See the previous code snippet for
      importing `chatjs` as an object for an example of how to send
      messages. You can use simple markdown for formatting text in chats. If

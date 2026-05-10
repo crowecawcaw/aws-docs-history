@@ -3,14 +3,14 @@
 This topic explains how to create a Contact Lens connector to integrate with
 your external voice system. Complete the following steps.
 
-1. Open the Amazon Connect console at
+1. Open the Connect Customer console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 2. On the instances page, choose the instance alias. The instance alias is also
-   your **instance name**, which appears in your Amazon Connect
-   URL. The following image shows the **Amazon Connect virtual contact center instances** page, with a box
+   your **instance name**, which appears in your Connect Customer
+   URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box
    around the instance alias.
 
-![The Amazon Connect virtual contact center instances page, the instance alias.](images/instance.png) 3. In the Amazon Connect console, in the navigation pane, choose **External voice
+![The Connect Customer virtual contact center instances page, the instance alias.](images/instance.png) 3. In the Connect Customer console, in the navigation pane, choose **External voice
 systems**, **Contact Lens integrations**,
 and then choose **Create Contact Lens connector**, as
 shown in the following image.
@@ -43,7 +43,7 @@ SIP and Media metric messages.
 
 If you do this, you'll need to provide the same credentials when you
 configure your external system. 10. Optionally, add tags to identify, organize, search for, filter, and control
-who can access this connector. For more information, see [Add tags to resources in Amazon Connect](tagging.md "tagging.md"). 11. Choose **Create Contact Lens connector** to create the
+who can access this connector. For more information, see [Add tags to resources in Connect Customer](tagging.md "tagging.md"). 11. Choose **Create Contact Lens connector** to create the
 connector. After the connector is created, a success message is
 displayed. 12. On the **Contact Lens integrations** page you'll see
 the short host name. This is the host that your external voice system will send

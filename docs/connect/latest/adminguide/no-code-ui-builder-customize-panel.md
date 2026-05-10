@@ -1,7 +1,7 @@
 # Configure column layouts, colors, and data definitions in a view
 
 This topic explains how to configure column layouts, colors, and dynamic data
-fields in the Amazon Connect UI builder to customize views for contact center
+fields in the Connect Customer UI builder to customize views for contact center
 agents.
 
 In the UI builder, the **Customize** panel is located on

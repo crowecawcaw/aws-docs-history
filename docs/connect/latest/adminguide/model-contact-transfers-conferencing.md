@@ -1,14 +1,14 @@
-# Model contact transfers and conferencing in Amazon Connect
+# Model contact transfers and conferencing in Connect Customer
 
 This topic is for developers who have integrated their external voice system with
-Amazon Connect Contact Lens.
+Connect Customer Contact Lens.
 
 Your external voice system may support contact transfers (cold and warm) and
-conferencing multiple agents in a single call. You can signal these cases to Amazon Connect by
+conferencing multiple agents in a single call. You can signal these cases to Connect Customer by
 calling the [CreateContact](../APIReference/API_CreateContact.md "../APIReference/API_CreateContact.md") and
-[StopContact](../APIReference/API_StopContact.md "../APIReference/API_StopContact.md") APIs. These APIs create a contact chain similar to native Amazon Connect
+[StopContact](../APIReference/API_StopContact.md "../APIReference/API_StopContact.md") APIs. These APIs create a contact chain similar to native Connect Customer
 voice contacts. Each leg of the call will get its own recording, contact record, and
-analytics, just like native Amazon Connect voice contacts.
+analytics, just like native Connect Customer voice contacts.
 
 Each agent-customer interaction is modeled by an independent contact segment.
 

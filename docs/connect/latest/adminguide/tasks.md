@@ -1,6 +1,6 @@
-# The task channel in Amazon Connect
+# The task channel in Connect Customer
 
-Amazon Connect Tasks allows you to prioritize, assign, track, and even automate tasks across
+Connect Customer Tasks allows you to prioritize, assign, track, and even automate tasks across
 the disparate tools agents use to support customers. For example, using Tasks you
 can:
 
@@ -9,14 +9,14 @@ can:
 - Follow-up with a customer through a call.
 - Complete actions in a business-specific system, such as processing a customer
   claim in an insurance application.
-  Currently, Amazon Connect Tasks can be used in compliance with [GDPR](https://aws.amazon.com/compliance/gdpr-center "https://aws.amazon.com/compliance/gdpr-center") and is approved for SOC, PCI, HITRUST,
+  Currently, Connect Customer Tasks can be used in compliance with [GDPR](https://aws.amazon.com/compliance/gdpr-center "https://aws.amazon.com/compliance/gdpr-center") and is approved for SOC, PCI, HITRUST,
   ISO, and HIPAA.
 
 ## What is a task?
 
 In a business a _task_ is a unit of work that an agent must
 complete. This includes work that may have originated in external applications. In
-Amazon Connect this unit of work is a contact. It's routed, prioritized, assigned, and
+Connect Customer this unit of work is a contact. It's routed, prioritized, assigned, and
 tracked just like a voice or chat contact. Everything that is applicable to a voice
 or chat contact is also applicable to a task contact.
 
@@ -30,17 +30,17 @@ CCP may look like when they manage tasks.
 
 ## How to create tasks
 
-Amazon Connect provides different ways for you to create tasks:
+Connect Customer provides different ways for you to create tasks:
 
 1. You can use pre-built connectors with CRM applications (for example,
    Salesforce and Zendesk) to automatically create tasks based on a set of
    pre-defined conditions, without any custom development.
 
-For example, you can configure a rule in Amazon Connect to automatically create a
+For example, you can configure a rule in Connect Customer to automatically create a
 task when a new case is created in Salesforce.
 
-For more information, see [Set up application integration to create tasks in Amazon Connect](integrate-external-apps-tasks.md "integrate-external-apps-tasks.md") and [Create rules that generate tasks for third-party integrations in Amazon Connect](add-rules-task-creation.md "add-rules-task-creation.md"). 2. You can integrate with your homegrown or business-specific applications to
-create tasks using Amazon Connect APIs.
+For more information, see [Set up application integration to create tasks in Connect Customer](integrate-external-apps-tasks.md "integrate-external-apps-tasks.md") and [Create rules that generate tasks for third-party integrations in Connect Customer](add-rules-task-creation.md "add-rules-task-creation.md"). 2. You can integrate with your homegrown or business-specific applications to
+create tasks using Connect Customer APIs.
 
 For more information, see the [StartTaskContact](../APIReference/API_StartTaskContact.md "../APIReference/API_StartTaskContact.md")
 API. 3. You can add a [Create task](create-task-block.md "create-task-block.md") block to your flows. This
@@ -54,9 +54,9 @@ For example, agents can create tasks to ensure follow up work is not
 forgotten, such as calling a customer back to provide a status update on
 their issue.
 
-For more information, see [Test voice, chat, and task experiences in Amazon Connect](chat-testing.md "chat-testing.md").
+For more information, see [Test voice, chat, and task experiences in Connect Customer](chat-testing.md "chat-testing.md").
 
-For more information on getting started with tasks, see [Set up tasks in Amazon Connect](concepts-getting-started-tasks.md "concepts-getting-started-tasks.md").
+For more information on getting started with tasks, see [Set up tasks in Connect Customer](concepts-getting-started-tasks.md "concepts-getting-started-tasks.md").
 
 ###### Important
 
@@ -160,7 +160,7 @@ create tasks, note the following:
 
 You can specify only `PreviousContactID` or
 `RelatedContactID` in a request body, but not both. If you do
-specify both, Amazon Connect returns an `InvalidRequestException` error with a
+specify both, Connect Customer returns an `InvalidRequestException` error with a
 400 status code.
 
 For information about how `PreviousContactID` and
@@ -172,7 +172,7 @@ contact records data model.
 While agents are **actively working on a task**, the
 **Number pad** appears on the Contact Control Panel (CCP). If
 they make an outbound call using the Number pad, the call is automatically linked to
-the task. Amazon Connect links the task and outbound call by using the
+the task. Connect Customer links the task and outbound call by using the
 `relatedContactID` parameter.
 
 The following image of the CCP shows the **Number pad** is
@@ -197,7 +197,7 @@ added onto the contact record as a
 [segment attribute](connect-attrib-list.md#attribs-segment-attributes "connect-attrib-list.md#attribs-segment-attributes")
 called `CreatedByUser`. This attribute
 enables you to track the originating agent for a task. However, you can't
-access `CreatedByUser` by using the Amazon Connect admin website; instead use the [DescribeContact](../APIReference/API_DescribeContact.md "../APIReference/API_DescribeContact.md") API.
+access `CreatedByUser` by using the Connect Customer admin website; instead use the [DescribeContact](../APIReference/API_DescribeContact.md "../APIReference/API_DescribeContact.md") API.
 
 The `CreatedByUser` segment attribute is available to you on the [Create task](create-task-block.md "create-task-block.md") block. You can set the segment
 attribute of **Created By User**, which represents the ARN of the
@@ -221,7 +221,7 @@ valid `CreatedByUser` and a valid `TaskTemplateID`.
 
 ## Using IAM? Add Task permissions
 
-If your organization is using custom [IAM](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md") policies to manage access to the Amazon Connect console, make sure users
+If your organization is using custom [IAM](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md") policies to manage access to the Connect Customer console, make sure users
 have the appropriate permissions to set up applications for task creation. For a
 list of required permissions, see [Tasks page](security-iam-amazon-connect-permissions.md#tasks-page "security-iam-amazon-connect-permissions.md#tasks-page").
 
@@ -332,7 +332,7 @@ Summary** also displays **Scheduled time**.
 
 ## More information
 
-- [Amazon Connect feature specifications](feature-limits.md "feature-limits.md")
+- [Connect Customer feature specifications](feature-limits.md "feature-limits.md")
 - [Accept a task assigned in the Contact Control Panel (CCP)](accept-task.md "accept-task.md")
 - [Create a new task in the Contact Control Panel (CCP)](create-task.md "create-task.md")
-- [Transfer a task to another agent or queue in the Amazon Connect Contact Control Panel (CCP)](transfer-task.md "transfer-task.md")
+- [Transfer a task to another agent or queue in the Connect Customer Contact Control Panel (CCP)](transfer-task.md "transfer-task.md")

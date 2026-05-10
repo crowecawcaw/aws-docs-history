@@ -1,4 +1,4 @@
-# Amazon Connect Contact Lens notification types
+# Connect Customer Contact Lens notification types
 
 Contact Lens provides the following notification types:
 

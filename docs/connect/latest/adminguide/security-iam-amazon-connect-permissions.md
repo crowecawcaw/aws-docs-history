@@ -1,17 +1,17 @@
-# Required permissions for using custom IAM policies to manage access to the Amazon Connect console
+# Required permissions for using custom IAM policies to manage access to the Connect Customer console
 
 If you're using custom [IAM](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md") policies
-to manage access to the Amazon Connect console, your users need some or all of the permissions
+to manage access to the Connect Customer console, your users need some or all of the permissions
 listed in this article, depending on the tasks they need to do.
 
 ###### Note
 
 Using `connect:*` in a custom IAM policy grants your users all of the
-Amazon Connect permissions listed in this article.
+Connect Customer permissions listed in this article.
 
 ###### Note
 
-Certain pages on the Amazon Connect console, such as [Tasks](#tasks-page "#tasks-page")
+Certain pages on the Connect Customer console, such as [Tasks](#tasks-page "#tasks-page")
 and [Customer Profiles](#customer-profiles-page "#customer-profiles-page"), require that you
 add permissions to your inline policies.
 
@@ -44,7 +44,7 @@ add permissions to your inline policies.
 
 ## AWS managed policy: AmazonConnect_FullAccess policy
 
-To allow full read/write access to Amazon Connect, you must attach two policies to your users,
+To allow full read/write access to Connect Customer, you must attach two policies to your users,
 groups, or roles. Attach the `AmazonConnect_FullAccess` policy and a custom
 policy with the following contents:
 
@@ -72,27 +72,27 @@ When you use `AmazonConnect_FullAccess` policy, note the following:
 
 - Additional privileges are required to create an Amazon S3 bucket with a name of your
   choosing, or to use an existing bucket while creating or updating an instance from
-  the Amazon Connect admin website. If you choose default storage locations for your call recordings, chat
+  the Connect Customer admin website. If you choose default storage locations for your call recordings, chat
   transcripts, email messages, attachments, call transcripts, and other data, the
   system prepends `"amazon-connect-"` to those objects.
 - The `aws/connect` KMS key is available to use as a default
   encryption option. To use a custom encryption key, assign users additional KMS
   privileges.
 - Assign users additional privileges to attach other AWS resources like Amazon Polly,
-  Live Media Streaming, Data Streaming, and Lex bots to their Amazon Connect instances.
+  Live Media Streaming, Data Streaming, and Lex bots to their Connect Customer instances.
 
 ## AWS managed policy: AmazonConnectReadOnlyAccess policy
 
 To allow read-only access, you need to attach only the
 `AmazonConnectReadOnlyAccess` policy.
 
-## Amazon Connect console home page
+## Connect Customer console home page
 
-The following image shows a sample Amazon Connect console home page, with an arrow pointing to
+The following image shows a sample Connect Customer console home page, with an arrow pointing to
 the instance alias. Choose the instance alias to navigate to the detailed instance
 pages.
 
-![The Amazon Connect virtual contact center instances page, the instance alias.](images/instance.png)
+![The Connect Customer virtual contact center instances page, the instance alias.](images/instance.png)
 
 Use the permissions listed in the following table to manage access to this
 page.
@@ -109,9 +109,9 @@ page.
 The following image shows the navigation menu you use to access each of the detailed
 instance pages.
 
-![The navigation menu on the Amazon Connect instances page.](images/iam-custom-permissions-admin-console-telephony-page.png)
+![The navigation menu on the Connect Customer instances page.](images/iam-custom-permissions-admin-console-telephony-page.png)
 
-To access the detailed instance pages, you need permissions to the Amazon Connect console home
+To access the detailed instance pages, you need permissions to the Connect Customer console home
 page (describe/list). Or, use the `AmazonConnectReadOnlyAccess`
 policy.
 

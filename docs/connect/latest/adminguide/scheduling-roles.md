@@ -1,9 +1,9 @@
-# The roles responsible for contact center scheduling in Amazon Connect
+# The roles responsible for contact center scheduling in Connect Customer
 
 There are a variety of roles for people who might create and manage schedules in a
 contact center, such as the following:
 
-1. Amazon Connect administrator – Maintains user
+1. Connect Customer administrator – Maintains user
    profiles, grants security profile permissions, sets up holiday hours for the
    contact center.
 2. Scheduler – Creates manages staffing
@@ -18,7 +18,7 @@ schedules, updates schedules, manages requests for time off, overtime (OT),
 and voluntary time off (VTO). 4. Agent – Answers contacts, views the
 generated schedule, manages requests for time off, overtime (OT), and
 voluntary time off (VTO).
-Amazon Connect provides security profile permissions that you can assign to each role, so
+Connect Customer provides security profile permissions that you can assign to each role, so
 that you can manage access to specific features by role. For more information, see
 [Assign
 permissions](required-optimization-permissions.md "required-optimization-permissions.md").

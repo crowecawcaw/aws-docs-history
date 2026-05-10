@@ -1,8 +1,8 @@
-# Get started with Amazon Connect Global Resiliency
+# Get started with Connect Customer Global Resiliency
 
 ###### Important
 
-Amazon Connect instances created before March 31, 2021, were assigned a domain
+Connect Customer instances created before March 31, 2021, were assigned a domain
 with the following format:
 
 ```
@@ -12,7 +12,7 @@ with the following format:
 ```
 
 If your domain uses the older format, you won’t be able to properly configure the
-Amazon Connect Global Resiliency feature. To enable this feature, you’ll
+Connect Customer Global Resiliency feature. To enable this feature, you’ll
 need to [update your domain](update-your-connect-domain.md "update-your-connect-domain.md") to the
 newer format:
 
@@ -24,31 +24,31 @@ newer format:
 
 ###### Note
 
-**New user?** Check out the [Amazon Connect Global Resiliency
+**New user?** Check out the [Connect Customer Global Resiliency
 Workshop](https://catalog.workshops.aws/amazon-connect-global-resiliency/en-US "https://catalog.workshops.aws/amazon-connect-global-resiliency/en-US"). This online course guides you through the process of onboarding and testing phone number
 and agent failover using new APIs through the AWS CLI.
 
-Global Resiliency is available only for Amazon Connect instances created in the following AWS Regions: US East (N. Virginia),
+Global Resiliency is available only for Connect Customer instances created in the following AWS Regions: US East (N. Virginia),
 US West (Oregon), Asia Pacific (Osaka), Asia Pacific (Tokyo), Europe (Frankfurt), and Europe (London).
 
 - You can only create a replica in the US East (N. Virginia) Region if your source is US West (Oregon), or the other way around.
 - You can only create a replica in the Europe (Frankfurt) Region if your source
   is Europe (London), or the other way around.
 - You can only create a replica in Asia Pacific (Osaka) Region if your source is Asia Pacific (Tokyo).
-  To obtain access to this feature, contact your Amazon Connect Solutions Architect or Technical Account Manager.
+  To obtain access to this feature, contact your Connect Customer Solutions Architect or Technical Account Manager.
 
-You get started with Amazon Connect Global Resiliency by creating a replica of your existing
-Amazon Connect instance in another AWS Region, and by creating a traffic distribution group.
+You get started with Connect Customer Global Resiliency by creating a replica of your existing
+Connect Customer instance in another AWS Region, and by creating a traffic distribution group.
 
-A _traffic distribution group_ is an Amazon Connect resource that enables you to link Amazon Connect
+A _traffic distribution group_ is an Connect Customer resource that enables you to link Connect Customer
 instances that are in different AWS Regions. Phone numbers can be
 attached to the traffic distribution group. Traffic to these numbers can be distributed between the instances
 in the traffic distribution group.
 
-## How to set up Amazon Connect Global Resiliency
+## How to set up Connect Customer Global Resiliency
 
 1. [Create a replica of your
-   existing Amazon Connect instance](create-replica-connect-instance.md "create-replica-connect-instance.md"). Use the [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") API.
+   existing Connect Customer instance](create-replica-connect-instance.md "create-replica-connect-instance.md"). Use the [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") API.
 2. [Create a
    traffic distribution group](setup-traffic-distribution-groups.md "setup-traffic-distribution-groups.md").
    1. Use the [CreateTrafficDistributionGroup](../APIReference/API_CreateTrafficDistributionGroup.md "../APIReference/API_CreateTrafficDistributionGroup.md") API.
@@ -65,7 +65,7 @@ in the traffic distribution group.
 
 The default traffic distribution for these phone numbers is set to
 100% - 0%. That is, 100% of inbound telephony traffic will go to the
-source Amazon Connect instance that was used to create a replica.
+source Connect Customer instance that was used to create a replica.
 
 In addition, after phone numbers are claimed to an instance, you can
 assign them to multiple instances across AWS Regions. To

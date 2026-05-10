@@ -1,4 +1,4 @@
-# Search for in-progress contacts in Amazon Connect
+# Search for in-progress contacts in Connect Customer
 
 For a contact that is handled by an agent, a contact is considered **In
 Progress** until the agent completes After Contact Work. For a contact that
@@ -40,9 +40,9 @@ for reference):
 
 ## How to search for in-progress contacts
 
-1. Log in to Amazon Connect with a user account that has [permissions to access
+1. Log in to Connect Customer with a user account that has [permissions to access
    contact records](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts").
-2. In Amazon Connect choose **Analytics and optimization**,
+2. In Connect Customer choose **Analytics and optimization**,
    **Contact search**.
 3. Select the **Contact status** filter and change the
    selected value to **In progress**. The default Contact

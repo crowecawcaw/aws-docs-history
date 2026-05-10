@@ -1,4 +1,4 @@
-# Disable Identity Resolution in Amazon Connect Customer Profiles
+# Disable Identity Resolution in Connect Customer Customer Profiles
 
 ## Disable machine learning-based
 

@@ -1,12 +1,12 @@
-# Request reviews of (appeal) performance evaluations in Amazon Connect
+# Request reviews of (appeal) performance evaluations in Connect Customer
 
 When an agent performance evaluation is submitted, you can automatically notify the agent to review their evaluation. For example, you can set up a [rule to send an email](contact-lens-rules-email.md "contact-lens-rules-email.md") to the agent when an evaluation is available. Once they have reviewed an evaluation, they can [acknowledge](acknowledge-evaluations.md "acknowledge-evaluations.md") the evaluation. If they disagree with the feedback within an evaluation, they can request a review of (appeal) performance evaluations. When a review is requested, designated managers are automatically notified via email. They can then revise the evaluation or add additional notes that justify the original evaluation, before completing the review. Upon completion, the user who had requested the review and the agent evaluated is notified via email.
 
 ## How do I enable review requests (appeals)?
 
-Amazon Connect enables you to specify which evaluation forms support review requests. To enable review requests on an evaluation form:
+Connect Customer enables you to specify which evaluation forms support review requests. To enable review requests on an evaluation form:
 
-1. Log in to Amazon Connect with a user account that has the following security profile permission: **Analytics and Optimization** - **Evaluation forms - manage form definitions** - **Create**
+1. Log in to Connect Customer with a user account that has the following security profile permission: **Analytics and Optimization** - **Evaluation forms - manage form definitions** - **Create**
 2. Choose **Analytics and optimization**, then choose **Evaluation forms**.
 3. Open an existing form by clicking on the hyperlink for the Last version or create a new evaluation form.
 4. Click on the **Additional settings** tab
@@ -45,7 +45,7 @@ Users with the permission **Evaluation forms - review evaluations - Create and V
 
 As mentioned above, you can configure in the evaluation form, who would be automatically notified via email if a review is requested. These notification emails contain links to contacts with evaluations for which a review is requested. Additionally, users with appropriate permissions can search for contacts with evaluations for which a review is requested or which are already under review:
 
-1. Log in to Amazon Connect with a user account that has [permissions to access contact records](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts") and the **Evaluation forms - perform evaluations** permission.
+1. Log in to Connect Customer with a user account that has [permissions to access contact records](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts") and the **Evaluation forms - perform evaluations** permission.
 2. On the navigation bar, choose **Analytics and optimization**, **Contact search**.
 3. Use the time range filter to search for contacts from the relevant time window, e.g. last month.
 4. Use the evaluation status filter with the value **Review requested** to search for contacts with evaluations where a review has been requested, and is yet to be picked up for review

@@ -86,7 +86,7 @@ allowlisted domains.
 
 ## CCP WebRTC issues
 
-WebRTC issues occur when a request to Amazon Connect Soft-phone Media
+WebRTC issues occur when a request to Connect Customer Soft-phone Media
 (`TurnNlb-xxxxxxxxxxxxx.elb.`region`.amazonaws.com:3478?transport=udp`)
 times out and the CCP is unable to collect ICE candidates to establish a connection.
 The result is missed calls.
@@ -182,14 +182,14 @@ on the CCP.
   they are missing. For instructions, see [Set up outbound caller ID](queues-callerid.md "queues-callerid.md").
 - Ensure agents have the **Contact Control Panel (CCP) - Make
   outbound calls** permission in their security profile. For
-  instructions, see [Assign a security profile for Amazon Connect to a contact center user](assign-security-profile.md "assign-security-profile.md").
+  instructions, see [Assign a security profile for Connect Customer to a contact center user](assign-security-profile.md "assign-security-profile.md").
 
 ## CCP invalid number issues
 
 Invalid number issues are primarily seen when an agent enters a phone number that
 is not in [E.164](https://www.itu.int/rec/T-REC-E.164/en "https://www.itu.int/rec/T-REC-E.164/en") format.
 Or, if the phone number destination has not been allow-listed for outbound calling
-on the Amazon Connect instance.
+on the Connect Customer instance.
 
 - Error message title: **Invalid number**
 - Message: **We are unable to complete the call as dialed. Try
@@ -204,7 +204,7 @@ The following image shows an example of a invalid number message on the CCP.
 - Check that the phone number dialed is in [E.164](https://www.itu.int/rec/T-REC-E.164/en "https://www.itu.int/rec/T-REC-E.164/en")
   format.
 - Check whether the phone number country you are calling is an allowed
-  destination for your Amazon Connect instance. See [Countries that call centers using Amazon Connect can call by default](country-code-allow-list.md "country-code-allow-list.md").
+  destination for your Connect Customer instance. See [Countries that call centers using Connect Customer can call by default](country-code-allow-list.md "country-code-allow-list.md").
 - If the issues persist, contact AWS Support.
 
 ## One-way audio from customers

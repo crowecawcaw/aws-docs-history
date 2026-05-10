@@ -1,4 +1,4 @@
-# Update agent distribution in your Amazon Connect agent workspace across AWS Regions
+# Update agent distribution in your Connect Customer agent workspace across AWS Regions
 
 Just as you can use the `UpdateTrafficDistribution` API to [distribute telephony traffic
 across Regions](update-telephony-traffic-distribution.md "update-telephony-traffic-distribution.md"), you can also use it to distribute agents across AWS
@@ -22,7 +22,7 @@ will be able to complete active voice contacts before shifting Regions.
 
 If an agent gets an error when they try to end a contact before shifting
 Regions, they need to refresh the agent workspace page. For more
-information, see [Set up Amazon Connect Agent Workspace to support agents shifting across AWS Regions](setup-agentworkspace-switchover.md "setup-agentworkspace-switchover.md").
+information, see [Set up Connect Customer Agent Workspace to support agents shifting across AWS Regions](setup-agentworkspace-switchover.md "setup-agentworkspace-switchover.md").
 
 ###### Contents
 
@@ -43,7 +43,7 @@ If the following requirements are not met, your [UpdateTrafficDistribution](../A
    `ACTIVE`.
 3. If you are changing the `SignInConfig` distribution,
    you can only do so for the default traffic distribution group. The default traffic distribution group is
-   created when the replica Amazon Connect instance is created. See the
+   created when the replica Connect Customer instance is created. See the
    `IsDefault` parameter in the [TrafficDistributionGroup](../APIReference/API_TrafficDistributionGroup.md "../APIReference/API_TrafficDistributionGroup.md") data type.
 
 When you call `UpdateTrafficDistribution` from the source AWS
@@ -130,7 +130,7 @@ Region and it isn't responsive, you can try shifting the
 `SignInConfig` to the disabled Region. Regardless of how
 your `SignInConfig` is configured, agents will still benefit
 from having a session active in both the source and replica Regions
-because they will attempt to sign into their Amazon Connect instance in both
+because they will attempt to sign into their Connect Customer instance in both
 Regions.
 
 ## How to shift all telephony traffic and agents across AWS Regions

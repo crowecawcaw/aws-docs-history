@@ -125,7 +125,7 @@ contact information and interaction history.
 - Customize displayed contact fields
 - Access detailed contact information
 
-For more information about Customer Profiles CTR objects, see [Contact record templates in Amazon Connect Customer Profiles](ctr-contact-record-template.md "ctr-contact-record-template.md")
+For more information about Customer Profiles CTR objects, see [Contact record templates in Connect Customer Customer Profiles](ctr-contact-record-template.md "ctr-contact-record-template.md")
 
 ## Cases
 
@@ -157,7 +157,7 @@ purchase history and transaction details.
 - Customize displayed order fields
 - Access detailed order information
 
-For more information about Customer Profiles Order objects, see [Object type mapping for the standard order in Amazon Connect Customer Profiles](object-type-mapping-standard-order.md "object-type-mapping-standard-order.md")
+For more information about Customer Profiles Order objects, see [Object type mapping for the standard order in Connect Customer Customer Profiles](object-type-mapping-standard-order.md "object-type-mapping-standard-order.md")
 
 ## Assets
 

@@ -6,7 +6,7 @@ You can integrate with other AWS services to get analytical or monitoring insigh
 
 - Query with [Amazon CloudWatch Log Insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md")
 - Get near real-time alerts in an [Amazon Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") dashboard
-- Create aggregated reports outside of Amazon Connect
+- Create aggregated reports outside of Connect Customer
 - Connect your other customized data pipeline solutions with Amazon EventBridge
 
 ###### Contents

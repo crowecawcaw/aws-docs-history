@@ -29,7 +29,7 @@ Following are a couple example use cases for this functionality:
 To use flow designer analytics mode:
 
 - You must enable [Next
-  Generation Amazon Connect](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance.
+  Generation Connect Customer](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance.
 - Your flows and modules must be published so metrics can be
   collected.
 - You must have the following permissions in your security profile:
@@ -53,7 +53,7 @@ The following GIF shows how analytics mode works:
 
 Complete the following steps to display metrics for a flow.
 
-1. On the Amazon Connect admin website, on the left navigation menu, choose
+1. On the Connect Customer admin website, on the left navigation menu, choose
    **Routing**, **Flows**.
 2. Choose a flow to open the flows designer.
 3. On the toolbar, choose **Show Metrics**.

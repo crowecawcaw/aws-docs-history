@@ -1,9 +1,9 @@
-# Sample customer queue priority flow in Amazon Connect
+# Sample customer queue priority flow in Connect Customer
 
 ###### Note
 
-This sample flow is available in previous Amazon Connect instances. In new instances, you
-can see this functionality in [Sample queue configurations flow in Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md").
+This sample flow is available in previous Connect Customer instances. In new instances, you
+can see this functionality in [Sample queue configurations flow in Connect Customer](sample-queue-configurations.md "sample-queue-configurations.md").
 
 Type: Flow (inbound)
 

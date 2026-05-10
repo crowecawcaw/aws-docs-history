@@ -1,13 +1,13 @@
-# Flow block in Amazon Connect: Transfer to phone number
+# Flow block in Connect Customer: Transfer to phone number
 
 This topic defines the flow block for transferring the customer to an external phone
-number outside of your Amazon Connect instance.
+number outside of your Connect Customer instance.
 
 ###### Important
 
-For a list of the telephony capabilities that Amazon Connect provides, such as whether
-Amazon Connect provides outbound calling within your country using a local Caller ID (CLID),
-see the [Amazon Connect Telecoms Country Coverage Guide](https://d1v2gagwb6hfe1.cloudfront.net/Amazon_Connect_Telecoms_Coverage.pdf "https://d1v2gagwb6hfe1.cloudfront.net/Amazon_Connect_Telecoms_Coverage.pdf").
+For a list of the telephony capabilities that Connect Customer provides, such as whether
+Connect Customer provides outbound calling within your country using a local Caller ID (CLID),
+see the [Connect Customer Telecoms Country Coverage Guide](https://d1v2gagwb6hfe1.cloudfront.net/Amazon_Connect_Telecoms_Coverage.pdf "https://d1v2gagwb6hfe1.cloudfront.net/Amazon_Connect_Telecoms_Coverage.pdf").
 
 ## Description
 
@@ -68,16 +68,16 @@ If you specify a comma in **Send DTMF** it pauses for
 
 ###### Important
 
-If you are using Amazon Connect outside of the United States, we recommend
+If you are using Connect Customer outside of the United States, we recommend
 choosing **Caller ID number** and then selecting an
-Amazon Connect number. Otherwise, local regulations may cause telephony providers
+Connect Customer number. Otherwise, local regulations may cause telephony providers
 to block or redirect non-Amazon Connect phone numbers. This will result
 in service-related events, such as rejected calls, poor audio quality,
 delay, latency, and displaying the incorrect caller ID.
 
-**In Australia**: The caller ID must be an Amazon Connect
+**In Australia**: The caller ID must be an Connect Customer
 provided DID (Direct Inward Dialing) phone number.
-If a toll free number or a number not provided by Amazon Connect
+If a toll free number or a number not provided by Connect Customer
 is used in the caller ID, local telephony suppliers may reject outbound calls due to local anti-fraud requirements.
 
 **In the UK**: The caller ID must be a
@@ -110,9 +110,9 @@ local anti-fraud requirements.
   service quota increase request](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-connect "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-connect") requesting that your business be
   allowed to make outbound calls to the country you specified. If your
   business is not on the allowlist for making the call, it will fail. For more
-  information, see [Countries that call centers using Amazon Connect can call by default](country-code-allow-list.md "country-code-allow-list.md").
+  information, see [Countries that call centers using Connect Customer can call by default](country-code-allow-list.md "country-code-allow-list.md").
 - If the country you want to select is not listed, you can submit a request
-  to add countries you want to transfer calls to using the [Amazon Connect service
+  to add countries you want to transfer calls to using the [Connect Customer service
   quotas increase form](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-connect "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-connect").
 - You can choose to end the flow when the call is transferred, or choose to
   **Resume flow after disconnect**, which returns the
@@ -132,5 +132,5 @@ following branches: **Success**, **Call Failed**,
 
 See these topics for scenarios that use this block:
 
-- [Set up contact transfers in Amazon Connect](transfer.md "transfer.md")
-- [Set up outbound caller ID in Amazon Connect](queues-callerid.md "queues-callerid.md")
+- [Set up contact transfers in Connect Customer](transfer.md "transfer.md")
+- [Set up outbound caller ID in Connect Customer](queues-callerid.md "queues-callerid.md")

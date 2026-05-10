@@ -1,4 +1,4 @@
-# Amazon Connect real-time metrics example for a queued callback flow
+# Connect Customer real-time metrics example for a queued callback flow
 
 This topic shows an example queued callback flow and reviews how the contact
 records and times are set for it.
@@ -27,7 +27,7 @@ Assume we have set up the following flows:
     1. John calls customer service at 11:35. The Inbound flow runs and
        puts him in queue at 11:35.
     2. The Customer queue flow runs. At 11:37, John chooses to schedule a
-       callback, so Amazon Connect initiates a callback contact at
+       callback, so Connect Customer initiates a callback contact at
        11:37, before the inbound contact is disconnected.
 
 2.  Callback flow creates contact record-2:
@@ -38,7 +38,7 @@ Assume we have set up the following flows:
          Now the callback contact is offered to an available agent.
         3. After 21 seconds, an agent available at 11:39:00 and accepts the
          contact. The 10-second agent whisper flow is played to the agent.
-        4. After the agent whisper flow is complete, Amazon Connect calls
+        4. After the agent whisper flow is complete, Connect Customer calls
          John at 11:39:10. John picks up, and listens to the 15-second
          outbound whisper flow.
         5. When the outbound whisper flow is complete, John is connected to
@@ -51,7 +51,7 @@ Assume we have set up the following flows:
 | Contact record-1            | Data                       | Notes                                                                                    |
 | --------------------------- | -------------------------- | ---------------------------------------------------------------------------------------- |
 | Initiation Method           | Inbound                    |                                                                                          |
-| Initiation Timestamp        | 11:35                      | The inbound contact is initiated in Amazon Connect.                                      |
+| Initiation Timestamp        | 11:35                      | The inbound contact is initiated in Connect Customer.                                    |
 | ConnectedToSystem Timestamp | 11:35                      | Because this is an inbound contact, InitiationTimestamp =<br>ConnectedToSystemTimestamp. |
 | Next Contact Id             | points to contact record-2 |                                                                                          |
 | Queue                       | InboundQueue               |                                                                                          |
@@ -63,7 +63,7 @@ Assume we have set up the following flows:
 | contact record-2            | Data                       | Notes                                                                                                                                          |
 | --------------------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | PreviousContactId           | points to contact record-1 |                                                                                                                                                |
-| Initiation Timestamp        | 11:37                      | The callback contact is created in Amazon Connect.                                                                                             |
+| Initiation Timestamp        | 11:37                      | The callback contact is created in Connect Customer.                                                                                           |
 | Queue                       | CallbackQueue              |                                                                                                                                                |
 | Enqueued Timestamp          | 11:38:39                   | The contact was put into the CallbackQueue, after the<br>99-second initial delay completes.                                                    |
 | Dequeued Timestamp          | 11:39:00                   | After 21 seconds, an agent accepts the contact.                                                                                                |

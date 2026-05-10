@@ -6,7 +6,7 @@ Orchestration AI Agents require chat streaming to be enabled for chat contacts. 
 
 ## What is AI Messaging Streaming?
 
-AI Message Streaming is an Amazon Connect feature that enables **progressive display of AI agent responses** during chat interactions. Instead of waiting for the AI to generate a complete response before showing anything to the customer, streaming displays text as it's being generated, creating a more natural, conversational experience.
+AI Message Streaming is an Connect Customer feature that enables **progressive display of AI agent responses** during chat interactions. Instead of waiting for the AI to generate a complete response before showing anything to the customer, streaming displays text as it's being generated, creating a more natural, conversational experience.
 
 ### How It Works
 
@@ -40,48 +40,48 @@ The following table compares the customer experience between standard chat and s
 
 ## Enablement Status
 
-AI Message Streaming availability depends on when your Amazon Connect instance was created and how it's configured.
+AI Message Streaming availability depends on when your Connect Customer instance was created and how it's configured.
 
 ### Automatic Enablement for New Instances
 
-Amazon Connect instances created **after December 2025** have AI Message Streaming enabled by default. The `MESSAGE_STREAMING` instance attribute is automatically set to `true` for these instances, so no additional configuration is required.
+Connect Customer instances created **after December 2025** have AI Message Streaming enabled by default. The `MESSAGE_STREAMING` instance attribute is automatically set to `true` for these instances, so no additional configuration is required.
 
 ###### Important
 
-If you're using an AWS account with an Amazon Connect instance created **before December 2025**, you may need to manually enable AI Message Streaming. Follow the instructions in the [Enable message streaming for AI-powered chat](message-streaming-ai-chat.md "message-streaming-ai-chat.md") documentation to check your instance's `MESSAGE_STREAMING` attribute and enable it if needed.
+If you're using an AWS account with an Connect Customer instance created **before December 2025**, you may need to manually enable AI Message Streaming. Follow the instructions in the [Enable message streaming for AI-powered chat](message-streaming-ai-chat.md "message-streaming-ai-chat.md") documentation to check your instance's `MESSAGE_STREAMING` attribute and enable it if needed.
 
 ### Amazon Lex Bot Permissions
 
-AI Message Streaming requires the `lex:RecognizeMessageAsync` permission to function correctly. This permission allows Amazon Connect to invoke the asynchronous message recognition API that enables streaming responses.
+AI Message Streaming requires the `lex:RecognizeMessageAsync` permission to function correctly. This permission allows Connect Customer to invoke the asynchronous message recognition API that enables streaming responses.
 
-**For new Lex bot associations**: When you associate a new Amazon Lex bot with your Amazon Connect instance, the required `lex:RecognizeMessageAsync` permission is **automatically included** in the bot's resource-based policy. No additional configuration is needed.
+**For new Lex bot associations**: When you associate a new Amazon Lex bot with your Connect Customer instance, the required `lex:RecognizeMessageAsync` permission is **automatically included** in the bot's resource-based policy. No additional configuration is needed.
 
 ###### Important
 
-If you have an Amazon Lex bot that was associated with your Amazon Connect instance **before** AI Message Streaming was enabled, you may need to update the bot's resource-based policy to include the `lex:RecognizeMessageAsync` permission.
+If you have an Amazon Lex bot that was associated with your Connect Customer instance **before** AI Message Streaming was enabled, you may need to update the bot's resource-based policy to include the `lex:RecognizeMessageAsync` permission.
 
 To update your existing Lex bot policy:
 
 1. Navigate to the Amazon Lex console
 2. Select your bot and go to **Resource-based policy**
-3. Add the `lex:RecognizeMessageAsync` action to the policy statement that grants Amazon Connect access
+3. Add the `lex:RecognizeMessageAsync` action to the policy statement that grants Connect Customer access
 4. Save the updated policy
    For detailed instructions, see the [Lex bot permissions](message-streaming-ai-chat.md#lex-bot-permissions "message-streaming-ai-chat.md#lex-bot-permissions") section in the AWS documentation.
 
 ## Create Communications Widget
 
-The Amazon Connect Communications Widget is an embeddable chat interface that you can add to any website. In this section, you'll create and configure a widget to test AI Message Streaming. You can skip this section if you plan to use your own customer chat widget.
+The Connect Customer Communications Widget is an embeddable chat interface that you can add to any website. In this section, you'll create and configure a widget to test AI Message Streaming. You can skip this section if you plan to use your own customer chat widget.
 
 ### Step 1: Navigate to Communications Widget
 
-1. In the Amazon Connect console, navigate to your instance
+1. In the Connect Customer console, navigate to your instance
 2. Click **Channels** in the left navigation menu
 3. Click **Communications widget**
 4. You'll see the Communications Widget management page
 
 ###### Note
 
-**What is the Communications Widget?** The Communications Widget is Amazon Connect's out-of-the-box chat solution. It provides a fully functional chat interface that you can embed in websites using a simple JavaScript snippet. The widget handles all the complexity of establishing connections, managing sessions, and displaying messages.
+**What is the Communications Widget?** The Communications Widget is Connect Customer's out-of-the-box chat solution. It provides a fully functional chat interface that you can embed in websites using a simple JavaScript snippet. The widget handles all the complexity of establishing connections, managing sessions, and displaying messages.
 
 ### Step 2: Create a New Widget
 

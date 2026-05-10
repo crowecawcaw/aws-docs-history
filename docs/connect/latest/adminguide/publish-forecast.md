@@ -1,4 +1,4 @@
-# Publish a forecast in Amazon Connect
+# Publish a forecast in Connect Customer
 
 When you publish a forecast, you make it visible to other users, such as capacity
 planners and schedulers, so that they can use the forecasts for capacity planning
@@ -6,17 +6,17 @@ and scheduling.
 
 ###### Important
 
-Amazon Connect retains only the last published forecast. We strongly advise you to
+Connect Customer retains only the last published forecast. We strongly advise you to
 download the last published forecast before publishing a new one because the
 last forecast will be permanently replaced. For instructions, see [Download last
 published forecast](#download-last-publish-forecast "#download-last-publish-forecast").
 
-1. Log in to the Amazon Connect admin website with an account that has security profile permissions
+1. Log in to the Connect Customer admin website with an account that has security profile permissions
    for **Analytics and Optimization**, **Forecasting -
    Publish**.
 
 For more information, see [Assign
-permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Amazon Connect navigation menu, select **Analytics and
+permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Connect Customer navigation menu, select **Analytics and
 optimization**, **Forecasting**. 3. On the **Forecasts** tab, choose the forecast. 4. Choose **Actions**, **Publish
 forecast**. 5. Choose the forecasts.
 
@@ -26,12 +26,12 @@ failed**.
 
 ## Download the last published forecast
 
-1. Log in to the Amazon Connect admin website with an account that has security profile
+1. Log in to the Connect Customer admin website with an account that has security profile
    permissions for **Analytics**, **Forecasting -
    Edit**.
 
 For more information, see [Assign
-permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Amazon Connect navigation menu, select **Analytics and
+permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Connect Customer navigation menu, select **Analytics and
 optimization**, **Forecasting**. 3. On the **Forecasts** tab, choose the forecast. 4. Choose **Actions**, **Download last published
 forecast**. 5. We recommend choosing **click here** as shown in the
 following image. This enables you to specify the name of the downloaded

@@ -1,4 +1,4 @@
-# Real-time metrics reports in Amazon Connect
+# Real-time metrics reports in Connect Customer
 
 Real-time metrics reports show real-time or near-real time metrics information about
 activity in your contact center. Metrics such as **Online** show the
@@ -10,7 +10,7 @@ You can customize the reports, specify a time range for each report, select metr
 for each report, and select filters for data to include or exclude from each
 report.
 
-You can also use the [Amazon Connect Service
+You can also use the [Connect Customer Service
 APIs](../APIReference/welcome.md "../APIReference/welcome.md") to create custom reports, such as real-time reports that are filtered
 by teams of agents.
 
@@ -19,7 +19,7 @@ by teams of agents.
 - [Real-time metrics
   tag-based access control](rtm-tag-based-access-control.md "rtm-tag-based-access-control.md")
 - [How often real-time metrics refresh in
-  Amazon Connect](rtm-refresh.md "rtm-refresh.md")
+  Connect Customer](rtm-refresh.md "rtm-refresh.md")
 - [Create alerts on real-time
   metrics](rule-real-time-metrics.md "rule-real-time-metrics.md")
 - [Use one-click

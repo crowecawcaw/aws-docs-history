@@ -1,11 +1,11 @@
-# Use the flow designer in Amazon Connect to create flows
+# Use the flow designer in Connect Customer to create flows
 
 The starting point for creating all flows is the flow designer. It's a drag-and-drop work
 surface that enables you to link together blocks of actions. For example, when a customer
 first enters your contact center, you can ask for some input and then play a prompt such as
 "Thank you."
 
-For descriptions of the available flow blocks, see [Flow block definitions in the flow designer in Amazon Connect](contact-block-definitions.md "contact-block-definitions.md").
+For descriptions of the available flow blocks, see [Flow block definitions in the flow designer in Connect Customer](contact-block-definitions.md "contact-block-definitions.md").
 
 ###### Contents
 
@@ -37,7 +37,7 @@ flows, we strongly recommend against renaming them.
 
 ## Choose a flow type
 
-Amazon Connect includes a set of specific flow types. **Each type has only
+Connect Customer includes a set of specific flow types. **Each type has only
 those blocks for a specific scenario.** For example, the flow type for
 transferring to a queue contains only the appropriate flow blocks for that type of flow.
 
@@ -71,10 +71,10 @@ Use these steps to create an inbound flow.
 1. In the left navigation menu, choose **Routing**,
    **Flows**.
 
-![The Amazon Connect navigation menu.](images/menu-contact-flows.png) 2. Choose **Create flow**. This opens the flow designer and
+![The Connect Customer navigation menu.](images/menu-contact-flows.png) 2. Choose **Create flow**. This opens the flow designer and
 creates an inbound flow (Type = Flow). 3. Type a name and a description for your flow. 4. Search for a flow block using the **Search** bar, or expand
 the relevant group to locate the block. For descriptions of the flow blocks, see
-[Flow block definitions in the flow designer in Amazon Connect](contact-block-definitions.md "contact-block-definitions.md"). 5. Drag and drop contact blocks onto the canvas. You can add blocks in any order
+[Flow block definitions in the flow designer in Connect Customer](contact-block-definitions.md "contact-block-definitions.md"). 5. Drag and drop contact blocks onto the canvas. You can add blocks in any order
 or sequence, as connections between elements aren't required to be strictly
 linear.
 
@@ -123,4 +123,4 @@ tag the resource.
 ![Tags section in the flow designer.](images/tag-flows-and-flow-modules-2.png) 3. Choose **Add**. Tags are not persisted until you save or
 publish the flow.
 
-For more information, see [Apply tag-based access control in Amazon Connect](tag-based-access-control.md "tag-based-access-control.md")
+For more information, see [Apply tag-based access control in Connect Customer](tag-based-access-control.md "tag-based-access-control.md")

@@ -1,4 +1,4 @@
-# Set the default whisper flow in Amazon Connect for a chat conversation
+# Set the default whisper flow in Connect Customer for a chat conversation
 
 For chat conversations, you need to include a **Set whisper flow**
 block for default agent or customer whispers to play.

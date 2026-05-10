@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Change routing priority / age
+# Flow block in Connect Customer: Change routing priority / age
 
 This topic describes setting up the Change routing priority / age flow block for
 changing the priority or length of time of a customer in a queue.
@@ -56,7 +56,7 @@ This block gives you two options for changing a contact's position in queue:
 
 Here's how this block works:
 
-1. Amazon Connect takes the actual "time in queue" for the contact (in this case, how
+1. Connect Customer takes the actual "time in queue" for the contact (in this case, how
    long this specific contact has spent in queue so far), and adds the number
    of seconds you specified in the **Adjust by time**
    property.
@@ -84,16 +84,16 @@ seconds, and it has a **Success** branch.
 
 ## Sample flows
 
-Amazon Connect includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
-[Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
+Connect Customer includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
+[Sample flows in Connect Customer](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-- [Sample customer queue priority flow in Amazon Connect](sample-customer-queue-priority.md "sample-customer-queue-priority.md")
-- [Sample queue configurations flow in Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md")
+- [Sample customer queue priority flow in Connect Customer](sample-customer-queue-priority.md "sample-customer-queue-priority.md")
+- [Sample queue configurations flow in Connect Customer](sample-queue-configurations.md "sample-queue-configurations.md")
 
 ## Scenarios
 
 See these topics for more information about how routing priority works:
 
-- [How Amazon Connect uses routing profiles](concepts-routing.md "concepts-routing.md")
-- [How routing works in Amazon Connect](about-routing.md "about-routing.md")
+- [How Connect Customer uses routing profiles](concepts-routing.md "concepts-routing.md")
+- [How routing works in Connect Customer](about-routing.md "about-routing.md")

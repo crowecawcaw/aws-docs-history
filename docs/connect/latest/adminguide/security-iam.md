@@ -1,8 +1,8 @@
-# Identity and access management for Amazon Connect
+# Identity and access management for Connect Customer
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access
 to AWS resources. IAM administrators control who can be _authenticated_ (signed in) and _authorized_
-(have permissions) to use Amazon Connect resources. IAM is an AWS service that you can
+(have permissions) to use Connect Customer resources. IAM is an AWS service that you can
 use with no additional charge.
 
 ###### Contents
@@ -13,8 +13,8 @@ use with no additional charge.
 - [Required permissions
   for custom IAM policies](security-iam-amazon-connect-permissions.md "security-iam-amazon-connect-permissions.md")
 - [Restrict AWS resources that can be
-  associated with Amazon Connect](restrict-access-examples.md "restrict-access-examples.md")
-- [How Amazon Connect works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
+  associated with Connect Customer](restrict-access-examples.md "restrict-access-examples.md")
+- [How Connect Customer works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
 - [Identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
 - [Resource-level policy examples](security_iam_resource-level-policy-examples.md "security_iam_resource-level-policy-examples.md")
 - [AWS managed policies](security_iam_awsmanpol.md "security_iam_awsmanpol.md")
@@ -22,19 +22,19 @@ use with no additional charge.
 - [Use service-linked roles](connect-slr.md "connect-slr.md")
 - [Use service-linked roles for outbound campaigns](connect-slr-outbound.md "connect-slr-outbound.md")
 - [Using service-linked roles for Amazon AppIntegrations](appintegrations-slr.md "appintegrations-slr.md")
-- [Using service-linked roles for Amazon Connect Customer Profiles](customerprofiles-slr.md "customerprofiles-slr.md")
-- [Using service-linked roles for Amazon Connect Managed Synchronization](managed-synchronization-slr.md "managed-synchronization-slr.md")
+- [Using service-linked roles for Connect Customer Customer Profiles](customerprofiles-slr.md "customerprofiles-slr.md")
+- [Using service-linked roles for Connect Customer Managed Synchronization](managed-synchronization-slr.md "managed-synchronization-slr.md")
 
 ## Audience
 
 How you use AWS Identity and Access Management (IAM) differs based on your role:
 
 - **Service user** - request permissions from your
-  administrator if you cannot access features (see [Troubleshooting Amazon Connect identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
+  administrator if you cannot access features (see [Troubleshooting Connect Customer identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
 - **Service administrator** - determine user access and
-  submit permission requests (see [How Amazon Connect works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
+  submit permission requests (see [How Connect Customer works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
 - **IAM administrator** - write policies to manage
-  access (see [Amazon Connect identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
+  access (see [Connect Customer identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
 
 ## Authenticating with identities
 

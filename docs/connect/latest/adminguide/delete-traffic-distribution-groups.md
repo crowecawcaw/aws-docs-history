@@ -1,4 +1,4 @@
-# Delete traffic distribution groups in Amazon Connect
+# Delete traffic distribution groups in Connect Customer
 
 Use the [DeleteTrafficDistributionGroup](../APIReference/API_DeleteTrafficDistributionGroup.md "../APIReference/API_DeleteTrafficDistributionGroup.md") API to delete a traffic distribution group that is no longer
 needed.
@@ -11,7 +11,7 @@ using the [ReleasePhoneNumber](../APIReference/API_ReleasePhoneNumber.md "../API
 traffic distribution group.
 
 You cannot release numbers from a traffic distribution group by using the
-Amazon Connect console.
+Connect Customer console.
 
 Your [DeleteTrafficDistributionGroup](../APIReference/API_DeleteTrafficDistributionGroup.md "../APIReference/API_DeleteTrafficDistributionGroup.md") API call will fail with an
 `ResourceInUseException` if phone numbers are still claimed to the

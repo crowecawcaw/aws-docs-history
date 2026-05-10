@@ -1,4 +1,4 @@
-# Sort agents by activity in a real-time metrics report in Amazon Connect
+# Sort agents by activity in a real-time metrics report in Connect Customer
 
 On the real-time metrics **Agents** report, you can sort agents
 by **Activity** when agents are enabled to use the same

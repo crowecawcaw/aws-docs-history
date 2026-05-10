@@ -1,4 +1,4 @@
-# Set up tasks in Amazon Connect
+# Set up tasks in Connect Customer
 
 1. [Update your agent's routing profile](routing-profiles.md "routing-profiles.md") so
    they can manage and create tasks.

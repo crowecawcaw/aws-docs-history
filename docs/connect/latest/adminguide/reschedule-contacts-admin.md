@@ -1,4 +1,4 @@
-# Reschedule contacts from the Contact details page in Amazon Connect
+# Reschedule contacts from the Contact details page in Connect Customer
 
 On the **Contact details** page of an in-progress contact, you can
 reschedule a contact that was previously scheduled. This capability is currently
@@ -30,9 +30,9 @@ To reschedule contacts programmatically, use the [UpdateContactSchedule](../APIR
 
 ## How to reschedule a contact
 
-1. Log in to Amazon Connect with a user account that has [permissions to access
+1. Log in to Connect Customer with a user account that has [permissions to access
    contact records](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts").
-2. In Amazon Connect choose **Analytics and optimization**,
+2. In Connect Customer choose **Analytics and optimization**,
    **Contact search**.
 3. Search for an in-progress task contact to reschedule:
    1. Select the **Contact status** filter and change

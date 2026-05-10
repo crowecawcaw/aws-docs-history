@@ -1,10 +1,10 @@
-# Reset a user's password for Amazon Connect
+# Reset a user's password for Connect Customer
 
-###### To reset a user's Amazon Connect password
+###### To reset a user's Connect Customer password
 
-1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/. Use an Admin account, or a user account that has [security profile permissions](security-profile-list.md "security-profile-list.md") to reset
+1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/. Use an Admin account, or a user account that has [security profile permissions](security-profile-list.md "security-profile-list.md") to reset
    passwords.
-2. In Amazon Connect, on the left navigation menu, choose **Users**,
+2. In Connect Customer, on the left navigation menu, choose **Users**,
    **User management**.
 3. Select the user and choose **Edit**.
 4. Choose **reset password**. Specify a new password and then
@@ -13,16 +13,16 @@
 Resetting the user's password will immediately log them out of the Contact
 Control Panel. 5. Communicate the new password to the user.
 
-## Reset your own lost or forgotten Amazon Connect admin password
+## Reset your own lost or forgotten Connect Customer admin password
 
-- See [Emergency login to the Amazon Connect admin website](emergency-admin-login.md "emergency-admin-login.md").
+- See [Emergency login to the Connect Customer admin website](emergency-admin-login.md "emergency-admin-login.md").
 
 ## Reset your own agent or manager password
 
 Use the following steps if you want to change your password, or if you forgot it
 and need a new one.
 
-1. If you're an Amazon Connect agent or manager, at the Amazon Connect login page,
+1. If you're an Connect Customer agent or manager, at the Connect Customer login page,
    choose **Forgot Password**.
 2. Type the characters you see in the image, and then choose
    **Recover Password**.

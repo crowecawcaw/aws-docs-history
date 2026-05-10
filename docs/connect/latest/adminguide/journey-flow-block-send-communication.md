@@ -29,7 +29,7 @@ Use this block to send communications through channels such as voice, SMS, Whats
 
 ## How to configure this block
 
-You can configure the **Send communication** block by using the Amazon Connect admin website or by using the SendCommunication action in Flow language.
+You can configure the **Send communication** block by using the Connect Customer admin website or by using the SendCommunication action in Flow language.
 
 ### Common properties
 

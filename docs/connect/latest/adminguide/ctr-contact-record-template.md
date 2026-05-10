@@ -1,4 +1,4 @@
-# Contact record templates in Amazon Connect Customer Profiles
+# Contact record templates in Connect Customer Customer Profiles
 
 A Contact Record serves as a profile object that captures essential meta-data from
 various contact events, such as phone calls or chats. It plays a vital role in
@@ -116,9 +116,9 @@ ensure a more reliable representation of customer interactions.
 
 ## Contact record template usage examples
 
-**Amazon Connect admin website**
+**Connect Customer admin website**
 
-- In the Amazon Connect admin website, when creating a new domain,
+- In the Connect Customer admin website, when creating a new domain,
   you have the option to select the desired CTR behavior. This can be done
   through the radio button options available in the **Profile
   creation and auto-association** section. Similarly, when

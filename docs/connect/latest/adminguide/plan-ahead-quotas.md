@@ -1,11 +1,11 @@
-# Plan ahead with Amazon Connect quotas
+# Plan ahead with Connect Customer quotas
 
 Learn how to plan for and manage service quotas during key phases of your contact
 center lifecycle.
 
 ## Planning for production launch
 
-Before launching your Amazon Connect contact center, request service quota increases to
+Before launching your Connect Customer contact center, request service quota increases to
 ensure sufficient capacity for your agents and concurrent calls. Follow these best
 practices:
 
@@ -31,7 +31,7 @@ correctly size the quotas you require.
 ## Ongoing operations management
 
 Monitor your contact center's quota utilization by using Amazon CloudWatch. For detailed
-metrics, see [Amazon Connect metrics sent to CloudWatch](monitoring-cloudwatch.md#connect-metrics-cloudwatch "monitoring-cloudwatch.md#connect-metrics-cloudwatch").
+metrics, see [Connect Customer metrics sent to CloudWatch](monitoring-cloudwatch.md#connect-metrics-cloudwatch "monitoring-cloudwatch.md#connect-metrics-cloudwatch").
 
 **Best practice**: Set CloudWatch alarms to monitor service
 quota usage:

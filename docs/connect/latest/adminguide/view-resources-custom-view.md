@@ -1,4 +1,4 @@
-# Custom views in the Amazon Connect agent workspace
+# Custom views in the Connect Customer agent workspace
 
 Using APIs you can create your own view resources. The View resource includes
 CloudFormation, CloudTrail, and tagging support.

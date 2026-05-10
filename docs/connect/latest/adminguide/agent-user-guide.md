@@ -1,12 +1,12 @@
-# Agent training guide for the Contact Control Panel (CCP) and agent workspace in Amazon Connect
+# Agent training guide for the Contact Control Panel (CCP) and agent workspace in Connect Customer
 
-This section provides an overview of the default Amazon Connect agent workspace and Contact Control
+This section provides an overview of the default Connect Customer agent workspace and Contact Control
 Panel. Your organization may be using a customized version of the agent workspace and/or
 Contact Control Panel. Please contact your Technical Support for specific questions about
-how your instance of Amazon Connect works.
+how your instance of Connect Customer works.
 
 Agent workspace
-With the agent workspace you can access all Amazon Connect features in a single
+With the agent workspace you can access all Connect Customer features in a single
 application. You can:
 
 - Use the Contact Control Panel (CCP) to interact with customer
@@ -23,7 +23,7 @@ To access the agent workspace use the following URL:
 - https://`instance name`.my.connect.aws/agent-app-v2/
 
 Where `instance name` is provided by your IT
-department or the individuals that set up Amazon Connect for your business.
+department or the individuals that set up Connect Customer for your business.
 
 The following image shows the agent workspace with the CCP, Customer Profiles,
 Cases, and Connect AI agents.
@@ -44,7 +44,7 @@ Cases, and Connect AI agents.
 8. Search for knowledge articles to solve customer issues.
 
 CCP
-You use the Amazon Connect Contact Control Panel (CCP) to interact with customer
+You use the Connect Customer Contact Control Panel (CCP) to interact with customer
 contacts. It's how you receive calls, chat with contacts, transfer them to other
 agents, put them on hold, and perform other key tasks.
 
@@ -53,7 +53,7 @@ The URL to launch the CCP is:
 - https://`instance name`.my.connect.aws/ccp-v2/
 
 Where `instance name` is provided by your IT
-department or the individuals that set up Amazon Connect for your business.
+department or the individuals that set up Connect Customer for your business.
 
 Large businesses often choose to customize their CCP. For example, they might
 want to integrate it with a CRM. However, this section describes how CCP works

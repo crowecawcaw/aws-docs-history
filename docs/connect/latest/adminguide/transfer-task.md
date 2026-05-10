@@ -1,4 +1,4 @@
-# Transfer a task to another agent or queue in the Amazon Connect Contact Control Panel (CCP)
+# Transfer a task to another agent or queue in the Connect Customer Contact Control Panel (CCP)
 
 You can transfer a task that's assigned to you to another agent or queue.
 

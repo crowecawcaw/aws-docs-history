@@ -1,4 +1,4 @@
-# Access third-party applications in the Amazon Connect agent workspace
+# Access third-party applications in the Connect Customer agent workspace
 
 ## Important things to know
 
@@ -6,7 +6,7 @@
   cookies and instead provide an opt-in mechanism for deprecating
   third-party cookies. Opting into third-party cookie deprecation may
   impact the third-party applications experience. If you are using
-  third-party apps in the Amazon Connect Agent workspace on the Chrome browser, we
+  third-party apps in the Connect Customer Agent workspace on the Chrome browser, we
   recommend that you:
   - **Temporary solution**: Update
     [Enterprise Chrome policies](https://support.google.com/chrome/a/answer/7679408?sjid=16745203858910744446-EU#upChromeBrsrBB117 "https://support.google.com/chrome/a/answer/7679408?sjid=16745203858910744446-EU#upChromeBrsrBB117")). You can set

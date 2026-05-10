@@ -1,4 +1,4 @@
-# Troubleshoot issues with message streaming in Amazon Connect
+# Troubleshoot issues with message streaming in Connect Customer
 
 ## Messages are not getting published to SNS
 
@@ -10,7 +10,7 @@ When this happens, we recommend checking the information in [Step 1: Create a st
 - Make sure an SNS resource-based permission is applied correctly in your
   account.
   - If server-side encryption is enabled, you need to give the same
-    Amazon Connect service principal permission for encrypt and decrypt.
+    Connect Customer service principal permission for encrypt and decrypt.
 
 ## Flow doesn't start
 
@@ -29,14 +29,14 @@ to receive them.
 If after trying the previous solutions you still have issues with message
 streaming, contact Support for help.
 
-Amazon Connect administrators can choose one of the following options to contact support:
+Connect Customer administrators can choose one of the following options to contact support:
 
 - If you have an AWS Support account, go to [Support Center](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") and submit a ticket.
 - Otherwise, open the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/")
-  and choose **Amazon Connect**, **Support**, **Create case**.
+  and choose **Connect Customer**, **Support**, **Create case**.
 
 It is helpful to provide the following information:
 
-- Your contact center instance ID/ARN. To find your instance ARN, see [Find your Amazon Connect instance ID or ARN](find-instance-arn.md "find-instance-arn.md").
+- Your contact center instance ID/ARN. To find your instance ARN, see [Find your Connect Customer instance ID or ARN](find-instance-arn.md "find-instance-arn.md").
 - Your Region.
 - A detailed description of the issue.

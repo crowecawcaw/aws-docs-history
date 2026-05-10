@@ -1,15 +1,15 @@
-# Generative AI powered data mapping in Amazon Connect
+# Generative AI powered data mapping in Connect Customer
 
-Amazon Connect Customer Profiles provides a generative AI powered customer data mapping
+Connect Customer Customer Profiles provides a generative AI powered customer data mapping
 capability that significantly reduces the time needed to create unified profiles,
 enabling you to help provide more personalized customer experiences.
 
 With this capability, when contact center administrators add customer data from
 any of the 70+ available no-code data connectors such as Adobe Analytics,
-Salesforce, or Amazon Simple Storage Service (S3), Amazon Connect Customer Profiles will
+Salesforce, or Amazon Simple Storage Service (S3), Connect Customer Customer Profiles will
 analyze the data from these sources to automatically determine how to organize and
 combine data that exists in different formats across disparate sources into unified
-profiles in Amazon Connect. Contact center administrators can review and
+profiles in Connect Customer. Contact center administrators can review and
 complete the setup of customer profiles, so they can provide agents with relevant
 customer information and dynamically personalize IVRs and chatbots to improve
 customer satisfaction and agent productivity.
@@ -30,7 +30,7 @@ regions:
 
 ## Set up generative AI powered data mapping
 
-1. Open the Amazon Connect Customer Profiles console.
+1. Open the Connect Customer Customer Profiles console.
 2. On the **Data source integrations** tab, choose
    **Add data source integration**.
 3. Set up the connection. Select the data source from drop-down that has
@@ -42,7 +42,7 @@ an already existing mapping template or create one from scratch..
 ![Map data. Select the option to auto-generate data mapping, or select an already existing mapping template or create one from scratch.](images/genai-augmented-data-mapping-2.png) 5. Review mapping summary. Review the auto-generated mapping results
 summary that shows all the customer attributes. Make edits to ingestion
 keys and confirm before starting data ingestion. For more on field
-mappings and keys, see [Object type mapping definition details in Amazon Connect Customer Profiles](object-type-mapping-definition-details.md "object-type-mapping-definition-details.md").
+mappings and keys, see [Object type mapping definition details in Connect Customer Customer Profiles](object-type-mapping-definition-details.md "object-type-mapping-definition-details.md").
 
 ![Review mapping summary. Review the auto-generated mapping results summary that shows all the customer attributes. Make edits to ingestion keys and confirm before starting data ingestion.](images/genai-augmented-data-mapping-3.png)
 

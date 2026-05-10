@@ -1,7 +1,7 @@
-# Amazon Connect agent event streams
+# Connect Customer agent event streams
 
-Amazon Connect agent event streams are Amazon Kinesis data streams that provide you with near real-time
-reporting of agent activity within your Amazon Connect instance. The events published to the stream
+Connect Customer agent event streams are Amazon Kinesis data streams that provide you with near real-time
+reporting of agent activity within your Connect Customer instance. The events published to the stream
 include these CCP events:
 
 - Agent login
@@ -16,7 +16,7 @@ include these CCP events:
 
 ###### Contents
 
-- [Enable agent event streams to report agent activity in Amazon Connect](agent-event-streams-enable.md "agent-event-streams-enable.md")
-- [Sample agent event stream in Amazon Connect](sample-agent-event-stream.md "sample-agent-event-stream.md")
+- [Enable agent event streams to report agent activity in Connect Customer](agent-event-streams-enable.md "agent-event-streams-enable.md")
+- [Sample agent event stream in Connect Customer](sample-agent-event-stream.md "sample-agent-event-stream.md")
 - [Determine the contact center agent's ACW (After Contact Work) time](determine-acw-time.md "determine-acw-time.md")
-- [Agent event streams data model in Amazon Connect](agent-event-stream-model.md "agent-event-stream-model.md")
+- [Agent event streams data model in Connect Customer](agent-event-stream-model.md "agent-event-stream-model.md")

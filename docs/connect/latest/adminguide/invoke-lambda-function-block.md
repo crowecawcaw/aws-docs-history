@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: AWS Lambda function
+# Flow block in Connect Customer: AWS Lambda function
 
 This topic defines the flow block for calling AWS Lambda. The fetched response can be
 used in the [Set contact
@@ -76,7 +76,7 @@ Lambda**, note the following properties:
 If your Lambda invocation gets throttled, the request is retried. It is
 also retried if a general service failure (500 error) happens.
 
-When a Lambda invocation returns an error, Amazon Connect retries up to three
+When a Lambda invocation returns an error, Connect Customer retries up to three
 times, for maximum until timeout specified. At that point, the contact
 is routed down the **Error** branch.
 
@@ -113,7 +113,7 @@ following options under **Lambda Invocation RequestId**:
 ## Configuration tips
 
 - To use an AWS Lambda function in a flow, first add the function to your
-  instance. For more information, see [Add a Lambda function to your Amazon Connect instance](connect-lambda-functions.md#add-lambda-function "connect-lambda-functions.md#add-lambda-function").
+  instance. For more information, see [Add a Lambda function to your Connect Customer instance](connect-lambda-functions.md#add-lambda-function "connect-lambda-functions.md#add-lambda-function").
 - After you add the function to your instance, you can select the function
   from the **Select a function** drop-down list in the block
   to use it in the flow.
@@ -131,14 +131,14 @@ configured. It has two branches: **Success** and
 
 ## Sample flows
 
-Amazon Connect includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
-[Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
+Connect Customer includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
+[Sample flows in Connect Customer](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-[Sample Lambda integration flow in Amazon Connect](sample-lambda-integration.md "sample-lambda-integration.md")
+[Sample Lambda integration flow in Connect Customer](sample-lambda-integration.md "sample-lambda-integration.md")
 
 ## Scenarios
 
 See these topics for scenarios that use this block:
 
-- [Grant Amazon Connect access to your AWS Lambda functions](connect-lambda-functions.md "connect-lambda-functions.md")
+- [Grant Connect Customer access to your AWS Lambda functions](connect-lambda-functions.md "connect-lambda-functions.md")

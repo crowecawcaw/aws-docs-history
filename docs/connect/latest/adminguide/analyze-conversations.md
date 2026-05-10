@@ -1,4 +1,4 @@
-# Analyze conversations using conversational analytics in Amazon Connect Contact Lens
+# Analyze conversations using conversational analytics in Connect Customer Contact Lens
 
 With Contact Lens conversational analytics, you can analyze conversations
 between customers and agents or customers and conversational AI, across voice, chat, and email, using natural language
@@ -34,7 +34,7 @@ contacts.
   all features applied (for example, summarization is applied to `text/plain`
   messages only), if Contact Lens conversational analytics is enabled on the
   contact, the message is counted for billing. For more information about pricing, see
-  [Amazon Connect Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
+  [Connect Customer Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
 
 ###### Email analytics support
 
@@ -46,7 +46,7 @@ contacts.
 - Because email contacts are asynchronous, with one participant
   acting at a time, the real-time and post-contact distinction that applies to
   voice and chat does not apply to email. An email analysis is initiated as soon as
-  the [Flow block in Amazon Connect: Set recording, analytics and processing behavior](set-recording-analytics-processing-behavior.md "set-recording-analytics-processing-behavior.md")
+  the [Flow block in Connect Customer: Set recording, analytics and processing behavior](set-recording-analytics-processing-behavior.md "set-recording-analytics-processing-behavior.md")
   is used when an email contact is received or sent.
   You can protect your customer's privacy by redacting sensitive data, such as name,
   address, and credit card information from transcripts and audio recordings.

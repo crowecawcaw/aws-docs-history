@@ -2,7 +2,7 @@
 
 ## Step 1: Enable the events connector for Amazon EventBridge
 
-If you don't already have the EventBridge connector for Zendesk enabled, you need to set it up first. Otherwise, go to [Step 2: Integrate Zendesk with Amazon Connect for task creation](#steps-integrate-zendesk "#steps-integrate-zendesk").
+If you don't already have the EventBridge connector for Zendesk enabled, you need to set it up first. Otherwise, go to [Step 2: Integrate Zendesk with Connect Customer for task creation](#steps-integrate-zendesk "#steps-integrate-zendesk").
 
 1. Copy your AWS account number:
    1. In the Amazon EventBridge console, go to **Partner event
@@ -14,21 +14,21 @@ If you don't already have the EventBridge connector for Zendesk enabled, you nee
 
 2. Go to [Setting up the events connector for Amazon EventBridge](https://support.zendesk.com/hc/en-us/articles/360043496933-Setting-up-the-events-connector-for-Amazon-EventBridge "https://support.zendesk.com/hc/en-us/articles/360043496933-Setting-up-the-events-connector-for-Amazon-EventBridge") in the Zendesk Help and follow the instructions.
 
-## Step 2: Integrate Zendesk with Amazon Connect for task creation
+## Step 2: Integrate Zendesk with Connect Customer for task creation
 
 ###### Note
 
 If you use custom AWS Identity and Access Management (IAM) policies, for a list of the required IAM
-permissions to set up Amazon Connect Tasks, see [Tasks page](security-iam-amazon-connect-permissions.md#tasks-page "security-iam-amazon-connect-permissions.md#tasks-page").
+permissions to set up Connect Customer Tasks, see [Tasks page](security-iam-amazon-connect-permissions.md#tasks-page "security-iam-amazon-connect-permissions.md#tasks-page").
 
-1. Open the Amazon Connect console at
+1. Open the Connect Customer console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 2. On the instances page, choose the instance alias. The instance alias is also
-   your **instance name**, which appears in your Amazon Connect
-   URL. The following image shows the **Amazon Connect virtual contact center instances** page, with a box
+   your **instance name**, which appears in your Connect Customer
+   URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box
    around the instance alias.
 
-![The Amazon Connect virtual contact center instances page, the instance alias.](images/instance.png) 3. Choose **Tasks**, and then choose **Add an
+![The Connect Customer virtual contact center instances page, the instance alias.](images/instance.png) 3. Choose **Tasks**, and then choose **Add an
 application**.
 
 ![The tasks page, the add an application button.](images/tasks-add-an-application-button.png) 4. On the **Select application** page, choose
@@ -71,9 +71,9 @@ your Amazon Web Service account ID, choose your Region, choose
 the choose **Connect**. Zendesk creates a resource in
 Amazon EventBridge.
 
-![The Amazon Web Services page in Zendesk.](images/tasks-connect-zendesk-support-ticket.png) 10. Return to the **Establish connection** page in Amazon Connect
+![The Amazon Web Services page in Zendesk.](images/tasks-connect-zendesk-support-ticket.png) 10. Return to the **Establish connection** page in Connect Customer
 choose **Next**. 11. On the **Establish connection** page, you'll see the message that
-Amazon Connect has successfully connected with Zendesk. Choose
+Connect Customer has successfully connected with Zendesk. Choose
 **Next**.
 
 ![The Establish connection page.](images/tasks-establish-connection-final-zendesk.png) 12. On the **Review and integrate** page, check that the
@@ -82,15 +82,15 @@ Amazon Connect has successfully connected with Zendesk. Choose
 integration**.
 
 This creates a connection that associates the EventBridge resource for Zendesk to
-Amazon Connect.
+Connect Customer.
 
 ![The Review and integrate page.](images/tasks-establish-connection-review-and-integrate-zendesk.png) 13. On the **Tasks** page, the new Zendesk connection is
 listed, as shown in the following image.
 
 ![The tasks page showing the new Zendesk connection.](images/tasks-establish-connection-final2-zendesk.png)
 
-You're done! Next, add rules that tell Amazon Connect when to create a task and how to
-route it. For instructions, see [Create rules that generate tasks for third-party integrations in Amazon Connect](add-rules-task-creation.md "add-rules-task-creation.md").
+You're done! Next, add rules that tell Connect Customer when to create a task and how to
+route it. For instructions, see [Create rules that generate tasks for third-party integrations in Connect Customer](add-rules-task-creation.md "add-rules-task-creation.md").
 
 ## What to do when is a connection isn't successfully established
 
@@ -102,8 +102,8 @@ and update that setting, as shown in the following image.
 ![The Amazon Web Services page, the support ticket option.](images/zendesk-support-ticket.png)
 
 There is also another case where you may not have selected the correct AWS
-Region that the Amazon Connect instance is in, when setting up EventBridge. To fix:
+Region that the Connect Customer instance is in, when setting up EventBridge. To fix:
 
 1. Go to the EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
 2. Disconnect your EventBridge connection.
-3. In the Amazon Connect console, restart the flow.
+3. In the Connect Customer console, restart the flow.

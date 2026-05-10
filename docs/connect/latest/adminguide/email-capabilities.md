@@ -1,17 +1,17 @@
-# How Amazon Connect email works
+# How Connect Customer email works
 
-Amazon Connect Email provides built-in capabilities that make it easy for you to prioritize,
+Connect Customer Email provides built-in capabilities that make it easy for you to prioritize,
 assign, and automate the resolution of customer service emails, improving customer
 satisfaction and agent productivity. You can receive and respond to emails sent by
 customers to your [configured email
 addresses](create-email-address1.md "create-email-address1.md"), or submitted by using web forms on your website or mobile app by
 using the [StartEmailContact](../APIReference/API_StartEmailContact.md "../APIReference/API_StartEmailContact.md") API.
 
-Amazon Connect Email integrates with [Amazon Simple Email Service (SES)](../../../ses/latest/dg/Welcome.md "../../../ses/latest/dg/Welcome.md") to send, receive, and
+Connect Customer Email integrates with [Amazon Simple Email Service (SES)](../../../ses/latest/dg/Welcome.md "../../../ses/latest/dg/Welcome.md") to send, receive, and
 monitor emails for [content marked as spam or containing viruses](../../../ses/latest/dg/receiving-email-concepts.md#receiving-email-auth-and-scan "../../../ses/latest/dg/receiving-email-concepts.md#receiving-email-auth-and-scan"), [delivery success rates](../../../ses/latest/dg/monitor-sending-activity.md "../../../ses/latest/dg/monitor-sending-activity.md"),
 and [sender reputation results](../../../ses/latest/dg/monitor-sender-reputation.md "../../../ses/latest/dg/monitor-sender-reputation.md").
 
-This topic explains how Amazon Connect Email, along with Amazon SES, work to enable a seamless
+This topic explains how Connect Customer Email, along with Amazon SES, work to enable a seamless
 customer experience.
 
 ###### Contents
@@ -29,12 +29,12 @@ customer experience.
 
 ## Receive emails
 
-There are three main ways that Amazon Connect can receive emails:
+There are three main ways that Connect Customer can receive emails:
 
-- **Method 1**: By an [email address](create-email-address1.md "create-email-address1.md") defined in Amazon Connect
+- **Method 1**: By an [email address](create-email-address1.md "create-email-address1.md") defined in Connect Customer
   (for example, support@`customer-domain`.com) using
   a [verified email domain from Amazon SES](../../../ses/latest/dg/creating-identities.md#just-verify-domain-proc "../../../ses/latest/dg/creating-identities.md#just-verify-domain-proc"), such as the email domain
-  provided with your Amazon Connect instance (for example,
+  provided with your Connect Customer instance (for example,
   @`instance-alias`.email.connect.aws) or a
   custom verified domain that you own or is provided by your company (for
   example, @`customer-domain`.com). See [Step 3: Use your own custom email
@@ -50,37 +50,37 @@ There are three main ways that Amazon Connect can receive emails:
   contacts similar to customers sending emails to your email addresses.
 
 The following diagram illustrates how emails sent from your customers are received
-by Amazon Connect using the [StartEmailContact](../APIReference/API_StartEmailContact.md "../APIReference/API_StartEmailContact.md") API for each of the methods mentioned above.
+by Connect Customer using the [StartEmailContact](../APIReference/API_StartEmailContact.md "../APIReference/API_StartEmailContact.md") API for each of the methods mentioned above.
 
 ![A diagram showing how a message is sent as a webform or email to the StartEmailContact API.](images/email-ses-diagram.png)
 
 To integrate Methods 1 or 2, you need to verify an email domain on Amazon SES before
-you can use the email domain in Amazon Connect. For instructions, see [Verifying a
+you can use the email domain in Connect Customer. For instructions, see [Verifying a
 DKIM domain identity with your DNS provider](../../../ses/latest/dg/creating-identities.md#just-verify-domain-proc "../../../ses/latest/dg/creating-identities.md#just-verify-domain-proc").
 
 To integrate Method 3, you use the [StartEmailContact](../APIReference/API_StartEmailContact.md "../APIReference/API_StartEmailContact.md") API. This is the primary API of all integration
 methods for inbound email contacts. It functions similarly to [StartTaskContact](../APIReference/API_StartTaskContact.md "../APIReference/API_StartTaskContact.md"). It requires you to do one of the following
 steps:
 
-- Include at least one email address from your Amazon Connect instance in either the
+- Include at least one email address from your Connect Customer instance in either the
   To or CC attributes of the inbound email contact.
 
 —OR—
 
-- Define an inbound flow from your Amazon Connect instance to route the inbound email
+- Define an inbound flow from your Connect Customer instance to route the inbound email
   contact created.
 
 If both are defined, the default behavior prioritizes the inbound flow from your
-Amazon Connect instance to handle the inbound email contact created. If multiple email
-addresses from your Amazon Connect instance are included in the To or CC email address
-attributes, multiple inbound email contacts will be created in your Amazon Connect
+Connect Customer instance to handle the inbound email contact created. If multiple email
+addresses from your Connect Customer instance are included in the To or CC email address
+attributes, multiple inbound email contacts will be created in your Connect Customer
 instance.
 
 ## How email messages become email contacts
 
-For general email receiving in Amazon Connect, including webform based email, the [StartEmailContact](../APIReference/API_StartEmailContact.md "../APIReference/API_StartEmailContact.md") API exposes basic email fields on the request object.
+For general email receiving in Connect Customer, including webform based email, the [StartEmailContact](../APIReference/API_StartEmailContact.md "../APIReference/API_StartEmailContact.md") API exposes basic email fields on the request object.
 This object is used to populate email information and start an email contact in
-Amazon Connect. The following fields are included:
+Connect Customer. The following fields are included:
 
 - A From email address
 - To email address(es)
@@ -90,10 +90,10 @@ Amazon Connect. The following fields are included:
 - Attachment(s)
 
 For more information about how the email contact information is populated into the
-email contact, see the Amazon Connect email contact data model .
+email contact, see the Connect Customer email contact data model .
 
 After the [StartEmailContact](../APIReference/API_StartEmailContact.md "../APIReference/API_StartEmailContact.md") API has performed request parameter validation and
-ensured that at least one To or CC email address is valid and exists in the Amazon Connect
+ensured that at least one To or CC email address is valid and exists in the Connect Customer
 instance, here's what happens:
 
 1. A contact ID is generated and returned as part of the API response
@@ -101,34 +101,34 @@ instance, here's what happens:
 2. An asynchronous workflow is triggered to perform additional email message
    processing.
 3. The flow is started. This is the flow that's associated with the email
-   address found in the Amazon Connect instance.
+   address found in the Connect Customer instance.
 
 As part of this, you need to setup your email message and attachment storage for
-your Amazon Connect instance.
+your Connect Customer instance.
 
 - Both email messages and attachments are stored and accessed in your own
   Amazon SES S3 bucket.
 - The remaining email contact attributes such as To, CC, Subject, and other
-  attributes are stored on the email contact; see [Data model for Amazon Connect contact records](ctr-data-model.md "ctr-data-model.md").
+  attributes are stored on the email contact; see [Data model for Connect Customer contact records](ctr-data-model.md "ctr-data-model.md").
 
 The following diagram illustrates the flow of the email message from the customer
-to Amazon SES and then to Amazon Connect. It shows the email message content stored in your S3
+to Amazon SES and then to Connect Customer. It shows the email message content stored in your S3
 bucket, and then getting data from that bucket to display it to the agent.
 
 ![A diagram that shows email message content stored in your S3 bucket.](images/email-concepts-translated.png)
 
 ## Every email message is a unique email contact
 
-Amazon Connect email differs from voice, chat, and tasks.
+Connect Customer email differs from voice, chat, and tasks.
 
-- Every email message, inbound to or outbound from Amazon Connect, is its own unique
+- Every email message, inbound to or outbound from Connect Customer, is its own unique
   email contact.
 - Each email contact contains details specific to that email message such as
   From address, To address(es), CC address(es), subject, relatedContactId,
   links to email body and attachment(s) storage locations, and other details
   relevant to the individual email contact.
 
-However, like other channels in Amazon Connect, an email contact has similar initiation
+However, like other channels in Connect Customer, an email contact has similar initiation
 methods, such as `INBOUND`, `OUTBOUND`, `TRANSFER`,
 `API`, `QUEUE_TRANSFER` and `END/DISCONNECT`.
 It also has similar states, such as `CREATED`, `QUEUED`,
@@ -137,7 +137,7 @@ It also has similar states, such as `CREATED`, `QUEUED`,
 `REJECTED`.
 
 For information about how the email contact information is populated into the
-email contact, see [Data model for Amazon Connect contact records](ctr-data-model.md "ctr-data-model.md").
+email contact, see [Data model for Connect Customer contact records](ctr-data-model.md "ctr-data-model.md").
 
 ## Email threads
 
@@ -145,7 +145,7 @@ Email threading ensures that outgoing emails and incoming responses related to a
 customer inquiry are associated with each other in a chronological and organized
 fashion.
 
-In order to maintain the whole email conversation, Amazon Connect links the email contacts
+In order to maintain the whole email conversation, Connect Customer links the email contacts
 together using a few fields on the email contact such as the relatedContactId and a
 list of email headers that follow conventional email client standards (RFC 5256).
 
@@ -163,14 +163,14 @@ following image:
 
 ![The email thread in a tree pattern.](images/email-threading-tree.png)
 
-In both scenarios Amazon Connect keeps a record of each of the email messages that are
+In both scenarios Connect Customer keeps a record of each of the email messages that are
 related to a thread. Each email message can be accessed by the email that succeeded
 it.
 
 ## Send email
 
-All email messages from Amazon Connect are sent from Amazon SES directly to your customer.
-Whether you're using the email domain provided with your Amazon Connect instance (for
+All email messages from Connect Customer are sent from Amazon SES directly to your customer.
+Whether you're using the email domain provided with your Connect Customer instance (for
 example, @`instance-alias`.email.connect.aws) or a custom
 verified domain (for example, @`customer`.com), Amazon SES is
 authorized by verifying a domain identity to send emails directly to your

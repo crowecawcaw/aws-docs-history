@@ -1,10 +1,10 @@
-# Import an agent's time off balance to Amazon Connect
+# Import an agent's time off balance to Connect Customer
 
 You can import or export a .csv file of an agent's time off balance. For example,
 you may download the time off balance from your HR system and then upload it to
-Amazon Connect.
+Connect Customer.
 
-Amazon Connect uses the time off balance to automatically approve or decline time off
+Connect Customer uses the time off balance to automatically approve or decline time off
 requests based on the agent's available net balance.
 
 For the maximum file size that you can upload, see _File size per upload
@@ -13,14 +13,14 @@ of agent time off data_ in [Forecasting, capacity planning, and scheduling featu
 ###### Tip
 
 **IT admins**: For the endpoints to add to your
-proxy exception list for this feature, see [Allow upload of time-off balances and allowances in Amazon Connect scheduling](ccp-networking.md#endpoints-scheduling "ccp-networking.md#endpoints-scheduling").
+proxy exception list for this feature, see [Allow upload of time-off balances and allowances in Connect Customer scheduling](ccp-networking.md#endpoints-scheduling "ccp-networking.md#endpoints-scheduling").
 
-1. Log in to the Amazon Connect admin website with an account that has security profile permissions
+1. Log in to the Connect Customer admin website with an account that has security profile permissions
    for **Scheduling**, **Schedule manager -
    Edit**.
 
 For more information, see [Assign
-permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Amazon Connect navigation menu, select **Analytics and
+permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Connect Customer navigation menu, select **Analytics and
 optimization**, **Scheduling**. 3. On the **Scheduling** page, choose the **Staff
 Rules** tab. 4. Choose Download template and store the .csv file on your desktop. It looks
 similar to the following image.
@@ -31,7 +31,7 @@ desktop with a new file name.
 ###### Tip
 
 To delete an agent's time-off balance, upload a blank value in the
-time-off balance hours column for that agent. 6. Choose **Upload data** to upload the .csv file. Amazon Connect
+time-off balance hours column for that agent. 6. Choose **Upload data** to upload the .csv file. Connect Customer
 does the following:
 
     * Validates the data and provides details if there are
@@ -41,7 +41,7 @@ does the following:
     * Uploads the file and displays a confirmation message when
      complete.
 
-After the .csv file is successfully uploaded, Amazon Connect checks the available time off
+After the .csv file is successfully uploaded, Connect Customer checks the available time off
 balance when time off requests are submitted. If there is enough time off balance it
 approves the request. Otherwise, the request is declined.
 

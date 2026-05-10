@@ -21,7 +21,7 @@ to the agent's security profile:
   profile. They inherit **View** permissions by default, but
   don't inherit **Edit** permissions.
   For information about how to add more permissions to an existing security profile,
-  see [Update security profiles in Amazon Connect](update-security-profiles.md "update-security-profiles.md").
+  see [Update security profiles in Connect Customer](update-security-profiles.md "update-security-profiles.md").
 
 By default, the **Admin** security profile already has
 permissions to perform all Customer profiles activities.

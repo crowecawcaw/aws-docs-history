@@ -14,7 +14,7 @@ and FAILED events that can occur during a voice contact.
     "Version": "1.0.0",
     "Channel": "VOICE",
     "AccountId": "123456789012", // your AWS account ID
-    "InstanceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",  // your Amazon Connect instance ID
+    "InstanceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",  // your Connect Customer instance ID
     "ContactId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", // the ID of the contact
     "LanguageCode": "en-US", // the language code of the contact
     "EventType": "STARTED"
@@ -35,7 +35,7 @@ and FAILED events that can occur during a voice contact.
     "Version": "1.0.0",
     "Channel": "VOICE",
     "AccountId": "123456789012", // your AWS account ID
-    "InstanceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",  // your Amazon Connect instance ID
+    "InstanceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",  // your Connect Customer instance ID
     "ContactId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", // the ID of the contact
     "LanguageCode": "en-US", // the language code of the contact
     "EventType": "SEGMENTS",
@@ -139,7 +139,7 @@ and FAILED events that can occur during a voice contact.
     "Version": "1.0.0",
     "Channel": "VOICE",
     "AccountId": "123456789012", // your AWS account ID
-    "InstanceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",  // your Amazon Connect instance ID
+    "InstanceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",  // your Connect Customer instance ID
     "ContactId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", // the ID of the contact
     "LanguageCode": "en-US", // the language code of the contact
     "EventType": "COMPLETED"
@@ -157,7 +157,7 @@ and FAILED events that can occur during a voice contact.
     "Version": "1.0.0",
     "Channel": "VOICE",
     "AccountId": "123456789012", // your AWS account ID
-    "InstanceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",  // your Amazon Connect instance ID
+    "InstanceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",  // your Connect Customer instance ID
     "ContactId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", // the ID of the contact
     "LanguageCode": "en-US", // the language code of the contact
     "EventType": "FAILED"

@@ -1,11 +1,11 @@
-# Manage users that you add to Amazon Connect
+# Manage users that you add to Connect Customer
 
-As the admin one of your key responsibilities is to manage users, add users to Amazon Connect, give them their credentials, and assign the appropriate permissions so they
+As the admin one of your key responsibilities is to manage users, add users to Connect Customer, give them their credentials, and assign the appropriate permissions so they
 can access the features needed to do their job.
 
-The topics in this section explain how to add users using the Amazon Connect admin website. To manage users
+The topics in this section explain how to add users using the Connect Customer admin website. To manage users
 programmatically, see [User management actions](../APIReference/users-api.md "../APIReference/users-api.md") in the
-_Amazon Connect API Reference Guide_.
+_Connect Customer API Reference Guide_.
 
 ###### Contents
 

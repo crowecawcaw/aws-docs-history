@@ -1,6 +1,6 @@
-# AI in Amazon Connect
+# AI in Connect Customer
 
-Amazon Connect includes features that use AI, such as contact summarization, semantic rule matching, and performance evaluations. These features use AI models via [Amazon Bedrock](../../../bedrock/latest/userguide/what-is-bedrock.md "../../../bedrock/latest/userguide/what-is-bedrock.md").
+Connect Customer includes features that use AI, such as contact summarization, semantic rule matching, and performance evaluations. These features use AI models via [Amazon Bedrock](../../../bedrock/latest/userguide/what-is-bedrock.md "../../../bedrock/latest/userguide/what-is-bedrock.md").
 
 ## Amazon Bedrock
 
@@ -10,15 +10,15 @@ For more information about how Amazon Bedrock protects your data, refer to [Data
 
 ## Model selection
 
-For many features, Amazon Connect fully manages the underlying AI, including model selection, prompt definition, and capacity provisioning. These features will change the underlying model over time to unlock new capabilities, improve feature performance, and ensure feature availability as existing models approach [end of life](../../../bedrock/latest/userguide/model-lifecycle.md "../../../bedrock/latest/userguide/model-lifecycle.md").
+For many features, Connect Customer fully manages the underlying AI, including model selection, prompt definition, and capacity provisioning. These features will change the underlying model over time to unlock new capabilities, improve feature performance, and ensure feature availability as existing models approach [end of life](../../../bedrock/latest/userguide/model-lifecycle.md "../../../bedrock/latest/userguide/model-lifecycle.md").
 
 ## Cross-region inference
 
-Model inference is the process of a model generating an output (response) from a given input (prompt). To use an optimal model for each feature, Amazon Connect may use [cross-region inference](../../../bedrock/latest/userguide/cross-region-inference.md "../../../bedrock/latest/userguide/cross-region-inference.md") for data processing. This means Amazon Connect will automatically select the optimal AWS Region to process inference requests. The available AWS Regions vary based on the region of your Amazon Connect instance. All data is transmitted encrypted across Amazon's secure network and does not traverse the public internet.
+Model inference is the process of a model generating an output (response) from a given input (prompt). To use an optimal model for each feature, Connect Customer may use [cross-region inference](../../../bedrock/latest/userguide/cross-region-inference.md "../../../bedrock/latest/userguide/cross-region-inference.md") for data processing. This means Connect Customer will automatically select the optimal AWS Region to process inference requests. The available AWS Regions vary based on the region of your Connect Customer instance. All data is transmitted encrypted across Amazon's secure network and does not traverse the public internet.
 
-The following tables lists the Inference regions that an Amazon Connect instance may use:
+The following tables lists the Inference regions that an Connect Customer instance may use:
 
-| Amazon Connect Instance Region            | Inference Regions                                                                                                                                                                                                                      |
+| Connect Customer Instance Region          | Inference Regions                                                                                                                                                                                                                      |
 | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | US East (N. Virginia) (us-east-1)         | US East (N. Virginia) (us-east-1)<br>US East (Ohio) (us-east-2)<br>US West (Oregon) (us-west-2)                                                                                                                                        |
 | US West (Oregon) (us-west-2)              | US East (N. Virginia) (us-east-1)<br>US East (Ohio) (us-east-2)<br>US West (Oregon) (us-west-2)                                                                                                                                        |
@@ -34,4 +34,4 @@ The following tables lists the Inference regions that an Amazon Connect instance
 
 ## Regulatory compliance
 
-Amazon Connect and Amazon Bedrock are in-scope for many of [AWS compliance programs](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/"). If you have specific questions regarding compliance, contact customer support.
+Connect Customer and Amazon Bedrock are in-scope for many of [AWS compliance programs](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/"). If you have specific questions regarding compliance, contact customer support.

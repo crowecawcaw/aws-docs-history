@@ -1,9 +1,9 @@
-# List queues grouped by routing profile in Amazon Connect
+# List queues grouped by routing profile in Connect Customer
 
 This topic explains how to display a list of queues organized by routing profile
-in your Amazon Connect contact center.
+in your Connect Customer contact center.
 
-1. On the Amazon Connect admin website, choose **Analytics and optimization**,
+1. On the Connect Customer admin website, choose **Analytics and optimization**,
    **Real-time metrics**,
    **Queues**.
 2. Access the **Settings** menu: look for and choose the

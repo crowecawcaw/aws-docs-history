@@ -1,6 +1,6 @@
-# Update your Amazon Connect domain
+# Update your Connect Customer domain
 
-Amazon Connect instances that were created before March 31, 2021, were given a domain that
+Connect Customer instances that were created before March 31, 2021, were given a domain that
 looks like this:
 
 - https://`your-instance-alias`.**awsapps.com/connect/**
@@ -15,7 +15,7 @@ looks like this:
 - If anyone tries to access a URL with the old domain, they will be redirected
   automatically to the new one.
 - If you have any custom code, a connector, or a firewall, it is your
-  responsibility to update all references to your Amazon Connect URL from your old domain
+  responsibility to update all references to your Connect Customer URL from your old domain
   to your new domain.
 - Automatic redirection from the old domain to the new one is only for any
   references you may have accidentally missed, for example, users still clicking
@@ -40,7 +40,7 @@ For example, if your old link looks like this:
   integrations](#new-domain-custom "#new-domain-custom")
 - [Firewall allow
   list](#new-domain-allow-list "#new-domain-allow-list")
-- [About the Amazon Connect access URL and
+- [About the Connect Customer access URL and
   emergency login](#about-access-url "#about-access-url")
 - [Personal settings](#new-domain-settings "#new-domain-settings")
 - [Transport Layer Security
@@ -48,14 +48,14 @@ For example, if your old link looks like this:
 
 ## Custom code and integrations
 
-If you have any customization that involves Amazon Connect, review its code and replace
+If you have any customization that involves Connect Customer, review its code and replace
 hard-coded references to the previous domain with the new domain. For example, if
 you have a custom Contact Control Panel (CCP) integration, it likely relies on
 embedded URLs. Following are tips for updating other types of integration.
 
 ### Active Directory
 
-If you use Active Directory to manage identity and have an [Amazon Connect managed or customer
+If you use Active Directory to manage identity and have an [Connect Customer managed or customer
 managed](connect-identity-management.md "connect-identity-management.md") instance, then update [ccpUrl](https://github.com/amazon-connect/amazon-connect-streams#connectcoreinitccp "https://github.com/amazon-connect/amazon-connect-streams#connectcoreinitccp") to the new domain. The next time a user accesses the CCP
 they will be prompted to login to the new domain (one time only).
 
@@ -63,7 +63,7 @@ they will be prompted to login to the new domain (one time only).
 
 If you use SAML 2.0 to manage identity, then do the following steps:
 
-- Update `ccpUrl` in your [Amazon Connect Streams](https://github.com/amazon-connect/amazon-connect-streams#connectcoreinitccp "https://github.com/amazon-connect/amazon-connect-streams#connectcoreinitccp") to the new domain
+- Update `ccpUrl` in your [Connect Customer Streams](https://github.com/amazon-connect/amazon-connect-streams#connectcoreinitccp "https://github.com/amazon-connect/amazon-connect-streams#connectcoreinitccp") to the new domain
   ``your-instance-alias`.my.connect.aws/ccp-v2`.
 - When you configure the relay state for your identity provider, update
   the `loginUrl` with `new_domain=true`.
@@ -108,7 +108,7 @@ The URL encoding is crucial to allow it to be parsed correctly in a [query strin
 If you use Salesforce, Zendesk, ServiceNow, or other connectors:
 
 1. Upgrade to the latest version of your connector.
-2. In your connector, go to the settings and update the Amazon Connect domain that
+2. In your connector, go to the settings and update the Connect Customer domain that
    is stored there. Follow the SAML tips if applicable.
 
 ## Firewall allowlist
@@ -119,7 +119,7 @@ Add the following new domains to your allowlist:
 - \*.static.connect.aws
 
 If you are testing or using the new sign-in experience, also add the following
-domains to your allowlist. For more information, see [Testing the new Amazon Connect sign-in experience](new-signin-experience.md "new-signin-experience.md").
+domains to your allowlist. For more information, see [Testing the new Connect Customer sign-in experience](new-signin-experience.md "new-signin-experience.md").
 
 - \*.apps.signin.aws
 - \*.signin.aws
@@ -142,13 +142,13 @@ domains:
 
 For more information about setting up your allowlist, see [Set up your network](ccp-networking.md "ccp-networking.md").
 
-## About the Amazon Connect access URL and emergency login
+## About the Connect Customer access URL and emergency login
 
-The Amazon Connect access URL and emergency login URLs will be updated in the AWS console
+The Connect Customer access URL and emergency login URLs will be updated in the AWS console
 after we complete the domain migration. Until that time, they will reflect the old
 domain.
 
-The following image shows the location of the access URL on the **Amazon Connect
+The following image shows the location of the access URL on the **Connect Customer
 virtual contact center instances** page. Even if you have taken steps
 to update your domain, this URL will continue to show the old domain. The URL on
 this page will update automatically when old domain traffic starts to redirect to
@@ -156,7 +156,7 @@ the new domain. Please **do not use this URL to log
 in**; rather, communicate to your team the new URL that they should be
 using.
 
-![The access URL on the Amazon Connect console.](images/access-url.png)
+![The access URL on the Connect Customer console.](images/access-url.png)
 
 The following image shows the location of the emergency login URL on the
 **Account overview** page. This URL will lead to the old domain
@@ -180,7 +180,7 @@ identify any URL references.
 ## Transport Layer Security (TLS)
 
 If your agents are using [browsers that
-Amazon Connect supports](connect-supported-browsers.md "connect-supported-browsers.md"), there is no action for you. For example, if you are using
+Connect Customer supports](connect-supported-browsers.md "connect-supported-browsers.md"), there is no action for you. For example, if you are using
 the latest Chrome and Firefox versions, no action is needed.
 
 If you are using TLS 1.1 and below, you need to upgrade your tools to support the

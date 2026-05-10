@@ -1,6 +1,6 @@
 # Default AI prompts and AI agents
 
-Amazon Connect provides a set of system AI prompts and AI agents. It uses them to power the
+Connect Customer provides a set of system AI prompts and AI agents. It uses them to power the
 out-of-the-box experience with Connect AI agents.
 
 ## Default AI prompts

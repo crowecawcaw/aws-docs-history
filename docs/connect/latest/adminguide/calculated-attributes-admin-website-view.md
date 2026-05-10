@@ -1,10 +1,10 @@
-# View calculated attributes in Amazon Connect
+# View calculated attributes in Connect Customer
 
-1. Log in to the Amazon Connect admin website at https://`instance
+1. Log in to the Connect Customer admin website at https://`instance
 name`.my.connect.aws/. Use an Admin account, or an
    account assigned to a security profile that has **Customer
    Profiles - Calculated Attributes** permission. permission.
-2. In Amazon Connect, on the left navigation pane, choose **Customer
+2. In Connect Customer, on the left navigation pane, choose **Customer
    Profiles**, **Calculated
    attributes**.
 3. On the **Calculated attributes** page, choose a

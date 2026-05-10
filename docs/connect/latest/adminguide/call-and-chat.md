@@ -1,4 +1,4 @@
-# Use the CCP in Amazon Connect to make a call while on a chat
+# Use the CCP in Connect Customer to make a call while on a chat
 
 Let's say you're chatting with a contact and you want to consult with someone
 else. While you're on a chat, you can use the updated CCP to make outbound calls
@@ -49,5 +49,5 @@ quick connect has been added to your queue as described in [Step 2: Enable agent
 ## Enable agent quick connects for calls during a chat
 
 To enable agents to consult over the phone with each other while they are on
-chats, your Amazon Connect administrator needs to set up a direct dial number (DID) that
+chats, your Connect Customer administrator needs to set up a direct dial number (DID) that
 routes to the agent. This configuration incurs additional costs.

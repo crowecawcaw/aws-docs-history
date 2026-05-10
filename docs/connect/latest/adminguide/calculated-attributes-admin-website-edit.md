@@ -1,4 +1,4 @@
-# Edit calculated attributes in Amazon Connect
+# Edit calculated attributes in Connect Customer
 
 1. To edit a calculated attribute, choose an attribute in the table view
    by selecting the radio button, which enables the

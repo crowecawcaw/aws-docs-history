@@ -1,11 +1,11 @@
-# The chat/SMS channel in Amazon Connect
+# The chat/SMS channel in Connect Customer
 
 ###### Important
 
 **Trying to contact Amazon for support?** See [Amazon Customer Service](https://www.amazon.com/gp/help/customer/display.html?icmpid=docs_connect_messagingcap_customerservice "https://www.amazon.com/gp/help/customer/display.html?icmpid=docs_connect_messagingcap_customerservice") (Amazon orders and deliveries) or [AWS
 Support](https://aws.amazon.com/premiumsupport/?icmpid=docs_connect_messagingcap_premiumsupport "https://aws.amazon.com/premiumsupport/?icmpid=docs_connect_messagingcap_premiumsupport") (Amazon Web Services).
 
-Amazon Connect lets you build chat messaging features—mobile chat, web chat, SMS, and
+Connect Customer lets you build chat messaging features—mobile chat, web chat, SMS, and
 third-party messaging services— into your website and mobile apps. It enables
 your customers to start chatting with contact center agents from any of your business
 applications, web or mobile.
@@ -39,7 +39,7 @@ unified metrics across multiple channels.
 
 ## Getting started
 
-To add chat messaging capabilities to your Amazon Connect contact center and allow your
+To add chat messaging capabilities to your Connect Customer contact center and allow your
 agents to engage in chats, perform the following steps:
 
 - Chat is enabled at the instance level when [an Amazon S3 bucket is created for storing
@@ -48,10 +48,10 @@ agents to engage in chats, perform the following steps:
   profile](routing-profiles.md "routing-profiles.md").
 - Optionally, you can set up chat subtypes such as SMS messaging. You
   procure an SMS-enabled phone number by using AWS End User Messaging SMS, import it into
-  Amazon Connect, and then assign it to your flows. For more
+  Connect Customer, and then assign it to your flows. For more
   information, see:
   - [Request an SMS-enabled phone number through AWS End User Messaging SMS](sms-number.md "sms-number.md")
-  - [Set up SMS messaging in Amazon Connect](setup-sms-messaging.md "setup-sms-messaging.md")
+  - [Set up SMS messaging in Connect Customer](setup-sms-messaging.md "setup-sms-messaging.md")
 
 Agents can then begin accepting chats through the Contact Control Panel.
 
@@ -60,8 +60,8 @@ example, arrival time, handle time) as part of their overall Chat channel metric
 the same reporting experience used for calls/chats/tasks in order to assess agent
 performance and productivity.
 
-Amazon Connect provides several resources to help you add chat to your website. For more
-information, see [Set up your customer's chat experience in Amazon Connect](enable-chat-in-app.md "enable-chat-in-app.md").
+Connect Customer provides several resources to help you add chat to your website. For more
+information, see [Set up your customer's chat experience in Connect Customer](enable-chat-in-app.md "enable-chat-in-app.md").
 
 ## Example chat scenario
 
@@ -76,7 +76,7 @@ can be assigned to the original agent, or a different agent or queue.
 
 Here's how you build this scenario:
 
-1. Create a disconnect flow. The following image shows the [Sample disconnect flow in Amazon Connect](sample-disconnect.md "sample-disconnect.md") in the
+1. Create a disconnect flow. The following image shows the [Sample disconnect flow in Connect Customer](sample-disconnect.md "sample-disconnect.md") in the
    flow designer. This flow includes the following connected blocks:
    **Play prompt**, **Wait** which
    branches to three **Play prompts** (for **Customer
@@ -148,14 +148,14 @@ Guide_.
 Chat is charged on a per use basis. There are no required up-front payments,
 long-term commitments, or minimum monthly fees. You pay per chat message,
 independently of the number of agents or customers using it. Regional pricing may
-vary. For more information, see [Amazon Connect
+vary. For more information, see [Connect Customer
 pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
 
 ## More information
 
 For more information about chat, see the following topics:
 
-- [Test voice, chat, and task experiences in Amazon Connect](chat-testing.md "chat-testing.md")
+- [Test voice, chat, and task experiences in Connect Customer](chat-testing.md "chat-testing.md")
 - [How routing works with multiple channels](about-routing.md#routing-profile-channels-works "about-routing.md#routing-profile-channels-works")
-- [Create a routing profile in Amazon Connect to link queues to agents](routing-profiles.md "routing-profiles.md")
-- [Amazon Connect Chat SDK and Sample Implementations](https://github.com/amazon-connect/amazon-connect-chat-ui-examples/ "https://github.com/amazon-connect/amazon-connect-chat-ui-examples/")
+- [Create a routing profile in Connect Customer to link queues to agents](routing-profiles.md "routing-profiles.md")
+- [Connect Customer Chat SDK and Sample Implementations](https://github.com/amazon-connect/amazon-connect-chat-ui-examples/ "https://github.com/amazon-connect/amazon-connect-chat-ui-examples/")

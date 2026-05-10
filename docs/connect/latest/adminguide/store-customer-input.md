@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Store customer input
+# Flow block in Connect Customer: Store customer input
 
 This topic defines the flow block to store input as a contact attribute and then
 encrypting it.
@@ -53,7 +53,7 @@ The following image shows the **Properties** page of the
 **Prompt** section configured to play the **Audio
 prompt**.
 
-For information about choosing a prompt from the Amazon Connect library or an S3 bucket,
+For information about choosing a prompt from the Connect Customer library or an S3 bucket,
 see the [Play prompt](play.md "play.md") block.
 
 ![The properties page of the Store customer input block.](images/store-customer-input-properties1.png)
@@ -71,12 +71,12 @@ Note the following properties:
   callback scenarios.
   - **Local format**: If all of your customers all
     calling from the same country that your instance is in, choose that
-    country from the dropdown list. Amazon Connect then auto-populates the
+    country from the dropdown list. Connect Customer then auto-populates the
     country code for customers so that they don't have to enter
     it.
   - **International format**: If you have customers
     calling from different countries, choose **International
-    format**. Amazon Connect then requires customers to enter their
+    format**. Connect Customer then requires customers to enter their
     country code.
 
 The following image shows the **Input settings** section of the
@@ -95,9 +95,9 @@ Note the following properties:
   wait for the next input digit from the customer, by voice or DTMF.
   For example, you set this field to 10 seconds. When
   collecting the customer's credit card number, after the customer enters the
-  first digit of their card number, Amazon Connect waits up to 10 seconds for them to
+  first digit of their card number, Connect Customer waits up to 10 seconds for them to
   press the next digit. If they take longer than 10 seconds between any two
-  digits, Amazon Connect considers the input complete or timed out. By default, Amazon Connect
+  digits, Connect Customer considers the input complete or timed out. By default, Connect Customer
   waits 5 seconds for each digit.
   - Minimum value: 1 second
   - Maximum value: 20 seconds
@@ -116,7 +116,7 @@ choose **Disable cancel key**.
 
 - **Disable cancel key**: By default, when a customer
   enters \* as input, it deletes all of the DTMF input that came before it.
-  However, if you choose **Disable cancel key**, Amazon Connect treats
+  However, if you choose **Disable cancel key**, Connect Customer treats
   the **\*** as any other key.
 
 If you send the DMTF input to an [AWS Lambda
@@ -198,11 +198,11 @@ configured. It has the following branches: **Success**,
 
 ## Sample flows
 
-Amazon Connect includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
-[Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
+Connect Customer includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
+[Sample flows in Connect Customer](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
 - [Sample secure customer data entry input in a call with a contact center agent](sample-secure-input-with-agent.md "sample-secure-input-with-agent.md")
 - [Sample secure customer data entry input in a call with no contact center agent](sample-secure-input-with-noagent.md "sample-secure-input-with-noagent.md")
-- [Sample queue configurations flow in Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md")
-- [Sample queued callback flow in Amazon Connect](sample-queued-callback.md "sample-queued-callback.md")
+- [Sample queue configurations flow in Connect Customer](sample-queue-configurations.md "sample-queue-configurations.md")
+- [Sample queued callback flow in Connect Customer](sample-queued-callback.md "sample-queued-callback.md")

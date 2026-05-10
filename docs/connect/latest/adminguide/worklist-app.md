@@ -1,4 +1,4 @@
-# Access the Worklist app in the Amazon Connect agent workspace
+# Access the Worklist app in the Connect Customer agent workspace
 
 The Worklist app enables agents with the required permissions and routing profile
 settings to manually prioritize and assign queued work to themselves. The following

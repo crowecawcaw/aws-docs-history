@@ -1,4 +1,4 @@
-# Amazon Connect Cases metrics
+# Connect Customer Cases metrics
 
 The following case driven metrics are available on the Historical metrics reports. To
 access these metrics on a report, Cases needs to be [enabled](enable-cases.md "enable-cases.md") for your instance, and at least one [case template](case-templates.md "case-templates.md") is created.
@@ -12,12 +12,12 @@ interval.
 
 **Metric category**: Case driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_CASE_RESOLUTION_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Average Case Resolution Time
 
@@ -30,12 +30,12 @@ during the provided time interval.
 
 **Metric category**: Case driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_CASE_RELATED_CONTACTS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Average Case Related Contacts
 
@@ -47,12 +47,12 @@ This metric counts all the cases created.
 
 **Metric category**: Case driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CASES_CREATED`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Cases Created
 
@@ -77,12 +77,12 @@ This metric measures the number of times cases have been reopened.
 
 **Metric category**: Case driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `REOPENED_CASE_ACTIONS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Reopen Case Actions Performed
 
@@ -107,12 +107,12 @@ This metric measures the number of times cases have been resolved.
 
 **Metric category**: Case driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `RESOLVED_CASE_ACTIONS`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Resolve Case Actions Performed
 
@@ -143,12 +143,12 @@ closed in the specified interval it will not contribute to this metric.
 
 **Metric category**: Case driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `PERCENT_CASES_FIRST_CONTACT_RESOLVED`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Case First Contact Resolution Rate
 
@@ -176,12 +176,12 @@ domain for a specific point in time.
 
 **Metric category**: Case driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CURRENT_CASES`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Current cases
 

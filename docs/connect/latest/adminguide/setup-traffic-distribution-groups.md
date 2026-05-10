@@ -1,8 +1,8 @@
-# Create traffic distribution groups for your Amazon Connect instance
+# Create traffic distribution groups for your Connect Customer instance
 
-You can create a traffic distribution group for your existing Amazon Connect instance by using the [CreateTrafficDistributionGroup](../APIReference/API_CreateTrafficDistributionGroup.md "../APIReference/API_CreateTrafficDistributionGroup.md") API.
+You can create a traffic distribution group for your existing Connect Customer instance by using the [CreateTrafficDistributionGroup](../APIReference/API_CreateTrafficDistributionGroup.md "../APIReference/API_CreateTrafficDistributionGroup.md") API.
 
-A _traffic distribution group_ is an Amazon Connect resource that enables you to link Amazon Connect
+A _traffic distribution group_ is an Connect Customer resource that enables you to link Connect Customer
 instances that are in different AWS Regions. Phone numbers can be
 attached to the traffic distribution group. Traffic to these numbers can be distributed between the
 instances in the traffic distribution group.
@@ -10,7 +10,7 @@ instances in the traffic distribution group.
 ## Important things to know
 
 - When creating a traffic distribution group, it must be created in the source AWS Region. A _source Region_ is the
-  Region where you set up your existing Amazon Connect instance.
+  Region where you set up your existing Connect Customer instance.
 - When associating phone numbers to a traffic distribution group:
   - You can associate only phone numbers that are claimed in the
     source Region.
@@ -22,12 +22,12 @@ instances in the traffic distribution group.
   `Status` is `ACTIVE`. Use the [DescribeTrafficDistributionGroup](../APIReference/API_DescribeTrafficDistributionGroup.md "../APIReference/API_DescribeTrafficDistributionGroup.md") API to determine whether
   it has been created successfully (`Status` must be
   `ACTIVE`).
-- When you create a replica Amazon Connect instance, a default traffic distribution group is created
+- When you create a replica Connect Customer instance, a default traffic distribution group is created
   for it. The default traffic distribution group is the only traffic distribution group where you can change the
   `SignInConfig` distribution. See the
   `IsDefault` parameter in the [TrafficDistributionGroup](../APIReference/API_TrafficDistributionGroup.md "../APIReference/API_TrafficDistributionGroup.md") data type. You use
   `SignInConfig` to choose which backend sign-in servers
-  are used to facilitate the agent signing in to their Amazon Connect instance. For
+  are used to facilitate the agent signing in to their Connect Customer instance. For
   example, if you call `UpdateTrafficDistribution` with a
   modified `SignInConfig` and a non-default
   `TrafficDistributionGroup`, an

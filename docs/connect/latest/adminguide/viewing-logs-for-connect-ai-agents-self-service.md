@@ -60,6 +60,6 @@ key fields:
 - **Amazon Lex logging (self-service only)**: Enable
   Amazon Lex logging by following the steps in [Logging errors with
   error logs in Amazon Lex V2](../../../lexv2/latest/dg/error-logs.md "../../../lexv2/latest/dg/error-logs.md").
-- **Amazon Connect logging**: Enable Amazon Connect logging by
-  adding a [Set logging behavior](set-logging-behavior.md "set-logging-behavior.md") flow block in your Amazon Connect
+- **Connect Customer logging**: Enable Connect Customer logging by
+  adding a [Set logging behavior](set-logging-behavior.md "set-logging-behavior.md") flow block in your Connect Customer
   flow.

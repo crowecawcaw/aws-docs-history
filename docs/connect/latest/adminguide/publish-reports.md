@@ -1,4 +1,4 @@
-# Publish reports in Amazon Connect
+# Publish reports in Connect Customer
 
 After you create and save a custom report with the metrics you're interested in, you
 can publish it so everyone in your organization with the [appropriate permissions](#view-published-reports "#view-published-reports") can access the
@@ -53,7 +53,7 @@ Optimization** section of the security profiles page.
 
 ###### To view published reports
 
-1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/. Use an account that has the appropriate permissions.
+1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/. Use an account that has the appropriate permissions.
 2. On the navigation menu, choose **Analytics and
    optimization**, **Dashboards and reports**.
 

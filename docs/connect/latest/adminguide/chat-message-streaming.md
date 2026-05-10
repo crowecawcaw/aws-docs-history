@@ -1,29 +1,29 @@
-# Enable real-time chat message streaming in Amazon Connect
+# Enable real-time chat message streaming in Connect Customer
 
-Amazon Connect Chat provides [APIs](../APIReference/Welcome.md "../APIReference/Welcome.md") that enable you to subscribe
+Connect Customer Chat provides [APIs](../APIReference/Welcome.md "../APIReference/Welcome.md") that enable you to subscribe
 to a real-time stream of chat messages. Using these APIs, you can:
 
 - Stream chat messages in real time when a new chat contact is created.
-- Extend the current Amazon Connect Chat functionality to support use cases like building
+- Extend the current Connect Customer Chat functionality to support use cases like building
   integrations with SMS solutions and third-party messaging applications, enabling mobile push notifications, and creating
   analytics dashboards to monitor and track chat message activity.
 
 ###### Note
 
 This page describes how to subscribe to an SNS endpoint for real-time streaming
-of chat messages in Amazon Connect. If you're trying to enable message streaming for
-conversational AI interactions in Amazon Connect, see [Enable message streaming for AI-powered chat](message-streaming-ai-chat.md "message-streaming-ai-chat.md").
+of chat messages in Connect Customer. If you're trying to enable message streaming for
+conversational AI interactions in Connect Customer, see [Enable message streaming for AI-powered chat](message-streaming-ai-chat.md "message-streaming-ai-chat.md").
 
 ## How the message streaming APIs work
 
-The [Amazon Connect
+The [Connect Customer
 message streaming APIs](../APIReference/Welcome.md "../APIReference/Welcome.md") are triggered when certain events occur within an
-Amazon Connect Chat contact. For example, when a customer sends a new chat message, the event
+Connect Customer Chat contact. For example, when a customer sends a new chat message, the event
 sends a [payload](sns-payload.md "sns-payload.md") to a specified endpoint containing
 data about the message that was just sent. Messages are published using [Amazon Simple Notification Service](../../../sns/latest/dg/welcome.md "../../../sns/latest/dg/welcome.md") (Amazon SNS) to a
 specific endpoint.
 
-This topic describes how to set up real-time message streaming using Amazon Connect and Amazon SNS.
+This topic describes how to set up real-time message streaming using Connect Customer and Amazon SNS.
 The steps are:
 
 1. Use the Amazon SNS console to create a new standard SNS topic and set up the
@@ -59,7 +59,7 @@ arn:aws:sns:`us-east-1`:`123456789012`:`MyTopic`
 
 4. Choose the **Access policy** tab, choose
    **Edit**, and then add a resource-based policy on the SNS
-   topic so that Amazon Connect has permission to publish to it. Following is a sample SNS
+   topic so that Connect Customer has permission to publish to it. Following is a sample SNS
    policy that you can copy and paste into the JSON editor, and then customize with
    your values:
 
@@ -169,9 +169,9 @@ JSON
 
 ## Step 2: Initiate the chat contact
 
-1. Call the Amazon Connect [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") API to initiate the chat contact.
+1. Call the Connect Customer [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") API to initiate the chat contact.
 
-For information about how to create the SDK client for calling Amazon Connect APIs, see
+For information about how to create the SDK client for calling Connect Customer APIs, see
 the following topics:
 
     * [Class AmazonConnectClientBuilder](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/connect/AmazonConnectClientBuilder.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/connect/AmazonConnectClientBuilder.md")
@@ -192,9 +192,9 @@ the following topics:
   - When you call [StartContactStreaming](../APIReference/API_StartContactStreaming.md "../APIReference/API_StartContactStreaming.md"), you'll need to provide the Amazon
     Resource Name (ARN) of the SNS topic (see [Step 1: Create a standard SNS topic](#step1-chat-streaming "#step1-chat-streaming")).
 
-  A single SNS topic ARN may be used across multiple AWS accounts, but it must be in the same Region as your Amazon Connect
+  A single SNS topic ARN may be used across multiple AWS accounts, but it must be in the same Region as your Connect Customer
   instance. For example, if your topic ARN is in
-  **us-east-1**, your Amazon Connect instance must be in
+  **us-east-1**, your Connect Customer instance must be in
   **us-east-1**.
   - For initial chat messages that aren't received on the streaming endpoint,
     you can call the [GetTranscript](../../../connect-participant/latest/APIReference/API_GetTranscript.md "../../../connect-participant/latest/APIReference/API_GetTranscript.md") API to

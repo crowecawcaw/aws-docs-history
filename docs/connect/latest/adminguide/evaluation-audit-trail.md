@@ -1,4 +1,4 @@
-# View an evaluation audit trail in Amazon Connect
+# View an evaluation audit trail in Connect Customer
 
 An evaluation can be amended and submitted multiple times. When an evaluator submits
 changes to an existing evaluation, managers can view an audit trail that records:
@@ -12,7 +12,7 @@ changes to an existing evaluation, managers can view an audit trail that records
 
 ###### To view an evaluation audit trail
 
-1. Log into Amazon Connect with a user account that has **Analytics and
+1. Log into Connect Customer with a user account that has **Analytics and
    optimization** - **[Evaluation forms - perform
    evaluations](evaluation-and-coaching-permissions.md "evaluation-and-coaching-permissions.md")** permission on their security profile.
 2. Access a contact with an evaluation that was edited after it was

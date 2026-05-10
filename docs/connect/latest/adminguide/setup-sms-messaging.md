@@ -1,12 +1,12 @@
-# Set up SMS messaging in Amazon Connect
+# Set up SMS messaging in Connect Customer
 
-You can enable SMS messaging on Amazon Connect so your customers can text you from
+You can enable SMS messaging on Connect Customer so your customers can text you from
 their mobile device. With Amazon Lex, you can automate responses to their questions, saving
 agents valuable time and effort.
 
-This topic explains how to set up and test SMS messaging for Amazon Connect. You use
+This topic explains how to set up and test SMS messaging for Connect Customer. You use
 AWS End User Messaging SMS to procure an SMS-enabled phone number, enable two-way SMS on the number, and then
-import it into Amazon Connect.
+import it into Connect Customer.
 
 Using one phone number that is shared for both voice and SMS isn't supported.
 
@@ -122,16 +122,16 @@ Guide_.
 ## Step 2: Enable two-way SMS on the phone number
 
 After you have successfully procured a phone number from AWS End User Messaging SMS, you enable two-way
-SMS on the phone number with Amazon Connect as the message destination. You can
+SMS on the phone number with Connect Customer as the message destination. You can
 enable two-way SMS messaging for individual phone numbers. When one of your customers
-sends a message to your phone number, the message body is sent to Amazon Connect.
+sends a message to your phone number, the message body is sent to Connect Customer.
 
 For instructions for using the CLI to perform this step, see [Two-way SMS messaging](../../../sms-voice/latest/userguide/phone-numbers-two-way-sms.md "../../../sms-voice/latest/userguide/phone-numbers-two-way-sms.md") in the _AWS End User Messaging SMS User
 Guide_.
 
 ###### Note
 
-Amazon Connect for two-way SMS is available in the AWS Regions listed in [Messaging integrations](regions.md#messaging-integrations_region "regions.md#messaging-integrations_region").
+Connect Customer for two-way SMS is available in the AWS Regions listed in [Messaging integrations](regions.md#messaging-integrations_region "regions.md#messaging-integrations_region").
 
 1. Open the AWS SMS console at
    [https://console.aws.amazon.com/sms-voice/](https://console.aws.amazon.com/sms-voice/ "https://console.aws.amazon.com/sms-voice/").
@@ -144,32 +144,32 @@ Amazon Connect for two-way SMS is available in the AWS Regions listed in [Messag
    message**, as shown in following image.
 
 ![The AWS End User Messaging SMS edit settings page.](images/sms-edit-settings.png) 6. For **Destination type** choose
-**Amazon Connect**. 7. For Amazon Connect in **Two-way channel role** choose **Choose
+**Connect Customer**. 7. For Connect Customer in **Two-way channel role** choose **Choose
 existing IAM roles**. 8. In the **Existing IAM roles** drop down choose an existing
-IAM role as the message destination. For example IAM policies, see [IAM policies for Amazon Connect](../../../sms-voice/latest/userguide/phone-numbers-two-way-sms.md#phone-number-two-way-connect-iam-policy "../../../sms-voice/latest/userguide/phone-numbers-two-way-sms.md#phone-number-two-way-connect-iam-policy") in the _AWS End User Messaging SMS User
+IAM role as the message destination. For example IAM policies, see [IAM policies for Connect Customer](../../../sms-voice/latest/userguide/phone-numbers-two-way-sms.md#phone-number-two-way-connect-iam-policy "../../../sms-voice/latest/userguide/phone-numbers-two-way-sms.md#phone-number-two-way-connect-iam-policy") in the _AWS End User Messaging SMS User
 Guide_.
 
 ###### Tip
 
-If you can't create a policy or role, double-check that your Amazon Connect
+If you can't create a policy or role, double-check that your Connect Customer
 instance is in a [Region supported by
-Amazon Connect SMS](regions.md#messaging-integrations_region "regions.md#messaging-integrations_region"). 9. Choose **Save changes**. 10. In the **Import Phone Number to Amazon Connect** window:
+Connect Customer SMS](regions.md#messaging-integrations_region "regions.md#messaging-integrations_region"). 9. Choose **Save changes**. 10. In the **Import Phone Number to Connect Customer** window:
 
     1. For the **Incoming messages destination** drop down
-     choose the Amazon Connect instance that will receive incoming messages.
+     choose the Connect Customer instance that will receive incoming messages.
 
 
 
     ![The AWS End User Messaging SMS import phone numbers page.](images/sms-import-phone-number.png)
     2. Choose **Import Phone Number**.
 
-11. After the number is successfully imported to Amazon Connect, you can view
-    it in the Amazon Connect admin website: In the left navigation, choose **Channels**,
+11. After the number is successfully imported to Connect Customer, you can view
+    it in the Connect Customer admin website: In the left navigation, choose **Channels**,
     **Phone numbers**. The SMS number appears on the
     **Phone numbers** page, as shown in the following
     image.
 
-![The Amazon Connect admin website, the Phone numbers page.](images/golden-sms-channel.png)
+![The Connect Customer admin website, the Phone numbers page.](images/golden-sms-channel.png)
 
 ## Step 3: Update flows to branch on SMS contacts
 
@@ -248,10 +248,10 @@ Before opening an AWS Support ticket, please verify that you've completed [Step 
 We recommend the following steps to provide the best experience for your agents and
 customers.
 
-- [Enable customers to resume chat conversations in Amazon Connect](chat-persistence.md "chat-persistence.md"): Customers
+- [Enable customers to resume chat conversations in Connect Customer](chat-persistence.md "chat-persistence.md"): Customers
   can resume previous conversations with the context, metadata, and transcripts
   carried forward. They don't need to repeat themselves when they return to a
   chat, and agents have access to the entire conversation history.
-- [Create quick responses for use with chat and email contacts in Amazon Connect](create-quick-responses.md "create-quick-responses.md"): Provide agents with pre-written responses to common customer inquiries that
+- [Create quick responses for use with chat and email contacts in Connect Customer](create-quick-responses.md "create-quick-responses.md"): Provide agents with pre-written responses to common customer inquiries that
   they can use while they chat with customers. Quick responses make it faster for
   agents to respond to customers.

@@ -1,4 +1,4 @@
-# Flow modules for reusable functions in Amazon Connect
+# Flow modules for reusable functions in Connect Customer
 
 Flow modules are reusable sections of a flow. You can create them to extract repeatable
 logic across your flows, and create common functions. For example:
@@ -22,11 +22,6 @@ logic across your flows, and create common functions. For example:
 ## Where you can use modules
 
 You can use modules across all [flow types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types").
-
-###### Note
-
-- Whisper flows that use a **TransferToQueue** block within a module might cause interruption during the flow execution.
-- **CustomerQueue** flow with a **LoopPrompt** block invoking a module using an **EndFlow** block might cause interruption during the flow execution.
 
 ## Limitations
 
@@ -76,10 +71,10 @@ permissions.
 
 ## Create basic module
 
-For information about the number of modules that you can create for each Amazon Connect
-instance, see [Amazon Connect service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
+For information about the number of modules that you can create for each Connect Customer
+instance, see [Connect Customer service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
 
-1. Log in to the Amazon Connect console with an account assigned to a security profile
+1. Log in to the Connect Customer console with an account assigned to a security profile
    that has permissions to create modules.
 2. On the navigation menu, choose **Routing**, **Contact
    flows**.
@@ -91,7 +86,7 @@ instance, see [Amazon Connect service quotas](amazon-connect-service-limits.md "
 
 ## Add a module to a flow
 
-1. Log in to the Amazon Connect console with an account assigned to a security profile
+1. Log in to the Connect Customer console with an account assigned to a security profile
    that has permissions to create flows. You don't need permissions to create
    modules.
 2. On the navigation menu, choose **Routing**, **Contact
@@ -173,7 +168,7 @@ You can define up to 8 custom branches for your module.
 
 ### Accessing module related attributes
 
-As part of custom blocks module enhancement, a new namespace Module is introduced for you to access module inputs within a module, output and results from flows or modules that were calling the module. You can store these attributes using [Flow block in Amazon Connect: Set contact attributes](set-contact-attributes.md "set-contact-attributes.md") block or directly use these attributes via JSONPath reference. See [List of available contact attributes in Amazon Connect and their JSONPath references](connect-attrib-list.md "connect-attrib-list.md") documentation on details of module attributes.
+As part of custom blocks module enhancement, a new namespace Module is introduced for you to access module inputs within a module, output and results from flows or modules that were calling the module. You can store these attributes using [Flow block in Connect Customer: Set contact attributes](set-contact-attributes.md "set-contact-attributes.md") block or directly use these attributes via JSONPath reference. See [List of available contact attributes in Connect Customer and their JSONPath references](connect-attrib-list.md "connect-attrib-list.md") documentation on details of module attributes.
 
 ### Example custom block module
 

@@ -1,13 +1,13 @@
-# Amazon Connect Contact Lens
+# Connect Customer Contact Lens
 
 ###### Note
 
 **Powered by Amazon Bedrock**: AWS implements [automated
-abuse detection](../../../bedrock/latest/userguide/abuse-detection.md "../../../bedrock/latest/userguide/abuse-detection.md"). Because Amazon Connect Contact Lens is built on Amazon Bedrock, users can
+abuse detection](../../../bedrock/latest/userguide/abuse-detection.md "../../../bedrock/latest/userguide/abuse-detection.md"). Because Connect Customer Contact Lens is built on Amazon Bedrock, users can
 take full advantage of the controls implemented in Amazon Bedrock to enforce safety, security, and
 the responsible use of artificial intelligence (AI).
 
-Amazon Connect Contact Lens provides contact center analytics and quality management
+Connect Customer Contact Lens provides contact center analytics and quality management
 capabilities that enable you to monitor, measure, and continuously improve contact quality
 and agent performance for a better overall customer experience.
 

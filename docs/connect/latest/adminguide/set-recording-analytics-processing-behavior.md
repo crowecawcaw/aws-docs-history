@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Set recording, analytics and processing behavior
+# Flow block in Connect Customer: Set recording, analytics and processing behavior
 
 This topic defines the flow block for setting options to configure recording behavior for agent and customer, enable automated interaction, enable screen recording, set analytics behavior for contacts, and set custom processing behavior.
 
@@ -34,7 +34,7 @@ Using this block in other flow types does not always guarantee that calls are re
 
 ## How to configure this block
 
-You can configure the **Set recording, analytics and processing behavior** block by using the Amazon Connect admin website. This guide will walk through how to configure each action in this block.
+You can configure the **Set recording, analytics and processing behavior** block by using the Connect Customer admin website. This guide will walk through how to configure each action in this block.
 
 ### Set message processing
 
@@ -124,9 +124,9 @@ As shown in the following image, the voice settings are split into three section
 
 ###### Note
 
-To include Lex bot transcripts and analytics as a part of your **Contact Details** page and Amazon Connect analytics dashboards:
+To include Lex bot transcripts and analytics as a part of your **Contact Details** page and Connect Customer analytics dashboards:
 
-1. In the Amazon Connect console, choose the name of your instance. For instructions, see [Find your Amazon Connect instance name](find-instance-name.md "find-instance-name.md").
+1. In the Connect Customer console, choose the name of your instance. For instructions, see [Find your Amazon Connect instance name](find-instance-name.md "find-instance-name.md").
 2. On the navigation pane choose **Flows**, and then choose **Enable Bot Analytics and Transcripts in Amazon Connect**.
 
 #### Screen recording

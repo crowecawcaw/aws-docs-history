@@ -1,4 +1,4 @@
-# Transfer contacts to a specific agent in Amazon Connect
+# Transfer contacts to a specific agent in Connect Customer
 
 There are two ways to route contacts directly to an agent:
 
@@ -36,7 +36,7 @@ There are two ways to route contacts directly to an agent:
 
 ###### Note
 
-A queue is created for all users in your Amazon Connect instance, but only users who are
+A queue is created for all users in your Connect Customer instance, but only users who are
 assigned permissions to use the Contact Control Panel (CCP) can use it to receive
 contacts. The Agent and Admin security profiles are the only default security
 profiles that include permissions to use the CCP. If you route a contact to someone
@@ -44,7 +44,7 @@ who doesn't have these permissions, the contact can never be handled.
 
 ###### To route a contact directly to a specific agent
 
-1. In Amazon Connect, choose **Routing**, **Contact
+1. In Connect Customer, choose **Routing**, **Contact
    flows**.
 2. In the flow designer, open an existing flow, or create a new one.
 3. Add a block in which you can select a queue to transfer a contact to, such as
@@ -72,7 +72,7 @@ attribute, use one of these options:
   retrieve the agent ID. For example:
   1.  In a Chrome browser, press F12 and go to the
       **Network** tab.
-  2.  In Amazon Connect, in the navigation menu, choose
+  2.  In Connect Customer, in the navigation menu, choose
       **Users**, **User
       management**, and then select an agent. Monitor the content
       of the **Network** tab. In the
@@ -87,7 +87,7 @@ attribute, use one of these options:
 - Use the [ListUsers](../APIReference/API_ListUsers.md "../APIReference/API_ListUsers.md") operation to retrieve the users from your instance.
   The agent's user ID is returned with the results from the operation as the
   value of the `Id` in the [UserSummary](../APIReference/API_UserSummary.md "../APIReference/API_UserSummary.md") object.
-- Find the user ID for an agent by using [Amazon Connect agent event streams](agent-event-streams.md "agent-event-streams.md"). The agent events, which are
+- Find the user ID for an agent by using [Connect Customer agent event streams](agent-event-streams.md "agent-event-streams.md"). The agent events, which are
   included in the agent event data stream, include the agent ARN. The user ID
   is included in the agent ARN after **`agent/`**.
 

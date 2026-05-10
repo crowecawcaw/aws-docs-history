@@ -1,22 +1,22 @@
-# Troubleshooting Amazon Connect identity and access
+# Troubleshooting Connect Customer identity and access
 
 Use the following information to help you diagnose and fix common issues that you might
-encounter when working with Amazon Connect and IAM.
+encounter when working with Connect Customer and IAM.
 
 ###### Contents
 
 - [I am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
-- [I want to allow people outside of my AWS account to access my Amazon Connect resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
+- [I want to allow people outside of my AWS account to access my Connect Customer resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
 
 ## I am not authorized to perform iam:PassRole
 
-If you receive an error that you're not authorized to perform the `iam:PassRole` action, your policies must be updated to allow you to pass a role to Amazon Connect.
+If you receive an error that you're not authorized to perform the `iam:PassRole` action, your policies must be updated to allow you to pass a role to Connect Customer.
 
 Some AWS services allow you to pass an existing role to that service instead of creating a new service role or service-linked role. To do
 this, you must have permissions to pass the role to the service.
 
 The following example error occurs when an IAM user named `marymajor` tries to use the console to perform an action in
-Amazon Connect. However, the action requires the service to have permissions that are granted by a service role. Mary does not have permissions to pass the
+Connect Customer. However, the action requires the service to have permissions that are granted by a service role. Mary does not have permissions to pass the
 role to the service.
 
 ```
@@ -27,7 +27,7 @@ In this case, Mary's policies must be updated to allow her to perform the `iam:P
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-## I want to allow people outside of my AWS account to access my Amazon Connect resources
+## I want to allow people outside of my AWS account to access my Connect Customer resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
 is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant
@@ -35,7 +35,7 @@ people access to your resources.
 
 To learn more, consult the following:
 
-- To learn whether Amazon Connect supports these features, see [How Amazon Connect works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
+- To learn whether Connect Customer supports these features, see [How Connect Customer works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
 - To learn how to provide access to your resources across AWS accounts that you own, see [Providing access to an IAM user in another AWS account that you
   own](../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md") in the _IAM User Guide_.
 - To learn how to provide access to your resources to third-party AWS accounts, see [Providing access to AWS accounts owned by third parties](../../../IAM/latest/UserGuide/id_roles_common-scenarios_third-party.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_third-party.md") in the

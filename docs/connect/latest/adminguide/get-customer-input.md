@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Get customer input
+# Flow block in Connect Customer: Get customer input
 
 This topic defines the flow block for such tasks as capturing customer information,
 creating interactive phone menus for customer responses, and routing customers to
@@ -64,8 +64,8 @@ types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact
 
 ## How to configure this block
 
-You can configure the Get customer input block by using the Amazon Connect admin website, or by using the
-[GetParticipantInput](../APIReference/participant-actions-getparticipantinput.md "../APIReference/participant-actions-getparticipantinput.md") action in the Amazon Connect Flow language, or the [ConnectParticipantWithLexBot](../APIReference/participant-actions-connectparticipantwithlexbot.md "../APIReference/participant-actions-connectparticipantwithlexbot.md") and [Compare](../APIReference/flow-control-actions-compare.md "../APIReference/flow-control-actions-compare.md") actions.
+You can configure the Get customer input block by using the Connect Customer admin website, or by using the
+[GetParticipantInput](../APIReference/participant-actions-getparticipantinput.md "../APIReference/participant-actions-getparticipantinput.md") action in the Connect Customer Flow language, or the [ConnectParticipantWithLexBot](../APIReference/participant-actions-connectparticipantwithlexbot.md "../APIReference/participant-actions-connectparticipantwithlexbot.md") and [Compare](../APIReference/flow-control-actions-compare.md "../APIReference/flow-control-actions-compare.md") actions.
 
 ###### Configuration sections
 
@@ -89,14 +89,14 @@ Choose from the following options to select a prompt to be played to the
 customer:
 
 - **Select from the prompt library (audio)**: You can
-  choose from one of the pre-recorded prompts included with Amazon Connect, or use
-  the Amazon Connect admin website to record and upload your own prompt.
+  choose from one of the pre-recorded prompts included with Connect Customer, or use
+  the Connect Customer admin website to record and upload your own prompt.
 - **Specify an audio file from an S3 bucket**: You can
   manually or dynamically specify an audio file from an S3 bucket.
 - **Text-to-speech or chat text**: You can enter prompt
   to be played in plain text or SSML. These text-based prompts are played
   as audio prompts to customers using Amazon Polly. SSML-enhanced input text
-  gives you more control over how Amazon Connect generates speech from the text
+  gives you more control over how Connect Customer generates speech from the text
   that you provide. You can customize and control aspects of speech, such
   as pronunciation, volume, and speed.
 
@@ -204,7 +204,7 @@ represented by the [GetParticipantInput](../APIReference/participant-actions-get
 
   When you select a Lex bot ARN and alias from a dropdown lists,
   you can add intents for that bot by searching using locale. In
-  order for intents to be listed, the bot must have an Amazon Connect tag
+  order for intents to be listed, the bot must have an Connect Customer tag
   and the bot alias must have a version associated with it.
 
   The **Intents** dropdown box does not list
@@ -226,7 +226,7 @@ represented by the [GetParticipantInput](../APIReference/participant-actions-get
       	 **AmazonConnectEnabled** tag is
       	 not present, add **AmazonConnectEnabled =
       	 true**.
-      	3. Return to the Amazon Connect admin website. Refresh the flow
+      	3. Return to the Connect Customer admin website. Refresh the flow
       	 designer to see the selections in **Get
       	 customer input** block.
       - Check if the version is associated with the alias:
@@ -234,7 +234,7 @@ represented by the [GetParticipantInput](../APIReference/participant-actions-get
 
 
 
-      	1. In Amazon Connect admin website, choose **Routing**,
+      	1. In Connect Customer admin website, choose **Routing**,
       	 **Flows**, the bot,
       	 **Aliases**. Verify that
       	 **Use in flow and flow modules**
@@ -359,7 +359,7 @@ Amazon Lex
 `x-amz-lex:audio:max-length-ms:[intentName]:[slotToElicit]`
 
 How long the customer speaks before the input is
-truncated and returned to Amazon Connect. You can increase the
+truncated and returned to Connect Customer. You can increase the
 time when a lot of input is expected or you want to give
 customers more time to provide information.
 
@@ -405,7 +405,7 @@ Amazon Lex (Classic)
 `x-amz-lex:max-speech-duration-ms:[intentName]:[slotToElicit]`
 
 How long the customer speaks before the input is
-truncated and returned to Amazon Connect. You can increase the
+truncated and returned to Connect Customer. You can increase the
 time when a lot of input is expected or you want to give
 customers more time to provide information.
 
@@ -660,7 +660,7 @@ Behavior](set-touchtone-buffer-behavior.md "set-touchtone-buffer-behavior.md").
 
 ### Additional configuration tips
 
-- For information about choosing a prompt from the Amazon Connect library or an
+- For information about choosing a prompt from the Connect Customer library or an
   S3 bucket, see the [Play prompt](play.md "play.md")
   block.
 - You can configure this block to accept DTMF input or a chat response.
@@ -682,7 +682,7 @@ Behavior](set-touchtone-buffer-behavior.md "set-touchtone-buffer-behavior.md").
     1. Lambda provided session attributes: Overrides to
        session attributes during customer Lambda
        invocation.
-    2. Amazon Connect console provided session attributes: Defined in
+    2. Connect Customer console provided session attributes: Defined in
        the **Get customer input**
        block.
     3. Service defaults: These are used only if no attributes
@@ -736,7 +736,7 @@ the session attribute is set.
   you're collecting a certain type of input. For example, you can specify
   a longer **Start Silence Threshold** when you're
   collecting an account number than when you're collecting a date.
-- If DTMF input is provided to a Lex bot using Amazon Connect, the customer input
+- If DTMF input is provided to a Lex bot using Connect Customer, the customer input
   is made available as a [Lex request
   attribute](../../../lex/latest/dg/context-mgmt-request-attribs.md "../../../lex/latest/dg/context-mgmt-request-attribs.md"). The attribute name is
   `x-amz-lex:dtmf-transcript` and the value can be a
@@ -789,19 +789,19 @@ and then enter their type DTMF input.
 
 ## Sample flows
 
-Amazon Connect includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
-[Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
+Connect Customer includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
+[Sample flows in Connect Customer](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-- [Sample inbound flow in Amazon Connect for the first contact experience](sample-inbound-flow.md "sample-inbound-flow.md")
-- [Sample interruptible queue flow with callback in Amazon Connect](sample-interruptible-queue.md "sample-interruptible-queue.md")
-- [Sample queue configurations flow in Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md")
-- [Sample recording behavior in Amazon Connect](sample-recording-behavior.md "sample-recording-behavior.md")
+- [Sample inbound flow in Connect Customer for the first contact experience](sample-inbound-flow.md "sample-inbound-flow.md")
+- [Sample interruptible queue flow with callback in Connect Customer](sample-interruptible-queue.md "sample-interruptible-queue.md")
+- [Sample queue configurations flow in Connect Customer](sample-queue-configurations.md "sample-queue-configurations.md")
+- [Sample recording behavior in Connect Customer](sample-recording-behavior.md "sample-recording-behavior.md")
 
 ## More resources
 
 See the following topics to learn more about Amazon Lex and adding prompts.
 
-- [Create conversational AI bots in Amazon Connect](connect-conversational-ai-bots.md "connect-conversational-ai-bots.md")
+- [Create conversational AI bots in Connect Customer](connect-conversational-ai-bots.md "connect-conversational-ai-bots.md")
 - [How to use the same Amazon Lex bot for voice and chat](one-bot-voice-chat.md "one-bot-voice-chat.md")
 - [Add text-to-speech to prompts in flow blocks in Amazon Polly](text-to-speech.md "text-to-speech.md")

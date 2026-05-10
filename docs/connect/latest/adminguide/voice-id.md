@@ -1,14 +1,14 @@
-# Use real-time caller authentication with Voice ID in Amazon Connect
+# Use real-time caller authentication with Voice ID in Connect Customer
 
 ###### Note
 
 End of support notice: On May 20, 2026, AWS will end support for Amazon Connect
 Voice ID. After May 20, 2026, you will no longer be able to access Voice ID on the
-Amazon Connect console, access Voice ID features on the Amazon Connect admin website or Contact Control Panel, or access Voice ID
+Amazon Connect console, access Voice ID features on the Connect Customer admin website or Contact Control Panel, or access Voice ID
 resources. For more information, visit [Amazon Connect
 Voice ID end of support](amazonconnect-voiceid-end-of-support.md "amazonconnect-voiceid-end-of-support.md").
 
-Amazon Connect Voice ID provides real-time caller authentication and fraud risk detection which make
+Connect Customer Voice ID provides real-time caller authentication and fraud risk detection which make
 voice interactions in contact centers more secure and efficient. Voice ID uses machine
 learning to verify the identity of genuine customers by analyzing a caller's unique voice
 characteristics. This allows contact centers to use an additional security layer that
@@ -17,7 +17,7 @@ enroll and verify customers without changing the natural flow of their conversat
 Voice ID also offers real-time detection of fraudsters who frequently target your contact
 center, thereby reducing losses due to fraud.
 
-With Amazon Connect Voice ID you can:
+With Connect Customer Voice ID you can:
 
 - Passively enroll customers for voice authentication without requiring them to
   repeat a particular word or phrase.
@@ -82,7 +82,7 @@ already consented for biometrics. Using stored audio recordings in your S3 bucke
 JSON input file that provides the speaker identifier and a link to the audio recordings,
 you can invoke the Voice ID batch APIs.
 
-For more information, see [Batch enrollment in Amazon Connect Voice ID using audio data from prior calls](voiceid-batch-enrollment.md "voiceid-batch-enrollment.md").
+For more information, see [Batch enrollment in Connect Customer Voice ID using audio data from prior calls](voiceid-batch-enrollment.md "voiceid-batch-enrollment.md").
 
 ## Known fraudster detection
 
@@ -138,4 +138,4 @@ Voice ID stores audio files of the speaker's voice, voiceprints, and speaker
 identifiers. This data is encrypted using a KMS key that you provide.
 
 If you enable detection of fraudsters in a watchlist, Voice ID also stores the fraudster audio and
-voiceprints. For more information, see [Data handled by Amazon Connect](data-handled-by-connect.md "data-handled-by-connect.md").
+voiceprints. For more information, see [Data handled by Connect Customer](data-handled-by-connect.md "data-handled-by-connect.md").

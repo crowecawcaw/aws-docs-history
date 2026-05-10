@@ -4,7 +4,7 @@ To begin the setup process, first navigate to your Identity Provider.
 
 ## Identity Provider Configuration
 
-The following Amazon Connect domain must be registered as an allowed Redirect URI for the
+The following Connect Customer domain must be registered as an allowed Redirect URI for the
 Identity Provider(s) used for authentication:
 
 ```
@@ -20,7 +20,7 @@ pools](../../../cognito/latest/developerguide/cognito-user-identity-pools.md "..
 
 Within this user pool you can create an [app
 client](../../../cognito/latest/developerguide/user-pool-settings-client-apps.md "../../../cognito/latest/developerguide/user-pool-settings-client-apps.md") and select some or all of your Identity Providers. Take note of
-the app client's client ID. For this app client, the following Amazon Connect domain must be
+the app client's client ID. For this app client, the following Connect Customer domain must be
 added as an Allowed callback URL:
 
 ```
@@ -43,22 +43,22 @@ endpoint](../../../cognito/latest/developerguide/authorization-endpoint.md "../.
 
 ![Customer authentication for Amazon Cognito user pools.](images/configuring-your-cognito-app-client-with-the-apple-messages-for-business-portal.png)
 
-## Configure your user pools with Amazon Connect
+## Configure your user pools with Connect Customer
 
-On the **Customer authentication** page on the Amazon Connect console
+On the **Customer authentication** page on the Connect Customer console
 associate the user pool that will be used for the authentication.
 
 ![Customer authentication for Amazon Cognito user pools.](images/configuring-your-user-pools-with-connect.png)
 
-## Enable Amazon Connect Customer Profiles
+## Enable Connect Customer Customer Profiles
 
 **Enable Customer Profiles**
 
-On the **Customer Profiles** page in Amazon Connect console, ensure that
+On the **Customer Profiles** page in Connect Customer console, ensure that
 Customer Profiles is enabled for your instance. If **No Customer Profiles domain associated with this
-instance of Amazon Connect.** is displayed, then see [Enable Customer Profiles for your Amazon Connect instance](enable-customer-profiles.md "enable-customer-profiles.md").
+instance of Connect Customer.** is displayed, then see [Enable Customer Profiles for your Connect Customer instance](enable-customer-profiles.md "enable-customer-profiles.md").
 
-![Enable customer profiles in the Amazon Connect console.](images/apple-messages-for-business-configuring-amazon-connect-customer-profiles.png)
+![Enable customer profiles in the Connect Customer console.](images/apple-messages-for-business-configuring-amazon-connect-customer-profiles.png)
 
 ### Grant Customer Profile permission(s) to security profiles (optional)
 
@@ -72,4 +72,4 @@ permissions](security-profile-list.md#customerprofiles-permissions-list "securit
 
 ## Configure the Authenticate Customer flow block
 
-For instructions, see [Flow block in Amazon Connect: Authenticate Customer](authenticate-customer.md "authenticate-customer.md").
+For instructions, see [Flow block in Connect Customer: Authenticate Customer](authenticate-customer.md "authenticate-customer.md").

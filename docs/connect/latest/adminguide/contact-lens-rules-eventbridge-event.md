@@ -1,11 +1,11 @@
 # Create a rule that generates an EventBridge event
 
 In real-time or post-call/chat, you can get events and use them to trigger
-subsequent notifications or alerts, or aggregate reports outside of Amazon Connect.
+subsequent notifications or alerts, or aggregate reports outside of Connect Customer.
 There's a lot you can do with this data. For example:
 
 - Get real-time alerts in a QuickSight dashboard.
-- Create aggregated reported outside of Amazon Connect.
+- Create aggregated reported outside of Connect Customer.
 - Join data with your CRM.
 - Connect your notification solution to EventBridge and make sure that by end
   of day, all of a certain type of events go to a certain inbox. The

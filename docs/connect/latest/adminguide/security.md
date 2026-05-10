@@ -1,4 +1,4 @@
-# Security in Amazon Connect
+# Security in Connect Customer
 
 Cloud security at AWS is the highest priority. As an AWS customer, you benefit from a
 data center and network architecture that is built to meet the requirements of the most
@@ -13,7 +13,7 @@ _in_ the cloud:
   Cloud. AWS also provides you with services that you can use securely. Third-party
   auditors regularly test and verify the effectiveness of our security as part of the
   [AWS compliance
-  programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/"). To learn about the compliance programs that apply to Amazon Connect,
+  programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/"). To learn about the compliance programs that apply to Connect Customer,
   see [AWS Services in
   Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
 - **Security in the cloud** – Your responsibility
@@ -21,19 +21,19 @@ _in_ the cloud:
   factors including the sensitivity of your data, your company’s requirements, and
   applicable laws and regulations.
   This documentation helps you understand how to apply the shared responsibility model when
-  using Amazon Connect. The following topics show you how to configure Amazon Connect to meet your security and
+  using Connect Customer. The following topics show you how to configure Connect Customer to meet your security and
   compliance objectives. You also learn how to use other AWS services that help you to monitor
-  and secure your Amazon Connect resources.
+  and secure your Connect Customer resources.
 
 ###### Contents
 
-- [Data protection in Amazon Connect](data-protection.md "data-protection.md")
-- [Identity and access management for Amazon Connect](security-iam.md "security-iam.md")
-- [Logging and monitoring Amazon Connect](logging-and-monitoring.md "logging-and-monitoring.md")
-- [Add tags to resources in Amazon Connect](tagging.md "tagging.md")
-- [Compliance validation in Amazon Connect](compliance-validation.md "compliance-validation.md")
-- [Resilience in Amazon Connect](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure security in Amazon Connect](infrastructure-security.md "infrastructure-security.md")
+- [Data protection in Connect Customer](data-protection.md "data-protection.md")
+- [Identity and access management for Connect Customer](security-iam.md "security-iam.md")
+- [Logging and monitoring Connect Customer](logging-and-monitoring.md "logging-and-monitoring.md")
+- [Add tags to resources in Connect Customer](tagging.md "tagging.md")
+- [Compliance validation in Connect Customer](compliance-validation.md "compliance-validation.md")
+- [Resilience in Connect Customer](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
+- [Infrastructure security in Connect Customer](infrastructure-security.md "infrastructure-security.md")
 - [Cross-service confused deputy prevention in AWS](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
-- [Security Best Practices for Amazon Connect](security-best-practices.md "security-best-practices.md")
-- [Set IP address restrictions and session timeouts in Amazon Connect](authentication-profiles.md "authentication-profiles.md")
+- [Security Best Practices for Connect Customer](security-best-practices.md "security-best-practices.md")
+- [Set IP address restrictions and session timeouts in Connect Customer](authentication-profiles.md "authentication-profiles.md")

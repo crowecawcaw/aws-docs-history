@@ -7,12 +7,12 @@ to next week, or copy agent A's schedule for the next two weeks to agent B.
 
 ###### Complete the following steps to copy shifts
 
-1. Log in to the Amazon Connect admin website with an account that has security profile permissions
+1. Log in to the Connect Customer admin website with an account that has security profile permissions
    for **Scheduling**, **Schedule manager -
    Edit**.
 
 For more information, see [Assign
-permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Amazon Connect admin website, on the navigation menu, choose **Analytics and
+permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Connect Customer admin website, on the navigation menu, choose **Analytics and
 optimization**, **Scheduling**, and then
 select the **Published scheduled calendar** tab. 3. Select the shift that you would like to copy and choose **Copy
 shift**. This will open the **Copy shift**

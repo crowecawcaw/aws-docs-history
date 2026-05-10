@@ -1,7 +1,7 @@
-# Add attributes for personalizing quick responses in Amazon Connect
+# Add attributes for personalizing quick responses in Connect Customer
 
 You can personalize quick responses by adding user-defined attributes. To do so, you use the
-Amazon Connect admin website to create responses that include [Amazon Connect contact
+Connect Customer admin website to create responses that include [Connect Customer contact
 attributes](connect-contact-attributes.md "connect-contact-attributes.md"). You can also use the [Set contact
 attributes](set-contact-attributes.md "set-contact-attributes.md") block to create user-defined attributes in
 flows.
@@ -15,7 +15,7 @@ create a set-contact attribute, and then you add the attribute to a quick respon
 
 ###### To create a set-contact attribute
 
-1. Log in to the Amazon Connect admin website at https://_instance
+1. Log in to the Connect Customer admin website at https://_instance
    name_.my.connect.aws/. Use an **Admin** account, or an
    account assigned to a security profile that has **Flows - Edit or Create**
    permissions.
@@ -34,7 +34,7 @@ You can follow these steps when creating or updating a quick response.
 
 ###### To add an attribute to a quick response
 
-1. Log in to the Amazon Connect admin website at https://_instance
+1. Log in to the Connect Customer admin website at https://_instance
    name_.my.connect.aws/. Use an **Admin** account, or an
    account assigned to a security profile that has \*\*Content Management - Quick responses
 
@@ -59,7 +59,7 @@ The following steps explain how to test attributes in CCP.
 
 ###### To test attributes
 
-1. Log in to the Amazon Connect admin website chat testing page at https://_instance
+1. Log in to the Connect Customer admin website chat testing page at https://_instance
    name_.my.connect.aws/test-chat.
 2. Choose the flow with the user-defined attribute.
 3. Start a chat and enter `/#*searchText*`, where
@@ -67,4 +67,4 @@ The following steps explain how to test attributes in CCP.
 
 ###### Note
 
-For more information, see [Test voice, chat, and task experiences in Amazon Connect](chat-testing.md "chat-testing.md").
+For more information, see [Test voice, chat, and task experiences in Connect Customer](chat-testing.md "chat-testing.md").

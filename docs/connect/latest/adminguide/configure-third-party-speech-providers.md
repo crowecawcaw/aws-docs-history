@@ -1,6 +1,6 @@
-# Configure third-party speech providers in Amazon Connect
+# Configure third-party speech providers in Connect Customer
 
-You can configure third-party speech-to-text (STT) and text-to-speech (TTS) providers in Amazon Connect
+You can configure third-party speech-to-text (STT) and text-to-speech (TTS) providers in Connect Customer
 to expand language coverage, improve recognition accuracy, and deliver more expressive synthesized
 speech. This section describes how to configure third-party STT providers for bots and third-party
 TTS providers for use in contact flows.

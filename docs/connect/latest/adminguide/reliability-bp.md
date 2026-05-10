@@ -1,10 +1,10 @@
-# Reliability in Amazon Connect
+# Reliability in Connect Customer
 
 Reliability includes the ability of a system to recover from infrastructure or service
 disruptions, dynamically acquire computing resources to meet demand, and mitigate
 disruptions such as misconfigurations or transient network issues. As resiliency is
-handled as part of the service, there are no reliability practices unique to Amazon Connect
-beyond of what is covered in [Operational excellence in Amazon Connect workloads](operational-excellence.md "operational-excellence.md"). You can ﬁnd prescriptive guidance on
+handled as part of the service, there are no reliability practices unique to Connect Customer
+beyond of what is covered in [Operational excellence in Connect Customer workloads](operational-excellence.md "operational-excellence.md"). You can ﬁnd prescriptive guidance on
 implementation in the [Reliability Pillar](https://d0.awsstatic.com/whitepapers/architecture/AWS-Reliability-Pillar.pdf "https://d0.awsstatic.com/whitepapers/architecture/AWS-Reliability-Pillar.pdf") whitepaper.
 
 ## Resources
@@ -13,7 +13,7 @@ implementation in the [Reliability Pillar](https://d0.awsstatic.com/whitepapers/
 
 - [AWS Service
   quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md")
-- [Resilience in Amazon Connect](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
+- [Resilience in Connect Customer](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Amazon CloudWatch](../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md")
 
 **Whitepaper**

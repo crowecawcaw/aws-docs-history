@@ -1,8 +1,8 @@
-# Flow block in Amazon Connect: Data Table
+# Flow block in Connect Customer: Data Table
 
 ## Description
 
-The Data Table block in Amazon Connect enables you to evaluate, list, or write data from data tables within your contact flows. This block facilitates dynamic decision-making, personalized customer experiences, and data management by interacting with structured data stored in your Amazon Connect data tables.
+The Data Table block in Connect Customer enables you to evaluate, list, or write data from data tables within your contact flows. This block facilitates dynamic decision-making, personalized customer experiences, and data management by interacting with structured data stored in your Connect Customer data tables.
 
 ## Use cases
 

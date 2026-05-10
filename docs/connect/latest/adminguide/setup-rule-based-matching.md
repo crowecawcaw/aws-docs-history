@@ -1,4 +1,4 @@
-# Set up rule-based matching for Identity Resolution in Amazon Connect
+# Set up rule-based matching for Identity Resolution in Connect Customer
 
 This topic provides an illustrative walkthrough of the steps that you use to
 edit rule-based matching attribute types, rule-based matching rules, rule-based

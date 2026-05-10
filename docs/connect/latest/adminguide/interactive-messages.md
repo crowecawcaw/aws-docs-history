@@ -20,7 +20,7 @@ The [SendMessage](../../../connect-participant/latest/APIReference/API_SendMessa
   (...) is appended. You can determine how to enforce field limits by customizing
   the widget.
 - If you are integrating with other platforms (such as Apple Messages for
-  Business), review the limits in this topic for Amazon Connect, and review the limits in
+  Business), review the limits in this topic for Connect Customer, and review the limits in
   the documentation for the other platform. For example, quick replies are not
   supported on older versions of iOS.
 
@@ -40,7 +40,7 @@ URLs are not supported. In addition, the following requirements apply:
 
 ## Message display templates
 
-Amazon Connect provides the following message display templates. Use them to render information
+Connect Customer provides the following message display templates. Use them to render information
 to customers in a chat:
 
 - [List picker](#list-picker "#list-picker")
@@ -172,7 +172,7 @@ picker/panel](https://github.com/amazon-connect/amazon-connect-chat-interface/bl
 
 ###### Note
 
-If you are using the `targetForLinks` field and Amazon Connect
+If you are using the `targetForLinks` field and Connect Customer
 communications widget, in order to open links in the same browser tab, you must
 add the following attribute to the widget code snippet to allow the current
 iframe to open and navigate links within the same tab:
@@ -201,7 +201,7 @@ The following image shows the time picker with an image
 ###### Note
 
 If you are using this message template with the [Apple Messages for Business](apple-messages-for-business.md "apple-messages-for-business.md") channel and do not add an
-image, Amazon Connect will add a default image in both the reply and response message.
+image, Connect Customer will add a default image in both the reply and response message.
 
 ![The time picker with an image.](images/interactive-messages-timepicker-with-image.png)
 
@@ -1074,7 +1074,7 @@ Lambda function. 
 ###### Note
 
 You only use this template for WhatsApp messaging flows. For more information
-about integrating WhatsApp with Amazon Connect, see [Set up WhatsApp Business messaging](whatsapp-integration.md "whatsapp-integration.md"),
+about integrating WhatsApp with Connect Customer, see [Set up WhatsApp Business messaging](whatsapp-integration.md "whatsapp-integration.md"),
 earlier in this guide.
 
 You use the WhatsApp list template in WhatsApp chats to provide customers with a list

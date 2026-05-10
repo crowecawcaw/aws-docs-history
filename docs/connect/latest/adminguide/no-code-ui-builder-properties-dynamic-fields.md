@@ -1,8 +1,8 @@
-# Configure dynamic fields in the No-code builder UI in Amazon Connect
+# Configure dynamic fields in the No-code builder UI in Connect Customer
 
 This topic explains how to configure dynamic fields in components to display
 runtime data instead of hardcoded values when building agent and customer interfaces
-using the No-code builder UI in Amazon Connect.
+using the No-code builder UI in Connect Customer.
 
 You may have scenarios where you want the data displayed to an agent or customer
 to be dynamically populated instead of hardcoded. For example, if you are making a

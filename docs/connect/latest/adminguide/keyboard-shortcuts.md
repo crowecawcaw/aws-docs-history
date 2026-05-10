@@ -1,6 +1,6 @@
-# Keyboard shortcuts for the Amazon Connect flow designer
+# Keyboard shortcuts for the Connect Customer flow designer
 
-The Amazon Connect flow designer includes keyboard shortcuts to
+The Connect Customer flow designer includes keyboard shortcuts to
 help you use the designer efficiently.
 
 To access the complete list of keyboard shortcuts, press **Ctrl + /** or

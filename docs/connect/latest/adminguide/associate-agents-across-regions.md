@@ -1,11 +1,11 @@
-# Associate agents to Amazon Connect instances across multiple AWS Regions
+# Associate agents to Connect Customer instances across multiple AWS Regions
 
 To allow your agents to sign-in to both AWS Regions and process
 contacts from either Region, you must first assign them to a traffic
 distribution group.
 
 1. If you have not yet set up a traffic distribution group, do so now.
-   For instructions, see [Create traffic distribution groups for your Amazon Connect instance](setup-traffic-distribution-groups.md "setup-traffic-distribution-groups.md").
+   For instructions, see [Create traffic distribution groups for your Connect Customer instance](setup-traffic-distribution-groups.md "setup-traffic-distribution-groups.md").
 2. After your traffic distribution group is created successfully
    (`Status` is `ACTIVE`), you can assign agents
    to it. Always associate users to a traffic distribution group in the source Region.
@@ -68,4 +68,4 @@ An [AssociateTrafficDistributionGroupUser](../APIReference/API_AssociateTrafficD
 2. The status of the traffic distribution group is not
    `ACTIVE`.
 3. The `user-id `UUID`` is not a
-   user from the source Amazon Connect instance.
+   user from the source Connect Customer instance.

@@ -1,8 +1,8 @@
-# Default calculated attributes in Amazon Connect Customer Profiles
+# Default calculated attributes in Connect Customer Customer Profiles
 
 ## Default CTR calculated attributes
 
-Amazon Connect Customer Profiles provides out-of-the box default attributes based on
+Connect Customer Customer Profiles provides out-of-the box default attributes based on
 contact records. The attributes are as follows:
 
 **Most frequent channel**
@@ -234,7 +234,7 @@ contact records. The attributes are as follows:
 
 ## Default profile calculated attribute
 
-Amazon Connect Customer Profiles provides an out-of-the box default attribute based on
+Connect Customer Customer Profiles provides an out-of-the box default attribute based on
 a profile. The attributes are as follows:
 
 **New Customer**
@@ -271,7 +271,7 @@ a profile. The attributes are as follows:
 
 ## Default asset calculated attributes
 
-Amazon Connect Customer Profiles provides out-of-the box default attributes based on
+Connect Customer Customer Profiles provides out-of-the box default attributes based on
 assets. The attributes are as follows:
 
 **Count of assets**
@@ -458,7 +458,7 @@ assets. The attributes are as follows:
 
 ## Default case calculated attributes
 
-Amazon Connect Customer Profiles provides out-of-the box default attributes based on
+Connect Customer Customer Profiles provides out-of-the box default attributes based on
 cases. The attributes are as follows:
 
 **Count of cases**
@@ -629,7 +629,7 @@ cases. The attributes are as follows:
 
 ## Default communication record calculated attributes
 
-Amazon Connect Customer Profiles provides out-of-the box default attributes based on
+Connect Customer Customer Profiles provides out-of-the box default attributes based on
 communication records. The attributes are as follows:
 
 **Last email open date**
@@ -922,7 +922,7 @@ communication records. The attributes are as follows:
 
 ## Default order calculated attributes
 
-Amazon Connect Customer Profiles provides out-of-the box default attributes based on
+Connect Customer Customer Profiles provides out-of-the box default attributes based on
 orders. The attributes are as follows:
 
 **Count of orders**

@@ -1,4 +1,4 @@
-# When, what, and where for contact recordings in Amazon Connect
+# When, what, and where for contact recordings in Connect Customer
 
 This topic explains when conversations are recorded, where recordings are stored, and
 how to access them. It also provides best practices for managing recordings and
@@ -19,7 +19,7 @@ transcripts.
 - There are a total of two possible recordings per contact: one for automated interactions (that is, IVR)
   and one for agent interactions. Enabling or disabling recording for automated interactions takes effect immediately.
   Conversely, modifying recording for agent interactions only takes effect after the agent joins the call.
-- Agent audio is NOT transmitted to Amazon Connect when the agent is not on a call. On November 9, 2023, Amazon Connect deployed an optimization to
+- Agent audio is NOT transmitted to Connect Customer when the agent is not on a call. On November 9, 2023, Connect Customer deployed an optimization to
   improve agent productivity that pre-configures the microphone media stream of the agent's browser before the contact arrives.
   This reduces setup time for both incoming and outgoing calls. As a result, the microphone icon in the agent's browser appears to be on, even
   when the agent is not on a call.
@@ -65,7 +65,7 @@ You shouldn't disable encryption.
   flow.
 - If a recording is moved from one S3 bucket to another for any reason,
   such as the retention period has expired, then the recording will no
-  longer be accessible by Amazon Connect.
+  longer be accessible by Connect Customer.
 
 ###### Tip
 
@@ -97,7 +97,7 @@ or contact is disconnected.
 
 ###### Tip
 
-Amazon Connect uses the Amazon S3
+Connect Customer uses the Amazon S3
 [PutObject](../../../AmazonS3/latest/API/API_PutObject.md "../../../AmazonS3/latest/API/API_PutObject.md") and [MultipartUpload](../../../AmazonS3/latest/API/API_MultipartUpload.md "../../../AmazonS3/latest/API/API_MultipartUpload.md")
 APIs to upload the call recording to your S3 bucket. If you are using [S3 Event Notifications](../../../AmazonS3/latest/userguide/NotificationHowTo.md "../../../AmazonS3/latest/userguide/NotificationHowTo.md") when call recordings are uploaded
 successfully to your bucket, make sure you enable the notification for
@@ -109,7 +109,7 @@ _s3:ObjectCreated:CompleteMultipartUpload_ event types.
 
 To prevent agents from accessing recordings outside of their agent hierarchy,
 assign them the **Restrict contact access** security profile
-permission. For more information, see [Assign permissions to review past contact center conversations in Amazon Connect](assign-permissions-to-review-recordings.md "assign-permissions-to-review-recordings.md").
+permission. For more information, see [Assign permissions to review past contact center conversations in Connect Customer](assign-permissions-to-review-recordings.md "assign-permissions-to-review-recordings.md").
 
 ## Headset requirements for listening to recordings
 

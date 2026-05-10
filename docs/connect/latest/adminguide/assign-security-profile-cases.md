@@ -1,17 +1,17 @@
-# Security profile permissions for Amazon Connect Cases
+# Security profile permissions for Connect Customer Cases
 
 This topic describes the security profiles permissions that are required to access and
-use Amazon Connect Cases. For a list of Cases permissions and their API name, see [List of security profile permissions in Amazon Connect](security-profile-list.md "security-profile-list.md").
+use Connect Customer Cases. For a list of Cases permissions and their API name, see [List of security profile permissions in Connect Customer](security-profile-list.md "security-profile-list.md").
 
 ## Required Cases permissions
 
-The following image shows the security permissions used to manage access to [Amazon Connect Cases](cases.md "cases.md") functionality:
+The following image shows the security permissions used to manage access to [Connect Customer Cases](cases.md "cases.md") functionality:
 
 ![Cases security profile permissions.](images/cases-security-profile-permissions.png)
 
 ## Required Customer Profiles permissions
 
-To use Amazon Connect Cases, your users also need permissions to Customer Profiles permissions, as
+To use Connect Customer Cases, your users also need permissions to Customer Profiles permissions, as
 shown in the following image.
 
 ![Customer Profiles security profile permissions.](images/cases-customer-profiles-permissions.png)
@@ -48,7 +48,7 @@ following two images.
     cases, and associate contacts to cases.
 
 - **Case Fields**: Manage who can configure case fields by
-  using the Amazon Connect admin website.
+  using the Connect Customer admin website.
   - **View Case Fields**: Allows users to view the
     case fields page and all of the existing case fields (could be
     system or custom).
@@ -59,7 +59,7 @@ following two images.
     new case fields.
 
 - **Case Templates**: Manage who can configure case
-  templates by using the Amazon Connect admin website.
+  templates by using the Connect Customer admin website.
   - **View Case Fields**: Allows users to view the
     case fields page and all of the existing case fields (could be
     system or custom).

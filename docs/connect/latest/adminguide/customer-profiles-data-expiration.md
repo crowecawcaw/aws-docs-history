@@ -1,4 +1,4 @@
-# Amazon Connect Customer Profiles data expiration
+# Connect Customer Customer Profiles data expiration
 
 If a profile has not been updated within a specified amount of time, it will expire.
 This will cause the profile to be cleaned up, and removed from the Customer Profiles
@@ -36,7 +36,7 @@ Import, its expiry will fall into two different scenarios.
 
 By default profiles imported by using Segment import will expire in 14
 days if no updates have been performed. This number [can be defined](customer-segments-imported-files.md#set-profile-expiry "customer-segments-imported-files.md#set-profile-expiry") by using the API, or
-within the Amazon Connect admin website during import creation, with a max of 90 days. 2. **Importing profiles that already exist within your
+within the Connect Customer admin website during import creation, with a max of 90 days. 2. **Importing profiles that already exist within your
 Customer Profiles Domain from a previous import job**
 
 If two import jobs have been ran, and a duplicate profile has been found,

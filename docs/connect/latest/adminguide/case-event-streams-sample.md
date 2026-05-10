@@ -1,9 +1,9 @@
-# Case event payload and schema in Amazon Connect Cases
+# Case event payload and schema in Connect Customer Cases
 
 When you request to include case data in the event payload, the data reflects the
 version of the case after that particular edit.
 
-Amazon Connect Cases default limits guarantee that the payload will be less than 256KB (the
+Connect Customer Cases default limits guarantee that the payload will be less than 256KB (the
 maximum size of an EventBus event). Since you can customize the case object model (for
 example, you can define custom fields on case objects to capture business specific
 information), case event schema reflect the customizations made to the case object as
@@ -22,10 +22,10 @@ use as JSON properties).
     "source": "aws.cases",
     "account": "`your AWS account ID`",
     "time": "2022-03-16T23:43:26Z",
-    "region": "`The AWS Region of your Amazon Connect instance`",
+    "region": "`The AWS Region of your Connect Customer instance`",
     "resources": [
-        "arn:aws:cases:`your Amazon Connect AWS Region`:`your AWS account ID`:domain/`case domain ID`",
-        "arn:aws:cases:`your Amazon Connect AWS Region`:`your AWS account ID`:domain/`case domain ID`/case/`case ID`"
+        "arn:aws:cases:`your Connect Customer AWS Region`:`your AWS account ID`:domain/`case domain ID`",
+        "arn:aws:cases:`your Connect Customer AWS Region`:`your AWS account ID`:domain/`case domain ID`/case/`case ID`"
     ],
     "detail": {
         "version": "0",
@@ -34,9 +34,9 @@ use as JSON properties).
         "changedFieldIds": ["status", "last_updated_datetime"],
         "performedBy": {
             "user": {
-                "userArn": "arn:aws:connect:`your Amazon Connect AWS Region`:`your AWS account ID`:instance/`connect instance ID`/user/`connect user ID`"
+                "userArn": "arn:aws:connect:`your Connect Customer AWS Region`:`your AWS account ID`:instance/`connect instance ID`/user/`connect user ID`"
             },
-            "iamPrincipalArn": "arn:aws:iam::`your Amazon Connect AWS Region`:role/`role name`"
+            "iamPrincipalArn": "arn:aws:iam::`your Connect Customer AWS Region`:role/`role name`"
         },
         "case": {
             "caseId": "`case ID`",
@@ -82,10 +82,10 @@ use as JSON properties).
     "source": "aws.cases",
     "account": "`your AWS account ID`",
     "time": "2022-03-16T23:43:26Z",
-    "region": "`The AWS Region of your Amazon Connect instance`",
+    "region": "`The AWS Region of your Connect Customer instance`",
     "resources": [
-        "arn:aws:cases:`your Amazon Connect AWS Region`:`your AWS account ID`:domain/`case domain ID`",
-        "arn:aws:cases:`your Amazon Connect AWS Region`:`your AWS account ID`:domain/`case domain ID`/case/`case ID`/related-item/`related-item ID`"
+        "arn:aws:cases:`your Connect Customer AWS Region`:`your AWS account ID`:domain/`case domain ID`",
+        "arn:aws:cases:`your Connect Customer AWS Region`:`your AWS account ID`:domain/`case domain ID`/case/`case ID`/related-item/`related-item ID`"
     ],
 
     "detail": {
@@ -95,9 +95,9 @@ use as JSON properties).
         "changedAttributes": ["comment.commentText"],
         "performedBy": {
             "user": {
-                "userArn": "arn:aws:connect:`your Amazon Connect AWS Region`:`your AWS account ID`:instance/`connect instance ID`/user/`connect user ID`"
+                "userArn": "arn:aws:connect:`your Connect Customer AWS Region`:`your AWS account ID`:instance/`connect instance ID`/user/`connect user ID`"
             },
-            "iamPrincipalArn": "arn:aws:iam::`your Amazon Connect AWS Region`:role/`role name`"
+            "iamPrincipalArn": "arn:aws:iam::`your Connect Customer AWS Region`:role/`role name`"
         },
         "relatedItem": {
             "relatedItemType": "Comment",

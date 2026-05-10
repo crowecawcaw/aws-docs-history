@@ -6,7 +6,7 @@ look up a customer's contact ID, and welcome them with a personalized greeting.
 
 ###### Important
 
-Features that are provided by Amazon Connect or third parties may rely on call data for
+Features that are provided by Connect Customer or third parties may rely on call data for
 identifying inbound callers for personalizing customer interaction or detecting
 fraud and may be subject to additional terms and conditions. Network-related call
 data that is not displayed to call recipients may not be used for any purpose other
@@ -15,7 +15,7 @@ than fraud detection.
 ## Use telephony call metadata attributes
 
 The following table lists the available telephony call metadata attributes. For
-information about using attributes, see [Use Amazon Connect contact attributes](connect-contact-attributes.md "connect-contact-attributes.md").
+information about using attributes, see [Use Connect Customer contact attributes](connect-contact-attributes.md "connect-contact-attributes.md").
 
 | Attribute                 | Description                                                                                                                                                                                                        | Type   | JSONPath Reference                            |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------ | --------------------------------------------- |
@@ -39,14 +39,14 @@ providers and may not be available in all cases.
 
 Before opening an AWS Support case:
 
-- If you are missing data on all calls required by a third-party Amazon Connect Ready
+- If you are missing data on all calls required by a third-party Connect Customer Ready
   service, check that you followed the service configuration guide provided by
   the third party.
 
 If you need to open a AWS Support case, provide the following
 information:
 
-    + **Service** = **Amazon Connect**
+    + **Service** = **Connect Customer**
     + **Quota** = **3rd-Party Number
      Mapping**
     + **Case description** box:
@@ -56,7 +56,7 @@ information:
 
     	- State that you have confirmed you have a phone number with
     	 the required setup.
-    	- Enter the name of your Amazon Connect Ready service provider
+    	- Enter the name of your Connect Customer Ready service provider
     	- Describe the telecoms metadata issue you are
     	 encountering.
 

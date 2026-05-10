@@ -1,4 +1,4 @@
-# Enable enhanced multi-party contact monitoring in Amazon Connect
+# Enable enhanced multi-party contact monitoring in Connect Customer
 
 Enhanced contact monitoring applies to voice calls and all supported types of chats:
 chat/SMS, WhatsApp, and Apple Messages for Business.
@@ -50,7 +50,7 @@ The total number of participants on the chat would look like this:
 
 - New events are added to the agent event stream when you choose
   **Enhanced contact monitoring capabilities** on the
-  Amazon Connect console.
+  Connect Customer console.
 
 However, if you instead choose to start with the default three-party
 capability enabled by the [Set recording and analytics
@@ -73,36 +73,36 @@ previous agent event stream.
   Supervisors have a ParticipantRole of 'SUPERVISOR' in the transcript.
 - The initiation method for the contact where the agent is invited is
   TRANSFER. For information about how to distinguish in reporting how often a
-  participant is being invited instead of being transferred to, see [Identify conferences and transfers by using Amazon Connect contact records](identify-conferences-transfers.md "identify-conferences-transfers.md").
+  participant is being invited instead of being transferred to, see [Identify conferences and transfers by using Connect Customer contact records](identify-conferences-transfers.md "identify-conferences-transfers.md").
 - This feature is only available in CCPv2. That is, the URL to access the
   CCP is https://`instance
 name`.my.connect.aws/ccp-v2/ and the URL to access the agent
   workspace is https://`instance
 name`.my.connect.aws/agent-app-v2/. It's also available in
-  custom CCP using Amazon Connect Streams.js.
+  custom CCP using Connect Customer Streams.js.
 - Before enabling the multi-party calls, if you are using
   Contact Lens or planning to do so in the future, see [Multi-party calls and conversational analytics](enable-analytics.md#multiparty-calls-contactlens "enable-analytics.md#multiparty-calls-contactlens"). Contact Lens
   supports calls with up to 2 participants. We recommend that you disable
   Contact Lens in the [Set recording and analytics
   behavior](set-recording-behavior.md "set-recording-behavior.md") block for contacts that
   are expected to have 3 and more participants.
-- In custom CCPs, use the updated Amazon Connect Streams API to enable multi-party
-  calling, up to six parties. See the [Amazon Connect Streams](https://github.com/amazon-connect/amazon-connect-streams/blob/master/Documentation.md#connectcoreinitccp "https://github.com/amazon-connect/amazon-connect-streams/blob/master/Documentation.md#connectcoreinitccp") documentation on GitHub.
+- In custom CCPs, use the updated Connect Customer Streams API to enable multi-party
+  calling, up to six parties. See the [Connect Customer Streams](https://github.com/amazon-connect/amazon-connect-streams/blob/master/Documentation.md#connectcoreinitccp "https://github.com/amazon-connect/amazon-connect-streams/blob/master/Documentation.md#connectcoreinitccp") documentation on GitHub.
 - AWS GovCloud (US-West): You can't enable this feature using the console
   user interface. Instead, use the [UpdateInstanceAttribute](../APIReference/API_UpdateInstanceAttribute.md "../APIReference/API_UpdateInstanceAttribute.md") API or contact
   AWS Support.
 
 ## How to enable enhanced multi-party contact monitoring
 
-1. In the Amazon Connect console, on the menu pane, choose
+1. In the Connect Customer console, on the menu pane, choose
    **Telephony**.
 2. On the **Telephony and chat options** page, scroll to the
    **Enhanced contact monitoring capabilities**
    section.
 
 ![The Telephony and chat options page.](images/telephony-chat-options.png) 3. Choose the options you want to enable, and then choose
-**Save**. 4. Log in to the Amazon Connect admin website. [Assign security
+**Save**. 4. Log in to the Connect Customer admin website. [Assign security
 profile permissions](assign-permissions-to-review-recordings.md "assign-permissions-to-review-recordings.md") to managers so they can monitor and barge
 live conversations, and review recordings. 5. Show managers how to [monitor
 live conversations](monitor-conversations-howto.md "monitor-conversations-howto.md"), [barge live
-conversations](monitor-barge.md "monitor-barge.md") and [review past recordings](review-recorded-conversations.md "review-recorded-conversations.md") in Amazon Connect.
+conversations](monitor-barge.md "monitor-barge.md") and [review past recordings](review-recorded-conversations.md "review-recorded-conversations.md") in Connect Customer.

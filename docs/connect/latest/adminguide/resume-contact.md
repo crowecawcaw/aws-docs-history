@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Resume contact
+# Flow block in Connect Customer: Resume contact
 
 This topic defines the flow block for resuming a task contact from a paused
 state.
@@ -9,8 +9,8 @@ state.
   an active slot so they can receive more critical tasks when their current
   task is stalled, for example, because of a missing approval or waiting on an
   external input.
-- For more information how pausing and resuming tasks works in Amazon Connect, see
-  [Pause and resume tasks in Amazon Connect Tasks](concepts-pause-and-resume-tasks.md "concepts-pause-and-resume-tasks.md").
+- For more information how pausing and resuming tasks works in Connect Customer, see
+  [Pause and resume tasks in Connect Customer Tasks](concepts-pause-and-resume-tasks.md "concepts-pause-and-resume-tasks.md").
 
 ## Supported channels
 

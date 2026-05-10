@@ -1,10 +1,10 @@
-# Get started enabling Voice ID in Amazon Connect
+# Get started enabling Voice ID in Connect Customer
 
 ###### Note
 
 End of support notice: On May 20, 2026, AWS will end support for Amazon Connect
 Voice ID. After May 20, 2026, you will no longer be able to access Voice ID on the
-Amazon Connect console, access Voice ID features on the Amazon Connect admin website or Contact Control Panel, or access Voice ID
+Amazon Connect console, access Voice ID features on the Connect Customer admin website or Contact Control Panel, or access Voice ID
 resources. For more information, visit [Amazon Connect
 Voice ID end of support](amazonconnect-voiceid-end-of-support.md "amazonconnect-voiceid-end-of-support.md").
 
@@ -53,7 +53,7 @@ the domain. When making calls to `CreateDomain` or
 `kms:DescribeKey` and `kms:CreateGrant` permissions
 for the key. When you create (or update) a Voice ID domain, it creates a grant
 on the KMS key so that it can be used by Voice ID asynchronous processes
-(such as speaker enrollment) and by the Amazon Connect service-linked role during your
+(such as speaker enrollment) and by the Connect Customer service-linked role during your
 flows. This grant includes an encryption context specifying the domain with
 which the key is associated. For more on grants, see [Using grants](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") in the
 AWS Key Management Service Developer Guide.
@@ -67,7 +67,7 @@ and you may safely retire the old key. For more information, see [UpdateDomain](
 ###### Tip
 
 You can create KMS keys or provide an existing KMS key
-programmatically. For more information, see [Amazon Connect Voice ID APIs](../../../voiceid/latest/APIReference.md "../../../voiceid/latest/APIReference.md").
+programmatically. For more information, see [Connect Customer Voice ID APIs](../../../voiceid/latest/APIReference.md "../../../voiceid/latest/APIReference.md").
 
 ## Step 1: Read the BIPA Consent Acknowledgement
 
@@ -77,24 +77,24 @@ cannot do this step by using APIs. For more information about BIPA, see this
 Wikipedia article: [Biometric
 Information Privacy Act](https://en.wikipedia.org/wiki/Biometric_Information_Privacy_Act "https://en.wikipedia.org/wiki/Biometric_Information_Privacy_Act").
 
-1. Open the Amazon Connect console at
+1. Open the Connect Customer console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 2. On the instances page, choose the instance alias. The instance alias is also
-   your **instance name**, which appears in your Amazon Connect
-   URL. The following image shows the **Amazon Connect virtual contact center instances** page, with a box
+   your **instance name**, which appears in your Connect Customer
+   URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box
    around the instance alias.
 
-![The Amazon Connect virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **Voice ID**. Read the
+![The Connect Customer virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **Voice ID**. Read the
 BIPA Consent Acknowledgement, and accept if you agree.
 
 ![The Enable Voice ID page showing the BIPA (Biometric Information Privacy Act) Consent Acknowledgement button that users must read and accept before enabling Voice ID.](images/voiceid-bipa.png)
 
 ## Step 2: Create a new Voice ID domain and encryption key
 
-You can perform this step using the Amazon Connect console or by using Amazon Connect and Voice ID
+You can perform this step using the Connect Customer console or by using Connect Customer and Voice ID
 APIs.
 
-Amazon Connect console instructions
+Connect Customer console instructions
 
 1. In the **Domain setup** section, choose
    **Create a new domain**.
@@ -130,7 +130,7 @@ Following are the steps to create your KMS key key:
      **Next**.
     6. On the **Review and edit key policy**
      page, choose **Finish**.
-    7. Return to the tab in your browser for the Amazon Connect
+    7. Return to the tab in your browser for the Connect Customer
      console, **Voice ID** page. Click or
      tap in the **AWS KMS key** for the
      key you created to appear in a dropdown list. Choose the
@@ -143,7 +143,7 @@ API instructions
 1. Call the [CreateDomain](../../../voiceid/latest/APIReference/API_CreateDomain.md "../../../voiceid/latest/APIReference/API_CreateDomain.md") API to create a new Voice ID
    domain.
 2. Call the [CreateIntegrationAssociation](../APIReference/API_CreateIntegrationAssociation.md "../APIReference/API_CreateIntegrationAssociation.md") API to associate the
-   Voice ID domain with the Amazon Connect instance.
+   Voice ID domain with the Connect Customer instance.
    1. Pass the ARN of the Voice ID domain just created into
       the `IntegrationArn` parameter. For
       `IntegrationType` use
@@ -155,8 +155,8 @@ You've enabled Voice ID for your instance. The following has been created:
   your fraudsters.
 - A managed Amazon EventBridge rule in your account. This rule is used to ingest
   Voice ID events for creating contact records related to Voice ID.
-  Additionally, Amazon Connect adds [Voice ID
-  permissions](connect-slr.md "connect-slr.md") to the service-linked role for Amazon Connect.
+  Additionally, Connect Customer adds [Voice ID
+  permissions](connect-slr.md "connect-slr.md") to the service-linked role for Connect Customer.
 
 Next, in Step 3 you configure how you want Voice ID to work in your flow.
 
@@ -172,7 +172,7 @@ Voice ID to work.
 - [Set Voice ID](set-voice-id.md "set-voice-id.md"): After
   the [Play prompt](play.md "play.md") block, add the [Set Voice ID](set-voice-id.md "set-voice-id.md") block. It
   should be at the start of a call. Use this block to start streaming audio to
-  Amazon Connect Voice ID to verify the caller's identity, as soon as the call is
+  Connect Customer Voice ID to verify the caller's identity, as soon as the call is
   connected to a flow.
 
 In **Set Voice ID** block you configure the

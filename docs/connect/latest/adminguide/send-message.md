@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Send message
+# Flow block in Connect Customer: Send message
 
 This topic defines the flow block for sending a message to a customer.
 
@@ -38,7 +38,7 @@ This flow block is designed to be used in the following scenarios:
 
 ###### Important
 
-When configuring outbound flows in Amazon Connect, especially the [Default outbound flow](default-outbound.md "default-outbound.md"), it is important to
+When configuring outbound flows in Connect Customer, especially the [Default outbound flow](default-outbound.md "default-outbound.md"), it is important to
 implement safeguards to prevent unintended email loops while using the EMAIL
 message type from the **Send message** block.
 
@@ -123,8 +123,8 @@ menu.
 
 ## How to configure this block
 
-You can configure the **Send message** block by using the Amazon Connect admin website
-or by using the [StartOutboundChatContact](../APIReference/contact-actions-startoutboundchatcontact.md "../APIReference/contact-actions-startoutboundchatcontact.md") action in the Amazon Connect Flow language.
+You can configure the **Send message** block by using the Connect Customer admin website
+or by using the [StartOutboundChatContact](../APIReference/contact-actions-startoutboundchatcontact.md "../APIReference/contact-actions-startoutboundchatcontact.md") action in the Connect Customer Flow language.
 
 ###### Configuration sections
 
@@ -147,9 +147,9 @@ Configure the following properties on the page to send an SMS message:
 
 - **From**: The phone number that the message is to be
   sent from. The dropdown menu shows a list of phone numbers that are
-  claimed for your Amazon Connect instance.
+  claimed for your Connect Customer instance.
   - **Set manually**: Use the dropdown menu to
-    search for a phone number that has been claimed to your Amazon Connect
+    search for a phone number that has been claimed to your Connect Customer
     instance.
 
   You must have the [required permission](#sendmessage-block-perms "#sendmessage-block-perms") in your security profile to view
@@ -157,7 +157,7 @@ Configure the following properties on the page to send an SMS message:
   - **Set dynamically**: Accepts an attribute
     based on a **Namespace** and
     **Key** that points to an ARN of a phone
-    number that has been claimed by your Amazon Connect
+    number that has been claimed by your Connect Customer
     instance.
 
 - **To**: The phone number that the message is to be
@@ -195,7 +195,7 @@ Configure the following properties on the page to send an SMS message:
   links and emojis), up to 1024 characters, including
   spaces.
 
-- **Flow**: The Amazon Connect flow that will
+- **Flow**: The Connect Customer flow that will
   handle the outbound contact created. This flow can be used to assign the
   outbound contact to an agent to respond to the customer.
   - **Set manually**: Use the drop-down menu to
@@ -230,9 +230,9 @@ Configure the following properties on the page to send an WhatsApp message:
 
 - **From**: The phone number that the message is to be
   sent from. The dropdown menu shows a list of WhatsApp numbers that are
-  imported into your Amazon Connect instance.
+  imported into your Connect Customer instance.
   - **Set manually**: Use the dropdown menu to
-    search for a WhatsApp number that has been imported into your Amazon Connect
+    search for a WhatsApp number that has been imported into your Connect Customer
     instance.
 
   You must have the [required permission](#sendmessage-block-perms "#sendmessage-block-perms") in your security profile to view
@@ -240,7 +240,7 @@ Configure the following properties on the page to send an WhatsApp message:
   - **Set dynamically**: Accepts an attribute
     based on a **Namespace** and
     **Key** that points to an ARN of a WhatsApp
-    number that has been imported into your Amazon Connect
+    number that has been imported into your Connect Customer
     instance.
 
 - **To**: The WhatsApp number that the message is to be
@@ -278,7 +278,7 @@ Configure the following properties on the page to send an WhatsApp message:
   You must have the [required permission](#sendmessage-block-perms "#sendmessage-block-perms") in your security profile to view
   the dropdown list of templates.
 
-- **Flow**: The Amazon Connect flow that will
+- **Flow**: The Connect Customer flow that will
   handle the outbound contact created. This flow can be used to assign the
   outbound contact to an agent to respond to the customer.
   - **Set manually**: Use the drop-down menu to
@@ -314,7 +314,7 @@ properties page to send an email message:
 
 - **From**: Use the dropdown menu to choose the email
   address the message is to be sent from. The menu shows a list of email
-  addresses configured for your Amazon Connect instance.
+  addresses configured for your Connect Customer instance.
 
 You must have the [required
 permission](#sendmessage-block-perms "#sendmessage-block-perms") in your security profile to view the dropdown list
@@ -322,7 +322,7 @@ of emails.
 
     + **Set manually**: Use the dropdown menu to
      search for an email address that has been configured for your
-     Amazon Connect instance.
+     Connect Customer instance.
     + **Set dynamically**: Choose the Namespace and
      Key from the dropdown menus. For example, if you want the From
      email address to be the same as the one the customer sent the

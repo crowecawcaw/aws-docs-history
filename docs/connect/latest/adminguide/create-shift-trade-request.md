@@ -3,7 +3,7 @@
 ###### Tip
 
 Check out this video that shows how agents use shift exchange: [How Agents Use the
-Shift Exchange Feature to Trade Shifts](https://www.youtube.com/watch?v=Q6i-DW5g-GM "https://www.youtube.com/watch?v=Q6i-DW5g-GM") on the Amazon Connect Enablement
+Shift Exchange Feature to Trade Shifts](https://www.youtube.com/watch?v=Q6i-DW5g-GM "https://www.youtube.com/watch?v=Q6i-DW5g-GM") on the Connect Customer Enablement
 channel on YouTube.
 
 Agents can exchange shifts when:

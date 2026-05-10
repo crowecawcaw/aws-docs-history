@@ -10,19 +10,19 @@ then at a later date make the switch. Here's what you do:
 2. **Upgrade**: Change the URL in your browser from
    **/ccp#** to **/ccp-v2**. Bookmark the
    URL.
-3. If you access the CCP through the Amazon Connect console by choosing the phone icon on
+3. If you access the CCP through the Connect Customer console by choosing the phone icon on
    the top right of a page, you will be re-directed according to the automatic
    upgrade date sent by email. Please reach out to your Amazon Solution Architect
    if your request is more urgent.
 
-![The Amazon Connect admin website, phone icon in top right corner.](images/upgradeccp-phone-icon.png) 4. After the upgrade happens, if you use the /ccp# URL, it resolves to
+![The Connect Customer admin website, phone icon in top right corner.](images/upgradeccp-phone-icon.png) 4. After the upgrade happens, if you use the /ccp# URL, it resolves to
 **/ccp-v2**.
 
 ## Verify your network settings
 
 We highly recommend setting up your network to use [Option 1 (recommended): Replace Amazon EC2 and CloudFront IP range requirements with a domain allowlist](ccp-networking.md#option1 "ccp-networking.md#option1").
 
-Using this option helps Amazon Connect Support to quickly troubleshoot any issues you have.
+Using this option helps Connect Customer Support to quickly troubleshoot any issues you have.
 Specifically, using **\*.telemetry.connect.{region}.amazonaws.com** passes more metrics to
 our Support team to help with troubleshooting.
 

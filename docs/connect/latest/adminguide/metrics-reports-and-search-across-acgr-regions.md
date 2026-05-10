@@ -1,6 +1,6 @@
 # Metrics, Reports and Search across ACGR Regions
 
-The topics in this section describe consolidated metrics, reports and search across AWS Regions for Amazon Connect Global
+The topics in this section describe consolidated metrics, reports and search across AWS Regions for Connect Customer Global
 Resiliency (ACGR) customers.
 
 ###### Contents

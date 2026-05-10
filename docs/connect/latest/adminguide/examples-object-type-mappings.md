@@ -1,4 +1,4 @@
-# Examples of object type mappings in Amazon Connect Customer Profiles
+# Examples of object type mappings in Connect Customer Customer Profiles
 
 ## An object type mapping that generates a profile
 

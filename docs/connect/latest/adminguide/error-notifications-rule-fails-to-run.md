@@ -1,14 +1,14 @@
-# Error notifications when an Amazon Connect rule fails to run
+# Error notifications when an Connect Customer rule fails to run
 
 It's important to know when a specific rule action has failed in a production
 environment, and what caused the failure. Then you can proactively mitigate such
 failures in future.
 
 To get real-time insights on the actions that failed to run, you integrate
-Amazon Connect Rules with Amazon EventBridge events. This enables you to be notified when, for
+Connect Customer Rules with Amazon EventBridge events. This enables you to be notified when, for
 example, the "Create task" action failed to run because the maximum number of
 **Concurrent active tasks per instance** reached the
-service quota. When this happens, Amazon Connect sends error notifications using Amazon EventBridge
+service quota. When this happens, Connect Customer sends error notifications using Amazon EventBridge
 events.
 
 Events are emitted on a
@@ -77,6 +77,6 @@ codes from the supported actions. For more information about the reason
 codes for Task and EventBridge action failures, see the following topics:
 
 - For reason codes for Task action failures, see [Errors](../APIReference/API_StartTaskContact.md#API_StartTaskContact_Errors "../APIReference/API_StartTaskContact.md#API_StartTaskContact_Errors") in the **StartTaskContact** API
-  topic in the _Amazon Connect API Reference Guide_.
+  topic in the _Connect Customer API Reference Guide_.
 - For reason codes for EventBridge action failures, see [Errors](../../../eventbridge/latest/APIReference/API_PutEvents.md#API_PutEvents_Errors "../../../eventbridge/latest/APIReference/API_PutEvents.md#API_PutEvents_Errors") in the **PutEvents** API topic
   in the _Amazon EventBridge API Reference Guide_.

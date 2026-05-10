@@ -1,6 +1,6 @@
-# Export customer segments to a CSV file in Amazon Connect
+# Export customer segments to a CSV file in Connect Customer
 
-From the **Customer segments** page in the Amazon Connect admin website, you can export
+From the **Customer segments** page in the Connect Customer admin website, you can export
 an existing segment to a file on your computer. When you do, Customer Profiles
 exports all of the profile attributes that's associated with the profiles in the
 customer segment to a CSV file.
@@ -18,7 +18,7 @@ choose **Next actions**, **Download**.
 
 ###### Note
 
-The Amazon Connect admin website supports exporting a customer segment that contains up to 350,000
+The Connect Customer admin website supports exporting a customer segment that contains up to 350,000
 profiles. If you need to export a segment that contains a large number of
 profiles, use the `CreateSegmentSnapshot` operation in Customer
 Profiles API. The `CreateSegmentSnapshot` operation supports
@@ -31,7 +31,7 @@ bucket.
 
 ![A message that the segment is being exported.](images/customer-segments-exporting-segments-3.png)
 
-1. After the export job completes, the Amazon Connect admin website automatically starts downloading
+1. After the export job completes, the Connect Customer admin website automatically starts downloading
    the file.
 
 ![A message that the segment has been successfully downloaded.](images/customer-segments-exporting-segments-4.png)

@@ -12,7 +12,7 @@ For information about how your experience hosting multi-party calls differs from
 the default three-party calls, see [Comparison of
 multi-party and three-party functionality](three-party-multi-party-comparison.md "three-party-multi-party-comparison.md").
 
-Amazon Connect also supports adding additional users to join the web, in-app, and
+Connect Customer also supports adding additional users to join the web, in-app, and
 video call. To learn how to enable multi-user web, in-app and video calling, see
 [Enable multi-user in-app, web, and
 video calling](enable-multiuser-inapp.md "enable-multiuser-inapp.md").

@@ -73,7 +73,7 @@ The required permissions are:
 
 ![Associate Quick Connect with queue](images/agent-initiated-flows-add-quick-connect.png)
 
-For additional details on quick connects, see [Create quick connects in Amazon Connect](quick-connects.md "quick-connects.md").
+For additional details on quick connects, see [Create quick connects in Connect Customer](quick-connects.md "quick-connects.md").
 
 ## Send Form to Customer
 

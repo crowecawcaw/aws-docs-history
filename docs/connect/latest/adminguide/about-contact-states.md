@@ -1,4 +1,4 @@
-# About contact states in Amazon Connect
+# About contact states in Connect Customer
 
 Contact states are events that appear in the lifecycle of a contact. You can locate
 them in two places: the real-time metrics reports and the agent event stream.
@@ -53,7 +53,7 @@ Here's what the contact state looks like in the agent event stream:
 
 A contact record captures events associated with the contact in your contact
 center. For example, how long the contact lasted, when it started and stopped. For a
-list of all data that's captured in the contact record, see [Data model for Amazon Connect contact records](ctr-data-model.md "ctr-data-model.md").
+list of all data that's captured in the contact record, see [Data model for Connect Customer contact records](ctr-data-model.md "ctr-data-model.md").
 
 A contact record is opened for a customer when they are connected to your contact
 center. The contact record is completed when the interaction with the flow or agent

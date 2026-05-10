@@ -1,4 +1,4 @@
-# Mapping Salesforce objects to the standard profile in Amazon Connect Customer Profiles
+# Mapping Salesforce objects to the standard profile in Connect Customer Customer Profiles
 
 This topic lists which fields in Salesforce objects map to fields in the
 standard profile object in Customer Profiles.
@@ -128,7 +128,7 @@ include Person fields.)
 | AccountNumber                   | AccountNumber                 |
 
 The Salesforce-Account customer data from the Salesforce object is
-associated with an Amazon Connect customer profile using the indexes in the
+associated with an Connect Customer customer profile using the indexes in the
 following table.
 
 | Standard Index Name   | Salesforce-Account source field |
@@ -251,7 +251,7 @@ standard profile object.
 | Birthdate                       | BirthDate                     |
 
 The Salesforce-Contact customer data from a Salesforce object is
-associated with an Amazon Connect customer profile using the indexes in the
+associated with an Connect Customer customer profile using the indexes in the
 following table.
 
 | Standard Index Name   | Salesforce-Contact source field |

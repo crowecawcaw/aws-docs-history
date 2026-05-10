@@ -1,27 +1,27 @@
 # Enable customer authentication for hosted communication widgets
 
-This topic explains how to set up authentication if you're using the Amazon Connect hosted
-communication widget for chat. You enable customer authentication for your Amazon Connect
+This topic explains how to set up authentication if you're using the Connect Customer hosted
+communication widget for chat. You enable customer authentication for your Connect Customer
 instance, and then enable an authentication message that displays a link which opens a
 popup to the Amazon Cognito hosted UI.
 
 ## Required IAM policies
 
-If you use custom IAM policies to manage access to the Amazon Connect console, see [Required permissions
+If you use custom IAM policies to manage access to the Connect Customer console, see [Required permissions
 for custom IAM policies](security-iam-amazon-connect-permissions.md "security-iam-amazon-connect-permissions.md") for a list of
 the permissions needed to access the **Customer authentication**
 page.
 
-## Enable customer authentication in your Amazon Connect instance
+## Enable customer authentication in your Connect Customer instance
 
-1. Open the Amazon Connect console at
+1. Open the Connect Customer console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 2. On the instances page, choose the instance alias. The instance alias is also
-   your **instance name**, which appears in your Amazon Connect
-   URL. The following image shows the **Amazon Connect virtual contact center instances** page, with a box
+   your **instance name**, which appears in your Connect Customer
+   URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box
    around the instance alias.
 
-![The Amazon Connect virtual contact center instances page, the instance alias.](images/instance.png) 3. On the left navigation menu, choose **Applications**,
+![The Connect Customer virtual contact center instances page, the instance alias.](images/instance.png) 3. On the left navigation menu, choose **Applications**,
 **Customer Authentication**. If you don't see this
 option, it may not be available in your AWS Region. For information about
 where customer authentication is available, see [Customer authentication availability by Region](regions.md#customerauthentication_region "regions.md#customerauthentication_region"). 4. On the **Customer authentication** page, choose
@@ -41,14 +41,14 @@ _Amazon Cognito Developer Guide_. 6. After you have created an Amazon Cognito us
 created from the dropdown menu, and then choose
 **Confirm**.
 
-This associates the user pool to your Amazon Connect instance. It enables the [Authenticate Customer](authenticate-customer.md "authenticate-customer.md") flow block to access the
+This associates the user pool to your Connect Customer instance. It enables the [Authenticate Customer](authenticate-customer.md "authenticate-customer.md") flow block to access the
 user pool. 8. Continue to the next step: [Enable the authentication message](#enable-auth-message "#enable-auth-message").
 
 ## Enable the authentication message
 
 To enable the authentication message, add the authentication parameters snippet
 variable at the end of your snippet. For information about adding snippet variables,
-see [Supported widget snippet fields in Amazon Connect that are customizable](supported-snippet-fields.md "supported-snippet-fields.md"). The following code is an example of
+see [Supported widget snippet fields in Connect Customer that are customizable](supported-snippet-fields.md "supported-snippet-fields.md"). The following code is an example of
 the authentication parameters snippet you need to add.
 
 ```

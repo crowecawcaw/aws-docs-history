@@ -1,9 +1,9 @@
-# Enable three-party call monitoring in Amazon Connect
+# Enable three-party call monitoring in Connect Customer
 
 ###### Important
 
 This topic applies only if you have **NOT** enabled
-**Enhanced contact monitoring capabilities** on the Amazon Connect
+**Enhanced contact monitoring capabilities** on the Connect Customer
 console as explained in [Enable enhanced multi-party contact
 monitoring](monitor-conversations.md "monitor-conversations.md").
 
@@ -37,7 +37,7 @@ The total number of participants on a call would look like this:
 7. Supervisor who can listen but not barge in the call
 8. Supervisor who can listen but not barge in the call
    To view a sample flow with the **Set recording behavior** block
-   configured, see [Sample recording behavior in Amazon Connect](sample-recording-behavior.md "sample-recording-behavior.md").
+   configured, see [Sample recording behavior in Connect Customer](sample-recording-behavior.md "sample-recording-behavior.md").
 
 ###### Note
 
@@ -50,12 +50,12 @@ agent.
 
 ###### To set up monitoring for three-party contacts
 
-1. Log in to your Amazon Connect instance using an account that has permissions to edit
+1. Log in to your Connect Customer instance using an account that has permissions to edit
    flows.
 2. On the navigation menu, choose **Routing**,
    **Flows**.
 
-![Amazon Connect navigation menu, Routing, flows.](images/menu-contact-flows.png) 3. Open the flow that handles customer contacts you want to monitor. 4. In the flow, before the contact is connected to an agent, add a [Set recording and analytics
+![Connect Customer navigation menu, Routing, flows.](images/menu-contact-flows.png) 3. Open the flow that handles customer contacts you want to monitor. 4. In the flow, before the contact is connected to an agent, add a [Set recording and analytics
 behavior](set-recording-behavior.md "set-recording-behavior.md") block to the flow. 5. To configure the [Set recording and analytics
 behavior](set-recording-behavior.md "set-recording-behavior.md") block, under **Agent
 and customer voice recording**, choose **On** and

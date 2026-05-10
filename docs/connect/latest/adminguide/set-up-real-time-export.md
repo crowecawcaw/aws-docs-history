@@ -1,12 +1,12 @@
 # Export your unified customer profile data
 
-Amazon Connect Customer Profiles provides real-time data export of unified customer profiles to
+Connect Customer Customer Profiles provides real-time data export of unified customer profiles to
 an Amazon Kinesis Data Stream. You can enable data streaming and automatically receive
 data for new profiles and updates to existing profiles into your Amazon Kinesis Data
 Stream.
 
 You can keep your source systems data, such as CRMs and marketing automation tools,
-up-to-date with the latest information from Amazon Connect Customer Profiles. For example, when a
+up-to-date with the latest information from Connect Customer Customer Profiles. For example, when a
 customer calls your contact center to update their address, an agent can make the change
 to add the new customer address, and the updated profile information is sent to a
 Kinesis Data Stream in real-time.
@@ -18,7 +18,7 @@ console.
 
 **To enable data streaming for your domain**
 
-1. Open the Amazon Connect Customer Profiles console.
+1. Open the Connect Customer Customer Profiles console.
 2. Select the **Data export** tab and choose
    **Enable data streaming**
 
@@ -35,7 +35,7 @@ settings.
 
 **To disable data streaming for your domain**
 
-1. Open the Amazon Connect Customer Profiles console.
+1. Open the Connect Customer Customer Profiles console.
 2. Select the **Data export** tab and choose
    **Disable data streaming**.
 

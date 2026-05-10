@@ -1,8 +1,8 @@
-# Investigate non-talk time during calls using Amazon Connect Contact Lens
+# Investigate non-talk time during calls using Connect Customer Contact Lens
 
 ## What is non-talk time?
 
-Amazon Connect Contact Lens also identifies the amount of _non-talk time_ in a call. Non-talk time equals hold time, plus any silence
+Connect Customer Contact Lens also identifies the amount of _non-talk time_ in a call. Non-talk time equals hold time, plus any silence
 where both participants aren't talking for more than 3 seconds. This duration
 can't be customized.
 

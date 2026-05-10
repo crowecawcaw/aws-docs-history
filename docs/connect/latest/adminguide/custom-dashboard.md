@@ -26,6 +26,6 @@ The default home page blogs widget may appear empty depending on your selected l
 
 ###### Finding Legacy Home Page Content
 
-All functionality from the legacy home page (prior to re:Invent 2025) remains available through the Amazon Connect navigation menu.
+All functionality from the legacy home page (prior to re:Invent 2025) remains available through the Connect Customer navigation menu.
 
 For example, to use the test chat functionality, go to the Communications menu. For service level metrics, go to the **Analytics and optimization** menu, select **Dashboards and reports**, and open the **Queue and agent performance dashboard**.

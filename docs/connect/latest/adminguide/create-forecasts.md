@@ -1,6 +1,6 @@
-# Create forecasts in Amazon Connect
+# Create forecasts in Connect Customer
 
-Forecasts are a projection of the workload in your contact center. Amazon Connect provides
+Forecasts are a projection of the workload in your contact center. Connect Customer provides
 long-term and short-term forecasts for you to generate capacity plans and agent
 schedules. The forecasts include inbound, transfer, and callback contacts in both
 voice and chat channels.
@@ -24,16 +24,16 @@ After creating a forecast, you do not need to generate it manually.
    If you haven't done that, see [Create forecast
    groups](create-forecast-groups.md "create-forecast-groups.md"). We strongly recommend
    creating all of your forecast groups before creating any forecasts.
-2. Log in to the Amazon Connect admin website with an account that has security profile permissions
+2. Log in to the Connect Customer admin website with an account that has security profile permissions
    for **Analytics**, **Forecasting - Edit**.
 
 For more information, see [Assign
-permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 3. On the Amazon Connect navigation menu, select **Analytics and
+permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 3. On the Connect Customer navigation menu, select **Analytics and
 optimization**, **Forecasting**. 4. Select the **Forecast** tab, and then choose
 **Create Forecast**. 5. On the **Create Forecast** page, choose the forecast
 groups.
 
-![The Create forecast page, the Forecast groups dropdown menu.](images/wfm-forecasting-create-forecast.png) 6. Choose the forecast type. Amazon Connect creates a forecast for each type you
+![The Create forecast page, the Forecast groups dropdown menu.](images/wfm-forecasting-create-forecast.png) 6. Choose the forecast type. Connect Customer creates a forecast for each type you
 select.
 
     * **Long-term** forecasts are used for capacity
@@ -49,7 +49,7 @@ select.
 
 The status is **Complete** when the computation
 finishes. You can use **Search** to find forecasts by
-forecast group name. 9. Amazon Connect creates a forecast for each forecast type, as shown in the following
+forecast group name. 9. Connect Customer creates a forecast for each forecast type, as shown in the following
 image.
 
 ![A list of forecasts, short-term and long-term.](images/wfm-forecasting-types.png)

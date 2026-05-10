@@ -1,6 +1,6 @@
 # Enable multi-user in-app, web, and video calling
 
-Amazon Connect supports adding additional users to join the in-app, web, and video
+Connect Customer supports adding additional users to join the in-app, web, and video
 call in an existing call. You can add up to four additional users to an ongoing or
 scheduled in-app, web or video call, for a total of six participants: the agent, the
 first user, and four other participants (users or agents).
@@ -8,8 +8,8 @@ first user, and four other participants (users or agents).
 ## How to add participants to a multi-user call
 
 1. To enable multi user calling, you need to enable [enhanced multi-party contact
-   monitoring](monitor-conversations.md "monitor-conversations.md") from the Amazon Connect console.
-2. After this is complete, you can leverage the existing Amazon Connect
+   monitoring](monitor-conversations.md "monitor-conversations.md") from the Connect Customer console.
+2. After this is complete, you can leverage the existing Connect Customer
    [StartWebRTCContact](../APIReference/API_StartWebRTCContact.md "../APIReference/API_StartWebRTCContact.md") API to create a contact, and route this
    contact to an agent.
 3. To add an additional participant, first create a participant passing in
@@ -46,7 +46,7 @@ participant credentials are no longer be valid. If the client library
 `onAudioVideoDidStop` observer receives a status code
 indicating the attendee no longer is valid, applications can trigger a new
 call to [CreateParticipant](../APIReference/API_CreateParticipant.md "../APIReference/API_CreateParticipant.md") and [CreateParticipantConnection](../APIReference/API_connect-participant_CreateParticipantConnection.md "../APIReference/API_connect-participant_CreateParticipantConnection.md") from your business backend to
-rejoin the call. 7. For every additional user connection, Amazon Connect creates a new
+rejoin the call. 7. For every additional user connection, Connect Customer creates a new
 contact and [contact record](ctr-data-model.md "ctr-data-model.md"). All
 additional contacts have PreviousContactId set to the InitialContactId (that
 is, the one that was created by the [StartWebRTCContact](../APIReference/API_StartWebRTCContact.md "../APIReference/API_StartWebRTCContact.md") API) in order to trace it to original
@@ -91,14 +91,14 @@ time. To achieve this behavior, business backends must ensure that:
 
 This section describes a possible implementation, assuming that your business
 backend contains a store (like DynamoDB) that can hold metadata about scheduled
-appointments. Note that scheduled appointments is not a feature of Amazon Connect, but of the example implementation.
+appointments. Note that scheduled appointments is not a feature of Connect Customer, but of the example implementation.
 
 When the user navigates to the page, they should send a request to the backend.
 The backend checks:
 
 - Whether the user is able to start the appointment, and whether it is the
   correct time.
-- Whether the Amazon Connect contact already been created by calling
+- Whether the Connect Customer contact already been created by calling
   [StartWebRTCContact](../APIReference/API_StartWebRTCContact.md "../APIReference/API_StartWebRTCContact.md").
 
 **If the contact has not already been created**, the
@@ -132,7 +132,7 @@ The backend flow should look like the following.
 
 ![Backend flow diagram for handling concurrent user joins](images/multiparty-backend-flow.png)
 
-You can refer to the [Amazon Connect in-app calling examples](https://github.com/amazon-connect/amazon-connect-in-app-calling-examples/tree/main/Web "https://github.com/amazon-connect/amazon-connect-in-app-calling-examples/tree/main/Web") on GitHub for implementation.
+You can refer to the [Connect Customer in-app calling examples](https://github.com/amazon-connect/amazon-connect-in-app-calling-examples/tree/main/Web "https://github.com/amazon-connect/amazon-connect-in-app-calling-examples/tree/main/Web") on GitHub for implementation.
 
 **The agent will not join using the same website**.
 The agent should set their status in the [Contact Control

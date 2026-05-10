@@ -1,6 +1,6 @@
 # Supported flow blocks for Contact Lens integration
 
-The following tables list the flow blocks that you can use to specify how Amazon Connect
+The following tables list the flow blocks that you can use to specify how Connect Customer
 processes the audio stream sessions.
 
 **Set blocks**

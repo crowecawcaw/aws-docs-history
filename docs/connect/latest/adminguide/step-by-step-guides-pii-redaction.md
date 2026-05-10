@@ -1,4 +1,4 @@
-# Prevent PII from appearing in a contact record transcript using Amazon Connect Contact Lens
+# Prevent PII from appearing in a contact record transcript using Connect Customer Contact Lens
 
 By default, any information passed through a guide is included in the contact record
 transcript. To prevent PII from appearing in your contact record transcript, use the

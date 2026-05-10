@@ -1,11 +1,11 @@
-# Forecasting in Amazon Connect
+# Forecasting in Connect Customer
 
 Forecasting is the starting point for any scheduling and capacity planning activities.
 Before you can generate a schedule or capacity plan, you must create a corresponding
 forecast.
 
 A _forecast_ attempts to predict future contact volume and average
-handle time. Amazon Connect uses historical metrics to create the forecast.
+handle time. Connect Customer uses historical metrics to create the forecast.
 
 - **Short-term forecasts are automatically updated
   daily**. When you come into work, you can review the forecast that
@@ -42,7 +42,7 @@ The following image shows three short-term forecasts on the
 
 Only the most current forecast is available. Because the forecast is updated every
 day, if you want to keep the current day's forecast, you must download it before
-Amazon Connect overwrites it.
+Connect Customer overwrites it.
 
 ## Getting started with forecasting
 

@@ -1,10 +1,10 @@
-# Create and edit a fraudster watchlist in Amazon Connect Voice ID
+# Create and edit a fraudster watchlist in Connect Customer Voice ID
 
 ###### Note
 
 End of support notice: On May 20, 2026, AWS will end support for Amazon Connect
 Voice ID. After May 20, 2026, you will no longer be able to access Voice ID on the
-Amazon Connect console, access Voice ID features on the Amazon Connect admin website or Contact Control Panel, or access Voice ID
+Amazon Connect console, access Voice ID features on the Connect Customer admin website or Contact Control Panel, or access Voice ID
 resources. For more information, visit [Amazon Connect
 Voice ID end of support](amazonconnect-voiceid-end-of-support.md "amazonconnect-voiceid-end-of-support.md").
 
@@ -23,7 +23,7 @@ To add fraudsters to a specified fraudster watchlist, pass the following data to
 the API:
 
 1.  The domain ID to specify the domain to associate recordings to.
-2.  An input file containing a list of fraudsters. See [Input and output file schema for the Fraudster Registration Job in Amazon Connect Voice ID](fraudster-registration-schema.md "fraudster-registration-schema.md").
+2.  An input file containing a list of fraudsters. See [Input and output file schema for the Fraudster Registration Job in Connect Customer Voice ID](fraudster-registration-schema.md "fraudster-registration-schema.md").
 3.  The location for output file.
 4.  A KMS key to use when writing the output.
 5.  A role that Voice ID can assume. It must have access to the S3 bucket
@@ -42,7 +42,7 @@ the API:
 
     You must have `iam:PassRole` permissions when making the call
     and providing the `dataAccessRole`. To enable confused deputy
-    protection for the `dataAccessRole`, see [Amazon Connect Voice ID cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md#voiceid-cross-service "cross-service-confused-deputy-prevention.md#voiceid-cross-service").
+    protection for the `dataAccessRole`, see [Connect Customer Voice ID cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md#voiceid-cross-service "cross-service-confused-deputy-prevention.md#voiceid-cross-service").
 
 6.  A watchlistId to register the fraudster to. If no watchlistId is
     specified, fraudsters are registered to the default watchlist for that
@@ -59,10 +59,10 @@ the API:
 Voice ID is not able to perform detection of fraudsters in a watchlist before the fraudster list is
 created.
 
-For quotas for the fraudster list, see [Amazon Connect service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
+For quotas for the fraudster list, see [Connect Customer service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
 
 ###### Note
 
 You are charged for adding to the fraudster list. For more information, see
-[Amazon Connect Voice ID
+[Connect Customer Voice ID
 Pricing](https://aws.amazon.com/connect/voice-id/ "https://aws.amazon.com/connect/voice-id/").

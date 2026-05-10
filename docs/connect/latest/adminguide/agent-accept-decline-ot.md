@@ -1,4 +1,4 @@
-# Contact center agent ability to accept or decline overtime in Amazon Connect
+# Contact center agent ability to accept or decline overtime in Connect Customer
 
 The following image shows pending Overtime requests in the agent calendars.
 Managers and agents can see overtime requests.

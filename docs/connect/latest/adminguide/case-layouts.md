@@ -1,6 +1,6 @@
-# Case layouts for developers using Amazon Connect Cases APIs
+# Case layouts for developers using Connect Customer Cases APIs
 
-This topic is intended for developers who are using the Amazon Connect Cases APIs.
+This topic is intended for developers who are using the Connect Customer Cases APIs.
 
 There is an underlying resource called a _case layout_ that is
 linked to the case template. Technically, it is the case layout that holds the display

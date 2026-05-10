@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Set voice
+# Flow block in Connect Customer: Set voice
 
 This topic defines the flow block for setting the text-to-speech (TTS) language and
 voice to use for the contact flow.
@@ -117,7 +117,7 @@ voices](../../../polly/latest/dg/available-voices.md "../../../polly/latest/dg/a
 
 ###### Note
 
-Amazon Connect supports standard, neural, and generative engines, so you
+Connect Customer supports standard, neural, and generative engines, so you
 can pass either standard, neural, or generative as values into the engine
 parameter.
 
@@ -125,7 +125,7 @@ To set the language attribute, pass in the specific language code into the
 parameter (for example, en-US or ar-AE). For the voice, simply pass the name of the
 voice (for example, Joanna or Hala).
 
-Amazon Connect also supports speaking styles, which can be defined as None,
+Connect Customer also supports speaking styles, which can be defined as None,
 Conversational, or Newscaster. The Newscaster and Conversational styles are both
 available for the following voices in the neural engine:
 
@@ -151,9 +151,9 @@ results:
 | en-US                  | Ruth          | neural | conversational | \*_Success branch:_<br>• Even though Ruth<br>does not support conversational speech style, the block does not<br>take the error branch. Instead, when the voice is synthesized, it<br>just uses no speaking style.                     |
 | ar-AE                  | Ruth          | neural | none           | \*_Success branch:_<br>• This block does<br>not do validation on language code. Only the voice is used to<br>synthesize speech. However, language code being incorrect may result<br>in erroneous behavior when used with Lex V2 bots. |
 
-## Use an Amazon Lex V2 bot with Amazon Connect
+## Use an Amazon Lex V2 bot with Connect Customer
 
-If you're using an Amazon Lex V2 bot, your language attribute in Amazon Connect must match the
+If you're using an Amazon Lex V2 bot, your language attribute in Connect Customer must match the
 language model used to build your Lex bot. This is different than Amazon Lex (Classic).
 
 - If you build an Amazon Lex V2 bot with a different language model—for

@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Set logging behavior
+# Flow block in Connect Customer: Set logging behavior
 
 This topic defines the flow block for enabling flow logs to track events as contacts
 interact with flows.
@@ -41,4 +41,4 @@ logging behavior, or disable it.
 
 See these topics for more information about flow logs:
 
-- [Use flow logs to track events in Amazon Connect flows](about-contact-flow-logs.md "about-contact-flow-logs.md")
+- [Use flow logs to track events in Connect Customer flows](about-contact-flow-logs.md "about-contact-flow-logs.md")

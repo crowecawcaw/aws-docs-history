@@ -1,4 +1,4 @@
-# Example flow for testing live media streaming in Amazon Connect
+# Example flow for testing live media streaming in Connect Customer
 
 Here's how you can set up a flow to test live media streaming:
 

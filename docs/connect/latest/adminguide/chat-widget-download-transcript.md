@@ -1,4 +1,4 @@
-# Download the transcript for your chat widget in Amazon Connect
+# Download the transcript for your chat widget in Connect Customer
 
 You can download a PDF of the transcript in your chat widget.
 

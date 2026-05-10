@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Set recording and analytics behavior
+# Flow block in Connect Customer: Set recording and analytics behavior
 
 ###### Note
 
@@ -18,10 +18,10 @@ There is a lot of functionality in this block:
   is interacting with your IVR or conversational AI bot. No additional charges
   apply.
 - You can enable screen recording of agents, if agent screen recording has
-  been set up as described in [Enable screen recording](enable-sr.md "enable-sr.md"). For pricing information, see [Amazon Connect
+  been set up as described in [Enable screen recording](enable-sr.md "enable-sr.md"). For pricing information, see [Connect Customer
   Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
 - You can configure Contact Lens analytics settings for chat and
-  voice contacts. For pricing information, see [Amazon Connect Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
+  voice contacts. For pricing information, see [Connect Customer Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
   This includes:
   - Language in which customers and agents will interact (to improve
     the speech to text transcript generation)
@@ -70,10 +70,10 @@ agent.
 ## How to configure this block
 
 You can configure the **Set recording and analytics behavior**
-block by using the Amazon Connect admin website or by using the [UpdateContactRecordingBehavior](../APIReference/contact-actions-updatecontactrecordingbehavior.md "../APIReference/contact-actions-updatecontactrecordingbehavior.md") action in the Amazon Connect Flow language.
+block by using the Connect Customer admin website or by using the [UpdateContactRecordingBehavior](../APIReference/contact-actions-updatecontactrecordingbehavior.md "../APIReference/contact-actions-updatecontactrecordingbehavior.md") action in the Connect Customer Flow language.
 
 The following image shows the **Set recording and analytics
-behavior** properties page in the Amazon Connect admin website. It is divided two sections:
+behavior** properties page in the Connect Customer admin website. It is divided two sections:
 Enable recording and analytics, and Configure analytics settings. These sections are
 divided in subsections. Each subsection can be expanded and collapsed and summary is
 displayed in its header.
@@ -98,20 +98,20 @@ analytics settings.
   ###### Note
 
   To include Lex bot transcripts and analytics as a part of
-  your **Contact details** page and Amazon Connect
+  your **Contact details** page and Connect Customer
   analytics dashboards:
 
-      1. In the Amazon Connect console, choose the name of your
-       instance. For instructions, see [Find your Amazon Connect instance name](find-instance-name.md "find-instance-name.md").
+      1. In the Connect Customer console, choose the name of your
+       instance. For instructions, see [Find your Connect Customer instance name](find-instance-name.md "find-instance-name.md").
       2. On the navigation pane choose
        **Flows**, and then choose
        **Enable Bot Analytics and Transcripts in
-       Amazon Connect**.
+       Connect Customer**.
 
 - **Screen**: Use to enable or disable recording of the
-  agent's screen. For more information, see [Set up and review agent screen recordings in Amazon Connect Contact Lens](agent-screen-recording.md "agent-screen-recording.md").
+  agent's screen. For more information, see [Set up and review agent screen recordings in Connect Customer Contact Lens](agent-screen-recording.md "agent-screen-recording.md").
 - **Chat**: Use this option to enable chat analytics, a
-  feature in Contact Lens. For more information, see [Enable conversational analytics in Amazon Connect Contact Lens](enable-analytics.md "enable-analytics.md").
+  feature in Contact Lens. For more information, see [Enable conversational analytics in Connect Customer Contact Lens](enable-analytics.md "enable-analytics.md").
 
 ### Configure analytics settings
 
@@ -219,19 +219,19 @@ enabled.
 
 ## Sample flows
 
-Amazon Connect includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
-[Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
+Connect Customer includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
+[Sample flows in Connect Customer](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-- [Sample inbound flow in Amazon Connect for the first contact experience](sample-inbound-flow.md "sample-inbound-flow.md")
+- [Sample inbound flow in Connect Customer for the first contact experience](sample-inbound-flow.md "sample-inbound-flow.md")
 
 ## Scenarios
 
 See these topics for scenarios that use this block:
 
-- [When, what, and where for contact recordings in Amazon Connect](about-recording-behavior.md "about-recording-behavior.md")
+- [When, what, and where for contact recordings in Connect Customer](about-recording-behavior.md "about-recording-behavior.md")
 - [Enable contact recording](set-up-recordings.md "set-up-recordings.md")
-- [Enable enhanced multi-party contact monitoring in Amazon Connect](monitor-conversations.md "monitor-conversations.md")
-- [Review recorded conversations between agents and customers using Amazon Connect](review-recorded-conversations.md "review-recorded-conversations.md")
-- [Assign permissions to review past contact center conversations in Amazon Connect](assign-permissions-to-review-recordings.md "assign-permissions-to-review-recordings.md")
-- [Analyze conversations using conversational analytics in Amazon Connect Contact Lens](analyze-conversations.md "analyze-conversations.md")
+- [Enable enhanced multi-party contact monitoring in Connect Customer](monitor-conversations.md "monitor-conversations.md")
+- [Review recorded conversations between agents and customers using Connect Customer](review-recorded-conversations.md "review-recorded-conversations.md")
+- [Assign permissions to review past contact center conversations in Connect Customer](assign-permissions-to-review-recordings.md "assign-permissions-to-review-recordings.md")
+- [Analyze conversations using conversational analytics in Connect Customer Contact Lens](analyze-conversations.md "analyze-conversations.md")

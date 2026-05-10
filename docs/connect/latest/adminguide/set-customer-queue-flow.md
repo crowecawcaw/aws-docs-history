@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Set customer queue flow
+# Flow block in Connect Customer: Set customer queue flow
 
 This topic defines the flow block for specifying the flow to invoke when a customer is
 transferred to a queue.
@@ -36,7 +36,7 @@ The following image shows the **Properties** page of the
 
 ![The properties page of the Set customer queue flow block.](images/set-customer-queue-properties.png)
 
-For information about using attributes, see [Use Amazon Connect contact attributes](connect-contact-attributes.md "connect-contact-attributes.md").
+For information about using attributes, see [Use Connect Customer contact attributes](connect-contact-attributes.md "connect-contact-attributes.md").
 
 ## Configured block
 
@@ -48,8 +48,8 @@ configured. It has the following branches: **Success** and
 
 ## Sample flows
 
-Amazon Connect includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
-[Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
+Connect Customer includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
+[Sample flows in Connect Customer](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-- [Sample queued callback flow in Amazon Connect](sample-queued-callback.md "sample-queued-callback.md")
+- [Sample queued callback flow in Connect Customer](sample-queued-callback.md "sample-queued-callback.md")

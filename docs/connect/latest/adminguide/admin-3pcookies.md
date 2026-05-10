@@ -1,4 +1,4 @@
-# Using Amazon Connect with third-party cookies
+# Using Connect Customer with third-party cookies
 
 ## Google Chrome
 

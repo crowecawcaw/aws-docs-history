@@ -1,19 +1,19 @@
-# Claim phone numbers to Amazon Connect instances across multiple AWS Regions
+# Claim phone numbers to Connect Customer instances across multiple AWS Regions
 
 ###### Note
 
-**New user?** Check out the [Amazon Connect Global Resiliency
+**New user?** Check out the [Connect Customer Global Resiliency
 Workshop](https://catalog.workshops.aws/amazon-connect-global-resiliency/en-US "https://catalog.workshops.aws/amazon-connect-global-resiliency/en-US"). This online course guides you through the process of onboarding and testing phone number
 and agent failover using new APIs through the AWS CLI.
 
-Global Resiliency is available only for Amazon Connect instances created in the following AWS Regions: US East (N. Virginia),
+Global Resiliency is available only for Connect Customer instances created in the following AWS Regions: US East (N. Virginia),
 US West (Oregon), Asia Pacific (Osaka), Asia Pacific (Tokyo), Europe (Frankfurt), and Europe (London).
 
 - You can only create a replica in the US East (N. Virginia) Region if your source is US West (Oregon), or the other way around.
 - You can only create a replica in the Europe (Frankfurt) Region if your source
   is Europe (London), or the other way around.
 - You can only create a replica in Asia Pacific (Osaka) Region if your source is Asia Pacific (Tokyo).
-  To obtain access to this feature, contact your Amazon Connect Solutions Architect or Technical Account Manager.
+  To obtain access to this feature, contact your Connect Customer Solutions Architect or Technical Account Manager.
 
 To place or receive calls to a phone number across instances in multiple AWS Regions, you need to claim a phone number to a traffic distribution group.
 

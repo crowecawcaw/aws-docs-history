@@ -1,21 +1,21 @@
-# Delete users from your Amazon Connect instance
+# Delete users from your Connect Customer instance
 
 ###### Important
 
 - You can't undo a deletion.
-- When a user is deleted from Amazon Connect, you won't be able to
+- When a user is deleted from Connect Customer, you won't be able to
   configure their agent settings any more. For example, you won't be able to
   assign a routing profile to them.
 - If you delete a user record that has an associated quick connect, you need
   to [delete the quick connect](quick-connects-delete.md "quick-connects-delete.md"),
   too. Otherwise it will be orphaned. When agents attempt to transfer calls to
   it, no one is there to answer the call.
-- Orphaned quick connects can disrupt other Amazon Connect processes such as instance
-  replication and syncing processes that are done as part of [Amazon Connect Global
+- Orphaned quick connects can disrupt other Connect Customer processes such as instance
+  replication and syncing processes that are done as part of [Connect Customer Global
   Resiliency](setup-connect-global-resiliency.md "setup-connect-global-resiliency.md").
-  This topic explains how to delete user records using the Amazon Connect admin website. To delete user records
+  This topic explains how to delete user records using the Connect Customer admin website. To delete user records
   programmatically, see [DeleteUser](../APIReference/API_DeleteUser.md "../APIReference/API_DeleteUser.md") in the
-  _Amazon Connect API Reference Guide_. To use the CLI, see [delete-user](../../../cli/latest/reference/connect/delete-user.md "../../../cli/latest/reference/connect/delete-user.md").
+  _Connect Customer API Reference Guide_. To use the CLI, see [delete-user](../../../cli/latest/reference/connect/delete-user.md "../../../cli/latest/reference/connect/delete-user.md").
 
 ## What happens to the user's metrics?
 
@@ -40,10 +40,10 @@ because their name won't appear in the drop-down list.
   routing profiles.
 -
 
-1. Log in to Amazon Connect using an **Admin** account,
+1. Log in to Connect Customer using an **Admin** account,
    or an account assigned to a security profile that has **Users -
    Remove** permission.
-2. In Amazon Connect, on the left navigation menu, choose **Users**,
+2. In Connect Customer, on the left navigation menu, choose **Users**,
    **User management**. Choose one or more users you want
    to delete, and then choose **Delete**.
 
@@ -53,7 +53,7 @@ because their name won't appear in the drop-down list.
 deleted successfully. Choose **Refresh** to update the list
 of users on the **User management** page.
 
-![The delete user page, the refresh button.](images/delete-users-refresh.png) 5. If Amazon Connect fails to delete one or more user records, it displays a message
+![The delete user page, the refresh button.](images/delete-users-refresh.png) 5. If Connect Customer fails to delete one or more user records, it displays a message
 similar to the following image.
 
 ![A banner that record was not deleted.](images/delete-users-error.png)
@@ -79,10 +79,10 @@ options:
 ## Required permissions to delete users
 
 Before you can update permissions in a security profile, you must be logged in
-with an Amazon Connect account that has the following permissions:
+with an Connect Customer account that has the following permissions:
 **Users - Remove**.
 
 ![The users and permissions section of the security profiles page, Users option.](images/delete-users-required-permissions.png)
 
-By default, the Amazon Connect
+By default, the Connect Customer
 **Admin** security profile has these permissions.

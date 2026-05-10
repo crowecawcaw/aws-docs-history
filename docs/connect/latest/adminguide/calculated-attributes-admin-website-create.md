@@ -1,8 +1,8 @@
-# Create calculated attributes in Amazon Connect
+# Create calculated attributes in Connect Customer
 
 1. Prerequisites: Ensure you have the necessary security profile
-   permissions. For more information, see [Update permissions for calculated attributes in Amazon Connect Customer Profiles](security-profile-customer-profile-calc-attribs.md "security-profile-customer-profile-calc-attribs.md").
-2. In Amazon Connect admin website, navigate to **Customer Profiles**,
+   permissions. For more information, see [Update permissions for calculated attributes in Connect Customer Customer Profiles](security-profile-customer-profile-calc-attribs.md "security-profile-customer-profile-calc-attribs.md").
+2. In Connect Customer admin website, navigate to **Customer Profiles**,
    **Calculated attributes**, choose **Create
    attribute** in the **Calculated
    attributes** table view.

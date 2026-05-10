@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Check staffing
+# Flow block in Connect Customer: Check staffing
 
 This topic defines the flow block for checking the current or specified customer queue
 to gauge agent availability.
@@ -78,4 +78,4 @@ configured. It has three branches: **True**,
 
 See these topics for scenarios that use this block:
 
-- [Transfer contacts to a specific agent in Amazon Connect](transfer-to-agent.md "transfer-to-agent.md")
+- [Transfer contacts to a specific agent in Connect Customer](transfer-to-agent.md "transfer-to-agent.md")

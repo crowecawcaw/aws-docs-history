@@ -1,6 +1,6 @@
-# Search cases in Amazon Connect to view customer contact details
+# Search cases in Connect Customer to view customer contact details
 
-You can search cases using a keyword match. Amazon Connect searches data across all system and
+You can search cases using a keyword match. Connect Customer searches data across all system and
 custom fields. The results are sorted from most-recently to least-recently updated
 case.
 

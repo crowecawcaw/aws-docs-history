@@ -10,7 +10,7 @@ case.
 Provide information for at least 3-5 examples of call quality issues. The examples
 must not be older than 24 hours.
 
-1. The ARN of your Amazon Connect instance. For instructions, see [Find your Amazon Connect instance ID or ARN](find-instance-arn.md "find-instance-arn.md").
+1. The ARN of your Connect Customer instance. For instructions, see [Find your Connect Customer instance ID or ARN](find-instance-arn.md "find-instance-arn.md").
 2. A description of the audio quality issue observed.
 3. Contact IDs of the affected calls and a snapshot of the contact records that
    contains all the details.

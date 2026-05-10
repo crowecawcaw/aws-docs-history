@@ -1,4 +1,4 @@
-# Example: Programmatically integrate Amazon S3 with Amazon Connect Customer Profiles
+# Example: Programmatically integrate Amazon S3 with Connect Customer Customer Profiles
 
 Using the Customer Profiles [PutIntegration](../../../customerprofiles/latest/APIReference/API_PutIntegration.md "../../../customerprofiles/latest/APIReference/API_PutIntegration.md") API, you can programmatically create integrations for
 S3, Salesforce, Marketo, and more.

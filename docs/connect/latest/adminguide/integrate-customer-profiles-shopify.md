@@ -1,19 +1,19 @@
-# Set up integration for Shopify to provide periodic updates to Amazon Connect Customer Profiles
+# Set up integration for Shopify to provide periodic updates to Connect Customer Customer Profiles
 
-To provide periodic updates to Amazon Connect Customer Profiles, you can integrate with Shopify using
-Amazon AppIntegrations. You first set up the connection in Amazon Connect and Shopify, and then
+To provide periodic updates to Connect Customer Customer Profiles, you can integrate with Shopify using
+Amazon AppIntegrations. You first set up the connection in Connect Customer and Shopify, and then
 verify the Shopify integration.
 
-## Set up the connection in Amazon Connect and Shopify
+## Set up the connection in Connect Customer and Shopify
 
-1. Open the Amazon Connect console at
+1. Open the Connect Customer console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 2. On the instances page, choose the instance alias. The instance alias is also
-   your **instance name**, which appears in your Amazon Connect
-   URL. The following image shows the **Amazon Connect virtual contact center instances** page, with a box
+   your **instance name**, which appears in your Connect Customer
+   URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box
    around the instance alias.
 
-![The Amazon Connect virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **Customer
+![The Connect Customer virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **Customer
 profiles**. 4. On the **Customer profiles configuration** page,
 choose **Add integration**.
 
@@ -89,7 +89,7 @@ of the following:
    3. Paste in your AWS account ID and select
       your AWS Region.
    4. After you set up the event source destination, return to
-      Customer Profiles. You will see an alert that indicates Amazon Connect has
+      Customer Profiles. You will see an alert that indicates Connect Customer has
       successfully connected with Shopify.
 
 9. On the **Integration options** page, choose which
@@ -261,7 +261,7 @@ your Shopify integration.
 6. The event delivery should be almost instantaneous but allow a
    minute for it to be delivered and to create a customer
    profile.
-7. Open the Amazon Connect agent experience and look up the user by the email
+7. Open the Connect Customer agent experience and look up the user by the email
    or phone number you entered into the Shopify Store. You should be
    able to see the customer profile with the same email or phone
    number.

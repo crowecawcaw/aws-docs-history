@@ -1,8 +1,8 @@
-# Use Amazon Connect Customer Profiles
+# Use Connect Customer Customer Profiles
 
-To help agents deliver more efficient and personalized customer service, Amazon Connect enables you
+To help agents deliver more efficient and personalized customer service, Connect Customer enables you
 to combine information from external applications, such as Salesforce, Zendesk, ServiceNow,
-or other Customer relationship management (CRM) products, with contact history from Amazon Connect. This creates a customer profile that has all the information agents need
+or other Customer relationship management (CRM) products, with contact history from Connect Customer. This creates a customer profile that has all the information agents need
 during customer interactions in a single place.
 
 With a single view of customer information including their product, case, and contact
@@ -10,12 +10,12 @@ history, agents can quickly confirm the customer's identity and determine the re
 call or chat.
 
 Currently,
-Amazon Connect Customer Profiles can be used in compliance with [GDPR](https://aws.amazon.com/compliance/gdpr-center "https://aws.amazon.com/compliance/gdpr-center")
+Connect Customer Customer Profiles can be used in compliance with [GDPR](https://aws.amazon.com/compliance/gdpr-center "https://aws.amazon.com/compliance/gdpr-center")
 and is pending additional certifications held by
-Amazon Connect.
+Connect Customer.
 
 The following image shows the agent workspace; for the purposes of this documentation, an
-Amazon Connect Customer Profiles image is featured. The agent workspace is designed for efficient
+Connect Customer Customer Profiles image is featured. The agent workspace is designed for efficient
 multi-tasking, enabling simultaneous handling of calls, chats, and tasks, while providing
 quick access to customer profile information all within the same browser window.
 
@@ -23,7 +23,7 @@ quick access to customer profile information all within the same browser window.
 
 1. **Cases**: Status, reference Id, title, source, updated date, and
    more information related to cases ingested from 3P application such as Zendesk and
-   ServiceNow, in addition to cases created and managed using Amazon Connect
+   ServiceNow, in addition to cases created and managed using Connect Customer
    Cases.
 2. **More information**: Additional information contained in the
    customer defined _Attributes_ field of [the

@@ -1,4 +1,4 @@
-# Apply hierarchy-based access control in Amazon Connect
+# Apply hierarchy-based access control in Connect Customer
 
 You can restrict access to contacts based on the agent hierarchy assigned to a user.
 You do this by using security profile permissions such as [Restrict contact access](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts"). In
@@ -11,7 +11,7 @@ This topic information about configuring hierarchy-based access controls.
 
 - [Overview](#hierarchy-based-access-control-background "#hierarchy-based-access-control-background")
 - [Apply hierarchy-based access control using the API/SDK](#hierarchy-based-access-control-api-sdk "#hierarchy-based-access-control-api-sdk")
-- [Apply hierarchy-based access control using the Amazon Connect admin website](#hierarchy-based-access-control-console "#hierarchy-based-access-control-console")
+- [Apply hierarchy-based access control using the Connect Customer admin website](#hierarchy-based-access-control-console "#hierarchy-based-access-control-console")
 - [Configuration limitations](#hierarchy-based-access-control-config-limitations "#hierarchy-based-access-control-config-limitations")
 - [Best practices for applying hierarchy-based access controls](#hierarchy-based-access-control-best-practices "#hierarchy-based-access-control-best-practices")
 
@@ -20,7 +20,7 @@ This topic information about configuring hierarchy-based access controls.
 Hierarchy-based access control enables you to configure granular access to
 specific resources based on the [agent
 hierarchy](agent-hierarchy.md "agent-hierarchy.md") that is assigned to a user. You can configure hierarchy-based
-access controls by using the API/SDK or the Amazon Connect admin website. 
+access controls by using the API/SDK or the Connect Customer admin website. 
 
 The only resource that supports hierarchy-based access control is users. This
 authorization model works with [tag-based
@@ -53,9 +53,9 @@ Following are the supported condition keys:
 Each key represents the ID of a given hierarchy group in a specific level of the
 user's hierarchy structure.
 
-## Apply hierarchy-based access control using the Amazon Connect admin website
+## Apply hierarchy-based access control using the Connect Customer admin website
 
-To use hierarchies to control access to resources the Amazon Connect admin website, you configure the
+To use hierarchies to control access to resources the Connect Customer admin website, you configure the
 access control section within a given security profile.
 
 For example, to enable granular access control for a given user based on the
@@ -98,8 +98,8 @@ access control.
 
 Service linked roles are required in order to configure hierarchy-based access
 control. If your instance was created after October 2018, this is available by
-default with your Amazon Connect instance. However, if you have an older instance, refer to
-[Use service-linked roles for Amazon Connect](connect-slr.md "connect-slr.md") for
+default with your Connect Customer instance. However, if you have an older instance, refer to
+[Use service-linked roles for Connect Customer](connect-slr.md "connect-slr.md") for
 instructions for how to enable service linked roles.
 
 ## Best practices for applying hierarchy-based access controls
@@ -108,7 +108,7 @@ instructions for how to enable service linked roles.
   responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/").
 
 Applying hierarchy-based access control is an advanced configuration
-feature that is supported by Amazon Connect and that follows the AWS shared
+feature that is supported by Connect Customer and that follows the AWS shared
 responsibility model. It is important to ensure that you are correctly
 configuring your instance to comply with your desired authorization needs.
 
@@ -129,7 +129,7 @@ permissions security profiles would allow a user to create/update a security
 profile with privileges that supersede the intended user access control
 settings.
 
-    + When logged in to the Amazon Connect console with hierarchy-based access
+    + When logged in to the Connect Customer console with hierarchy-based access
      controls applied, users will not be able to access historical change
      logs for the resources that they are restricted on.
     + When trying to assign a child resource to a parent resource with
@@ -151,7 +151,7 @@ settings.
 - Be thoughtful about the permissions granted on parent resources since
   users could be disassociated without their supervisor’s knowledge.
 - Disable access to the following functionality when you apply
-  hierarchy-based access controls in the Amazon Connect admin website.
+  hierarchy-based access controls in the Connect Customer admin website.
 
 | Functionality          | Security profile permission that disables access |
 | ---------------------- | ------------------------------------------------ |
@@ -165,6 +165,6 @@ settings.
 
 If you do not disable access to these resources, users with
 hierarchy-based access controls on a particular resource that view these
-pages in the Amazon Connect admin website may see an unrestricted list of users. For more
+pages in the Connect Customer admin website may see an unrestricted list of users. For more
 information about how to manage permissions, see [List of security profile
 permissions](security-profile-list.md "security-profile-list.md").

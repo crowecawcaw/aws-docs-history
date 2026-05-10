@@ -1,4 +1,4 @@
-# Create a security profile in Amazon Connect
+# Create a security profile in Connect Customer
 
 Creating a security profile enables you to grant your users only the permissions that
 they need.
@@ -15,18 +15,18 @@ users.
 
 ## Required permissions to create security profiles
 
-Before you can create a new security profile, you must be logged in with an Amazon Connect
+Before you can create a new security profile, you must be logged in with an Connect Customer
 account that has **Security profiles - Create** permissions, as
 shown in the following image.
 
 ![The users and permissions section of the security profiles page.](images/security-profile-create.png)
 
-By default, the Amazon Connect **Admin** security profile has these
+By default, the Connect Customer **Admin** security profile has these
 permissions.
 
 ## How to create security profiles
 
-1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/.
+1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/.
 2. Choose **Users**, **Security
    profiles**.
 3. Choose **Add new security profile**.
@@ -59,7 +59,7 @@ resources that you have selected. 5. Choose **Save**.
 It is mandatory to specify both a resource type and an access control tag when
 configuring tag-based access controls. As a best practice, ensure that you have
 matching resource tags on a security profile that has tag-based access controls
-configured. To learn more about tag-based access controls in Amazon Connect, see [Apply tag-based access control in Amazon Connect](tag-based-access-control.md "tag-based-access-control.md").
+configured. To learn more about tag-based access controls in Connect Customer, see [Apply tag-based access control in Connect Customer](tag-based-access-control.md "tag-based-access-control.md").
 
 ## Tag security profiles
 
@@ -73,4 +73,4 @@ resource tag to a security profile.
 
 ![The tags section of the security profiles page.](images/tag-securit-profiles-sp.png) 3. Choose **Save**.
 
-For more information about tagging resources, see [Add tags to resources in Amazon Connect](tagging.md "tagging.md").
+For more information about tagging resources, see [Add tags to resources in Connect Customer](tagging.md "tagging.md").

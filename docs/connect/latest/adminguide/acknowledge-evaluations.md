@@ -1,4 +1,4 @@
-# Acknowledge performance evaluations in Amazon Connect
+# Acknowledge performance evaluations in Connect Customer
 
 When an agent performance evaluation is submitted, you can automatically notify the
 agent to review their evaluation. For example, you can set up a [rule to send an email](contact-lens-rules-email.md "contact-lens-rules-email.md") to the agent when an
@@ -6,7 +6,7 @@ evaluation is available. You can also walk an agent through their evaluation dur
 coaching.
 
 After the agent has reviewed the performance evaluation, they can acknowledge their
-review of the evaluation and write an optional note in the Amazon Connect admin website. This acknowledgement
+review of the evaluation and write an optional note in the Connect Customer admin website. This acknowledgement
 enables managers to track whether agents are reviewing the feedback provided on their
 performance evaluations.
 
@@ -15,7 +15,7 @@ This topic explains the steps for agents to view and acknowledge an evaluation.
 ###### To acknowledge an evaluation
 
 1. After you have received a performance evaluation for a contact, use your agent
-   account to log in to the Amazon Connect admin website at https://`instance
+   account to log in to the Connect Customer admin website at https://`instance
 name`.my.connect.aws/.
 2. Access the contact evaluation that you want to acknowledge. There are a few
    ways you can do this:

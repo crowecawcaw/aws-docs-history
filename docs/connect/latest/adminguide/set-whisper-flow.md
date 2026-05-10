@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Set whisper flow
+# Flow block in Connect Customer: Set whisper flow
 
 This topic defines the flow block for a message, or whisper, that displays in chat or
 told in a call when a conversation begins. The whisper provides the participants with
@@ -53,7 +53,7 @@ this by:
 
 Chat conversations do not include a default whisper. You need to include a
 **Set whisper flow** block for the default agent or
-customer whispers to play. For instructions, see [Set the default whisper flow in Amazon Connect for a chat conversation](set-default-whisper-flow-for-chat.md "set-default-whisper-flow-for-chat.md").
+customer whispers to play. For instructions, see [Set the default whisper flow in Connect Customer for a chat conversation](set-default-whisper-flow-for-chat.md "set-default-whisper-flow-for-chat.md").
 
 ### How the Set whisper flow block works
 
@@ -120,7 +120,7 @@ If you choose to set a flow manually, in the **Search for flow**
 box, you can only select from flows that are type **Agent Whisper**
 or **Customer Whisper**.
 
-For information about using attributes, see [Use Amazon Connect contact attributes](connect-contact-attributes.md "connect-contact-attributes.md").
+For information about using attributes, see [Use Connect Customer contact attributes](connect-contact-attributes.md "connect-contact-attributes.md").
 
 To disable a previously set agent or customer whisper, choose the
 **Disable agent whisper** or **Disable customer

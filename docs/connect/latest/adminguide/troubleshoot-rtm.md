@@ -1,4 +1,4 @@
-# Troubleshoot no metrics or too few rows in a queues report in Amazon Connect
+# Troubleshoot no metrics or too few rows in a queues report in Connect Customer
 
 It's possible to run a manually configured queues report and have no metrics
 returned, or fewer rows than expected.
@@ -33,7 +33,7 @@ expected:
    first 500 queues, and then displays only those that are active.
 2. You're attempting to run a report with filters and groupings, but it still
    has more than 500 queues matching that criteria. To process this request,
-   Amazon Connect applies all the specified filters and groupings. This
+   Connect Customer applies all the specified filters and groupings. This
    pulls the first 500 queues matching that criteria. Then out of those queues,
    it displays only the active ones.
 
@@ -45,8 +45,8 @@ considered inactive and were not displayed. 3. You're running a report with fewe
 to see metrics for all filtered queues, only active queues are shown on the
 real-time metrics report page. Try changing the settings for the report,
 such as changing the time range. 4. If you as a user don't have any tags assigned to you
-(in other words, you have access to every queue in your Amazon Connect instance),
-then the metrics page randomly selects 100 queues from your Amazon Connect instance
+(in other words, you have access to every queue in your Connect Customer instance),
+then the metrics page randomly selects 100 queues from your Connect Customer instance
 and any filters/groupings are applied to those 100 queues only.
 The same applies for other resources that can be tagged.
 This is done to limit the amount of data so dashboard performance is optimized.

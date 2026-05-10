@@ -1,6 +1,6 @@
 # Add Profile explorer to the agent workspace
 
-By default users who have the appropriate [security profile permissions](enabling-profile-explorer.md "enabling-profile-explorer.md") can view Profile explorer on the Amazon Connect admin website. You may
+By default users who have the appropriate [security profile permissions](enabling-profile-explorer.md "enabling-profile-explorer.md") can view Profile explorer on the Connect Customer admin website. You may
 also want your agents to have access to Profile explorer in their agent workspace. This
 topic explains how to do that.
 
@@ -14,15 +14,15 @@ Here's a high-level overview:
 
 1. Ensure you have the [security profile permissions](enabling-profile-explorer.md "enabling-profile-explorer.md")
    to create a Profile explorer layout.
-2. Follow the instructions in [Get started with Amazon Connect Customer Profiles Profile Explorer](getting-started-profile-explorer.md "getting-started-profile-explorer.md")
+2. Follow the instructions in [Get started with Connect Customer Customer Profiles Profile Explorer](getting-started-profile-explorer.md "getting-started-profile-explorer.md")
    to create and save the layout you
    want to share with agents.
 
-## Add Profile explorer to Amazon Connect as an integration
+## Add Profile explorer to Connect Customer as an integration
 
-1. On the Amazon Connect console, in the left navigation, choose **Integrations**, as shown in the following image.
+1. On the Connect Customer console, in the left navigation, choose **Integrations**, as shown in the following image.
 
-![The Amazon Connect console, the Integrations menu item.](images/integrations.png) 2. On the **Integrations** page, choose
+![The Connect Customer console, the Integrations menu item.](images/integrations.png) 2. On the **Integrations** page, choose
 **Add integration**. 3. On the **Add integration** page, complete following
 fields in the **Basic information** section:
 
@@ -64,7 +64,7 @@ fields:
     `https://{CONNECT_INSTANCE}/customer-profiles/profile-explorer?_appLayoutMode=embedded`
 
     If you don't include `?_appLayoutMode=embedded`,
-     the left navigation from the Amazon Connect admin website appears in the agent
+     the left navigation from the Connect Customer admin website appears in the agent
      workspace.
 
     For more details about what is allowed for this field, see
@@ -88,7 +88,7 @@ integration. 7. Choose **Add integration**.
 
 In this step you need to assign agents permissions to access the new integration AND view permission to the Profile explorer.
 
-1.  In the Amazon Connect admin website, navigate to the **Agent** security profile.
+1.  In the Connect Customer admin website, navigate to the **Agent** security profile.
 2.  On the **Edit security profile** page, assign the
     following permissions:
 

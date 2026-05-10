@@ -1,17 +1,17 @@
-# Stir/Shaken attestation in Amazon Connect
+# Stir/Shaken attestation in Connect Customer
 
-Amazon Connect supports STIR/SHAKEN attestation for outbound calls to help prevent caller
+Connect Customer supports STIR/SHAKEN attestation for outbound calls to help prevent caller
 ID spoofing.
 
 When originating calls from United States direct-inward-dial (DID) or
 toll-free numbers to North American Numbering Plan (NANP) destinations (+1 prefix),
-Amazon Connect signs calls with STIR/SHAKEN headers indicating the level of
+Connect Customer signs calls with STIR/SHAKEN headers indicating the level of
 attestation.
 
 ###### Contents
 
 - [What is STIR/SHAKEN?](#what-is-stirshaken "#what-is-stirshaken")
-- [Amazon Connect attestation
+- [Connect Customer attestation
   levels](#attestation-levels "#attestation-levels")
 - [Requirements for A-level
   attestation](#attestation-level-a "#attestation-level-a")
@@ -36,20 +36,20 @@ For more information about STIR/SHAKEN, see
 [Combating Spoofed Robocalls with Caller ID Authentication](https://www.fcc.gov/call-authentication "https://www.fcc.gov/call-authentication")
 on the Federal Communications Commission (FCC) website.
 
-## Amazon Connect attestation levels
+## Connect Customer attestation levels
 
-Amazon Connect assigns one of three attestation levels when signing outbound
+Connect Customer assigns one of three attestation levels when signing outbound
 calls:
 
-- A-level (Full) - Amazon Connect has:
+- A-level (Full) - Connect Customer has:
   - Authenticated the calling party
   - Confirmed their authorization to use the calling number
 
-- B-level (Partial) - Amazon Connect has:
+- B-level (Partial) - Connect Customer has:
   - Authenticated the calling party
   - Cannot verify their authorization to use the number
 
-- C-level (Gateway) - Amazon Connect has:
+- C-level (Gateway) - Connect Customer has:
   - Originated the call
   - Cannot verify the calling party's identity
   - Cannot verify legitimate use of the number
@@ -60,8 +60,8 @@ Your calls receive A-level attestation if you are subject to AWS Service Terms
 or are a customer of an authorized AWS Solution Provider/Distribution Seller AND
 any of these conditions are met:
 
-- Number claimed through Amazon Connect portal/API.
-- Number ported into Amazon Connect.
+- Number claimed through Connect Customer portal/API.
+- Number ported into Connect Customer.
 - Third-party number mapped to your account with validated
   documentation.
 
@@ -88,11 +88,11 @@ Following are examples of calls that receive C-level attestation:
 
 ## Important things to know
 
-- While Amazon Connect provides STIR/SHAKEN headers to carriers,
+- While Connect Customer provides STIR/SHAKEN headers to carriers,
   attestation may not be preserved end-to-end due to legacy equipment in
   some carrier networks that cannot transmit these headers.
 - Carriers may use attestation levels as part of their process of determining whether they deliver calls in their network.
-- To maintain the highest levels of attestation for your calls, Amazon Connect may ask you for additional information.
+- To maintain the highest levels of attestation for your calls, Connect Customer may ask you for additional information.
   In the notification email we send to you, we will state when you need to reply with the requested information.
   Any delays in providing us the information may impact the attestation level of your calls and as a result,
   may impact the success of your call delivery.

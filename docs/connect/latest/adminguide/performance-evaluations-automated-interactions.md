@@ -1,10 +1,10 @@
-# Performance evaluations of self-service interactions in Amazon Connect
+# Performance evaluations of self-service interactions in Connect Customer
 
-Amazon Connect provides you with the ability to automatically evaluate the quality of self-service
+Connect Customer provides you with the ability to automatically evaluate the quality of self-service
 interactions and get aggregated insights to improve customer experience. Managers can
 define custom criteria to assess the quality of self-service interactions, that can be
 filled manually or automatically using insights from conversational analytics, and other
-Amazon Connect data. For example, you can automatically assess if the AI agent repeatedly fails to
+Connect Customer data. For example, you can automatically assess if the AI agent repeatedly fails to
 understand the customer, resulting in poor customer sentiment and transfer to a human
 agent. Managers can review these insights in aggregate and on individual contacts,
 alongside self-service interaction recordings and transcripts, to identify opportunities
@@ -13,12 +13,12 @@ to improve bot or AI agent performance.
 ###### Note
 
 Performance evaluations of self-service interactions is only available as part of
-Amazon Connect (with unlimited AI). For more information, see [Amazon Connect pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
+Connect Customer (with unlimited AI). For more information, see [Connect Customer pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
 
-To automatically evaluate self-service interactions, you need to first [Enable conversational analytics in Amazon Connect Contact Lens](enable-analytics.md "enable-analytics.md") (automated interactions include self-service and post-call
+To automatically evaluate self-service interactions, you need to first [Enable conversational analytics in Connect Customer Contact Lens](enable-analytics.md "enable-analytics.md") (automated interactions include self-service and post-call
 workflows like surveys). Performance evaluations can evaluate the entire self-service
-interaction, irrespective of whether it's handled by touch tone, Lex bots, Amazon Connect AI agents
-or custom bots within Amazon Connect. The steps to set up automated evaluations of self-service
+interaction, irrespective of whether it's handled by touch tone, Lex bots, Connect Customer AI agents
+or custom bots within Connect Customer. The steps to set up automated evaluations of self-service
 interactions are as follows:
 
 - [Step 1: Create a draft evaluation form](#step-create-draft-form-self-service "#step-create-draft-form-self-service")
@@ -64,7 +64,7 @@ Section 3: AI agent behaviors
   aggressive towards the customer at any point? (Single
   selection)
 
-For additional details, see [Create an evaluation form in Amazon Connect](create-evaluation-forms.md "create-evaluation-forms.md").
+For additional details, see [Create an evaluation form in Connect Customer](create-evaluation-forms.md "create-evaluation-forms.md").
 
 ## Step 2: Set up automation
 
@@ -105,7 +105,7 @@ Self-service containment
 
 ###### Note
 
-Amazon Connect understands the following keywords within semantic match
+Connect Customer understands the following keywords within semantic match
 rules:
 
 - **System:** Denotes a bot or
@@ -124,7 +124,7 @@ rules:
 
 ![Rule configuration interface showing conditions for Contact Lens post-chat analysis, queue assignment, and natural language semantic match.](images/self-service-eval-containment-rule.png)
 
-- If you are using a Amazon Connect AI agent, you can also check if the
+- If you are using a Connect Customer AI agent, you can also check if the
   AI agent for self-service escalated to a human or not.
 
 ![Define conditions step showing AI Agent Escalation condition with Self service, SalesAgent, and Escalated to human dropdowns.](images/self-service-eval-ai-agent-escalation-check.png)

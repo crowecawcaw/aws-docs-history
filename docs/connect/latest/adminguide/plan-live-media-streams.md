@@ -1,9 +1,9 @@
-# Plan for live media streaming from Amazon Connect to Kinesis Video Streams
+# Plan for live media streaming from Connect Customer to Kinesis Video Streams
 
 ###### Important
 
 If you want to use the audio streaming feature, you need to retain the streams
-that are created by Amazon Connect. Don't delete them, unless you're going to stop using the
+that are created by Connect Customer. Don't delete them, unless you're going to stop using the
 streaming feature.
 
 You can send all audio to and from the customer to Kinesis Video Streams. Media streaming leverages
@@ -14,7 +14,7 @@ Audio sent to Kinesis uses a sampling rate of 8 kHz.
 
 ## Do you need to increase your service quotas?
 
-When you enable media streaming in Amazon Connect, one Kinesis video stream is used per active
+When you enable media streaming in Connect Customer, one Kinesis video stream is used per active
 call. We create new KVS streams as needed to handle concurrent streaming requests. We
 automatically create additional streams as needed to keep pace with active calls,
 unless your account reaches the [Kinesis Video Streams service
@@ -35,7 +35,7 @@ the 5 TPS quota. You don't need to request an increase.
 ## How long do you need to store audio?
 
 Customer audio is stored in Kinesis for the time defined by your retention settings
-in an Amazon Connect instance. For instructions for setting this value, see [Enable live media streaming in your Amazon Connect instance](enable-live-media-streams.md "enable-live-media-streams.md").
+in an Connect Customer instance. For instructions for setting this value, see [Enable live media streaming in your Connect Customer instance](enable-live-media-streams.md "enable-live-media-streams.md").
 
 ## Do you need to change the audio streams?
 

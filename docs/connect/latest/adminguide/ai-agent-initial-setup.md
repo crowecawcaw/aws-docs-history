@@ -7,7 +7,7 @@ As part of this process you can also optionally:
   in the recommendations to the agent.
 - Create a knowledge base using external data.
 - Encrypt the content importing from these applications using a KMS key.
-  The following sections explain how to use the Amazon Connect console to enable Connect AI agents. Follow
+  The following sections explain how to use the Connect Customer console to enable Connect AI agents. Follow
   them in the order listed. If you want to use APIs, we assume you have the
   necessary programming skills.
 
@@ -52,7 +52,7 @@ You follow these broad steps to enable Connect AI agents:
 3. Create a knowledge base using external data:
    - Add data integrations from Amazon S3, Microsoft SharePoint Online,
      [Salesforce](https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm "https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm"), [ServiceNow](https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api "https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api"), and ZenDesk using prebuilt connectors in
-     the Amazon Connect console.
+     the Connect Customer console.
    - Encrypt the content importing from these applications using a
      KMS key.
    - For certain integrations, specify the sync frequency.
@@ -71,22 +71,22 @@ these guidelines when creating domains:
 
 - You can create multiple domains, but they don't share external
   application integrations or customer data between each other.
-- You can associate each domain with one or more Amazon Connect instances, but
-  you can only associate an Amazon Connect instance with one domain.
+- You can associate each domain with one or more Connect Customer instances, but
+  you can only associate an Connect Customer instance with one domain.
 
 ###### Note
 
 All the external application integrations you create are at a
-domain level. All Amazon Connect instances associated with a domain
+domain level. All Connect Customer instances associated with a domain
 inherit the domain's integrations.
 
-You can associate your Amazon Connect instance with a different
+You can associate your Connect Customer instance with a different
 domain at any time by choosing a different domain.
 
 - All the external application integrations you create are at a domain
-  level. All of the Amazon Connect instances associated with a domain inherit the
+  level. All of the Connect Customer instances associated with a domain inherit the
   domain's integrations.
-- You can associate your Amazon Connect instance with a different domain at any
+- You can associate your Connect Customer instance with a different domain at any
   time by choosing a different domain.
 
 ### How to name your domain
@@ -136,17 +136,17 @@ following permissions:
 
 ## Step 1: Create a domain
 
-The following steps explain how to add a domain to an Amazon Connect instance, and how to
+The following steps explain how to add a domain to an Connect Customer instance, and how to
 add an integration to the domain. To complete these steps, you must have an instance
 without a domain.
 
-1. Open the Amazon Connect console at
+1. Open the Connect Customer console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
-2. On the **Amazon Connect virtual contact center instances** page,
+2. On the **Connect Customer virtual contact center instances** page,
    under **Instance alias**, choose the name of the instance.
    The following image shows a typical instance name.
 
-![The Amazon Connect virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **AI Agents**, and then
+![The Connect Customer virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **AI Agents**, and then
 choose **Add domain**. 4. On the **Add domain** page, choose **Create a
 domain**. 5. In the **Domain name** box, enter a friendly name, such
 as your organization name.
@@ -155,7 +155,7 @@ as your organization name.
 
 ## Step 2: Encrypt the domain
 
-You can use the Amazon Connect default key to encrypt your domain. You can also use an
+You can use the Connect Customer default key to encrypt your domain. You can also use an
 existing key, or you can create keys that you own. The following sets of steps
 explain how to use each type of key. Expand each section as needed.
 
@@ -173,7 +173,7 @@ explain how to use each type of key. Expand each section as needed.
 
 ###### Note
 
-To use an existing key with Amazon Connect chats, tasks, and emails, you must grant the
+To use an existing key with Connect Customer chats, tasks, and emails, you must grant the
 `connect.amazonaws.com` service principal the
 `kms:Decrypt`, `kms:GenerateDataKey*`, and
 `kms:DescribeKey` permissions.
@@ -775,21 +775,21 @@ You have successfully integrated an existing Bedrock Knowledge Base with Connect
 ###### Note
 
 - If you delete objects from SaaS applications, such as SalesForce and
-  ServiceNow, Amazon Connect knowledge bases do not process those deletions. You must archive
+  ServiceNow, Connect Customer knowledge bases do not process those deletions. You must archive
   objects in SalesForce and retire articles in ServiceNow to remove them
   from those knowledge bases.
-- For Zendesk, Amazon Connect knowledge bases do not process hard deletes or archives of
+- For Zendesk, Connect Customer knowledge bases do not process hard deletes or archives of
   articles. You must unpublish articles in Zendesk to remove them from
   your knowledge base.
 - For Microsoft SharePoint Online, you can select a maximum of 10
   folders.
-- Amazon Connect automatically adds an `AmazonConnectEnabled:True`
-  tag to the Connect AI agent resources associated with your Amazon Connect instance, such
+- Connect Customer automatically adds an `AmazonConnectEnabled:True`
+  tag to the Connect AI agent resources associated with your Connect Customer instance, such
   as a knowledge base and an Assistant. It does this to authorize the
-  access from Amazon Connect to Connect AI agent resources. This action is a result of the
-  tag-based access control in the managed policy of the Amazon Connect service
+  access from Connect Customer to Connect AI agent resources. This action is a result of the
+  tag-based access control in the managed policy of the Connect Customer service
   linked role. For more information, see [Service-linked role permissions for
-  Amazon Connect](connect-slr.md#slr-permissions "connect-slr.md#slr-permissions").
+  Connect Customer](connect-slr.md#slr-permissions "connect-slr.md#slr-permissions").
 
 ## Step 4: Configure your flow for Connect AI agents
 

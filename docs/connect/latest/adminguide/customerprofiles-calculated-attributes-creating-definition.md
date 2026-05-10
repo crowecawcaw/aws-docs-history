@@ -1,4 +1,4 @@
-# Create a custom Amazon Connect Customer Profiles calculated attribute definition
+# Create a custom Connect Customer Customer Profiles calculated attribute definition
 
 Using the Customer Profiles [CreateCalculatedAttributeDefinition](../../../customerprofiles/latest/APIReference/API_CreateCalculatedAttributeDefinition.md "../../../customerprofiles/latest/APIReference/API_CreateCalculatedAttributeDefinition.md") API, you can programmatically
 create your own calculated attribute based on a custom object type.

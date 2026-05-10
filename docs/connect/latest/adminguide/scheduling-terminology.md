@@ -1,4 +1,4 @@
-# Key terminology for scheduling your agents in Amazon Connect
+# Key terminology for scheduling your agents in Connect Customer
 
 This topic provides important terms to know when scheduling agents in your contact
 center.

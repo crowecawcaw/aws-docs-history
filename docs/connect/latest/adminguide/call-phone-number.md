@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Call phone number
+# Flow block in Connect Customer: Call phone number
 
 This topic defines the flow block for the call phone number used for voice
 interactions with contact center customers.
@@ -46,7 +46,7 @@ The **Attribute** box is set to
 
 ![The properties page of the Call phone number block. The Use Attribute option is selected, Namespace is set to User-defined.](images/call-phone-number2.png)
 
-Outbound whisper flows run in Amazon Connect immediately after an agent accepts the call
+Outbound whisper flows run in Connect Customer immediately after an agent accepts the call
 during direct dial and callback scenarios. When the flow runs:
 
 - The caller ID number is set if one is specified in the [Call phone number](call-phone-number.md "call-phone-number.md")
@@ -80,15 +80,15 @@ the flow ends and the agent is placed in an **AfterContactWork**
 
 ## Sample flows
 
-Amazon Connect includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
-[Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
+Connect Customer includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
+[Sample flows in Connect Customer](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-- [Sample customer queue priority flow in Amazon Connect](sample-customer-queue-priority.md "sample-customer-queue-priority.md")
-- [Sample queue configurations flow in Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md")
+- [Sample customer queue priority flow in Connect Customer](sample-customer-queue-priority.md "sample-customer-queue-priority.md")
+- [Sample queue configurations flow in Connect Customer](sample-queue-configurations.md "sample-queue-configurations.md")
 
 ## Scenarios
 
 See these topics for more information about caller ID works:
 
-- [Set up outbound caller ID in Amazon Connect](queues-callerid.md "queues-callerid.md")
+- [Set up outbound caller ID in Connect Customer](queues-callerid.md "queues-callerid.md")

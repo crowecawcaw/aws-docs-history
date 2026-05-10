@@ -1,13 +1,13 @@
-# Forecasting data in the Amazon Connect analytics data lake
+# Forecasting data in the Connect Customer analytics data lake
 
-This topic details the content in the Amazon Connect data lake forecasting
+This topic details the content in the Connect Customer data lake forecasting
 tables. Each table lists the column, type, and description of the content in the
 table.
 
 There are two ways to access the analytics data lake and configure data to be
 shared:
 
-- [Option 1: Use the Amazon Connect console](access-datalake.md#option1-configure-data-to-be-shared "access-datalake.md#option1-configure-data-to-be-shared")
+- [Option 1: Use the Connect Customer console](access-datalake.md#option1-configure-data-to-be-shared "access-datalake.md#option1-configure-data-to-be-shared")
 - [Option 2: Use CLI or CloudShell](access-datalake.md#option2-configure-data-to-be-shared "access-datalake.md#option2-configure-data-to-be-shared")
   If you are unable to access the scheduling tables by using Option 1, try using
   Option 2.
@@ -43,11 +43,11 @@ forecast_group_version}
 
 | Column                             | Type      | Description                                                                                                                                                                                          |
 | ---------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | String    | The identifier of the Amazon Connect instance.                                                                                                                                                       |
+| instance_id                        | String    | The identifier of the Connect Customer instance.                                                                                                                                                     |
 | forecast_group_arn                 | String    | The ARN of the forecast group.                                                                                                                                                                       |
 | forecast_group_version             | Number    | The version of the forecast group. A new version is<br>created every time a change is made to a forecast group, for<br>example, addition of new queues.                                              |
 | forecast_group_name                | String    | The name of the forecast group.                                                                                                                                                                      |
-| instance_arn                       | String    | The ARN of the Amazon Connect instance.                                                                                                                                                              |
+| instance_arn                       | String    | The ARN of the Connect Customer instance.                                                                                                                                                            |
 | is_deleted                         | Boolean   | Whether the forecast group is deleted.                                                                                                                                                               |
 | last_updated_timestamp             | String    | The epoch Timestamp in milliseconds when the last time the<br>forecast group was created/updated/deleted.                                                                                            |
 | data_lake_last_processed_timestamp | Timestamp | The Timestamp for the last time the data lake processed the<br>record. This can include transformation and backfill processes.<br>This field cannot be used to determine reliably data<br>freshness. |
@@ -60,7 +60,7 @@ Composite primary key: {instance_id, long_term_forcast_id}
 
 | Column                             | Type      | Description                                                                                                                                                                                              |
 | ---------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | String    | The ID of the Amazon Connect instance                                                                                                                                                                    |
+| instance_id                        | String    | The ID of the Connect Customer instance                                                                                                                                                                  |
 | long_term_forcast_id               | String    | Unique Identifier of the forecast data row. Key is hash of<br>multiple values: instanceId, forecastGroupId,<br>forecastGroupVersion, forecastType, queueId, channel,<br>forecastStarttime, creationTime. |
 | forecast_group_arn                 | String    | The ARN of the forecast group.                                                                                                                                                                           |
 | forecast_group_version             | Number    | The version of the forecast group.                                                                                                                                                                       |
@@ -77,7 +77,7 @@ Composite primary key: {instance_id, long_term_forcast_id}
 | contact_volume                     | Number    | The contact volume metric value of the forecast data<br>row.                                                                                                                                             |
 | average_handle_time_override       | Number    | The customer applied override value of the average handle<br>time metric.                                                                                                                                |
 | contact_volume_override            | Number    | The customer applied override value of the contact volume<br>metric value.                                                                                                                               |
-| instance_arn                       | String    | The ARN of the Amazon Connect instance of the forecast.                                                                                                                                                  |
+| instance_arn                       | String    | The ARN of the Connect Customer instance of the forecast.                                                                                                                                                |
 | data_lake_last_processed_timestamp | Timestamp | The Timestamp for the last time the data lake processed the<br>record. This can include transformation and backfill processes.<br>This field cannot be used to determine reliably data<br>freshness.     |
 
 ## Short-term forecasts table
@@ -88,7 +88,7 @@ Composite primary key: {instance_id, short_term_forecast_id}
 
 | Column                             | Type      | Description                                                                                                                                                                                              |
 | ---------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | String    | The ID of the Amazon Connect instance.                                                                                                                                                                   |
+| instance_id                        | String    | The ID of the Connect Customer instance.                                                                                                                                                                 |
 | short_term_forecast_id             | String    | Unique Identifier of the forecast data row. Key is hash of<br>multiple values: instanceId, forecastGroupId,<br>forecastGroupVersion, forecastType, queueId, channel,<br>forecastStarttime, creationTime. |
 | forecast_group_arn                 | String    | The ARN of the forecast group for the forecast data<br>row.                                                                                                                                              |
 | forecast_group_version             | Number    | The version of the forecast group.                                                                                                                                                                       |
@@ -104,7 +104,7 @@ Composite primary key: {instance_id, short_term_forecast_id}
 | contact_volume                     | Number    | The contact volume metric value of the forecast data<br>row.                                                                                                                                             |
 | average_handle_time_override       | Number    | The customer applied override value of the average handle<br>time metric.                                                                                                                                |
 | contact_volume_override            | Number    | The customer applied override value of the contact volume<br>metric value.                                                                                                                               |
-| instance_arn                       | String    | The ARN of the Amazon Connect instance of the forecast.                                                                                                                                                  |
+| instance_arn                       | String    | The ARN of the Connect Customer instance of the forecast.                                                                                                                                                |
 | data_lake_last_processed_timestamp | Timestamp | The Timestamp for the last time the data lake processed the<br>record. This can include transformation and backfill processes.<br>This field cannot be used to determine reliably data<br>freshness.     |
 
 ## Intraday forecasts table
@@ -117,8 +117,8 @@ Composite primary key: {instance_id, intraday_forecast_id}
 | ---------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | intraday_forecast_id               | string    | Unique identifier of this intraday forecast data.                                                                                                                                            |
 | aws_account_id                     | string    | The identifier of the AWS account that owns the Intraday<br>Forecast.                                                                                                                        |
-| instance_id                        | string    | The identifier of the Amazon Connect instance. You can [find the instance ID](find-instance-arn.md "find-instance-arn.md") in<br>the Amazon Resource Name (ARN) of the instance.             |
-| instance_arn                       | string    | Instance ARN of the Amazon Connect instance.                                                                                                                                                 |
+| instance_id                        | string    | The identifier of the Connect Customer instance. You can [find the instance ID](find-instance-arn.md "find-instance-arn.md") in<br>the Amazon Resource Name (ARN) of the instance.           |
+| instance_arn                       | string    | Instance ARN of the Connect Customer instance.                                                                                                                                               |
 | channel                            | string    | The method used to contact your contact center.                                                                                                                                              |
 | queue_arn                          | string    | The Amazon Resource Name of the queue.                                                                                                                                                       |
 | forecast_interval_start_time       | Timestamp | Start Timestamp of the forecast interval.                                                                                                                                                    |
@@ -137,10 +137,10 @@ Composite Primary Key: `{instance_id, demand_group_arn, demand_group_version}`
 
 | Column                             | Type      | Description                                                                                                                                                                                 |
 | ---------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | string    | The identifier of the Amazon Connect instance.                                                                                                                                              |
+| instance_id                        | string    | The identifier of the Connect Customer instance.                                                                                                                                            |
 | demand_group_arn                   | string    | The ARN of the demand group.                                                                                                                                                                |
 | demand_group_version               | Long      | The version of the demand group. A new version is created every time a change is made to a demand group, for example, addition of new queues.                                               |
-| instance_arn                       | string    | The ARN of the Amazon Connect instance.                                                                                                                                                     |
+| instance_arn                       | string    | The ARN of the Connect Customer instance.                                                                                                                                                   |
 | demand_group_name                  | string    | Name of the demand group.                                                                                                                                                                   |
 | foecast_group_arn                  | string    | The ARN of the forecast group.                                                                                                                                                              |
 | is_deleted                         | Boolean   | Whether the demand group is deleted.                                                                                                                                                        |
@@ -155,11 +155,11 @@ Composite Primary Key: `{instance_id, demand_group_definition_id}`
 
 | Column                             | Type      | Description                                                                                                                                                                                 |
 | ---------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instance_id                        | string    | The identifier of the Amazon Connect instance.                                                                                                                                              |
+| instance_id                        | string    | The identifier of the Connect Customer instance.                                                                                                                                            |
 | demand_group_definition_id         | string    | Unique Identifier for the demandGroup definition row.                                                                                                                                       |
 | demand_group_arn                   | string    | The ARN of the demand group.                                                                                                                                                                |
 | demand_group_version               | Long      | The version of the demand group. A new version is created every time a change is made to a demand group, for example, addition of new queues.                                               |
-| instance_arn                       | string    | The ARN of the Amazon Connect instance.                                                                                                                                                     |
+| instance_arn                       | string    | The ARN of the Connect Customer instance.                                                                                                                                                   |
 | queue_id                           | string    | ID of the queue that is part of the demand group.                                                                                                                                           |
 | is_deleted                         | Boolean   | Whether the demand group is deleted.                                                                                                                                                        |
 | last_updated_timestamp             | Timestamp | Timestamp when the demand group was last created/updated/deleted.                                                                                                                           |

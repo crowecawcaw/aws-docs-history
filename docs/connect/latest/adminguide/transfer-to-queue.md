@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Transfer to queue
+# Flow block in Connect Customer: Transfer to queue
 
 This topic defines the flow block for transferring a current contact to the
 destination queue.
@@ -11,8 +11,8 @@ The functionality of this block depends on where it is used:
 
 - When used in a Customer Queue flow, this block transfers a contact already
   in a queue to another queue.
-- When used in a callback scenario, Amazon Connect calls the agent first. After the
-  agent accepts the call in the CCP, Amazon Connect calls the customer.
+- When used in a callback scenario, Connect Customer calls the agent first. After the
+  agent accepts the call in the CCP, Connect Customer calls the customer.
 - In all other cases, this block places the current contact in a queue and
   ends current flow.
 - This block cannot be used in a callback scenario when using the chat
@@ -63,7 +63,7 @@ types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact
 ## How to configure this block
 
 You can configure the **Transfer to queue** block using the
-Amazon Connect admin website. Or you can use the Amazon Connect Flow language. Depending on the use case you use one
+Connect Customer admin website. Or you can use the Connect Customer Flow language. Depending on the use case you use one
 of the following actions:
 
 - If the flow block is used in CustomerQueue flow type, it is represented as
@@ -206,7 +206,7 @@ Callback** tab:
   between a callback contact being initiated in the flow, and the customer
   is put in queue for the next available agent.
 - **Maximum number of retries**: If this were set to 1,
-  then Amazon Connect would try to callback the customer at most two times: the
+  then Connect Customer would try to callback the customer at most two times: the
   initial callback, and 1 retry.
 
 ###### Tip
@@ -231,7 +231,7 @@ If you want to specify the **Set working queue**
 property, you need to add a **Set customer callback
 number** block before this block.
 
-If you don't set a working queue, Amazon Connect uses the queue that was set
+If you don't set a working queue, Connect Customer uses the queue that was set
 previously in the flow.
 
 - **Set creation flow**: Use the dropdown menu to
@@ -274,10 +274,10 @@ callback creation flow:
 - **Caller ID number to display**: Specify the phone
   number that appears to customers when they receive the callback. You can
   choose **Set manually** to select from drop-down list
-  of claimed phone numbers in your Amazon Connect instance, or
+  of claimed phone numbers in your Connect Customer instance, or
   **Set dynamically** based on contact attributes.
   The attribute value must be a valid phone number claimed in your
-  Amazon Connect instance. This caller ID takes precedence over the
+  Connect Customer instance. This caller ID takes precedence over the
   outbound phone number configured on the queue.
 
 ### Flow block branches
@@ -331,19 +331,19 @@ concurrent contacts set in the service quota for the instance.
 
 ## Sample flows
 
-Amazon Connect includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
-[Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
+Connect Customer includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
+[Sample flows in Connect Customer](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-- [Sample queue configurations flow in Amazon Connect](sample-queue-configurations.md "sample-queue-configurations.md")
-- [Sample customer queue priority flow in Amazon Connect](sample-customer-queue-priority.md "sample-customer-queue-priority.md")
-- [Sample queued callback flow in Amazon Connect](sample-queued-callback.md "sample-queued-callback.md")
+- [Sample queue configurations flow in Connect Customer](sample-queue-configurations.md "sample-queue-configurations.md")
+- [Sample customer queue priority flow in Connect Customer](sample-customer-queue-priority.md "sample-customer-queue-priority.md")
+- [Sample queued callback flow in Connect Customer](sample-queued-callback.md "sample-queued-callback.md")
 
 ## More resources
 
 See the following topics to learn more about the transferring contacts to a queue
 and queued callback.
 
-- [Set up a flow to manage contacts in a queue in Amazon Connect](queue-to-queue-transfer.md "queue-to-queue-transfer.md")
-- [Set up queued callback by creating flows, queues, and routing profiles in Amazon Connect](setup-queued-cb.md "setup-queued-cb.md")
-- [Queued callbacks in real-time metrics in Amazon Connect](about-queued-callbacks.md "about-queued-callbacks.md")
+- [Set up a flow to manage contacts in a queue in Connect Customer](queue-to-queue-transfer.md "queue-to-queue-transfer.md")
+- [Set up queued callback by creating flows, queues, and routing profiles in Connect Customer](setup-queued-cb.md "setup-queued-cb.md")
+- [Queued callbacks in real-time metrics in Connect Customer](about-queued-callbacks.md "about-queued-callbacks.md")

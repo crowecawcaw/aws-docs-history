@@ -1,4 +1,4 @@
-# Troubleshooting forecasting, capacity planning, and scheduling in Amazon Connect
+# Troubleshooting forecasting, capacity planning, and scheduling in Connect Customer
 
 These sections outline troubleshooting scenarios and address frequently asked
 questions for forecasting, capacity planning, and scheduling.
@@ -46,7 +46,7 @@ information on the required format, see [Import historical data for forecasting]
 ![Failed status message, download details link.](images/faq-import-historical-data.png)
 
 - **Forecast failed due to error: Insufficient data
-  in Amazon Connect.**
+  in Connect Customer.**
 
 When you receive this error, it could be due to three different
 reasons:
@@ -56,22 +56,22 @@ reasons:
      historical data.
 
 
-    Although Amazon Connect can generate forecasts with six months of data,
+    Although Connect Customer can generate forecasts with six months of data,
      we recommend at least 12 months of recent contact data to ensure
      that contact patterns (for example, seasonality) are properly
-     captured. If you don't have 6 months of data, you can give Amazon Connect
+     captured. If you don't have 6 months of data, you can give Connect Customer
      synthetic (artificial) data that will be used to generate the
      forecast. Alternately, you can upload your own forecast using
      the **Override** function.
     2. *You need at least 2,000 contacts per month across
-     all of your forecast groups.* Amazon Connect generates
+     all of your forecast groups.* Connect Customer generates
      forecasts using historical data for all queues that are included
      across all forecast groups. At least 2,000 monthly contacts in
-     the past 6 months for the Amazon Connect instance are required to
-     successfully generate a forecast. Amazon Connect does not require 2,000
+     the past 6 months for the Connect Customer instance are required to
+     successfully generate a forecast. Connect Customer does not require 2,000
      monthly contacts for every queue. All queues in all forecast
      groups must total more than 2,000 monthly contacts.
-    3. *You need recent data.* Amazon Connect performs a
+    3. *You need recent data.* Connect Customer performs a
      data recency check (is the data recent enough) based on the
      aggregation of all queues included across all forecast groups.
      At least one data point in the past four weeks is required to
@@ -208,7 +208,7 @@ as the call volume for the 4:45 PM - 5:00 PM interval.
 Users can increase capacity planning accuracy by providing estimated
 future data, which includes available full-time employees (FTE) and
 Shrinkage, for the existing forecast groups. Providing Available FTE and
-shrinkage data is optional. Amazon Connect can generate a capacity plan without
+shrinkage data is optional. Connect Customer can generate a capacity plan without
 it but providing it improves the accuracy of the capacity plan. In order
 to import that data, download the `.csv` template from the UI
 and fill out the empty cells. Note that users need to enter the exact
@@ -246,7 +246,7 @@ following steps to address this issue.
 
      For example, if the shift profile is configured to generate a
      schedule of an 8 hour duration, when the agent's staff rule is
-     configured for them to work 4 hours per day, Amazon Connect applies the
+     configured for them to work 4 hours per day, Connect Customer applies the
      staff rule and generates a schedule for only 4 hours.
 
 - **Why am I unable to access the scheduling page
@@ -324,7 +324,7 @@ responding to a chat.
 
 How agents are added to the roster depends on multiple configurations
 in staffing groups and staff rules, such as min/max working hours, min
-staff required, or min/max consecutive work days. Amazon Connect takes the
+staff required, or min/max consecutive work days. Connect Customer takes the
 defined working hours and adds an agent to the roster by taking into
 consideration other rules that have been defined in staffing groups and
 staff rules.
@@ -346,13 +346,13 @@ been added to the roster for the remainder of the week.
 
 The shift profile operation hours apply to staffing groups. If you
 don’t set the staffing groups rule for **shift start
-time**, Amazon Connect optimizes your agent start time based on the
+time**, Connect Customer optimizes your agent start time based on the
 forecasted workload.
 
 For example, the shift profile has 8 AM - 6 PM Monday - Friday, and
 the workload is light in the morning, and heavier in the afternoon. Each
 agent has a minimum of 6 hours and a maximum of 8 hours per day. To save
-agent cost, Amazon Connect would schedule fewer agents in the morning and more
+agent cost, Connect Customer would schedule fewer agents in the morning and more
 agents in the afternoon. Some agents could start at 8 AM, some could
 start at 8:30 AM, and some could start in the afternoon. Some agents
 could have 6 hour schedules and some could have 8 hour schedules. In

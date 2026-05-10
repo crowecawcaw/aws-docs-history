@@ -1,13 +1,13 @@
-# Delete a queue from your Amazon Connect instance
+# Delete a queue from your Connect Customer instance
 
-There are three ways to delete a queue from your Amazon Connect instance:
+There are three ways to delete a queue from your Connect Customer instance:
 
-- Amazon Connect admin website
-  1.  Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/. Use an **Admin** account, or an
+- Connect Customer admin website
+  1.  Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/. Use an **Admin** account, or an
       account that has **Routing** -
       **Queues** - **Delete** permission
       in its security profile.
-  2.  On the Amazon Connect admin website, on the navigation menu, choose
+  2.  On the Connect Customer admin website, on the navigation menu, choose
       **Routing**, **Queues** and then
       select the delete icon.
 

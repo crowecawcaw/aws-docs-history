@@ -1,6 +1,6 @@
-# Grant Amazon Connect access to your AWS Lambda functions
+# Grant Connect Customer access to your AWS Lambda functions
 
-Amazon Connect can interact with your own systems and take different paths in flows dynamically. To
+Connect Customer can interact with your own systems and take different paths in flows dynamically. To
 achieve this, invoke AWS Lambda functions in a flow, fetch the results, and call your own
 services or interact with other AWS data stores or services. For more information, see the
 [AWS Lambda Developer Guide](../../../lambda/latest/dg.md "../../../lambda/latest/dg.md").
@@ -10,7 +10,7 @@ To invoke a Lambda function from a flow, complete the following tasks.
 ###### Tasks
 
 - [Create a Lambda function](#create-lambda-function "#create-lambda-function")
-- [Add a Lambda function to your Amazon Connect instance](#add-lambda-function "#add-lambda-function")
+- [Add a Lambda function to your Connect Customer instance](#add-lambda-function "#add-lambda-function")
 - [Invoke a Lambda function from a flow](#function-contact-flow "#function-contact-flow")
 - [Best practice for invoking multiple Lambda functions](#invoke-multiple-functions "#invoke-multiple-functions")
 - [Configure your Lambda function to parse the event](#function-parsing "#function-parsing")
@@ -25,30 +25,30 @@ see [Get started with
 Lambda](../../../lambda/latest/dg/get-started.md "../../../lambda/latest/dg/get-started.md") in the _AWS Lambda Developer Guide_.
 
 If you create the Lambda function in the same Region as your contact center, you can
-use the Amazon Connect console to add the Lambda function to your instance as described in the
-next task, [Add a Lambda function to your Amazon Connect instance](#add-lambda-function "#add-lambda-function").
-This automatically adds resource permissions that allow Amazon Connect to invoke the Lambda
+use the Connect Customer console to add the Lambda function to your instance as described in the
+next task, [Add a Lambda function to your Connect Customer instance](#add-lambda-function "#add-lambda-function").
+This automatically adds resource permissions that allow Connect Customer to invoke the Lambda
 function. Otherwise, if the Lambda function is in a different Region, you can add it to
 your flow using the flow designer and add the resource permissions using the [add-permission](../../../cli/latest/reference/lambda/add-permission.md "../../../cli/latest/reference/lambda/add-permission.md") command, with a principal of
-`connect.amazonaws.com` and the ARN of your Amazon Connect instance. For more
+`connect.amazonaws.com` and the ARN of your Connect Customer instance. For more
 information, see [Using
 Resource-Based Policies for AWS Lambda](../../../lambda/latest/dg/access-control-resource-based.md "../../../lambda/latest/dg/access-control-resource-based.md") in the
 _AWS Lambda Developer Guide_.
 
-## Add a Lambda function to your Amazon Connect instance
+## Add a Lambda function to your Connect Customer instance
 
-Before you can use an Lambda function in a flow, you need to add it to your Amazon Connect
+Before you can use an Lambda function in a flow, you need to add it to your Connect Customer
 instance.
 
 ###### Add a Lambda function to your instance
 
-1. Open the Amazon Connect console at
+1. Open the Connect Customer console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 2. On the instances page, choose your instance name in the **Instance
    Alias** column. This instance name appears in the URL you use to
-   access Amazon Connect.
+   access Connect Customer.
 
-![The Amazon Connect virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **Flows**. 4. In the **AWS Lambda** section, use the
+![The Connect Customer virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **Flows**. 4. In the **AWS Lambda** section, use the
 **Function** drop-down box to select the function to add to
 your instance.
 
@@ -165,7 +165,7 @@ The following is an example JSON request to a Lambda function:
 
 The request is divided into two parts:
 
-- Contact data—This is always passed by Amazon Connect for every contact. Some
+- Contact data—This is always passed by Connect Customer for every contact. Some
   parameters are optional.
 
 This section may include attributes that have been previously associated with
@@ -210,7 +210,7 @@ function](invoke-lambda-function-block.md "invoke-lambda-function-block.md") blo
 If your Lambda invocation in a flow gets throttled, the request will be retried. It
 will also be retried if a general service failure (500 error) happens.
 
-When a synchronous invocation returns an error, Amazon Connect retries up to 3 times, for a
+When a synchronous invocation returns an error, Connect Customer retries up to 3 times, for a
 maximum of 8 seconds. At that point, the flow will progress down the Error branch.
 
 To learn more about how Lambda retries, see [Error Handling and Automatic
@@ -218,7 +218,7 @@ Retries in AWS Lambda](../../../lambda/latest/dg/retries-on-errors.md "../../../
 
 ## Best practice for invoking multiple Lambda functions
 
-Amazon Connect limits the duration of a sequence of Lambda functions to 20 seconds. It times
+Connect Customer limits the duration of a sequence of Lambda functions to 20 seconds. It times
 out with an error message when the total execution time exceeds this threshold.
 Because customers hear silence while a Lambda function runs, we recommend adding a
 **Play prompt** block between functions to keep them engaged
@@ -230,7 +230,7 @@ the 20 second threshold.
 
 ## Configure your Lambda function to parse the event
 
-To successfully pass attributes and parameters between your Lambda function and Amazon Connect,
+To successfully pass attributes and parameters between your Lambda function and Connect Customer,
 configure your function to correctly parse the JSON request sent from the
 **Invoke AWS Lambda function** block or **Set contact
 attributes**, and define any business logic that should be applied. How the
@@ -279,7 +279,7 @@ an exception, the response is not understood, or the Lambda function takes more 
 the limit, the flow jumps to the `Error` label.
 
 Test the output returned from your Lambda function to confirm that it will be correctly
-consumed when returned to Amazon Connect. The following example shows a sample response in
+consumed when returned to Connect Customer. The following example shows a sample response in
 Node.JS:
 
 ```
@@ -506,12 +506,12 @@ enter the following code instead.
 
 Your balance will be different. The code generates a random number.
 
-### Step 2: Add your Lambda to Amazon Connect
+### Step 2: Add your Lambda to Connect Customer
 
-1. Go to the Amazon Connect console, at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
-2. Choose your Amazon Connect instance alias.
+1. Go to the Connect Customer console, at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
+2. Choose your Connect Customer instance alias.
 
-![The Amazon Connect virtual contact center instances page, the instance alias.](images/instance.png) 3. On the navigation menu, choose **Flows**. 4. In the AWS Lambda section, use the **Lambda Functions**
+![The Connect Customer virtual contact center instances page, the instance alias.](images/instance.png) 3. On the navigation menu, choose **Flows**. 4. In the AWS Lambda section, use the **Lambda Functions**
 dropdown box to select **MyFirstConnectLambda**.
 
 ![The flows page, the AWS Lambda section.](images/lambda-add-myfirstconnectlambda.png) 5. Choose **Add Lambda Function**.
@@ -527,7 +527,7 @@ block, another **Play prompt** block, and finally a
 
 ![A flow that calls the Invoke AWS Lambda function block.](images/lambda-exampleFlow.png)
 
-1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/.
+1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/.
 2. On the navigation menu, go to **Routing**,
    **Flows**, **Create a contact
    flow**.

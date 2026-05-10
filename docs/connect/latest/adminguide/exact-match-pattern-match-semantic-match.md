@@ -33,7 +33,7 @@ methods:
 
 Word collections can be categorized into two types: user word collections
 and system word collections. System word collections are pre-defined by
-Amazon Connect, which are non-editable to users. A user word collection can be
+Connect Customer, which are non-editable to users. A user word collection can be
 created, read, updated, and deleted (CRUD) by users. For more information,
 see [Manage word collections when you create conversational analytics rules in Contact Lens](manage-word-collections.md "manage-word-collections.md").
 

@@ -1,4 +1,4 @@
-# Assign proficiencies to agents in your Amazon Connect instance
+# Assign proficiencies to agents in your Connect Customer instance
 
 A proficiency consists of a predefined attribute name, its value, and a proficiency level.
 The level is a numeric value of 1, 2, 3, 4, or 5. After you have created predefined

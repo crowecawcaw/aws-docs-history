@@ -1,4 +1,4 @@
-# Enable notifications for chat customers in Amazon Connect
+# Enable notifications for chat customers in Connect Customer
 
 You can enable message _Delivered_ and _Read_ in
 your [chat user interface](add-chat-to-website.md "add-chat-to-website.md") so your customers know
@@ -18,7 +18,7 @@ widget.
 
 ###### To enable message receipts in your chat user interface
 
-1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/. Choose **Customize communications widget**.
+1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/. Choose **Customize communications widget**.
 
 ![The configuration guide page, the customize communications widget option.](images/chatwidget-customize-chat-window-button.png) 2. Choose **Edit**.
 

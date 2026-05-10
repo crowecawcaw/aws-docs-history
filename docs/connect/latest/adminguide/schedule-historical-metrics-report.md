@@ -1,4 +1,4 @@
-# Schedule a historical metrics report in Amazon Connect
+# Schedule a historical metrics report in Connect Customer
 
 Before you schedule a historical metrics report, here are a few things you need to
 know:
@@ -106,17 +106,17 @@ follows:
 ###### No message if a scheduled report doesn't run
 
 - If a scheduled report fails to run, you won't get any message in the
-  Amazon Connect UI. You just won't see the report in the Amazon S3 location.
+  Connect Customer UI. You just won't see the report in the Amazon S3 location.
 
 ###### Use your messaging system to email scheduled reports
 
 - To email a scheduled report to a list of co-workers, you need to generate
-  the email manually using your messaging system. Amazon Connect doesn't
+  the email manually using your messaging system. Connect Customer doesn't
   provide an option to email the scheduled report automatically.
 
 ## How to schedule a historical metrics report
 
-1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/.
+1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/.
 2. Create a new report and save it, or open a saved report.
 3. Choose the down arrow next to **Save** in the
    top-right corner of the page and choose
@@ -134,7 +134,7 @@ follows:
 To get to the page where you can delete a scheduled report, you need to create
 another temporary scheduled report.
 
-1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/.
+1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/.
 2. On the navigation menu, choose **Analytics and
    optimization**, **Dashboards and
    reports**.

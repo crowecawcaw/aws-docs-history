@@ -34,13 +34,13 @@ Bugs Using S3 Versioning, S3 Object Lock, and S3 Replication](https://aws.amazon
 For information about enabling Object Lock on an existing bucket, see [Enable Object Lock on an existing Amazon S3 bucket](../../../AmazonS3/latest/userguide/object-lock-configure.md#object-lock-configure-existing-bucket "../../../AmazonS3/latest/userguide/object-lock-configure.md#object-lock-configure-existing-bucket"), in the
 _Amazon S3 User Guide_.
 
-## Step 2: Configure Amazon Connect to use the S3 bucket for call recordings
+## Step 2: Configure Connect Customer to use the S3 bucket for call recordings
 
-1. Open the Amazon Connect console at
+1. Open the Connect Customer console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 2. On the instances page, choose the instance alias.
 
-![The Amazon Connect virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **Data storage**. 4. In the **Call recordings** section, choose
+![The Connect Customer virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **Data storage**. 4. In the **Call recordings** section, choose
 **Edit**. 5. Choose **Select an existing S3 bucket**, and then in the
 **Name** dropdown box choose the bucket that you enable
 Object Lock for. 6. Choose **Save**.
@@ -49,7 +49,7 @@ Object Lock for. 6. Choose **Save**.
 
 1. Make a test call to your contact center to generate a call
    recording.
-2. Log in to Amazon Connect at
+2. Log in to Connect Customer at
    https://`your-instance`.my.connect.aws/home,
    with an Admin account, or an account that has [permissions to search for
    contacts](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts").

@@ -13,14 +13,14 @@ tab, and the dropdown menu where you choose the time zone.
   Edit**. For more information, see [Assign
   permissions](required-optimization-permissions.md "required-optimization-permissions.md").
 - The default value for the forecast time zone is UTC.
-- When you change the forecast time zone, Amazon Connect regenerates both the
+- When you change the forecast time zone, Connect Customer regenerates both the
   short-term and long-term forecasts.
   - Updated forecasts in the selected time zone are available
     within 24 hours.
   - The forecasts are automatically adjusted for daylight savings
     if the selected time zone observes daylight savings.
 
-## Forecast time zones on the Amazon Connect admin website and in downloads
+## Forecast time zones on the Connect Customer admin website and in downloads
 
 - **Short-term forecasts**: You can view
   short-term forecasts in the selected time zone after updating the time

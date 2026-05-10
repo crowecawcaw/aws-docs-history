@@ -19,12 +19,12 @@ notify:
 - All emails are sent from `no-reply@amazonconnect.com`.
 - SAML users don't have primary email addresses, they have username logins. A username login
   is typically an email address but it doesn't have to be. For these users the field label
-  **Email address** is empty inside Amazon Connect. When email notifications are sent for SAML users, they must have
+  **Email address** is empty inside Connect Customer. When email notifications are sent for SAML users, they must have
   a secondary email configured in order to get it. If a secondary email is not configured, the user won't receive the email.
 
 ###### To create a rule that sends an email notification
 
-1. Log in to Amazon Connect with a user account that has the [required permissions](permissions-for-rules.md "permissions-for-rules.md") to
+1. Log in to Connect Customer with a user account that has the [required permissions](permissions-for-rules.md "permissions-for-rules.md") to
    create rules.
 2. Navigate to **Analytics and optimization**,
    **Rules**.
@@ -88,17 +88,17 @@ You cannot apply rules to past, stored conversations.
 
 ## Email limits
 
-- Amazon Connect has a default limit of 500 emails a day. When that limit is
-  exceeded, the Amazon Connect instance is blocked for 24 hours from sending
+- Connect Customer has a default limit of 500 emails a day. When that limit is
+  exceeded, the Connect Customer instance is blocked for 24 hours from sending
   more email. This is because the emails are subject to bounce and
   complaint limits. For more information, see the **Bounce** and **Complaint** sections in [Understanding email deliverability in Amazon SES](../../../ses/latest/dg/send-email-concepts-deliverability.md "../../../ses/latest/dg/send-email-concepts-deliverability.md").
 - All emails are sent from `no-reply@amazonconnect.com`,
   which you cannot customize.
 - SAML users don't have primary email addresses, they have username logins. A username login
   is typically an email address but it doesn't have to be. For these users the field label
-  **Email address** is empty inside Amazon Connect. When email notifications are sent for SAML users, they must have
+  **Email address** is empty inside Connect Customer. When email notifications are sent for SAML users, they must have
   a secondary email configured in order to get it. If a secondary email is not configured, the user won't receive the email.
 
 If the default option for sending emails does not meeting your
 requirements, please contact your Technical Account Manager or Support to
-discuss with the Amazon Connect service team.
+discuss with the Connect Customer service team.

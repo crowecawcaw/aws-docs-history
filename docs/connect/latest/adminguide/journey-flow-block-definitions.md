@@ -1,6 +1,6 @@
 # Journey flow block definitions
 
-Use flow blocks to design customer journeys in the Amazon Connect Flow Designer. Drag blocks
+Use flow blocks to design customer journeys in the Connect Customer Flow Designer. Drag blocks
 onto the canvas and connect them to define how each journey progresses. The following table lists
 all available flow blocks that you can use. Choose any block name in the Block column for more
 information.
@@ -15,5 +15,5 @@ information.
 | [Loop](journey-flow-block-loop.md "journey-flow-block-loop.md")                                                                   | Repeats a branch for a defined number of iterations before continuing.                       |
 | [Wait](journey-flow-block-wait.md "journey-flow-block-wait.md")                                                                   | Waits for a specified period of time and optionally for specified events.                    |
 | [Custom action](journey-flow-block-custom-action.md "journey-flow-block-custom-action.md")                                        | Invokes an Lambda function and uses returned data in the flow.                               |
-| [Customer profiles](journey-flow-block-customer-profiles.md "journey-flow-block-customer-profiles.md")                            | Checks segment membership or attributes from Amazon Connect Customer Profiles.               |
+| [Customer profiles](journey-flow-block-customer-profiles.md "journey-flow-block-customer-profiles.md")                            | Checks segment membership or attributes from Connect Customer Customer Profiles.             |
 | [End flow](journey-flow-block-end-flow.md "journey-flow-block-end-flow.md")                                                       | Ends the current journey flow.                                                               |

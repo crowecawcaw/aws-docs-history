@@ -5,7 +5,7 @@
 To complete the steps in this topic, you need to have developer skills, and be
 experienced with using AWS KMS and Amazon S3.
 
-When Amazon Connect Customer Profiles creates a unified customer profile, it enhances, refines, and improves
+When Connect Customer Customer Profiles creates a unified customer profile, it enhances, refines, and improves
 raw data and information into a more accurate profile by combining data from first-party
 and third-party sources. Customer Profiles also improves the quality of the datasets through the
 addition of new data. You can use the improved datasets for additional use cases, such
@@ -46,7 +46,7 @@ These steps are explained next.
 
 To set up a KMS key for bulk export, you must create or reuse an existing KMS
 key that is in the same AWS Region as the Amazon S3 bucket you plan on configuring
-as your bulk export destination. You must allow the Amazon Connect AppIntegrations
+as your bulk export destination. You must allow the Connect Customer AppIntegrations
 service to perform KMS actions for the key.
 
 Add the following statement to your **key
@@ -133,7 +133,7 @@ JSON
 
 ## Step 2: Create a bulk export job
 
-To create a bulk export job, you invoke the following Amazon Connect AppIntegrations
+To create a bulk export job, you invoke the following Connect Customer AppIntegrations
 APIs:
 
 1. [CreateDataIntegration](../APIReference/API_connect-app-integrations_CreateDataIntegration.md "../APIReference/API_connect-app-integrations_CreateDataIntegration.md"): This API creates an integration with the
@@ -209,7 +209,7 @@ exported.
 ###### Note
 
 For the quota for **Concurrent bulk export jobs**, see
-[Amazon Connect Customer Profiles service quotas](amazon-connect-service-limits.md#customer-profiles-quotas "amazon-connect-service-limits.md#customer-profiles-quotas"). After a bulk export job
+[Connect Customer Customer Profiles service quotas](amazon-connect-service-limits.md#customer-profiles-quotas "amazon-connect-service-limits.md#customer-profiles-quotas"). After a bulk export job
 completes or fails, it no longer counts towards the concurrency
 quota.
 

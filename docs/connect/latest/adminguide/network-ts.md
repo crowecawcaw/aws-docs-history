@@ -1,8 +1,8 @@
 # Troubleshoot your network for call quality and disconnect problems
 
 Network issues are the number one reason for call quality and disconnect problems in
-contact centers. Before reading this topic, we recommend that you review [Set up your network to use the Amazon Connect Contact Control Panel (CCP)](ccp-networking.md "ccp-networking.md") to verify that your
-network is setup correctly for Amazon Connect.
+contact centers. Before reading this topic, we recommend that you review [Set up your network to use the Connect Customer Contact Control Panel (CCP)](ccp-networking.md "ccp-networking.md") to verify that your
+network is setup correctly for Connect Customer.
 
 This topic explains how to investigate and fix underlying network problems.
 
@@ -24,7 +24,7 @@ Ensure your environment is set up as follows:
 Run the [Endpoint Test Utility](check-connectivity-tool.md "check-connectivity-tool.md") tool
 from the affected agent's computer and check the results:
 
-- This tool helps determine the latency between your Amazon Connect instance and the
+- This tool helps determine the latency between your Connect Customer instance and the
   agent browser. For a successful test, the status is
   **Success**. The average latency should be not be more
   than 300 ms. Latency that is above this value could result in potential
@@ -40,7 +40,7 @@ connectivity to from agent browser.
 - Check whether the agent's workstation is set up correctly: verify they are
   using a supported browser and verify network connectivity across required
   ports for media streams. The following image shows the results for an agent
-  workstation that meets all of requirements for Amazon Connect
+  workstation that meets all of requirements for Connect Customer
 
 ![The results of test when an agent's workstation meets all requirements.](images/endpointtestresults.png)
 
@@ -52,7 +52,7 @@ connectivity to from agent browser.
   using the same network or are logging in remotely.
 - If they are using VPN/firewall, does this issue happen only on the company
   VPN or over the public internet as well?
-- If there is a VDI setup, follow recommendations in [Use Amazon Connect in a VDI environment](using-ccp-vdi.md "using-ccp-vdi.md"). Were there any
+- If there is a VDI setup, follow recommendations in [Use Connect Customer in a VDI environment](using-ccp-vdi.md "using-ccp-vdi.md"). Were there any
   changes made? Does the issue occur in a non-VDI setup (in a simple desktop
   environment).
 - Ensure there aren't any anti-viruses/software on the agent's machine or in

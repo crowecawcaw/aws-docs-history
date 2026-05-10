@@ -1,6 +1,6 @@
-# Evaluate the performance of your conversational AI bot in Amazon Connect
+# Evaluate the performance of your conversational AI bot in Connect Customer
 
-You can use the comprehensive analytics tools in Amazon Connect to help you evaluate and optimize your
+You can use the comprehensive analytics tools in Connect Customer to help you evaluate and optimize your
 conversational AI bot performance. These insights enable you to identify successful interactions,
 pinpoint failure points, and visualize conversation patterns to continuously improve customer
 experience.
@@ -17,7 +17,7 @@ conversations are not reflects on this page.
 
 ###### To view analytics for your bot
 
-1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/. Use an Admin account or an account that has the following permissions in
+1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/. Use an Admin account or an account that has the following permissions in
    its security profile:
    - **Channels and Flows** - **Bots** -
      **View**

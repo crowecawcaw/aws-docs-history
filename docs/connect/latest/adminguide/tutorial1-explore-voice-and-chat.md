@@ -1,4 +1,4 @@
-# Test the sample voice and chat experience in Amazon Connect
+# Test the sample voice and chat experience in Connect Customer
 
 To better understand what the voice and chat experiences are like for your agents and
 customers, you can test them without doing any development.
@@ -12,8 +12,8 @@ This tutorial is part of a series. If you performed Tutorial 1, you're ready to 
 not, here's what you need:
 
 - An AWS account
-- A configured Amazon Connect instance
-- An Amazon Connect administrative account
+- A configured Connect Customer instance
+- An Connect Customer administrative account
 - A claimed phone number
 
 ###### Contents
@@ -23,7 +23,7 @@ not, here's what you need:
 
 ## Step 1: Handle a voice contact
 
-1. On the Amazon Connect navigation menu, choose **Dashboard**.
+1. On the Connect Customer navigation menu, choose **Dashboard**.
 
 ![The dashboard icon on the navigation menu.](images/tutorial1-dashboard-menu.png) 2. On the **Dashboard** page, choose **Test
 chat**.
@@ -42,8 +42,8 @@ Contact Control Panel**.
 ![The CCP, the Available status setting.](images/tutorial1-testccp-available.png) 7. Use your mobile phone to call the phone number that you claimed earlier.
 If you didn't write down the number, you can find it by going to
 **Channels**, **Phone
-numbers**. 8. When your call is joined to Amazon Connect you'll hear "Press 1 to be put in queue
-for an agent, 2 to ..." This is the [Sample inbound flow](sample-inbound-flow.md "sample-inbound-flow.md") that Amazon Connect runs by default.
+numbers**. 8. When your call is joined to Connect Customer you'll hear "Press 1 to be put in queue
+for an agent, 2 to ..." This is the [Sample inbound flow](sample-inbound-flow.md "sample-inbound-flow.md") that Connect Customer runs by default.
 You're going to change this later in the tutorial. 9. You can play around with the different options in the Sample inbound flow.
 To connect to an agent, press **1**,
 **1**, **1**. 10. In the CCP, choose **Accept call**.
@@ -63,10 +63,10 @@ Well done! You've handled your first voice contact!
 
 ###### Tip
 
-As an administrator, you can launch the CCP from anywhere on the Amazon Connect console
+As an administrator, you can launch the CCP from anywhere on the Connect Customer console
 by choosing the phone icon on the top of the page.
 
-![The phone icon at the top of the Amazon Connect console that launches the CCP.](images/tutorial1-phone-icon.png)
+![The phone icon at the top of the Connect Customer console that launches the CCP.](images/tutorial1-phone-icon.png)
 
 ### Next step
 
@@ -92,8 +92,8 @@ example, _I need help resetting my password_.
 ![The CCP, an incoming chat, the button to accept the chat.](images/tutorial1-accept-chat.png) 5. Use the CCP to send chat messages to the customer. 6. When you're done chatting, choose **End chat**. Then in
 the CCP, choose **Close contact**.
 
-Congratulations! You've experienced what it's like to chat using Amazon Connect.
+Congratulations! You've experienced what it's like to chat using Connect Customer.
 
 Next, try Tutorial 3 to set up an IT Help Desk. It shows you how to set up
 routing, create a flow, and then test the custom voice and chat experience. Go to
-[Create an IT help desk in Amazon Connect](tutorial1-create-helpdesk.md "tutorial1-create-helpdesk.md").
+[Create an IT help desk in Connect Customer](tutorial1-create-helpdesk.md "tutorial1-create-helpdesk.md").

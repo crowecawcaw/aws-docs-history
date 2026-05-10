@@ -9,14 +9,14 @@ provider.
 - A third-party STT provider API key stored in AWS Secrets Manager. For more information
   about storing API keys as secrets in Secrets Manager, see [Create an AWS Secrets Manager
   secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md").
-- An Secrets Manager resource policy allowing Amazon Connect to retrieve the secret. For more
+- An Secrets Manager resource policy allowing Connect Customer to retrieve the secret. For more
   information, see [Managing secrets and resource policies](managing-secrets-resource-policies.md "managing-secrets-resource-policies.md").
 - AWS KMS key permissions allowing decryption. For more information, see [Managing secrets and resource policies](managing-secrets-resource-policies.md "managing-secrets-resource-policies.md").
 - A provider model ID and Secrets Manager ARN.
 
 ## Step 1: Open the speech model configuration panel
 
-1. Sign in to the Amazon Connect admin website.
+1. Sign in to the Connect Customer admin website.
 2. Choose **Bots**, then choose the bot.
 3. Choose the locale.
 4. In the **Speech model** section, choose
@@ -55,8 +55,8 @@ speech-to-text provider.
 
 2. In **Secrets Manager ARN**, enter the ARN of the secret that contains the
    provider API key.
-   - The secret must be in the same Region as your Amazon Connect instance.
-   - Secrets Manager and KMS key policies must permit Amazon Connect to access and decrypt the
+   - The secret must be in the same Region as your Connect Customer instance.
+   - Secrets Manager and KMS key policies must permit Connect Customer to access and decrypt the
      key. For more information, see [Managing secrets and resource policies](managing-secrets-resource-policies.md "managing-secrets-resource-policies.md").
 
 3. Choose **Continue** to save your changes.
@@ -69,7 +69,7 @@ build.
 
 ## Runtime behavior (STT)
 
-- Amazon Connect routes audio to the chosen third-party speech-to-text provider.
+- Connect Customer routes audio to the chosen third-party speech-to-text provider.
 - No changes to flows or Lambda functions are required.
 - Errors such as invalid credentials or invalid model IDs appear in logs.
 - Metrics and analytics continue to function normally.

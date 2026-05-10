@@ -1,4 +1,4 @@
-# Best practices for Amazon Connect outbound campaigns
+# Best practices for Connect Customer outbound campaigns
 
 The topics in this section explain best practices for outbound campaigns. These practices
 can increase agent productivity, help you comply with regulations, and help protect the integrity
@@ -14,7 +14,7 @@ of your phone numbers.
 
 ## Choose the right mode for voice communication
 
-Amazon Connect outbound campaign provides several types of voice communication. The following
+Connect Customer outbound campaign provides several types of voice communication. The following
 sections describe each type so that you can implement the campaign that best meets your
 needs.
 
@@ -75,11 +75,11 @@ When call recipients answer a call and hear silence in return, they often hang u
 predictive mode, use the following best practices to help reduce that silence:
 
 - Ensure that you have enough agents logged in to your call queue. For more information
-  about staffing, see [Forecasting, capacity planning, and scheduling in Amazon Connect](forecasting-capacity-planning-scheduling.md "forecasting-capacity-planning-scheduling.md").
-- Consider using Amazon Connect's machine learning services.
+  about staffing, see [Forecasting, capacity planning, and scheduling in Connect Customer](forecasting-capacity-planning-scheduling.md "forecasting-capacity-planning-scheduling.md").
+- Consider using Connect Customer's machine learning services.
   - [Forecasting](forecasting.md "forecasting.md"). Analyze and predict contact volume
     based on historical data. What will future demand—the contact volume and handle time—look
-    like? Amazon Connect forecasting provides accurate and auto-generated forecasts that are
+    like? Connect Customer forecasting provides accurate and auto-generated forecasts that are
     automatically updated daily.
   - [Capacity planning](capacity-planning.md "capacity-planning.md"). Predict how many agents
     your contact center will require. Optimize plans by scenarios, service level goals, and
@@ -98,7 +98,7 @@ predictive mode, use the following best practices to help reduce that silence:
 Successful outbound calling campaigns avoid silent calls, the period of silence after a
 person answers a call and before an agent comes on the line. Legal requirements to limit the
 number of silent or abandoned calls and keep the called party informed may also apply. You can
-configure Amazon Connect in different ways to reduce call connection delays.
+configure Connect Customer in different ways to reduce call connection delays.
 
 ###### Contents
 
@@ -186,7 +186,7 @@ Here are examples of how to use Customer Profile attributes in prompts:
 ### User administration best practices
 
 We recommend setting the following options for your users to reduce connection times. To
-access these settings, in the Amazon Connect admin website navigate to **Users**, **User
+access these settings, in the Connect Customer admin website navigate to **Users**, **User
 management**, **Edit**.
 
 These options apply to soft phones only.
@@ -218,14 +218,14 @@ hardware and network resources.
 - Ensure that agents use a wired network connection. This mitigates potential wireless
   network latency.
 - If possible, minimize the geographic distance between the AWS Region that hosts your
-  Amazon Connect instance and the agents that interact with the outbound campaigns. The greater the
+  Connect Customer instance and the agents that interact with the outbound campaigns. The greater the
   geographic distance between your agents and the hosting Region, the higher the possible
   latency.
 
 ###### Note
 
 Outbound campaigns have limitations on the numbers that agents can dial, depending on the
-origin of the Amazon Connect instance. For more information, see the [Amazon Connect
+origin of the Connect Customer instance. For more information, see the [Connect Customer
 Telecoms Country Coverage Guide](https://d1v2gagwb6hfe1.cloudfront.net/Amazon_Connect_Telecoms_Coverage.pdf "https://d1v2gagwb6hfe1.cloudfront.net/Amazon_Connect_Telecoms_Coverage.pdf").
 
 ### Testing best practices
@@ -341,4 +341,4 @@ Sorted segments are useful when you want to:
   campaign. In a journey, earlier send communication blocks are prioritized over later
   ones.
 
-For more information about creating and sorting segments, see [Build customer segments in Amazon Connect](customer-segments-building-segments.md "customer-segments-building-segments.md").
+For more information about creating and sorting segments, see [Build customer segments in Connect Customer](customer-segments-building-segments.md "customer-segments-building-segments.md").

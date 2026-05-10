@@ -1,18 +1,18 @@
-# Key management in Amazon Connect
+# Key management in Connect Customer
 
 You can specify AWS KMS keys, including bring your own keys (BYOK), to use for envelope
 encryption with Amazon S3 input/output buckets.
 
-When you associate the AWS KMS key to the S3 storage location in Amazon Connect, the API caller's
+When you associate the AWS KMS key to the S3 storage location in Connect Customer, the API caller's
 permissions (or the console user's permissions) are used to create a grant on the key
-with the corresponding Amazon Connect instance service role as the grantee principal. For the
-service linked role specific to that Amazon Connect instance, the grant allows the role to use
+with the corresponding Connect Customer instance service role as the grantee principal. For the
+service linked role specific to that Connect Customer instance, the grant allows the role to use
 the key for encryption and decryption. For example:
 
 - If you call the [DisassociateInstanceStorageConfig](../APIReference/API_DisassociateInstanceStorageConfig.md "../APIReference/API_DisassociateInstanceStorageConfig.md") API to dissociate the AWS KMS key
-  from the S3 storage location in Amazon Connect, the grant is removed from the key.
+  from the S3 storage location in Connect Customer, the grant is removed from the key.
 - If you call the [AssociateInstanceStorageConfig](../APIReference/API_AssociateInstanceStorageConfig.md "../APIReference/API_AssociateInstanceStorageConfig.md") API to associate the AWS KMS key to
-  the S3 storage location in Amazon Connect but you don't have the
+  the S3 storage location in Connect Customer but you don't have the
   `kms:CreateGrant` permission, the association will fail.
   Use the [`list-grants`](https://awscli.amazonaws.com/v2/documentation/api/2.0.34/reference/kms/list-grants.html "https://awscli.amazonaws.com/v2/documentation/api/2.0.34/reference/kms/list-grants.html") CLI command to list all grants for the
   specified customer managed key.
@@ -37,12 +37,12 @@ requires a grant to use your customer managed key. When you create a data integr
 Amazon AppIntegrations sends a `CreateGrant` request to AWS KMS on your behalf. You can
 revoke access to the grant, or remove the service's access to the customer managed key at any
 time. If you do, Amazon AppIntegrations won't be able to access any of the data encrypted by the
-customer managed key, which affects Amazon Connect services that are dependent on that data.
+customer managed key, which affects Connect Customer services that are dependent on that data.
 
 ## Customer Profiles
 
 For Customer Profiles, you can specify AWS KMS keys to use for encrypting your data. If you don't
-specify a customer managed key, Amazon Connect Customer Profiles provides encryption by default for your
+specify a customer managed key, Connect Customer Customer Profiles provides encryption by default for your
 data at rest using an AWS-owned encryption key.
 
 Before you turn on Data Store for a new or existing domain, you must configure an
@@ -58,8 +58,8 @@ existing key settings.
 
 ## Voice ID
 
-For using Amazon Connect Voice ID, it is mandatory to provide a customer managed key KMS key (BYOK)
-while creating a Amazon Connect Voice ID domain, which is used to encrypt all the customer
+For using Connect Customer Voice ID, it is mandatory to provide a customer managed key KMS key (BYOK)
+while creating a Connect Customer Voice ID domain, which is used to encrypt all the customer
 data at rest.
 
 ## Outbound campaigns

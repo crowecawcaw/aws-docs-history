@@ -1,4 +1,4 @@
-# Things to know before porting a phone number to Amazon Connect
+# Things to know before porting a phone number to Connect Customer
 
 The topics in this section explain which numbers can be ported, how long it takes,
 and what fees you might incur.
@@ -9,8 +9,8 @@ The following terminology is used in these topics:
 Authorization**
 
 Letter of Authorization (LOA) is a legal document in which you assert
-to the carrier for Amazon Connect that you have the authority to port phone
-numbers from your current carrier to the carrier for Amazon Connect.
+to the carrier for Connect Customer that you have the authority to port phone
+numbers from your current carrier to the carrier for Connect Customer.
 Traditionally, this is a paper document requiring an actual
 signature.
 
@@ -38,7 +38,7 @@ procedures required.
 **Winning
 carrier**
 
-Also the carrier for Amazon Connect. This is the carrier that the phone number
+Also the carrier for Connect Customer. This is the carrier that the phone number
 is being ported to, and will own the phone number after the porting is
 completed.
 

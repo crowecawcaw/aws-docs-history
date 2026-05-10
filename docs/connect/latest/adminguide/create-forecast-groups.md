@@ -1,4 +1,4 @@
-# Create forecast groups in Amazon Connect
+# Create forecast groups in Connect Customer
 
 Forecast groups are a way for you to combine different queues into one forecast.
 This enables you to create a forecast from aggregated data from multiple queues,
@@ -17,7 +17,7 @@ instead of from just one queue.
 - We strongly recommend that you create all forecast groups before
   creating any forecast.
 
-Amazon Connect uses historical data for queues included in all forecast groups
+Connect Customer uses historical data for queues included in all forecast groups
 to train your forecasting model. By creating forecasts after all
 forecast groups are created, you ensure historical data of all relevant
 queues are included in the training.
@@ -31,12 +31,12 @@ queues are included in the training.
 
 ## How to create forecast groups
 
-1. Log in to the Amazon Connect admin website with an account that has security profile
+1. Log in to the Connect Customer admin website with an account that has security profile
    permissions for **Analytics**, **Forecasting -
    Edit**.
 
 For more information, see [Assign
-permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Amazon Connect navigation menu, select **Analytics and
+permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Connect Customer navigation menu, select **Analytics and
 optimization**, **Forecasting**. 3. Select the **Forecast groups** tab, and then choose
 **Create forecast group**. 4. On the **Create Forecast Groups** page, under
 **Queues**, you'll see a list of queues that are
@@ -54,7 +54,7 @@ date it was last changed.
 However, doing so might initiate an immediate change in associated
 forecasts.
 
-For example, if you made a change for forecast group today, Amazon Connect
+For example, if you made a change for forecast group today, Connect Customer
 automatically computes the new short-term and long-term forecasts
 tomorrow. Your change to the forecast group also impacts downstream
 capacity plans and schedules that are created based on the forecast

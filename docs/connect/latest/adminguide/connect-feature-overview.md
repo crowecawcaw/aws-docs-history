@@ -1,17 +1,17 @@
-# Amazon Connect feature overview
+# Connect Customer feature overview
 
-Amazon Connect Customer is an omnichannel contact center, built in the cloud from the ground-up. It
+Connect Customer Customer is an omnichannel contact center, built in the cloud from the ground-up. It
 empowers businesses of all sizes to connect their customers with the same world-class
 customer experience Amazon uses to orchestrate their customer care.
 
 ###### Tip
 
 For an online workshop that leverages a case study and includes hands-on labs, see
-[Introduction to Amazon Connect](https://catalog.workshops.aws/amazon-connect-introduction/en-US/introduction "https://catalog.workshops.aws/amazon-connect-introduction/en-US/introduction") by AWS Workshop Studio.
+[Introduction to Connect Customer](https://catalog.workshops.aws/amazon-connect-introduction/en-US/introduction "https://catalog.workshops.aws/amazon-connect-introduction/en-US/introduction") by AWS Workshop Studio.
 
 ## Customers: Omnichannel customer experience
 
-Amazon Connect provides you with the following channels for interacting with your
+Connect Customer provides you with the following channels for interacting with your
 customers:
 
 - Voice (phone)
@@ -27,7 +27,7 @@ different agent their interaction history is preserved, so they don't have to re
 themselves. The omnichannel contact center improves customer experiences while
 reducing resolution time.
 
-![The Amazon Connect customer experience, seamless, personalized, and proactive across channels.](images/omnichannel-diagram.png)
+![The Connect Customer customer experience, seamless, personalized, and proactive across channels.](images/omnichannel-diagram.png)
 
 ###### Contents
 
@@ -43,8 +43,8 @@ reducing resolution time.
 
 The sound quality of a call impacts customer experience and agent
 productivity. When your customers can't hear you clearly, it can lead to wasted
-time and frustration. With Amazon Connect, calls are connected to the agent over the
-internet from a computing device like a PC, using the Amazon Connect softphone. The Amazon Connect
+time and frustration. With Connect Customer, calls are connected to the agent over the
+internet from a computing device like a PC, using the Connect Customer softphone. The Connect Customer
 softphone delivers high-quality 16kHz audio and is resistant to packet loss to
 ensure a high-quality call experience.
 
@@ -55,11 +55,11 @@ using our proven AI-powered speech recognition and natural language
 understanding technology (the same technology that powers Alexa). These same AI
 capabilities can be used across all channels.
 
-With Amazon Lex natively integrated within Amazon Connect, no coding is required to add
+With Amazon Lex natively integrated within Connect Customer, no coding is required to add
 chatbots that have natural language understanding (NLU). Self-service chatbots
 use high-quality, neural text-to-speech (TTS) in more than 30 languages,
 automated speech recognition (ASR) in over 25 languages/locales, natural
-language understanding (NLU), and passive voice authentication. Amazon Connect IVR and
+language understanding (NLU), and passive voice authentication. Connect Customer IVR and
 chatbots also take advantage of generative AI features to greatly streamline the
 building and testing of powerful, conversational self-service experiences (for
 example, LLM-assisted slot resolution, conversational FAQs, sample utterance
@@ -69,21 +69,21 @@ generation, and bot creation using natural language description).
 
 You can help customers through text-based communication channels, such as web
 chat, mobile chat, SMS, and third-party messaging apps, such as WhatsApp or
-Facebook Messenger. By using the [Amazon Connect chat
+Facebook Messenger. By using the [Connect Customer chat
 and messaging](web-and-mobile-chat.md "web-and-mobile-chat.md") features, you can set up AI-powered chatbots and
 step-by-step guides so customers can self-serve. If customers need assistance,
 agents get all of the prior context from the self-service interactions to ensure
 a seamless transition.
 
-- **Chat**. Amazon Connect makes it easy to [set up your customer's chat
+- **Chat**. Connect Customer makes it easy to [set up your customer's chat
   experience](enable-chat-in-app.md "enable-chat-in-app.md"). You can add a communications widget to your
-  website that is hosted by Amazon Connect. You configure the communications widget
-  in the Amazon Connect admin website. You can customize the font and colors, and
+  website that is hosted by Connect Customer. You configure the communications widget
+  in the Connect Customer admin website. You can customize the font and colors, and
   secure the widget so that it can be launched only from your website.
   When finished, you will have a short code snippet that you add to your
   website.
 
-Because Amazon Connect hosts the widget, it ensures that the latest version is
+Because Connect Customer hosts the widget, it ensures that the latest version is
 always live on your website.
 
 - **SMS**. You can [set up two-way SMS messaging](setup-sms-messaging.md "setup-sms-messaging.md")
@@ -93,25 +93,25 @@ always live on your website.
   customer message and automate responses to their questions, saving
   agents valuable time and effort.
 - **Third-party messaging apps**. To
-  integrate with third-party messaging apps, use the [Amazon Connect APIs](../APIReference/Welcome.md "../APIReference/Welcome.md") that enable you to subscribe to a real-time
+  integrate with third-party messaging apps, use the [Connect Customer APIs](../APIReference/Welcome.md "../APIReference/Welcome.md") that enable you to subscribe to a real-time
   stream of chat messages. Using these APIs, you can:
 
       + Stream chat messages in real time when a new chat contact is
        created.
-      + Extend the current Amazon Connect chat functionality to support use
+      + Extend the current Connect Customer chat functionality to support use
        cases like building integrations with SMS solutions and
        third-party messaging applications, enabling mobile push
        notifications, and creating analytics dashboards to monitor and
        track chat message activity.
 
-  For more information, see [Enable real-time chat message streaming in Amazon Connect](chat-message-streaming.md "chat-message-streaming.md").
+  For more information, see [Enable real-time chat message streaming in Connect Customer](chat-message-streaming.md "chat-message-streaming.md").
 
 ### In-app, web, and video calling
 
-You can [set up the Amazon Connect in-app, web, and video
+You can [set up the Connect Customer in-app, web, and video
 calling](inapp-calling.md "inapp-calling.md") capabilities to enable your customers to contact you without
 ever leaving your web or mobile application. You can use these capabilities to
-pass contextual information to Amazon Connect. For example, if your customer is already
+pass contextual information to Connect Customer. For example, if your customer is already
 logged into your app, they do not need to identify or authenticate themselves
 when they request a call or video conversation with an agent. This enables you
 to personalize the customer experience based on attributes such as the
@@ -146,16 +146,16 @@ productivity leading to increased customer satisfaction.
 
 ### Email
 
-You can use Amazon Connect email capabilities to receive and respond to emails sent by
+You can use Connect Customer email capabilities to receive and respond to emails sent by
 customers to your business email addresses, or submitted by using web forms on
 your website or mobile app. You can configure auto-responses, prioritize emails,
 create or update cases, and route emails to the best available agent when agent
-assistance is required. Amazon Connect email capabilities also work seamlessly with [outbound campaigns](#connect-intro-campaigns "#connect-intro-campaigns").
+assistance is required. Connect Customer email capabilities also work seamlessly with [outbound campaigns](#connect-intro-campaigns "#connect-intro-campaigns").
 
 Agents have access to a rich text editor to respond to emails and to create
 personalized email templates and signatures. They can also create quick
 responses to answer frequently asked questions. The following image shows an
-example of where you can create a basic agent signature template in the Amazon Connect admin website.
+example of where you can create a basic agent signature template in the Connect Customer admin website.
 When agents use this template, it will automatically populate their name and add
 the logo to their emails.
 
@@ -177,9 +177,9 @@ quick responses to respond.
 
 To get started, [set up the email
 channel](setup-email-channel.md "setup-email-channel.md") in your instance right alongside your voice, chat, and task
-channels. Amazon Connect email integrates with Amazon Simple Email Service (SES) for the sending,
+channels. Connect Customer email integrates with Amazon Simple Email Service (SES) for the sending,
 receiving, and monitoring (such as for spam and virus detection) of emails.
-Amazon Connect provides you with an email domain that you can use to create your email
+Connect Customer provides you with an email domain that you can use to create your email
 addresses, or you can easily associate up to five of your own custom domains
 using Amazon SES. After you have domains associated with your instance, you can [create](create-email-address1.md "create-email-address1.md") up to 100 email addresses that
 can be used to send and receive emails (for example, support@example.com,
@@ -196,7 +196,7 @@ average agent handle time, queue time, contacts answered, and more.
 
 ## Agents: Empowerment and productivity
 
-With Amazon Connect, you can enhance your agents' productivity by providing them with quick
+With Connect Customer, you can enhance your agents' productivity by providing them with quick
 access to information and automatic recommendations. You can enable your agents to
 capture relevant details for fast and efficient follow-up. And best of all, they can
 work in one application, for a seamless experience. This results in shorter training
@@ -227,7 +227,7 @@ track and manage customer issues that require multiple interactions.
 
 You can also easily integrate other applications directly into the agent
 workspace, thus further increasing agent efficiency. For more information, see
-[Integrate third-party applications (3p apps) in the Amazon Connect agent workspace](3p-apps.md "3p-apps.md")
+[Integrate third-party applications (3p apps) in the Connect Customer agent workspace](3p-apps.md "3p-apps.md")
 
 The following image shows the agent workspace with callouts indicating the
 features on the page.
@@ -281,7 +281,7 @@ when the agent is on a call.
 
 ### Generative AI-powered post-contact summaries
 
-To help agents perform their After contact work (ACW), Amazon Connect displays a [generative AI-powered
+To help agents perform their After contact work (ACW), Connect Customer displays a [generative AI-powered
 post-contact summary](view-generative-ai-contact-summaries.md "view-generative-ai-contact-summaries.md") on their CCP for voice contacts. The summary
 provides essential information from customer conversations in a structured,
 concise, and easy to read format. The following image shows an example summary
@@ -291,8 +291,8 @@ for a voice contact.
 
 ### Unified customer view
 
-You use [Amazon Connect Customer Profiles](customer-profiles.md "customer-profiles.md") to combine
-information from external applications with the contact history from Amazon Connect. For
+You use [Connect Customer Customer Profiles](customer-profiles.md "customer-profiles.md") to combine
+information from external applications with the contact history from Connect Customer. For
 example, you can combined contacts with information from Salesforce, Zendesk,
 ServiceNow, or other customer relationship management (CRM) products (including
 your own, internal data sources) to create customer profiles that have all the
@@ -310,11 +310,11 @@ the agent is currently talking to.
 
 You can use Customer Profiles to access information during a self-service experience (for
 example, IVR or bot), or in other agent applications, or you can use it as a
-standalone service separate from Amazon Connect.
+standalone service separate from Connect Customer.
 
 ### Case management
 
-Agents use [Amazon Connect Cases](cases.md "cases.md") to efficiently manage
+Agents use [Connect Customer Cases](cases.md "cases.md") to efficiently manage
 customer issues that require multiple interactions, track follow-up tasks, and
 access subject matter experts across a business. Agents can document customer
 issues in a single, unified view with relevant case details, such as date/time
@@ -350,7 +350,7 @@ operations and outcomes.
 ### Real-time and historical reports and dashboards
 
 Understanding your contact center at the most granular level is key to
-improving performance and lowering costs. Amazon Connect provides powerful analytics
+improving performance and lowering costs. Connect Customer provides powerful analytics
 tools, including visual [dashboards](dashboards.md "dashboards.md") with
 customizable real-time and historical metrics.
 
@@ -362,8 +362,8 @@ contact drivers over time, and the performance of each of those call drivers.
 
 ![A conversational analytics dashboard.](images/whatisconnect-dashboard.png)
 
-You can use Amazon Connect data lake as a central location to query various
-types of data from Amazon Connect. This data includes contact records,
+You can use Connect Customer data lake as a central location to query various
+types of data from Connect Customer. This data includes contact records,
 Contact Lens conversational analytics, Contact Lens
 performance evaluations, and more. You can use data lake to create
 custom reports, run SQL queries, or leverage the BI tools of your choice to
@@ -511,7 +511,7 @@ select **Monthly** from the dropdown.
 
 - [Scheduling](scheduling.md "scheduling.md"): Contact center schedulers
   or managers need to create agent schedules for day-to-day workloads that
-  are flexible and meet business and compliance requirements. Amazon Connect helps
+  are flexible and meet business and compliance requirements. Connect Customer helps
   you create efficient schedules that are optimized for per-channel
   Service Level or Average speed of answer targets. You can generate and
   manage agent schedules based on the following:
@@ -522,7 +522,7 @@ select **Monthly** from the dropdown.
        contacts from a specific forecast group)
       + Human resources and business rules
 
-  The following image shows a sample schedule in the Amazon Connect admin website for a
+  The following image shows a sample schedule in the Connect Customer admin website for a
   supervisor's team.
 
 ![A sample schedule for a supervisor's team.](images/scheduling-view-schedule-supervisors-filter2.png)
@@ -534,7 +534,7 @@ agent workspace.
 
 ## Administrators: Configuration and flexibility
 
-Amazon Connect provides a simple, self-service UI that enables you to make changes in
+Connect Customer provides a simple, self-service UI that enables you to make changes in
 minutes, not months.
 
 Anyone, from non-technical business leaders to experienced contact center
@@ -557,7 +557,7 @@ channels, making it easy to innovate and fine-tune the experience.
 
 ### Telephony management
 
-Amazon Connect takes the heavy lifting of managing telephony off your hands. We manage
+Connect Customer takes the heavy lifting of managing telephony off your hands. We manage
 a network of telephony providers from around the world, removing the need for
 you to manage multiple vendors, negotiate complex multi-year contracts, or
 commit to peak call volumes.
@@ -565,17 +565,17 @@ commit to peak call volumes.
 The telephony service allows you to claim and then use direct inward dial
 (DID) and toll-free phone numbers for more than 110 countries worldwide. There
 are also more than 200 available outbound calling destinations. For a list of
-destinations, see the [Amazon Connect
+destinations, see the [Connect Customer
 pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/") page.
 
-For a list of the telephony capabilities that Amazon Connect provides, see the [Amazon Connect Telecoms Country Coverage Guide](https://d1v2gagwb6hfe1.cloudfront.net/Amazon_Connect_Telecoms_Coverage.pdf "https://d1v2gagwb6hfe1.cloudfront.net/Amazon_Connect_Telecoms_Coverage.pdf").
+For a list of the telephony capabilities that Connect Customer provides, see the [Connect Customer Telecoms Country Coverage Guide](https://d1v2gagwb6hfe1.cloudfront.net/Amazon_Connect_Telecoms_Coverage.pdf "https://d1v2gagwb6hfe1.cloudfront.net/Amazon_Connect_Telecoms_Coverage.pdf").
 
 The telephony-as-a service model can scale up and down at a moment's notice
 and is proactively and continuously monitored by telephony experts.
 
 ### Drag-and-drop workflow designer
 
-Amazon Connect flows provides a single drag-and-drop workflow designer you can use to
+Connect Customer flows provides a single drag-and-drop workflow designer you can use to
 create, personalize, and automate end-to-end customer and agent experiences
 across channels. With flows, you can design your interactive voice response
 (IVR) or chatbot experiences to help your customers self-serve, build
@@ -593,18 +593,18 @@ Cloud security at AWS is the highest priority. As an AWS customer, you
 benefit from a data center and network architecture that is built to meet the
 requirements of the most security-sensitive organizations.
 
-To learn more about security and data protection, see [Security in Amazon Connect](security.md "security.md").
+To learn more about security and data protection, see [Security in Connect Customer](security.md "security.md").
 
 ### Scalability
 
 You can bring on tens, or tens of thousands of agents at will, in response to
-business cycles or unplanned events, and cycle agents out just as easily. Amazon Connect
+business cycles or unplanned events, and cycle agents out just as easily. Connect Customer
 provides seamless scalability based on demand, and you only pay for what you
 use.
 
 With routing profiles, flows, and real-time metrics, you can scale your
 business operations based on current volumes. You establish contact experience
-and business workflows, and Amazon Connect scales up during peak demand without
+and business workflows, and Connect Customer scales up during peak demand without
 additional application or hardware management. Contacts experience consistent
 service outcomes during busy periods. Administrators can focus on agent
 performance and contact feedback instead of monitoring available application or
@@ -612,10 +612,10 @@ hardware capacity.
 
 ### Resiliency
 
-Amazon Connect provides all our customers with active-active resilience within an AWS
+Connect Customer provides all our customers with active-active resilience within an AWS
 Region. This resilience ensures high availability for all channels and
 applications.
 
 If your organization requires even higher levels of resilience, you can use
-[Amazon Connect Global
+[Connect Customer Global
 Resiliency](setup-connect-global-resiliency.md "setup-connect-global-resiliency.md") to provide resilience across multiple AWS Regions.

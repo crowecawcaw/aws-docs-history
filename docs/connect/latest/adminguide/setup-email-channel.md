@@ -1,8 +1,8 @@
-# Set up email in Amazon Connect
+# Set up email in Connect Customer
 
 Following is an overview of the steps to set up the email channel for your contact center.
 
-- [Enable email for your Amazon Connect instance](enable-email1.md "enable-email1.md"). During this process
+- [Enable email for your Connect Customer instance](enable-email1.md "enable-email1.md"). During this process
   you get an auto-generated email address. You also have the option of adding five
   custom addresses.
 - [Create email addresses](create-email-address1.md "create-email-address1.md").
@@ -14,17 +14,17 @@ Following is an overview of the steps to set up the email channel for your conta
 
 
 
-      	- This must be a verified email address within Amazon Connect (an email address created in Amazon Connect under an Amazon SES verified domain).
+      	- This must be a verified email address within Connect Customer (an email address created in Connect Customer under an Amazon SES verified domain).
       	- This should be the most commonly used email address for this queue.
       	- For agent-initiated outbound emails, agents can send emails using the default email address from the default outbound queue configured in their routing profile. Agents can also select from the **Additional email addresses** configured on the queue, giving you flexibility to control which email addresses agents can use based on their role or team.
       	- This model is similar to outbound voice contacts, where you specify the outbound caller ID and flow per queue, and agents use the default outbound queue from their routing profile.
-      + **Outbound email flow**: Select a flow to execute for outbound emails sent from this queue. You can select the [Default outbound flow in Amazon Connect: "This call is not being recorded"](default-outbound.md "default-outbound.md") or another flow that is type Outbound.
+      + **Outbound email flow**: Select a flow to execute for outbound emails sent from this queue. You can select the [Default outbound flow in Connect Customer: "This call is not being recorded"](default-outbound.md "default-outbound.md") or another flow that is type Outbound.
 
 
 
 
       	- The outbound email flow you configure here applies to agent replies to inbound email contacts received on this queue, and agent-initiated outbound emails when this queue is selected as the default outbound queue in the agent's routing profile.
-      	- If you do not specify an outbound email flow, the [Default outbound flow in Amazon Connect: "This call is not being recorded"](default-outbound.md "default-outbound.md") is automatically used for all outbound emails from this queue.
+      	- If you do not specify an outbound email flow, the [Default outbound flow in Connect Customer: "This call is not being recorded"](default-outbound.md "default-outbound.md") is automatically used for all outbound emails from this queue.
       	- Similar to outbound voice contacts, configuring different outbound email flows per queue gives you flexibility to execute different contact flows based on the queue. This allows you to customize the outbound email experience for different teams, brands, or business units.
 
   In the **Additional email addresses** section:

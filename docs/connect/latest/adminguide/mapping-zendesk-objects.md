@@ -1,4 +1,4 @@
-# Mapping Zendesk objects to the standard profile in Amazon Connect Customer Profiles
+# Mapping Zendesk objects to the standard profile in Connect Customer Customer Profiles
 
 This topic lists which fields in Zendesk objects map to fields in the
 standard profile in Customer Profiles.
@@ -56,7 +56,7 @@ be mapped from the Zendesk-users object to the standard profile.
 | phone                      | PhoneNumber                   |
 
 The Zendesk-users customer data from the Zendesk object is associated with
-a Amazon Connect customer profile using the following indexes.
+a Connect Customer customer profile using the following indexes.
 
 | Standard Index Name | Zendesk-user source field |
 | ------------------- | ------------------------- |
@@ -64,7 +64,7 @@ a Amazon Connect customer profile using the following indexes.
 | \_zendeskExternalId | external_id               |
 
 For example, you can use `_zendeskUserId` and
-`_zendeskExternalId` as a key name with the [SearchProfiles](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md") API to find an Amazon Connect customer profile. You can
+`_zendeskExternalId` as a key name with the [SearchProfiles](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md") API to find an Connect Customer customer profile. You can
 find the Zendesk-users objects associated with a specific customer profile
 by using the [ListProfileObjects](../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md") API with the `ProfileId` and
 `ObjectTypeName` set to `Zendesk-users`.

@@ -12,7 +12,7 @@ create a predefined attribute. A proficiency level is an indicator, ranging from
 of the level of expertise of an agent for a given attribute value. Level 1 is the lowest
 proficiency, while 5 is the highest.
 
-You can create and manage predefined attributes manually by using the Amazon Connect admin website; the steps are
+You can create and manage predefined attributes manually by using the Connect Customer admin website; the steps are
 described in this topic. Or programmatically by using the [Predefined attribute management APIs](#predefined-attributes-apis "#predefined-attributes-apis").
 
 ###### Contents
@@ -26,7 +26,7 @@ described in this topic. Or programmatically by using the [Predefined attribute 
 ## Important things to know
 
 - The information in a predefined attribute is not encrypted. We strongly
-  recommend you follow the [Best practices for PII compliance in Amazon Connect](compliance-validation-best-practices-PII.md "compliance-validation-best-practices-PII.md").
+  recommend you follow the [Best practices for PII compliance in Connect Customer](compliance-validation-best-practices-PII.md "compliance-validation-best-practices-PII.md").
 - You can create up to 500 values per attribute.
 - A predefined attribute **name** can be up to 100
   characters long.
@@ -40,20 +40,20 @@ described in this topic. Or programmatically by using the [Predefined attribute 
 - You cannot create duplicate predefined attribute names or values. In addition,
   case sensitivity does not allow you to use duplicate names. For example, a new
   predefined attribute with the name `language` cannot be created if a
-  predefined attribute with name `Language` exists in your Amazon Connect
+  predefined attribute with name `Language` exists in your Connect Customer
   instance.
 - An attribute can only be deleted if it not associated with any agent.
 
 Before deleting an attribute, ensure none of the contacts are waiting for an
 agent with that attribute or the contact will not find a match.
 
-- For the quota for predefined attributes allowed in an Amazon Connect instance, see
-  [Amazon Connect quotas](amazon-connect-service-limits.md#connect-quotas "amazon-connect-service-limits.md#connect-quotas").
+- For the quota for predefined attributes allowed in an Connect Customer instance, see
+  [Connect Customer quotas](amazon-connect-service-limits.md#connect-quotas "amazon-connect-service-limits.md#connect-quotas").
 
 ## System predefined attributes
 
 System attributes, identified as `connect:`, are predefined attributes set
-by Amazon Connect. You cannot change or delete the `connect:` name and values.
+by Connect Customer. You cannot change or delete the `connect:` name and values.
 
 The following system attributes are available:
 
@@ -64,11 +64,11 @@ The following system attributes are available:
 
 ## Create a predefined attribute
 
-1. Log in to the Amazon Connect admin website with an **Admin** account, or an account
+1. Log in to the Connect Customer admin website with an **Admin** account, or an account
    assigned to a security profile that has **Routing** -
    **Predefined attributes** - **Create**
    permission.
-2. In Amazon Connect, on the left navigation menu, choose **Routing**,
+2. In Connect Customer, on the left navigation menu, choose **Routing**,
    **Predefined attributes**.
 3. On the **Attribute management** page choose **Add
    attribute**, as shown in the following image.

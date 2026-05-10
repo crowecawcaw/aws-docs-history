@@ -16,8 +16,8 @@ dashboard**.
   Following is a high-level overview of how you integrate a published dashboard in the
   agent workspace.
 
-1. Publish your Amazon Connect dashboard. For instructions, see [Publish reports](publish-reports.md "publish-reports.md").
-2. Integrate your published Amazon Connect dashboard into the agent workspace. For
+1. Publish your Connect Customer dashboard. For instructions, see [Publish reports](publish-reports.md "publish-reports.md").
+2. Integrate your published Connect Customer dashboard into the agent workspace. For
    instructions, see [Integrate third-party applications (3p
    apps)](3p-apps.md "3p-apps.md").
 

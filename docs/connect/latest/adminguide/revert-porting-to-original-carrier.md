@@ -1,4 +1,4 @@
-# Revert phone numbers to your original carrier after porting to Amazon Connect
+# Revert phone numbers to your original carrier after porting to Connect Customer
 
 To complete the porting, the losing and gaining carriers both make
 configuration changes to pass the phone number ownership. After the porting is

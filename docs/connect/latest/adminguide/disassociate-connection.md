@@ -1,4 +1,4 @@
-# Disconnect Amazon Connect from a third-party connection
+# Disconnect Connect Customer from a third-party connection
 
 At any time you can disassociate a connection, and stop the automatic generation of
 tasks based on events from the external application.
@@ -24,7 +24,7 @@ EventBridge.
 ###### To remove the connection altogether from Salesforce
 
 - Open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow](https://console.aws.amazon.com/appflow "https://console.aws.amazon.com/appflow"), and delete the Salesforce
-  connection and flow that were created in Amazon Connect.
+  connection and flow that were created in Connect Customer.
 
 Flows are created with the name pattern of
 amazon-connect-salesforce-to-eventbridge-[subdomain].

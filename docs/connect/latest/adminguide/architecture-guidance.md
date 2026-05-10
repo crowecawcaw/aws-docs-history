@@ -1,7 +1,7 @@
-# Architectural guidance for Amazon Connect
+# Architectural guidance for Connect Customer
 
 This topic provides guidance and best practices for designing and building reliable,
-secure, efficient, and cost-effective systems for your Amazon Connect contact center workloads. Using
+secure, efficient, and cost-effective systems for your Connect Customer contact center workloads. Using
 this guidance can help you build stable and efficient workloads, allowing you to focus on
 innovation, reduce costs, and improve your customer's experience.
 
@@ -11,8 +11,8 @@ operations team members.
 ###### Contents
 
 - [Services to use with
-  Amazon Connect](related-services-amazon-connect.md "related-services-amazon-connect.md")
-- [Amazon Connect workload layers](workload-layers.md "workload-layers.md")
+  Connect Customer](related-services-amazon-connect.md "related-services-amazon-connect.md")
+- [Connect Customer workload layers](workload-layers.md "workload-layers.md")
 - [Scenario and deployment
   approaches](scenario-deployment-approaches.md "scenario-deployment-approaches.md")
 - [Single Instance or
@@ -21,6 +21,6 @@ operations team members.
 - [Security for contact centers](security-bp.md "security-bp.md")
 - [Load and penetration /
   security testing](load-and-penetration-testing.md "load-and-penetration-testing.md")
-- [Reliability in Amazon Connect](reliability-bp.md "reliability-bp.md")
+- [Reliability in Connect Customer](reliability-bp.md "reliability-bp.md")
 - [Performance efficiency for Amazon Connect workloads](performance-efficiency-bp.md "performance-efficiency-bp.md")
-- [Cost optimization for Amazon Connect workloads](cost-optimization-bp.md "cost-optimization-bp.md")
+- [Cost optimization for Connect Customer workloads](cost-optimization-bp.md "cost-optimization-bp.md")

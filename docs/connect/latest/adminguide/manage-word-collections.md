@@ -37,7 +37,7 @@ choose **Save**.
 
 ## Word collection limits
 
-- Amazon Connect has a default limit of 100 user word collections per
+- Connect Customer has a default limit of 100 user word collections per
   instance.
 - Each word collection can have a maximum of 100 words or
   phrases.

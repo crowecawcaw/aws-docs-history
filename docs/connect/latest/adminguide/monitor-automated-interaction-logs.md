@@ -1,7 +1,7 @@
-# Monitor automated interactions (IVR) in Amazon Connect
+# Monitor automated interactions (IVR) in Connect Customer
 
 You can use automated interaction logs to review the automated portion of your
-customers' Amazon Connect experience . The interaction logs appear on the **Contact
+customers' Connect Customer experience . The interaction logs appear on the **Contact
 details** page. They include the following information:
 
 - Key interaction points, that is, flows, prompts, menus, keypad
@@ -14,14 +14,14 @@ details** page. They include the following information:
 ## Enable automated interaction logs
 
 Complete the following steps to check that automated interaction logs are enabled
-for your Amazon Connect instance.
+for your Connect Customer instance.
 
 ###### Note
 
-Currently, Amazon Connect doesn’t support S3 buckets with [Object
+Currently, Connect Customer doesn’t support S3 buckets with [Object
 Lock](../../../AmazonS3/latest/userguide/object-lock.md "../../../AmazonS3/latest/userguide/object-lock.md") enabled.
 
-1. Open the Amazon Connect console at
+1. Open the Connect Customer console at
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 2. Automated interactions logs are saved to the **S3 bucket you
    configured for call recordings**. If the call recordings
@@ -32,7 +32,7 @@ Lock](../../../AmazonS3/latest/userguide/object-lock.md "../../../AmazonS3/lates
       your S3 bucket.
 
 3. In the navigation pane, choose **Flows**.
-4. Select **Enable Bot Analytics and Transcripts in Amazon Connect**.
+4. Select **Enable Bot Analytics and Transcripts in Connect Customer**.
    Choose this option to log a full transcript of the Amazon Lex portion of the
    customer's experience. The transcript is then available for you to read on
    the **Contact details** page.
@@ -60,7 +60,7 @@ are gated by the following security profile permissions:
 ## Navigate automated interactions logs and audio recording
 
 The following image shows an example of an automated interaction log on the
-**Contact details** page on the Amazon Connect admin website.
+**Contact details** page on the Connect Customer admin website.
 
 ![An example of an automated interaction log.](images/automated-interaction-log.png)
 

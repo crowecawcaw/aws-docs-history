@@ -1,8 +1,8 @@
-# Apply tag-based access control in Amazon Connect
+# Apply tag-based access control in Connect Customer
 
 You use tag-based access controls to configure granular access to specific resources
 based on assigned resource tags. You can configure tag-based access controls by using
-the API/SDK or the Amazon Connect admin website for supported resources.
+the API/SDK or the Connect Customer admin website for supported resources.
 
 ## Apply tag-based access control using the API/SDK
 
@@ -18,13 +18,13 @@ For more detailed information on tag-based access control, see [Controlling
 access to AWS resources using tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md") in the _IAM User
 Guide_.
 
-## Apply tag-based access control using the Amazon Connect admin website
+## Apply tag-based access control using the Connect Customer admin website
 
 A _resource_ tag is a custom metadata label that you can add to
 a resource in order to make it easier to identify, organize, and find in a search.
-You can apply tags programmatically using the Amazon Connect SDK/APIs, and for certain
-resources you can apply tags from within the Amazon Connect console. To learn more about
-resource tags, see [Add tags to resources in Amazon Connect](tagging.md "tagging.md").
+You can apply tags programmatically using the Connect Customer SDK/APIs, and for certain
+resources you can apply tags from within the Connect Customer console. To learn more about
+resource tags, see [Add tags to resources in Connect Customer](tagging.md "tagging.md").
 
 An access control tag is similar to a resource tag in that it uses the same
 _Key:value_ structure. However, the distinction with an
@@ -39,7 +39,7 @@ based on the defined combination of the selected resource(s) and access control
 tag(s) (_Key:value_). Without access control tags applied, a user
 will be able to see all resources if given permission to do so.
 
-To use tags to control access to resources within the admin website of your Amazon Connect
+To use tags to control access to resources within the admin website of your Connect Customer
 instance, you need to configure the access control section within a given security
 profile. For example, to control access to a routing profile based on the tags
 you've assigned to it, you would specify the routing profile as an access controlled
@@ -70,14 +70,14 @@ enforced over the one with tag-based access controls.
 Service linked roles are required in order to configure [resource
 tags](tagging.md "tagging.md") or [access control
 tags](tag-based-access-control.md "tag-based-access-control.md"). If your instance was created after October 2018, this will be
-available by default with your Amazon Connect instance. However if you have an older
+available by default with your Connect Customer instance. However if you have an older
 instance, refer to [Use service-linked roles for
-Amazon Connect](connect-slr.md "connect-slr.md") for instructions for how to enable service linked roles.
+Connect Customer](connect-slr.md "connect-slr.md") for instructions for how to enable service linked roles.
 
 ## Best practices for applying tag-based access controls
 
 Applying tag-based access controls is an advanced configuration feature that is
-supported by Amazon Connect and that follows the AWS shared responsibility model. It is
+supported by Connect Customer and that follows the AWS shared responsibility model. It is
 important to ensure that you are correctly configuring your instance to comply with
 your desired authorization needs. For more information, review the [AWS shared
 responsibilities model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/").
@@ -93,16 +93,16 @@ all resources together. For example, enabling access to users but not security
 profiles, would allow a user to create a security profile with privileges that
 supersede your intended user access control settings.
 
-When logged in to the Amazon Connect console with tag-based access controls applied, users
+When logged in to the Connect Customer console with tag-based access controls applied, users
 will not be able to access historical change logs for the resources that they are
 restricted on.
 
 As a best practice, you should disable access to the following resources/modules
-when applying tag-based access controls within the Amazon Connect console. If you do not
+when applying tag-based access controls within the Connect Customer console. If you do not
 disable access to these resources, users with tag-based access controls on a
 particular resource that view these pages may see an unrestricted list of users,
 security profiles, routing profiles, queues, flows, or flow modules. For more
-information on how to manage permissions, see [List of security profile permissions in Amazon Connect](security-profile-list.md "security-profile-list.md").
+information on how to manage permissions, see [List of security profile permissions in Connect Customer](security-profile-list.md "security-profile-list.md").
 
 | Modules                         | Permission to disable access  |
 | ------------------------------- | ----------------------------- |

@@ -1,10 +1,10 @@
-# Time off management in Amazon Connect
+# Time off management in Connect Customer
 
-With Amazon Connect time off management capabilities, you can manage agent time off requests
+With Connect Customer time off management capabilities, you can manage agent time off requests
 that comply with pre-configured regional labor and business rules.
 
 Administrators or managers with the appropriate security profile permissions can
-configure the time off settings. Amazon Connect automatically approves or rejects requests
+configure the time off settings. Connect Customer automatically approves or rejects requests
 depending on how you've configured both the time off rules and the daily maximum allowed
 time off hours.
 

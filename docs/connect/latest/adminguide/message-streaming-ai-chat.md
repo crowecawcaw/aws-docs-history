@@ -1,12 +1,12 @@
 # Enable message streaming for AI-powered chat
 
-Amazon Connect supports message streaming for AI-powered chat interactions. Responses from AI
+Connect Customer supports message streaming for AI-powered chat interactions. Responses from AI
 agents appear progressively as they're generated, improving the customer experience
 during conversations.
 
 The following are integration options, along with features of each option:
 
-- Amazon Connect agents
+- Connect Customer agents
   - Eliminates Amazon Lex timeout limitations
   - Provides fulfillment messages during processing (such as "One moment
     while I review your account")
@@ -42,7 +42,7 @@ For newly created instances, message streaming is enabled by default.
 
 For existing instances:
 
-1. Open the Amazon Connect console and choose your instance.
+1. Open the Connect Customer console and choose your instance.
 2. In the navigation pane, choose **Flows** >
    **Amazon Lex bots**.
 3. Under **Lex bots configuration**, select
@@ -59,7 +59,7 @@ permission manually.
 
 ## Update Lex bot permissions
 
-After message streaming is enabled, Amazon Connect needs permission to call the Amazon Lex
+After message streaming is enabled, Connect Customer needs permission to call the Amazon Lex
 API:
 
 ```
@@ -67,7 +67,7 @@ lex:RecognizeMessageAsync
 ```
 
 You must update the resource-based policy for each Amazon Lex bot alias used by
-the Amazon Connect instance.
+the Connect Customer instance.
 
 ### When to update the bot's resource-based policy
 
@@ -113,11 +113,11 @@ the Amazon Connect instance.
 
 You can add this permission by calling the Amazon Lex [UpdateResourcePolicy](../../../lexv2/latest/APIReference/API_UpdateResourcePolicy.md "../../../lexv2/latest/APIReference/API_UpdateResourcePolicy.md") API to update the Amazon Lex bot alias
 resource-based policy to include the `lex:RecognizeMessageAsync`
-action for the Amazon Connect instance ARN resource.
+action for the Connect Customer instance ARN resource.
 
 ###### Important
 
-This feature currently does not support branching back to the same [Flow block in Amazon Connect: Get customer input](get-customer-input.md "get-customer-input.md") flow block or reusing a Amazon Lex bot with the same
+This feature currently does not support branching back to the same [Flow block in Connect Customer: Get customer input](get-customer-input.md "get-customer-input.md") flow block or reusing a Amazon Lex bot with the same
 alias in another **Get customer input** block. Instead, create a
 new **Get customer input** block using a different Amazon Lex bot
 alias.

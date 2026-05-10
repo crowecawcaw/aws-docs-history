@@ -1,4 +1,4 @@
-# View Identity Resolution metrics in Amazon Connect Customer Profiles
+# View Identity Resolution metrics in Connect Customer Customer Profiles
 
 Whenever Identity Resolution matches or merges profiles, metrics about the process are displayed
 on the Customer Profiles dashboard. You can review metric for the pass week on the
@@ -18,6 +18,6 @@ The following metrics are generated each time the Identity Resolution Job runs:
   were created by each rule level.
   - Only available for rule-based Identity Resolution.
 
-![The Amazon Connect Customer Profiles page, the Enable Identity Resolution button.](images/ir-metrics-example-1.png)
+![The Connect Customer Customer Profiles page, the Enable Identity Resolution button.](images/ir-metrics-example-1.png)
 
-![The Amazon Connect Customer Profiles page, the Enable Identity Resolution button.](images/customer-profiles-enable-ir.png)
+![The Connect Customer Customer Profiles page, the Enable Identity Resolution button.](images/customer-profiles-enable-ir.png)

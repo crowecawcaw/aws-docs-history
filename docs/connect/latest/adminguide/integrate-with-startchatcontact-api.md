@@ -1,6 +1,6 @@
-# Start chats in your applications by using Amazon Connect APIs
+# Start chats in your applications by using Connect Customer APIs
 
-Use the StartChatContact API in Amazon Connect APIs to start chats in your own
+Use the StartChatContact API in Connect Customer APIs to start chats in your own
 applications.
 
 To start a chat, use the [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") API.

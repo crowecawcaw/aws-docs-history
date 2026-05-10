@@ -1,11 +1,11 @@
-# Default customer queue flow in Amazon Connect: queue message and music
+# Default customer queue flow in Connect Customer: queue message and music
 
 This default flow is run when a customer is placed in a queue.
 
 1. The loop has a one-time voice prompt:
 
 _Thank you for calling. Your call is very important to us and will be
-answered in the order it was received._ 2. It plays queue music in .wav format that's been uploaded to the Amazon Connect
+answered in the order it was received._ 2. It plays queue music in .wav format that's been uploaded to the Connect Customer
 instance. 3. The customer remains in this loop until their call is answered by an
 agent.
 
@@ -42,7 +42,7 @@ For example, the following image shows the message "_Thank you
 for calling. Did you know you can reset your own password at the login
 page? Choose Reset now, and following the prompts._"
 
-![Loop prompts block configured with a text-to-speech message.](images/customize-default-contact-flow3.png) 5. Choose **Save** at the bottom of the properties page. 6. Choose **Publish**. Amazon Connect starts playing the new message
+![Loop prompts block configured with a text-to-speech message.](images/customize-default-contact-flow3.png) 5. Choose **Save** at the bottom of the properties page. 6. Choose **Publish**. Connect Customer starts playing the new message
 almost immediately (it may take a few moments for it to fully take
 effect).
 

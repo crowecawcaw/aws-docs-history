@@ -1,6 +1,6 @@
-# SSML tags supported by Amazon Connect
+# SSML tags supported by Connect Customer
 
-Amazon Connect supports the following SSML tags.
+Connect Customer supports the following SSML tags.
 
 ###### Tip
 

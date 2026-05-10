@@ -1,4 +1,4 @@
-# Queued callbacks in real-time metrics in Amazon Connect
+# Queued callbacks in real-time metrics in Connect Customer
 
 This topic explains how queued callbacks appear in your real-time metrics reports and
 the contact record.
@@ -6,7 +6,7 @@ the contact record.
 ###### Tip
 
 To see only the number of customers who are waiting for a call back, you need to
-create a queue that only takes callback contacts. To learn how to do this, see [Set up routing in Amazon Connect](connect-queues.md "connect-queues.md"). Currently there isn't
+create a queue that only takes callback contacts. To learn how to do this, see [Set up routing in Connect Customer](connect-queues.md "connect-queues.md"). Currently there isn't
 a way to see the phone numbers of the contacts waiting for callbacks.
 
 1. Callbacks are initiated when the [Transfer to
@@ -33,15 +33,15 @@ following image shows the **Initiation Timestamp** field on the
 ## How properties in the Transfer to Queue block affect this flow
 
 The [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") block has the
-following properties, which affect how Amazon Connect handles the
+following properties, which affect how Connect Customer handles the
 callback:
 
 - **Initial delay**: This property affects when a callback
   is put in queue. Specify how much time has to pass between a callback
   contact being initiated in the flow, and the customer being put in queue for
-  the next available agent. For more information, see [How Initial delay affects Scheduled and In queue metrics in Amazon Connect](scheduled-vs-inqueue.md "scheduled-vs-inqueue.md").
+  the next available agent. For more information, see [How Initial delay affects Scheduled and In queue metrics in Connect Customer](scheduled-vs-inqueue.md "scheduled-vs-inqueue.md").
 - **Maximum number of retries**: If this is set to 2, then
-  Amazon Connect tries to call the customer at most three times: the
+  Connect Customer tries to call the customer at most three times: the
   initial callback, and two retries.
 - **Minimum time between attempts**: If the customer
   doesn't answer the phone, this is how long to wait before trying again.

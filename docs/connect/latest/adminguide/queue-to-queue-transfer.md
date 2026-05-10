@@ -1,4 +1,4 @@
-# Set up a flow to manage contacts in a queue in Amazon Connect
+# Set up a flow to manage contacts in a queue in Connect Customer
 
 For inbound contacts, you can define advanced routing decisions to minimize queue wait
 times, or route contacts to specific queues, using blocks in your flow. For example:
@@ -10,7 +10,7 @@ times, or route contacts to specific queues, using blocks in your flow. For exam
 - Then use a **Check contact attributes** block to check
   specific queue metric attributes, and define conditions to determine which queue
   to route the contact to based on attribute values. For more information about
-  using queue metrics, see [Use attributes in Amazon Connect to route based on number of contacts in a queue](attrib-system-metrics.md "attrib-system-metrics.md").
+  using queue metrics, see [Use attributes in Connect Customer to route based on number of contacts in a queue](attrib-system-metrics.md "attrib-system-metrics.md").
   After determining which queue to transfer the contact to, use a **Transfer to
   queue** block in a flow to transfer the contact to that queue. When the
   **Transfer to queue** block runs, it checks the queue capacity to
@@ -31,7 +31,7 @@ transfer the call to, or use an attribute to set the queue.
 
 ###### To manage contacts in a queue using a Transfer to queue block
 
-1. In Amazon Connect, on the navigation menu choose **Routing**,
+1. In Connect Customer, on the navigation menu choose **Routing**,
    **Flows**.
 2. Choose the down arrow next to **Create flow**, then choose
    **Create customer queue flow**.

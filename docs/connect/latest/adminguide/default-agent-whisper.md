@@ -1,4 +1,4 @@
-# Default agent whisper in Amazon Connect: name of the queue
+# Default agent whisper in Connect Customer: name of the queue
 
 This flow uses a [Set whisper flow](set-whisper-flow.md "set-whisper-flow.md") block to play a message for the agent when
 the customer and agent are joined.
@@ -13,7 +13,7 @@ block to override or disable the default agent whisper in a voice conversation.
 ###### Important
 
 Chat conversations do not include a default whisper. You need to include a [Set whisper flow](set-whisper-flow.md "set-whisper-flow.md") for default
-agent or customer whispers to play. For instructions, see [Set the default whisper flow in Amazon Connect for a chat conversation](set-default-whisper-flow-for-chat.md "set-default-whisper-flow-for-chat.md").
+agent or customer whispers to play. For instructions, see [Set the default whisper flow in Connect Customer for a chat conversation](set-default-whisper-flow-for-chat.md "set-default-whisper-flow-for-chat.md").
 
 For more information about system variables, see [System attributes](connect-attrib-list.md#attribs-system-table "connect-attrib-list.md#attribs-system-table").
 

@@ -1,4 +1,4 @@
-# Create quick connects in Amazon Connect
+# Create quick connects in Connect Customer
 
 Quick connects are a way for you to create a list of destinations for common
 transfers. For example, you might create a quick connect for Tier 2 support. If agents
@@ -47,13 +47,13 @@ Flow quick connects are only supported for chat contacts.
 
 ## Step 1: Create quick connects
 
-Following are the instructions to add quick connects manually using the Amazon Connect
+Following are the instructions to add quick connects manually using the Connect Customer
 console. To add quick connects programmatically, use the [CreateQuickConnect](../APIReference/API_CreateQuickConnect.md "../APIReference/API_CreateQuickConnect.md")
 API.
 
 ###### To add quick connects
 
-1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/. To find the name of your instance, see [Find your Amazon Connect instance ID or ARN](find-instance-arn.md "find-instance-arn.md").
+1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/. To find the name of your instance, see [Find your Connect Customer instance ID or ARN](find-instance-arn.md "find-instance-arn.md").
 2. On the navigation menu, choose **Routing**,
    **Quick connects**.
 3. For each quick connect, do the following:

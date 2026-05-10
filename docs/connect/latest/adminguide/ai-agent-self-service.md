@@ -1,12 +1,12 @@
-# Use Amazon Connect AI agent self-service
+# Use Connect Customer AI agent self-service
 
-Amazon Connect enables AI agents with self-service use cases to directly engage with end
+Connect Customer enables AI agents with self-service use cases to directly engage with end
 customers over voice and chat channels. These AI agents can solve customer issues
 autonomously by answering questions and taking actions on behalf of customers. When
 necessary, an AI agent seamlessly escalates to a human agent, adding a human in the loop
 to ensure optimal customer outcomes.
 
-Amazon Connect AI agent offers two self-service approaches:
+Connect Customer AI agent offers two self-service approaches:
 
 - **Agentic self-service (recommended)** –
   Uses orchestrator AI agents that can reason across multiple steps, invoke MCP

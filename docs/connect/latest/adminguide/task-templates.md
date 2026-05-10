@@ -1,4 +1,4 @@
-# Create task templates in Amazon Connect
+# Create task templates in Connect Customer
 
 Task templates make it easy for agents to capture the right information to create and
 complete a [task](tasks.md "tasks.md"). All the fields they need to create a given
@@ -13,10 +13,10 @@ type of task are provided for them.
   agents to select a template, on the **Task templates**
   page, use the **Disable/Enable** toggle to disable all
   templates you published.
-- Verify your Amazon Connect account has [permissions to create task templates](task-template-permissions.md "task-template-permissions.md").
+- Verify your Connect Customer account has [permissions to create task templates](task-template-permissions.md "task-template-permissions.md").
 - Review the list of quotas for task templates, such as the **Task
   templates per instance** and **Task template customized
-  fields per instance**. See [Amazon Connect service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
+  fields per instance**. See [Connect Customer service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
 - You can configure a task template to allow an agent to assign the tasks to
   themselves. The agent needs the security profile permission
   **Contact Control Panel - Allow self assigning of
@@ -28,7 +28,7 @@ type of task are provided for them.
 
 ### Step 1: Name the template
 
-1. Log in to the Amazon Connect console with an **Admin**
+1. Log in to the Connect Customer console with an **Admin**
    account, or an account assigned to a security profile that has [permissions to create task
    templates](task-template-permissions.md "task-template-permissions.md").
 2. In the left navigation menu, choose **Channels**,

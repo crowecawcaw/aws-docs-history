@@ -1,23 +1,23 @@
-# Set up Amazon Connect Cases event streams
+# Set up Connect Customer Cases event streams
 
 This topic explains how to set up and use case event streams. Some of the onboarding
-steps require you to call [Amazon Connect Cases APIs](../../../cases/latest/APIReference/Welcome.md "../../../cases/latest/APIReference/Welcome.md").
+steps require you to call [Connect Customer Cases APIs](../../../cases/latest/APIReference/Welcome.md "../../../cases/latest/APIReference/Welcome.md").
 
-## Step 1: Create an Amazon Connect instance and enable Customer Profiles
+## Step 1: Create an Connect Customer instance and enable Customer Profiles
 
-1. Ensure you have an working Amazon Connect instance in one of the AWS Regions
+1. Ensure you have an working Connect Customer instance in one of the AWS Regions
    where Cases is available. See [Cases availability by Region](regions.md#cases_region "regions.md#cases_region").
-2. Enable Amazon Connect Customer Profiles. For instructions, see [Enable Customer Profiles for your Amazon Connect instance](enable-customer-profiles.md "enable-customer-profiles.md").
+2. Enable Connect Customer Customer Profiles. For instructions, see [Enable Customer Profiles for your Connect Customer instance](enable-customer-profiles.md "enable-customer-profiles.md").
 
-Amazon Connect Cases requires Customer Profiles because each case must be
+Connect Customer Cases requires Customer Profiles because each case must be
 associated with a customer profile from the Customer Profiles
 service.
 
-## Step 2: Add a Cases domain to your Amazon Connect instance
+## Step 2: Add a Cases domain to your Connect Customer instance
 
-For instructions, see [Enable Cases using the Amazon Connect console](enable-cases.md "enable-cases.md").
+For instructions, see [Enable Cases using the Connect Customer console](enable-cases.md "enable-cases.md").
 
-If you want to add a case domain using the API, see the [CreateDomain](../../../cases/latest/APIReference/API_CreateDomain.md "../../../cases/latest/APIReference/API_CreateDomain.md") API in the _Amazon Connect Cases API
+If you want to add a case domain using the API, see the [CreateDomain](../../../cases/latest/APIReference/API_CreateDomain.md "../../../cases/latest/APIReference/API_CreateDomain.md") API in the _Connect Customer Cases API
 Reference_.
 
 ## Step 3: Create a case template
@@ -25,7 +25,7 @@ Reference_.
 [Create a case template](case-templates.md "case-templates.md"). In _Step 6:
 Test case event streams_, you'll use the template.
 
-If you want to create a case template using the API, see the [CreateTemplate](../../../cases/latest/APIReference/API_CreateTemplate.md "../../../cases/latest/APIReference/API_CreateTemplate.md") API in the _Amazon Connect Cases API
+If you want to create a case template using the API, see the [CreateTemplate](../../../cases/latest/APIReference/API_CreateTemplate.md "../../../cases/latest/APIReference/API_CreateTemplate.md") API in the _Connect Customer Cases API
 Reference_.
 
 ## Step 4: Enable case event streams and setup to receive events into an SQS queue
@@ -38,7 +38,7 @@ the default-bus of the EventBridge service in your account (it must be in the sa
 aws connectcases put-case-event-configuration --domain-id `dad5efb6-8485-4a55-8241-98a88EXAMPLE` --event-bridge enabled=true
 ```
 
-By default, the events published by Amazon Connect Cases only contain metadata about the
+By default, the events published by Connect Customer Cases only contain metadata about the
 case, such as `templateId`, `caseId`, `caseArn`,
 `approximateChangeTime`, and more. You can run the following command
 to get more information about the case (at the time the event was generated) to be
@@ -78,7 +78,7 @@ For instructions about how to locate the custom field ID, see [Find the custom f
   }"
 ```
 
-Next, create an Amazon SQS queue and set that as a target for the Amazon Connect Cases events
+Next, create an Amazon SQS queue and set that as a target for the Connect Customer Cases events
 on your EventBridge bus so that all the case events are delivered to the SQS queue for
 later processing.
 
@@ -99,7 +99,7 @@ aws events put-targets --rule case-events-to-sqs-queue --target "[{
 
 ## Step 5: Test case event streams
 
-Use the Amazon Connect agent application to:
+Use the Connect Customer agent application to:
 
 1. Accept a chat contact.
 2. Create a customer profile and associate that to the chat contact.

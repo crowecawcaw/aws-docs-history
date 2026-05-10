@@ -1,4 +1,4 @@
-# Update permissions for calculated attributes in Amazon Connect Customer Profiles
+# Update permissions for calculated attributes in Connect Customer Customer Profiles
 
 1. Go to the Security profiles page, choose the security profile you would
    like to edit, or choose **Add new security

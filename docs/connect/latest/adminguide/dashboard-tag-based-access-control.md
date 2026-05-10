@@ -1,4 +1,4 @@
-# Apply tag-based access controls to dashboards and reports in Amazon Connect
+# Apply tag-based access controls to dashboards and reports in Connect Customer
 
 You can use resource tags and access control tags to apply granular access to users,
 queues, routing profiles, flows, flow modules, evaluation forms, and test cases on
@@ -6,11 +6,11 @@ analytics user interfaces.
 
 Tag-based access controls enable you to configure granular access to specific
 resources based on assigned resource tags. You can configure tag-based access controls
-by using the API or the Amazon Connect admin website for supported resources. You must configure resource tags
+by using the API or the Connect Customer admin website for supported resources. You must configure resource tags
 and access control tags before tag-based access control is applied to users, queues,
 routing profiles, flows, flow modules, evaluation forms, and test cases on analytics
-pages. For more information, see [Add tags to resources in Amazon Connect](tagging.md "tagging.md") and
-[Apply tag-based access control in Amazon Connect](tag-based-access-control.md "tag-based-access-control.md").
+pages. For more information, see [Add tags to resources in Connect Customer](tagging.md "tagging.md") and
+[Apply tag-based access control in Connect Customer](tag-based-access-control.md "tag-based-access-control.md").
 
 ###### Contents
 
@@ -25,7 +25,7 @@ modules, evaluation forms, and test cases metrics in dashboards and reports:
 
 - Apply tags to the resources that you're going to use in the dashboards and
   reports, such as users, queues, routing profiles, flows, flow modules,
-  evaluation forms, and test cases. For more information, see [Add tags to resources in Amazon Connect](tagging.md "tagging.md").
+  evaluation forms, and test cases. For more information, see [Add tags to resources in Connect Customer](tagging.md "tagging.md").
 - You need to be assigned to a security profile that specifically grants you
   access to the resources that have been tagged. On the Security profiles
   page, choose **Show advanced** options to assign these
@@ -72,7 +72,7 @@ View**, **Test Cases - View**, \*\*Evaluation forms
 - manage form definitions - View**, **Flows - View**,
   **Flow modules - View**, and **Bot - View\*\*.
   The following image shows an example of security profile permissions that grant
-  users the ability to view routing profiles, queues, and Amazon Connect user accounts.
+  users the ability to view routing profiles, queues, and Connect Customer user accounts.
 
 ![Security profile permissions showing View permissions for routing profiles, queues, users, test cases, evaluation forms, flows, flow modules, and bots.](images/dashboard-tbac-permissions.png)
 
@@ -93,7 +93,7 @@ View**, **Test Cases - View**, \*\*Evaluation forms
   security profile before January 15, 2026. It will continue to work the same
   way. However, if you would like the enhanced tag based access controls
   experience on your historical metrics, real-time metrics, and Agent Activity
-  Audit report, please contact the Amazon Connect service team to assist with the
+  Audit report, please contact the Connect Customer service team to assist with the
   migration. When you migrate to the new tag based access controls experience,
   please note that starting January 15, 2026, the historical metrics, and
   Agent Activity Audit report will display 2 months of historical data. The

@@ -1,4 +1,4 @@
-# Queue priority and delay examples to help you load balance Amazon Connect contacts
+# Queue priority and delay examples to help you load balance Connect Customer contacts
 
 This topic provides several example priority and delay settings for queues, and
 explains how contacts are routed in each scenario. Use these examples to load balance
@@ -126,4 +126,4 @@ priority queues are empty. One agent's priority setting for a queue does not
 impact when the queue is routed a contact relative to other agents, but
 relative to other queues in the agent's profile.
 
-For instructions on how to set priority and delay for a routing profile, see [Create a routing profile in Amazon Connect to link queues to agents](routing-profiles.md "routing-profiles.md").
+For instructions on how to set priority and delay for a routing profile, see [Create a routing profile in Connect Customer to link queues to agents](routing-profiles.md "routing-profiles.md").

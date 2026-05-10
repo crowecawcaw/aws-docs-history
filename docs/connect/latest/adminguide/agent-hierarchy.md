@@ -46,7 +46,7 @@ For example, if your teams are organized by geography your levels might be
 Continent, Country, Region, State, Team. Levels need to be put in place before you
 can describe the groupings that you want to assign agents and other users to.
 
-1. Log in to the Amazon Connect admin website with an **Admin** account, or an
+1. Log in to the Connect Customer admin website with an **Admin** account, or an
    account assigned to a security profile that has **Users and
    Permissions** - **Agent hierarchy** -
    **Create** permission.

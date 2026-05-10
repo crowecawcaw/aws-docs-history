@@ -1,10 +1,10 @@
-# Login/Logout reports for agents in Amazon Connect
+# Login/Logout reports for agents in Connect Customer
 
 The Login/Logout report displays the login and logout information for the users in your contact
 center (for example, agents, managers, and administrators). For each user session, the login
 and logout times are displayed as a row in the report. You can use the report to determine
-the time users were logged in to Amazon Connect. The report also displays the amount of time for each
-session that user was logged in to Amazon Connect.
+the time users were logged in to Connect Customer. The report also displays the amount of time for each
+session that user was logged in to Connect Customer.
 
 ###### Contents
 
@@ -74,11 +74,11 @@ to your security profile: **Login/Logout report - View**.
 
 ![The metrics and quality section of the security profile permissions page.](images/login-logout-report-permissions.png)
 
-By default, the Amazon Connect **Admin** security profile has these
+By default, the Connect Customer **Admin** security profile has these
 permissions.
 
 For information about how to add more permissions to an existing security profile,
-see [Update security profiles in Amazon Connect](update-security-profiles.md "update-security-profiles.md").
+see [Update security profiles in Connect Customer](update-security-profiles.md "update-security-profiles.md").
 
 ## Generate a Login/Logout report
 
@@ -95,7 +95,7 @@ the specified time range.
 
 ###### To generate a Login/Logout report
 
-1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/.
+1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/.
 2. Choose **Analytics and optimization**, **Login/Logout
    report**.
 3. On the **Login/Logout report** page, choose the **Time
@@ -114,7 +114,7 @@ the report.
 
 ###### To edit a saved Login/Logout report
 
-1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/.
+1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/.
 2. Choose **Analytics and optimization**, **Saved
    reports**.
 3. Choose **Login/Logout report** and select the report to edit.
@@ -156,7 +156,7 @@ report.csv` is downloaded to your computer.
 
 To make the report available to other people in your organization, you can share a
 report. People can access the report only if they have appropriate permissions in
-Amazon Connect.
+Connect Customer.
 
 ###### To share a Login/Logout report
 
@@ -197,7 +197,7 @@ Wednesday and does not include any data for Wednesday.
   time zone is UTC. To have your report run at 12AM in your local time, choose
   your time zone instead.
 - To email a scheduled report to a list of co-workers, you need to generate
-  the email manually using your messaging system. Amazon Connect doesn’t provide an
+  the email manually using your messaging system. Connect Customer doesn’t provide an
   option to email the scheduled report automatically.
 
 ### How to schedule a Login/Logout report
@@ -248,7 +248,7 @@ files created from a scheduled report are removed from your S3 bucket.
 
 ###### To delete a saved Login/Logout report
 
-1. Open your Amazon Connect dashboard.
+1. Open your Connect Customer dashboard.
 2. Choose **Analytics and optimization**, **Saved
    reports**.
 3. Hover over the row for the report to delete, and choose the
@@ -259,8 +259,8 @@ files created from a scheduled report are removed from your S3 bucket.
 
 To use tags to control access to users on the agent Login/Logout report, you must
 first configure user and routing profile resource tags, resource permissions, and tag
-based access controls, see [Apply tag-based access controls to dashboards and reports in Amazon Connect](dashboard-tag-based-access-control.md "dashboard-tag-based-access-control.md"). For more information on
-tagging resources and tag-based access control in Amazon Connect, see [Add tags to resources in Amazon Connect](tagging.md "tagging.md") and [Apply tag-based access control in Amazon Connect](tag-based-access-control.md "tag-based-access-control.md").
+based access controls, see [Apply tag-based access controls to dashboards and reports in Connect Customer](dashboard-tag-based-access-control.md "dashboard-tag-based-access-control.md"). For more information on
+tagging resources and tag-based access control in Connect Customer, see [Add tags to resources in Connect Customer](tagging.md "tagging.md") and [Apply tag-based access control in Connect Customer](tag-based-access-control.md "tag-based-access-control.md").
 
 After your resource tags, access control tags, and permissions have been appropriately
 configured, you will have access controls applied to users for the Login/Logout

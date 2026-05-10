@@ -1,6 +1,6 @@
-# Assign permissions to review past contact center conversations in Amazon Connect
+# Assign permissions to review past contact center conversations in Connect Customer
 
-To access recordings and transcripts on the Amazon Connect admin website, you need security profile permissions to search for
+To access recordings and transcripts on the Connect Customer admin website, you need security profile permissions to search for
 and view contacts on the **Contact search** page. You also need permissions to access:
 
 - Recordings and transcripts of agent
@@ -71,11 +71,11 @@ example, with chat bots).
 
 1.  Assign the following individual permissions:
     - **Call recordings (redacted) - Access**: If your
-      organization uses Amazon Connect Contact Lens, you can assign this permission so
+      organization uses Connect Customer Contact Lens, you can assign this permission so
       agents access only those agent call recordings in which sensitive data has
       been redacted.
     - **Contact transcripts (redacted) - Access**: If your
-      organization uses Amazon Connect Contact Lens, you can assign this permission so
+      organization uses Connect Customer Contact Lens, you can assign this permission so
       agents access only those contact transcripts in which sensitive data has
       been redacted.
 
@@ -99,7 +99,7 @@ example, with chat bots).
 
         + If users do not have **Call recordings (unredacted) -
          Access** permission—or they're not logged in to
-         Amazon Connect—they cannot listen to the call recording or access the
+         Connect Customer—they cannot listen to the call recording or access the
          URL in S3, even if they know how the URL is formed.
         + The **Call recordings (unredacted) - Enable download button**
          permission controls only whether the download button appears in the
@@ -113,7 +113,7 @@ example, with chat bots).
     Note the following:
 
         + If users do not have **Call recordings (unredacted) -
-         Access** permission—or they're not logged in to Amazon Connect.
+         Access** permission—or they're not logged in to Connect Customer.
         + The **Call recordings (unredacted) - Enable download
          button** permission controls only whether the download
          button appears in the user interface. It does not control access to
@@ -141,7 +141,7 @@ Assign the following permissions:
 - **Automated interaction voice (IVR) recordings
   (unredacted) - Enable Download Button**: Controls whether the
   download button appears next to the IVR recording on the **Contact details**
-  page within Amazon Connect.
+  page within Connect Customer.
 
 ### Access automated interaction (IVR) logs and transcripts
 
@@ -167,4 +167,4 @@ interactions.
 ###### Note
 
 These permissions also
-grant users with access to the Flows and Flow modules pages on the Amazon Connect admin website.
+grant users with access to the Flows and Flow modules pages on the Connect Customer admin website.

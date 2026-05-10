@@ -1,21 +1,21 @@
-# Listen to live conversations or read live chats in Amazon Connect
+# Listen to live conversations or read live chats in Connect Customer
 
-Before you can listen to live conversations or read live chats, the Amazon Connect
+Before you can listen to live conversations or read live chats, the Connect Customer
 admin needs to [enable](monitor-conversations.md "monitor-conversations.md") the feature, [assign you permissions](monitor-conversations-permissions.md "monitor-conversations-permissions.md"), and
 ensure you are assigned to a routing profile that supports the channel being monitored.
 After that's done, you can do these steps.
 
 For information about how many people can listen in to a conversation or follow a
-chat, see [Amazon Connect feature specifications](feature-limits.md "feature-limits.md").
+chat, see [Connect Customer feature specifications](feature-limits.md "feature-limits.md").
 
-1. Log in to Amazon Connect with a user account that is assigned the
+1. Log in to Connect Customer with a user account that is assigned the
    **CallCenterManager** security profile, or that has the
    **Real-time contact monitoring** security profile
    permission.
 2. Open the Contact Control Panel (CCP) by choosing the phone icon in the
    top-right corner of your screen. You'll need the CCP open to connect to the
    conversation.
-3. To choose the agent conversation you want to monitor, in Amazon Connect choose
+3. To choose the agent conversation you want to monitor, in Connect Customer choose
    **Analytics and optimization**, **Real-time
    metrics**, **Agents**. The following image shows
    the **Real-time metrics** page, with an arrow pointing to the

@@ -1,4 +1,4 @@
-# Evaluation metrics in Amazon Connect
+# Evaluation metrics in Connect Customer
 
 You can view the following metrics on the [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md"). These metrics enable you
 to view aggregated agent performance, and get insights across agent cohorts and over
@@ -17,12 +17,12 @@ If the grouping does not contain evaluation form, section or question, then the 
 
 **Metric category**: Contact evaluation driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_EVALUATION_SCORE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md")
 
@@ -58,12 +58,12 @@ then the average evaluation score is at an evaluation form level.
 
 **Metric category**: Contact evaluation driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_WEIGHTED_EVALUATION_SCORE`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md")
 
@@ -94,7 +94,7 @@ If a question is marked as an automatic fail, then the parent section and the fo
 
 **Metric category**: Contact evaluation driven metric
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md")
 
@@ -124,12 +124,12 @@ Evaluations for calibrations are excluded from this metric.
 
 **Metric category**: Contact evaluation driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `EVALUATIONS_PERFORMED`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Dashboard: [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md")
 

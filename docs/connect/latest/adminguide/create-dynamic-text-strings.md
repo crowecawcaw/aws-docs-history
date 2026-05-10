@@ -1,4 +1,4 @@
-# Create dynamic text strings in Play prompt blocks in Amazon Connect
+# Create dynamic text strings in Play prompt blocks in Connect Customer
 
 Use a [Play prompt](play.md "play.md") block to use an audio file to
 play as a greeting or message to callers. You can also use contact attributes to specify

@@ -1,17 +1,17 @@
-# Validate connectivity to Amazon Connect with the Endpoint Test Utility
+# Validate connectivity to Connect Customer with the Endpoint Test Utility
 
-To validate connectivity to Amazon Connect, or when your agents are
+To validate connectivity to Connect Customer, or when your agents are
 experiencing problems with the Contact Control Panel (CCP), we recommend using the
-[Amazon Connect Endpoint Test
+[Connect Customer Endpoint Test
 Utility](https://tools.connect.aws/endpoint-test/ "https://tools.connect.aws/endpoint-test/").
 
-The Amazon Connect Endpoint Test Utility performs the following checks:
+The Connect Customer Endpoint Test Utility performs the following checks:
 
 - Validates that the browser being used supports WebRTC.
 - Determines if the browser has appropriate access to media devices (microphone,
   speakers, etc).
-- Performs latency tests for all active Amazon Connect Regions.
-- Performs latency tests to a specific Amazon Connect instance, if provided.
+- Performs latency tests for all active Connect Customer Regions.
+- Performs latency tests to a specific Connect Customer instance, if provided.
 - Validates network connectivity across required ports for media streams.
   The complete results are available for download as a JSON file. You can copy the
   results to include in a support ticket. You can also load the results file into the tool
@@ -38,7 +38,7 @@ if you want to customize it, use the following URL parameters:
   - false (default)
 
 - **connectInstanceUrl**: Not used by default. You can
-  specify the Amazon Connect instance in the URL. It must start with
+  specify the Connect Customer instance in the URL. It must start with
   **https**.
 - **regions**: A comma-separated list of region codes for
   the AWS Regions that you want to test. For example

@@ -7,18 +7,18 @@ instance, please reach out to [AWS Support](https://console.aws.amazon.com/suppo
 
 ###### Important
 
-When you onboard to this feature, your Amazon Connect alias will be updated to a new
+When you onboard to this feature, your Connect Customer alias will be updated to a new
 sub-domain with the format
 ``region`.`sourcealias`.my.connect.aws`.
  For example, if your ACGR instance is deployed in US East (N.
  Virginia) and US West (Oregon) with source alias configured as
  `source.my.connect.aws`and replica alias as
-`replica.my.connect.aws`, after onboarding your Amazon Connect instances to this feature, the new sub-domains will be 
+`replica.my.connect.aws`, after onboarding your Connect Customer instances to this feature, the new sub-domains will be 
  `us-east-1.source.my.connect.aws`and`us-west-2.source.my.connect.aws`.
 
 Additionally, supervisors and admins must be authenticated using the [global sign-in endpoint](integrate-idp.md "integrate-idp.md") instead of regional endpoints.
 
-When you access the Contact Search page, you see contacts from your paired Amazon Connect
+When you access the Contact Search page, you see contacts from your paired Connect Customer
 Global Resiliency (ACGR) instances by default, giving you a complete view of customer
 interactions across your organization. This provides a seamless search experience
 regardless of which Region contacts originate from or which Region you are currently
@@ -138,5 +138,5 @@ additional information:
   `ActiveRegion`, `OriginRegion`, and `TrafficDistributionGroupId` fields for all contacts, showing the
   specific Region where the contact is active.
 
-For more information about the SearchContacts API, see the [Amazon Connect API
+For more information about the SearchContacts API, see the [Connect Customer API
 Reference](../APIReference/API_SearchContacts.md "../APIReference/API_SearchContacts.md").

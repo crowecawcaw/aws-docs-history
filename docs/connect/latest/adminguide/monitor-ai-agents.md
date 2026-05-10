@@ -24,7 +24,7 @@ This topic explains how to enable logging for Connect AI agents.
 
 Before you enable logging for a Connect assistant, check that you have the
 following AWS Identity and Access Management permissions. They are required for the user account that is
-signed into the Amazon Connect console:
+signed into the Connect Customer console:
 
 - `wisdom:AllowVendedLogDeliveryForResource`: Required to allow
   logs to be delivered for the assistant resource.
@@ -41,7 +41,7 @@ To enable logging for Connect AI agents, you use the CloudWatch API. Complete th
 
 1. Get the ARN of your _assistant_ (also known as
    its [domain](ai-agent-initial-setup.md#ai-agent-requirements "ai-agent-initial-setup.md#ai-agent-requirements")). After you [create an assistant](ai-agent-initial-setup.md#enable-ai-agents-step1 "ai-agent-initial-setup.md#enable-ai-agents-step1"), you can obtain it's
-   ARN from the Amazon Connect console or by calling the [GetAssistant](../APIReference/API_amazon-q-connect_GetAssistant.md "../APIReference/API_amazon-q-connect_GetAssistant.md") API. The ARN follows this format:
+   ARN from the Connect Customer console or by calling the [GetAssistant](../APIReference/API_amazon-q-connect_GetAssistant.md "../APIReference/API_amazon-q-connect_GetAssistant.md") API. The ARN follows this format:
 
 `arn:aws:wisdom:`your-region`:`your-account-id`:assistant/`assistant-id``2. Call [PutDeliverySource](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.md"): Use this CloudWatch API to create a delivery
  source for the assistant. Pass the ARN of the assistant as the

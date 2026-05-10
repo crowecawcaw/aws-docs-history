@@ -1,4 +1,4 @@
-# Provide agents with access to the Amazon Connect Contact Control Panel (CCP)
+# Provide agents with access to the Connect Customer Contact Control Panel (CCP)
 
 ###### Note
 
@@ -18,7 +18,7 @@ contacts. But before agents can access the CCP and handle contacts, there are a 
 things you need to do:
 
 1. Ensure your network meets the requirements for using the CCP. For more information
-   see [Set up your network to use the Amazon Connect Contact Control Panel (CCP)](ccp-networking.md "ccp-networking.md").
+   see [Set up your network to use the Connect Customer Contact Control Panel (CCP)](ccp-networking.md "ccp-networking.md").
 2. Ensure agents have the appropriate headsets and workstations. For more information
    see [Agent headset and workstation requirements for using the Contact Control Panel (CCP)](ccp-agent-hardware.md "ccp-agent-hardware.md").
 3. Create a user name and password for agents to log into the CCP, by [adding agents to your instance](user-management.md "user-management.md").
@@ -31,7 +31,7 @@ things you need to do:
 We recommend telling agents to bookmark the URL to the CCP so they can readily
 access it. 6. Train your agents on the CCP:
 
-    * Watch [Training video: How to use the Contact Center Panel (CCP) in Amazon Connect](ccp-video-training.md "ccp-video-training.md")
+    * Watch [Training video: How to use the Contact Center Panel (CCP) in Connect Customer](ccp-video-training.md "ccp-video-training.md")
 
 ## Agent workspace: Everything in one place
 
@@ -42,14 +42,14 @@ workspace](agent-user-guide.md "agent-user-guide.md")!
 The _agent workspace_ is a single web browser
 interface that hosts the CCP, [Customer Profiles](ag-cp-select.md "ag-cp-select.md"), [Cases](search-cases.md "search-cases.md"), and [Connect AI agents](search-for-answers.md "search-for-answers.md").
 
-If you're using the CCP that is provided with Amazon Connect, after you enable
+If you're using the CCP that is provided with Connect Customer, after you enable
 Customer Profiles, Cases, or Connect AI agents, share the following URL with your agents so they can
 access it in the agent workspace:
 
 - **https://`instance
 name`.my.connect.aws/agent-app-v2/**
 
-For help finding your instance name, see [Find your Amazon Connect instance name](find-instance-name.md "find-instance-name.md").
+For help finding your instance name, see [Find your Connect Customer instance name](find-instance-name.md "find-instance-name.md").
 
 ## Grant microphone access in Chrome, Firefox, or Edge
 
@@ -67,9 +67,9 @@ appropriate for your browser:
 
 A change introduced in Google Chrome version 64 may result in issues with
 receiving calls if you are using an embedded Contact Control Panel (CCP) softphone
-using the Amazon Connect Streams library. If you are experiencing issues with
+using the Connect Customer Streams library. If you are experiencing issues with
 your microphone when using Chrome version 64, you can resolve the issue by building
-and deploying the latest version of the [Amazon Connect Streams API](https://github.com/aws/amazon-connect-streams/blob/master/Documentation.md#downloading-streams "https://github.com/aws/amazon-connect-streams/blob/master/Documentation.md#downloading-streams"), following the steps under
+and deploying the latest version of the [Connect Customer Streams API](https://github.com/aws/amazon-connect-streams/blob/master/Documentation.md#downloading-streams "https://github.com/aws/amazon-connect-streams/blob/master/Documentation.md#downloading-streams"), following the steps under
 _Downloading Streams_.
 
 You can also resolve the issue by using Firefox or Edge as your browser.
@@ -79,7 +79,7 @@ You can also resolve the issue by using Firefox or Edge as your browser.
 **Agents**: Contact your manager or the technical support
 provided by your company.
 
-**Amazon Connect Administrators**: See [Troubleshooting Issues with the Contact Control Panel (CCP)](troubleshooting.md "troubleshooting.md") for detailed
+**Connect Customer Administrators**: See [Troubleshooting Issues with the Contact Control Panel (CCP)](troubleshooting.md "troubleshooting.md") for detailed
 troubleshooting steps. Or, log in to the [AWS Management Console](https://console.aws.amazon.com/console "https://console.aws.amazon.com/console") (https://console.aws.amazon.com/console)
 using your AWS account. In the upper right corner of the page, choose
 **Support**, and open a support ticket.

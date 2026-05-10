@@ -1,8 +1,8 @@
-# Flow block in Amazon Connect: Cases
+# Flow block in Connect Customer: Cases
 
 ###### Tip
 
-Be sure to [enable](enable-cases.md "enable-cases.md") Amazon Connect Cases before using
+Be sure to [enable](enable-cases.md "enable-cases.md") Connect Customer Cases before using
 this block. Otherwise, you can't configure its properties.
 
 This topic defines the flow block for updating and creating cases.
@@ -18,7 +18,7 @@ This topic defines the flow block for updating and creating cases.
 - While you can link contacts to multiple cases, there is a limit of five
   new case tabs automatically opening in the agent application. These will be
   the five most recently updated cases.
-- For more information about cases, see [Amazon Connect Cases](cases.md "cases.md").
+- For more information about cases, see [Connect Customer Cases](cases.md "cases.md").
 
 ## Supported channels
 
@@ -234,7 +234,7 @@ When configuring properties to create a case:
   - **Current contact** is the contact on which the current flow is being executed.
   - **Related contact** is the contact that is [related](chat-persistence.md#relatedcontactid "chat-persistence.md#relatedcontactid") to this contact.
 
-- You must provide a case template. For more information, see [Create case templates to document customer issues in Amazon Connect Cases](case-templates.md "case-templates.md").
+- You must provide a case template. For more information, see [Create case templates to document customer issues in Connect Customer Cases](case-templates.md "case-templates.md").
 - Fields that are required appear in the **Required**
   fields section. You must assign values to them to create a case.
 - You must specify the customer to create a case.
@@ -340,7 +340,7 @@ customer:
 
 To find the UUID of a custom field:
 
-1. In Amazon Connect, on the navigation menu choose **Agent
+1. In Connect Customer, on the navigation menu choose **Agent
    applications**, **Custom fields**, and then
    choose the custom field that you want.
 2. While on the details page for the custom field, look at the URL of the

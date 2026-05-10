@@ -1,18 +1,18 @@
-# Set up Amazon Connect Agent Workspace to support agents shifting across AWS Regions
+# Set up Connect Customer Agent Workspace to support agents shifting across AWS Regions
 
-Perform the following steps to enable Amazon Connect Agent Workspace to embed the
+Perform the following steps to enable Connect Customer Agent Workspace to embed the
 Contact Control Panel from the replica AWS Region to the source Region, and
 shift between them as agent's active Region changes.
 
-If you have not yet created a replica of your source Amazon Connect instance or set up
-a traffic distribution group, see [Get started with Amazon Connect Global Resiliency](get-started-connect-global-resiliency.md "get-started-connect-global-resiliency.md").
+If you have not yet created a replica of your source Connect Customer instance or set up
+a traffic distribution group, see [Get started with Connect Customer Global Resiliency](get-started-connect-global-resiliency.md "get-started-connect-global-resiliency.md").
 
-1. Go to the AWS Amazon Connect console to retrieve the **Access
+1. Go to the AWS Connect Customer console to retrieve the **Access
    URL** for your source instance. Make a note of the URL.
-2. In the replica Region, AWS Amazon Connect console to retrieve the
+2. In the replica Region, AWS Connect Customer console to retrieve the
    **Access URL** for your replica instance. Make a
    note of the URL.
-3. In the same window for your replica Amazon Connect instance, in the left pane
+3. In the same window for your replica Connect Customer instance, in the left pane
    choose **Approved origins**.
 4. Add domain for source instance **Access URL**, which
    you noted in step 1.

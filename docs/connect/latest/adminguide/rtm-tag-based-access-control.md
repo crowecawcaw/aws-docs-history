@@ -1,11 +1,11 @@
-# Real-time metrics tag-based access control in Amazon Connect
+# Real-time metrics tag-based access control in Connect Customer
 
 You can use resource tags and access control tags to apply granular access to
 users, queues, and routing profiles for real-time metrics. For example, you can
 control who has access to view specific users, queues, and routing profiles on the
 **Real-time metrics** page.
 
-You can configure tag-based access controls by using the Amazon Connect admin website or the [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md") API.
+You can configure tag-based access controls by using the Connect Customer admin website or the [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md") API.
 
 ###### Contents
 
@@ -19,20 +19,20 @@ You can configure tag-based access controls by using the Amazon Connect admin we
 
 ## Important things to know
 
-- Amazon Connect can display up to 500 resources at a time on a real-time metrics
+- Connect Customer can display up to 500 resources at a time on a real-time metrics
   table. For example, in an Agents table it can display up to 500 agents
   at a time. In a Queues table it can display up to 500 queues, and so on.
 - Very often fewer than 500 agents will appear on a real-time metrics
   table at any given time when tagging is enabled. Here's why:
-  - Amazon Connect can return a maximum of 500 agents at a time.
-  - When tagging is enabled, Amazon Connect selects the first 500 agents
+  - Connect Customer can return a maximum of 500 agents at a time.
+  - When tagging is enabled, Connect Customer selects the first 500 agents
     who have the appropriate tags, and then displays only those
     agents in that group of 500 **who are
     active** (Online or On Contact). Because not all of
     the 500 tagged agents may be active, it is very likely fewer
     than 500 tagged agents will be displayed in the table.
   - For example, you have 1000 tagged agents. In the first group
-    of 500 tagged agents only 50 are online. Amazon Connect selects the first
+    of 500 tagged agents only 50 are online. Connect Customer selects the first
     500 tagged agents but displays only 50 because they are
     currently active. It does not select the first 500 active
     agents.
@@ -52,10 +52,10 @@ You can configure tag-based access controls by using the Amazon Connect admin we
 ## How to enable tag-based access control for real-time metrics
 
 1. Apply resource tags, for example, to agents, queues, and routing
-   profiles. For a list of which resources support tagging, see [Add tags to resources in Amazon Connect](tagging.md "tagging.md").
+   profiles. For a list of which resources support tagging, see [Add tags to resources in Connect Customer](tagging.md "tagging.md").
 2. Apply access control tags. In this step, you need to provide tag
    information in the condition element of an IAM policy. For more
-   information, see [Apply tag-based access control in Amazon Connect](tag-based-access-control.md "tag-based-access-control.md").
+   information, see [Apply tag-based access control in Connect Customer](tag-based-access-control.md "tag-based-access-control.md").
 
 ###### Note
 
@@ -68,7 +68,7 @@ resources. For more information, see [Required security profile permissions](#rt
 
 ## How to view hundreds of agents, queues, and routing profiles on the real-time metrics report
 
-Amazon Connect displays up to 500 resources at a time on the real-time metrics report.
+Connect Customer displays up to 500 resources at a time on the real-time metrics report.
 For agents in particular when tags are applied it's very likely that fewer than
 500 agents will be displayed. We recommend the following workaround to view the
 status of hundreds of agents, queues, and routing profiles when tags are
@@ -142,7 +142,7 @@ tag-based access controls are not currently applied.
 ### Permissions to access resources
 
 The following image shows an example of security profile permissions that
-grant users the ability to view routing profiles, queues, and Amazon Connect user
+grant users the ability to view routing profiles, queues, and Connect Customer user
 accounts. **Routing profiles - View**, **Queues -
 View**, and **Users - View** are
 selected.

@@ -1,14 +1,14 @@
-# Log Amazon Connect API calls with AWS CloudTrail
+# Log Connect Customer API calls with AWS CloudTrail
 
-Amazon Connect is integrated with AWS CloudTrail, a service that provides a record of the Amazon Connect API calls
-that a user, role, or AWS service makes. CloudTrail captures Amazon Connect API calls as events. All
-public Amazon Connect APIs support CloudTrail.
+Connect Customer is integrated with AWS CloudTrail, a service that provides a record of the Connect Customer API calls
+that a user, role, or AWS service makes. CloudTrail captures Connect Customer API calls as events. All
+public Connect Customer APIs support CloudTrail.
 
 ###### Note
 
-- For access to the updated Amazon Connect admin website and CloudTrail support, you must use service-linked roles. For more information, see
-  [Use service-linked roles and role permissions for Amazon Connect](connect-slr.md "connect-slr.md").
-  Using the information that CloudTrail collects, you can identify a specific request to an Amazon Connect
+- For access to the updated Connect Customer admin website and CloudTrail support, you must use service-linked roles. For more information, see
+  [Use service-linked roles and role permissions for Connect Customer](connect-slr.md "connect-slr.md").
+  Using the information that CloudTrail collects, you can identify a specific request to an Connect Customer
   API, the IP address of the requester, the requester's identity, the date and time of the
   request, and so on. If you configure a trail, you can enable continuous delivery of CloudTrail
   events to an Amazon S3 bucket. If you don't configure a trail, you can view the most recent
@@ -18,17 +18,17 @@ For more information about CloudTrail, including how to configure and enable it,
 AWS Account](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md") and [AWS CloudTrail
 User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
 
-## Amazon Connect information in CloudTrail
+## Connect Customer information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create the account. When supported
-event activity occurs in Amazon Connect, that activity is recorded in a CloudTrail event along
+event activity occurs in Connect Customer, that activity is recorded in a CloudTrail event along
 with other AWS service events in **Event history**. You can view,
 search, and download recent events in your AWS account. For more information, see
 [Viewing Events with CloudTrail Event
 History](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
 
 For an ongoing record of events in your AWS account, including events for
-Amazon Connect, create a trail. A _trail_ enables CloudTrail to deliver log
+Connect Customer, create a trail. A _trail_ enables CloudTrail to deliver log
 files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail
 applies to all AWS Regions. The trail logs events from all AWS Regions and delivers
 the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other
@@ -56,7 +56,7 @@ identity information helps you determine the following:
 For more information, see the [CloudTrail userIdentity
 Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Example: Amazon Connect log file entries
+## Example: Connect Customer log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries. An event
@@ -112,11 +112,11 @@ The following example shows a CloudTrail log entry that demonstrates the
 
 ```
 
-## Example: Amazon Connect Voice ID log file entries
+## Example: Connect Customer Voice ID log file entries
 
-Just like Amazon Connect, Voice ID is integrated with CloudTrail. When enabled, the service emits
+Just like Connect Customer, Voice ID is integrated with CloudTrail. When enabled, the service emits
 events for the Voice ID API calls made by a user, role, or an AWS service. You can
-reuse the same CloudTrail resources created for Amazon Connect, including the trail and the S3 bucket,
+reuse the same CloudTrail resources created for Connect Customer, including the trail and the S3 bucket,
 to receive CloudTrail logs for Voice ID as well.
 
 For security reasons, the sensitive fields which might contain PII information in the

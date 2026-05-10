@@ -1,4 +1,4 @@
-# Best practices for Amazon Connect and Contact Control Panel (CCP) security profiles
+# Best practices for Connect Customer and Contact Control Panel (CCP) security profiles
 
 - Limit who has **Users - Edit or Create** permissions
 
@@ -11,7 +11,7 @@ can do the following:
      center.
 
 Doing these things would enable someone to lock out those who need to access
-Amazon Connect, and allow in others who can steal customer data and damage your business.
+Connect Customer, and allow in others who can steal customer data and damage your business.
 
 To reduce the risk, as a best practice we recommend limiting the number of
 people who have **Users - Edit or Create** permissions.
@@ -27,7 +27,7 @@ people who have **Users - Edit or Create** permissions.
 Some security profiles included inherited permissions: when you assign
 dedicated permissions to one object, by default permissions are granted to
 sub-objects. For example, when you grant dedicated permission to edit users, you
-also grant them permission to list all security profiles for your Amazon Connect
+also grant them permission to list all security profiles for your Connect Customer
 instance. This is because to edit users, the person has access to the drop-down
 list of security profiles.
 
@@ -37,7 +37,7 @@ permissions.
 - **Understand the implications of [access
   control tags](tag-based-access-control.md "tag-based-access-control.md") before applying them to a security
   profile.** Applying access control tags is an advanced
-  configuration feature that is supported by Amazon Connect and that follows the AWS
+  configuration feature that is supported by Connect Customer and that follows the AWS
   shared responsibility model. Ensure that you have read the documentation and
   understand the implications of applying granular permission configurations. For
   more information, review the [AWS shared responsibilities

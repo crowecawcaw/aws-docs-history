@@ -1,9 +1,9 @@
-# Format a physical address for E911 to pass to Amazon Connect
+# Format a physical address for E911 to pass to Connect Customer
 
 This topic explains how to format a physical address so it can be passed to
-Amazon Connect.
+Connect Customer.
 
-E911 outbound calls require a physical address to be passed to Amazon Connect as a JSON
+E911 outbound calls require a physical address to be passed to Connect Customer as a JSON
 string with keys and values that represent the various fields in the address. For
 example, consider the following US address:
 
@@ -44,11 +44,11 @@ repository such as the Master Street Address Guide (MSAG).
 ## Programming notes
 
 Currently it isn't possible to pass a JSON structure as an
-`Attribute` to Amazon Connect. Therefore, the location retrieved by the
+`Attribute` to Connect Customer. Therefore, the location retrieved by the
 Lambda function needs to be converted to a JSON string before it is passed to
-Amazon Connect. For example, using the Python programming language, if the location
+Connect Customer. For example, using the Python programming language, if the location
 retrieved is stored in a JSON structure `json_agent_location` then it
-can be passed to Amazon Connect (from the Lambda function) as follows:
+can be passed to Connect Customer (from the Lambda function) as follows:
 
 `return { ,'CivicAddress': **json.dumps(json\_agent\_location)** ,'agent_did_number':
  '`+15555551212`' }`
@@ -67,7 +67,7 @@ The key-value pair:
  "`Ave`", "A1":
  "`WA`"}`
 
-And the corresponding JSON string that is actually passed to Amazon Connect:
+And the corresponding JSON string that is actually passed to Connect Customer:
 
 `CivicAddress: {\"country\": \"`USA`\", \"RD\":
  \"`7th`\", \"A3"\:

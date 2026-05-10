@@ -1,4 +1,4 @@
-# Use customer first callback mode in Amazon Connect
+# Use customer first callback mode in Connect Customer
 
 When you set up queued callbacks, you have the additional choice of whether to use agent
 first callback mode or customer first callback mode.
@@ -7,7 +7,7 @@ first callback mode or customer first callback mode.
   callback is offered to an agent to accept or reject before the call is dialed to a
   customer.
 - **Customer first callback mode** is available only
-  when Next Generation Amazon Connect is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your Amazon Connect instance. In this mode, Amazon Connect dials the customer
+  when Next Generation Connect Customer is [enabled](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your Connect Customer instance. In this mode, Connect Customer dials the customer
   first and only offers the callback to an agent if the customer answers the callback
   that they've received.
 
@@ -15,7 +15,7 @@ first callback mode or customer first callback mode.
 
 - Customer first callback mode is not available in the pay-per-feature pricing
   model.
-- If you disable Next Generation Amazon Connect after you've already activated and
+- If you disable Next Generation Connect Customer after you've already activated and
   started using customer first callback, customer first callback mode is also
   disabled.
 
@@ -313,7 +313,7 @@ in queue waiting for agent availability to dial out to customers.
 
 ### Example outbound dial flow for callbacks
 
-In the outbound dial flow shown in the following image, Amazon Connect evaluates the
+In the outbound dial flow shown in the following image, Connect Customer evaluates the
 presence of the customer by using a [Check call progress](check-call-progress.md "check-call-progress.md") block. If voicemail is detected, a
 callback contact is recreated. If a customer is detected on other end of the call,
 the call is transferred to queue for the agent to be joined to the customer.

@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Loop prompts
+# Flow block in Connect Customer: Loop prompts
 
 This topic defines the flow block for looping a sequence of prompts while a customer
 or agent is on hold or in a queue.
@@ -51,7 +51,7 @@ to 60 seconds. Following is what will happen:
   information that is supposed to play after 60 seconds.
 
 This scenario is especially possible when using the default audio prompts that
-Amazon Connect provides since these audio prompts can be as long as 4 minutes.
+Connect Customer provides since these audio prompts can be as long as 4 minutes.
 
 ## How the interrupt option works
 
@@ -114,14 +114,14 @@ If you enable **Continue prompts during interrupt**:
   - [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md"), including
     **Transfer to callback queue**
 
-- For information about choosing a prompt from the Amazon Connect library or an S3
+- For information about choosing a prompt from the Connect Customer library or an S3
   bucket, see the [Play prompt](play.md "play.md") block.
 - When **Loop prompts** is used in a Queue flow, audio
   playback can be interrupted with a flow at preset times.
 - Always use an interruption period that's greater than 20 seconds. This is
   the amount of time an available agent has to accept the contact. If the
   interruption period is less than 20 seconds, you might get contacts going
-  down the **Error** branch. This is because Amazon Connect doesn't
+  down the **Error** branch. This is because Connect Customer doesn't
   support dequeuing the customer when they are being routed to an active agent
   and are in the 20 second window to join.
 - The internal counter for the loop is persisted for the call, not the flow.
@@ -136,11 +136,11 @@ If you enable **Continue prompts during interrupt**:
 ## Configured block
 
 The following image shows what this block looks like when it is configured to play
-a prompt from the Amazon Connect library. Choose + next to **Audio
+a prompt from the Connect Customer library. Choose + next to **Audio
 Recording** to view the full name of the file. The configured block has
 two branches: **Timeout** and **Error**.
 
-![A Loop prompts block configured to play a prompt from the Amazon Connect library.](images/loop-prompts-configured.png)
+![A Loop prompts block configured to play a prompt from the Connect Customer library.](images/loop-prompts-configured.png)
 
 The following image shows what this block looks like when it is configured to play
 a prompt from Amazon S3. Choose + next to **S3 path** to view the full
@@ -151,14 +151,14 @@ path. The configured block has two branches: **Timeout** and
 
 ## Sample flows
 
-Amazon Connect includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
-[Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
+Connect Customer includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
+[Sample flows in Connect Customer](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-- [Sample interruptible queue flow with callback in Amazon Connect](sample-interruptible-queue.md "sample-interruptible-queue.md")
+- [Sample interruptible queue flow with callback in Connect Customer](sample-interruptible-queue.md "sample-interruptible-queue.md")
 
 ## Scenarios
 
 See these topics for scenarios that use this block:
 
-- [Set up a flow to manage contacts in a queue in Amazon Connect](queue-to-queue-transfer.md "queue-to-queue-transfer.md")
+- [Set up a flow to manage contacts in a queue in Connect Customer](queue-to-queue-transfer.md "queue-to-queue-transfer.md")

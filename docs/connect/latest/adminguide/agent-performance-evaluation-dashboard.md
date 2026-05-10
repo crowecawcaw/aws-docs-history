@@ -34,7 +34,7 @@ Grant managers the appropriate security profile permissions:
 
 - **Access metrics - Access permission** or the
   **Dashboard - Access permission**. For information
-  about the difference in behavior, see [Assign permissions to view dashboards and reports in Amazon Connect](dashboard-required-permissions.md "dashboard-required-permissions.md").
+  about the difference in behavior, see [Assign permissions to view dashboards and reports in Connect Customer](dashboard-required-permissions.md "dashboard-required-permissions.md").
 - **Users - View**: This permission enables you to view users,
   such as agents receiving evaluations and managers performing evaluations.
 - **Evaluation forms - perform evaluations - View**: This
@@ -80,7 +80,7 @@ settings.
   3 months in the past. Some of the metrics are available only starting
   January 10, 2025 0:00:00 GMT. For more information, see [Metric definitions](metrics-definitions.md "metrics-definitions.md").
 - **Compare to**: Compare performance with prior time
-  period (for example, prior week, prior month, and more) or with a Amazon Connect
+  period (for example, prior week, prior month, and more) or with a Connect Customer
   resource (for example, comparison with all agents within the contact center,
   a specific hierarchy, queue, and more).
 - **Agent**

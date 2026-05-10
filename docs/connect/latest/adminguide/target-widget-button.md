@@ -1,4 +1,4 @@
-# Target your Amazon Connect widget button and frame with CSS/JavaScript
+# Target your Connect Customer widget button and frame with CSS/JavaScript
 
 The communication widget renders the open/close widget button and the widget frame
 directly on the host website. There are specific selectors that you can use to either
@@ -7,7 +7,7 @@ target these elements using CSS or reference them in JavaScript.
 ###### Tip
 
 To update the colors of the widget button, or the styles of the widget itself, use
-the [Amazon Connect admin website](add-chat-to-website.md#customize-chat-widget "add-chat-to-website.md#customize-chat-widget"). For more customizable
+the [Connect Customer admin website](add-chat-to-website.md#customize-chat-widget "add-chat-to-website.md#customize-chat-widget"). For more customizable
 styles, you can [pass custom styles](pass-custom-styles.md "pass-custom-styles.md")
 directly to the communications widget.
 

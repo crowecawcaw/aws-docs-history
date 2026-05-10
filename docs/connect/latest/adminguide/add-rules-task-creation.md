@@ -1,12 +1,12 @@
-# Create rules that generate tasks for third-party integrations in Amazon Connect
+# Create rules that generate tasks for third-party integrations in Connect Customer
 
 After you set up an external application to generate tasks automatically, you need to
-build rules that tell Amazon Connect when to create tasks, and how to route them.
+build rules that tell Connect Customer when to create tasks, and how to route them.
 
-1. Log in to Amazon Connect with a user account that is assigned the
+1. Log in to Connect Customer with a user account that is assigned the
    **CallCenterManager** security profile, or that is enabled for
    **Rules** permissions.
-2. In Amazon Connect, on the navigation menu, choose **Rules**.
+2. In Connect Customer, on the navigation menu, choose **Rules**.
 3. On the **Rules** page, use the **Create a rule**
    dropdown list to choose **External application**.
 4. At the **Trigger and conditions** page, assign a name to the

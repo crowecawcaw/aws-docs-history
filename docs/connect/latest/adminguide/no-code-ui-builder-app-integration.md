@@ -1,4 +1,4 @@
-# Use screen pop functionality of third-party applications in the Amazon Connect agent workspace
+# Use screen pop functionality of third-party applications in the Connect Customer agent workspace
 
 For screen pop functionality of third-party applications, you can use step-by-step
 guides or you can use app pinning. For more information, see [Access third-party
@@ -69,7 +69,7 @@ canvas. The **Customize** panel shows an example of specifying the
 app name and app path.
 
 ![The Customize panel, an example app name and app path.](images/no-code-ui-builder-app-integration-1.png)
-The following image shows an example [Flow block in Amazon Connect: Set event flow](set-event-flow.md "set-event-flow.md") block that's added to the flow, and configured
+The following image shows an example [Flow block in Connect Customer: Set event flow](set-event-flow.md "set-event-flow.md") block that's added to the flow, and configured
 to the **DefaultAgentUI** event hook.
 
 ![A Set event flow block that's configured to the DefaultAgentUI event hook.](images/no-code-ui-builder-app-integration-2.png)

@@ -1,6 +1,6 @@
 # Troubleshoot call disconnects by using DisconnectDetails in the contact record
 
-This topic explains how to leverage the Amazon Connect [DisconnectDetails](ctr-data-model.md#ctr-disconnectdetails "ctr-data-model.md#ctr-disconnectdetails") in the contact record to troubleshoot call disconnect
+This topic explains how to leverage the Connect Customer [DisconnectDetails](ctr-data-model.md#ctr-disconnectdetails "ctr-data-model.md#ctr-disconnectdetails") in the contact record to troubleshoot call disconnect
 issues.
 
 ## Step 1: Observe the issue
@@ -42,26 +42,26 @@ understand overall impact: 
   calls?
 - Is the issue observed on incoming calls, outgoing calls or both?
 - Is there any call forwarding entity from which the calls are being
-  forwarded to Amazon Connect? If so, does the call disconnect issue occur in case of
-  direct dials to Amazon Connect?
+  forwarded to Connect Customer? If so, does the call disconnect issue occur in case of
+  direct dials to Connect Customer?
 
 ## Step 3: Gather information
 
 To troubleshoot call disconnect issues, start by collecting the following
 information:
 
-- The Amazon Connect instance ARN: For instructions, see [Find your Amazon Connect instance ID or ARN](find-instance-arn.md "find-instance-arn.md").
+- The Connect Customer instance ARN: For instructions, see [Find your Connect Customer instance ID or ARN](find-instance-arn.md "find-instance-arn.md").
 - Contact ID of the affected call you're going to investigate.
-- View the contact records for the contact ID. For instructions, see [View a contact record in the Amazon Connect admin website](sample-ctr.md "sample-ctr.md").
+- View the contact records for the contact ID. For instructions, see [View a contact record in the Connect Customer admin website](sample-ctr.md "sample-ctr.md").
 - The following additional resources will also help you identify the source
   of the issue:
-  - Call recordings: Amazon Connect call recordings are helpful in
+  - Call recordings: Connect Customer call recordings are helpful in
     understanding deeper insights regarding call quality.
     - The agent audio is stored in the right channel.
     - All incoming audio, including the customer and anyone
       conferenced in, is stored in the left channel.
 
-  - [Download and review Amazon Connect Contact Control Panel (CCP) logs](download-ccp-logs.md "download-ccp-logs.md"): The logs help provide
+  - [Download and review Connect Customer Contact Control Panel (CCP) logs](download-ccp-logs.md "download-ccp-logs.md"): The logs help provide
     insights for a given call handled by an agent.
   - [Endpoint Test Utility](check-connectivity-tool.md "check-connectivity-tool.md") results: This browser based tool helps you validate agent
     workstation settings in a JSON format.
@@ -77,7 +77,7 @@ with the detected reason of `AGENT_CONNECTIVITY_ISSUE` or
 `AGENT_DEVICE_ISSUE`.
 
 - `AGENT_CONNECTIVITY_ISSUE`: This suggests that there is an issue
-  with the network connectivity between agent workstation and Amazon Connect. It is
+  with the network connectivity between agent workstation and Connect Customer. It is
   causing the call to disconnect.  For additional troubleshooting steps, see
   [Troubleshoot your network](network-ts.md "network-ts.md").
 - `AGENT_DEVICE_ISSUE`: This suggests that there is an issue with

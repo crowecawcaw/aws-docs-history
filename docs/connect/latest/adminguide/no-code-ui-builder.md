@@ -1,7 +1,7 @@
-# Use the UI builder in Amazon Connect for resources in step-by-step guides
+# Use the UI builder in Connect Customer for resources in step-by-step guides
 
 You can create the view resources used in step-by-step guides by using the UI
-builder in Amazon Connect. With the UI builder, you can:
+builder in Connect Customer. With the UI builder, you can:
 
 - Drag and drop UI components onto a canvas.
 - Arrange your layout.
@@ -28,10 +28,10 @@ icon (the lightning bolt), the field is populated at runtime.
 
 ## Access the UI builder
 
-1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/. Use an Admin account, or an account that has
+1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/. Use an Admin account, or an account that has
    **Channels and flows - Views** permission in its
    security profile.
-2. In the Amazon Connect admin website, choose **UI Management**.
+2. In the Connect Customer admin website, choose **UI Management**.
 3. Choose **Create View**. In the **Create View** dialog box,
    specify a name for the view and select the **Purpose type**.
 

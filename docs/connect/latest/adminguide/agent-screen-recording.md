@@ -1,4 +1,4 @@
-# Set up and review agent screen recordings in Amazon Connect Contact Lens
+# Set up and review agent screen recordings in Connect Customer Contact Lens
 
 To help coach your agents to provide great customer service, you can use the Contact Lens screen recording
 feature to gain quality management insights. It records the agent's desktop, which helps you
@@ -17,7 +17,7 @@ diagram that shows the network calls between different components, see
 
 ###### Contents
 
-- [Amazon Connect Client Application](amazon-connect-client-app.md "amazon-connect-client-app.md")
+- [Connect Customer Client Application](amazon-connect-client-app.md "amazon-connect-client-app.md")
 - [System and network
   requirements](sr-system-req.md "sr-system-req.md")
 - [Enable screen recording](enable-sr.md "enable-sr.md")

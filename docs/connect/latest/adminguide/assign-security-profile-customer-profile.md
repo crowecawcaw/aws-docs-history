@@ -1,4 +1,4 @@
-# Security profile permissions for Amazon Connect Customer Profiles
+# Security profile permissions for Connect Customer Customer Profiles
 
 Assign permissions for your agents' security profiles so that they can perform such
 tasks as searching for profiles and viewing customer details, associating contact

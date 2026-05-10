@@ -20,7 +20,7 @@ preferences.
   to access your item data through the AWS Management Console
 - **Step 3:** Create recommendations by defining
   recommendation types (similar items, frequently paired items, popular items)
-- **Step 4:** Apply recommendations across Amazon Connect ecosystem including Agent Workspace, Flows, and Connect AI agents
+- **Step 4:** Apply recommendations across Connect Customer ecosystem including Agent Workspace, Flows, and Connect AI agents
 
 ## Prerequisites
 

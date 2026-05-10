@@ -1,6 +1,6 @@
-# Use attributes in Amazon Connect to route based on number of contacts in a queue
+# Use attributes in Connect Customer to route based on number of contacts in a queue
 
-Amazon Connect includes queue attributes that can help you define routing conditions in your flows
+Connect Customer includes queue attributes that can help you define routing conditions in your flows
 based on real-time metrics about the queues and agents in your contact center. For example,
 here are some common usage scenarios:
 
@@ -17,7 +17,7 @@ here are some common usage scenarios:
 
 # Using a Check contact attributes block to route a contact to a queue
 
-1. In Amazon Connect, choose **Routing**, **Contact
+1. In Connect Customer, choose **Routing**, **Contact
    flows**.
 2. Open an existing flow or create a new one.
 3. Optionally, under **Interact**, add a **Play

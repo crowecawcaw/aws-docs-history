@@ -1,4 +1,4 @@
-# Conversational analytics metrics in Amazon Connect
+# Conversational analytics metrics in Connect Customer
 
 The following metrics are derived from Contact Lens conversational
 analytics. These metrics are available only when [Contact Lens is enabled for your instance](enable-analytics.md#enable-cl "enable-analytics.md#enable-cl") and [conversational analytics](enable-analytics.md#enable-callrecording-speechanalytics "enable-analytics.md#enable-callrecording-speechanalytics")
@@ -20,12 +20,12 @@ conversation duration.
 
 **Metric category**: Conversational analytics driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `PERCENT_TALK_TIME_AGENT`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Agent talk time percent
 
@@ -49,12 +49,12 @@ indicating how quickly they engage with customers after joining the chat.
 
 **Metric category**: Conversational analytics driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_GREETING_TIME_AGENT`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Average agent greeting time
 
@@ -77,12 +77,12 @@ customer interactions.
 
 **Metric category**: Conversational analytics driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_INTERRUPTIONS_AGENT`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Average agent interruptions
 
@@ -104,12 +104,12 @@ This metric measures the average of total agent interruption time while talking 
 
 **Metric category**: Conversational analytics driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_INTERRUPTION_TIME_AGENT`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Average agent interruption time
 
@@ -133,12 +133,12 @@ This metric measures the average time that was spent talking in a conversation b
 
 **Metric category**: Conversational analytics driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_TALK_TIME_AGENT`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Average agent talk time
 
@@ -161,12 +161,12 @@ This metric measures the average conversation duration of voice contacts with ag
 
 **Metric category**: Conversational analytics driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_CONVERSATION_DURATION`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Average conversation duration
 
@@ -192,12 +192,12 @@ conversation by a customer.
 
 **Metric category**: Conversational analytics driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_TALK_TIME_CUSTOMER`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Average customer talk time
 
@@ -223,12 +223,12 @@ conversation.
 
 **Metric category**: Conversational analytics driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_NON_TALK_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Average non-talk time
 
@@ -252,12 +252,12 @@ customer or the agent.
 
 **Metric category**: Conversational analytics driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `AVG_TALK_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Average talk time
 
@@ -281,12 +281,12 @@ conversation duration.
 
 **Metric category**: Conversational analytics driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `PERCENT_TALK_TIME_CUSTOMER`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Customer talk time percent
 
@@ -309,12 +309,12 @@ conversation duration.
 
 **Metric category**: Conversational analytics driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `PERCENT_NON_TALK_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Non-talk time percent
 
@@ -337,12 +337,12 @@ duration.
 
 **Metric category**: Conversational analytics driven metric
 
-**How to access using the Amazon Connect API**:
+**How to access using the Connect Customer API**:
 
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `PERCENT_TALK_TIME`
 
-**How to access using the Amazon Connect admin website**:
+**How to access using the Connect Customer admin website**:
 
 - Historical metrics reports: Talk time percent
 

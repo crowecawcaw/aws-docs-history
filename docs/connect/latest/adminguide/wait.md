@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Wait
+# Flow block in Connect Customer: Wait
 
 This topic defines the flow block for pausing the flow for the specified amount of
 time.
@@ -46,7 +46,7 @@ It has the following properties:
   - **Default** - A customer contact.
   - **Bot** - A custom participant, such as a
     third-party bot. For more information about using this option, see
-    [Customize chat flow experiences in Amazon Connect by integrating custom participants](chat-customize-flow.md "chat-customize-flow.md").
+    [Customize chat flow experiences in Connect Customer by integrating custom participants](chat-customize-flow.md "chat-customize-flow.md").
 
 - **Timeout**: Run this branch if the customer hasn't sent
   a message after a specified amount of time. Maximum is 7 days.
@@ -139,11 +139,11 @@ and **Error**.
 
 ## Sample flows
 
-Amazon Connect includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
-[Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
+Connect Customer includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
+[Sample flows in Connect Customer](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-- [Sample disconnect flow in Amazon Connect](sample-disconnect.md "sample-disconnect.md")
+- [Sample disconnect flow in Connect Customer](sample-disconnect.md "sample-disconnect.md")
 
 ## Scenarios
 

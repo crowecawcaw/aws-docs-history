@@ -1,11 +1,11 @@
-# Edit quick responses in Amazon Connect
+# Edit quick responses in Connect Customer
 
-This topic explains how to use the Amazon Connect admin website to edit a quick response. To edit a quick response
+This topic explains how to use the Connect Customer admin website to edit a quick response. To edit a quick response
 programmatically, see [UpdateQuickResponse](../../../amazon-q-connect/latest/APIReference/API_UpdateQuickResponse.md "../../../amazon-q-connect/latest/APIReference/API_UpdateQuickResponse.md") in the _Connect AI agents API Reference_.
 
 ###### To edit a response
 
-1. Log in to the Amazon Connect admin website at https://_instance
+1. Log in to the Connect Customer admin website at https://_instance
    name_.my.connect.aws/. Use an **Admin** account, or an
    account assigned to a security profile that has \*\*Content Management - Quick responses
 

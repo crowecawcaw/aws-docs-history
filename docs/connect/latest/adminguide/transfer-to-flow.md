@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Transfer to flow
+# Flow block in Connect Customer: Transfer to flow
 
 This topic defines the flow block for ending the current flow and transferring the
 customer to a different flow.
@@ -52,14 +52,14 @@ configured. It has the following branch: **Error**.
 
 ## Sample flows
 
-Amazon Connect includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
-[Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
+Connect Customer includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
+[Sample flows in Connect Customer](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
 that describe the sample flows which include this block.
 
-- [Sample flow in Amazon Connect for A/B contact distribution testing](sample-ab-test.md "sample-ab-test.md")
+- [Sample flow in Connect Customer for A/B contact distribution testing](sample-ab-test.md "sample-ab-test.md")
 
 ## Scenarios
 
 See these topics for scenarios that use this block:
 
-- [Set up contact transfers in Amazon Connect](transfer.md "transfer.md")
+- [Set up contact transfers in Connect Customer](transfer.md "transfer.md")

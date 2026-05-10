@@ -23,7 +23,7 @@ A single profile object can be up to 250 KB and can be any structured
 JSON document.
 
 - Every profile object has a type. For example, the profile
-  object can be an Amazon Connect contact record, ServiceNow Users, or
+  object can be an Connect Customer contact record, ServiceNow Users, or
   Marketo Leads.
 - The type refers to the object type mapping.
 - The object type mapping defines how that specific object
@@ -52,7 +52,7 @@ information:
 A _mapping template_ is a predefined object type
 mapping included with the Customer Profiles service.
 
-Customer Profiles includes mapping templates for Amazon Connect contact records, Salesforce
+Customer Profiles includes mapping templates for Connect Customer contact records, Salesforce
 Accounts, ServiceNow Users, and Marketo Leads. For a complete list of
 available mapping templates, use the [ListProfileObjectTypeTemplates](../../../customerprofiles/latest/APIReference/API_ListProfileObjectTypeTemplates.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjectTypeTemplates.md") API.
 

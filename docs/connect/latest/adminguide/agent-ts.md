@@ -2,7 +2,7 @@
 
 Before you read this topic, we recommend that you confirm your agent's workstation
 meets the [minimum hardware requirements](ccp-agent-hardware.md "ccp-agent-hardware.md") for
-using Amazon Connect.
+using Connect Customer.
 
 This topic explains how to investigate device problems.
 
@@ -11,10 +11,10 @@ This topic explains how to investigate device problems.
     Utility](check-connectivity-tool.md "check-connectivity-tool.md") from the affected agent's machine and check the
     results.
   - Check whether the agent workstation meets [minimum hardware requirements](ccp-agent-hardware.md "ccp-agent-hardware.md")
-    for Amazon Connect. For a workstation that meets the requirements, the results
+    for Connect Customer. For a workstation that meets the requirements, the results
     are similar to those in the following image.
 
-  ![An example of a workstation that meets all the Amazon Connect requirements.](images/endpoint-test.png)
+  ![An example of a workstation that meets all the Connect Customer requirements.](images/endpoint-test.png)
   - The contact record displays the [DeviceInfo](ctr-data-model.md#ctr-deviceinfo "ctr-data-model.md#ctr-deviceinfo") of the participant (customer or agent) including
     the platform, platform version, and the operating system. The
     `deviceInfo` parameter helps to identify the agent's
@@ -27,7 +27,7 @@ This topic explains how to investigate device problems.
     the issue can be resolved by rolling back to the last known working
     revision.
   - Check whether the issue is reproducible across [all browsers supported by
-    Amazon Connect](connect-supported-browsers.md "connect-supported-browsers.md").
+    Connect Customer](connect-supported-browsers.md "connect-supported-browsers.md").
 
 - Investigate headset issues
   - Ensure that the agent's headset meets the [minimum headset requirements](ccp-agent-hardware.md#ccp-agent-headset "ccp-agent-hardware.md#ccp-agent-headset").
@@ -45,7 +45,7 @@ This topic explains how to investigate device problems.
         - Taking exclusive control of agent's mic/speaker. This issue
          documented in [Contact Control Panel (CCP) Issues](common-ccp-issues.md "common-ccp-issues.md")
         - Consuming excessive network bandwidth, and thus preventing the
-         bandwidth from being available to Amazon Connect.
+         bandwidth from being available to Connect Customer.
 
     If so, to find the problematic application, remove the recently
     installed applications one at a time until the issue is resolved.

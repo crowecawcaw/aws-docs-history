@@ -5,7 +5,7 @@
 Starting with Chrome version 147 and Edge version 147, Chromium-based
 browsers enforce Local Network Access (LNA) restrictions on WebSocket
 connections. This blocks the local WebSocket connection between the Contact
-Control Panel and the Amazon Connect Client Application, causing screen recordings to fail. Affected
+Control Panel and the Connect Customer Client Application, causing screen recordings to fail. Affected
 recordings cannot be recovered.
 
 **Symptoms**
@@ -18,7 +18,7 @@ recordings cannot be recovered.
 - The shared worker logs show:
   `IPC connection terminated with status code
 1006`
-  - Note: this could also mean the Amazon Connect Client Application is not
+  - Note: this could also mean the Connect Customer Client Application is not
     installed or not running on the agent machine.
 
 - The shared worker or CCP logs show:
@@ -43,7 +43,7 @@ the issue is caused by LNA enforcement.
 
 Deploy the **LoopbackNetworkAllowedForUrls**
 enterprise policy to pre-grant loopback network access permission for your
-Contact Control Panel domain. Configure this policy with your Amazon Connect
+Contact Control Panel domain. Configure this policy with your Connect Customer
 Contact Control Panel URL. Example policy value:
 `[*.]my.connect.aws`
 
@@ -53,6 +53,6 @@ Contact Control Panel URL. Example policy value:
   enterprise policy documentation.
 
 For additional troubleshooting steps, including how to collect log files
-from the Amazon Connect Client Application and shared worker, see
-[Download the Amazon Connect Client Application log
+from the Connect Customer Client Application and shared worker, see
+[Download the Connect Customer Client Application log
 files for troubleshooting](troubleshoot-sr.md "troubleshoot-sr.md").

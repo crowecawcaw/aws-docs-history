@@ -1,26 +1,26 @@
-# Release a phone number from Amazon Connect back to inventory
+# Release a phone number from Connect Customer back to inventory
 
 If you want a different phone number, or have extra numbers that you aren't using,
-you can release them back to inventory. You can do this using the Amazon Connect console, or
+you can release them back to inventory. You can do this using the Connect Customer console, or
 programmatically by using the [ReleasePhoneNumber](../APIReference/API_ReleasePhoneNumber.md "../APIReference/API_ReleasePhoneNumber.md") API.
 
-When a phone number is released from your Amazon Connect instance:
+When a phone number is released from your Connect Customer instance:
 
 - You will no longer be charged for it.
 - You cannot
   reclaim the phone number.
-- Amazon Connect
+- Connect Customer
   reserves the right to allow it to be claimed by another customer.
 
 ###### Tip
 
-If you want to close your Amazon Connect account, do these steps for all of your phone
+If you want to close your Connect Customer account, do these steps for all of your phone
 numbers. This will ensure you aren't billed if people erroneously call numbers
 that you've claimed, and initiate your flows. You may also want to [delete your instances.](delete-connect-instance.md "delete-connect-instance.md")
 
 ###### To release a phone number
 
-1. Log in to Amazon Connect admin website with an Admin account or a user account that has **Phone numbers - Release** security profile permission.
+1. Log in to Connect Customer admin website with an Admin account or a user account that has **Phone numbers - Release** security profile permission.
 2. On the navigation menu, choose **Channels**, **Phone
    numbers**. This option appears only if you have the **Phone numbers - View**
    permission in your

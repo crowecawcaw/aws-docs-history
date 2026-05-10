@@ -1,9 +1,9 @@
-# Enable Amazon Connect quick responses in a custom Contact Control Panel (CCP)
+# Enable Connect Customer quick responses in a custom Contact Control Panel (CCP)
 
 To enable your agents to use quick responses for an embedded or custom CCP, you use the
-[Amazon Connect Streams
+[Connect Customer Streams
 library](https://github.com/amazon-connect/amazon-connect-streams "https://github.com/amazon-connect/amazon-connect-streams") on GitHub to call the [SearchQuickResponse](../../../amazon-q-connect/latest/APIReference/API_SearchQuickResponses.md "../../../amazon-q-connect/latest/APIReference/API_SearchQuickResponses.md") API and return a list of quick response search results to CCP. For
-more information, see [Amazon Connect Streams Documentation](https://github.com/amazon-connect/amazon-connect-streams/blob/master/Documentation.md#quick-responses-apis "https://github.com/amazon-connect/amazon-connect-streams/blob/master/Documentation.md#quick-responses-apis") on Github.
+more information, see [Connect Customer Streams Documentation](https://github.com/amazon-connect/amazon-connect-streams/blob/master/Documentation.md#quick-responses-apis "https://github.com/amazon-connect/amazon-connect-streams/blob/master/Documentation.md#quick-responses-apis") on Github.
 
 ###### Note
 

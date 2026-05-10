@@ -24,7 +24,7 @@ template; instead, first create the users then use Bulk Edit to modify their per
 
 To Edit or Bulk Edit:
 
-1. Log in to the Amazon Connect admin website at https://`instance
+1. Log in to the Connect Customer admin website at https://`instance
 name`.my.connect.aws/. Use an Admin account, or an account with
    **Users and Permissions** - **Users**
 

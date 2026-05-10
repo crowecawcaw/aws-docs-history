@@ -4,7 +4,7 @@ An _AI guardrail_ is a resource that enables you to implement
 safeguards based on your use cases and responsible AI policies.
 
 Connect AI agents use Amazon Bedrock guardrails. You can create and edit these guardrails in the
-Amazon Connect admin website.
+Connect Customer admin website.
 
 ###### Contents
 
@@ -24,13 +24,27 @@ Amazon Connect admin website.
   experiment and benchmark with different configurations. It's possible that
   some of your combinations may have unintended consequences. Test the
   guardrail to ensure that the results meet your use-case requirements.
+- When guardrails are enabled with streaming responses, there is additional
+  latency because text chunks must be buffered and scanned before being
+  delivered. This primarily affects time-to-first-token (TTFT), as the system
+  needs to accumulate enough text to perform a meaningful guardrail evaluation
+  before streaming the first chunk to the end user. Minor additional latency
+  on top of TTFT is expected, depending on guardrail configurations. Shorter
+  responses may experience proportionally more noticeable latency since the
+  guardrail scan must still process a minimum buffer of text. This is an
+  inherent tradeoff between content safety accuracy and response speed. If
+  your use case is latency-sensitive, consider whether guardrails are necessary
+  for all interactions, or if they can be selectively applied. For more
+  information about synchronous guardrail streaming mode, see
+  [Configure streaming response behavior to filter content](../../../bedrock/latest/userguide/guardrails-streaming.md "../../../bedrock/latest/userguide/guardrails-streaming.md") in the
+  _Amazon Bedrock User Guide_.
 
 ## How to create an AI guardrail
 
-1.  Log in to the Amazon Connect admin website with an account that has **AI agent designer**,
+1.  Log in to the Connect Customer admin website with an account that has **AI agent designer**,
     **AI guardrails - Create** permission in its
     security profile.
-2.  In the Amazon Connect admin website, on the left navigation menu, choose **AI agent designer**,
+2.  In the Connect Customer admin website, on the left navigation menu, choose **AI agent designer**,
     **AI guardrails**.
 3.  On the **Guardrails** page, choose **Create
     Guardrail**.
@@ -70,7 +84,7 @@ Amazon Connect admin website.
          message that's displayed to the user if your guardrail blocks the
          input or the model response.
 
-    Amazon Connect does not support **Image content filter** to help
+    Connect Customer does not support **Image content filter** to help
     detect and filter inappropriate or toxic image content.
 
 6.  When your guardrail is complete, choose **Save**.
@@ -91,7 +105,7 @@ the AI guardrail.
 ## Change the default blocked message
 
 This section explains how to access the AI guardrail builder and editor in the
-Amazon Connect admin website, using the example of changing the blocked message that is displayed to
+Connect Customer admin website, using the example of changing the blocked message that is displayed to
 users.
 
 The following image shows an example of the default blocked message that is
@@ -102,7 +116,7 @@ guardrail."
 
 ###### To change the default blocked message
 
-1. Log in to the Amazon Connect admin website at https://`instance
+1. Log in to the Connect Customer admin website at https://`instance
 name`.my.connect.aws/. Use an admin account, or an account with
    **AI agent designer** - **AI guardrails** -
    **Create** permission in it's security profile.

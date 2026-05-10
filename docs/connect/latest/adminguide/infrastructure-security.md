@@ -1,21 +1,21 @@
-# Infrastructure security in Amazon Connect
+# Infrastructure security in Connect Customer
 
-As a managed service, Amazon Connect is protected by the AWS global network security procedures
+As a managed service, Connect Customer is protected by the AWS global network security procedures
 that are described on the [Best Practices for Security, Identity,
 and Compliance](https://aws.amazon.com/architecture/security-identity-compliance/ "https://aws.amazon.com/architecture/security-identity-compliance/") page.
 
-You use AWS published API calls to access Amazon Connect through the network.
+You use AWS published API calls to access Connect Customer through the network.
 
 ## Supported versions of TLS
 
 Clients must support Transport Layer Security (TLS) 1.2 or later.
 
-Amazon Connect offers a new website access model with a new domain (instance
+Connect Customer offers a new website access model with a new domain (instance
 name.my.connect.aws) that supports TLS 1.2 or newer versions only. It is available by
 default for instances created after March 2021. Existing customers can opt in to using
 the new domain using the following methods:
 
-- For non-SAML Amazon Connect instances, change your access URL from
+- For non-SAML Connect Customer instances, change your access URL from
   **.awsapps.com/connect** to
   **.my.connect.aws** and log in again.
 - For SAML-enabled instances, specify an extra query parameter new_domain=true
@@ -31,6 +31,6 @@ Additionally, requests must be signed by using an access key ID and a secret acc
 key that is associated with an IAM principal. Or you can use the [AWS Security Token Service](../../../STS/latest/APIReference/Welcome.md "../../../STS/latest/APIReference/Welcome.md")
 (AWS STS) to generate temporary security credentials to sign requests.
 
-You can call these API operations from any network location, but Amazon Connect does support
+You can call these API operations from any network location, but Connect Customer does support
 resource-based access policies, which can include restrictions based on the source IP
 address.

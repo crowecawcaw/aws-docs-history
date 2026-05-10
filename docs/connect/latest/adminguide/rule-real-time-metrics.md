@@ -1,4 +1,4 @@
-# Create alerts on real-time metrics in Amazon Connect
+# Create alerts on real-time metrics in Connect Customer
 
 You can create rules that automatically send emails or tasks to managers based on
 the values of real-time metrics. This enables you to alert managers on contact

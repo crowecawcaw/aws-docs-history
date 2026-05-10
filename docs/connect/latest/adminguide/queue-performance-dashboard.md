@@ -1,4 +1,4 @@
-# Queue and agent performance dashboard in Amazon Connect
+# Queue and agent performance dashboard in Connect Customer
 
 The **Queue and agent performance** dashboard helps you understand
 the performance of your queues and agents compared over configurable periods of time. It
@@ -33,7 +33,7 @@ Ensure users are assigned the appropriate security profile permissions:
 
 - **Access metrics - Access permission** or the
   **Dashboard - Access permission**. For information
-  about the difference in behavior, see [Assign permissions to view dashboards and reports in Amazon Connect](dashboard-required-permissions.md "dashboard-required-permissions.md").
+  about the difference in behavior, see [Assign permissions to view dashboards and reports in Connect Customer](dashboard-required-permissions.md "dashboard-required-permissions.md").
 
 ## Performance overview chart
 
@@ -148,7 +148,7 @@ The following image shows an example of how to set up conditional formatting.
 ![How to set up conditional formatting.](images/agent-adherence-status.png)
 
 The following image shows an example of filtering the **Adherence status
-duration**. In this case, Amazon Connect will display only those agents who are
+duration**. In this case, Connect Customer will display only those agents who are
 not adherent for longer than 10 minutes.
 
 ![A filter set for Adherence status duration.](images/dashboard-agent-adherence-status-duration1.png)

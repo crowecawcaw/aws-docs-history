@@ -9,4 +9,4 @@ communication record.
 - [Customer Profiles standard communication record object
   fields](customer-profiles-standard-communication-record-object-fields.md "customer-profiles-standard-communication-record-object-fields.md")
 - [Mapping Campaign objects to the standard communication record
-  in Amazon Connect Customer Profiles](mapping-campaign-objects-to-the-standard-communication-record-in-amazon-connect-customer-profiles.md "mapping-campaign-objects-to-the-standard-communication-record-in-amazon-connect-customer-profiles.md")
+  in Connect Customer Customer Profiles](mapping-campaign-objects-to-the-standard-communication-record-in-amazon-connect-customer-profiles.md "mapping-campaign-objects-to-the-standard-communication-record-in-amazon-connect-customer-profiles.md")

@@ -1,4 +1,4 @@
-# WhatsApp Business messaging capabilities and limitations with Amazon Connect
+# WhatsApp Business messaging capabilities and limitations with Connect Customer
 
 The WhatsApp Business messaging integration provides the following capabilities:
 
@@ -10,14 +10,14 @@ The WhatsApp Business messaging integration provides the following capabilities:
 
 ## Limitations
 
-When integrating WhatsApp Business messaging with Amazon Connect, be aware of the following
+When integrating WhatsApp Business messaging with Connect Customer, be aware of the following
 limitations:
 
 ###### Delivery receipt limitations
 
 - Read receipts for customer messages are not supported.
 - Delivery receipts for customer messages are not supported. The delivery receipts that
-  appear in WhatsApp indicate that WhatsApp has received the message, not Amazon Connect.
+  appear in WhatsApp indicate that WhatsApp has received the message, not Connect Customer.
 
 ###### Text message limitations
 
@@ -37,6 +37,6 @@ limitations:
 - All attachments from customers when initiating a new contact or conversation are not
   supported. Customers can only send attachments during an existing contact.
 - Attachments from customers greater than 20MB are not supported.
-- Attachments with captions are not supported. Amazon Connect removes any captions and delivers the
+- Attachments with captions are not supported. Connect Customer removes any captions and delivers the
   attachment.
 - Sticker attachments are not supported.

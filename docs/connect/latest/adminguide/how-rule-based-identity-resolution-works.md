@@ -1,4 +1,4 @@
-# How rule-based Identity Resolution works in Amazon Connect
+# How rule-based Identity Resolution works in Connect Customer
 
 This topic describes how rule-based Identity Resolution performs automatic profile matching and how
 it automatically merges similar profiles.
@@ -138,7 +138,7 @@ the status is in an **ACTIVE** state.
 
 ### How the auto-matching process works
 
-After you create a new Amazon Connect Customer Profiles domain with the rule-based matching rule,
+After you create a new Connect Customer Customer Profiles domain with the rule-based matching rule,
 the rule-based Identity Resolution will match similar profiles based on the
 rule you specified while you are ingesting the profiles. If you update
 the configuration of the rule-based matching, Customer Profiles will start to re-evaluate
@@ -153,7 +153,7 @@ profiles is dependant on how many profiles exist.
 
 - **By default, the default rule will be
   applied if no custom rule specified.**
-  - Amazon Connect Customer Profiles provides a default matching rule if you do
+  - Connect Customer Customer Profiles provides a default matching rule if you do
     not provide a custom matching rule. You can check the
     custom matching rule here.
 

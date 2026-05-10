@@ -1,4 +1,4 @@
-# Enable time off for Amazon Connect contact center agents
+# Enable time off for Connect Customer contact center agents
 
 You enable time off management for each staffing group. The following image shows
 the **Request management** section of the **Edit staffing

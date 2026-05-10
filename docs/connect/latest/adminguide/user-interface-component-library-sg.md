@@ -1,6 +1,6 @@
-# UI component library for UI builder in Amazon Connect
+# UI component library for UI builder in Connect Customer
 
-All of the UI builder components are described in the [Amazon Connect UI
+All of the UI builder components are described in the [Connect Customer UI
 component documentation](https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/overview--page "https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/overview--page"). This documentation shows you the individual UI
 components that you can use in the UI builder, and how you can configure
 them.
@@ -37,7 +37,7 @@ To create a form for agents or customers to complete and submit, you use the
 A [Form](https://d3irlmavjxd3d8.cloudfront.net/?path=/story/aws-managed-views-form--with-all "https://d3irlmavjxd3d8.cloudfront.net/?path=/story/aws-managed-views-form--with-all") component is a special type of container into which you can
 insert input fields and add a **Submit** button. When a user
 who is interacting with the guide presses the **Submit**
-button, Amazon Connect passes all of the values entered into the form fields to the flow.
+button, Connect Customer passes all of the values entered into the form fields to the flow.
 At that point in the flow, you can customize your own business logic and
 send/retrieve data to third-party systems by using the [AWS Lambda
 function](invoke-lambda-function-block.md "invoke-lambda-function-block.md") block.

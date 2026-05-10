@@ -1,7 +1,7 @@
-# Amazon Connect Cases event streams
+# Connect Customer Cases event streams
 
-Amazon Connect Cases event streams provide you with near real-time updates when cases are
-created or modified within your Amazon Connect Cases domain. The events published to the stream
+Connect Customer Cases event streams provide you with near real-time updates when cases are
+created or modified within your Connect Customer Cases domain. The events published to the stream
 include these resource events:
 
 - Case created

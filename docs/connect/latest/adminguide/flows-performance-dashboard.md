@@ -28,7 +28,7 @@ Ensure users are assigned the appropriate security profile permissions:
 
 - **Access metrics - Access** permission or the
   **Dashboard - Access** permission. For information
-  about the difference in behavior, see [Assign permissions to view dashboards and reports in Amazon Connect](dashboard-required-permissions.md "dashboard-required-permissions.md").
+  about the difference in behavior, see [Assign permissions to view dashboards and reports in Connect Customer](dashboard-required-permissions.md "dashboard-required-permissions.md").
 - **Flows - View**, **Flow modules -
   View**, and **Bot - View** permissions: These
   permissions are required to see data in your dashboard.
@@ -328,4 +328,4 @@ The following limitations apply to the Flows performance dashboard:
   You can restrict access through the Dashboard permissions pertaining to a
   security profile.
 - No support for metrics on flows that are type Customer hold and Agent
-  hold. For customer hold metrics, see [Metric definitions in Amazon Connect](metrics-definitions.md "metrics-definitions.md").
+  hold. For customer hold metrics, see [Metric definitions in Connect Customer](metrics-definitions.md "metrics-definitions.md").

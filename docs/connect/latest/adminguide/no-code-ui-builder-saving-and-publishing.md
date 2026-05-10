@@ -1,4 +1,4 @@
-# Save and publish views to use in a step-by-step guide in Amazon Connect
+# Save and publish views to use in a step-by-step guide in Connect Customer
 
 View resources have versioning support. Versioning enables you to audit and even
 re-use the previous iterations of a view you have created and/or used in

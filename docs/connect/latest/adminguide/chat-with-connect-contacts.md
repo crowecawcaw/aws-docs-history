@@ -1,6 +1,6 @@
-# Use the Contact Control Panel (CCP) in Amazon Connect to chat with contacts
+# Use the Contact Control Panel (CCP) in Connect Customer to chat with contacts
 
-When you set your status in the CCP to **Available**, Amazon Connect delivers
+When you set your status in the CCP to **Available**, Connect Customer delivers
 calls or chats to you, based on the settings in your [routing profile](routing-profiles.md "routing-profiles.md"). An administrator can specify that up to 10 chat
 conversations can be routed to you at the same time.
 
@@ -62,7 +62,7 @@ contact has been in ACW.
 ## What happens to missed chats?
 
 Let's say you take a break but forget to change your status in the CCP from
-**Available** to **Break**. Amazon Connect tries to
+**Available** to **Break**. Connect Customer tries to
 route a chat to you for 20 seconds. Keep in mind that your admin can't configure
 this amount of time.
 
@@ -71,7 +71,7 @@ metrics report.
 
 When you return from break and choose the chat tab, you'll see the missed contacts
 and how long they've been there. Each contact occupies a slot. With all of your
-slots are occupied, Amazon Connect won't route any more contacts to you. You must clear the
+slots are occupied, Connect Customer won't route any more contacts to you. You must clear the
 missed contact so more contacts can be routed to you.
 
 ###### Important
@@ -108,4 +108,4 @@ exactly what the message looks like before sending it.
 ###### Tip
 
 Developers: Enable this feature from the chat user interface. For
-instructions, see [Enable text formatting in Amazon Connect for your customer's chat experience](enable-text-formatting-chat.md "enable-text-formatting-chat.md").
+instructions, see [Enable text formatting in Connect Customer for your customer's chat experience](enable-text-formatting-chat.md "enable-text-formatting-chat.md").

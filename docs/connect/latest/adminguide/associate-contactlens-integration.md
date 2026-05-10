@@ -3,15 +3,15 @@
 After you have [configured](configure-external-voice-system.md "configure-external-voice-system.md")
 your external SBC to point to the Contact Lens integration connector host,
 you need to configure how the audio will be processed when it reaches
-Amazon Connect Contact Lens. To do this, you define the audio processing steps in an
-Amazon Connect flow. It specifies what steps the call audio will go through, including
+Connect Customer Contact Lens. To do this, you define the audio processing steps in an
+Connect Customer flow. It specifies what steps the call audio will go through, including
 invoking Contact Lens conversational analytics.
 
 Complete the following steps to create a flow that enables Contact Lens,
 and then associate the flow with the Contact Lens connector. This flow will
 be invoked when the Contact Lens connector receives call audio.
 
-1. In the Amazon Connect admin website, create a flow that uses the [Set recording and analytics
+1. In the Connect Customer admin website, create a flow that uses the [Set recording and analytics
    behavior](set-recording-behavior.md "set-recording-behavior.md"). Configure the block to
    enable **Agent and customer voice recording**,
    **Contact Lens speech analytics**, and

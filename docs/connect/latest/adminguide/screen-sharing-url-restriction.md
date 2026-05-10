@@ -23,7 +23,7 @@ Complete the following steps to enable URL restriction for screen sharing.
 You configure the lists of allowed URLs by using predefined attributes. Complete
 the following steps.
 
-1. In the Amazon Connect admin website, choose Routing, **Predefined
+1. In the Connect Customer admin website, choose Routing, **Predefined
    attributes**, **Add predefined
    attribute**.
 2. In the **Add predefined attributes** section, in the
@@ -54,17 +54,17 @@ the following steps.
 
 You need to embed a script into your website so the URL of the page can be exposed
 to the capturing application. You get the capture handler from a file on the
-Amazon CloudFront endpoint that Amazon Connect hosts. Complete the following instructions.
+Amazon CloudFront endpoint that Connect Customer hosts. Complete the following instructions.
 
-1. In the Amazon Connect admin website, choose **Channels**, **Communicate
+1. In the Connect Customer admin website, choose **Channels**, **Communicate
    widgets**. On your Communication widget summary page, look for
    the widget script. Get the endpoint from the `s.src` attribute,
    as shown in the following example.
 
 ![The Widget script.](images/screen-sharing-restricted-urls-step2.png)
 
-The endpoint can be in a different AWS Region than your Amazon Connect instance.
-For best performance, we recommend using the same Region as your Amazon Connect
+The endpoint can be in a different AWS Region than your Connect Customer instance.
+For best performance, we recommend using the same Region as your Connect Customer
 instance. 2. Replace the following placeholder `${endpoint}` with the value
 from previous step. Copy the entire code snippet and paste it on the top
 level of your website.

@@ -1,6 +1,6 @@
-# Use the segment AI assistant in Amazon Connect
+# Use the segment AI assistant in Connect Customer
 
-Amazon Connect Customer Profiles supports generative AI-powered segmentation, enabling non-technical
+Connect Customer Customer Profiles supports generative AI-powered segmentation, enabling non-technical
 business users to build audiences using natural language queries ([segment AI assistant](#generating-a-segment-by-prompt "#generating-a-segment-by-prompt")), and to
 receive recommendations based on trends in the customer data ([inspiration cards for segment
 creation](#inspiration-cards-for-segment-creation "#inspiration-cards-for-segment-creation")). These capabilities leverage advanced AI algorithms from [Amazon Bedrock](https://aws.amazon.com/bedrock/ "https://aws.amazon.com/bedrock/") that help you improve
@@ -42,7 +42,7 @@ process. The following image shows an example of three inspiration cards.
 ![An example of inspiration cards on the Customer segments page.](images/inspiration-cards-for-segment-creation-1.png)
 
 These cards generate up to three categories of segment ideas each time, based
-on the Amazon Connect Customer Profile data to inspire and streamline your segment
+on the Connect Customer Customer Profile data to inspire and streamline your segment
 creation process. 
 
 ###### Note
@@ -78,7 +78,7 @@ attributes.
    started** on that card.
 5. Choose **Explore more** to generate additional
    inspiration cards. These can offer fresh segment ideas based on your
-   Amazon Connect Customer Profiles data.
+   Connect Customer Customer Profiles data.
 6. When you choose **Get started**, you are
    automatically directed to the **Create Segment** page.
 7. Your selected segment idea is populated in the segment builder, ready
@@ -112,7 +112,7 @@ The following image shows an example of a segment AI assistant prompt.
 2. Users can provide a textual description of the desired segment.
 3. The prompt action step offers sample prompts as references for
    writing detailed descriptions.
-4. Based on your input, Amazon Connect generates a structured segment definition.
+4. Based on your input, Connect Customer generates a structured segment definition.
 5. The generated segment definition is automatically applied to the
    segment builder.
 6. You can further refine the generated segment using the standard
@@ -187,7 +187,7 @@ valid prompt for segment creation.
 
 The following image shows an example of this error message.
 
-![An example of an error message that Amazon Connect can't process your request.](images/customer-segments-ai-error-handling-1.png)
+![An example of an error message that Connect Customer can't process your request.](images/customer-segments-ai-error-handling-1.png)
 
 Use the following steps help you understand and troubleshoot this
 error.
@@ -255,7 +255,7 @@ segmentation quality.
 
 Allow sufficient time for complete data processing before relying on
 advanced features. Regularly update customer profile data. Segment accuracy
-depends on the completeness and recency of customer data in Amazon Connect Customer
+depends on the completeness and recency of customer data in Connect Customer Customer
 Profiles. The system flags any missing attributes in its responses.
 
 **System performance:**During high-volume periods,
@@ -264,7 +264,7 @@ typical workloads, but businesses with extensive segmentation needs may need to
 adjust their processes accordingly.
 
 **Attribute availability**: The quality of the
-generated segments is dependent on the customer data available in Amazon Connect Customer Profiles. The
+generated segments is dependent on the customer data available in Connect Customer Customer Profiles. The
 more comprehensive and up-to-date the customer profile data, the more accurate
 the system can be in interpreting prompts and defining relevant segments. If
 there is an attribute that does not exist, we will return a message with the

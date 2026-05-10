@@ -75,7 +75,7 @@ The email header displays key information:
 
 ### Viewing email threads
 
-Amazon Connect automatically groups related email messages into threads, allowing agents to see the full conversation history. Email threading follows standard email client conventions (RFC 5256).
+Connect Customer automatically groups related email messages into threads, allowing agents to see the full conversation history. Email threading follows standard email client conventions (RFC 5256).
 
 To view an email thread:
 
@@ -136,7 +136,7 @@ If your organization has configured message templates, you can use them to quick
 
 ## Email contact states
 
-Email contacts move through various states during their lifecycle, similar to other contact types in Amazon Connect:
+Email contacts move through various states during their lifecycle, similar to other contact types in Connect Customer:
 
 - **Incoming**: The email contact is being offered to the agent.
 - **Connected**: The agent has accepted the email contact and is actively handling it.

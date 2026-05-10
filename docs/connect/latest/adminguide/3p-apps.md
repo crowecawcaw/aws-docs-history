@@ -1,6 +1,6 @@
-# Integrate third-party applications (3p apps) in the Amazon Connect agent workspace
+# Integrate third-party applications (3p apps) in the Connect Customer agent workspace
 
-Amazon Connect agent workspace is a single, intuitive application that provides
+Connect Customer agent workspace is a single, intuitive application that provides
 your agents with the tools and step-by-step guidance they need to resolve issues
 efficiently, improve customer experiences, and onboard faster. In addition to using
 first-party applications in your agent workspace, such as Customer Profiles, Cases, and Connect AI agents, you
@@ -12,7 +12,7 @@ This functionality is only supported in the default agent workspace; it is not
 supported when using a custom CCP.
 
 For example, you can integrate your proprietary reservation system or a
-vendor-provided metrics dashboard, into the Amazon Connect agent workspace.
+vendor-provided metrics dashboard, into the Connect Customer agent workspace.
 
 If you are a developer interested in building a third-party application, see the
 [Agent Workspace Developer
@@ -36,7 +36,7 @@ Guide](../../../agentworkspace/latest/devguide/getting-started.md "../../../agen
 - [Third-party application SSO Federation
   setup](3p-apps-sso.md "3p-apps-sso.md")
 
-- [Use screen pop functionality of third-party applications in the Amazon Connect agent workspace](no-code-ui-builder-app-integration.md "no-code-ui-builder-app-integration.md")
+- [Use screen pop functionality of third-party applications in the Connect Customer agent workspace](no-code-ui-builder-app-integration.md "no-code-ui-builder-app-integration.md")
 - [Workshop for building a third-party app](https://catalog.workshops.aws/amazon-connect-agent-empowerment/en-US/third-party-applications/test "https://catalog.workshops.aws/amazon-connect-agent-empowerment/en-US/third-party-applications/test")
 
 ## Requirements
@@ -77,12 +77,12 @@ instance is using a Service-Linked Role (SLR). If your instance currently does
 not use an SLR but you wish to add an integration, you will need
 to migrate to an SLR. Integration can only be add to instances that are using an SLR. For more information, see [For instances created before October 2018](connect-slr.md#migrate-slr "connect-slr.md#migrate-slr").
 
-1. Open the Amazon Connect
+1. Open the Connect Customer
    [console](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/")
    (https://console.aws.amazon.com/connect/).
 2. On the left navigation pane, choose **Integrations**. If you do not see this menu, it's because it is
    not available in your region. To check the regions where this feature is
-   available, see [Availability of Amazon Connect features by Region](regions.md "regions.md").
+   available, see [Availability of Connect Customer features by Region](regions.md "regions.md").
 3. On the **Integrations** page, choose
    **Add integration**.
 
@@ -192,7 +192,7 @@ to migrate to an SLR. Integration can only be add to instances that are using an
     		* If you control the app/URL, you can update the
     		 app's content security policy. Follow the best
     		 practices for app developers/ Ensuring that apps
-    		 can only be embedded in the Amazon Connect agent workspace
+    		 can only be embedded in the Connect Customer agent workspace
     		 section [here](../../../agentworkspace/latest/devguide/recommendations-and-best-practices.md "../../../agentworkspace/latest/devguide/recommendations-and-best-practices.md").
     		* If you do not control the app/URL, you can try
     		 reaching out to the app developer and asking them

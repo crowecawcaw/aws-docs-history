@@ -1,6 +1,6 @@
-# Delete quick responses in Amazon Connect
+# Delete quick responses in Connect Customer
 
-This topic explains how to use the Amazon Connect admin website to delete a quick response. To delete a quick
+This topic explains how to use the Connect Customer admin website to delete a quick response. To delete a quick
 response programmatically, see [DeleteQuickResponse](../../../amazon-q-connect/latest/APIReference/API_DeleteQuickResponse.md "../../../amazon-q-connect/latest/APIReference/API_DeleteQuickResponse.md") in the _Connect AI agents API Reference Guide_.
 
 ###### Important
@@ -10,7 +10,7 @@ response programmatically, see [DeleteQuickResponse](../../../amazon-q-connect/l
 
 ###### To delete a response
 
-1. Log in to the Amazon Connect admin website at https://_instance
+1. Log in to the Connect Customer admin website at https://_instance
    name_.my.connect.aws/. Use an **Admin** account, or an
    account assigned to a security profile that has \*\*Content Management - Quick responses
 
@@ -28,6 +28,6 @@ A success message appears:
 
 ###### Note
 
-- If the **Delete** button is inactive, sign in to an Amazon Connect an account
+- If the **Delete** button is inactive, sign in to an Connect Customer an account
   that has the required security profile, or ask another admin for help.
 - Remain on the page until the delete operation finishes.

@@ -1,4 +1,4 @@
-# Set up routing in Amazon Connect based on agent proficiencies
+# Set up routing in Connect Customer based on agent proficiencies
 
 Following is an overview of the steps to set up routing based on agent proficiencies:
 
@@ -8,7 +8,7 @@ Following is an overview of the steps to set up routing based on agent proficien
      individually, or you can combine them by using the `AND` or
      `OR` operators to form a routing step.
 
-2. [Assign proficiencies to agents in your Amazon Connect instance](assign-proficiencies-to-agents.md "assign-proficiencies-to-agents.md")
+2. [Assign proficiencies to agents in your Connect Customer instance](assign-proficiencies-to-agents.md "assign-proficiencies-to-agents.md")
    - You select predefined attributes and associate them with an agent. All
      available agents that meet a routing step requirement of a contact within
      the same queue will be considered for a match.
@@ -20,7 +20,7 @@ Following is an overview of the steps to set up routing based on agent proficien
 4. Transfer to queue
 
 Use the [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") flow block to transfer the contact to a queue. After the contact is transferred,
-Amazon Connect runs the routing criteria.
+Connect Customer runs the routing criteria.
 
 ![Proficiency routing 4 step chart.](images/proficiency-routing-chart.png)
 
@@ -109,32 +109,32 @@ Agent2.
       and [Disconnect / hang up](disconnect-hang-up.md "disconnect-hang-up.md").
 
 ![A flow that is configured for routing by agent proficiencies.](images/proficiency-routing-example-flow-block.png) 4. **Transfer to queue**: After the contact is
-transferred to the "General Inbound Queue," Amazon Connect immediately starts running the
+transferred to the "General Inbound Queue," Connect Customer immediately starts running the
 routing criteria. The following steps occur before the contact is joined to
 Agent1.
 
     1. **Routing Step 1**: For the first 30
      seconds (no match) as neither agent has an AWS DynamoDB proficiency >=
-     5, Amazon Connect does not match with any agent.
+     5, Connect Customer does not match with any agent.
     2. **Routing Step 2**: In the next 30
      seconds (no match) as neither agent is both highly proficient (>=4) in
      both French and AWS DynamoDB
     3. **Routing Step 3**: As soon as the
-     previous step expires, Amazon Connect finds the available agent, Agent1 (French
+     previous step expires, Connect Customer finds the available agent, Agent1 (French
      3, AWS DynamoDB 4) is proficient in French and highly proficient in AWS
      DynamoDB. Therefore, the contact is matched with Agent1.
 
 There is a [one-click drill-down](one-click-drill-downs.md "one-click-drill-downs.md") in the
 real-time metrics for queues table which shows you a list of the routing steps in use
 for active contacts on the queue. You can find the definitions for the routing step
-specific metrics under [Metric definitions in Amazon Connect](metrics-definitions.md "metrics-definitions.md").
+specific metrics under [Metric definitions in Connect Customer](metrics-definitions.md "metrics-definitions.md").
 
 ## Contact record, contact event stream, and agent event stream updates for agent proficiencies
 
 Models have been added for proficiency routing in the following sections:
 
-- [Data model for Amazon Connect contact records](ctr-data-model.md "ctr-data-model.md")
-- [Agent event streams data model in Amazon Connect](agent-event-stream-model.md "agent-event-stream-model.md")
+- [Data model for Connect Customer contact records](ctr-data-model.md "ctr-data-model.md")
+- [Agent event streams data model in Connect Customer](agent-event-stream-model.md "agent-event-stream-model.md")
 - [Contact events data model](contact-events.md#contact-events-data-model "contact-events.md#contact-events-data-model")
 
 ## Frequently asked questions

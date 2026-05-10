@@ -1,4 +1,4 @@
-# Flow block in Amazon Connect: Connect assistant
+# Flow block in Connect Customer: Connect assistant
 
 This topic defines the flow block for Connect assistant.
 
@@ -58,7 +58,7 @@ to use for Agent Assistance.
 
 ## Configuration tips
 
-- To use Connect AI agents with calls, you must enable Amazon Connect Contact Lens in the
+- To use Connect AI agents with calls, you must enable Connect Customer Contact Lens in the
   flow by adding a [Set recording and analytics
   behavior](set-recording-behavior.md "set-recording-behavior.md") block that is configured
   for Contact Lens real-time. It doesn't matter where in the flow you

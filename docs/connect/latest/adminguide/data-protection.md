@@ -1,7 +1,7 @@
-# Data protection in Amazon Connect
+# Data protection in Connect Customer
 
 The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/")
-applies to data protection in Amazon Connect. As described in this model, AWS is
+applies to data protection in Connect Customer. As described in this model, AWS is
 responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are
 responsible for maintaining control over your content that is hosted on this infrastructure.
 You are also responsible for the security configuration and management tasks for the AWS services
@@ -23,7 +23,7 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
   available FIPS endpoints, see [Federal
   Information Processing Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/").
   We strongly recommend that you never put confidential or sensitive information, such as your
-  customers' email addresses, into tags or free-form text fields such as a **Name** field. This includes when you work with Amazon Connect or other AWS services
+  customers' email addresses, into tags or free-form text fields such as a **Name** field. This includes when you work with Connect Customer or other AWS services
   using the console, API, AWS CLI, or AWS SDKs. Any data that you enter into
   tags or free-form text fields used for names may be used for billing or diagnostic logs. If you
   provide a URL to an external server, we strongly recommend that you do not include credentials
@@ -31,10 +31,10 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
 
 ###### Contents
 
-- [Data handled by Amazon Connect](data-handled-by-connect.md "data-handled-by-connect.md")
-- [Encryption at rest in Amazon Connect](encryption-at-rest.md "encryption-at-rest.md")
-- [Encryption in transit in Amazon Connect](encryption-in-transit.md "encryption-in-transit.md")
-- [Key management in Amazon Connect](key-management.md "key-management.md")
+- [Data handled by Connect Customer](data-handled-by-connect.md "data-handled-by-connect.md")
+- [Encryption at rest in Connect Customer](encryption-at-rest.md "encryption-at-rest.md")
+- [Encryption in transit in Connect Customer](encryption-in-transit.md "encryption-in-transit.md")
+- [Key management in Connect Customer](key-management.md "key-management.md")
 - [VPC endpoints
   (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
 - [Service Improvement and how to opt out from using your data for service improvement](data-opt-out.md "data-opt-out.md")

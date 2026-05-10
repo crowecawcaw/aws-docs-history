@@ -1,4 +1,4 @@
-# Import and export flows between flow designers in Amazon Connect
+# Import and export flows between flow designers in Connect Customer
 
 Use the procedures described in this topic to import/export a flows from the previous flow
 designer to the new one, from one instance to another, or from one Region to another as you
@@ -24,7 +24,7 @@ offline flow configuration into flow designer, follow these update steps:
 - If you rely on an offline data store for your flow configuration as your
   source of truth, please ensure you update your flows configuration to the new
   format before the **03/31/2026** deadline.
-  To migrate tens or hundreds of flows, use the APIs described in [Migrate flows to an instance, Region, or environment in Amazon Connect](migrate-contact-flows.md "migrate-contact-flows.md").
+  To migrate tens or hundreds of flows, use the APIs described in [Migrate flows to an instance, Region, or environment in Connect Customer](migrate-contact-flows.md "migrate-contact-flows.md").
 
 The flow import/export feature is currently in Beta status. Updates and improvements that
 we make could result in issues in future releases importing flows that are exported during
@@ -66,7 +66,7 @@ folder that contains only exported flows.
 
 ###### To export a flow
 
-1. Log in to your Amazon Connect instance using an account that is assigned a security
+1. Log in to your Connect Customer instance using an account that is assigned a security
    profile that includes view permissions for flows.
 2. Choose **Routing**, **Contact
    flows**.
@@ -77,7 +77,7 @@ folder that contains only exported flows.
 
 ###### To import a flow
 
-1. Log in to your Amazon Connect instance. The account must be assigned a security profile
+1. Log in to your Connect Customer instance. The account must be assigned a security profile
    that includes edit permissions for flows.
 2. On the navigation menu, choose **Routing**, **Contact
    flows**.
@@ -104,26 +104,26 @@ specific to the service and Region in which the resource is created. When you ex
 flow, the name and ARN for each resource referenced in the flow is included in the
 exported flow.
 
-When you import a flow, Amazon Connect attempts to resolve the references to the Amazon Connect
+When you import a flow, Connect Customer attempts to resolve the references to the Connect Customer
 resources used in the flow, such as queues, by using the ARN for the resource.
 
-- When you import a flow into the same Amazon Connect instance that you exported it from,
+- When you import a flow into the same Connect Customer instance that you exported it from,
   the resources used in the flow will resolve to the existing resources in that
   instance.
-- If you delete a resource, or change the permissions for a resource, Amazon Connect may
+- If you delete a resource, or change the permissions for a resource, Connect Customer may
   not be able to resolve the resource when you import the flow.
-- When a resource cannot be found using the ARN, Amazon Connect attempts to resolve the
+- When a resource cannot be found using the ARN, Connect Customer attempts to resolve the
   resource by finding a resource with the same name as the one used in the flow.
   If no resource with the same name is found, a warning is displayed on the block
   that contains a reference to the unresolved resource.
-- If you import a flow into a different Amazon Connect instance than the one it was
+- If you import a flow into a different Connect Customer instance than the one it was
   exported from, the ARNs for the resources used are different.
 - If you create resources in the instance with the same name as the resource in
   the instance where the flow was exported from, the resources can be resolved by
   name.
 
 You can also open the blocks that contain unresolved resources, or resources
-that were resolved by name, and change the resource to another one in the Amazon Connect
+that were resolved by name, and change the resource to another one in the Connect Customer
 instance.
 
 You can save a flow with unresolved or missing resources. You can publish a flow with

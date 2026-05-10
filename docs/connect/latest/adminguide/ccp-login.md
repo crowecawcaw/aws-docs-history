@@ -1,4 +1,4 @@
-# Log in and log out of the Amazon Connect CCP
+# Log in and log out of the Connect Customer CCP
 
 Before you can log in to the Contact Control Panel (CCP), your administrator must give
 you the following information:
@@ -8,7 +8,7 @@ you the following information:
       + https://`instance name`.my.connect.aws/ccp-v2/
 
   Where `instance name` is provided by your IT
-  department or whoever set up Amazon Connect for your business.
+  department or whoever set up Connect Customer for your business.
 
 - Your agent ID.
 - Your agent password.
@@ -23,7 +23,7 @@ After you have that information, here's how to log in and get started.
 3. Enter your agent ID and password, and then choose **Sign
    In**.
 
-![The login page for Amazon Connect.](images/ccp-login.png) 4. If you're prompted to **Allow access to cookies**, choose
+![The login page for Connect Customer.](images/ccp-login.png) 4. If you're prompted to **Allow access to cookies**, choose
 **Grant access**, and then choose
 **Allow**.
 
@@ -33,16 +33,16 @@ OR
 
 ![A Grant access banner.](images/3pcookies-custom-grant-access.png)
 
-Amazon Connect uses cookies for authentication. Google Chrome requires you to authorize
-the use of Amazon Connect cookies.
+Connect Customer uses cookies for authentication. Google Chrome requires you to authorize
+the use of Connect Customer cookies.
 
 ###### Tip
 
 **IT admins**: For more information, see
-[Using Amazon Connect with third-party cookies](admin-3pcookies.md "admin-3pcookies.md"). 5. If you are prompted to allow access to your microphone and speaker, choose
+[Using Connect Customer with third-party cookies](admin-3pcookies.md "admin-3pcookies.md"). 5. If you are prompted to allow access to your microphone and speaker, choose
 **Allow**.
 
-![The browser prompt to allow Amazon Connect access to your microphone.](images/ccp-allow-microphone.png)
+![The browser prompt to allow Connect Customer access to your microphone.](images/ccp-allow-microphone.png)
 You're all set to go!
 
 ## Problems logging in?
@@ -54,9 +54,9 @@ IT Department for your organization.
 
 If you see the **Session expired** message while logging in, you probably just need to
 refresh the session token. Go to your identity provider and log in. Refresh the
-Amazon Connect page. If you still get this message, contact your IT team.
+Connect Customer page. If you still get this message, contact your IT team.
 
-## Log out of the Amazon Connect CCP
+## Log out of the Connect Customer CCP
 
 ###### Important
 

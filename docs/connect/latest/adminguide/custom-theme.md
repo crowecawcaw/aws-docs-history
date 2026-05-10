@@ -5,12 +5,12 @@ You can use themes to customize the visual appearance of a workspace, so it alig
 - **Support multiple brand identities:** If your organization manages multiple products or services with unique branding, you can create a unique workspace for each, so users that are assigned to more than one see the logo, font and color scheme aligned with the brand they are currently managing.
 - **Differentiate between departments or business units:** Design different themes for different departments or business units, to help users quickly identify their current context.
 - **Create client-specific user interfaces:** For businesses serving multiple clients, create branded workspaces that match each client's brand identity.
-  Themes consist of a logo, a favicon, a font family, and a set of colors. By default, your workspace will use Amazon Connect's theme. In this example, the default settings have been replaced for 'Any Company', including the logo and color scheme.
+  Themes consist of a logo, a favicon, a font family, and a set of colors. By default, your workspace will use Connect Customer's theme. In this example, the default settings have been replaced for 'Any Company', including the logo and color scheme.
 
 ![Workspace with a custom logo and color scheme.](images/workspace-theme.png)
 
-- **Logo** — You can replace the default Amazon Connect logo that appears at the top left of a workspace. To set a new logo, prepare and upload an image file in the specified dimensions and format.
-- **Favicon** — You can also replace the default Amazon Connect favicon that commonly appears in your browser's tab and bookmark bars, history, and search results. To set a new favicon, prepare and upload an image file in the specified dimensions and format.
+- **Logo** — You can replace the default Connect Customer logo that appears at the top left of a workspace. To set a new logo, prepare and upload an image file in the specified dimensions and format.
+- **Favicon** — You can also replace the default Connect Customer favicon that commonly appears in your browser's tab and bookmark bars, history, and search results. To set a new favicon, prepare and upload an image file in the specified dimensions and format.
 - **Font family** — Change the typography used throughout your workspace. To use a different font family, select one of the options from the drop-down menu.
 
 ![Workspace theme customization form.](images/workspace-theme-form.png)
@@ -22,7 +22,7 @@ The actions drop-down menu provides the following options:
 - **Export** — Outputs theme configurations into a JSON file (in the same format as required for import) so it can be easily uploaded into another workspace.
 - **Import** — Import theming configurations either from other workspaces directly or upload a JSON file with these configurations. The format of the JSON file follows the same structure as the export file and the theme object on the workspace resource.
 - **Reset** — Similar to Cancel, this reverts changes back to what was last saved.
-- **Reset to default** — Changes the theme back to the standard theme offered by Amazon Connect.
+- **Reset to default** — Changes the theme back to the standard theme offered by Connect Customer.
 
 ###### Customize the colors
 

@@ -124,7 +124,7 @@ a detailed map and location pin:
 
 ![Image of an iMessage app sent using an Apple CIM with a detailed map and location pin.](images/imessage-apps-1.png)
 
-For information about how to set iMessage Apps using Amazon Connect, see [Add Amazon Lex interactive messages for customers in chat](interactive-messages.md "interactive-messages.md").
+For information about how to set iMessage Apps using Connect Customer, see [Add Amazon Lex interactive messages for customers in chat](interactive-messages.md "interactive-messages.md").
 
 ## Use rich links for URLs
 
@@ -132,9 +132,9 @@ Rich links show an inline preview of a URL that contains an image or video. Unli
 normal URLs, customers can view the image or video preview immediately in a chat
 without choosing a "Tap to Load Preview" message.
 
-### Requirements for using rich links in Amazon Connect
+### Requirements for using rich links in Connect Customer
 
-To use rich links in Amazon Connect chat messages, your URL and images must meet the
+To use rich links in Connect Customer chat messages, your URL and images must meet the
 following requirements:
 
 - Your website must use Facebook Open Graph tags. For more information,
@@ -162,7 +162,7 @@ to different flows based on the **AppleBusinessChatGroup** contact
 attribute. Or, if you want to route Apple Messages for Business messages differently from other chat
 messages, you can branch based on MessagingPlatform.
 
-For more information about contact attributes, see [Use Amazon Connect contact attributes](connect-contact-attributes.md "connect-contact-attributes.md").
+For more information about contact attributes, see [Use Connect Customer contact attributes](connect-contact-attributes.md "connect-contact-attributes.md").
 
 Use the following contact attributes to route Apple Messages for Business customers.
 

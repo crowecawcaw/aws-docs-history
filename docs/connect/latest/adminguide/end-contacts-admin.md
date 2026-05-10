@@ -1,4 +1,4 @@
-# End contacts from the Contact details page in Amazon Connect
+# End contacts from the Contact details page in Connect Customer
 
 On the **Contact details** page of an in-progress contact, you can
 end a contact. Ending a contact results in the contact being disconnected. If the
@@ -46,9 +46,9 @@ To end contacts programmatically, use the [StopContact](../APIReference/API_Stop
 
 ## How to end an in-progress contact
 
-1. Log in to Amazon Connect with a user account that has [permissions to access
+1. Log in to Connect Customer with a user account that has [permissions to access
    contact records](contact-search.md#required-permissions-search-contacts "contact-search.md#required-permissions-search-contacts").
-2. In Amazon Connect choose **Analytics and optimization**,
+2. In Connect Customer choose **Analytics and optimization**,
    **Contact search**.
 3. Select the **Contact status** filter and change the
    selected value to **In progress**.

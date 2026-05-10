@@ -1,18 +1,18 @@
-# Generate, review, and publish a schedule by using Schedule Manager in Amazon Connect
+# Generate, review, and publish a schedule by using Schedule Manager in Connect Customer
 
-Amazon Connect is designed to generate the least number of shifts for agents based on the
+Connect Customer is designed to generate the least number of shifts for agents based on the
 forecasted demand pattern and configured constraints to hit the optimization
 goal.
 
 After you create shift activities, shift profiles, staffing groups and staffing
 group rules, you can generate a schedule.
 
-1. Log in to the Amazon Connect admin website with an account that has security profile permissions
+1. Log in to the Connect Customer admin website with an account that has security profile permissions
    for **Scheduling**, **Schedule manager -
    Edit**.
 
 For more information, see [Assign
-permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Amazon Connect navigation menu, select **Analytics and
+permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Connect Customer navigation menu, select **Analytics and
 optimization**, **Scheduling**. 3. Choose the **Schedule Manager** tab, and then choose
 **Generate schedule**. 4. Enter a name and description for the schedule. 5. In the **Schedule input** section, select the forecast
 group from the dropdown menu.
@@ -28,7 +28,7 @@ seconds. The capacity planning and scheduling system will optimize headcount
 
 ###### Note
 
-Amazon Connect generates a draft schedule. It will not be visible to agents or
+Connect Customer generates a draft schedule. It will not be visible to agents or
 supervisors until you publish it. 10. In the list of schedules, the schedule you created shows a status of
 **In progress**. It takes 30 minutes to 3 hours to
 generate, depending on the number of agents, number of configured rules,
@@ -70,8 +70,8 @@ Schedulers can:
 Staff (agents) and supervisors specified in the staffing groups can now
 view the schedule. See the following topics to learn about their experience:
 
-    * [How supervisors view published schedules using the Amazon Connect admin website](scheduling-view-schedule-supervisors.md "scheduling-view-schedule-supervisors.md")
-    * [How agents view their schedule in the Amazon Connect agent workspace](scheduling-view-schedule-agents.md "scheduling-view-schedule-agents.md")
+    * [How supervisors view published schedules using the Connect Customer admin website](scheduling-view-schedule-supervisors.md "scheduling-view-schedule-supervisors.md")
+    * [How agents view their schedule in the Connect Customer agent workspace](scheduling-view-schedule-agents.md "scheduling-view-schedule-agents.md")
 
 ## Edit a schedule
 

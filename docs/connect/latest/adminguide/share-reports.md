@@ -1,4 +1,4 @@
-# Share saved reports in Amazon Connect
+# Share saved reports in Connect Customer
 
 You can only share reports that you create and save. To share reports, you need the
 **Saved reports - Publish** permission on your security profile.
@@ -30,4 +30,4 @@ the link with specific people.
 ###### Important
 
 Anyone who has the link and the appropriate permissions can access the
-report. For a list of required permissions, see [View a shared report in Amazon Connect](view-a-shared-report.md "view-a-shared-report.md").
+report. For a list of required permissions, see [View a shared report in Connect Customer](view-a-shared-report.md "view-a-shared-report.md").

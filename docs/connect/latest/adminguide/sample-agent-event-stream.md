@@ -1,4 +1,4 @@
-# Sample agent event stream in Amazon Connect
+# Sample agent event stream in Connect Customer
 
 In the following sample agent event stream, the agent is assigned to a routing profile
 that requires them to take both chats and calls. They can take one call, and up to three
@@ -6,7 +6,7 @@ chats at a time.
 
 ###### Note
 
-For how many chats and tasks an agent can take concurrently, see [Amazon Connect service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
+For how many chats and tasks an agent can take concurrently, see [Connect Customer service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
 
 ```
 {

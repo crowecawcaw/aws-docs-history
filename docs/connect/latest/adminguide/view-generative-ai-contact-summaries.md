@@ -1,4 +1,4 @@
-# View generative AI-powered post-contact summaries in Amazon Connect
+# View generative AI-powered post-contact summaries in Connect Customer
 
 ###### Note
 
@@ -19,11 +19,11 @@ You can access generative AI-powered post-contact summaries multiple ways:
   summaries to quickly complete their After Contact Work (ACW). To learn about
   the agent's experience, see [View post-contact summaries on the CCP](#summaries-on-agentws "#summaries-on-agentws").
 - **Managers and supervisors** can access
-  summaries for voice, chat, and email contacts on the Amazon Connect admin website, on the **Contact
+  summaries for voice, chat, and email contacts on the Connect Customer admin website, on the **Contact
   details** and the **Contact search** pages.
   They can use the summaries to quickly understand the issues and outcomes for
   the contacts they are reviewing. To learn about the managers experience, see
-  [View post-contact summaries on the Amazon Connect admin website](#summaries-on-website "#summaries-on-website").
+  [View post-contact summaries on the Connect Customer admin website](#summaries-on-website "#summaries-on-website").
 - **Developers** can directly ingest the
   summaries from the [APIs](contact-lens-api.md "contact-lens-api.md") into
   third-party systems. They can also [integrate with
@@ -37,7 +37,7 @@ You can access generative AI-powered post-contact summaries multiple ways:
 - [View post-contact summaries
   on the CCP](#summaries-on-agentws "#summaries-on-agentws")
 - [View post-contact summaries
-  on the Amazon Connect admin website](#summaries-on-website "#summaries-on-website")
+  on the Connect Customer admin website](#summaries-on-website "#summaries-on-website")
 - [Why a summary is not generated](#summary-not-generated "#summary-not-generated")
 
 ## Enable post-contact summaries
@@ -83,7 +83,7 @@ profile:
      **Access** which is recommended)
     * **Analysis and Optimization - View my contacts**  or **Contact Search**
 
-###### To enable post-contact summaries on Amazon Connect admin website
+###### To enable post-contact summaries on Connect Customer admin website
 
 1.  Configure the **Properties** page of the [Set recording and analytics
     behavior](set-recording-behavior.md "set-recording-behavior.md") as follows:
@@ -139,7 +139,7 @@ profile:
 
 ## View post-contact summaries on the CCP
 
-To help agents perform their After contact work (ACW), Amazon Connect displays a
+To help agents perform their After contact work (ACW), Connect Customer displays a
 generative AI-powered post-contact summary on their CCP for voice contacts. The
 following image shows an example summary.
 
@@ -157,10 +157,10 @@ following image shows an example summary.
 Generative AI-powered post-contact summaries support voice, chat, and email contacts
 on the CCP.
 
-## View post-contact summaries on the Amazon Connect admin website
+## View post-contact summaries on the Connect Customer admin website
 
 To help managers and other users review contacts, they can view post-contact
-summaries on the Amazon Connect admin website. The following image shows an example of
+summaries on the Connect Customer admin website. The following image shows an example of
 generative AI-powered post-contact summaries on the **Contact details** page.
 
 ![The Contact details page showing a generative AI-powered post-contact summary with structured information about the customer conversation.](images/genai-summary2.png)
@@ -226,11 +226,11 @@ unsupported locale.
   security and quality guardrails**. ReasonCode:
   `FAILED_SAFETY_GUIDELINES`.
 
-This error can occur in Amazon Connect for Concurrent post-contact summary
-jobs. Amazon Connect passes contact data to Amazon Bedrock for summary generation. If the
+This error can occur in Connect Customer for Concurrent post-contact summary
+jobs. Connect Customer passes contact data to Amazon Bedrock for summary generation. If the
 contact data contains unredacted Personally Identifiable Information
 (PII), Amazon Bedrock's safety guidelines are triggered. As a result, Amazon Bedrock refuses
 to generate the summary to protect sensitive information, leading to the
-error in Amazon Connect.
+error in Connect Customer.
 
 - Internal system error. ReasonCode: `INTERNAL_ERROR`

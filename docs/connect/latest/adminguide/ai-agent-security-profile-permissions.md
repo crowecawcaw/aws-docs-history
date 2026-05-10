@@ -2,7 +2,7 @@
 
 ## Security Profiles
 
-Security Profiles in Amazon Connect control what users can access and what actions they can perform. For AI Agents, security profiles govern:
+Security Profiles in Connect Customer control what users can access and what actions they can perform. For AI Agents, security profiles govern:
 
 - Which tools an AI Agent can invoke
 - What data the agent can access
@@ -72,7 +72,7 @@ For administrators configuring AI Agents and Prompts:
 
 ### Step 1: Access Security Profiles
 
-1. Log in to the Amazon Connect admin console
+1. Log in to the Connect Customer admin console
 2. Navigate to **Users** → **Security profiles**
 3. Select the security profile to modify (or create a new one)
 

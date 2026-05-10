@@ -1,4 +1,4 @@
-# Object type mapping for the standard profile in Amazon Connect Customer Profiles
+# Object type mapping for the standard profile in Connect Customer Customer Profiles
 
 The topics in this section provide the standard profile definition, and the
 object type mapping from external applications to the standard profile.

@@ -1,9 +1,9 @@
-# Sample recording behavior in Amazon Connect
+# Sample recording behavior in Connect Customer
 
 ###### Note
 
-This topic explains a sample flow that is included with Amazon Connect. For information
-about locating the sample flows in your instance, see [Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md").
+This topic explains a sample flow that is included with Connect Customer. For information
+about locating the sample flows in your instance, see [Sample flows in Connect Customer](contact-flow-samples.md "contact-flow-samples.md").
 
 Type: Flow (inbound)
 
@@ -26,7 +26,7 @@ to record both the **Agent and Customer**.
 
 For more information, see the following topics:
 
-- [When, what, and where for contact recordings in Amazon Connect](about-recording-behavior.md "about-recording-behavior.md")
+- [When, what, and where for contact recordings in Connect Customer](about-recording-behavior.md "about-recording-behavior.md")
 - [Enable contact recording](set-up-recordings.md "set-up-recordings.md")
-- [Enable enhanced multi-party contact monitoring in Amazon Connect](monitor-conversations.md "monitor-conversations.md")
-- [Review recorded conversations between agents and customers using Amazon Connect](review-recorded-conversations.md "review-recorded-conversations.md")
+- [Enable enhanced multi-party contact monitoring in Connect Customer](monitor-conversations.md "monitor-conversations.md")
+- [Review recorded conversations between agents and customers using Connect Customer](review-recorded-conversations.md "review-recorded-conversations.md")

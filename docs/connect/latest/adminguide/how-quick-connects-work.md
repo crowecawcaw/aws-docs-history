@@ -24,7 +24,7 @@ Here's what John and Maria do, and what flow blocks are triggered:
 
 When John does this, his CCP banner changes to
 **Connected**. However, the call isn't actually
-connected to Maria yet. 2. In our example scenario, Amazon Connect triggers an agent transfer flow that looks
+connected to Maria yet. 2. In our example scenario, Connect Customer triggers an agent transfer flow that looks
 like the following image. It has the following blocks connected by
 **Success** branches: a **Play
 prompt**, a **Set whisper flow**, another
@@ -43,7 +43,7 @@ agent."
 
 ###### Note
 
-If you don't create and then select a custom agent whisper flow, Amazon Connect
+If you don't create and then select a custom agent whisper flow, Connect Customer
 plays the [default agent whisper
 flow](default-agent-whisper.md "default-agent-whisper.md"), which says the queue name. 7. The next [Set whisper flow](set-whisper-flow.md "set-whisper-flow.md") block is triggered. It plays
 the Custom_Customer_Whisper to John, for example, "Your call is now
@@ -52,7 +52,7 @@ connecting to an agent."
 ###### Note
 
 If you don't create and then select a custom customer whisper flow,
-Amazon Connect plays the [default
+Connect Customer plays the [default
 customer whisper flow](default-customer-whisper.md "default-customer-whisper.md"), which plays a beep. 8. Maria's CCP banner shows she's **Connected**. John and
 Maria are connected and can start talking. 9. Now John can do one of the following on his CCP:
 
@@ -87,7 +87,7 @@ Even though the status of the transferred call (internal-transfer)
 shows on John's CCP banner as **Connecting**, the
 contact is not yet transferred to the PasswordReset queue.
 
-![The CCP, the status banner says Internal transfer Connecting.](images/contact-flow-transfer-transfer-connecting.png) 2. Amazon Connect invokes the queue transfer flow that's associated with the
+![The CCP, the status banner says Internal transfer Connecting.](images/contact-flow-transfer-transfer-connecting.png) 2. Connect Customer invokes the queue transfer flow that's associated with the
 PasswordReset quick connect. In this flow, the [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md")
 block transfers the contact to the PasswordReset queue since it's specified
 in the block. The contact is now in the PasswordReset queue. 3. Maria is notified in her CCP to accept or reject the incoming call. 4. Maria accepts the incoming call and her CCP banner changes to
