@@ -26,6 +26,15 @@ these expired recovery points can be restored from the Amazon EC2 console and [A
 You will continue to store expired recovery points in your account. This might
 increase your storage costs.
 
+###### Note
+
+AWS Backup periodically identifies orphaned AMIs - AMIs created by AWS Backup that are no
+longer associated with a recovery point - and places them as expired recovery points in
+the account's Default vault. You can then delete these expired recovery points, which
+also deletes the associated AMI and snapshots. If the Default vault does not exist in
+the Region, create one so that orphaned AMIs can be placed there as expired
+recovery points. You must then delete these recovery points manually.
+
 After August 6, 2021, AWS Backup will show the target recovery point as
 **Expired** in its backup vault. You can hover your mouse over the red
 **Expired** status for a popover status message that explains why it

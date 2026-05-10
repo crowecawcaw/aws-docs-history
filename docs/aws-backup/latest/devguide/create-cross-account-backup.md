@@ -9,8 +9,8 @@ this, you must have two accounts that belong to the same organization in the AWS
 service. For more information, see [Tutorial: Creating and
 configuring an organization](../../../organizations/latest/userguide/orgs_tutorials_basic.md "../../../organizations/latest/userguide/orgs_tutorials_basic.md") in the _Organizations User Guide_.
 
-In your destination account, you must create a backup vault. Then, you assign a customer
-managed key to encrypt backups in the destination account, and a resource-based access
+In your destination account, you must create a backup vault. Then, you assign an
+encryption key to encrypt backups in the destination account, and a resource-based access
 policy to allow AWS Backup to access the resources you would like to copy. In the source account,
 if your resources are encrypted with a customer managed key, you must share this customer
 managed key with the destination account. You can then create a backup plan and choose a
@@ -18,8 +18,17 @@ destination account that is part of your organizational unit in AWS Organization
 
 When you copy a backup to cross-account for the first time, AWS Backup copies the backup in
 full. In general, if a service supports incremental backups, subsequent copies of that
-backup in the same account are incremental. AWS Backup re-encrypts your copy using the customer
-managed key of your destination vault.
+backup to the same destination account and vault are incremental. AWS Backup re-encrypts your copy
+using the encryption key of your destination vault.
+
+###### Note
+
+For resources [fully managed by AWS Backup](whatisbackup.md#full-management "whatisbackup.md#full-management"),
+you can use either a customer managed key or the AWS Backup managed key
+(`aws/backup`) for the destination vault. For all other resource types,
+a customer managed key is required because AWS managed key policies are immutable
+and cannot be shared cross-account. For more information, see [Encryption for a backup copy to a different account or
+AWS Region](encryption.md#copy-encryption "encryption.md#copy-encryption").
 
 ###### Requirements
 
@@ -47,6 +56,39 @@ a customer managed policy that allows actions such as
 `ec2:ModifySnapshotAttribute`. For more information about policy types,
 see [AWS Backup Managed
 Policies](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
+
+For cross-account copy jobs, the IAM role in the source account must also have the
+following identity-based permissions:
+
+    + `backup:CopyFromBackupVault` – Authorizes copying
+     the source recovery point.
+    + `backup:CopyIntoBackupVault` – Authorizes writing
+     into the destination vault. Because this is a cross-account call, this permission
+     must be present in both the identity-based policy (attached to the IAM role) and
+     the resource-based policy (on the destination backup vault).
+
+The AWS managed policy `AWSBackupServiceRolePolicyForBackup` includes
+both of these permissions. If you use a custom IAM role, you must add these permissions
+explicitly. The following is an example identity-based policy:
+
+```
+{
+  "Statement": [
+    {
+      "Sid": "BackupVaultCopyPermissions",
+      "Effect": "Allow",
+      "Action": "backup:CopyFromBackupVault",
+      "Resource": "*"
+    },
+    {
+      "Sid": "BackupVaultPermissions",
+      "Effect": "Allow",
+      "Action": "backup:CopyIntoBackupVault",
+      "Resource": "arn:aws:backup:*:*:backup-vault:*"
+    }
+  ]
+}
+```
 
 - **A destination account**
 

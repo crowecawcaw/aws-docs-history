@@ -82,10 +82,22 @@ bucket and its objects to be fully deleted, but charges will only occur for thes
 resources until the day when the lifecycle rule initiates (by default this is 1 days).
 Speed of deletion will depend upon the resource type.
 
-Resources that are part of a restore testing plan contain a tag called
-`awsbackup-restore-test`. If a user removes this tag, AWS Backup cannot delete the
-resource at the end of the testing period and the user will have to delete it manually
-instead.
+Resources that are restored by a restore testing plan and support tag-on-restore have
+a tag of `awsbackup-restore-test`. If a user removes this tag, AWS Backup cannot
+delete the resource at the end of the testing period and the user will have to delete it
+manually instead. For resources that do not support tag-on-restore, AWS Backup deletes the
+resource based on its name.
+
+###### Note
+
+Restores of DynamoDB, Amazon S3, SAP HANA on Amazon EC2 instances, virtual machines, and
+Amazon Timestream resources do not currently support tag-on-restore. For these resources,
+AWS Backup does not apply the `awsbackup-restore-test` tag and instead deletes
+the resource based on its name. For more information, see [Copy tags during a restore](restoring-a-backup.md#tag-on-restore "restoring-a-backup.md#tag-on-restore").
+
+The deletion of a restore-tested Amazon S3 bucket takes longer than other resource
+types, because it can take a few days for lifecycle policies to delete all objects
+within the bucket.
 
 To check why resources may not have been deleted as expected, you can search through
 failed jobs in the console or use the command line interface to call the API request

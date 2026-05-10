@@ -184,7 +184,7 @@ If you want to limit this to specific resource types, instead of `"Resource":
 for Amazon EBS snapshots, change the resource type to the following.
 
 ```
-"Resource": ["arn:aws:ec2::`Region`::snapshot/*"]
+"Resource": ["arn:aws:ec2:*:*:snapshot/*"]
 ```
 
 5. Choose **Attach policy**.

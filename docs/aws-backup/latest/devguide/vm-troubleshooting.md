@@ -92,9 +92,13 @@ Required network bandwidth depends on several factors, including the size of the
 the incremental data generated for each VM backup, the backup window, and restore
 requirements.
 
-**Remedy:** Best practices and recommendations include having a minimum bandwidth of
-1000 Mbps upload bandwidth for on-premises VMs connected to AWS Backup. Once the bandwidth is
-confirmed, retry the backup job.
+**Remedy:** Best practices and recommendations include having a minimum
+bandwidth of 100 Mbps upload bandwidth for on-premises VMs connected to AWS Backup. This
+is the minimum required for the gateway to function. Bandwidth below 100 Mbps prevents
+the gateway from completing any backup or restore job. With a large number of VMs,
+backup jobs might still fail due to timeout even with bandwidth above 100 Mbps.
+Consider increasing bandwidth based on the number of VMs and the size of data being
+backed up. Once the bandwidth is confirmed, retry the backup job.
 
 ## Aborted backup job
 
@@ -136,11 +140,13 @@ of gateways and steps to increase backup plan window time.
 
 **Remedies:**
 
-**Increase bandwidth:** Consider increasing the network capacity
+**Increase bandwidth:** Consider increasing the network bandwidth
 between AWS and the on-premises environment. This step will provide more bandwidth for
-the backup process, allowing data to transfer smoothly without triggering the error. It
-is recommended you have at least 100-Mbps bandwidth to AWS to backup on-premises
-VMware VMs using AWS Backup.
+the backup process, allowing data to transfer smoothly without triggering the error. You
+must have at least 100 Mbps bandwidth to AWS to back up on-premises
+VMware VMs using AWS Backup. This is the minimum required for the gateway to complete any
+backup or restore job. If you have a large number of VMs, consider increasing bandwidth
+beyond 100 Mbps, as jobs might still time out with insufficient bandwidth.
 
 If a bandwidth rate limit is configured for the backup gateway, it can restrict the
 flow of data and lead to backup failures. Increasing the bandwidth rate limit to ensure

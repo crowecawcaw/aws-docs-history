@@ -73,8 +73,8 @@ meet the following requirements:
 - The `Principal` attribute must include the Backup Audit Manager
   service-linked role [`AWSServiceRolePolicyForBackupReports`](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSServiceRolePolicyForBackupReports "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSServiceRolePolicyForBackupReports") ARN.
 
-- The `Action` attribute must include `kms:GenerateDataKey` and
-  `kms:Decrypt` at minimum.
+- The `Action` attribute must include `kms:GenerateDataKey`
+  at minimum.
   The policy [AWSServiceRolePolicyForBackupReports](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSServiceRolePolicyForBackupReports "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSServiceRolePolicyForBackupReports") has these permissions.
 
 ###### To view and apply this access policy to your S3 bucket
@@ -120,13 +120,12 @@ JSON
 ```
 
 If you use a custom AWS Key Management Service to encrypt your target S3 bucket that stores the reports,
-include the following actions in your policy:
+include the following action in your policy:
 
 ```
 
       "Action":[
-        "kms:GenerateDataKey",
-        "kms:Encrypt"
+        "kms:GenerateDataKey"
       ],
       "Resource":[
         "*"

@@ -20,8 +20,8 @@ following requirements:
 - The `Principal` attribute must include the Backup Audit Manager
   service-linked role [`AWSServiceRolePolicyForBackupReports`](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSServiceRolePolicyForBackupReports "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSServiceRolePolicyForBackupReports") ARN.
 
-- The `Action` attribute must include `kms:GenerateDataKey` and
-  `kms:Decrypt` at minimum.
+- The `Action` attribute must include `kms:GenerateDataKey`
+  at minimum.
   The policy [AWSServiceRolePolicyForBackupReports](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSServiceRolePolicyForBackupReports "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSServiceRolePolicyForBackupReports") has these permissions.
 
 For single-account, single-Region reports, use the following syntax to call [CreateReportPlan](API_CreateReportPlan.md "API_CreateReportPlan.md").

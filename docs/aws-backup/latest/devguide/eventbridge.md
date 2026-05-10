@@ -799,7 +799,7 @@ The following are example events.
   "time":"2023-12-15T21:39:07Z",
   "region":"us-west-2",
   "resources":[
-    "arn":"aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456"
+    "arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456"
   ],
   "detail":{
     "recoveryPointArn":"arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456",
@@ -813,7 +813,7 @@ The following are example events.
     "sourceResourceArn":"arn:aws:ec2:us-west-2:1112233445566:volume/vol-01234567890abcdef",
     "backupCreationTime":"2023-12-15T21:38:00.000Z",
     "indexStatusMessage":"An AWS Backup recovery point index was successfully completed. Indexed recovery point arn : arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456",
-    "indexCompletionTime":"2025-05-25T21:39:05.689Z",
+    "indexCompletionTime":"2025-05-25T21:39:05.689Z"
   }
 }
 ```
@@ -830,7 +830,7 @@ The following are example events.
   "time":"2023-12-15T21:39:07Z",
   "region":"us-west-2",
   "resources":[
-    "arn":"aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456"
+    "arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456"
   ],
   "detail":{
     "recoveryPointArn":"arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456",
@@ -844,7 +844,7 @@ The following are example events.
     "sourceResourceArn":"arn:aws:ec2:us-west-2:1112233445566:volume/vol-01234567890abcdef",
     "backupCreationTime":"2023-12-15T21:38:00.000Z",
     "indexStatusMessage":"An AWS Backup recovery point index was deleted. Indexed recovery point arn : arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456",
-    "indexDeletionTime":"2025-05-27T22:39:05.689Z",
+    "indexDeletionTime":"2025-05-27T22:39:05.689Z"
   }
 }
 ```
@@ -861,7 +861,7 @@ The following are example events.
   "time":"2023-12-15T21:39:07Z",
   "region":"us-west-2",
   "resources":[
-    "arn":"aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456"
+    "arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456"
   ],
   "detail":{
     "recoveryPointArn":"arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456",
@@ -872,9 +872,9 @@ The following are example events.
     "backupVaultArn":"arn:aws:cryo:us-west-2:1112233445566:pod/backup-pod-12345",
     "indexCreationTime":"2025-05-25T21:38:31.152Z",
     "isIndexingContinuous":false,
-    "sourceResourceArn":"arn:aws:ec2:us-west-2:1112233445566:volume/01234567890abcdef",
+    "sourceResourceArn":"arn:aws:ec2:us-west-2:1112233445566:volume/vol-01234567890abcdef",
     "backupCreationTime":"2023-12-15T21:38:00.000Z",
-    "indexStatusMessage":"An AWS Backup recovery point index failed to create. Indexed recovery point arn : arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456",
+    "indexStatusMessage":"An AWS Backup recovery point index failed to create. Indexed recovery point arn : arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456"
   }
 }
 ```

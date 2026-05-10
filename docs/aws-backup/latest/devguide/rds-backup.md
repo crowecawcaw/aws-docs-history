@@ -49,6 +49,14 @@ a previous snapshot taken at fixed time intervals.
 
 See [continuous backups and PITR supported services](point-in-time-recovery.md#point-in-time-recovery-supported-services "point-in-time-recovery.md#point-in-time-recovery-supported-services") and [managing continuous backup settings](point-in-time-recovery.md#point-in-time-recovery-managing "point-in-time-recovery.md#point-in-time-recovery-managing") for more information.
 
+###### Important
+
+Enabling continuous backups for Amazon RDS using AWS Backup when they were previously
+disabled (or disabling continuous backups when they were previously enabled) takes the
+Amazon RDS instance offline to make the changes. Plan this change during a maintenance window
+to minimize impact. If automated backups were enabled from Amazon RDS and that backup was
+simply moved to AWS Backup, then no downtime is required.
+
 ## Amazon RDS Multi-Availability Zone backups
 
 AWS Backup backs up and supports Amazon RDS for MySQL and for PostgreSQL Multi-AZ

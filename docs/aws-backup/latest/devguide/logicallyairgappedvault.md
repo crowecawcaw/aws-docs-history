@@ -347,7 +347,7 @@ On the **Jobs** page in the console, you can select
 **Copy** jobs to see current copy jobs.
 
 AWS CLI
-Use [start-copy-job](https://amazonaws.com/aws-backup/latest/devguide/API_StartCopyJob.html "https://amazonaws.com/aws-backup/latest/devguide/API_StartCopyJob.html") to copy an existing backup in a backup vault to a logically
+Use [start-copy-job](API_StartCopyJob.md "API_StartCopyJob.md") to copy an existing backup in a backup vault to a logically
 air-gapped vault.
 
 Sample CLI input:

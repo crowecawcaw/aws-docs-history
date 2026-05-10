@@ -8,6 +8,11 @@ how AWS Backup Vault Lock relates to these regulations, see the
 [Cohasset Associates
 Compliance Assessment.](samples/cohassetreport.zip.md "samples/cohassetreport.zip.md")
 
+AWS Backup Vault Lock is available at no additional charge. Standard AWS Backup storage charges
+apply to backups stored in a locked vault. Because backups in a locked vault cannot be deleted
+until their lifecycle completes, ensure your retention settings are configured appropriately to
+avoid unintended storage costs. For more information about storage pricing, see [AWS Backup pricing](https://aws.amazon.com/backup/pricing/ "https://aws.amazon.com/backup/pricing/").
+
 AWS Backup Vault Lock is an optional feature of a backup vault, which can be helpful in giving you
 additional security and control over your backup vaults. When a lock is active in Compliance
 mode and the grace time is over, the vault
@@ -15,9 +20,11 @@ configuration cannot be altered or deleted by a customer, account/data owner, or
 as long as it contains recovery points.
 Each vault can have one vault lock in place.
 
-AWS Backup ensures that your backups are available for you until they reach the expiration of their
-retention periods. If any user (including the root user) attempts to delete a backup or change
-the lifecycle properties in a locked vault, AWS Backup will deny the operation.
+AWS Backup ensures that your backups are available for you until they reach the expiration of
+their backup lifecycle retention periods. These retention periods are defined when each backup
+is created and are independent of the vault lock minimum and maximum retention settings. If any
+user (including the root user) attempts to delete a backup or change the lifecycle properties
+in a locked vault, AWS Backup will deny the operation.
 
 - Vaults locked in
   **governance mode** can have the lock removed by users with sufficient IAM permissions.
@@ -63,8 +70,8 @@ AWS Backup Vault Lock provides several benefits, including:
   all the backups you store and create in a backup vault.
 - An additional layer of defense that protects backups
   (recovery points) in your backup vaults from inadvertent or malicious deletions.
-- Enforcement of retention periods, which prevent early deletions by
-  privileged users (including the AWS account root user), and meet your organization’s data
+- Enforcement of backup lifecycle retention periods, which prevent early deletions by
+  privileged users (including the AWS account root user), and help meet your organization’s data
   protection policies and procedures.
 
 ## Lock a backup vault using the console

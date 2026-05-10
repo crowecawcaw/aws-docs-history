@@ -149,6 +149,15 @@ incur charges per the Amazon EC2 recycle bin policy. Snapshots and images in the
 are no longer managed by AWS Backup and will not be managed by AWS Backup policies if you restore
 them from the recycle bin.
 
+###### Note
+
+AWS Backup periodically identifies orphaned AMIs - AMIs created by AWS Backup that are no
+longer associated with a recovery point - and places them as expired recovery points in
+the account's Default vault. You can then delete these expired recovery points, which also
+deletes the associated AMI and snapshots. If the Default vault does not exist in the
+Region, create one so that orphaned AMIs can be placed there as expired recovery
+points. You must then delete these recovery points manually.
+
 AWS Backup managed Amazon EBS snapshots and snapshots associated with a AWS Backup managed Amazon EC2 AMI
 which have Amazon EBS Snapshot Lock applied may not be deleted as part of the recovery point
 lifecycle if the snapshot lock duration exceeds the backup lifecycle. Instead, these

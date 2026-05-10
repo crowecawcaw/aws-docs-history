@@ -189,7 +189,7 @@ While the index is being created, it will have the index status of
 AWS CLI
 Create a backup index through CLI
 
-Use the AWS CLI command [`create-backup-plan`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/create-backup-plan.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/create-backup-plan.html") to make a new backup plan. Or, use [`update-backup-plan`](https://amazonaws.com/documentation/api/latest/reference/backup/update-backup-plan.html "https://amazonaws.com/documentation/api/latest/reference/backup/update-backup-plan.html") to modify an existing plan.
+Use the AWS CLI command [`create-backup-plan`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/create-backup-plan.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/create-backup-plan.html") to make a new backup plan. Or, use [`update-backup-plan`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/update-backup-plan.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/update-backup-plan.html") to modify an existing plan.
 
 For either operation, within the parameter `--backup-plan -rules`,
 include `IndexActions`.

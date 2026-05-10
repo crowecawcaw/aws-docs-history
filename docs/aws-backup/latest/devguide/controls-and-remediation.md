@@ -64,6 +64,8 @@ at least [35 days].
 ###### Parameters:
 
 - Required backup frequency in number of hours or days.
+- Numerical value for required backup frequency. Maximum of 24 for hours, 31 for
+  days.
 - Required retention period in number of days, weeks, months, or years. We recommend a
   warm storage retention of period of at least one week to enable AWS Backup to take
   incremental backups when possible, avoiding additional charges.
@@ -227,6 +229,11 @@ has been created within the specified time frame (in days or hours).
 The control is compliant if the resource has had a recovery point created within the
 time frame specified. The control is non-compliant if a recovery point was not created
 within the number of days or hours specified.
+
+###### Note
+
+This control evaluates only recovery points created within the same account and
+Region. Recovery points copied from another account are not evaluated by this control.
 
 **Resource**: `AWS Backup: recovery points`
 

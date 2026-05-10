@@ -15,6 +15,19 @@ Timestream does not currently offer native backup and restore services, so using
 create secure copies of your Timestream tables can add an extra layer of security and resilience
 to your resources.
 
+###### Important
+
+AWS Backup supports Amazon Timestream for LiveAnalytics only. AWS Backup does not support
+Amazon Timestream for InfluxDB.
+
+- For information about backing up Amazon Timestream for LiveAnalytics tables, see
+  [Backups](../../../timestream/latest/developerguide/backups.md "../../../timestream/latest/developerguide/backups.md") in the
+  _Amazon Timestream for LiveAnalytics Developer Guide_.
+- Amazon Timestream for InfluxDB uses its own native backup solution and is not
+  supported by AWS Backup. For more information, see [Resilience
+  in Amazon Timestream for InfluxDB](../../../timestream/latest/developerguide/disaster-recovery-resiliency-influxdb.md "../../../timestream/latest/developerguide/disaster-recovery-resiliency-influxdb.md") in the _Amazon Timestream for InfluxDB
+  Developer Guide_.
+
 ## Back up Timestream tables
 
 You can backup Timestream tables either through the AWS Backup console or using the AWS CLI.

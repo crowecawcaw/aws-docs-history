@@ -35,6 +35,12 @@ If AWS Backup fails to create or delete a resource, you can learn more about the
 using AWS CloudTrail to view error messages or logs. For more information about using CloudTrail
 with AWS Backup, see [Logging AWS Backup API calls with CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
+If you have a role with `tag:GetResources` permissions, but you also have
+a service control policy (SCP) that blocks `tag:GetResources`, then AWS Backup
+cannot successfully run a backup plan with tag-based selections. In these situations,
+the CloudTrail event `ProcessBackupPlanSelection` shows a
+`tag:GetResources` permissions error.
+
 ## Troubleshoot creating resources
 
 The following information can help you troubleshoot problems with creating

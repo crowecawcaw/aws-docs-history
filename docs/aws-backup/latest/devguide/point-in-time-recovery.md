@@ -116,7 +116,16 @@ AWS Backup for S3 relies on receiving S3 events through Amazon EventBridge. If t
 disabled in S3 bucket notification settings, continuous backups will stop for those
 buckets with the setting turned off. For more information, see [Using EventBridge](../../../AmazonS3/latest/userguide/EventBridge.md "../../../AmazonS3/latest/userguide/EventBridge.md").
 
+Disabling AWS Backup's Amazon EventBridge rule will also result in your continuous backup stopping.
+If you have an active backup plan with a continuous backup rule, when that rule
+re-triggers, AWS Backup will recreate the Amazon EventBridge rule and a new continuous backup will be
+created.
+
 ### RDS
+
+AWS Backup supports continuous backups and point-in-time recovery for all Amazon RDS instances
+and Aurora that are supported by the native Amazon RDS service. AWS Backup does not support
+continuous backups or point-in-time recovery for Amazon RDS Multi-AZ clusters.
 
 **Backup schedules:** When an AWS Backup plan creates both Amazon RDS snapshots
 and continuous backups, AWS Backup will intelligently schedule your backup windows to

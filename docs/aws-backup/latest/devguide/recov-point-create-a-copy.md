@@ -6,6 +6,16 @@ cold storage or archive tiers cannot be copied. See [Feature availability by res
 [Encryption for a backup copy to a
 different account or AWS Region](encryption.md#copy-encryption "encryption.md#copy-encryption") for details.
 
+###### Note
+
+If a resource type does not support cross-Region or cross-account copy in AWS Backup, then
+copy operations for that resource type are not supported in any scenario, including
+same-Region and same-account copies to a different vault. To determine which resource types
+support copy operations, see the Cross-Region backup and Cross-account backup columns in
+[Feature availability by resource](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource"). If the
+underlying AWS service provides its own native copy or replication feature, refer to that
+service's documentation.
+
 Some resource types have both continuous backup capability and cross-Region and
 cross-account copy available. When a cross-Region or cross-account copy of a continuous backup
 is made, the copied recovery point (backup) becomes a snapshot (periodic) backup (not

@@ -6,6 +6,16 @@ job.
 When you first use the **Backup Vaults** page of the AWS Backup console in an
 AWS Region, the console automatically creates a default vault for the Region.
 
+###### Note
+
+If a Default vault exists in a Region, AWS Backup periodically identifies orphaned AMIs -
+AMIs created by AWS Backup that are no longer associated with a recovery point - and places them
+as expired recovery points in the Default vault. You can then delete these expired recovery
+points from the Default vault, which also deletes the associated AMI and snapshots. If the
+Default vault does not exist in the Region, create one so that orphaned AMIs can be
+placed there as expired recovery points. You must then delete these recovery points
+manually.
+
 However, if you use AWS Backup through the AWS CLI, AWS SDK, or CloudFormation, a default vault is not
 created. You must create your own vault.
 

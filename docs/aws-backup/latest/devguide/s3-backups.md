@@ -172,6 +172,11 @@ AWS Backup for S3 relies on receiving S3 events through Amazon EventBridge. If t
 disabled in S3 bucket notification settings, continuous backups will stop for those
 buckets with the setting turned off. For more information, see [Using EventBridge](../../../AmazonS3/latest/userguide/EventBridge.md "../../../AmazonS3/latest/userguide/EventBridge.md").
 
+Disabling AWS Backup's Amazon EventBridge rule will also result in your continuous backup stopping.
+If you have an active backup plan with a continuous backup rule, when that rule
+re-triggers, AWS Backup will recreate the Amazon EventBridge rule and a new continuous backup will be
+created.
+
 For both backup types, the first backup is a full backup, while subsequent backups are
 incremental at object-level.
 

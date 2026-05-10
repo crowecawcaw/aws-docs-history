@@ -56,6 +56,7 @@ events](../../../awscloudtrail/latest/userguide/non-api-aws-service-events.md ".
 - `CreateRestoreAccessBackupVaultFailed`
 - `DisassociateBackupVaultMpaApprovalTeamFailed`
 - `PutBackupVaultNotifications`
+- `ProcessBackupPlanSelection`
 - `RecoveryPointCreated`
 - `ReportJobCompleted`
 - `ReportJobStarted`

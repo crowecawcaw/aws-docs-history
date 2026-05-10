@@ -42,9 +42,19 @@ stack, and then restore them using the AWS Backup console.
    sets**.
 8. Execute the change set.
 9. After this processes, the resources in the original stack will be recreated in the
-   new stack. The stateful resources will be recreated empty. To recover the stateful
+   new stack. The stateful resources will be recreated empty. For example, a stateful
+   resource is an Amazon EBS volume or an Amazon EFS file system. To recover the stateful
    resources, go back to the list of recovery points in the AWS Backup console, select the
    recovery point you need, and initiate a restore.
+
+###### Important
+
+CloudFormation performs pre-deployment validation, including resource existence checks,
+when a change set is created. If a resource defined in the restored template already
+exists in your account (for example, a DynamoDB table with a fixed name), the restore
+operation fails at the create change set step (step 8) rather than at the execute
+change set step (step 9). For more information, see [Considerations for validating stack deployments](../../../AWSCloudFormation/latest/UserGuide/validate-stack-deployments.md#validate-stack-deployments-considerations "../../../AWSCloudFormation/latest/UserGuide/validate-stack-deployments.md#validate-stack-deployments-considerations") in the _AWS
+CloudFormation User Guide_.
 
 ###### Note
 
