@@ -43,6 +43,8 @@ Supported regions:
 - Europe (Frankfurt) (eu-central-1)
 - Europe (Zurich) (eu-central-2)
 - Europe (Stockholm) (eu-north-1)
+- Europe (Milan) (eu-south-1)
+- Europe (Spain) (eu-south-2)
 - Europe (Ireland) (eu-west-1)
 - Europe (London) (eu-west-2)
 - Europe (Paris) (eu-west-3)
@@ -288,7 +290,7 @@ statements that can be converted using generative AI. Statements exceeding this
 limit are queued for processing in subsequent minutes. The quota is as
 follows:
 
-| Region                                                                                                                                                                                                                                                                                                                                                      | SQL Statements per AWS account per minute |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
-| Asia Pacific (Tokyo) (ap-northeast-1)<br>Asia Pacific (Osaka) (ap-northeast-3)<br>Asia Pacific (Sydney) (ap-southeast-2)<br>Canada (Central) (ca-central-1)<br>Europe (Zurich) (eu-central-2)<br>Europe (Stockholm) (eu-north-1)<br>Europe (Ireland) (eu-west-1)<br>Europe (London) (eu-west-2)<br>Europe (Paris) (eu-west-3)<br>US East (Ohio) (us-east-2) | Up to 24 statements                       |
-| Europe (Frankfurt) (eu-central-1)<br>US East (N. Virginia) (us-east-1)<br>US West (Oregon) (us-west-2)                                                                                                                                                                                                                                                      | Up to 40 statements                       |
+| Region                                                                                                                                                                                                                                                                                                                                                                                                                    | SQL Statements per AWS account per minute |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| Asia Pacific (Tokyo) (ap-northeast-1)<br>Asia Pacific (Osaka) (ap-northeast-3)<br>Asia Pacific (Sydney) (ap-southeast-2)<br>Canada (Central) (ca-central-1)<br>Europe (Zurich) (eu-central-2)<br>Europe (Stockholm) (eu-north-1)<br>Europe (Milan) (eu-south-1)<br>Europe (Spain) (eu-south-2)<br>Europe (Ireland) (eu-west-1)<br>Europe (London) (eu-west-2)<br>Europe (Paris) (eu-west-3)<br>US East (Ohio) (us-east-2) | Up to 24 statements                       |
+| Europe (Frankfurt) (eu-central-1)<br>US East (N. Virginia) (us-east-1)<br>US West (Oregon) (us-west-2)                                                                                                                                                                                                                                                                                                                    | Up to 40 statements                       |

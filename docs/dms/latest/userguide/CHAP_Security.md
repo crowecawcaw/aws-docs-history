@@ -68,6 +68,7 @@ AWS DMS supports, see [Setting up a network for a replication instance](CHAP_Rep
 - [Infrastructure security in AWS Database Migration Service](infrastructure-security.md "infrastructure-security.md")
 - [Fine-grained access control using resource names and tags](CHAP_Security.FineGrainedAccess.md "CHAP_Security.FineGrainedAccess.md")
 - [Encryption for AWS DMS homogeneous migrations](#CHAP_Security.Migrations "#CHAP_Security.Migrations")
+- [Encryption for DMS Schema Conversion](#CHAP_Security.SchemaConversion "#CHAP_Security.SchemaConversion")
 - [Setting an encryption key and specifying AWS KMS permissions](#CHAP_Security.EncryptionKey "#CHAP_Security.EncryptionKey")
 - [Network security for AWS Database Migration Service](#CHAP_Security.Network "#CHAP_Security.Network")
 - [Using SSL with AWS Database Migration Service](CHAP_Security.SSL.md "CHAP_Security.SSL.md")
@@ -140,6 +141,82 @@ DMS will be creating an internal grant for accessing and managing the encryption
 ###### Important
 
 Additional encryption context constraints are not supported at this time. Including such constraints will cause the migration to fail.
+
+## Encryption for DMS Schema Conversion
+
+DMS Schema Conversion encrypts resources used for your schema conversions, including storage and other components. If you don't specify a customer managed key, DMS Schema Conversion automatically uses an AWS owned key to encrypt your resources.
+
+When you use a customer managed key, DMS Schema Conversion creates grants on your key which allow the service to configure an encrypted EBS volume and to encrypt and decrypt SQL statements temporarily preserved in internal storage during conversion. These grants are managed automatically as part of the migration project lifecycle.
+
+**Using a customer managed key with DMS Schema Conversion**
+
+DMS Schema Conversion creates a grant for accessing and managing the encryption keys during conversion. To use a customer managed key for your DMS Schema Conversion project, add the following to your customer managed key policy:
+
+```
+[
+  {
+    "Sid": "Allow `ExampleRole` to Describe this key for DMS Schema Conversion",
+    "Effect": "Allow",
+    "Principal": {
+      "AWS": "arn:aws:iam::`111122223333`:role/`ExampleRole`"
+    },
+    "Action": "kms:DescribeKey",
+    "Resource": "*",
+    "Condition": {
+       "StringEquals": {
+           "kms:ViaService": "dms.`us-west-2`.amazonaws.com"
+        }
+    }
+  },
+  {
+    "Sid": "Allow `ExampleRole` to use key with DMS Schema Conversion",
+    "Effect": "Allow",
+    "Principal": {
+      "AWS": "arn:aws:iam::`111122223333`:role/`ExampleRole`"
+    },
+    "Action": [
+      "kms:Decrypt",
+      "kms:GenerateDataKey"
+    ],
+    "Resource": "*",
+    "Condition": {
+       "StringEquals": {
+           "kms:ViaService": "dms.`us-west-2`.amazonaws.com"
+        },
+       "StringLike": {
+           "kms:EncryptionContext:aws:dms:migration-project-id": "*"
+       }
+    }
+  },
+  {
+    "Sid": "Allow `ExampleRole` to CreateGrant for DMS Schema Conversion",
+    "Effect": "Allow",
+    "Principal": {
+      "AWS": "arn:aws:iam::`111122223333`:role/`ExampleRole`"
+    },
+    "Action": "kms:CreateGrant",
+    "Resource": "*",
+    "Condition": {
+      "ForAllValues:StringEquals": {
+        "kms:GrantOperations": [
+          "CreateGrant",
+          "Decrypt",
+          "DescribeKey",
+          "GenerateDataKey",
+          "GenerateDataKeyWithoutPlaintext"
+        ]
+      },
+      "StringEquals": {
+        "kms:ViaService": "dms.`us-west-2`.amazonaws.com"
+      }
+    }
+  }
+]
+```
+
+###### Important
+
+Additional encryption context constraints are not supported at this time. Including such constraints will cause the schema conversion to fail.
 
 ## Setting an encryption key and specifying AWS KMS permissions
 

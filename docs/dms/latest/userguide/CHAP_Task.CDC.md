@@ -10,6 +10,15 @@ database engine's native API.
 
 ###### Note
 
+AWS DMS CDC does not provide real-time replication. Replication latency varies
+based on source workload, network conditions, replication instance resources, target
+ingestion capacity, and data characteristics. There are no SLAs for CDC latency.
+Latency can increase to several minutes or longer depending on these factors. For
+more information, see
+[Ongoing replication](CHAP_BestPractices.md#CHAP_BestPractices.OnGoingReplication "CHAP_BestPractices.md#CHAP_BestPractices.OnGoingReplication").
+
+###### Note
+
 You can migrate views using full-load tasks only. If your task is either a
 CDC-only task or a full-load task that starts CDC after it completes, the migration
 includes only tables from the source. Using a full-load-only task, you can migrate

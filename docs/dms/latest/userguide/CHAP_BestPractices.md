@@ -630,6 +630,36 @@ segment the table using a parallel load of the ranges type to load the data in p
 
 ## Ongoing replication
 
+###### Important
+
+AWS DMS ongoing replication (CDC) does not provide real-time replication. AWS DMS
+does not offer service-level agreements (SLAs) for CDC replication latency.
+
+CDC latency depends on multiple environmental factors, including:
+
+- Source database workload and transaction log generation rate
+- Volume and size of transactions (large batch operations or maintenance
+  jobs can generate significant transaction log volume)
+- Network bandwidth and latency between the source database, replication
+  instance, and target database
+- Replication instance class and resource utilization (CPU, memory,
+  storage IOPS)
+- Target database ingestion capacity and write throughput
+- Data types being migrated, such as LOB columns, extended VARCHARs,
+  row size, and transaction complexity
+- Number of tables and tasks running on the replication instance
+- Source database availability (downtime, upgrades, or failover events
+  can interrupt CDC log reading and increase latency)
+  Under normal operating conditions, CDC latency is typically low. However, during
+  periods of heavy source workload — such as batch processing, index rebuilds, large
+  ETL jobs, or maintenance operations that generate high volumes of transaction logs —
+  CDC latency can spike to several minutes or longer.
+
+Do not use AWS DMS CDC for use cases that require sub-second or guaranteed
+low-latency replication. If your application requires real-time data synchronization
+with strict latency guarantees, consider alternative approaches such as native
+database replication or purpose-built streaming solutions.
+
 AWS DMS provides ongoing replication of data, keeping the source and target databases in
 sync. It replicates only a limited amount of data definition language (DDL) statements.
 AWS DMS doesn't propagate items such as indexes, users, privileges, stored procedures, and
