@@ -26,8 +26,9 @@ The setup involves the following steps, in order:
    authentication).
 3. Configure the extension access in the Amazon Quick management console.
 4. Distribute the desktop application to your users.
-   This guide provides IdP-specific instructions for Microsoft Entra ID, Okta, PingOne,
-   and Google Workspace. See instructions for your specific identity provider below.
+   This guide provides IdP-specific instructions for Microsoft Entra ID, Okta, and
+   Ping Identity (PingFederate and PingOne). See instructions for your specific identity
+   provider below.
 
 ## How enterprise sign-in works
 
@@ -79,16 +80,18 @@ How refresh tokens are configured depends on your IdP:
 - **Okta** – The Refresh Token grant
   type must be enabled on the application, and the
   `offline_access` scope must be granted.
-- **PingOne** – The Refresh Token grant
-  type must be enabled. The `offline_access` scope is optional
-  but recommended.
-- **Google Workspace** – Refresh tokens
-  are returned automatically for desktop applications. No additional
-  configuration is required.
+- **Ping Identity** – The Refresh Token
+  grant type must be enabled, and the `offline_access` scope must
+  be granted. For PingFederate, the **Return ID Token On
+  Refresh Grant** setting must also be enabled in the OIDC
+  policy.
 
 Choose the instructions for your identity provider.
 
 ### Microsoft Entra ID
+
+For detailed instructions, see [Register an application](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app "https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app") in the Microsoft Entra
+documentation.
 
 ###### To create the Entra ID app registration
 
@@ -146,6 +149,9 @@ Your OIDC endpoints use the following format. Replace
 
 ### Okta
 
+For detailed instructions, see [Create OpenID Connect app integrations](https://help.okta.com/en-us/content/topics/apps/apps_app_integration_wizard_oidc.htm "https://help.okta.com/en-us/content/topics/apps/apps_app_integration_wizard_oidc.htm") in the Okta
+documentation.
+
 ###### To create the Okta OIDC Native Application
 
 1. In the Okta Admin Console, navigate to **Applications → Applications → Create App
@@ -172,16 +178,16 @@ applications.
 
 ###### To configure scopes
 
-1. In the app integration, go to the **Okta API
-   Scopes** tab.
-2. Grant the following scopes: `openid`, `email`,
-   `profile`, `offline_access`.
-
-###### Note
-
-If you are using a custom authorization server, verify that these scopes
-are also enabled under **Security → API →
-Authorization Servers → default → Scopes**.
+1. In the Okta Admin Console, navigate to **Security → API → Authorization Servers** and
+   select your authorization server (for example, **default**).
+2. On the **Scopes** tab, verify that
+   the following scopes are enabled: `openid`,
+   `email`, `profile`,
+   `offline_access`.
+3. On the **Access Policies** tab,
+   verify that the policy assigned to this application allows the
+   `Authorization Code` and `Refresh Token`
+   grant types.
 
 ###### To verify authentication settings
 
@@ -206,24 +212,95 @@ Your OIDC endpoints use the following format. Replace
 | Token endpoint         | `https://<OKTA_DOMAIN>/oauth2/default/v1/token`     |
 | JWKS URI               | `https://<OKTA_DOMAIN>/oauth2/default/v1/keys`      |
 
-### PingOne
+### Ping Identity
 
-###### To create the PingOne OIDC Native Application
+Choose the instructions for your Ping Identity product.
 
-1. In the PingOne Admin Console, navigate to **Applications → Applications → +** (Add
-   Application).
+#### PingFederate
+
+For detailed instructions, see [Setting up an OIDC application in PingFederate](https://docs.pingidentity.com/solution-guides/customer_use_cases/htg_oidc_app_setup_pf.html "https://docs.pingidentity.com/solution-guides/customer_use_cases/htg_oidc_app_setup_pf.html") in the Ping
+Identity documentation.
+
+###### To create the PingFederate OIDC client
+
+1. In the PingFederate administrative console, go to
+   **Applications → OAuth →
+   Clients**, and choose **Add
+   Client**.
+2. In the **Client ID** field, enter
+   a unique identifier for this client.
+3. In the **Name** field, enter
+   `Amazon Quick Desktop`.
+4. For **Client Authentication**,
+   select **None**.
+5. In the **Redirection URI**
+   section, enter `http://localhost:18080` and choose
+   **Add**.
+6. In the **Allowed Grant Types**
+   list, select **Authorization Code**
+   and **Refresh Token**.
+7. Select the **Require Proof Key for Code
+   Exchange (PKCE)** checkbox.
+8. Under **Common Scopes**, grant
+   the following: `openid`, `email`,
+   `profile`, `offline_access`.
+9. Choose **Save**.
+10. Note the **Client ID**. You need
+    this value in later steps.
+
+###### To configure the OIDC policy
+
+1. In the PingFederate administrative console, go to
+   **Applications → OAuth → OpenID
+   Connect Policy Management**.
+2. Select the OIDC policy associated with this client, or choose
+   **Add Policy** to create
+   one.
+3. Select the **Return ID Token On Refresh
+   Grant** checkbox. This ensures that the desktop
+   application receives a fresh ID token with current claims when
+   refreshing the session.
+4. Under **Attribute Contract**,
+   verify that the `email` claim is included and mapped
+   to the corresponding user attribute in your authentication
+   source. The `email` claim must be present in tokens
+   issued during both initial authentication and refresh token
+   grants.
+5. Choose **Save**.
+
+Your OIDC endpoints use the following format. Replace
+`<PINGFEDERATE_HOST>` with your PingFederate server
+hostname.
+
+| Field                  | Value                                                 |
+| ---------------------- | ----------------------------------------------------- |
+| Issuer URL             | `https://<PINGFEDERATE_HOST>`                         |
+| Authorization endpoint | `https://<PINGFEDERATE_HOST>/as/authorization.oauth2` |
+| Token endpoint         | `https://<PINGFEDERATE_HOST>/as/token.oauth2`         |
+| JWKS URI               | `https://<PINGFEDERATE_HOST>/pf/JWKS`                 |
+
+#### PingOne
+
+For detailed instructions, see [Editing an application – Native](https://docs.pingidentity.com/pingone/applications/p1_edit_application_native.html "https://docs.pingidentity.com/pingone/applications/p1_edit_application_native.html") in the Ping Identity
+documentation.
+
+###### To create the PingOne OIDC native application
+
+1. In the PingOne admin console, go to **Applications → Applications** and choose the
+   **+** icon.
 2. Enter `Amazon Quick Desktop` as the application
    name.
-3. Select **OIDC Native App** as the
-   application type, then choose **Save**.
-4. On the **Configuration** tab, choose
-   **Edit** and configure the following
-   settings:
+3. In the **Application Type**
+   section, select **Native**, then
+   choose **Save**.
+4. On the **Configuration** tab,
+   choose **Edit** and configure the
+   following settings:
 
 | Setting                              | Value                                |
 | ------------------------------------ | ------------------------------------ |
 | Response Type                        | Code                                 |
-| Grant Types                          | Authorization Code and Refresh Token |
+| Grant Type                           | Authorization Code and Refresh Token |
 | PKCE Enforcement                     | S256                                 |
 | Redirect URIs                        | `http://localhost:18080`             |
 | Token Endpoint Authentication Method | None                                 |
@@ -231,33 +308,24 @@ Your OIDC endpoints use the following format. Replace
 5. Choose **Save**.
 6. On the **Resources** tab, add the
    following scopes: `openid`, `email`,
-   `profile`.
-7. Toggle the application to **Enabled**.
-8. Note the **Client ID** and
+   `profile`, `offline_access`.
+7. On the **Attribute Mappings** tab,
+   verify that the `email` attribute is mapped to the
+   user's email address.
+8. Toggle the application to **Enabled**.
+9. Note the **Client ID** and
    **Environment ID** from the
    **Configuration** tab.
-
-###### To verify authentication settings
-
-1. In the PingOne Admin Console, navigate to **Applications → Applications** and select the Amazon Quick
-   Desktop application.
-2. On the **Configuration** tab,
-   confirm that the Response Type is **Code**, Grant Types include **Authorization Code** and **Refresh
-   Token**, PKCE Enforcement is **S256**, and Token Endpoint Authentication Method is
-   **None**.
-3. Confirm that `http://localhost:18080` is listed as a
-   redirect URI.
-4. Confirm that the application toggle is set to **Enabled**.
-
-Your OIDC endpoints use the following format. Replace
-`<ENV_ID>` with your PingOne environment ID.
 
 ###### Note
 
 The PingOne domain varies by region. The examples below use
-`.com`. Replace the domain with the one for your environment
-(for example, `.ca`, `.eu`, or
+`.com`. Replace the domain with the one for your
+environment (for example, `.ca`, `.eu`, or
 `.asia`).
+
+Your OIDC endpoints use the following format. Replace
+`<ENV_ID>` with your PingOne environment ID.
 
 | Field                  | Value                                            |
 | ---------------------- | ------------------------------------------------ |
@@ -265,69 +333,6 @@ The PingOne domain varies by region. The examples below use
 | Authorization endpoint | `https://auth.pingone.com/<ENV_ID>/as/authorize` |
 | Token endpoint         | `https://auth.pingone.com/<ENV_ID>/as/token`     |
 | JWKS URI               | `https://auth.pingone.com/<ENV_ID>/as/jwks`      |
-
-### Google Workspace
-
-###### To create the Google OAuth 2.0 Desktop client
-
-1. In the Google Cloud Console, navigate to **APIs
-   & Services → Credentials → Create credentials →
-   OAuth client ID**.
-2. Select **Desktop app** as the application
-   type.
-3. Set the name to `Amazon Quick Desktop`.
-4. Choose **Create**.
-5. Note the **Client ID** from the
-   confirmation dialog.
-
-###### Note
-
-Google issues a client secret for desktop apps, but it is not treated as
-confidential for installed applications. The desktop app uses the
-authorization code flow with PKCE — the client secret is optional in
-the token exchange.
-
-###### To configure the OAuth consent screen
-
-1. In the Google Cloud Console, navigate to **APIs
-   & Services → OAuth consent screen**.
-2. Select **Internal** as the user type.
-   This restricts authentication to users within your Google Workspace
-   organization.
-3. Configure the following settings:
-
-| Setting            | Value                       |
-| ------------------ | --------------------------- |
-| App name           | `Amazon Quick Desktop`      |
-| User support email | Your admin or support email |
-| Authorized domains | Your organization's domain  |
-
-4. Under **Scopes**, add the following:
-   `openid`, `email`,
-   `profile`.
-5. Choose **Save and Continue**.
-
-###### To verify authentication settings
-
-1. Navigate to **APIs & Services →
-   Credentials**.
-2. Select the **Amazon Quick Desktop**
-   OAuth client.
-3. Confirm that the application type is **Desktop
-   app** and that the Client ID is present.
-4. Under **Authorized redirect URIs**,
-   confirm that `http://localhost:18080` is listed. If it is
-   missing, add it manually.
-
-The OIDC endpoints are the same for all Google Workspace tenants:
-
-| Field                  | Value                                                          |
-| ---------------------- | -------------------------------------------------------------- |
-| Issuer URL             | `https://accounts.google.com`                                  |
-| Authorization endpoint | `https://accounts.google.com/o/oauth2/v2/auth`                 |
-| Token endpoint         | `https://oauth2.googleapis.com/token`                          |
-| JWKS URI               | `https://www.googleapis.com/oauth2/v3/certs`                   |
-| Discovery document     | `https://accounts.google.com/.well-known/openid-configuration` |
 
 ## Step 2: Create a Trusted Token Issuer in IAM Identity Center
 
@@ -341,10 +346,53 @@ The TTI tells IAM Identity Center to trust tokens from your IdP and how to
 map them to IAM Identity Center users. You can create the TTI in the AWS Identity and Access Management
 Identity Center console or with the AWS CLI.
 
-To create the TTI with the AWS CLI, run the following command. Replace
-`<IDC_INSTANCE_ARN>` with your IAM Identity Center instance
-Amazon Resource Name (ARN) and `<ISSUER_URL>` with the issuer URL
-from Step 1.
+For more information, see [Setting up a trusted token issuer](../../../singlesignon/latest/userguide/setuptrustedtokenissuer.md "../../../singlesignon/latest/userguide/setuptrustedtokenissuer.md") in the
+_AWS Identity and Access Management Identity Center User Guide_.
+
+###### To create the TTI in the IAM Identity Center console
+
+1. Open the [AWS Identity and Access Management Identity
+   Center console](https://console.aws.amazon.com/singlesignon "https://console.aws.amazon.com/singlesignon").
+2. Choose **Settings**.
+3. On the **Settings** page, choose the
+   **Authentication** tab.
+4. Under **Trusted token issuers**, choose
+   **Create trusted token issuer**.
+5. On the **Set up an external IdP to issue trusted
+   tokens** page, under **Trusted token issuer
+   details**, configure the following:
+
+| Field                     | Value                                                |
+| ------------------------- | ---------------------------------------------------- |
+| Issuer URL                | The OIDC issuer URL from Step 1 (see table<br>below) |
+| Trusted token issuer name | `AmazonQuickDesktop`                                 |
+
+6. Under **Map attributes**, configure the
+   attribute mapping that IAM Identity Center uses to look up
+   users:
+
+| Field                         | Value                                                                                                     |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------- |
+| Identity provider attribute   | The claim in the IdP token that identifies the user<br>(for example, `email`)                             |
+| IAM Identity Center attribute | The corresponding attribute in the IAM Identity<br>Center identity store (for example,<br>`emails.value`) |
+
+###### Important
+
+The identity provider attribute must match a claim that your IdP
+includes in the token, and the IAM Identity Center attribute must
+uniquely identify the user in your identity store. The most common
+mapping is `email` → `emails.value`, but
+your organization may use a different attribute such as
+`sub` or a custom claim. The value in the token claim
+must exactly match the value of the corresponding attribute in IAM
+Identity Center. 7. Choose **Create trusted token
+issuer**. 8. Note the **Trusted token issuer ARN**.
+You need it in the next step.
+
+Alternatively, to create the TTI with the AWS CLI, run the following command.
+Replace `<IDC_INSTANCE_ARN>` with your IAM Identity Center
+instance Amazon Resource Name (ARN) and `<ISSUER_URL>` with the
+issuer URL from Step 1.
 
 ```
 aws sso-admin create-trusted-token-issuer \
@@ -370,8 +418,8 @@ The following table lists the issuer URL for each identity provider.
 | ------------------ | ---------------------------------------------------- |
 | Microsoft Entra ID | `https://login.microsoftonline.com/<TENANT_ID>/v2.0` |
 | Okta               | `https://<OKTA_DOMAIN>/oauth2/default`               |
+| PingFederate       | `https://<PINGFEDERATE_HOST>`                        |
 | PingOne            | `https://auth.pingone.com/<ENV_ID>/as`               |
-| Google Workspace   | `https://accounts.google.com`                        |
 
 ## Step 3: Configure the extension access in the Amazon Quick management console
 
@@ -405,6 +453,14 @@ Quick** extension and choose **Next**. 6. Enter the Amazon Quick extension detai
 
 7. Choose **Add**.
 
+###### Important
+
+Verify that all values are correct before choosing
+**Add**. The extension access
+configuration cannot be edited after creation. If any value is
+incorrect, you must delete the extension access and create a new
+one.
+
 ###### To create the extension
 
 1. In the Amazon Quick console, in the left navigation under
@@ -423,6 +479,11 @@ installing the desktop application yourself. Choose **Enterprise
 login** on the sign-in screen and authenticate with your corporate
 credentials to confirm the configuration is working. For download and installation
 steps, see [Getting started](getting-started-desktop.md "getting-started-desktop.md").
+
+If the sign-in fails, verify the values you entered in Step 3 against the OIDC
+endpoints from Step 1. If any value is incorrect, delete the extension access under
+**Permissions → Extension access**, and repeat
+Step 3 with the correct values.
 
 After you verify the setup, direct your users to [Getting started](getting-started-desktop.md "getting-started-desktop.md") for
 download, installation, and sign-in instructions.
@@ -458,25 +519,32 @@ Session expires frequently
 Verify that your IdP is configured to issue refresh tokens. For
 Microsoft Entra ID, the `offline_access` scope is required.
 For Okta, the Refresh Token grant type must be enabled and the
-`offline_access` scope must be granted. For PingOne, the
-Refresh Token grant type must be enabled.
+`offline_access` scope must be granted. For Ping Identity,
+the Refresh Token grant type must be enabled and the
+`offline_access` scope must be granted. For PingFederate,
+also verify that **Return ID Token On Refresh
+Grant** is selected in the OIDC policy.
 
 `invalid_scope` error (Okta)
 
-Verify that `offline_access` is granted in the
-**Okta API Scopes** tab. If you are using
-a custom authorization server, verify that the scope is enabled under
-**Security → API → Authorization Servers
-→ default → Scopes**.
+Verify that `offline_access` is enabled on your
+authorization server. Navigate to **Security
+→ API → Authorization Servers → default →
+Scopes** and confirm the scope is present. Also verify
+that the access policy for the application allows the Refresh Token
+grant type.
 
 Application not enabled (PingOne)
 
-If authentication fails immediately without reaching the PingOne login
-page, verify that the application toggle is set to **Enabled** in the PingOne Admin Console.
+If authentication fails immediately without reaching the PingOne
+login page, verify that the application toggle is set to
+**Enabled** in the PingOne admin
+console.
 
-`access_denied` error (Google Workspace)
+Missing email claim after refresh (PingFederate)
 
-This typically means the OAuth consent screen is set to
-**Internal** and the user is not a member
-of your Google Workspace organization. Verify that the user's Google
-account belongs to your organization's domain.
+Verify that the `email` claim is included in the OIDC
+policy **Attribute Contract** and mapped
+to the correct user attribute. The mapping must produce the
+`email` claim for both initial authentication and refresh
+token grants.

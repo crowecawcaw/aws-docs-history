@@ -3,8 +3,8 @@
 The Amazon Quick desktop application is a native desktop application that extends
 Amazon Quick from the browser to your computer. It provides the same AI-powered
 capabilities you use in the web experience, plus deep integration with your local files,
-system notifications, background processing, and advanced tools like browser automation,
-knowledge graph, and screen monitoring.
+system notifications, background processing, and advanced tools like browser automation
+and knowledge graph.
 
 The desktop application uses a **local-first architecture**.
 The AI backend runs locally on your machine, and your files stay on your computer. The
@@ -40,7 +40,6 @@ experience with the Amazon Quick desktop application.
 | MCP server support            | No           | Yes                     |
 | Browser automation            | No           | Yes                     |
 | Knowledge graph               | No           | Yes                     |
-| Screen and meeting monitor    | No           | Yes                     |
 | Create and manage chat agents | Yes          | No                      |
 | Create and manage spaces      | Yes          | No                      |
 | Account administration        | Yes          | No                      |
@@ -105,13 +104,6 @@ connected sources â€” Slack messages, emails, calendar events, and local files â
 builds a personal knowledge graph. The graph visualizes people, customers,
 projects, events, channels, and other entities relevant to your work, helping
 Quick provide more contextual and personalized responses.
-
-### Monitor your screen and meetings
-
-The desktop application can capture your screen, monitor what's happening, and
-transcribe meetings in real time. Use these capabilities for meeting notes,
-real-time assistance during presentations, or any workflow where visual context
-helps.
 
 ### Use voice for hands-free interaction
 

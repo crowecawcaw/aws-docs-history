@@ -326,15 +326,6 @@ When **Use my Chrome** is disabled, the
 agent launches a separate Chrome instance with a copy of your Chrome
 profile.
 
-### Screenshot capture
-
-Capture a region of your screen and send it to the agent.
-
-**Global shortcut** – The keyboard
-shortcut to trigger screenshot capture (default:
-`Option+Shift+Q`). The field accepts Electron
-accelerator format. Press Enter to apply changes.
-
 ### Message submit keybinding
 
 Choose which keyboard shortcut submits messages in chat.
