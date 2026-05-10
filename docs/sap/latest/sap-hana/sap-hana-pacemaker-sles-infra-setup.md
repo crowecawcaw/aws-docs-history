@@ -20,7 +20,7 @@ For more information, see [IAM roles for Amazon EC2](../../../AWSEC2/latest/User
 
 ### STONITH Policy
 
-The SLES STONITH resource agent (external/ec2) requires permission to start and stop both the nodes of the cluster. Create a policy as shown in the following example. Attach this policy to the IAM role assigned to both Amazon EC2 instances in the cluster.
+The SLES STONITH resource agent (`fence_aws` for SLES 15 SP5 and above, or `external/ec2` for older releases) requires permission to start and stop both the nodes of the cluster. Create a policy as shown in the following example. Attach this policy to the IAM role assigned to both Amazon EC2 instances in the cluster.
 
 ```
 {

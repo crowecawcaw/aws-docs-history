@@ -30,7 +30,7 @@ Node List:
   * Online: [ hanahost01 hanahost02  ]
 
 Full List of Resources:
-  * rsc_AWS_STONITH     (stonith:external/ec2):  Started sapsecdb
+  * rsc_AWS_STONITH     (stonith:fence_aws):  Started hanahost01
   * rsc_ip_HDB_HDB00    (ocf::heartbeat:aws-vpc-move-ip):        Started hanahost01
   * Clone Set: cln_SAPHanaTopology_HDB_HDB00 [rsc_SAPHanaTopology_HDB_HDB00]:
     * Started: [ hanahost01 hanahost02 ]

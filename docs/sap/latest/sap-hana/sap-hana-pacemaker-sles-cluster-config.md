@@ -106,6 +106,50 @@ To verify your operation default settings:
 
 An AWS STONITH resource agent is recommended for AWS deployments on SUSE as it leverages the AWS API to safely fence failed or incommunicable nodes by stopping the EC2 instances. See [Pacemaker - STONITH Fencing Agent](sap-hana-pacemaker-sles-concepts.md#fencing-sles "sap-hana-pacemaker-sles-concepts.md#fencing-sles").
 
+As of SLES 15 SP5 with the latest fence-agents package, we recommend resource agent `fence_aws` which can leverage a new API feature to skip the shutdown of the Operating System and fence unresponsive Instances more quickly.
+For older SLES versions, the `stonith:external/ec2` resource is supported.
+
+SLES 15 SP5 and above
+Create the STONITH resource using resource agent **`fence_aws`**:
+
+```
+# crm configure primitive <stonith_resource_name> stonith:fence_aws \
+params pcmk_host_map="<hostname_1>:<instance_id_1>;<hostname_2>:<instance_id_2>" \
+region="<aws_region>" \
+skip_os_shutdown="true" \
+pcmk_delay_max="10" \
+pcmk_reboot_timeout="600" \
+pcmk_reboot_retries="4" \
+op start interval="0" timeout="600" \
+op stop interval="0" timeout="180" \
+op monitor interval="300" timeout="60"
+```
+
+Details:
+
+- **pcmk_host_map** - Maps cluster node hostnames to their EC2 instance IDs. This mapping must be unique within the AWS account and follow the format hostname:instance-id, with multiple entries separated by semicolons.
+- **region** - AWS region where the EC2 instances are deployed
+- **pcmk_delay_max** - Random delay before fencing operations. Works in conjunction with cluster property `priority-fencing-delay` to prevent simultaneous fencing in 2-node clusters. Historically set to higher values, but with `priority-fencing-delay` now handling primary node protection, a lower value (10s) is sufficient. Omit in clusters with real quorum (3+ nodes) to avoid unnecessary delay.
+- **pcmk_reboot_timeout** - Maximum time in seconds allowed for a reboot operation
+- **pcmk_reboot_retries** - Number of times to retry a failed reboot operation
+- **skip_os_shutdown** (recommended) - Leverages a new ec2 stop-instance API flag to forcefully stop an EC2 Instance by skipping the shutdown of the Operating System.
+- _Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_ :
+
+```
+# crm configure primitive rsc_fence_aws stonith:fence_aws \
+params pcmk_host_map="hanahost01:i-xxxxinstidforhost1;hanahost02:i-xxxxinstidforhost2" region="us-east-1" \
+skip_os_shutdown="true" \
+pcmk_delay_max="10" \
+pcmk_reboot_timeout="600" \
+pcmk_reboot_retries="4" \
+op start interval="0" timeout="600" \
+op stop interval="0" timeout="180" \
+op monitor interval="300" timeout="60"
+```
+
+When configuring the STONITH resource, consider your instance’s startup and shutdown times. The default pcmk_reboot_action is 'reboot', where the cluster waits for both stop and start actions to complete before considering the fencing action successful. Setting `pcmk_reboot_action=off` allows the cluster to proceed immediately after shutdown. For High Memory Metal instances, only 'off' is recommended due to the extended time to initialize memory during startup. If changing `pcmk_reboot_action="off"`, also add `pcmk_off_timeout="600"` and `pcmk_off_retries="4"`. Use `crm configure edit <stonith_resource_name>` to modify.
+
+Older SLES versions
 Create the STONITH resource using resource agent **`external/ec2`**:
 
 ```
@@ -121,7 +165,8 @@ Details:
 - **tag** - EC2 instance tag key name that associates instances with this cluster configuration. This tag key must be unique within the AWS account and have a value which matches the instance hostname. See [Create Amazon EC2 Resource Tags Used by Amazon EC2 STONITH Agent](sap-hana-pacemaker-sles-ec2-configuration.md#create-cluster-tags "sap-hana-pacemaker-sles-ec2-configuration.md#create-cluster-tags") for EC2 instance tagging configuration.
 - **profile** - (optional) AWS CLI profile name for API authentication. Verify profile exists with `aws configure list-profiles`. If a profile is not explicitly configured the default profile will be used.
 - **pcmk_delay_max** - Random delay before fencing operations. Works in conjunction with cluster property `priority-fencing-delay` to prevent simultaneous fencing. Historically set to higher values (45s), but with `priority-fencing-delay` now handling primary node protection, a lower value (10s) is sufficient.
-- _Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_ :
+
+_Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_ :
 
 ```
 # crm configure primitive res_stonith_ec2 stonith:external/ec2 \
@@ -131,6 +176,36 @@ op start interval="0" timeout="180" \
 op stop interval="0" timeout="180" \
 op monitor interval="300" timeout="60"
 ```
+
+###### Note
+
+**Migrating from `external/ec2` to `fence_aws`**
+
+Ensure fence-agents is updated to the latest available version on all cluster nodes:
+
+```
+# zypper refresh
+# zypper up fence-agents
+```
+
+On SLES 15 SP5 and SP6, the following Python 3.11 packages are also required as dependencies for `fence_aws`:
+
+```
+# zypper install python311-pycurl python311-pexpect
+```
+
+Then place the cluster in maintenance mode, delete the existing STONITH resource, create the new `fence_aws` resource, and disable maintenance mode:
+
+```
+# crm maintenance on
+# crm configure delete <old_stonith_resource_name>
+# crm configure primitive <new_resource> stonith:fence_aws \
+params pcmk_host_map="<hostname_1>:<instance_id_1>;<hostname_2>:<instance_id_2>" \
+region="<aws_region>" ...
+# crm maintenance off
+```
+
+EC2 instance tags used by `external/ec2` can remain in place — they do not interfere with `fence_aws`.
 
 ## Create Overlay IP Resources
 

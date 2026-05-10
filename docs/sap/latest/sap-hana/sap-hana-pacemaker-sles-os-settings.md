@@ -30,28 +30,30 @@ This is applicable to all cluster nodes. You must install any missing operating 
 
 The following packages and their dependencies are required for the pacemaker setup. Depending on your baseline image, for example, SLES for SAP, these packages may already be installed.
 
-| Package                               | Description                                  | Category       | Required    | Configuration Pattern                           |
-| ------------------------------------- | -------------------------------------------- | -------------- | ----------- | ----------------------------------------------- |
-| chrony                                | Time Synchronization                         | System Support | Mandatory   | All                                             |
-| rsyslog                               | System Logging                               | System Support | Mandatory   | All                                             |
-| pacemaker                             | Cluster Resource Manager                     | Core Cluster   | Mandatory   | All                                             |
-| corosync                              | Cluster Communication Engine                 | Core Cluster   | Mandatory   | All                                             |
-| cluster-glue                          | Cluster Infrastructure                       | Core Cluster   | Mandatory   | All                                             |
-| crmsh                                 | Cluster Management CLI                       | Core Cluster   | Mandatory   | All                                             |
-| resource-agents                       | Basic Resource Agents                        | Core Cluster   | Mandatory   | All                                             |
-| fence-agents                          | Fencing Capabilities                         | Core Cluster   | Mandatory   | All                                             |
-| SAPHanaSR-angi                        | New Generation HANA System Replication Agent | SAP HANA HA    | Mandatory\* | SAPHANAScaleUp-SAPANGI, SAPHANAScaleOut-SAPANGI |
-| SAPHanaSR                             | Previous Generation Scale-Up SR Agent        | SAP HANA HA    | Mandatory\* | SAPHANAScaleUp-Classic                          |
-| SAPHanaSR-doc                         | Documentation for Scale-Up Configuration     | SAP HANA HA    | Mandatory\* | SAPHANAScaleUp-Classic                          |
-| SAPHanaSR-ScaleOut                    | Previous Generation Scale-Out SR Agent       | SAP HANA HA    | Mandatory\* | SAPHANAScaleOut-Classic                         |
-| SAPHanaSR-ScaleOut-doc                | Documentation for Scale-Out Configuration    | SAP HANA HA    | Mandatory\* | SAPHANAScaleOut-Classic                         |
-| supportutils                          | System Information Gathering                 | Support Tools  | Mandatory   | All                                             |
-| sysstat                               | Performance Monitoring Tools                 | Support Tools  | Mandatory   | All                                             |
-| zypper-lifecycle-plugin               | Software Lifecycle Management                | Support Tools  | Recommended | All                                             |
-| supportutils-plugin-ha-sap            | HA/SAP Support Data Collection               | Support Tools  | Recommended | All                                             |
-| supportutils-plugin-suse-public-cloud | Cloud Support Data Collection                | Support Tools  | Recommended | All                                             |
-| dstat                                 | System Resource Statistics                   | Monitoring     | Recommended | All                                             |
-| iotop                                 | I/O Monitoring                               | Monitoring     | Recommended | All                                             |
+| Package                               | Description                                                | Category       | Required                                   | Configuration Pattern                           |
+| ------------------------------------- | ---------------------------------------------------------- | -------------- | ------------------------------------------ | ----------------------------------------------- |
+| chrony                                | Time Synchronization                                       | System Support | Mandatory                                  | All                                             |
+| rsyslog                               | System Logging                                             | System Support | Mandatory                                  | All                                             |
+| pacemaker                             | Cluster Resource Manager                                   | Core Cluster   | Mandatory                                  | All                                             |
+| corosync                              | Cluster Communication Engine                               | Core Cluster   | Mandatory                                  | All                                             |
+| cluster-glue                          | Cluster Infrastructure                                     | Core Cluster   | Mandatory                                  | All                                             |
+| crmsh                                 | Cluster Management CLI                                     | Core Cluster   | Mandatory                                  | All                                             |
+| resource-agents                       | Basic Resource Agents                                      | Core Cluster   | Mandatory                                  | All                                             |
+| fence-agents                          | Fencing Capabilities                                       | Core Cluster   | Mandatory                                  | All                                             |
+| python311-pycurl                      | Python 3.11 HTTP library (fence_aws dependency)            | Core Cluster   | Mandatory (SLES 15 SP5/SP6 with fence_aws) | All                                             |
+| python311-pexpect                     | Python 3.11 process control library (fence_aws dependency) | Core Cluster   | Mandatory (SLES 15 SP5/SP6 with fence_aws) | All                                             |
+| SAPHanaSR-angi                        | New Generation HANA System Replication Agent               | SAP HANA HA    | Mandatory\*                                | SAPHANAScaleUp-SAPANGI, SAPHANAScaleOut-SAPANGI |
+| SAPHanaSR                             | Previous Generation Scale-Up SR Agent                      | SAP HANA HA    | Mandatory\*                                | SAPHANAScaleUp-Classic                          |
+| SAPHanaSR-doc                         | Documentation for Scale-Up Configuration                   | SAP HANA HA    | Mandatory\*                                | SAPHANAScaleUp-Classic                          |
+| SAPHanaSR-ScaleOut                    | Previous Generation Scale-Out SR Agent                     | SAP HANA HA    | Mandatory\*                                | SAPHANAScaleOut-Classic                         |
+| SAPHanaSR-ScaleOut-doc                | Documentation for Scale-Out Configuration                  | SAP HANA HA    | Mandatory\*                                | SAPHANAScaleOut-Classic                         |
+| supportutils                          | System Information Gathering                               | Support Tools  | Mandatory                                  | All                                             |
+| sysstat                               | Performance Monitoring Tools                               | Support Tools  | Mandatory                                  | All                                             |
+| zypper-lifecycle-plugin               | Software Lifecycle Management                              | Support Tools  | Recommended                                | All                                             |
+| supportutils-plugin-ha-sap            | HA/SAP Support Data Collection                             | Support Tools  | Recommended                                | All                                             |
+| supportutils-plugin-suse-public-cloud | Cloud Support Data Collection                              | Support Tools  | Recommended                                | All                                             |
+| dstat                                 | System Resource Statistics                                 | Monitoring     | Recommended                                | All                                             |
+| iotop                                 | I/O Monitoring                                             | Monitoring     | Recommended                                | All                                             |
 
 ###### Note
 
@@ -61,6 +63,9 @@ Refer to [Vendor Support of Deployment Types](sap-hana-pacemaker-sles-references
 #!/bin/bash
 # Mandatory core packages for SAP HANA HA on AWS
 mandatory_packages="corosync pacemaker cluster-glue crmsh rsyslog chrony resource-agents fence-agents "
+
+# fence_aws dependencies (SLES 15 SP5/SP6 only - not required on SP7+)
+fence_aws_packages="python311-pycurl python311-pexpect"
 
 # HANA SR packages - New Generation
 hanaSR_angi="SAPHanaSR-angi"  # New generation package for both scale-up and scale-out
@@ -77,6 +82,9 @@ support_packages="supportutils supportutils-plugin-ha-sap supportutils-plugin-su
 packages="${mandatory_packages} ${hanaSR_angi} ${support_packages}"
 #packages="${mandatory_packages} ${hanaSR_scaleup} ${support_packages}"
 #packages="${mandatory_packages} ${hanaSR_scaleout} ${support_packages}"
+
+# Add fence_aws dependencies if using fence_aws on SLES 15 SP5/SP6
+packages="${packages} ${fence_aws_packages}"
 
 missingpackages=""
 
