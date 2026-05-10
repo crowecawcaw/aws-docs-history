@@ -21,7 +21,7 @@ service provider creates an endpoint service and grants their customers access t
 service. As the service consumer, you create an interface VPC endpoint, which establishes
 connections between one or more subnets in your VPC and the endpoint service.
 
-![A service consumer and a service provider.](images/endpoint-services.png)
+![A service consumer and a service provider.](/images/vpc/latest/privatelink/images/endpoint-services.png)
 
 ## Create an interface endpoint
 

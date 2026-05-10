@@ -19,6 +19,7 @@ A resource gateway does not provide load balancing capabilities.
 - [Security groups](#resource-gateway-security-groups "#resource-gateway-security-groups")
 - [IP address types](#resource-gateway-ip-address-type "#resource-gateway-ip-address-type")
 - [IPv4 addresses per ENI](#ipv4-address-type-per-eni "#ipv4-address-type-per-eni")
+- [Resource Config DNS Resolution](#resource-config-dns-resolution "#resource-config-dns-resolution")
 - [Create a resource gateway](create-resource-gateway.md "create-resource-gateway.md")
 - [Delete a resource gateway](delete-resource-gateway.md "delete-resource-gateway.md")
 
@@ -83,3 +84,20 @@ resources.
 
 If your resource gateway uses the IPv6 address type, the resource gateway automatically
 receives a /80 CIDR per ENI. This value can't be changed.
+
+## Resource Config DNS Resolution
+
+You can specify how a resource gateway does DNS resolution for resource configurations that are
+domain-name targets. This property is immutable. You can choose:
+
+- **PUBLIC (default)**
+
+* Domain names are resolved using public DNS resolvers.
+
+- **IN_VPC**
+
+* Domain names are resolved using the DNS server configured in the DHCP option set of the VPC
+  which the resource gateway is in. You should use this if you are using a private DNS server or your
+  domain-name targets are in a Route53 private hosted zone.
+
+If DNS resolution is IN_VPC, you cannot attach resource configurations defined by ARN to the resource gateway. You cannot set DNS Resolution to IN_VPC if the resource gateway uses IPv6-only subnets.

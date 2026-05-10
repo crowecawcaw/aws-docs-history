@@ -20,11 +20,14 @@ Use the console to create a resource gateway.
    number of IPs to form connections with your backend resources.
 
 7. Choose the VPC that the resource is in.
-8. Choose up to five security groups to control inbound traffic from the VPC to the service
+8. For **Security groups**, choose up to five security groups to control inbound traffic from the VPC to the service
    network.
-9. (Optional) To add a tag, choose **Add new tag** and enter the tag key and
-   the tag value.
-10. Choose **Create resource gateway**.
+9. For **Resource Config DNS Resolution**, choose how you want DNS to be resolved for domain-name targets.
+   1. If you are using a private DNS server or your domain-name targets are in a Route53 private hosted zone, set to IN_VPC
+
+10. (Optional) To add a tag, choose **Add new tag** and enter the tag key and
+    the tag value.
+11. Choose **Create resource gateway**.
 
 ###### To create a resource gateway using the AWS CLI
 
