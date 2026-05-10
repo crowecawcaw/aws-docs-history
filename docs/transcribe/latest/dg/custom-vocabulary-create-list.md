@@ -11,8 +11,8 @@ or AWS SDKs.
 
 - **AWS Management Console**: You must create and upload a text file containing
   your custom vocabulary. You can use line-separated or comma-separated entries. Note that your list
-  must be saved as a text (\*.txt) file in `LF` format. If you use any other format, such as
-  `CRLF`, your custom vocabulary is not accepted by Amazon Transcribe.
+  must be saved as a text (\*.txt) file. Both `LF` and
+  `CRLF` line endings are supported.
 - **AWS CLI** and **AWS SDKs**:
   You must include your custom vocabulary as comma-separated entries within your API call using the
   [`Phrases`](../APIReference/API_CreateVocabulary.md#transcribe-CreateVocabulary-request-Phrases "../APIReference/API_CreateVocabulary.md#transcribe-CreateVocabulary-request-Phrases") flag.

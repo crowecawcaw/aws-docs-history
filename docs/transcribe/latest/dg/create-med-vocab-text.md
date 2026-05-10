@@ -122,10 +122,8 @@ your text file on a separate line. Separate the columns with Tab characters. Inc
 spaces only for values in the `IPA` and `DisplayAs` columns.
 Save the file with the extension `.txt` in an Amazon S3 bucket in the same AWS Region where you use Amazon Transcribe Medical to create your custom vocabulary.
 
-If you edit your text file in Windows, make sure that your file is in
-`LF` format and not in `CRLF` format. Otherwise, you will
-be unable to create your custom vocabulary. Some text editors enable you to change
-the formatting with Find and Replace commands.
+Your custom vocabulary file supports both `LF` and
+`CRLF` line endings.
 
 The following examples show text that you can use to create custom vocabularies.
 To create a custom vocabulary from these examples, copy an example into a text

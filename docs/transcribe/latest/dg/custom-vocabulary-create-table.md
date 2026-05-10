@@ -26,8 +26,8 @@ Things to note when creating your table:
   [character set](charsets.md "charsets.md") page.
 - If you want to include numbers in the `Phrase` column, you must spell them out.
   Digits (`0-9`) are only supported in the `DisplayAs` column.
-- You must save your table as a plaintext (\*.txt) file in `LF` format. If you use
-  any other format, such as `CRLF`, your custom vocabulary can't be processed.
+- You must save your table as a plaintext (\*.txt) file. Both `LF` and
+  `CRLF` line endings are supported.
 - You must upload your custom vocabulary file into an Amazon S3 bucket and process it using
   [`CreateVocabulary`](../APIReference/API_CreateVocabulary.md "../APIReference/API_CreateVocabulary.md")
   before you can include it in a transcription request. Refer to
