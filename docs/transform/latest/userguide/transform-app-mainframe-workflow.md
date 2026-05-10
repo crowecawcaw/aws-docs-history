@@ -335,11 +335,11 @@ Summary provides an overview of data sources, and their relationships to program
 Understanding the data elements within the data sources present in the codebase is the next step to realize how the various data sources are dependent. Data dictionary is a data catalog providing field level metadata with business language descriptions for accurate transformation mapping.
 
 - **COBOL data structure**: Provides field
-  information across COBOL copybooks present in the codebase, including
+  information across COBOL copybooks and INLINE references present in the codebase, including
   field properties and business definition
 - **Db2 tables**: Provides column and table
   properties across the Db2 tables present in the codebase, including
-  primary and foreign key, schema information, and data types
+  primary and foreign keys, schema and index information, and data types
 
 Relationship between data lineage and dictionary is available by selecting the
 data source, and then utilizing the data lineage or data dictionary button in

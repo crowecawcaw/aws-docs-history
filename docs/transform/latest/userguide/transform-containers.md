@@ -1,0 +1,112 @@
+# Source code containerization
+
+AWS Transform can help you containerize your applications for deployment on AWS using
+generative AI. This chapter describes how to use AWS Transform to analyze your source code,
+generate container images, and deploy containerized applications to Amazon Elastic Container Service or
+Amazon Elastic Kubernetes Service.
+
+## Capabilities and key features
+
+AWS Transform offers the following capabilities for containerizing your
+applications.
+
+- **AI-driven source code analysis** —
+  Analyzes your application source code and automatically generates
+  Docker artifacts, including Dockerfiles and related configuration files.
+- **Container image building and publishing** —
+  Builds and tests container images using AI-driven Docker builds, and
+  publishes them to Amazon Elastic Container Registry with automated vulnerability scanning.
+- **Infrastructure as Code generation** —
+  Generates deployment infrastructure for either Amazon Elastic Kubernetes Service (Helm charts) or
+  Amazon Elastic Container Service (Terraform modules), with automated validation and security
+  scanning.
+- **Private dependency support** —
+  Optionally configure AWS CodeArtifact repositories (Maven, PyPI, npm) and
+  private Amazon ECR base images as dependency sources for your builds.
+- **Iterative test and cutover deployment** —
+  Deploys test infrastructure for validation, then deploys finalized
+  infrastructure for production cutover.
+
+## How containerization works
+
+AWS Transform uses an AI-powered agent to guide you through the containerization process
+in a chat-based workflow. The agent coordinates specialized tasks such as source code
+analysis, Docker image generation, and infrastructure creation. At key points in the
+workflow, you review and approve the agent's output before proceeding.
+
+You access source code containerization by creating a VMware migration job. Within
+the job, you can run containerization as a standalone workflow, or as part of an
+end-to-end migration when a wave's migration strategy is set to
+_containerize_. For more information about VMware migration, see
+[VMware migration](transform-app-vmware.md "transform-app-vmware.md").
+
+## Prerequisites
+
+Before you begin, ensure that you have the following:
+
+- An AWS Transform workspace. For information about getting a workspace, see
+  [Getting
+  started](getting-started.md "getting-started.md").
+- Your application source code in a Git repository accessible through
+  AWS CodeConnections, or packaged as zip files for upload. Individual
+  files must not exceed 1 GB, and the total size of all source code must
+  not exceed 8 GB.
+- (Optional) An Amazon ECR repository for publishing container images. You can
+  configure Amazon ECR access later in the workflow when you are ready to
+  publish.
+- For Amazon EKS deployments: An existing Amazon EKS cluster, or permissions to create
+  the required infrastructure.
+- For Amazon ECS deployments: Permissions to create Amazon ECS clusters, services, and
+  related resources using Terraform, AWS CloudFormation, or AWS Cloud Development Kit (AWS CDK).
+
+## Containerization workflow
+
+The containerization workflow consists of the following steps. The AWS Transform agent
+guides you through each step in the chat interface.
+
+1. [Step 1: Review security disclaimer](transform-containers-step-disclaimer.md "transform-containers-step-disclaimer.md") — Review
+   and accept the security disclaimer.
+2. [Step 2: Clone source code](transform-containers-step-clone.md "transform-containers-step-clone.md") — Provide your
+   application source code.
+3. [Step 3: Containerize](transform-containers-step-containerize.md "transform-containers-step-containerize.md") — AI agent
+   analyzes your code and generates Docker artifacts.
+4. [Step 4: Review Docker artifacts and code changes](transform-containers-step-review.md "transform-containers-step-review.md") — Review generated
+   artifacts and approve code changes.
+5. [Step 5: Publish images](transform-containers-step-publish.md "transform-containers-step-publish.md") — Publish
+   container images to Amazon ECR.
+6. [Step 6: Generate Infrastructure as Code](transform-containers-step-iac.md "transform-containers-step-iac.md") — Generate Amazon EKS or
+   Amazon ECS deployment templates.
+7. [Step 7: Deploy test infrastructure](transform-containers-step-test-deploy.md "transform-containers-step-test-deploy.md") — Deploy and
+   validate test infrastructure.
+8. [Step 8: Clean up test infrastructure](transform-containers-step-cleanup.md "transform-containers-step-cleanup.md") — Tear down test
+   resources.
+9. [Step 9: Deploy cutover infrastructure](transform-containers-step-cutover.md "transform-containers-step-cutover.md") — Deploy
+   production infrastructure.
+
+## Starting a containerization job
+
+To containerize your applications, you first create a VMware migration job in your
+AWS Transform workspace. From within the job, you can choose to run a standalone
+containerization workflow or an end-to-end migration flow that includes
+containerization.
+
+- **Standalone containerization** —
+  Containerize your source code without performing a full VMware migration.
+  Choose this option when you want to containerize applications independently
+  of any infrastructure migration.
+- **End-to-end migration with containerization**
+  — Run the full VMware migration workflow with a
+  _containerize_ migration strategy assigned to one or more
+  waves. The containerization workflow runs as part of the migration for those
+  waves. For more information about VMware migration, see
+  [VMware migration](transform-app-vmware.md "transform-app-vmware.md").
+
+###### To start a containerization job
+
+1. On your workspace landing page, choose **Create a
+   job**.
+2. Choose **VMware migration**.
+3. Choose whether to run a standalone containerization workflow or an
+   end-to-end migration flow that includes containerization.
+4. The agent guides you through the workflow steps, starting with
+   [Step 1: Review security disclaimer](transform-containers-step-disclaimer.md "transform-containers-step-disclaimer.md").

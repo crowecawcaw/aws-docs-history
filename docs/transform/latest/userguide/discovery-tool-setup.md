@@ -15,19 +15,19 @@ The following are the prerequisites for using the AWS Transform discovery tool:
   - Windows – TCP/5985 for HTTP, TCP/5986 for HTTPS
   - SNMP – UDP/161 (used for network collection only, not OS metrics)
 
-- For Linux, user accounts that can use SSH to connect to the server. The discovery tool runs various commands over SSH for network collection and OS metrics. Some commands require sudo access: `ss` or `netstat` (network collection), `dmidecode` (server provisioning), and `lvdisplay` (storage provisioning). Each of these commands has a graceful fallback if sudo is not available, but without sudo the discovery tool might not collect all available data. We recommend configuring passwordless sudo for the SSH user to ensure complete data collection.
+- For Linux, user accounts that can use SSH to connect to the server. The discovery tool runs commands over SSH for network collection and OS metrics. Most commands run as a regular user. A small number of commands attempt sudo and fall back automatically if sudo is unavailable: `dmidecode` (server UUID and manufacturer), `lvdisplay` (LVM detection), and `ss` or `netstat` (network connections with process information). Without sudo, the discovery tool still collects the majority of data but UUID, LVM, and process-level network details will be missing. We recommend configuring passwordless sudo for the SSH user to ensure complete data collection. For a full breakdown, see [Required permissions for the discovery tool](discovery-tool-permissions.md "discovery-tool-permissions.md").
 
 **VMware prerequisites**
 
 - VMware vCenter Server version 6.5, 6.7, 7.0, or 8.0.
 - Permissions to deploy an OVA into your VMware vCenter.
-- For VMware vCenter Server setup, vCenter credentials with Read and View permissions set for the System group.
+- For VMware vCenter Server setup, a vCenter user with the Read-Only role assigned at the root datacenter level. For details, see [Required permissions for the discovery tool](discovery-tool-permissions.md "discovery-tool-permissions.md").
 
 **Hyper-V prerequisites**
 
 - Windows Server with the Hyper-V role enabled.
 - WinRM enabled on Hyper-V hosts.
-- A user account with Hyper-V management permissions.
+- A user account that is a member of the **Remote Management Users**, **Hyper-V Administrators**, and **Performance Monitor Users** groups on each Hyper-V host, with WMI read access to the `root\cimv2` namespace. For details, see [Required permissions for the discovery tool](discovery-tool-permissions.md "discovery-tool-permissions.md").
 - Supported authentication: NTLM (HTTPS only) and Kerberos (HTTP or HTTPS).
 
 **Bare metal prerequisites**
@@ -348,7 +348,7 @@ After a successful import, the tool automatically begins database, network and O
 Configure OS access so that the discovery tool can:
 
 - Discover databases to perform database assessment and to assist in VM migration,
-- Track network connections, including the process associated with the connection, to assist in application dependency mapping and wave planning.
+- Track network connections between servers in your inventory, including the process associated with each connection, to assist in application dependency mapping and wave planning. Only connections where both endpoints are in the discovery tool's inventory are included.
 
 ###### Enable discovery tool OS Access
 
@@ -391,7 +391,16 @@ WinRM authentication protocols Kerberos and NTLM are supported by the discovery 
 
 **WMI Requirements**
 
-Proper WMI access permissions are needed for remote PowerShell WMI query execution.
+The discovery tool queries the following WMI namespaces. The WinRM account needs
+read access to each namespace relevant to your collection modules:
+
+| WMI namespace                                  | Used by                                                |
+| ---------------------------------------------- | ------------------------------------------------------ |
+| `root\cimv2`                                   | OS metrics, Hyper-V host metadata, database collection |
+| `root\virtualization\v2`                       | Hyper-V VM inventory                                   |
+| `root\StandardCIMV2`                           | Network collection                                     |
+| `root\Microsoft\SqlServer\ComputerManagement*` | Database collection (SQL Server)                       |
+| `root\Microsoft\SqlServer\ReportServer\*`      | Database collection (SSRS)                             |
 
 For network collection, ensure these conditions are met:
 

@@ -40,7 +40,7 @@ The discovery tool VM comes with a default login password "password" for user
 
 - Avoid disabling WinRM certificate check.
 - We recommend that you create a dedicated service account with minimal required permissions.
-- Avoid using domain administrator or local administrator accounts when Database (SQL Server) Collection is not needed.
+- Avoid using domain administrator or local administrator accounts when Database (SQL Server) collection is not needed. Database collection recommends Local Administrator because it queries multiple WMI namespaces and uses elevated commands. For OS metrics without database discovery, a non-administrator account with Remote Management Users, Performance Monitor Users, and WMI read access to `root\cimv2` is sufficient. See [Required permissions for the discovery tool](discovery-tool-permissions.md "discovery-tool-permissions.md") for per-module details.
 
 **Hyper-V credentials**
 

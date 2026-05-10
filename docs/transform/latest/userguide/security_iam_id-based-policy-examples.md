@@ -152,143 +152,196 @@ JSON
 
 ## Allow administrators to assign existing IAM Identity Center users and create new IAM Identity Center users to assign to AWS Transform
 
-JSON
+The following policy grants the permissions that an administrator needs to manage
+IAM Identity Center users and groups in the AWS Transform console. With this policy, an administrator
+can assign and remove users and groups, view display names, create new IAM Identity Center users,
+manage application assignments, and configure application session settings.
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [{
- "Sid": "AllowKmsAccessViaIdentityCenter",
- "Effect": "Allow",
- "Action": [
- "kms:Decrypt"
- ],
- "Resource": "*",
- "Condition": {
- "ArnLike": {
- "kms:EncryptionContext:aws:sso:instance-arn": "arn:*:sso:::instance/*"
- },
- "StringLike": {
- "kms:ViaService": "sso.*.amazonaws.com"
- }
- }
- },
- {
- "Sid": "AllowKmsAccessViaIdentityStore",
- "Effect": "Allow",
- "Action": [
- "kms:Decrypt"
- ],
- "Resource": "*",
- "Condition": {
- "ArnLike": {
- "kms:EncryptionContext:aws:identitystore:identitystore-arn": "arn:*:identitystore::*:identitystore/*"
- },
- "StringLike": {
- "kms:ViaService": "identitystore.*.amazonaws.com"
- }
- }
- }
- ]
- }`
-
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "SSOApplicationAssignments",
+      "Effect": "Allow",
+      "Action": [
+        "sso:ListApplicationAssignments",
+        "sso:CreateApplicationAssignment",
+        "sso:DeleteApplicationAssignment",
+        "sso:ListInstances",
+        "sso:DescribeInstance",
+        "sso:ListDirectoryAssociations",
+        "sso:GetApplicationGrant",
+        "sso:GetApplicationAccessScope",
+        "sso:GetApplicationSessionConfiguration",
+        "sso:PutApplicationSessionConfiguration"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "SSODirectoryCreateUser",
+      "Effect": "Allow",
+      "Action": [
+        "sso-directory:CreateUser"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "IdentityStoreAccess",
+      "Effect": "Allow",
+      "Action": [
+        "identitystore:DescribeUser",
+        "identitystore:DescribeGroup",
+        "identitystore:ListUsers",
+        "identitystore:ListGroups"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "AllowKmsAccessViaIdentityCenter",
+      "Effect": "Allow",
+      "Action": [
+        "kms:Decrypt"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "ArnLike": {
+          "kms:EncryptionContext:aws:sso:instance-arn": "arn:*:sso:::instance/*"
+        },
+        "StringLike": {
+          "kms:ViaService": "sso.*.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid": "AllowKmsAccessViaIdentityStore",
+      "Effect": "Allow",
+      "Action": [
+        "kms:Decrypt"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "ArnLike": {
+          "kms:EncryptionContext:aws:identitystore:identitystore-arn": "arn:*:identitystore::*:identitystore/*"
+        },
+        "StringLike": {
+          "kms:ViaService": "identitystore.*.amazonaws.com"
+        }
+      }
+    }
+  ]
+}
 ```
 
 ## Allow administrators to enable AWS Transform
 
-JSON
+The following policy grants the permissions that an administrator needs to enable
+and administer AWS Transform through the AWS console. This includes managing profiles,
+configuring agents, and managing connectors. This policy is intended for
+administrators only and should be scoped to trusted principals in your account.
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "sso:ListInstances",
- "sso:CreateInstance",
- "sso:CreateApplication",
- "sso:PutApplicationAuthenticationMethod",
- "sso:PutApplicationGrant",
- "sso:PutApplicationAssignmentConfiguration",
- "sso:ListApplications",
- "sso:GetSharedSsoConfiguration",
- "sso:DescribeInstance",
- "sso:PutApplicationAccessScope",
- "sso:DescribeApplication",
- "sso:DeleteApplication",
- "sso:UpdateApplication",
- "sso:DescribeRegisteredRegions",
- "sso:GetSSOStatus"
- ],
- "Resource": [
- "*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "sso-directory:GetUserPoolInfo",
- "sso-directory:DescribeUsers",
- "sso-directory:DescribeGroups",
- "sso-directory:SearchGroups",
- "sso-directory:SearchUsers",
- "sso-directory:DescribeDirectory"
- ],
- "Resource": [
- "*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "organizations:DescribeAccount",
- "organizations:DescribeOrganization",
- "organizations:ListAWSServiceAccessForOrganization",
- "organizations:DisableAWSServiceAccess",
- "organizations:EnableAWSServiceAccess"
- ],
- "Resource": [
- "*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "kms:ListAliases",
- "kms:CreateGrant",
- "kms:Encrypt",
- "kms:Decrypt",
- "kms:GenerateDataKey*",
- "kms:RetireGrant",
- "kms:DescribeKey"
- ],
- "Resource": [
- "*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "iam:CreateServiceLinkedRole"
- ],
- "Resource": [
- "arn:aws:iam::*:role/aws-service-role/transform.amazonaws.com/AWSServiceRoleForAWSTransform"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "transform:UpdateProfile",
- "transform:ListProfiles",
- "transform:CreateProfile",
- "transform:DeleteProfile"
- ],
- "Resource": [
- "*"
- ]
- }
- ]
-}`
-
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "SSOEnableTransform",
+      "Effect": "Allow",
+      "Action": [
+        "sso:ListInstances",
+        "sso:CreateInstance",
+        "sso:CreateApplication",
+        "sso:PutApplicationAuthenticationMethod",
+        "sso:PutApplicationGrant",
+        "sso:PutApplicationAssignmentConfiguration",
+        "sso:ListApplications",
+        "sso:GetSharedSsoConfiguration",
+        "sso:DescribeInstance",
+        "sso:PutApplicationAccessScope",
+        "sso:DescribeApplication",
+        "sso:DeleteApplication",
+        "sso:UpdateApplication",
+        "sso:DescribeRegisteredRegions",
+        "sso:GetSSOStatus"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "SSODirectoryActions",
+      "Effect": "Allow",
+      "Action": [
+        "sso-directory:GetUserPoolInfo",
+        "sso-directory:DescribeUsers",
+        "sso-directory:DescribeGroups",
+        "sso-directory:SearchGroups",
+        "sso-directory:SearchUsers",
+        "sso-directory:DescribeDirectory"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "KMSListAliases",
+      "Effect": "Allow",
+      "Action": [
+        "kms:ListAliases"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "KMSActions",
+      "Effect": "Allow",
+      "Action": [
+        "kms:CreateGrant",
+        "kms:Encrypt",
+        "kms:Decrypt",
+        "kms:GenerateDataKey*",
+        "kms:RetireGrant",
+        "kms:DescribeKey"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringLike": {
+          "kms:ViaService": "transform.*.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid": "IAMServiceLinkedRole",
+      "Effect": "Allow",
+      "Action": [
+        "iam:CreateServiceLinkedRole"
+      ],
+      "Resource": [
+        "arn:*:iam::*:role/aws-service-role/transform.amazonaws.com/AWSServiceRoleForAWSTransform"
+      ]
+    },
+    {
+      "Sid": "TransformConsoleActions",
+      "Effect": "Allow",
+      "Action": [
+        "transform:GetAccountSettings",
+        "transform:UpdateAccountSettings",
+        "transform:CreateProfile",
+        "transform:UpdateProfile",
+        "transform:DeleteProfile",
+        "transform:ListProfiles",
+        "transform:GetConnector",
+        "transform:ListConnectors",
+        "transform:DeleteConnector",
+        "transform:AssociateConnectorResource",
+        "transform:RejectConnector",
+        "transform:ListAgents",
+        "transform:GetAgent",
+        "transform:GetAgentRuntimeConfiguration",
+        "transform:PutAgentRuntimeConfiguration",
+        "transform:UpdateAgentAccess",
+        "transform:TagResource",
+        "transform:UntagResource",
+        "transform:ListTagsForResource",
+        "transform:GetWebAppUrl"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
 ```

@@ -252,7 +252,19 @@ This module collects network data for servers from all configured sources, inclu
 
 #### Network data collection
 
-The Network collection module captures TCP IPv4 connections in ESTABLISHED or TIME_WAIT state. These data points are collected:
+The Network collection module captures TCP IPv4 connections in ESTABLISHED or
+TIME_WAIT state between servers in your discovered inventory. A connection
+appears in the output only when both the source and target IP addresses belong
+to servers that the discovery tool has discovered or that you have imported.
+Connections to or from IP addresses outside your inventory — such as
+external services, cloud endpoints, or servers not yet added to the discovery
+tool — are not included.
+
+This design focuses the network data on server-to-server dependencies within
+your environment, which is the information needed for application dependency
+mapping and migration wave planning.
+
+These data points are collected for each connection:
 
 - Source IP, port, process ID, and process name
 - Target IP, port, process ID, and process name
@@ -260,6 +272,13 @@ The Network collection module captures TCP IPv4 connections in ESTABLISHED or TI
 - Transport protocol (TCP)
 - IP version (IPv4)
 - Count (number of times this unique connection was observed)
+
+###### Tip
+
+To maximize the completeness of your network dependency map, configure all
+discovery sources (VMware, Hyper-V, and bare metal CSV import) and add OS
+credentials before reviewing network data. The more servers in your
+inventory, the more connections the network module can capture.
 
 ### Database collection
 

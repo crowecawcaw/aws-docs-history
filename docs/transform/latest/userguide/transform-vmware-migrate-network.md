@@ -56,30 +56,45 @@ During the network definition step, you select a network topology. You can choos
 
 ### Isolated VPCs
 
-Isolated VPCs are independent network environments that operate as separate units within AWS. Your VPCs are completely isolated, with no built-in communication pathways between them. This separation provides the highest level of network boundary protection. You can connect the VPCs through specific networking configurations if needed.
+#### What is deployed
 
-###### Important
+Isolated VPCs are independent network environments that operate as separate units within AWS. Your VPCs are completely isolated, with no built-in communication pathways between them. This separation provides the highest level of network boundary protection.
 
-Isolated VPCs don't include internet connectivity. You must set up internet gateways, NAT gateways, and routing manually.
+AWS Transform creates the following resources:
+
+- A dedicated VPC for each detected source network segment.
+- Private subnets based on your source network configuration.
+- Security groups (if you provided firewall or SDN configuration files).
+
+#### Complete your setup
+
+AWS Transform deploys the network infrastructure but leaves internet access and inter-VPC connectivity to you, so you can choose the configuration that meets your organization's requirements.
+
+To enable internet access for an Isolated VPC, complete the following steps:
+
+1. Create an [internet gateway](../../../vpc/latest/userguide/VPC_Internet_Gateway.md "../../../vpc/latest/userguide/VPC_Internet_Gateway.md") and attach it to the VPC.
+2. Create public subnets in each Availability Zone where you need internet access. Add a route for `0.0.0.0/0` pointing to the internet gateway. For more information about subnet configuration, see [Subnets for your VPC](../../../vpc/latest/userguide/configure-subnets.md "../../../vpc/latest/userguide/configure-subnets.md").
+3. Create [NAT gateways](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") in the public subnets (one per AZ for high availability). Allocate an Elastic IP for each NAT gateway.
+4. Update your private subnet [route tables](../../../vpc/latest/userguide/VPC_Route_Tables.md "../../../vpc/latest/userguide/VPC_Route_Tables.md") — add a route for `0.0.0.0/0` pointing to the NAT gateway in the same AZ.
+5. Review your [security group rules](../../../vpc/latest/userguide/security-group-rules.md "../../../vpc/latest/userguide/security-group-rules.md") — ensure outbound rules allow the traffic your workloads need (HTTPS, DNS, etc.).
+
+For VPC-to-VPC communication, set up [VPC peering](../../../vpc/latest/peering/what-is-vpc-peering.md "../../../vpc/latest/peering/what-is-vpc-peering.md") or a [Transit Gateway](../../../vpc/latest/tgw/what-is-transit-gateway.md "../../../vpc/latest/tgw/what-is-transit-gateway.md") and update route tables in each VPC to route traffic to the peering connection or TGW attachment.
 
 ### Hub and Spoke
 
-In this model, an [AWS Transit Gateway](../../../vpc/latest/tgw/what-is-transit-gateway.md "../../../vpc/latest/tgw/what-is-transit-gateway.md") acts as the central hub that connects multiple workload VPCs (the spokes). A spoke VPC is created for each detected source network segment and connected through the Transit Gateway.
+In this model, an [AWS Transit Gateway](../../../vpc/latest/tgw/what-is-transit-gateway.md "../../../vpc/latest/tgw/what-is-transit-gateway.md") acts as the central hub that connects multiple workload VPCs (the spokes).
 
-#### Appliance VPCs
+#### What is deployed
 
-AWS Transform creates three specialized appliance VPCs to manage traffic flow and security:
+AWS Transform creates the following resources:
 
-- **Inspection VPC:** Hosts your firewall appliance for traffic inspection. All cross-VPC traffic is routed through this VPC. You must deploy a firewall (such as [AWS Network Firewall](../../../network-firewall/latest/developerguide/getting-started.md "../../../network-firewall/latest/developerguide/getting-started.md") or a third-party appliance) in this VPC. The Transit Gateway attachment uses [appliance mode](../../../vpc/latest/tgw/transit-gateway-appliance-scenario.md "../../../vpc/latest/tgw/transit-gateway-appliance-scenario.md"), a setting that ensures traffic flows symmetrically through the same appliance for both directions of a connection.
+- **Spoke VPCs:** One VPC per detected source network segment, with private subnets and a Transit Gateway attachment.
+- **Inspection VPC:** Hosts your firewall appliance for traffic inspection. All cross-VPC traffic is routed through this VPC. The Transit Gateway attachment uses [appliance mode](../../../vpc/latest/tgw/transit-gateway-appliance-scenario.md "../../../vpc/latest/tgw/transit-gateway-appliance-scenario.md"), a setting that ensures traffic flows symmetrically through the same appliance for both directions of a connection.
 - **Inbound VPC:** Handles traffic entering your network from the public internet (north-south inbound). Includes an [internet gateway](../../../vpc/latest/userguide/VPC_Internet_Gateway.md "../../../vpc/latest/userguide/VPC_Internet_Gateway.md") and public subnets across multiple Availability Zones.
 - **Outbound VPC:** Handles traffic leaving your network to the public internet (north-south outbound). Includes an internet gateway, [NAT gateways](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") with [elastic IP addresses](../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md "../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md") in each Availability Zone for high availability, and private subnets for the Transit Gateway attachment.
+- **Transit Gateway route tables:** Two route tables steer traffic through the Inspection VPC. The _Uninspected_ table is associated with spoke VPCs, Inbound VPC, and Outbound VPC — it routes all traffic (0.0.0.0/0) to the Inspection VPC attachment and is the default association route table. The _Inspected_ table is associated with the Inspection VPC — it contains propagated routes from all spoke VPCs and is the default propagation route table.
 
-#### Transit Gateway route tables
-
-AWS Transform creates two Transit Gateway route tables to steer traffic through the Inspection VPC:
-
-- **Uninspected:** Associated with spoke VPCs, Inbound VPC, and Outbound VPC. Routes all traffic (0.0.0.0/0) to the Inspection VPC attachment. This is the default association route table — new VPC attachments are automatically associated with it.
-- **Inspected:** Associated with the Inspection VPC. Contains propagated routes from all spoke VPCs, so inspected traffic can reach its destination. This is the default propagation route table — spoke VPC routes are automatically propagated to it.
+For multi-account deployments, the Transit Gateway is shared across accounts through [AWS Resource Access Manager (RAM)](../../../ram/latest/userguide/what-is.md "../../../ram/latest/userguide/what-is.md").
 
 #### Traffic flow
 
@@ -94,13 +109,19 @@ For outbound internet traffic, the Inspected route table routes traffic to the O
 
 Inbound internet traffic enters through the Inbound VPC's internet gateway and follows the same inspection path to reach spoke VPCs.
 
-For multi-account deployments, the Transit Gateway is shared across accounts through [AWS Resource Access Manager (RAM)](../../../ram/latest/userguide/what-is.md "../../../ram/latest/userguide/what-is.md").
+#### Complete your setup
+
+AWS Transform deploys the network infrastructure but leaves firewall configuration and inbound service setup to you, so you can choose the security appliances and policies that meet your organization's requirements.
 
 ###### Note
 
-By default, cross-VPC traffic passes through the Inspection VPC without inspection. To inspect traffic, deploy a firewall appliance (such as AWS Network Firewall) in the Inspection VPC.
+By default, cross-VPC traffic passes through the Inspection VPC without inspection. You must deploy a firewall to enable traffic inspection.
 
-To deploy a firewall, create additional subnets in the Inspection VPC for the firewall endpoints. AWS Transform creates subnets for the Transit Gateway attachment only. Route traffic from the TGW attachment subnets to the firewall endpoints, and from the firewall subnets back to the Transit Gateway. For more information about deploying a firewall with a Transit Gateway, see [Creating a firewall with a Transit Gateway](../../../network-firewall/latest/developerguide/create-tgw-firewall.md "../../../network-firewall/latest/developerguide/create-tgw-firewall.md").
+**Deploy a firewall:** Create additional subnets in the Inspection VPC for the firewall endpoints. AWS Transform creates subnets for the Transit Gateway attachment only. Route traffic from the TGW attachment subnets to the firewall endpoints, and from the firewall subnets back to the Transit Gateway. You can deploy [AWS Network Firewall](../../../network-firewall/latest/developerguide/getting-started.md "../../../network-firewall/latest/developerguide/getting-started.md") or a third-party appliance. For more information about deploying a firewall with a Transit Gateway, see [Creating a firewall with a Transit Gateway](../../../network-firewall/latest/developerguide/create-tgw-firewall.md "../../../network-firewall/latest/developerguide/create-tgw-firewall.md").
+
+**Verify connectivity:** After you deploy the firewall, test outbound internet access from a spoke VPC instance (for example, `curl https://aws.amazon.com`). You can use [Reachability Analyzer](../../../vpc/latest/reachability/what-is-reachability-analyzer.md "../../../vpc/latest/reachability/what-is-reachability-analyzer.md") to troubleshoot connectivity issues.
+
+**Set up inbound services:** To host public-facing services, deploy an [Application Load Balancer](../../../elasticloadbalancing/latest/application/introduction.md "../../../elasticloadbalancing/latest/application/introduction.md") or [Network Load Balancer](../../../elasticloadbalancing/latest/network/introduction.md "../../../elasticloadbalancing/latest/network/introduction.md") in the Inbound VPC public subnets. Configure target groups that point to instances in your spoke VPCs through the Transit Gateway, and verify that the Inspected route table has return routes to the Inbound VPC.
 
 If you want fine-grained control over the communication between the VPCs, choose the **Isolated VPCs** option and modify the generated network to create the specific communication paths you require.
 

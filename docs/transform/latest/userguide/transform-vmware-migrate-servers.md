@@ -10,6 +10,13 @@ AWS Application Migration Service?](../../../mgn/latest/ug/what-is-application-m
 Server migration is organized by waves. Each wave represents a group of servers
 that are migrated together. For each wave, you complete the following phases:
 
+For waves with a _containerize_ migration strategy, AWS Transform
+runs the source code containerization workflow instead of the rehost steps described
+below. The containerization workflow guides you through cloning source code,
+generating Docker artifacts, publishing container images, and deploying to Amazon Elastic Container Service
+or Amazon Elastic Kubernetes Service. For the full containerization workflow, see
+[Source code containerization](transform-containers.md "transform-containers.md").
+
 1. Prerequisites and migration execution defaults
 2. Step 1: Set up migration wave
 3. Step 2: Validate and confirm inventory

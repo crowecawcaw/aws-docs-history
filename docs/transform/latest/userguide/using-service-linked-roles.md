@@ -130,9 +130,9 @@ information, see [AWS Regions and endpoints](../../../general/latest/gr/rande.md
 ## Using service-linked roles for AWS Transform Custom
 
 AWS Transform Custom uses the service-linked role named **AWSServiceRoleForAWSTransformCustom** to
-publish metrics to your account on your behalf. These metrics let you monitor
-transformation counts, latencies, and status codes directly in your
-dashboards.
+publish metrics and logs to your account on your behalf. These metrics let you
+monitor transformation counts, latencies, and status codes directly in your
+dashboards. Logs provide visibility into issues encountered during transformations.
 
 This [service-linked role](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") is predefined by AWS Transform Custom and includes only the permissions the
 service needs. You don't have to manually add any permissions, and the role can only be assumed
@@ -155,6 +155,19 @@ following actions on the specified resources:
   - Track transformation counts, latencies, and status codes
   - Scoped to the `AWS/TransformCustom` namespace via the
     `cloudwatch:namespace` condition key
+
+- `logs:CreateLogGroup` and `logs:PutRetentionPolicy` on the
+  `/aws/TransformCustom` log group
+  - Create the CloudWatch Logs log group for publishing transformation logs
+  - Set log retention policies on the log group
+  - Scoped to `arn:aws:logs:*:*:log-group:/aws/TransformCustom` with an
+    `aws:ResourceAccount` condition ensuring access only within your account
+
+- `logs:CreateLogStream` and `logs:PutLogEvents` on log streams
+  within the `/aws/TransformCustom` log group
+  - Create log streams and publish log events for transformation operations
+  - Scoped to `arn:aws:logs:*:*:log-group:/aws/TransformCustom:log-stream:*`
+    with an `aws:ResourceAccount` condition ensuring access only within your account
 
 You must configure permissions to allow your users, groups, or roles to create, edit, or
 delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the

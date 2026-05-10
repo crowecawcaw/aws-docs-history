@@ -110,3 +110,9 @@ Migration planning is an interactive and iterative workflow. You can go back and
 12. Once you have finalized your wave plan, you can complete migration planning and move to
     execution. You can return to migration planning at any time to refine
     and iterate on your plan.
+13. For each wave, you can assign a migration strategy: _rehost_ (migrate servers to
+    Amazon EC2) and _containerize_ (containerize source code and
+    deploy to Amazon Elastic Container Service or Amazon Elastic Kubernetes Service). When you assign a wave the strategy
+    _containerize_, AWS Transform runs the source code
+    containerization workflow for that wave during migration execution. For more
+    information, see [Source code containerization](transform-containers.md "transform-containers.md").
