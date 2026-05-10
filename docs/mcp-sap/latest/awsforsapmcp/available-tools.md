@@ -15,7 +15,6 @@ With the AWS for SAP Model Context Protocol (MCP) Server, your AI agents can acc
 | `odata_delete`          | Deletes an entity record identified by key fields.                                                                                    | Write          |
 | `odata_function_import` | Enables execution of custom backend logic that does not fit standard CRUD operations.                                                 | Write          |
 | `get_service_hints`     | Returns usage guidance and hints for a specific SAP OData service from the configured service hints file.                             | Read           |
-| `sap_odata_assistant`   | A prompt that provides AI agents with SAP OData v2 best practices, query syntax guidelines, and tool usage recommendations.           | Read (Prompt)  |
 
 ###### Important
 
