@@ -63,14 +63,14 @@ provide one or more of the following connectivity options:
 
 ## US East (Ohio)
 
-| Location                                        | How to request a connection                                                                                             |
-| ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Cologix COL2, Columbus                          | Contact Cologix at [sales@cologix.com](mailto:sales@cologix.com "mailto:sales@cologix.com").                            |
-| Cologix MIN3, Minneapolis                       | Contact Cologix at [sales@cologix.com](mailto:sales@cologix.com "mailto:sales@cologix.com").                            |
-| CyrusOne West III, Houston                      | Submit a request using the [customer contact](https://cyrusone.com/contact/ "https://cyrusone.com/contact/") form.      |
-| Equinix CH2, Chicago                            | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").             |
-| QTS, Chicago                                    | Contact QTS at [AConnect@qtsdatacenters.com](mailto:AConnect@qtsdatacenters.com "mailto:AConnect@qtsdatacenters.com").  |
-| Netrality Data Centers, 1102 Grand, Kansas City | Contact Netrality Data Centers at [support@netrality.com](mailto:support@netrality.com "mailto:support@netrality.com"). |
+| Location                                        | How to request a connection                                                                                                                                           |
+| ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cologix COL2, Columbus                          | Contact Cologix at [sales@cologix.com](mailto:sales@cologix.com "mailto:sales@cologix.com").                                                                          |
+| Cologix MIN3, Minneapolis                       | Contact Cologix at [sales@cologix.com](mailto:sales@cologix.com "mailto:sales@cologix.com").                                                                          |
+| CyrusOne West III, Houston                      | Submit a request using the [customer contact](https://cyrusone.com/contact/ "https://cyrusone.com/contact/") form.                                                    |
+| Equinix CH2, Chicago                            | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
+| QTS, Chicago                                    | Contact QTS at [AConnect@qtsdatacenters.com](mailto:AConnect@qtsdatacenters.com "mailto:AConnect@qtsdatacenters.com").                                                |
+| Netrality Data Centers, 1102 Grand, Kansas City | Contact Netrality Data Centers at [support@netrality.com](mailto:support@netrality.com "mailto:support@netrality.com").                                               |
 
 ## US East (N. Virginia)
 
@@ -81,10 +81,10 @@ provide one or more of the following connectivity options:
 | CoreSite VA1-VA2, Reston                            | Place an order at the [CoreSite Customer Portal](https://mycoresite.coresite.com/login "https://mycoresite.coresite.com/login").<br>After you complete the form, review the order for accuracy, and then approve it using the website.                           |
 | Digital Realty ATL1 &ATL2, Atlanta                  | Contact Digital Realty at [amazon.orders@digitalrealty.com](mailto:amazon.orders@digitalrealty.com "mailto:amazon.orders@digitalrealty.com").                                                                                                                    |
 | Digital Realty IAD38, Ashburn                       | Contact Digital Realty at [amazon.orders@digitalrealty.com](mailto:amazon.orders@digitalrealty.com "mailto:amazon.orders@digitalrealty.com").                                                                                                                    |
-| Equinix DC1-DC6 & DC10-D12, Ashburn                 | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                                                                                                                                                      |
-| Equinix DAA1-DC3 & DC6, Dallas                      | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                                                                                                                                                      |
-| Equinix MI1, Miami                                  | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                                                                                                                                                      |
-| Equinix NY5, Seacaucus                              | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                                                                                                                                                      |
+| Equinix DC1-DC6 & DC10-D12, Ashburn                 | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect").                                                                                            |
+| Equinix DAA1-DC3 & DC6, Dallas                      | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect").                                                                                            |
+| Equinix MI1, Miami                                  | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect").                                                                                            |
+| Equinix NY5, Seacaucus                              | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect").                                                                                            |
 | KIO Networks QRO1, Queretaro, MX                    | Contact [KIO<br>Networks](https://www.kio.tech/en/#formcontacto "https://www.kio.tech/en/#formcontacto")".                                                                                                                                                       |
 | Markley, One Summer Street, Boston                  | For current customers, create a request using the [customer portal](https://support.markleygroup.com/ "https://support.markleygroup.com/"). For new queries,<br>contact [sales@markleygroup.com](mailto:sales@markleygroup.com "mailto:sales@markleygroup.com"). |
 | Netrality Data Centers, 2nd floor MMR, Philadelphia | Contact Netrality Data Centers at [support@netrality.com](mailto:support@netrality.com "mailto:support@netrality.com").                                                                                                                                          |
@@ -98,8 +98,8 @@ provide one or more of the following connectivity options:
 | CoreSite SV2, Milpitas      | Place an order using the [CoreSite<br>Customer Portal](https://mycoresite.coresite.com/login "https://mycoresite.coresite.com/login"). After you complete the form, review the<br>order for accuracy, and then approve it using the website.                                                                                                                            |
 | CoreSite SV4, Santa Clara   | Place an order using the [CoreSite Customer<br>Portal](https://mycoresite.coresite.com/login "https://mycoresite.coresite.com/login"). After you complete the form, review the order for<br>accuracy, and then approve it using the MyCoreSite website.                                                                                                                 |
 | EdgeConneX, Phoenix         | Place an order using the [EdgeOS<br>Customer Portal](https://edgeos.edgeconnex.com/portal/ "https://edgeos.edgeconnex.com/portal/"). After you have submitted the form,<br>EdgeConneX will provide a service order form for approval. You can send<br>questions to [cloudaccess@edgeconnex.com](mailto:cloudaccess@edgeconnex.com "mailto:cloudaccess@edgeconnex.com"). |
-| Equinix LA3, El Segundo     | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                                                                                                                                                                                                                                                             |
-| Equinix SV1 & SV5, San Jose | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                                                                                                                                                                                                                                                             |
+| Equinix LA3, El Segundo     | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect").                                                                                                                                                                                                   |
+| Equinix SV1 & SV5, San Jose | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect").                                                                                                                                                                                                   |
 | PhoenixNAP, Phoenix         | Contact phoenixNAP Provisioning at [provisioning@phoenixnap.com](mailto:provisioning@phoenixnap.com "mailto:provisioning@phoenixnap.com").                                                                                                                                                                                                                              |
 
 ## US West (Oregon)
@@ -132,7 +132,7 @@ provide one or more of the following connectivity options:
 
 | Location                       | How to request a connection                                                                                                                                                             |
 | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Equinix, Mumbai                | Contact Equinix at [awsdealreg@equinix.com](mailto:rawsdealreg@equinix.com "mailto:rawsdealreg@equinix.com").                                                                           |
+| Equinix, Mumbai                | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect").                   |
 | NetMagic DC2, Bangalore        | Contact NetMagic Sales and Marketing toll-free at 18001033130 or at [marketing@netmagicsolutions.com](mailto:marketing@netmagicsolutions.com "mailto:marketing@netmagicsolutions.com"). |
 | Sify Rabale, Mumbai            | Contact Sify at [aws.directconnect@sifycorp.com](mailto:aws.directconnect@sifycorp.com "mailto:aws.directconnect@sifycorp.com").                                                        |
 | STT Delhi DC2, Delhi           | Contact STT at [enquiry.AWSDX@sttelemediagdc.in](mailto:enquiry.AWSDX@sttelemediagdc.in "mailto:enquiry.AWSDX@sttelemediagdc.in").                                                      |
@@ -151,10 +151,10 @@ provide one or more of the following connectivity options:
 
 | Location                                   | How to request a connection                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Equinix HK1, Tsuen Wan N.T., Hong Kong SAR | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                                                                                                                                                                                                                       |
-| Equinix SG2, Singapore                     | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                                                                                                                                                                                                                       |
+| Equinix HK1, Tsuen Wan N.T., Hong Kong SAR | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect").                                                                                                                                                             |
+| Equinix SG2, Singapore                     | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect").                                                                                                                                                             |
 | Global Switch, Singapore                   | Contact Global Switch at [salessingapore@globalswitch.com](mailto:salessingapore@globalswitch.com "mailto:salessingapore@globalswitch.com").                                                                                                                                                                                      |
-| GPX, Mumbai                                | Contact GPX (Equinix) at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                                                                                                                                                                                                                 |
+| GPX, Mumbai                                | Contact GPX (Equinix) at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect").                                                                                                                                                       |
 | iAdvantage Mega-i, Hong Kong               | Contact iAdvantage at [cs@iadvantage.net](mailto:cs@iadvantage.net "mailto:cs@iadvantage.net") or place<br>an order using [iAdvantage Cabling Order e-Form](https://cable.iadvantage.net "https://cable.iadvantage.net").                                                                                                         |
 | Menara AIMS, Kuala Lumpur                  | Existing AIMS custom ers can request an X-Connect order using the Customer Service<br>portal by filling out the Engineering Work Order Request Form.<br>Contacting [service.delivery@aims.com.my](mailto:service.delivery@aims.com.my "mailto:service.delivery@aims.com.my") if there are any problems<br>submitting the request. |
 | TCC Data Center, Bangkok                   | Contact TCC Technology Co., Ltd at [gateway.ne@tcc-technology.com](mailto:gateway.ne@tcc-technology.com "mailto:gateway.ne@tcc-technology.com").                                                                                                                                                                                  |
@@ -165,8 +165,8 @@ provide one or more of the following connectivity options:
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | CDC Hume 2, Canberra   | Log in to the customer portal at [CDC Customer Portal](https://cdcdatacentres.freshworks.com/ "https://cdcdatacentres.freshworks.com/").                                         |
 | Datacom DH6, Auckland  | Contact Datacom at [Datacom Orbit –Auckland](https://datacom.com/au/en/products/data-centres/orbit-auckland/ "https://datacom.com/au/en/products/data-centres/orbit-auckland/"). |
-| Equinix ME2, Melbourne | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                                                                      |
-| Equinix SY3, Sydney    | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                                                                      |
+| Equinix ME2, Melbourne | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect").            |
+| Equinix SY3, Sydney    | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect").            |
 | Global Switch, Sydney  | Contact Global Switch at [salessydney@globalswitch.com](mailto:salessydney@globalswitch.com "mailto:salessydney@globalswitch.com").                                              |
 | NEXTDC C1, Canberra    | Contact NEXTDC at [nxtops@nextdc.com](mailto:nxtops@nextdc.com "mailto:nxtops@nextdc.com").                                                                                      |
 | NEXTDC M1, Melbourne   | Contact NEXTDC at [nxtops@nextdc.com](mailto:nxtops@nextdc.com "mailto:nxtops@nextdc.com").                                                                                      |
@@ -175,14 +175,14 @@ provide one or more of the following connectivity options:
 
 ## Asia Pacific (Tokyo)
 
-| Location                         | How to request a connection                                                                                                                        |
-| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AT Tokyo Chuo Data Center, Tokyo | Contact AT TOKYO at [at-sales@attokyo.co.jp](mailto:at-sales@attokyo.co.jp "mailto:at-sales@attokyo.co.jp").                                       |
-| Chief Telecom LY, Taipei         | Contact Chief Telecom at [vicky_chan@chief.com.tw](mailto:vicky_chan@chief.com.tw "mailto:vicky_chan@chief.com.tw").                               |
-| Chunghwa Telecom, Taipei         | Contact CHT Taipei IDC NOC at [taipei_idc@cht.com.tw](mailto:taipei_idc@cht.com.tw "mailto:taipei_idc@cht.com.tw").                                |
-| Equinix OS1, Osaka               | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                                        |
-| Equinix TY2, Tokyo               | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                                        |
-| NEC Inzai, Inzai                 | Contact NEC Inzai at [connection_support@ices.jp.nec.com](mailto:connection_support@ices.jp.nec.com "mailto:connection_support@ices.jp.nec.com") . |
+| Location                         | How to request a connection                                                                                                                                           |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AT Tokyo Chuo Data Center, Tokyo | Contact AT TOKYO at [at-sales@attokyo.co.jp](mailto:at-sales@attokyo.co.jp "mailto:at-sales@attokyo.co.jp").                                                          |
+| Chief Telecom LY, Taipei         | Contact Chief Telecom at [vicky_chan@chief.com.tw](mailto:vicky_chan@chief.com.tw "mailto:vicky_chan@chief.com.tw").                                                  |
+| Chunghwa Telecom, Taipei         | Contact CHT Taipei IDC NOC at [taipei_idc@cht.com.tw](mailto:taipei_idc@cht.com.tw "mailto:taipei_idc@cht.com.tw").                                                   |
+| Equinix OS1, Osaka               | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
+| Equinix TY2, Tokyo               | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
+| NEC Inzai, Inzai                 | Contact NEC Inzai at [connection_support@ices.jp.nec.com](mailto:connection_support@ices.jp.nec.com "mailto:connection_support@ices.jp.nec.com") .                    |
 
 ## Canada (Central)
 
@@ -211,58 +211,58 @@ provide one or more of the following connectivity options:
 
 ## Europe (Frankfurt)
 
-| Location                            | How to request a connection                                                                                                              |
-| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| CE Colo, Prague, Czech Republic     | Contact CE Colo at [info@cecolo.com](mailto:info@cecolo.com "mailto:info@cecolo.com").                                                   |
-| DigiPlex Ulven, Oslo, Norway        | Contact DigiPlex at [helpme@digiplex.com](mailto:helpme@digiplex.com "mailto:helpme@digiplex.com").                                      |
-| Equinix AM3, Amsterdam, Netherlands | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                              |
-| Equinix FR5, Frankfurt              | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                              |
-| Equinix HE6, Helsinki               | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                              |
-| Equinix MU1, Munich                 | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                              |
-| Equinix WA1, Warsaw                 | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                              |
-| Interxion AMS7, Amsterdam           | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com"). |
-| Interxion CPH2, Copenhagen          | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com"). |
-| Interxion FRA6, Frankfurt           | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com"). |
-| Interxion MAD2, Madrid              | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com"). |
-| Interxion VIE2, Vienna              | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com"). |
-| Interxion ZUR1, Zurich              | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com"). |
-| IPB, Berlin                         | Contact IPB at [kontakt@ipb.de](mailto:kontakt@ipb.de "mailto:kontakt@ipb.de").                                                          |
-| Equinix ITConic MD2, Madrid         | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                              |
+| Location                            | How to request a connection                                                                                                                                           |
+| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CE Colo, Prague, Czech Republic     | Contact CE Colo at [info@cecolo.com](mailto:info@cecolo.com "mailto:info@cecolo.com").                                                                                |
+| DigiPlex Ulven, Oslo, Norway        | Contact DigiPlex at [helpme@digiplex.com](mailto:helpme@digiplex.com "mailto:helpme@digiplex.com").                                                                   |
+| Equinix AM3, Amsterdam, Netherlands | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
+| Equinix FR5, Frankfurt              | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
+| Equinix HE6, Helsinki               | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
+| Equinix MU1, Munich                 | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
+| Equinix WA1, Warsaw                 | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
+| Interxion AMS7, Amsterdam           | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com").                              |
+| Interxion CPH2, Copenhagen          | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com").                              |
+| Interxion FRA6, Frankfurt           | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com").                              |
+| Interxion MAD2, Madrid              | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com").                              |
+| Interxion VIE2, Vienna              | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com").                              |
+| Interxion ZUR1, Zurich              | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com").                              |
+| IPB, Berlin                         | Contact IPB at [kontakt@ipb.de](mailto:kontakt@ipb.de "mailto:kontakt@ipb.de").                                                                                       |
+| Equinix ITConic MD2, Madrid         | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
 
 ## Europe (Ireland)
 
-| Location                       | How to request a connection                                                                                                                        |
-| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Digital Realty (UK), Docklands | Contact Digital Realty (UK) at [amazon.orders@digitalrealty.com](mailto:amazon.orders@digitalrealty.com "mailto:amazon.orders@digitalrealty.com"). |
-| Eircom Clonshaugh              | Contact Eircom at [datacentre@eirevo.ie](mailto:datacentre@eirevo.ie "mailto:datacentre@eirevo.ie").                                               |
-| Equinix DX1, Dublin            | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                                        |
-| Equinix LD5, London (Slough)   | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                                        |
-| Interxion DUB2, Dublin         | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com").           |
-| Interxion MRS1, Marseille      | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com").           |
+| Location                       | How to request a connection                                                                                                                                           |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Digital Realty (UK), Docklands | Contact Digital Realty (UK) at [amazon.orders@digitalrealty.com](mailto:amazon.orders@digitalrealty.com "mailto:amazon.orders@digitalrealty.com").                    |
+| Eircom Clonshaugh              | Contact Eircom at [datacentre@eirevo.ie](mailto:datacentre@eirevo.ie "mailto:datacentre@eirevo.ie").                                                                  |
+| Equinix DX1, Dublin            | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
+| Equinix LD5, London (Slough)   | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
+| Interxion DUB2, Dublin         | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com").                              |
+| Interxion MRS1, Marseille      | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com").                              |
 
 ## Europe (Milan)
 
-| Location                         | How to request a connection                                                                                 |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| CDLAN srl Via Caldera 21, Milano | Contact CDLAN at [sales@cdlan.it](mailto:mailto:sales@cdlan.it "mailto:mailto:sales@cdlan.it").             |
-| Equinix, ML2, Milano, Italy      | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com"). |
+| Location                         | How to request a connection                                                                                                                                           |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CDLAN srl Via Caldera 21, Milano | Contact CDLAN at [sales@cdlan.it](mailto:mailto:sales@cdlan.it "mailto:mailto:sales@cdlan.it").                                                                       |
+| Equinix, ML2, Milano, Italy      | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
 
 ## Europe (London)
 
-| Location                       | How to request a connection                                                                                                                        |
-| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Digital Realty (UK), Docklands | Contact Digital Realty (UK) at [amazon.orders@digitalrealty.com](mailto:amazon.orders@digitalrealty.com "mailto:amazon.orders@digitalrealty.com"). |
-| Equinix LD5, London (Slough)   | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                                        |
-| Equinix MA3, Manchester        | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                                        |
-| Telehouse West, London         | Contact Telehouse UK at [sales.support@uk.telehouse.net](mailto:sales.support@uk.telehouse.net "mailto:sales.support@uk.telehouse.net").           |
+| Location                       | How to request a connection                                                                                                                                           |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Digital Realty (UK), Docklands | Contact Digital Realty (UK) at [amazon.orders@digitalrealty.com](mailto:amazon.orders@digitalrealty.com "mailto:amazon.orders@digitalrealty.com").                    |
+| Equinix LD5, London (Slough)   | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
+| Equinix MA3, Manchester        | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
+| Telehouse West, London         | Contact Telehouse UK at [sales.support@uk.telehouse.net](mailto:sales.support@uk.telehouse.net "mailto:sales.support@uk.telehouse.net").                              |
 
 ## Europe (Paris)
 
-| Location                  | How to request a connection                                                                                                                                |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Equinix PA3, Paris        | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                                                |
-| Interxion PAR7, Paris     | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com").                   |
-| Telehouse Voltaire, Paris | Contact Telehouse Paris Voltaire using the [Contact Us](https://www.telehouse.net/contact-telehouse/ "https://www.telehouse.net/contact-telehouse/") page. |
+| Location                  | How to request a connection                                                                                                                                           |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Equinix PA3, Paris        | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
+| Interxion PAR7, Paris     | Contact Interxion at [customer.services@interxion.com](mailto:customer.services@interxion.com "mailto:customer.services@interxion.com").                              |
+| Telehouse Voltaire, Paris | Contact Telehouse Paris Voltaire using the [Contact Us](https://www.telehouse.net/contact-telehouse/ "https://www.telehouse.net/contact-telehouse/") page.            |
 
 ## Europe (Stockholm)
 
@@ -272,9 +272,9 @@ provide one or more of the following connectivity options:
 
 ## Europe (Zurich)
 
-| Location                                    | How to request a connection                                                                                 |
-| ------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| Equinix ZRH51, Oberengstringen, Switzerland | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com"). |
+| Location                                    | How to request a connection                                                                                                                                           |
+| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Equinix ZRH51, Oberengstringen, Switzerland | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
 
 ## Israel (Tel Aviv)
 
@@ -292,19 +292,19 @@ provide one or more of the following connectivity options:
 
 ## Middle East (UAE)
 
-| Location                                     | How to request a connection                                                                                                                           |
-| -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Equinix DX1, Dubai, UAE                      | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                                           |
-| Etisalat SmartHub Data Centre, Fujairah, UAE | Contact Etisalat SmartHub Data Centre at [IntlSales-C&WS@etisalat.ae](mailto:UAE IntlSales-C&WS@etisalat.ae "mailto:UAE IntlSales-C&WS@etisalat.ae"). |
+| Location                                     | How to request a connection                                                                                                                                           |
+| -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Equinix DX1, Dubai, UAE                      | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
+| Etisalat SmartHub Data Centre, Fujairah, UAE | Contact Etisalat SmartHub Data Centre at [IntlSales-C&WS@etisalat.ae](mailto:UAE IntlSales-C&WS@etisalat.ae "mailto:UAE IntlSales-C&WS@etisalat.ae").                 |
 
 ## South America (São Paulo)
 
-| Location                      | How to request a connection                                                                                                                          |
-| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Cirion BNARAGMS, Buenos Aires | Contact Cirion at [cloud.connect@ciriontechnologies.com](mailto:cloud.connect@ciriontechnologies.com "mailto:cloud.connect@ciriontechnologies.com"). |
-| Equinix RJ2, Rio de Janeiro   | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                                          |
-| Equinix SP4, São Paulo        | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com").                                          |
-| Tivit                         | Contact Tivit at [aws@tivit.com.br](mailto:aws@tivit.com.br "mailto:aws@tivit.com.br").                                                              |
+| Location                      | How to request a connection                                                                                                                                           |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cirion BNARAGMS, Buenos Aires | Contact Cirion at [cloud.connect@ciriontechnologies.com](mailto:cloud.connect@ciriontechnologies.com "mailto:cloud.connect@ciriontechnologies.com").                  |
+| Equinix RJ2, Rio de Janeiro   | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
+| Equinix SP4, São Paulo        | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
+| Tivit                         | Contact Tivit at [aws@tivit.com.br](mailto:aws@tivit.com.br "mailto:aws@tivit.com.br").                                                                               |
 
 ## AWS GovCloud (US-East)
 
@@ -312,6 +312,6 @@ You can't order connections in this Region.
 
 ## AWS GovCloud (US-West)
 
-| Location              | How to request a connection                                                                                 |
-| --------------------- | ----------------------------------------------------------------------------------------------------------- |
-| Equinix SV5, San Jose | Contact Equinix at [awsdealreg@equinix.com](mailto:awsdealreg@equinix.com "mailto:awsdealreg@equinix.com"). |
+| Location              | How to request a connection                                                                                                                                           |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Equinix SV5, San Jose | Contact Equinix at [https://digital.equinix.com/AWS-Direct-Connect](https://digital.equinix.com/AWS-Direct-Connect "https://digital.equinix.com/AWS-Direct-Connect"). |
