@@ -45,6 +45,6 @@ large number of directories to be overwritten for better performance. This is av
 - If a job fails, any files committed by the successful tasks will still be visible in the destination path. In such cases, the
   user will need to manually clean up the committed files before re-running the job on the same destination path.
 - The MagicV2 committer consumes a small amount of memory for each file written by a task attempt until the task gets committed
-  or aborted. In most jobs, the amount of memory ry consumed is negligible. However, in some cases where a single executor process
+  or aborted. In most jobs, the amount of memory consumed is negligible. However, in some cases where a single executor process
   handles a large number of tasks concurrently, it can put a lot of memory pressure, and the container or executor
   might run out of memory (OOM). Increasing the container or executor memory should solve this issue.

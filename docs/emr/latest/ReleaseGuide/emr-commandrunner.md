@@ -22,13 +22,19 @@ commands on your cluster. You specify `command-runner.jar` without using
 its full path.
 
 `script-runner.jar`
-Hosted on
+
+You can use `script-runner.jar` to run
+scripts saved locally or on Amazon S3 on your cluster.
+
+For Amazon EMR 7.13 and higher, this jar is located on the Amazon EMR AMI for your cluster. You
+can specify `script-runner.jar` without using its full URI.
+
+For Amazon EMR 7.12 and lower, this jar is hosted on
 Amazon S3 at
 `s3://`<region>`.elasticmapreduce/libs/script-runner/script-runner.jar`
 where `<region>` is the Region in which
-your Amazon EMR cluster resides. You can use `script-runner.jar` to run
-scripts saved locally or on Amazon S3 on your cluster. You must specify the
-full URI of `script-runner.jar` when you submit a step.
+your Amazon EMR cluster resides. You must specify the full URI of `script-runner.jar` when you submit
+a step.
 
 ## Submit a custom JAR step to run a script or command
 
@@ -63,11 +69,23 @@ aws emr add-steps \
 When you use `script-runner.jar`, you specify the script that you want
 to run in your step's list of arguments.
 
-The following AWS CLI example submits a step to a running cluster that invokes
-`script-runner.jar`. In this case, the script called
+The following AWS CLI examples submit a step to a running cluster that invokes
+`script-runner.jar`. The script called
 `my-script.sh` is stored on Amazon S3. You can
 also specify local scripts that are stored on the master node of your
 cluster.
+
+When the cluster is using Amazon EMR 7.13 or higher, you can specify `script-runner.jar`
+without using its full path:
+
+```
+aws emr add-steps \
+--cluster-id `j-2AXXXXXXGAPLF` \
+--steps Type=CUSTOM_JAR,Name="Run a script from S3 with script-runner.jar",ActionOnFailure=CONTINUE,Jar=script-runner.jar,Args=[`s3://amzn-s3-demo-bucket/my-script.sh`]
+```
+
+When the cluster is using Amazon EMR 7.12 or lower, you must specify the full
+URI of `script-runner.jar` when you submit a step:
 
 ```
 aws emr add-steps \
