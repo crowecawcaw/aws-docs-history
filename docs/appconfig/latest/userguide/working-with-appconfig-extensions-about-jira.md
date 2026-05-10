@@ -159,10 +159,13 @@ feature flag in AWS AppConfig, Jira records the details in the existing issues.
 
 ###### Note
 
-An AWS AppConfig feature flag can include multiple child-level flag attributes. Jira
-creates one issue for each parent-level feature flag. If you change a child-level flag
-attribute, you can view the details of that change in the Jira issue for the
-parent-level flag.
+Note the following important information:
+
+- This extension supports a maximum of 30 feature flags per configuration profile. If you have more than 30 flags, create additional configuration profiles.
+- An AWS AppConfig feature flag can include multiple child-level flag attributes. Jira
+  creates one issue for each parent-level feature flag. If you change a child-level flag
+  attribute, you can view the details of that change in the Jira issue for the
+  parent-level flag.
 
 ###### To configure integration
 
