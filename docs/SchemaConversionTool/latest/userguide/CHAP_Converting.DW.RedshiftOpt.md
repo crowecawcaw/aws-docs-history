@@ -31,7 +31,7 @@ expand the tables node under your schema in the left panel of your project,
 and then choose a table.
 Choose the **Key Management** tab as shown following.
 
-![Key management tab](/images/SchemaConversionTool/latest/userguide/images/key-management.png)
+![Key management tab](images/key-management.png)
 
 The left pane contains key suggestions,
 and includes the confidence rating for each suggestion.

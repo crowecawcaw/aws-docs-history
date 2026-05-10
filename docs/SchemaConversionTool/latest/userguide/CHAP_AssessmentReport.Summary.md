@@ -5,7 +5,7 @@ the summary information from the database migration assessment report.
 It shows items that were converted automatically,
 and items that were not converted automatically.
 
-![Assessment report summary](/images/SchemaConversionTool/latest/userguide/images/summary_tab.png)
+![Assessment report summary](images/summary_tab.png)
 For schema items that can't be converted automatically to the target database
 engine, the summary includes an estimate of the effort required to create schema
 items in your target DB instance that are equivalent to those in your source.
