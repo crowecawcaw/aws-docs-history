@@ -84,7 +84,6 @@ type.
 | Gr6           | Yes          | Yes         | No            |
 | Gr6f          | No           | Yes         | No            |
 | G7e           | Yes          | Yes         | Yes           |
-| P2            | Yes          | No          | No            |
 | P3            | Yes          | No          | No            |
 | P4d           | Yes          | No          | No            |
 | P4de          | Yes          | No          | No            |

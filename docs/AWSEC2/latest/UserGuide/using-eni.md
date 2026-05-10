@@ -195,7 +195,9 @@ the number of network interfaces that an instance type supports, see
 | `m8gn.48xlarge`        | 2                       |
 | `m8gn.metal-48xl`      | 2                       |
 | `m8in.96xlarge`        | 2                       |
+| `m8idn.96xlarge`       | 2                       |
 | `m8ib.96xlarge`        | 2                       |
+| `m8idb.96xlarge`       | 2                       |
 | `p4d.24xlarge`         | 4                       |
 | `p4de.24xlarge`        | 4                       |
 | `p5.48xlarge`          | 32                      |
@@ -209,7 +211,9 @@ the number of network interfaces that an instance type supports, see
 | `r8gn.48xlarge`        | 2                       |
 | `r8gn.metal-48xl`      | 2                       |
 | `r8in.96xlarge`        | 2                       |
+| `r8idn.96xlarge`       | 2                       |
 | `r8ib.96xlarge`        | 2                       |
+| `r8idb.96xlarge`       | 2                       |
 | `r6idn.32xlarge`       | 2                       |
 | `r6idn.metal`          | 2                       |
 | `r6in.32xlarge`        | 2                       |

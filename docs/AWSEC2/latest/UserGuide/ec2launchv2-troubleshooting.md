@@ -396,6 +396,7 @@ with representative text surrounded by curly braces.
 2025/07/22 21:26:54Z: SubComponent: 1.6.0.35; EnableSCSIPersistentReservations: 0
 2025/07/22 21:26:54Z: Driver: AWS PV Driver Package v8.5.0
 2025/07/22 21:26:55Z: Driver: Amazon Elastic Network Adapter v2.8.0.0
+2025/07/22 21:26:55Z: Driver: EC2 Windows Utility Device v3.1.0.25
 2025/07/22 21:26:55Z: HOSTNAME: EC2AMAZ-9FJG5CC
 2025/07/22 21:26:55Z: RDPCERTIFICATE-SUBJECTNAME: {certificate subject name}
 2025/07/22 21:26:55Z: RDPCERTIFICATE-THUMBPRINT: {thumbprint hash}
@@ -468,6 +469,7 @@ SqlServerInstall: {sql patch leve, edition type}
 Driver: AWS NVMe Driver {version}
 Driver: Inbox NVMe Driver {version}
 Driver: AWS PV Driver Package {version}
+Driver: EC2 Windows Utility Device {version}
 SSM: Amazon SSM Agent {version}
 AWS VSS Version: {version}`
 ```

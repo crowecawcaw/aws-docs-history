@@ -241,7 +241,7 @@ escalation.
 
 - `log` – Instance logs
 
-Logs for the service (`agent.log`), performance (`bench.log`), and telemetry (`telemetry.log`) are stored
+Logs for the service (`agent.log`) and telemetry (`telemetry.log`) are stored
 in this directory. When `agent.log` reaches 1 MB in size, it is automatically rotated and a backup file is created with a timestamp format (for example, `agent-2026-03-02T18-56-39.188.log`). Only one backup log file is maintained at a time.
 
 - `state` – Service state data

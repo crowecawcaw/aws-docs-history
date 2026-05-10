@@ -60,6 +60,7 @@ AWS Regions.
 ### Instance Capacity Blocks
 
 - **`p6-b300.48xlarge`**
+  - US East (N. Virginia) — `us-east-1`
   - US West (Oregon) — `us-west-2`
 
 - **`p6-b200.48xlarge`**

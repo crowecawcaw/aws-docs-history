@@ -29,9 +29,7 @@ The following instance types provide the ability for an operating system to cont
 - Storage optimized: `d2.8xlarge` |
   `i3.8xlarge` | `i3.16xlarge` |
   `h1.8xlarge` | `h1.16xlarge`
-- Accelerated computing: `f1.16xlarge` |
-  `g3.16xlarge` |
-  `p2.16xlarge` | `p3.16xlarge`
+- Accelerated computing: `g3.16xlarge` | `p3.16xlarge`
 - Bare metal: All bare metal instances with Intel and AMD processors
 
 ###### C-states only
@@ -69,10 +67,18 @@ The following instance types provide the ability for an operating system to cont
   `m8in.2xlarge` | `m8in.4xlarge` | `m8in.8xlarge` |
   `m8in.12xlarge` | `m8in.16xlarge` | `m8in.24xlarge` |
   `m8in.32xlarge` | `m8in.48xlarge` | `m8in.96xlarge` |
+  `m8idn.large` | `m8idn.xlarge` |
+  `m8idn.2xlarge` | `m8idn.4xlarge` | `m8idn.8xlarge` |
+  `m8idn.12xlarge` | `m8idn.16xlarge` | `m8idn.24xlarge` |
+  `m8idn.32xlarge` | `m8idn.48xlarge` | `m8idn.96xlarge` |
   `m8ib.large` | `m8ib.xlarge` |
   `m8ib.2xlarge` | `m8ib.4xlarge` | `m8ib.8xlarge` |
   `m8ib.12xlarge` | `m8ib.16xlarge` | `m8ib.24xlarge` |
   `m8ib.32xlarge` | `m8ib.48xlarge` | `m8ib.96xlarge` |
+  `m8idb.large` | `m8idb.xlarge` |
+  `m8idb.2xlarge` | `m8idb.4xlarge` | `m8idb.8xlarge` |
+  `m8idb.12xlarge` | `m8idb.16xlarge` | `m8idb.24xlarge` |
+  `m8idb.32xlarge` | `m8idb.48xlarge` | `m8idb.96xlarge` |
   `m8ine.large` | `m8ine.xlarge` | `m8ine.2xlarge` |
   `m8ine.4xlarge` | `m8ine.8xlarge` | `m8ine.12xlarge`
 - Compute optimized:
@@ -146,10 +152,18 @@ The following instance types provide the ability for an operating system to cont
   `r8in.4xlarge` | `r8in.8xlarge` | `r8in.12xlarge` |
   `r8in.16xlarge` | `r8in.24xlarge` | `r8in.32xlarge` |
   `r8in.48xlarge` | `r8in.96xlarge` |
+  `r8idn.large` | `r8idn.xlarge` |
+  `r8idn.2xlarge` | `r8idn.4xlarge` | `r8idn.8xlarge` |
+  `r8idn.12xlarge` | `r8idn.16xlarge` | `r8idn.24xlarge` |
+  `r8idn.32xlarge` | `r8idn.48xlarge` | `r8idn.96xlarge` |
   `r8ib.large` | `r8ib.xlarge` | `r8ib.2xlarge` |
   `r8ib.4xlarge` | `r8ib.8xlarge` | `r8ib.12xlarge` |
   `r8ib.16xlarge` | `r8ib.24xlarge` | `r8ib.32xlarge` |
   `r8ib.48xlarge` | `r8ib.96xlarge` |
+  `r8idb.large` | `r8idb.xlarge` |
+  `r8idb.2xlarge` | `r8idb.4xlarge` | `r8idb.8xlarge` |
+  `r8idb.12xlarge` | `r8idb.16xlarge` | `r8idb.24xlarge` |
+  `r8idb.32xlarge` | `r8idb.48xlarge` | `r8idb.96xlarge` |
   `u-3tb1.56xlarge` |
   `u-6tb1.56xlarge` | `u-6tb1.112xlarge` | `u-9tb1.112xlarge` |
   `u-12tb1.112xlarge` | `u-18tb1.112xlarge` | `u-24tb1.112xlarge` |

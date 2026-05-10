@@ -47,7 +47,6 @@ from ENA Express as follows:
 
 - [How ENA Express works](#ena-express-how-it-works "#ena-express-how-it-works")
 - [Supported instance types for ENA Express](#ena-express-supported-instance-types "#ena-express-supported-instance-types")
-- [Prerequisites for Linux instances](#ena-express-prereq-linux "#ena-express-prereq-linux")
 - [Tune performance for ENA Express settings on Linux instances](#ena-express-tune "#ena-express-tune")
 - [Review ENA Express settings for your EC2 instance](ena-express-list-view.md "ena-express-list-view.md")
 - [Configure ENA Express settings for your EC2 instance](ena-express-configure.md "ena-express-configure.md")
@@ -217,12 +216,24 @@ General purpose
 | `m8in.32xlarge`    | x86_64       |
 | `m8in.48xlarge`    | x86_64       |
 | `m8in.96xlarge`    | x86_64       |
+| `m8idn.12xlarge`   | x86_64       |
+| `m8idn.16xlarge`   | x86_64       |
+| `m8idn.24xlarge`   | x86_64       |
+| `m8idn.32xlarge`   | x86_64       |
+| `m8idn.48xlarge`   | x86_64       |
+| `m8idn.96xlarge`   | x86_64       |
 | `m8ib.12xlarge`    | x86_64       |
 | `m8ib.16xlarge`    | x86_64       |
 | `m8ib.24xlarge`    | x86_64       |
 | `m8ib.32xlarge`    | x86_64       |
 | `m8ib.48xlarge`    | x86_64       |
 | `m8ib.96xlarge`    | x86_64       |
+| `m8idb.12xlarge`   | x86_64       |
+| `m8idb.16xlarge`   | x86_64       |
+| `m8idb.24xlarge`   | x86_64       |
+| `m8idb.32xlarge`   | x86_64       |
+| `m8idb.48xlarge`   | x86_64       |
+| `m8idb.96xlarge`   | x86_64       |
 
 Compute optimized
 
@@ -446,12 +457,24 @@ Memory optimized
 | `r8in.32xlarge`        | x86_64       |
 | `r8in.48xlarge`        | x86_64       |
 | `r8in.96xlarge`        | x86_64       |
+| `r8idn.12xlarge`       | x86_64       |
+| `r8idn.16xlarge`       | x86_64       |
+| `r8idn.24xlarge`       | x86_64       |
+| `r8idn.32xlarge`       | x86_64       |
+| `r8idn.48xlarge`       | x86_64       |
+| `r8idn.96xlarge`       | x86_64       |
 | `r8ib.12xlarge`        | x86_64       |
 | `r8ib.16xlarge`        | x86_64       |
 | `r8ib.24xlarge`        | x86_64       |
 | `r8ib.32xlarge`        | x86_64       |
 | `r8ib.48xlarge`        | x86_64       |
 | `r8ib.96xlarge`        | x86_64       |
+| `r8idb.12xlarge`       | x86_64       |
+| `r8idb.16xlarge`       | x86_64       |
+| `r8idb.24xlarge`       | x86_64       |
+| `r8idb.32xlarge`       | x86_64       |
+| `r8idb.48xlarge`       | x86_64       |
+| `r8idb.96xlarge`       | x86_64       |
 | `u7i-6tb.112xlarge`    | x86_64       |
 | `u7i-8tb.112xlarge`    | x86_64       |
 | `u7i-12tb.224xlarge`   | x86_64       |
@@ -543,58 +566,70 @@ Storage optimized
 | `im4gn.8xlarge`   | arm64        |
 | `im4gn.16xlarge`  | arm64        |
 
-## Prerequisites for Linux instances
-
-To ensure that ENA Express can operate effectively, update the settings for your Linux
-instance as follows.
-
-- If your instance uses jumbo frames, run the following command to set your
-  maximum transmission unit (MTU) to `8900`.
-
-```
-`[ec2-user ~]$` sudo ip link set dev `eth0` mtu `8900`
-```
-
-- Increase the receiver (Rx) ring size, as follows:
-
-```
-`[ec2-user ~]$` ethtool -G `device` rx 8192
-```
-
-- To maximize ENA Express bandwidth, configure your TCP queue limits as
-  follows:
-  1.  Set the TCP small queue limit to 1MB or higher. This increases the
-      amount of data that's queued for transmission on a socket.
-
-  ```
-  sudo sh -c 'echo `1048576` > /proc/sys/net/ipv4/tcp_limit_output_bytes'
-  ```
-
-  2.  Disable byte queue limits on the eth device if they're enabled for
-      your Linux distribution. This increases data queued for transmission for
-      the device queue.
-
-  ```
-  sudo sh -c 'for txq in /sys/class/net/`eth0`/queues/tx-*; do echo max > ${txq}/byte_queue_limits/limit_min; done'
-  ```
-
-  ###### Note
-
-  The ENA driver for the Amazon Linux distribution disables byte queue
-  limits by default.
-
-- To minimize ENA Express TCP traffic latency, you can disable the TCP autocorking feature. This might result in a minimal increase in packet overhead:
-
-```
-sudo bash -c 'echo 0 > /proc/sys/net/ipv4/tcp_autocorking'
-```
-
 ## Tune performance for ENA Express settings on Linux instances
 
-To check your Linux instance configuration for optimal ENA Express performance, you
-can run the following script that's available on the Amazon GitHub repository:
+To ensure that ENA Express can operate effectively, your Linux instance must meet
+several network configuration requirements.
+
+Rather than configuring each setting manually, you can download and run the ENA
+Express settings check script from the Amazon GitHub repository. The script
+validates your instance against the required and recommended settings for ENA
+Express, and outputs the exact commands to fix any issues it finds.
 
 [https://github.com/amzn/amzn-ec2-ena-utilities/blob/main/ena-express/check-ena-express-settings.sh](https://github.com/amzn/amzn-ec2-ena-utilities/blob/main/ena-express/check-ena-express-settings.sh "https://github.com/amzn/amzn-ec2-ena-utilities/blob/main/ena-express/check-ena-express-settings.sh")
 
-The script runs a series of tests and suggests both recommended and required
-configuration changes.
+The script checks the following settings and configurations:
+
+- **MTU size** – ENA Express
+  requires a lower MTU than the default to accommodate
+  additional AWS SRD headers. Newly established TCP connections automatically
+  clamp the MSS to mitigate this, but UDP traffic still requires a lower
+  MTU.
+- **TCP output queue size limit** –
+  Checks that the per-socket in-flight byte limit is sufficient to sustain
+  high throughput. Environments with increased network latency require a
+  higher limit.
+- **Byte queue limit** –
+  Confirms that the byte queue limit (BQL) is disabled on the network
+  interface. BQL can restrict the amount of data queued for device-level
+  transmission, which limits ENA Express performance.
+
+###### Note
+
+The ENA driver for the Amazon Linux distribution disables byte queue limits
+by default.
+
+- **TCP autocorking** –
+  Checks whether TCP autocorking is disabled. Disabling autocorking can reduce
+  latency for certain ENA Express TCP traffic patterns, such as
+  request-response workloads. This might result in a
+  minimal increase in packet processing overhead.
+- **TX queue size and Large LLQ** –
+  Verifies that the transmit queue size for the network interface is large
+  enough for optimal performance. The script also checks whether the ENA
+  module parameter explicitly disables the Large Low Latency Queue (Large
+  LLQ) feature, as it can reduce the available TX queue depth. For more
+  information about Large LLQ and its impact on TX queue size, see [Large Low Latency Queue (Large LLQ)](https://github.com/amzn/amzn-drivers/tree/master/kernel/linux/ena#large-low-latency-queue-large-llq "https://github.com/amzn/amzn-drivers/tree/master/kernel/linux/ena#large-low-latency-queue-large-llq") on GitHub.
+- **RX queue size** –
+  Checks that the receive ring buffer for the network interface is large
+  enough to handle incoming traffic efficiently and avoid packet drops under
+  load.
+- **TCP and network socket buffer sizes**
+  – Validates that the TCP receive and send buffer maximum sizes, as
+  well as the core network socket buffer defaults and maximums, are large
+  enough to sustain high throughput. These settings are important
+  in environments with increased network latency, where you need larger
+  buffers to fully utilize the connection.
+- **TCP congestion control**
+  – Verifies that the TCP congestion control configuration is optimized
+  for use with ENA Express in environments with increased network
+  latency.
+
+The script also reports additional diagnostic information, including the ENA driver
+version, ENA SRD statistics, interrupt moderation settings, queue configuration, and
+socket buffer sizes. This information can be useful for troubleshooting ENA Express
+performance issues.
+
+To ensure that your instance network driver is configured for optimum performance,
+also review the [ENA Linux Driver Best Practices and Performance Optimization Guide](https://github.com/amzn/amzn-drivers/blob/master/kernel/linux/ena/ENA_Linux_Best_Practices.rst "https://github.com/amzn/amzn-drivers/blob/master/kernel/linux/ena/ENA_Linux_Best_Practices.rst") on
+GitHub.

@@ -165,17 +165,17 @@ surface in your resource views.
 
 | Resource type               | Services that provision these resources                                                                               | Description                                           |
 | --------------------------- | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| Amazon EC2 Instances        | Amazon EKS worker nodes, Amazon ECS container instances, AWS Lambda execution<br>environments, Amazon WorkSpaces Core | Primary resource type affected by visibility settings |
-| Amazon EC2 Launch Templates | Amazon EKS, Amazon ECS                                                                                                | Launch Templates created by managed services          |
-| Amazon EBS Volumes          | Amazon EKS, Amazon ECS                                                                                                | Volumes attached to managed instances                 |
-| Network Interfaces (ENIs)   | Amazon EKS, Amazon ECS, Lambda                                                                                        | Network interfaces provisioned for managed workloads  |
+| Amazon EC2 instances        | Amazon EKS worker nodes, Amazon ECS container instances, AWS Lambda execution<br>environments, Amazon WorkSpaces Core | Primary resource type affected by visibility settings |
+| Amazon EC2 launch templates | Amazon EKS, Amazon ECS                                                                                                | Launch templates created by managed services          |
+| Amazon EBS volumes          | Amazon EKS, Amazon ECS                                                                                                | Volumes attached to managed instances                 |
+| Network interfaces (ENIs)   | Amazon EKS, Amazon ECS, Lambda                                                                                        | Network interfaces provisioned for managed workloads  |
 
 ###### Note
 
-New managed resources are hidden by default. Resources that managed instance
-offerings (such as Amazon EKS Auto Mode, Amazon ECS managed instances, or Lambda managed
-instances) have already created in your account remain visible. You can adjust
-visibility settings at any time.
+By default, new managed resources are hidden. Existing managed resources
+already created in your account by managed instance offerings (such as Amazon EKS
+Auto Mode, Amazon ECS managed instances, or Lambda managed instances) remain visible.
+You can change visibility settings at any time.
 
 ### Why configure visibility settings
 

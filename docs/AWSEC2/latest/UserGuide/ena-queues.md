@@ -164,6 +164,18 @@ The following instances support dynamic allocation of multiple ENA queues.
 | `m8in.32xlarge`     | 32                               | 128                              | 512                             |
 | `m8in.48xlarge`     | 32                               | 128                              | 768                             |
 | `m8in.96xlarge`     | 32                               | 128                              | 1536 \*                         |
+| **M8idn**           |
+| `m8idn.large`       | 2                                | 2                                | 8                               |
+| `m8idn.xlarge`      | 4                                | 4                                | 16                              |
+| `m8idn.2xlarge`     | 8                                | 8                                | 32                              |
+| `m8idn.4xlarge`     | 8                                | 16                               | 64                              |
+| `m8idn.8xlarge`     | 16                               | 32                               | 128                             |
+| `m8idn.12xlarge`    | 16                               | 64                               | 192                             |
+| `m8idn.16xlarge`    | 16                               | 64                               | 256                             |
+| `m8idn.24xlarge`    | 16                               | 128                              | 256                             |
+| `m8idn.32xlarge`    | 32                               | 128                              | 512                             |
+| `m8idn.48xlarge`    | 32                               | 128                              | 768                             |
+| `m8idn.96xlarge`    | 32                               | 128                              | 1536 \*                         |
 | **M8ine**           |
 | `m8ine.large`       | 2                                | 2                                | 8                               |
 | `m8ine.xlarge`      | 4                                | 4                                | 16                              |
@@ -183,6 +195,18 @@ The following instances support dynamic allocation of multiple ENA queues.
 | `m8ib.32xlarge`     | 32                               | 128                              | 512                             |
 | `m8ib.48xlarge`     | 32                               | 128                              | 768                             |
 | `m8ib.96xlarge`     | 32                               | 128                              | 1536 \*                         |
+| **M8idb**           |
+| `m8idb.large`       | 2                                | 2                                | 8                               |
+| `m8idb.xlarge`      | 4                                | 4                                | 16                              |
+| `m8idb.2xlarge`     | 8                                | 8                                | 32                              |
+| `m8idb.4xlarge`     | 8                                | 16                               | 64                              |
+| `m8idb.8xlarge`     | 16                               | 32                               | 128                             |
+| `m8idb.12xlarge`    | 16                               | 64                               | 192                             |
+| `m8idb.16xlarge`    | 16                               | 64                               | 256                             |
+| `m8idb.24xlarge`    | 16                               | 128                              | 256                             |
+| `m8idb.32xlarge`    | 32                               | 128                              | 512                             |
+| `m8idb.48xlarge`    | 32                               | 128                              | 768                             |
+| `m8idb.96xlarge`    | 32                               | 128                              | 1536 \*                         |
 
 ###### Note
 
@@ -470,6 +494,18 @@ single network card. For more information, see [Network cards](using-eni.md#netw
 | `r8in.32xlarge`     | 32                               | 128                              | 512                             |
 | `r8in.48xlarge`     | 32                               | 128                              | 768                             |
 | `r8in.96xlarge`     | 32                               | 128                              | 1536 \*                         |
+| **R8idn**           |
+| `r8idn.large`       | 2                                | 2                                | 8                               |
+| `r8idn.xlarge`      | 4                                | 4                                | 16                              |
+| `r8idn.2xlarge`     | 8                                | 8                                | 32                              |
+| `r8idn.4xlarge`     | 8                                | 16                               | 64                              |
+| `r8idn.8xlarge`     | 16                               | 32                               | 128                             |
+| `r8idn.12xlarge`    | 16                               | 64                               | 192                             |
+| `r8idn.16xlarge`    | 16                               | 64                               | 256                             |
+| `r8idn.24xlarge`    | 16                               | 128                              | 256                             |
+| `r8idn.32xlarge`    | 32                               | 128                              | 512                             |
+| `r8idn.48xlarge`    | 32                               | 128                              | 768                             |
+| `r8idn.96xlarge`    | 32                               | 128                              | 1536 \*                         |
 | **R8ib**            |
 | `r8ib.large`        | 2                                | 2                                | 8                               |
 | `r8ib.xlarge`       | 4                                | 4                                | 16                              |
@@ -482,6 +518,18 @@ single network card. For more information, see [Network cards](using-eni.md#netw
 | `r8ib.32xlarge`     | 32                               | 128                              | 512                             |
 | `r8ib.48xlarge`     | 32                               | 128                              | 768                             |
 | `r8ib.96xlarge`     | 32                               | 128                              | 1536 \*                         |
+| **R8idb**           |
+| `r8idb.large`       | 2                                | 2                                | 8                               |
+| `r8idb.xlarge`      | 4                                | 4                                | 16                              |
+| `r8idb.2xlarge`     | 8                                | 8                                | 32                              |
+| `r8idb.4xlarge`     | 8                                | 16                               | 64                              |
+| `r8idb.8xlarge`     | 16                               | 32                               | 128                             |
+| `r8idb.12xlarge`    | 16                               | 64                               | 192                             |
+| `r8idb.16xlarge`    | 16                               | 64                               | 256                             |
+| `r8idb.24xlarge`    | 16                               | 128                              | 256                             |
+| `r8idb.32xlarge`    | 32                               | 128                              | 512                             |
+| `r8idb.48xlarge`    | 32                               | 128                              | 768                             |
+| `r8idb.96xlarge`    | 32                               | 128                              | 1536 \*                         |
 | **X8aedz**          |
 | `x8aedz.large`      | 2                                | 2                                | 8                               |
 | `x8aedz.xlarge`     | 4                                | 4                                | 16                              |
@@ -514,16 +562,9 @@ single network card. For more information, see [Network cards](using-eni.md#netw
 
 ## Modify the number of queues
 
-You can modify the number of ENA queues using AWS Management Console or AWS CLI. In the
-AWS Management Console, the ENA queues configuration is available under each **Network interface** setting.
-
-To modify the number of ENA queues using the AWS CLI, use either one of the
-following commands. Before modifying the queue count, use the following command
-to check your current queue count.
-
-```
-aws ec2 describe-instances --instance-id i-`1234567890abcdef0`
-```
+You can modify the number of ENA queues using the AWS Management Console, AWS CLI, or PowerShell. In the
+AWS Management Console, the ENA queues configuration is available under each **Network
+interface** setting.
 
 ###### Note
 
@@ -534,48 +575,138 @@ aws ec2 describe-instances --instance-id i-`1234567890abcdef0`
 - The number of queues allocated to any single ENI cannot exceed the
   number of vCPUs available on your instance.
 
-`**attach-network-interface**`
+Before modifying the queue count, use the following command
+to check your current queue count.
 
-In the following example, 32 ENA queues are configured on an ENI.
+AWS CLI
+
+```
+aws ec2 describe-instances --instance-id `i-1234567890abcdef0`
+```
+
+PowerShell
+
+```
+(Get-EC2Instance -InstanceId i-`1234567890abcdef0`).Instances.NetworkInterfaces |
+  Select-Object NetworkInterfaceId,
+    @{N='DeviceIndex';E={$_.Attachment.DeviceIndex}},
+    @{N='AttachmentId';E={$_.Attachment.AttachmentId}},
+    @{N='EnaQueueCount';E={$_.Attachment.EnaQueueCount}}
+```
+
+### Attach a network interface with ENA queues
+
+In the following example, 16 ENA queues are configured on an ENI.
+
+AWS CLI
+
+###### To attach a network interface with ENA queues
+
+Use the [attach-network-interface](../../../cli/latest/reference/ec2/attach-network-interface.md "../../../cli/latest/reference/ec2/attach-network-interface.md") command.
 
 ```
 aws ec2 attach-network-interface \
-  --network-interface-id eni-`001aa1bb223cdd4e4` \
+  --network-interface-id eni-`abcdef01234567890` \
   --instance-id `i-1234567890abcdef0` \
   --device-index 1 \
-  --ena-queue-count 32
+  --ena-queue-count 16
 ```
 
-`**run-instances**`
+PowerShell
 
-In the following example, 2 ENA queues each are configured on 3 ENIs.
+###### To attach a network interface with ENA queues
+
+Use the [Add-EC2NetworkInterface](../../../powershell/latest/reference/items/Add-EC2NetworkInterface.md "../../../powershell/latest/reference/items/Add-EC2NetworkInterface.md") cmdlet.
+
+```
+Add-EC2NetworkInterface `
+  -NetworkInterfaceId eni-`abcdef01234567890` `
+  -InstanceId `i-1234567890abcdef0` `
+  -DeviceIndex 1 `
+  -EnaQueueCount 16
+```
+
+### Launch an instance with ENA queues
+
+In the following example, 16 ENA queues each are configured on 3 ENIs.
+
+AWS CLI
+
+###### To launch an instance with ENA queues
+
+Use the [run-instances](../../../cli/latest/reference/ec2/run-instances.md "../../../cli/latest/reference/ec2/run-instances.md") command.
 
 ```
 aws ec2 run-instances \
-  --image-id ami-`12ab3c30` \
-  --instance-type c6i.large \
-  --min-count 1 \
-  --max-count 1 \
+  --image-id ami-`1234567890abcdef0` \
+  --instance-type c8i.4xlarge \
   --network-interfaces \
-    "[{\"DeviceIndex\":0,\"SubnetId\":\"subnet-`123456789012a345a`\",\"EnaQueueCount\":2},
-      {\"DeviceIndex\":1,\"SubnetId\":\"subnet-`123456789012a345a`\",\"EnaQueueCount\":2},
-      {\"DeviceIndex\":2,\"SubnetId\":\"subnet-`123456789012a345a`\",\"EnaQueueCount\":2}]"
+    "[{\"DeviceIndex\":0,\"SubnetId\":\"subnet-`abcdef01234567890`\",\"EnaQueueCount\":16},
+      {\"DeviceIndex\":1,\"SubnetId\":\"subnet-`abcdef01234567890`\",\"EnaQueueCount\":16},
+      {\"DeviceIndex\":2,\"SubnetId\":\"subnet-`abcdef01234567890`\",\"EnaQueueCount\":16}]"
 ```
 
-`**modify-network-interface-attribute**`
+PowerShell
 
-In the following example, 32 ENA queues are configured on an ENI.
+###### To launch an instance with ENA queues
+
+Use the [New-EC2Instance](../../../powershell/latest/reference/items/New-EC2Instance.md "../../../powershell/latest/reference/items/New-EC2Instance.md") cmdlet.
+
+```
+New-EC2Instance `
+  -ImageId ami-`1234567890abcdef0` `
+  -InstanceType c8i.4xlarge `
+  -NetworkInterface @(
+    @{DeviceIndex=0; SubnetId="subnet-`abcdef01234567890`"; EnaQueueCount=16},
+    @{DeviceIndex=1; SubnetId="subnet-`abcdef01234567890`"; EnaQueueCount=16},
+    @{DeviceIndex=2; SubnetId="subnet-`abcdef01234567890`"; EnaQueueCount=16}
+  )
+```
+
+### Modify ENA queues on an existing network interface
+
+In the following example, 16 ENA queues are configured on an ENI.
+
+AWS CLI
+
+###### To modify ENA queues on a network interface
+
+Use the [modify-network-interface-attribute](../../../cli/latest/reference/ec2/modify-network-interface-attribute.md "../../../cli/latest/reference/ec2/modify-network-interface-attribute.md") command.
 
 ```
 aws ec2 modify-network-interface-attribute \
---network-interface-id eni-`1234567890abcdef0` \
---attachment AttachmentId=eni-attach-`12345678`,EnaQueueCount=32
+  --network-interface-id eni-`1234567890abcdef0` \
+  --attachment AttachmentId=eni-attach-`1234567890abcdef0`,EnaQueueCount=16
+```
+
+PowerShell
+
+###### To modify ENA queues on a network interface
+
+Use the [Edit-EC2NetworkInterfaceAttribute](../../../powershell/latest/reference/items/Edit-EC2NetworkInterfaceAttribute.md "../../../powershell/latest/reference/items/Edit-EC2NetworkInterfaceAttribute.md") cmdlet.
+
+```
+Edit-EC2NetworkInterfaceAttribute `
+  -NetworkInterfaceId eni-`1234567890abcdef0` `
+  -Attachment_AttachmentId eni-attach-`1234567890abcdef0` `
+  -Attachment_EnaQueueCount 16
 ```
 
 In the following example, the ENA count is reset to the default value.
 
+AWS CLI
+
 ```
 aws ec2 modify-network-interface-attribute \
---network-interface-id eni-`1234567890abcdef0` \
---attachment AttachmentId=eni-attach-`12345678`,DefaultEnaQueueCount=true
+  --network-interface-id eni-`1234567890abcdef0` \
+  --attachment AttachmentId=eni-attach-`1234567890abcdef0`,DefaultEnaQueueCount=true
+```
+
+PowerShell
+
+```
+Edit-EC2NetworkInterfaceAttribute `
+  -NetworkInterfaceId eni-`1234567890abcdef0` `
+  -Attachment_AttachmentId eni-attach-`1234567890abcdef0` `
+  -Attachment_DefaultEnaQueueCount $true
 ```

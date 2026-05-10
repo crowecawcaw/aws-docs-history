@@ -17,8 +17,7 @@ The Elastic Network Adapter (ENA) supports network speeds of up to 100 Gbps
 for supported instance types.
 
 All [Nitro-based instances](instance-types.md#instance-hypervisor-type "instance-types.md#instance-hypervisor-type") use ENA for enhanced networking. In addition, the
-following Xen-based instances use ENA: H1, I3, G3, `m4.16xlarge`, P2,
-P3, P3dn, and R4.
+following Xen-based instances use ENA: H1, I3, G3, `m4.16xlarge`, P3, P3dn, and R4.
 
 For more information, see [Enable enhanced networking with ENA on your EC2 instances](enhanced-networking-ena.md "enhanced-networking-ena.md").
 

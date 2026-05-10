@@ -1,16 +1,15 @@
 # Configure your workload on Amazon EC2 for torn write prevention
 
-Torn write prevention is enabled by default on [supported instance types with
-supported volumes](supported-block-sizes.md "supported-block-sizes.md"). You do not need to enabled any additional settings to enable your volume or instance for torn
-write prevention.
+Torn write prevention is enabled by default on [supported instance types with supported volumes](supported-block-sizes.md "supported-block-sizes.md"). You don't need to configure any
+additional settings to enable torn write prevention.
 
 ###### Note
 
-There is no performance impact on workloads that do not support torn write prevention. You do not need to make any
-changes for these workloads.
+Workloads that don't support torn write prevention have no performance impact. You don't
+need to make any changes for these workloads.
 
-Workloads that do support torn write prevention, but are not configured to use it,
-continue to use the doublewrite buffer and do not receive any performance benefits.
+Workloads that support torn write prevention, but are not configured to use it, continue
+to use the doublewrite buffer and don't receive any performance benefits.
 
 To configure your MySQL or MariaDB software stack to disable the doublewrite buffer and
 use torn write prevention, complete the following steps:

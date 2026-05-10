@@ -13,7 +13,7 @@ frequency, you can consistently achieve the maximum performance with your GPU in
 `[ec2-user ~]$` sudo nvidia-persistenced
 ```
 
-2. [G3, and P2 instances only] Disable the autoboost feature for all GPUs on
+2. [G3 instances only] Disable the autoboost feature for all GPUs on
    the instance.
 
 ```
@@ -68,13 +68,6 @@ clock speed, and display the error `"Setting applications clocks is not
 
     ```
     `[ec2-user ~]$` sudo nvidia-smi -ac `12481,2430`
-    ```
-    * P2 instances:
-
-
-
-    ```
-    `[ec2-user ~]$` sudo nvidia-smi -ac `2505,875`
     ```
     * P3 and P3dn instances:
 
@@ -133,7 +126,7 @@ clock speed, and display the error `"Setting applications clocks is not
 `PS C:\>` cd "C:\Windows\System32\DriverStore\FileRepository\nvgridsw_aws.inf_*\"
 ```
 
-2. [G3, and P2 instances only] Disable the autoboost feature for all GPUs on
+2. [G3 instances only] Disable the autoboost feature for all GPUs on
    the instance.
 
 ```
@@ -181,13 +174,6 @@ clock speed, and display the error `"Setting applications clocks is not
 
     ```
     `PS C:\>` .\nvidia-smi -ac "`9001,2520`"
-    ```
-    * P2 instances:
-
-
-
-    ```
-    `PS C:\>` .\nvidia-smi -ac "`2505,875`"
     ```
     * P3 and P3dn instances:
 

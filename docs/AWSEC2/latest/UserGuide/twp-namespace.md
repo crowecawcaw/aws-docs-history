@@ -1,7 +1,7 @@
 # Check Amazon EC2 instance support for torn write prevention
 
 To confirm whether your instance and volume supports torn write prevention, and to view
-the NVMe namespace vendor specific data that contains torn write prevention information, use
+the NVMe namespace vendor-specific data that contains torn write prevention information, use
 the following command.
 
 ```
@@ -14,20 +14,20 @@ The command returns the vendor-specific information in hex with ASCII interpreta
 You might need to build a tool, similar to `ebsnvme-id`, into your applications
 that can read and parse the output.
 
-For example, the following command returns the NVMe namespace vendor specific data that contains torn
-write prevention information for `/dev/nvme1n1`.
+For example, the following command returns the NVMe namespace vendor-specific data that
+contains torn write prevention information for `/dev/nvme1n1`.
 
 ```
 `$` sudo nvme id-ns -v /dev/nvme1n1
 ```
 
-If your instance and volume support torn write prevention, it returns the following AWS torn write prevention
-information in the NVMe namespace vendor specific data.
+If your instance and volume support torn write prevention, it returns the following AWS
+torn write prevention information in the NVMe namespace vendor-specific data.
 
 ###### Note
 
-The bytes in the following table represent the offset in bytes from the beginning of the NVMe namespace
-vendor specific data.
+The bytes in the following table represent the offset in bytes from the beginning of the
+NVMe namespace vendor-specific data.
 
 | Bytes     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

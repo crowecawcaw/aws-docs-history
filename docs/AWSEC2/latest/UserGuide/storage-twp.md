@@ -2,7 +2,7 @@
 
 ###### Note
 
-Torn write prevention is supported with Linux instances only.
+Torn write prevention is supported for Linux instances only.
 
 Torn write prevention is a block storage feature designed by AWS to improve the performance
 of your I/O-intensive relational database workloads and reduce latency without negatively impacting

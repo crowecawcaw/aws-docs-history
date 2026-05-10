@@ -22,7 +22,7 @@ Host recovery is supported for the following instance families:
 - **General purpose:** A1 | M3 | M4 | M5 | M5n | M5zn | M6a | M6g | M6i | T3 | Mac1 | Mac2 | Mac2-m1ultra | Mac2-m2 | Mac2-m2pro
 - **Compute optimized:** C3 | C4 | C5 | C5n | C6a | C6g | C6i
 - **Memory optimized:** R3 | R4 | R5 | R5b | R5n | R6g | R6i | U-6tb1 | U-9tb1 | U-12tb1 | U-18tb1 | U-24tb1 | X1 | X1e | X2iezn
-- **Accelerated computing:** Inf1 | G3 | G5g | P2 | P3
+- **Accelerated computing:** Inf1 | G3 | G5g | P3
 
 To recover instances that are not supported, see [Manually recover instances that are not supported by Amazon EC2 Dedicated Host recovery](dedicated-hosts-recovery-unsupported.md "dedicated-hosts-recovery-unsupported.md").
 
