@@ -35,7 +35,7 @@ Full List of Resources:
     * rsc_ip_SLX_ASCS00 (ocf::heartbeat:aws-vpc-move-ip):        Started slxhost01
     * rsc_sapstart_SLX_ASCS00   (ocf::suse:SAPStartSrv):         Started slxhost01
     * rsc_sap_SLX_ASCS00        (ocf::heartbeat:SAPInstance):    Started slxhost01
-  * res_AWS_STONITH     (stonith:external/ec2):  Started slxhost02
+  * res_AWS_STONITH     (stonith:fence_aws):  Started slxhost02
   * Resource Group: grp_SLX_ERS10:
     * rsc_ip_SLX_ERS10  (ocf::heartbeat:aws-vpc-move-ip):        Started slxhost02
     * rsc_sapstart_SLX_ERS10    (ocf::suse:SAPStartSrv):         Started slxhost02

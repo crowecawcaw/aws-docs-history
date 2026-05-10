@@ -28,23 +28,25 @@ This is applicable to all cluster nodes. You must install any missing operating 
 
 The following packages and their dependencies are required for the pacemaker setup. Depending on your baseline image, for example, SLES for SAP, these packages may already be installed.
 
-| Package                               | Description                                      | Category        | Required    | Configuration Pattern |
-| ------------------------------------- | ------------------------------------------------ | --------------- | ----------- | --------------------- |
-| chrony                                | Time Synchronization                             | System Support  | Mandatory   | All                   |
-| rsyslog                               | System Logging                                   | System Support  | Mandatory   | All                   |
-| pacemaker                             | Cluster Resource Manager                         | Core Cluster    | Mandatory   | All                   |
-| corosync                              | Cluster Communication Engine                     | Core Cluster    | Mandatory   | All                   |
-| resource-agents                       | Resource Agents including SAPInstance            | Core Cluster    | Mandatory   | All                   |
-| fence-agents                          | Fencing Capabilities                             | Core Cluster    | Mandatory   | All                   |
-| sap-suse-cluster-connector            | SAP HA-Script Connector (≥3.1.1 for SimpleMount) | SAP Integration | Mandatory   | All                   |
-| sapstartsrv-resource-agents           | SAP Start Service Resource Agents                | SAP Integration | Mandatory\* | SimpleMount           |
-| supportutils                          | System Information Gathering                     | Support Tools   | Recommended | All                   |
-| sysstat                               | Performance Monitoring Tools                     | Support Tools   | Recommended | All                   |
-| zypper-lifecycle-plugin               | Software Lifecycle Management                    | Support Tools   | Recommended | All                   |
-| supportutils-plugin-ha-sap            | HA/SAP Support Data Collection                   | Support Tools   | Recommended | All                   |
-| supportutils-plugin-suse-public-cloud | Cloud Support Data Collection                    | Support Tools   | Recommended | All                   |
-| dstat                                 | System Resource Statistics                       | Monitoring      | Recommended | All                   |
-| iotop                                 | I/O Monitoring                                   | Monitoring      | Recommended | All                   |
+| Package                               | Description                                                | Category        | Required                                   | Configuration Pattern |
+| ------------------------------------- | ---------------------------------------------------------- | --------------- | ------------------------------------------ | --------------------- |
+| chrony                                | Time Synchronization                                       | System Support  | Mandatory                                  | All                   |
+| rsyslog                               | System Logging                                             | System Support  | Mandatory                                  | All                   |
+| pacemaker                             | Cluster Resource Manager                                   | Core Cluster    | Mandatory                                  | All                   |
+| corosync                              | Cluster Communication Engine                               | Core Cluster    | Mandatory                                  | All                   |
+| resource-agents                       | Resource Agents including SAPInstance                      | Core Cluster    | Mandatory                                  | All                   |
+| fence-agents                          | Fencing Capabilities                                       | Core Cluster    | Mandatory                                  | All                   |
+| python311-pycurl                      | Python 3.11 HTTP library (fence_aws dependency)            | Core Cluster    | Mandatory (SLES 15 SP5/SP6 with fence_aws) | All                   |
+| python311-pexpect                     | Python 3.11 process control library (fence_aws dependency) | Core Cluster    | Mandatory (SLES 15 SP5/SP6 with fence_aws) | All                   |
+| sap-suse-cluster-connector            | SAP HA-Script Connector (≥3.1.1 for SimpleMount)           | SAP Integration | Mandatory                                  | All                   |
+| sapstartsrv-resource-agents           | SAP Start Service Resource Agents                          | SAP Integration | Mandatory\*                                | SimpleMount           |
+| supportutils                          | System Information Gathering                               | Support Tools   | Recommended                                | All                   |
+| sysstat                               | Performance Monitoring Tools                               | Support Tools   | Recommended                                | All                   |
+| zypper-lifecycle-plugin               | Software Lifecycle Management                              | Support Tools   | Recommended                                | All                   |
+| supportutils-plugin-ha-sap            | HA/SAP Support Data Collection                             | Support Tools   | Recommended                                | All                   |
+| supportutils-plugin-suse-public-cloud | Cloud Support Data Collection                              | Support Tools   | Recommended                                | All                   |
+| dstat                                 | System Resource Statistics                                 | Monitoring      | Recommended                                | All                   |
+| iotop                                 | I/O Monitoring                                             | Monitoring      | Recommended                                | All                   |
 
 ###### Note
 
@@ -55,6 +57,9 @@ Refer to [Vendor Support of Deployment Types](sap-nw-pacemaker-sles-references.m
 # Mandatory core packages for SAP NetWeaver HA on AWS
 mandatory_packages="corosync pacemaker resource-agents fence-agents rsyslog chrony sap-suse-cluster-connector"
 
+# fence_aws dependencies (SLES 15 SP5/SP6 only - not required on SP7+)
+fence_aws_packages="python311-pycurl python311-pexpect"
+
 # SimpleMount specific packages
 simplemount_packages="sapstartsrv-resource-agents"
 
@@ -62,7 +67,7 @@ simplemount_packages="sapstartsrv-resource-agents"
 support_packages="supportutils supportutils-plugin-ha-sap supportutils-plugin-suse-public-cloud sysstat dstat iotop zypper-lifecycle-plugin"
 
 # Default to checking all packages
-packages="${mandatory_packages} ${simplemount_packages} ${support_packages}"
+packages="${mandatory_packages} ${simplemount_packages} ${support_packages} ${fence_aws_packages}"
 
 missingpackages=""
 

@@ -6,7 +6,7 @@ The following sections provide details on the resources, groups and constraints 
 
 - [Prepare for Resource Creation](#prepare-resource-nw-sles "#prepare-resource-nw-sles")
 - [Cluster Bootstrap](#cluster-bootstrap-nw-sles "#cluster-bootstrap-nw-sles")
-- [Create STONITH (external/ec2) resource](#create-stonith-ec2-nw-sles "#create-stonith-ec2-nw-sles")
+- [Create STONITH Fencing Resource](#create-stonith-ec2-nw-sles "#create-stonith-ec2-nw-sles")
 - [Create Filesystem resources (classic only)](#filesystem-resources-nw-sles "#filesystem-resources-nw-sles")
 - [Create Overlay IP (aws-vpc-move-ip) resources](#overlay-ip-resources-nw-sles "#overlay-ip-resources-nw-sles")
 - [Create SAPStartSrv resources (simple-mount only)](#sapstartsrv-resources-nw-sles "#sapstartsrv-resources-nw-sles")
@@ -105,9 +105,50 @@ To verify your operation default settings:
 # crm configure show op_defaults
 ```
 
-## Create STONITH (external/ec2) resource
+## Create STONITH Fencing Resource
 
-Create the STONITH or Fencing resource using resource agent **`external/ec2`**:
+Create the STONITH or Fencing resource. As of SLES 15 SP5 with the latest fence-agents package, we recommend resource agent `fence_aws`. For older SLES versions, the `stonith:external/ec2` resource is supported.
+
+fence_aws (SLES 15 SP5 and above)
+
+```
+# crm configure primitive <stonith_resource_name> stonith:fence_aws \
+params pcmk_host_map="<hostname_1>:<instance_id_1>;<hostname_2>:<instance_id_2>" \
+region="<aws_region>" \
+skip_os_shutdown="true" \
+pcmk_delay_max="<delay_value>" \
+pcmk_reboot_timeout="600" \
+pcmk_reboot_retries="4" \
+op start interval="0" timeout="600" \
+op stop interval="0" timeout="180" \
+op monitor interval="300" timeout="60"
+```
+
+Details:
+
+- **pcmk_host_map** - Maps cluster node hostnames to their EC2 instance IDs. This mapping must be unique within the AWS account and follow the format hostname:instance-id, with multiple entries separated by semicolons.
+- **region** - AWS region where the EC2 instances are deployed
+- **pcmk_delay_max** - Random delay before fencing operations. Works in conjunction with cluster property `priority-fencing-delay` to prevent simultaneous fencing in 2-node clusters. For ENSA1 use 30 seconds, for ENSA2 use 10 seconds (lower value sufficient as `priority-fencing-delay` handles primary node protection). Omit in clusters with real quorum (3+ nodes) to avoid unnecessary delay.
+- **pcmk_reboot_timeout** - Maximum time in seconds allowed for a reboot operation
+- **pcmk_reboot_retries** - Number of times to retry a failed reboot operation
+- **skip_os_shutdown** (recommended) - Leverages a new ec2 stop-instance API flag to forcefully stop an EC2 Instance by skipping the shutdown of the Operating System.
+
+_Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
+
+```
+# crm configure primitive rsc_fence_aws stonith:fence_aws \
+params pcmk_host_map="slxhost01:i-xxxxinstidforhost1;slxhost02:i-xxxxinstidforhost2" \
+region="us-east-1" \
+skip_os_shutdown="true" \
+pcmk_delay_max="10" \
+pcmk_reboot_timeout="600" \
+pcmk_reboot_retries="4" \
+op start interval="0" timeout="600" \
+op stop interval="0" timeout="180" \
+op monitor interval="300" timeout="60"
+```
+
+external/ec2 (older SLES versions)
 
 ```
 # crm configure primitive <stonith_resource_name> stonith:external/ec2 \
@@ -121,24 +162,7 @@ Details:
 
 - **tag** - EC2 instance tag key name that associates instances with this cluster configuration. This tag key must be unique within the AWS account and have a value which matches the instance hostname. See [Create Amazon EC2 Resource Tags Used by Amazon EC2 STONITH Agent](sap-nw-pacemaker-sles-ec2-configuration.md#create-cluster-tags-nw-sles "sap-nw-pacemaker-sles-ec2-configuration.md#create-cluster-tags-nw-sles") for EC2 instance tagging configuration.
 - **profile** - (optional) AWS CLI profile name for API authentication. Verify profile exists with `aws configure list-profiles`. If a profile is not explicitly configured the default profile will be used.
-- **pcmk_delay_max** - Random delay before fencing operations. Works in conjunction with cluster property `priority-fencing-delay` to prevent simultaneous fencing om 2-node clusters. For ENSA1 use 30 seconds, for ENSA2 use 10 seconds (lower value sufficient as `priority-fencing-delay` handles primary node protection). Omit in clusters with real quorum (3+ nodes) to avoid unnecessary delay.
-
-###### Example
-
-ENSA1
-
-_Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
-
-```
-# crm configure primitive res_stonith_ec2 stonith:external/ec2 \
-params tag="pacemaker" profile="cluster" \
-pcmk_delay_max="30" \
-op start interval="0" timeout="180" \
-op stop interval="0" timeout="180" \
-op monitor interval="300" timeout="60"
-```
-
-ENSA2
+- **pcmk_delay_max** - Random delay before fencing operations. Works in conjunction with cluster property `priority-fencing-delay` to prevent simultaneous fencing in 2-node clusters. For ENSA1 use 30 seconds, for ENSA2 use 10 seconds (lower value sufficient as `priority-fencing-delay` handles primary node protection). Omit in clusters with real quorum (3+ nodes) to avoid unnecessary delay.
 
 _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
 
@@ -150,6 +174,36 @@ op start interval="0" timeout="180" \
 op stop interval="0" timeout="180" \
 op monitor interval="300" timeout="60"
 ```
+
+###### Note
+
+**Migrating from `external/ec2` to `fence_aws`**
+
+Ensure fence-agents is updated to the latest available version on all cluster nodes:
+
+```
+# zypper refresh
+# zypper up fence-agents
+```
+
+On SLES 15 SP5 and SP6, the following Python 3.11 packages are also required as dependencies for `fence_aws`:
+
+```
+# zypper install python311-pycurl python311-pexpect
+```
+
+Then place the cluster in maintenance mode, delete the existing STONITH resource, create the new `fence_aws` resource, and disable maintenance mode:
+
+```
+# crm maintenance on
+# crm configure delete <old_stonith_resource_name>
+# crm configure primitive <new_stonith_resource_name> stonith:fence_aws \
+params pcmk_host_map="<hostname_1>:<instance_id_1>;<hostname_2>:<instance_id_2>" \
+region="<aws_region>" ...
+# crm maintenance off
+```
+
+EC2 instance tags used by `external/ec2` can remain in place — they do not interfere with `fence_aws`.
 
 ## Create Filesystem resources (classic only)
 
