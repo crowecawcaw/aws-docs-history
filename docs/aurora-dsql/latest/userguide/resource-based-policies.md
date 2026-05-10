@@ -21,6 +21,15 @@ Changes to resource-based policies are eventually consistent and typically take 
 
 For more information about the differences between identity-based and resource-based policies, see [Identity-based policies and resource-based policies](../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md "../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md") in the _IAM User Guide_.
 
+###### Warning
+
+The AWS account root user of the account that owns the cluster always retains full
+access to its own resources, regardless of resource-based policy conditions, including
+VPC source restrictions. Resource-based policies don't restrict access for the root
+user. To limit root user access to your clusters, use IAM identity-based policies or
+avoid using root credentials for database connections. For more information, see [Root
+user best practices for your AWS account](../../../IAM/latest/UserGuide/root-user-best-practices.md "../../../IAM/latest/UserGuide/root-user-best-practices.md").
+
 ## When to use resource-based policies
 
 Resource-based policies are particularly useful in these scenarios:
