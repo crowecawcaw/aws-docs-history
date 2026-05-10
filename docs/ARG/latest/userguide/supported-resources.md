@@ -612,7 +612,7 @@ us-east-1** using the Region selector in the upper-right corner of the AWS Manag
 | `AWS::Config::OrganizationConformancePack` | No                     | Yes                  | No                                    |
 | `AWS::Config::StoredQuery`                 | No                     | Yes                  | No                                    |
 
-## Amazon Connect
+## Amazon Connect Customer
 
 | **Resources**                            | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** |
 | ---------------------------------------- | ---------------------- | -------------------- | ------------------------------------- |
@@ -639,7 +639,7 @@ us-east-1** using the Region selector in the upper-right corner of the AWS Manag
 | `AWS::Connect::UserHierarchyGroup`       | No                     | Yes                  | No                                    |
 | `AWS::Connect::Vocabulary`               | No                     | Yes                  | No                                    |
 
-## Amazon Connect Cases
+## Amazon Connect Customer Cases
 
 | **Resources**             | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** |
 | ------------------------- | ---------------------- | -------------------- | ------------------------------------- |
@@ -647,7 +647,7 @@ us-east-1** using the Region selector in the upper-right corner of the AWS Manag
 | `AWS::Cases::Domain`      | No                     | Yes                  | No                                    |
 | `AWS::Cases::RelatedItem` | No                     | Yes                  | No                                    |
 
-## Amazon Connect Customer Profiles
+## Connect Customer Customer Profiles
 
 | **Resources**                        | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** |
 | ------------------------------------ | ---------------------- | -------------------- | ------------------------------------- |
@@ -655,19 +655,19 @@ us-east-1** using the Region selector in the upper-right corner of the AWS Manag
 | `AWS::CustomerProfiles::Integration` | No                     | Yes                  | No                                    |
 | `AWS::CustomerProfiles::ObjectType`  | No                     | Yes                  | No                                    |
 
-## Amazon Connect Outbound Campaigns
+## Amazon Connect Customer Outbound Campaigns
 
 | **Resources**                     | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** |
 | --------------------------------- | ---------------------- | -------------------- | ------------------------------------- |
 | `AWS::ConnectCampaigns::Campaign` | No                     | Yes                  | No                                    |
 
-## Amazon Connect Voice ID
+## Connect Customer Voice ID
 
 | **Resources**          | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** |
 | ---------------------- | ---------------------- | -------------------- | ------------------------------------- |
 | `AWS::VoiceID::Domain` | No                     | Yes                  | No                                    |
 
-## Amazon Connect Wisdom
+## Amazon Connect Customer Wisdom
 
 | **Resources**                       | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** |
 | ----------------------------------- | ---------------------- | -------------------- | ------------------------------------- |
