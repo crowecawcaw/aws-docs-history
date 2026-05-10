@@ -54,8 +54,10 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | M8id            | `m8id.large`             | `m8id.xlarge`     | `m8id.2xlarge`     | `m8id.4xlarge`     | `m8id.8xlarge`     | `m8id.12xlarge`     | `m8id.16xlarge`     | `m8id.24xlarge`    | `m8id.32xlarge`    | `m8id.48xlarge`  | `m8id.96xlarge`   | `m8id.metal-48xl` | `m8id.metal-96xl` |
 | M8i-flex        | `m8i-flex.large`         | `m8i-flex.xlarge` | `m8i-flex.2xlarge` | `m8i-flex.4xlarge` | `m8i-flex.8xlarge` | `m8i-flex.12xlarge` | `m8i-flex.16xlarge` |
 | M8in            | `m8in.large`             | `m8in.xlarge`     | `m8in.2xlarge`     | `m8in.4xlarge`     | `m8in.8xlarge`     | `m8in.12xlarge`     | `m8in.16xlarge`     | `m8in.24xlarge`    | `m8in.32xlarge`    | `m8in.48xlarge`  | `m8in.96xlarge`   |
+| M8idn           | `m8idn.large`            | `m8idn.xlarge`    | `m8idn.2xlarge`    | `m8idn.4xlarge`    | `m8idn.8xlarge`    | `m8idn.12xlarge`    | `m8idn.16xlarge`    | `m8idn.24xlarge`   | `m8idn.32xlarge`   | `m8idn.48xlarge` | `m8idn.96xlarge`  |
 | M8ine           | `m8ine.large`            | `m8ine.xlarge`    | `m8ine.2xlarge`    | `m8ine.4xlarge`    | `m8ine.8xlarge`    | `m8ine.12xlarge`    |
 | M8ib            | `m8ib.large`             | `m8ib.xlarge`     | `m8ib.2xlarge`     | `m8ib.4xlarge`     | `m8ib.8xlarge`     | `m8ib.12xlarge`     | `m8ib.16xlarge`     | `m8ib.24xlarge`    | `m8ib.32xlarge`    | `m8ib.48xlarge`  | `m8ib.96xlarge`   |
+| M8idb           | `m8idb.large`            | `m8idb.xlarge`    | `m8idb.2xlarge`    | `m8idb.4xlarge`    | `m8idb.8xlarge`    | `m8idb.12xlarge`    | `m8idb.16xlarge`    | `m8idb.24xlarge`   | `m8idb.32xlarge`   | `m8idb.48xlarge` | `m8idb.96xlarge`  |
 | Mac1            | `mac1.metal`             |
 | Mac2            | `mac2.metal`             |
 | Mac2-m1ultra    | `mac2-m1ultra.metal`     |
@@ -101,9 +103,11 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | M8i             | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | M8id            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
 | M8i-flex        | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✗ No                    | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
-| M8in            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
+| M8in            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
+| M8idn           | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | M8ine           | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✗ No                    | ✗ No         | ✗ No                | Windows                     | Linux |
-| M8ib            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
+| M8ib            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
+| M8idb           | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | Mac1            | [Nitro v2](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64_mac)            | ✓ Yes                     | ✓ Yes                   | ✗ No         | ✗ No                | Linux                       |
 | Mac2            | [Nitro v2](ec2-nitro-instances.md "ec2-nitro-instances.md") | Apple (arm64_mac)             | ✓ Yes                     | ✓ Yes                   | ✗ No         | ✗ No                | Linux                       |
 | Mac2-m1ultra    | [Nitro v2](ec2-nitro-instances.md "ec2-nitro-instances.md") | Apple (arm64_mac)             | ✓ Yes                     | ✓ Yes                   | ✗ No         | ✗ No                | Linux                       |
@@ -439,6 +443,18 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | m8in.32xlarge      | 512.00       | Intel Xeon Granite Rapids       | 128   | 64        | 2                | ✗ No         | ✗ No               |
 | m8in.48xlarge      | 768.00       | Intel Xeon Granite Rapids       | 192   | 96        | 2                | ✗ No         | ✗ No               |
 | m8in.96xlarge      | 1536.00      | Intel Xeon Granite Rapids       | 384   | 192       | 2                | ✗ No         | ✗ No               |
+| **M8idn**          |
+| m8idn.large        | 8.00         | Intel Xeon Granite Rapids       | 2     | 1         | 2                | ✗ No         | ✗ No               |
+| m8idn.xlarge       | 16.00        | Intel Xeon Granite Rapids       | 4     | 2         | 2                | ✗ No         | ✗ No               |
+| m8idn.2xlarge      | 32.00        | Intel Xeon Granite Rapids       | 8     | 4         | 2                | ✗ No         | ✗ No               |
+| m8idn.4xlarge      | 64.00        | Intel Xeon Granite Rapids       | 16    | 8         | 2                | ✗ No         | ✗ No               |
+| m8idn.8xlarge      | 128.00       | Intel Xeon Granite Rapids       | 32    | 16        | 2                | ✗ No         | ✗ No               |
+| m8idn.12xlarge     | 192.00       | Intel Xeon Granite Rapids       | 48    | 24        | 2                | ✗ No         | ✗ No               |
+| m8idn.16xlarge     | 256.00       | Intel Xeon Granite Rapids       | 64    | 32        | 2                | ✗ No         | ✗ No               |
+| m8idn.24xlarge     | 384.00       | Intel Xeon Granite Rapids       | 96    | 48        | 2                | ✗ No         | ✗ No               |
+| m8idn.32xlarge     | 512.00       | Intel Xeon Granite Rapids       | 128   | 64        | 2                | ✗ No         | ✗ No               |
+| m8idn.48xlarge     | 768.00       | Intel Xeon Granite Rapids       | 192   | 96        | 2                | ✗ No         | ✗ No               |
+| m8idn.96xlarge     | 1536.00      | Intel Xeon Granite Rapids       | 384   | 192       | 2                | ✗ No         | ✗ No               |
 | **M8ine**          |
 | m8ine.large        | 8.00         | Intel Xeon Granite Rapids       | 2     | 1         | 2                | ✗ No         | ✗ No               |
 | m8ine.xlarge       | 16.00        | Intel Xeon Granite Rapids       | 4     | 2         | 2                | ✗ No         | ✗ No               |
@@ -458,6 +474,18 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | m8ib.32xlarge      | 512.00       | Intel Xeon Granite Rapids       | 128   | 64        | 2                | ✗ No         | ✗ No               |
 | m8ib.48xlarge      | 768.00       | Intel Xeon Granite Rapids       | 192   | 96        | 2                | ✗ No         | ✗ No               |
 | m8ib.96xlarge      | 1536.00      | Intel Xeon Granite Rapids       | 384   | 192       | 2                | ✗ No         | ✗ No               |
+| **M8idb**          |
+| m8idb.large        | 8.00         | Intel Xeon Granite Rapids       | 2     | 1         | 2                | ✗ No         | ✗ No               |
+| m8idb.xlarge       | 16.00        | Intel Xeon Granite Rapids       | 4     | 2         | 2                | ✗ No         | ✗ No               |
+| m8idb.2xlarge      | 32.00        | Intel Xeon Granite Rapids       | 8     | 4         | 2                | ✗ No         | ✗ No               |
+| m8idb.4xlarge      | 64.00        | Intel Xeon Granite Rapids       | 16    | 8         | 2                | ✗ No         | ✗ No               |
+| m8idb.8xlarge      | 128.00       | Intel Xeon Granite Rapids       | 32    | 16        | 2                | ✗ No         | ✗ No               |
+| m8idb.12xlarge     | 192.00       | Intel Xeon Granite Rapids       | 48    | 24        | 2                | ✗ No         | ✗ No               |
+| m8idb.16xlarge     | 256.00       | Intel Xeon Granite Rapids       | 64    | 32        | 2                | ✗ No         | ✗ No               |
+| m8idb.24xlarge     | 384.00       | Intel Xeon Granite Rapids       | 96    | 48        | 2                | ✗ No         | ✗ No               |
+| m8idb.32xlarge     | 512.00       | Intel Xeon Granite Rapids       | 128   | 64        | 2                | ✗ No         | ✗ No               |
+| m8idb.48xlarge     | 768.00       | Intel Xeon Granite Rapids       | 192   | 96        | 2                | ✗ No         | ✗ No               |
+| m8idb.96xlarge     | 1536.00      | Intel Xeon Granite Rapids       | 384   | 192       | 2                | ✗ No         | ✗ No               |
 | **Mac1**           |
 | mac1.metal         | 32.00        | Intel Core i7-8700B             | 12    | 6         | 2                | ✗ No         | ✗ No               |
 | **Mac2**           |
@@ -842,6 +870,18 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | m8in.32xlarge       | 200 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | m8in.48xlarge       | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
 | m8in.96xlarge       | 600 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
+| **M8idn**           |
+| m8idn.large 1       | 3.125 / 25.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 20                         | ✓ Yes |
+| m8idn.xlarge 1      | 6.25 / 30.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
+| m8idn.2xlarge 1     | 12.5 / 40.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
+| m8idn.4xlarge 1     | 25.0 / 50.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
+| m8idn.8xlarge       | 50 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
+| m8idn.12xlarge      | 75 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 50                         | ✓ Yes |
+| m8idn.16xlarge      | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
+| m8idn.24xlarge      | 150 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
+| m8idn.32xlarge      | 200 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
+| m8idn.48xlarge      | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
+| m8idn.96xlarge      | 600 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
 | **M8ine**           |
 | m8ine.large         | 3.125 Gigabit                     | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 20                         | ✓ Yes |
 | m8ine.xlarge        | 6.25 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
@@ -861,6 +901,18 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | m8ib.32xlarge       | 133.33 Gigabit                    | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | m8ib.48xlarge       | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
 | m8ib.96xlarge       | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
+| **M8idb**           |
+| m8idb.large 1       | 2.083 / 16.667                    | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 20                         | ✓ Yes |
+| m8idb.xlarge 1      | 4.166 / 20.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
+| m8idb.2xlarge 1     | 8.333 / 26.667                    | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
+| m8idb.4xlarge 1     | 16.666 / 33.333                   | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
+| m8idb.8xlarge       | 33.33 Gigabit                     | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
+| m8idb.12xlarge      | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 50                         | ✓ Yes |
+| m8idb.16xlarge      | 66.66 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
+| m8idb.24xlarge      | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
+| m8idb.32xlarge      | 133.33 Gigabit                    | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
+| m8idb.48xlarge      | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
+| m8idb.96xlarge      | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
 | **Mac1**            |
 | mac1.metal          | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
 | **Mac2**            |
@@ -920,10 +972,10 @@ see [instance network bandwidth](../../../AWSEC2/latest/UserGuide/ec2-instance-n
 For `m6in.32xlarge`, `m6in.metal`, `m6idn.32xlarge`, `m6idn.metal`, you must attach at least 2 ENIs, to separate network
 cards, to achieve 200 Gbps throughput. Each ENI attached to a network card can achieve up to 170 Gbps.
 
-For `m8gn.48xlarge`, `m8gn.metal-48xl`, you must attach at least 2 ENIs, to separate network
+For `m8in.96xlarge`, `m8idn.96xlarge`, `m8gn.48xlarge`, `m8gn.metal-48xl`, you must attach at least 2 ENIs, to separate network
 cards, to achieve 600 Gbps throughput. Each ENI attached to a network card can achieve up to 300 Gbps.
 
-For `m8gb.48xlarge`, `m8gb.metal-48xl`, you must attach at least 2 ENIs, to separate network
+For `m8ib.96xlarge`, `m8idb.96xlarge`, `m8gb.48xlarge`, `m8gb.metal-48xl`, you must attach at least 2 ENIs, to separate network
 cards, to achieve 400 Gbps throughput. Each ENI attached to a network card can achieve up to 200 Gbps.
 
 ## Amazon EBS specifications
@@ -1275,6 +1327,18 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | m8in.32xlarge       | 40000.00                            | 5000.00                                           | 160000.00                            | ✓ Yes | ✗ No                                                                                                                 | 88 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | m8in.48xlarge       | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | ✗ No                                                                                                                 | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
 | m8in.96xlarge       | 120000.00                           | 15000.00                                          | 480000.00                            | ✓ Yes | ✓ Yes ([2 EBS cards](../../../AWSEC2/latest/UserGuide/ebs_cards.md "../../../AWSEC2/latest/UserGuide/ebs_cards.md")) | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
+| **M8idn**           |
+| m8idn.large 1       | 650.00 / 10000.00                   | 81.25 / 1250.00                                   | 3600.00 / 40000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8idn.xlarge 1      | 1250.00 / 10000.00                  | 156.25 / 1250.00                                  | 6000.00 / 40000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8idn.2xlarge 1     | 2500.00 / 10000.00                  | 312.50 / 1250.00                                  | 12000.00 / 40000.00                  | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8idn.4xlarge 1     | 5000.00 / 10000.00                  | 625.00 / 1250.00                                  | 20000.00 / 40000.00                  | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8idn.8xlarge       | 10000.00                            | 1250.00                                           | 40000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8idn.12xlarge      | 15000.00                            | 1875.00                                           | 60000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8idn.16xlarge      | 20000.00                            | 2500.00                                           | 80000.00                             | ✓ Yes | ✗ No                                                                                                                 | 48 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8idn.24xlarge      | 30000.00                            | 3750.00                                           | 120000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8idn.32xlarge      | 40000.00                            | 5000.00                                           | 160000.00                            | ✓ Yes | ✗ No                                                                                                                 | 88 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8idn.48xlarge      | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | ✗ No                                                                                                                 | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
+| m8idn.96xlarge      | 120000.00                           | 15000.00                                          | 480000.00                            | ✓ Yes | ✓ Yes ([2 EBS cards](../../../AWSEC2/latest/UserGuide/ebs_cards.md "../../../AWSEC2/latest/UserGuide/ebs_cards.md")) | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
 | **M8ine**           |
 | m8ine.large 1       | 650.00 / 10000.00                   | 81.25 / 1250.00                                   | 3600.00 / 40000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | m8ine.xlarge 1      | 1250.00 / 10000.00                  | 156.25 / 1250.00                                  | 6000.00 / 40000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
@@ -1294,6 +1358,18 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | m8ib.32xlarge       | 100000.00                           | 12500.00                                          | 480000.00                            | ✓ Yes | ✗ No                                                                                                                 | 88 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | m8ib.48xlarge       | 150000.00                           | 18750.00                                          | 720000.00                            | ✓ Yes | ✗ No                                                                                                                 | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
 | m8ib.96xlarge       | 300000.00                           | 37500.00                                          | 1440000.00                           | ✓ Yes | ✓ Yes ([2 EBS cards](../../../AWSEC2/latest/UserGuide/ebs_cards.md "../../../AWSEC2/latest/UserGuide/ebs_cards.md")) | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
+| **M8idb**           |
+| m8idb.large 1       | 1563.00 / 25000.00                  | 195.38 / 3125.00                                  | 7500.00 / 120000.00                  | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8idb.xlarge 1      | 3125.00 / 25000.00                  | 390.62 / 3125.00                                  | 15000.00 / 120000.00                 | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8idb.2xlarge 1     | 6250.00 / 25000.00                  | 781.25 / 3125.00                                  | 30000.00 / 120000.00                 | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8idb.4xlarge 1     | 12500.00 / 25000.00                 | 1562.50 / 3125.00                                 | 60000.00 / 120000.00                 | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8idb.8xlarge       | 25000.00                            | 3125.00                                           | 120000.00                            | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8idb.12xlarge      | 37500.00                            | 4687.50                                           | 180000.00                            | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8idb.16xlarge      | 50000.00                            | 6250.00                                           | 240000.00                            | ✓ Yes | ✗ No                                                                                                                 | 48 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8idb.24xlarge      | 75000.00                            | 9375.00                                           | 360000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8idb.32xlarge      | 100000.00                           | 12500.00                                          | 480000.00                            | ✓ Yes | ✗ No                                                                                                                 | 88 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8idb.48xlarge      | 150000.00                           | 18750.00                                          | 720000.00                            | ✓ Yes | ✗ No                                                                                                                 | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
+| m8idb.96xlarge      | 300000.00                           | 37500.00                                          | 1440000.00                           | ✓ Yes | ✓ Yes ([2 EBS cards](../../../AWSEC2/latest/UserGuide/ebs_cards.md "../../../AWSEC2/latest/UserGuide/ebs_cards.md")) | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
 | **Mac1**            |
 | mac1.metal          | 14000.00                            | 1750.00                                           | 80000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 16 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
 | **Mac2**            |
@@ -1448,6 +1524,30 @@ along with the aggregated IOPS performance with 4,096 byte block size at queue d
 | m8id.96xlarge   | 6 x 3800 GB            | NVMe SSD            | 6,439,992 / 3,220,008              |                        | ✓ Yes          |
 | m8id.metal-48xl | 3 x 3800 GB            | NVMe SSD            | 3,219,996 / 1,610,004              |                        | ✓ Yes          |
 | m8id.metal-96xl | 6 x 3800 GB            | NVMe SSD            | 6,439,992 / 3,220,008              |                        | ✓ Yes          |
+| **M8idn**       |
+| m8idn.large     | 1 x 118 GB             | NVMe SSD            | 33,542 / 16,771                    |                        | ✓ Yes          |
+| m8idn.xlarge    | 1 x 237 GB             | NVMe SSD            | 67,083 / 33,542                    |                        | ✓ Yes          |
+| m8idn.2xlarge   | 1 x 474 GB             | NVMe SSD            | 134,167 / 67,084                   |                        | ✓ Yes          |
+| m8idn.4xlarge   | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
+| m8idn.8xlarge   | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
+| m8idn.12xlarge  | 1 x 2850 GB            | NVMe SSD            | 804,999 / 402,501                  |                        | ✓ Yes          |
+| m8idn.16xlarge  | 1 x 3800 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
+| m8idn.24xlarge  | 2 x 2850 GB            | NVMe SSD            | 1,609,998 / 805,002                |                        | ✓ Yes          |
+| m8idn.32xlarge  | 2 x 3800 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
+| m8idn.48xlarge  | 3 x 3800 GB            | NVMe SSD            | 3,219,996 / 1,610,004              |                        | ✓ Yes          |
+| m8idn.96xlarge  | 6 x 3800 GB            | NVMe SSD            | 6,439,992 / 3,220,008              |                        | ✓ Yes          |
+| **M8idb**       |
+| m8idb.large     | 1 x 118 GB             | NVMe SSD            | 33,542 / 16,771                    |                        | ✓ Yes          |
+| m8idb.xlarge    | 1 x 237 GB             | NVMe SSD            | 67,083 / 33,542                    |                        | ✓ Yes          |
+| m8idb.2xlarge   | 1 x 474 GB             | NVMe SSD            | 134,167 / 67,084                   |                        | ✓ Yes          |
+| m8idb.4xlarge   | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
+| m8idb.8xlarge   | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
+| m8idb.12xlarge  | 1 x 2850 GB            | NVMe SSD            | 804,999 / 402,501                  |                        | ✓ Yes          |
+| m8idb.16xlarge  | 1 x 3800 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
+| m8idb.24xlarge  | 2 x 2850 GB            | NVMe SSD            | 1,609,998 / 805,002                |                        | ✓ Yes          |
+| m8idb.32xlarge  | 2 x 3800 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
+| m8idb.48xlarge  | 3 x 3800 GB            | NVMe SSD            | 3,219,996 / 1,610,004              |                        | ✓ Yes          |
+| m8idb.96xlarge  | 6 x 3800 GB            | NVMe SSD            | 6,439,992 / 3,220,008              |                        | ✓ Yes          |
 | **Mac-m4**      |
 | mac-m4.metal    | 1 x 1900 GB            | NVMe SSD            | 550,000 / 275,000                  |                        | ✓ Yes          |
 | **Mac-m4pro**   |
@@ -1782,6 +1882,18 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | m8in.32xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | m8in.48xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | m8in.96xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| **M8idn**          |
+| m8idn.large        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
+| m8idn.xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8idn.2xlarge      | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8idn.4xlarge      | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8idn.8xlarge      | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8idn.12xlarge     | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8idn.16xlarge     | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8idn.24xlarge     | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8idn.32xlarge     | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8idn.48xlarge     | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8idn.96xlarge     | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | **M8ine**          |
 | m8ine.large        | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
 | m8ine.xlarge       | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
@@ -1801,6 +1913,18 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | m8ib.32xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | m8ib.48xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | m8ib.96xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| **M8idb**          |
+| m8idb.large        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
+| m8idb.xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8idb.2xlarge      | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8idb.4xlarge      | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8idb.8xlarge      | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8idb.12xlarge     | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8idb.16xlarge     | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8idb.24xlarge     | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8idb.32xlarge     | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8idb.48xlarge     | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8idb.96xlarge     | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | **Mac1**           |
 | mac1.metal         | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
 | **Mac2**           |

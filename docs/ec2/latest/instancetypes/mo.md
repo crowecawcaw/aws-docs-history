@@ -59,7 +59,9 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | R8id            | `r8id.large`             | `r8id.xlarge`      | `r8id.2xlarge`     | `r8id.4xlarge`     | `r8id.8xlarge`     | `r8id.12xlarge`     | `r8id.16xlarge`     | `r8id.24xlarge`     | `r8id.32xlarge`   | `r8id.48xlarge`   | `r8id.96xlarge`   | `r8id.metal-48xl` | `r8id.metal-96xl` |
 | R8i-flex        | `r8i-flex.large`         | `r8i-flex.xlarge`  | `r8i-flex.2xlarge` | `r8i-flex.4xlarge` | `r8i-flex.8xlarge` | `r8i-flex.12xlarge` | `r8i-flex.16xlarge` |
 | R8in            | `r8in.large`             | `r8in.xlarge`      | `r8in.2xlarge`     | `r8in.4xlarge`     | `r8in.8xlarge`     | `r8in.12xlarge`     | `r8in.16xlarge`     | `r8in.24xlarge`     | `r8in.32xlarge`   | `r8in.48xlarge`   | `r8in.96xlarge`   |
+| R8idn           | `r8idn.large`            | `r8idn.xlarge`     | `r8idn.2xlarge`    | `r8idn.4xlarge`    | `r8idn.8xlarge`    | `r8idn.12xlarge`    | `r8idn.16xlarge`    | `r8idn.24xlarge`    | `r8idn.32xlarge`  | `r8idn.48xlarge`  | `r8idn.96xlarge`  |
 | R8ib            | `r8ib.large`             | `r8ib.xlarge`      | `r8ib.2xlarge`     | `r8ib.4xlarge`     | `r8ib.8xlarge`     | `r8ib.12xlarge`     | `r8ib.16xlarge`     | `r8ib.24xlarge`     | `r8ib.32xlarge`   | `r8ib.48xlarge`   | `r8ib.96xlarge`   |
+| R8idb           | `r8idb.large`            | `r8idb.xlarge`     | `r8idb.2xlarge`    | `r8idb.4xlarge`    | `r8idb.8xlarge`    | `r8idb.12xlarge`    | `r8idb.16xlarge`    | `r8idb.24xlarge`    | `r8idb.32xlarge`  | `r8idb.48xlarge`  | `r8idb.96xlarge`  |
 | U-3tb1          | `u-3tb1.56xlarge`        |
 | U-6tb1          | `u-6tb1.56xlarge`        | `u-6tb1.112xlarge` | `u-6tb1.metal`     |
 | U-9tb1          | `u-9tb1.112xlarge`       | `u-9tb1.metal`     |
@@ -115,8 +117,10 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | R8i             | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | R8id            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
 | R8i-flex        | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✗ No                    | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
-| R8in            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
-| R8ib            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
+| R8in            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
+| R8idn           | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
+| R8ib            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
+| R8idb           | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | U-3tb1          | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✗ No                    | ✗ No         | ✗ No                | Windows                     | Linux |
 | U-6tb1          | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✗ No         | ✗ No                | Windows                     | Linux |
 | U-9tb1          | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✗ No         | ✗ No                | Windows                     | Linux |
@@ -458,6 +462,18 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | r8in.32xlarge        | 1024.00      | Intel Xeon Granite Rapids  | 128   | 64        | 2                | ✗ No         | ✗ No               |
 | r8in.48xlarge        | 1536.00      | Intel Xeon Granite Rapids  | 192   | 96        | 2                | ✗ No         | ✗ No               |
 | r8in.96xlarge        | 3072.00      | Intel Xeon Granite Rapids  | 384   | 192       | 2                | ✗ No         | ✗ No               |
+| **R8idn**            |
+| r8idn.large          | 16.00        | Intel Xeon Granite Rapids  | 2     | 1         | 2                | ✗ No         | ✗ No               |
+| r8idn.xlarge         | 32.00        | Intel Xeon Granite Rapids  | 4     | 2         | 2                | ✗ No         | ✗ No               |
+| r8idn.2xlarge        | 64.00        | Intel Xeon Granite Rapids  | 8     | 4         | 2                | ✗ No         | ✗ No               |
+| r8idn.4xlarge        | 128.00       | Intel Xeon Granite Rapids  | 16    | 8         | 2                | ✗ No         | ✗ No               |
+| r8idn.8xlarge        | 256.00       | Intel Xeon Granite Rapids  | 32    | 16        | 2                | ✗ No         | ✗ No               |
+| r8idn.12xlarge       | 384.00       | Intel Xeon Granite Rapids  | 48    | 24        | 2                | ✗ No         | ✗ No               |
+| r8idn.16xlarge       | 512.00       | Intel Xeon Granite Rapids  | 64    | 32        | 2                | ✗ No         | ✗ No               |
+| r8idn.24xlarge       | 768.00       | Intel Xeon Granite Rapids  | 96    | 48        | 2                | ✗ No         | ✗ No               |
+| r8idn.32xlarge       | 1024.00      | Intel Xeon Granite Rapids  | 128   | 64        | 2                | ✗ No         | ✗ No               |
+| r8idn.48xlarge       | 1536.00      | Intel Xeon Granite Rapids  | 192   | 96        | 2                | ✗ No         | ✗ No               |
+| r8idn.96xlarge       | 3072.00      | Intel Xeon Granite Rapids  | 384   | 192       | 2                | ✗ No         | ✗ No               |
 | **R8ib**             |
 | r8ib.large           | 16.00        | Intel Xeon Granite Rapids  | 2     | 1         | 2                | ✗ No         | ✗ No               |
 | r8ib.xlarge          | 32.00        | Intel Xeon Granite Rapids  | 4     | 2         | 2                | ✗ No         | ✗ No               |
@@ -470,6 +486,18 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | r8ib.32xlarge        | 1024.00      | Intel Xeon Granite Rapids  | 128   | 64        | 2                | ✗ No         | ✗ No               |
 | r8ib.48xlarge        | 1536.00      | Intel Xeon Granite Rapids  | 192   | 96        | 2                | ✗ No         | ✗ No               |
 | r8ib.96xlarge        | 3072.00      | Intel Xeon Granite Rapids  | 384   | 192       | 2                | ✗ No         | ✗ No               |
+| **R8idb**            |
+| r8idb.large          | 16.00        | Intel Xeon Granite Rapids  | 2     | 1         | 2                | ✗ No         | ✗ No               |
+| r8idb.xlarge         | 32.00        | Intel Xeon Granite Rapids  | 4     | 2         | 2                | ✗ No         | ✗ No               |
+| r8idb.2xlarge        | 64.00        | Intel Xeon Granite Rapids  | 8     | 4         | 2                | ✗ No         | ✗ No               |
+| r8idb.4xlarge        | 128.00       | Intel Xeon Granite Rapids  | 16    | 8         | 2                | ✗ No         | ✗ No               |
+| r8idb.8xlarge        | 256.00       | Intel Xeon Granite Rapids  | 32    | 16        | 2                | ✗ No         | ✗ No               |
+| r8idb.12xlarge       | 384.00       | Intel Xeon Granite Rapids  | 48    | 24        | 2                | ✗ No         | ✗ No               |
+| r8idb.16xlarge       | 512.00       | Intel Xeon Granite Rapids  | 64    | 32        | 2                | ✗ No         | ✗ No               |
+| r8idb.24xlarge       | 768.00       | Intel Xeon Granite Rapids  | 96    | 48        | 2                | ✗ No         | ✗ No               |
+| r8idb.32xlarge       | 1024.00      | Intel Xeon Granite Rapids  | 128   | 64        | 2                | ✗ No         | ✗ No               |
+| r8idb.48xlarge       | 1536.00      | Intel Xeon Granite Rapids  | 192   | 96        | 2                | ✗ No         | ✗ No               |
+| r8idb.96xlarge       | 3072.00      | Intel Xeon Granite Rapids  | 384   | 192       | 2                | ✗ No         | ✗ No               |
 | **U-3tb1**           |
 | u-3tb1.56xlarge      | 3072.00      | Intel Xeon Platinum 8176M  | 224   | 112       | 2                | ✗ No         | ✗ No               |
 | **U-6tb1**           |
@@ -913,6 +941,18 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | r8in.32xlarge        | 200 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | r8in.48xlarge        | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
 | r8in.96xlarge        | 600 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
+| **R8idn**            |
+| r8idn.large 1        | 3.125 / 25.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 20                         | ✓ Yes |
+| r8idn.xlarge 1       | 6.25 / 30.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
+| r8idn.2xlarge 1      | 12.5 / 40.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
+| r8idn.4xlarge 1      | 25.0 / 50.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
+| r8idn.8xlarge        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
+| r8idn.12xlarge       | 75 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 50                         | ✓ Yes |
+| r8idn.16xlarge       | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
+| r8idn.24xlarge       | 150 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
+| r8idn.32xlarge       | 200 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
+| r8idn.48xlarge       | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
+| r8idn.96xlarge       | 600 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
 | **R8ib**             |
 | r8ib.large 1         | 2.083 / 16.667                    | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 20                         | ✓ Yes |
 | r8ib.xlarge 1        | 4.166 / 20.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
@@ -925,6 +965,18 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | r8ib.32xlarge        | 133.33 Gigabit                    | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | r8ib.48xlarge        | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
 | r8ib.96xlarge        | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
+| **R8idb**            |
+| r8idb.large 1        | 2.083 / 16.667                    | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 20                         | ✓ Yes |
+| r8idb.xlarge 1       | 4.166 / 20.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
+| r8idb.2xlarge 1      | 8.333 / 26.667                    | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
+| r8idb.4xlarge 1      | 16.666 / 33.333                   | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
+| r8idb.8xlarge        | 33.33 Gigabit                     | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
+| r8idb.12xlarge       | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 50                         | ✓ Yes |
+| r8idb.16xlarge       | 66.66 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
+| r8idb.24xlarge       | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
+| r8idb.32xlarge       | 133.33 Gigabit                    | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
+| r8idb.48xlarge       | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
+| r8idb.96xlarge       | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
 | **U-3tb1**           |
 | u-3tb1.56xlarge      | 50 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
 | **U-6tb1**           |
@@ -1057,10 +1109,10 @@ cards, to achieve 200 Gbps throughput. Each ENI attached to a network card can a
 For `u7in-16tb.224xlarge`, `u7in-24tb.224xlarge`, `u7in-32tb.224xlarge`, `u7inh-32tb.480xlarge`, you must attach at least 2 ENIs, to separate network
 cards, to achieve 200 Gbps throughput. Each ENI attached to a network card can achieve up to 100 Gbps.
 
-For `r8gn.48xlarge`, `r8gn.metal-48xl`, you must attach at least 2 ENIs, to separate network
+For `r8in.96xlarge`, `r8idn.96xlarge`, `r8gn.48xlarge`, `r8gn.metal-48xl`, you must attach at least 2 ENIs, to separate network
 cards, to achieve 600 Gbps throughput. Each ENI attached to a network card can achieve up to 300 Gbps.
 
-For `r8gb.48xlarge`, `r8gb.metal-48xl`, you must attach at least 2 ENIs, to separate network
+For `r8ib.96xlarge`, `r8idb.96xlarge`, `r8gb.48xlarge`, `r8gb.metal-48xl`, you must attach at least 2 ENIs, to separate network
 cards, to achieve 400 Gbps throughput. Each ENI attached to a network card can achieve up to 200 Gbps.
 
 ## Amazon EBS specifications
@@ -1410,6 +1462,18 @@ Amazon EBS and Amazon EC2 can become a performance bottleneck.
 | r8in.32xlarge        | 40000.00                            | 5000.00                                           | 160000.00                            | ✓ Yes | ✗ No                                                                                                                 | 88 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | r8in.48xlarge        | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | ✗ No                                                                                                                 | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
 | r8in.96xlarge        | 120000.00                           | 15000.00                                          | 480000.00                            | ✓ Yes | ✓ Yes ([2 EBS cards](../../../AWSEC2/latest/UserGuide/ebs_cards.md "../../../AWSEC2/latest/UserGuide/ebs_cards.md")) | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
+| **R8idn**            |
+| r8idn.large 1        | 650.00 / 10000.00                   | 81.25 / 1250.00                                   | 3600.00 / 40000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| r8idn.xlarge 1       | 1250.00 / 10000.00                  | 156.25 / 1250.00                                  | 6000.00 / 40000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| r8idn.2xlarge 1      | 2500.00 / 10000.00                  | 312.50 / 1250.00                                  | 12000.00 / 40000.00                  | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| r8idn.4xlarge 1      | 5000.00 / 10000.00                  | 625.00 / 1250.00                                  | 20000.00 / 40000.00                  | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| r8idn.8xlarge        | 10000.00                            | 1250.00                                           | 40000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| r8idn.12xlarge       | 15000.00                            | 1875.00                                           | 60000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| r8idn.16xlarge       | 20000.00                            | 2500.00                                           | 80000.00                             | ✓ Yes | ✗ No                                                                                                                 | 48 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| r8idn.24xlarge       | 30000.00                            | 3750.00                                           | 120000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| r8idn.32xlarge       | 40000.00                            | 5000.00                                           | 160000.00                            | ✓ Yes | ✗ No                                                                                                                 | 88 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| r8idn.48xlarge       | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | ✗ No                                                                                                                 | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
+| r8idn.96xlarge       | 120000.00                           | 15000.00                                          | 480000.00                            | ✓ Yes | ✓ Yes ([2 EBS cards](../../../AWSEC2/latest/UserGuide/ebs_cards.md "../../../AWSEC2/latest/UserGuide/ebs_cards.md")) | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
 | **R8ib**             |
 | r8ib.large 1         | 1563.00 / 25000.00                  | 195.38 / 3125.00                                  | 7500.00 / 120000.00                  | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | r8ib.xlarge 1        | 3125.00 / 25000.00                  | 390.62 / 3125.00                                  | 15000.00 / 120000.00                 | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
@@ -1422,6 +1486,18 @@ Amazon EBS and Amazon EC2 can become a performance bottleneck.
 | r8ib.32xlarge        | 100000.00                           | 12500.00                                          | 480000.00                            | ✓ Yes | ✗ No                                                                                                                 | 88 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | r8ib.48xlarge        | 150000.00                           | 18750.00                                          | 720000.00                            | ✓ Yes | ✗ No                                                                                                                 | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
 | r8ib.96xlarge        | 300000.00                           | 37500.00                                          | 1440000.00                           | ✓ Yes | ✓ Yes ([2 EBS cards](../../../AWSEC2/latest/UserGuide/ebs_cards.md "../../../AWSEC2/latest/UserGuide/ebs_cards.md")) | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
+| **R8idb**            |
+| r8idb.large 1        | 1563.00 / 25000.00                  | 195.38 / 3125.00                                  | 7500.00 / 120000.00                  | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| r8idb.xlarge 1       | 3125.00 / 25000.00                  | 390.62 / 3125.00                                  | 15000.00 / 120000.00                 | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| r8idb.2xlarge 1      | 6250.00 / 25000.00                  | 781.25 / 3125.00                                  | 30000.00 / 120000.00                 | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| r8idb.4xlarge 1      | 12500.00 / 25000.00                 | 1562.50 / 3125.00                                 | 60000.00 / 120000.00                 | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| r8idb.8xlarge        | 25000.00                            | 3125.00                                           | 120000.00                            | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| r8idb.12xlarge       | 37500.00                            | 4687.50                                           | 180000.00                            | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| r8idb.16xlarge       | 50000.00                            | 6250.00                                           | 240000.00                            | ✓ Yes | ✗ No                                                                                                                 | 48 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| r8idb.24xlarge       | 75000.00                            | 9375.00                                           | 360000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| r8idb.32xlarge       | 100000.00                           | 12500.00                                          | 480000.00                            | ✓ Yes | ✗ No                                                                                                                 | 88 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| r8idb.48xlarge       | 150000.00                           | 18750.00                                          | 720000.00                            | ✓ Yes | ✗ No                                                                                                                 | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
+| r8idb.96xlarge       | 300000.00                           | 37500.00                                          | 1440000.00                           | ✓ Yes | ✓ Yes ([2 EBS cards](../../../AWSEC2/latest/UserGuide/ebs_cards.md "../../../AWSEC2/latest/UserGuide/ebs_cards.md")) | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
 | **U-3tb1**           |
 | u-3tb1.56xlarge      | 19000.00                            | 2375.00                                           | 80000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 27 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
 | **U-6tb1**           |
@@ -1653,6 +1729,30 @@ along with the aggregated IOPS performance with 4,096 byte block size at queue d
 | r8id.96xlarge     | 6 x 3800 GB            | NVMe SSD            | 6,439,992 / 3,220,008              |                        | ✓ Yes          |
 | r8id.metal-48xl   | 3 x 3800 GB            | NVMe SSD            | 3,219,996 / 1,610,004              |                        | ✓ Yes          |
 | r8id.metal-96xl   | 6 x 3800 GB            | NVMe SSD            | 6,439,992 / 3,220,008              |                        | ✓ Yes          |
+| **R8idn**         |
+| r8idn.large       | 1 x 118 GB             | NVMe SSD            | 33,542 / 16,771                    |                        | ✓ Yes          |
+| r8idn.xlarge      | 1 x 237 GB             | NVMe SSD            | 67,083 / 33,542                    |                        | ✓ Yes          |
+| r8idn.2xlarge     | 1 x 474 GB             | NVMe SSD            | 134,167 / 67,084                   |                        | ✓ Yes          |
+| r8idn.4xlarge     | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
+| r8idn.8xlarge     | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
+| r8idn.12xlarge    | 1 x 2850 GB            | NVMe SSD            | 804,999 / 402,501                  |                        | ✓ Yes          |
+| r8idn.16xlarge    | 1 x 3800 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
+| r8idn.24xlarge    | 2 x 2850 GB            | NVMe SSD            | 1,609,998 / 805,002                |                        | ✓ Yes          |
+| r8idn.32xlarge    | 2 x 3800 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
+| r8idn.48xlarge    | 3 x 3800 GB            | NVMe SSD            | 3,219,996 / 1,610,004              |                        | ✓ Yes          |
+| r8idn.96xlarge    | 6 x 3800 GB            | NVMe SSD            | 6,439,992 / 3,220,008              |                        | ✓ Yes          |
+| **R8idb**         |
+| r8idb.large       | 1 x 118 GB             | NVMe SSD            | 33,542 / 16,771                    |                        | ✓ Yes          |
+| r8idb.xlarge      | 1 x 237 GB             | NVMe SSD            | 67,083 / 33,542                    |                        | ✓ Yes          |
+| r8idb.2xlarge     | 1 x 474 GB             | NVMe SSD            | 134,167 / 67,084                   |                        | ✓ Yes          |
+| r8idb.4xlarge     | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
+| r8idb.8xlarge     | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
+| r8idb.12xlarge    | 1 x 2850 GB            | NVMe SSD            | 804,999 / 402,501                  |                        | ✓ Yes          |
+| r8idb.16xlarge    | 1 x 3800 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
+| r8idb.24xlarge    | 2 x 2850 GB            | NVMe SSD            | 1,609,998 / 805,002                |                        | ✓ Yes          |
+| r8idb.32xlarge    | 2 x 3800 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
+| r8idb.48xlarge    | 3 x 3800 GB            | NVMe SSD            | 3,219,996 / 1,610,004              |                        | ✓ Yes          |
+| r8idb.96xlarge    | 6 x 3800 GB            | NVMe SSD            | 6,439,992 / 3,220,008              |                        | ✓ Yes          |
 | **X1**            |
 | x1.16xlarge       | 1 x 1920 GB            | SSD                 |                                    | ✓ Yes                  |                |
 | x1.32xlarge       | 2 x 1920 GB            | SSD                 |                                    | ✓ Yes                  |                |
@@ -2029,6 +2129,18 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | r8in.32xlarge        | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | r8in.48xlarge        | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | r8in.96xlarge        | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| **R8idn**            |
+| r8idn.large          | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
+| r8idn.xlarge         | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| r8idn.2xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| r8idn.4xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| r8idn.8xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| r8idn.12xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| r8idn.16xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| r8idn.24xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| r8idn.32xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| r8idn.48xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| r8idn.96xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | **R8ib**             |
 | r8ib.large           | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
 | r8ib.xlarge          | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
@@ -2041,6 +2153,18 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | r8ib.32xlarge        | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | r8ib.48xlarge        | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | r8ib.96xlarge        | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| **R8idb**            |
+| r8idb.large          | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
+| r8idb.xlarge         | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| r8idb.2xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| r8idb.4xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| r8idb.8xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| r8idb.12xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| r8idb.16xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| r8idb.24xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| r8idb.32xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| r8idb.48xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| r8idb.96xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | **U-3tb1**           |
 | u-3tb1.56xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
 | **U-6tb1**           |

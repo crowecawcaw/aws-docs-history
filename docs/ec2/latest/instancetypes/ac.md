@@ -27,7 +27,6 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | --------------- | ------------------------ | --------------- | --------------- | --------------- | --------------- | --------------- | -------------- | -------------- |
 | DL1             | `dl1.24xlarge`           |
 | DL2q            | `dl2q.24xlarge`          |
-| F1              | `f1.2xlarge`             | `f1.4xlarge`    | `f1.16xlarge`   |
 | F2              | `f2.6xlarge`             | `f2.12xlarge`   | `f2.48xlarge`   |
 | G4ad            | `g4ad.xlarge`            | `g4ad.2xlarge`  | `g4ad.4xlarge`  | `g4ad.8xlarge`  | `g4ad.16xlarge` |
 | G4dn            | `g4dn.xlarge`            | `g4dn.2xlarge`  | `g4dn.4xlarge`  | `g4dn.8xlarge`  | `g4dn.12xlarge` | `g4dn.16xlarge` | `g4dn.metal`   |
@@ -61,7 +60,6 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | --------------- | ----------------------------------------------------------- | ----------------------------- | ------------------------- | ----------------------- | ------------ | ------------------- | --------------------------- | ------- |
 | DL1             | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Linux                       |
 | DL2q            | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Linux                       |
-| F1              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Linux                       |
 | F2              | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86_64)                  | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Linux                       |
 | G4ad            | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86_64)                  | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux   |
 | G4dn            | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux   |
@@ -102,10 +100,6 @@ Linux operating systems. `p5.48xlarge` supports Linux operating systems only.
 | dl1.24xlarge       | 768.00       | Intel Xeon Platinum 8275CL  | 96    | 48        | 2                | 8 x Habana Gaudi HL-205 GPU                       | 256 GiB (8 x 32 GiB)    |
 | **DL2q**           |
 | dl2q.24xlarge      | 768.00       | Intel Xeon Cascade Lake     | 96    | 48        | 2                | 8 x Qualcomm Qualcomm AI100 inference accelerator | 125 GiB (8 x 15 GiB)    |
-| **F1**             |
-| f1.2xlarge         | 122.00       | Intel Xeon E5-2686v4        | 8     | 4         | 2                | 1 x Xilinx Virtex UltraScale (VU9P) FPGA          | 64 GiB (1 x 64 GiB)     |
-| f1.4xlarge         | 244.00       | Intel Xeon E5-2686v4        | 16    | 8         | 2                | 2 x Xilinx Virtex UltraScale (VU9P) FPGA          | 128 GiB (2 x 64 GiB)    |
-| f1.16xlarge        | 976.00       | Intel Xeon E5-2686v4        | 64    | 32        | 2                | 8 x Xilinx Virtex UltraScale (VU9P) FPGA          | 512 GiB (8 x 64 GiB)    |
 | **F2**             |
 | f2.6xlarge         | 256.00       | AMD EPYC 7R13               | 24    | 12        | 2                | 1 x Xilinx Virtex UltraScale+ (VU47P) FPGA        | 80 GiB (1 x 80 GiB)     |
 | f2.12xlarge        | 512.00       | AMD EPYC 7R13               | 48    | 24        | 2                | 2 x Xilinx Virtex UltraScale+ (VU47P) FPGA        | 160 GiB (2 x 80 GiB)    |
@@ -225,10 +219,6 @@ Linux operating systems. `p5.48xlarge` supports Linux operating systems only.
 | dl1.24xlarge       | 4x 100 Gigabit                    | ✗ No  | ✓ Yes | ✗ No        | 4             | 60                      | 50                         | ✓ Yes |
 | **DL2q**           |
 | dl2q.24xlarge      | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 15                      | 50                         | ✓ Yes |
-| **F1**             |
-| f1.2xlarge 1       | 2.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| f1.4xlarge 1       | 5.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| f1.16xlarge        | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
 | **F2**             |
 | f2.6xlarge         | 12.5 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
 | f2.12xlarge        | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
@@ -375,10 +365,6 @@ Amazon EBS and Amazon EC2 can become a performance bottleneck.
 | dl1.24xlarge       | 19000.00                            | 2375.00                                           | 80000.00                             | ✓ Yes | ✗ No               | Up to 28 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
 | **DL2q**           |
 | dl2q.24xlarge      | 19000.00                            | 2375.00                                           | 80000.00                             | ✓ Yes | ✗ No               | Up to 19 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| **F1**             |
-| f1.2xlarge         | 1700.00                             | 212.50                                            | 12000.00                             | ✗ No  | ✗ No               | Up to 26 ([Xen-based limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits "../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits"))      |
-| f1.4xlarge         | 3500.00                             | 437.50                                            | 44000.00                             | ✗ No  | ✗ No               | Up to 25 ([Xen-based limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits "../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits"))      |
-| f1.16xlarge        | 14000.00                            | 1750.00                                           | 75000.00                             | ✗ No  | ✗ No               | Up to 19 ([Xen-based limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits "../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits"))      |
 | **F2**             |
 | f2.6xlarge         | 7500.00                             | 937.50                                            | 30000.00                             | ✓ Yes | ✗ No               | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | f2.12xlarge        | 15000.00                            | 1875.00                                           | 60000.00                             | ✓ Yes | ✗ No               | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
@@ -506,10 +492,6 @@ along with the aggregated IOPS performance with 4,096 byte block size at queue d
 | ------------------ | ---------------------- | ------------------- | ---------------------------------- | ---------------------- | -------------- |
 | **DL1**            |
 | dl1.24xlarge       | 4 x 1000 GB            | NVMe SSD            | 1,000,000 / 800,000                |                        | ✓ Yes          |
-| **F1**             |
-| f1.2xlarge         | 1 x 470 GB             | NVMe SSD            |                                    |                        | ✓ Yes          |
-| f1.4xlarge         | 1 x 940 GB             | NVMe SSD            |                                    |                        | ✓ Yes          |
-| f1.16xlarge        | 4 x 940 GB             | NVMe SSD            |                                    |                        | ✓ Yes          |
 | **F2**             |
 | f2.6xlarge         | 1 x 940 GB             | NVMe SSD            | 400,000 / 125,000                  |                        | ✓ Yes          |
 | f2.12xlarge        | 2 x 940 GB             | NVMe SSD            | 800,000 / 250,000                  |                        | ✓ Yes          |
@@ -615,10 +597,6 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | dl1.24xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✓ Yes          |
 | **DL2q**           |
 | dl2q.24xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✓ Yes          |
-| **F1**             |
-| f1.2xlarge         | ✓ Yes          | ✓ Yes                        | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
-| f1.4xlarge         | ✓ Yes          | ✓ Yes                        | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
-| f1.16xlarge        | ✓ Yes          | ✓ Yes                        | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
 | **F2**             |
 | f2.6xlarge         | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | f2.12xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |

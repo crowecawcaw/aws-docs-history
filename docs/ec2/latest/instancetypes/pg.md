@@ -33,7 +33,6 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | M2              | `m2.xlarge`              | `m2.2xlarge` | `m2.4xlarge`  |
 | M3              | `m3.medium`              | `m3.large`   | `m3.xlarge`   | `m3.2xlarge` |
 | M4              | `m4.large`               | `m4.xlarge`  | `m4.2xlarge`  | `m4.4xlarge` | `m4.10xlarge` | `m4.16xlarge` |
-| P2              | `p2.xlarge`              | `p2.8xlarge` | `p2.16xlarge` |
 | P3              | `p3.2xlarge`             | `p3.8xlarge` | `p3.16xlarge` |
 | P3dn            | `p3dn.24xlarge`          |
 | R3              | `r3.large`               | `r3.xlarge`  | `r3.2xlarge`  | `r3.4xlarge` | `r3.8xlarge`  |
@@ -54,7 +53,6 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | M2              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Windows                     | Linux |
 | M3              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | M4              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
-| P2              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
 | P3              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
 | P3dn            | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
 | R3              | Xen                                                         | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
@@ -63,85 +61,81 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 
 ## Performance specifications
 
-| Instance type | Memory (GiB) | Processor                 | vCPUs | CPU cores | Threads per core | Accelerators        | Accelerator memory    |
-| ------------- | ------------ | ------------------------- | ----- | --------- | ---------------- | ------------------- | --------------------- |
+| Instance type | Memory (GiB) | Processor                 | vCPUs | CPU cores | Threads per core | Accelerators        | Accelerator memory   |
+| ------------- | ------------ | ------------------------- | ----- | --------- | ---------------- | ------------------- | -------------------- |
 | **A1**        |
-| a1.medium     | 2.00         | AWS Graviton Processor    | 1     | 1         | 1                | ✗ No                | ✗ No                  |
-| a1.large      | 4.00         | AWS Graviton Processor    | 2     | 2         | 1                | ✗ No                | ✗ No                  |
-| a1.xlarge     | 8.00         | AWS Graviton Processor    | 4     | 4         | 1                | ✗ No                | ✗ No                  |
-| a1.2xlarge    | 16.00        | AWS Graviton Processor    | 8     | 8         | 1                | ✗ No                | ✗ No                  |
-| a1.4xlarge    | 32.00        | AWS Graviton Processor    | 16    | 16        | 1                | ✗ No                | ✗ No                  |
-| a1.metal      | 32.00        | AWS Graviton Processor    | 16    | 16        | 1                | ✗ No                | ✗ No                  |
+| a1.medium     | 2.00         | AWS Graviton Processor    | 1     | 1         | 1                | ✗ No                | ✗ No                 |
+| a1.large      | 4.00         | AWS Graviton Processor    | 2     | 2         | 1                | ✗ No                | ✗ No                 |
+| a1.xlarge     | 8.00         | AWS Graviton Processor    | 4     | 4         | 1                | ✗ No                | ✗ No                 |
+| a1.2xlarge    | 16.00        | AWS Graviton Processor    | 8     | 8         | 1                | ✗ No                | ✗ No                 |
+| a1.4xlarge    | 32.00        | AWS Graviton Processor    | 16    | 16        | 1                | ✗ No                | ✗ No                 |
+| a1.metal      | 32.00        | AWS Graviton Processor    | 16    | 16        | 1                | ✗ No                | ✗ No                 |
 | **C1**        |
-| c1.medium     | 1.70         | Intel Xeon Family         | 2     | 2         | 1                | ✗ No                | ✗ No                  |
-| c1.xlarge     | 7.00         | Intel Xeon Family         | 8     | 8         | 1                | ✗ No                | ✗ No                  |
+| c1.medium     | 1.70         | Intel Xeon Family         | 2     | 2         | 1                | ✗ No                | ✗ No                 |
+| c1.xlarge     | 7.00         | Intel Xeon Family         | 8     | 8         | 1                | ✗ No                | ✗ No                 |
 | **C3**        |
-| c3.large      | 3.75         | Intel Xeon E5-2680v2      | 2     | 1         | 2                | ✗ No                | ✗ No                  |
-| c3.xlarge     | 7.50         | Intel Xeon E5-2680v2      | 4     | 2         | 2                | ✗ No                | ✗ No                  |
-| c3.2xlarge    | 15.00        | Intel Xeon E5-2680v2      | 8     | 4         | 2                | ✗ No                | ✗ No                  |
-| c3.4xlarge    | 30.00        | Intel Xeon E5-2680v2      | 16    | 8         | 2                | ✗ No                | ✗ No                  |
-| c3.8xlarge    | 60.00        | Intel Xeon E5-2680v2      | 32    | 16        | 2                | ✗ No                | ✗ No                  |
+| c3.large      | 3.75         | Intel Xeon E5-2680v2      | 2     | 1         | 2                | ✗ No                | ✗ No                 |
+| c3.xlarge     | 7.50         | Intel Xeon E5-2680v2      | 4     | 2         | 2                | ✗ No                | ✗ No                 |
+| c3.2xlarge    | 15.00        | Intel Xeon E5-2680v2      | 8     | 4         | 2                | ✗ No                | ✗ No                 |
+| c3.4xlarge    | 30.00        | Intel Xeon E5-2680v2      | 16    | 8         | 2                | ✗ No                | ✗ No                 |
+| c3.8xlarge    | 60.00        | Intel Xeon E5-2680v2      | 32    | 16        | 2                | ✗ No                | ✗ No                 |
 | **C4**        |
-| c4.large      | 3.75         | Intel Xeon E5-2666v3      | 2     | 1         | 2                | ✗ No                | ✗ No                  |
-| c4.xlarge     | 7.50         | Intel Xeon E5-2666v3      | 4     | 2         | 2                | ✗ No                | ✗ No                  |
-| c4.2xlarge    | 15.00        | Intel Xeon E5-2666v3      | 8     | 4         | 2                | ✗ No                | ✗ No                  |
-| c4.4xlarge    | 30.00        | Intel Xeon E5-2666v3      | 16    | 8         | 2                | ✗ No                | ✗ No                  |
-| c4.8xlarge    | 60.00        | Intel Xeon E5-2666v3      | 36    | 18        | 2                | ✗ No                | ✗ No                  |
+| c4.large      | 3.75         | Intel Xeon E5-2666v3      | 2     | 1         | 2                | ✗ No                | ✗ No                 |
+| c4.xlarge     | 7.50         | Intel Xeon E5-2666v3      | 4     | 2         | 2                | ✗ No                | ✗ No                 |
+| c4.2xlarge    | 15.00        | Intel Xeon E5-2666v3      | 8     | 4         | 2                | ✗ No                | ✗ No                 |
+| c4.4xlarge    | 30.00        | Intel Xeon E5-2666v3      | 16    | 8         | 2                | ✗ No                | ✗ No                 |
+| c4.8xlarge    | 60.00        | Intel Xeon E5-2666v3      | 36    | 18        | 2                | ✗ No                | ✗ No                 |
 | **G3**        |
-| g3.4xlarge    | 122.00       | Intel Xeon E5-2686 v4     | 16    | 8         | 2                | 1 x NVIDIA M60 GPU  | 8 GiB (1 x 8 GiB)     |
-| g3.8xlarge    | 244.00       | Intel Xeon E5-2686 v4     | 32    | 16        | 2                | 2 x NVIDIA M60 GPU  | 16 GiB (2 x 8 GiB)    |
-| g3.16xlarge   | 488.00       | Intel Xeon E5-2686 v4     | 64    | 32        | 2                | 4 x NVIDIA M60 GPU  | 32 GiB (4 x 8 GiB)    |
+| g3.4xlarge    | 122.00       | Intel Xeon E5-2686 v4     | 16    | 8         | 2                | 1 x NVIDIA M60 GPU  | 8 GiB (1 x 8 GiB)    |
+| g3.8xlarge    | 244.00       | Intel Xeon E5-2686 v4     | 32    | 16        | 2                | 2 x NVIDIA M60 GPU  | 16 GiB (2 x 8 GiB)   |
+| g3.16xlarge   | 488.00       | Intel Xeon E5-2686 v4     | 64    | 32        | 2                | 4 x NVIDIA M60 GPU  | 32 GiB (4 x 8 GiB)   |
 | **I2**        |
-| i2.xlarge     | 30.50        | Intel Xeon E5-2670v2      | 4     | 2         | 2                | ✗ No                | ✗ No                  |
-| i2.2xlarge    | 61.00        | Intel Xeon E5-2670v2      | 8     | 4         | 2                | ✗ No                | ✗ No                  |
-| i2.4xlarge    | 122.00       | Intel Xeon E5-2670v2      | 16    | 8         | 2                | ✗ No                | ✗ No                  |
-| i2.8xlarge    | 244.00       | Intel Xeon E5-2670v2      | 32    | 16        | 2                | ✗ No                | ✗ No                  |
+| i2.xlarge     | 30.50        | Intel Xeon E5-2670v2      | 4     | 2         | 2                | ✗ No                | ✗ No                 |
+| i2.2xlarge    | 61.00        | Intel Xeon E5-2670v2      | 8     | 4         | 2                | ✗ No                | ✗ No                 |
+| i2.4xlarge    | 122.00       | Intel Xeon E5-2670v2      | 16    | 8         | 2                | ✗ No                | ✗ No                 |
+| i2.8xlarge    | 244.00       | Intel Xeon E5-2670v2      | 32    | 16        | 2                | ✗ No                | ✗ No                 |
 | **M1**        |
-| m1.small      | 1.70         | Intel Xeon Family         | 1     | 1         | 1                | ✗ No                | ✗ No                  |
-| m1.medium     | 3.70         | Intel Xeon Family         | 1     | 1         | 1                | ✗ No                | ✗ No                  |
-| m1.large      | 7.50         | Intel Xeon Family         | 2     | 2         | 1                | ✗ No                | ✗ No                  |
-| m1.xlarge     | 15.00        | Intel Xeon Family         | 4     | 4         | 1                | ✗ No                | ✗ No                  |
+| m1.small      | 1.70         | Intel Xeon Family         | 1     | 1         | 1                | ✗ No                | ✗ No                 |
+| m1.medium     | 3.70         | Intel Xeon Family         | 1     | 1         | 1                | ✗ No                | ✗ No                 |
+| m1.large      | 7.50         | Intel Xeon Family         | 2     | 2         | 1                | ✗ No                | ✗ No                 |
+| m1.xlarge     | 15.00        | Intel Xeon Family         | 4     | 4         | 1                | ✗ No                | ✗ No                 |
 | **M2**        |
-| m2.xlarge     | 17.10        | Intel Xeon Family         | 2     | 2         | 1                | ✗ No                | ✗ No                  |
-| m2.2xlarge    | 34.20        | Intel Xeon Family         | 4     | 4         | 1                | ✗ No                | ✗ No                  |
-| m2.4xlarge    | 68.40        | Intel Xeon Family         | 8     | 8         | 1                | ✗ No                | ✗ No                  |
+| m2.xlarge     | 17.10        | Intel Xeon Family         | 2     | 2         | 1                | ✗ No                | ✗ No                 |
+| m2.2xlarge    | 34.20        | Intel Xeon Family         | 4     | 4         | 1                | ✗ No                | ✗ No                 |
+| m2.4xlarge    | 68.40        | Intel Xeon Family         | 8     | 8         | 1                | ✗ No                | ✗ No                 |
 | **M3**        |
-| m3.medium     | 3.75         | Intel Xeon E5-2670v2      | 1     | 1         | 1                | ✗ No                | ✗ No                  |
-| m3.large      | 7.50         | Intel Xeon E5-2670v2      | 2     | 1         | 2                | ✗ No                | ✗ No                  |
-| m3.xlarge     | 15.00        | Intel Xeon E5-2670v2      | 4     | 2         | 2                | ✗ No                | ✗ No                  |
-| m3.2xlarge    | 30.00        | Intel Xeon E5-2670v2      | 8     | 4         | 2                | ✗ No                | ✗ No                  |
+| m3.medium     | 3.75         | Intel Xeon E5-2670v2      | 1     | 1         | 1                | ✗ No                | ✗ No                 |
+| m3.large      | 7.50         | Intel Xeon E5-2670v2      | 2     | 1         | 2                | ✗ No                | ✗ No                 |
+| m3.xlarge     | 15.00        | Intel Xeon E5-2670v2      | 4     | 2         | 2                | ✗ No                | ✗ No                 |
+| m3.2xlarge    | 30.00        | Intel Xeon E5-2670v2      | 8     | 4         | 2                | ✗ No                | ✗ No                 |
 | **M4**        |
-| m4.large      | 8.00         | Intel Xeon E5-2676v3      | 2     | 1         | 2                | ✗ No                | ✗ No                  |
-| m4.xlarge     | 16.00        | Intel Xeon E5-2676v3      | 4     | 2         | 2                | ✗ No                | ✗ No                  |
-| m4.2xlarge    | 32.00        | Intel Xeon E5-2676v3      | 8     | 4         | 2                | ✗ No                | ✗ No                  |
-| m4.4xlarge    | 64.00        | Intel Xeon E5-2676v3      | 16    | 8         | 2                | ✗ No                | ✗ No                  |
-| m4.10xlarge   | 160.00       | Intel Xeon E5-2676v3      | 40    | 20        | 2                | ✗ No                | ✗ No                  |
-| m4.16xlarge   | 256.00       | Intel Xeon E5-2686v4      | 64    | 32        | 2                | ✗ No                | ✗ No                  |
-| **P2**        |
-| p2.xlarge     | 61.00        | Intel Xeon E5-2686v4      | 4     | 2         | 2                | 1 x NVIDIA K80 GPU  | 12 GiB (1 x 12 GiB)   |
-| p2.8xlarge    | 488.00       | Intel Xeon E5-2686v4      | 32    | 16        | 2                | 8 x NVIDIA K80 GPU  | 96 GiB (8 x 12 GiB)   |
-| p2.16xlarge   | 732.00       | Intel Xeon E5-2686 v4     | 64    | 32        | 2                | 16 x NVIDIA K80 GPU | 192 GiB (16 x 12 GiB) |
+| m4.large      | 8.00         | Intel Xeon E5-2676v3      | 2     | 1         | 2                | ✗ No                | ✗ No                 |
+| m4.xlarge     | 16.00        | Intel Xeon E5-2676v3      | 4     | 2         | 2                | ✗ No                | ✗ No                 |
+| m4.2xlarge    | 32.00        | Intel Xeon E5-2676v3      | 8     | 4         | 2                | ✗ No                | ✗ No                 |
+| m4.4xlarge    | 64.00        | Intel Xeon E5-2676v3      | 16    | 8         | 2                | ✗ No                | ✗ No                 |
+| m4.10xlarge   | 160.00       | Intel Xeon E5-2676v3      | 40    | 20        | 2                | ✗ No                | ✗ No                 |
+| m4.16xlarge   | 256.00       | Intel Xeon E5-2686v4      | 64    | 32        | 2                | ✗ No                | ✗ No                 |
 | **P3**        |
-| p3.2xlarge    | 61.00        | Intel Xeon E5-2686 v4     | 8     | 4         | 2                | 1 x NVIDIA V100 GPU | 16 GiB (1 x 16 GiB)   |
-| p3.8xlarge    | 244.00       | Intel Xeon E5-2686 v4     | 32    | 16        | 2                | 4 x NVIDIA V100 GPU | 64 GiB (4 x 16 GiB)   |
-| p3.16xlarge   | 488.00       | Intel Xeon E5-2686 v4     | 64    | 32        | 2                | 8 x NVIDIA V100 GPU | 128 GiB (8 x 16 GiB)  |
+| p3.2xlarge    | 61.00        | Intel Xeon E5-2686 v4     | 8     | 4         | 2                | 1 x NVIDIA V100 GPU | 16 GiB (1 x 16 GiB)  |
+| p3.8xlarge    | 244.00       | Intel Xeon E5-2686 v4     | 32    | 16        | 2                | 4 x NVIDIA V100 GPU | 64 GiB (4 x 16 GiB)  |
+| p3.16xlarge   | 488.00       | Intel Xeon E5-2686 v4     | 64    | 32        | 2                | 8 x NVIDIA V100 GPU | 128 GiB (8 x 16 GiB) |
 | **P3dn**      |
-| p3dn.24xlarge | 768.00       | Intel Xeon Platinum 8175  | 96    | 48        | 2                | 8 x NVIDIA V100 GPU | 256 GiB (8 x 32 GiB)  |
+| p3dn.24xlarge | 768.00       | Intel Xeon Platinum 8175  | 96    | 48        | 2                | 8 x NVIDIA V100 GPU | 256 GiB (8 x 32 GiB) |
 | **R3**        |
-| r3.large      | 15.00        | Intel Xeon E5-2670v2      | 2     | 1         | 2                | ✗ No                | ✗ No                  |
-| r3.xlarge     | 30.50        | Intel Xeon E5-2670v2      | 4     | 2         | 2                | ✗ No                | ✗ No                  |
-| r3.2xlarge    | 61.00        | Intel Xeon E5-2670v2      | 8     | 4         | 2                | ✗ No                | ✗ No                  |
-| r3.4xlarge    | 122.00       | Intel Xeon E5-2670v2      | 16    | 8         | 2                | ✗ No                | ✗ No                  |
-| r3.8xlarge    | 244.00       | Intel Xeon E5-2670v2      | 32    | 16        | 2                | ✗ No                | ✗ No                  |
+| r3.large      | 15.00        | Intel Xeon E5-2670v2      | 2     | 1         | 2                | ✗ No                | ✗ No                 |
+| r3.xlarge     | 30.50        | Intel Xeon E5-2670v2      | 4     | 2         | 2                | ✗ No                | ✗ No                 |
+| r3.2xlarge    | 61.00        | Intel Xeon E5-2670v2      | 8     | 4         | 2                | ✗ No                | ✗ No                 |
+| r3.4xlarge    | 122.00       | Intel Xeon E5-2670v2      | 16    | 8         | 2                | ✗ No                | ✗ No                 |
+| r3.8xlarge    | 244.00       | Intel Xeon E5-2670v2      | 32    | 16        | 2                | ✗ No                | ✗ No                 |
 | **R4**        |
-| r4.large      | 15.25        | Intel Broadwell E5-2686v4 | 2     | 1         | 2                | ✗ No                | ✗ No                  |
-| r4.xlarge     | 30.50        | Intel Broadwell E5-2686v4 | 4     | 2         | 2                | ✗ No                | ✗ No                  |
-| r4.2xlarge    | 61.00        | Intel Broadwell E5-2686v4 | 8     | 4         | 2                | ✗ No                | ✗ No                  |
-| r4.4xlarge    | 122.00       | Intel Broadwell E5-2686v4 | 16    | 8         | 2                | ✗ No                | ✗ No                  |
-| r4.8xlarge    | 244.00       | Intel Broadwell E5-2686v4 | 32    | 16        | 2                | ✗ No                | ✗ No                  |
-| r4.16xlarge   | 488.00       | Intel Broadwell E5-2686v4 | 64    | 32        | 2                | ✗ No                | ✗ No                  |
+| r4.large      | 15.25        | Intel Broadwell E5-2686v4 | 2     | 1         | 2                | ✗ No                | ✗ No                 |
+| r4.xlarge     | 30.50        | Intel Broadwell E5-2686v4 | 4     | 2         | 2                | ✗ No                | ✗ No                 |
+| r4.2xlarge    | 61.00        | Intel Broadwell E5-2686v4 | 8     | 4         | 2                | ✗ No                | ✗ No                 |
+| r4.4xlarge    | 122.00       | Intel Broadwell E5-2686v4 | 16    | 8         | 2                | ✗ No                | ✗ No                 |
+| r4.8xlarge    | 244.00       | Intel Broadwell E5-2686v4 | 32    | 16        | 2                | ✗ No                | ✗ No                 |
+| r4.16xlarge   | 488.00       | Intel Broadwell E5-2686v4 | 64    | 32        | 2                | ✗ No                | ✗ No                 |
 | **T1**        |
-| t1.micro      | 0.61         | Intel E5-2650             | 1     | 1         | 1                | ✗ No                | ✗ No                  |
+| t1.micro      | 0.61         | Intel E5-2650             | 1     | 1         | 1                | ✗ No                | ✗ No                 |
 
 ## Network specifications
 
@@ -199,10 +193,6 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | m4.4xlarge    | High                              | ✗ No  | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
 | m4.10xlarge   | 10 Gigabit                        | ✗ No  | ✗ No 2 | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
 | m4.16xlarge   | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| **P2**        |
-| p2.xlarge     | High                              | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| p2.8xlarge    | 10 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| p2.16xlarge   | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
 | **P3**        |
 | p3.2xlarge 1  | 2.5 / 10.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
 | p3.8xlarge    | 10 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
@@ -302,10 +292,6 @@ Amazon EBS and Amazon EC2 can become a performance bottleneck.
 | m4.4xlarge    | 2000.00                             | 250.00                                            | 16000.00                             | ✗ No  | ✗ No               | Up to 40 ([Xen-based limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits "../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits"))  |
 | m4.10xlarge   | 4000.00                             | 500.00                                            | 32000.00                             | ✗ No  | ✗ No               | Up to 40 ([Xen-based limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits "../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits"))  |
 | m4.16xlarge   | 10000.00                            | 1250.00                                           | 65000.00                             | ✗ No  | ✗ No               | Up to 40 ([Xen-based limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits "../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits"))  |
-| **P2**        |
-| p2.xlarge     | 750.00                              | 93.75                                             | 6000.00                              | ✗ No  | ✗ No               | Up to 26 ([Xen-based limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits "../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits"))  |
-| p2.8xlarge    | 5000.00                             | 625.00                                            | 32500.00                             | ✗ No  | ✗ No               | Up to 19 ([Xen-based limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits "../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits"))  |
-| p2.16xlarge   | 10000.00                            | 1250.00                                           | 65000.00                             | ✗ No  | ✗ No               | Up to 11 ([Xen-based limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits "../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits"))  |
 | **P3**        |
 | p3.2xlarge    | 1750.00                             | 218.75                                            | 10000.00                             | ✗ No  | ✗ No               | Up to 26 ([Xen-based limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits "../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits"))  |
 | p3.8xlarge    | 7000.00                             | 875.00                                            | 40000.00                             | ✗ No  | ✗ No               | Up to 23 ([Xen-based limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits "../../../AWSEC2/latest/UserGuide/volume_limits.md#xen-limits"))  |
@@ -439,10 +425,6 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | m4.4xlarge    | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
 | m4.10xlarge   | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
 | m4.16xlarge   | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
-| **P2**        |
-| p2.xlarge     | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
-| p2.8xlarge    | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
-| p2.16xlarge   | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
 | **P3**        |
 | p3.2xlarge    | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
 | p3.8xlarge    | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
