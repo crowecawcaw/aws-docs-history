@@ -19,7 +19,7 @@ movement.)
 
 **Input image**
 
-![Rocky coastal landscape with rugged cliffs, blue ocean, and distant mountains.](images/sample-frame-1.png)
+![Rocky coastal cliffs with ocean waves and distant shoreline under clear sky.](images/sample-frame-1.png)
 **Prompt**: _"dolly forward"_
 
 However, if you desire to have your subjects perform a particular action or would like to
@@ -29,7 +29,7 @@ command.
 
 **Input Image**
 
-![White dog with brown patches wearing a colorful Christmas light necklace on a plaid couch.](images/sample-frame-2.png)
+![White dog with brown markings wearing colorful holiday lights around neck on plaid blanket.](images/sample-frame-2.png)
 **Prompt**: _"dynamic handheld shot: the dog looks
 to the left as colored holiday lights on its body blink rhythmically"_
 

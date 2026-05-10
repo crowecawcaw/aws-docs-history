@@ -153,6 +153,52 @@ public class BedrockActionsWrapper
   [Converse](../../../goto/DotNetSDKV3/bedrock-runtime-2023-09-30/Converse.md "../../../goto/DotNetSDKV3/bedrock-runtime-2023-09-30/Converse.md")
   in _AWS SDK for .NET API Reference_.
 
+Go
+
+**SDK for Go V2**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/bedrock-runtime#code-examples").
+
+Send a text message to Amazon Nova, using Bedrock's Converse API.
+
+```
+
+func (wrapper ConverseWrapper) ConverseNova(ctx context.Context, prompt string) (string, error) {
+	var content = types.ContentBlockMemberText{
+		Value: prompt,
+	}
+	var message = types.Message{
+		Content: []types.ContentBlock{&content},
+		Role:    "user",
+	}
+	modelId := "amazon.nova-lite-v1:0"
+	var converseInput = bedrockruntime.ConverseInput{
+		ModelId:  aws.String(modelId),
+		Messages: []types.Message{message},
+	}
+	response, err := wrapper.BedrockRuntimeClient.Converse(ctx, &converseInput)
+	if err != nil {
+		ProcessError(err, modelId)
+	}
+
+	responseText, _ := response.Output.(*types.ConverseOutputMemberMessage)
+	responseContentBlock := responseText.Value.Content[0]
+	text, _ := responseContentBlock.(*types.ContentBlockMemberText)
+	return text.Value, nil
+}
+
+
+
+```
+
+- For API details, see
+  [Converse](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/bedrockruntime#Client.Converse "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/bedrockruntime#Client.Converse")
+  in _AWS SDK for Go API Reference_.
+
 Java
 
 **SDK for Java 2.x**

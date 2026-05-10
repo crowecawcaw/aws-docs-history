@@ -6,6 +6,13 @@ deployment, and inference of Amazon Nova models across different platforms inclu
 and Amazon Bedrock. Whether you're adapting models to domain-specific tasks or optimizing performance
 for your use case, this SDK provides everything you need in one unified interface.
 
+## Quick Links
+
+Follow these steps to go from installation to your first training job:
+
+- **[SDK Reference](https://github.com/aws/nova-forge-sdk/blob/main/docs/spec.md "https://github.com/aws/nova-forge-sdk/blob/main/docs/spec.md")** - Documentation and usage specification
+- **[Quick Start Notebook](https://github.com/aws/nova-forge-sdk/blob/main/samples/nova_quickstart.ipynb "https://github.com/aws/nova-forge-sdk/blob/main/samples/nova_quickstart.ipynb")** – Interactive Python notebook for hands-on exploration
+
 ## Benefits
 
 - One SDK for the entire model customization lifecycle—from data preparation to
@@ -95,7 +102,7 @@ Choose your compute resources—the SDK validates configurations and ensures opt
 setup.
 
 ```
-from amzn_nova_forge.manager.runtime_manager import BedrockRuntimeManager, SMTJRuntimeManager, SMHPRuntimeManager
+from amzn_nova_forge.manager.runtime_manager import BedrockRuntimeManager, SMTJRuntimeManager, SMTJServerlessRuntimeManager, SMHPRuntimeManager
 
 # Bedrock
 runtime = BedrockRuntimeManager(
@@ -106,6 +113,11 @@ runtime = BedrockRuntimeManager(
 runtime = SMTJRuntimeManager(
     instance_type="ml.p5.48xlarge",
     instance_count=4
+)
+
+# SageMaker Training Jobs Serverless
+runtime = SMTJServerlessRuntimeManager(
+    model_package_group_name = "my-package"
 )
 
 # SageMaker HyperPod
@@ -122,17 +134,21 @@ runtime = SMHPRuntimeManager(
 Start training with just a few lines of code.
 
 ```
-from amzn_nova_forge.model import NovaModelCustomizer
+from amzn_nova_forge.trainer.forge_trainer import ForgeTrainer
 from amzn_nova_forge.model.model_enums import Model, TrainingMethod
+from amzn_nova_forge.core import ForgeConfig
 
-customizer = NovaModelCustomizer(
-    model=Model.NOVA_LITE_2,
+trainer = ForgeTrainer(
+    model=Model.NOVA_LITE,
     method=TrainingMethod.SFT_LORA,
     infra=runtime,
-    data_s3_path="s3://your-bucket/prepared-data.jsonl"
+    training_data_s3_path="s3://your-bucket/sft/prepared-data.jsonl",  # Training data path
+    config=ForgeConfig(
+        output_s3_path="s3://your-bucket/output",
+    ),
 )
 
-result = customizer.train(job_name="my-training-job")
+result = trainer.train(job_name="my-training-job")
 ```
 
 ### 4. Monitor
@@ -143,7 +159,7 @@ Track your training progress directly from the SDK.
 from amzn_nova_forge.monitor.log_monitor import CloudWatchLogMonitor
 
 # Monitor training logs
-customizer.get_logs()
+trainer.get_logs()
 
 # Or monitor directly via CloudWatchLogMonitor
 monitor = CloudWatchLogMonitor.from_job_result(result)
@@ -159,10 +175,20 @@ Evaluate model performance with a variety of [built-in benchmarks](../../../sage
 own evaluations.
 
 ```
+from amzn_nova_forge.evaluator import ForgeEvaluator
 from amzn_nova_forge.recipe_config.eval_config import EvaluationTask
 
+evaluator = ForgeEvaluator(
+    model=Model.NOVA_LITE,
+    infra=runtime,
+    config=ForgeConfig(
+        output_s3_path="s3://your-bucket/output",
+    ),
+    data_s3_path="s3://your-bucket/eval-data/data.jsonl"
+)
+
 # Evaluate on benchmark tasks
-eval_result = customizer.evaluate(
+eval_result = evaluator.evaluate(
     job_name="model-eval",
     eval_task=EvaluationTask.MMLU,
     model_path=result.model_artifacts.checkpoint_s3_path
@@ -175,23 +201,28 @@ Deploy your customized model to production with built-in support for Amazon
 Bedrock or SageMaker.
 
 ```
-from amzn_nova_forge.model.model_enums import DeployPlatform
+from amzn_nova_forge.deployer import ForgeDeployer
+
+deployer = ForgeDeployer(
+    region="us-east-1",
+    model=Model.NOVA_LITE,
+)
 
 # Bedrock provisioned throughput
-deployment = customizer.deploy(
+deployment = deployer.deploy(
     model_artifact_path=result.model_artifacts.checkpoint_s3_path,
     deploy_platform=DeployPlatform.BEDROCK_PT,
     unit_count=10
 )
 
 # Bedrock On-Demand
-deployment = customizer.deploy(
+deployment = deployer.deploy(
     model_artifact_path=result.model_artifacts.checkpoint_s3_path,
     deploy_platform=DeployPlatform.BEDROCK_OD
 )
 
 # Sagemaker Real-time Inference
-deployment = customizer.deploy(
+deployment = deployer.deploy(
     model_artifact_path=result.model_artifacts.checkpoint_s3_path,
     deploy_platform=DeployPlatform.SAGEMAKER,
     unit_count=10,
@@ -244,12 +275,12 @@ Either use the benchmark defaults, or modify them to fit your needs:
 
 ### Production Deployment
 
-Deploy your models to Amazon Bedrock or SageMaker with options for:
+Deploy your models to Amazon Bedrock or SageMaker AI with options for:
 
 - **Bedrock Provisioned Throughput** - Dedicated
   capacity for consistent performance
 - **Bedrock On-Demand (only applicable to LoRA based customization)** - Pay-per-use pricing
-- **Sagemaker Real-time Inference** - Dedicated capacity for consistent performance
+- **SageMaker AI Real-time Inference** - Dedicated capacity for consistent performance
 
 ### Batch Inference
 
