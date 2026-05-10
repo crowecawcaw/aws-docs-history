@@ -58,7 +58,7 @@ indicate that the listener is configured with an unsupported certificate but doe
 traffic is still being served by a prior certificate.
 
 To avoid this, verify the key size of your certificate before importing it into IAM. For RSA certificates,
-the maximum supported key size for NLB TLS listeners is 2048-bit.
+the maximum supported key size for NLB TLS listeners is 3072-bit.
 
 If you use AWS Certificate Manager (ACM) to provision or import certificates, unsupported key sizes are
 rejected at the time of attachment, providing immediate feedback.
