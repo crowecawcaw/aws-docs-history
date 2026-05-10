@@ -79,7 +79,7 @@ matches only one character.
 
 The binary logging format of the source DB instance is important for replication because it determines the record of
 data changes. The setting of the `binlog_format` parameter determines whether the replication is row-based or
-statement-based. For more information, see [Configuring RDS for MySQL binary logging for Single-AZ databases](USER_LogAccess.MySQL.BinaryFormat.md "USER_LogAccess.MySQL.BinaryFormat.md").
+statement-based. For more information, see [Configuring RDS for MySQL binary logging for instance deployments](USER_LogAccess.MySQL.BinaryFormat.md "USER_LogAccess.MySQL.BinaryFormat.md").
 
 ###### Note
 

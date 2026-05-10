@@ -15,7 +15,7 @@ For any of these replication options, you can use either row-based replication, 
 only replicates the changed rows that result from a SQL statement. Statement-based replication replicates the entire SQL statement. Mixed replication
 uses statement-based replication when possible, but switches to row-based replication when SQL statements that are unsafe for statement-based replication
 are run. In most cases, mixed replication is recommended. The binary log format of the DB instance determines whether replication is row-based,
-statement-based, or mixed. For information about setting the binary log format, see [Configuring RDS for MySQL binary logging for Single-AZ databases](USER_LogAccess.MySQL.BinaryFormat.md "USER_LogAccess.MySQL.BinaryFormat.md").
+statement-based, or mixed. For information about setting the binary log format, see [Configuring RDS for MySQL binary logging for instance deployments](USER_LogAccess.MySQL.BinaryFormat.md "USER_LogAccess.MySQL.BinaryFormat.md").
 
 ###### Note
 

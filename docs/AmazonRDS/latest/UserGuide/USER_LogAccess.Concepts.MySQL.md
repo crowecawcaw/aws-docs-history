@@ -12,6 +12,6 @@ see [Monitoring Amazon RDS log files](USER_LogAccess.md "USER_LogAccess.md").
 - [Overview of RDS for MySQL database logs](USER_LogAccess.MySQL.LogFileSize.md "USER_LogAccess.MySQL.LogFileSize.md")
 - [Publishing MySQL logs to Amazon CloudWatch Logs](USER_LogAccess.MySQLDB.PublishtoCloudWatchLogs.md "USER_LogAccess.MySQLDB.PublishtoCloudWatchLogs.md")
 - [Sending MySQL log output to tables](Appendix.MySQL.CommonDBATasks.Logs.md "Appendix.MySQL.CommonDBATasks.Logs.md")
-- [Configuring RDS for MySQL binary logging for Single-AZ databases](USER_LogAccess.MySQL.BinaryFormat.md "USER_LogAccess.MySQL.BinaryFormat.md")
+- [Configuring RDS for MySQL binary logging for instance deployments](USER_LogAccess.MySQL.BinaryFormat.md "USER_LogAccess.MySQL.BinaryFormat.md")
 - [Configuring MySQL binary logging for Multi-AZ DB clusters](USER_Binlog.MultiAZ.md "USER_Binlog.MultiAZ.md")
 - [Accessing MySQL binary logs](USER_LogAccess.MySQL.Binarylog.md "USER_LogAccess.MySQL.Binarylog.md")

@@ -90,12 +90,27 @@ Intel Xeon 6 processors**
 | db.m8i.16xlarge   | No  | No      | Yes                  | No    | BYOL only, Enterprise Edition only | No         |
 | db.m8i.12xlarge   | No  | No      | Yes                  | No    | BYOL only, Enterprise Edition only | No         |
 | db.m8i.8xlarge    | No  | No      | Yes                  | No    | BYOL only, Enterprise Edition only | No         |
-| db.m8i.4xlarge    | No  | No      | Yes                  | No    | BYOL only, all editions            | No         |
-| db.m8i.2xlarge    | No  | No      | Yes                  | No    | BYOL only, all editions            | No         |
-| db.m8i.xlarge     | No  | No      | Yes                  | No    | BYOL only, all editions            | No         |
-| db.m8i.large      | No  | No      | Yes                  | No    | BYOL only, all editions            | No         |
+| db.m8i.4xlarge    | No  | No      | Yes                  | No    | Yes                                | No         |
+| db.m8i.2xlarge    | No  | No      | Yes                  | No    | Yes                                | No         |
+| db.m8i.xlarge     | No  | No      | Yes                  | No    | Yes                                | No         |
+| db.m8i.large      | No  | No      | Yes                  | No    | Yes                                | No         |
 | db.m8i.metal-96xl | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
 | db.m8i.metal-48xl | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
+
+**db.m8a – general-purpose instance classes powered by
+5th Generation AMD EPYC processors**
+
+| Instance class  | Db2 | MariaDB | Microsoft SQL Server | MySQL | Oracle | PostgreSQL |
+| --------------- | --- | ------- | -------------------- | ----- | ------ | ---------- |
+| db.m8a.48xlarge | No  | No      | No                   | No    | No     | No         |
+| db.m8a.24xlarge | No  | No      | No                   | No    | No     | No         |
+| db.m8a.16xlarge | No  | No      | Yes                  | No    | No     | No         |
+| db.m8a.12xlarge | No  | No      | Yes                  | No    | No     | No         |
+| db.m8a.8xlarge  | No  | No      | Yes                  | No    | No     | No         |
+| db.m8a.4xlarge  | No  | No      | Yes                  | No    | No     | No         |
+| db.m8a.2xlarge  | No  | No      | Yes                  | No    | No     | No         |
+| db.m8a.xlarge   | No  | No      | Yes                  | No    | No     | No         |
+| db.m8a.large    | No  | No      | Yes                  | No    | No     | No         |
 
 **db.m7i – general-purpose instance classes powered by 4th
 generation Intel Xeon Scalable processors**
@@ -373,12 +388,27 @@ Intel Xeon 6 processors**
 | db.r8i.16xlarge   | No  | No      | Yes                  | No    | BYOL only, Enterprise Edition only | No         |
 | db.r8i.12xlarge   | No  | No      | Yes                  | No    | BYOL only, Enterprise Edition only | No         |
 | db.r8i.8xlarge    | No  | No      | Yes                  | No    | BYOL only, Enterprise Edition only | No         |
-| db.r8i.4xlarge    | No  | No      | Yes                  | No    | BYOL only, all editions            | No         |
-| db.r8i.2xlarge    | No  | No      | Yes                  | No    | BYOL only, all editions            | No         |
-| db.r8i.xlarge     | No  | No      | Yes                  | No    | BYOL only, all editions            | No         |
-| db.r8i.large      | No  | No      | Yes                  | No    | BYOL only, all editions            | No         |
+| db.r8i.4xlarge    | No  | No      | Yes                  | No    | Yes                                | No         |
+| db.r8i.2xlarge    | No  | No      | Yes                  | No    | Yes                                | No         |
+| db.r8i.xlarge     | No  | No      | Yes                  | No    | Yes                                | No         |
+| db.r8i.large      | No  | No      | Yes                  | No    | Yes                                | No         |
 | db.r8i.metal-96xl | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
 | db.r8i.metal-48xl | No  | No      | No                   | No    | BYOL only, Enterprise Edition only | No         |
+
+**db.r8a – memory-optimized instance classes powered by
+5th Generation AMD EPYC processors**
+
+| Instance class  | Db2 | MariaDB | Microsoft SQL Server | MySQL | Oracle | PostgreSQL |
+| --------------- | --- | ------- | -------------------- | ----- | ------ | ---------- |
+| db.r8a.48xlarge | No  | No      | No                   | No    | No     | No         |
+| db.r8a.24xlarge | No  | No      | No                   | No    | No     | No         |
+| db.r8a.16xlarge | No  | No      | Yes                  | No    | No     | No         |
+| db.r8a.12xlarge | No  | No      | Yes                  | No    | No     | No         |
+| db.r8a.8xlarge  | No  | No      | Yes                  | No    | No     | No         |
+| db.r8a.4xlarge  | No  | No      | Yes                  | No    | No     | No         |
+| db.r8a.2xlarge  | No  | No      | Yes                  | No    | No     | No         |
+| db.r8a.xlarge   | No  | No      | Yes                  | No    | No     | No         |
+| db.r8a.large    | No  | No      | Yes                  | No    | No     | No         |
 
 **db.r7i – memory-optimized instance classes preconfigured for high memory,
 storage, and I/O**
