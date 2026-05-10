@@ -124,7 +124,7 @@ following:
 
 
 
-    ![Logging pane for Configure additional details in the Create server wizard. Choose an existing log group is selected.](/images/transfer/latest/userguide/images/logging-server-choose-existing-group.png)
+    ![Logging pane for Configure additional details in the Create server wizard. Choose an existing log group is selected.](images/logging-server-choose-existing-group.png)
 
     If you choose **Create log group**, the CloudWatch console
      ([https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/")) opens to the **Create log

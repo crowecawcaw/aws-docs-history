@@ -49,7 +49,7 @@ The JSON file contains the following information:
   the items contained in the remote directory or not. If your `truncated`
   output value is true, you can increase the value provided in the optional
   `max-items` input attribute to be able to list more items (up to the
-  maximum allowed list size of 10,000 items).
+  maximum allowed list size of 200,000 items).
   The following is an example of the contents of the output file
   (`c-AAAA1111BBBB2222C-6666abcd-11aa-22bb-cc33-0000aaaa3333.json`),
   where the remote directory contains two files and two sub-directories (paths).

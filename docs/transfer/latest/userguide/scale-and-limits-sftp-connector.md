@@ -23,7 +23,7 @@ _Amazon Web Services General Reference_.
 | Maximum transfer time per file                                                                          | 12 hours                          | No      |
 | Maximum request wait time per file                                                                      | 12 hours                          | No      |
 | Maximum bandwidth for connectors per account (both SFTP and AS2<br>connectors contribute to this value) | 50 MBps                           | No      |
-| Maximum number of items for directory listing operations                                                | 10,000                            | No      |
+| Maximum number of items for directory listing operations                                                | 200,000                           | No      |
 
 ###### Note
 

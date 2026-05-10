@@ -412,7 +412,7 @@ The system returns a message, indicating whether the test passes or fails. If th
 
 ![The SFTP connector test connection panel, showing a successful test.](images/connector-test-success.png)
 
-![The SFTP connector test connection panel, showing a failed test: the error message indicates that the access role for the connector is incorrect.](images/connector-test-fail-role.png)
+![The SFTP connector test connection panel, showing a failed test: the error message indicates that the access role for the connector is incorrect.](/images/transfer/latest/userguide/images/connector-test-fail-role.png)
 
 Test a connector using the CLI
 To test a connector using the AWS Command Line Interface, run the following command at a
