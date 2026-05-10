@@ -14,6 +14,17 @@ behalf.
 Your users, groups, and roles need the following permissions in their IAM policy
 to use VM Import/Export:
 
+###### Important
+
+VM Import/Export validates that you have `iam:PassRole`
+permission for the role specified in the `RoleName`
+parameter, or for the default `vmimport` role if none
+is specified. Ensure that your IAM policy grants
+`iam:PassRole` on the role ARN you intend to use. For
+more information, see [Grant a user
+permissions to pass a role to an AWS service](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") in the
+_IAM User Guide_.
+
 ###### Note
 
 Some actions require the use of an Amazon Simple Storage Service (Amazon S3) bucket. This example policy
@@ -70,6 +81,11 @@ JSON
  "ec2:CancelImportTask"
  ],
  "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": "iam:PassRole",
+ "Resource": "arn:aws:iam::`111122223333`:role/`vmimport`"
  }
  ]
 }`
