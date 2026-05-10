@@ -172,7 +172,7 @@ before sign-in completes – launch the client with the
   run:
 
 ```
-/Applications/AWS\ Wickr.app/Contents/MacOS/AWS\ Wickr -logging
+"/Applications/WickrPro.app/Contents/MacOS/WickrPro" -logging
 ```
 
 - **Windows:** Right-click the
