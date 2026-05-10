@@ -53,5 +53,6 @@ definition. For information, see [AWS WAF quotas](limits.md "limits.md").
 ###### Topics
 
 - [Inserting custom request headers for non-blocking actions](customizing-the-incoming-request.md "customizing-the-incoming-request.md")
+- [Dynamic label interpolation](waf-dynamic-label-interpolation.md "waf-dynamic-label-interpolation.md")
 - [Sending custom responses for Block actions](customizing-the-response-for-blocked-requests.md "customizing-the-response-for-blocked-requests.md")
 - [Supported status codes for custom responses](customizing-the-response-status-codes.md "customizing-the-response-status-codes.md")

@@ -214,19 +214,25 @@ more information about oversize fields, see [Oversize web request components in 
 
 **rateBasedRuleList**
 
-The list of rate-based rules that acted on the request. For information
-about rate-based rules, see [Using rate-based rule statements in AWS WAF](waf-rule-statement-type-rate-based.md "waf-rule-statement-type-rate-based.md").
+The list of all rate-based rules in the web ACL that were evaluated
+against the request. This includes rules that could not be fully evaluated.
+For information about rate-based rules, see [Using rate-based rule statements in AWS WAF](waf-rule-statement-type-rate-based.md "waf-rule-statement-type-rate-based.md").
 
 rateBasedRuleId
 
-The ID of the rate-based rule that acted on the request. If
+The ID of the rate-based rule. If
 this has terminated the request, the ID for
 `rateBasedRuleId` is the same as the ID for
-`terminatingRuleId`.
+`terminatingRuleId`. This field is set
+to `NO_EVALUATION_PERFORMED` when the rule
+could not be evaluated. This can happen when the request
+is missing a custom aggregation key such as a header or
+cookie required by `CUSTOMKEYS`
+aggregation.
 
 rateBasedRuleName
 
-The name of the rate-based rule that acted on the request.
+The name of the rate-based rule.
 
 limitKey
 

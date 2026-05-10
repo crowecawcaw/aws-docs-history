@@ -99,4 +99,4 @@ application APIs or that contain a particular type of content.
 - **Custom requests and responses** – You can add custom
   headers to requests that you allow and you can send custom responses for requests
   that you block by pairing label matching with the AWS WAF custom request and response
-  features. For more information about customizing requests and responses, see [Customized web requests and responses in AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md").
+  features. With dynamic label interpolation, you can use ${namespace:} syntax to resolve Bot Control label values at evaluation time. A single rule can then forward an entire label namespace as a header value, instead of requiring one rule for each label. For more information about customizing requests and responses, see [Customized web requests and responses in AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md"). For information about dynamic interpolation, see [Dynamic label interpolation](waf-dynamic-label-interpolation.md "waf-dynamic-label-interpolation.md").

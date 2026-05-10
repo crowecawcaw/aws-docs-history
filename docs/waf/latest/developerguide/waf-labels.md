@@ -71,3 +71,9 @@ For information about priority settings, see [Setting rule priority](web-acl-pro
   metrics and dimensions, see [Label metrics and dimensions](waf-metrics.md#waf-metrics-label "waf-metrics.md#waf-metrics-label"). You can access metrics and metric summaries
   through CloudWatch and through the protection pack (web ACL) page in the AWS WAF console. For information, see
   [Monitoring and tuning your AWS WAF protections](web-acl-testing-activities.md "web-acl-testing-activities.md").
+- **Dynamic label interpolation** – You can use
+  `${namespace:}` syntax to resolve label values at evaluation time in custom
+  request headers, custom response headers, and custom response bodies. One rule with
+  interpolation covers an entire namespace, so you don't need a separate rule for each label
+  value. This is useful for forwarding managed rule group labels, such as Bot Control categories,
+  to your origin as request headers. For more information, see [Dynamic label interpolation](waf-dynamic-label-interpolation.md "waf-dynamic-label-interpolation.md").
