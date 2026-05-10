@@ -133,7 +133,7 @@ control, choose the control.
 
 [[Config.1] AWS Config should be enabled and use the service-linked role for resource recording](config-controls.md#config-1 "config-controls.md#config-1")
 
-[[Connect.2] Amazon Connect instances should have CloudWatch logging enabled](connect-controls.md#connect-2 "connect-controls.md#connect-2")
+[[Connect.2] Connect Customer instances should have CloudWatch logging enabled](connect-controls.md#connect-2 "connect-controls.md#connect-2")
 
 [[DataFirehose.1] Firehose delivery streams should be encrypted at rest](datafirehose-controls.md#datafirehose-1 "datafirehose-controls.md#datafirehose-1")
 

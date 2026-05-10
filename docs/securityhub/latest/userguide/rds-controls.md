@@ -345,7 +345,6 @@ The control fails if the instance isn’t configured to publish the following lo
 - MySQL: Audit, Error, General, SlowQuery
 - MariaDB: Audit, Error, General, SlowQuery
 - SQL Server: Error, Agent
-- Aurora: Audit, Error, General, SlowQuery
 - Aurora-MySQL: Audit, Error, General, SlowQuery
 - Aurora-PostgreSQL: Postgresql
 

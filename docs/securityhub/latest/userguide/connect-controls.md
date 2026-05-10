@@ -52,9 +52,9 @@ _Tagging AWS Resources and Tag Editor User Guide_.
 ### Remediation
 
 To add tags to a Customer Profiles object type, see [Add tags to resources in
-Amazon Connect](../../../connect/latest/adminguide/tagging.md "../../../connect/latest/adminguide/tagging.md") in the _Amazon Connect Administrator Guide_.
+Amazon Connect Customer](../../../connect/latest/adminguide/tagging.md "../../../connect/latest/adminguide/tagging.md") in the _Connect Customer Administrator Guide_.
 
-## [Connect.2] Amazon Connect instances should have CloudWatch logging enabled
+## [Connect.2] Connect Customer instances should have CloudWatch logging enabled
 
 **Category:** Identify > Logging
 
@@ -70,19 +70,19 @@ Amazon Connect](../../../connect/latest/adminguide/tagging.md "../../../connect/
 
 **Parameters:** None
 
-This control checks whether an Amazon Connect instance is configured to generate and store flow
-logs in an Amazon CloudWatch log group. The control fails if the Amazon Connect instance isn't configured
+This control checks whether an Connect Customer instance is configured to generate and store flow
+logs in an Amazon CloudWatch log group. The control fails if the Connect Customer instance isn't configured
 to generate and store flow logs in a CloudWatch log group.
 
-Amazon Connect flow logs provide real-time details about events in Amazon Connect flows. A
+Amazon Connect Customer flow logs provide real-time details about events in Amazon Connect Customer flows. A
 _flow_ defines the customer experience with an
-Amazon Connect contact center from start to finish. By default, when you create a new
-Amazon Connect instance, an Amazon CloudWatch log group is created automatically to store flow logs
+Amazon Connect Customer contact center from start to finish. By default, when you create a new
+Amazon Connect Customer instance, an Amazon CloudWatch log group is created automatically to store flow logs
 for the instance. Flow logs can help you analyze flows, find errors, and monitor
 operational metrics. You can also set up alerts for specific events that can occur in a
 flow.
 
 ### Remediation
 
-For information about enabling flow logs for an Amazon Connect instance, see [Enable Amazon Connect flow logs in an Amazon CloudWatch log group](../../../connect/latest/adminguide/contact-flow-logs.md "../../../connect/latest/adminguide/contact-flow-logs.md") in the
-_Amazon Connect Administrator Guide_.
+For information about enabling flow logs for an Amazon Connect Customer instance, see [Enable Amazon Connect Customer flow logs in an Amazon CloudWatch log group](../../../connect/latest/adminguide/contact-flow-logs.md "../../../connect/latest/adminguide/contact-flow-logs.md") in the
+_Connect Customer Administrator Guide_.
