@@ -875,8 +875,8 @@ A series of key–value pairs that define parameters for various AWS products
 so that [Elastic Beanstalk](#Beanstalk "#Beanstalk") can provision them for
 an environment.
 
-Amazon Connect
-Amazon Connect is a service solution that offers self-service configuration and provides dynamic,
+Connect Customer
+Amazon Connect Customer is a service solution that offers self-service configuration and provides dynamic,
 personal, and natural customer engagement at any scale.
 
 See also [https://aws.amazon.com/connect/](https://aws.amazon.com/connect/ "https://aws.amazon.com/connect/").
