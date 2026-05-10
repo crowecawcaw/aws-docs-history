@@ -16,7 +16,7 @@ To configure a Route 53 health check execution block, enter the following value
 
 ###### Important
 
-Before you configure the execution block, make sure that you have the correct IAM policy in place.
+Before you configure the execution block, make sure that the plan's execution role has the correct IAM policy in place.
 For more information, see [Route 53 health check execution block sample policy](security_iam_region_switch_route53.md "security_iam_region_switch_route53.md").
 
 1. **Step name:** Enter a name.
@@ -49,43 +49,59 @@ redirect traffic for your application during plan execution. In the
 **Health checks** tab on the plan details page, you can view the health checks
 for all execution blocks and Regions.
 
-## How it works
+## How the Route 53 health check execution block works as a highly available DNS failover mechanism
 
-You add a health check step to your Region switch workflow so that you
-can redirect traffic to a secondary Region, for active/passive configurations,
-or away from a deactivated Region, for active/active configurations.
-If you add multiple workflows to your plan, provide the same
-configuration values for all health check execution blocks that use the same DNS records.
+ARC Region Switch Route53 health check execution block creates two sets of health checks — one for each Region if your
+workload is deployed in two Regions. It vends these health checks to you. You can view them through the Region switch
+console in "Monitoring" tab or via the ListRoute53HealthChecks API. You then associate these health checks with your
+Route 53 DNS records.
 
-Based on the information that you provide when you configure the execution block,
-Region switch attempts to determine the correct record
-set for each Region in your plan. Typically, the hosted zone ID and the record name are enough information
-to determine the record sets and associated Regions. If not, when Region switch runs its automatic plan evaluation
-after you create the plan, a warning is returned to let you know that more information is required.
+When the Route 53 health check execution block is executed, it uses the STOP (Standby Takes Over Primary) pattern
+under the hood to change the state of your health checks to orchestrate the DNS failover. The primary health check is
+marked "unhealthy" and the secondary health check is marked "healthy" when you orchestrate a failover from primary to
+secondary. This change in health check state is used by Route 53 to redirect traffic during failover.
 
-Region switch vends health checks for each Route 53 health check execution block. For plans that
-use a active/passive recovery approach, the health check for the primary Region
-starts as healthy, and the health check for the standby Region is
-initially set to unhealthy. For plans that use the active/active recovery
-approach, health checks for all Regions start in the healthy state.
+For active/passive: the primary Region's health check starts healthy; the passive Region starts unhealthy. When you
+use the Route53 health check execution block to failover, these states flip.
 
-To enable Region switch to successfully run this execution block for your plan,
-you must add the health checks to your DNS records.
+For active/active: all health checks start healthy. When you use the Route53 health check execution block in a
+deactivate workflow, the workflow sets the deactivating Region's health check state to unhealthy. When you use the
+Route53 health check execution block in an activate workflow for a Region, the workflow sets the activating Region's
+health check state to healthy.
 
-For an active/active plan, the execution step works in the following way:
+### Why is this a highly available failover mechanism?
 
-- When a deactivate workflow runs for a Region, the
-  health check is set to unhealthy, and traffic is no longer directed to the Region.
-- When an activate workflow runs for a Region, the
-  health check is set to healthy, and traffic is routed to the Region.
+Two reasons make this a reliable failover mechanism:
 
-For an active/passive plan, the execution step works in the following way:
+1. **Route 53 health check state transitions are part of Route 53 data plane, which is designed for 100% availability**
 
-- When an activate workflow runs for a Region, the
-  health check for that Region is set to healthy, and traffic is
-  routed to the Region. At the same time, the health check for
-  the other Region in the plan is set to unhealthy, and traffic
-  stops being directed to that Region.
+Changing the state of a Route53 health check state is a data plane operation. The Route53 data plane is globally
+distributed and designed for 100% availability. There is no control plane dependency to Route53 health check state
+changes. This means health check state change works even if the primary Region is impaired. 2. **The STOP pattern (Standby Takes Over Primary)**
+
+The STOP pattern is a mechanism to orchestrate a DNS failover and it was published in the blog post here:
+[Creating disaster recovery mechanisms using Amazon Route 53](https://aws.amazon.com/blogs/networking-and-content-delivery/creating-disaster-recovery-mechanisms-using-amazon-route-53/ "https://aws.amazon.com/blogs/networking-and-content-delivery/creating-disaster-recovery-mechanisms-using-amazon-route-53/"). This pattern is used by the Route53 health check
+execution block under the hood. The STOP pattern entails using the healthy Region as a "decision agent" to change the
+state of the health check in the impaired Region. The STOP pattern does not take dependency on the impaired Region.
+
+Here's how it works in practice:
+
+- When you create a Route53 health check execution block, health checks are created by Region switch in each
+  Region for your workload and vended to you through Region switch console in the Monitoring tab or the ListRoute53HealthChecks API.
+- You then associate these with each Region's DNS record manually. One health check is associated with the primary
+  Region's DNS record and the other is associated with the secondary Region's DNS record by you.
+- The health check is associated with primary Region's DNS records, but it monitors a resource in the standby
+  (secondary) Region (for example: presence of a file in S3) to change the state of the health check.
+- The health check is inverted — if the standby resource is unreachable, the health check for the primary Region
+  defaults to healthy. If the standby resource is discovered, the health check for the primary Region is changed to unhealthy.
+  This prevents accidental failover.
+- To trigger a failover, the file is created by Region switch in the standby Region. The health check detects it,
+  marks primary unhealthy, and Route53 flips DNS. The standby resource is managed by the Region switch service and is not
+  dependent on the customer.
+
+The combination of no control plane dependency (globally distributed data plane) and no impaired Region dependency
+(STOP pattern) makes this a highly available DNS failover mechanism when the customer is only operating from two Regions.
+See STOP pattern documented here: [Creating disaster recovery mechanisms using Amazon Route 53](https://aws.amazon.com/blogs/networking-and-content-delivery/creating-disaster-recovery-mechanisms-using-amazon-route-53/ "https://aws.amazon.com/blogs/networking-and-content-delivery/creating-disaster-recovery-mechanisms-using-amazon-route-53/").
 
 ## What is evaluated as part of plan evaluation
 

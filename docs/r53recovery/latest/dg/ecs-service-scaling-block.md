@@ -10,7 +10,7 @@ To configure the ECS service scaling execution block, enter the following values
 
 ###### Important
 
-Before you configure the execution block, make sure that you have the correct IAM policy in place.
+Before you configure the execution block, make sure that the plan's execution role has the correct IAM policy in place.
 For more information, see [Amazon ECS service scaling execution block sample policy](security_iam_region_switch_ecs.md "security_iam_region_switch_ecs.md").
 
 1. **Step name:** Enter a name.

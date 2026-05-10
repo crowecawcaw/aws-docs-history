@@ -15,4 +15,5 @@ blocks that you add to a Region switch plan.
 - [Manual approval execution block sample policy](security_iam_region_switch_manual_approval.md "security_iam_region_switch_manual_approval.md")
 - [Custom action Lambda execution block sample policy](security_iam_region_switch_lambda.md "security_iam_region_switch_lambda.md")
 - [Route 53 health check execution block sample policy](security_iam_region_switch_route53.md "security_iam_region_switch_route53.md")
+- [Lambda event source mapping execution block sample policy](security_iam_region_switch_lambda_esm.md "security_iam_region_switch_lambda_esm.md")
 - [Region switch plan execution block sample policy](security_iam_region_switch_plan_execution.md "security_iam_region_switch_plan_execution.md")

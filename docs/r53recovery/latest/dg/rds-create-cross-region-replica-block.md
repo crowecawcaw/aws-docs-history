@@ -11,7 +11,7 @@ To configure an Amazon RDS Create Cross-Region Replica execution block, enter th
 
 ###### Important
 
-Before you configure the execution block, make sure that you have the correct IAM policy in place.
+Before you configure the execution block, make sure that the plan's execution role has the correct IAM policy in place.
 For more information, see [Amazon RDS execution block sample policy](security_iam_region_switch_rds.md "security_iam_region_switch_rds.md").
 
 1. **Step name:** Enter a name.
