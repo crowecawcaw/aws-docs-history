@@ -59,8 +59,6 @@ Amazon EC2 sends the following events directly to EventBridge:
 - EBS Snapshot Acceleration State-change Notification
 - EBS Fast Snapshot Restore State-change Notification
 - Launch Template Alias Change
-- EC2 AMI Available
-- EC2 AMI Failed
 - EC2 AMI State Change
 - EC2 Fast Launch State-change Notification
 

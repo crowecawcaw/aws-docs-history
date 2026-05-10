@@ -1,10 +1,10 @@
-# Amazon Connect Cases events
+# Amazon Connect Customer Cases events
 
-Amazon Connect Cases sends service events directly to EventBridge, as well as via AWS CloudTrail.
+Connect Customer Cases sends service events directly to EventBridge, as well as via AWS CloudTrail.
 
-## Amazon Connect Cases service events
+## Connect Customer Cases service events
 
-Amazon Connect Cases sends the following events directly to EventBridge:
+Connect Customer Cases sends the following events directly to EventBridge:
 
 - Amazon Connect Cases Change
 
@@ -35,9 +35,9 @@ specifying an array of event names to match. For example:
 For more information, see
 [Creating event patterns](../userguide/eb-event-patterns.md#eb-create-pattern "../userguide/eb-event-patterns.md#eb-create-pattern") in the _Amazon EventBridge User Guide_.
 
-## Amazon Connect Cases events delivered via AWS CloudTrail
+## Connect Customer Cases events delivered via AWS CloudTrail
 
-AWS CloudTrail sends events originating from Amazon Connect Cases to EventBridge. AWS services deliver events to CloudTrail on a [best effort](event-delivery-level.md "event-delivery-level.md") basis. For more information,
+AWS CloudTrail sends events originating from Connect Customer Cases to EventBridge. AWS services deliver events to CloudTrail on a [best effort](event-delivery-level.md "event-delivery-level.md") basis. For more information,
 see [AWS service events delivered via AWS CloudTrail](../userguide/eb-service-event-cloudtrail.md "../userguide/eb-service-event-cloudtrail.md")
 in the _Amazon EventBridge User Guide_.
 

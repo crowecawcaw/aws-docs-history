@@ -11,9 +11,6 @@ AWS IoT Greengrass sends the following events directly to EventBridge:
 - Greengrass Device Health Notification
 - Greengrass V2 Effective Deployment Status Change
 - Greengrass V2 Installed Component Status Change
-- Greengrass V2 Cluster Health Status Change
-- Greengrass V2 Cluster Device Status Change
-- Greengrass V2 Cluster Leader Elected
 
 _Delivery type_:
 [Best effort](event-delivery-level.md "event-delivery-level.md")

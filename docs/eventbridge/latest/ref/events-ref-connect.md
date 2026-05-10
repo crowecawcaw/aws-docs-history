@@ -1,10 +1,10 @@
-# Amazon Connect events
+# Amazon Connect Customer events
 
-Amazon Connect sends service events directly to EventBridge, as well as via AWS CloudTrail.
+Connect Customer sends service events directly to EventBridge, as well as via AWS CloudTrail.
 
-## Amazon Connect service events
+## Connect Customer service events
 
-Amazon Connect sends the following events directly to EventBridge:
+Connect Customer sends the following events directly to EventBridge:
 
 - Contact Lens Analysis State Change
 - Rule for Contact Lens Post Call Matched
@@ -50,9 +50,9 @@ specifying an array of event names to match. For example:
 For more information, see
 [Creating event patterns](../userguide/eb-event-patterns.md#eb-create-pattern "../userguide/eb-event-patterns.md#eb-create-pattern") in the _Amazon EventBridge User Guide_.
 
-## Amazon Connect events delivered via AWS CloudTrail
+## Connect Customer events delivered via AWS CloudTrail
 
-AWS CloudTrail sends events originating from Amazon Connect to EventBridge. AWS services deliver events to CloudTrail on a [best effort](event-delivery-level.md "event-delivery-level.md") basis. For more information,
+AWS CloudTrail sends events originating from Connect Customer to EventBridge. AWS services deliver events to CloudTrail on a [best effort](event-delivery-level.md "event-delivery-level.md") basis. For more information,
 see [AWS service events delivered via AWS CloudTrail](../userguide/eb-service-event-cloudtrail.md "../userguide/eb-service-event-cloudtrail.md")
 in the _Amazon EventBridge User Guide_.
 
