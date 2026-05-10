@@ -53,8 +53,8 @@ You can use the procedure in this section to view the list of a service's APIs t
 | Amazon Comprehend                                  | `Comprehend`                        |
 | Amazon Comprehend Medical                          | `Comprehend Medical`                |
 | AWS Compute Optimizer                              | `ComputeOptimzier`                  |
-| Amazon Connect                                     | `Connect`                           |
-| Amazon Connect Customer Profiles                   | `Customer Profiles`                 |
+| Amazon Connect Customer                            | `Connect`                           |
+| Amazon Connect Customer Customer Profiles          | `Customer Profiles`                 |
 | AWS Cost and Usage Reports                         | `Cost and Usage Report`             |
 | AWS Cost Explorer                                  | `Cost Explorer`                     |
 | AWS Data Exchange                                  | `Data Exchange`                     |

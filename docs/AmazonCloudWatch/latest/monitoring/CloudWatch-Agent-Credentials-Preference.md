@@ -24,11 +24,16 @@ On Linux, if you run the CloudWatch agent using the
 
 ###### Note
 
-The CloudWatch agent looks for `.aws/credentials` in `$HOME` for
-Linux and MacOS and looks in `%USERPROFILE%` for Windows. Unlike the AWS
-SDK, the CloudWatch agent does not have fallback methods to determine the home directory if
-the environment variables are inaccessible. This difference in behavior is to maintain
-backwards compatibility with earlier implementations of the AWS SDK.
+The CloudWatch agent looks for `.aws/credentials` in `$HOME` on
+Linux and macOS and in `%USERPROFILE%` on Windows. These environment
+variables resolve to the home directory of the user the agent runs as:
+`root` on Linux and macOS (or the `run_as_user` if configured),
+and `LocalSystem` on Windows.
+
+Unlike the AWS SDK, the CloudWatch agent does not have fallback methods to determine
+the home directory if the environment variables are inaccessible. This difference in
+behavior is to maintain backwards compatibility with earlier implementations of the
+AWS SDK.
 
 Furthermore, unlike with the shared credentials found in
 `common-config.toml`, if the AWS SDK-derived shared credentials

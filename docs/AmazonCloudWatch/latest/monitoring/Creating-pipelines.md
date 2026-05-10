@@ -35,7 +35,8 @@ supported processors, see
 To preserve unmodified copies of your log data for audit or compliance
 purposes, enable the **Keep original log** toggle. When
 enabled, CloudWatch pipelines automatically stores a copy of each raw log event before any
-transformation takes place. This ensures that original data is always
+transformation takes place in the `@original_message` system field
+of the event. This ensures that original data is always
 available for audits or investigations, even after processors modify the log
 events. The **Keep original log** toggle is only available
 for pipelines with a CloudWatch vended log source. 4. Under **Review and create**, review the pipeline

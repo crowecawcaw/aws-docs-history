@@ -46,7 +46,7 @@ with your own custom metrics, see [How to add related information to custom tele
 | Amazon CodeWhisperer                             | `AWS::CodeWhisperer::Customization`          | No      | Yes  |
 | Amazon Cognito user pools                        | `AWS::Cognito::UserPool`                     | Yes     | Yes  |
 | AWS Config                                       | `AWS::Config::ConfigRule`                    | No      | Yes  |
-| Amazon Connect                                   | `AWS::Connect::Instance`                     | No      | Yes  |
+| Amazon Connect Customer                          | `AWS::Connect::Instance`                     | No      | Yes  |
 | AWS Database Migration Service                   | `AWS::DMS::ReplicationInstance`              | Yes     | No   |
 | AWS Database Migration Service                   | `AWS::DMS::ReplicationTask`                  | Yes     | No   |
 | AWS DataSync                                     | `AWS::Datasync::Agent`                       | Yes     | No   |

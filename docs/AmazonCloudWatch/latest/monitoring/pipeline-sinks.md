@@ -41,7 +41,8 @@ source, the ONLY allowed value is `@original`.
 `include_original` (optional)
 
 When present, stores a copy of each raw log event before any
-transformation takes place. This preserves the original data for audit
+transformation takes place in the `@original_message` system
+field of the event. This preserves the original data for audit
 or compliance purposes. Specify as an empty object
 (`{}`). Available only for pipelines with
 `cloudwatch_logs` sources. At least one processor must be
@@ -97,7 +98,7 @@ For pipelines using the `cloudwatch_logs` source type:
 - Events are always sent back to their original log group.
 - The original log group must exist throughout the pipeline's
   lifecycle.
-- Pipelines with processors mutate the log events in the original CloudWatch log group they are intercepted from for logs from AWS services. To preserve the original data, enable `include_original` in the sink configuration.
+- Pipelines with processors mutate the log events in the original CloudWatch log group they are intercepted from for logs from AWS services. To preserve the original data, enable `include_original` in the sink configuration. The original log copy is stored in the `@original_message` system field of the event.
 
 ###### Note
 

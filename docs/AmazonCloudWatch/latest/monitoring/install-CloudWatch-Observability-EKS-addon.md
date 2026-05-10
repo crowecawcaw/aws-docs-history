@@ -1733,7 +1733,7 @@ Alternatively, the add-on supports a conflict resolution configuration option th
 Fine-tune your service monitoring preferences in the CloudWatch console or with the SDK.
 
 
-For versions before 5.0.0, to disable Application Signals auto-monitoring, follow the procedure below:
+To disable Application Signals auto-monitoring, follow the procedure below:
 
 
 **Using CLI or SDK**
