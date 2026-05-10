@@ -9,7 +9,7 @@ conversational experience.
 
 The following diagram illustrates the complete barge-in conversation flow:
 
-![](images/Barge-In-Flow_8.png)
+![Barge-in flow showing user interruption, audio queue clearing, and new response generation.](images/Barge-In-Flow_8.png)
 
 ## How Amazon Nova 2 Sonic handles barge-in
 

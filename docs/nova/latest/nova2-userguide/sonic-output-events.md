@@ -85,7 +85,7 @@ starts with automatic speech recognition, selects a tool for use, transcribes
 speech, generates audio, finalizes the transcription, and finishes the
 session.
 
-![](images/Output-Event -Flow_3.png)
+![Flow diagram showing conversation stages from Start through ASR, tool handling, text and audio responses, to End with associated events.](images/Output-Event -Flow_3.png)
 
 ## Output Event Flow
 

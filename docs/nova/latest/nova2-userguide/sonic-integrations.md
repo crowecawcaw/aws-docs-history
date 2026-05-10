@@ -132,7 +132,7 @@ Sonic applictions with enterprise-grade security and scalability. AgentCore
 simplifies the deployment of real-time voice AI applications by handling
 infrastructure, authentication, and WebSocket connectivity.
 
-![](images/Agentcore-Architecture-Overview_11.png)
+![AgentCore architecture showing client apps connecting via WebSocket to runtime container with Nova Sonic.](images/Agentcore-Architecture-Overview_11.png)
 **Key features:**
 
 - Bidirectional streaming - Native support for Nova Sonic's
@@ -181,7 +181,7 @@ signaling protocols.
 For detailed implementation examples and code examples, visit the [LiveKit AWS
 Integration Documentation.](https://docs.livekit.io/agents/integrations/aws/ "https://docs.livekit.io/agents/integrations/aws/")
 
-![](images/LiveKit-Architecture-Overview_9.png)
+![Architecture diagram showing LiveKit integration with Amazon Bedrock using WebRTC and Nova Sonic.](images/LiveKit-Architecture-Overview_9.png)
 **How it works:**
 
 - Client layer: Web, mobile, or desktop applications connect using
@@ -218,7 +218,7 @@ Integration Documentation.](https://docs.pipecat.ai/server/services/s2s/aws "htt
 - AWS Integration: Native support for Amazon Bedrock, Amazon
   Transcribe, and Amazon Polly.
 
-![](images/Pipecat-Architecture-Overview_10.png)
+![Architecture diagram showing voice input flow through VAD, Amazon Transcribe, Pipecat Flows, Amazon Bedrock, and Amazon Polly to voice output via WebRTC.](images/Pipecat-Architecture-Overview_10.png)
 The architecture includes:
 
 - WebRTC Transport: Real-time audio streaming between client devices
@@ -253,7 +253,7 @@ Deployment options
   CDK, see the [Speech-to-Speech CDK Sample](https://github.com/aws-samples/generative-ai-cdk-constructs-samples/tree/main/samples/speech-to-speech "https://github.com/aws-samples/generative-ai-cdk-constructs-samples/tree/main/samples/speech-to-speech") on GitHub. This sample
   demonstrates:
 
-![](images/cdk-12.png)
+![Architecture diagram showing users connecting via HTTPS and WebSocket to static website and speech-to-speech service components, with Amazon Bedrock integration for Nova Sonic.](images/cdk-12.png)
 
 - Complete CDK infrastructure setup with TypeScript
 - WebSocket server implementation for real-time communication
@@ -278,7 +278,7 @@ collected before proceeding to the next step in the conversation.
 Intent classification: Analyzes user inquiries and routes them to the
 appropriate specialized sub-agent.
 
-![](images/Banking-Assistant_13.png)
+![Architecture diagram showing call flow from user through greeting to three agents handling authentication, banking, and mortgage services.](images/Banking-Assistant_13.png)
 The diagram above shows a banking voice assistant that uses a multi-agent
 architecture. The conversation flow begins with a greeting and collecting
 the user's name, then handles inquiries related to banking or mortgages
