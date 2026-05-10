@@ -82,9 +82,27 @@ The profile URL is added to the `profile` element in the `"meta" :
 
 ###### Example– How to reference a non-default supported FHIR profile
 
-To validate against a supported non-default profile (e.g. CarinBB 1.0.0) - add the
-profile URL with version (separated by '|') and the base profile URL in the
-`meta.profile` element. This example resource was truncated for clarity.
+To validate against a supported non-default profile, add the versioned profile URL to
+the `meta.profile` element. The versioned URL includes the base profile URL
+followed by a pipe character (`|`) and the version number. This example resource
+was truncated for clarity.
+
+```
+{
+    "resourceType": "ExplanationOfBenefit",
+    "id": "sample-EOB",
+    "meta": {
+        "lastUpdated": "2024-02-02T05:56:09.4+00:00",
+        "profile": [
+            "http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Pharmacy|1.0.0"
+        ]
+    }
+}
+
+```
+
+You can also include both the versioned URL and the base profile URL. Both formats are
+valid.
 
 ```
 {
@@ -94,7 +112,7 @@ profile URL with version (separated by '|') and the base profile URL in the
         "lastUpdated": "2024-02-02T05:56:09.4+00:00",
         "profile": [
             "http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Pharmacy|1.0.0",
-      "http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Pharmacy“
+            "http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Pharmacy"
         ]
     }
 }
