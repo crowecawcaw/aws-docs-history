@@ -5,7 +5,7 @@
 Before you create a rule-based matching workflow, you must:
 
 1. Create a schema mapping. For more information, see [Creating a schema mapping](create-schema-mapping.md "create-schema-mapping.md").
-2. If using Amazon Connect Customer Profiles as your output destination, ensure you have the
+2. If using Connect Customer Customer Profiles as your output destination, ensure you have the
    appropriate permissions configured.
    The following procedure demonstrates how to create a rule-based matching workflow with
    the **Simple** rule type using either the AWS Entity Resolution Console or the

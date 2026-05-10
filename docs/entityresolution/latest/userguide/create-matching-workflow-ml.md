@@ -25,7 +25,7 @@ When AWS Entity Resolution finds a match between two or more records in your dat
 Before you create an ML-based matching workflow, you must:
 
 1. Create a schema mapping. For more information, see [Creating a schema mapping](create-schema-mapping.md "create-schema-mapping.md").
-2. If using Amazon Connect Customer Profiles as your output destination, ensure you have the
+2. If using Connect Customer Customer Profiles as your output destination, ensure you have the
    appropriate permissions configured.
 
 ###### To create a ML-based matching workflow:

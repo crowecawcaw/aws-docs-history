@@ -43,7 +43,7 @@ than rule-based matching.
 Provider service-based matching
 
 Uses third-party data providers to enrich and validate your data before matching.
-This type of matching is not compatible with Amazon Connect Customer Profiles
+This type of matching is not compatible with Connect Customer Customer Profiles
 output.
 
 ## Data output options
@@ -51,12 +51,12 @@ output.
 AWS Entity Resolution can write data output files to:
 
 - An Amazon S3 location that you specify
-- Amazon Connect Customer Profiles (for customer data deduplication)
+- Connect Customer Customer Profiles (for customer data deduplication)
 
 ###### Important
 
-Exporting to Amazon Connect Customer Profiles is not compatible with provider-based matching. To
-export to Amazon Connect Customer Profiles, you must use rule-based matching or machine
+Exporting to Connect Customer Customer Profiles is not compatible with provider-based matching. To
+export to Connect Customer Customer Profiles, you must use rule-based matching or machine
 learning-based matching.
 
 You can use AWS Entity Resolution to hash output data if desired – helping you maintain control
@@ -74,7 +74,7 @@ destinations.
 ## Matching workflow results
 
 After you create and run a matching workflow, you can view the results in your specified
-S3 location or in Amazon Connect Customer Profiles. Matching workflows generate IDs after the data is
+S3 location or in Connect Customer Customer Profiles. Matching workflows generate IDs after the data is
 indexed.
 
 A matching workflow can have multiple runs and the results (successes or errors) are
@@ -88,11 +88,11 @@ For each run for S3 output destinations:
   files
 - Errors are written to an `error` folder with multiple fields
 
-For each run for Amazon Connect Customer Profiles output destinations:
+For each run for Connect Customer Customer Profiles output destinations:
 
-- Deduplicated customer records are sent directly to your Amazon Connect instance
+- Deduplicated customer records are sent directly to your Connect Customer instance
 - You can view your recent job history in the AWS Entity Resolution console
-- Existing profiles in Amazon Connect are not included in the deduplication
+- Existing profiles in Connect Customer are not included in the deduplication
   process
 
 After you create and run a matching workflow, you can use the output of [rule-based matching](creating-matching-workflow-rule-based.md "creating-matching-workflow-rule-based.md") or [machine
