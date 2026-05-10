@@ -677,6 +677,11 @@ The agent application container will receive these as headers:
 ### Security considerations
 
 
+###### Tip
+
+For a consolidated view of all Runtime security recommendations, see [Security best practices for AgentCore Runtime](runtime-security-best-practices.md "runtime-security-best-practices.md").
+
+
 
 
 Authentication

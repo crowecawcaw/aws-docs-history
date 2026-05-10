@@ -37,7 +37,7 @@ The principal type depends on the authentication method configured for your Agen
 
 - Each MCP tool becomes an action: `AgentCore::Action::"ToolName"`
 - All tool actions inherit from CallTool → Mcp hierarchy
-- Example: `Action::"RefundTool__process_refund"` is a CallTool
+- Example: `Action::"RefundTool___process_refund"` is a CallTool
 
 ## Context
 

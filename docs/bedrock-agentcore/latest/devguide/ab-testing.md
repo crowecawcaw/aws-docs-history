@@ -2,7 +2,7 @@
 
 A/B testing splits live production traffic between two variants and continuously evaluates performance with statistical significance. The AgentCore Gateway handles traffic routing; your agent code does not change.
 
-A/B testing is the validation step in the [AgentCore Optimization improvement loop](optimization-how-it-works.md "optimization-how-it-works.md"). After generating a [recommendation](optimization-recommendations.md "optimization-recommendations.md") and validating it with [offline batch evaluations](dataset-evaluations.md "dataset-evaluations.md"), you run an A/B test to confirm the change improves performance on live traffic before committing to a full rollout. You can route traffic to separate AgentCore Runtimes (target-based) or deliver different configurations to the same AgentCore Runtime (configuration bundles).
+A/B testing is the validation step in the [AgentCore optimization improvement loop](optimization-how-it-works.md "optimization-how-it-works.md"). After generating a [recommendation](optimization-recommendations.md "optimization-recommendations.md") and validating it with [offline batch evaluations](dataset-evaluations.md "dataset-evaluations.md"), you run an A/B test to confirm the change improves performance on live traffic before committing to a full rollout. You can route traffic to separate AgentCore Runtimes (target-based) or deliver different configurations to the same AgentCore Runtime (configuration bundles).
 
 ## When to use A/B testing
 

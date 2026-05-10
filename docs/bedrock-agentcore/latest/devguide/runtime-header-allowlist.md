@@ -1,22 +1,46 @@
 # Pass custom headers to Amazon Bedrock AgentCore Runtime
 
-Custom headers let you pass contextual information from your application directly to your agent code without cluttering the main request payload. This includes authentication tokens like JWT (JSON Web Tokens, which contain user identity and authorization claims) through the `Authorization` header, allowing your agent to make decisions based on who is calling it. You can also pass custom metadata like user preferences, session identifiers, or trace context using headers prefixed with `X-Amzn-Bedrock-AgentCore-Runtime-Custom-` , giving your agent access to up to 20 pieces of runtime context that travel alongside each request. This information can be also used in downstream systems like AgentCore Memory that you can namespace based on those characteristics like `user_id` or `aud` in claims like line of business.
+Custom headers let you pass contextual information from your application directly to your agent code without cluttering the main request payload. You can pass any valid HTTP header that is not in the [restricted headers](#runtime-header-restrictions "#runtime-header-restrictions") list, including webhook signatures like `X-Custom-Signature`, API keys like `X-Api-Key`, trace context, or session identifiers. You can also pass the `Authorization` header for JWT-based authentication when your agent is configured with a custom JWT authorizer. Headers prefixed with `X-Amzn-Bedrock-AgentCore-Runtime-Custom-` continue to be supported for backward compatibility. Up to 20 headers can be configured per runtime, and each header value is limited to 4KB.
 
-Amazon Bedrock AgentCore Runtime lets you pass headers in a request to your agent code provided the headers match the following criteria:
+Amazon Bedrock AgentCore Runtime lets you pass headers in a request to your agent code provided the headers meet the following criteria:
 
-- Header name is one of the following:
-  - Starts with `X-Amzn-Bedrock-AgentCore-Runtime-Custom-`
-  - Equal to `Authorization` . This is reserved for agents with OAuth inbound access to pass in the incoming JWT token to the agent code.
-
+- Header name is a valid HTTP header (alphanumeric characters, hyphens, and underscores) and is not in the [restricted headers](#runtime-header-restrictions "#runtime-header-restrictions") list.
+- Headers starting with `x-amz-` are not allowed (these are reserved for AWS SigV4 signing).
+- Headers starting with `x-amzn-` are not allowed, except for headers prefixed with `X-Amzn-Bedrock-AgentCore-Runtime-Custom-` .
+- The `Authorization` header requires the agent runtime to be configured with a `customJWTAuthorizer` for OAuth-based inbound access.
 - Header value is not greater than 4KB in size.
 - Up to 20 headers can be configured per runtime.
+- Header names are case-insensitive and duplicates (by case-insensitive comparison) are not allowed.
 
-###### Topics
+## Restricted headers
 
-- [Step 1: Create your agent](#create-agent-headers "#create-agent-headers")
-- [Step 2: Configure and deploy your agent with custom headers](#deploy-agentcore-runtime "#deploy-agentcore-runtime")
-- [Step 3: Invoke your agent with custom headers](#invoke-custom-headers "#invoke-custom-headers")
-- [Step 4: (Optional) Configure inbound JWT authentication](#pass-jwt-token "#pass-jwt-token")
+To maintain security and prevent exposure of sensitive information, the following headers are restricted and cannot be configured for propagation:
+
+| Category                       | Headers                                                                                                                                                                                                                                                                         |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Authentication & Authorization | Proxy-Authorization, WWW-Authenticate                                                                                                                                                                                                                                           |
+| Content Negotiation            | Accept, Accept-Charset, Accept-Encoding, Accept-Language, Content-Type, Content-Length, Content-Encoding, Content-Language, Content-Location, Content-Range                                                                                                                     |
+| Caching                        | Cache-Control, ETag, Expires, If-Match, If-Modified-Since, If-None-Match, If-Range, If-Unmodified-Since, Last-Modified, Pragma, Vary                                                                                                                                            |
+| Connection Management          | Connection, Keep-Alive, Proxy-Connection, Upgrade                                                                                                                                                                                                                               |
+| Request Context                | Host, User-Agent, Referer, From                                                                                                                                                                                                                                                 |
+| Range / Transfer               | Range, Accept-Ranges, Transfer-Encoding, TE, Trailer                                                                                                                                                                                                                            |
+| Server Information             | Server, Date, Location, Retry-After                                                                                                                                                                                                                                             |
+| Cookies                        | Set-Cookie, Cookie                                                                                                                                                                                                                                                              |
+| Security                       | Content-Security-Policy, Content-Security-Policy-Report-Only, Strict-Transport-Security, X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Referrer-Policy, Permissions-Policy, Cross-Origin-Embedder-Policy, Cross-Origin-Opener-Policy, Cross-Origin-Resource-Policy |
+| CORS                           | Access-Control-Allow-Origin, Access-Control-Allow-Methods, Access-Control-Allow-Headers, Access-Control-Allow-Credentials, Access-Control-Expose-Headers, Access-Control-Max-Age, Access-Control-Request-Method, Access-Control-Request-Headers, Origin                         |
+| Client Hints                   | Accept-CH, Accept-CH-Lifetime, DPR, Width, Viewport-Width, Downlink, ECT, RTT, Save-Data                                                                                                                                                                                        |
+| Experimental / Proposed        | Clear-Site-Data, Feature-Policy, Expect-CT, Public-Key-Pins, Public-Key-Pins-Report-Only                                                                                                                                                                                        |
+| Proxy                          | Via, Forwarded, X-Forwarded-For, X-Forwarded-Host, X-Forwarded-Proto, X-Real-IP, X-Requested-With, X-CSRF-Token                                                                                                                                                                 |
+| IP Spoofing / URL Manipulation | True-Client-IP, X-Client-IP, X-Cluster-Client-IP, X-Originating-IP, X-Source-IP, X-Original-URL, X-Original-Host, X-Rewrite-URL                                                                                                                                                 |
+| CDN / Proxy                    | CF-Ray, CF-Connecting-IP, X-Amz-Cf-Id, X-Cache, X-Served-By                                                                                                                                                                                                                     |
+| HTTP/2 Pseudo Headers          | :method, :path, :scheme, :authority, :status                                                                                                                                                                                                                                    |
+| Server Push                    | Link                                                                                                                                                                                                                                                                            |
+| WebSocket                      | Sec-WebSocket-Key, Sec-WebSocket-Accept, Sec-WebSocket-Version, Sec-WebSocket-Protocol, Sec-WebSocket-Extensions                                                                                                                                                                |
+
+In addition to the restricted headers listed above:
+
+- All headers starting with `x-amz-` are restricted (for example, `x-amz-security-token` , `x-amz-date` , `x-amz-content-sha256` ). These are reserved for AWS request signing.
+- All headers starting with `x-amzn-` are restricted, except for headers prefixed with `X-Amzn-Bedrock-AgentCore-Runtime-Custom-` .
 
 ## Step 1: Create your agent
 
@@ -70,7 +94,8 @@ AgentCore CLI
     {
       "name": "MyHeaderAgent",
       "requestHeaderAllowlist": [
-        "X-Amzn-Bedrock-AgentCore-Runtime-Custom-H1",
+        "X-Custom-Signature",
+        "X-Api-Key",
         "X-Amzn-Bedrock-AgentCore-Runtime-Custom-UserId"
       ]
     }
@@ -93,17 +118,25 @@ AWS SDK
 ```
 import boto3
 
-client = boto3.client('bedrock-agentcore')
+client = boto3.client('bedrock-agentcore-control', region_name='us-west-2')
 
 client.update_agent_runtime(
     agentRuntimeId='your-runtime-id',
+    roleArn='arn:aws:iam::123456789012:role/YourAgentRole',
+    agentRuntimeArtifact={'containerConfiguration': {'containerUri': 'your-container-uri'}},
+    networkConfiguration={'networkMode': 'PUBLIC'},
     requestHeaderConfiguration={
         'requestHeaderAllowlist': [
-            'X-Amzn-Bedrock-AgentCore-Runtime-Custom-H1'
+            'X-Custom-Signature',
+            'X-Api-Key'
         ]
     }
 )
 ```
+
+###### Note
+
+`update_agent_runtime` is a full PUT operation. You must include all required fields (`roleArn` , `agentRuntimeArtifact` , `networkConfiguration`) even if they haven’t changed.
 
 You can find your runtime ID by running `agentcore status`.
 
@@ -119,14 +152,15 @@ AgentCore CLI
 
 ```
 agentcore invoke "Tell me a joke" \
-  -H "X-Amzn-Bedrock-AgentCore-Runtime-Custom-H1: test header1"
+  -H "X-Custom-Signature: sha256=abc123def456"
 ```
 
 You can pass multiple headers by repeating the `-H` flag:
 
 ```
 agentcore invoke "Tell me a joke" \
-  -H "X-Amzn-Bedrock-AgentCore-Runtime-Custom-H1: test header1" \
+  -H "X-Custom-Signature: sha256=abc123def456" \
+  -H "X-Api-Key: my-api-key" \
   -H "X-Amzn-Bedrock-AgentCore-Runtime-Custom-UserId: user-123"
 ```
 
@@ -138,15 +172,15 @@ AWS SDK
 import json
 import boto3
 
-agent_arn = YOUR_AGENT_ARN_HERE
+agent_arn = 'YOUR_AGENT_ARN_HERE'
 prompt = "Tell me a joke"
 
-agent_core_client = boto3.client('bedrock-agentcore')
+agent_core_client = boto3.client('bedrock-agentcore', region_name='us-west-2')
 event_system = agent_core_client.meta.events
 
 EVENT_NAME = 'before-sign.bedrock-agentcore.InvokeAgentRuntime'
-CUSTOM_HEADER_NAME = 'X-Amzn-Bedrock-AgentCore-Runtime-Custom-H1'
-CUSTOM_HEADER_VALUE = 'test header1'
+CUSTOM_HEADER_NAME = 'X-Custom-Signature'
+CUSTOM_HEADER_VALUE = 'sha256=abc123def456'
 
 def add_custom_runtime_header(request, **kwargs):
     request.headers.add_header(CUSTOM_HEADER_NAME, CUSTOM_HEADER_VALUE)

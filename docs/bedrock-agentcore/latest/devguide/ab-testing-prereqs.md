@@ -82,10 +82,17 @@ Example permissions policy:
             }
         },
         {
+            "Sid": "CloudWatchLogsDescribe",
+            "Effect": "Allow",
+            "Action": [
+                "logs:DescribeLogGroups"
+            ],
+            "Resource": "*"
+        },
+        {
             "Sid": "CloudWatchLogs",
             "Effect": "Allow",
             "Action": [
-                "logs:DescribeLogGroups",
                 "logs:DescribeIndexPolicies",
                 "logs:PutIndexPolicy",
                 "logs:StartQuery",

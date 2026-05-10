@@ -163,7 +163,7 @@ print(f"Clean up completed, script run successful")
 This example shows you how to:
 
 - Create a custom Code Interpreter with an execution role
-- Configure network access - Choose PUBLIC mode if your Code Interpreter needs to connect to the public internet. If your Code Interpreter supports connection to Amazon S3, and needs limited access to the public internet, choose SANDBOX mode.
+- Configure network access - Choose PUBLIC mode if your Code Interpreter needs to connect to the public internet. If your Code Interpreter needs access limited to Amazon S3, choose SANDBOX mode.
 - Upload and download files between the Code Interpreter environment and S3
 - Execute commands and scripts within the Code Interpreter environment
 - Clean up resources when finished

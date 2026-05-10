@@ -9,7 +9,7 @@ Amazon Bedrock AgentCore Runtime lets you isolate each user session and safely r
 
 ###### Note
 
-AgentCore does not enforce session-to-user mappings - your client backend should maintain the relationship between users and their session IDs. Additionally, your client backend should implement logic for user to session lifecycle management like maximum number of sessions per user.
+AgentCore does not enforce session-to-user mappings - your client backend should maintain the relationship between users and their session IDs. Additionally, your client backend should implement logic for user to session lifecycle management like maximum number of sessions per user. For complete session isolation guidance, see [Security best practices for AgentCore Runtime](runtime-security-best-practices.md "runtime-security-best-practices.md").
 
 ###### Topics
 
@@ -25,7 +25,7 @@ AgentCore does not enforce session-to-user mappings - your client backend should
 
 By default, the compute (microVM) associated with a session is ephemeral. Any data stored in memory or written to disk persists only for the compute lifecycle. This includes conversation history, user preferences, intermediate calculation results, and any other state information your agent maintains.
 
-To persist filesystem data across session stop/resume cycles, configure **session storage** — a persistent directory that survives compute termination. See [Persist session state across stop/resume with a filesystem configuration (Preview)](runtime-persistent-filesystems.md "runtime-persistent-filesystems.md").
+To persist filesystem data across session stop/resume cycles, configure **session storage** — a persistent directory that survives compute termination. See [File system configurations for AgentCore Runtime](runtime-filesystem-configurations.md "runtime-filesystem-configurations.md").
 
 For structured data that needs to be retained beyond the session lifetime (such as user conversation history, learned preferences, or important insights), use AgentCore Memory. This service provides purpose-built persistent storage designed specifically for agent workloads, with both short-term and long-term memory capabilities.
 
@@ -45,7 +45,7 @@ Session state is determined by the compute lifecycle and can be one of the follo
 
 - **Active** : Either processing a sync request, executing a command, or doing background tasks. Sync invocation and command execution activity is automatically tracked based on invocations to a runtime session. Background tasks are communicated by the agent code by responding with "HealthyBusy" status in pings.
 - **Idle** : When not processing any requests or background tasks. The session has completed processing but remains available for future invocations.
-- **Stopped** : The compute (microVM) provisioned for the session has been terminated and the session is stopped. This can occur due to inactivity (default 15 minutes), reaching max compute lifetime (default 8 hours), an explicit stop by invoking the [StopRuntimeSession](../APIReference/API_StopRuntimeSession.md "../APIReference/API_StopRuntimeSession.md") API, or if the compute is deemed unhealthy based on health checks. The session transitions back to Active on the next invocation and a new compute is provisioned, with the same lifecycle configuration (i.e. idleRuntimeSessionTimeout and maxLifetime that can be up to another 8 hours). The session itself remains valid until the AgentCore Runtime ARN is deleted. If the runtime is configured with session storage, filesystem data at the configured mount path persists across stop/resume cycles. See [Persist session state across stop/resume with a filesystem configuration (Preview)](runtime-persistent-filesystems.md "runtime-persistent-filesystems.md").
+- **Stopped** : The compute (microVM) provisioned for the session has been terminated and the session is stopped. This can occur due to inactivity (default 15 minutes), reaching max compute lifetime (default 8 hours), an explicit stop by invoking the [StopRuntimeSession](../APIReference/API_StopRuntimeSession.md "../APIReference/API_StopRuntimeSession.md") API, or if the compute is deemed unhealthy based on health checks. The session transitions back to Active on the next invocation and a new compute is provisioned, with the same lifecycle configuration (i.e. idleRuntimeSessionTimeout and maxLifetime that can be up to another 8 hours). The session itself remains valid until the AgentCore Runtime ARN is deleted. If the runtime is configured with session storage, filesystem data at the configured mount path persists across stop/resume cycles. See [File system configurations for AgentCore Runtime](runtime-filesystem-configurations.md "runtime-filesystem-configurations.md").
 
 ## How to use sessions
 

@@ -72,7 +72,7 @@ The response includes each generated policy with its Cedar definition and valida
       "policyGenerationAssetId": "asset-1",
       "definition": {
         "cedar": {
-          "statement": "permit(\n  principal is AgentCore::OAuthUser,\n  action == AgentCore::Action::\"RefundTool__process_refund\",\n  resource == AgentCore::Gateway::\"arn:aws:bedrock-agentcore:us-east-1:123456789012:gateway/MyGateway-xyz789\"\n) when {\n  context.input.amount <= 500\n};"
+          "statement": "permit(\n  principal is AgentCore::OAuthUser,\n  action == AgentCore::Action::\"RefundTool___process_refund\",\n  resource == AgentCore::Gateway::\"arn:aws:bedrock-agentcore:us-east-1:123456789012:gateway/MyGateway-xyz789\"\n) when {\n  context.input.amount <= 500\n};"
         }
       },
       "findings": [
@@ -86,13 +86,13 @@ The response includes each generated policy with its Cedar definition and valida
       "policyGenerationAssetId": "asset-2",
       "definition": {
         "cedar": {
-          "statement": "permit(\n  principal,\n  action == AgentCore::Action::\"RefundTool__view_order_history\",\n  resource\n);"
+          "statement": "permit(\n  principal,\n  action == AgentCore::Action::\"RefundTool___view_order_history\",\n  resource\n);"
         }
       },
       "findings": [
         {
           "type": "ALLOW_ALL",
-          "description": "Overly Permissive: Policy Engine will allow every request for the specified principal (AgentCore::OAuthUser), action (RefundTool__view_order_history) and resource (gateway/*) combination if the policy is added or updated"
+          "description": "Overly Permissive: Policy Engine will allow every request for the specified principal (AgentCore::OAuthUser), action (RefundTool___view_order_history) and resource (gateway/*) combination if the policy is added or updated"
         }
       ],
       "rawTextFragment": "Allow customer service agents to view order history"
@@ -124,7 +124,7 @@ A policy flagged as overly permissive:
   "findings": [
     {
       "type": "ALLOW_ALL",
-      "description": "Overly Permissive: Policy Engine will allow every request for the specified principal (AgentCore::OAuthUser), action (RefundTool__view_order_history) and resource (gateway/*) combination if the policy is added or updated"
+      "description": "Overly Permissive: Policy Engine will allow every request for the specified principal (AgentCore::OAuthUser), action (RefundTool___view_order_history) and resource (gateway/*) combination if the policy is added or updated"
     }
   ]
 }

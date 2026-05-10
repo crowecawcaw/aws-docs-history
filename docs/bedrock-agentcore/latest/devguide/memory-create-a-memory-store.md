@@ -50,7 +50,7 @@ Interactive
 1. Run `agentcore` to open the TUI, then select **add** and choose **Memory** :
 2. Enter the memory name:
 
-![Memory wizard: enter name](images/tui/memory-add-name.png) 3. Select the event expiry duration:
+![Memory wizard: enter name](/images/bedrock-agentcore/latest/devguide/images/tui/memory-add-name.png) 3. Select the event expiry duration:
 
 ![Memory wizard: select event expiry duration](images/tui/memory-add-expiry.png) 4. Choose memory strategies for long-term memory extraction:
 

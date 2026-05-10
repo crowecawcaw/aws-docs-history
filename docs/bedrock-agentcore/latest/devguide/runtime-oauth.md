@@ -22,6 +22,10 @@ Invoking InvokeAgentRuntime with the `X-Amzn-Bedrock-AgentCore-Runtime-User-Id h
 
 **Security Best Practices for X-Amzn-Bedrock-AgentCore-Runtime-User-Id Header**
 
+###### Tip
+
+For a consolidated view of all Runtime security recommendations, see [Security best practices for AgentCore Runtime](runtime-security-best-practices.md "runtime-security-best-practices.md").
+
 While IAM authentication secures the API access, the `X-Amzn-Bedrock-AgentCore-Runtime-User-Id` header requires additional security considerations:
 
 - **Restrict the IAM permission** — Only trusted principals should have the `bedrock-agentcore:InvokeAgentRuntimeForUser` permission. Scope this permission to specific runtime resources using IAM resource conditions. Do not grant it broadly via managed policies or wildcard resource statements.

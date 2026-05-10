@@ -60,3 +60,133 @@ apikey_provider= identity_client.create_api_key_credential_provider({
         "apiKey": "your-api-key"
     })
 ```
+
+## Creating a payment credential provider
+
+For services that use payment-processor credentials such as Coinbase CDP or Stripe Privy, AgentCore Identity securely stores the associated API keys, app secrets, and wallet/authorization secrets in Secrets Manager and surfaces only their ARNs to your agents. For information about payment credential provider limits, see [AgentCore Identity Service Quotas](bedrock-agentcore-limits.md#identity-service-limits "bedrock-agentcore-limits.md#identity-service-limits").
+
+Payment credential providers currently support two vendors: `CoinbaseCDP` and `StripePrivy`. Supply exactly one configuration block under `providerConfigurationInput` that matches the `credentialProviderVendor` you choose.
+
+###### Example
+
+AWS CLI
+The following example creates a payment credential provider for Coinbase CDP:
+
+```
+aws bedrock-agentcore-control create-payment-credential-provider \
+  --name "coinbase-provider" \
+  --credential-provider-vendor CoinbaseCDP \
+  --provider-configuration-input '{
+    "coinbaseCdpConfiguration": {
+      "apiKeyId": "your-coinbase-api-key-id",
+      "apiKeySecret": "your-coinbase-api-key-secret",
+      "walletSecret": "your-coinbase-wallet-secret"
+    }
+  }' \
+  --region us-east-1
+```
+
+The following example creates a payment credential provider for Stripe Privy:
+
+```
+aws bedrock-agentcore-control create-payment-credential-provider \
+  --name "stripe-privy-provider" \
+  --credential-provider-vendor StripePrivy \
+  --provider-configuration-input '{
+    "stripePrivyConfiguration": {
+      "appId": "your-stripe-privy-app-id",
+      "appSecret": "your-stripe-privy-app-secret",
+      "authorizationPrivateKey": "your-stripe-privy-authorization-private-key",
+      "authorizationId": "your-stripe-privy-authorization-id"
+    }
+  }' \
+  --region us-east-1
+```
+
+AWS SDK
+The following example configures a provider for Coinbase CDP:
+
+```
+import boto3
+
+client = boto3.client("bedrock-agentcore-control", region_name="us-east-1")
+
+coinbase_provider = client.create_payment_credential_provider(
+    name="coinbase-provider",
+    credentialProviderVendor="CoinbaseCDP",
+    providerConfigurationInput={
+        "coinbaseCdpConfiguration": {
+            "apiKeyId": "your-coinbase-api-key-id",
+            "apiKeySecret": "your-coinbase-api-key-secret",
+            "walletSecret": "your-coinbase-wallet-secret"
+        }
+    }
+)
+```
+
+The following example configures a provider for Stripe Privy:
+
+```
+import boto3
+
+client = boto3.client("bedrock-agentcore-control", region_name="us-east-1")
+
+stripe_privy_provider = client.create_payment_credential_provider(
+    name="stripe-privy-provider",
+    credentialProviderVendor="StripePrivy",
+    providerConfigurationInput={
+        "stripePrivyConfiguration": {
+            "appId": "your-stripe-privy-app-id",
+            "appSecret": "your-stripe-privy-app-secret",
+            "authorizationPrivateKey": "your-stripe-privy-authorization-private-key",
+            "authorizationId": "your-stripe-privy-authorization-id"
+        }
+    }
+)
+```
+
+AgentCore SDK
+The following example configures a provider for Coinbase CDP:
+
+```
+from bedrock_agentcore.services.identity import IdentityClient
+
+identity_client = IdentityClient("us-east-1")
+
+coinbase_provider = identity_client.create_payment_credential_provider(
+    name="coinbase-provider",
+    credential_provider_vendor="CoinbaseCDP",
+    provider_configuration_input={
+        "coinbaseCdpConfiguration": {
+            "apiKeyId": "your-coinbase-api-key-id",
+            "apiKeySecret": "your-coinbase-api-key-secret",
+            "walletSecret": "your-coinbase-wallet-secret"
+        }
+    }
+)
+```
+
+The following example configures a provider for Stripe Privy:
+
+```
+from bedrock_agentcore.services.identity import IdentityClient
+
+identity_client = IdentityClient("us-east-1")
+
+stripe_privy_provider = identity_client.create_payment_credential_provider(
+    name="stripe-privy-provider",
+    credential_provider_vendor="StripePrivy",
+    provider_configuration_input={
+        "stripePrivyConfiguration": {
+            "appId": "your-stripe-privy-app-id",
+            "appSecret": "your-stripe-privy-app-secret",
+            "authorizationPrivateKey": "your-stripe-privy-authorization-private-key",
+            "authorizationId": "your-stripe-privy-authorization-id"
+        }
+    }
+)
+```
+
+###### Note
+
+For Stripe Privy, the `authorizationPrivateKey` must be the raw base64 key content only. Strip the `wallet-auth:` prefix that Privy adds when generating the key. See [Prerequisites](payments-prerequisites.md "payments-prerequisites.md") for details.

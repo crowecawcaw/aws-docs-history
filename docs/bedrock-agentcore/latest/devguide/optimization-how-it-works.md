@@ -1,6 +1,6 @@
 # How it works
 
-AgentCore Optimization connects evaluation findings to validated improvements through a repeatable cycle. A typical iteration follows these steps:
+AgentCore optimization connects evaluation findings to validated improvements through a repeatable cycle. A typical iteration follows these steps:
 
 1. **Generate a recommendation:** Point the Recommendations API at agent traces in CloudWatch Logs and specify the evaluator you want to optimize for. The service analyzes failure patterns and returns an optimized system prompt or set of tool descriptions, along with an explanation of what changed and why.
 2. **(Optional) Package as a configuration bundle:** Create a bundle version with the recommended configuration. A bundle is a versioned, immutable snapshot of an agent’s configuration (system prompts, model IDs, tool descriptions) that can be dynamically changed without code deployments. Configuration bundles are useful when you want to decouple agent behavior from code; they are not required. You can also validate changes by deploying to a separate runtime endpoint.

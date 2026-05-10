@@ -125,13 +125,13 @@ aws bedrock-agentcore-control create-harness \
 
 ## Agent Skills
 
-[Agent Skills](https://strandsagents.com/docs/user-guide/concepts/plugins/skills/ "https://strandsagents.com/docs/user-guide/concepts/plugins/skills/") are bundles of markdown and scripts that give the agent domain knowledge on demand (e.g. how to work with Excel files, how to use a specific API). Skills must be present in the harness environment (the container filesystem) before they can be used. The `skills` parameter on the harness or at invoke time is a **pointer** to a path inside the environment — it does not upload or install the skill.
+[Agent Skills](https://strandsagents.com/docs/user-guide/concepts/plugins/skills/ "https://strandsagents.com/docs/user-guide/concepts/plugins/skills/") are bundles of markdown and scripts that give the agent domain knowledge on demand (e.g. how to work with Excel files, how to use a specific API). Skills must be present in the harness environment (the container filesystem) before they can be used. The `skills` parameter on the harness or at invoke time is a **pointer** to a path inside the environment - it does not upload or install the skill.
 
 ### Getting skills into the environment
 
-**Bake into the container image** — include the skill directory in your custom image at a known path (e.g. `.agents/skills/xlsx`). Available to all invocations automatically. This is the recommended approach for production.
+**Bake into the container image** - include the skill directory in your custom image at a known path (e.g. `.agents/skills/xlsx`). Available to all invocations automatically. This is the recommended approach for production.
 
-**Install at session start** — use `InvokeAgentRuntimeCommand` to install skills after the session begins, before invoking the agent:
+**Install at session start** - use `InvokeAgentRuntimeCommand` to install skills after the session begins, before invoking the agent:
 
 ```
 agentcore invoke --exec --harness my-agent --session-id "$(uuidgen)" \

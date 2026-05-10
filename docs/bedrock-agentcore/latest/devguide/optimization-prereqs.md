@@ -1,6 +1,6 @@
 # Prerequisites
 
-Before using AgentCore Optimization features, make sure the following are in place.
+Before using AgentCore optimization features, make sure the following are in place.
 
 ## Requirements and supported frameworks
 

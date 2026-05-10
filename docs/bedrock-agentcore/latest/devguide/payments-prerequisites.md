@@ -1,0 +1,145 @@
+# Prerequisites for AgentCore payments
+
+Before you use AgentCore payments, complete the following prerequisites.
+
+## AWS account and credentials
+
+You need an AWS account with credentials configured. To configure credentials, install and use the AWS Command Line Interface by following the steps at [Getting started with the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
+
+```
+# Verify installation
+aws --version  # Should show version 2.x
+```
+
+## Python and AWS SDK
+
+To access your AWS credentials and configure them for use with SDKs, follow the steps at [Using IAM Identity Center to authenticate AWS SDK and Tools](../../../sdkref/latest/guide/access-sso.md "../../../sdkref/latest/guide/access-sso.md"). If you plan to use the AWS Python SDK (Boto3) to interact with AgentCore payments programmatically:
+
+1. Install **Python 3.10+**.
+2. Install the AWS SDK: `pip install boto3`
+3. Verify your credentials are configured: `aws sts get-caller-identity`
+
+For more information on how to set up and use the AWS SDK, see [AWS Builder Tools](https://aws.amazon.com/developer/tools/ "https://aws.amazon.com/developer/tools/").
+
+## Payment provider credentials
+
+AgentCore payments connects to external payment providers for cryptocurrency wallet operations. You must obtain credentials from at least one supported provider before creating a PaymentConnector.
+
+### Coinbase CDP credentials
+
+If you plan to use Coinbase CDP as your payment provider for developer-managed wallets, obtain the following credentials from the [Coinbase Developer Platform](https://docs.cdp.coinbase.com/api-reference/v2/authentication "https://docs.cdp.coinbase.com/api-reference/v2/authentication"):
+
+1. Create or log in to a Coinbase Developer Platform account and project.
+2. Generate an API key and Wallet secret (or reuse an existing one) and note the following values:
+
+| Credential       | Description                                                                                                  |
+| ---------------- | ------------------------------------------------------------------------------------------------------------ |
+| `API Key ID`     | The public identifier for your CDP project                                                                   |
+| `API Key Secret` | The private secret used to sign API requests to the CDP control plane                                        |
+| `Wallet Secret`  | A specialized secret for cryptographic wallet operations such as deriving addresses and signing transactions |
+
+3. Under **Project** > **Wallet** > **Embedded Wallets** > **Policies**, enable **Delegated signing**.
+
+![Coinbase dashboard for API keys](images/payments/coinbase-keys.jpg)
+
+### Privy credentials
+
+If you plan to use Privy for user-owned embedded wallet flows, obtain the following credentials from the [Privy Dashboard](https://docs.privy.io/authentication/overview#api-authentication "https://docs.privy.io/authentication/overview#api-authentication"):
+
+1. Create a **dedicated** Privy app for AgentCore operations at [dashboard.privy.io](https://dashboard.privy.io/ "https://dashboard.privy.io/"). Do not reuse Privy apps that serve other purposes.
+2. Copy the **App ID** and **App Secret** from your app settings.
+3. In your Privy app, navigate to **Wallet Infrastructure** > **Authorization** and choose **New Key** to generate a P-256 key pair. Privy prefixes the generated private key with `wallet-auth:`. Strip this prefix and keep only the raw base64 content. Note the following values:
+
+| Credential                     | Description                                                                                                                                                 |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `App ID`                       | Your Privy application identifier, sent as the `privy-app-id` header on API calls                                                                           |
+| `App Secret`                   | Secret credential paired with the App ID, used for server-to-server Basic Auth                                                                              |
+| `Authorization ID` (Signer ID) | The public key identifier from the generated P-256 key pair                                                                                                 |
+| `Authorization Private Key`    | The private key from the generated P-256 key pair, used for signing wallet operations. Strip the `wallet-auth:` prefix and use only the raw base64 content. |
+
+###### Note
+
+When you generate an Authorization Key in the Privy dashboard, the private key is prefixed with `wallet-auth:`. AgentCore payments does not accept this prefix — you must strip it before storing the key in your PaymentCredentialProvider. Only the raw base64 key content is needed for transaction signing.
+
+For example, if Privy generates:
+
+```
+wallet-auth:MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQg...
+```
+
+Use only:
+
+```
+MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQg...
+```
+
+![Privy key dialog for AgentCore payments](images/payments/privy-keys.png)
+
+#### Security best practices for Privy credentials
+
+**Create a dedicated Privy app for AgentCore**
+
+Create a separate Privy app that is used exclusively for AgentCore payments. This reduces the scope of credentials and simplifies auditing of wallet operations.
+
+**Restrict secret access to AgentCore services**
+
+When you store your Privy `App Secret` in AgentCore Identity as a PaymentCredentialProvider, ensure that only the AgentCore payments service role can retrieve the secret. Do not grant access to the underlying secret in AWS Secrets Manager to any other IAM principals. The following resource policy on the secret restricts access to the AgentCore service role:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "secretsmanager:GetSecretValue",
+            "Resource": "*",
+            "Condition": {
+                "StringNotEquals": {
+                    "aws:PrincipalArn": "arn:aws:iam::111122223333:role/AgentCorePaymentsResourceRetrievalRole"
+                }
+            }
+        }
+    ]
+}
+```
+
+###### Warning
+
+If Privy secrets are accessible to principals beyond the AgentCore service role, a compromised IAM identity could retrieve the secrets and execute unauthorized wallet operations outside of AgentCore’s budget enforcement and audit controls.
+
+**Rotate secrets regularly**
+
+Rotate your Privy credentials on a regular schedule to reduce the window of exposure for any compromised secret.
+
+| Credential                  | Recommended rotation frequency                         |
+| --------------------------- | ------------------------------------------------------ |
+| `App Secret`                | Every 90 days                                          |
+| `Authorization Private Key` | Every 90 days                                          |
+| `App ID`                    | Does not require rotation (public identifier)          |
+| `Authorization ID`          | Rotates automatically when you generate a new key pair |
+
+To rotate credentials:
+
+1. Generate a new key pair or App Secret in the Privy Dashboard.
+2. Update the PaymentCredentialProvider in AgentCore Identity with the new values.
+3. Verify that payment operations succeed with the new credentials.
+4. Revoke the old credentials in the Privy Dashboard.
+
+###### Note
+
+Plan for a brief overlap period where both old and new credentials are active. This prevents downtime during rotation.
+
+After you obtain credentials from your provider, you store them in AgentCore Identity as a PaymentCredentialProvider. For instructions, see [Configure payment credential providers](resource-providers.md "resource-providers.md").
+
+## (Optional) Identity provider for JWT authorization
+
+If you plan to use JWT authorization for inbound access to your Payment Manager (to enable consumers to access the Payment Manager using non-IAM identities), set up Amazon Cognito or your own identity provider before creating the Payment Manager:
+
+1. **Create a Cognito User Pool** (or use your existing identity provider).
+2. **Register an App Client** and note the Client ID.
+3. **Create a test user** with a username and password.
+
+Alternatively, you can choose **Quick create configurations with Cognito** during Payment Manager creation, and AgentCore payments creates the authorization configurations on your behalf.
+
+For detailed instructions, see [Configure inbound JWT authorizer](inbound-jwt-authorizer.md "inbound-jwt-authorizer.md").

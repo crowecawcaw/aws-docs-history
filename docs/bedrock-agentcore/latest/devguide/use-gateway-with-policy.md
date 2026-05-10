@@ -131,7 +131,7 @@ access_token = "YOUR_ACCESS_TOKEN"
 result = call_gateway_tool(
     gateway_url,
     access_token,
-    "RefundTool__process_refund",
+    "RefundTool___process_refund",
     {
         "orderId": "12345",
         "amount": 450,

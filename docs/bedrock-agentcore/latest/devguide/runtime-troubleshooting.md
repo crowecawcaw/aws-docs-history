@@ -22,6 +22,10 @@ This troubleshooting topic helps you identify and resolve common issues when wor
 - [I need help troubleshooting bidirectional streaming using WebSocket](#troubleshooting-websocket-protocol "#troubleshooting-websocket-protocol")
 - [My code changes aren’t reflected in existing sessions](#troubleshoot-code-updates "#troubleshoot-code-updates")
 - [Spans are missing when my runtime is invoked from a Lambda function](#troubleshoot-runtime-lambda-missing-spans "#troubleshoot-runtime-lambda-missing-spans")
+- [My S3 Files or EFS mount fails with "Access denied"](#troubleshoot-byo-storage-access-denied "#troubleshoot-byo-storage-access-denied")
+- [My S3 Files or EFS mount fails with "ResourceNotFound"](#troubleshoot-byo-storage-resource-not-found "#troubleshoot-byo-storage-resource-not-found")
+- [My S3 Files or EFS mount times out](#troubleshoot-byo-storage-mount-timeout "#troubleshoot-byo-storage-mount-timeout")
+- [I get "Permission Denied" when writing to my mounted filesystem](#troubleshoot-byo-storage-write-permission-denied "#troubleshoot-byo-storage-write-permission-denied")
 - [Best practices](#best-practices "#best-practices")
 
 ## My agent invocations fail with 504 Gateway Timeout errors
@@ -391,6 +395,104 @@ To access your updated code, use a new session ID.
 - **Enable Lambda active tracing:** Turn on X-Ray active tracing on your Lambda function so that it produces sampled traces ( `Sampled=1` ).
 - **Verify CloudWatch Transaction Search:** Ensure you have completed the setup in [Configure observability](observability-configure.md "observability-configure.md") and that your trace segment destination is set to CloudWatch Logs.
 - **Check the sampling decision:** Log the `_X_AMZN_TRACE_ID` environment variable inside your Lambda function. If it shows `Sampled=0` , active tracing is not enabled or an upstream caller is making the sampling decision.
+
+## My S3 Files or EFS mount fails with "Access denied"
+
+**When this occurs:** During invocation of an agent with S3 Files or EFS storage configured
+
+**Why this happens:** The execution role is missing required filesystem permissions. For more information about configuring persistent storage, see [File system configurations for AgentCore Runtime](runtime-filesystem-configurations.md "runtime-filesystem-configurations.md").
+
+**Solution:**
+
+For S3 Files, ensure your execution role has:
+
+```
+{
+  "Effect": "Allow",
+  "Action": [
+    "s3files:ClientMount",
+    "s3files:ClientWrite"
+  ],
+  "Resource": "arn:aws:s3files:<region>:<account>:file-system/*",
+  "Condition": {
+    "StringEquals": {
+      "s3files:AccessPointArn": "<your-access-point-arn>"
+    }
+  }
+}
+```
+
+For EFS, ensure your execution role has:
+
+```
+{
+  "Effect": "Allow",
+  "Action": [
+    "elasticfilesystem:ClientMount",
+    "elasticfilesystem:ClientWrite"
+  ],
+  "Resource": "arn:aws:elasticfilesystem:<region>:<account>:file-system/<fs-id>",
+  "Condition": {
+    "StringEquals": {
+      "elasticfilesystem:AccessPointArn": "<your-access-point-arn>"
+    }
+  }
+}
+```
+
+Omit `s3files:ClientWrite` or `elasticfilesystem:ClientWrite` if your agent only needs read access.
+
+## My S3 Files or EFS mount fails with "ResourceNotFound"
+
+**When this occurs:** During invocation of an agent with S3 Files or EFS storage configured
+
+**Why this happens:** The filesystem or access point was deleted after the agent was created, or the IDs are incorrect.
+
+**Solution:**
+
+- Verify the filesystem exists:
+  - S3 Files: `aws s3files list-file-systems --region <region>`
+  - EFS: `aws efs describe-file-systems --region <region>`
+
+- Verify the access point exists:
+  - S3 Files: `aws s3files list-access-points --file-system-id <fs-id> --region <region>`
+  - EFS: `aws efs describe-access-points --file-system-id <fs-id> --region <region>`
+
+- Verify mount targets exist in all required availability zones:
+  - S3 Files: `aws s3files list-mount-targets --file-system-id <fs-id> --region <region>`
+  - EFS: `aws efs describe-mount-targets --file-system-id <fs-id> --region <region>`
+  - Ensure each mount target shows Available status and is in the same VPC as the agent runtime.
+
+- If the resource was deleted, recreate it and update the agent runtime with the new access point ARN
+
+## My S3 Files or EFS mount times out
+
+**When this occurs:** During invocation of an agent with S3 Files or EFS storage configured. The invocation may take longer than usual before failing.
+
+**Why this happens:** The VPC network configuration is blocking NFS traffic (port 2049) between the agent’s compute and the filesystem mount targets.
+
+**Solution:**
+
+- **Check security groups on mount targets:** Verify the security group attached to your mount targets allows **inbound TCP on port 2049** from the security group used by your agent runtime
+- **Check security groups on agent runtime:** Verify the security group used by your agent runtime allows **outbound TCP on port 2049** to the mount target security group
+- **Verify mount targets exist in the correct availability zones:** Mount targets must exist in the same availability zones as the subnets configured on your agent runtime:
+  - S3 Files: `aws s3files list-mount-targets --file-system-id <fs-id> --region <region>`
+  - EFS: `aws efs describe-mount-targets --file-system-id <fs-id> --region <region>`
+
+- **Verify subnet routing:** Ensure your subnets have proper routing (local VPC route for the CIDR range)
+
+## I get "Permission Denied" when writing to my mounted filesystem
+
+**When this occurs:** Agent invocation succeeds and the agent can read files from the mount, but writing fails with "Permission denied"
+
+**Why this happens:** Either the IAM role is missing write permissions, or the POSIX permissions on the directory set during access point creation don’t allow writes for the agent’s user.
+
+**Solution:**
+
+- **Check IAM permissions:** Ensure your execution role includes `s3files:ClientWrite` (S3 Files) or `elasticfilesystem:ClientWrite` (EFS). Without write permissions, the mount is read-only. For more information, see [permissions for Amazon Bedrock AgentCore Runtime execution role](runtime-permissions.md "runtime-permissions.md").
+- **Check POSIX permissions:** If the directory is owned by a different user than your container process, writes will be denied. Either:
+  - Set your access point’s posixUser to match the uid/gid your container runs as, so all operations are performed as that user.
+  - Set directory permissions to 777 to allow all users to write.
 
 ## Best practices
 

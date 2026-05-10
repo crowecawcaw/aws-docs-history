@@ -27,7 +27,7 @@ Amazon Bedrock AgentCore Gateway processes two key pieces of information from ea
   "id": 1,
   "method": "tools/call",
   "params": {
-    "name": "RefundTool__process_refund",
+    "name": "RefundTool___process_refund",
     "arguments": {
       "orderId": "12345",
       "amount": 450,
@@ -46,7 +46,7 @@ The Gateway extracts information from both sources and constructs a Cedar author
 ```
 {
   "principal": "AgentCore::OAuthUser::\"12345678-1234-1234-1234-123456789012\"",
-  "action": "AgentCore::Action::\"RefundTool__process_refund\"",
+  "action": "AgentCore::Action::\"RefundTool___process_refund\"",
   "resource": "AgentCore::Gateway::\"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/refund-gateway\"",
   "context": {
     "input": {
@@ -73,7 +73,7 @@ Action
 Extracted from the tool name:
 
 ```
-AgentCore::Action::"RefundTool__process_refund"
+AgentCore::Action::"RefundTool___process_refund"
 ```
 
 Resource
@@ -124,7 +124,7 @@ Contains the tool arguments:
 Cedar evaluates:
 
 1. **Principal check:** Is the principal an OAuthUser? ✓ (matches)
-2. **Action check:** Is the action RefundTool\_\_process_refund? ✓ (matches)
+2. **Action check:** Is the action RefundTool\_\_\_process_refund? ✓ (matches)
 3. **Resource check:** Is the resource the refund gateway? ✓ (matches)
 4. **Condition checks:**
    - Does principal have username tag? ✓ (yes, from JWT)

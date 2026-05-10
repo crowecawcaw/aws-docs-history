@@ -22,7 +22,7 @@ To use the AgentCore CLI, attach the following IAM policy to your IAM user or ro
 
 ###### Important
 
-The IAM policies created by the AgentCore CLI are designed for development and testing purposes. These permissions grant broad access to facilitate rapid prototyping and are not suitable for production environments. For production deployments, create custom IAM policies that follow the principle of least privilege and restrict permissions to only the specific resources and actions required by your Amazon Bedrock AgentCore application.
+The IAM policies created by the AgentCore CLI are designed for development and testing purposes. These permissions grant broad access to facilitate rapid prototyping and are not suitable for production environments. For production deployments, create custom IAM policies that follow the principle of least privilege and restrict permissions to only the specific resources and actions required by your Amazon Bedrock AgentCore application. For complete IAM security guidance, see [Security best practices for AgentCore Runtime](runtime-security-best-practices.md "runtime-security-best-practices.md").
 
 ```
 {

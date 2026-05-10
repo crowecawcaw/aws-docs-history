@@ -24,7 +24,7 @@ The Cedar policy that enforces these requirements:
 ```
 permit(
   principal is AgentCore::OAuthUser,
-  action == AgentCore::Action::"RefundTool__process_refund",
+  action == AgentCore::Action::"RefundTool___process_refund",
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:your-region:your-account-id:gateway/refund-gateway"
 )
 when {

@@ -57,6 +57,10 @@ The following must be configured.
 2. Supported MCP protocol versions are - **2025-06-18** , **2025-03-26** , and **2025-11-25**.
 3. For the provided URL/endpoint of the server, the URL should be encoded. The Gateway will use the same URL to invoke the server.
 
+###### Tip
+
+If your MCP server is hosted on AgentCore Runtime, enable [MCP sessions](gateway-sessions.md "gateway-sessions.md") on your gateway or add `Mcp-Session-Id` as an allowed request and response header in the target’s `metadataConfiguration`. This avoids repeated initialization with the MCP server on each request and results in lower latency for subsequent tool calls.
+
 ## Connecting to an OAuth-protected MCP server using Authorization Code flow
 
 To support the Authorization Code grant type (three-legged OAuth) with MCP server targets, Amazon Bedrock AgentCore Gateway provides two methods for target creation.

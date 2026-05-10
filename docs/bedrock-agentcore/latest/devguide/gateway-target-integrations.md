@@ -6,6 +6,7 @@ Amazon Bedrock AgentCore lets you add open source templates from the following i
 - Asana
 - BambooHR
 - Brave
+- Coinbase x402 Bazaar
 - Confluence
 - Jira
 - Microsoft
@@ -55,6 +56,7 @@ Select a topic to learn about which APIs are supported for each template:
 - [Asana](#gateway-target-integrations-supported-apis-asana "#gateway-target-integrations-supported-apis-asana")
 - [BambooHR](#gateway-target-integrations-supported-apis-bamboohr "#gateway-target-integrations-supported-apis-bamboohr")
 - [Brave Search](#gateway-target-integrations-supported-apis-brave-search "#gateway-target-integrations-supported-apis-brave-search")
+- [Coinbase x402 Bazaar](#gateway-target-integrations-supported-apis-coinbase-bazaar "#gateway-target-integrations-supported-apis-coinbase-bazaar")
 - [The Confluence Cloud REST API v2](#gateway-target-integrations-supported-apis-confluence "#gateway-target-integrations-supported-apis-confluence")
 - [The Jira Cloud platform](#gateway-target-integrations-supported-apis-jira "#gateway-target-integrations-supported-apis-jira")
 - [Microsoft Exchange](#gateway-target-integrations-supported-apis-microsoft-exchange "#gateway-target-integrations-supported-apis-microsoft-exchange")
@@ -266,6 +268,18 @@ The following table shows the APIs that you can call if you add this target type
 | REST API type | Operation name | REST API path | Description                 |
 | ------------- | -------------- | ------------- | --------------------------- |
 | GET           | BraveWebSearch | /web/search   | Performs a web search query |
+
+### Coinbase x402 Bazaar
+
+[Coinbase x402 Bazaar](https://docs.cdp.coinbase.com/x402/bazaar "https://docs.cdp.coinbase.com/x402/bazaar") exposes discovery endpoints that let developers and AI agents browse and search for x402-enabled services. You can add the Coinbase x402 Bazaar MCP server as a target in a Gateway via the AWS Management Console or CLI.
+
+The following list provides key information for this template:
+
+- Server URL — `https://api.cdp.coinbase.com/platform/v2/x402/discovery/mcp`
+- Outbound authentication types accepted:
+  - No Authorization (selected by default)
+
+For detailed setup instructions (console, CLI, SDK, and Strands), see [Coinbase Bazaar via AgentCore Gateway](payments-connect-bazaar.md "payments-connect-bazaar.md") in the payments guide. To set up the Payment Manager and Connector required for processing payments, see [Create a Payment Manager and Connector](payments-create-manager.md "payments-create-manager.md").
 
 ### The Confluence Cloud REST API v2
 

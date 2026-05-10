@@ -23,7 +23,7 @@ when {
 context.input.amount < 500
 ```
 
-When a user calls `RefundTool__process_refund` with arguments like:
+When a user calls `RefundTool___process_refund` with arguments like:
 
 ```
 {

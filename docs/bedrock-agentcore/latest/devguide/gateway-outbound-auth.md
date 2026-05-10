@@ -20,7 +20,7 @@ AgentCore Gateway supports the following types of outbound authorization:
 | ------------------------ | ---------------- | -------------------- | ---------------------- | -------------------------- | -------------------------- | ---------------------- | ----------------- | ------- |
 | API Gateway stage        | Yes              | Yes                  | No                     | No                         | No                         | No                     | No                | Yes     |
 | Lambda function          | No               | Yes                  | No                     | No                         | No                         | No                     | No                | No      |
-| MCP server               | Yes              | Yes                  | No                     | Yes                        | No                         | Yes                    | No                | No      |
+| MCP server               | Yes              | Yes                  | No                     | Yes                        | Yes                        | Yes                    | No                | No      |
 | OpenAPI schema           | No               | No                   | No                     | Yes                        | Yes                        | Yes                    | No                | Yes     |
 | Smithy schema            | No               | Yes                  | No                     | Yes                        | No                         | No                     | No                | No      |
 | AgentCore Runtime (HTTP) | No               | Yes                  | Yes                    | Yes                        | No                         | No                     | Yes               | No      |

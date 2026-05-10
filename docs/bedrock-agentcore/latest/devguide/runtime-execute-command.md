@@ -335,6 +335,10 @@ Each command starts fresh -no shell history, no environment variable changes fro
 
 ## Security considerations
 
+###### Tip
+
+For a consolidated view of all Runtime security recommendations, see [Security best practices for AgentCore Runtime](runtime-security-best-practices.md "runtime-security-best-practices.md").
+
 ###### Important
 
 Under the AWS shared responsibility model, you are responsible for the security of the commands you execute in your AgentCore Runtime sessions. AWS provides the secure infrastructure and isolation at the microVM level. You are responsible for the commands you run, the data you process, and the access controls you configure.

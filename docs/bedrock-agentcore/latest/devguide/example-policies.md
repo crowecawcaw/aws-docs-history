@@ -14,7 +14,7 @@ This section provides comprehensive examples of Cedar authorization policies for
 
 The Insurance API provides five tools for managing insurance policies and claims:
 
-InsuranceAPI\_\_get_policy
+InsuranceAPI\_\_\_get_policy
 
 Retrieve insurance policy details.
 
@@ -22,7 +22,7 @@ Retrieve insurance policy details.
 
 - `policyId` (string, required) - The policy identifier
 
-InsuranceAPI\_\_file_claim
+InsuranceAPI\_\_\_file_claim
 
 File an insurance claim.
 
@@ -33,7 +33,7 @@ File an insurance claim.
 - `amount` (number, required) - Claim amount
 - `description` (string, optional) - Claim description
 
-InsuranceAPI\_\_update_coverage
+InsuranceAPI\_\_\_update_coverage
 
 Update policy coverage.
 
@@ -43,7 +43,7 @@ Update policy coverage.
 - `coverageType` (string, required) - Type of coverage (e.g., "liability", "collision")
 - `newLimit` (number, required) - New coverage limit
 
-InsuranceAPI\_\_get_claim_status
+InsuranceAPI\_\_\_get_claim_status
 
 Check claim status.
 
@@ -51,7 +51,7 @@ Check claim status.
 
 - `claimId` (string, required) - The claim identifier
 
-InsuranceAPI\_\_calculate_premium
+InsuranceAPI\_\_\_calculate_premium
 
 Calculate insurance premium.
 
@@ -77,8 +77,8 @@ This policy demonstrates how to grant access to multiple related actions using a
 permit(
   principal is AgentCore::OAuthUser,
   action in [
-    AgentCore::Action::"InsuranceAPI__get_policy",
-    AgentCore::Action::"InsuranceAPI__get_claim_status"
+    AgentCore::Action::"InsuranceAPI___get_policy",
+    AgentCore::Action::"InsuranceAPI___get_claim_status"
   ],
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance"
 );
@@ -97,7 +97,7 @@ This policy shows how to use OAuth scopes to control access to specific operatio
 ```
 permit(
   principal is AgentCore::OAuthUser,
-  action == AgentCore::Action::"InsuranceAPI__file_claim",
+  action == AgentCore::Action::"InsuranceAPI___file_claim",
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance"
 )
 when {
@@ -119,7 +119,7 @@ This policy demonstrates using the `unless` clause to create exceptions to restr
 ```
 forbid(
   principal is AgentCore::OAuthUser,
-  action == AgentCore::Action::"InsuranceAPI__update_coverage",
+  action == AgentCore::Action::"InsuranceAPI___update_coverage",
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance"
 )
 unless {
@@ -141,7 +141,7 @@ This policy shows how to validate input parameters and use OR logic for multiple
 ```
 permit(
   principal is AgentCore::OAuthUser,
-  action == AgentCore::Action::"InsuranceAPI__file_claim",
+  action == AgentCore::Action::"InsuranceAPI___file_claim",
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance"
 )
 when {
@@ -165,7 +165,7 @@ This policy demonstrates how to enforce business rules by requiring optional fie
 ```
 forbid(
   principal is AgentCore::OAuthUser,
-  action == AgentCore::Action::"InsuranceAPI__file_claim",
+  action == AgentCore::Action::"InsuranceAPI___file_claim",
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance"
 )
 unless {
@@ -186,7 +186,7 @@ This policy shows how to grant access based on specific user identities.
 ```
 permit(
   principal is AgentCore::OAuthUser,
-  action == AgentCore::Action::"InsuranceAPI__update_coverage",
+  action == AgentCore::Action::"InsuranceAPI___update_coverage",
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance"
 )
 when {
@@ -208,7 +208,7 @@ This policy demonstrates flexible pattern matching using wildcards for category-
 ```
 permit(
   principal is AgentCore::OAuthUser,
-  action == AgentCore::Action::"InsuranceAPI__calculate_premium",
+  action == AgentCore::Action::"InsuranceAPI___calculate_premium",
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance"
 )
 when {
@@ -230,7 +230,7 @@ This policy shows how to combine multiple conditions to create complex authoriza
 ```
 permit(
   principal is AgentCore::OAuthUser,
-  action == AgentCore::Action::"InsuranceAPI__update_coverage",
+  action == AgentCore::Action::"InsuranceAPI___update_coverage",
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance"
 )
 when {
@@ -327,7 +327,7 @@ This policy permits any IAM-authenticated caller to use a specific tool:
 ```
 permit(
   principal is AgentCore::IamEntity,
-  action == AgentCore::Action::"OrderAPI__get_order",
+  action == AgentCore::Action::"OrderAPI___get_order",
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/order-gateway"
 );
 ```
@@ -341,7 +341,7 @@ Restrict tool access to callers from specific AWS accounts:
 ```
 permit(
   principal is AgentCore::IamEntity,
-  action == AgentCore::Action::"OrderAPI__process_order",
+  action == AgentCore::Action::"OrderAPI___process_order",
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/order-gateway"
 )
 when {
@@ -358,7 +358,7 @@ Restrict administrative tools to specific IAM roles:
 ```
 permit(
   principal is AgentCore::IamEntity,
-  action == AgentCore::Action::"AdminAPI__delete_resource",
+  action == AgentCore::Action::"AdminAPI___delete_resource",
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/admin-gateway"
 )
 when {
@@ -375,7 +375,7 @@ Combine IAM principal matching with tool input validation:
 ```
 permit(
   principal is AgentCore::IamEntity,
-  action == AgentCore::Action::"RefundAPI__process_refund",
+  action == AgentCore::Action::"RefundAPI___process_refund",
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/refund-gateway"
 )
 when {
@@ -394,7 +394,7 @@ Block callers from specific AWS accounts from accessing sensitive tools:
 ```
 forbid(
   principal is AgentCore::IamEntity,
-  action == AgentCore::Action::"AdminAPI__delete_resource",
+  action == AgentCore::Action::"AdminAPI___delete_resource",
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/admin-gateway"
 )
 when {

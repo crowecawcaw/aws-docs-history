@@ -507,7 +507,7 @@ Interactive
 agentcore
 ```
 
-![AgentCore CLI TUI status dashboard](images/tui/common-status-dashboard.png)
+![AgentCore CLI TUI status dashboard](/images/bedrock-agentcore/latest/devguide/images/tui/common-status-dashboard.png)
 
 You can also view your resources in the AWS Console:
 

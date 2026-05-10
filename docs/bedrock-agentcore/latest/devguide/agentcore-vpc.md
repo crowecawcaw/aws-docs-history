@@ -346,6 +346,54 @@ When your Amazon Bedrock AgentCore Runtime connects to an Amazon RDS database, c
 - **Inbound** – Allow TCP traffic from the Amazon Bedrock AgentCore Runtime security group on port 3306.
 - **Outbound** – Not required. Return traffic is automatically allowed because security groups are stateful.
 
+### Example: Connecting to Amazon EFS or Amazon S3 Files
+
+When you configure bring-your-own file systems (Amazon EFS or Amazon S3 Files access points) on your agent runtime, AgentCore Runtime mounts the file system over NFS. This requires TCP connectivity on port 2049 between the agent runtime ENIs and the file system mount targets.
+
+AgentCore handles TLS encryption and IAM authentication automatically. The `amazon-efs-utils` mount helper is pre-installed in the microVM runtime – you do not need to configure or install any mount software in your container image.
+
+#### Security group configuration
+
+Configure your security groups to allow NFS traffic between the agent runtime and your file system mount targets.
+
+**Agent runtime security group – Outbound rule:**
+
+| Type | Protocol | Port range | Destination      | Description                            |
+| ---- | -------- | ---------- | ---------------- | -------------------------------------- |
+| NFS  | TCP      | 2049       | `sg-mounttarget` | Allow NFS to file system mount targets |
+
+**File system mount target security group – Inbound rule:**
+
+| Type | Protocol | Port range | Source            | Description                      |
+| ---- | -------- | ---------- | ----------------- | -------------------------------- |
+| NFS  | TCP      | 2049       | `sg-agentruntime` | Allow NFS from AgentCore Runtime |
+
+Replace `sg-mounttarget` with the security group ID of your EFS or S3 Files mount targets, and `sg-agentruntime` with the security group ID used by your agent runtime.
+
+**AWS CLI – Add outbound rule to agent runtime security group:**
+
+```
+aws ec2 authorize-security-group-egress \
+  --group-id sg-0123456789abcdef0 \
+  --protocol tcp \
+  --port 2049 \
+  --source-group sg-0987654321fedcba0
+```
+
+**AWS CLI – Add inbound rule to mount target security group:**
+
+```
+aws ec2 authorize-security-group-ingress \
+  --group-id sg-0987654321fedcba0 \
+  --protocol tcp \
+  --port 2049 \
+  --source-group sg-0123456789abcdef0
+```
+
+###### Note
+
+If you use a single security group for both the agent runtime and the file system mount targets, add a self-referencing rule that allows inbound TCP on port 2049 from the same security group.
+
 ## VPC endpoint configuration
 
 When running Amazon Bedrock AgentCore Runtime in a VPC, we strongly recommend configuring the following VPC endpoints. These endpoints are **required** if your VPC does not have internet access, and **strongly recommended** even if your VPC has a NAT gateway, to avoid NAT gateway data processing charges.
@@ -363,6 +411,54 @@ When running Amazon Bedrock AgentCore Runtime in a VPC, we strongly recommend co
 
   For container agents, AgentCore periodically refreshes your container image from ECR, which stores image layers in Amazon S3. Without an S3 Gateway VPC Endpoint, this traffic routes through your NAT gateway and incurs data processing charges. An S3 Gateway VPC Endpoint is free and eliminates these charges. We strongly recommend adding this endpoint for all VPC-mode container agents, even if your VPC has internet access via NAT.
 
+  **Minimum S3 bucket permissions for container agents**
+
+  The S3 gateway endpoint uses an IAM policy document to limit access to the service. To follow the principle of least privilege, scope the S3 gateway endpoint policy to only the Amazon S3 bucket that Amazon ECR uses to store image layers. The following policy restricts access to the ECR layer storage bucket for your region:
+
+  ```
+  {
+    "Statement": [
+      {
+        "Sid": "AllowECRLayerAccess",
+        "Principal": "*",
+        "Action": [
+          "s3:GetObject"
+        ],
+        "Effect": "Allow",
+        "Resource": ["arn:aws:s3:::prod-region-starport-layer-bucket/*"]
+      }
+    ]
+  }
+  ```
+
+  Replace `region` with your AWS Region identifier (for example, `us-east-2` for US East (Ohio)).
+
+  **Minimum S3 bucket permissions for direct code deploy agents**
+
+  For agents deployed using direct code deployment (zip-based), AgentCore stores your code artifacts in an internal service-owned S3 bucket. Scope the S3 gateway endpoint policy to only the code artifact bucket for your region:
+
+  ```
+  {
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Principal": "*",
+        "Action": "s3:GetObject",
+        "Resource": [
+          "arn:aws:s3:::acr-code-*-region-an",
+          "arn:aws:s3:::acr-code-*-region-an/*"
+        ]
+      }
+    ]
+  }
+  ```
+
+  Replace `region` with your AWS Region identifier (for example, `us-west-2`).
+
+  ###### Note
+
+  If you are also using [persistent file systems](runtime-filesystem-configurations.md "runtime-filesystem-configurations.md"), add the session storage bucket (`acr-storage-*-region-an`) to this policy. See [Networking requirements](runtime-filesystem-configurations.md#session-storage-networking "runtime-filesystem-configurations.md#session-storage-networking") for the required permissions.
+
 - **CloudWatch Requirements** :
   - Logs endpoint: `com.amazonaws.region.logs`
 
@@ -372,7 +468,7 @@ Be sure to replace `region` with your specific region if different.
 
 ###### Note
 
-If you are using [Persist session state across stop/resume with a filesystem configuration (Preview)](runtime-persistent-filesystems.md "runtime-persistent-filesystems.md") , ensure your VPC meets the [Networking requirements](runtime-persistent-filesystems.md#session-storage-networking "runtime-persistent-filesystems.md#session-storage-networking").
+If you are using [file system configurations](runtime-filesystem-configurations.md "runtime-filesystem-configurations.md") , ensure your VPC meets the [Networking requirements](runtime-filesystem-configurations.md#session-storage-networking "runtime-filesystem-configurations.md#session-storage-networking").
 
 ### Internet access considerations
 
@@ -462,3 +558,131 @@ awscurl -X POST \
     }
   }'
 ```
+
+### File system connectivity issues
+
+When a file system mount fails, the `InvokeAgentRuntime` API returns HTTP status 424 (Failed Dependency). Use the following sections to diagnose the root cause.
+
+#### File system mount times out
+
+**Symptoms:** Agent invocations with file system configurations fail after a prolonged delay. The error indicates the mount operation timed out.
+
+**Common causes and solutions:**
+
+**1. Security group rules missing**
+
+Verify the outbound rule on your agent runtime security group:
+
+```
+aws ec2 describe-security-groups \
+  --group-ids sg-0123456789abcdef0 \
+  --query 'SecurityGroups[0].IpPermissionsEgress[?ToPort==`2049`]'
+```
+
+Verify the inbound rule on your mount target security group:
+
+```
+aws ec2 describe-security-groups \
+  --group-ids sg-0987654321fedcba0 \
+  --query 'SecurityGroups[0].IpPermissions[?ToPort==`2049`]'
+```
+
+If either query returns empty results, add the missing rule as shown in [Example: Connecting to Amazon EFS or Amazon S3 Files](#agentcore-security-groups-filesystem "#agentcore-security-groups-filesystem").
+
+**2. No mount target in the agent’s Availability Zone**
+
+The agent runtime might be placed in an Availability Zone where no mount target exists. Verify overlap:
+
+```
+# Get agent runtime subnet AZs
+aws ec2 describe-subnets \
+  --subnet-ids subnet-0123456789abcdef0 subnet-0123456789abcdef1 \
+  --query 'Subnets[*].[SubnetId, AvailabilityZoneId]' --output table
+
+# Get EFS mount target AZs
+aws efs describe-mount-targets \
+  --file-system-id fs-0123456789abcdef0 \
+  --query 'MountTargets[*].[AvailabilityZoneId, LifeCycleState]' --output table
+```
+
+**Solution:** Create a mount target in each Availability Zone where your agent runtime subnets are located, or restrict agent runtime subnets to Availability Zones where mount targets exist.
+
+**3. Route table missing local route**
+
+Verify the route table associated with your agent runtime subnets includes the local VPC route:
+
+```
+aws ec2 describe-route-tables \
+  --filters "Name=association.subnet-id,Values=subnet-0123456789abcdef0" \
+  --query 'RouteTables[0].Routes[?DestinationCidrBlock]'
+```
+
+#### File system mount fails with "ResourceNotFound"
+
+**Symptoms:** Agent invocation fails immediately (without timeout) with a ResourceNotFound error referencing the file system hostname.
+
+**Common causes and solutions:**
+
+**1. DNS resolution failure** – The VPC cannot resolve the file system mount target hostname.
+
+Verify DNS settings on your VPC:
+
+```
+aws ec2 describe-vpc-attribute \
+  --vpc-id vpc-0123456789abcdef0 \
+  --attribute enableDnsSupport
+
+aws ec2 describe-vpc-attribute \
+  --vpc-id vpc-0123456789abcdef0 \
+  --attribute enableDnsHostnames
+```
+
+Both must return `true`. If not, enable them:
+
+```
+aws ec2 modify-vpc-attribute --vpc-id vpc-0123456789abcdef0 --enable-dns-support
+aws ec2 modify-vpc-attribute --vpc-id vpc-0123456789abcdef0 --enable-dns-hostnames
+```
+
+**2. Mount target not in Available state** – The mount target might still be creating or might have been deleted.
+
+```
+# For EFS
+aws efs describe-mount-targets --file-system-id fs-0123456789abcdef0
+
+# For S3 Files
+aws s3files list-mount-targets --file-system-id fs-0123456789abcdef0
+```
+
+Ensure the mount target `LifeCycleState` is `available`. If the mount target is missing, recreate it in the appropriate subnets.
+
+**3. File system or access point deleted** – The resource referenced in the agent runtime configuration no longer exists. Verify and update the agent runtime with valid ARNs.
+
+###### Note
+
+In rare cases, S3 Files mounts might fail with a transient `ResourceNotFound` error due to DNS resolution timing. Retrying the invocation typically resolves this. If the error persists, verify mount targets are in `Available` state.
+
+#### Availability Zone mismatch (intermittent failures)
+
+**Symptoms:** File system mounts succeed intermittently – some invocations work while others fail with timeouts.
+
+**Why this happens:** Your agent runtime has subnets in multiple Availability Zones, but mount targets exist in only some of them. When the agent is placed in an AZ without a mount target, the mount times out.
+
+**Solution:** Either create mount targets in all Availability Zones where your agent runtime subnets are located (recommended), or remove agent runtime subnets that are in Availability Zones without mount targets.
+
+```
+# List all EFS mount target AZs
+aws efs describe-mount-targets \
+  --file-system-id fs-0123456789abcdef0 \
+  --query 'MountTargets[*].AvailabilityZoneId' --output text
+
+# Create a mount target in a missing AZ
+aws efs create-mount-target \
+  --file-system-id fs-0123456789abcdef0 \
+  --subnet-id subnet-in-missing-az \
+  --security-groups sg-0987654321fedcba0
+```
+
+###### Note
+
+For S3 Files, use `aws s3files create-mount-target` with the same parameters.

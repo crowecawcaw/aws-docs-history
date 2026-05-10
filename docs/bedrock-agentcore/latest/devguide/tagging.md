@@ -99,6 +99,8 @@ You can add tags when you create resources using the following API operations:
     * [CreateEvaluator](../../../bedrock-agentcore-control/latest/APIReference/API_CreateEvaluator.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateEvaluator.md") – Include tags in the `tags` parameter.
     * [CreateOnlineEvaluationConfig](../../../bedrock-agentcore-control/latest/APIReference/API_CreateOnlineEvaluationConfig.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateOnlineEvaluationConfig.md") – Include tags in the `tags` parameter.
     * [CreatePolicyEngine](../../../bedrock-agentcore-control/latest/APIReference/API_CreatePolicyEngine.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreatePolicyEngine.md") – Include tags in the `tags` parameter.
+    * [CreatePaymentCredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentCredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentCredentialProvider.md") - Include tags in the `tags` parameter.
+    * [CreatePaymentManager](../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentManager.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentManager.md") - Include tags in the `tags` parameter.
 
 
 

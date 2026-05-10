@@ -8,6 +8,7 @@ The following table summarizes the default data provided for each resource type,
 | ------------- | ------------------------ | -------------------------------------------- | ----------------------------------------- |
 | Agent         | Metrics                  | Yes                                          | Yes                                       |
 | Memory        | Metrics, Spans\*, Logs\* | No                                           | Yes                                       |
+| Payments      | Metrics, Spans, Logs     | No                                           | Yes                                       |
 | Gateway       | Metrics                  | No                                           | Yes                                       |
 | Tools         | Metrics                  | No                                           | Yes                                       |
 | Policy        | Metrics, Spans\*\*       | Yes                                          | Yes                                       |
@@ -27,6 +28,7 @@ By instrumenting your agent code, you can also gather more detailed trace and sp
 
 - [AgentCore generated runtime observability data](observability-runtime-metrics.md "observability-runtime-metrics.md")
 - [AgentCore generate memory observability data](observability-memory-metrics.md "observability-memory-metrics.md")
+- [AgentCore generated payments observability data](observability-payments-metrics.md "observability-payments-metrics.md")
 - [AgentCore generated gateway observability data](observability-gateway-metrics.md "observability-gateway-metrics.md")
 - [AgentCore generated built-in tools observability data](observability-tool-metrics.md "observability-tool-metrics.md")
 - [AgentCore generated identity observability data](observability-identity-metrics.md "observability-identity-metrics.md")

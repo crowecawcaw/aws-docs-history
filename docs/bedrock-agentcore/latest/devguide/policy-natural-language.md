@@ -49,7 +49,7 @@ Allow principal with username "refund-agent" to process refunds when the refund 
 ```
 permit(
   principal is AgentCore::OAuthUser,
-  action == AgentCore::Action::"RefundTool__process_refund",
+  action == AgentCore::Action::"RefundTool___process_refund",
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/refund-gateway"
 )
 when {
@@ -102,14 +102,14 @@ Forbid policies ensure that specific actions cannot be mistakenly permitted. Eve
 // Broad permit policy - allows all users to view model results
 permit(
   principal is AgentCore::OAuthUser,
-  action == AgentCore::Action::"ModelAPI__view_results",
+  action == AgentCore::Action::"ModelAPI___view_results",
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/model"
 );
 
 // Forbid policy - blocks access to high-sensitivity results
 forbid(
   principal is AgentCore::OAuthUser,
-  action == AgentCore::Action::"ModelAPI__view_results",
+  action == AgentCore::Action::"ModelAPI___view_results",
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/model"
 )
 when {

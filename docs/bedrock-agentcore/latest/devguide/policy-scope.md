@@ -64,20 +64,20 @@ IAM principals have an `id` attribute containing the caller’s IAM ARN. You can
 The action specifies the operation being requested:
 
 ```
-action == AgentCore::Action::"RefundTool__process_refund"
+action == AgentCore::Action::"RefundTool___process_refund"
 ```
 
 Components:
 
 - `action` - The operation being requested
-- `AgentCore::Action::"RefundTool__process_refund"` - Specific action entity
+- `AgentCore::Action::"RefundTool___process_refund"` - Specific action entity
 - `==` - Exact match operator (only this specific action)
 
 Actions represent tool calls in the MCP AgentCore Gateway. Each tool has a corresponding action entity.
 
 ### Multiple actions
 
-Cedar does **not** support wildcard actions. Each action must be referenced explicitly using the exact action identifier ( `AgentCore::Action::"ToolName__operation"` ). To group multiple tools under a single rule, use a **Gateway Target** (an Action Group) and write policies against that target.
+Cedar does **not** support wildcard actions. Each action must be referenced explicitly using the exact action identifier ( `AgentCore::Action::"ToolName___operation"` ). To group multiple tools under a single rule, use a **Gateway Target** (an Action Group) and write policies against that target.
 
 For example, to allow access only to tools whose names start with Read, you can create a Gateway Target called ReadToolsTarget that includes each such tool, and then write a policy like:
 

@@ -27,7 +27,7 @@ Disable a specific tool while keeping others operational:
 ```
 forbid(
   principal,
-  action == AgentCore::Action::"RefundTool__process_refund",
+  action == AgentCore::Action::"RefundTool___process_refund",
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/refund-gateway"
 );
 ```
@@ -84,7 +84,7 @@ Permit access only to users with specific roles:
 ```
 permit(
   principal is AgentCore::OAuthUser,
-  action == AgentCore::Action::"AdminAPI__delete_resource",
+  action == AgentCore::Action::"AdminAPI___delete_resource",
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/admin"
 )
 when {
@@ -102,7 +102,7 @@ Permit access only to callers using specific IAM roles:
 ```
 permit(
   principal is AgentCore::IamEntity,
-  action == AgentCore::Action::"AdminAPI__delete_resource",
+  action == AgentCore::Action::"AdminAPI___delete_resource",
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/admin"
 )
 when {
@@ -132,7 +132,7 @@ Cedar supports various data types in conditions. These examples use OAuth princi
 // Check if passenger count is exactly 2
 permit(
   principal is AgentCore::OAuthUser,
-  action == AgentCore::Action::"TravelAPI__search_flights",
+  action == AgentCore::Action::"TravelAPI___search_flights",
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/travel"
 )
 when {
@@ -146,7 +146,7 @@ when {
 // Check if payment method is credit card
 permit(
   principal is AgentCore::OAuthUser,
-  action == AgentCore::Action::"PaymentAPI__process_payment",
+  action == AgentCore::Action::"PaymentAPI___process_payment",
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/payment"
 )
 when {
@@ -160,7 +160,7 @@ when {
 // Check if country is in allowed list
 permit(
   principal is AgentCore::OAuthUser,
-  action == AgentCore::Action::"ShippingAPI__calculate_rate",
+  action == AgentCore::Action::"ShippingAPI___calculate_rate",
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/shipping"
 )
 when {
@@ -174,7 +174,7 @@ when {
 // Require optional field to be present
 permit(
   principal is AgentCore::OAuthUser,
-  action == AgentCore::Action::"OrderAPI__create_order",
+  action == AgentCore::Action::"OrderAPI___create_order",
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/order"
 )
 when {
