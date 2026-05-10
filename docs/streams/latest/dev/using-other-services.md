@@ -10,7 +10,7 @@ to the provided references.
 - [Write to Kinesis Data Streams using Amazon Aurora](using-other-services-aurora.md "using-other-services-aurora.md")
 - [Write to Kinesis Data Streams using Amazon CloudFront](using-other-services-CloudFront.md "using-other-services-CloudFront.md")
 - [Write to Kinesis Data Streams using Amazon CloudWatch Logs](using-other-services-cw-logs.md "using-other-services-cw-logs.md")
-- [Write to Kinesis Data Streams using Amazon Connect](using-other-services-connect.md "using-other-services-connect.md")
+- [Write to Kinesis Data Streams using Connect Customer](using-other-services-connect.md "using-other-services-connect.md")
 - [Write to Kinesis Data Streams using AWS Database Migration Service](using-other-services-migration.md "using-other-services-migration.md")
 - [Write to Kinesis Data Streams using Amazon DynamoDB](using-other-services-ddb.md "using-other-services-ddb.md")
 - [Write to Kinesis Data Streams using Amazon EventBridge](using-other-services-eventbridges.md "using-other-services-eventbridges.md")
