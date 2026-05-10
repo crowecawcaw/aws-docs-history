@@ -1,4 +1,4 @@
-# Amazon Connect endpoints and quotas
+# Amazon Connect Customer endpoints and quotas
 
 To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types
 in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints.
@@ -25,9 +25,9 @@ The following are the service endpoints and service quotas for this service.
 | Europe (London)          | eu-west-2      | connect.eu-west-2.amazonaws.com                                               | HTTPS          |
 | AWS GovCloud (US-West)   | us-gov-west-1  | connect.us-gov-west-1.amazonaws.com                                           | HTTPS          |
 
-### Amazon Connect Contact Lens endpoints
+### Connect Customer Contact Lens endpoints
 
-The Amazon Connect Contact Lens service has the following endpoints.
+The Connect Customer Contact Lens service has the following endpoints.
 
 | Region Name              | Region         | Endpoint                                  | Protocol |
 | ------------------------ | -------------- | ----------------------------------------- | -------- |
@@ -42,9 +42,9 @@ The Amazon Connect Contact Lens service has the following endpoints.
 | Europe (Frankfurt)       | eu-central-1   | contact-lens.eu-central-1.amazonaws.com   | HTTPS    |
 | Europe (London)          | eu-west-2      | contact-lens.eu-west-2.amazonaws.com      | HTTPS    |
 
-### Amazon Connect Participant Service endpoints
+### Connect Customer Participant Service endpoints
 
-The Amazon Connect Participant Service has the following endpoints.
+The Connect Customer Participant Service has the following endpoints.
 
 | Region Name              | Region         | Endpoint                                                                                        | Protocol       |
 | ------------------------ | -------------- | ----------------------------------------------------------------------------------------------- | -------------- |
@@ -60,9 +60,9 @@ The Amazon Connect Participant Service has the following endpoints.
 | Europe (London)          | eu-west-2      | participant.connect.eu-west-2.amazonaws.com                                                     | HTTPS          |
 | AWS GovCloud (US-West)   | us-gov-west-1  | participant.connect.us-gov-west-1.amazonaws.com                                                 | HTTPS          |
 
-### Amazon Connect Customer Profiles endpoints
+### Connect Customer Customer Profiles endpoints
 
-The Amazon Connect Customer Profiles service has the following endpoints.
+The Connect Customer Customer Profiles service has the following endpoints.
 
 | Region Name              | Region         | Endpoint                                                                                                                                           | Protocol                         |
 | ------------------------ | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
@@ -94,9 +94,9 @@ The AppIntegrations Service has the following endpoints.
 | Europe (Frankfurt)       | eu-central-1   | app-integrations.eu-central-1.amazonaws.com                                                     | HTTPS          |
 | Europe (London)          | eu-west-2      | app-integrations.eu-west-2.amazonaws.com                                                        | HTTPS          |
 
-### Amazon Connect Cases endpoints
+### Connect Customer Cases endpoints
 
-Amazon Connect Cases has the following endpoints.
+Connect Customer Cases has the following endpoints.
 
 | Region Name              | Region         | Endpoint                                                            | Protocol       |
 | ------------------------ | -------------- | ------------------------------------------------------------------- | -------------- |
@@ -111,9 +111,9 @@ Amazon Connect Cases has the following endpoints.
 | Europe (Frankfurt)       | eu-central-1   | cases.eu-central-1.amazonaws.com                                    | HTTPS          |
 | Europe (London)          | eu-west-2      | cases.eu-west-2.amazonaws.com                                       | HTTPS          |
 
-### Amazon Connect Voice ID endpoints
+### Connect Customer Voice ID endpoints
 
-Amazon Connect Voice ID has the following endpoints.
+Connect Customer Voice ID has the following endpoints.
 
 | Region Name              | Region         | Endpoint                                                                      | Protocol       |
 | ------------------------ | -------------- | ----------------------------------------------------------------------------- | -------------- |
@@ -486,9 +486,9 @@ Amazon Q in Connect has the following endpoints.
 | Voice ID integration associations per instance                             | Each supported Region: 1              | No                                                                                                                                                                                 | The maximum number of Voice ID integration associations you can create in this instance in the current Region.                                                                                                                                    |
 | Workspaces per instance                                                    | Each supported Region: 20             | [Yes](https://console.aws.amazon.com/servicequotas/home/services/connect/quotas/L-6402A996 "https://console.aws.amazon.com/servicequotas/home/services/connect/quotas/L-6402A996") | The maximum number of workspaces you can create in this instance in the current Region.                                                                                                                                                           |
 
-### Amazon Connect Customer Profiles quotas
+### Connect Customer Customer Profiles quotas
 
-Amazon Connect Customer Profiles has the following quotas.
+Connect Customer Customer Profiles has the following quotas.
 
 | Name                                                  | Default                                 | Adjustable                                                                                                                                                                         | Description                                                                                                              |
 | ----------------------------------------------------- | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
@@ -509,9 +509,9 @@ Amazon Connect Customer Profiles has the following quotas.
 | Object types per domain                               | Each supported Region: 100              | [Yes](https://console.aws.amazon.com/servicequotas/home/services/profile/quotas/L-14092FF4 "https://console.aws.amazon.com/servicequotas/home/services/profile/quotas/L-14092FF4") | The maximum number of object types you can define per domain in the current AWS Region.                                  |
 | Objects per profile                                   | Each supported Region: 1,000            | [Yes](https://console.aws.amazon.com/servicequotas/home/services/profile/quotas/L-E17DC7C3 "https://console.aws.amazon.com/servicequotas/home/services/profile/quotas/L-E17DC7C3") | The maximum number of objects that can be attached to a single profile in the current AWS Region.                        |
 
-### Amazon Connect Cases quotas
+### Connect Customer Cases quotas
 
-Amazon Connect Cases has the following quotas.
+Connect Customer Cases has the following quotas.
 
 | Name                                            | Default                              | Adjustable                                                                                                                                                                     | Description                                                                                                                                                                                                        |
 | ----------------------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -616,8 +616,8 @@ Amazon Connect Cases has the following quotas.
 | UpdateTemplate burst quota                      | Each supported Region: 5 per second  | [Yes](https://console.aws.amazon.com/servicequotas/home/services/cases/quotas/L-2AD9F9AD "https://console.aws.amazon.com/servicequotas/home/services/cases/quotas/L-2AD9F9AD") | The maximum number of concurrent UpdateTemplate API requests allowed per second. When you reach this quota, Amazon Connect Cases rejects requests for this operation for the remainder of the interval.            |
 | UpdateTemplate rate quota                       | Each supported Region: 2 per second  | [Yes](https://console.aws.amazon.com/servicequotas/home/services/cases/quotas/L-B5BE889D "https://console.aws.amazon.com/servicequotas/home/services/cases/quotas/L-B5BE889D") | The maximum number of UpdateTemplate API requests allowed per second. When you reach this quota, Amazon Connect Cases rejects requests for this operation for the remainder of the interval.                       |
 
-For more information, see [Amazon Connect Service
-Quotas](../../../connect/latest/adminguide/amazon-connect-service-limits.md#cases-quotas "../../../connect/latest/adminguide/amazon-connect-service-limits.md#cases-quotas") in the _Amazon Connect Administrator Guide_.
+For more information, see [Connect Customer Service
+Quotas](../../../connect/latest/adminguide/amazon-connect-service-limits.md#cases-quotas "../../../connect/latest/adminguide/amazon-connect-service-limits.md#cases-quotas") in the _Connect Customer Administrator Guide_.
 
 ### Amazon Q in Connect quotas
 

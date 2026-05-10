@@ -219,6 +219,8 @@ _AWS GovCloud (US-West) and AWS GovCloud (US-East)._.
 | me-central-1   | 216.221.177.0/24 |
 | me-south-1     | 216.221.179.0/24 |
 | sa-east-1      | 206.55.138.0/24  |
+| us-gov-east-1  | 216.221.188.0/24 |
+| us-gov-west-1  | 216.221.187.0/24 |
 
 ## Service quotas
 

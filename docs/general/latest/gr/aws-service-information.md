@@ -89,7 +89,7 @@ quotas](aws-general.pdf.md#aws-service-information "aws-general.pdf.md#aws-servi
 - [Amazon Comprehend Medical](comprehend-med_region.md "comprehend-med_region.md")
 - [Compute Optimizer](compute-optimizer.md "compute-optimizer.md")
 - [AWS Config](awsconfig.md "awsconfig.md")
-- [Amazon Connect](connect_region.md "connect_region.md")
+- [Connect Customer](connect_region.md "connect_region.md")
 - [Connect Health](connecthealth.md "connecthealth.md")
 - [AWS Control Tower](controltower.md "controltower.md")
 - [AWS Data Exchange](dataexchange.md "dataexchange.md")

@@ -38,6 +38,7 @@ The following are the service endpoints and service quotas for this service.
 | Europe (Spain)            | eu-south-2     | vpc-lattice.eu-south-2.amazonaws.com     | HTTPS    |
 | Europe (Stockholm)        | eu-north-1     | vpc-lattice.eu-north-1.amazonaws.com     | HTTPS    |
 | Europe (Zurich)           | eu-central-2   | vpc-lattice.eu-central-2.amazonaws.com   | HTTPS    |
+| Mexico (Central)          | mx-central-1   | vpc-lattice.mx-central-1.amazonaws.com   | HTTPS    |
 | Middle East (Bahrain)     | me-south-1     | vpc-lattice.me-south-1.amazonaws.com     | HTTPS    |
 | Middle East (UAE)         | me-central-1   | vpc-lattice.me-central-1.amazonaws.com   | HTTPS    |
 | South America (São Paulo) | sa-east-1      | vpc-lattice.sa-east-1.amazonaws.com      | HTTPS    |
