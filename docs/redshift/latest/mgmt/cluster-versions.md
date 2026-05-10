@@ -64,6 +64,10 @@ and avoid potential disruptions to your workloads, see
 
 Cluster versions in this patch:
 
+- 1.0.298697 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
+  workgroup version – Released May 7, 2026
+- 1.0.292316 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
+  workgroup version – Released May 4, 2026
 - 1.0.280974 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
   workgroup version – Released April 22, 2026
 
@@ -105,7 +109,9 @@ Cluster versions in this patch:
 
 Cluster versions in this patch:
 
-- 1.0.293472 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
+- 1.0.293472 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
+  workgroup version – Released on May 7, 2026
+- 1.0.293472 – **CURRENT Tracks** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
   workgroup version – Released on April 30, 2026
 - 1.0.266483 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
   workgroup version – Released on April 9, 2026
@@ -117,6 +123,7 @@ Cluster versions in this patch:
 - Fixed an issue where INSERT operations could fail on tables using multidimensional data layout sort keys.
 - Improved Amazon Redshift Advisor recommendations for multidimensional data layout (MDDL) sort keys for tables that would benefit from workload-based sorting.
 - Enhanced Redshift Serverless AI-driven scaling and optimizations with improved disk usage signals, enabling more accurate and responsive scaling decisions.
+- Enhanced Redshift Serverless AI-driven scaling and optimizations to intelligently determine an initial capacity when you migrate a provisioned cluster snapshot to a serverless namespace.
 - Fixed an issue where data sharing queries using IAM Identity Center identity propagation could fail when the cached identity token expired on the consumer.
 - Fixed an issue where IAM Identity Center group synchronization could cause subsequent background maintenance operations to fail.
 - Fixed an issue where updating an IAM Identity Center identity provider configuration with a different application ARN could cause a cluster restart.
@@ -146,13 +153,11 @@ Cluster versions in this patch:
 - Fixed a race condition where concurrent VACUUM operations and staging table reuse could cause cluster instability.
 - Fixed an issue where VACUUM FULL or VACUUM SORT on large tables could fail with an internal error when the number of processed partitions exceeded an internal limit.
 - Fixed an issue where background partition statistics collection could fail when a table was dropped while statistics were being aggregated from remote clusters.
-- Added support for concurrency scaling table copy (RSTC) to automatically convert DISTALL tables with a single primary key to DISTKEY distribution, improving query performance for such tables on concurrency scaling clusters.
 - Improved performance of VACUUM SORT operations by avoiding unnecessary data refreshes, reducing the time and resources required for vacuum on sorted tables.
 - Fixed an issue where incorrect internal partition data access during vacuum operations could cause unexpected errors or cluster instability.
 - Fixed an issue where ALTER TABLE operations could incorrectly change table ownership to a non-privileged user. Owner changes during ALTER operations are now correctly restricted to authorized users only.
 - Fixed a rare issue where an internal limit check during vacuum operations could cause unnecessary query failures on tables with a large number of partitions.
 - Fixed an issue where background statistics collection could fail or produce errors when encountering tables that had been deleted, improving cluster stability.
-- Fixed an issue where concurrency scaling table copy (RSTC) operations using COPY could fail due to a distribution style mismatch when copying from a pristine (freshly restored) table.
 - Fixed an issue where vacuum operations could use stale table metadata, potentially causing incorrect behavior during vacuum on tables with concurrent schema changes.
 
 ## Amazon Redshift patch 199
@@ -192,7 +197,7 @@ Cluster versions in this patch:
 - Fixed a race condition that could occur when vacuum operations ran concurrently with zero-ETL table operations
 - Fixed an issue where zero-ETL integrations incorrectly attempted resync operations instead of transitioning to an error state when KMS encryption context changed
 - Fixed a race condition in zero-ETL integrations that could occur during cluster restart while data replication was active
-- Fixes SHOW TABLES
+- Fixed an issue where the SHOW TABLES command returned an error when the table's owner had been dropped
 
 ## Amazon Redshift patch 198
 

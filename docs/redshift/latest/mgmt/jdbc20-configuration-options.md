@@ -5,7 +5,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 # Options for JDBC driver version 2.x configuration
 
 Following, you can find descriptions for the options that you can specify for version
-2.2 of the Amazon Redshift JDBC driver. Configuration options are not case sensitive.
+2.x of the Amazon Redshift JDBC driver. Configuration options are not case sensitive.
 
 You can set configuration properties using the connection URL. For more information,
 see [Building the connection URL](jdbc20-build-connection-url.md "jdbc20-build-connection-url.md").

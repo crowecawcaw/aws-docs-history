@@ -16,11 +16,46 @@ The following describes upcoming behavior changes.
 
 ###### Topics
 
+- [End of support for the Amazon Redshift ODBC 1.x driver on June 30, 2026](#odbc1x-deprecation-jun2026 "#odbc1x-deprecation-jun2026")
 - [Scalar Python UDFs will reach end of support after June 30, 2026](#python-udf-jun2026 "#python-udf-jun2026")
 - [Materialized View (MV) Auto-REFRESH Behavior Change after February 27, 2026](#autorefresh-feb272026 "#autorefresh-feb272026")
 - [Amazon Redshift won’t support functions that access consumer information through datasharing after February 16, 2026](#datasharing-feb2026 "#datasharing-feb2026")
 - [Minimum Transport Layer Security (TLS) version changes effective starting January 31, 2026](#tls-changes-jan2026 "#tls-changes-jan2026")
 - [Amazon Redshift won’t support the creation of new scalar Python UDFs after October 30, 2025](#python-udf-oct2025 "#python-udf-oct2025")
+
+### End of support for the Amazon Redshift ODBC 1.x driver on June 30, 2026
+
+Beginning June 30, 2026, Amazon Redshift will discontinue support for the [ODBC 1.x
+driver](configure-odbc-connection.md "configure-odbc-connection.md"). This applies to both Amazon Redshift provisioned clusters and serverless
+workgroups.
+
+You may be impacted by this if you use any version of the [ODBC 1.x driver](configure-odbc-connection.md "configure-odbc-connection.md") to
+connect to Amazon Redshift. To verify whether you are using an ODBC 1.x driver, run the following
+query:
+
+```
+SELECT *
+FROM SYS_CONNECTION_LOG
+WHERE
+(driver_version ilike 'Amazon Redshift ODBC Driver 1%'
+OR driver_version ilike 'Redshift ODBC Driver 01%'
+OR driver_version ilike 'Redshift ODBC Driver 1,%'
+)
+OR
+(application_name ilike 'Amazon Redshift ODBC Driver 1%');
+```
+
+To continue receiving technical support for your ODBC driver connections to Amazon Redshift,
+please migrate to the latest [Amazon Redshift ODBC 2.x driver](odbc20-install.md "odbc20-install.md") before
+June 30, 2026.
+
+Before migrating to the ODBC 2.x driver in a production environment, we recommend
+conducting a thorough proof of concept to verify that the new driver meets all your
+functional requirements.
+
+We recommend using the latest version of the [Amazon Redshift ODBC 2.x driver](odbc20-install.md "odbc20-install.md") and
+setting the [ApplicationName](odbc20-configuration-options.md#odbc20-application_name-option "odbc20-configuration-options.md#odbc20-application_name-option") property to identify your application when
+connecting to Amazon Redshift.
 
 ### Scalar Python UDFs will reach end of support after June 30, 2026
 

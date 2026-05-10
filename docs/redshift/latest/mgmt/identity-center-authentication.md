@@ -38,7 +38,7 @@ If you want to connect to Redshift, you must use redshift:connect scope.
 
 - **Compatible drivers:** Use Amazon Redshift JDBC or ODBC drivers
   that support Identity Center authorized tokens:
-  - JDBC drivers: See [Installing and configuring the Amazon Redshift JDBC driver version 2.0](jdbc20-install.md "jdbc20-install.md")
+  - JDBC drivers: See [Installing and configuring the Amazon Redshift JDBC driver version 2.x](jdbc20-install.md "jdbc20-install.md")
   - ODBC drivers: See [Installing and configuring the Amazon Redshift ODBC driver version 2.0](odbc20-install.md "odbc20-install.md")
 
 ## How Identity Center authentication works

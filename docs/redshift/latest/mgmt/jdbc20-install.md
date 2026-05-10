@@ -23,8 +23,8 @@ For more information about the syntax of the connection URL, see [Building the c
 
 ###### Topics
 
-- [Download the Amazon Redshift JDBC driver, version 2.1](jdbc20-download-driver.md "jdbc20-download-driver.md")
-- [Installing the Amazon Redshift JDBC driver, version 2.2](jdbc20-install-driver.md "jdbc20-install-driver.md")
+- [Download the Amazon Redshift JDBC driver, version 2.x](jdbc20-download-driver.md "jdbc20-download-driver.md")
+- [Installing the Amazon Redshift JDBC driver, version 2.x](jdbc20-install-driver.md "jdbc20-install-driver.md")
 - [Getting the JDBC URL](jdbc20-obtain-url.md "jdbc20-obtain-url.md")
 - [Building the connection URL](jdbc20-build-connection-url.md "jdbc20-build-connection-url.md")
 - [Configuring a JDBC connection with Apache Maven](configure-jdbc20-connection-with-maven.md "configure-jdbc20-connection-with-maven.md")
@@ -32,7 +32,7 @@ For more information about the syntax of the connection URL, see [Building the c
 - [Configuring logging](jdbc20-configuring-logging.md "jdbc20-configuring-logging.md")
 - [Data type conversions](jdbc20-data-type-mapping.md "jdbc20-data-type-mapping.md")
 - [Using prepared statement support](jdbc20-prepared-statement-support.md "jdbc20-prepared-statement-support.md")
-- [Differences between the 2.2 and 1.x versions of the JDBC driver](jdbc20-jdbc10-driver-differences.md "jdbc20-jdbc10-driver-differences.md")
+- [Differences between the 2.x and 1.x versions of the JDBC driver](jdbc20-jdbc10-driver-differences.md "jdbc20-jdbc10-driver-differences.md")
 - [Creating initialization (.ini) files for JDBC driver version 2.x](jdbc20-ini-file.md "jdbc20-ini-file.md")
 - [Options for JDBC driver version 2.x configuration](jdbc20-configuration-options.md "jdbc20-configuration-options.md")
 - [Previous versions of JDBC driver version 2.x](jdbc20-previous-driver-version-20.md "jdbc20-previous-driver-version-20.md")

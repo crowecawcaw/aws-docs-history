@@ -52,7 +52,7 @@ For a Maven Central repository, add the following to your
 
 Amazon Redshift offers drivers for tools that are compatible with the JDBC 4.2
 API. For information about the
-functionality supported by these drivers, see [Download the Amazon Redshift JDBC driver, version 2.1](jdbc20-download-driver.md "jdbc20-download-driver.md").
+functionality supported by these drivers, see [Download the Amazon Redshift JDBC driver, version 2.x](jdbc20-download-driver.md "jdbc20-download-driver.md").
 
 Replace `driver-version` in the
 following example with your driver version, for example

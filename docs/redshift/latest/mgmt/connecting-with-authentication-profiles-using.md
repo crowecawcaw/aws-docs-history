@@ -5,7 +5,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 # Connecting with an authentication profile
 
 After you create an authentication profile, you can include the profile name as a
-connection option for JDBC version 2.0 `AuthProfile`. Using this
+connection option for JDBC version 2.x `AuthProfile`. Using this
 connection option retrieves the stored settings.
 
 ```
