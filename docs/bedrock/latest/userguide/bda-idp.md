@@ -54,7 +54,7 @@ below shows the prompt window on the console.
 At the bottom of the screenshot you can see the AI generated prompt based on the input in the box. We can see how the fields we
 mention get processed. Next, we can look at the blueprint created from the prompt.
 
-![](images/bda/audio-bpa-example.png)
+![Blueprint interface showing four fields including customer issue, customer name, resolution status, and vehicle information with nested make, model, and year fields.](images/bda/audio-bpa-example.png)
 
 Here we can look at the information we'll expect to process from the conversation. If you're satisfied with the fields, you can
 begin processing an audio file immediately. If you want to edit your blueprint, you'll need to create a duplicate as opposed to

@@ -51,7 +51,7 @@ The link between a library and a BDA project. When you associate a library with 
 2. On the sidebar menu, select "Data Automation".
 3. Select "Manage libraries"
 
-![](images/bda/library-console-navigate-manage-libraries.png)
+![Libraries page showing medical-vocabulary library with active status and custom vocabulary entity type.](images/bda/library-console-navigate-manage-libraries.png)
 
 ## Regional Availability
 

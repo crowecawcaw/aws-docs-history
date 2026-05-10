@@ -161,9 +161,15 @@ client = boto3.client('bedrock-runtime', region_name='us-east-1')
 response = client.invoke_model(
     modelId='twelvelabs.pegasus-1-2-v1:0',
     body=json.dumps({
-            'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
-            'max_tokens': 1024
+            'inputPrompt': 'Tell me about this video',
+            'mediaSource': {
+                's3Location': {
+                    'uri': 's3://your-bucket/your-video.mp4',
+                    'bucketOwner': '123456789012'
+                }
+            },
+            'maxOutputTokens': 4096
     })
- )
- print(json.loads(response['body'].read()))
+)
+print(json.loads(response['body'].read()))
 ```

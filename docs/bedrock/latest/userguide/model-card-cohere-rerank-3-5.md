@@ -81,19 +81,43 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 
 **Step 5 - Run your first inference request:** Save the file as `bedrock-first-request.py`
 
-Invoke API
+Rerank API
 
 ```
-import json
 import boto3
 
-client = boto3.client('bedrock-runtime', region_name='us-east-1')
-response = client.invoke_model(
-    modelId='cohere.rerank-v3-5:0',
-    body=json.dumps({
-            'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
-            'max_tokens': 1024
-    })
- )
- print(json.loads(response['body'].read()))
+client = boto3.client('bedrock-agent-runtime', region_name='us-east-1')
+response = client.rerank(
+    queries=[{
+        'type': 'TEXT',
+        'textQuery': {'text': 'What is Amazon Bedrock?'}
+    }],
+    sources=[
+        {
+            'type': 'INLINE',
+            'inlineDocumentSource': {
+                'type': 'TEXT',
+                'textDocument': {'text': 'Amazon Bedrock is a fully managed service for foundation models.'}
+            }
+        },
+        {
+            'type': 'INLINE',
+            'inlineDocumentSource': {
+                'type': 'TEXT',
+                'textDocument': {'text': 'Amazon S3 is an object storage service.'}
+            }
+        }
+    ],
+    rerankingConfiguration={
+        'type': 'BEDROCK_RERANKING_MODEL',
+        'bedrockRerankingConfiguration': {
+            'modelConfiguration': {
+                'modelArn': 'arn:aws:bedrock:us-east-1::foundation-model/cohere.rerank-v3-5:0'
+            },
+            'numberOfResults': 2
+        }
+    }
+)
+for result in response['results']:
+    print(f'Index: {result["index"]}, Score: {result["relevanceScore"]}')
 ```

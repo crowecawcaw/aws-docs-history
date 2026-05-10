@@ -13,6 +13,10 @@ The Reserved tier has the following minimum capacity requirements:
 
 To get access to the Reserved tier, please contact your AWS account team.
 
+###### Important
+
+When sizing your Reserved tier capacity, note that your tokens-per-minute consumption includes both `InputTokenCount` and `CacheWriteInputTokens`. If you use [prompt caching](prompt-caching.md "prompt-caching.md"), you should sum both metrics in Amazon CloudWatch to accurately estimate your required reservation. For more information about how tokens are counted toward your quota, see [Understanding token quota management](quotas-token-burndown.md#quotas-token-burndown-management "quotas-token-burndown.md#quotas-token-burndown-management").
+
 ###### Note
 
 Billing continues until you delete the Reserved Tier reservation with the help of your AWS account manager.

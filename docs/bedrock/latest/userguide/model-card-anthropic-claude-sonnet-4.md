@@ -1,6 +1,6 @@
 # Claude Sonnet 4
 
-## Anthropic — Claude Sonnet 4
+## Orange rounded square icon with white radial loading spinner design. Anthropic — Claude Sonnet 4
 
 ## Model Details
 
@@ -50,9 +50,9 @@ For pricing, please refer to the [Amazon Bedrock Pricing](https://aws.amazon.com
 
 Use the following model IDs and endpoint URLs to access this model programmatically. For more information about the available APIs and endpoints, see [APIs supported](apis.md "apis.md") and [Endpoints supported](endpoints.md "endpoints.md").
 
-| **Endpoint**      | **Model ID**                              | **In-Region endpoint URL**                       | **Geo inference ID**                                                                     | **Global inference ID**                          |
-| ----------------- | ----------------------------------------- | ------------------------------------------------ | ---------------------------------------------------------------------------------------- | ------------------------------------------------ |
-| `bedrock-runtime` | `anthropic.claude-sonnet-4-20250514-v1:0` | `https://bedrock-runtime.{region}.amazonaws.com` | `us.anthropic.claude-sonnet-4-20250514-v1:0``eu.anthropic.claude-sonnet-4-20250514-v1:0` | `global.anthropic.claude-sonnet-4-20250514-v1:0` |
+| **Endpoint**      | **Model ID**                              | **In-Region endpoint URL**                       | **Geo inference ID**                                                                                                                   | **Global inference ID**                          |
+| ----------------- | ----------------------------------------- | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| `bedrock-runtime` | `anthropic.claude-sonnet-4-20250514-v1:0` | `https://bedrock-runtime.{region}.amazonaws.com` | `us.anthropic.claude-sonnet-4-20250514-v1:0``eu.anthropic.claude-sonnet-4-20250514-v1:0``apac.anthropic.claude-sonnet-4-20250514-v1:0` | `global.anthropic.claude-sonnet-4-20250514-v1:0` |
 
 _For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime endpoint URL will be "https://bedrock-runtime.us-east-1.amazonaws.com" and for bedrock-mantle will be "https://bedrock-mantle.us-east-1.api.aws/v1"._
 
@@ -82,15 +82,15 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 | `eu-south-2` (Spain)         | No            | Yes     | No         |
 | `eu-west-1` (Ireland)        | No            | Yes     | Yes        |
 | `eu-west-3` (Paris)          | No            | Yes     | No         |
-| `ap-northeast-1` (Tokyo)     | No            | No      | Yes        |
+| `ap-northeast-1` (Tokyo)     | No            | Yes     | Yes        |
 | `il-central-1` (Tel Aviv)    | No            | Yes     | No         |
 | `ap-east-2` (Osaka)          | Yes           | No      | No         |
-| `ap-northeast-2` (Seoul)     | Yes           | No      | No         |
-| `ap-northeast-3` (Osaka)     | Yes           | No      | No         |
-| `ap-south-1` (Mumbai)        | Yes           | No      | No         |
-| `ap-south-2` (Hyderabad)     | Yes           | No      | No         |
-| `ap-southeast-1` (Singapore) | Yes           | No      | No         |
-| `ap-southeast-2` (Sydney)    | Yes           | No      | No         |
+| `ap-northeast-2` (Seoul)     | Yes           | Yes     | No         |
+| `ap-northeast-3` (Osaka)     | Yes           | Yes     | No         |
+| `ap-south-1` (Mumbai)        | Yes           | Yes     | No         |
+| `ap-south-2` (Hyderabad)     | Yes           | Yes     | No         |
+| `ap-southeast-1` (Singapore) | Yes           | Yes     | No         |
+| `ap-southeast-2` (Sydney)    | Yes           | Yes     | No         |
 | `ap-southeast-3` (Jakarta)   | Yes           | No      | No         |
 | `ap-southeast-4` (Melbourne) | Yes           | No      | No         |
 | `ap-southeast-5` (Malaysia)  | Yes           | No      | No         |
@@ -123,6 +123,20 @@ Geo Inference ID: `eu.anthropic.claude-sonnet-4-20250514-v1:0`
 | eu-west-1 (Ireland)      | eu-central-1 (Frankfurt), eu-north-1 (Stockholm), eu-south-1 (Milan), eu-south-2 (Spain), eu-west-1 (Ireland), eu-west-3 (Paris)                          |
 | eu-west-3 (Paris)        | eu-central-1 (Frankfurt), eu-north-1 (Stockholm), eu-south-1 (Milan), eu-south-2 (Spain), eu-west-1 (Ireland), eu-west-3 (Paris)                          |
 | il-central-1 (Tel Aviv)  | eu-central-1 (Frankfurt), eu-north-1 (Stockholm), eu-south-1 (Milan), eu-south-2 (Spain), eu-west-1 (Ireland), eu-west-3 (Paris), il-central-1 (Tel Aviv) |
+
+**Geo: APAC**
+
+Geo Inference ID: `apac.anthropic.claude-sonnet-4-20250514-v1:0`
+
+| **Source Region**          | **Destination Regions**                                                                                                                                                                              |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ap-northeast-1 (Tokyo)     | ap-northeast-1 (Tokyo), ap-northeast-2 (Seoul), ap-northeast-3 (Osaka), ap-south-1 (Mumbai), ap-south-2 (Hyderabad), ap-southeast-1 (Singapore), ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne) |
+| ap-northeast-2 (Seoul)     | ap-northeast-1 (Tokyo), ap-northeast-2 (Seoul), ap-northeast-3 (Osaka), ap-south-1 (Mumbai), ap-south-2 (Hyderabad), ap-southeast-1 (Singapore), ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne) |
+| ap-northeast-3 (Osaka)     | ap-northeast-1 (Tokyo), ap-northeast-2 (Seoul), ap-northeast-3 (Osaka), ap-south-1 (Mumbai), ap-south-2 (Hyderabad), ap-southeast-1 (Singapore), ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne) |
+| ap-south-1 (Mumbai)        | ap-northeast-1 (Tokyo), ap-northeast-2 (Seoul), ap-northeast-3 (Osaka), ap-south-1 (Mumbai), ap-south-2 (Hyderabad), ap-southeast-1 (Singapore), ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne) |
+| ap-south-2 (Hyderabad)     | ap-northeast-1 (Tokyo), ap-northeast-2 (Seoul), ap-northeast-3 (Osaka), ap-south-1 (Mumbai), ap-south-2 (Hyderabad), ap-southeast-1 (Singapore), ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne) |
+| ap-southeast-1 (Singapore) | ap-northeast-1 (Tokyo), ap-northeast-2 (Seoul), ap-northeast-3 (Osaka), ap-south-1 (Mumbai), ap-south-2 (Hyderabad), ap-southeast-1 (Singapore), ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne) |
+| ap-southeast-2 (Sydney)    | ap-northeast-1 (Tokyo), ap-northeast-2 (Seoul), ap-northeast-3 (Osaka), ap-south-1 (Mumbai), ap-south-2 (Hyderabad), ap-southeast-1 (Singapore), ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne) |
 
 **Global inference details**
 
@@ -168,8 +182,8 @@ response = client.invoke_model(
             'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
             'max_tokens': 1024
     })
- )
- print(json.loads(response['body'].read()))
+)
+print(json.loads(response['body'].read()))
 ```
 
 Converse API

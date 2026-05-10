@@ -23,6 +23,16 @@ Nova Premier is Amazon's multimodal model for complex reasoning, agentic workflo
 | Yes Text             | Yes Text              | Yes `Converse`                          |                                                        |
 | Yes Video            | No Video              |                                         |                                                        |
 
+## Capabilities and Features
+
+**Bedrock Features**
+
+**Features supported using `bedrock-runtime` endpoint**
+
+| **Supported**                                                                                                                                                                                                                                                               | **Not Supported**                                                        |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| • Yes [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• Yes [Guardrails](guardrails.md "guardrails.md")<br>• Yes [Client-side tool calling](tool-use.md "tool-use.md") | • No [Structured outputs](structured-outputs.md "structured-outputs.md") |
+
 **Prompt caching using `bedrock-runtime` endpoint**
 
 For more information, see [Prompt caching for faster model inference](prompt-caching.md "prompt-caching.md").
@@ -121,8 +131,8 @@ response = client.invoke_model(
                 'maxTokens': 1024
             }
     })
- )
- print(json.loads(response['body'].read()))
+)
+print(json.loads(response['body'].read()))
 ```
 
 Converse API

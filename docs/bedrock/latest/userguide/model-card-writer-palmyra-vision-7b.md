@@ -37,9 +37,9 @@ Whenever possible, we recommend you use the `bedrock-mantle` endpoint.
 
 **Features supported using `bedrock-runtime` endpoint**
 
-| **Supported**                                                                                                                                                                                                | **Not Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| • Yes [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• Yes [Guardrails](guardrails.md "guardrails.md") | • No [Intelligent prompt routing](prompt-routing.md "prompt-routing.md")<br>• No [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• No [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• No [Count tokens](count-tokens.md "count-tokens.md")<br>• No [Knowledge base](knowledge-base.md "knowledge-base.md")<br>• No [Model evaluation](evaluation.md "evaluation.md")<br>• No [Prompt management](prompt-management.md "prompt-management.md")<br>• No [Flows](flows.md "flows.md")<br>• No [Agents](agents.md "agents.md") |
+| **Supported**                                                                                                                                                                                                                                                                             | **Not Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| • Yes [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• Yes [Guardrails](guardrails.md "guardrails.md")<br>• Yes [Structured outputs](structured-outputs.md "structured-outputs.md") | • No [Intelligent prompt routing](prompt-routing.md "prompt-routing.md")<br>• No [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• No [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• No [Count tokens](count-tokens.md "count-tokens.md")<br>• No [Knowledge base](knowledge-base.md "knowledge-base.md")<br>• No [Model evaluation](evaluation.md "evaluation.md")<br>• No [Prompt management](prompt-management.md "prompt-management.md")<br>• No [Flows](flows.md "flows.md")<br>• No [Agents](agents.md "agents.md") |
 
 ## Pricing
 
@@ -99,7 +99,7 @@ Your AWS account has default quotas to maintain the performance of the service a
 
 **Step 3 - Get the SDK:** To use this getting started guide, you must have Python already installed. Then install the relevant software depending on the APIs you are using.
 
-Responses/Chat Completions API
+Chat Completions API
 
 ```
 pip install boto3 openai
@@ -113,7 +113,7 @@ pip install boto3
 
 **Step 4 - Set environment variables:** Configure your environment to use the API key for authentication.
 
-Responses/Chat Completions API
+Chat Completions API
 
 ```
 OPENAI_API_KEY="<provide your Bedrock API key>"
@@ -127,20 +127,6 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 ```
 
 **Step 5 - Run your first inference request:** Save the file as `bedrock-first-request.py`
-
-Responses API
-
-```
-from openai import OpenAI
-
-client = OpenAI()
-
-response = client.responses.create(
-    model="writer.palmyra-vision-7b",
-    input="Can you explain the features of Amazon Bedrock?"
-    )
-print(response)
-```
 
 Chat Completions API
 
@@ -169,8 +155,8 @@ response = client.invoke_model(
             'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
             'max_tokens': 1024
     })
- )
- print(json.loads(response['body'].read()))
+)
+print(json.loads(response['body'].read()))
 ```
 
 Converse API

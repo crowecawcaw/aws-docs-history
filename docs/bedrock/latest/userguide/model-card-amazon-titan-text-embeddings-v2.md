@@ -106,14 +106,10 @@ client = boto3.client('bedrock-runtime', region_name='us-east-1')
 response = client.invoke_model(
     modelId='amazon.titan-embed-text-v2:0',
     body=json.dumps({
-            'messages': [{
-                'role': 'user',
-                'content': [{'text': 'Can you explain the features of Amazon Bedrock?'}]
-            }],
-            'inferenceConfig': {
-                'maxTokens': 1024
-            }
+            'inputText': 'What are the different services that you offer?',
+            'dimensions': 1024,
+            'normalize': True
     })
- )
- print(json.loads(response['body'].read()))
+)
+print(json.loads(response['body'].read()))
 ```

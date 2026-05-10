@@ -8,7 +8,7 @@ with Amazon CloudWatch metrics.
 | Metric name                      | Unit         | Description                                                                                                 |
 | -------------------------------- | ------------ | ----------------------------------------------------------------------------------------------------------- |
 | Invocations                      | SampleCount  | Number of requests to the `ApplyGuardrail` API<br>operation                                                 |
-| InvocationLatency                | MilliSeconds | Latency of the invocations                                                                                  |
+| InvocationLatency                | MilliSeconds | The time from when a request is sent to when the last token is received.                                    |
 | InvocationClientErrors           | SampleCount  | Number of invocations that result in client-side errors                                                     |
 | InvocationServerErrors           | SampleCount  | Number of invocations that result in AWS server-side errors                                                 |
 | InvocationThrottles              | SampleCount  | Number of invocations that the system throttled. Throttled requests don't<br>count as invocations or errors |

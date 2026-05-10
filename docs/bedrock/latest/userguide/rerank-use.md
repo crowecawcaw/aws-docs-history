@@ -7,7 +7,7 @@ You can't use a reranker model directly in the AWS Management Console, but you c
 
 1. When you query a knowledge base, open up the **Configurations** pane by choosing the
 
-![Three horizontal sliders with adjustable circular controls for settings or parameters.](images/icons/configurations.png)
+![Icon showing three horizontal sliders at different positions for adjusting settings.](images/icons/configurations.png)
 
 icon. 2. Expand the **Reranking** section. 3. Choose **Select model** and select a reranker model. 4. If your Amazon Bedrock Knowledge Bases service role is missing [permissions to use the reranker model](rerank-prereq.md "rerank-prereq.md"), select **Update service role** to modify the role with the proper permissions. 5. (Optional) In the **Additional Reranking options** section, modify any options that you need to. 6. Enter a prompt and select **Run**. The response is the result after applying the reranker model.
 
@@ -67,3 +67,90 @@ The response to your `Rerank` request returns a list of [RerankResult](../APIRef
 - `index` – Indicates the document's ranking relative to the other documents in the list. The lower the score, the higher the ranking.
 
 If there are too many results to display, then the response returns a value in the `nextToken` field. In this case, to see the next batch of results, include that token in a subsequent request.
+
+**Code examples**
+
+The following examples show how to call the Rerank API using the AWS SDKs.
+
+PythonNode.jsPython
+
+```
+import boto3
+
+client = boto3.client('bedrock-agent-runtime', region_name='us-east-1')
+response = client.rerank(
+    queries=[{
+        'type': 'TEXT',
+        'textQuery': {'text': 'What is Amazon Bedrock?'}
+    }],
+    sources=[
+        {
+            'type': 'INLINE',
+            'inlineDocumentSource': {
+                'type': 'TEXT',
+                'textDocument': {'text': 'Amazon Bedrock is a fully managed service for foundation models.'}
+            }
+        },
+        {
+            'type': 'INLINE',
+            'inlineDocumentSource': {
+                'type': 'TEXT',
+                'textDocument': {'text': 'Amazon S3 is an object storage service.'}
+            }
+        }
+    ],
+    rerankingConfiguration={
+        'type': 'BEDROCK_RERANKING_MODEL',
+        'bedrockRerankingConfiguration': {
+            'modelConfiguration': {
+                'modelArn': 'arn:aws:bedrock:us-east-1::foundation-model/cohere.rerank-v3-5:0'
+            },
+            'numberOfResults': 2
+        }
+    }
+)
+for result in response['results']:
+    print(f'Index: {result["index"]}, Score: {result["relevanceScore"]}')
+```
+
+Node.js
+
+```
+import { BedrockAgentRuntimeClient, RerankCommand } from "@aws-sdk/client-bedrock-agent-runtime";
+
+const client = new BedrockAgentRuntimeClient({ region: "us-east-1" });
+const response = await client.send(new RerankCommand({
+    queries: [{
+        type: "TEXT",
+        textQuery: { text: "What is Amazon Bedrock?" }
+    }],
+    sources: [
+        {
+            type: "INLINE",
+            inlineDocumentSource: {
+                type: "TEXT",
+                textDocument: { text: "Amazon Bedrock is a fully managed service for foundation models." }
+            }
+        },
+        {
+            type: "INLINE",
+            inlineDocumentSource: {
+                type: "TEXT",
+                textDocument: { text: "Amazon S3 is an object storage service." }
+            }
+        }
+    ],
+    rerankingConfiguration: {
+        type: "BEDROCK_RERANKING_MODEL",
+        bedrockRerankingConfiguration: {
+            modelConfiguration: {
+                modelArn: "arn:aws:bedrock:us-east-1::foundation-model/cohere.rerank-v3-5:0"
+            },
+            numberOfResults: 2
+        }
+    }
+}));
+for (const result of response.results) {
+    console.log(`Index: ${result.index}, Score: ${result.relevanceScore}`);
+}
+```

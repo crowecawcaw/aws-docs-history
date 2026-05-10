@@ -52,6 +52,10 @@ Console
 
    By default, models optimized for agents are shown. To see all models supported by Amazon Bedrock Agents, clear **Bedrock Agents optimized**.
 
+   ###### Tip
+
+   To use cross-Region inference with your agent, specify an inference profile ID in the `foundationModel` field when using the API. For more information, see [Increase throughput with cross-Region inference](cross-region-inference.md "cross-region-inference.md").
+
    ![You can create agents with any foundation model. Currently, some of the offered models are optimized with prompts/parsers fine-tuned for integrating with the agents architecture. Over time, we plan to offer optimization for all of the offered models.](images/agents/agents-optimized-model-selection.png) 4. In **Instructions for the Agent**, enter details to tell the agent what it should do and how it should interact with users. The instructions replace the $instructions$ placeholder in the [orchestration prompt template](prompt-placeholders.md#placeholders-orchestration "prompt-placeholders.md#placeholders-orchestration"). Following is an example of instructions:
 
    ```

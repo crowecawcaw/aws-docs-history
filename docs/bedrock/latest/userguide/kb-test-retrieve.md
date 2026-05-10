@@ -31,7 +31,7 @@ Console
    knowledge base.
 5. (Optional) Select the configurations icon (
 
-![Three horizontal sliders with adjustable circular controls for settings or parameters.](images/icons/configurations.png)
+![Icon showing three horizontal sliders at different positions for adjusting settings.](images/icons/configurations.png)
 
 ) to open up
 **Configurations**. For information about
@@ -44,7 +44,8 @@ source chunk. 8. To see details about the returned chunks, select **Show source 
     * To see the configurations that you set for query, expand **Query configurations**.
     * To view details about a source chunk, expand it by choosing the right arrow (
 
-     ![Play button icon with a triangular shape pointing to the right.](images/icons/caret-right-filled.png)
+     ![Right-pointing filled caret icon.](images/icons/caret-right-filled.png)
+
 
      ) next to it. You can see the following information:
 
@@ -53,11 +54,13 @@ source chunk. 8. To see details about the returned chunks, select **Show source 
 
     	+ The raw text from the source chunk. To copy this text, choose the copy icon (
 
-    	 ![Icon representing a crop or resize function, with two overlapping rectangles.](images/icons/copy.png)
+    	 ![Copy icon represented by two overlapping documents.](images/icons/copy.png)
+
 
     	 ). If you used Amazon S3 to store your data, choose the external link icon (
 
     	 ![Icon of a square with an arrow pointing outward from its top-right corner.](images/icons/external.png)
+
 
     	 ) to navigate to the S3 object containing the file.
     	+ The metadata associated with the source chunk, if you used Amazon S3 to store your data. The attribute/field keys and values are defined in the `.metadata.json` file that's associated with the source document. For more information, see the **Metadata and filtering** section in [Configure and customize queries and response generation](kb-test-config.md "kb-test-config.md").
@@ -69,14 +72,14 @@ source chunk. 8. To see details about the returned chunks, select **Show source 
   setting, the text in the chat window will be completely cleared.
 - To clear the chat window, select the broom icon (
 
-![Magnifying glass icon with a checkmark inside, symbolizing search or inspection.](images/icons/broom.png)
+![Broom icon representing cleaning or clearing functionality.](images/icons/broom.png)
 
 ).
 
 - To copy all the output in the chat window, select the copy icon
   (
 
-![Icon representing a crop or resize function, with two overlapping rectangles.](images/icons/copy.png)
+![Copy icon represented by two overlapping documents.](images/icons/copy.png)
 
 ).
 

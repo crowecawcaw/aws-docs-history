@@ -305,7 +305,7 @@ Console
       - To delete a PII type, select the trash can
         icon (
 
-      ![Trapezoid-shaped diagram showing data flow from source to destination through AWS Transfer Family.](images/icons/trash.png)
+      ![Trash can icon representing a delete action.](images/icons/trash.png)
 
       ).
       - To delete rows that contain errors, select

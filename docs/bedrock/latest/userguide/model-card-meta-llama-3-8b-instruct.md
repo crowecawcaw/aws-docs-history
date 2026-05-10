@@ -106,8 +106,8 @@ response = client.invoke_model(
             'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
             'max_tokens': 1024
     })
- )
- print(json.loads(response['body'].read()))
+)
+print(json.loads(response['body'].read()))
 ```
 
 Converse API

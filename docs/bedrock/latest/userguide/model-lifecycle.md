@@ -10,6 +10,10 @@ and in the tables below. Additionally, when you make a [GetFoundationModel](../A
 `modelLifecycle` field in the response. Once a model launches on Amazon Bedrock, it
 will remain on Amazon Bedrock for at least 12 months before the EOL date.
 
+###### Note
+
+Model lifecycle dates on this page are specific to Amazon Bedrock and may differ from dates published by model providers (such as Anthropic or Cohere). For Amazon Bedrock usage, only the dates on this page apply.
+
 ## Active versions
 
 **Active** — The model provider is actively working

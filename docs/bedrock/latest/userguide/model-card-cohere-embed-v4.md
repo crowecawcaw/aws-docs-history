@@ -153,9 +153,10 @@ client = boto3.client('bedrock-runtime', region_name='us-east-1')
 response = client.invoke_model(
     modelId='cohere.embed-v4:0',
     body=json.dumps({
-            'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
-            'max_tokens': 1024
+            'texts': ['What are the different services that you offer?'],
+            'input_type': 'search_document',
+            'embedding_types': ['float']
     })
- )
- print(json.loads(response['body'].read()))
+)
+print(json.loads(response['body'].read()))
 ```

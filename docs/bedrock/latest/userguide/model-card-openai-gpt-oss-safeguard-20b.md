@@ -15,7 +15,7 @@ GPT OSS Safeguard 20B is OpenAI's compact 20-billion parameter open-source safet
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
-| No Audio             | No Embedding          | Yes `Responses`                         | Yes `bedrock-runtime`                                  |
+| No Audio             | No Embedding          | No `Responses`                          | Yes `bedrock-runtime`                                  |
 | No Image             | No Image              | Yes `Chat Completions`                  | Yes `bedrock-mantle`                                   |
 | No Speech            | No Speech             | Yes `Invoke`                            |                                                        |
 | Yes Text             | Yes Text              | Yes `Converse`                          |                                                        |
@@ -99,7 +99,7 @@ Your AWS account has default quotas to maintain the performance of the service a
 
 **Step 3 - Get the SDK:** To use this getting started guide, you must have Python already installed. Then install the relevant software depending on the APIs you are using.
 
-Responses/Chat Completions API
+Chat Completions API
 
 ```
 pip install boto3 openai
@@ -113,7 +113,7 @@ pip install boto3
 
 **Step 4 - Set environment variables:** Configure your environment to use the API key for authentication.
 
-Responses/Chat Completions API
+Chat Completions API
 
 ```
 OPENAI_API_KEY="<provide your Bedrock API key>"
@@ -127,20 +127,6 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 ```
 
 **Step 5 - Run your first inference request:** Save the file as `bedrock-first-request.py`
-
-Responses API
-
-```
-from openai import OpenAI
-
-client = OpenAI()
-
-response = client.responses.create(
-    model="openai.gpt-oss-safeguard-20b",
-    input="Can you explain the features of Amazon Bedrock?"
-    )
-print(response)
-```
 
 Chat Completions API
 
@@ -169,8 +155,8 @@ response = client.invoke_model(
             'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
             'max_tokens': 1024
     })
- )
- print(json.loads(response['body'].read()))
+)
+print(json.loads(response['body'].read()))
 ```
 
 Converse API

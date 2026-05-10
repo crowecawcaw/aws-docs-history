@@ -34,4 +34,4 @@ aws bedrock-data-automation list-data-automation-library-entities \
 
 1. Navigate to the "Library details" page for your library
 
-![](images/bda/library-list-entities-console.png)
+![Custom vocabulary lists table showing medical-en list with English language and 2 phrases.](images/bda/library-list-entities-console.png)

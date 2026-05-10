@@ -40,4 +40,4 @@ aws bedrock-data-automation get-data-automation-library-entity \
 1. Navigate to the "Library details" page for your library
 2. Choose the desired entity from the list
 
-![](images/bda/library-get-entity-details-console.png)
+![Translation management interface showing two phrases, ibuprofen and paracetamol, with language set to English.](images/bda/library-get-entity-details-console.png)

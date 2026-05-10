@@ -18,7 +18,7 @@ When using the BDA console, modality enablement is handled by a checklist, where
 or deselect each modality while editing or creating your Project. These options are located under the Advanced
 settings tab. At least one Modality must be selected for a project.
 
-![Modality enablement options with checkboxes for document, image, video, and audio.](images/bda/modalityenableconsole.png)
+![Modality enablement section with checkboxes for Document, Image, Video, and Audio modalities.](images/bda/modalityenableconsole.png)
 
 ###### Disabling modalities with the BDA API
 

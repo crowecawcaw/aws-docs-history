@@ -28,14 +28,14 @@ entirely, verify all prerequisites before invoking models in production.
    have `aws-marketplace:Subscribe`, `aws-marketplace:Unsubscribe`,
    and `aws-marketplace:ViewSubscriptions` permissions. See [Grant IAM permissions to request access to Amazon Bedrock foundation models with a product ID](#model-access-permissions "#model-access-permissions") for details.
 2. **Anthropic models**: For Anthropic models, you must
-   complete the First Time Use (FTU) form before invoking the model.
+   complete the First Time Use (FTU) form before invoking the model. This requirement does not apply to Anthropic models accessed through the `bedrock-mantle` endpoint.
 3. **Valid payment method**: Your AWS account must have
    a valid payment method configured for AWS Marketplace purchases.
 
 ###### Note
 
 Anthropic requires first-time customers to submit use case details before invoking a
-model once per account or once at the organization's management account. You can submit
+model once per account or once at the organization's management account. This requirement does not apply to Anthropic models accessed through the `bedrock-mantle` endpoint. You can submit
 use case details by selecting an Anthropic model from the model catalog in the Amazon Bedrock
 console or calling the `PutUseCaseForModelAccess` API command.
 Access
@@ -267,7 +267,7 @@ except ClientError as e:
 
 ### Step 2: [Required one-time for Anthropic models only] Put use case for first-time user
 
-Used to put the first-time user use-case form required only for Anthropic models. This is a pre-requisite for gaining access to Anthropic models in the account. This API is only required one time per account or per AWS organization across all commercial regions, with the exception of opt-in regions where this form needs to be filled again.
+Used to put the first-time user use-case form required only for Anthropic models. This is a pre-requisite for gaining access to Anthropic models in the account. This API is only required one time per account or per AWS organization across all commercial regions, with the exception of opt-in regions where this form needs to be filled again. This requirement does not apply to Anthropic models accessed through the `bedrock-mantle` endpoint.
 
 Documentation
 

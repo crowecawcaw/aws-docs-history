@@ -128,20 +128,6 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 
 **Step 5 - Run your first inference request:** Save the file as `bedrock-first-request.py`
 
-Responses API
-
-```
-from openai import OpenAI
-
-client = OpenAI()
-
-response = client.responses.create(
-    model="google.gemma-3-4b-it",
-    input="Can you explain the features of Amazon Bedrock?"
-    )
-print(response)
-```
-
 Chat Completions API
 
 ```
@@ -169,8 +155,8 @@ response = client.invoke_model(
             'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
             'max_tokens': 1024
     })
- )
- print(json.loads(response['body'].read()))
+)
+print(json.loads(response['body'].read()))
 ```
 
 Converse API

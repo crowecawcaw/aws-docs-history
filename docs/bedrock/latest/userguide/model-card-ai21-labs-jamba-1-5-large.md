@@ -23,6 +23,16 @@ Jamba 1.5 Large is AI21 Labs' hybrid SSM-Transformer model with 398B total param
 | Yes Text             | Yes Text              | Yes `Converse`                          |                                                        |
 | No Video             | No Video              |                                         |                                                        |
 
+## Capabilities and Features
+
+**Bedrock Features**
+
+**Features supported using `bedrock-runtime` endpoint**
+
+| **Supported**                                                                                                                                                                                                                                                               | **Not Supported**                                                        |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| • Yes [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• Yes [Guardrails](guardrails.md "guardrails.md")<br>• Yes [Client-side tool calling](tool-use.md "tool-use.md") | • No [Structured outputs](structured-outputs.md "structured-outputs.md") |
+
 ## Pricing
 
 For pricing, please refer to the [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/") page.
@@ -92,8 +102,8 @@ response = client.invoke_model(
             'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
             'max_tokens': 1024
     })
- )
- print(json.loads(response['body'].read()))
+)
+print(json.loads(response['body'].read()))
 ```
 
 Converse API

@@ -158,8 +158,8 @@ response = client.invoke_model(
                 'maxTokens': 1024
             }
     })
- )
- print(json.loads(response['body'].read()))
+)
+print(json.loads(response['body'].read()))
 ```
 
 Converse API

@@ -1,6 +1,6 @@
 # Claude Sonnet 4.6
 
-## Anthropic — Claude Sonnet 4.6
+## Orange rounded square icon with white radial loading spinner design. Anthropic — Claude Sonnet 4.6
 
 ## Model Details
 
@@ -50,9 +50,9 @@ For pricing, please refer to the [Amazon Bedrock Pricing](https://aws.amazon.com
 
 Use the following model IDs and endpoint URLs to access this model programmatically. For more information about the available APIs and endpoints, see [APIs supported](apis.md "apis.md") and [Endpoints supported](endpoints.md "endpoints.md").
 
-| **Endpoint**      | **Model ID**                  | **In-Region endpoint URL**                       | **Geo inference ID**                                                                             | **Global inference ID**              |
-| ----------------- | ----------------------------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------ |
-| `bedrock-runtime` | `anthropic.claude-sonnet-4-6` | `https://bedrock-runtime.{region}.amazonaws.com` | `us.anthropic.claude-sonnet-4-6``eu.anthropic.claude-sonnet-4-6``au.anthropic.claude-sonnet-4-6` | `global.anthropic.claude-sonnet-4-6` |
+| **Endpoint**      | **Model ID**                  | **In-Region endpoint URL**                       | **Geo inference ID**                                                                                                             | **Global inference ID**              |
+| ----------------- | ----------------------------- | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| `bedrock-runtime` | `anthropic.claude-sonnet-4-6` | `https://bedrock-runtime.{region}.amazonaws.com` | `us.anthropic.claude-sonnet-4-6``eu.anthropic.claude-sonnet-4-6``au.anthropic.claude-sonnet-4-6``jp.anthropic.claude-sonnet-4-6` | `global.anthropic.claude-sonnet-4-6` |
 
 _For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime endpoint URL will be "https://bedrock-runtime.us-east-1.amazonaws.com" and for bedrock-mantle will be "https://bedrock-mantle.us-east-1.api.aws/v1"._
 
@@ -87,9 +87,9 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 | `eu-west-2` (London)           | Yes           | Yes     | Yes        |
 | `eu-west-3` (Paris)            | No            | Yes     | Yes        |
 | `ap-east-2` (Taipei)           | No            | No      | Yes        |
-| `ap-northeast-1` (Tokyo)       | No            | No      | Yes        |
+| `ap-northeast-1` (Tokyo)       | No            | Yes     | Yes        |
 | `ap-northeast-2` (Seoul)       | No            | No      | Yes        |
-| `ap-northeast-3` (Osaka)       | No            | No      | Yes        |
+| `ap-northeast-3` (Osaka)       | No            | Yes     | Yes        |
 | `ap-south-1` (Mumbai)          | No            | No      | Yes        |
 | `ap-south-2` (Hyderabad)       | No            | No      | Yes        |
 | `ap-southeast-1` (Singapore)   | No            | No      | Yes        |
@@ -146,6 +146,15 @@ Geo Inference ID: `au.anthropic.claude-sonnet-4-6`
 | ap-southeast-4 (Melbourne)   | ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne)                               |
 | ap-southeast-6 (New Zealand) | ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne), ap-southeast-6 (New Zealand) |
 
+**Geo: JP**
+
+Geo Inference ID: `jp.anthropic.claude-sonnet-4-6`
+
+| **Source Region**      | **Destination Regions**                        |
+| ---------------------- | ---------------------------------------------- |
+| ap-northeast-1 (Tokyo) | ap-northeast-1 (Tokyo), ap-northeast-3 (Osaka) |
+| ap-northeast-3 (Osaka) | ap-northeast-1 (Tokyo), ap-northeast-3 (Osaka) |
+
 **Global inference details**
 
 | **Global Inference ID**            | **Americas**                                                                                                                                                                                                     | **EMEA**                                                                                                                                                                                                                                                                                                             | **Asia Pacific**                                                                                                                                                                                                                                                                                                                                                                         |
@@ -190,8 +199,8 @@ response = client.invoke_model(
             'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
             'max_tokens': 1024
     })
- )
- print(json.loads(response['body'].read()))
+)
+print(json.loads(response['body'].read()))
 ```
 
 Converse API

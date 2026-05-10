@@ -36,4 +36,4 @@ aws bedrock-data-automation get-data-automation-library \
 1. Navigate to "Manage libraries" page in BDA Console
 2. Select the desired library from the list of libraries
 
-![](images/bda/library-get-details-console.png)
+![Custom vocabulary page showing library details and empty vocabulary lists table.](images/bda/library-get-details-console.png)

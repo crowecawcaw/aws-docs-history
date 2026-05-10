@@ -49,7 +49,7 @@ During the process of building your flow, you might need to delete a node or rem
 1. Select a node you want to delete.
 2. In the **Flow builder** pane, choose the delete icon (
 
-![Trapezoid-shaped diagram showing data flow from source to destination through AWS Transfer Family.](images/icons/trash.png)
+![Trash can icon representing a delete action.](images/icons/trash.png)
 
 ).
 

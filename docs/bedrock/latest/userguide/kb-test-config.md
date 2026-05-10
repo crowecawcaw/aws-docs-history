@@ -256,7 +256,7 @@ is `"entertainment"` by adding the following filter:
 - To remove a filter group, choose the trash can icon
   (
 
-![Trapezoid-shaped diagram showing data flow from source to destination through AWS Transfer Family.](images/icons/trash.png)
+![Trash can icon representing a delete action.](images/icons/trash.png)
 
 ) next to the group. To remove a filter, choose the
 delete icon (

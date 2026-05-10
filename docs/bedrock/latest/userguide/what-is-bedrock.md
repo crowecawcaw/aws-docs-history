@@ -6,6 +6,21 @@ Amazon Bedrock is a fully managed service that provides secure, enterprise-grade
 
 Read the [Quickstart](getting-started.md "getting-started.md") to write your first API call using Amazon Bedrock in under five minutes.
 
+Messages API
+
+```
+import anthropic
+
+client = anthropic.Anthropic()
+
+response = client.messages.create(
+    model="anthropic.claude-opus-4-7",
+    max_tokens=1024,
+    messages=[{"role": "user", "content": "Can you explain the features of Amazon Bedrock?"}]
+)
+print(response)
+```
+
 Responses API
 
 ```
@@ -34,24 +49,6 @@ response = client.chat.completions.create(
 print(response)
 ```
 
-Invoke API
-
-```
-import json
-import boto3
-
-client = boto3.client('bedrock-runtime', region_name='us-east-1')
-response = client.invoke_model(
-    modelId='anthropic.claude-opus-4-6-v1',
-    body=json.dumps({
-            'anthropic_version': 'bedrock-2023-05-31',
-            'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
-            'max_tokens': 1024
-    })
- )
- print(json.loads(response['body'].read()))
-```
-
 Converse API
 
 ```
@@ -59,7 +56,7 @@ import boto3
 
 client = boto3.client('bedrock-runtime', region_name='us-east-1')
 response = client.converse(
-    modelId='anthropic.claude-opus-4-6-v1',
+    modelId='anthropic.claude-opus-4-7',
     messages=[
         {
             'role': 'user',
@@ -70,13 +67,31 @@ response = client.converse(
 print(response)
 ```
 
+Invoke API
+
+```
+import json
+import boto3
+
+client = boto3.client('bedrock-runtime', region_name='us-east-1')
+response = client.invoke_model(
+    modelId='anthropic.claude-opus-4-7',
+    body=json.dumps({
+            'anthropic_version': 'bedrock-2023-05-31',
+            'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
+            'max_tokens': 1024
+    })
+ )
+ print(json.loads(response['body'].read()))
+```
+
 ## Supported models
 
 Bedrock supports [100+ foundation models](models.md "models.md") from industry-leading providers, including Amazon, Anthropic, DeepSeek, Moonshot AI, MiniMax, and OpenAI.
 
-|            |                     |                  |               |                  |                 |
-| ---------- | ------------------- | ---------------- | ------------- | ---------------- | --------------- |
-| **Nova 2** | **Claude Opus 4.6** | **Deepseek 3.2** | **Kimi K2.5** | **MiniMax M2.1** | **GPT-OSS-20B** |
+|            |                                                                                             |                  |               |                  |                 |
+| ---------- | ------------------------------------------------------------------------------------------- | ---------------- | ------------- | ---------------- | --------------- |
+| **Nova 2** | Orange rounded square icon with white radial loading spinner design.<br>**Claude Opus 4.6** | **Deepseek 3.2** | **Kimi K2.5** | **MiniMax M2.1** | **GPT-OSS-20B** |
 
 ## What's new?
 
@@ -87,8 +102,8 @@ Bedrock supports [100+ foundation models](models.md "models.md") from industry-l
 
 ## Start Building
 
-|     |                                                                                                                                                                         |
-| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|     | Explore the [APIs supported by Amazon Bedrock](apis.md "apis.md") and [Endpoints supported by Amazon Bedrock](endpoints.md "endpoints.md") supported by Amazon Bedrock. |
-|     | Build using the [Submit prompts and generate responses with model inference](inference.md "inference.md") operations provided by Amazon Bedrock.                        |
-|     | Customize your models to improve performance and quality. [Customize your model to improve its performance for your use case](custom-models.md "custom-models.md")      |
+|                                                                        |                                                                                                                                                                         |
+| ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cloud icon with bidirectional arrows indicating sync or data transfer. | Explore the [APIs supported by Amazon Bedrock](apis.md "apis.md") and [Endpoints supported by Amazon Bedrock](endpoints.md "endpoints.md") supported by Amazon Bedrock. |
+| Wrench and screwdriver icon on purple background.                      | Build using the [Submit prompts and generate responses with model inference](inference.md "inference.md") operations provided by Amazon Bedrock.                        |
+|                                                                        | Customize your models to improve performance and quality. [Customize your model to improve its performance for your use case](custom-models.md "custom-models.md")      |

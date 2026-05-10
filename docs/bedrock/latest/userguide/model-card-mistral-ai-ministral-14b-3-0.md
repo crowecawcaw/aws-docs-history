@@ -29,6 +29,12 @@ Whenever possible, we recommend you use the `bedrock-mantle` endpoint.
 
 **Bedrock Features**
 
+**Features supported using `bedrock-mantle` endpoint**
+
+| **Supported**                                               | **Not Supported** |
+| ----------------------------------------------------------- | ----------------- |
+| • Yes [Client-side tool calling](tool-use.md "tool-use.md") | —                 |
+
 **Features supported using `bedrock-runtime` endpoint**
 
 | **Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | **Not Supported**                                                                                                                                                                                                                                                                               |
@@ -46,6 +52,7 @@ Use the following model IDs and endpoint URLs to access this model programmatica
 | **Endpoint**      | **Model ID**                       | **In-Region endpoint URL**                       | **Geo inference ID** | **Global inference ID** |
 | ----------------- | ---------------------------------- | ------------------------------------------------ | -------------------- | ----------------------- |
 | `bedrock-runtime` | `mistral.ministral-3-14b-instruct` | `https://bedrock-runtime.{region}.amazonaws.com` | Not supported        | Not supported           |
+| `bedrock-mantle`  | `mistral.ministral-3-14b-instruct` | `https://bedrock-mantle.{region}.api.aws/v1`     | Not supported        | Not supported           |
 
 _For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime endpoint URL will be "https://bedrock-runtime.us-east-1.amazonaws.com" and for bedrock-mantle will be "https://bedrock-mantle.us-east-1.api.aws/v1"._
 
@@ -110,7 +117,7 @@ Chat Completions API
 
 ```
 OPENAI_API_KEY="<provide your Bedrock API key>"
-OPENAI_BASE_URL="https://bedrock-runtime.<your-region>.amazonaws.com/v1"
+OPENAI_BASE_URL="https://bedrock-mantle.<your-region>.api.aws/v1"
 ```
 
 Invoke/Converse API
@@ -148,8 +155,8 @@ response = client.invoke_model(
             'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
             'max_tokens': 1024
     })
- )
- print(json.loads(response['body'].read()))
+)
+print(json.loads(response['body'].read()))
 ```
 
 Converse API

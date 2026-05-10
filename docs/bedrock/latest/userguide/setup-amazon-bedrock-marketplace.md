@@ -7,180 +7,175 @@ policy,
 make sure that
 your IAM role has the following permissions.
 
-The following are the permissions provided by the Amazon Bedrock Full Access policy.
-
-JSON
+The following is a recommended custom policy for Amazon Bedrock Marketplace. For the latest version of the Amazon Bedrock Full Access managed policy, see [AmazonBedrockFullAccess](../../../aws-managed-policy/latest/reference/AmazonBedrockFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonBedrockFullAccess.md").
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "BedrockAll",
- "Effect": "Allow",
- "Action": [
- "bedrock:*"
- ],
- "Resource": "*"
- },
- {
- "Sid": "DescribeKey",
- "Effect": "Allow",
- "Action": [
- "kms:DescribeKey"
- ],
- "Resource": "arn:*:kms:*:::*"
- },
- {
- "Sid": "APIsWithAllResourceAccess",
- "Effect": "Allow",
- "Action": [
- "iam:ListRoles",
- "ec2:DescribeVpcs",
- "ec2:DescribeSubnets",
- "ec2:DescribeSecurityGroups"
- ],
- "Resource": "*"
- },
- {
- "Sid": "MarketplaceModelEndpointMutatingAPIs",
- "Effect": "Allow",
- "Action": [
- "sagemaker:CreateEndpoint",
- "sagemaker:CreateEndpointConfig",
- "sagemaker:CreateModel",
- "sagemaker:CreateInferenceComponent",
- "sagemaker:DeleteInferenceComponent",
- "sagemaker:DeleteEndpoint",
- "sagemaker:UpdateEndpoint"
- ],
- "Resource": [
- "arn:aws:sagemaker:*:*:endpoint/*",
- "arn:aws:sagemaker:*:*:endpoint-config/*",
- "arn:aws:sagemaker:*:*:model/*"
- ],
- "Condition": {
- "StringEquals": {
- "aws:CalledViaLast": "bedrock.amazonaws.com"
- }
- }
- },
- {
- "Sid": "BedrockEndpointTaggingOperations",
- "Effect": "Allow",
- "Action": [
- "sagemaker:AddTags",
- "sagemaker:DeleteTags"
- ],
- "Resource": [
- "arn:aws:sagemaker:*:*:endpoint/*",
- "arn:aws:sagemaker:*:*:endpoint-config/*",
- "arn:aws:sagemaker:*:*:model/*"
- ]
- },
- {
- "Sid": "MarketplaceModelEndpointNonMutatingAPIs",
- "Effect": "Allow",
- "Action": [
- "sagemaker:DescribeEndpoint",
- "sagemaker:DescribeEndpointConfig",
- "sagemaker:DescribeModel",
- "sagemaker:DescribeInferenceComponent",
- "sagemaker:ListEndpoints",
- "sagemaker:ListTags"
- ],
- "Resource": [
- "arn:aws:sagemaker:*:*:endpoint/*",
- "arn:aws:sagemaker:*:*:endpoint-config/*",
- "arn:aws:sagemaker:*:*:model/*"
- ],
- "Condition": {
- "StringEquals": {
- "aws:CalledViaLast": "bedrock.amazonaws.com"
- }
- }
- },
- {
- "Sid": "BedrockEndpointInvokingOperations",
- "Effect": "Allow",
- "Action": [
- "sagemaker:InvokeEndpoint",
- "sagemaker:InvokeEndpointWithResponseStream"
- ],
- "Resource": [
- "arn:aws:sagemaker:*:*:endpoint/*"
- ],
- "Condition": {
- "StringEquals": {
- "aws:CalledViaLast": "bedrock.amazonaws.com"
- }
- }
- },
- {
- "Sid": "DiscoveringMarketplaceModel",
- "Effect": "Allow",
- "Action": [
- "sagemaker:DescribeHubContent"
- ],
- "Resource": [
- "arn:aws:sagemaker:*:aws:hub-content/SageMakerPublicHub/Model/*",
- "arn:aws:sagemaker:*:aws:hub/SageMakerPublicHub"
- ]
- },
- {
- "Sid": "AllowMarketplaceModelsListing",
- "Effect": "Allow",
- "Action": [
- "sagemaker:ListHubContents"
- ],
- "Resource": "arn:aws:sagemaker:*:aws:hub/SageMakerPublicHub"
- },
- {
- "Sid": "RetrieveSubscribedMarketplaceLicenses",
- "Effect": "Allow",
- "Action": [
- "license-manager:ListReceivedLicenses"
- ],
- "Resource": [
- "*"
- ]
- },
- {
- "Sid": "PassRoleToSageMaker",
- "Effect": "Allow",
- "Action": [
- "iam:PassRole"
- ],
- "Resource": [
- "arn:aws:iam::*:role/*Sagemaker*ForBedrock*"
- ],
- "Condition": {
- "StringEquals": {
- "iam:PassedToService": [
- "sagemaker.amazonaws.com",
- "bedrock.amazonaws.com"
- ]
- }
- }
- },
- {
- "Sid": "PassRoleToBedrock",
- "Effect": "Allow",
- "Action": [
- "iam:PassRole"
- ],
- "Resource": "arn:aws:iam::*:role/*AmazonBedrock*",
- "Condition": {
- "StringEquals": {
- "iam:PassedToService": [
- "bedrock.amazonaws.com"
- ]
- }
- }
- }
- ]
- }`
-
+{
+    "Version":"2012-10-17",
+    "Statement": [
+        {
+            "Sid": "BedrockAll",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "DescribeKey",
+            "Effect": "Allow",
+            "Action": [
+                "kms:DescribeKey"
+            ],
+            "Resource": "arn:*:kms:*:::*"
+        },
+        {
+            "Sid": "APIsWithAllResourceAccess",
+            "Effect": "Allow",
+            "Action": [
+                "iam:ListRoles",
+                "ec2:DescribeVpcs",
+                "ec2:DescribeSubnets",
+                "ec2:DescribeSecurityGroups"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "MarketplaceModelEndpointMutatingAPIs",
+            "Effect": "Allow",
+            "Action": [
+                "sagemaker:CreateEndpoint",
+                "sagemaker:CreateEndpointConfig",
+                "sagemaker:CreateModel",
+                "sagemaker:DeleteEndpoint",
+                "sagemaker:UpdateEndpoint"
+            ],
+            "Resource": [
+                "arn:*:sagemaker:*:*:endpoint/*",
+                "arn:*:sagemaker:*:*:endpoint-config/*",
+                "arn:*:sagemaker:*:*:model/*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "aws:CalledViaLast": "bedrock.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Sid": "BedrockEndpointTaggingOperations",
+            "Effect": "Allow",
+            "Action": [
+                "sagemaker:AddTags",
+                "sagemaker:DeleteTags"
+            ],
+            "Resource": [
+                "arn:*:sagemaker:*:*:endpoint/*",
+                "arn:*:sagemaker:*:*:endpoint-config/*",
+                "arn:*:sagemaker:*:*:model/*"
+            ]
+        },
+        {
+            "Sid": "MarketplaceModelEndpointNonMutatingAPIs",
+            "Effect": "Allow",
+            "Action": [
+                "sagemaker:DescribeEndpoint",
+                "sagemaker:DescribeEndpointConfig",
+                "sagemaker:DescribeModel",
+                "sagemaker:DescribeInferenceComponent",
+                "sagemaker:ListEndpoints",
+                "sagemaker:ListTags"
+            ],
+            "Resource": [
+                "arn:*:sagemaker:*:*:endpoint/*",
+                "arn:*:sagemaker:*:*:endpoint-config/*",
+                "arn:*:sagemaker:*:*:model/*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "aws:CalledViaLast": "bedrock.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Sid": "BedrockEndpointInvokingOperations",
+            "Effect": "Allow",
+            "Action": [
+                "sagemaker:InvokeEndpoint",
+                "sagemaker:InvokeEndpointWithResponseStream"
+            ],
+            "Resource": [
+                "arn:*:sagemaker:*:*:endpoint/*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "aws:CalledViaLast": "bedrock.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Sid": "DiscoveringMarketplaceModel",
+            "Effect": "Allow",
+            "Action": [
+                "sagemaker:DescribeHubContent"
+            ],
+            "Resource": [
+                "arn:*:sagemaker:*:aws:hub-content/SageMakerPublicHub/Model/*",
+                "arn:*:sagemaker:*:aws:hub/SageMakerPublicHub"
+            ]
+        },
+        {
+            "Sid": "AllowMarketplaceModelsListing",
+            "Effect": "Allow",
+            "Action": [
+                "sagemaker:ListHubContents"
+            ],
+            "Resource": "arn:*:sagemaker:*:aws:hub/SageMakerPublicHub"
+        },
+        {
+            "Sid": "RetrieveSubscribedMarketplaceLicenses",
+            "Effect": "Allow",
+            "Action": [
+                "license-manager:ListReceivedLicenses"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "PassRoleToSageMaker",
+            "Effect": "Allow",
+            "Action": [
+                "iam:PassRole"
+            ],
+            "Resource": [
+                "arn:*:iam::*:role/*Sagemaker*ForBedrock*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "iam:PassedToService": [
+                        "sagemaker.amazonaws.com",
+                        "bedrock.amazonaws.com"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "PassRoleToBedrock",
+            "Effect": "Allow",
+            "Action": [
+                "iam:PassRole"
+            ],
+            "Resource": "arn:*:iam::*:role/*AmazonBedrock*",
+            "Condition": {
+                "StringEquals": {
+                    "iam:PassedToService": [
+                        "bedrock.amazonaws.com"
+                    ]
+                }
+            }
+        }
+    ]
+}
 ```
 
 ###### Important

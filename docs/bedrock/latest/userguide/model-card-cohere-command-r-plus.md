@@ -23,6 +23,16 @@ Command R+ is Cohere's model for complex RAG workflows, multi-step tool use, and
 | Yes Text             | Yes Text              | Yes `Converse`                          |                                                        |
 | No Video             | No Video              |                                         |                                                        |
 
+## Capabilities and Features
+
+**Bedrock Features**
+
+**Features supported using `bedrock-runtime` endpoint**
+
+| **Supported**                                                                                                                                                                                                                                                               | **Not Supported** |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| • Yes [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• Yes [Guardrails](guardrails.md "guardrails.md")<br>• Yes [Client-side tool calling](tool-use.md "tool-use.md") | —                 |
+
 ## Pricing
 
 For pricing, please refer to the [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/") page.
@@ -90,11 +100,11 @@ client = boto3.client('bedrock-runtime', region_name='us-east-1')
 response = client.invoke_model(
     modelId='cohere.command-r-plus-v1:0',
     body=json.dumps({
-            'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
+            'message': 'Can you explain the features of Amazon Bedrock?',
             'max_tokens': 1024
     })
- )
- print(json.loads(response['body'].read()))
+)
+print(json.loads(response['body'].read()))
 ```
 
 Converse API

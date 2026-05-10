@@ -89,9 +89,9 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 | `eu-west-2` (London)           | No            | Yes     | Yes        |
 | `eu-west-3` (Paris)            | No            | Yes     | Yes        |
 | `ap-east-2` (Taipei)           | No            | No      | Yes        |
-| `ap-northeast-1` (Tokyo)       | No            | No      | Yes        |
+| `ap-northeast-1` (Tokyo)       | No            | Yes     | Yes        |
 | `ap-northeast-2` (Seoul)       | No            | No      | Yes        |
-| `ap-northeast-3` (Osaka)       | No            | No      | Yes        |
+| `ap-northeast-3` (Osaka)       | No            | Yes     | Yes        |
 | `ap-south-1` (Mumbai)          | No            | No      | Yes        |
 | `ap-south-2` (Hyderabad)       | No            | No      | Yes        |
 | `ap-southeast-1` (Singapore)   | No            | No      | Yes        |
@@ -202,8 +202,8 @@ response = client.invoke_model(
             'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
             'max_tokens': 1024
     })
- )
- print(json.loads(response['body'].read()))
+)
+print(json.loads(response['body'].read()))
 ```
 
 Converse API

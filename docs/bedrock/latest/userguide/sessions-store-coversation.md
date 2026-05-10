@@ -2,7 +2,7 @@
 
 After you create a session, use the [CreateInvocation](../APIReference/API_agent-runtime_CreateInvocation.md "../APIReference/API_agent-runtime_CreateInvocation.md") API to create a grouping of interactions within the session. For each grouping, use the [PutInvocationStep](../APIReference/API_agent-runtime_PutInvocationStep.md "../APIReference/API_agent-runtime_PutInvocationStep.md") API operations to store state checkpoints, including text and images, for each interaction.
 
-How you organize invocation steps within invocations depends on your use case. For example, if you have an agent that agent that helps customers make travel reservations, your invocation and invocation steps might be as follows:
+How you organize invocation steps within invocations depends on your use case. For example, if you have an agent that helps customers make travel reservations, your invocation and invocation steps might be as follows:
 
 - The invocation might serve as the grouping for the text from a conversation an agent has with a customer checking room availability at a specific hotel for different nights.
 - Each invocation step might be each message between the agent and the user, and each step the agent takes to retrieve the availability.

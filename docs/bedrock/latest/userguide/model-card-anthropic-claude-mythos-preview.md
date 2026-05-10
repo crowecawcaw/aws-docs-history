@@ -1,6 +1,6 @@
 # Claude Mythos Preview
 
-## Anthropic — Claude Mythos Preview
+## Orange rounded square icon with white radial loading spinner design. Anthropic — Claude Mythos Preview
 
 ## Model Details
 
@@ -31,9 +31,9 @@ Available only as a gated research preview with access prioritized for defensive
 
 **Features supported using `bedrock-mantle` endpoint**
 
-| **Supported**                                                                                                                                           | **Not Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| • Yes [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md") | • No [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• No [Guardrails](guardrails.md "guardrails.md")<br>• No [Count tokens](count-tokens.md "count-tokens.md")<br>• No [Intelligent prompt routing](prompt-routing.md "prompt-routing.md")<br>• No [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• No [Knowledge base](knowledge-base.md "knowledge-base.md")<br>• No [Model evaluation](evaluation.md "evaluation.md")<br>• No [Prompt management](prompt-management.md "prompt-management.md")<br>• No [Flows](flows.md "flows.md")<br>• No [Agents](agents.md "agents.md") |
+| **Supported**                                                                                                                                                                                                                                                                          | **Not Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| • Yes [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• Yes [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• Yes [Count tokens](count-tokens.md "count-tokens.md") | • No [Guardrails](guardrails.md "guardrails.md")<br>• No [Intelligent prompt routing](prompt-routing.md "prompt-routing.md")<br>• No [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• No [Knowledge base](knowledge-base.md "knowledge-base.md")<br>• No [Model evaluation](evaluation.md "evaluation.md")<br>• No [Prompt management](prompt-management.md "prompt-management.md")<br>• No [Flows](flows.md "flows.md")<br>• No [Agents](agents.md "agents.md") |
 
 ## Pricing
 
@@ -43,11 +43,11 @@ For pricing, please refer to the [Amazon Bedrock Pricing](https://aws.amazon.com
 
 Use the following model IDs and endpoint URLs to access this model programmatically. For more information about the available APIs and endpoints, see [APIs supported](apis.md "apis.md") and [Endpoints supported](endpoints.md "endpoints.md").
 
-| **Endpoint**     | **Model ID**                      | **In-Region endpoint URL**                   | **Geo inference ID** | **Global inference ID** |
-| ---------------- | --------------------------------- | -------------------------------------------- | -------------------- | ----------------------- |
-| `bedrock-mantle` | `anthropic.claude-mythos-preview` | `https://bedrock-mantle.{region}.api.aws/v1` | N/A                  | N/A                     |
+| **Endpoint**     | **Model ID**                      | **In-Region endpoint URL**                | **Geo inference ID** | **Global inference ID** |
+| ---------------- | --------------------------------- | ----------------------------------------- | -------------------- | ----------------------- |
+| `bedrock-mantle` | `anthropic.claude-mythos-preview` | `https://bedrock-mantle.{region}.api.aws` | N/A                  | N/A                     |
 
-_For example, if region is us-east-1 (N. Virginia), then the bedrock-mantle endpoint URL will be "https://bedrock-mantle.us-east-1.api.aws/v1"._
+_For example, if region is us-east-1 (N. Virginia), then the bedrock-mantle endpoint URL will be "https://bedrock-mantle.us-east-1.api.aws"._
 
 ## Service Tiers
 
@@ -66,3 +66,39 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 | **Region**                | **In-Region** | **Geo** | **Global** |
 | ------------------------- | ------------- | ------- | ---------- |
 | `us-east-1` (N. Virginia) | Yes           | No      | No         |
+
+## Sample Code
+
+**Step 1 - AWS Account:** If you have an AWS account already, skip this step. If you are new to AWS, sign up for an [AWS account](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup").
+
+**Step 2 - API key:** Go to the [Amazon Bedrock console](https://console.aws.amazon.com/bedrock/home#/api-keys/long-term/create "https://console.aws.amazon.com/bedrock/home#/api-keys/long-term/create") and generate a long-term API key.
+
+**Step 3 - Get the SDK:** To use this getting started guide, you must have Python already installed. Then install the relevant software.
+
+```
+pip install -U "anthropic[bedrock]"
+```
+
+**Step 4 - Set environment variables:** Configure your environment to use the API key for authentication.
+
+```
+AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
+```
+
+**Step 5 - Run your first inference request:** Save the file as `bedrock-first-request.py`
+
+Messages API
+
+```
+from anthropic import AnthropicBedrockMantle
+
+client = AnthropicBedrockMantle(aws_region="us-east-1")
+
+message = client.messages.create(
+    model="anthropic.claude-mythos-preview",
+    max_tokens=1024,
+    messages=[{"role": "user", "content": "Can you explain the features of Amazon Bedrock?"}],
+)
+
+print(message.content[0].text)
+```

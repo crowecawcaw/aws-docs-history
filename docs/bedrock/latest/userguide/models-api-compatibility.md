@@ -145,8 +145,8 @@ We will now look at the list of APIs supported by each model.
 
 | Model name                                                                                                                | Invoke | Converse | Chat Completions | Responses | Messages |
 | ------------------------------------------------------------------------------------------------------------------------- | ------ | -------- | ---------------- | --------- | -------- |
-| **[GPT OSS Safeguard 120B](model-card-openai-gpt-oss-safeguard-120b.md "model-card-openai-gpt-oss-safeguard-120b.md")\*** | Yes    | Yes      | Yes              | Yes       | No       |
-| **[GPT OSS Safeguard 20B](model-card-openai-gpt-oss-safeguard-20b.md "model-card-openai-gpt-oss-safeguard-20b.md")\***    | Yes    | Yes      | Yes              | Yes       | No       |
+| **[GPT OSS Safeguard 120B](model-card-openai-gpt-oss-safeguard-120b.md "model-card-openai-gpt-oss-safeguard-120b.md")\*** | Yes    | Yes      | Yes              | No        | No       |
+| **[GPT OSS Safeguard 20B](model-card-openai-gpt-oss-safeguard-20b.md "model-card-openai-gpt-oss-safeguard-20b.md")\***    | Yes    | Yes      | Yes              | No        | No       |
 | **[gpt-oss-120b](model-card-openai-gpt-oss-120b.md "model-card-openai-gpt-oss-120b.md")\***                               | Yes    | Yes      | Yes              | Yes       | No       |
 | **[gpt-oss-20b](model-card-openai-gpt-oss-20b.md "model-card-openai-gpt-oss-20b.md")\***                                  | Yes    | Yes      | Yes              | Yes       | No       |
 
@@ -202,7 +202,7 @@ We will now look at the list of APIs supported by each model.
 | ---------------------------------------------------------------------------------------- | ------ | -------- | ---------------- | --------- | -------- |
 | **[GLM 4.7](model-card-zai-glm-4-7.md "model-card-zai-glm-4-7.md")\***                   | Yes    | Yes      | Yes              | No        | No       |
 | **[GLM 4.7 Flash](model-card-zai-glm-4-7-flash.md "model-card-zai-glm-4-7-flash.md")\*** | Yes    | Yes      | Yes              | No        | No       |
-| **[GLM 5](model-card-zai-glm-5.md "model-card-zai-glm-5.md")\***                         | Yes    | Yes      | Yes              | No        |
+| **[GLM 5](model-card-zai-glm-5.md "model-card-zai-glm-5.md")\***                         | Yes    | Yes      | Yes              | No        | No       |
 
 ###### Note
 

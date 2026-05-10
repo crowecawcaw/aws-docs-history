@@ -156,9 +156,6 @@ Here are some important considerations for summarized thinking:
 
 Claude 3.7 Sonnet still returns the full thinking output.
 
-To access the full thinking output for Claude 4 models, contact your
-account team.
-
 ### Streaming thinking
 
 You can stream extended thinking responses using server-sent events (SSE).

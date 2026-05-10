@@ -103,15 +103,17 @@ Invoke API
 
 ```
 import json
+import base64
 import boto3
 
 client = boto3.client('bedrock-runtime', region_name='us-east-1')
+with open('input.png', 'rb') as f:
+    image_base64 = base64.b64encode(f.read()).decode('utf-8')
+params = {'image': image_base64}
 response = client.invoke_model(
     modelId='stability.stable-image-remove-background-v1:0',
-    body=json.dumps({
-            'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
-            'max_tokens': 1024
-    })
- )
- print(json.loads(response['body'].read()))
+    body=json.dumps(params)
+)
+response_body = json.loads(response['body'].read())
+print(f'Image generated: {len(response_body["images"][0])} bytes (base64)')
 ```

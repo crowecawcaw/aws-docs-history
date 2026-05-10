@@ -521,13 +521,19 @@ data: {"type": "message_stop"}
 Bedrock does not currently support `clear_tool_uses_20250919` context
 management on the CountTokens API.
 
-## Memory Tool
+## Memory Tool (Beta)
 
-Claude includes a memory tool that provides you a way to manage
+###### Warning
+
+Memory Tool is made available as a "Beta Service" as defined in the AWS Service
+Terms.
+
+Claude Sonnet 4.5 includes a new memory tool. This tool provides you a way to manage
 memory across conversations. With this feature, you can allow Claude to retrieve
 information outside the context window by providing access to a local directory. This
-feature is available through the [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md"), [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md"), [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md"), and
-[ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md") APIs.
+feature is available in beta. To use this feature, you must include
+`context-management-2025-06-27` in the
+`anthropic_beta` parameter.
 
 Tool definition:
 
@@ -544,6 +550,7 @@ Example Request:
 {
     "max_tokens": 2048,
     "anthropic_version": "bedrock-2023-05-31",
+    "anthropic_beta": ["context-management-2025-06-27"],
     "tools": [{
         "type": "memory_20250818",
         "name": "memory"
@@ -594,72 +601,6 @@ Example Response:
 }
 ```
 
-### Using Memory Tool with the [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") API
-
-With the [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") API, you define Memory Tool by using the
-`modelTool` field in your tool configuration. When Claude needs to
-access memory, it returns a `toolUse` block with a memory command. Your
-application executes the command and returns the result in the next turn.
-
-The following example shows a [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") request that defines Memory Tool and asks
-Claude to store a preference.
-
-Example [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") Request
-
-```
-{
-    "modelId": "us.anthropic.claude-opus-4-6-v1",
-    "messages": [
-        {
-            "role": "user",
-            "content": [{"text": "Remember that my favorite color is blue."}]
-        }
-    ],
-    "inferenceConfig": {"maxTokens": 2048},
-    "toolConfig": {
-        "tools": [
-            {
-                "modelTool": {
-                    "name": "memory",
-                    "additionalToolConfiguration": {
-                        "type": "memory_20250818"
-                    }
-                }
-            }
-        ]
-    }
-}
-```
-
-Example [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") Response
-
-```
-{
-    "output": {
-        "message": {
-            "content": [
-                {
-                    "text": "Let me first check my memory directory for any earlier progress."
-                },
-                {
-                    "toolUse": {
-                        "input": {
-                            "command": "view",
-                            "path": "/memories"
-                        },
-                        "name": "memory",
-                        "toolUseId": "tooluse_01ABC123",
-                        "type": "tool_use"
-                    }
-                }
-            ],
-            "role": "assistant"
-        }
-    },
-    "stopReason": "tool_use"
-}
-```
-
 ## Cost considerations for tool use
 
 Tool use requests are priced based on the following factors:
@@ -704,14 +645,16 @@ declaring all tools immediately, you can mark them with `defer_loading:
  true`, and Claude finds and loads only the tools it needs through the tool
 search mechanism.
 
-Tool Search Tool is available through the [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md"), [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md"),
-[Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md"), and [ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md") APIs.
+To access this feature, you must include
+`tool-search-tool-2025-10-19` in the
+`anthropic_beta` parameter. Note that this feature is currently only
+available via the [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") and [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md") APIs.
 
 Tool definition:
 
 ```
 {
-    "type": "tool_search_tool_regex_20251119",
+    "type": "tool_search_tool_regex",
     "name": "tool_search_tool_regex"
 }
 ```
@@ -726,7 +669,7 @@ Request example:
     ],
     "max_tokens": 4096,
     "tools": [{
-            "type": "tool_search_tool_regex_20251119",
+            "type": "tool_search_tool_regex",
             "name": "tool_search_tool_regex"
         },
         {
@@ -867,289 +810,6 @@ Streaming example
 # Event 5: content_block_stop(result complete) {
     "type": "content_block_stop",
     "index": 1
-}
-```
-
-### Using Tool Search Tool with the Converse API
-
-With the [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") API, you define Tool Search Tool by using the
-`modelTool` field in the tool configuration. Mark deferred tools with
-`additionalToolSpecConfiguration` and set `defer_loading` to
-`true`.
-
-[Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") request example
-
-```
-{
-    "modelId": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
-    "messages": [
-        {
-            "role": "user",
-            "content": [
-                {
-                    "text": "What's the weather in Seattle?"
-                }
-            ]
-        }
-    ],
-    "toolConfig": {
-        "tools": [
-            {
-                "modelTool": {
-                    "name": "tool_search_tool_regex",
-                    "additionalToolConfiguration": {
-                        "type": "tool_search_tool_regex_20251119"
-                    }
-                }
-            },
-            {
-                "toolSpec": {
-                    "name": "get_weather",
-                    "description": "Get current weather for a location",
-                    "inputSchema": {
-                        "json": {
-                            "type": "object",
-                            "properties": {
-                                "location": {
-                                    "type": "string"
-                                },
-                                "unit": {
-                                    "type": "string",
-                                    "enum": ["celsius", "fahrenheit"]
-                                }
-                            },
-                            "required": ["location"]
-                        }
-                    },
-                    "additionalToolSpecConfiguration": {
-                        "defer_loading": true
-                    }
-                }
-            },
-            {
-                "toolSpec": {
-                    "name": "search_files",
-                    "description": "Search through files in the workspace",
-                    "inputSchema": {
-                        "json": {
-                            "type": "object",
-                            "properties": {
-                                "query": {
-                                    "type": "string"
-                                },
-                                "file_types": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "string"
-                                    }
-                                }
-                            },
-                            "required": ["query"]
-                        }
-                    },
-                    "additionalToolSpecConfiguration": {
-                        "defer_loading": true
-                    }
-                }
-            }
-        ]
-    }
-}
-```
-
-[Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") response example
-
-```
-{
-    "output": {
-        "message": {
-            "role": "assistant",
-            "content": [
-                {
-                    "text": "I'll search for the appropriate tools to help with this task."
-                },
-                {
-                    "toolUse": {
-                        "toolUseId": "srvtoolu_01ABC123",
-                        "name": "tool_search_tool_regex",
-                        "type": "server_tool_use",
-                        "input": {
-                            "pattern": "weather"
-                        }
-                    }
-                },
-                {
-                    "toolResult": {
-                        "toolUseId": "srvtoolu_01ABC123",
-                        "content": [],
-                        "singleContent": {
-                            "json": {
-                                "type": "tool_search_tool_search_result",
-                                "tool_references": [
-                                    {
-                                        "type": "tool_reference",
-                                        "tool_name": "get_weather"
-                                    }
-                                ]
-                            }
-                        },
-                        "type": "tool_search_tool_result"
-                    }
-                },
-                {
-                    "text": "Now I can check the weather."
-                },
-                {
-                    "toolUse": {
-                        "toolUseId": "tooluse_01XYZ789",
-                        "name": "get_weather",
-                        "input": {
-                            "location": "Seattle",
-                            "unit": "fahrenheit"
-                        }
-                    }
-                }
-            ]
-        }
-    },
-    "stopReason": "tool_use"
-}
-```
-
-The `tool_name` must match a tool defined in the request with `defer_loading: true`. Claude will then have access to those tools' full schemas.
-
-For multi-turn conversations, include the assistant message with the Tool Search
-Tool result in the message history. Pass the `toolResult` with
-`singleContent` back as-is in the conversation history.
-
-[ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md") response example
-
-With [ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md"), the response arrives as a sequence of events. The
-following shows the key events for a Tool Search Tool interaction.
-
-```
-# Event 1: messageStart
-{
-    "role": "assistant"
-}
-
-# Event 2: contentBlockDelta (text streamed)
-{
-    "contentBlockIndex": 0,
-    "delta": {
-        "text": "Let me search for any weather-related tools that might be available."
-    }
-}
-
-# Event 3: contentBlockStop
-{
-    "contentBlockIndex": 0
-}
-
-# Event 4: contentBlockStart (server tool use)
-{
-    "contentBlockIndex": 1,
-    "start": {
-        "toolUse": {
-            "toolUseId": "srvtoolu_bdrk_01ABC123",
-            "name": "tool_search_tool_regex",
-            "type": "server_tool_use"
-        }
-    }
-}
-
-# Event 5: contentBlockDelta (tool input streamed)
-{
-    "contentBlockIndex": 1,
-    "delta": {
-        "toolUse": {
-            "input": "{\"pattern\": \"weather\"}"
-        }
-    }
-}
-
-# Event 6: contentBlockStop
-{
-    "contentBlockIndex": 1
-}
-
-# Event 7: contentBlockStart (tool search result)
-{
-    "contentBlockIndex": 2,
-    "start": {
-        "toolResult": {
-            "toolUseId": "srvtoolu_bdrk_01ABC123",
-            "type": "tool_search_tool_result"
-        }
-    }
-}
-
-# Event 8: contentBlockDelta (search results in singleToolResult)
-{
-    "contentBlockIndex": 2,
-    "delta": {
-        "singleToolResult": {
-            "json": {
-                "type": "tool_search_tool_search_result",
-                "tool_references": [
-                    {
-                        "type": "tool_reference",
-                        "tool_name": "get_weather"
-                    }
-                ]
-            }
-        }
-    }
-}
-
-# Event 9: contentBlockStop
-{
-    "contentBlockIndex": 2
-}
-
-# Event 10: contentBlockDelta (text streamed)
-{
-    "contentBlockIndex": 3,
-    "delta": {
-        "text": "I found a weather tool. Let me get the current weather for Seattle."
-    }
-}
-
-# Event 11: contentBlockStop
-{
-    "contentBlockIndex": 3
-}
-
-# Event 12: contentBlockStart (client tool use for discovered tool)
-{
-    "contentBlockIndex": 4,
-    "start": {
-        "toolUse": {
-            "toolUseId": "tooluse_01XYZ789",
-            "name": "get_weather",
-            "type": "tool_use"
-        }
-    }
-}
-
-# Event 13: contentBlockDelta (tool input streamed)
-{
-    "contentBlockIndex": 4,
-    "delta": {
-        "toolUse": {
-            "input": "{\"location\": \"Seattle\"}"
-        }
-    }
-}
-
-# Event 14: contentBlockStop
-{
-    "contentBlockIndex": 4
-}
-
-# Event 15: messageStop
-{
-    "stopReason": "tool_use"
 }
 ```
 
@@ -1327,7 +987,7 @@ Claude's follow-up (using discovered tool)
 
 ## Tool use examples (beta)
 
-Claude Opus 4.5 supports user-provided examples in tool definitions to increase Claude's tool use performance. You can provide examples as full function calls, formatted exactly as real LLM outputs would be, without needing translation into another format. To use this feature you must pass the beta header `tool-examples-2025-10-29`.
+Claude Opus 4.5 supports user-provided examples in tool definitions to increase Claude's tool use performance. You can provide examples as full function calls, formatted exactly as real LLM outputs would be, without needing translation into another format. To use this feature, you must include `tool-examples-2025-10-29` in the `anthropic_beta` parameter.
 
 Tool definition example:
 

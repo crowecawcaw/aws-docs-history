@@ -8,16 +8,16 @@ In this section, we will show you how to get started with Amazon Bedrock within 
 
 **Step 3 - Get the SDK:** To use this getting started guide, you must have Python already installed. Then install the relevant software depending on the APIs you are using.
 
-Responses/Chat Completions API
-
-```
-pip install boto3 openai
-```
-
 Messages API
 
 ```
 pip install boto3 anthropic
+```
+
+Responses/Chat Completions API
+
+```
+pip install boto3 openai
 ```
 
 Invoke/Converse API
@@ -28,18 +28,18 @@ pip install boto3
 
 **Step 4 - Set environment variables:** Configure your environment to use the API key for authentication.
 
-Responses/Chat Completions API
-
-```
-OPENAI_API_KEY="<provide your Bedrock API key>"
-OPENAI_BASE_URL="https://bedrock-mantle.<your-region>.api.aws/v1"
-```
-
 Messages API
 
 ```
 ANTHROPIC_API_KEY="<provide your Bedrock API key>"
 ANTHROPIC_BASE_URL="https://bedrock-mantle.<your-region>.api.aws/anthropic"
+```
+
+Responses/Chat Completions API
+
+```
+OPENAI_API_KEY="<provide your Bedrock API key>"
+OPENAI_BASE_URL="https://bedrock-mantle.<your-region>.api.aws/v1"
 ```
 
 Invoke/Converse API
@@ -49,6 +49,21 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 ```
 
 **Step 5 - Run your first inference request:** Amazon Bedrock supports [100+ foundation models](models.md "models.md"). Choose a model, and then use the following Python code to run your first inference request. Save the file as `bedrock-first-request.py`
+
+Messages API
+
+```
+import anthropic
+
+client = anthropic.Anthropic()
+
+response = client.messages.create(
+    model="anthropic.claude-opus-4-7",
+    max_tokens=1024,
+    messages=[{"role": "user", "content": "Can you explain the features of Amazon Bedrock?"}]
+)
+print(response)
+```
 
 Responses API
 
@@ -78,17 +93,20 @@ response = client.chat.completions.create(
 print(response)
 ```
 
-Messages API
+Converse API
 
 ```
-import anthropic
+import boto3
 
-client = anthropic.Anthropic()
-
-response = client.messages.create(
-    model="anthropic.claude-opus-4-7",
-    max_tokens=1024,
-    messages=[{"role": "user", "content": "Can you explain the features of Amazon Bedrock?"}]
+client = boto3.client('bedrock-runtime', region_name='us-east-1')
+response = client.converse(
+    modelId='anthropic.claude-opus-4-7',
+    messages=[
+        {
+            'role': 'user',
+            'content': [{'text': 'Can you explain the features of Amazon Bedrock?'}]
+        }
+    ]
 )
 print(response)
 ```
@@ -101,7 +119,7 @@ import boto3
 
 client = boto3.client('bedrock-runtime', region_name='us-east-1')
 response = client.invoke_model(
-    modelId='anthropic.claude-opus-4-6-v1',
+    modelId='anthropic.claude-opus-4-7',
     body=json.dumps({
             'anthropic_version': 'bedrock-2023-05-31',
             'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
@@ -109,24 +127,6 @@ response = client.invoke_model(
     })
  )
  print(json.loads(response['body'].read()))
-```
-
-Converse API
-
-```
-import boto3
-
-client = boto3.client('bedrock-runtime', region_name='us-east-1')
-response = client.converse(
-    modelId='anthropic.claude-opus-4-6-v1',
-    messages=[
-        {
-            'role': 'user',
-            'content': [{'text': 'Can you explain the features of Amazon Bedrock?'}]
-        }
-    ]
-)
-print(response)
 ```
 
 Execute the code with Python by using the command:

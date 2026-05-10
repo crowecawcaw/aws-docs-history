@@ -1,6 +1,6 @@
 # Claude Haiku 4.5
 
-## Anthropic — Claude Haiku 4.5
+## Orange rounded square icon with white radial loading spinner design. Anthropic — Claude Haiku 4.5
 
 ## Model Details
 
@@ -61,7 +61,7 @@ Use the following model IDs and endpoint URLs to access this model programmatica
 | `bedrock-runtime` | `anthropic.claude-haiku-4-5-20251001-v1:0` | `https://bedrock-runtime.{region}.amazonaws.com`                | `us.anthropic.claude-haiku-4-5-20251001-v1:0``eu.anthropic.claude-haiku-4-5-20251001-v1:0``au.anthropic.claude-haiku-4-5-20251001-v1:0` | `global.anthropic.claude-haiku-4-5-20251001-v1:0` |
 | `bedrock-mantle`  | `anthropic.claude-haiku-4-5`               | `https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages` | N/A                                                                                                                                     | N/A                                               |
 
-_For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime endpoint URL will be "https://bedrock-runtime.us-east-1.amazonaws.com" and for bedrock-mantle will be "https://bedrock-mantle.us-east-1.api.aws/v1"._
+_For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime endpoint URL will be "https://bedrock-runtime.us-east-1.amazonaws.com" and for bedrock-mantle will be "https://bedrock-mantle.us-east-1.api.aws/anthropic/v1/messages"._
 
 ## Service Tiers
 
@@ -228,8 +228,8 @@ response = client.invoke_model(
             'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
             'max_tokens': 1024
     })
- )
- print(json.loads(response['body'].read()))
+)
+print(json.loads(response['body'].read()))
 ```
 
 Converse API

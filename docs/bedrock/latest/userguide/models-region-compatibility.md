@@ -246,7 +246,7 @@ Now, let us look at Regional availability across all the models supported by Ama
 | `eu-south-2` (Spain)                                                                                 | No     | Yes                      | No  |
 | `eu-west-1` (Ireland)                                                                                | No     | Yes                      | Yes |
 | `eu-west-3` (Paris)                                                                                  | No     | Yes                      | No  |
-| `ap-northeast-1` (Tokyo)                                                                             | No     | No                       | Yes |
+| `ap-northeast-1` (Tokyo)                                                                             | No     | Yes                      | Yes |
 | `il-central-1` (Tel Aviv)                                                                            | No     | Yes                      | No  |
 
 | Claude Opus 4             | Region | In-Region | Geo | Global |
@@ -272,9 +272,9 @@ Now, let us look at Regional availability across all the models supported by Ama
 | `eu-west-2` (London)                                                                                       | Yes    | Yes       | Yes |
 | `eu-west-3` (Paris)                                                                                        | No     | Yes       | Yes |
 | `ap-east-2` (Taipei)                                                                                       | No     | No        | Yes |
-| `ap-northeast-1` (Tokyo)                                                                                   | No     | No        | Yes |
+| `ap-northeast-1` (Tokyo)                                                                                   | No     | Yes       | Yes |
 | `ap-northeast-2` (Seoul)                                                                                   | No     | No        | Yes |
-| `ap-northeast-3` (Osaka)                                                                                   | No     | No        | Yes |
+| `ap-northeast-3` (Osaka)                                                                                   | No     | Yes       | Yes |
 | `ap-south-1` (Mumbai)                                                                                      | No     | No        | Yes |
 | `ap-south-2` (Hyderabad)                                                                                   | No     | No        | Yes |
 | `ap-southeast-1` (Singapore)                                                                               | No     | No        | Yes |
@@ -341,7 +341,7 @@ Now, let us look at Regional availability across all the models supported by Ama
 | `eu-south-1` (Milan)                                                                                 | No     | Yes       | Yes |
 | `eu-south-2` (Spain)                                                                                 | No     | Yes       | Yes |
 | `eu-west-1` (Ireland)                                                                                | No     | Yes       | Yes |
-| `eu-west-2` (London)                                                                                 | No     | Yes       | Yes |
+| `eu-west-2` (London)                                                                                 | Yes    | Yes       | Yes |
 | `eu-west-3` (Paris)                                                                                  | No     | Yes       | Yes |
 | `ap-east-2` (Taipei)                                                                                 | No     | No        | Yes |
 | `ap-northeast-1` (Tokyo)                                                                             | No     | No        | Yes |

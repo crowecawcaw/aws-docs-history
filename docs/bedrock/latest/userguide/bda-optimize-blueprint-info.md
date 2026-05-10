@@ -26,31 +26,31 @@ To optimize your blueprint, start from the blueprint detail page in the Amazon B
 
 Step 1. Select **Optimize blueprint** to begin the optimization workflow.
 
-![](images/bda/bda-blueprint-optimize-button.png)
+![Blueprint interface showing Optimize blueprint button with Get result and Download options.](images/bda/bda-blueprint-optimize-button.png)
 Step 2. **Upload your example assets**.
 Choose up to 10 content assets from your local device or from an S3 location. The service uploads your assets and displays thumbnails for each file. If you previously optimized this blueprint, you can add new examples or remove existing ones.
 
-![](images/bda/bda-optimize-files-selector.png)
+![Add files interface showing three uploaded sample data files with file sizes and timestamps.](images/bda/bda-optimize-files-selector.png)
 Step 3. **Provide ground truth for each asset**.
 Select an asset to open the ground truth editor. The editor displays your document preview on the left and a simplified table of your blueprint fields on the right. For each field, enter the correct value you expect to extract in the Ground Truth column.
 
-![](images/bda/bda-optimize-files-ground-truth.png)
+![Ground truth editor showing document preview on left and blueprint fields table on right.](images/bda/bda-optimize-files-ground-truth.png)
 Step 4.
 To speed up ground truth entry, select **Auto-populate** to run initial inference on your assets
 and automatically populate the **Ground Truth** column from values in your **Results** column. Edit
 any incorrect values before proceeding.
 
-![](images/bda/bda-optimize-ground-truth-edit.png)
+![Ground truth table showing employee and employer data fields with editable values.](images/bda/bda-optimize-ground-truth-edit.png)
 Step 5. **Start optimization**.
 After you complete ground truth entry for all selected assets, choose **Start optimization**. Data automation analyzes your examples and refines the natural language instructions for each field. A progress indicator shows the optimization status with messages such as "Reading your assets" and "Iterating on blueprint natural language instructions."
 
-![](images/bda/bda-start-optimization-button.png)
+![Ground truth table showing field names, instructions, results, and ground truth values for optimization.](images/bda/bda-start-optimization-button.png)
 Step 6. **Review the evaluation metrics**.
 When optimization completes, the **Metrics** section displays accuracy metrics for your blueprint. The metrics compare performance before optimization and after optimization. Review the overall F1 score, confidence score, and exact match rate to assess whether the blueprint meets your accuracy requirements.
 
 The **Metrics by sample file** tab shows field-level accuracy for each example asset. Use these metrics to identify which fields improved and which fields may need additional examples or manual refinement.
 
-![](images/bda/bda-optimize-metrics.png)
+![Metrics table showing confidence score, exact match rate, and overall F1 score improvements after optimization.](images/bda/bda-optimize-metrics.png)
 Step 7. **Complete optimization**. If the evaluation metrics meet your requirements, select **Save optimized blueprint** to promote the optimized blueprint to production. Your blueprint now uses the refined natural language instructions for all future inference requests.
 
 ###### Re-optimize your blueprint

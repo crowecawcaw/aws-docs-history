@@ -7,10 +7,12 @@ for your agent and specify the storage duration to retain the memory.
 The conversational context is stored in the memory as sessions with each session given a session identifier (ID) that you provide when you invoke
 the agent. You can specify the same session Id across requests to continue the same conversation.
 
-After you enable memory for your agent, the current session gets associated with a specific memory context when you invoke agent with same
-`sessionId` as the current session and with `endSessions` set to '`true`', or when the
-`idleSessionTimeout` configured for the agent has timed out. This memory context is given a unique memory identifier. Your agent
-uses the memory context to access and utilize the stored conversation history and conversation summaries to generate responses.
+After you enable memory for your agent, the current session gets associated with a specific memory context when either of the following occurs:
+
+- You invoke the agent with the same `sessionId` as the current session and with `endSession` set to `true`.
+- The `idleSessionTimeout` configured for the agent has elapsed.
+  This memory context is given a unique memory identifier. Your agent
+  uses the memory context to access and utilize the stored conversation history and conversation summaries to generate responses.
 
 If you have multiple users, make sure to provide the same memory identifier (memoryId) for the same user. The agent stores the memory for each user against
 that memoryId and the next time you invoke the agent with the same memoryId, the summary of each session stored in the memory gets loaded to the current session.

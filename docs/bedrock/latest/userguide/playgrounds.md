@@ -66,7 +66,8 @@ Speech-to-speech models such as Amazon Nova Sonic are only available in chat mod
     2. Choose **Select model** and select a provider, model, and throughput to use.
     3. Choose the configurations icon (
 
-     ![Three horizontal sliders with adjustable circular controls for settings or parameters.](images/icons/configurations.png)
+     ![Icon showing three horizontal sliders at different positions for adjusting settings.](images/icons/configurations.png)
+
 
      ) to modify the configurations to use.
     4. To add more models to compare, choose the + icon on the right, select a model, and modify the configurations as necessary.
@@ -88,10 +89,12 @@ text under the **Content limitations** section. 11. The model returns the respon
 
      ![Vertical ellipsis icon representing a menu or more options.](images/icons/vertical-ellipsis.png)
 
+
      ) and select **Export as JSON**.
     * To view the API request that you made, choose the options icon (
 
      ![Vertical ellipsis icon representing a menu or more options.](images/icons/vertical-ellipsis.png)
+
 
      ) and select **View API request**.
     * In the chat mode of the playground, you can view metrics in the **Model metrics** section. The following model metrics are available:

@@ -11,6 +11,10 @@ custom role by following the steps at [Create a service role for Amazon Bedrock 
 Append the following statement to the `Statement` field in the policy
 for your role to use guardrails.
 
+###### Note
+
+If you pass tags when creating a guardrail (for example, by using the `tags` parameter in the `CreateGuardrail` API), you must also include the `bedrock:TagResource` permission in your policy.
+
 JSON
 
 ```
@@ -38,7 +42,7 @@ JSON
 ## Permissions for invoking guardrails to filter content
 
 Append the following statement to the `Statement` field in the policy
-for the role to allow for model inference and to invoke guardrails.
+for the role to allow for model inference and to invoke guardrails. These `InvokeModel` permissions are only required when using guardrails with Amazon Bedrock foundation models. If you are using guardrails independently with the `ApplyGuardrail` API (for example, to filter content from third-party models), you only need the `bedrock:ApplyGuardrail` permission.
 
 JSON
 

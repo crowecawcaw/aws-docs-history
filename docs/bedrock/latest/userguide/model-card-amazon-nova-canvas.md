@@ -81,20 +81,25 @@ Invoke API
 
 ```
 import json
+import base64
 import boto3
 
 client = boto3.client('bedrock-runtime', region_name='us-east-1')
 response = client.invoke_model(
     modelId='amazon.nova-canvas-v1:0',
     body=json.dumps({
-            'messages': [{
-                'role': 'user',
-                'content': [{'text': 'Can you explain the features of Amazon Bedrock?'}]
-            }],
-            'inferenceConfig': {
-                'maxTokens': 1024
+            'taskType': 'TEXT_IMAGE',
+            'textToImageParams': {
+                'text': 'A photograph of a cup of coffee'
+            },
+            'imageGenerationConfig': {
+                'numberOfImages': 1,
+                'height': 1024,
+                'width': 1024
             }
     })
- )
- print(json.loads(response['body'].read()))
+)
+response_body = json.loads(response['body'].read())
+base64_image = response_body['images'][0]
+print(f'Image generated: {len(base64_image)} bytes (base64)')
 ```

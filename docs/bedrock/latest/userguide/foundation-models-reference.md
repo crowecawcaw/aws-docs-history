@@ -35,7 +35,7 @@ models. Use the API to run inference on embeddings models.
   for it.
 - [Purchase Provisioned Throughput](prov-throughput.md "prov-throughput.md") for a model to increase
   throughput for it.
-  To use an FM with the Amazon Bedrock API, you need to determine the appropriate **model ID** to use. Refer to the following table to determine where to find the model ID that you need to use.
+  To use a foundation model with the Amazon Bedrock API, you need to determine the appropriate **model ID** to use. Refer to the following table to determine where to find the model ID that you need to use.
 
 | Use case                                           | How to find the model ID                                                                                                                                                                                                                                           |
 | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

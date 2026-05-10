@@ -22,6 +22,16 @@ Nova Micro is Amazon's fastest text-only model, optimized for speed and low cost
 | Yes Text             | Yes Text              | Yes `Converse`                          |                                                        |
 | No Video             | No Video              |                                         |                                                        |
 
+## Capabilities and Features
+
+**Bedrock Features**
+
+**Features supported using `bedrock-runtime` endpoint**
+
+| **Supported**                                                                                                                                                                                                                                                               | **Not Supported**                                                        |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| • Yes [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• Yes [Guardrails](guardrails.md "guardrails.md")<br>• Yes [Client-side tool calling](tool-use.md "tool-use.md") | • No [Structured outputs](structured-outputs.md "structured-outputs.md") |
+
 **Prompt caching using `bedrock-runtime` endpoint**
 
 For more information, see [Prompt caching for faster model inference](prompt-caching.md "prompt-caching.md").

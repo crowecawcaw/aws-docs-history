@@ -66,7 +66,7 @@ aws bedrock-data-automation-data-automation invoke-data-automation-library-inges
 3. Choose "Upload/select manifest"
 4. Choose whether to upload the manifest file directly or from a S3 location
 
-![](images/bda/library-add-cv-manifest-console.png)
+![Upload/select manifest method selected with options to upload from local device or S3.](images/bda/library-add-cv-manifest-console.png)
 
 ## Option 2: Using Inline Payload
 
@@ -101,4 +101,4 @@ aws bedrock-data-automation-data-automation invoke-data-automation-library-inges
 2. Choose "Add custom vocabulary list"
 3. Choose "Add manually"
 
-![](images/bda/library-add-cv-inline-console.png)
+![Add custom vocabulary list interface showing list name medical-en with phrases paracetamol and ibuprofen.](images/bda/library-add-cv-inline-console.png)

@@ -1,6 +1,6 @@
 # Claude Opus 4.1
 
-## Anthropic — Claude Opus 4.1
+## Orange rounded square icon with white radial loading spinner design. Anthropic — Claude Opus 4.1
 
 ## Model Details
 
@@ -126,8 +126,8 @@ response = client.invoke_model(
             'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
             'max_tokens': 1024
     })
- )
- print(json.loads(response['body'].read()))
+)
+print(json.loads(response['body'].read()))
 ```
 
 Converse API

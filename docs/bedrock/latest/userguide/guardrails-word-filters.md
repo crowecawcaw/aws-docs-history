@@ -112,7 +112,7 @@ Console
       - To delete an item from the word list, select
         the trash can icon (
 
-      ![Trapezoid-shaped diagram showing data flow from source to destination through AWS Transfer Family.](images/icons/trash.png)
+      ![Trash can icon representing a delete action.](images/icons/trash.png)
 
       ) or, if you're
       editing an item, select the delete icon

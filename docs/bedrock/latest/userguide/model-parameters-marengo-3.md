@@ -1,6 +1,6 @@
 # TwelveLabs Marengo Embed 3.0
 
-The TwelveLabs Marengo Embed 3.0 model generates enhanced embeddings from video, text, audio, or image inputs. This latest version offers improved performance and accuracy for similarity search, clustering, and other machine learning tasks.
+The TwelveLabs Marengo Embed 3.0 model generates enhanced embeddings from video, text, audio, image, or multi-input (text with multiple images) inputs. This latest version offers improved performance and accuracy for similarity search, clustering, and other machine learning tasks.
 
 - Provider — TwelveLabs
 - Model ID — twelvelabs.marengo-embed-3-0-v1:0
@@ -18,10 +18,10 @@ The TwelveLabs Marengo Embed 3.0 model generates enhanced embeddings from video,
   - For a list of model IDs and to see the models and AWS Regions that TwelveLabs Marengo Embed 3.0 is supported in, search for the model in the table at [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md").
   - For a full list of inference profile IDs, see [Supported Regions and models for inference profiles](inference-profiles-support.md "inference-profiles-support.md"). The inference profile ID is based on the AWS Region.
 
-| API operation    | Supported model types                                                                                                                                                                                                                                                                                                                                                    | Input modalities                                                                                | Output modalities |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------- | ----------------- |
-| InvokeModel      | US East (N. Virginia) – [Base models](models-supported.md "models-supported.md") and [Inference profiles](inference-profiles-support.md "inference-profiles-support.md")<br>Europe (Ireland) – [Inference profiles](inference-profiles-support.md "inference-profiles-support.md")<br>Asia Pacific (Seoul)<br>• [Base models](models-supported.md "models-supported.md") | Text<br>Image<br>\*_Note:_<br>• Text and image interleaved is also supported.                   | Embedding         |
-| StartAsyncInvoke | US East (N. Virginia) – [Base models](models-supported.md "models-supported.md")<br>Europe (Ireland) – [Base models](models-supported.md "models-supported.md")<br>Asia Pacific (Seoul)<br>• [Base models](models-supported.md "models-supported.md")                                                                                                                    | Video<br>Audio<br>Image<br>Text<br>\*_Note:_<br>• Text and image interleaved is also supported. | Embedding         |
+| API operation    | Supported model types                                                                                                                                                                                                                                                                                                                                                    | Input modalities                                                                                                                           | Output modalities |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
+| InvokeModel      | US East (N. Virginia) – [Base models](models-supported.md "models-supported.md") and [Inference profiles](inference-profiles-support.md "inference-profiles-support.md")<br>Europe (Ireland) – [Inference profiles](inference-profiles-support.md "inference-profiles-support.md")<br>Asia Pacific (Seoul)<br>• [Base models](models-supported.md "models-supported.md") | Text<br>Image<br>Multi-input (text with multiple images)<br>\*_Note:_<br>• Text and image interleaved is also supported.                   | Embedding         |
+| StartAsyncInvoke | US East (N. Virginia) – [Base models](models-supported.md "models-supported.md")<br>Europe (Ireland) – [Base models](models-supported.md "models-supported.md")<br>Asia Pacific (Seoul)<br>• [Base models](models-supported.md "models-supported.md")                                                                                                                    | Video<br>Audio<br>Image<br>Text<br>Multi-input (text with multiple images)<br>\*_Note:_<br>• Text and image interleaved is also supported. | Embedding         |
 
 ###### Note
 
@@ -127,6 +127,9 @@ Audio
       "audio",
       "transcription"
     ], // optional, default=both
+    "embeddingType": [
+      "separate_embedding"
+    ], // optional, default=["separate_embedding"]
     "embeddingScope": [
       "clip",
       "asset"
@@ -165,12 +168,45 @@ Video
       "audio",
       "transcription"
     ], // optional, default=all
+    "embeddingType": [
+      "separate_embedding"
+    ], // optional, default=["separate_embedding"]
     "embeddingScope": [
       "clip",
       "asset"
     ] // optional, one or both
-  },
-  "inferenceId": "some inference id"
+  }
+}
+```
+
+Multi-input
+
+```
+{
+  "inputType": "multi_input",
+  "multi_input": {
+    "inputText": "<@img1> walking a dog with <@img2>", // optional
+    "mediaSources": [
+      {
+        "name": "img1", // required if inputText uses <@name> placeholders
+        "mediaType": "image",
+        "base64String": "`base64-encoded string`", // base64String OR s3Location, exactly one
+        "s3Location": {
+          "uri": "s3://`amzn-s3-demo-bucket`/images/person.jpg",
+          "bucketOwner": "`123456789012`"
+        }
+      },
+      {
+        "name": "img2",
+        "mediaType": "image",
+        "base64String": "`base64-encoded string`", // base64String OR s3Location, exactly one
+        "s3Location": {
+          "uri": "s3://`amzn-s3-demo-bucket`/images/dog.jpg",
+          "bucketOwner": "`123456789012`"
+        }
+      }
+    ]
+  }
 }
 ```
 
@@ -180,7 +216,7 @@ Modality for the embedding.
 
 - **Type:** String
 - **Required:** Yes
-- **Valid values:** `text` | `image` | `text_image` | `audio` | `video`
+- **Valid values:** `text` | `image` | `text_image` | `audio` | `video` | `multi_input`
   Text to be embedded.
 
 - **Type:** String
@@ -276,6 +312,38 @@ Specifies which types of embeddings to retrieve.
 
 - Video: Uses dynamic segmentation with shot boundary detection.
 - Audio: Uses fixed segmentation. Content is divided as evenly as possible with segments close to 10 seconds.
+  Contains the multi-input configuration for combining text with multiple images in a single embedding request. Use this input type when you want to create embeddings that capture the relationship between text and multiple images.
+
+- **Type:** Object
+- **Required:** Yes (when `inputType` is `multi_input`)
+  The `multi_input` object contains the following fields:
+
+- `inputText` – (Optional) Text query with placeholder syntax. Use `<@name>` to reference media sources (for example, `"<@img1> walking with <@img2>"`). If provided with placeholders, each `<@name>` must match a `mediaSources[].name`. Maximum: 500 tokens including placeholders.
+- `mediaSources` – (Required) Array of media source objects. Each media source contains image data. The array must contain at least one item.
+
+      + `name` – (Conditional) Unique identifier for this media source. Required only if `inputText` uses `<@name>` placeholders. When provided, must match a placeholder in `inputText` (without the `<@` and `>` characters).
+      + `mediaType` – (Required) Type of media. Currently only `"image"` is supported.
+      + `base64String` – Base64-encoded image payload. Maximum: 5 MB per image. Provide exactly one of `base64String` or `s3Location`.
+      + `s3Location` – S3 location object containing `uri` (S3 URI) and `bucketOwner` (12-digit AWS account ID). Maximum: 5 MB per image. Provide exactly one of `base64String` or `s3Location`.
+
+  **Media ordering:**
+
+- If `inputText` contains `<@name>` placeholders, the order is determined by placeholder order in `inputText`.
+- If `inputText` is omitted or empty, the order defaults to the array order of `mediaSources`.
+  Controls how embeddings are aggregated across modalities.
+
+- **Type:** List
+- **Required:** No
+- **Valid values for list members:**
+  - `separate_embedding` – Returns embeddings for each modality separately (visual, audio, transcription).
+  - `fused_embedding` – Returns a weighted fusion of multiple embedding modalities.
+
+- **Default value:** ["separate\_embedding"]
+- **Compatible input types:** Video, Audio
+  **Constraints:**
+
+- For video: `fused_embedding` requires at least 2 embedding types in `embeddingOption`.
+- For audio: `fused_embedding` requires both `audio` and `transcription` in `embeddingOption`.
   Unique identifier for the inference request.
 
 - **Type:** String
@@ -298,7 +366,7 @@ The format of the output embeddings vector is as follows:
     "embedding": [
     0.111, 0.234, ...
     ],
-    "embeddingOption": ["visual", "audio", "transcription" (for video input) | "audio", "transcription" (for audio input)],
+    "embeddingOption": ["visual", "audio", "transcription", "fused" (for video input) | "audio", "transcription", "fused" (for audio input)],
     "embeddingScope": ["asset" | "clip"],
     "startSec": 0,
     "endSec": 4.2
@@ -325,9 +393,15 @@ Embeddings vector representation of input.
   - visual – Visual embeddings from the video.
   - audio – Embeddings of the audio in the video.
   - transcription – Embeddings of the transcribed text.
+  - fused – Weighted fusion of multiple embedding types. Only returned when `embeddingType` includes `"fused_embedding"` in the request.
 
 - **Compatible input types:** Video, Audio
-  Specifies the scope of the embeddings to retrieve.
+
+###### Note
+
+Not applicable for text, image, text_image, and multi_input input types. These return a single embedding without the `embeddingOption` field.
+
+Specifies the scope of the embeddings to retrieve.
 
 - **Type:** String
   You can include one or more of the following values:
@@ -338,7 +412,7 @@ Embeddings vector representation of input.
 
 - **Type:** Double
 - **Compatible input types:** Video, Audio
-  The end offset of the clip. Not applicable for text, image and text_image embeddings.
+  The end offset of the clip. Not applicable for text, image, text_image, and multi_input embeddings.
 
 - **Type:** Double
 - **Compatible input types:** Video, Audio
@@ -349,7 +423,7 @@ This section shows how to use the TwelveLabs Marengo Embed 3.0 model with differ
 
 ###### Note
 
-InvokeModel supports text, image, and text with image interleaved input. For video and audio input, use StartAsyncInvoke.
+InvokeModel supports text, image, multi-input, and text with image interleaved input. For video and audio input, use StartAsyncInvoke.
 
 Put your code together in the following steps:
 
@@ -442,7 +516,8 @@ model_input = {
             }
         },
         "embeddingScope": ["clip", "asset"],
-        "embeddingOption": ["audio"]
+        "embeddingOption": ["audio", "transcription"],
+        "embeddingType": ["separate_embedding", "fused_embedding"]
     }
 }
 ```
@@ -476,9 +551,44 @@ model_input = {
             "visual",
             "audio"
         ],
+        "embeddingType": ["separate_embedding", "fused_embedding"],
         "embeddingScope": [
             "clip",
             "asset"
+        ]
+    }
+}
+```
+
+Multi-input
+
+```
+# Create the model-specific input
+model_id = "twelvelabs.marengo-embed-3-0-v1:0"
+# Replace the us prefix depending on your region
+inference_profile_id = "us.twelvelabs.marengo-embed-3-0-v1:0"
+
+model_input = {
+    "inputType": "multi_input",
+    "multi_input": {
+        "inputText": "<@img1> walking a dog with <@img2>",
+        "mediaSources": [
+            {
+                "name": "img1",
+                "mediaType": "image",
+                "s3Location": {
+                    "uri": "s3://`amzn-s3-demo-bucket`/images/person.jpg",
+                    "bucketOwner": "`123456789012`"
+                }
+            },
+            {
+                "name": "img2",
+                "mediaType": "image",
+                "s3Location": {
+                    "uri": "s3://`amzn-s3-demo-bucket`/images/dog.jpg",
+                    "bucketOwner": "`123456789012`"
+                }
+            }
         ]
     }
 }

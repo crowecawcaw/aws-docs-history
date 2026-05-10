@@ -5,6 +5,17 @@ distributed inference engine for large-scale machine learning model serving. The
 allow you to use familiar OpenAI SDKs and tools with Amazon Bedrock models, enabling you to migrate
 existing applications with minimal code changes—simply update your base URL and API key.
 
+###### Important
+
+When using the OpenAI SDK with Amazon Bedrock, you must point it to the Amazon Bedrock endpoint, not the OpenAI endpoint. Set the following environment variables:
+
+```
+OPENAI_BASE_URL="https://bedrock-mantle.<your-region>.api.aws/v1"
+OPENAI_API_KEY="<your Bedrock API key>"
+```
+
+Do not use your OpenAI API key or the OpenAI base URL (`https://api.openai.com/v1`). Those connect to OpenAI directly, not to Amazon Bedrock. To create a Amazon Bedrock API key, see [API keys](api-keys.md "api-keys.md").
+
 Key benefits include:
 
 - **Asynchronous inference** – Support for
@@ -102,6 +113,10 @@ The Responses API provides stateful conversation management with support for
 streaming, background processing, and multi-turn interactions. For complete API details,
 see the [OpenAI
 Responses documentation](https://platform.openai.com/docs/api-reference/responses "https://platform.openai.com/docs/api-reference/responses").
+
+###### Note
+
+Not all models support the Responses API. To see which models support the Responses API, see [API compatibility](models-api-compatibility.md "models-api-compatibility.md").
 
 ### Basic request
 
