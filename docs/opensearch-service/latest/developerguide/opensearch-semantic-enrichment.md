@@ -78,7 +78,7 @@ aws opensearch create-index \
 In the following example index-schema, the _title_semantic_ field has a field type set to _text_ and has parameter
 _semantic_enrichment_ set to status _ENABLED_.
 Setting the _semantic_enrichment_ parameter enables automatic semantic enrichment on the _title_semantic_ field.
-You can use the _language_options_ field to specify either _english_ or _multi-lingual_.
+You can use the _language_options_ field to specify either _english_ or _MULTI-LINGUAL_.
 
 ```
 
@@ -329,7 +329,19 @@ to implement automatic semantic enrichment for your specific use case.
 
 ## Pricing
 
-Amazon OpenSearch Service bills automatic semantic enrichment based on OpenSearch Compute Units (OCUs)
-consumed during sparse vector generation at indexing time. You’re charged only for actual usage during indexing.
-You can monitor this consumption using the Amazon CloudWatch metric SemanticSearchOCU. For specific details
-about model token limits, volume throughput per OCU, and example of sample calculation, visit [OpenSearch Service Pricing](https://aws.amazon.com/opensearch-service/pricing/ "https://aws.amazon.com/opensearch-service/pricing/").
+Amazon OpenSearch Service bills automatic semantic enrichment based on
+OpenSearch Compute Units (OCUs) consumed during sparse vector generation at
+indexing time. You're charged only for actual usage during indexing for the
+text fields where you enabled automatic semantic enrichment. One Semantic
+Search OCU can process 11.1 million tokens for English content. To process
+2.4 billion tokens, you'd need about 216 Semantic Search OCU-hours (2.4
+billion / 11.10 million). With a price of $0.24 per Semantic Search
+OCU-hour, the cost for processing 10 GB of data for automatic semantic
+search would be $51 (216 OCU-hours x $0.24/OCU-hour). There are no
+additional Semantic Search OCU charges during search operations or for data
+storage.
+
+You can monitor this consumption using the Amazon CloudWatch metric
+`SemanticSearchOCU`. For specific details about model token
+limits, volume throughput per OCU, and an example of a sample calculation,
+visit [OpenSearch Service Pricing](https://aws.amazon.com/opensearch-service/pricing/ "https://aws.amazon.com/opensearch-service/pricing/").

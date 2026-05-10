@@ -49,6 +49,9 @@ Operating an OpenSearch Service domain within a VPC has the following limitation
   resides within a VPC, users must have access to the VPC. This process varies by
   network configuration, but likely involves connecting to a VPN or managed
   network or using a proxy server or transit gateway. To learn more, see [About access policies on VPC domains](#vpc-security "#vpc-security"), the [Amazon VPC User Guide](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md"), and [Controlling access to Dashboards](dashboards.md#dashboards-access "dashboards.md#dashboards-access").
+- If you enable egress through your VPC, your domain's egress traffic depends
+  on your VPC's DNS and network controls. Plan subnet IP capacity accordingly.
+  See [Limits and considerations](vpc-egress.md#vpc-egress-limits "vpc-egress.md#vpc-egress-limits").
 
 ## Architecture
 
@@ -280,3 +283,11 @@ After OpenSearch Service creates the role, you can view it (`AWSServiceRoleForAm
 IAM console.
 
 For full information on this role's permissions and how to delete it, see [Using service-linked roles for Amazon OpenSearch Service](slr.md "slr.md").
+
+## Egress traffic options
+
+By default, a VPC domain accepts ingress from your VPC. Egress traffic from the
+domain, such as traffic to custom endpoints you configure on the domain, leaves over
+the public internet. If your workload requires that egress traffic flow through your
+own VPC instead, enable the egress option on your domain. For more information, see
+[Routing domain egress traffic through your VPC](vpc-egress.md "vpc-egress.md").

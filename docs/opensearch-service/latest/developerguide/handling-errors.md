@@ -22,6 +22,20 @@ options available to you, see [Controlling access to Dashboards](dashboards.md#d
 
 See [About access policies on VPC domains](vpc.md#vpc-security "vpc.md#vpc-security") and [Testing VPC domains](vpc.md#vpc-test "vpc.md#vpc-test").
 
+## Egress traffic from a VPC domain
+
+If you enabled egress through your VPC on a domain and outbound integrations start
+failing, check the following:
+
+- An egress integration fails after you enable egress. Check your VPC routing
+  to the destination and VPC resolver health. See [Troubleshooting](vpc-egress.md#vpc-egress-troubleshoot "vpc-egress.md#vpc-egress-troubleshoot").
+- Hostname resolution fails. Check your VPC DNS settings, private hosted zones,
+  and Route 53 Resolver rules.
+- Not enough IP addresses in the subnet. Expand the subnet or use a dedicated
+  subnet. See [Prerequisites](vpc-egress.md#vpc-egress-prereqs "vpc-egress.md#vpc-egress-prereqs").
+- The service-linked role is missing permissions. Recreate the service-linked
+  role or attach the updated policy. See [Using service-linked roles for Amazon OpenSearch Service](slr.md "slr.md").
+
 ## Cluster in read-only state
 
 Compared to earlier Elasticsearch versions, OpenSearch and Elasticsearch 7._x_ use a different system for cluster coordination. In this

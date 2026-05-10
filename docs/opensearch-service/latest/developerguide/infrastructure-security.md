@@ -30,3 +30,7 @@ OpenSearch APIs. For more information, see [Making and signing OpenSearch Servic
 OpenSearch Service supports public access domains, which can receive requests from any internet-connected
 device, and [VPC access domains](vpc.md "vpc.md"), which are isolated from the public
 internet.
+
+If you enable the VPC egress option on a VPC domain, OpenSearch Service places requester-managed egress
+ENIs in your subnets to carry egress traffic from the domain. For more information, see
+[Routing domain egress traffic through your VPC](vpc-egress.md "vpc-egress.md").

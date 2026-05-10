@@ -12,6 +12,12 @@ To view the quotas for OpenSearch Service in the AWS Management Console, open th
 Service**. To request a quota increase, see [Requesting a quota
 increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_.
 
+###### Note
+
+If you enable egress through your VPC on a VPC domain, reserve additional IP
+addresses in each selected subnet for the egress network interfaces that OpenSearch Service creates
+in your VPC. For more information, see [Limits and considerations](vpc-egress.md#vpc-egress-limits "vpc-egress.md#vpc-egress-limits").
+
 ## Warm node storage quotas
 
 The following table lists the warm node instance types and the maximum amount of storage that each type can use. For OpenSearch Optimized OI2 instances, 80% of the local storage is available as cache, and the maximum addressable warm storage is 5 times the cache storage size.
