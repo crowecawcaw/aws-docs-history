@@ -79,10 +79,6 @@ and [Controlling access from VPC endpoints with bucket policies](../../../Amazon
 - Amazon Redshift concurrency scaling for write operations is not supported for most DDL operations, such as CREATE TABLE.
 - It doesn't support ANALYZE for the COPY command.
 - It doesn't support write operations on a target table where DISTSTYLE is set to ALL.
-- It doesn't support COPY from the following file formats:
-  - Parquet
-  - ORC
-
 - It doesn't support write operations on tables with identity columns.
 - Amazon Redshift supports concurrency scaling for write operations on only Amazon Redshift RA3 nodes.
   Concurrency scaling for write operations isn't supported on other node types.
