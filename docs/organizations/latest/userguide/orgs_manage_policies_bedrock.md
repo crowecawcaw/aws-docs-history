@@ -1,7 +1,7 @@
 # Amazon Bedrock policies
 
 Amazon Bedrock policies allow you to enforce safeguards configured in Amazon Bedrock Guardrails automatically across any
-element in your organization structure for all model inference calls to Amazon Bedrock. This eliminates the need to configure an individual guardail for each account. Amazon Bedrock Guardrails provides
+element in your organization structure for all model inference calls to Amazon Bedrock. This eliminates the need to configure an individual guardrail for each account. Amazon Bedrock Guardrails provides
 configurable safeguards to help safely build generative AI applications at scale, with a standard approach for a wide range of foundation models including: models supported in Amazon Bedrock, fine-tuned models, and models hosted outside of Amazon Bedrock.
 
 Amazon Bedrock policies in AWS Organizations allow you to reference a guardrail created in your management account

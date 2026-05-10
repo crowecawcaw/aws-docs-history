@@ -24,7 +24,7 @@ For a list of functionality differences in China Regions, see [AWS Organizations
 **Tag policies are only supported in a subset of Regions**
 
 Tag policies are a type of policy that can help you standardize tags across resources in your organization's accounts.
-Tag policies are only supported in a subet of Regions where Organizations is supported. For a list of Regions where tag policies are supported,
+Tag policies are only supported in a subset of Regions where Organizations is supported. For a list of Regions where tag policies are supported,
 see [Tag policies | Support Regions](orgs_manage_policies_tag-policies-supported-regions.md "orgs_manage_policies_tag-policies-supported-regions.md").
 
 ## List of available AWS Regions

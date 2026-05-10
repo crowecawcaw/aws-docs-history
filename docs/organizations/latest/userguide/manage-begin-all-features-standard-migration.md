@@ -98,7 +98,7 @@ accounts must agree to.
   the request expires. If the request expires, all requests related to this
   attempt are canceled, and you have to start over with step 2.
 - Once you make the request to enable all features, any existing unaccepted
-  account invitations will be cancelled.
+  account invitations will be canceled.
 - During the all features migration process, you can still initiate new
   account invitations and create new accounts.
 

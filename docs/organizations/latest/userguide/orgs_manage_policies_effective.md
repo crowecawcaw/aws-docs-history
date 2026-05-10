@@ -1,20 +1,20 @@
-# Viewing effective management policies
+# Viewing effective declarative policies
 
-Determine the effective management policy for an account in your organization.
+Determine the effective declarative policy for an account in your organization.
 
-## What is an effective management policy?
+## What is an effective declarative policy?
 
 The _effective policy_ specifies the final rules that apply to an
-AWS account for a management policy type. It is the aggregation for a management
-policy that the account inherits, plus any policies for that management policy type that
-are directly attached to the account. When you attach a management policy to the
+AWS account for a declarative policy type. It is the aggregation for a declarative
+policy that the account inherits, plus any policies for that declarative policy type that
+are directly attached to the account. When you attach a declarative policy to the
 organization's root, it applies to all accounts in your organization. When you attach a
-management policy to an organiztional unit (OU), it applies to all accounts and OUs that
-belong to the OU. When you attach a management policy directly to an account, it applies
+declarative policy to an organizational unit (OU), it applies to all accounts and OUs that
+belong to the OU. When you attach a declarative policy directly to an account, it applies
 only to that one AWS account.
 
 For information about how policies are combined into the final effective policy, see
-[Understanding management policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
+[Understanding declarative policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
 
 **Backup policy example**
 
@@ -61,14 +61,14 @@ AI services opt-out policies comprises the effective AI services opt-out policy.
 all accounts in the organization are opted out of all AWS services, with the exception
 of one account that opts in to Amazon Rekognition.
 
-## How to view the effective management policy
+## How to view the effective declarative policy
 
-You can view the effective policy of a management policy type for an account from the
+You can view the effective policy of a declarative policy type for an account from the
 AWS Management Console, AWS API, or AWS Command Line Interface.
 
 ###### Minimum permissions
 
-To view the effective policy of a management policy type for an account, you must
+To view the effective policy of a declarative policy type for an account, you must
 have permission to run the following actions:
 
 - `organizations:DescribeEffectivePolicy`
@@ -76,7 +76,7 @@ have permission to run the following actions:
 
 AWS Management Console
 
-###### To view the effective policy of a management policy type for an account
+###### To view the effective policy of a declarative policy type for an account
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -85,7 +85,7 @@ AWS Management Console
    you want to view the effective policy. You might have to expand OUs (choose the
    ![Gray cloud icon representing cloud computing or storage services.](images/console-expand.png)
    ) to find the account that you want.
-3. On the **Policies** tab, choose the management
+3. On the **Policies** tab, choose the declarative
    policy type for which you want to view the effective policy.
 4. Choose **View the effective policy for this
    AWS account**.
@@ -102,7 +102,7 @@ is merged into the final effective policy.
 
 AWS CLI & AWS SDKs
 
-###### To view the effective policy of a management policy type for an account
+###### To view the effective policy of a declarative policy type for an account
 
 You can use one of the following to view the effective policy:
 

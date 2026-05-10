@@ -32,7 +32,7 @@ AWS Management Console
      the new key.
    - Remove an existing tag by choosing
      **Remove** next to the tag you want to
-     remive.
+     remove.
    - Add a new tag key and value pair. Choose **Add
      tag**, then enter the new key name and optional
      value in the provided boxes. If you leave the

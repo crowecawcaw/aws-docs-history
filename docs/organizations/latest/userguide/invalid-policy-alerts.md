@@ -6,15 +6,15 @@ asynchronously when one of your accounts has an invalid effective policy. The no
 appears as a banner in the AWS Organizations console page, and it is recorded as an AWS CloudTrail
 event.
 
-## Detect invalid effective management policies in your organization
+## Detect invalid effective declarative policies in your organization
 
-There are several ways in which you can view invalid effective management policies in
+There are several ways in which you can view invalid effective declarative policies in
 your organization: from the AWS Management Console, AWS API, AWS Command Line
 Interface (CLI), or as an AWS CloudTrail event.
 
 ###### Minimum permissions
 
-To find the information related to invalid effective policies of a management policy
+To find the information related to invalid effective policies of a declarative policy
 type in your organization, you must have permission to run the following actions:
 
 - `organizations:ListAccountsWithInvalidEffectivePolicy`
@@ -24,7 +24,7 @@ type in your organization, you must have permission to run the following actions
 
 AWS Management Console
 
-###### To view invalid effective management policies from the console
+###### To view invalid effective declarative policies from the console
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
    sign in as the root user ([not
@@ -40,7 +40,7 @@ AWS Management Console
 
 AWS CLI & AWS SDKs
 
-###### To view the effective policy of a management policy type for an account
+###### To view the effective policy of a declarative policy type for an account
 
 The following commands help you view accounts with invalid effective policies
 
@@ -54,15 +54,15 @@ The following commands help you view accounts with invalid effective policies
 
 **AWS CloudTrail**
 
-You can use AWS CloudTrail events to monitor when accounts in your organizations have invalid effective management policies and when the policies are fixed. For more information, see _Effective policy examples_ in [Understanding AWS Organizations log file entries](orgs_cloudtrail-integration.md#understanding-service-name-entries "orgs_cloudtrail-integration.md#understanding-service-name-entries").
+You can use AWS CloudTrail events to monitor when accounts in your organizations have invalid effective declarative policies and when the policies are fixed. For more information, see _Effective policy examples_ in [Understanding AWS Organizations log file entries](orgs_cloudtrail-integration.md#understanding-service-name-entries "orgs_cloudtrail-integration.md#understanding-service-name-entries").
 
 If you receive an invalid effective policy notification, you can navigate through the AWS Organizations console or call these APIs from your management or delegated administrator account to find more details about the status of specific accounts and policies:
 
 - `ListAccountsWithInvalidEffectivePolicy` – Returns a list of
   accounts in the organization that have invalid effective policies of a specified type.
-- `ListEffectivePolicyValidationErrors` – Returns a list of validation errors for a specified account and management policy type. The validation errors contain details, including the error code, error description, and contributing policies that made the effective policy invalid.
+- `ListEffectivePolicyValidationErrors` – Returns a list of validation errors for a specified account and declarative policy type. The validation errors contain details, including the error code, error description, and contributing policies that made the effective policy invalid.
 
-## When an effective management policy might be considered invalid
+## When an effective declarative policy might be considered invalid
 
 Effective policies on an account can become invalid if they violate the constraints defined for the particular policy type. For example, a policy might be missing a required parameter in the final effective policy or exceed certain quotas defined for the policy type.
 

@@ -1,7 +1,7 @@
-# Generating the account status report for declarative policies
+# Generating the account status report for EC2 policies
 
 The _account status report_ allows you to review the current status of
-all attributes supported by declarative policies for the accounts in scope. You can choose
+all attributes supported by EC2 policies for the accounts in scope. You can choose
 the accounts and organizational units (OUs) to include in the report scope, or choose an
 entire organization by selecting the root.
 
@@ -12,10 +12,10 @@ state of an attribute is _uniform across accounts_ (through the
 value_, which is the configuration value that is most frequently observed for
 the attribute.
 
-The choice to attach a declarative policy for enforcing a baseline configuration depends
+The choice to attach a EC2 policy for enforcing a baseline configuration depends
 on your specific use case.
 
-For more information and an illustrative example, see [Account status report for declarative policies](orgs_manage_policies_declarative.md#orgs_manage_policies_declarative-account-status-report "orgs_manage_policies_declarative.md#orgs_manage_policies_declarative-account-status-report").
+For more information and an illustrative example, see [Account status report for EC2 policies](orgs_manage_policies_ec2.md#orgs_manage_policies_ec2-account-status-report "orgs_manage_policies_ec2.md#orgs_manage_policies_ec2-account-status-report").
 
 ## Prerequisites
 
@@ -30,15 +30,14 @@ steps
    use an existing one), it must be in the same Region in which the request is
    made, and it must have an appropriate S3 bucket policy. For a sample S3 policy,
    see _Sample Amazon S3 policy_ under [Examples](../../../AWSEC2/latest/APIReference/API_StartDeclarativePoliciesReport.md#API_StartDeclarativePoliciesReport_Examples "../../../AWSEC2/latest/APIReference/API_StartDeclarativePoliciesReport.md#API_StartDeclarativePoliciesReport_Examples") in the _Amazon EC2 API Reference_
-4. You must enable trusted access for the service where the declarative policy
-   will enforce a baseline configuration. This creates a read-only service-linked
+4. You must enable trusted access for Amazon EC2. This creates a read-only service-linked
    role that is used to generate the account status report of what the existing
    configuration is for accounts across your organization.
 
 **Using the console**
 
 For the Organizations console, this step is a part of the process for enabling
-declarative policies.
+EC2 policies.
 
 **Using the AWS CLI**
 
@@ -81,8 +80,8 @@ Use the following procedure to generate an account status report.
    sign in as the root user ([not
    recommended](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials")) in the organization’s management account.
 2. On the **Policies** page, choose
-   **Declarative policies for EC2**.
-3. On the **Declarative policies for EC2** page,
+   **EC2 policies**.
+3. On the **EC2 policies** page,
    choose **View account status report** from the
    **Actions** dropdown menu.
 4. On the **View account status report** page,
@@ -116,7 +115,7 @@ on its status, and view the report:
   [CancelDeclarativePoliciesReport](../../../AWSEC2/latest/APIReference/API_CancelDeclarativePoliciesReport.md "../../../AWSEC2/latest/APIReference/API_CancelDeclarativePoliciesReport.md") in the _Amazon EC2
   API Reference_.
 
-Before generating a report, grant the EC2 declarative policies principal
+Before generating a report, grant the EC2 policies principal
 access to the Amazon S3 bucket where the report will be stored. To do this,
 attach the following policy to the bucket. Replace
 `amzn-s3-demo-bucket` with your actual Amazon S3 bucket name, and

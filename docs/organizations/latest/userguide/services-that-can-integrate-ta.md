@@ -134,5 +134,5 @@ CLI or one of the AWS SDKs, you can use the following commands:
 
 ## Disabling a delegated administrator for Trusted Advisor
 
-You can remove the delegated administrator using either the Trusted Advisor console, or by using the the Organizations `DeregisterDelegatedAdministrator` CLI or SDK operation. For information on how to disable the delegated admin Trusted Advisor account using the Trusted Advisor console,
+You can remove the delegated administrator using either the Trusted Advisor console, or by using the Organizations `DeregisterDelegatedAdministrator` CLI or SDK operation. For information on how to disable the delegated admin Trusted Advisor account using the Trusted Advisor console,
 see [Deregister delegated administrators](../../../awssupport/latest/user/trusted-advisor-priority.md#deregister-delegated-administrators "../../../awssupport/latest/user/trusted-advisor-priority.md#deregister-delegated-administrators") in the _Support user guide_.

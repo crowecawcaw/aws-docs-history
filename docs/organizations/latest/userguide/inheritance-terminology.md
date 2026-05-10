@@ -1,6 +1,6 @@
 # Inheritance terminology
 
-This topic uses the following terms when discussing management policy
+This topic uses the following terms when discussing declarative policy
 inheritance.
 
 **Policy inheritance**
@@ -11,12 +11,12 @@ unit (OU) hierarchy to individual accounts.
 
 You can attach policies to the organization root, OUs, individual
 accounts, and to any combination of these organization entities. Policy
-inheritance refers to management policies that are attached to the
+inheritance refers to declarative policies that are attached to the
 organization root or to an OU. All accounts that are members of the
-organization root or OU where a management policy is attached
+organization root or OU where a declarative policy is attached
 _inherit_ that policy.
 
-For example, when management policies are attached to the organization
+For example, when declarative policies are attached to the organization
 root, all accounts in the organization inherit that policy. That's because
 all accounts in an organization are always under the organization root. When
 you attach a policy to a specific OU, accounts that are directly under that
@@ -29,7 +29,7 @@ documents for a single policy type.
 Policies that are attached higher in the organizational tree than policies
 that are attached to entities lower in the tree.
 
-For example, if you attach management policy A to the organization root,
+For example, if you attach declarative policy A to the organization root,
 it's just a policy. If you also attach policy B to an OU under that root,
 policy A is the parent policy of Policy B. Policy B is the child policy of
 Policy A. Policy A and policy B merge to create the effective tag policy for
@@ -45,7 +45,7 @@ the parent policy.
 The final, single policy document that specifies the rules that apply to
 an account. The effective policy is the aggregation of any policies the
 account inherits, plus any policy that is directly attached to the account.
-For more information, see [Viewing effective management policies](orgs_manage_policies_effective.md "orgs_manage_policies_effective.md").
+For more information, see [Viewing effective declarative policies](orgs_manage_policies_effective.md "orgs_manage_policies_effective.md").
 
 **Inheritance operators**
 

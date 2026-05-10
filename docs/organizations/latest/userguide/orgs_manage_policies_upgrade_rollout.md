@@ -37,7 +37,7 @@ their associated benefits:
 | Compliance controls                               | Policy inheritance and enforcement                                  | • Enforce organizational standards             |
 | • Meet compliance requirements                    |
 
-For more information about policy inheritance, see [Understanding management policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
+For more information about policy inheritance, see [Understanding declarative policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
 
 ## What are upgrade rollout policies?
 

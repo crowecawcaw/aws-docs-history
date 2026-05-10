@@ -16,7 +16,7 @@ type is currently enabled.
 
 - [Policy types](#orgs-policy-types "#orgs-policy-types")
 - [Authorization policies](orgs_manage_policies_authorization_policies.md "orgs_manage_policies_authorization_policies.md")
-- [Management policies](orgs_manage_policies_management_policies.md "orgs_manage_policies_management_policies.md")
+- [Declarative policies](orgs_manage_policies_declarative_policies.md "orgs_manage_policies_declarative_policies.md")
 - [Delegated administrator for AWS Organizations](orgs_delegate_policies.md "orgs_delegate_policies.md")
 - [Enabling a policy type](enable-policy-type.md "enable-policy-type.md")
 - [Disabling a policy type](disable-policy-type.md "disable-policy-type.md")
@@ -45,13 +45,13 @@ across an organization.
   control policies (RCPs)](orgs_manage_policies_rcps.md "orgs_manage_policies_rcps.md")** offer central control over
   the maximum available permissions for resources in an organization.
 
-### Management policies
+### Declarative policies
 
-Management policies help you centrally configure and manage AWS services and
+Declarative policies help you centrally configure and manage AWS services and
 their features across an organization.
 
-- **[Declarative policies](orgs_manage_policies_declarative.md "orgs_manage_policies_declarative.md")** allow you to centrally
-  declare and enforce desired configurations for a given AWS service at
+- **[Amazon EC2 policies](orgs_manage_policies_ec2.md "orgs_manage_policies_ec2.md")** allow you to centrally
+  declare and enforce desired configurations for Amazon EC2 at
   scale across an organization. Once attached, the configuration is always
   maintained when the service adds new features or APIs.
 - **[Backup
@@ -83,13 +83,13 @@ additional characteristics about these policy types, see [Quotas and service lim
 | -------------------------- | --------------- | -------------------------- | ------------------------------------------------------- | ----------------- | --------------------------------------------------- |
 | SCP                        | Authorization   | No                         | 5                                                       | 5120 characters   | No                                                  |
 | RCP                        | Authorization   | No                         | 5                                                       | 5120 characters   | No                                                  |
-| Declarative policy         | Management      | Yes                        | 10                                                      | 10,000 characters | Yes                                                 |
-| Backup policy              | Management      | Yes                        | 10                                                      | 10,000 characters | Yes                                                 |
-| Tag policy                 | Management      | Yes                        | 10                                                      | 10,000 characters | Yes                                                 |
-| Chat applications policy   | Management      | Yes                        | 5                                                       | 10,000 characters | Yes                                                 |
-| AI services opt-out policy | Management      | Yes                        | 5                                                       | 2500 characters   | Yes                                                 |
-| Security Hub policy        | Management      | Yes                        | 10                                                      | 10,000 characters | Yes                                                 |
-| Amazon Inspector policy    | Management      | Yes                        | 10                                                      | 10,000 characters | Yes                                                 |
-| Amazon Bedrock policy      | Management      | Yes                        | 10                                                      | 10,000 characters | Yes                                                 |
-| Upgrade rollout policy     | Management      | Yes                        | 10                                                      | 10,000 characters | Yes                                                 |
-| S3 policy                  | Management      | Yes                        | 10                                                      | 10,000 characters | Yes                                                 |
+| Declarative policy         | Declarative     | Yes                        | 10                                                      | 10,000 characters | Yes                                                 |
+| Backup policy              | Declarative     | Yes                        | 10                                                      | 10,000 characters | Yes                                                 |
+| Tag policy                 | Declarative     | Yes                        | 10                                                      | 10,000 characters | Yes                                                 |
+| Chat applications policy   | Declarative     | Yes                        | 5                                                       | 10,000 characters | Yes                                                 |
+| AI services opt-out policy | Declarative     | Yes                        | 5                                                       | 2500 characters   | Yes                                                 |
+| Security Hub policy        | Declarative     | Yes                        | 10                                                      | 10,000 characters | Yes                                                 |
+| Amazon Inspector policy    | Declarative     | Yes                        | 10                                                      | 10,000 characters | Yes                                                 |
+| Amazon Bedrock policy      | Declarative     | Yes                        | 10                                                      | 10,000 characters | Yes                                                 |
+| Upgrade rollout policy     | Declarative     | Yes                        | 10                                                      | 10,000 characters | Yes                                                 |
+| S3 policy                  | Declarative     | Yes                        | 10                                                      | 10,000 characters | Yes                                                 |

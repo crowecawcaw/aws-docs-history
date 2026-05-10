@@ -1,25 +1,25 @@
-# Prerequisites and permissions for management policies for AWS Organizations
+# Prerequisites and permissions for declarative policies for AWS Organizations
 
-This page describes the prerequisites and required permissions for management policies for AWS Organizations.
+This page describes the prerequisites and required permissions for declarative policies for AWS Organizations.
 
 ###### Topics
 
-- [Prerequisites for management policies](#manage-policies-prereqs-overview "#manage-policies-prereqs-overview")
-- [Permissions for management policies](#manage-policies-permissions "#manage-policies-permissions")
+- [Prerequisites for declarative policies](#manage-policies-prereqs-overview "#manage-policies-prereqs-overview")
+- [Permissions for declarative policies](#manage-policies-permissions "#manage-policies-permissions")
 
-## Prerequisites for management policies
+## Prerequisites for declarative policies
 
-Using management policies for an organization requires the following:
+Using declarative policies for an organization requires the following:
 
 - Your organization must have [all features enabled](orgs_manage_org_support-all-features.md "orgs_manage_org_support-all-features.md").
 - You must be signed in to your organization's management account or be a delegated administrator.
 - Your AWS Identity and Access Management (IAM) user or role must have the permissions that are listed
   in the following section.
 
-## Permissions for management policies
+## Permissions for declarative policies
 
 The following example IAM policy provides permissions to use all aspects of
-management policies in an organization.
+declarative policies in an organization.
 
 JSON
 

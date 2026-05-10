@@ -2,9 +2,9 @@
 
 ###### Note
 
-The information in this section does **_not_** apply to management policy types, including backup
+The information in this section does **_not_** apply to declarative policy types, including backup
 policies, tag policies, chat applications policies, or AI services opt-out policies. For more
-information, see [Understanding management policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
+information, see [Understanding declarative policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
 
 As you can attach multiple service control policies (SCPs) at different levels in
 AWS Organizations, understanding how SCPs are evaluated can help you write SCPs that yield the right
@@ -217,7 +217,7 @@ This scenario demonstrates how SCPs with explicit service allow lists function w
 level within an AWS Organizations. At the organization root level, two custom "Service Allow" SCPs are attached
 that explicitly permits access to a limited set of AWS services — SCP_1 allows IAM and Amazon EC2, SCP_2 allows Amazon S3
 and Amazon CloudWatch. At the organizational unit (OU) level, the default FullAWSAccess policy remains attached.
-However, due intersection behaviour, accounts A and B under these OUs can only access the services explicitly
+However, due to intersection behavior, accounts A and B under these OUs can only access the services explicitly
 permitted by the root-level SCP. The more restrictive root policy takes precedence, effectively limiting access
 to only IAM, EC2, S3, and CloudWatch services, regardless of the broader permissions granted at lower organizational levels.
 

@@ -1,24 +1,24 @@
-# Declarative policy syntax and examples
+# EC2 policy syntax and examples
 
-This page describes declarative policy syntax and provides examples.
+This page describes EC2 policy syntax and provides examples.
 
 ## Considerations
 
-- When you configure a service attribute using a declarative policy, it might
+- When you configure a service attribute using an EC2 policy, it might
   impact multiple APIs. Any noncompliant actions will fail.
 - Account administrators will not be able to modify the value of the service
   attribute at the individual account level.
 
-## Syntax for declarative policies
+## Syntax for EC2 policies
 
-A declarative policy is a plaintext file that is structured according to the rules of
-[JSON](http://json.org "http://json.org"). The syntax for declarative policies
-follows the syntax for all management policy types. For a complete discussion of that
+An EC2 policy is a plaintext file that is structured according to the rules of
+[JSON](http://json.org "http://json.org"). The syntax for EC2 policies
+follows the syntax for all declarative policy types. For a complete discussion of that
 syntax, see [Policy syntax and
-inheritance for management policy types](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md"). This topic focuses on applying that
-general syntax to the specific requirements of the declarative policy type.
+inheritance for declarative policy types](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md"). This topic focuses on applying that
+general syntax to the specific requirements of the EC2 policy type.
 
-The following example shows basic declarative policy syntax:
+The following example shows basic EC2 policy syntax:
 
 ```
 {
@@ -32,17 +32,16 @@ The following example shows basic declarative policy syntax:
 
 - The `ec2_attributes` field key name. Declarative policies always
   start with a fixed key name for the given AWS service. It's the top line in
-  the example policy above. Currently declarative policies only supported Amazon EC2
-  related services.
+  the example policy above.
 - Under `ec2_attributes`, you can use `exception_message`
   to set a custom error message. For more information, see [Custom error
-  messages for declarative policies](orgs_manage_policies_declarative.md#orgs_manage_policies_declarative-custom-message "orgs_manage_policies_declarative.md#orgs_manage_policies_declarative-custom-message").
+  messages for EC2 policies](orgs_manage_policies_ec2.md#orgs_manage_policies_ec2-custom-message "orgs_manage_policies_ec2.md#orgs_manage_policies_ec2-custom-message").
 - Under `ec2_attributes`, you can insert one or more of the supported
-  declarative policies. For those schemas, see [Supported declarative policies](#declarative-policy-examples "#declarative-policy-examples").
+  EC2 policies. For those schemas, see [Supported EC2 policies](#ec2-policy-examples "#ec2-policy-examples").
 
-## Supported declarative policies
+## Supported EC2 policies
 
-The following are the AWS services and attributes that declarative policies support.
+The following are the AWS services and attributes that EC2 policies support.
 In some of the following examples, the JSON whitespace formatting might be compressed to
 save space.
 
@@ -116,7 +115,7 @@ _Amazon VPC User Guide_.
 
 **Considerations**
 
-If you use this attribute in a declarative policy, you cannot use the
+If you use this attribute in an EC2 policy, you cannot use the
 following operations to modify the enforced configuration for the accounts
 in scope. This list is not exhaustive:
 
@@ -155,7 +154,7 @@ The following are the available fields for this attribute:
 
 **Considerations**
 
-If you use this attribute in a declarative policy, you cannot use the
+If you use this attribute in an EC2 policy, you cannot use the
 following operations to modify the enforced configuration for the accounts
 in scope. This list is not exhaustive:
 
@@ -194,7 +193,7 @@ The following are the available fields for this attribute:
 
 **Considerations**
 
-If you use this attribute in a declarative policy, you cannot use the
+If you use this attribute in a EC2 policy, you cannot use the
 following operations to modify the enforced configuration for the accounts
 in scope. This list is not exhaustive:
 
@@ -255,7 +254,7 @@ The following are the available fields for this attribute:
 
 **Considerations**
 
-If you use this attribute in a declarative policy, you cannot use the
+If you use this attribute in a EC2 policy, you cannot use the
 following operations to modify the enforced configuration for the accounts
 in scope. This list is not exhaustive:
 
@@ -405,7 +404,7 @@ The following are the available fields for this attribute:
 
 **Considerations**
 
-If you use this attribute in a declarative policy, you cannot use the
+If you use this attribute in a EC2 policy, you cannot use the
 following operations to modify the enforced configuration for the accounts
 in scope. This list is not exhaustive:
 

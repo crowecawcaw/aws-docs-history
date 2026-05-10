@@ -65,7 +65,7 @@ If you sign in to the management account in your organization, you can view
 compliance information for all your organization's accounts.
 
 Tag policies are available only in an organization that has [all features enabled](orgs_manage_org_support-all-features.md "orgs_manage_org_support-all-features.md"). For more
-information on what's required to use tag policies, see [Prerequisites and permissions for management policies for AWS Organizations](orgs_manage_policies_prereqs.md "orgs_manage_policies_prereqs.md").
+information on what's required to use tag policies, see [Prerequisites and permissions for declarative policies for AWS Organizations](orgs_manage_policies_prereqs.md "orgs_manage_policies_prereqs.md").
 
 ###### Important
 

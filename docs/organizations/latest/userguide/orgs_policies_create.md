@@ -540,13 +540,13 @@ AWS Management Console
 5. You can build the policy using the **Visual
    editor** as described in this procedure. You can also
    enter or paste policy text in the **JSON** tab. For
-   information about declarative policy syntax, see [Declarative policy syntax and examples](orgs_manage_policies_declarative_syntax.md "orgs_manage_policies_declarative_syntax.md").
+   information about declarative policy syntax, see [EC2 policy syntax and examples](orgs_manage_policies_ec2_syntax.md "orgs_manage_policies_ec2_syntax.md").
 
 If you choose to use the **Visual editor**,
 select the service attribute you want to include in your declarative
-policy. For more information, see [Supported AWS services and attributes](orgs_manage_policies_declarative.md#orgs_manage_policies_declarative-supported-controls "orgs_manage_policies_declarative.md#orgs_manage_policies_declarative-supported-controls"). 6. Choose **Add service attribute**, and configure
+policy. For more information, see [Supported attributes for EC2 policies](orgs_manage_policies_ec2.md#orgs_manage_policies_ec2-supported-controls "orgs_manage_policies_ec2.md#orgs_manage_policies_ec2-supported-controls"). 6. Choose **Add service attribute**, and configure
 the attribute to your specifications. For more detailed information
-on the each effect, see [Declarative policy syntax and examples](orgs_manage_policies_declarative_syntax.md "orgs_manage_policies_declarative_syntax.md"). 7. When you're finished editing your policy, choose **Create
+on the each effect, see [EC2 policy syntax and examples](orgs_manage_policies_ec2_syntax.md "orgs_manage_policies_ec2_syntax.md"). 7. When you're finished editing your policy, choose **Create
 policy** at the lower-right corner of the page.
 
 AWS CLI & AWS SDKs
@@ -575,7 +575,7 @@ policy:
   This declarative policy specifies that all accounts
   affected by the policy are must be configured so that new
   Amazon Machine Images (AMIs) are not publicly sharable. For
-  information about declarative policy syntax, see [Declarative policy syntax and examples](orgs_manage_policies_declarative_syntax.md "orgs_manage_policies_declarative_syntax.md"). 2. Import the JSON policy file to create a new policy in the
+  information about declarative policy syntax, see [EC2 policy syntax and examples](orgs_manage_policies_ec2_syntax.md "orgs_manage_policies_ec2_syntax.md"). 2. Import the JSON policy file to create a new policy in the
   organization. In this example, the previous JSON file was
   named `policy.json`.
 
@@ -603,7 +603,7 @@ policy:
 ###### What to do next
 
 After you create a declarative policy, assess readiness using the [account status
-report](orgs_manage_policies_declarative.md#orgs_manage_policies_declarative-account-status-report "orgs_manage_policies_declarative.md#orgs_manage_policies_declarative-account-status-report"). You can then enforce your baseline configurations. To do that,
+report](orgs_manage_policies_ec2.md#orgs_manage_policies_ec2-account-status-report "orgs_manage_policies_ec2.md#orgs_manage_policies_ec2-account-status-report"). You can then enforce your baseline configurations. To do that,
 you can [attach the policy](orgs_policies_attach.md "orgs_policies_attach.md") to the organization root, organizational units (OUs),
 AWS accounts within your organization, or a combination of all of those.
 
@@ -913,7 +913,7 @@ following options:
     If a parent policy doesn't exist and you don't enable this
      option, only tag keys in all lowercase characters are
      considered compliant. For more information about inheritance
-     from parent policies, see [Understanding management policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
+     from parent policies, see [Understanding declarative policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
 
 
     ###### Tip
@@ -1114,7 +1114,7 @@ controls for chat clients.
 
     	* Deny access to all Slack workspaces
     	* Allow access to all Slack workspaces
-    	* Restrict access to named Slack worksapces
+    	* Restrict access to named Slack workspaces
     ###### Note
 
     In addition, you can select **Limit
@@ -1135,7 +1135,7 @@ controls for chat clients.
     	 role** — Channel members must
     	 choose an IAM user role to perform actions
     	 (Requires Console access to choose roles). User
-    	 roles are apporopriate if channel members require
+    	 roles are appropriate if channel members require
     	 different permissions and can choose their user
     	 roles.
 

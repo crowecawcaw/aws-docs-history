@@ -6,8 +6,8 @@ This topic describes Artificial Intelligence (AI) services opt-out policy syntax
 
 An AI services opt-out policy is a plaintext file that is structured according to the rules
 of [JSON](http://json.org "http://json.org"). The syntax for AI services opt-out policies
-follows the syntax for management policy types. For a complete discussion of that
-syntax, see [Understanding management policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md"). This topic focuses on
+follows the syntax for declarative policy types. For a complete discussion of that
+syntax, see [Understanding declarative policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md"). This topic focuses on
 applying that general syntax to the specific requirements of the AI services opt-out policy
 type.
 

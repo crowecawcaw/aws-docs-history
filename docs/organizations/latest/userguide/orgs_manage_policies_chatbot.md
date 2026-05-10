@@ -25,7 +25,7 @@ Amazon Q Developer in chat applications or the Organizations console.
 
 After the policies are attached to accounts and organizational units (OU), any current and future Amazon Q Developer in chat applications configurations
 for the accounts in scope will automatically comply with the governance and permissions settings.
-For more information, see [Understanding management policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
+For more information, see [Understanding declarative policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
 
 If you try to perform an action restricted by a chat applications policy,
 an error message will notify you that the action is not allowed due to

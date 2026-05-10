@@ -78,5 +78,5 @@ You can remove the delegated administrator using either the User Notifications c
 by using the Organizations `DeregisterDelegatedAdministrator` CLI or SDK
 operation.
 
-To disable the delegated admin User Notifications account using the User Notifications console, see [Removing delegated administrators in in AWS User Notifications](../../../notifications/latest/userguide/uno-orgs.md#deregister-admins "../../../notifications/latest/userguide/uno-orgs.md#deregister-admins") in the
+To disable the delegated admin User Notifications account using the User Notifications console, see [Removing delegated administrators in AWS User Notifications](../../../notifications/latest/userguide/uno-orgs.md#deregister-admins "../../../notifications/latest/userguide/uno-orgs.md#deregister-admins") in the
 _User Notifications User Guide_.

@@ -72,7 +72,7 @@ is contained in the [management account](#management-account "#management-accoun
 Under this root, you can create [organizational units (OUs)](#organizationalunit "#organizationalunit") to logically group your accounts and organize
 these OUs into a hierarchy that best matches your needs.
 
-If you apply a [management policy](#management-policies "#management-policies") to the root,
+If you apply a [declarative policy](#declarative-policies "#declarative-policies") to the root,
 it applies to all [organizational units (OUs)](#organizationalunit "#organizationalunit") and [accounts](#account "#account"), including the management account for the organization.
 
 If you apply
@@ -202,7 +202,7 @@ with the AWS Organizations API or command line tools such as the AWS CLI.
 
 A _policy_ is a "document" with one or more statements that define
 the controls that you want to apply to a group of AWS accounts.
-AWS Organizations supports authorization policies and management policies.
+AWS Organizations supports authorization policies and declarative policies.
 
 ### Authorization policies
 
@@ -235,12 +235,12 @@ only be accessed by identities that belong to your organization,
 or specifying the conditions under which identities external to your organization can access your resources.
 For more information, see [RCPs](orgs_manage_policies_rcps.md "orgs_manage_policies_rcps.md").
 
-### Management policies
+### Declarative policies
 
-Management policies help you centrally configure and manage AWS services and their features across an organization.
+Declarative policies help you centrally configure and manage AWS services and their features across an organization.
 
-- **[Declarative policies](orgs_manage_policies_declarative.md "orgs_manage_policies_declarative.md")** allow you to centrally
-  declare and enforce desired configurations for a given AWS service at
+- **[Amazon EC2 policies](orgs_manage_policies_ec2.md "orgs_manage_policies_ec2.md")** allow you to centrally
+  declare and enforce desired configurations for Amazon EC2 at
   scale across an organization. Once attached, the configuration is always
   maintained when the service adds new features or APIs.
 - **[Backup

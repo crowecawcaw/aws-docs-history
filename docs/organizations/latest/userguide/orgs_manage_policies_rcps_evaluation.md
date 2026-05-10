@@ -2,9 +2,9 @@
 
 ###### Note
 
-The information in this section does **_not_** apply to management policy types, including backup policies, tag policies, chat applications policies, or AI
+The information in this section does **_not_** apply to declarative policy types, including backup policies, tag policies, chat applications policies, or AI
 services opt-out policies. For more information, see
-[Understanding management policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
+[Understanding declarative policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
 
 As you can attach multiple resource control policies (RCPs) at different levels in
 AWS Organizations, understanding how RCPs are evaluated can help you write RCPs that yield the right

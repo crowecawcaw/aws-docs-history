@@ -17,10 +17,14 @@ You cannot migrate a closed or suspended account.
 To reactive an account,
 contact [Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-**Four day age requirement**
+**Four-day age requirement for created member accounts in an organization**
 
 To migrate an account that you created in an organization, you must wait until at least four days after the account was created.
-Invited accounts aren't subject to this waiting period.
+Invited accounts are not subject to this waiting period.
+
+**Seven-day age requirement for the organization**
+
+To migrate an account to a new organization, you must wait until at least seven days after the organization was created.
 
 **Replicating data between accounts**
 

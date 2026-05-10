@@ -1,6 +1,6 @@
 # Amazon Bedrock policy syntax and examples
 
-An Amazon Bedrock policy is a plaintext file that is structured according to the rules of JSON. The syntax for Amazon Bedrock policies follows the syntax for all management policy types. For more information, see [Policy syntax and inheritance for management policy types](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md"). This topic focuses on applying that general syntax to the specific requirements of the Amazon Bedrock policy type.
+An Amazon Bedrock policy is a plaintext file that is structured according to the rules of JSON. The syntax for Amazon Bedrock policies follows the syntax for all declarative policy types. For more information, see [Policy syntax and inheritance for declarative policy types](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md"). This topic focuses on applying that general syntax to the specific requirements of the Amazon Bedrock policy type.
 
 The following Amazon Bedrock policy example shows the basic Amazon Bedrock policy syntax:
 

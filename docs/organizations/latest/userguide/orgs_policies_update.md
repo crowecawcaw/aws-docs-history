@@ -274,7 +274,7 @@ AWS Management Console
 4. You can enter a new **Policy name**,
    **Policy description**, or edit the
    **JSON** policy text. For information about
-   declarative policy syntax, see [Declarative policy syntax and examples](orgs_manage_policies_declarative_syntax.md "orgs_manage_policies_declarative_syntax.md").
+   declarative policy syntax, see [EC2 policy syntax and examples](orgs_manage_policies_ec2_syntax.md "orgs_manage_policies_ec2_syntax.md").
 5. When you're finished updating the policy, choose **Save
    changes**.
 

@@ -14,7 +14,7 @@ This page describes tag policy syntax and provides examples.
 ## Tag policy syntax
 
 A tag policy is a plaintext file that is structured according to the rules of [JSON](http://json.org "http://json.org"). The syntax for tag policies follows the syntax
-for management policy types. For a complete discussion of that syntax, see [Understanding management policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md"). This topic focuses on
+for declarative policy types. For a complete discussion of that syntax, see [Understanding declarative policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md"). This topic focuses on
 applying that general syntax to the specific requirements of the tag policy type.
 
 The following tag policy shows basic tag policy syntax:
@@ -235,7 +235,7 @@ account**
 ```
 
 For more information about policy inheritance, including examples of how the
-inheritance operators work and example effective tag policies, see [Understanding management policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
+inheritance operators work and example effective tag policies, see [Understanding declarative policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
 
 ## Example 2: Prevent use of a tag key
 

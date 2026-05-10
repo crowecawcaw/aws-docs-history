@@ -104,6 +104,10 @@ The output includes a list of account summary objects.
                         "Id": "111111111111",
                         "Name": "Master Account",
                         "Email": "bill@example.com",
+                        "Paths": [
+                                "o-exampleorgid/r-examplerootid111/111111111111/"
+                        ],
+                        "State": "ACTIVE",
                         "Status": "ACTIVE"
                 },
                 {
@@ -113,6 +117,10 @@ The output includes a list of account summary objects.
                         "Id": "222222222222",
                         "Name": "Production Account",
                         "Email": "alice@example.com",
+                        "Paths": [
+                                "o-exampleorgid/r-examplerootid111/111111111111/"
+                        ],
+                        "State": "ACTIVE",
                         "Status": "ACTIVE"
                 },
                 {
@@ -122,6 +130,10 @@ The output includes a list of account summary objects.
                         "Id": "333333333333",
                         "Name": "Development Account",
                         "Email": "juan@example.com",
+                        "Paths": [
+                                "o-exampleorgid/r-examplerootid111/111111111111/"
+                        ],
+                        "State": "ACTIVE",
                         "Status": "ACTIVE"
                 },
                 {
@@ -131,6 +143,10 @@ The output includes a list of account summary objects.
                         "Id": "444444444444",
                         "Name": "Test Account",
                         "Email": "anika@example.com",
+                        "Paths": [
+                                "o-exampleorgid/r-examplerootid111/111111111111/"
+                        ],
+                        "State": "ACTIVE",
                         "Status": "ACTIVE"
                 }
         ]

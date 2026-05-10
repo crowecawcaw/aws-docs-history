@@ -67,7 +67,7 @@ Set up [AWS IAM Identity Center](../../../singlesignon/latest/userguide/what-is.
 and resources using your active directory, and customize permissions
 based on separate job roles. You can also apply [organization policies](orgs_manage_policies.md "orgs_manage_policies.md") to users, accounts, or OUs. For example,
 [service control policies (SCPs)](orgs_manage_policies_scps.md "orgs_manage_policies_scps.md") enable you to
-to control access to AWS resources, services, and Regions within your organization.
+control access to AWS resources, services, and Regions within your organization.
 [Resource control policies (RCPs)](orgs_manage_policies_rcps.md "orgs_manage_policies_rcps.md") enable you to
 centrally prevent the unintended use of your AWS resources.
 [Chat applications policies](orgs_manage_policies_chatbot.md "orgs_manage_policies_chatbot.md") enable you to control access to your organization's accounts from chat applications such as Slack and Microsoft Teams.

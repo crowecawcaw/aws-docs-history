@@ -6,7 +6,7 @@ This page describes backup policy syntax and provides examples.
 
 A backup policy is a plaintext file that is structured according to the rules of
 [JSON](http://json.org "http://json.org"). The syntax for backup policies follows
-the syntax for all management policy types. For more information, see [Policy syntax and inheritance for management policy types](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md"). This topic
+the syntax for all declarative policy types. For more information, see [Policy syntax and inheritance for declarative policy types](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md"). This topic
 focuses on applying that general syntax to the specific requirements of the backup
 policy type.
 
