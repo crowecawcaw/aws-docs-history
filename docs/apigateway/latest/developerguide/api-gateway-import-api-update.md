@@ -46,6 +46,18 @@ When an API (`A`) overwrites another API (`B`), the resulting API takes the defi
 (`A`). Overwriting an API is useful when an external API definition contains the complete definition of an API. In this mode, items
 from an existing API that aren't specifically defined in the imported definition are deleted.
 
+###### Important
+
+When you use `mode=overwrite`, the entire API definition is replaced.
+Any API configurations not explicitly included in the import body are reset to their
+default values. This includes settings such as security policies, authorization
+configurations, and other API-level properties.
+
+To preserve existing configurations, use `mode=merge`, which
+preserves existing configurations that are not specified in the import body. If you
+use `mode=overwrite`, ensure that your OpenAPI definition includes all
+desired API configurations, such as API Gateway extensions.
+
 To merge an API, submit a `PUT` request to
 `https://apigateway.`<region>`.amazonaws.com/restapis/`<restapi_id>`?mode=merge`.
 The `restapi_id` path parameter value specifies the API to which the supplied
