@@ -6,7 +6,7 @@ applications.
 The following is a list of compatible AWS applications and services:
 
 - Amazon Chime
-- Amazon Connect
+- Connect Customer
 - Amazon EC2
 - Quick
 - Amazon RDS

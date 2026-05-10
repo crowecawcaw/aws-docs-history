@@ -27,7 +27,7 @@ All user accounts are provisioned only in your AWS Managed Microsoft AD to be us
 AWS applications, such as the following:
 
 - Amazon Chime
-- Amazon Connect
+- Connect Customer
 - Quick
 - AWS IAM Identity Center
 - WorkDocs
@@ -66,7 +66,7 @@ All user accounts are provisioned in your AWS Managed Microsoft AD or trusted Ac
 used with supported AWS applications, such as the following:
 
 - Amazon Chime
-- Amazon Connect
+- Connect Customer
 - Quick
 - AWS IAM Identity Center
 - WorkDocs
@@ -125,7 +125,7 @@ User accounts are provisioned only in your AWS Managed Microsoft AD to be used w
 applications, such as the following:
 
 - Amazon Chime
-- Amazon Connect
+- Connect Customer
 - Amazon EC2 instances
 - Amazon FSx
 - Quick
@@ -179,7 +179,7 @@ All user accounts are provisioned in your AWS Managed Microsoft AD or trusted Ac
 used with supported AWS applications, such as the following:
 
 - Amazon Chime
-- Amazon Connect
+- Connect Customer
 - Amazon EC2 instances
 - Amazon FSx
 - Quick

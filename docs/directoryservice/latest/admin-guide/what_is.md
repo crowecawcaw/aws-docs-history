@@ -20,7 +20,7 @@ Cloud. It enables you to migrate a broad range of Active Directory–aware
 applications to the AWS Cloud. AWS Managed Microsoft AD works with Microsoft
 SharePoint, Microsoft SQL Server Always On
 Availability Groups, and many .NET applications. It also supports AWS
-managed applications and services including [Amazon WorkSpaces](https://aws.amazon.com/workspaces/ "https://aws.amazon.com/workspaces/"), [Amazon WorkDocs](https://aws.amazon.com/workdocs/ "https://aws.amazon.com/workdocs/"), [Amazon Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/"), [Amazon Chime](https://aws.amazon.com/chime/ "https://aws.amazon.com/chime/"), [Amazon Connect](https://aws.amazon.com/connect/ "https://aws.amazon.com/connect/"), and [Amazon Relational Database Service for Microsoft SQL
+managed applications and services including [Amazon WorkSpaces](https://aws.amazon.com/workspaces/ "https://aws.amazon.com/workspaces/"), [Amazon WorkDocs](https://aws.amazon.com/workdocs/ "https://aws.amazon.com/workdocs/"), [Amazon Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/"), [Amazon Chime](https://aws.amazon.com/chime/ "https://aws.amazon.com/chime/"), [Connect Customer](https://aws.amazon.com/connect/ "https://aws.amazon.com/connect/"), and [Amazon Relational Database Service for Microsoft SQL
 Server](https://aws.amazon.com/rds/sqlserver/ "https://aws.amazon.com/rds/sqlserver/") (Amazon RDS for SQL Server, Amazon RDS
 for Oracle, and Amazon RDS for PostgreSQL).
 
@@ -106,7 +106,7 @@ reads your existing Active Directory to create lists of users and groups to sele
 When users log in to the AWS applications, AD Connector forwards sign-in
 requests to your on-premises Active Directory domain controllers for authentication.
 AD Connector works with many AWS applications and services including
-[Amazon WorkSpaces](https://aws.amazon.com/workspaces/ "https://aws.amazon.com/workspaces/"), [Amazon WorkDocs](https://aws.amazon.com/workdocs/ "https://aws.amazon.com/workdocs/"), [Amazon Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/"), [Amazon Chime](https://aws.amazon.com/chime/ "https://aws.amazon.com/chime/"), [Amazon Connect](https://aws.amazon.com/connect/ "https://aws.amazon.com/connect/"), and [Amazon WorkMail](https://aws.amazon.com/workmail/ "https://aws.amazon.com/workmail/"). You can also [join your
+[Amazon WorkSpaces](https://aws.amazon.com/workspaces/ "https://aws.amazon.com/workspaces/"), [Amazon WorkDocs](https://aws.amazon.com/workdocs/ "https://aws.amazon.com/workdocs/"), [Amazon Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/"), [Amazon Chime](https://aws.amazon.com/chime/ "https://aws.amazon.com/chime/"), [Connect Customer](https://aws.amazon.com/connect/ "https://aws.amazon.com/connect/"), and [Amazon WorkMail](https://aws.amazon.com/workmail/ "https://aws.amazon.com/workmail/"). You can also [join your
 EC2 Windows instances](ad_connector_join_windows_instance.md "ad_connector_join_windows_instance.md") to your on-premises Active Directory
 domain through AD Connector using [seamless
 domain join](ad_connector_launching_instance.md "ad_connector_launching_instance.md"). AD Connector also allows your users to access the

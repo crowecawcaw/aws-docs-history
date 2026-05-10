@@ -11,7 +11,7 @@ The following is a list of compatible AWS applications and services:
 
 - Amazon Chime - For detailed instructions, see [Connect to your Active
   Directory](../../../chime/latest/ag/active_directory.md "../../../chime/latest/ag/active_directory.md").
-- Amazon Connect - For more information, see [How Amazon Connect works](../../../connect/latest/adminguide/what-is-amazon-connect.md#amazon-connect-fundamentals "../../../connect/latest/adminguide/what-is-amazon-connect.md#amazon-connect-fundamentals").
+- Connect Customer - For more information, see [How Connect Customer works](../../../connect/latest/adminguide/what-is-amazon-connect.md#amazon-connect-fundamentals "../../../connect/latest/adminguide/what-is-amazon-connect.md#amazon-connect-fundamentals").
 - Amazon EC2 for Windows or Linux – You can use the seamless Active Directory domain join feature of Amazon EC2
   Windows or Linux to join your instance to your self-managed Active Directory (on-premises).
   Once joined, the instance communicates directly with your Active Directory and bypasses

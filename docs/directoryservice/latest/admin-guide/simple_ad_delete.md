@@ -42,7 +42,7 @@ You can still use your directory credentials to log in to these instances.
         _Amazon RDS User Guide_.
       - To disable AWS Client VPN Service, you must remove the directory service from the Client VPN Endpoint. For more information, see [Work with Client VPN](../../../vpn/latest/clientvpn-admin/cvpn-working.md "../../../vpn/latest/clientvpn-admin/cvpn-working.md") in the
         _AWS Client VPN Administrator Guide_.
-      - To disable Amazon Connect, you must delete the Amazon Connect Instance. For more information, see [Delete your Amazon Connect instance](../../../connect/latest/adminguide/delete-connect-instance.md "../../../connect/latest/adminguide/delete-connect-instance.md") in the
+      - To disable Connect Customer, you must delete the Connect Customer Instance. For more information, see [Delete your Connect Customer instance](../../../connect/latest/adminguide/delete-connect-instance.md "../../../connect/latest/adminguide/delete-connect-instance.md") in the
         _Amazon Connect Administration Guide_.
       - To disable Amazon Quick, you must unsubscribe from Amazon Quick. For more information, see [Closing your Amazon Quick account](../../../quicksight/latest/user/closing-account.md "../../../quicksight/latest/user/closing-account.md") in the
         _Amazon Quick User Guide_.
