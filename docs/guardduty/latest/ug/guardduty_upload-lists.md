@@ -2,7 +2,7 @@
 
 Amazon GuardDuty monitors the security of your AWS environment by analyzing and processing VPC
 Flow Logs, AWS CloudTrail event logs, and DNS logs. By enabling one or more [Use-case focused
-GuardDuty protection plans](what-is-guardduty.md#features-of-guardduty "what-is-guardduty.md#features-of-guardduty") (except [Runtime Monitoring](runtime-monitoring.md "runtime-monitoring.md"), you can expand the monitoring capabilities
+GuardDuty protection plans](what-is-guardduty.md#features-of-guardduty "what-is-guardduty.md#features-of-guardduty") (except [Runtime Monitoring](runtime-monitoring.md "runtime-monitoring.md")), you can expand the monitoring capabilities
 within GuardDuty.
 
 With lists, GuardDuty helps you customize the scope of threat detection in your environment.
@@ -213,7 +213,7 @@ Indicator type, Indicator, Description
 CIDR, 192.0.2.0/24, example
 IPv4, 198.51.100.1, example
 IPv4, 203.0.113.1, example
-Domain name, example.net, example
+domain name, example.net, example
 ```
 
 ###### Example for IP address list

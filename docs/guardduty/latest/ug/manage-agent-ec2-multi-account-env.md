@@ -3,7 +3,7 @@
 In a multiple-account environments, only the delegated GuardDuty administrator account can enable or disable automated
 agent configuration for the resource types belonging to the member accounts in their
 organization. The GuardDuty member accounts can't modify this configuration from their
-accounts. The delegated GuardDuty administrator account account manages their member accounts using AWS Organizations. For more
+accounts. The delegated GuardDuty administrator account manages their member accounts using AWS Organizations. For more
 information about multi-account environments, see [Managing multiple
 accounts](guardduty_accounts.md "guardduty_accounts.md").
 
