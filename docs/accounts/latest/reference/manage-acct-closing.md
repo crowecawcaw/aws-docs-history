@@ -27,7 +27,7 @@ Before closing your AWS account, you should consider the following:
   receiving invoices for [Reserved Instances](../../../awsaccountbilling/latest/aboutv2/con-bill-blended-rates.md#Instance_Reservations "../../../awsaccountbilling/latest/aboutv2/con-bill-blended-rates.md#Instance_Reservations") and [Savings Plans](../../../awsaccountbilling/latest/aboutv2/con-bill-blended-rates.md#cb_savingsplans "../../../awsaccountbilling/latest/aboutv2/con-bill-blended-rates.md#cb_savingsplans") after closing your account until they
   expire.
 - You will no longer be able to access AWS services that were previously
-  available in your account. However, you can sign-in and access a closed
+  available in your account. However, you can sign in and access a closed
   AWS account during the [post-closure
   period](#post-closure-period "#post-closure-period") only to view past billing information, access account
   settings, or contact [AWS Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home").
@@ -221,7 +221,7 @@ AWS account for billing and payment purposes.
 
 **To close an AWS GovCloud (US) account**
 
-If you have an AWS account that is linked to a AWS GovCloud (US) account,
+If you have an AWS account that is linked to an AWS GovCloud (US) account,
 you need to close the standard account before you close the AWS GovCloud (US)
 account. For more details, including how to back-up data and avoid
 unintended AWS GovCloud (US) charges, see [Closing an AWS GovCloud (US) account](../../../govcloud-us/latest/UserGuide/Closing-govcloud-account.md "../../../govcloud-us/latest/UserGuide/Closing-govcloud-account.md") in the _AWS GovCloud (US) User Guide_.

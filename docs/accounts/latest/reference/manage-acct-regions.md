@@ -23,8 +23,8 @@ AWS Regions broadly fall into two categories of availability for accounts:
   Regions to create workloads until they are enabled. To use these opt-in Regions, you
   must first enable them in your AWS account. After enabling an opt-in Region, you
   can select that Region in the navigation bar and create and manage
-  resources in that Region. To enable opt-in Region for your standalone accounts, see
-  [Enable or disable a Region for standalone accounts](#manage-acct-regions-enable-standalone "#manage-acct-regions-enable-standalone") and to enable opt-in
+  resources in that Region. To enable an opt-in Region for your standalone accounts, see
+  [Enable or disable a Region for standalone accounts](#manage-acct-regions-enable-standalone "#manage-acct-regions-enable-standalone") and to enable an opt-in
   Region for your member accounts, see [Enable or disable a Region in your organization](#manage-acct-regions-enable-organization "#manage-acct-regions-enable-organization").
   When you sign up for an AWS account, AWS recommends an opt-in Region for you
   based on your contact address country. Customers in a country with an AWS opt-in Region
@@ -174,7 +174,7 @@ following:
   _IAM User Guide_. You can also use the [`aws:RequestedRegion`](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requestedregion "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requestedregion") condition key to control
   access to AWS services in an AWS Region.
 - **Enabling and disabling a Region is free**
-  – There is no charge to enable or disable a Region. You're charged only
+  – There is no charge to enable or disable a Region. You are charged only
   for resources that you create in the new Region.
 - **Amazon EventBridge integration** – You can
   subscribe to region-opt status update notifications in EventBridge. An EventBridge
@@ -208,7 +208,7 @@ When enabling or disabling Regions, be aware of the following timing and request
   is complete.
 - **Disabling a Region isn't always immediately
   visible** – Services and consoles might be temporarily
-  visible after disabling a region. Disabling a Region can takes a few minutes to
+  visible after disabling a region. Disabling a Region can take a few minutes to
   several hours to take effect.
 - **A single account can have 6 region-opt requests in
   progress at any given time** – One request is equal to

@@ -66,7 +66,7 @@ _IAM User Guide_.
 
 You don't need to allow minimum console permissions for users that are making
 calls only to the AWS CLI or the AWS API. Instead, in many cases you can choose
-to allow access to only the actions that match the API operations that you're trying
+to allow access to only the actions that match the API operations that you are trying
 to perform.
 
 ## Providing read-only access to the Account page in the AWS Management Console

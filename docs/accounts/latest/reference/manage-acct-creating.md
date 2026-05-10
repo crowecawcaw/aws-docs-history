@@ -63,7 +63,7 @@ available Support plans and their benefits, see [Compare Support
 plans](https://aws.amazon.com/premiumsupport/features "https://aws.amazon.com/premiumsupport/features"). 14. Choose **Complete sign up**. A confirmation page
 appears that indicates that your account is being activated. 15. Check your email and spam folder for an email message that confirms
 your account was activated. Activation usually takes a few minutes but
-can sometimes take up to 24 hours. 16. After you receive the activation message, you can sign-in to the
+can sometimes take up to 24 hours. 16. After you receive the activation message, you can sign in to the
 [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/") to start using AWS services. For general information
 about how to manage your account settings, see [Configure your AWS account](managing-accounts.md "managing-accounts.md").
 

@@ -3,7 +3,7 @@
 You can post feedback and questions using the [AWS Account Management
 support forum](https://repost.aws/tags/TAORvqckH5Q6qX1CKnO_lWZg/aws-account-management "https://repost.aws/tags/TAORvqckH5Q6qX1CKnO_lWZg/aws-account-management"). For general information about AWS forums, see [AWS re:Post](https://repost.aws/ "https://repost.aws/").
 
-If you can't find the answers your looking for on AWS re:Post, you can create an account
+If you can't find the answers you are looking for on AWS re:Post, you can create an account
 or billing related support case using the AWS Management Console. For more information, see
 [Example: Create a support case for account and billing](../../../docs.aws.amazon.comawssupport/latest/user/case-example.md "../../../docs.aws.amazon.comawssupport/latest/user/case-example.md").
 

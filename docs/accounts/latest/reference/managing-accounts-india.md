@@ -44,7 +44,7 @@ address is based in India, in compliance with Indian Computer Emergency Response
 Team (CERT-In) regulations, AWS is required to collect and validate your identity
 information before granting you access to AWS services.
 
-The name that you chose between your contact or billing information must
+The name that you choose between your contact or billing information must
 exactly match the name that appears on the document you plan to use for customer
 verification. For example, if you plan to verify a business account using a
 Certificate of Incorporation, you must provide the business name that appears on
@@ -88,7 +88,7 @@ After a few moments, you will receive a four-digit pin in an SMS or an automated
 call on your mobile phone. 19. On the **Confirm your identity** page, enter the pin you
 received and choose **Continue**. 20. On the **Select a support plan** page, select your support
 plan, and then choose **Complete sign up**. After your payment
-method and customer verification is verified, your account will be activated and
+method and customer verification are verified, your account will be activated and
 you will receive an email confirming the activation of your account.
 
 ###### Note
@@ -214,7 +214,7 @@ The links shared below are subject to change by the government.
   the Electors Photo Identity Card (EPIC), contains a unique identification
   number issued by Election Commission of India to eligible voters in India. A
   voter ID/EPIC number consists of ten characters, including letters and
-  numbers. You can go the official website of the [Election Commission of
+  numbers. You can go to the official website of the [Election Commission of
   India](https://electoralsearch.eci.gov.in "https://electoralsearch.eci.gov.in") to check the validity of your voter ID. To use this
   document for verification, you must upload both the front and back side of
   the card.

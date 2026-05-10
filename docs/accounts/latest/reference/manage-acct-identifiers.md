@@ -7,7 +7,7 @@ AWS assigns the following unique identifiers to each AWS account:
 A 12-digit number, such as 012345678901, that uniquely identifies an
 AWS account. Many AWS resources include the account ID in their [Amazon Resource Names
 (ARNs)](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md"). The account ID portion distinguishes resources in one
-account from the resources in another account. If you're an AWS Identity and Access Management (IAM)
+account from the resources in another account. If you are an AWS Identity and Access Management (IAM)
 user, you can sign in to the AWS Management Console using either the account ID or account
 alias. While account IDs, like any identifying information, should be used and
 shared carefully, they are not considered secret, sensitive, or confidential
@@ -34,8 +34,8 @@ so would give them the same access to the AWS account that you have.
 ## Find your AWS account ID
 
 You can find the AWS account ID using either the AWS Management Console or the AWS Command Line Interface (AWS CLI).
-In the console, the location of the account ID depends on whether you're signed in as
-the root user or an IAM user. The account ID is the same whether you're signed in as the
+In the console, the location of the account ID depends on whether you are signed in as
+the root user or an IAM user. The account ID is the same whether you are signed in as the
 root user or an IAM user.
 
 ### Finding your account ID as the root user

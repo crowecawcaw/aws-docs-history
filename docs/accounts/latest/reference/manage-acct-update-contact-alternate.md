@@ -1,6 +1,6 @@
 # Update the alternate contacts for your AWS account
 
-Alternate contacts allows AWS to contact up to three alternate contacts associated with
+Alternate contacts allow AWS to contact up to three alternate contacts associated with
 the account. An alternate contact doesn't have to be a specific person. You could instead
 add an email distribution list if you have a team that manages billing, operations and
 security related issues. These are in addition to the email address associated with the
@@ -256,7 +256,7 @@ equivalent operations:
   accounts, you must [enable trusted access for the Account
   service](../../../organizations/latest/userguide/services-that-can-integrate-account.md#integrate-enable-ta-account "../../../organizations/latest/userguide/services-that-can-integrate-account.md#integrate-enable-ta-account").
 - You can't access an account in a different organization
-  from the one you're using to call the operation.
+  from the one you are using to call the operation.
 
 ###### Minimum permissions
 
@@ -348,7 +348,7 @@ All later attempts generate a `ResourceNotFound` exception.
 ## account:AlternateContactTypes context key
 
 You can use the context key `account:AlternateContactTypes` to specify
-which of the three billing types is allowed (or denied) by the IAM policy. For
+which of the three contact types is allowed (or denied) by the IAM policy. For
 example, the following example IAM permission policy uses this condition key to allow
 the attached principals to retrieve, but not modify, only the `BILLING`
 alternate contact for a specific account in an organization.

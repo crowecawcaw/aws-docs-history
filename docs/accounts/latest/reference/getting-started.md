@@ -1,6 +1,6 @@
 # Getting started with an AWS account
 
-If you're new to AWS, the first step is to sign up for an AWS account. When you do so, AWS
+If you are new to AWS, the first step is to sign up for an AWS account. When you do so, AWS
 will create an account using the details you provide and assign it to you.
 
 The topics in this section will help you get started with learning about and setting up a

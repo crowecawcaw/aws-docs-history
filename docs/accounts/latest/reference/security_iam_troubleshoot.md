@@ -11,7 +11,7 @@ encounter when working with Account Management and IAM.
 
 ## I am not authorized to perform an action in the Account page
 
-If the AWS Management Console tells you that you're not authorized to perform an action, then
+If the AWS Management Console tells you that you are not authorized to perform an action, then
 you must contact your administrator for assistance. Your administrator is the person
 that provided you with your user name and password.
 

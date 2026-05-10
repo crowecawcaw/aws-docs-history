@@ -100,7 +100,7 @@ AWS Management Console
   accounts, you must [enable trusted access for the Account Management
   service](../../../organizations/latest/userguide/services-that-can-integrate-account.md#integrate-enable-ta-account "../../../organizations/latest/userguide/services-that-can-integrate-account.md#integrate-enable-ta-account").
 - You can't use this procedure to access an account in a
-  different organization from the one you're using to call the
+  different organization from the one you are using to call the
   operation.
 
 ###### To update the root user email address for a member account using the AWS Organizations console
@@ -146,7 +146,7 @@ commands or their AWS SDK equivalent operations:
   accounts, you must [enable trusted access for the Account Management
   service](../../../organizations/latest/userguide/services-that-can-integrate-account.md#integrate-enable-ta-account "../../../organizations/latest/userguide/services-that-can-integrate-account.md#integrate-enable-ta-account").
 - You can't access an account in a different organization from
-  the one you're using to call the operation.
+  the one you are using to call the operation.
 
 ###### Minimum permissions
 

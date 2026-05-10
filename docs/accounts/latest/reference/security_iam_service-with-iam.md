@@ -115,7 +115,7 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 ```
 
 The Account Management service supports the following specific resource types in an IAM
-policy's `Resources` element to help you filter the policy and
+policy's `Resource` element to help you filter the policy and
 distinguish between these types of AWS accounts:
 
 - **account**

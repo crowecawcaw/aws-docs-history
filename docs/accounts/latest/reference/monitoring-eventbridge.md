@@ -1,6 +1,6 @@
 # Monitoring Account Management events with EventBridge
 
-Amazon EventBridge, formerly called CloudWatch Events, helps you monitor events that are specific to and
+Amazon EventBridge, formerly called CloudWatch Events, helps you monitor events that are specific to Account Management and
 initiate target actions that use other AWS services. Events from AWS services are
 delivered to EventBridge in near real time.
 
@@ -67,7 +67,7 @@ There are four possible statuses which match the statuses returned by the
 - `DISABLING` – The Region is in the process of being
   disabled for the `accountId` indicated
 
-The following sample event pattern, creates a rule that captures all Region
+The following sample event pattern creates a rule that captures all Region
 events.
 
 ```
@@ -81,7 +81,7 @@ events.
 }
 ```
 
-The following sample event pattern, creates a rule that captures only
+The following sample event pattern creates a rule that captures only
 `ENABLED` and `DISABLED` Region events.
 
 ```

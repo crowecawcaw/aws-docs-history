@@ -17,7 +17,7 @@ reasons, avoid using account names that reflect personally identifiable informat
   AWS accounts not associated with an organization, you can update your account name
   using the AWS Management Console, or the AWS CLI and SDKs. To learn how to do this, see [Update your account name for a standalone AWS account](#update-account-name-standalone "#update-account-name-standalone").
 - **AWS accounts within an organization –**
-  For member accounts that are part of a AWS Organizations, a user in the management account or
+  For member accounts that are part of an AWS Organizations, a user in the management account or
   delegated admin account can centrally update the account name of any member account
   in the organization from the AWS Organizations console, or programmatically via the AWS CLI and
   SDKs. To learn how to do this, see [Update your account name for any AWS account in your organization](#update-account-name-orgs "#update-account-name-orgs").
@@ -41,7 +41,7 @@ AWS Management Console
 ###### Minimum permissions
 
 You can update your account name using the root user, an IAM user,
-or an IAM role. If you're using the root user, no additional IAM
+or an IAM role. If you are using the root user, no additional IAM
 permissions are needed to update an account name. When using an IAM
 user or IAM role, you must have at least the following IAM
 permissions:

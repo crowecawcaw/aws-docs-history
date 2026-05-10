@@ -29,7 +29,7 @@ This version of the Accounts API Reference documents the Account Management API 
 As an alternative to using the API directly, you can use one of the AWS SDKs, which
 consist of libraries and sample code for various programming languages and platforms
 (Java, Ruby, .NET, iOS, Android, and more). The SDKs provide a convenient way to create
-programmatic access to AWS Organizations. For example, the SDKs take care of
+programmatic access to Account Management. For example, the SDKs take care of
 cryptographically signing requests, managing errors, and retrying requests
 automatically. For more information about the AWS SDKs, including how to download and
 install them, see [Tools for Amazon Web
@@ -38,7 +38,7 @@ Services](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
 We recommend that you use the AWS SDKs to make programmatic API calls to the Account Management
 service. However, you also can use the Account Management Query API to make direct calls to the Account Management
 web service. To learn more about the Account Management Query API, see [Calling the API by making HTTP Query requests](query-requests.md "query-requests.md") in
-the Account Management User Guide. Organizations supports GET and POST requests for all actions. That
+the Account Management User Guide. Account Management supports GET and POST requests for all actions. That
 is, the API does not require you to use GET for some actions and POST for others. However,
 GET requests are subject to the limitation size of a URL. Therefore, for operations that
 require larger sizes, use a POST request.
@@ -56,7 +56,7 @@ requests.
 
 To sign requests, we recommend that you use Signature Version 4. If you have an existing application that uses Signature Version 2, you do not
 have to update it to use Signature Version 4. However, some operations now require Signature
-Version 4. The documentation for operations that require version 4 indicate this
+Version 4. The documentation for operations that require version 4 indicates this
 requirement. For more information, see [Signing AWS API requests](../../../IAM/latest/UserGuide/reference_aws-signing.md "../../../IAM/latest/UserGuide/reference_aws-signing.md") in the _IAM User Guide_.
 
 When you use the AWS Command Line Interface (AWS CLI) or one of the AWS SDKs to make
@@ -71,7 +71,7 @@ or post your feedback and questions in the [Account Management support forum](ht
 
 **How examples are presented**
 
-The JSON returned by the Account Management as response to your requests is returned as a single long
+The JSON returned by Account Management in response to your requests is a single long
 string without line breaks or formatting whitespace. Both line breaks and whitespace are
 shown in the examples in this guide to improve readability. When example input parameters
 also would result in long strings that would extend beyond the screen, we insert line breaks

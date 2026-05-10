@@ -38,7 +38,7 @@ resource in the _CloudFormation User Guide_.
 
 ## Amazon VPC Endpoint Policies
 
-You can control what actions can performed through this service endpoint by attaching
+You can control what actions can be performed through this service endpoint by attaching
 an endpoint policy when you create the Amazon VPC endpoint. You can create complex IAM
 rules by attaching multiple endpoint policies. For more information, see:
 
