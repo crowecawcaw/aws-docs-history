@@ -11,7 +11,7 @@ deployed in the _us-east-1_ region and
 **EMS_APPLE** is deployed in
 the _us-east-2_ region:
 
-![Diagram showing message flow between EMS_ORANGE and EMS_APPLE systems with topics and queues.](images/tibco-cross-regional-fig-1.PNG)
+![Cross-region messaging architecture with Topic1 in us-east-1 routing through 7222 to queues in us-east-2.](images/tibco-cross-regional-fig-1.PNG)
 
 For application _App 1_ to communicate with _App 2_:
 
@@ -34,7 +34,7 @@ The shared state setup is the most widely used setup in
 enterprise settings. The following diagram demonstrates the Shared State configuration for a pair of
 messaging servers:
 
-![Diagram showing clients connecting to primary and secondary servers, with a shared resource locked by the primary server.](images/tibco-high-availability-fig-1.PNG)
+![Two clients connecting to primary and secondary servers with solid and dotted lines, both servers accessing shared database with lock mechanism.](images/tibco-high-availability-fig-1.PNG)
 
 In the above diagram, a pair of messaging servers share a state by sharing
 file-based storage. The primary server attains the lock on

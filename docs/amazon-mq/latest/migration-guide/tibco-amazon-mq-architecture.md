@@ -18,7 +18,7 @@ the [Apache ActiveMQ optimization settings](https://activemq.apache.org/performa
 The following diagram illustrates Amazon MQ configured across two regions
 with a linear connection between two active/standby brokers:
 
-![Diagram showing two QM brokers connected via a network connector, each with two queues and availability zones.](images/tibco-amazon-mq-architecture-fig-1.PNG)
+![Two Amazon MQ brokers in different regions connected via network connector with queues and apps.](images/tibco-amazon-mq-architecture-fig-1.PNG)
 
 For _App 1_ to communicate with _App 2_:
 

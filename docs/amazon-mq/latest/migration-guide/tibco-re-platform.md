@@ -20,7 +20,7 @@ architecture without impacting _App 1_ or _App 2_:
 After the reboot of **AMQ_ORANGE**, there should be a Network Bridge
 created between both brokers as illustrated below:
 
-![Network Bridges table showing one remote broker AMQ_APPLE with TCP address and no messages.](images/tibco-replatform-fig-1.PNG)
+![Network Bridges table showing AMQ_APPLE broker with remote address and connection details.](images/tibco-replatform-fig-1.PNG)
 
 ###### Note
 

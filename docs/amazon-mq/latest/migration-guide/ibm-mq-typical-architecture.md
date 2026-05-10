@@ -12,7 +12,7 @@ as seen in many enterprise applications. IBM MQ queue manager
 region and **QM_APPLE** is deployed in the
 _us-east-2_ region.
 
-![Diagram showing message flow between QM_Orange and QM_Apple systems using queues, senders, and receivers.](images/ibm-mq-architecture-fig-1.PNG)
+![Message flow between two queue managers showing queues, transmit and receive channels across availability zones.](images/ibm-mq-architecture-fig-1.PNG)
 
 For application _App 1_ to communicate with _App 2_:
 
@@ -27,7 +27,7 @@ For application _App 1_ to communicate with _App 2_:
 
 ## Option Two: IBM MQ HA/DR topology running on-premises
 
-![System architecture diagram showing MQ cluster, server cluster, and multi-instance queue manager components.](images/ibm-mq-architecture-fig-2.PNG)
+![IBM MQ architecture showing queue managers, multi-instance setup, MQ cluster , and server cluster with SAN storage.](images/ibm-mq-architecture-fig-2.PNG)
 
 In the above diagram, the **MQ Cluster** is comprised of two separate queue managers and
 all messages are routed via cluster channels and queueing. If one queue manager fails, messages are then re-routed to

@@ -16,9 +16,9 @@ broker with consumers in _us-east-1_ and
 **AMQ_APPLE** with consumers in _us-east-2_
 :
 
-![ActiveMQ interface showing two queues with 1 consumer each and no pending messages.](images/ibm-testing-and-validation-fig-1.PNG)
+![ActiveMQ console showing queues table with two queues, each having one pending message.](images/ibm-testing-and-validation-fig-1.PNG)
 
-![ActiveMQ web console showing two queues with 1 consumer each and no pending messages.](images/ibm-testing-and-validation-fig-2.PNG) 2. Both queues are now available to both brokers,
+![ActiveMQ console showing queues table with two queues, each having one consumer indicated by arrows.](images/ibm-testing-and-validation-fig-2.PNG) 2. Both queues are now available to both brokers,
 producers can send messages to any broker, and subscribers
 can receive messages from any broker. For _JMS 1.1_ compliant applications,
 change the endpoint URL to an ActiveMQ failover URL.

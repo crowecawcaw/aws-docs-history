@@ -16,6 +16,6 @@ The following example shows the **AMQ_ORANGE**
 broker with consumers in _us-east-1_ and
 **AMQ_APPLE** with consumers in _us-east-2_
 
-![ActiveMQ interface showing two queues, Q1 and Q2, each with one consumer and no pending messages.](images/tibco-testing-and-validation-fig-1.PNG)
+![ActiveMQ console showing queues table with two queues, each having one consumer highlighted.](images/tibco-testing-and-validation-fig-1.PNG)
 
-![ActiveMQ web interface showing two queues with 1 consumer each and no pending messages.](images/tibco-testing-and-validation-fig-2.PNG)
+![ActiveMQ console showing two queues with one consumer each and green arrows highlighting the consumer count.](images/tibco-testing-and-validation-fig-2.PNG)

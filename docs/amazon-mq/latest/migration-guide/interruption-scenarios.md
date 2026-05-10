@@ -14,9 +14,9 @@ This scenario might cause messages to be delivered out of order.
 The following diagrams illustrate the scenario of migrating from an on-premises message
 broker to an Amazon MQ broker in the AWS Cloud without service interruption.
 
-| On-Premises Message Broker                                                             | Migration to Amazon MQ with Standard (Unordered) Queues                                       |
-| -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| Diagram showing producers connecting to on-premises message broker, then to consumers. | Diagram showing message flow between producers, on-premises broker, AWS cloud, and consumers. |
+| On-Premises Message Broker                                                                       | Migration to Amazon MQ with Standard (Unordered) Queues                                                   |
+| ------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- |
+| Diagram showing producers connecting to on-premises message broker, which connects to consumers. | Architecture diagram showing message flow from producers through on-premises broker to AWS and consumers. |
 
 ### To migrate to Amazon MQ without service interruption
 

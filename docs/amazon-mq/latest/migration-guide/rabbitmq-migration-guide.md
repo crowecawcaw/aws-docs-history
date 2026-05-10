@@ -32,10 +32,10 @@ To export the definitions from a self-managed RabbitMQ cluster and import them i
 1. Go to the RabbitMQ console of your existing self-managed cluster by signing on to any of the brokers.
    Choose the overview tab, then select `Export Definitions` to produce a link to export the definition.
 
-![RabbitMQ console showing node statistics and export definitions option for cluster configuration.](images/migrating-step-1.jpg) 2. Next, login to the Amazon MQ RabbitMQ console. Navigate to the existing broker you would like to apply the configurations to.
+![Nodes table showing file descriptors, socket descriptors, Erlang processes, memory, and disk space metrics with Download broker definitions button highlighted.](images/migrating-step-1.jpg) 2. Next, login to the Amazon MQ RabbitMQ console. Navigate to the existing broker you would like to apply the configurations to.
 Click on the overview tab, then click import definitions to upload the configuration file that you exported in the previous step.
 
-![Import definitions interface with file upload option and button to upload broker definitions.](images/migrating-step-2.jpg) 3. Once the configuration file is imported, you can view all the queues and exchange definitions that were defined in the self-managed broker.
+![Import definitions section with file chooser and Upload broker definitions button.](images/migrating-step-2.jpg) 3. Once the configuration file is imported, you can view all the queues and exchange definitions that were defined in the self-managed broker.
 
 ## Step 2: Moving existing messages to your new Amazon MQ managed broker
 

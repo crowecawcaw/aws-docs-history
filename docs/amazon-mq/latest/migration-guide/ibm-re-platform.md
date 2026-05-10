@@ -20,9 +20,9 @@ without impacting _App 1_ or _App 2_:
 After the reboot of **AMQ_ORANGE**, there should be a Network Bridge
 created between both brokers as illustrated below:
 
-![ActiveMQ network bridges interface showing one remote broker with enqueued and dequeued message counts.](images/ibm-replatform-fig-1.PNG)
+![ActiveMQ Network Bridges table showing broker AMQ_APPLE with remote address and message statistics.](images/ibm-replatform-fig-1.PNG)
 
-![ActiveMQ interface showing Network Bridges with one remote broker and its connection details.](images/ibm-replatform-fig-2.PNG)
+![ActiveMQ Network Bridges page showing remote broker AMQ_ORANGE with address and message statistics.](images/ibm-replatform-fig-2.PNG)
 
 ###### Note
 
@@ -127,6 +127,6 @@ supports an expiration attribute whose value is given in milliseconds as shown b
 5. Create local queue `Q1` on **AMQ_ORANGE** and
    `Q2` on **AMQ_APPLE** as shown in the following:
 
-![ActiveMQ web interface showing queue management with one empty queue named Q1.](images/ibm-replatform-fig-3.PNG)
+![ActiveMQ console showing Queues page with one queue named Q1 having zero pending messages.](images/ibm-replatform-fig-3.PNG)
 
-![ActiveMQ web interface showing a queue named Q2 with no pending messages or consumers.](images/ibm-replatform-fig-4.PNG)
+![ActiveMQ Queues page showing queue Q2 with zero pending messages, consumers, and enqueued messages.](images/ibm-replatform-fig-4.PNG)
