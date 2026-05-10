@@ -87,8 +87,10 @@ Nitro Enclaves has the following requirements:
   | M8i             | All instance types, **except**: `m8i.large`    | `m8i.metal-48xl`   | `m8i.metal-96xl`   |
   | M8id            | All instance types, **except**: `m8id.large`   | `m8id.metal-48xl`  | `m8id.metal-96xl`  |
   | M8in            | All instance types, **except**: `m8in.large`   |
+  | M8idn           | All instance types, **except**: `m8idn.large`  |
   | M8ine           | All instance types, **except**: `m8ine.large`  |
   | M8ib            | All instance types, **except**: `m8ib.large`   |
+  | M8idb           | All instance types, **except**: `m8idb.large`  |
 
   Compute optimized
 
@@ -152,7 +154,9 @@ Nitro Enclaves has the following requirements:
   | R8i             | All instance types, **except**: `r8i.large`         | `r8i.metal-48xl`    | `r8i.metal-96xl`  |
   | R8id            | All instance types, **except**: `r8id.large`        | `r8id.metal-48xl`   | `r8id.metal-96xl` |
   | R8in            | All instance types, **except**: `r8in.large`        |
+  | R8idn           | All instance types, **except**: `r8idn.large`       |
   | R8ib            | All instance types, **except**: `r8ib.large`        |
+  | R8idb           | All instance types, **except**: `r8idb.large`       |
   | X2gd            | All instance types, **except**: `x2gd.medium`       | `x2gd.metal`        |
   | X2idn           | All instance types, **except**: `x2idn.metal`       |
   | X2iedn          | All instance types, **except**: `x2iedn.metal`      |
