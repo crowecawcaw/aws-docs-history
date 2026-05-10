@@ -70,10 +70,6 @@ GPU
 - [GPU PyTorch 2.9 (Ubuntu 24.04)](aws-deep-learning-x86-gpu-pytorch-2.9-ubuntu-24-04.md "aws-deep-learning-x86-gpu-pytorch-2.9-ubuntu-24-04.md")
 - [GPU PyTorch 2.8 (Amazon Linux 2023)](aws-deep-learning-x86-gpu-pytorch-2.8-amazon-linux-2023.md "aws-deep-learning-x86-gpu-pytorch-2.8-amazon-linux-2023.md")
 - [GPU PyTorch 2.8 (Ubuntu 24.04)](aws-deep-learning-x86-gpu-pytorch-2.8-ubuntu-24-04.md "aws-deep-learning-x86-gpu-pytorch-2.8-ubuntu-24-04.md")
-- [GPU PyTorch 2.7 (Amazon Linux 2023)](aws-deep-learning-x86-gpu-pytorch-2.7-amazon-linux-2023.md "aws-deep-learning-x86-gpu-pytorch-2.7-amazon-linux-2023.md")
-- [GPU PyTorch 2.7 (Ubuntu 22.04)](aws-deep-learning-x86-gpu-pytorch-2.7-ubuntu-22-04.md "aws-deep-learning-x86-gpu-pytorch-2.7-ubuntu-22-04.md")
-- [GPU PyTorch 2.6 (Amazon Linux 2023)](aws-deep-learning-x86-gpu-pytorch-2.6-amazon-linux-2023.md "aws-deep-learning-x86-gpu-pytorch-2.6-amazon-linux-2023.md")
-- [GPU PyTorch 2.6 (Ubuntu 22.04)](aws-deep-learning-x86-gpu-pytorch-2.6-ubuntu-22-04.md "aws-deep-learning-x86-gpu-pytorch-2.6-ubuntu-22-04.md")
 
 ######
 
@@ -95,10 +91,6 @@ GPU
 - [ARM64 AMI GPU Pytorch 2.9 (Ubuntu 24.04)](aws-deep-learning-arm64-gpu-pytorch-2.9-ubuntu-24-04.md "aws-deep-learning-arm64-gpu-pytorch-2.9-ubuntu-24-04.md")
 - [ARM64 AMI GPU PyTorch 2.8 (Amazon Linux 2023)](aws-deep-learning-arm64-gpu-pytorch-2.8-amazon-linux-2023.md "aws-deep-learning-arm64-gpu-pytorch-2.8-amazon-linux-2023.md")
 - [ARM64 AMI GPU PyTorch 2.8 (Ubuntu 24.04)](aws-deep-learning-arm64-gpu-pytorch-2.8-ubuntu-24-04.md "aws-deep-learning-arm64-gpu-pytorch-2.8-ubuntu-24-04.md")
-- [ARM64 AMI GPU PyTorch 2.7 (Amazon Linux 2023)](aws-deep-learning-arm64-gpu-pytorch-2.7-amazon-linux-2023.md "aws-deep-learning-arm64-gpu-pytorch-2.7-amazon-linux-2023.md")
-- [ARM64 AMI GPU PyTorch 2.7 (Ubuntu 22.04)](aws-deep-learning-arm64-gpu-pytorch-2.7-ubuntu-22-04.md "aws-deep-learning-arm64-gpu-pytorch-2.7-ubuntu-22-04.md")
-- [ARM64 AMI GPU PyTorch 2.6 (Amazon Linux 2023)](aws-deep-learning-arm64-gpu-pytorch-2.6-amazon-linux-2023.md "aws-deep-learning-arm64-gpu-pytorch-2.6-amazon-linux-2023.md")
-- [ARM64 AMI GPU PyTorch 2.6 (Ubuntu 22.04)](aws-deep-learning-arm64-gpu-pytorch-2.6-ubuntu-22-04.md "aws-deep-learning-arm64-gpu-pytorch-2.6-ubuntu-22-04.md")
 
 **AWS Neuron**
 
