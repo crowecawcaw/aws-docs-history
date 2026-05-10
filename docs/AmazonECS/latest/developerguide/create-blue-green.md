@@ -28,8 +28,9 @@ This tutorial assumes that you have completed the following prerequisites:
 
 ## Step 1: Create an Application Load Balancer
 
-Amazon ECS services using the blue/green deployment type require the use of either an Application Load Balancer
-or a Network Load Balancer. This tutorial uses an Application Load Balancer.
+Amazon ECS services using the blue/green deployment type can use an Application Load Balancer, Network Load Balancer,
+Service Connect, or be headless. For managed traffic shifting, you need a load balancer
+or Service Connect. This tutorial uses an Application Load Balancer.
 
 ###### To create an Application Load Balancer
 

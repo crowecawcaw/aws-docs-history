@@ -74,6 +74,10 @@ Consider the following when using ECS Exec:
   For more information about running tasks in an IPv6-only configuration, see
   [Amazon ECS task networking options for Fargate](fargate-task-networking.md "fargate-task-networking.md") and [Amazon ECS task networking options for EC2](task-networking.md "task-networking.md").
 - ECS Exec and SSM
+  - Your task requires a task IAM role with the required
+    permissions for SSM Session Manager. For tasks on Amazon EC2, if no
+    task role is configured, the instance role of the underlying Amazon EC2
+    instance is used instead. For more information, see [ECS Exec permissions](task-iam-roles.md#ecs-exec-required-iam-permissions "task-iam-roles.md#ecs-exec-required-iam-permissions").
   - When a user runs commands on a container using ECS Exec, these commands
     are run as the `root` user. The SSM agent and its child
     processes run as root even when you specify a user ID for the

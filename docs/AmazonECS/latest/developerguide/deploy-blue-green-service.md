@@ -11,8 +11,10 @@ Perform the following operations before you start a blue/green deployment.
     - For information about Elastic Load Balancing permissions, see [Amazon ECS infrastructure IAM role for load balancers](AmazonECSInfrastructureRolePolicyForLoadBalancers.md "AmazonECSInfrastructureRolePolicyForLoadBalancers.md").
     - For information about Lambda permissions, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](blue-green-permissions.md "blue-green-permissions.md")
 
-2.  Amazon ECS blue/green deployments require that your service to use one of the
-    following features: Configure the appropriate resources.
+2.  (Optional) For managed traffic shifting, configure one of the following
+    resources. If your service is headless (no load balancer or Service Connect), you
+    can skip this step. Amazon ECS doesn't manage the traffic shift automatically for
+    headless services.
     - Application Load Balancer - For more information, see [Application Load Balancer resources for blue/green, linear, and canary deployments](alb-resources-for-blue-green.md "alb-resources-for-blue-green.md").
     - Network Load Balancer - For more information, see [Network Load Balancer resources for Amazon ECS blue/green, linear and canary deployments](nlb-resources-for-blue-green.md "nlb-resources-for-blue-green.md").
     - Service Connect - For more information, see [Service Connect resources for Amazon ECS blue/green, linear, and canary deployments](service-connect-blue-green.md "service-connect-blue-green.md").
@@ -270,7 +272,10 @@ values.
         "roleArn": "`arn:aws:iam::123456789012:role/ECSLifecycleHookInvoke`",
         "lifecycleStages": [
           "PRE_SCALE_UP"
-        ]
+        ],
+        "hookDetails": {
+          "`MY_CONFIG_KEY`": "`my-config-value`"
+        }
       }
     ]
   },

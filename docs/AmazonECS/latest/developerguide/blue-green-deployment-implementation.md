@@ -1,22 +1,27 @@
 # Required resources for Amazon ECS blue/green deployments
 
-To use a blue/green deployment with managed traffic shifting, your service must use
-one of the following features:
+You can use Amazon ECS blue/green deployments with or without managed traffic shifting. When
+your service uses Elastic Load Balancing or Service Connect, Amazon ECS manages the traffic shift between the
+blue and green service revisions for you. If your service doesn't use a load balancer or
+Service Connect (headless service), you can still use blue/green deployments for controlled
+rollouts, but Amazon ECS doesn't manage the traffic shift automatically.
+
+For managed traffic shifting, configure one of the following:
 
 - Elastic Load Balancing
 - Service Connect
-  Services that don't use Service Discovery, Service Connect, VPC Lattice or Elastic Load Balancing can also
-  use blue/green deployments, but don't get any of the managed traffic shifting
-  benefits.
+  The following list provides a high-level overview of what you need to configure for
+  Amazon ECS blue/green deployments:
 
-The following list provides a high-level overview of what you need to configure for
-Amazon ECS blue/green deployments:
+- If your service uses an Application Load Balancer, Network Load Balancer, or Service Connect, configure the
+  appropriate resources for managed traffic shifting.
 
-- Your service uses an Application Load Balancer, Network Load Balancer, or Service Connect. Configure the appropriate
-  resources.
-  - Application Load Balancer - For more information, see [Application Load Balancer resources for blue/green, linear, and canary deployments](alb-resources-for-blue-green.md "alb-resources-for-blue-green.md").
-  - Network Load Balancer - For more information, see [Network Load Balancer resources for Amazon ECS blue/green, linear and canary deployments](nlb-resources-for-blue-green.md "nlb-resources-for-blue-green.md").
-  - Service Connect - For more information, see [Service Connect resources for Amazon ECS blue/green, linear, and canary deployments](service-connect-blue-green.md "service-connect-blue-green.md").
+      + Application Load Balancer - For more information, see [Application Load Balancer resources for blue/green, linear, and canary deployments](alb-resources-for-blue-green.md "alb-resources-for-blue-green.md").
+      + Network Load Balancer - For more information, see [Network Load Balancer resources for Amazon ECS blue/green, linear and canary deployments](nlb-resources-for-blue-green.md "nlb-resources-for-blue-green.md").
+      + Service Connect - For more information, see [Service Connect resources for Amazon ECS blue/green, linear, and canary deployments](service-connect-blue-green.md "service-connect-blue-green.md").
+
+  If your service is headless (no load balancer or Service Connect), you don't
+  need to configure additional traffic shifting resources.
 
 - Set the service deployment controller to `ECS`.
 - Configure the deployment strategy as `blue/green` in your service definition.
