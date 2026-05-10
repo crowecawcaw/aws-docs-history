@@ -50,7 +50,7 @@ For information about running automations, see [Running a simple automation](../
 - [CodeBuild](automation-ref-acb.md "automation-ref-acb.md")
 - [AWS CodeDeploy](automation-ref-acd.md "automation-ref-acd.md")
 - [AWS Config](automation-ref-cc.md "automation-ref-cc.md")
-- [Amazon Connect](automation-ref-con.md "automation-ref-con.md")
+- [Connect Customer](automation-ref-con.md "automation-ref-con.md")
 - [AWS Directory Service](automation-ref-ads.md "automation-ref-ads.md")
 - [AWS AppSync](automation-ref-apsy.md "automation-ref-apsy.md")
 - [Amazon Athena](automation-ref-ate.md "automation-ref-ate.md")

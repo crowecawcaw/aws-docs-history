@@ -3,7 +3,7 @@
 **Description**
 
 The `AWSSupport-AssociatePhoneNumbersToConnectContactFlows` helps you
-associate phone numbers to contact flows in your Amazon Connect instance. By providing the mappings
+associate phone numbers to contact flows in your Connect Customer instance. By providing the mappings
 of phone numbers and contact flows in an input comma-separated values (CSV) file, the
 runbook associates as many phone numbers to contact flows as possible within 14.5 minutes.
 The runbook produces a CSV file of all phone number and contact flow pairs that it couldn't
@@ -12,7 +12,7 @@ associate within the time limit so that you can input them in the next run.
 **How does it work?**
 
 The runbook `AWSSupport-AssociatePhoneNumbersToConnectContactFlows` helps you
-associate phone numbers to contact flows in your Amazon Connect instance using a CSV file of mapping
+associate phone numbers to contact flows in your Connect Customer instance using a CSV file of mapping
 data that is stored in an Amazon Simple Storage Service (Amazon S3) bucket. The input CSV file should align to the
 following format, with `PhoneNumber` values in [E.164](https://www.itu.int/rec/T-REC-E.164/en "https://www.itu.int/rec/T-REC-E.164/en") format.
 
@@ -197,7 +197,7 @@ Follow these steps to configure the automation:
     runbook.
     - **ConnectInstanceId (Required)**
 
-    The ID of your Amazon Connect instance.
+    The ID of your Connect Customer instance.
     - **SourceFileBucket (Required)**
 
     The Amazon S3 bucket that stores the CSV file that contains the phone number
@@ -240,7 +240,7 @@ Follow these steps to configure the automation:
 6.  The document performs the following steps:
     - **CheckConnectInstanceExistance**
 
-    Checks if the Amazon Connect instance provided in `ConnectInstanceId`
+    Checks if the Connect Customer instance provided in `ConnectInstanceId`
     exists.
     - **CheckS3BucketPublicStatus**
 
