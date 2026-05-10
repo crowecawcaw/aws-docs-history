@@ -6,7 +6,7 @@ Choose an application in the following list to learn more about its setup requir
 
 - [Adobe Analytics](connectors-adobeanalytics.md "connectors-adobeanalytics.md")
 - [AfterShip](connectors-aftership.md "connectors-aftership.md")
-- [Amazon Connect](connectors-amazon-connect.md "connectors-amazon-connect.md")
+- [Connect Customer](connectors-amazon-connect.md "connectors-amazon-connect.md")
 - [Amazon EventBridge](EventBridge.md "EventBridge.md")
 - [Amazon Lookout for Metrics](lookout.md "lookout.md")
 - [Amazon RDS for PostgreSQL](connectors-amazon-rds-postgres-sql.md "connectors-amazon-rds-postgres-sql.md")

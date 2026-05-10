@@ -439,7 +439,7 @@ maximum at any one time.
 
 When you create a flow that uses SAP OData as the data source, you can set the destination to any of the following connectors:
 
-- Amazon Connect
+- Amazon Connect Customer
 - Amazon Redshift
 - Amazon S3
 - SAP OData

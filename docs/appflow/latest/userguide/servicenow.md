@@ -101,7 +101,7 @@ section.
 
 When you create a flow that uses ServiceNow as the data source, you can set the destination to any of the following connectors:
 
-- Amazon Connect
+- Amazon Connect Customer
 - Amazon Honeycode
 - Lookout for Metrics
 - Amazon Redshift

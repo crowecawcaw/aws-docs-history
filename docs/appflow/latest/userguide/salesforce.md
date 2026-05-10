@@ -398,7 +398,7 @@ error handling option that you chose when you configured the flow.
 
 When you create a flow that uses Salesforce as the data source, you can set the destination to any of the following connectors:
 
-- Amazon Connect
+- Amazon Connect Customer
 - Amazon EventBridge
 - Amazon Honeycode
 - Lookout for Metrics

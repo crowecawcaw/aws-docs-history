@@ -80,7 +80,7 @@ If you aren’t connected successfully, ensure that you have followed the instru
 
 When you create a flow that uses Zendesk as the data source, you can set the destination to any of the following connectors:
 
-- Amazon Connect
+- Amazon Connect Customer
 - Amazon Honeycode
 - Lookout for Metrics
 - Amazon Redshift

@@ -137,7 +137,7 @@ Classification** you can add the appropriate filters here.
 
 When you create a flow that uses Veeva as the data source, you can set the destination to any of the following connectors:
 
-- Amazon Connect
+- Amazon Connect Customer
 - Amazon Honeycode
 - Lookout for Metrics
 - Amazon Redshift
