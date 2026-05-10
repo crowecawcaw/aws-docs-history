@@ -63,7 +63,7 @@ the graph display.
 
 You can use CloudWatch metrics to watch your instance throughput and discover if your
 instance class provides sufficient resources for your applications. For information
-about your DB instance class limits, go to [Hardware specifications for DB instance classesfor Aurora](Concepts.DBInstanceClass.Summary.md "Concepts.DBInstanceClass.Summary.md") and locate the specifications for
+about your DB instance class limits, go to [Hardware specifications for DB instance classes for Aurora](Concepts.DBInstanceClass.Summary.md "Concepts.DBInstanceClass.Summary.md") and locate the specifications for
 your DB instance class to find your network performance.
 
 If your DB instance usage is near the instance class limit, then performance may

@@ -95,4 +95,4 @@ network bandwidth limits, the only way to increase the bandwidth is to increase 
 For more information about CloudWatch metrics,
 
 see [Amazon CloudWatch metrics for Amazon Aurora](Aurora.AuroraMonitoring.Metrics.md "Aurora.AuroraMonitoring.Metrics.md").
-For information about network performance for each DB instance class, see [Hardware specifications for DB instance classesfor Aurora](Concepts.DBInstanceClass.Summary.md "Concepts.DBInstanceClass.Summary.md").
+For information about network performance for each DB instance class, see [Hardware specifications for DB instance classes for Aurora](Concepts.DBInstanceClass.Summary.md "Concepts.DBInstanceClass.Summary.md").

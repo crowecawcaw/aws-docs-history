@@ -61,8 +61,8 @@ available from the following PostgreSQL versions:
 - 15.12 and higher 15 versions
 - 14.17 and higher 14 versions
 
-With this parameter, you can resize the capacity from 2x up to 6x of instance memory
-without requiring database engine restart. When you expand temporary object space, the
+With this parameter, you can resize the capacity from 2x of instance memory up to 90% of total instance
+NVMe storage capacity without requiring database engine restart. When you expand temporary object space, the
 change takes effect immediately, regardless of concurrent workloads. However, when you
 reduce the space, the adjustment completes only after there is sufficient unused space
 in temporary objects to accommodate the new size request. After you resize Optimized

@@ -117,7 +117,7 @@ We recommend using the T DB instance classes only for development, test,
 or other nonproduction servers. For more detailed recommendations for the T instance
 classes, see [Using T instance classes for development and testing](AuroraMySQL.BestPractices.Performance.md#AuroraMySQL.BestPractices.T2Medium "AuroraMySQL.BestPractices.Performance.md#AuroraMySQL.BestPractices.T2Medium").
 
-For DB instance class hardware specifications, see [Hardware specifications for DB instance classesfor Aurora](Concepts.DBInstanceClass.Summary.md "Concepts.DBInstanceClass.Summary.md").
+For DB instance class hardware specifications, see [Hardware specifications for DB instance classes for Aurora](Concepts.DBInstanceClass.Summary.md "Concepts.DBInstanceClass.Summary.md").
 
 ## Optimized Reads instance class types
 

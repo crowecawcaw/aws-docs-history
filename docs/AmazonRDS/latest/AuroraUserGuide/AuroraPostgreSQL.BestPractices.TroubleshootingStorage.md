@@ -7,7 +7,7 @@ same storage space that it uses for storing error and message logs, that is,
 _local storage_. Each instance in your Aurora PostgreSQL DB cluster
 has an amount of local storage available. The amount of storage is based on its DB
 instance class. To increase the amount of local storage, you need to modify the instance
-to use a larger DB instance class. For DB instance class specifications, see [Hardware specifications for DB instance classesfor Aurora](Concepts.DBInstanceClass.Summary.md "Concepts.DBInstanceClass.Summary.md").
+to use a larger DB instance class. For DB instance class specifications, see [Hardware specifications for DB instance classes for Aurora](Concepts.DBInstanceClass.Summary.md "Concepts.DBInstanceClass.Summary.md").
 
 You can monitor your Aurora PostgreSQL DB cluster's local storage space by watching
 the Amazon CloudWatch metric for `FreeLocalStorage`. This metric reports the amount of

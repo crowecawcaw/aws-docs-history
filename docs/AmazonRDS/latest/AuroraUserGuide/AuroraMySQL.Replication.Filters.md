@@ -73,7 +73,7 @@ You can use the `%` and `_` wildcard characters in the `replicate-wild-do-table`
 The binary logging format of the source DB instance is important for replication because it determines the record of data
 changes. The setting of the `binlog_format` parameter determines whether the replication is row-based or
 statement-based. For more information, see
-[Configuring Aurora MySQL binary logging for Single-AZ databases](USER_LogAccess.MySQL.BinaryFormat.md "USER_LogAccess.MySQL.BinaryFormat.md").
+[Configuring Aurora MySQL binary logging](USER_LogAccess.MySQL.BinaryFormat.md "USER_LogAccess.MySQL.BinaryFormat.md") .
 
 ###### Note
 

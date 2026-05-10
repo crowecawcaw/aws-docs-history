@@ -9,7 +9,7 @@ supported for Aurora MySQL versions 2 and 3.
 The following values, and combinations of them, can be used for the `aurora_oom_response` parameter. An empty string means that no
 action is taken, and effectively turns off the feature, leaving the database prone to OOM restarts.
 
-- `decline` – Declines new queries when the DB instance is low on memory.
+- `decline` – Declines new queries with an "out of memory" message when the DB instance is low on memory.
 - `kill_connect` – Closes database connections that are consuming a large amount of memory, and ends current
   transactions and Data Definition Language (DDL) statements. This response isn't supported for Aurora MySQL version 2.
 

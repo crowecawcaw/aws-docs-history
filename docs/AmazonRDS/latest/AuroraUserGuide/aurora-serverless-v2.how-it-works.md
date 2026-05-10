@@ -237,12 +237,15 @@ maximum, and average values over time. To learn more about Aurora metrics, see
 Aurora serverless, see
 [Important Amazon CloudWatch metrics for Aurora serverless](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.viewing.monitoring "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.viewing.monitoring").
 
-You can choose to make a reader scale at the same time as the associated writer, or independently from the
+You can choose to make a reader follow the capacity of the associated writer, or scale independently from the
 writer. You do so by specifying the promotion tier for that reader.
 
-- Readers in promotion tiers 0 and 1 scale at the same time as the writer. That scaling behavior makes
-  readers in priority tiers 0 and 1 ideal for availability. That's because they are always sized to the
-  right capacity to take over the workload from the writer in case of failover.
+- For readers in promotion tiers 0 and 1, the minimum capacity is defined by the current writer
+  capacity and the maximum capacity is the maximum ACU value specified for the cluster. That scaling
+  behavior makes readers in priority tiers 0 and 1 ideal for availability. That's because they are
+  at least as large as the writer, so they can take over the workload from the writer in case of a failover.
+  If the writer is a provisioned instance, the serverless reader's minimum capacity is the ACU
+  equivalent of the writer's memory size.
 - Readers in promotion tiers 2–15 scale independently from the writer. Each reader remains within the
   minimum and maximum ACU values that you specified for your cluster. When a reader scales independently of
   the associated writer DB, it can become idle and scale down while the writer continues to process a high
@@ -318,9 +321,9 @@ information, see
 [High availability for Amazon Aurora](Concepts.AuroraHighAvailability.md "Concepts.AuroraHighAvailability.md").
 
 Suppose that you want to ensure maximum availability for your Aurora serverless cluster. You can create a
-reader in addition to the writer. If you assign the reader to promotion tier 0 or 1, whatever scaling happens
-for the writer also happens for the reader. That way, a reader with identical capacity is always ready to take
-over for the writer in case of a failover.
+reader in addition to the writer. If you assign the reader to promotion tier 0 or 1, the reader's minimum
+capacity will match the current writer capacity (or writer's memory size, for provisioned writers).
+That way, a reader is always ready to take over for the writer in case of a failover.
 
 Suppose that you want to run quarterly reports for your business at the same time as your cluster continues to
 process transactions. If you add an Aurora serverless reader to the cluster and assign it to a promotion tier

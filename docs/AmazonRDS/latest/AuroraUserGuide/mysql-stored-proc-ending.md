@@ -60,7 +60,7 @@ ended.
 To stop a query running against the MySQL server, use the
 `mysql_rds_kill_query` procedure and pass in the connection ID of the
 thread that is running the query. The procedure then terminates the
-connection.
+query, but leaves the connection itself intact.
 
 To obtain the ID, query the MySQL [INFORMATION_SCHEMA PROCESSLIST table](https://dev.mysql.com/doc/refman/8.0/en/information-schema-processlist-table.html "https://dev.mysql.com/doc/refman/8.0/en/information-schema-processlist-table.html") or use the MySQL [SHOW
 PROCESSLIST](https://dev.mysql.com/doc/refman/8.0/en/show-processlist.html "https://dev.mysql.com/doc/refman/8.0/en/show-processlist.html") command. The value in the ID column from `SHOW

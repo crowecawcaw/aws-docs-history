@@ -11,5 +11,5 @@ see [Monitoring Amazon Aurora log files](USER_LogAccess.md "USER_LogAccess.md").
 
 - [Overview of Aurora MySQL database logs](USER_LogAccess.MySQL.LogFileSize.md "USER_LogAccess.MySQL.LogFileSize.md")
 - [Sending AuroraMySQL log output to tables](Appendix.MySQL.CommonDBATasks.Logs.md "Appendix.MySQL.CommonDBATasks.Logs.md")
-- [Configuring Aurora MySQL binary logging for Single-AZ databases](USER_LogAccess.MySQL.BinaryFormat.md "USER_LogAccess.MySQL.BinaryFormat.md")
+- [Configuring Aurora MySQL binary logging](USER_LogAccess.MySQL.BinaryFormat.md "USER_LogAccess.MySQL.BinaryFormat.md")
 - [Accessing MySQL binary logs](USER_LogAccess.MySQL.Binarylog.md "USER_LogAccess.MySQL.Binarylog.md")

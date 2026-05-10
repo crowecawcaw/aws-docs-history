@@ -1,4 +1,4 @@
-# Hardware specifications for DB instance classesfor Aurora
+# Hardware specifications for DB instance classes for Aurora
 
 In the table in this section, you can find hardware details about the Amazon RDS DB instance
 classes for Aurora.
@@ -8,11 +8,11 @@ For information about Aurora DB engine support for each DB instance class, see
 
 ###### Topics
 
-- [Hardware terminology for DB instance classesfor Aurora](#Concepts.DBInstanceClass.hardware-terminology "#Concepts.DBInstanceClass.hardware-terminology")
+- [Hardware terminology for DB instance classes for Aurora](#Concepts.DBInstanceClass.hardware-terminology "#Concepts.DBInstanceClass.hardware-terminology")
 - [Hardware specifications for the memory-optimized instance classes](#hw-specs-aur.mem-opt "#hw-specs-aur.mem-opt")
 - [Hardware specifications for the burstable-performance instance classes](#hardware-specifications.burstable-inst-classes "#hardware-specifications.burstable-inst-classes")
 
-## Hardware terminology for DB instance classesfor Aurora
+## Hardware terminology for DB instance classes for Aurora
 
 The following terminology is used to describe hardware specifications for DB instance
 classes:

@@ -64,7 +64,7 @@ the most effective. Consider the following factors when choosing the minimum cap
 - If you typically modify the DB instance class of your DB instances in anticipation of especially high or
   low workload, you can use that experience to make a rough estimate of the equivalent Aurora serverless
   capacity range. To determine the memory size to use in times of low traffic, consult
-  [Hardware specifications for DB instance classesfor Aurora](Concepts.DBInstanceClass.Summary.md "Concepts.DBInstanceClass.Summary.md").
+  [Hardware specifications for DB instance classes for Aurora](Concepts.DBInstanceClass.Summary.md "Concepts.DBInstanceClass.Summary.md").
 
 For example, suppose that you use the db.r6g.xlarge DB instance class when your cluster has a low
 workload. That DB instance class has 32 GiB of memory. Thus, you can specify a minimum Aurora capacity unit
@@ -137,7 +137,7 @@ thought. Consider the following factors when choosing the maximum capacity setti
 - If you typically modify the DB instance class of your DB instances in anticipation of especially high or
   low workload, you can use that experience to estimate the equivalent Aurora serverless capacity range. To
   determine the memory size to use in times of high traffic, consult
-  [Hardware specifications for DB instance classesfor Aurora](Concepts.DBInstanceClass.Summary.md "Concepts.DBInstanceClass.Summary.md").
+  [Hardware specifications for DB instance classes for Aurora](Concepts.DBInstanceClass.Summary.md "Concepts.DBInstanceClass.Summary.md").
 
 For example, suppose that you use the db.r6g.4xlarge DB instance class when your cluster has a high
 workload. That DB instance class has 128 GiB of memory. Thus, you can specify a maximum ACU setting of 64

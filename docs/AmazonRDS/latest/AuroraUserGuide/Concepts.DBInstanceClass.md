@@ -19,4 +19,4 @@ For more information about DB instance class types, supported DB engines, suppor
 - [DB instance class types](Concepts.DBInstanceClass.Types.md "Concepts.DBInstanceClass.Types.md")
 - [Supported DB engines for DB instance classes](Concepts.DBInstanceClass.SupportAurora.md "Concepts.DBInstanceClass.SupportAurora.md")
 - [Determining DB instance class support in AWS Regions](Concepts.DBInstanceClass.RegionSupportAurora.md "Concepts.DBInstanceClass.RegionSupportAurora.md")
-- [Hardware specifications for DB instance classesfor Aurora](Concepts.DBInstanceClass.Summary.md "Concepts.DBInstanceClass.Summary.md")
+- [Hardware specifications for DB instance classes for Aurora](Concepts.DBInstanceClass.Summary.md "Concepts.DBInstanceClass.Summary.md")

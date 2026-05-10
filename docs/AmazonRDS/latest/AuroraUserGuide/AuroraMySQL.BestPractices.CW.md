@@ -1,7 +1,7 @@
 # Evaluating DB instance usage for Aurora MySQL with Amazon CloudWatch metrics
 
 You can use CloudWatch metrics to monitor your DB instance throughput and determine whether your DB instance class provides sufficient resources for
-your applications. For information about your DB instance class limits, see [Hardware specifications for DB instance classesfor Aurora](Concepts.DBInstanceClass.Summary.md "Concepts.DBInstanceClass.Summary.md"). Find the specifications for your DB instance class to find the network performance.
+your applications. For information about your DB instance class limits, see [Hardware specifications for DB instance classes for Aurora](Concepts.DBInstanceClass.Summary.md "Concepts.DBInstanceClass.Summary.md"). Find the specifications for your DB instance class to find the network performance.
 
 If your DB instance usage is near the instance class limit, then performance may begin to slow. The CloudWatch metrics can confirm this situation so you
 can plan to manually scale-up to a larger instance class.

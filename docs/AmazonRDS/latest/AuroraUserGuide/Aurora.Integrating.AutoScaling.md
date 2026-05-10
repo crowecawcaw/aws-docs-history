@@ -32,7 +32,7 @@ policy based on a predefined or custom metric.
 Before you can use Aurora Auto Scaling with an Aurora DB cluster, you must first create an Aurora DB cluster with a primary
 (writer) DB instance. For more information about creating an Aurora DB cluster, see [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md "Aurora.CreateInstance.md").
 
-Aurora Auto Scaling only scales a DB cluster if the DB cluster is in the available state.
+Aurora Auto Scaling only scales a DB cluster if all cluster instances are in the available state.
 
 When Aurora Auto Scaling adds a new Aurora Replica, the new Aurora Replica is the same DB
 instance class as the one used by the primary instance. For more information about DB

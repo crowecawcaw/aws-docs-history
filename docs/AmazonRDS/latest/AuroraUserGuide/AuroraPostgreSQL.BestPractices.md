@@ -19,6 +19,7 @@ cluster. Be sure to also review basic maintenance tasks. For more information, s
 - [Managing custom casts in Aurora PostgreSQL](PostgreSQL.CustomCasts.md "PostgreSQL.CustomCasts.md")
 - [Best Practices for Parallel Queries in Aurora PostgreSQL](PostgreSQL.ParallelQueries.md "PostgreSQL.ParallelQueries.md")
 - [Avoiding performance issues with REPLICA IDENTITY FULL in Aurora PostgreSQL](PostgreSQL.ReplicaIdentityFull.md "PostgreSQL.ReplicaIdentityFull.md")
+- [Initial troubleshooting for common PostgreSQL performance issues in Aurora PostgreSQL](PostgreSQL.InitialTroubleshooting.md "PostgreSQL.InitialTroubleshooting.md")
 - [Troubleshooting storage issues in Aurora PostgreSQL](AuroraPostgreSQL.BestPractices.TroubleshootingStorage.md "AuroraPostgreSQL.BestPractices.TroubleshootingStorage.md")
 
 ## Avoiding slow performance, automatic restart, and failover for Aurora PostgreSQL DB instances

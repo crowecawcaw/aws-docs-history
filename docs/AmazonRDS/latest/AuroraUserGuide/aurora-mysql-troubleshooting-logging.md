@@ -55,7 +55,7 @@ decrease.
 
 Aurora MySQL doesn't require binary logging for restore operations.
 
-For more information on enabling binary logging and setting the binlog format, see [Configuring Aurora MySQL binary logging for Single-AZ databases](USER_LogAccess.MySQL.BinaryFormat.md "USER_LogAccess.MySQL.BinaryFormat.md"), and [The binary log](https://dev.mysql.com/doc/refman/8.0/en/binary-log.html "https://dev.mysql.com/doc/refman/8.0/en/binary-log.html") in the MySQL
+For more information on enabling binary logging and setting the binlog format, see [Configuring Aurora MySQL binary logging](USER_LogAccess.MySQL.BinaryFormat.md "USER_LogAccess.MySQL.BinaryFormat.md") , and [The binary log](https://dev.mysql.com/doc/refman/8.0/en/binary-log.html "https://dev.mysql.com/doc/refman/8.0/en/binary-log.html") in the MySQL
 documentation.
 You can publish the error, general, slow, query, and audit logs to Amazon CloudWatch Logs. For more information, see [Publishing database logs to Amazon CloudWatch Logs](USER_LogAccess.Procedural.UploadtoCloudWatch.md "USER_LogAccess.Procedural.UploadtoCloudWatch.md").
 
