@@ -4,6 +4,8 @@ The following are the release notes for Amazon Linux 2 for 2026.
 
 ###### Release notes
 
+- [2.0.20260508](relnotes-20260508.md "relnotes-20260508.md")
+- [2.0.20260504](relnotes-20260504.md "relnotes-20260504.md")
 - [2.0.20260427](relnotes-20260427.md "relnotes-20260427.md")
 - [2.0.20260413](relnotes-20260413.md "relnotes-20260413.md")
 - [2.0.20260406](relnotes-20260406.md "relnotes-20260406.md")
