@@ -510,7 +510,7 @@ Using the AWS Management Console
 ###### Tip
 
 If you don't see the navigation pane on the left side of your screen, choose the menu icon
-(![Hamburger menu icon with three horizontal lines.](images/docdb-menu-icon.png))
+(![Menu button.](images/docdb-menu-icon.png))
 in the upper-left corner of the page. 3. In the **Parameter groups** pane, choose the
 cluster parameter group that is associated with your cluster. To
 identify the cluster parameter group that is associated with your

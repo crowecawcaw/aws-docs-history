@@ -67,7 +67,8 @@ of RAM for your cache. Amazon DocumentDB reserves one-third of the RAM for its o
 that only two-thirds of the instance RAM is available for the cache. Thus, it is an Amazon DocumentDB
 best practice to choose an instance type with enough RAM to fit your working set (i.e.,
 data and indexes) in memory. Having properly sized instances will help optimize for overall
-performance and potentially minimize I/O cost.
+performance and potentially minimize I/O cost. You can use the third party [Amazon DocumentDB sizing calculator](https://aws.improving.com/documentdb/cost-estimator/ "https://aws.improving.com/documentdb/cost-estimator/") to estimate
+the instance size for a particular workload.
 
 To determine whether your application's working set fits in memory, monitor the
 `BufferCacheHitRatio` using Amazon CloudWatch for each instance in a cluster

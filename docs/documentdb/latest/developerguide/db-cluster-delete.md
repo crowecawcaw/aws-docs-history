@@ -33,7 +33,7 @@ must be disabled.
 ###### Tip
 
 If you don't see the navigation pane on the left side of your screen, choose the menu icon
-(![Hamburger menu icon with three horizontal lines.](images/docdb-menu-icon.png))
+(![Menu button.](images/docdb-menu-icon.png))
 in the upper-left corner of the page. 3. Note that in the Clusters navigation box, the **Cluster
 identifier** column shows both clusters and instances. Instances are listed underneath clusters, similar to the screenshot below.
 

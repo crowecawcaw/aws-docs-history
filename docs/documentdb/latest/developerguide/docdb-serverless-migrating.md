@@ -44,7 +44,7 @@ In this example, these three instances will be replaced by three serverless inst
 ###### Tip
 
 If you don't see the navigation pane on the left side of your screen, choose the menu icon
-(![Hamburger menu icon with three horizontal lines.](images/docdb-menu-icon.png))
+(![Menu button.](images/docdb-menu-icon.png))
 in the upper-left corner of the page.
 
 The **Clusters** table appears. 3. In the **Clusters** table, select the checkbox of the cluster to which you want to add a serverless instance. 4. Choose **Actions**, and then choose **Add instances**. 5. In the **Add instances** dialog box, select **Serverless** in the **DB instance class** section for each new serverless instance you want to create. 6. For **Serverless capacity settings**, set the scaling configuration based on the capacity description in the dialog box. 7. (Optional) To add another instance, choose **Add instance**.

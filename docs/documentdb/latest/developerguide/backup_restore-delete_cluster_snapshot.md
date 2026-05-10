@@ -16,7 +16,7 @@ the following steps.
 ###### Tip
 
 If you don't see the navigation pane on the left side of your screen, choose the menu icon
-(![Hamburger menu icon with three horizontal lines.](images/docdb-menu-icon.png))
+(![Menu button.](images/docdb-menu-icon.png))
 in the upper-left corner of the page. 3. In the list of snapshots, choose the button to the left of
 the snapshot that you want to delete. The snapshot's type must
 be **manual**.

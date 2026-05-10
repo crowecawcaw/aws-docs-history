@@ -80,7 +80,7 @@ The following procedures describe how to use the console to launch an Amazon Doc
 ###### Tip
 
 If you don't see the navigation pane on the left side of your screen, choose the menu icon
-(![Hamburger menu icon with three horizontal lines.](images/docdb-menu-icon.png))
+(![Menu button.](images/docdb-menu-icon.png))
 in the upper-left corner of the page. 4. On the **Create Amazon DocumentDB cluster** page, complete the **Configuration** pane.
 
     1. **Cluster identifier**—Accept the

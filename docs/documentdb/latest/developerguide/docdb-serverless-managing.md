@@ -27,7 +27,7 @@ The following AWS Management Console configuration example shows how to view and
 ###### Tip
 
 If you don't see the navigation pane on the left side of your screen, choose the menu icon
-(![Hamburger menu icon with three horizontal lines.](images/docdb-menu-icon.png))
+(![Menu button.](images/docdb-menu-icon.png))
 in the upper-left corner of the page.
 
 The **Clusters** table appears. 3. In the **Clusters** table, select the checkbox of the cluster to which you want to modify the scaling capacity. 4. Choose **Actions**, and then choose **Modify**.
@@ -133,7 +133,7 @@ The promotion tiers of each instance is displayed in the **Promotion tier** colu
 ###### Tip
 
 If you don't see the navigation pane on the left side of your screen, choose the menu icon
-(![Hamburger menu icon with three horizontal lines.](images/docdb-menu-icon.png))
+(![Menu button.](images/docdb-menu-icon.png))
 in the upper-left corner of the page.
 
 The **Clusters** table appears. 3. In the **Clusters** table, select the checkbox of the instance to which you want to modify the promotion tier. 4. Choose **Actions**, and then choose **Modify**.
