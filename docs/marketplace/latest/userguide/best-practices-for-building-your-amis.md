@@ -104,22 +104,10 @@ To publish your AMI on the AWS Marketplace Catalog, you must complete AMI scanni
 vulnerabilities and exposures (CVEs) and verifies that your AMI follows security best practices. For more information, refer to
 [Preparing and securing your AMI for AWS Marketplace](best-practices-for-building-your-amis.md#securing-an-ami "best-practices-for-building-your-amis.md#securing-an-ami")
 
-To perform AMI scanning, choose one of the following options:
+To initiate a test scan, you must have an existing AMI product. To learn how to
+create an AMI product, see [Creating AMI-based products](ami-single-ami-products.md "ami-single-ami-products.md").
 
-**Option 1: Assets menu**
-
-This method allows for scanning AMIs outside of the product creation flow. It’s also useful for SaaS sellers using
-SAAS Quick Launch who need to scan assets without creating an AMI product.
-
-1. From the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/homepage "https://aws.amazon.com/marketplace/management/homepage"), navigate to the **Assets** menu and choose
-   **Amazon Machine Image**.
-2. To start the scanning process, choose **Add AMI**.
-3. You can view the AMIs scan status by returning to this page.
-
-**Option 2: Request changes menu**
-
-This option is available for sellers who have already created an AMI product. Learn more at
-[Creating AMI-based products](ami-single-ami-products.md "ami-single-ami-products.md")
+To perform AMI scanning:
 
 1. From the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/homepage "https://aws.amazon.com/marketplace/management/homepage"),
    navigate to the **Products** menu and choose **Server**.

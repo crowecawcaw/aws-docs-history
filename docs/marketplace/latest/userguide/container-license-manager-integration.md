@@ -37,7 +37,7 @@ that point, they're entitled to use those resources.
 To set your pricing, choose one or more contract durations that you offer customers. You can
 enter different prices for each contract duration. Your options are 1-month, 12-months,
 24-month, and 36-month durations. For private offers, you can specify a custom duration in
-months (up to 60 months).
+months (up to 144 months).
 
 Choose the category that best describes your product’s pricing. The pricing category appears
 to customers on the AWS Marketplace website. You can choose from **Bandwidth** (GB/s,

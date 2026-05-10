@@ -18,7 +18,7 @@ Before you can publish a SaaS product with contract pricing, you must do the fol
       contract duration. You can select one or more of the following options:
       **Monthly**, **1 year**, **2
       years**, and **3 years**. If you are creating a private
-      offer, you can choose a custom duration in months (up to 60 months).
+      offer, you can choose a custom duration in months (up to 144 months).
    2. For **Choose the contract type you want to offer**, choose how you
       want customers to be able to purchase your product from the following options:
       - **Buyer can choose one or more options offered** – Customers

@@ -25,7 +25,7 @@ When creating a private offer, you can set a custom payment schedule with an ins
 
    Choose **Monthly**, **Quarterly**, **Annually**, or **Custom**. If you choose **Custom**, also enter the **Number of installments**.
 
-   You can add up to 60 payments. You also have the option to make adjustments to each payment line item. Each time you adjust a payment line item, the **Total amount due from buyer** is updated.
+   You can add up to 86 payments. You also have the option to make adjustments to each payment line item. Each time you adjust a payment line item, the **Total amount due from buyer** is updated.
    - **First invoice date**
 
 4. Choose **Generate installment plan**. You will receive an error message if an invoice date falls outside the duration of the contract.

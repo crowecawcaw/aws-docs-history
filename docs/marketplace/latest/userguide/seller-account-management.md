@@ -9,5 +9,6 @@ AWS Marketplace provides tools and features to help you manage your account, inc
 - [Access tax documents](access-tax-documents.md "access-tax-documents.md")
 - [Supplemental tax registrations](supplemental-tax-registrations.md "supplemental-tax-registrations.md")
 - [Managing disbursements](managing-disbursements.md "managing-disbursements.md")
+- [Managing your invoices](managing-invoices.md "managing-invoices.md")
 - [Managing account communications](managing-account-communications.md "managing-account-communications.md")
 - [Managing secondary users for Know Your Customer (KYC)](managing-secondary-users.md "managing-secondary-users.md")

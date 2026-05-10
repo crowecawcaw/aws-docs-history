@@ -14,6 +14,7 @@ unavailable to new subscribers until issues are resolved.
 ###### Topics
 
 - [Product setup guidelines](#saas-guidelines-setup "#saas-guidelines-setup")
+- [Security policies](#saas-security-policies "#saas-security-policies")
 - [Customer information requirements](#saas-customer-information "#saas-customer-information")
 - [Product usage guidelines](#saas-product-usage "#saas-product-usage")
 - [Architecture guidelines](#saas-architecture "#saas-architecture")
@@ -32,6 +33,30 @@ All SaaS products must adhere to the following product setup guidelines:
   products or services unrelated to the software.
 - SaaS products offered exclusively in the AWS GovCloud (US) Regions must include
   `GovCloud` somewhere in the product title.
+
+## Security policies
+
+All SaaS products must comply with the following security policies:
+
+- Product must comply with local laws and regulations in jurisdictions applicable to your company and your customers, such as the General Data Protection Regulation (GDPR), California Consumer Privacy Act (CCPA), and others.
+- Product must be free of known vulnerabilities, end-of-life software, malware, and other malicious code at the time of publishing. If security issues or vulnerabilities are detected post-publication, the seller must patch them.
+- Seller must disclose their data handling practices to customers through customer-facing documentation or by request. This disclosure must include information about:
+  - Data collection
+  - Data storage
+  - Data usage
+  - Data sharing
+  - Data retention
+  - Data backup
+
+- Seller must delete customer data when it is no longer necessary as defined in the End User License Agreement (EULA), or upon customer request. Deletion must occur within the timeframe specified in the EULA.
+- Product must use industry-standard means of encryption to protect customer data in transit, and at rest.
+- Product must isolate each customer's data and environment so that no other customer can access them, unless the customer explicitly permits access.
+- Product must authenticate all customers before granting access to customer data.
+- Seller must notify impacted customers about any security incident that could be relevant to them.
+- Product must have a documented process for customers to report a security incident related to the product.
+- Seller must enable audit logging of security-relevant events when the product processes customer data. Audit logs must be retained for at least 1 year and must be protected from tampering.
+
+**Recommendation:** For a more comprehensive review of your security posture, use the [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/ "https://aws.amazon.com/architecture/well-architected/").
 
 ## Customer information requirements
 
