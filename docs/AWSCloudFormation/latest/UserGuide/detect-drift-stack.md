@@ -75,7 +75,7 @@ You can sort the resources based on their drift status using the
     		 **Expected** and
     		 **Current** columns.
 
-![The Resource drift status section of the Drift Details page, which contains drift information for each resource in the stack that supports drift detection. Details include drift status and expected and current property values.](/images/AWSCloudFormation/latest/UserGuide/images/console-stacks-drifts-drift-details-differences-1.png)
+![The Resource drift status section of the Drift Details page, which contains drift information for each resource in the stack that supports drift detection. Details include drift status and expected and current property values.](images/console-stacks-drifts-drift-details-differences-1.png)
 
 ###### To detect drift on an entire stack using the AWS CLI
 
