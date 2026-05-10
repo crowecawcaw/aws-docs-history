@@ -39,9 +39,7 @@ Only stand alone accounts and Amazon Inspector delegated administrators can crea
 
 4. When you have finished adding criteria, enter a name for the rule and an
    optional description.
-5. Choose **Save rule**. Amazon Inspector immediately
-   applies the new suppression rule and hides any findings that match the
-   criteria.
+5. Choose **Save rule**. Amazon Inspector applies the new suppression rule and hides any findings that match the criteria. Note that suppression rules may take up to 24 hours to take effect.
 
 ## Viewing suppressed findings
 

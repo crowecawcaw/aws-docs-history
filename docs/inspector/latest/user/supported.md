@@ -15,7 +15,7 @@ The version of the programming language compiler used to build the application i
 
 ###### Note
 
-For ECR container images, Amazon Inspector can scan for operating system and programming language package vulnerabilities. Amazon Inspector also supports hardened images provided by Chainguard, Minimus, and Echo. Amazon Inspector does not scan for toolchain vulnerabilities in Rust——the version of the programming language compiler used to build the application introduces these vulnerabilities.
+For ECR container images, Amazon Inspector can scan for operating system and programming language package vulnerabilities. Amazon Inspector also supports hardened images provided by Chainguard, Minimus, Echo, and Docker. Amazon Inspector does not scan for toolchain vulnerabilities in Rust——the version of the programming language compiler used to build the application introduces these vulnerabilities.
 
 - AWS Lambda functions
 
@@ -57,7 +57,7 @@ When using the agent-based scanning method, you configure the SSM agent to perfo
 Amazon Inspector recommends that you configure a version of the SSM agent that's greater than 3.2.2086.0.
 For more information, see [Working with the SSM Agent](../../../systems-manager/latest/userguide/ssm-agent.md "../../../systems-manager/latest/userguide/ssm-agent.md") in the _Amazon EC2 Systems Manager User Guide_.
 
-Linux operating system detections are supported only for the default package manager repository (rpm and dpkg) and don't include third-party applications, extended support repositories (RHEL EUS, E4S, AUS, and TUS), and optional repositories (application streams).
+Linux operating system detections are supported only for the default package manager repository (rpm and dpkg) and don't include third-party applications, extended support repositories, and optional repositories (application streams) unless otherwise specified below.
 Amazon Inspector scans the running kernel for vulnerabilities.
 For some operating systems, like Ubuntu, a reboot is required for upgrades to show in active findings.
 
@@ -78,9 +78,9 @@ For some operating systems, like Ubuntu, a reboot is required for upgrades to sh
 | Oracle Linux (Oracle)               | 8               | Errata CVE                                                                                                        | Yes                    | Yes                      |
 | Oracle Linux (Oracle)               | 9               | Errata CVE                                                                                                        | Yes                    | Yes                      |
 | Oracle Linux (Oracle)               | 10              | Errata CVE                                                                                                        | Yes                    | Yes                      |
-| Red Hat Enterprise Linux (RHEL)     | 8               | RHEL VEX CVE                                                                                                      | Yes                    | Yes                      |
-| Red Hat Enterprise Linux (RHEL)     | 9               | RHEL VEX CVE                                                                                                      | Yes                    | Yes                      |
-| Red Hat Enterprise Linux (RHEL)     | 10              | RHEL VEX CVE                                                                                                      | Yes                    | Yes                      |
+| Red Hat Enterprise Linux (RHEL)     | 8               | RHEL CVE (BaseOS & EUS/E2S/E4S)                                                                                   | Yes                    | Yes                      |
+| Red Hat Enterprise Linux (RHEL)     | 9               | RHEL CVE (BaseOS & EUS/E2S/E4S)                                                                                   | Yes                    | Yes                      |
+| Red Hat Enterprise Linux (RHEL)     | 10              | RHEL CVE (BaseOS & EUS/E2S/E4S)                                                                                   | Yes                    | Yes                      |
 | Rocky Linux                         | 8               | Errata CVE                                                                                                        | Yes                    | Yes                      |
 | Rocky Linux                         | 9               | Errata CVE                                                                                                        | Yes                    | Yes                      |
 | Rocky Linux                         | 10              | Errata CVE                                                                                                        | Yes                    | Yes                      |
@@ -134,9 +134,9 @@ It also specifies the vendor security advisory for each operating system.
 | Oracle Linux (Oracle)               | 10      | Errata CVE                                                                                                        |
 | Photon OS                           | 4       | Errata CVE                                                                                                        |
 | Photon OS                           | 5       | Errata CVE                                                                                                        |
-| Red Hat Enterprise Linux (RHEL)     | 8       | RHEL VEX CVE                                                                                                      |
-| Red Hat Enterprise Linux (RHEL)     | 9       | RHEL VEX CVE                                                                                                      |
-| Red Hat Enterprise Linux (RHEL)     | 10      | RHEL VEX CVE                                                                                                      |
+| Red Hat Enterprise Linux (RHEL)     | 8       | RHEL CVE (BaseOS & EUS/E2S/E4S)                                                                                   |
+| Red Hat Enterprise Linux (RHEL)     | 9       | RHEL CVE (BaseOS & EUS/E2S/E4S)                                                                                   |
+| Red Hat Enterprise Linux (RHEL)     | 10      | RHEL CVE (BaseOS & EUS/E2S/E4S)                                                                                   |
 | Rocky Linux                         | 8       | Errata CVE                                                                                                        |
 | Rocky Linux                         | 9       | Errata CVE                                                                                                        |
 | Rocky Linux                         | 10      | Errata CVE                                                                                                        |
@@ -223,6 +223,10 @@ For more information, see [ScanSbom](../../v2/APIReference/API_scan_ScanSbom.md 
 | Ubuntu                   | 24.04   |
 | Ubuntu                   | 25.10   |
 | Wolfi Linux              | –       |
+| Windows Server           | 2016    |
+| Windows Server           | 2019    |
+| Windows Server           | 2022    |
+| Windows Server           | 2025    |
 
 ## Discontinued operating systems
 
@@ -394,6 +398,7 @@ The version of the programming language compiler used to build the application i
   - java11
   - java17
   - java21
+  - java25
 
 - .NET
   - .NET 6
@@ -436,6 +441,8 @@ Amazon Inspector Lambda code scanning currently supports the following runtimes 
   - java8.al2
   - java11
   - java17
+  - java21
+  - java25
 
 - .NET
   - .NET 6
@@ -447,6 +454,7 @@ Amazon Inspector Lambda code scanning currently supports the following runtimes 
   - nodejs16.x
   - nodejs18.x
   - nodejs20.x
+  - nodejs22.x
 
 - Python
   - python3.7

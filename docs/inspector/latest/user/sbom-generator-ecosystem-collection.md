@@ -13,14 +13,21 @@ The Amazon Inspector SBOM Generator supports scanning for the following ecosyste
 | Ecosystems             | Applications                                                                                                                                                                                                                                                                                 |
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 7-Zip                  | 7-Zip archiver (version 21.07 and higher)                                                                                                                                                                                                                                                    |
-| Apache                 | Apache httpd<br>Apache tomcat                                                                                                                                                                                                                                                                |
+| Amazon Q Developer     | Amazon Q Developer CLI<br>Amazon Q VS Code extension<br>Amazon Q JetBrains plugin                                                                                                                                                                                                            |
+| Anthropic              | Claude Code CLI                                                                                                                                                                                                                                                                              |
+| Apache                 | Apache Cassandra<br>Apache httpd<br>Apache Struts<br>Apache tomcat                                                                                                                                                                                                                           |
 | Atlassian              | Jira Core<br>Confluence<br>Jira Software<br>Jira Service Management                                                                                                                                                                                                                          |
+| Conda                  | Miniconda environments<br>Anaconda environments<br>Miniforge environments<br>Mambaforge environments                                                                                                                                                                                         |
 | Curl                   | Curl<br>Libcurl                                                                                                                                                                                                                                                                              |
+| Docker binaries        | docker<br>dockerd<br>containerd<br>runc                                                                                                                                                                                                                                                      |
 | Elasticsearch          | Elasticsearch                                                                                                                                                                                                                                                                                |
+| Generic AI/ML Models   | `.gguf` – GGUF<br>`.safetensors` – Safetensors<br>`.onnx` – ONNX<br>`.pt` – PyTorch<br>`.pth` – PyTorch<br>`.h5` – Keras / HDF5                                                                                                                                                              |
+| GitHub                 | GitHub Copilot CLI<br>GitHub Copilot VS Code extension<br>GitHub Copilot JetBrains plugin                                                                                                                                                                                                    |
 | Google                 | Chrome                                                                                                                                                                                                                                                                                       |
 | HuggingFace            | HuggingFace CLI Models Cache                                                                                                                                                                                                                                                                 |
 | Java                   | JDK<br>JRE<br>Amazon Corretto                                                                                                                                                                                                                                                                |
 | Jenkins                | Jenkins (version 2.400.\<br>• and higher)                                                                                                                                                                                                                                                    |
+| Kiro                   | Kiro CLI                                                                                                                                                                                                                                                                                     |
 | MariaDB and MySQL      | MariaDB Server (10.6+, 11.x, 12.x)<br>Oracle MySQL Server Server (8.0, 8.4, 9.4+)                                                                                                                                                                                                            |
 | Microsoft applications | PowerShell<br>NuGet CLI<br>Visual Studio Code<br>Microsoft Edge<br>SharePoint Server<br>Microsoft Defender<br>Exchange Server<br>Visual Studio<br>.NET Core Runtime<br>.NET Framework<br>ASP.NET Core Runtime<br>Microsoft Teams<br>Outlook for Windows<br>Microsoft Office<br>Microsoft 365 |
 | Microsoft SQL Server   | Microsoft SQL Server                                                                                                                                                                                                                                                                         |
@@ -28,6 +35,7 @@ The Amazon Inspector SBOM Generator supports scanning for the following ecosyste
 | Nginx                  | Nginx                                                                                                                                                                                                                                                                                        |
 | Node                   | Node                                                                                                                                                                                                                                                                                         |
 | Node.JS                | node                                                                                                                                                                                                                                                                                         |
+| Ollama                 | Ollama<br>Ollama Model Collector                                                                                                                                                                                                                                                             |
 | OpenSSH                | OpenSSH (versions 9 and 10)                                                                                                                                                                                                                                                                  |
 | OpenSSL                | OpenSSL                                                                                                                                                                                                                                                                                      |
 | Oracle                 | Oracle Database Server                                                                                                                                                                                                                                                                       |
@@ -68,9 +76,105 @@ The following is an example package URL for 7-Zip.
 pkg:generic/7zip/7zip@25.01
 ```
 
+## Amazon Q Developer ecosystem collection
+
+###### Supported applications
+
+- Amazon Q Developer CLI
+- Amazon Q VS Code extension
+- Amazon Q JetBrains plugin
+
+###### Key features
+
+- Examines the `q` CLI binary for the embedded `AmazonQ-For-CLI` identity string and extracts the version from AWS tooling user-agent metadata.
+- For IDE extensions, parses `package.json` (VS Code) and `META-INF/plugin.xml` (JetBrains) to extract the version.
+
+###### Supported platforms
+
+The Amazon Inspector SBOM Generator scans for installations in common installation paths across platforms:
+
+###### Linux and macOS
+
+- `~/.local/bin/q`
+- `/usr/local/bin/q`
+- `~/.vscode/extensions/amazonwebservices.amazon-q-vscode-*/`
+- `<IDE>/plugins/amazon-q/META-INF/plugin.xml`
+
+###### Windows
+
+- `%APPDATA%\npm\q.cmd`
+- `%USERPROFILE%\.vscode\extensions\amazonwebservices.amazon-q-vscode-*\`
+- `%APPDATA%\JetBrains\<IDE>\plugins\amazon-q\`
+
+###### Example PURL
+
+The following is an example package URL for Amazon Q Developer.
+
+```
+Sample PURL: pkg:generic/amazon/amazon-q@1.19.7?distro=linux
+```
+
 ## Apache ecosystem collection
 
-This section provides details about Apache httpd and Apache tomcat applicatons.
+This section provides details about Apache Cassandra, Apache httpd, Apache Struts, and Apache tomcat applicatons.
+
+### Apache Cassandra
+
+###### Supported applications
+
+- Apache Cassandra
+
+###### Key features
+
+- Discovers `apache-cassandra-<specific.version>.jar` files and unpacks them to extract the version string from the `Implementation-Version` entry inside the `META-INF/MANIFEST.MF` file.
+
+###### Supported platforms
+
+The Amazon Inspector SBOM Generator scans for installations in common installation paths across platforms:
+
+###### Linux
+
+- `/usr/share/cassandra/lib/`
+- `/opt/cassandra/lib/`
+
+###### macOS
+
+- `/opt/homebrew/Cellar/cassandra/`
+- `/usr/local/Cellar/cassandra/`
+
+###### Windows
+
+- `/Program Files/cassandra/lib/`
+- `/Program Files/apache-cassandra/lib/`
+- `/Program Files (x86)/cassandra/lib/`
+- `/Program Files (x86)/apache-cassandra/lib/`
+
+###### Example `apache-cassandra-<specific.version>.jar/META-INF/MANIFEST.MF` file
+
+The following is an example of content inside an `apache-cassandra-<specific.version>.jar/META-INF/MANIFEST.MF` file.
+
+```
+
+//truncated
+
+Manifest-Version: 1.0
+Implementation-Title: Cassandra
+Implementation-Version: 4.1.3
+Implementation-Vendor: Apache
+
+//truncated
+
+```
+
+###### Example PURL
+
+The following is an example package URL for an `Apache Cassandra` application.
+
+```
+
+Sample PURL: pkg:generic/apache/cassandra@4.1.3
+
+```
 
 ### Apache httpd
 
@@ -128,6 +232,62 @@ The following is an example package URL for an `Apache httpd` application.
 ```
 
 Sample PURL: pkg:generic/apache/httpd@2.4.1
+
+```
+
+### Apache Struts
+
+###### Supported applications
+
+- Apache Struts
+
+###### Key features
+
+- Discovers `struts2-core-<specific.version>.jar` files (typically deployed inside a web application's `WEB-INF/lib/` directory on a Java application server) and unpacks them to extract the version string from the `Implementation-Version` entry inside the `META-INF/MANIFEST.MF` file.
+
+###### Supported platforms
+
+The Amazon Inspector SBOM Generator scans for installations in common Java application server paths across platforms:
+
+###### Linux
+
+- `/opt/tomcat/`
+- `/usr/share/tomcat/`
+- `/var/lib/tomcat/`
+- `/usr/local/tomcat/`
+- `/opt/wildfly/`
+- `/opt/jboss/`
+- `/opt/jetty/`
+
+###### Windows
+
+- `/Program Files/Apache Software Foundation/`
+- `/Program Files (x86)/Apache Software Foundation/`
+
+###### Example `struts2-core-<specific.version>.jar/META-INF/MANIFEST.MF` file
+
+The following is an example of content inside a `struts2-core-<specific.version>.jar/META-INF/MANIFEST.MF` file.
+
+```
+
+//truncated
+
+Manifest-Version: 1.0
+Implementation-Title: Struts 2 Core
+Implementation-Version: 6.4.0
+Implementation-Vendor: Apache Software Foundation
+
+//truncated
+
+```
+
+###### Example PURL
+
+The following is an example package URL for an `Apache Struts` application.
+
+```
+
+Sample PURL: pkg:generic/apache/struts@6.4.0
 
 ```
 
@@ -261,6 +421,99 @@ pkg:generic/atlassian/jira-software@10.3.9?distro=linux
 pkg:generic/atlassian/jira-service-management@10.3.9?distro=linux
 ```
 
+## Claude Code ecosystem collection
+
+###### Supported applications
+
+- Claude Code CLI (Anthropic)
+
+###### Key features
+
+- Claude Code is distributed as an npm package (`@anthropic-ai/claude-code`). The scanner discovers the `claude` CLI binary and resolves `package.json` relative to it using the standard npm `<prefix>/bin/<binary>` to `<prefix>/lib/node_modules/@anthropic-ai/claude-code/package.json` layout.
+- Version is read from the `Version:` field of `package.json`.
+
+###### Supported platforms
+
+The Amazon Inspector SBOM Generator scans for installations in common installation paths across platforms:
+
+###### Linux and macOS
+
+- `/usr/bin/claude`
+- `/usr/local/bin/claude`
+- `~/.local/bin/claude`
+- `~/.npm-global/bin/claude`
+
+###### Windows
+
+- `%APPDATA%\npm\claude.cmd`
+
+###### Example PURL
+
+The following is an example package URL for Claude Code.
+
+```
+Sample PURL: pkg:generic/anthropic/claude-code@1.0.5?distro=linux
+```
+
+## Conda ecosystem collection
+
+###### Supported applications
+
+- Miniconda environments
+- Anaconda environments
+- Miniforge environments
+- Mambaforge environments
+
+###### Key features
+
+- Parses `conda-meta/*.json` package records written by conda and mamba in each conda environment.
+- Extracts the package name, version, build string, subdir (target platform), and archive type (`conda` or `tar.bz2`) per [CEP 26](https://github.com/conda/ceps/blob/main/cep-0026.md "https://github.com/conda/ceps/blob/main/cep-0026.md").
+- Generates conda Package URLs.
+- Filters out macOS resource-fork files (`._*`) and skips records with an empty name or version.
+
+###### Supported platforms
+
+For localhost scans, the Amazon Inspector SBOM Generator scans conda-meta directories at the following installer-default and per-user paths. For container, directory, and archive scans, the Amazon Inspector SBOM Generator detects `conda-meta/*.json` records anywhere in the tree.
+
+###### Linux
+
+- `/opt/conda`
+- `/opt/miniconda3`, `/opt/anaconda3`, `/opt/miniforge3`
+- `/root/miniconda3`, `/root/anaconda3`, `/root/miniforge3`
+- `/home/<user>/miniconda3`, `/home/<user>/anaconda3`, `/home/<user>/miniforge3`
+- `~/.conda/envs/<env>`
+
+###### macOS
+
+- `/opt/miniconda3`, `/opt/anaconda3`
+- `/opt/homebrew/anaconda3`, `/usr/local/anaconda3`
+- `/opt/homebrew/Caskroom/miniconda/base`, `/opt/homebrew/Caskroom/miniforge/base`
+- `/Users/<user>/miniconda3`, `/Users/<user>/anaconda3`, `/Users/<user>/miniforge3`
+- `~/.conda/envs/<env>`
+
+###### Windows
+
+- `C:\ProgramData\miniconda3`, `C:\ProgramData\anaconda3`, `C:\ProgramData\miniforge3`
+- `C:\Users\<user>\miniconda3`, `C:\Users\<user>\anaconda3`, `C:\Users\<user>\miniforge3`
+- `C:\Users\<user>\.conda\envs\<env>`
+
+###### Example `conda-meta` record path
+
+The following is an example path for a conda package record.
+
+```
+/opt/miniforge3/conda-meta/numpy-1.24.0-py311h64a7726_0.json
+```
+
+###### Example PURL
+
+The following are example package URLs for a platform-specific conda package and a `noarch` conda package.
+
+```
+pkg:conda/numpy@1.24.0?build=py311h64a7726_0&subdir=linux-64&type=conda
+pkg:conda/flask@3.0.0?build=pyhd8ed1ab_0&subdir=noarch&type=conda
+```
+
 ## Curl ecosystem collection
 
 This section provides details about Curl and Libcurl applicatons.
@@ -341,6 +594,50 @@ The following is an example package URL for a `Libcurl` version file.
 Sample PURL: pkg:generic/curl/libcurl@8.14.1
 ```
 
+## Docker binaries ecosystem collection
+
+###### Supported applications
+
+- docker (docker version 20.10.18+)
+- dockerd (docker version 20.10.18+)
+- containerd (docker version 20.10.18+)
+- runc (docker version 29.0.0+)
+
+###### Note
+
+Vulnerability evaluation only applies to Docker versions 25.0.0+. Earlier versions of Docker binaries may be collected, but they are no longer supported by Docker.
+
+###### Key features
+
+- Examines Docker static binaries to extract version information.
+
+###### Supported platforms
+
+The SBOM generator scans for binaries in the installation paths recommended in Docker's static binary installation documentation:
+
+###### Linux
+
+- `/usr/bin/`
+
+###### macOS
+
+- `/usr/local/bin/`
+
+###### Windows
+
+- `C:/Program Files/Docker/`
+
+###### Example PURL
+
+The following is an example package URL for Docker.
+
+```
+pkg:generic/docker/docker@29.4.0
+pkg:generic/docker/dockerd@29.4.0
+pkg:generic/docker/containerd@2.2.2
+pkg:generic/docker/runc@1.3.5
+```
+
 ## Elasticsearch ecosystem collection
 
 ###### Supported applications
@@ -383,6 +680,77 @@ The following is an example package URL for an `elasticsearch-<specific.version>
 
 ```
 pkg:generic/elastic/elasticsearch@8.19.0-SNAPSHOT
+```
+
+## Generic AI/ML Models ecosystem collection
+
+###### Supported applications
+
+- Locally stored AI/ML model files across common frameworks and tools
+
+###### Key features
+
+- Detects AI/ML model files based on file extension: `.gguf`, `.safetensors`, `.onnx`, `.pt`, `.pth`, and `.h5`.
+- Scans common model directories used by popular AI/ML frameworks and local inference tools.
+- Detected files are generated as components with the `machine-learning-model` component type.
+
+###### Note
+
+No PURL is generated for components detected by this collector.
+
+###### Supported platforms
+
+The Amazon Inspector SBOM Generator scans for model files in common paths across platforms:
+
+###### Linux and macOS
+
+- `~/.keras/models`
+- `~/.cache/lm-studio/models`
+- `~/.local/share/nomic.ai/GPT4All`
+- `~/.jan/models`
+- `~/.cache/llama.cpp`
+- `~/.tabby/models`
+- `~/.local/share/localai/models`
+- `~/text-generation-webui/models`
+- `~/ComfyUI/models`
+- `~/stable-diffusion-webui/models`
+
+## GitHub Copilot ecosystem collection
+
+###### Supported applications
+
+- GitHub Copilot CLI
+- GitHub Copilot VS Code extension
+- GitHub Copilot JetBrains plugin
+
+###### Key features
+
+- Detects Copilot across three install surfaces: npm-distributed CLI (resolves `package.json` from the binary path via the npm layout), VS Code extension (parses `package.json` in `github.copilot-<version>` directories; excludes the separate `github.copilot-chat-*` extension), and JetBrains plugin (parses `META-INF/plugin.xml` for the `<version>` element).
+
+###### Supported platforms
+
+The Amazon Inspector SBOM Generator scans for installations in common installation paths across platforms:
+
+###### Linux and macOS
+
+- `/usr/bin/github-copilot-cli`
+- `/usr/local/bin/github-copilot-cli`
+- `~/.local/bin/github-copilot-cli`
+- `~/.vscode/extensions/github.copilot-*/`
+- `<IDE>/plugins/github-copilot/META-INF/plugin.xml`
+
+###### Windows
+
+- `%APPDATA%\npm\github-copilot-cli.cmd`
+- `%USERPROFILE%\.vscode\extensions\github.copilot-*\`
+- `%APPDATA%\JetBrains\<IDE>\plugins\github-copilot\`
+
+###### Example PURL
+
+The following is an example package URL for GitHub Copilot.
+
+```
+Sample PURL: pkg:generic/github/copilot@0.1.36?distro=linux
 ```
 
 ## Google ecosystem collection
@@ -621,6 +989,40 @@ The following are package URLs for version 2.516.2 of the Jenkins LTS release an
 ```
 LTS: pkg:generic/jenkins/jenkins-core-lts@2.516.2.1
 Regular: pkg:generic/jenkins/jenkins-core@2.414
+```
+
+## Kiro CLI ecosystem collection
+
+###### Supported applications
+
+- Kiro CLI (Amazon AI coding assistant)
+
+###### Key features
+
+- Examines the `kiro-cli` binary (or `kiro-cli.appimage`) to extract embedded version information.
+- Looks for version strings in the binary executable `.rodata` section (for ELF binaries on Linux) or `__cstring` section (for Mach-O binaries on macOS). Version is extracted from the AWS tooling user agent string pattern `Version<X.Y.Z>/`.
+
+###### Supported platforms
+
+The Amazon Inspector SBOM Generator scans for installations in common installation paths across platforms:
+
+###### Linux
+
+- `~/.local/bin/kiro-cli`
+- `/usr/bin/kiro-cli`
+- `~/Applications/kiro-cli.appimage`
+
+###### macOS
+
+- `/Applications/Kiro CLI.app/Contents/MacOS/kiro-cli`
+- `~/.local/bin/kiro-cli`
+
+###### Example PURL
+
+The following is an example package URL for Kiro CLI.
+
+```
+Sample PURL: pkg:generic/amazon/kiro@1.29.5?distro=linux
 ```
 
 ## MariaDB and MySQL ecosystem collection
@@ -1057,6 +1459,83 @@ The following is an example package URL for Node.JS.
 
 ```
 Sample PURL: pkg:generic/nodejs/node@24.11.1
+```
+
+## Ollama ecosystem collection
+
+###### Supported applications
+
+- Ollama (local LLM runtime)
+
+###### Key features
+
+- Examines the `ollama` binary (or `ollama.exe` on Windows) to extract embedded version information.
+- Ollama is a Go binary with the version injected at build time via `-ldflags -X`, which appears in the binary's data section as a tilde-prefixed string (for example, `~0.21.0`). On Homebrew-built macOS binaries, the version may alternatively be present in the Go module build info as `ollama\tv<version>`.
+
+###### Supported platforms
+
+The Amazon Inspector SBOM Generator scans for installations in common installation paths across platforms:
+
+###### Linux
+
+- `/usr/local/bin/ollama`
+- `/usr/bin/ollama`
+- `~/.local/bin/ollama`
+
+###### macOS
+
+- `/Applications/Ollama.app/Contents/MacOS/ollama`
+- `/usr/local/bin/ollama`
+- `/opt/homebrew/bin/ollama`
+
+###### Windows
+
+- `%LOCALAPPDATA%\Programs\Ollama\ollama.exe`
+- `%ProgramFiles%\Ollama\ollama.exe`
+
+###### Example version string
+
+The following is an example of a version string embedded in an Ollama binary.
+
+```
+~0.21.0
+```
+
+Version `0.21.0` is extracted to identify the Ollama version.
+
+###### Example PURL
+
+The following is an example package URL for Ollama.
+
+```
+Sample PURL: pkg:generic/ollama/ollama@0.21.0?distro=linux
+```
+
+## Ollama Model Collector ecosystem collection
+
+###### Supported applications
+
+- Ollama CLI
+
+###### Key features
+
+- Extracts locally cached AI/ML models installed by Ollama
+- Generates Ollama Package URLs
+
+###### Example path
+
+The following is an example of a cached Ollama model path.
+
+```
+/usr/share/ollama/.ollama/models/manifests/registry.ollama.ai/library/gemma4/latest
+```
+
+###### Example PURL
+
+The following is an example package URL for an Ollama model. The component type is `machine-learning-model`.
+
+```
+pkg:ollama/gemma4@<hash>
 ```
 
 ## OpenSSH ecosystem collection
