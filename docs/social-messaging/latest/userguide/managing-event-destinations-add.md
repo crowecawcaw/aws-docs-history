@@ -7,7 +7,7 @@ associated to a WABA. Your WABA can have one Amazon SNS topic associated with it
 ## Prerequisites
 
 Before you begin, the following prerequisites must be met to use either an Amazon SNS topic
-or Amazon Connect instance as a message and event destination.
+or Connect Customer instance as a message and event destination.
 
 ###### Amazon SNS topic
 
@@ -22,9 +22,9 @@ Amazon SNS FIFO topics are not supported.
   encrypted using AWS KMS keys you have to grant AWS End User Messaging Social permissions to the [existing key
   policy](#managing-event-destinations-topic-policies "#managing-event-destinations-topic-policies").
 
-###### Amazon Connect instance
+###### Connect Customer instance
 
-- An Amazon Connect instances has been [created](../../../connect/latest/adminguide/tutorial1-set-up-your-instance.md "../../../connect/latest/adminguide/tutorial1-set-up-your-instance.md") and [permissions](#managing-event-destinations-amazon-connect-policies "#managing-event-destinations-amazon-connect-policies") have been added.
+- An Connect Customer instances has been [created](../../../connect/latest/adminguide/tutorial1-set-up-your-instance.md "../../../connect/latest/adminguide/tutorial1-set-up-your-instance.md") and [permissions](#managing-event-destinations-amazon-connect-policies "#managing-event-destinations-amazon-connect-policies") have been added.
 
 ## Add a message and event destination
 
@@ -34,15 +34,15 @@ Amazon SNS FIFO topics are not supported.
 3. On the **Event destination** tab, choose **Edit
    destination**.
 4. To turn on an event destination, choose **Enable**.
-5. For **Destination type** choose either Amazon SNS or Amazon Connect
+5. For **Destination type** choose either Amazon SNS or Connect Customer
    1. To send your events to an Amazon SNS destination, enter an existing topic
       ARN in **Topic ARN**. For example IAM policies, see
       [IAM policies for Amazon SNS topics](#managing-event-destinations-sns-policies "#managing-event-destinations-sns-policies").
-   2. For Amazon Connect
+   2. For Connect Customer
       1. For **Connect instance** choose an instance from the drop down.
       2. For **Two-way channel role**, choose either:
-         1. **Choose existing IAM role** – Choose an existing IAM policy from the **Existing IAM roles** drop down. For example IAM policies, see [IAM policies for Amazon Connect](#managing-event-destinations-amazon-connect-policies "#managing-event-destinations-amazon-connect-policies").
-         2. **Enter IAM role ARN** – Enter the ARN of the IAM policy into **Use existing IAM role Arn**. For example IAM policies, see [IAM policies for Amazon Connect](#managing-event-destinations-amazon-connect-policies "#managing-event-destinations-amazon-connect-policies").
+         1. **Choose existing IAM role** – Choose an existing IAM policy from the **Existing IAM roles** drop down. For example IAM policies, see [IAM policies for Connect Customer](#managing-event-destinations-amazon-connect-policies "#managing-event-destinations-amazon-connect-policies").
+         2. **Enter IAM role ARN** – Enter the ARN of the IAM policy into **Use existing IAM role Arn**. For example IAM policies, see [IAM policies for Connect Customer](#managing-event-destinations-amazon-connect-policies "#managing-event-destinations-amazon-connect-policies").
 
 6. Choose **Save changes**.
 
@@ -128,13 +128,13 @@ In the following IAM permission policy, make the following changes:
 }
 ```
 
-## IAM policies for Amazon Connect
+## IAM policies for Connect Customer
 
 If you want AWS End User Messaging Social to use an existing IAM role or if you create a new role,
 attach the following policies to that role so that AWS End User Messaging Social can assume it. For
 information about how to modify an existing trust relationship of a role, see [Modifying a Role](../../../IAM/latest/UserGuide/id_roles_manage.md "../../../IAM/latest/UserGuide/id_roles_manage.md") in the [_IAM
 user guide_](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md"). This role is used for both sending events and
-importing phone numbers from AWS End User Messaging Social into Amazon Connect.
+importing phone numbers from AWS End User Messaging Social into Connect Customer.
 
 To create new IAM polices, do the following:
 
@@ -142,7 +142,7 @@ To create new IAM polices, do the following:
    the directions in [Creating policies using the JSON editor](../../../IAM/latest/UserGuide/access_policies_create-console.md#access_policies_create-json-editor "../../../IAM/latest/UserGuide/access_policies_create-console.md#access_policies_create-json-editor") in the
    IAM User Guide.
    1. In step 5 use the **permission policy**
-      for the IAM role to allow for publishing to Amazon Connect.
+      for the IAM role to allow for publishing to Connect Customer.
 
    JSON
 

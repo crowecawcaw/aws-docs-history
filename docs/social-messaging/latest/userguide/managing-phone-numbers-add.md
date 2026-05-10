@@ -12,7 +12,7 @@ Before you begin, the following prerequisites must be met:
 - The phone number must not be associated with any other WABA.
 
 The following prerequisites must be met to use either an Amazon SNS topic
-or Amazon Connect instance as a message and event destination.
+or Connect Customer instance as a message and event destination.
 
 ###### Amazon SNS topic
 
@@ -27,9 +27,9 @@ Amazon SNS FIFO topics are not supported.
   encrypted using AWS KMS keys you have to grant AWS End User Messaging Social permissions to the [existing key
   policy](managing-event-destinations-add.md#managing-event-destinations-topic-policies "managing-event-destinations-add.md#managing-event-destinations-topic-policies").
 
-###### Amazon Connect instance
+###### Connect Customer instance
 
-- An Amazon Connect instances has been [created](../../../connect/latest/adminguide/tutorial1-set-up-your-instance.md "../../../connect/latest/adminguide/tutorial1-set-up-your-instance.md") and [permissions](managing-event-destinations-add.md#managing-event-destinations-amazon-connect-policies "managing-event-destinations-add.md#managing-event-destinations-amazon-connect-policies") have been added.
+- An Connect Customer instances has been [created](../../../connect/latest/adminguide/tutorial1-set-up-your-instance.md "../../../connect/latest/adminguide/tutorial1-set-up-your-instance.md") and [permissions](managing-event-destinations-add.md#managing-event-destinations-amazon-connect-policies "managing-event-destinations-add.md#managing-event-destinations-amazon-connect-policies") have been added.
 
 ## Add a phone number to a WABA
 
@@ -80,19 +80,19 @@ To add a new phone number to your existing WABA
 You must enable **Message and event publishing** to be able to respond to customer messages.
 
 In the **Message and event destination details** section,
-turn on **Event publishing**. 13. For **Destination type** choose either Amazon SNS or Amazon Connect
+turn on **Event publishing**. 13. For **Destination type** choose either Amazon SNS or Connect Customer
 
     1. To send your events to an Amazon SNS destination, enter an existing topic
      ARN in **Topic ARN**. For example IAM policies, see
      [IAM policies for Amazon SNS topics](managing-event-destinations-add.md#managing-event-destinations-sns-policies "managing-event-destinations-add.md#managing-event-destinations-sns-policies").
-    2. For Amazon Connect
+    2. For Connect Customer
 
 
     	1. For **Connect instance** choose an instance from the drop down.
     	2. For **Two-way channel role**, choose either:
 
 
-    		1. **Choose existing IAM role** – Choose an existing IAM policy from the **Existing IAM roles** drop down. For example IAM policies, see [IAM policies for Amazon Connect](managing-event-destinations-add.md#managing-event-destinations-amazon-connect-policies "managing-event-destinations-add.md#managing-event-destinations-amazon-connect-policies").
-    		2. **Enter IAM role ARN** – Enter the ARN of the IAM policy into **Use existing IAM role Arn**. For example IAM policies, see [IAM policies for Amazon Connect](managing-event-destinations-add.md#managing-event-destinations-amazon-connect-policies "managing-event-destinations-add.md#managing-event-destinations-amazon-connect-policies").
+    		1. **Choose existing IAM role** – Choose an existing IAM policy from the **Existing IAM roles** drop down. For example IAM policies, see [IAM policies for Connect Customer](managing-event-destinations-add.md#managing-event-destinations-amazon-connect-policies "managing-event-destinations-add.md#managing-event-destinations-amazon-connect-policies").
+    		2. **Enter IAM role ARN** – Enter the ARN of the IAM policy into **Use existing IAM role Arn**. For example IAM policies, see [IAM policies for Connect Customer](managing-event-destinations-add.md#managing-event-destinations-amazon-connect-policies "managing-event-destinations-add.md#managing-event-destinations-amazon-connect-policies").
 
 14. To complete setup, choose **Add phone number**.
