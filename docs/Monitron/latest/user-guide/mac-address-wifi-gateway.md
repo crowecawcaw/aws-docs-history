@@ -50,7 +50,7 @@ scanning process if permissions haven't already been granted.
 
 **On Android devices**
 
-![Pop-up requesting camera access permission for Amazon Monitron app on Android device.](images/scan-3.png)
+![Pop-up requesting camera access permission for Amazon Monitron app on Android device.](/images/Monitron/latest/user-guide/images/scan-3.png)
 
 **On iOS devices**
 
