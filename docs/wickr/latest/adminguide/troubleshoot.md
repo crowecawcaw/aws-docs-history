@@ -7,6 +7,9 @@ Administration Guide](../adminguide-classic/what-is-wickr.md "../adminguide-clas
 The following procedures and tips can help you troubleshoot issues with
 AWS Wickr.
 
+If you cannot resolve the issue using the steps in this guide, open a
+support case in the [AWS Support Center](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home").
+
 ###### Topics
 
 - [Troubleshoot general issues for AWS Wickr](troubleshoot-general.md "troubleshoot-general.md")
