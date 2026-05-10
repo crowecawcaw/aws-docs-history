@@ -72,7 +72,7 @@ Virtualized instance types in the following instance families are supported as T
 - **Compute optimized:** C4 | C5 | C5a | C5ad | C5d | C5n | C6a | C6g | C6gd | C6gn | C6i | C6id | C6in | C7a | C7g | C7gd | C7i | C7i-flex
 - **Memory optimized:** R4 | R5 | R5a | R5ad | R5b | R5d | R5dn | R5n | R6a | R6g | R6gd | R6i | R6id | R6idn | R6in | R7a | R7g | R7gd | R7i | R7iz | U-3tb1 | U-6tb1 | U-9tb1 | U-12tb1 | U-18tb1 | U-24tb1 | U7i-6tb | U7i-8tb | U7i-12tb | U7in-16tb | U7in-24tb | U7in-32tb | U7inh-32tb | X1 | X1e | X2gd | X2idn | X2iedn | X2iezn | z1d
 - **Storage optimized:** D2 | D3 | D3en | H1 | I3 | I3en | I4g | I4i | I7i | Im4gn | Is4gen
-- **Accelerated computing:** DL1 | DL2q | F1 | F2 | G3 | G4ad | G4dn | G5 | G5g | G6 | G6e | G6f | Gr6 | Gr6f | Inf1 | Inf2 | P3 | P3dn | P4d | P4de | P5 | P5e | Trn1 | Trn1n | VT1
+- **Accelerated computing:** DL1 | DL2q | F2 | G3 | G4ad | G4dn | G5 | G5g | G6 | G6e | G6f | Gr6 | Gr6f | Inf1 | Inf2 | P3 | P3dn | P4d | P4de | P5 | P5e | Trn1 | Trn1n | VT1
 - **High-performance computing:** Hpc6a | Hpc6id | Hpc7a
 
 ### Bare metal instances
