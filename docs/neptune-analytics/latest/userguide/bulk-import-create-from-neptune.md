@@ -63,11 +63,14 @@ programmatically or through the AWS management console.
       --query 'DBClusterSnapshots[0].DBClusterSnapshotArn'
 ```
 
-**Via the AWS console. The ARN can be found on the cluster details page.**
+**In the AWS console:**
 
-![Cluster details option 1.](images/bulk-import/cluster-details-1.png)
-
-![Cluster details option 2.](images/bulk-import/cluster-details-2.png)
+- **Cluster ARN** – In the Neptune console, choose
+  **Databases**, and then choose your DB cluster. Find the ARN in the
+  **Configuration** tab under **Resource ARN**.
+- **Snapshot ARN** – In the Neptune console, choose
+  **Snapshots**, and then choose your snapshot. Find the ARN in the
+  snapshot details summary.
 
 ## Create an IAM role with permissions to export from Neptune to Neptune Analytics
 

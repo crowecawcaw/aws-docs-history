@@ -22,3 +22,10 @@ recommendations for maximizing performance while using Neptune Analytics.
   - [Batch inputs using UNWIND instead of individual statements](best-practices-content.md#best-practices-content-14 "best-practices-content.md#best-practices-content-14")
   - [Prefer using custom IDs for node](best-practices-content.md#best-practices-content-15 "best-practices-content.md#best-practices-content-15")
   - [Avoid doing ~id computations in the query](best-practices-content.md#best-practices-content-16 "best-practices-content.md#best-practices-content-16")
+
+- [Best practices for metadata filtering in GraphRAG](best-practices-graphrag-filters.md "best-practices-graphrag-filters.md")
+  - [Design metadata attributes for efficient filtering](best-practices-graphrag-filters.md#best-practices-graphrag-filters-metadata "best-practices-graphrag-filters.md#best-practices-graphrag-filters-metadata")
+  - [Choose the right filter type](best-practices-graphrag-filters.md#best-practices-graphrag-filters-choose "best-practices-graphrag-filters.md#best-practices-graphrag-filters-choose")
+  - [Combine filters efficiently with andAll and orAll](best-practices-graphrag-filters.md#best-practices-graphrag-filters-combine "best-practices-graphrag-filters.md#best-practices-graphrag-filters-combine")
+  - [Avoid using startsWith filters when possible](best-practices-graphrag-filters.md#best-practices-graphrag-filters-startswith "best-practices-graphrag-filters.md#best-practices-graphrag-filters-startswith")
+  - [Scale graph capacity for filter-heavy workloads](best-practices-graphrag-filters.md#best-practices-graphrag-filters-scaling "best-practices-graphrag-filters.md#best-practices-graphrag-filters-scaling")

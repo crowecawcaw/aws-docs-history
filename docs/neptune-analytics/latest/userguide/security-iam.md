@@ -12,6 +12,7 @@ use with no additional charge.
 - [Managing access using policies](#security_iam_access-manage "#security_iam_access-manage")
 - [How Neptune Analytics works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
 - [Identity-based policy examples for Neptune Analytics](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
+- [AWS managed policies for Neptune Analytics](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 - [Troubleshooting Neptune Analytics identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
 
 ## Audience
