@@ -102,6 +102,35 @@ For HLS Interstitials sessions, some metrics behave differently due to the late-
 - `Avail.ObservedSlateDuration` reports planned slate duration from Asset List responses rather than observed playback.
 - Metrics prefixed with "Observed" provide estimated values for HLS Interstitials sessions.
 
+### Functions metrics
+
+The following metrics are published when you use [Functions](monetization-functions.md "monetization-functions.md") with your playback
+configurations. These metrics are always emitted when a function is configured on a
+lifecycle hook. No opt-in or log configuration is required.
+
+**Hook-level metrics** — one data point per
+lifecycle hook execution:
+
+| Metric                           | Description                                                                            |
+| -------------------------------- | -------------------------------------------------------------------------------------- |
+| `PreSessionInitHook.Invocations` | The number of times the pre-session initialization hook was<br>invoked.                |
+| `PreSessionInitHook.Errors`      | The number of pre-session initialization hook executions that<br>resulted in an error. |
+| `PreSessionInitHook.Latency`     | The execution time in milliseconds for the pre-session<br>initialization hook.         |
+| `PreAdsRequestHook.Invocations`  | The number of times the pre-ads request hook was<br>invoked.                           |
+| `PreAdsRequestHook.Errors`       | The number of pre-ads request hook executions that resulted in<br>an error.            |
+| `PreAdsRequestHook.Latency`      | The execution time in milliseconds for the pre-ads request<br>hook.                    |
+
+**Function-level metrics** — one data point per
+individual function execution. These metrics include additional dimensions
+(`FunctionId`, `FunctionType`, `HookType`) so you
+can identify which specific function is slow or failing:
+
+| Metric                 | Description                                                                |
+| ---------------------- | -------------------------------------------------------------------------- |
+| `Function.Invocations` | The number of times an individual function was<br>executed.                |
+| `Function.Errors`      | The number of individual function executions that resulted in<br>an error. |
+| `Function.Latency`     | The execution time in milliseconds for an individual<br>function.          |
+
 ### Simple and weighted averages
 
 You can retrieve the simple average and the weighted average for the responses
@@ -174,8 +203,11 @@ MediaTailor can only fill the time available.
 
 ## AWS Elemental MediaTailor CloudWatch dimensions
 
-You can filter the AWS Elemental MediaTailor data using the following dimension.
+You can filter the AWS Elemental MediaTailor data using the following dimensions.
 
-| Dimension            | Description                                             |
-| -------------------- | ------------------------------------------------------- |
-| `Configuration Name` | Indicates the configuration that the metric belongs to. |
+| Dimension           | Description                                                                                                                                              |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ConfigurationName` | Indicates the configuration that the metric belongs to. Available<br>on all metrics.                                                                     |
+| `FunctionId`        | The identifier of the function. Available on<br>`Function.*` metrics only.                                                                               |
+| `FunctionType`      | The type of function: `CUSTOM_OUTPUT`,<br>`HTTP_REQUEST`, `SEQUENTIAL_EXECUTOR`, or<br>`CONCURRENT_EXECUTOR`. Available on<br>`Function.*` metrics only. |
+| `HookType`          | The lifecycle hook that triggered the function:<br>`PRE_SESSION_INITIALIZATION` or<br>`PRE_ADS_REQUEST`. Available on<br>`Function.*` metrics only.      |

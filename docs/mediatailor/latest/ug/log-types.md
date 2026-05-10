@@ -29,6 +29,10 @@ The following events are emitted during MediaTailor interactions with the origin
 | `NO_MEDIA_PLAYLIST`                       | The origin response doesn't contain the expected media<br>playlist.                                                                                                                                                                         |
 | `ORIGIN_MANIFEST`                         | MediaTailor fetched an origin manifest.<br>You must have debug mode enabled to receive these logs.<br>For information about debug log mode, including how to enable it, see [Generating debug logs](debug-log-mode.md "debug-log-mode.md"). |
 | `PARSING_ERROR`                           | The origin is unable to parse the manifest request.                                                                                                                                                                                         |
+| `PRE_SESSION_INIT_FUNCTION_COMPLETED`     | An individual function in the pre-session initialization hook completed. This is an opt-in event type.                                                                                                                                      |
+| `PRE_SESSION_INIT_FUNCTION_ERROR`         | An individual function in the pre-session initialization hook failed.                                                                                                                                                                       |
+| `PRE_SESSION_INIT_HOOK_ERROR`             | The pre-session initialization hook execution failed.                                                                                                                                                                                       |
+| `PRE_SESSION_INIT_HOOK_SUMMARY`           | Summary of the pre-session initialization hook execution, including success or error status. This is an opt-in event type.                                                                                                                  |
 | `SCTE35_PARSING_ERROR`                    | MediaTailor is unable to parse `Signal Binary` element in the<br>manifest.                                                                                                                                                                  |
 | `SESSION_INITIALIZED`                     | A session was initialized.<br>You must have debug mode enabled to receive these logs.<br>For information about debug log mode, including how to enable it, see [Generating debug logs](debug-log-mode.md "debug-log-mode.md").              |
 | `TIMEOUT_ERROR`                           | The MediaTailor manifest request timed out.                                                                                                                                                                                                 |
@@ -56,6 +60,15 @@ This section describes the properties of the manifest logs.
 | `sessionType`                 | string (legal values: [DASH, HLS]) | false    |
 | `requestNextToken`            | string                             | false    |
 | `eventDescription`            | string                             | false    |
+| `errorType`                   | string                             | false    |
+| `eventId`                     | string                             | false    |
+| `executionTimeMs`             | integer                            | false    |
+| `functionId`                  | string                             | false    |
+| `functionType`                | string                             | false    |
+| `http`                        | object                             | false    |
+| `input`                       | object                             | false    |
+| `output`                      | object                             | false    |
+| `status`                      | string                             | false    |
 | `assetPath`                   | string                             | false    |
 | `originFullUrl`               | string                             | false    |
 | `originPrefixUrl`             | string                             | false    |

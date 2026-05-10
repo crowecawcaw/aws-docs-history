@@ -49,6 +49,10 @@ server (ADS).
 | `MAKING_ADS_REQUEST`                                  | MediaTailor is requesting advertisements from the ADS.                                                                                                                                             |
 | `MODIFIED_TARGET_URL`                                 | MediaTailor modified the outbound target URL.                                                                                                                                                      |
 | `NON_AD_MARKER_FOUND`                                 | MediaTailor found a non-actionable ad marker in the manifest.                                                                                                                                      |
+| `PRE_ADS_REQUEST_FUNCTION_COMPLETED`                  | An individual function in the pre-ads request hook completed. This is an opt-in event type.                                                                                                        |
+| `PRE_ADS_REQUEST_FUNCTION_ERROR`                      | An individual function in the pre-ads request hook failed.                                                                                                                                         |
+| `PRE_ADS_REQUEST_HOOK_ERROR`                          | The pre-ads request hook execution failed.                                                                                                                                                         |
+| `PRE_ADS_REQUEST_HOOK_SUMMARY`                        | Summary of the pre-ads request hook execution, including success or error status. This is an opt-in event type.                                                                                    |
 | `RAW_ADS_RESPONSE`                                    | MediaTailor received a raw ADS response.                                                                                                                                                           |
 | `REDIRECTED_VAST_RESPONSE`                            | MediaTailor received a VAST response after following the VAST<br>redirect.                                                                                                                         |
 | `VAST_REDIRECT`                                       | The VAST ad response contains a redirect.                                                                                                                                                          |
@@ -73,25 +77,35 @@ CloudWatch Logs insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData
 
 This section describes the properties of the ADS logs.
 
-| Property                    | Type                                                                                             | Required | Description                                                                                                                                                                                                                                                                               |
-| --------------------------- | ------------------------------------------------------------------------------------------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `adsRequestUrl`             | string                                                                                           | false    | The full URL of the ADS request made by MediaTailor.                                                                                                                                                                                                                                      |
-| `avail`                     | object of type [avail](#ads-logs-avail "#ads-logs-avail")                                        | false    | Information about an avail that MediaTailor fills with ads. Currently, for the `FILLED_AVAIL` event type, this is the plan created by MediaTailor when it first encounters the avail. How the avail is eventually filled may vary from this plan, depending on how the content plays out. |
-| `awsAccountId`              | string                                                                                           | true     | The AWS account ID for the MediaTailor configuration that was used for the session.                                                                                                                                                                                                       |
-| `customerId`                | string                                                                                           | true     | The hashed version of the AWS account ID, which you can use to correlate multiple log entries.                                                                                                                                                                                            |
-| `eventDescription`          | string                                                                                           | true     | A short description of the event that triggered this log message, provided by the MediaTailor service. By default, this is empty. Example: `Got VAST response`.                                                                                                                           |
-| `eventTimestamp`            | string                                                                                           | true     | The date and time of the event.                                                                                                                                                                                                                                                           |
-| `eventType`                 | string                                                                                           | true     | The code for the event that triggered this log message. Example: `VAST_RESPONSE`.                                                                                                                                                                                                         |
-| `originId`                  | string                                                                                           | true     | The configuration name from the MediaTailor configuration. This is different from the video content source, which is also part of the configuration.                                                                                                                                      |
-| `prefetchScheduleName`      | string                                                                                           | false    | The name of the prefetch schedule associated with this ad event.                                                                                                                                                                                                                          |
-| `requestHeaders`            | array of type [requestheaders](#ads-logs-requestheaders "#ads-logs-requestheaders")              | false    | The headers that MediaTailor included with the ADS request. Typically, the logs include these when a request to the ADS fails, to help with troubleshooting.                                                                                                                              |
-| `requestId`                 | string                                                                                           | true     | The MediaTailor request ID, which you can use to correlate multiple log entries for the same request.                                                                                                                                                                                     |
-| `sessionId`                 | string                                                                                           | true     | The unique numeric identifier that MediaTailor assigned to the player session. All requests that a player makes for a session have the same session ID. Example: `e039fd39-09f0-46b2-aca9-9871cc116cde`.                                                                                  |
-| `sessionType`               | string (legal values: [DASH, HLS])                                                               | true     | The player's stream type.                                                                                                                                                                                                                                                                 |
-| `vastAd`                    | object of type [vastAd](#ads-logs-vastAd "#ads-logs-vastAd")                                     | false    | Information about a single ad parsed from the VAST response.                                                                                                                                                                                                                              |
-| `vastResponse`              | object of type [vastResponse](#ads-logs-vastResponse "#ads-logs-vastResponse")                   | false    | Information about the VAST response that MediaTailor received from the ADS.                                                                                                                                                                                                               |
-| `vodCreativeOffsets`        | object of type [vodCreativeOffsets](#ads-logs-vodCreativeOffsets "#ads-logs-vodCreativeOffsets") | false    | A map that indicates the time offsets in the manifest where MediaTailor will insert avails, based on the VMAP response.                                                                                                                                                                   |
-| `vodVastResponseTimeOffset` | number                                                                                           | false    | The VMAP specific time offset for VOD ad insertion.                                                                                                                                                                                                                                       |
+| Property                    | Type                                                                                             | Required | Description                                                                                                                                                                                                                                                                                                               |
+| --------------------------- | ------------------------------------------------------------------------------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `adsRequestUrl`             | string                                                                                           | false    | The full URL of the ADS request made by MediaTailor.                                                                                                                                                                                                                                                                      |
+| `avail`                     | object of type [avail](#ads-logs-avail "#ads-logs-avail")                                        | false    | Information about an avail that MediaTailor fills with ads. Currently, for the `FILLED_AVAIL` event type, this is the plan created by MediaTailor when it first encounters the avail. How the avail is eventually filled may vary from this plan, depending on how the content plays out.                                 |
+| `awsAccountId`              | string                                                                                           | true     | The AWS account ID for the MediaTailor configuration that was used for the session.                                                                                                                                                                                                                                       |
+| `customerId`                | string                                                                                           | true     | The hashed version of the AWS account ID, which you can use to correlate multiple log entries.                                                                                                                                                                                                                            |
+| `eventDescription`          | string                                                                                           | true     | A short description of the event that triggered this log message, provided by the MediaTailor service. By default, this is empty. Example: `Got VAST response`.                                                                                                                                                           |
+| `eventTimestamp`            | string                                                                                           | true     | The date and time of the event.                                                                                                                                                                                                                                                                                           |
+| `eventType`                 | string                                                                                           | true     | The code for the event that triggered this log message. Example: `VAST_RESPONSE`.                                                                                                                                                                                                                                         |
+| `errorType`                 | string                                                                                           | false    | Structured error classification. Present on `PRE_ADS_REQUEST_HOOK_ERROR` and `PRE_ADS_REQUEST_FUNCTION_ERROR` events. Values: `INTERNAL_ERROR`, `SYNTAX_ERROR`, `RESOURCE_LIMIT_ERROR`, `RESTRICTION_ERROR`, `TIMEOUT_ERROR`, `VALIDATION_ERROR`.                                                                         |
+| `cause`                     | string                                                                                           | false    | Error detail string describing the specific failure. Present on `PRE_ADS_REQUEST_HOOK_ERROR` and `PRE_ADS_REQUEST_FUNCTION_ERROR` events.                                                                                                                                                                                 |
+| `eventId`                   | string                                                                                           | false    | Unique identifier per hook invocation. Use this field to correlate hook-level and function-level events for the same execution. Present on Functions events only.                                                                                                                                                         |
+| `executionTimeMs`           | integer                                                                                          | false    | Execution time in milliseconds. Present on Functions events only.                                                                                                                                                                                                                                                         |
+| `functionId`                | string                                                                                           | false    | The identifier of the function. On hook events, this is the function configured on the hook. On function events, this is the individual function within the executor. Present on Functions events only.                                                                                                                   |
+| `functionType`              | string                                                                                           | false    | The type of function: `CUSTOM_OUTPUT`, `HTTP_REQUEST`, `SEQUENTIAL_EXECUTOR`, or `CONCURRENT_EXECUTOR`. Present on function-level events only.                                                                                                                                                                            |
+| `http`                      | object                                                                                           | false    | HTTP request and response details. Present on function-level events for `HTTP_REQUEST` functions only. Contains `request` (url, method, headers, body), `responseTimeMs`, `response` (statusCode, headers, body), and `truncated` (true when request or response body was truncated to fit within log event size limits). |
+| `input`                     | object                                                                                           | false    | Before-values of variables targeted by output expressions. Present on function-level events only.                                                                                                                                                                                                                         |
+| `output`                    | object                                                                                           | false    | Values produced by the function. Present on `PRE_ADS_REQUEST_FUNCTION_COMPLETED` events only.                                                                                                                                                                                                                             |
+| `status`                    | string                                                                                           | false    | Hook execution outcome: `SUCCESS` or `ERROR`. Present on `PRE_ADS_REQUEST_HOOK_SUMMARY` events only.                                                                                                                                                                                                                      |
+| `originId`                  | string                                                                                           | true     | The configuration name from the MediaTailor configuration. This is different from the video content source, which is also part of the configuration.                                                                                                                                                                      |
+| `prefetchScheduleName`      | string                                                                                           | false    | The name of the prefetch schedule associated with this ad event.                                                                                                                                                                                                                                                          |
+| `requestHeaders`            | array of type [requestheaders](#ads-logs-requestheaders "#ads-logs-requestheaders")              | false    | The headers that MediaTailor included with the ADS request. Typically, the logs include these when a request to the ADS fails, to help with troubleshooting.                                                                                                                                                              |
+| `requestId`                 | string                                                                                           | true     | The MediaTailor request ID, which you can use to correlate multiple log entries for the same request.                                                                                                                                                                                                                     |
+| `sessionId`                 | string                                                                                           | true     | The unique numeric identifier that MediaTailor assigned to the player session. All requests that a player makes for a session have the same session ID. Example: `e039fd39-09f0-46b2-aca9-9871cc116cde`.                                                                                                                  |
+| `sessionType`               | string (legal values: [DASH, HLS])                                                               | true     | The player's stream type.                                                                                                                                                                                                                                                                                                 |
+| `vastAd`                    | object of type [vastAd](#ads-logs-vastAd "#ads-logs-vastAd")                                     | false    | Information about a single ad parsed from the VAST response.                                                                                                                                                                                                                                                              |
+| `vastResponse`              | object of type [vastResponse](#ads-logs-vastResponse "#ads-logs-vastResponse")                   | false    | Information about the VAST response that MediaTailor received from the ADS.                                                                                                                                                                                                                                               |
+| `vodCreativeOffsets`        | object of type [vodCreativeOffsets](#ads-logs-vodCreativeOffsets "#ads-logs-vodCreativeOffsets") | false    | A map that indicates the time offsets in the manifest where MediaTailor will insert avails, based on the VMAP response.                                                                                                                                                                                                   |
+| `vodVastResponseTimeOffset` | number                                                                                           | false    | The VMAP specific time offset for VOD ad insertion.                                                                                                                                                                                                                                                                       |
 
 ### adContent
 
@@ -714,6 +728,124 @@ The following lists the JSON schema for the AWS Elemental MediaTailor ADS log.
       "$id": "#/properties/rawAdsResponseIndex",
       "type": "integer",
       "description": "Integer value denoting this rawAdsResponse's index into the full ADS response. This value is used to order the paginated messages for this ADS response."
+    },
+
+    "eventId": {
+      "$id": "#/properties/eventId",
+      "type": "string",
+      "description": "Unique identifier per hook invocation. Use this field to correlate hook-level and function-level events for the same execution.",
+      "examples": [
+        "5dc6f040-0f72-4e8c-a64e-25eeef62708c"
+      ]
+    },
+    "functionId": {
+      "$id": "#/properties/functionId",
+      "type": "string",
+      "description": "The identifier of the function. On hook events, this is the function configured on the hook. On function events, this is the individual function within the executor.",
+      "examples": [
+        "my_first_function"
+      ]
+    },
+    "functionType": {
+      "$id": "#/properties/functionType",
+      "type": "string",
+      "enum": [
+        "CUSTOM_OUTPUT",
+        "HTTP_REQUEST",
+        "SEQUENTIAL_EXECUTOR",
+        "CONCURRENT_EXECUTOR"
+      ],
+      "description": "The type of function."
+    },
+    "executionTimeMs": {
+      "$id": "#/properties/executionTimeMs",
+      "type": "integer",
+      "description": "Execution time in milliseconds."
+    },
+    "status": {
+      "$id": "#/properties/status",
+      "type": "string",
+      "enum": [
+        "SUCCESS",
+        "ERROR"
+      ],
+      "description": "Hook execution outcome. Present on HOOK_SUMMARY events only."
+    },
+    "errorType": {
+      "$id": "#/properties/errorType",
+      "type": "string",
+      "enum": [
+        "INTERNAL_ERROR",
+        "SYNTAX_ERROR",
+        "RESOURCE_LIMIT_ERROR",
+        "RESTRICTION_ERROR",
+        "TIMEOUT_ERROR",
+        "VALIDATION_ERROR"
+      ],
+      "description": "Structured error classification. Present on error events only."
+    },
+    "cause": {
+      "$id": "#/properties/cause",
+      "type": "string",
+      "description": "Error detail string describing the specific failure."
+    },
+    "input": {
+      "$id": "#/properties/input",
+      "type": "object",
+      "description": "Before-values of variables targeted by output expressions."
+    },
+    "output": {
+      "$id": "#/properties/output",
+      "type": "object",
+      "description": "Values produced by the function. Present on FUNCTION_COMPLETED events only."
+    },
+    "http": {
+      "$id": "#/properties/http",
+      "type": "object",
+      "description": "HTTP request and response details for HTTP_REQUEST functions.",
+      "properties": {
+        "request": {
+          "type": "object",
+          "description": "The HTTP request details.",
+          "properties": {
+            "url": { "type": "string", "description": "The request URL." },
+            "method": { "type": "string", "description": "The HTTP method." },
+            "headers": {
+              "type": "array",
+              "description": "The request headers.",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "value": { "type": "string" }
+                }
+              }
+            },
+            "body": { "type": ["string", "null"], "description": "The request body." }
+          }
+        },
+        "responseTimeMs": { "type": ["integer", "null"], "description": "HTTP response time in milliseconds." },
+        "response": {
+          "type": ["object", "null"],
+          "description": "The HTTP response details. Null when the server was never reached.",
+          "properties": {
+            "statusCode": { "type": ["integer", "null"], "description": "The HTTP status code. Null when the server was never reached." },
+            "headers": {
+              "type": ["array", "null"],
+              "description": "The response headers.",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "value": { "type": "string" }
+                }
+              }
+            },
+            "body": { "type": ["string", "null"], "description": "The response body." }
+          }
+        },
+        "truncated": { "type": "boolean", "description": "True when request or response body was truncated to fit within log event size limits." }
+      }
     }
   },
 
@@ -746,7 +878,11 @@ The following lists the JSON schema for the AWS Elemental MediaTailor ADS log.
     { "$ref": "#/definitions/eventPersonalizationDisabled"},
     { "$ref": "#/definitions/eventWarningDynamicVariableSubFailed"},
     { "$ref": "#/definitions/eventVodTimeBasedAvailPlanVastResponseForOffset" },
-    { "$ref": "#/definitions/eventVodTimeBasedAvailPlanSuccess" }
+    { "$ref": "#/definitions/eventVodTimeBasedAvailPlanSuccess" },
+    { "$ref": "#/definitions/eventPreAdsRequestHookSummary" },
+    { "$ref": "#/definitions/eventPreAdsRequestHookError" },
+    { "$ref": "#/definitions/eventPreAdsRequestFunctionCompleted" },
+    { "$ref": "#/definitions/eventPreAdsRequestFunctionError" }
   ],
 
   "definitions": {
@@ -1491,6 +1627,77 @@ The following lists the JSON schema for the AWS Elemental MediaTailor ADS log.
           "examples": [
             "https://ads.redirect.com/redirect1"
           ]
+        }
+      }
+    },
+
+    "eventPreAdsRequestHookSummary": {
+      "$id": "#/definitions/eventPreAdsRequestHookSummary",
+      "required": [
+        "eventType",
+        "eventId",
+        "functionId",
+        "executionTimeMs",
+        "status"
+      ],
+      "properties": {
+        "eventType": {
+          "type": "string",
+          "const": "PRE_ADS_REQUEST_HOOK_SUMMARY"
+        }
+      }
+    },
+
+    "eventPreAdsRequestHookError": {
+      "$id": "#/definitions/eventPreAdsRequestHookError",
+      "required": [
+        "eventType",
+        "eventId",
+        "functionId",
+        "executionTimeMs",
+        "errorType",
+        "cause"
+      ],
+      "properties": {
+        "eventType": {
+          "type": "string",
+          "const": "PRE_ADS_REQUEST_HOOK_ERROR"
+        }
+      }
+    },
+
+    "eventPreAdsRequestFunctionCompleted": {
+      "$id": "#/definitions/eventPreAdsRequestFunctionCompleted",
+      "required": [
+        "eventType",
+        "eventId",
+        "functionId",
+        "functionType",
+        "executionTimeMs"
+      ],
+      "properties": {
+        "eventType": {
+          "type": "string",
+          "const": "PRE_ADS_REQUEST_FUNCTION_COMPLETED"
+        }
+      }
+    },
+
+    "eventPreAdsRequestFunctionError": {
+      "$id": "#/definitions/eventPreAdsRequestFunctionError",
+      "required": [
+        "eventType",
+        "eventId",
+        "functionId",
+        "functionType",
+        "executionTimeMs",
+        "errorType",
+        "cause"
+      ],
+      "properties": {
+        "eventType": {
+          "type": "string",
+          "const": "PRE_ADS_REQUEST_FUNCTION_ERROR"
         }
       }
     }
