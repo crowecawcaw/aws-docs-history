@@ -28,3 +28,7 @@ In order for a target domain to be used in a penetration test, it must first be 
 - **DNS TXT (other DNS providers)**: Copy the verification token, add the TXT record with your DNS registrar, then select the domain and choose **Verify**.
 - **HTTP route**: Place the verification token at the required route path on your web server, then select the domain and choose **Verify**. For details, see [Enable an application domain for penetration testing](enable-test-domain.md "enable-test-domain.md").
 - **Private VPC**: Verifies the target domain’s IP falls within a private CIDR range (see [Connect agent to private VPC resources](connect-agent-vpc.md "connect-agent-vpc.md") for a list of private CIDR ranges). The penetration test target endpoint domain name must match the full domain name configured for verification. Only usable for private VPC penetration testing
+
+###### Note
+
+For DNS TXT, HTTP route, and Route 53 verification, sub-domains of a verified domain are automatically covered and do not require separate verification. For Private VPC verification, each domain must be verified individually.

@@ -15,6 +15,10 @@ To add a target domain, navigate to the **Penetration test** tab on the Agent Sp
 
 You can add a base domain or a sub-domain, such as `example.com` or `billing.example.com`. AWS suggests using a sub-domain where you have permission to create `TXT` records.
 
+###### Note
+
+When you verify a domain using DNS TXT or HTTP route verification, sub-domains of that domain are automatically covered. For example, verifying `example.com` allows you to test `api.example.com` or `billing.example.com` without additional verification. For Private VPC verification, the target endpoint domain name must match the full domain name configured for verification.
+
 Choose one of the following verification methods:
 
 - **DNS TXT record**: Prove domain ownership by creating a DNS TXT record with your DNS provider.

@@ -36,6 +36,12 @@ Use test accounts with representative access rather than personal or administrat
 
 ## Use advanced setting
 
+When you select an advanced credential strategy (Secrets Manager, Lambda, or IAM role), AWS Security Agent retrieves your credentials directly from the configured AWS resource using the service role. Use the **Agent Space login prompt** to provide the agent with instructions on how to apply those credentials to your application - for example, which login URL to navigate to and which form fields to fill in.
+
+###### Note
+
+Secrets Manager secrets and Lambda functions must be in the same AWS account as your AWS Security Agent setup. Cross-account credentials are not currently supported.
+
 1. Select **Advanced setting**.
 2. In the **User access strategy** dropdown, choose one of the following:
 
@@ -49,7 +55,7 @@ Use this option to retrieve credentials securely from AWS Secrets Manager with e
 
 The IAM role must have `secretsmanager:GetSecretValue` and `secretsmanager:DescribeSecret` permissions.
 
-Use the **Agent Space login prompt** to provide detailed instructions on how to interpret and use the credentials stored in the secret. You may use any format to store your secret, as the agent will dynamically interpret the format using these instructions.
+The agent retrieves the secret value directly from Secrets Manager. Use the **Agent Space login prompt** to tell the agent how to apply those credentials to your application’s login flow - for example, which URL to navigate to and which form fields to fill in. You may use any format to store your secret, as the agent will interpret the format using the instructions you provide in the login prompt.
 
 For example, if the agent is to submit a username/password login form at https://example.com/login, you may format your secret as JSON with `username` and `password` fields. If the application requires TOTP-based 2FA, include a `totpSecret` field with either the TOTP secret directly or a full `otpauth://totp/` URI:
 
@@ -84,7 +90,7 @@ Use this option for complex authentication systems, dynamic credential generatio
 
 The IAM role must have `lambda:InvokeFunction` permissions and the function must complete within 30 seconds.
 
-Like with Secrets Manager, the agent will dynamically interpret your Lambda function’s output using any login instructions provided in the **Agent Space login prompt**. Refer to [Select static credential from connected AWS Secrets Manager](#provide-testing-credentials-secrets-manager "#provide-testing-credentials-secrets-manager") for examples of how to format the output of your Lambda function and supported authentication types.
+The agent invokes your Lambda function and receives its output as credentials. Use the **Agent Space login prompt** to tell the agent how to apply those credentials to your application, just as with Secrets Manager. Refer to [Select static credential from connected AWS Secrets Manager](#provide-testing-credentials-secrets-manager "#provide-testing-credentials-secrets-manager") for examples of how to format the output of your Lambda function and supported authentication types.
 
 ## Configure multiple credentials
 

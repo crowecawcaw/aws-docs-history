@@ -44,7 +44,11 @@ In the second step of the wizard, verify ownership of each domain you configured
 
 ###### Note
 
-Sub-domains of a verified domain do not require individual verification. For private domains inside a VPC, you can proceed even if the domain verification status is UNREACHABLE. AWS Security Agent will attempt domain verification for private endpoints at the start of each pentest run.
+Sub-domains of a verified domain do not require individual verification when using DNS TXT or HTTP route verification. For Private VPC verification, the target endpoint domain name must match the full domain name configured for verification.
+
+###### Note
+
+For private domains inside a VPC, you can proceed even if the domain verification status is UNREACHABLE. AWS Security Agent will attempt domain verification for private endpoints at the start of each pentest run.
 
 ## Step 3: (Optional) Configure additional capabilities
 

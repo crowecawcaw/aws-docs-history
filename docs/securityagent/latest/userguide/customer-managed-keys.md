@@ -163,6 +163,18 @@ Replace the following placeholder values in the policy:
           "aws:SourceArn": "arn:aws:securityagent:us-east-1:111122223333:agent-space/*"
         }
       }
+    },
+    {
+      "Sid": "AllowAsynchronousDataAccessForCodeRemediation",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "securityagent.amazonaws.com"
+      },
+      "Action": [
+        "kms:Decrypt",
+        "kms:GenerateDataKey"
+      ],
+      "Resource": "*"
     }
   ]
 }

@@ -35,6 +35,10 @@ You can add up to 5 VPCs.
 4. Select the **VPC**, **Subnet**, and **Security groups**
 5. Select **Next** to reach the last section and **Save** the penetration test
 
+###### Note
+
+Cross-account penetration testing is currently supported for VPC resources (subnets and security groups) shared using AWS Resource Access Manager. Secrets Manager secrets and Lambda functions used for authentication credentials must be configured in the same AWS account as your AWS Security Agent setup.
+
 ## Running a penetration test against VPC resources in another AWS account
 
 You can run penetration tests against VPC resources shared with your account using AWS Resource Access Manager. Both accounts must be part of the same AWS Organization.

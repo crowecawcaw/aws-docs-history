@@ -51,7 +51,7 @@ Specify the verified domains that will be actively tested for security vulnerabi
 
 ###### Important
 
-Only verified domains can be tested. The URL must match a domain you’ve previously verified in AWS Security Agent. 4. To add multiple target domains:
+Only verified domains can be tested. The URL must be under a domain you’ve previously verified in AWS Security Agent. Sub-domains of a verified domain do not require separate verification. 4. To add multiple target domains:
 
     1. Click **Add domain**.
     2. Enter each additional domain URL.
@@ -60,7 +60,7 @@ Only verified domains can be tested. The URL must match a domain you’ve previo
 
 ###### Tip
 
-For best results, include all domains that are part of your application’s user flow, including subdomains for APIs, authentication services, and content delivery.
+For best results, include all domains that are part of your application’s user flow, including subdomains for APIs, authentication services, and content delivery. Sub-domains of a verified parent domain do not require separate verification.
 
 ### Exclude risk types (optional)
 
@@ -76,7 +76,7 @@ Excluding risk types limits the scope of testing. Only exclude risk types that a
 
 ### Add out-of-scope URL paths (optional)
 
-Specify URL paths that should not be tested during the penetration test.
+Specify URL paths that should not be tested during the penetration test. AWS Security Agent excludes the specified path and all paths nested beneath it. For example, if you add `https://example.com/admin` as an out-of-scope URL, `https://example.com/admin/tools` is also out-of-scope.
 
 1. Locate the **Out-of-scope URLs** section.
 2. Click in the input field and enter a URL path to exclude (for example, `/admin/delete` or `/api/reset`).
@@ -202,11 +202,11 @@ If you have multiple target domains that require different credentials, you can 
 Provide instructions to guide AWS Security Agent through your application’s authentication process.
 
 1. Expand the **Agent login prompt** section if your authentication flow requires specific instructions.
-2. Enter detailed instructions describing how to access your application using the provided credentials.
+2. Enter instructions describing how to use the provided credentials in your application’s login flow.
 
 ###### Note
 
-The agent login prompt is useful for complex authentication flows, multi-step login processes, or applications with non-standard login procedures. Include step-by-step instructions such as "Navigate to /login, enter username in the 'Email' field, enter password, and click 'Sign In'."
+The agent login prompt tells the agent how to apply your credentials to your application. This is useful for complex authentication flows, multi-step login processes, or applications with non-standard login procedures. Include step-by-step instructions such as "Navigate to /login, enter username in the 'Email' field, enter password, and click 'Sign In'."
 
 ### Add multiple credentials (optional)
 
