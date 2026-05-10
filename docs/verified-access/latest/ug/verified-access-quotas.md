@@ -42,3 +42,11 @@ The following is the OIDC claim size limit.
 ###### IAM Identity Center
 
 Verified Access can provide access to users in IAM Identity Center who are assigned to up to 1,000 groups.
+
+###### Connectivity Client
+
+The Connectivity Client has the following limit.
+
+| Name                                                         | Default | Adjustable |
+| ------------------------------------------------------------ | ------- | ---------- |
+| Simultaneous Verified Access instance connections per device | 5       | No         |
