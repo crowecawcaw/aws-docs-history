@@ -449,14 +449,14 @@ aws emr create-cluster \
     "S3LoggingConfiguration": {
         "LogTypeUploadPolicy": {
             "application-logs": "on-customer-s3only",
-            "persistent-ui-logs": "disabled"
+            "system-logs": "emr-managed"
         }
     }
 }'
 ```
 
 This configuration uploads application logs only to the customer S3 bucket, and
-disables persistent UI log uploads completely. The unspecified log type (system
+sets emr-managed policy for system logs. The unspecified log type (persistent UI
 logs) follows default (emr-managed) behavior.
 
 ### Considerations

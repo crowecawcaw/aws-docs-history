@@ -232,6 +232,7 @@ See the following to learn more specific details about open-source applications 
   change which TLS versions that Java supports, which might impact existing Amazon EMR releases.
 
 You specify the encryption artifacts used for in-transit encryption in one of
-two ways: either by providing a zipped file of certificates that you upload to
+three ways: by allowing Amazon EMR to create and manage certificates for you, by
+providing a zipped file of certificates that you upload to
 Amazon S3, or by referencing a custom Java class that provides encryption artifacts.
 For more information, see [Providing certificates for encrypting data in transit with Amazon EMR encryption](emr-encryption-enable.md#emr-encryption-certificates "emr-encryption-enable.md#emr-encryption-certificates").

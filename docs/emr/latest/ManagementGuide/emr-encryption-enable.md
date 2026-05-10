@@ -181,9 +181,14 @@ public class MyEncryptionMaterialsProviders implements EncryptionMaterialsProvid
 
 ## Providing certificates for encrypting data in transit with Amazon EMR encryption
 
-With Amazon EMR release version 4.8.0 or later, you have two options for specifying
+With Amazon EMR release version 7.11.0 or later, you have three options for specifying
 artifacts for encrypting data in transit using a security configuration:
 
+- You can have Amazon EMR create and manage private certificates for you.
+  When selecting this option, Amazon EMR will upload the PEM-encoded
+  certificate of the created certificate authority to AWS Secrets Manager in your
+  account for you to use in your trust stores. For configuration details
+  and example commands, see [Configure data encryption](emr-create-security-configuration.md#emr-security-configuration-encryption "emr-create-security-configuration.md#emr-security-configuration-encryption").
 - You can manually create PEM certificates, include them in a .zip file,
   and then reference the .zip file in Amazon S3.
 - You can implement a custom certificate provider as a Java class. You
@@ -191,6 +196,9 @@ artifacts for encrypting data in transit using a security configuration:
   full class name of the provider as declared in the application. The
   class must implement the [TLSArtifactsProvider](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/elasticmapreduce/spi/security/TLSArtifactsProvider.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/elasticmapreduce/spi/security/TLSArtifactsProvider.md") interface available beginning with the
   AWS SDK for Java version 1.11.0.
+
+For Amazon EMR release version 4.8.0 through 7.10.0, only a .zip file or custom
+Java class are supported.
 
 Amazon EMR automatically downloads artifacts to each node in the cluster and later
 uses them to implement the open-source, in-transit encryption features. For more
@@ -206,7 +214,7 @@ they appear below:
 | ---------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
 | privateKey.pem                     | Required  | Private key                                                                                                                                                                                                                                                                                                                                |
 | certificateChain.pem               | Required  | Certificate chain                                                                                                                                                                                                                                                                                                                          |
-| trustedCertificates.pem            | Optional  | We recommend that you provide a certificate that isn't signed<br>by the the Java default trusted root certification authority (CA) or an intermediate CA<br>that can link to the Java default trusted root CA. We don't reocmmend that you use public CAs<br>when you use wildcard certificates or when you disable hostname verification. |
+| trustedCertificates.pem            | Optional  | We recommend that you provide a certificate that isn't signed<br>by the the Java default trusted root certification authority (CA) or an intermediate CA<br>that can link to the Java default trusted root CA. We don't recommend that you use public CAs<br>when you use wildcard certificates or when you disable hostname verification. |
 
 You likely want to configure the private key PEM file to be a wildcard
 certificate that enables access to the Amazon VPC domain in which your cluster
