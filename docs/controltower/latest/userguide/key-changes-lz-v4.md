@@ -93,6 +93,8 @@ Enabling the Config integration at the landing zone level is a prerequisite for 
 Config baseline on OUs. The landing zone-level setting alone does not deploy Config resources
 to member accounts.
 
+For more information, see [AWS Config Updates](config-updates-v4.md "config-updates-v4.md").
+
 ###### CentralizedLogging behavior change in version 4.0
 
 In landing zone versions 3.3 and earlier, disabling CentralizedLogging toggled the Organization

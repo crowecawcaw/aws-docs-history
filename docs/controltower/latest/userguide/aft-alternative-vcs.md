@@ -15,6 +15,7 @@ prerequisites.
 - BitBucket
 - GitLab
 - GitLab Self-managed
+- Azure DevOps
 
 ###### Note
 
@@ -59,34 +60,35 @@ the AFT deployment.
 
 - **vcs_provider**: If you are not using AWS CodeCommit, specify the
   VCS provider as `"bitbucket"`, `"github"`,
-  `"githubenterprise"`, or `"gitlab"`, based on your use
+  `"githubenterprise"`, `"gitlab"`,
+  `"gitlabselfmanaged"`, or `"azuredevops"`, based on your use
   case.
 - **github_enterprise_url**: For GitHub Enterprise customers
   only, specify the GitHub URL.
 - **account_request_repo_name**: For AWS CodeCommit users, this
   value is set to `aft-account-request`. In an AFT-supported,
   third-party VCS provider environment, update this input value with your actual
-  repository name. For BitBucket, Github, GitHub Enterprise, GitLab, and GitLab
-  Self-managed, the repository name must have the format
+  repository name. For BitBucket, Github, GitHub Enterprise, GitLab, GitLab
+  Self-managed, and Azure DevOps, the repository name must have the format
   `[Org]/[Repo]`.
 - **account_customizations_repo_name**: For AWS CodeCommit users,
   this value is set to `aft-account-customizations`. In an
   AFT-supported, third-party VCS provider environment, update this input value
-  with your repository name. For BitBucket, Github, GitHub Enterprise, GitLab, and
-  GitLab Self-managed, the repository name must have the format
+  with your repository name. For BitBucket, Github, GitHub Enterprise, GitLab, GitLab
+  Self-managed, and Azure DevOps, the repository name must have the format
   `[Org]/[Repo]`.
 - **account_provisioning_customizations_repo_name**: For
   AWS CodeCommit users, this value is set to
   `aft-account-provisioning-customizations`. In an AFT-supported,
   third-party VCS provider environment, update this input value with your
-  repository name. For BitBucket, Github, GitHub Enterprise, GitLab, and GitLab
-  Self-managed, the repository name must have the format
+  repository name. For BitBucket, Github, GitHub Enterprise, GitLab, GitLab
+  Self-managed, and Azure DevOps, the repository name must have the format
   `[Org]/[Repo]`.
 - **global_customizations_repo_name**: For AWS CodeCommit users,
   this value is set to `aft-global-customizations`. In an
   AFT-supported, third-party VCS provider environment, update this input value
-  with your repository name. For BitBucket, Github, GitHub Enterprise, GitLab, and
-  GitLab Self-managed, the repository name must have the format
+  with your repository name. For BitBucket, Github, GitHub Enterprise, GitLab, GitLab
+  Self-managed, and Azure DevOps, the repository name must have the format
   `[Org]/[Repo]`.
 - **account_request_repo_branch**: The branch is
   `main` by default, but the value can be overridden.

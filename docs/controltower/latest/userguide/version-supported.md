@@ -1,11 +1,11 @@
 # Terraform and AFT versions
 
-Account Factory for Terraform (AFT) supports Terraform version `1.6.0` or
+Account Factory for Terraform (AFT) supports Terraform version `1.6.1` or
 later. You must provide a Terraform version as an input parameter for the AFT deployment
 process, as shown in the example that follows.
 
 ```
-terraform_version = "1.6.0"
+terraform_version = "1.6.1"
 ```
 
 ## Terraform distributions

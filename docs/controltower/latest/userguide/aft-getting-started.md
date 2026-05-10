@@ -89,7 +89,7 @@ init](https://developer.hashicorp.com/terraform/cli/commands/init "https://devel
 
 ###### Note
 
-AFT supports Terraform Version `1.6.0` or later.
+AFT supports Terraform Version `1.6.1` or later.
 
 **Step 5: Optional configurations**
 

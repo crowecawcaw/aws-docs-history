@@ -95,3 +95,12 @@
   }
 
   ```
+
+###### Important
+
+After you upgrade to landing zone version 4.0 and enable the AWS Config integration, you must complete the
+enablement process. Update or enable the `ConfigBaseline` on all OUs where you
+want to deploy AWS Config resources. Until you complete this process, your AWS Config Aggregator will not
+receive data from recorders. Each account continues to record and store data. After you finish
+updating the `ConfigBaseline`, the recorded data automatically backfills
+into the aggregator.
