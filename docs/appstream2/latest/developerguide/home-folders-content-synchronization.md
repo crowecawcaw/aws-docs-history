@@ -56,8 +56,10 @@ the file again.
 
 If a user opens a file in their home folder on the fleet instance during
 their streaming session, and you remove the file from their home folder in
-an S3 bucket during that user’s active streaming session, the file is
-removed from the fleet instance after the user does either of the following:
+an S3 bucket during that user’s active streaming session, there may be up
+to a 60 second delay before the deletion is reflected on the fleet
+instance. After this delay, the file is removed from the fleet instance
+when the user does either of the following:
 
 - Opens the home folder again
 - Refreshes the home folder

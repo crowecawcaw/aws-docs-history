@@ -161,18 +161,19 @@ The following table lists the WorkSpaces Applications Model Context Protocol (MC
 
 | WorkSpaces Applications MCP endpoints | Region                                   | Domain |
 | ------------------------------------- | ---------------------------------------- | ------ |
-| Europe (Frankfurt)                    | `agentaccess-mcp.eu-central-1.api.aws`   |
-| US East (N. Virginia)                 | `agentaccess-mcp.us-east-1.api.aws`      |
-| Asia Pacific (Singapore)              | `agentaccess-mcp.ap-southeast-1.api.aws` |
+| Asia Pacific (Tokyo)                  | `agentaccess-mcp.ap-northeast-1.api.aws` |
 | Asia Pacific (Seoul)                  | `agentaccess-mcp.ap-northeast-2.api.aws` |
 | Asia Pacific (Mumbai)                 | `agentaccess-mcp.ap-south-1.api.aws`     |
-| Asia Pacific (Tokyo)                  | `agentaccess-mcp.ap-northeast-1.api.aws` |
+| Asia Pacific (Singapore)              | `agentaccess-mcp.ap-southeast-1.api.aws` |
+| Asia Pacific (Sydney)                 | `agentaccess-mcp.ap-southeast-2.api.aws` |
+| Canada (Central)                      | `agentaccess-mcp.ca-central-1.api.aws`   |
+| Europe (Frankfurt)                    | `agentaccess-mcp.eu-central-1.api.aws`   |
+| Europe (Ireland)                      | `agentaccess-mcp.eu-west-1.api.aws`      |
+| Europe (London)                       | `agentaccess-mcp.eu-west-2.api.aws`      |
+| Europe (Paris)                        | `agentaccess-mcp.eu-west-3.api.aws`      |
+| US East (N. Virginia)                 | `agentaccess-mcp.us-east-1.api.aws`      |
 | US East (Ohio)                        | `agentaccess-mcp.us-east-2.api.aws`      |
 | US West (Oregon)                      | `agentaccess-mcp.us-west-2.api.aws`      |
-| Europe (Paris)                        | `agentaccess-mcp.eu-west-3.api.aws`      |
-| Europe (London)                       | `agentaccess-mcp.eu-west-2.api.aws`      |
-| Canada (Central)                      | `agentaccess-mcp.ca-central-1.api.aws`   |
-| Europe (Ireland)                      | `agentaccess-mcp.eu-west-1.api.aws`      |
 
 ## AWS IP address ranges
 
