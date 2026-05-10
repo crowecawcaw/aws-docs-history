@@ -2,7 +2,7 @@
 
 After you complete deployment, configure your incident response team to ensure proper notification and escalation during security events.
 
-###### To configure your incident response team
+###### Configure your incident response team using the AWS Security Incident Response console
 
 1. Open the AWS Security Incident Response console.
 2. In the left navigation pane, choose **Incident Response Team**.

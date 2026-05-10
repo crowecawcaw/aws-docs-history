@@ -16,17 +16,7 @@ administrator that you set for other AWS security and compliance
 services. Provide the 12-digit delegated administrator account ID
 and then log in to that account to proceed.
 
-###### Important
-
-When you use a delegated administrator account as part of setup, AWS Security Incident Response can't automatically create the required
-triage service linked role in your AWS Organizations management account. Complete the following steps to manually create this role in your AWS Organizations management account.
-
-###### Create a service-linked role (console)
-
-1. Login to your AWS Organizations management account.
-2. Access the [AWS CloudShell console](https://console.aws.amazon.com/cloudshell/home "https://console.aws.amazon.com/cloudshell/home") or access the account through the AWS Command Line Interface using your preferred method.
-3. Use the CLI command `aws iam create-service-linked-role --aws-service-name "triage.security-ir.amazonaws.com" --no-cli-pager`.
-4. (Optional) To verify that the command worked, run the command `aws iam get-role --role-name AWSServiceRoleForSecurityIncidentResponse_Triage`.
+AWS Security Incident Response automatically creates the `AWSServiceRoleForSecurityIncidentResponse_Triage` service-linked role in your AWS Organizations management account and in all accounts that are in scope when onboarding through the AWS Security Incident Response console. For instructions on enabling AWS Security Incident Response and designating a delegated administrator account using the API/CLI, see [Enable Security Incident Response and configure your incident response team using the API/CLI](enable-sir-using-cli.md "enable-sir-using-cli.md").
 
 **Use the currently logged in
 account**: Selecting this account means the current account will be designated as the

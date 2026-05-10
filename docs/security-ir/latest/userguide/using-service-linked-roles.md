@@ -41,7 +41,7 @@ AWS Security Incident Response uses the service-linked role (SLR) named AWSServi
 The AWSServiceRoleForSecurityIncidentResponse service-linked role trusts the following service
 to assume the role:
 
-- `triage.security-ir.amazonaws.com`
+- `security-ir.amazonaws.com`
 
 Attached to this role is the
 AWS managed policy named [AWSSecurityIncidentResponseServiceRolePolicy](aws-managed-policies.md#AWSSecurityIncidentResponseServiceRolePolicy "aws-managed-policies.md#AWSSecurityIncidentResponseServiceRolePolicy").
@@ -59,11 +59,6 @@ The service uses the role to perform actions on the following resources:
 
 You don't need to manually create a service-linked role. When you onboard to to AWS Security Incident Response in the AWS Management Console, the AWS CLI,
 or the AWS API, the service creates the service-linked role for you.
-
-###### Note
-
-If you created a membership using a delegated administrator account, then
-service-linked roles need to be manually created in AWS Organizations Management accounts.
 
 If you delete this service-linked role, and then need to create it again, you can use the same process to recreate the
 role in your account. When you onboard to the service it creates the service-linked role for you again.
@@ -101,11 +96,10 @@ The service uses the role to perform actions on the following resources:
 
 ### Managing the role
 
-You don't need to manually create a service-linked role. When you onboard to to AWS Security Incident Response in the AWS Management Console, the AWS CLI,
-or the AWS API, the service creates the service-linked role for you.
+If you [onboard](deploy-configure.md "deploy-configure.md") to AWS Security Incident Response in the AWS Management Console, Security Incident Response automatically creates the `AWSServiceRoleForSecurityIncidentResponse_Triage` service-linked role in your AWS Organizations management account and in all accounts that are in scope. If you onboarding using the API/CLI, then you must create the role manually. For more information, see [Enable Security Incident Response and configure your incident response team using the API/CLI](enable-sir-using-cli.md "enable-sir-using-cli.md").
 
-If you delete this service-linked role, and then need to create it again, you can use the same process to recreate the
-role in your account. When you onboard to the service it creates the service-linked role for you again.
+If you delete this service-linked role, and then need to create it again, you can use the API/CLI to recreate the
+role in your account.
 
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see

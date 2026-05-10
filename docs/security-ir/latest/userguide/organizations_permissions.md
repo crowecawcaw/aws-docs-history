@@ -35,7 +35,9 @@ policy for your account:
                 "organizations:DescribeOrganizationalUnit",
                 "organizations:DescribeAccount",
                 "organizations:DescribeOrganization",
-                "organizations:ListAccounts"
+                "organizations:ListAccounts",
+                "iam:CreateServiceLinkedRole",
+                "iam:GetPolicy"
             ],
             "Resource": "*"
         }

@@ -13,7 +13,6 @@ delegated Security Incident Response administrator account.
 - [Considerations and recommendations for using AWS Security Incident Response with AWS Organizations](considerations_important.md "considerations_important.md")
 - [Enabling trusted access for AWS Account Management](using-orgs-trusted-access.md "using-orgs-trusted-access.md")
 - [Permissions required to designate a delegated Security Incident Response administrator account](organizations_permissions.md "organizations_permissions.md")
-- [Designating a delegated administrator for AWS Security Incident Response](delegated-admin-designate.md "delegated-admin-designate.md")
 - [Managing membership with organizational units (OUs) for AWS Security Incident Response](managing-membership-with-ou.md "managing-membership-with-ou.md")
 - [Adding members to AWS Security Incident Response](add-member-accounts.md "add-member-accounts.md")
 - [Removing members from AWS Security Incident Response](remove-member-account.md "remove-member-account.md")
