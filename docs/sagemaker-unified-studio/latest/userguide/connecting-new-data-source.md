@@ -17,11 +17,16 @@ configuration.
    1. You can select [SSL connection](#ssl-connection "#ssl-connection")
       for supported data sources.
 
-6. Configure the authentication details. You can either enter
-   **Username** and **Password** directly in the
-   connection details, or use a secret in AWS Secrets Manager that stores the
-   credentials. You might need to contact your administrator to create a new secret for the
-   connection.
+6. Configure the authentication details. Choose one of the following authentication
+   methods:
+   - **Username and password** – Enter your username and password
+     directly in the connection details.
+   - **AWS Secrets Manager** – Use a secret that stores the
+     credentials. You might need to contact your administrator to create a new secret for
+     the connection.
+   - **Key-pair authentication** – Enter your username and private
+     key directly in the connection details. For more information, see [Snowflake connections](../../../glue/latest/dg/aws-glue-programming-etl-connect-snowflake-home.md "../../../glue/latest/dg/aws-glue-programming-etl-connect-snowflake-home.md") in the AWS Glue Developer Guide.
+
 7. Choose **Create connection**.
 8. If all validations pass, a new connection will be created.
    Your connection will appear under **Data section** in the navigation

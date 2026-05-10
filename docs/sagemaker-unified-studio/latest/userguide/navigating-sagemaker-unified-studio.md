@@ -62,12 +62,16 @@ This section middle section offers pre-configured example projects:
 
 ## Change the display mode
 
-You can switch between light mode and dark mode to suit your viewing preference.
+Amazon SageMaker Unified Studio defaults to your operating system's display preference (light or dark mode).
+You can override this setting to choose a specific mode.
 
 ###### To change the display mode
 
 1. In the upper-right corner of the console, choose the Account icon.
 2. Choose Customize appearance.
-3. Select Light mode or Dark mode.
+3. Select one of the following options:
+   - **System**. Uses your operating system's light or dark mode setting.
+   - **Light**. Always displays in light mode.
+   - **Dark**. Always displays in dark mode.
 
 Your preference is saved automatically and applied across sessions.

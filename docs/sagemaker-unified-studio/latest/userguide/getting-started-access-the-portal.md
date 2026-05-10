@@ -27,9 +27,10 @@ Unified Studio domain. For more information, see [Invalid or expired auth token 
 
 ## Configure credentials
 
-If you want to sign in to Amazon SageMaker Unified Studio using AWS IAM user or SSO credentials
-using IAM Identity Center, follow the instructions in the optional prerequiste
-sections below.
+You can sign in to Amazon SageMaker Unified Studio with AWS IAM credentials or with
+single sign-on (SSO) credentials through IAM Identity Center. To configure
+these credentials, follow the instructions in the following optional prerequisite
+sections.
 
 ###### Note
 

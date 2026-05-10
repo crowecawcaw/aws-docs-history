@@ -15,15 +15,14 @@ There are two different roles that members can have:
   to the project, and remove members of the project. They can also edit the project
   description or delete the project. The person who creates the project has the role of
   Owner by default.
-  There are three different kinds of members you can add:
+  You can add the following types of members:
 
 - Single sign-on (SSO) users. An SSO user can sign into Amazon SageMaker Unified Studio using credentials from
   IAM Identity Center or another SSO source.
 - SSO groups. You can add groups of users created in IAM Identity Center. An SSO group
   is considered one project member.
-- IAM principals (roles or users). An IAM user can sign into Amazon SageMaker Unified Studio with their
-  IAM credentials. Note that IAM roles can't access Amazon SageMaker Unified Studio directly and must
-  contribute to the project programmatically.
+- IAM principals (roles or users). An IAM user or role can sign into Amazon SageMaker Unified Studio with their
+  IAM credentials. They can also contribute to the project programmatically.
   To add members to an existing project, complete the following steps.
 
 1. Navigate to Amazon SageMaker Unified Studio using the URL from your admin and log in
