@@ -14,7 +14,11 @@ Automation rules for integrations are not supported in the AWS GovCloud (US) Reg
 
 **Cost Estimator**
 
-The Security Hub cost estimator is not available in the AWS GovCloud (US) Region. The cost estimator is a console feature that provides cost estimates for security capabilities across your AWS environment, comparing individual service pricing (GuardDuty, Amazon Inspector, Security Hub CSPM) against Security Hub's simplified pricing plans. It uses AWS Cost Explorer data to auto-populate usage information for management, delegated administrator, member, and standalone accounts. For more information about the cost estimator in other AWS Regions, see Cost estimator in the AWS Security Hub} User Guide.
+The Security Hub cost estimator is not available in the AWS GovCloud (US) Region. The cost estimator is a console feature that provides cost estimates for security capabilities across your AWS environment, comparing individual service pricing (GuardDuty, Amazon Inspector, Security Hub CSPM) against Security Hub's simplified pricing plans. It uses AWS Cost Explorer data to auto-populate usage information for management, delegated administrator, member, and standalone accounts. For more information about the cost estimator in other AWS Regions, see [AWS Security Hub Cost Estimator](../../../securityhub/latest/userguide/security-hub-cost-estimator.md "../../../securityhub/latest/userguide/security-hub-cost-estimator.md") in the _AWS Security Hub User Guide_.
+
+**Usage**
+
+The Security Hub Usage page is not available in the AWS GovCloud (US) Region. The Usage page is a console feature that helps customers track and manage Security Hub costs by displaying current costs, projected monthly costs, and usage broken down by security capability or individual AWS account. Customers in AWS GovCloud (US) can continue to use AWS Cost Explorer to analyze Security Hub costs. For more information about the Usage page in other AWS Regions, see [Understanding the Security Hub Usage page](../../../securityhub/latest/userguide/security-hub-usage-page.md "../../../securityhub/latest/userguide/security-hub-usage-page.md") in the _AWS Security Hub User Guide_.
 
 **Security Hub Extended Plan**
 

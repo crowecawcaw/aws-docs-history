@@ -16,7 +16,7 @@ The following list details the differences for using this service in AWS GovClou
   - Amazon WorkMail
   - Amazon Chime
   - AWS Management Console
-  - Amazon Connect only in available in AWS GovCloud (US-West).
+  - Connect Customer only in available in AWS GovCloud (US-West).
   - AWS IAM Identity Center
 
 - The following AWS Managed Microsoft AD features are not currently supported in AWS GovCloud (US):

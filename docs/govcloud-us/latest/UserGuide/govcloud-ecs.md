@@ -5,7 +5,6 @@ Amazon Elastic Container Service (Amazon ECS) is a highly scalable, fast, contai
 ## How Amazon Elastic Container Service differs for AWS GovCloud (US)
 
 - The Amazon ECS-optimized AMI variant of the Bottlerocket operating system is not available when launching Amazon ECS container instances.
-- Attaching Amazon EBS volumes to Amazon ECS tasks is not supported.
 
 ## Documentation for Amazon Elastic Container Service
 
