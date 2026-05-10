@@ -58,7 +58,7 @@ see [Finding your cluster connection string](../mgmt/configuring-connections.md#
   system-specific driver to connect to Amazon Redshift from your client tools.
 
 For more information on how to install the appropriate driver for your SQL client,
-see [Configuring a JDBC driver version 2.2
+see [Configuring a JDBC driver version 2.x
 connection](../mgmt/jdbc20-install.md "../mgmt/jdbc20-install.md").
 
 For more information on how to configure an ODBC connection, see [Configuring an ODBC connection](../mgmt/configure-odbc-connection.md "../mgmt/configure-odbc-connection.md").
