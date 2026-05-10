@@ -6,9 +6,27 @@ Previous platform versions remain accessible to accounts with active or terminat
 See the [Supported platforms](platforms-supported.md "platforms-supported.md") page for information on the latest version of each platform
 supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](../relnotes.md "../relnotes.md").
 
-## April 9, 2026 – present
+## May 7, 2026 – present
 
-The following Elastic Beanstalk platform versions for Go have been current since April 9, 2026:
+The following Elastic Beanstalk platform versions for Go have been current since May 7, 2026:
+
+| Platform Version and _Solution Stack Name_                                     | AMI              | Language  | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | ---------------- | --------- | --------- | ------------ |
+| **Go 1 AL2023 version 4.8.3**<br>_64bit Amazon Linux 2023 v4.8.3 running Go 1_ | 2023.11.20260505 | Go 1.25.9 | 3.6.2     | nginx 1.28.3 |
+| **Go 1 AL2 version 3.18.2**<br>_64bit Amazon Linux 2 v3.18.2 running Go 1_     | 2.0.20260504     | Go 1.26.2 | 3.6.2     | nginx 1.28.3 |
+
+## May 4, 2026 – May 6, 2026
+
+The following Elastic Beanstalk platform versions for Go were current between May 4, 2026 and May 6, 2026:
+
+| Platform Version and _Solution Stack Name_                                     | AMI              | Language  | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | ---------------- | --------- | --------- | ------------ |
+| **Go 1 AL2023 version 4.8.2**<br>_64bit Amazon Linux 2023 v4.8.2 running Go 1_ | 2023.11.20260427 | Go 1.25.9 | 3.6.2     | nginx 1.28.3 |
+| **Go 1 AL2 version 3.18.1**<br>_64bit Amazon Linux 2 v3.18.1 running Go 1_     | 2.0.20260427     | Go 1.26.2 | 3.6.2     | nginx 1.28.3 |
+
+## April 9, 2026 – May 3, 2026
+
+The following Elastic Beanstalk platform versions for Go were current between April 9, 2026 and May 3, 2026:
 
 | Platform Version and _Solution Stack Name_                                     | AMI              | Language  | AWS X-Ray | Proxy Server |
 | ------------------------------------------------------------------------------ | ---------------- | --------- | --------- | ------------ |
