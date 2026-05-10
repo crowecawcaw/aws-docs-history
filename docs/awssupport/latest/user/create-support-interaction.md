@@ -21,7 +21,7 @@ Support interactions differ from support cases in that support cases include eng
 ###### Tip
 
 In the AWS Management Console, you can also choose the question mark icon (
-![](images/questionmark.png)
+![Question mark icon representing help or information.](images/questionmark.png)
 ) and then choose **Support Center**. 2. You have several options for starting your support interaction:
 
     * Enter details about the issues that you need assistance with. This is how you begin a new support interaction. Enter detailed information about your issue and any troubleshooting steps that you have already taken.

@@ -4,7 +4,7 @@ Virtual meetings enable you to connect with AWS Support engineers through video 
 
 When a support engineer determines that your case requires visual assistance, they can initiate a virtual meeting. You receive a meeting invitation on your case details page in the AWS Support Center. After you accept the invitation, you join a secure video call where you can share your screen and collaborate with the support engineer.
 
-Virtual meetings integrate with Amazon Connect and use WebRTC technology to provide secure, browser-based video conferencing without requiring additional software installation.
+Virtual meetings integrate with Connect Customer and use WebRTC technology to provide secure, browser-based video conferencing without requiring additional software installation.
 
 Virtual meetings are available in the [commercial AWS Regions](../../../glossary/latest/reference/glos-chap.md#region "../../../glossary/latest/reference/glos-chap.md#region") only.
 

@@ -58,7 +58,7 @@ You can create a support case in the Support Center of the AWS Management Consol
 ###### Tip
 
 In the AWS Management Console, you can also choose the question mark icon (
-![](images/questionmark.png)
+![Question mark icon representing help or information.](images/questionmark.png)
 ) and then choose **Support Center**. 2. Choose **Create case**. 3. Choose one of the following options:
 
     * **Account and billing**
@@ -226,7 +226,7 @@ To change the severity of a support case, complete the following steps:
 ###### Tip
 
 In the AWS Management Console, you can also choose the question mark icon (
-![](images/questionmark.png)
+![Question mark icon representing help or information.](images/questionmark.png)
 ) and then choose **Support Center**. 2. Select the case that you want to change the severity level for. 3. In **Case details**, choose the pencil icon next to the **Severity** field, as shown in the following example.
 
 ![The Case details section with the Severity field and pencil icon highlighted.](images/case-details-change-severity.png) 4. For **Severity**, choose the new severity level from the following options:

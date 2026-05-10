@@ -43,7 +43,7 @@ This policy includes the following permissions.
 - `cognito-identity` – Allow principals to troubleshoot technical support cases related to Amazon Cognito Identity.
 - `cognito-idp` – Allow principals to troubleshoot technical support cases related to Amazon Cognito user pools.
 - `cognito-sync` – Allow principals to troubleshoot technical support cases related to Amazon Cognito Sync.
-- `connect` – Allow principals to troubleshoot technical support cases related to Amazon Connect.
+- `connect` – Allow principals to troubleshoot technical support cases related to Amazon Connect Customer.
 - `directconnect` – Allow principals to troubleshoot technical support cases related to AWS Direct Connect.
 - `dms` – Allow principals to troubleshoot technical support cases related to AWS Database Migration Service.
 - `ds` – Allow principals to troubleshoot technical support cases related to AWS Directory Service.

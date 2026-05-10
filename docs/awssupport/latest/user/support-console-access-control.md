@@ -1,7 +1,7 @@
 # Adding IAM policies for the Support Center Console API operations
 
-Before November 2, 2026, you must create AWS Identity and Access Management policies for the Support Center Console API
-operations. If you don't create these policies by November 2, 2026, you will receive
+Before November 16, 2026, you must create AWS Identity and Access Management policies for the Support Center Console API
+operations. If you don't create these policies by November 16, 2026, you will receive
 `AccessDenied` errors.
 
 To add these operations to your IAM policies, see [Create IAM policies (console)](../../../IAM/latest/UserGuide/access_policies_create-console.md "../../../IAM/latest/UserGuide/access_policies_create-console.md") in the _AWS Identity and Access Management User Guide_.

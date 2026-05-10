@@ -17,7 +17,7 @@ from the support agent.
 2. Choose **See details** next to the case that you want.
 3. At the bottom of the case details, choose **Reply**.
 
-![Button labeled "Reply" highlighted with a red oval outline.](images/supportapp/reply-button-slack.png) 4. In the **Reply to case** dialog box, enter a brief description of
+![Three buttons: Share to channel, Reply (circled in red), and Resolve case.](images/supportapp/reply-button-slack.png) 4. In the **Reply to case** dialog box, enter a brief description of
 the issue in the **Message** field. Then choose
 **Next**.
 

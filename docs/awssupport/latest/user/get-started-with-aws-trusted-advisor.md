@@ -112,7 +112,7 @@ You can view the check descriptions and results for the following check categori
    ![Circular arrow icon representing a refresh or reload action.](images/refresh.png)
    ) to refresh this check.
 5. Choose the download icon (
-   ![Icon representing the action to upload or share content, showing an arrow pointing upwards.](images/download.png)
+   ![Icon representing the action to download content, showing an arrow pointing downwards.](images/download.png)
    ) to create an .xls file that includes the results for this check.
 
 ###### Example: Cost optimization category
