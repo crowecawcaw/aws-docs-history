@@ -224,4 +224,4 @@ format.
 ## Tagging
 
 You can't add tags to edge functions. For more information about tagging in CloudFront,
-see [Tag a distribution](tagging.md "tagging.md").
+see [Tag a CloudFront resource](tagging.md "tagging.md").

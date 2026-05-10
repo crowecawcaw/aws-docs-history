@@ -52,7 +52,7 @@ You can use distributions to serve the following content over HTTP or HTTPS:
 - [All distribution settings reference](distribution-web-values-specify.md "distribution-web-values-specify.md")
 - [Test a distribution](distribution-web-testing.md "distribution-web-testing.md")
 - [Update a distribution](HowToUpdateDistribution.md "HowToUpdateDistribution.md")
-- [Tag a distribution](tagging.md "tagging.md")
+- [Tag a CloudFront resource](tagging.md "tagging.md")
 - [Delete a distribution](HowToDeleteDistribution.md "HowToDeleteDistribution.md")
 - [Use various origins with CloudFront distributions](DownloadDistS3AndCustomOrigins.md "DownloadDistS3AndCustomOrigins.md")
 - [Enable IPv6 for CloudFront distributions](cloudfront-enable-ipv6.md "cloudfront-enable-ipv6.md")

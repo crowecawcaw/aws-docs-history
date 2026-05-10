@@ -1,9 +1,10 @@
-# Tag a distribution
+# Tag a CloudFront resource
 
 Tags are words or phrases that you can use to identify and organize your AWS resources.
 You can add multiple tags to each resource, and each tag includes a key and a value that you
 define. For example, the key might be "domain" and the value might be "example.com". You can
 search and filter your resources based on the tags you add.
+For more information about use cases for tags, see [Common tagging strategies](../../../whitepapers/latest/tagging-best-practices/tagging-best-practices.md "../../../whitepapers/latest/tagging-best-practices/tagging-best-practices.md") in the Tagging AWS Resources and Tag Editor Guide.
 
 You can use tags with CloudFront, such as the following examples:
 
@@ -32,7 +33,8 @@ _AWS Billing User Guide_.
 ###### Contents
 
 - [Tag restrictions](tagging.md#tagging-restrictions "tagging.md#tagging-restrictions")
-- [Add, edit, and delete tags for distributions](tagging.md#tagging-add-edit-delete "tagging.md#tagging-add-edit-delete")
+- [Tag your resources for billing](tagging.md#tagging-billing "tagging.md#tagging-billing")
+- [Add, edit, and delete tags](tagging.md#tagging-add-edit-delete "tagging.md#tagging-add-edit-delete")
 - [Programmatic tagging](tagging.md#tagging-related-information "tagging.md#tagging-related-information")
 
 ## Tag restrictions
@@ -48,15 +50,32 @@ The following basic restrictions apply to tags:
 - Don't use `aws:` as a prefix for keys. This prefix is reserved for
   AWS use.
 
-## Add, edit, and delete tags for distributions
+## Tag your resources for billing
 
-You can use the CloudFront console to manage tags for your distributions.
+You can use tags to organize your AWS bill to reflect your own cost structure.
+To do this, you must first activate tags for cost allocation in the Billing and Cost Management console.
+For more information about setting up a cost allocation report with tags, see [Monthly cost allocation report](../../../awsaccountbilling/latest/aboutv2/configurecostallocreport.md "../../../awsaccountbilling/latest/aboutv2/configurecostallocreport.md") in the AWS Billing User Guide.
+To see the cost of your combined resources, you can organize your billing information based on resources that have the same tag key values.
+For example, you can tag several resources with a specific application name, and then organize your billing information to see the total cost of that application across several services.
+For more information, see [Using cost allocation tags](../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md "../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md") in the AWS Billing User Guide.
 
-###### To add tags, edit, or delete tags for a distribution
+###### Note
+
+If you've just enabled reporting, data for the current month is available for viewing after 24 hours.
+
+## Add, edit, and delete tags
+
+You can use the CloudFront console to manage tags for your CloudFront resources.
+
+###### To add tags, edit, or delete tags for a resource
 
 1. Sign in to the AWS Management Console and open the CloudFront console at
    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
-2. Choose the ID for the distribution that you want to update.
+2. Navigate to your resource:
+   - **For a distribution:** Choose the ID for the distribution that you want to update.
+   - **For a function:** Choose Functions, then choose the name of the function that you want to update.
+   - **For a KeyValueStore:** Choose Functions, choose the KeyValueStore tab, then choose the name of the KeyValueStore that you want to update.
+
 3. Choose the **Tags** tab.
 4. Choose **Manage tags**.
 5. On the **Manage tags** page, you can do the following:

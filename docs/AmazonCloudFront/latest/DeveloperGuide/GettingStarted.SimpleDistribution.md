@@ -83,7 +83,7 @@ For this tutorial, you will create a CloudFront distribution that uses an Amazon
    standard distribution. The name will appear as the value for the
    `Name` key as a tag. You can change this value later.
    You can add up to 50 tags for your standard distribution. For more
-   information, see [Tag a distribution](tagging.md "tagging.md").
+   information, see [Tag a CloudFront resource](tagging.md "tagging.md").
 4. Choose **Single website or app**, **Next**.
 5. Choose **Next**.
 6. For **Origin type** page, select the

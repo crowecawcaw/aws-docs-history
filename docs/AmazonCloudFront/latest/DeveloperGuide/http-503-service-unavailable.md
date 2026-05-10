@@ -7,10 +7,14 @@ satisfy a request because of resource constraints at an edge location.
 If you are using Lambda@Edge or CloudFront Functions, the issue might be an execution
 error or a Lambda@Edge limit exceeded error.
 
+If you are using origin mutual TLS (origin mTLS), the issue might be due to
+repeated failed attempts to establish a connection with a specific certificate.
+
 ###### Topics
 
 - [Origin server does not have enough capacity to support the request rate](#http-503-service-unavailable-not-enough-origin-capacity "#http-503-service-unavailable-not-enough-origin-capacity")
 - [CloudFront caused the error due to resource constraints at the edge location](#http-503-service-unavailable-limited-resources-at-edge-location "#http-503-service-unavailable-limited-resources-at-edge-location")
+- [CloudFront caused the error for an origin configured with mutual TLS](#http-503-service-unavailable-origin-mtls "#http-503-service-unavailable-origin-mtls")
 - [Lambda@Edge or CloudFront Function execution error](#http-503-lambda-execution-error "#http-503-lambda-execution-error")
 - [Lambda@Edge limit exceeded](#http-503-lambda-limit-exceeded-error "#http-503-lambda-limit-exceeded-error")
 
@@ -81,6 +85,27 @@ distribution. To help prevent this, follow the [Load testing CloudFront](load-te
 guidelines for avoiding 503 (capacity exceeded) errors.
 
 If this happens in your production environment, contact [Support](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
+
+## CloudFront caused the error for an origin configured with mutual TLS
+
+If your distribution uses mutual TLS (mTLS) to connect to a custom origin,
+CloudFront may return an HTTP 503 status code when it is unable to establish
+connections to the origin. This can happen when the origin repeatedly fails to
+complete TLS handshakes or is unreachable due to DNS or connectivity issues.
+This condition is temporary — CloudFront automatically resumes normal traffic once
+the origin is reachable again.
+
+To resolve this issue:
+
+- Confirm that the correct client certificate is associated with your
+  distribution and that it has not expired. If you recently updated the
+  certificate, allow time for the change to propagate before it takes
+  effect.
+- Confirm that the origin is reachable and that DNS records resolve
+  correctly.
+
+If the issue persists despite configuring the proper certificate in your
+production environment, contact [Support](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
 ## Lambda@Edge or CloudFront Function execution error
 

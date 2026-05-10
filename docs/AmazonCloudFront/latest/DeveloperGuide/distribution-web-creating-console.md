@@ -76,7 +76,7 @@ Multi-tenant
    multi-tenant distribution. The name will appear as the value for the
    `Name` key. You can change this value later.
    You can add up to 50 tags for your multi-tenant distribution. For more
-   information, see [Tag a distribution](tagging.md "tagging.md") .
+   information, see [Tag a CloudFront resource](tagging.md "tagging.md") .
 5. (Optional) For **Wildcard certificate**, choose the AWS Certificate Manager (ACM)
    certificate that will cover all subdomains under the root
    domain, such as `*.example.com`. The
@@ -151,7 +151,7 @@ template.
 4. For **Template distribution**, choose a
    multi-tenant distribution ID from the list.
 5. For **Manage tags**, add up to 50 key-value
-   pairs for the distribution tenant. For more information, see [Tag a distribution](tagging.md "tagging.md").
+   pairs for the distribution tenant. For more information, see [Tag a CloudFront resource](tagging.md "tagging.md").
 6. Choose **Next**.
 7. On the **Add domains** page, for
    **Certificate**, choose if you want a
@@ -205,7 +205,7 @@ Standard
    standard distribution. The name will appear as the value for the
    `Name` key as a tag. You can change this value later.
    You can add up to 50 tags for your standard distribution. For more
-   information, see [Tag a distribution](tagging.md "tagging.md").
+   information, see [Tag a CloudFront resource](tagging.md "tagging.md").
 4. Choose **Single website or app**, **Next**.
 5. (Optional) For **Domain setup**, enter a domain that's already registered with Route 53 in your AWS account, or register a new domain. Complete the setup steps.
    - If your domain uses a DNS provider other than Route 53, you can still add the domain, but you'll need to do so after creating the distribution. Skip the domain setup for now to proceed with distribution creation. You must manually configure the domain and TLS certificate later. For more information, see [Add a domain to your CloudFront standard distribution](add-domain-existing-distribution.md "add-domain-existing-distribution.md").

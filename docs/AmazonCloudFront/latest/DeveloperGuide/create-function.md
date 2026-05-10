@@ -26,7 +26,12 @@ Console
 ###### Note
 
 To use [key-value pairs](kvs-with-functions.md "kvs-with-functions.md")
-in the function, you must choose JavaScript runtime 2.0. 4. In the **Function code** section, choose the
+in the function, you must choose JavaScript runtime 2.0.
+
+If you encounter a `TaggingConflict` (HTTP 409) error
+when creating a function with tags, wait a few minutes and retry,
+or create the function without tags initially and add them
+afterward. 4. In the **Function code** section, choose the
 **Build** tab and enter your function code. The
 sample code that is included in the **Build** tab
 illustrates the basic syntax for the function code. 5. Choose **Save changes**. 6. If the function code uses key-value pairs, you must associate a key
@@ -124,3 +129,24 @@ information is added by CloudFront.
 After you create the function, it's added to the `DEVELOPMENT` stage. We
 recommend that you [test your function](test-function.md "test-function.md") before you [publish it](publish-function.md "publish-function.md"). After you publish your function, the
 function changes to the `LIVE` stage.
+
+###### TaggingConflict error when creating functions
+
+CloudFront Functions reuse ARNs for functions with the same name. You may encounter a
+`TaggingConflict` (HTTP 409) error when creating a function with tags.
+This can occur in the following scenarios:
+
+- **After deleting a function** –
+  Recreating a function with the same name and tags immediately after
+  deletion.
+- **After a failed creation attempt** – If
+  a previous create request failed (for example, due to invalid parameters,
+  invalid KVS association, or a failed CloudFormation stack rollback).
+  If you receive a `TaggingConflict` error, you can:
+
+- Wait a few minutes and retry the operation.
+- Use a different function name. This avoids the ARN reuse conflict
+  entirely.
+- If your template creates both a KeyValueStore and a Function that references
+  it, add an explicit `DependsOn` to ensure the KVS is fully
+  provisioned before the function is created.
