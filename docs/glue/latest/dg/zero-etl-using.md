@@ -10,12 +10,12 @@ Lakehouse architecture of Amazon SageMaker unifies all your data across Amazon S
 
 Zero-ETL integrations in AWS Glue simplify data ingestion and replication from AWS data services and third-party applications to AWS destinations.
 
-AWS services supported by Zero-ETL sources in AWS Glue include:
+AWS services supported as zero-ETL sources in AWS Glue include:
 
 - Amazon DynamoDB
 - Oracle at AWS, ODB
 
-Third-party applications using AWS Glue connections include:
+Third-party applications supported as zero-ETL sources in AWS Glue include:
 
 - Facebook Ads
 - Instagram Ads
@@ -25,6 +25,15 @@ Third-party applications using AWS Glue connections include:
 - ServiceNow
 - Zendesk
 - Zoho CRM
+
+Self-managed databases supported as zero-ETL sources in AWS Glue include:
+
+- Oracle
+- SQL Server
+- MySQL
+- PostgreSQL
+
+For more information about zero-ETL integrations from self-managed sources, see [AWS zero-ETL integration for self-managed database sources](../../../dms/latest/userguide/zero-etl.md "../../../dms/latest/userguide/zero-etl.md").
 
 AWS services supported by Zero-ETL targets in AWS Glue include:
 

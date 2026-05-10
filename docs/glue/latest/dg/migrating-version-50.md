@@ -90,7 +90,7 @@ Note the following breaking changes:
   - Spark-native FTA
     - If 4.0 script uses GlueContext, migrate to using native spark.
     - This feature is limited to hive and iceberg tables
-    - For more info on configuring a 5.0 job to use Spark native FTA, see
+    - For more information on configuring a 5.0 job to use Spark native FTA, see [Native Spark FTA in AWS Glue 5.0](security-access-control-fta.md#native-spark-fta "security-access-control-fta.md#native-spark-fta").
 
   - GlueContext DynamicFrame FTA
     - No code change necessary

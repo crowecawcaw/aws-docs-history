@@ -23,7 +23,7 @@ dataset = glueContext.create_data_frame_from_catalog(
 After:
 
 ```
-table_identifier= '`<catalogname>`.`<dbname>`.`<table_name>`"' #catalogname is optional
+table_identifier= '`<catalogname>`.`<dbname>`.`<table_name>`' #catalogname is optional
 
 # DataFrame example
 dataset = spark.sql(f'select * from {table_identifier} WHERE column1 = 1 AND column7 = 7')

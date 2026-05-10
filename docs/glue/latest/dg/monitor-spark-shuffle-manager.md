@@ -14,14 +14,14 @@ AWS Glue Spark shuffle plugin with Amazon S3 is only supported for AWS Glue ETL 
 
 ###### Solution
 
-With AWS Glue, you can now use Amazon S3 to store Spark shuffle data. Amazon S3 is an
+With AWS Glue, you can now use Amazon S3 to store Spark shuffle data using the Cloud Shuffle Storage Plugin. Amazon S3 is an
 object storage service that offers industry-leading scalability, data availability, security,
 and performance. This solution disaggregates compute and storage for your Spark jobs, and
 gives complete elasticity and low-cost shuffle storage, allowing you to run your most
 shuffle-intensive workloads reliably.
 
 ![Spark Map Stage writes to disk, shuffles data to S3, then Spark Reduce Stage reads from S3.](images/gs-s3-shuffle-diagram.png)
-We are introducing a new Cloud Shuffle Storage Plugin for Apache Spark to use Amazon S3. You can
+You can
 turn on Amazon S3 shuffling to run your AWS Glue jobs reliably without failures if they
 are known to be bound by the local disk capacity for large shuffle operations. In some cases,
 shuffling to Amazon S3 is marginally slower than local disk (or EBS) if you have a large number of

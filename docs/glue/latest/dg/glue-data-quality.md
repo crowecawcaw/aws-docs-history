@@ -44,7 +44,7 @@ supports.
 
 ### Data quality for the AWS Glue Data Catalog
 
-AWS Glue Data Quality evaluates objects that are stored in the AWS Glue Data Catalog It offers non-coders an easy way to set up data
+AWS Glue Data Quality evaluates objects that are stored in the AWS Glue Data Catalog. It offers non-coders an easy way to set up data
 quality rules. These personas include data stewards and business analysts.
 
 You might choose this option for the following use cases:

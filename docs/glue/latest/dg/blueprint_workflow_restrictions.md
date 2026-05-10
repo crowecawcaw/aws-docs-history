@@ -8,7 +8,7 @@ Keep the following blueprint restrictions in mind:
 
 - The blueprint must be registered in the same AWS Region where the Amazon S3
   bucket resides in.
-- To share blueprints across AWS accounts you must give the read permissions
+- To share blueprints across AWS accounts you must give read permissions
   on the blueprint ZIP archive in Amazon S3. Customers who have read permission on a
   blueprint ZIP archive can register the blueprint in their AWS account and
   use it.

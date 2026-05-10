@@ -110,7 +110,7 @@ object GlueApp {
 
 ## Using DynamoDB export via the DataFrame-based connector
 
-The export operation is preffered to read operation for DynamoDB table sizes larger than 80 GB.
+The export operation is preferred to read operation for DynamoDB table sizes larger than 80 GB.
 The following code examples show how to read from a table, export to S3, and print the number of partitions via the DataFrame-based connector.
 
 ###### Note

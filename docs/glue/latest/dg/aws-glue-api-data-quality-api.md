@@ -142,6 +142,10 @@ Filter results by runs that started before this time.
 
 Filter results by runs that started after this time.
 
+- `RulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+
+Filter results by runs associated with a specific ruleset name.
+
 ## DataQualityEvaluationRunAdditionalRunOptions structure
 
 Additional run options you can specify for an evaluation run.
@@ -159,6 +163,10 @@ Prefix for Amazon S3 to store results.
 - `CompositeRuleEvaluationMethod` – UTF-8 string (valid values: `COLUMN` | `ROW`).
 
 Set the evaluation method for composite rules in the ruleset to ROW/COLUMN
+
+- `CustomLogGroupPrefix` – UTF-8 string.
+
+A custom prefix for the CloudWatch log group names. When specified, evaluation run logs are written to `<CustomLogGroupPrefix>/error` and `<CustomLogGroupPrefix>/output` instead of the default `/aws-glue/data-quality/error` and `/aws-glue/data-quality/output` log groups. The total log group name, including the suffix (`/error` or `/output`), must not exceed 512 characters.
 
 ## DataQualityRuleRecommendationRunDescription structure
 
