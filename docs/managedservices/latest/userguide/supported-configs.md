@@ -3,10 +3,6 @@
 These are the configurations AWS Managed Services (AMS) supports:
 
 - Language: AMS is available in English.
-- Firewall Services:
-  - Amazon Route 53 Resolver DNS Firewall
-  - Palo Alto VM-Series Next-Generation Firewall
-
 - Security software: Deep Security from Trend Micro (Required). AWS Marketplace:
   [Trend Micro Deep Security](https://aws.amazon.com/marketplace/pp/B01AVYHVHO?ref_=srh_res_product_title "https://aws.amazon.com/marketplace/pp/B01AVYHVHO?ref_=srh_res_product_title")
 - Approved directory services: Microsoft Active Directory (AD)

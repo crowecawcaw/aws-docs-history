@@ -181,14 +181,6 @@ provisions customer-managed accounts, but once the accounts are created, no othe
 are provided to those accounts. AWS will not enroll customer-managed accounts in enterprise-level
 premium support. It will be your responsibility to enroll customer-managed accounts in AWS support at
 the support rate you choose.
-
-- **Firewall management**:
-
-AMS provides an optional managed firewall solution for Supported Firewall Services, which enables
-internet-bound egress traffic filtering for networks in your managed environment. This excludes public-facing services
-that do not use the AWS network infrastructure and whose traffic goes directly to the internet. The solution combines
-industry-leading firewall technology with AMS infrastructure management capabilities to deploy, monitor, manage, scale, and
-restore the firewall infrastructure.
 When you onboard AMS, you receive a complete list of your AMS network infrastructure.
 To get an updated list of services running in support of your AMS infrastructure at any
 time, file a service request with specifics about the information you want. To request a
