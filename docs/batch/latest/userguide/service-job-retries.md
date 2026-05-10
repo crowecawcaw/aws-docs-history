@@ -16,9 +16,13 @@ Service jobs may require multiple attempts for several reasons:
 
 ###### Note
 
-Service jobs automatically retry certain types of failures, such as insufficient capacity
-errors, without consuming your configured retry attempts. Your retry strategy primarily
-handles other types of failures such as algorithm errors or service issues.
+When a SageMaker Training job fails due to insufficient capacity, AWS Batch retries the job
+automatically until capacity becomes available. The most recent SageMaker Training job that failed
+due to insufficient capacity will be retained, and earlier SageMaker Training jobs that failed due to
+insufficient capacity will be deleted on a best-effort basis.
+
+These capacity-based retries don't consume your configured retry attempts. Your retry strategy primarily
+handles other types of failures such as algorithm errors or service issues that occur after a job enters `STARTING`.
 
 ## Configuring retry strategies
 
