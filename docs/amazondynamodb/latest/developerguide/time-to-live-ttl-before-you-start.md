@@ -13,8 +13,7 @@ future when you want the item to expire, the item expires after that time. For
 example, say that you set the expiration time to 1724241326 (which is Monday, August 21,
 2024 11:55:26 (UTC)). The item expires after the specified time. There is no minimum
 TTL duration. You can set the expiration time to any future time, such as 5
-minutes from the current time. However, DynamoDB typically deletes expired items within
-48 hours after their expiration time, not immediately when the item expires.
+minutes from the current time.
 
 ###### Topics
 
