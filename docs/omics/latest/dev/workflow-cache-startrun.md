@@ -28,6 +28,7 @@ on GitHub.
 - [Configuring a run with run cache using the console](#workflow-cache-startrun-console "#workflow-cache-startrun-console")
 - [Configuring a run with run cache using the CLI](#workflow-cache-startrun-api "#workflow-cache-startrun-api")
 - [Error cases for run caches](#workflow-cache-errors "#workflow-cache-errors")
+- [Caching on cancelled runs](#workflow-cache-cancel "#workflow-cache-cancel")
 - [Tracking call caching information](#workflow-cache-track "#workflow-cache-track")
 
 ## Configuring a run with run cache using the console
@@ -72,9 +73,18 @@ For the following scenarios, HealthOmics may not cache task outputs, even for a 
 - If the export process fails, HealthOmics doesn't save the task outputs to the Amazon S3 cache location.
 - If the run fails due to a **filesystem out of space** error, call caching doesn't save
   any task outputs.
-- If you cancel a run, call caching doesn't save any task outputs.
 - If the run experiences a run timeout, call caching doesn't save any task outputs,
   even if you configured the run to use cache on failure.
+
+## Caching on cancelled runs
+
+When you cancel a running workflow that uses a run cache, HealthOmics exports cache entries for tasks that
+completed successfully before the cancellation. These cache entries follow the same matching and reuse behavior
+as cache entries from completed runs. HealthOmics does not export workflow-level outputs for cancelled runs.
+
+This behavior applies to both **Cache always** and
+**Cache on failure** cache behaviors, and is supported for all workflow engines
+(WDL, CWL, and Nextflow).
 
 ## Tracking call caching information
 

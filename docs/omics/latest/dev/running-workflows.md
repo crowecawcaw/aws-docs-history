@@ -10,7 +10,7 @@ HealthOmics provides several quotas related to workflow runs and tasks. Default 
 to help you avoid unexpected cost overruns. You can request an increase in these quotas. For more information, see
 [HealthOmics service quotas](service-quotas.md "service-quotas.md").
 
-When you start a run, HealthOmics assigns a run ID and a run uuid to the run. Runs in an account have unique run IDs.
+When you start a run, HealthOmics assigns a run ID and a run uuid to the run. Runs in an account and region have unique run IDs.
 However, HealthOmics reuses deleted run IDs, so a run and a deleted run can have the same run ID. Also, it's rare but
 possible for a shared workflow to have the same run ID as a run in your account.
 
