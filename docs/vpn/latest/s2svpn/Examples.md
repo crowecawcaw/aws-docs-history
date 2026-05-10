@@ -86,4 +86,6 @@ With a private IP Site-to-Site VPN you can encrypt Direct Connect traffic betwee
 
 ![Private IP Site-to-Site VPN connection with Direct Connect](images/private-ip-dx.png)
 
+For guidance on choosing the right VPN solution, see [Selecting the right AWS VPN solution: a decision framework](https://aws.amazon.com/blogs/networking-and-content-delivery/selecting-the-right-aws-vpn-solution-a-decision-framework/ "https://aws.amazon.com/blogs/networking-and-content-delivery/selecting-the-right-aws-vpn-solution-a-decision-framework/").
+
 For more information, see the following blog post: [Introducing AWS Site-to-Site VPN Private IP VPNs](https://aws.amazon.com/blogs/networking-and-content-delivery/introducing-aws-site-to-site-vpn-private-ip-vpns/ "https://aws.amazon.com/blogs/networking-and-content-delivery/introducing-aws-site-to-site-vpn-private-ip-vpns/").

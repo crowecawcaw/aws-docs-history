@@ -72,9 +72,8 @@ Large Bandwidth Tunnels are available in all Regions except the following:
 - Accelerated VPN is not supported.
 - All other core VPN features such as private IP VPN, routing, and tunnel maintenance work the same with Large Bandwidth Tunnel.
 - MTU limit remains 1500 bytes. [Learn More](cgw-best-practice.md "cgw-best-practice.md") on how to adjust MTU and MSS sizes according to the algorithms in use.
-- You can't modify an existing tunnel to use Large Bandwidth Tunnels. You'll
-  need to first delete the tunnel, and then create a new tunnel and setting the
-  tunnel bandwidth to **Large**.
+- You can modify the tunnel bandwidth of existing VPN connections. For more
+  information, see [Modify tunnel bandwidth](modify-vpn-connection-options.md#modify-vpn-connection-options-tunnel-bandwidth "modify-vpn-connection-options.md#modify-vpn-connection-options-tunnel-bandwidth").
 - Customer Gateways (CGWs) only with a fixed IP can be used with Large Bandwidth Tunnels.
 - Customer Gateways (CGWs) without an IP address cannot be used with Large Bandwidth Tunnels.
 - Large Bandwidth Tunnels do not support changes to the NAT-T port while the tunnel is established.
