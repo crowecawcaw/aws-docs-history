@@ -90,3 +90,102 @@ FIELDS @message
     | FILTER loggingType IN ["ERROR", "INFO"]
     | DISPLAY loggingMessage, loggingType = "ERROR" as isError
 ```
+
+## Parsing from specific fields
+
+By default, the `parse` command operates on
+`@message`. However, you can parse from any named field
+by specifying the field name as the first argument. This includes
+discovered fields, fields extracted by a previous `parse`
+command, and fields present in structured (JSON) log events.
+
+**Syntax**
+
+Glob mode:
+
+```
+parse `fieldName` "`pattern`" as `alias1`, `alias2`
+```
+
+Regex mode:
+
+```
+parse `fieldName` /`regex`/
+```
+
+**Supported fields**
+
+You can use the following types of fields as the source for
+`parse`:
+
+- Discovered fields such as `@message`,
+  `@logStream`, `@logGroup`, and
+  `@timestamp`
+- User-extracted fields from a previous `parse` or
+  `fields` command
+- Any field present in structured (JSON) log events that has
+  been flattened during ingestion
+
+**Behavior**
+
+- If the target field is null or missing for a log event, the
+  extracted fields are null and the row passes through
+  unmodified.
+- If the target field doesn't match the pattern, the extracted
+  fields are null and the row passes through unmodified.
+- In glob mode, the number of `*` wildcards must
+  equal the number of aliases.
+- In regex mode, use named capture groups
+  `(?<`name`>...)`
+  to define extracted fields.
+
+**Examples**
+
+**Parse from
+`@logStream`**
+
+Extract environment and service information from the log stream
+name.
+
+```
+fields @timestamp, @logStream
+| parse @logStream "*/*/*/*" as env, service, instance, shard
+| stats count(*) by env, service
+```
+
+**Parse from a previously extracted
+field (chained parse)**
+
+Extract a field from `@message`, then parse that
+extracted field further.
+
+```
+fields @message
+| parse @message "url=*" as url
+| parse url "/api/*/users/*" as apiVersion, userId
+| display apiVersion, userId
+```
+
+**Parse from a structured (JSON) log
+field**
+
+Parse a field that was automatically extracted from a JSON log
+event during ingestion.
+
+```
+fields @timestamp, userAgent
+| parse userAgent "Mozilla/* (*) */*" as version, os, engine, engineVersion
+| stats count(*) by os
+```
+
+**Regex mode with field
+targeting**
+
+Use a regular expression with named capture groups to parse a
+specific field.
+
+```
+fields @timestamp, requestUri
+| parse requestUri /\/api\/(?<version>v\d+)\/(?<resource>[^\/]+)/
+| stats count(*) by version, resource
+```

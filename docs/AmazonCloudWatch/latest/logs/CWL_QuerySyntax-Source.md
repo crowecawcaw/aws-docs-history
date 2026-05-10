@@ -7,7 +7,7 @@ only in the AWS CLI and API, not in the CloudWatch console. When you use the Clo
 console to start a query, you use the console interface to specify the log
 groups.
 
-Query log groups
+**Query log groups**
 
 To use `SOURCE` to specify the log groups to query, you can use
 the following keywords:
@@ -90,7 +90,7 @@ aws logs start-query
 --query-string "SOURCE logGroups(namePrefix: ['Query']) | fields @message | limit 5"
 ```
 
-Query data sources
+**Query data sources**
 
 To use `SOURCE` to specify the data sources to query, you can
 use the `dataSource` keyword. You can include as many as ten data
@@ -108,4 +108,42 @@ source and limits the log groups based on a log group name prefix.
 
 ```
 SOURCE dataSource(['amazon_vpc.flow']) logGroups(namePrefix: ['namePrefix1'])
+```
+
+**Query log groups by tags**
+
+To use `SOURCE` to filter log groups by their tags, use the
+`logGroupTags` function. Specify tags as a list of tag filters,
+each with a `key` and optional `values` array.
+
+- Multiple tag filters with different keys are combined with AND logic.
+- Multiple values within the same tag filter are combined with OR logic.
+- Use `*` for wildcard matching. For example,
+  `payment*` matches values that start with `payment`.
+- Use `!` as a prefix for negation. For example,
+  `!production` matches values that are not `production`.
+- You can include as many as five tag filters, each with up to five values.
+  The following example selects all log groups tagged with
+  `team=team1 OR team=team2`.
+
+```
+SOURCE logGroupTags([{"key":"team", "values":["team1", "team2"]}])
+| fields @message, @timestamp
+```
+
+The next example selects log groups where the `service` tag
+starts with `payment`, and the `environment` tag is
+not `production`.
+
+```
+SOURCE logGroupTags([{"key":"service", "values":["payment*"]}, {"key":"environment", "values":["!production"]}])
+| fields @message, @timestamp
+```
+
+The following example combines tag filtering with a name prefix
+filter.
+
+```
+SOURCE logGroups(namePrefix: ['/aws/lambda']) logGroupTags([{"key":"environment", "values":["production"]}])
+| fields @message, @timestamp
 ```

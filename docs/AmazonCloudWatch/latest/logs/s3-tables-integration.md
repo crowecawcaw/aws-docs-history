@@ -18,13 +18,9 @@ based on data source name and type (that can be managed from the **Log
 Management > Data Sources** tab in CloudWatch Logs Console). Once associated, CloudWatch Logs
 data becomes accessible through Amazon S3 Tables using the Apache Iceberg format. This format
 provides a standardized way for various analytics engines to query the data efficiently.
+This feature is available at no additional cost.
 
 ### Core Components
-
-Data Source Association
-
-The process of linking specific CloudWatch Logs sources to the S3 Tables
-integration based on data source and type criteria.
 
 Apache Iceberg Tables
 
@@ -32,17 +28,26 @@ The underlying table format used by S3 Tables that provides structured
 data storage and enables compatibility with multiple analytics
 engines.
 
+Data Source Association
+
+The process of linking specific CloudWatch Logs sources to the S3 Tables
+integration based on data source and type criteria.
+
 ### Data flow to S3 tables
 
 Understanding how data flows between CloudWatch Logs and S3 Tables helps you plan your
 integration and manage your log data effectively.
 
-When you create an association, CloudWatch Logs automatically sends new log events that
-match the associated data source name and type to a CloudWatch-managed S3 table bucket.
-You can find these events in the logs namespace under the corresponding table for
-that data source. The integration processes only log events added after you create
-the association and does not backfill logs from before the association was
-created.
+When you create an association, CloudWatch Logs automatically delivers new log events
+matching the associated data source name and type to a CloudWatch-managed S3 table bucket.
+These events appear in the logs namespace under the corresponding table for that
+data source. The integration processes only log events received after the
+association is created. Existing log data is not backfilled. When you create an S3
+Tables integration, all data sources in your account are automatically associated
+and delivered to S3 Tables by default, including any data sources added in the
+future. To deliver only specific data sources to S3 Tables, remove the default
+wildcard association and then individually associate the data sources you want to
+include.
 
 Data retention in the S3 table bucket matches the retention policy set for the log
 group. For example, if you set a log group to 1-day retention, CloudWatch Logs removes the
@@ -219,6 +224,23 @@ setting up appropriate IAM permissions.
 3. Customize how logs will be encrypted in S3 Tables, and the role that CloudWatch Logs
    will use to write your logs into S3 Tables.
 4. Choose **Create S3 Table Integration**.
+
+###### Note
+
+If you want all data sources associated with the integration, you can stop here.
+All data sources are already associated by default. The following steps are only
+needed if you want to associate specific data sources instead.
+
+To associate only specific data sources, first delete the default wildcard
+association, and then add the individual associations you want.
+
+###### To delete the wildcard association
+
+1. Open the CloudWatch Logs console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch")".
+2. Choose **Settings**, **Global**,
+   **Manage S3 Table Integration**.
+3. Select the `*/*` data source.
+4. Choose **Delete association(s)**.
 
 ###### To associate sources to an S3 Table Integration
 
