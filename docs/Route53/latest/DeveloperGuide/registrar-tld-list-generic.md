@@ -16,13 +16,13 @@ specialty domains such as .bike, .condos, and .marketing.
 **A**
 
 [.ac](ac-xref.md "ac-xref.md"), [.academy](academy.md "academy.md"), [.accountants](accountants.md "accountants.md"), [.actor](actor.md "actor.md"), [.adult](adult.md "adult.md"),
-[.agency](agency.md "agency.md"), [.airforce](airforce.md "airforce.md"), [.apartments](apartments.md "apartments.md"), [.art](art.md "art.md"), [.associates](associates.md "associates.md"), [.auction](auction.md "auction.md"), [.audio](audio.md "audio.md")
+[.agency](agency.md "agency.md"), [.airforce](airforce.md "airforce.md"), [.apartments](apartments.md "apartments.md"), [.app](app.md "app.md"), [.art](art.md "art.md"), [.associates](associates.md "associates.md"), [.auction](auction.md "auction.md"), [.audio](audio.md "audio.md")
 
 **B**
 
 [.band](band.md "band.md"), [.bar](bar.md "bar.md"), [.bargains](bargains.md "bargains.md"), [.beer](beer.md "beer.md"),
 [.bet](bet.md "bet.md"), [.bid](bid.md "bid.md"), [.bike](bike.md "bike.md"),
-[.bingo](bingo.md "bingo.md"), [.bio](bio.md "bio.md"), [.biz](biz.md "biz.md"), [.black](black.md "black.md"), [.blue](blue.md "blue.md"), [.bot](bot.md "bot.md"), [.boutique](boutique.md "boutique.md"), [.build](build.md "build.md"), [.builders](builders.md "builders.md"), [.business](business.md "business.md"), [.buzz](buzz.md "buzz.md")
+[.bingo](bingo.md "bingo.md"), [.bio](bio.md "bio.md"), [.biz](biz.md "biz.md"), [.black](black.md "black.md"), [.blue](blue.md "blue.md"), [.boo](boo.md "boo.md"), [.bot](bot.md "bot.md"), [.boutique](boutique.md "boutique.md"), [.build](build.md "build.md"), [.builders](builders.md "builders.md"), [.business](business.md "business.md"), [.buzz](buzz.md "buzz.md")
 
 **C**
 
@@ -36,18 +36,18 @@ specialty domains such as .bike, .condos, and .marketing.
 
 **D**
 
-[.dance](dance.md "dance.md"), [.dating](dating.md "dating.md"), [.deal](deal.md "deal.md"),
+[.dad](dad.md "dad.md"), [.dance](dance.md "dance.md"), [.dating](dating.md "dating.md"), [.day](day.md "day.md"), [.deal](deal.md "deal.md"),
 [.deals](deals.md "deals.md"),
-[.degree](degree.md "degree.md"), [.delivery](delivery.md "delivery.md"), [.democrat](democrat.md "democrat.md"), [.dental](dental.md "dental.md"), [.design](design.md "design.md"), [.diamonds](diamonds.md "diamonds.md"), [.diet](diet.md "diet.md"), [.digital](digital.md "digital.md"), [.direct](direct.md "direct.md"), [.directory](directory.md "directory.md"), [.discount](discount.md "discount.md"), [.diy](diy.md "diy.md"), [.dog](dog.md "dog.md"), [.domains](domains.md "domains.md")
+[.degree](degree.md "degree.md"), [.delivery](delivery.md "delivery.md"), [.democrat](democrat.md "democrat.md"), [.dental](dental.md "dental.md"), [.design](design.md "design.md"), [.dev](dev.md "dev.md"), [.diamonds](diamonds.md "diamonds.md"), [.diet](diet.md "diet.md"), [.digital](digital.md "digital.md"), [.direct](direct.md "direct.md"), [.directory](directory.md "directory.md"), [.discount](discount.md "discount.md"), [.diy](diy.md "diy.md"), [.dog](dog.md "dog.md"), [.domains](domains.md "domains.md")
 
 **E**
 
-[.earth](earth.md "earth.md"), [.education](education.md "education.md"), [.email](email.md "email.md"), [.energy](energy.md "energy.md"), [.engineering](engineering.md "engineering.md"), [.enterprises](enterprises.md "enterprises.md"), [.equipment](equipment.md "equipment.md"), [.estate](estate.md "estate.md"), [.events](events.md "events.md"), [.exchange](exchange.md "exchange.md"), [.expert](expert.md "expert.md"), [.exposed](exposed.md "exposed.md"), [.express](express.md "express.md")
+[.earth](earth.md "earth.md"), [.education](education.md "education.md"), [.email](email.md "email.md"), [.energy](energy.md "energy.md"), [.engineering](engineering.md "engineering.md"), [.enterprises](enterprises.md "enterprises.md"), [.equipment](equipment.md "equipment.md"), [.esq](esq.md "esq.md"), [.estate](estate.md "estate.md"), [.events](events.md "events.md"), [.exchange](exchange.md "exchange.md"), [.expert](expert.md "expert.md"), [.exposed](exposed.md "exposed.md"), [.express](express.md "express.md")
 
 **F**
 
 [.fail](fail.md "fail.md"), [.fan](fan.md "fan.md"), [.farm](farm.md "farm.md"),
-[.finance](finance.md "finance.md"), [.financial](financial.md "financial.md"), [.fish](fish.md "fish.md"), [.fit](fit.md "fit.md"), [.fitness](fitness.md "fitness.md"), [.flights](flights.md "flights.md"), [.florist](florist.md "florist.md"), [.flowers](flowers.md "flowers.md"), [.fm](fm-xref.md "fm-xref.md"), [.food](food.md "food.md"), [.football](football.md "football.md"), [.forsale](forsale.md "forsale.md"), [.forum](forum.md "forum.md"), [.foundation](foundation.md "foundation.md"), [.free](free.md "free.md"), [.fun](fun.md "fun.md"),
+[.finance](finance.md "finance.md"), [.financial](financial.md "financial.md"), [.fish](fish.md "fish.md"), [.fit](fit.md "fit.md"), [.fitness](fitness.md "fitness.md"), [.flights](flights.md "flights.md"), [.florist](florist.md "florist.md"), [.flowers](flowers.md "flowers.md"), [.fm](fm-xref.md "fm-xref.md"), [.foo](foo.md "foo.md"), [.food](food.md "food.md"), [.football](football.md "football.md"), [.forsale](forsale.md "forsale.md"), [.forum](forum.md "forum.md"), [.foundation](foundation.md "foundation.md"), [.free](free.md "free.md"), [.fun](fun.md "fun.md"),
 [.fund](fund.md "fund.md"), [.furniture](furniture.md "furniture.md"), [.futbol](futbol.md "futbol.md"), [.fyi](fyi.md "fyi.md")
 
 **G**
@@ -62,7 +62,7 @@ specialty domains such as .bike, .condos, and .marketing.
 **H**
 
 [.haus](haus.md "haus.md"), [.health](health.md "health.md"), [.healthcare](healthcare.md "healthcare.md"), [.help](help.md "help.md"), [.hiv](hiv.md "hiv.md"), [.hockey](hockey.md "hockey.md"), [.holdings](holdings.md "holdings.md"), [.holiday](holiday.md "holiday.md"), [.host](host.md "host.md"),
-[.hosting](hosting.md "hosting.md"), [.hot](hot.md "hot.md"), [.house](house.md "house.md")
+[.hosting](hosting.md "hosting.md"), [.hot](hot.md "hot.md"), [.house](house.md "house.md"), [.how](how.md "how.md")
 
 **I**
 
@@ -89,11 +89,11 @@ specialty domains such as .bike, .condos, and .marketing.
 
 [.maison](maison.md "maison.md"), [.management](management.md "management.md"), [.marketing](marketing.md "marketing.md"), [.mba](mba.md "mba.md"), [.media](media.md "media.md"),
 [.memorial](memorial.md "memorial.md"), [.menu](menu.md "menu.md"), [.mobi](mobi.md "mobi.md"), [.moda](moda.md "moda.md"), [.moi](moi.md "moi.md"), [.money](money.md "money.md"),
-[.mortgage](mortgage.md "mortgage.md"), [.movie](movie.md "movie.md")
+[.mortgage](mortgage.md "mortgage.md"), [.mov](mov.md "mov.md"), [.movie](movie.md "movie.md")
 
 **N**
 
-[.name](name.md "name.md"), [.net](net.md "net.md"), [.network](network.md "network.md"), [.news](news.md "news.md"), [.ninja](ninja.md "ninja.md"), [.now](now.md "now.md")
+[.name](name.md "name.md"), [.net](net.md "net.md"), [.network](network.md "network.md"), [.news](news.md "news.md"), [.nexus](nexus.md "nexus.md"), [.ninja](ninja.md "ninja.md"), [.now](now.md "now.md")
 
 **O**
 
@@ -101,11 +101,11 @@ specialty domains such as .bike, .condos, and .marketing.
 
 **P**
 
-[.partners](partners.md "partners.md"), [.parts](parts.md "parts.md"), [.photo](photo.md "photo.md"),
+[.page](page.md "page.md"), [.partners](partners.md "partners.md"), [.parts](parts.md "parts.md"), [.phd](phd.md "phd.md"), [.photo](photo.md "photo.md"),
 [.photography](photography.md "photography.md"), [.photos](photos.md "photos.md"), [.pics](pics.md "pics.md"), [.pictures](pictures.md "pictures.md"), [.pink](pink.md "pink.md"),
 [.pizza](pizza.md "pizza.md"), [.place](place.md "place.md"), [.plumbing](plumbing.md "plumbing.md"), [.plus](plus.md "plus.md"),
 [.poker](poker.md "poker.md"), [.porn](porn.md "porn.md"), [.press](press.md "press.md"),
-[.pro](pro.md "pro.md"), [.productions](productions.md "productions.md"), [.properties](properties.md "properties.md"), [.property](property.md "property.md"), [.pub](pub.md "pub.md")
+[.pro](pro.md "pro.md"), [.productions](productions.md "productions.md"), [.prof](prof.md "prof.md"), [.properties](properties.md "properties.md"), [.property](property.md "property.md"), [.pub](pub.md "pub.md")
 
 **Q**
 
@@ -114,7 +114,7 @@ specialty domains such as .bike, .condos, and .marketing.
 **R**
 
 [.realty](realty.md "realty.md"), [.recipes](recipes.md "recipes.md"), [.red](red.md "red.md"), [.reise](reise.md "reise.md"),
-[.reisen](reisen.md "reisen.md"), [.rentals](rentals.md "rentals.md"), [.repair](repair.md "repair.md"), [.report](report.md "report.md"), [.republican](republican.md "republican.md"), [.rest](rest.md "rest.md"), [.restaurant](restaurant.md "restaurant.md"), [.reviews](reviews.md "reviews.md"), [.rip](rip.md "rip.md"), [.rocks](rocks.md "rocks.md"),
+[.reisen](reisen.md "reisen.md"), [.rentals](rentals.md "rentals.md"), [.repair](repair.md "repair.md"), [.report](report.md "report.md"), [.republican](republican.md "republican.md"), [.rest](rest.md "rest.md"), [.restaurant](restaurant.md "restaurant.md"), [.reviews](reviews.md "reviews.md"), [.rip](rip.md "rip.md"), [.rocks](rocks.md "rocks.md"), [.rsvp](rsvp.md "rsvp.md"),
 [.run](run.md "run.md")
 
 **S**
@@ -123,7 +123,7 @@ specialty domains such as .bike, .condos, and .marketing.
 [.schule](schule.md "schule.md"), [.services](services.md "services.md"), [.sex](sex.md "sex.md"), [.sexy](sexy.md "sexy.md"),
 [.shiksha](shiksha.md "shiksha.md"), [.shoes](shoes.md "shoes.md"), [.shop](shop.md "shop.md"), [.shopping](shopping.md "shopping.md"), [.show](show.md "show.md"),
 [.singles](singles.md "singles.md"), [.site](site.md "site.md"), [.ski](ski.md "ski.md"), [.soccer](soccer.md "soccer.md"), [.social](social.md "social.md"), [.solar](solar.md "solar.md"),
-[.solutions](solutions.md "solutions.md"), [.software](software.md "software.md"), [.space](space.md "space.md"), [.spot](spot.md "spot.md"),
+[.solutions](solutions.md "solutions.md"), [.software](software.md "software.md"), [.soy](soy.md "soy.md"), [.space](space.md "space.md"), [.spot](spot.md "spot.md"),
 [.store](store.md "store.md"),
 [.stream](stream.md "stream.md"), [.studio](studio.md "studio.md"), [.style](style.md "style.md"),
 [.sucks](sucks.md "sucks.md"), [.supplies](supplies.md "supplies.md"), [.supply](supply.md "supply.md"), [.support](support.md "support.md"), [.surgery](surgery.md "surgery.md"), [.systems](systems.md "systems.md")
@@ -147,4 +147,4 @@ specialty domains such as .bike, .condos, and .marketing.
 
 [.watch](watch.md "watch.md"), [.website](website.md "website.md"), [.wedding](wedding.md "wedding.md"), [.wiki](wiki.md "wiki.md"),
 [.win](win.md "win.md"), [.wine](wine.md "wine.md"), [.work](work.md "work.md"), [.works](works.md "works.md"),
-[.world](world.md "world.md"), [.wtf](wtf.md "wtf.md"), [.xxx](xxx.md "xxx.md"), [.xyz](xyz.md "xyz.md"), [.zone](zone.md "zone.md")
+[.world](world.md "world.md"), [.wtf](wtf.md "wtf.md"), [.xxx](xxx.md "xxx.md"), [.xyz](xyz.md "xyz.md"), [.zip](zip.md "zip.md"), [.zone](zone.md "zone.md")

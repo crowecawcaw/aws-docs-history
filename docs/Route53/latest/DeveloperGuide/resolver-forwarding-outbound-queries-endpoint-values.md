@@ -31,7 +31,7 @@ DNS resolver on your network can forward DNS query to.
 
 ###### Note
 
-For security reasons, we are denying direct IPv6 traffic access to the public internet for all dual-stack and IPv6 IP addresses.
+For security reasons, we are denying direct IPv6 traffic access to the public internet for all dual-stack and IPv6 IP addresses by default. To enable this access, turn on **IPv6 internet access** when you create or edit the endpoint.
 
 **IP addresses**
 The IP addresses in your VPC that you want VPC Resolver to forward DNS queries to on the way to resolvers
@@ -103,6 +103,19 @@ For an outbound endpoint you can apply the protocols as follows:
 - Do53 alone.
 - DoH alone.
 - None, which is treated as Do53.
+
+**IPv6 internet access**
+Enable IPv6 internet access to allow the outbound endpoint to forward DNS queries
+to public IPv6 targets through an internet gateway. When enabled, the endpoint elastic network interfaces (ENIs) can
+send DNS queries to public IPv6 resolvers.
+
+###### Important
+
+When you enable IPv6 internet access, use network controls like security groups, NACLs, or egress-only internet gateways
+to protect the endpoint ENIs from unsolicited ingress traffic. Be aware that some network controls can affect DNS query
+throughput due to connection tracking. For more information, see
+[Amazon EC2 security group connection tracking](../../../AWSEC2/latest/UserGuide/security-group-connection-tracking.md "../../../AWSEC2/latest/UserGuide/security-group-connection-tracking.md")
+and [Resolver endpoint scaling](best-practices-resolver-endpoint-scaling.md "best-practices-resolver-endpoint-scaling.md").
 
 **Tags**
 Specify one or more keys and the corresponding values. For example, you might specify

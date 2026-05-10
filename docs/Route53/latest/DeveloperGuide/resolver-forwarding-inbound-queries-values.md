@@ -138,6 +138,17 @@ first enable both Do53 and DoH, or Do53 and DoH-FIPS, to make sure that all inco
 has transferred to using the DoH protocol, or DoH-FIPS, and then remove the
 Do53.
 
+**DNS64**
+Enable DNS64 to allow VPC Resolver to synthesize AAAA (IPv6) records for
+IPv4-only services. When an IPv6-only client queries for a service that has no
+IPv6 address, VPC Resolver synthesizes an IPv6 address by prepending the well-known
+`64:ff9b::/96` prefix to the IPv4 address. This enables IPv6-only
+clients that send queries through the inbound endpoint to reach IPv4-only
+services. DNS64 works with NAT64 to provide complete IPv6-to-IPv4
+translation.
+
+For more information, see [DNS64 and NAT64](../../../vpc/latest/userguide/vpc-nat-gateway.md#nat-gateway-nat64-dns64 "../../../vpc/latest/userguide/vpc-nat-gateway.md#nat-gateway-nat64-dns64") in the _Amazon VPC User Guide_.
+
 **Tags**
 Specify one or more keys and the corresponding values. For example, you might specify
 **Cost center** for **Key** and specify **456** for **Value**.
