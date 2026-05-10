@@ -200,7 +200,3 @@ archive access tiers using a shared prefix or object tag. Using a shared prefix
 or object tag allows you to align to specific business applications, workflows,
 or internal organizations. You also have the flexibility to activate the
 Archive Access tier, the Deep Archive Access tier, or both.
-
-## Getting started with S3 Intelligent-Tiering
-
-To learn more about how to use S3 Intelligent-Tiering, see [Tutorial: Getting started using S3 Intelligent-Tiering](https://aws.amazon.com/getting-started/hands-on/getting-started-using-amazon-s3-intelligent-tiering/?ref=docs_gateway/amazons3/using-intelligent-tiering.html "https://aws.amazon.com/getting-started/hands-on/getting-started-using-amazon-s3-intelligent-tiering/?ref=docs_gateway/amazons3/using-intelligent-tiering.html").

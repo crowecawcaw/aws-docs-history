@@ -48,7 +48,17 @@ key.
 
 ###### Important
 
-Carefully review the permissions that are granted in your KMS key policies. Always restrict customer-managed KMS key policy permissions only to the IAM principals and AWS services that must access the relevant AWS KMS key action. For more information, see [Key policies in AWS KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md").
+- Carefully review the permissions that are granted in your KMS key policies.
+  Always restrict customer-managed KMS key policy permissions only to the IAM
+  principals and AWS services that must access the relevant AWS KMS key action. For
+  more information, see [Key policies in
+  AWS KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md").
+- If a bucket is used as a destination for Amazon S3 server access logging, the
+  destination bucket must use Amazon S3 managed keys (SSE-S3). If the destination
+  bucket uses SSE-KMS default encryption, Amazon S3 might deliver log objects that are
+  encrypted with a key that you can't access. To resolve this, change the
+  destination bucket's default encryption to SSE-S3. For more information, see
+  [Enabling Amazon S3 server access logging](enable-server-access-logging.md "enable-server-access-logging.md").
 
 ###### Topics
 

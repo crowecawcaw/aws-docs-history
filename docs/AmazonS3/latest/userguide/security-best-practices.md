@@ -2,9 +2,7 @@
 
 ###### Important
 
-As [announced on November 19, 2025](https://aws.amazon.com/blogs/storage/advanced-notice-amazon-s3-to-disable-the-use-of-sse-c-encryption-by-default-for-all-new-buckets-and-select-existing-buckets-in-april-2026/ "https://aws.amazon.com/blogs/storage/advanced-notice-amazon-s3-to-disable-the-use-of-sse-c-encryption-by-default-for-all-new-buckets-and-select-existing-buckets-in-april-2026/"), Amazon Simple Storage Service is deploying a new default bucket security setting that automatically disables server-side encryption with customer-provided keys (SSE-C) for all new general purpose buckets. For existing buckets in AWS accounts with no SSE-C encrypted objects, Amazon S3 will also disable SSE-C for all new write requests. For AWS accounts with SSE-C usage, Amazon S3 will not change the bucket encryption configuration on any of the existing buckets in those accounts. This deployment started on April 6, 2026, and will complete over the next few weeks in 37 AWS Regions, including the AWS China and AWS GovCloud (US) Regions.
-
-With these changes, applications that need SSE-C encryption must deliberately enable SSE-C by using the [PutBucketEncryption](../API/API_PutBucketEncryption.md "../API/API_PutBucketEncryption.md") API operation after creating a new bucket. For more information about this change, see [Default SSE-C setting for new buckets FAQ](default-s3-c-encryption-setting-faq.md "default-s3-c-encryption-setting-faq.md").
+Amazon Simple Storage Service now applies a new default bucket security setting that automatically disables server-side encryption with customer-provided keys (SSE-C) for all new general purpose buckets. In April 2026, Amazon S3 deployed an update so all new general purpose buckets have SSE-C encryption disabled for all new write requests. For existing buckets in AWS accounts with no SSE-C encrypted objects, Amazon S3 also disabled SSE-C for all new write requests. With this change, applications that need SSE-C encryption must deliberately enable SSE-C by using the [PutBucketEncryption](../API/API_PutBucketEncryption.md "../API/API_PutBucketEncryption.md") API operation after creating a new bucket. For more information about this change, see [Default SSE-C setting for new buckets FAQ](default-s3-c-encryption-setting-faq.md "default-s3-c-encryption-setting-faq.md").
 
 Amazon S3 provides a number of security features to consider as you develop and implement your
 own security policies. The following best practices are general guidelines and don't
@@ -133,11 +131,13 @@ management:**
 
 For more information, see [Identity and Access Management for Amazon S3](security-iam.md "security-iam.md").
 
-**Disable server-side encryption with customer-provided keys (SSE-C) to your buckets**
+**Keep server-side encryption with customer-provided keys (SSE-C) disabled unless your workload requires it**
 
-Most modern use cases in Amazon S3 no longer use SSE-C because it lacks the flexibility of server-side encryption with Amazon S3 managed keys (SSE-S3) or server-side encryption with AWS KMS keys (SSE-KMS). SSE-C's requirement to provide the encryption key each time you interact with your SSE-C encrypted data makes it impractical to share your SSE-C key with other users, roles, or AWS services who read data from your S3 buckets in order to operate on your data.
+Starting April 2026, Amazon S3 automatically disables SSE-C for all new general purpose buckets and existing buckets in accounts with no SSE-C encrypted objects. We recommend keeping SSE-C disabled unless your workload has a specific requirement for this encryption offering.
 
-To limit the server-side encryption types you can use in your general purpose buckets, you can choose to block SSE-C write requests by updating your default encryption configuration for your buckets. This bucket-level configuration blocks requests to upload objects that specify SSE-C. When SSE-C is blocked for a bucket, any `PutObject`, `CopyObject`, `PostObject`, or Multipart Upload or replication requests that specify SSE-C encryption will be rejected with an `HTTP 403 AccessDenied` error.
+SSE-C requires you to provide the encryption key with every request to read or write encrypted objects. This makes it impractical to share access with other users, roles, or AWS services that operate on your data. Objects encrypted with SSE-C cannot be natively decrypted by AWS managed services. For most workloads, server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS) provides equivalent protection with greater flexibility.
+
+If you have existing buckets where SSE-C is still enabled, review whether it's still needed and block it if not. When SSE-C is blocked, any `PutObject`, `CopyObject`, `PostObject`, Multipart Upload, or replication request that specifies SSE-C encryption is rejected with an HTTP 403 `AccessDenied` error.
 
 To learn more about blocking SSE-C, see [Blocking or unblocking SSE-C for a general purpose bucket](blocking-unblocking-s3-c-encryption-gpb.md "blocking-unblocking-s3-c-encryption-gpb.md").
 

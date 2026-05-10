@@ -1,23 +1,18 @@
 # Blocking or unblocking SSE-C for a general purpose bucket
 
-Most modern use cases in Amazon S3 no longer use server-side encryption with customer-provided
-keys (SSE-C) because it lacks the flexibility of server-side encryption with Amazon S3 managed
-keys (SSE-S3) or server-side encryption with AWS KMS keys (SSE-KMS). SSE-C's requirement to
-provide the encryption key each time you interact with your SSE-C encrypted data makes it
-impractical to share your SSE-C key with other users, roles, or AWS services who read data from
-your S3 buckets in order to operate on your data.
+Starting April 2026, Amazon S3 automatically disables server-side encryption with customer-provided keys (SSE-C) for all new general purpose buckets. Amazon S3 also disabled SSE-C for existing buckets in accounts with no SSE-C encrypted objects. This means that by default, requests to upload objects using SSE-C are rejected with an HTTP 403 `AccessDenied` error.
 
-To limit the server-side encryption types you can use in your general purpose buckets, you can choose to block SSE-C write requests by updating your default encryption configuration for your buckets. This bucket-level configuration blocks requests to upload objects that specify SSE-C. When SSE-C is blocked for a bucket, any `PutObject`, `CopyObject`, `PostObject`, or Multipart Upload or replication requests that specify SSE-C encryption will be rejected with an HTTP 403 `AccessDenied` error.
+SSE-C requires you to provide the encryption key with every request to read or write encrypted objects, making it difficult to share access with other users, roles, or AWS services that operate on your data. Most workloads use server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS) instead.
 
-This setting is a parameter on the `PutBucketEncryption` API and can also be updated using the S3 Console, AWS CLI, and AWS SDKs, if you have the `s3:PutEncryptionConfiguration` permission.
+If your workload requires SSE-C, you can explicitly enable it by updating the default encryption configuration for your bucket. Conversely, if you have existing buckets where SSE-C is still allowed, you can block it to prevent new SSE-C uploads.
 
-Valid values are `SSE-C`, which blocks SSE-C encryption for the general purpose bucket, and `NONE`, which allows the use SSE-C for writes to the bucket.
+When SSE-C is blocked for a bucket, any `PutObject`, `CopyObject`, `PostObject`, Multipart Upload, or replication request that specifies SSE-C encryption will be rejected with an HTTP 403 `AccessDenied` error. Existing SSE-C encrypted objects in the bucket are unaffected, you can still read them with `GetObject` or `HeadObject` by providing the required SSE-C headers.
+
+This setting is a parameter on the `PutBucketEncryption` API and can also be updated using the S3 console, AWS CLI, or AWS SDKs. You must have the `s3:PutEncryptionConfiguration` permission.
 
 ###### Important
 
-As [announced on November 19, 2025](https://aws.amazon.com/blogs/storage/advanced-notice-amazon-s3-to-disable-the-use-of-sse-c-encryption-by-default-for-all-new-buckets-and-select-existing-buckets-in-april-2026/ "https://aws.amazon.com/blogs/storage/advanced-notice-amazon-s3-to-disable-the-use-of-sse-c-encryption-by-default-for-all-new-buckets-and-select-existing-buckets-in-april-2026/"), Amazon Simple Storage Service is deploying a new default bucket security setting that automatically disables server-side encryption with customer-provided keys (SSE-C) for all new general purpose buckets. For existing buckets in AWS accounts with no SSE-C encrypted objects, Amazon S3 will also disable SSE-C for all new write requests. For AWS accounts with SSE-C usage, Amazon S3 will not change the bucket encryption configuration on any of the existing buckets in those accounts. This deployment started on April 6, 2026, and will complete over the next few weeks in 37 AWS Regions, including the AWS China and AWS GovCloud (US) Regions.
-
-With these changes, applications that need SSE-C encryption must deliberately enable SSE-C by using the [PutBucketEncryption](../API/API_PutBucketEncryption.md "../API/API_PutBucketEncryption.md") API operation after creating a new bucket. For more information about this change, see [Default SSE-C setting for new buckets FAQ](default-s3-c-encryption-setting-faq.md "default-s3-c-encryption-setting-faq.md").
+Amazon Simple Storage Service now applies a new default bucket security setting that automatically disables server-side encryption with customer-provided keys (SSE-C) for all new general purpose buckets. In April 2026, Amazon S3 deployed an update so all new general purpose buckets have SSE-C encryption disabled for all new write requests. For existing buckets in AWS accounts with no SSE-C encrypted objects, Amazon S3 also disabled SSE-C for all new write requests. With this change, applications that need SSE-C encryption must deliberately enable SSE-C by using the [PutBucketEncryption](../API/API_PutBucketEncryption.md "../API/API_PutBucketEncryption.md") API operation after creating a new bucket. For more information about this change, see [Default SSE-C setting for new buckets FAQ](default-s3-c-encryption-setting-faq.md "default-s3-c-encryption-setting-faq.md").
 
 ## Permissions
 
@@ -186,6 +181,6 @@ s3.put_bucket_encryption(
 )
 ```
 
-For information about the Amazon S3 REST API support for bloacking or unblocking SSE-C encryption for a general purpose bucket, see the following section in the _Amazon Simple Storage Service API Reference_:
+For information about the Amazon S3 REST API support for blocking or unblocking SSE-C encryption for a general purpose bucket, see the following section in the _Amazon Simple Storage Service API Reference_:
 
 - [BlockedEncryptionTypes](../API/API_BlockedEncryptionTypes.md "../API/API_BlockedEncryptionTypes.md") data type used in the [ServerSideEncryptionRule](../API/API_ServerSideEncryptionRule.md "../API/API_ServerSideEncryptionRule.md") data type of the [PutBucketEncryption](../API/API_PutBucketEncryption.md "../API/API_PutBucketEncryption.md") and [GetBucketEncryption](../API/API_GetBucketEncryption.md "../API/API_GetBucketEncryption.md") API operations.

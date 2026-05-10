@@ -440,25 +440,28 @@ JSON
 
 ### Allow access to only your organization
 
-If you want to require all [IAM
-principals](../../../IAM/latest/UserGuide/intro-structure.md#intro-structure-principal "../../../IAM/latest/UserGuide/intro-structure.md#intro-structure-principal") accessing a resource to be from an AWS account in your organization
-(including the AWS Organizations management account), you can use the `aws:PrincipalOrgID`
-global condition key.
-
-To grant or restrict this type of access, define the `aws:PrincipalOrgID`
-condition and set the value to your [organization ID](../../../organizations/latest/userguide/orgs_manage_org_details.md "../../../organizations/latest/userguide/orgs_manage_org_details.md")
-in the bucket policy. The organization ID is used to control access to the bucket. When you
-use the `aws:PrincipalOrgID` condition, the permissions from the bucket policy
-are also applied to all new accounts that are added to the organization.
+If you want to restrict IAM-based access to a resource so that only principals from
+AWS accounts in your organization (including the AWS Organizations management account) can access
+it, you can use the `aws:PrincipalOrgID` global condition key.
 
 Here’s an example of a resource-based bucket policy that you can use to grant specific
 IAM principals in your organization direct access to your bucket. By adding the
 `aws:PrincipalOrgID` global condition key to your bucket policy, the principal
-account is now required to be in your organization to obtain access to the resource. Even if
-you accidentally specify an incorrect account when granting access, the [aws:PrincipalOrgID global condition key](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-principalorgid "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-principalorgid") acts as an additional
-safeguard. When this global key is used in a policy, it prevents all principals from outside
-of the specified organization from accessing the S3 bucket. Only principals from accounts in
-the listed organization are able to obtain access to the resource.
+account is now required to be in your organization to obtain access through this policy
+statement. Even if you accidentally specify an incorrect account when granting access, the
+`aws:PrincipalOrgID` global condition key acts as an additional
+safeguard. When this global key is used in an Allow statement, it ensures that only
+principals from accounts in the listed organization can obtain access through that
+statement.
+
+###### Important
+
+This Allow statement with a condition does not deny access granted through other
+mechanisms. If your bucket has ACLs enabled or other policies that grant access, principals
+outside your organization may still be able to access objects. To fully restrict access to
+only your organization, we recommend using this condition in a Deny statement (see example
+below), disabling ACLs by setting Object Ownership to “Bucket owner enforced”, and
+enabling S3 Block Public Access.
 
 JSON
 
@@ -481,6 +484,37 @@ JSON
  }]
 }`
 
+```
+
+#### Deny access to principals outside your organization
+
+For stronger protection, use a Deny statement with the `aws:PrincipalOrgID`
+condition. A Deny statement overrides any Allow, regardless of how access is granted. The
+following example denies all S3 actions to any principal that is not in your organization.
+This approach provides defense-in-depth even if ACLs or other policies would have
+inadvertently granted access.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DenyAccessFromOutsideOrg",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::amzn-s3-demo-bucket",
+                "arn:aws:s3:::amzn-s3-demo-bucket/*"
+            ],
+            "Condition": {
+                "StringNotEquals": {
+                    "aws:PrincipalOrgID": "o-aa111bb222"
+                }
+            }
+        }
+    ]
+}
 ```
 
 ## Managing access based on HTTP or HTTPS requests

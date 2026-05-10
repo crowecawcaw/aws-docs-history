@@ -103,11 +103,7 @@ for each listed object. These default fields are always included:
   for storing the object. Set to
   `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`,
   `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, `DEEP_ARCHIVE`, `OUTPOSTS`,
-  `GLACIER_IR`, or `SNOW`. For more information, see [Understanding and managing Amazon S3 storage classes](storage-class-intro.md "storage-class-intro.md").
-
-###### Note
-
-S3 Inventory does not support S3 Express One Zone.
+  `GLACIER_IR`, `SNOW`, or `EXPRESS_ONEZONE`. For more information, see [Understanding and managing Amazon S3 storage classes](storage-class-intro.md "storage-class-intro.md").
 
 You can choose to include the following additional metadata fields in the report:
 

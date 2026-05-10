@@ -45,6 +45,13 @@ bucket access control lists (ACLs), depending on your destination bucket's
 S3 Object Ownership settings. However, we recommend that you use a bucket policy instead of
 ACLs.
 
+###### Note
+
+Granting `s3:PutObject` to the logging service principal is not sufficient
+if the destination bucket uses SSE-KMS default encryption. The destination bucket must use
+Amazon S3 managed keys (SSE-S3). If the destination bucket uses SSE-KMS, Amazon S3 might deliver
+log objects that are encrypted with a key that you can't access.
+
 ###### Bucket owner enforced setting for S3 Object Ownership
 
 If the destination bucket uses the Bucket owner enforced setting for Object Ownership,

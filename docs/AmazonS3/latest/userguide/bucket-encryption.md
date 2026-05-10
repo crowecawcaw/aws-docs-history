@@ -55,11 +55,11 @@ You can also encrypt existing objects by using the `CopyObject` API operation or
 the `copy-object` AWS CLI command. For more information, see the _AWS Storage Blog_ post [Encrypting existing Amazon S3
 objects with the AWS CLI](https://aws.amazon.com/blogs/storage/encrypting-existing-amazon-s3-objects-with-the-aws-cli/ "https://aws.amazon.com/blogs/storage/encrypting-existing-amazon-s3-objects-with-the-aws-cli/").
 
-###### Note
+###### Important
 
-Amazon S3 buckets with default bucket encryption set to SSE-KMS cannot be used as destination
-buckets for [Logging requests with server access logging](ServerLogs.md "ServerLogs.md"). Only SSE-S3 default encryption is supported for
-server access log destination buckets.
+If your bucket is a target destination for server access log delivery, the bucket must use
+Amazon S3 managed keys (SSE-S3). If the destination bucket uses SSE-KMS default encryption,
+log objects might be created but encrypted with a key that you can't access.
 
 ## Using SSE-KMS encryption for cross-account operations
 

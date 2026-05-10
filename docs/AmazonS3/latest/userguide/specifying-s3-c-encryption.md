@@ -1,10 +1,8 @@
 # Specifying server-side encryption with customer-provided keys (SSE-C)
 
-To use server-side encryption with customer provided keys (SSE-C) first make sure that
-SSE-C is not a blocked encryption type in your Amazon S3 general purpose bucket's default
-encryption configuration. If blocked, you can enable this encryption type by
-updating your default encryption configuration for the bucket. Then, you can use
-SSE-C in your upload requests by passing the required headers. See [Amazon S3 actions that support writing data with SSE-C](#amazon-s3-actions-that-support-writing-data-with-sse-c "#amazon-s3-actions-that-support-writing-data-with-sse-c"), and make sure to include the
+Server-side encryption with customer-provided keys (SSE-C) is disabled by default for new general purpose buckets. Before you can upload objects using SSE-C, you must enable it by setting `BlockedEncryptionTypes` to `NONE` in your bucket's default encryption configuration. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](blocking-unblocking-s3-c-encryption-gpb.md "blocking-unblocking-s3-c-encryption-gpb.md").
+
+Once SSE-C is enabled for your bucket, you can use SSE-C in your upload requests by passing the required headers. See [Amazon S3 actions that support writing data with SSE-C](#amazon-s3-actions-that-support-writing-data-with-sse-c "#amazon-s3-actions-that-support-writing-data-with-sse-c"), and make sure to include the
 [S3 API headers required for SSE-C object encryption and decryption requests](#s3-api-headers-required-for-sse-c-object-encryption-and-decryption-requests "#s3-api-headers-required-for-sse-c-object-encryption-and-decryption-requests").
 
 When you upload an object specifying SSE-C, Amazon S3 uses the encryption key that you provide
@@ -35,13 +33,12 @@ Specifying SSE-C on supported S3 APIs requires passing specific request paramete
 
 ###### Note
 
-The `PutBucketEncryption` API in
-Amazon S3 is used to configure default server-side encryption for a bucket. However,
-`PutBucketEncryption` does not support enabling SSE-C as a default encryption
-method for a bucket. SSE-C is an object-level encryption method where you provide the encryption
-key to Amazon S3 with each object upload or download request. Amazon S3 uses this key to encrypt
-or decrypt the object during the request and then discards the key. This means SSE-C is enabled
-on a per-object basis, not as a default bucket setting.
+The `PutBucketEncryption` API does not support setting SSE-C as a default encryption
+method for a bucket, objects won't automatically use SSE-C. SSE-C is an object-level encryption method where you provide the encryption
+key with each upload or download request. Amazon S3 uses this key to encrypt
+or decrypt the object during the request and then discards the key.
+
+However, you do use `PutBucketEncryption` to control whether SSE-C uploads are allowed for the bucket via the `BlockedEncryptionTypes` parameter. By default, new buckets have SSE-C blocked, you must set `BlockedEncryptionTypes` to `NONE` to permit SSE-C uploads.
 
 ### Amazon S3 actions that support writing data with SSE-C
 
@@ -154,8 +151,7 @@ You can use AWS SDK wrapper libraries to add these headers to your request. If y
 
 ###### Important
 
-Before specifying server-side encryption with customer provided keys (SSE-C), make
-sure that SSE-C encryption is not blocked for your general purpose bucket. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](blocking-unblocking-s3-c-encryption-gpb.md "blocking-unblocking-s3-c-encryption-gpb.md").
+SSE-C is disabled by default for all new buckets. Before uploading objects with SSE-C, you must enable it by updating your bucket's default encryption configuration. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](blocking-unblocking-s3-c-encryption-gpb.md "blocking-unblocking-s3-c-encryption-gpb.md").
 
 ###### Note
 

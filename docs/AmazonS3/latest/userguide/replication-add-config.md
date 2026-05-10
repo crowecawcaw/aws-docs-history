@@ -40,6 +40,9 @@ the IAM role that you specify in the replication configuration. Amazon S3 assume
 to replicate objects on your behalf. You must grant the required permissions to the IAM role
 first. For more information about managing permissions, see [Setting up permissions for live replication](setting-repl-config-perm-overview.md "setting-repl-config-perm-overview.md").
 
+An Amazon S3 replication configuration can have up to 1,000 rules per source bucket. This
+limit is not adjustable.
+
 You add only one rule in a replication configuration in the following scenarios:
 
 - You want to replicate all objects.

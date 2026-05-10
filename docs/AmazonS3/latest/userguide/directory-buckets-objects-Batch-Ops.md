@@ -94,10 +94,10 @@ Implemented)` response.
   a general purpose bucket. Batch Operations can't import existing manifests from (or
   save generated manifests to) directory buckets. However, objects described
   within the manifest can be stored in directory buckets.
-- Batch Operations can't specify a directory bucket as a location in an S3 Inventory
-  report. Inventory reports don't support directory buckets. You can create a
-  manifest file for objects within a directory bucket by using the
-  `ListObjectsV2` API operation to list the objects. You can then
+- You can use S3 Inventory reports from directory buckets as a source for your
+  manifest, as long as the inventory report is stored in a general purpose bucket.
+  You can also create a manifest file for objects within a directory bucket by
+  using the `ListObjectsV2` API operation to list the objects, and then
   insert the list in a CSV file.
 
 ### Granting access

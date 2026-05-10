@@ -121,16 +121,10 @@ owner enforced setting for Object Ownership, be aware of the following:
   You must choose a
   destination
   bucket that doesn't have Object Lock enabled.
-- **Amazon S3 managed keys (SSE-S3) is selected if default encryption is enabled
-  on the
-  destination
-  bucket** – You can use default bucket encryption on the
-  destination
-  bucket only if you use server-side encryption with Amazon S3 managed keys (SSE-S3).
-  Default server-side encryption with AWS Key Management Service (AWS KMS) keys (SSE-KMS) is not
-  supported for server access logging
-  destination
-  buckets. For more information about how to enable default encryption, see [Configuring default encryption](default-bucket-encryption.md "default-bucket-encryption.md").
+- **The destination bucket must use Amazon S3 managed
+  keys (SSE-S3)** – If the destination bucket uses SSE-KMS
+  default encryption, log objects might be created but encrypted with a key that
+  you can't access.
 - **The
   destination
   bucket does not have Requester Pays enabled** – Using a

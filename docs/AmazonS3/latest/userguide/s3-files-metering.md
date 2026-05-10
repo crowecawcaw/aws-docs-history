@@ -1,108 +1,128 @@
 # How S3 Files is metered
 
-S3 Files pricing is based on two dimensions: the amount of data stored on your file
-system's high performance storage, and the file system operations that your applications and
-the synchronization process perform. This page explains how each dimension is metered so you
-can understand and optimize your costs.
+S3 Files is a shared file system linked to your S3 bucket, designed to deliver
+low-latency file access while keeping costs proportional to your active working set. The file
+system maintains a view of the objects in your bucket and intelligently translates your file
+system operations into efficient S3 requests on your behalf. As you work with specific files
+and directories through the file system, associated file metadata and contents are placed
+onto the file system's high-performance storage, in particular the portions that benefit from
+low-latency access. Many read operations bypass the file system entirely, with data served
+directly from your S3 bucket at S3 GET request rates with no S3 file data charges. Your
+authoritative data always remains in your S3 bucket. When you write data, it is stored on the
+file system's highly durable high-performance storage and then synced back to your S3 bucket,
+keeping the file system and your S3 bucket consistent in both directions.
 
-For current pricing, see [Amazon S3
-Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
+With S3 Files, you pay a storage charge for the fraction of active data on the file
+system's high-performance storage, and you pay data access charges when reading from and
+writing to the file system's high-performance storage. This page explains how each dimension
+is metered so you can understand and optimize your costs. For pricing by AWS Region, see
+[Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
 ## How file system storage is metered
 
-When you work with files through your S3 file system, S3 Files stores the data you
-actively use from your S3 bucket onto the file system's high performance storage. You pay
-for the amount of data residing on the file system's high performance storage, measured
-in GB-month. This includes data that has been copied from your S3 bucket, data you have
-written through the file system, and the metadata for your files and
-directories.
+When you access data, the file system loads portions of file metadata and contents on
+demand onto the file system's high-performance storage, delivering fast reads without
+duplicating your entire dataset. You configure a file size threshold (default 128 KiB)
+that determines which files are stored on high-performance storage. Files at or below
+this threshold benefit most from low-latency access. Files that exceed the threshold are
+streamed directly from your S3 bucket and incur no S3 Files storage charges. Data not
+accessed within a configurable window (1 – 365 days, default 30 days)
+automatically expires from high-performance storage. You pay a storage rate for the
+fraction of active data residing on high-performance storage. Typically, the fraction is
+small, since large files stream directly from your S3 bucket, stale data expires
+automatically, and only small, latency-sensitive files are stored on high-performance
+storage. The minimum billable file size on high-performance storage is 10 KiB.
 
-If a file in your file system has not been read within a configurable window (1 to 365
-days, default 30 days) and its changes have already been synchronized to your S3 bucket,
-S3 Files removes that file's data from the file system's high performance storage
-automatically. This keeps your storage costs proportional to your active working data set
-rather than the total size of your S3 bucket. Your data remains safely stored in your S3
-bucket. S3 Files only removes the copy from the file system's high performance storage.
-The next time you read that file, S3 Files retrieves the latest version of the
-corresponding object from the S3 bucket and copies it back onto the file system's high
-performance storage. For more information, see [Understanding how synchronization works](s3-files-synchronization.md "s3-files-synchronization.md").
+## How data access is metered
 
-## How file system operations are metered
+You pay data access charges for metadata operations and for reads and writes to the
+file system's high-performance storage. Large file reads (1 MiB or larger) are always
+streamed directly from your S3 bucket, even if data resides on the file system's
+high-performance storage. S3 is optimized for high throughput reads, while
+high-performance storage is optimized for low-latency small-file access. Direct reads
+incur S3 GET requests and an S3 Files metadata read (4 KiB) with no file read charges.
+Background sync operations also incur data access charges and S3 request charges.
+Importing data onto high-performance storage incurs write charges, and exporting changes
+back to your S3 bucket incurs read charges.
 
-S3 Files meters every file system operation as either a read or a write. Each
-operation has a minimum metered size.
+## How data access is metered from the file system
 
-**Data reads** such as reading a file's contents are
-metered at the size of the data read, with a minimum of 32 KiB per read operation. There
-are also cases when a read is served directly from your S3 bucket (see below) for
-performance optimization, and such operations are not metered for data read and are only
-metered for a 4 KiB metadata read.
+S3 Files meters every file system operation as either a read or a write and applies to
+a file or metadata. Each operation has a minimum metered size and is then rounded up to
+the next 1 KiB increment. This means every operation falls into one or two
+of four categories: a data read, a metadata read, a data write, or a metadata write. For
+example, reading a file is metered as both a data read and a metadata read, while
+renaming a file is metered as a metadata read and a metadata write. No single operation
+is ever metered as more than two categories.
 
-**Data writes** such as writing or appending to a file
-are metered at the size of the data written, with a minimum of 32 KiB per write
-operation.
+**File reads from high-performance storage** are metered at the size of the data read,
+with a minimum of 32 KiB per read operation.
 
-**Metadata operations** such as listing a directory,
-viewing file attributes, creating or deleting files and directories, renaming, and
-changing permissions are metered as 4 KiB metadata read operation. The commit operation
-(triggered by `fsync` or closing file after write) is the only metadata
-operation metered as a metadata write, at 4 KiB. Note that a metadata read operation is
-charged same as a data read operation and a metadata write operation is charged the same
-as a data write operation.
+**File writes to high-performance storage** are metered at the size of the data written,
+with a minimum of 32 KiB per write operation.
 
-All metered sizes are rounded up to the next 1 KiB boundary.
+**Metadata reads** are metered at a 4 KiB minimum size and apply as S3 Files reads.
+Metadata read operation examples include listing a directory and viewing file
+attributes.
 
-## How reads are metered when served directly from Amazon S3
+**Metadata writes** are metered at a 4 KiB minimum size and apply as S3 Files writes.
+Metadata write operation examples include creating or deleting files and directories,
+renaming, changing permissions, and calling `fsync`.
 
-S3 Files streams file reads directly from your S3 bucket in two cases: when the
-file's data is not stored in the file system's high-performance storage, and for large
-reads >= 1 MiB, even when the data also resides on the file system's high-performance
-storage. The S3 bucket is optimized for high throughput while the file system's
-high-performance storage layer is optimized for low-latency access. S3 Files
-asynchronously imports data for small files (< 128 KiB by default) to the file
-system's high-performance storage for low latency access on subsequent reads.
+## How streaming directly from your S3 bucket is metered
 
-In such cases, you pay for S3 GET requests instead of file system data reads. S3 Files
-meters only a 4 KiB metadata read operation for such reads.
+S3 Files streams reads directly from your S3 bucket in two cases: the file's data is
+not stored on high-performance storage, or the read is 1 MiB or larger, even if the data
+also resides on high-performance storage. This design reflects the strengths of each
+storage layer. The S3 bucket is optimized for high throughput, while the file system is
+optimized for low-latency access.
 
-## How synchronization is metered
+For small files (less than 128 KiB by default), S3 Files asynchronously imports data
+onto high-performance storage so that subsequent reads are served at low latency. For
+direct bucket streams, you pay for the S3 GET requests and an S3 Files metadata read
+(4 KiB), with no file read charges.
 
-S3 Files keeps your file system and the linked S3 bucket synchronized automatically.
-These synchronization operations are metered as file system operations, in addition to
-the standard S3 request charges that S3 Files incurs on your behalf.
+## How bucket synchronization is metered
 
-**Importing data onto the file system:** When S3 Files
-copies data from your S3 bucket onto the file system's high performance storage, the
-operation is metered as a file system write. This includes the data that is copied when
-you first access a directory, when you read a file whose data is not on the file system's
-high performance storage, and when S3 Files reflects changes made directly to your S3
-bucket. The metered size is the amount of data written to the file system's high
-performance storage.
+S3 Files automatically keeps your file system and your linked S3 bucket synchronized.
+Synchronization is metered as file reads, file writes, and S3 request charges. For more
+information, see [Understanding how synchronization works](s3-files-synchronization.md "s3-files-synchronization.md").
+
+**Importing data onto the file system:** When S3 copies
+data from your S3 bucket onto high-performance storage based on your settings, the
+operation is metered as a file system write. Import writes occur when you access a
+directory for the first time, when you read a file not stored on high-performance
+storage, and when S3 Files reflects changes made directly to your S3 bucket. The metered
+size is the amount of data written to high-performance storage and a metadata
+write.
 
 **Exporting changes to your S3 bucket:** When S3 Files
 copies your file system changes back to your S3 bucket, the operation is metered as a
-file system read. Only the data that is read from the file system counts toward this
-charge. If the file that you changed contains data that was never copied onto the file
-system's high performance storage, that part of the data is read from your S3 bucket at
-S3 GET request pricing and does not incur a file system read charge. For example, if you
-append data to a file, S3 Files uses multipart uploads to avoid importing the entire
-object into the file system's high performance storage before appending data to it. This
-optimizes your file system storage cost.
+file system metadata and a file read. Only data read from high-performance storage counts
+toward this charge. For example, if you append data to a file, S3 Files uses
+`UploadPartCopy` to avoid importing the entire object onto
+high-performance storage before appending. This optimizes your high-performance storage
+costs.
 
-**Rename and move operations:** S3 has no native concept
-of directories. What appears as a directory in your file system is a common prefix shared
-by the keys of the objects within the S3 bucket. Additionally, S3 objects are immutable
-and do not support atomic renames. As a result, when you rename or move a file, S3 Files
-must write the data to a new object with the updated key (metered as an S3 PUT request)
-and delete the original. The synchronization of rename operations also meters as a file
-system read for any data read from the file system. If the file's data was never copied
-onto the file system's high performance storage, the file system meters only for a 4 KiB
-metadata read operation. When you rename or move a directory, S3 Files must repeat this
-process (and meter) for every object that shares that prefix. For more information, see
-[Understanding the impact of rename and move operations](s3-files-synchronization.md#s3-files-sync-rename-move "s3-files-synchronization.md#s3-files-sync-rename-move").
+**Rename and move operations:** S3 buckets do not
+natively support directories or renames. What appears as a directory in your S3 file
+system is a common prefix shared by object keys in the bucket, and S3 objects are
+immutable. As a result, when you rename or move a file, S3 Files copies the data to a
+new object with the updated key (metered as an S3 PUT request) and deletes the original.
+The synchronization is metered as a metadata read and a file read based on the data's
+location. If the file data is not stored on high-performance storage, only a 4 KiB
+metadata read applies. For file renames or directory moves, S3 Files repeats this
+copy-and-delete for every object under that prefix. For more information, see [Understanding the impact of rename and move operations](s3-files-synchronization.md#s3-files-sync-rename-move "s3-files-synchronization.md#s3-files-sync-rename-move").
 
-**Data expiration:** When S3 Files removes unused data
-from the file system, no file system operation charges apply.
+**File data expiration:** File data not accessed within a
+configurable window of 1 to 365 days (default 30 days) automatically expires from
+high-performance storage. Expiration incurs no data access or metadata charges.
+
+**Metadata updates:** Your file system metadata
+(inodes) reflects the contents of your linked S3 bucket. As your bucket changes,
+metadata is updated to stay consistent with the current state of your bucket. Metadata
+for accessed directories never expires. You can use the Inodes CloudWatch metric to
+monitor your metadata usage. Metadata expiration incurs no charges.
 
 ## Metering examples
 
@@ -110,31 +130,31 @@ from the file system, no file system operation charges apply.
 
 When you first list a directory, S3 Files imports metadata for all files in that
 directory. Each file's metadata import is metered as a 4 KiB write. Depending on your
-import configuration, S3 Files may also prefetch and copy data for small files in that
-directory on to the file system's high performance storage to optimize performance. Each
-file's data import is metered as a write at the file's size (32 KiB minimum). You can
-control which files have their data imported by configuring your import rules. For more
-information, see [Customizing synchronization for S3 Files](s3-files-synchronization-customizing.md "s3-files-synchronization-customizing.md").
+import configuration (default 128 KiB), S3 Files also prefetches and copies data for
+small files in that directory onto the file system's high-performance storage to optimize
+for the lowest latency. Each file's data import is metered as a write at the file's size
+(32 KiB minimum). You can control which files have their data imported by configuring
+your import rules. For more information, see [Customizing synchronization for S3 Files](s3-files-synchronization-customizing.md "s3-files-synchronization-customizing.md").
 
-**Reading a small file that is not in the file system's high
-performance storage**
+**Reading a small file not stored on high-performance
+storage**
 
-S3 Files reads the data from S3 bucket and serves to the client, and asynchronously
-imports the data into the file system's high performance storage so that future reads are
-faster. This is metered as a file system read at the size of the data transferred (32 KiB
-minimum). The asynchronous import of data into the file system's high performance storage
+S3 Files streams read directly from your S3 bucket to your client and asynchronously
+imports data to the file system's high-performance storage, so future reads are faster.
+This is metered as a file system read at the size of the data transferred (32 KiB
+minimum). The asynchronous import of data into the file system's high-performance storage
 is metered as a write at the size of the data transferred. A similar process is followed
-when you read a file whose data has been expired from the file system. The expiration of
-data does not incur any additional file system operation charges.
+when you read a file whose data has been expired from the file system. When files expire
+from the high-performance storage, it does not incur any file system operation
+charges.
 
-**Writing a file**
+**Writing to the file system**
 
-Your write is metered as a file system write at the size of the data written (32 KiB
-minimum). Approximately 60 seconds after your last write, S3 Files copies the file to
-your S3 bucket. This is because when you modify a file in the file system, S3 Files
-waits up to 60 seconds, aggregating any successive changes to the file in that time,
-before copying to your S3 bucket. This means that rapid successive writes to the same
-file are captured in a single S3 PUT request rather than generating a new object version
-for every individual change, reducing your S3 request costs and storage costs. This
-synchronization is metered as a file system read for data read from the file system's
-high performance storage, plus a standard S3 PUT request.
+All file writes are stored on high-performance storage and metered at the size of the
+data written with a 32 KiB minimum. S3 Files waits for a period of inactive write
+activity (60 seconds) in order to aggregate successive changes to the same file before
+copying to your S3 bucket. Rapid writes are captured in a single S3 PUT rather than
+generating a new object version for each individual change. This reduces both S3 request
+costs and file high-performance storage costs. This bucket synchronization is metered as
+a file system read for data read from high-performance storage, and an S3 PUT
+request.
