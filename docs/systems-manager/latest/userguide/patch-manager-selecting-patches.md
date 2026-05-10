@@ -327,6 +327,22 @@ Patch Manager assigns the attributes of an update notice to the related
 packages and installs packages based on the Classification filters
 specified in the patch baseline.
 
+###### Note
+
+On AlmaLinux and Rocky Linux, repositories may not retain
+older versions of a package once a newer version of the same
+package name is released. If an update notice references a
+version that is no longer available in the repository, Patch Manager
+evaluates the installation of the newer version using the
+advisory metadata published for the no longer available version.
+This ensures that pending patches are applied when the
+unavailable version is no longer in the repository.
+
+This may lead Patch Manager to install newer versions of the
+package even if its associated advisory was released after the
+configured `ApproveUntilDate` or
+`ApproveAfterDays`.
+
 RHEL 7
 
 ###### Note

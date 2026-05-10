@@ -15,6 +15,6 @@ invoke other actions in AWS based on changes in Parameter Store.
 ###### Contents
 
 - [Restricting access to Parameter Store parameters using IAM policies](sysman-paramstore-access.md "sysman-paramstore-access.md")
-- [Managing parameter tiers](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md")
+- [Managing tiers](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md")
 - [Changing Parameter Store throughput](parameter-store-throughput.md "parameter-store-throughput.md")
 - [Setting up notifications or triggering actions based on Parameter Store events](sysman-paramstore-cwe.md "sysman-paramstore-cwe.md")

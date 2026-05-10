@@ -10,7 +10,7 @@ is going to expire, or hasn't changed for a specified period of time.
 ###### Note
 
 Parameter policies are available for parameters that use the advanced
-parameters tier. Charges apply. For more information, see [Assigning parameter policies in Parameter Store](parameter-store-policies.md "parameter-store-policies.md") and [Managing parameter tiers](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md").
+parameters tier. Charges apply. For more information, see [Assigning parameter policies in Parameter Store](parameter-store-policies.md "parameter-store-policies.md") and [Managing tiers](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md").
 
 The topics in this section also explain how to initiate other actions on a target
 for specific parameter events. For example, you can run an AWS Lambda function to
@@ -42,7 +42,7 @@ This topic explains the following:
   to receive notification before a parameter expires, and how long to wait
   before notification should be sent that a parameter hasn't changed. You
   set up notification for these events using the following procedure. For
-  more information, see [Assigning parameter policies in Parameter Store](parameter-store-policies.md "parameter-store-policies.md") and [Managing parameter tiers](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md").
+  more information, see [Assigning parameter policies in Parameter Store](parameter-store-policies.md "parameter-store-policies.md") and [Managing tiers](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md").
 
 ###### To configure an EventBridge rule for a Systems Manager parameter or parameter policy
 

@@ -1,4 +1,4 @@
-# Managing parameter tiers
+# Managing tiers
 
 Parameter Store includes _standard
 parameters_ and _advanced
@@ -24,14 +24,15 @@ parameter.
 
 ## Standard and advanced parameters
 
-The following table describes the differences between the tiers.
+The following table describes the differences between parameter tiers.
 
-|                                                                        | Standard             | Advanced                                                                                                                                                                                                                            |
-| ---------------------------------------------------------------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Total number of parameters allowed<br>(per AWS account and AWS Region) | 10,000               | 100,000                                                                                                                                                                                                                             |
-| Maximum size of a parameter value                                      | 4 KB                 | 8 KB                                                                                                                                                                                                                                |
-| Parameter policies available                                           | No                   | Yes<br>For more information, see [Assigning parameter policies in Parameter Store](parameter-store-policies.md "parameter-store-policies.md").                                                                                      |
-| Cost                                                                   | No additional charge | Charges apply<br>For more information, see [AWS Systems Manager<br>Pricing for Parameter Store](https://aws.amazon.com/systems-manager/pricing/#Parameter_Store "https://aws.amazon.com/systems-manager/pricing/#Parameter_Store"). |
+| Feature                                                | Standard             | Advanced                                                                                                                                                                                                                            |
+| ------------------------------------------------------ | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Maximum parameters<br>(per AWS account and AWS Region) | 10,000               | 100,000                                                                                                                                                                                                                             |
+| Maximum value size                                     | 4 KB                 | 8 KB                                                                                                                                                                                                                                |
+| Parameter policies                                     | Not supported        | Supported<br>For more information, see [Assigning parameter policies in Parameter Store](parameter-store-policies.md "parameter-store-policies.md").                                                                                |
+| Share parameters across AWS accounts                   | Not supported        | Supported<br>For more information, see [Working with shared parameters in Parameter Store](parameter-store-shared-parameters.md "parameter-store-shared-parameters.md").                                                            |
+| Cost                                                   | No additional charge | Charges apply<br>For more information, see [AWS Systems Manager<br>Pricing for Parameter Store](https://aws.amazon.com/systems-manager/pricing/#Parameter_Store "https://aws.amazon.com/systems-manager/pricing/#Parameter_Store"). |
 
 ###### Topics
 

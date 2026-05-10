@@ -84,6 +84,13 @@ options:
      version.
     * `skip-signature-validation` - Skips the signature
      validation during the download and installation of the agent.
+    * `provider` (Optional) - Specifies the cloud provider of
+     the machine being registered. Valid values are
+     `Azure` and `EC2`. When specified, SSM Agent reads instance metadata
+     from the cloud provider's Instance Metadata Service (IMDS) and
+     associates the managed node with the source compute instance. If omitted,
+     the default behavior is unchanged and no cloud provider metadata is
+     collected.
 
 64-bit
 

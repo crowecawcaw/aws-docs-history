@@ -29,6 +29,7 @@ plugin.
 
 | Version   | Release date       | Details                                                                                                                                                                                                         |
 | --------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1.2.814.0 | April 23, 2026     | **Bug fix**: Move SSM<br>endpoint configuration from global AWS config to SSM client<br>level.                                                                                                                  |
 | 1.2.804.0 | April 2, 2026      | **Enhancement**: Bump<br>to aws-sdk-go-v2 package.<br>**Bug fix**: Update windows<br>install script.<br>**Bug fix**: Update default<br>plugin version for local build.                                          |
 | 1.2.792.0 | March 17, 2026     | **Bug fix**: Add<br>international keyboard support for<br>Windows.                                                                                                                                              |
 | 1.2.779.0 | February 12, 2026  | **Enhancement**: Update Go<br>version to 1.25 in Dockerfile.<br>**Bug fix**: Add shebang<br>lines to debian packaging scripts.                                                                                  |

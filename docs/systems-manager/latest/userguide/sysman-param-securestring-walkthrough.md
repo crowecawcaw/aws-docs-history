@@ -26,8 +26,6 @@ Write-SSMParameter -Name "`domainJoinUserName`" -Value "`DOMAIN\USERNAME`" -Type
 Write-SSMParameter -Name "`domainJoinPassword`" -Value "`PASSWORD`" -Type SecureString
 ```
 
-###### Important
-
 Only the _value_ of a `SecureString` parameter is
 encrypted. Parameter names, descriptions, and other properties aren't
 encrypted. 2. Attach the following AWS Identity and Access Management (IAM) policies to the IAM role

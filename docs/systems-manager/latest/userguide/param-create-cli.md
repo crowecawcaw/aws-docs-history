@@ -331,8 +331,6 @@ Use the following procedure to create a `SecureString`
 parameter. Replace each `example resource
  placeholder` with your own information.
 
-###### Important
-
 Only the _value_ of a `SecureString` parameter is
 encrypted. Parameter names, descriptions, and other properties aren't
 encrypted.

@@ -199,13 +199,9 @@ Application Manager aggregates operations information from multiple AWS services
 Systems Manager tools to a single AWS Management Console.
 
 Parameter Store
-[Parameter Store](systems-manager-parameter-store.md "systems-manager-parameter-store.md") provides
-secure, hierarchical storage for configuration data and secrets management.
-You can store data such as passwords, database strings, Amazon Elastic Compute Cloud (Amazon EC2)
-instance IDs and Amazon Machine Image (AMI) IDs, and license codes as parameter
-values. You can store values as plain text or encrypted data. You can then
-reference values by using the unique name you specified when you created the
-parameter.
+[Parameter Store](systems-manager-parameter-store.md "systems-manager-parameter-store.md") enables you to securely store, organize, and retrieve configuration data at scale. It supports a wide range of use cases, from managing plain-text configuration values – such as database connection strings and application settings – to handling sensitive data like secrets for low-risk environments. Parameter Store is designed to simplify configuration management across environments, allowing teams to standardize how applications access critical data without hardcoding values or relying on fragmented storage solutions.
+
+If you manage credentials that require automatic rotation, cross-account access, or fine-grained audit logging, we recommend using [AWS Secrets Manager](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md"). Secrets Manager is purpose-built for managing secrets such as database credentials, API keys, and supported third-party software-vended secrets. For more information, see [What is AWS Secrets Manager?](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") in the _AWS Secrets Manager User Guide_.
 
 ## Operations tools
 

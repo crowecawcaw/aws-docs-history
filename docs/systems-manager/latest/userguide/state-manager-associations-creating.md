@@ -144,21 +144,7 @@ console shows that a new version was processed. If you want to run
 an association using a new version of a document shared from another
 account, you must set the document version to
 `default`. 6. For **Parameters**, specify the required input
-parameters. 7. (Optional) For **Association Dispatch Assume Role**,
-select a role from the drop-down. State Manager will take actions using
-this role on your behalf. For information about setting up the custom-provided role,
-see [Setup roles for AssociationDispatchAssumeRole](state-manager-about.md#setup-assume-role "state-manager-about.md#setup-assume-role")
-
-###### Note
-
-It is recommended that you define a custom IAM role so that you have full control of
-the permissions that State Manager has when taking actions on your behalf.
-
-Service-linked role support in State Manager is being phased out. Associations
-relying on service-linked role may require updates in the future to continue
-functioning properly.
-
-For information about managing the usage of custom-provided role, see [Manage usage of AssociationDispatchAssumeRole with ssm:AssociationDispatchAssumeRole](state-manager-about.md#context-key-assume-role "state-manager-about.md#context-key-assume-role"). 8. (Optional) Choose a CloudWatch alarm to apply to your association for
+parameters. 7. 8. (Optional) Choose a CloudWatch alarm to apply to your association for
 monitoring.
 
 ###### Note

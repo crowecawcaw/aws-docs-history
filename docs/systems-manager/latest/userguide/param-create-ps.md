@@ -141,8 +141,6 @@ parameter.
 Before you create a `SecureString` parameter, read about the
 requirements for this type of parameter. For more information, see [Creating a SecureString parameter using the AWS CLI](param-create-cli.md#param-create-cli-securestring "param-create-cli.md#param-create-cli-securestring").
 
-###### Important
-
 Only the _value_ of a `SecureString` parameter is
 encrypted. Parameter names, descriptions, and other properties aren't
 encrypted.

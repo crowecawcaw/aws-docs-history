@@ -8,12 +8,7 @@ AWS Systems Manager. Parameter Store offers the following types of policies: `Ex
 `ExpirationNotification`, and
 `NoChangeNotification`.
 
-###### Note
-
-To implement password rotation lifecycles, use AWS Secrets Manager. You can rotate, manage, and
-retrieve database credentials, API keys, and other secrets throughout their lifecycle
-using Secrets Manager. For more information, see [What is AWS Secrets Manager?](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") in the
-_AWS Secrets Manager User Guide_.
+If you manage credentials that require automatic rotation, cross-account access, or fine-grained audit logging, we recommend using [AWS Secrets Manager](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md"). Secrets Manager is purpose-built for managing secrets such as database credentials, API keys, and supported third-party software-vended secrets. For more information, see [What is AWS Secrets Manager?](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") in the _AWS Secrets Manager User Guide_.
 
 Parameter Store enforces parameter policies by using asynchronous, periodic scans. After
 you create a policy, you don't need to perform additional actions to enforce the
@@ -23,7 +18,7 @@ to the criteria you specified.
 ###### Note
 
 Parameter policies are available for parameters that use the advanced
-parameters tier. For more information, see [Managing parameter tiers](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md").
+parameters tier. For more information, see [Managing tiers](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md").
 
 A parameter policy is a JSON array, as shown in the following table. You can
 assign a policy when you create a new advanced parameter, or you can apply a policy
