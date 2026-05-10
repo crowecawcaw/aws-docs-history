@@ -14,7 +14,7 @@ Elastic Load Balancing has these load balancer types:
   on environment instances.
 - [Application Load Balancer](../../../elasticloadbalancing/latest/application.md "../../../elasticloadbalancing/latest/application.md") – An application layer load balancer. Routes HTTP or HTTPS request traffic to different ports on
   environment instances based on the request path.
-- [Network Load Balancer](../../../elasticloadbalancing/latest/network.md "../../../elasticloadbalancing/latest/network.md") – A network layer load balancer. Routes TCP request traffic to different ports on environment instances.
+- [Network Load Balancer](../../../elasticloadbalancing/latest/network.md "../../../elasticloadbalancing/latest/network.md") – A network layer load balancer. Routes TCP or TLS request traffic to different ports on environment instances.
   Supports both active and passive health checks.
   Elastic Beanstalk supports all three load balancer types. The following table shows which types you can use with the two usage patterns:
 

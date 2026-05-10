@@ -19,11 +19,12 @@ check behavior, configure the listener port, or add a listener on another port.
 
 ###### Note
 
-Unlike a Classic Load Balancer or an Application Load Balancer, a Network Load Balancer can't have application layer (layer 7) HTTP or HTTPS listeners. It only supports transport layer (layer 4) TCP
-listeners. HTTP and HTTPS traffic can be routed to your environment over TCP. To establish secure HTTPS connections between web clients and your
-environment, install a [self-signed certificate](configuring-https-ssl.md "configuring-https-ssl.md") on the environment's instances, and configure the instances
-to listen on the appropriate port (typically 443) and terminate HTTPS connections. The configuration varies per platform. See [Configuring HTTPS Termination at the instance](https-singleinstance.md "https-singleinstance.md") for instructions. Then configure your Network Load Balancer to add a listener that maps to a
-process listening on the appropriate port.
+Unlike a Classic Load Balancer or an Application Load Balancer, a Network Load Balancer can't have application layer (layer 7) HTTP or HTTPS listeners. It supports transport layer (layer 4) TCP
+and TLS listeners. To establish secure HTTPS connections between web clients and your environment, you can configure a TLS listener with an SSL
+certificate and security policy. You can also use a TCP listener and install a [self-signed certificate](configuring-https-ssl.md "configuring-https-ssl.md")
+on the environment's instances, and configure the instances to listen on the appropriate port (typically 443) and handle HTTPS connections directly.
+The configuration varies per platform. See [Configuring HTTPS Termination at the instance](https-singleinstance.md "https-singleinstance.md") for instructions. Then
+configure your Network Load Balancer to add a listener that maps to a process listening on the appropriate port.
 
 A Network Load Balancer supports active health checks. These checks are based on messages to the root (`/`) path. In addition, a Network Load Balancer supports passive
 health checks. It automatically detects faulty backend instances and routes traffic only to healthy instances.
@@ -221,9 +222,23 @@ option_settings:
     Protocol: TCP
 ```
 
+###### Example.ebextensions/nlb-tls-listener.config
+
+The following configuration file adds a TLS listener on port 443 with an SSL certificate. The load balancer handles the secure connection and
+forwards traffic to the default process on port 80.
+
+```
+option_settings:
+  aws:elbv2:listener:443:
+    ListenerEnabled: 'true'
+    Protocol: TLS
+    SSLCertificateArns: `arn:aws:acm:us-east-2:1234567890123:certificate/####################################`
+    SSLPolicy: `ELBSecurityPolicy-TLS13-1-2-2021-06`
+```
+
 ###### Example.ebextensions/nlb-secure-listener.config
 
-The following configuration file adds a listener for secure traffic on port 443 and a matching target process that listens to port 443.
+The following configuration file uses a TCP listener to forward encrypted traffic to instances. The instances handle the secure connection directly.
 
 ```
 option_settings:
@@ -239,5 +254,4 @@ specific paths (see [Application Load Balancer](environments-cfg-alb.md "environ
 the only target process for this listener.
 
 In this example, we named the process `https` because it listens to secure (HTTPS) traffic. The listener sends traffic to the process on
-the designated port using the TCP protocol, because a Network Load Balancer works only with TCP. This is okay, because network traffic for HTTP and HTTPS is implemented
-on top of TCP.
+the designated port using the TCP protocol. This is okay, because network traffic for HTTP and HTTPS is implemented on top of TCP.

@@ -67,7 +67,7 @@ deployment log does not contain enough detail, you can retrieve the full instanc
 ## Viewing deployment logs in the console
 
 The Elastic Beanstalk console provides a **Deployments** tab on the environment dashboard where you can view your deployment history and
-logs.
+logs. The deployment history shows deployments from the last 42 days (6 weeks).
 
 ### Viewing deployment history
 

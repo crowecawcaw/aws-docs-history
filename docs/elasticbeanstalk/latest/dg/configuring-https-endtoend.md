@@ -62,8 +62,8 @@ paths (see [Application Load Balancer](environments-cfg-alb.md "environments-cfg
 process for this listener.
 
 In this example, we named the process `https` because it listens to secure (HTTPS) traffic. The listener sends traffic to the process on the
-designated port using the TCP protocol, because a Network Load Balancer works only with TCP. This is okay, because network traffic for HTTP and HTTPS is implemented on top
-of TCP.
+designated port using the TCP protocol. You can also configure a TLS listener on your Network Load Balancer to handle the secure connection at the load balancer. For
+more information, see [Network Load Balancer](environments-cfg-nlb.md "environments-cfg-nlb.md").
 
 ###### Note
 

@@ -104,12 +104,14 @@ option_settings:
 ###### Example.ebextensions/securelistener-nlb.config
 
 Use this example when your environment has a Network Load Balancer. The example uses options in the `aws:elbv2:listener` namespace to configure a
-listener on port 443. The listener routes traffic to the default process.
+TLS listener on port 443 with an SSL certificate. The listener handles the secure connection and routes traffic to the default process.
 
 ```
 option_settings:
   aws:elbv2:listener:443:
     ListenerEnabled: 'true'
+    Protocol: TLS
+    SSLCertificateArns: `arn:aws:acm:us-east-2:1234567890123:certificate/####################################`
 ```
 
 ## Configuring a security group
