@@ -411,3 +411,31 @@ also terminate due to the following timeout values:
 - **Session length timeout**: Maximum time for a stream session.
 
 For a detailed explanation of each timeout and its possible values, refer to [Timeout values affecting stream sessions](stream-sessions.md#stream-sessions-lifecycle-timeouts "stream-sessions.md#stream-sessions-lifecycle-timeouts").
+
+## Web SDK issues
+
+This section identifies potential causes for issues related to the Amazon GameLift Streams Web SDK when integrating Amazon GameLift Streams into your web
+application.
+
+### Audio element configuration for device compatibility
+
+When you create a new `GameLiftStreams` object, we recommend that you don't provide a separate audio element.
+Providing a distinct audio element is useful if you need specific JavaScript controls on the audio that shouldn't be applied to the
+video element. However, some devices, such as certain smart TVs, support only one media element on a web page at a time. Providing a
+separate audio element can cause playback failures on these devices.
+
+### Audio is not playing when the stream starts
+
+If audio is not playing when the stream starts, verify that the media elements are unmuted. Some browsers automatically mute media
+elements that are not actively playing. Different browsers have different autoplay policies that determine when media elements are
+muted.
+
+To troubleshoot audio playback issues, check the following:
+
+- Verify that the video or audio element's `muted` property is set to `false`.
+- Ensure that the volume on the media element is not set to `0`.
+- Check your browser's autoplay policy. Many browsers require a user interaction, such as a click, before they allow unmuted
+  media playback.
+- If you need a callback for when the session is connected, use `clientConnection.connectionState` in the
+  `GameLiftStreams` object. This provides a callback for when the peer connection transitions to a connected
+  state.

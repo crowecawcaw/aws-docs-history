@@ -15,3 +15,4 @@ service. You can also use these samples to test how Amazon GameLift Streams stre
 - [Locale preference](sdk-locale-support.md "sdk-locale-support.md")
 - [Mouse movement handling](sdk-mouse-movement.md "sdk-mouse-movement.md")
 - [Data channel communication between an application and web client](data-channels.md "data-channels.md")
+- [Amazon GameLift Streams Web SDK release notes](web-sdk-release-notes.md "web-sdk-release-notes.md")
