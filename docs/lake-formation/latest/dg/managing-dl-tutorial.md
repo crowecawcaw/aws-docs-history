@@ -316,7 +316,7 @@ columns for testing purposes.
    10. Choose **Upload**. After uploading the schema, the table schema should look
        like the following screenshot:
 
-   ![Table schema with 18 columns showing column names and data types, all set to string.](images/tutorial-manage-dl-tbac1.jpg) 11. Choose **Submit**.
+   ![Table schema with 18 columns including vendorid, pickup and dropoff datetime, location IDs, and fare details, all string data type.](images/tutorial-manage-dl-tbac1.jpg) 11. Choose **Submit**.
 
 3. Next, attach LF-Tags at the database level.
    1. On the **Databases** page, find and select `tag_database`.
@@ -461,7 +461,7 @@ Repeat the following steps to create the database `col_tag_database` and table `
 15. Choose `Upload`. After uploading the schema, the table schema should look like the
     following screenshot.
 
-![Table schema with 18 columns showing column names and data types, all set to string.](images/tutorial-manage-dl-tbac2.jpg) 16. Choose **Submit** to complete the creation of the table. 17. Now, associate the `Sensitive=True` LF-Tag to the columns `vendorid` and `fare_amount`.
+![Table schema with 18 columns including vendorid, pickup and dropoff datetime, and fare amounts.](images/tutorial-manage-dl-tbac2.jpg) 16. Choose **Submit** to complete the creation of the table. 17. Now, associate the `Sensitive=True` LF-Tag to the columns `vendorid` and `fare_amount`.
 
     1. On the **Tables** page, select the table you created `(source_data_col_lvl)`.
     2. On the **Actions** menu, choose **Schema**.

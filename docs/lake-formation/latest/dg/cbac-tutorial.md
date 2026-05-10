@@ -101,7 +101,7 @@ LIMIT 10
 
 The following screenshot shows the query result. This table has only one partition, `product_category=Video`, so each record is a review comment for a video product.
 
-![Query results showing 10 rows of Amazon product reviews for VHS tapes with various ratings.](images/cbac-tut-query-results1.jpg) 2. Next, run an aggregation query to retrieve the total number of records per `marketplace`.
+![Query results table showing Amazon product reviews with columns for marketplace, customer ID, review ID, product details, ratings, and votes.](images/cbac-tut-query-results1.jpg) 2. Next, run an aggregation query to retrieve the total number of records per `marketplace`.
 
 ```
 SELECT marketplace, count(*) as total_count
@@ -111,7 +111,7 @@ GROUP BY marketplace
 
 The following screenshot shows the query result. The `marketplace` column has five different values. In the subsequent steps, you will set up row-based filters using the `marketplace` column.
 
-![Query results showing marketplace data with total counts for FR, UK, JP, DE, and US.](images/cbac-tut-query-results2.jpg)
+![Query results showing marketplace column with five values: FR, UK, JP, DE, and US with counts.](images/cbac-tut-query-results2.jpg)
 
 ## Step 3: Set up data filters and grant permissions
 
@@ -180,7 +180,7 @@ LIMIT 10
 
 The following screenshot shows the query result.
 
-![Query results showing 10 rows of Amazon product reviews data, including marketplace, ratings, and product titles.](images/cbac-tut-query-results3.png) 3. Similarly, run a query to count the total number of records per marketplace.
+![Query results table showing Amazon product reviews with columns for marketplace, customer ID, review ID, product details, and ratings.](images/cbac-tut-query-results3.png) 3. Similarly, run a query to count the total number of records per marketplace.
 
 ```
 SELECT marketplace , count ( * ) as total_count

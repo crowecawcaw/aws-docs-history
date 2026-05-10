@@ -88,7 +88,7 @@ On the **LF-Tags and permissions** page, choose
 **LF-Tag creators** section and choose **Add LF-Tag
 creators**.
 
-![LF-Tag creator details form with IAM user selection and permission options.](images/add-lf-tag-creator.png) 3. On the **Add LF-Tag creators** page, choose an IAM role or user who has the required permissions to create LF-Tags. 4. Enable `Create LF-Tag` permission check box. 5. (Optional) To enable the selected principals to grant `Create
+![Add LF-Tag creators page showing IAM user lf-developer with Create LF-Tag permissions.](images/add-lf-tag-creator.png) 3. On the **Add LF-Tag creators** page, choose an IAM role or user who has the required permissions to create LF-Tags. 4. Enable `Create LF-Tag` permission check box. 5. (Optional) To enable the selected principals to grant `Create
  LF-Tag` permission to principals, choose Grantable `Create
  LF-Tag` permission. 6. Choose **Add**.
 

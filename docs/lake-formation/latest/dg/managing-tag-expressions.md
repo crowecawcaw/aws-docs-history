@@ -121,7 +121,7 @@ Sign in as a data lake administrator. 2. In the navigation pane, under **Permiss
 **LF-Tags and permissions**. 3. Choose the **LF-Tag expressions** tab. 4. In the **LF-Tag expression creators** section, choose **Add LF-Tag
 expression creators**.
 
-![Form to add LF-Tag expression creators with IAM user selection and permissions.](images/add-lf-tag-expression-creator.png) 5. On the **Add LF-Tag expression creators** page, choose an
+![LF-Tag expression creator details container showing IAM user datalake_user with permissions.](images/add-lf-tag-expression-creator.png) 5. On the **Add LF-Tag expression creators** page, choose an
 IAM role or user who has the required permissions to create LF-Tag
 expressions. 6. Select `Create LF-Tag expression` permission check box. 7. (Optional) To enable the selected principals to grant `Create LF-Tag
  expression` permission to principals, choose Grantable `Create LF-Tag

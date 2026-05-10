@@ -3,7 +3,7 @@
 The following diagram shows how Lake Formation authorization works in hybrid access mode when you query
 the Data Catalog resources.
 
-![AWS Lake Formation authorization process flowchart for hybrid access mode queries.](images/hybrid-workflow.png)
+![Flow diagram showing Lake Formation authorization process in hybrid access mode with decision points and data flow paths.](images/hybrid-workflow.png)
 Before accessing data in your data lake, a data lake administrator or a user with
 administrative permissions sets up individual Data Catalog table user policies to allow or deny
 access to tables in your Data Catalog. Then, a principal who has the permissions to perform

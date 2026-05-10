@@ -87,7 +87,7 @@ For more information, see [Cross-account data sharing in Lake Formation](cross-a
 - LF-Tag keys and LF-Tag values can't exceed 50 characters in length.
 - The maximum number of LF-Tags that can be assigned to a Data Catalog resource is 50.
 - The following limits are soft limits:
-  - The maximum number of LF-Tags that can be created is 1000.
+  - The maximum number of LF-Tags that can be created is 10000.
   - The maximum number of values that can be defined for a LF-Tag is 1000.
 
 - Tags keys and values are converted to all lower case when they are stored.

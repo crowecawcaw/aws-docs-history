@@ -38,7 +38,7 @@ information:
     ```
 
 
-    ![Column-level access settings with options to include specific columns and filter rows.](images/nested-column-filter.png)
+    ![Column-level access settings showing Include columns selected with 4 of 11 columns checked.](images/nested-column-filter.png)
 
      When you grant permissions to the `customer` column, the principal
      receives the access to the column and the nested fields under the column

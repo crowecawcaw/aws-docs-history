@@ -15,7 +15,7 @@ available in the Account A. The data lake administrator of Account A provides fi
 access for Account B. The diagram also shows that a user of Account B provides column-level
 access of the Account A data lake table to another user in Account B.
 
-![AWS Organization structure with two OUs, showing data lake access and user permissions across accounts.](images/tutorial-fine-grained-access1.jpg)
+![AWS Organization with two accounts showing data lake access from Account A to Account B users.](images/tutorial-fine-grained-access1.jpg)
 
 ###### Topics
 

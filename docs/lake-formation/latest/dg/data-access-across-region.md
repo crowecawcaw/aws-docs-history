@@ -46,7 +46,7 @@ In the diagram below, the data is shared with a user in the same AWS account in 
 US East (N. Virginia) Region, and the user queries the shared data from the
 Europe (Ireland) Region.
 
-![Diagram showing data sharing between AWS accounts across regions with numbered steps.](images/cross-region-same-account.png)
+![Data sharing from S3 in us-east-1 to Athena in eu-west-1 via Lake Formation resource link.](images/cross-region-same-account.png)
 
 The data lake administrator performs the following activities (steps 1-2):
 
@@ -65,7 +65,7 @@ data location, and shares a Data Catalog table with a consumer account (Account 
 US East (N. Virginia) Region and a user from the consumer account (Account B) queries the
 table from the Europe (Ireland) Region.
 
-![Diagram showing data sharing between AWS accounts across regions using Amazon S3 and Data Catalog.](images/cross-region-x-account.png)
+![Data sharing workflow from Account A S3 bucket to Account B across regions using Lake Formation.](images/cross-region-x-account.png)
 
 1. A data lake administrator sets up an AWS account (producer account) with the
    Data Catalog resources and an Amazon S3 data location registered with Lake Formation in the

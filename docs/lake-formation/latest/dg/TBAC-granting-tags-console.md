@@ -102,7 +102,7 @@ the LF-Tags to grant permissions on.
    choose **LF-Tag key-value pair permissions** as the **Permission type**) choose **Add LF-Tag key-value pair** to reveal the first row of
    fields for specifying LF-Tag key and values.
 
-![Interface for adding LF-Tag key-value pairs and setting associated permissions.](images/tag-key-value-pair.png) 2. Position the cursor in the **Key** field, optionally start typing
+![LF-Tag key-value pair permissions interface with key and values input fields and permissions checkboxes.](images/tag-key-value-pair.png) 2. Position the cursor in the **Key** field, optionally start typing
 to narrow down the selection list, and select a LF-Tag key. 3. In the **Values** list, select one or more values, and then press
 **Tab** or click or tap outside the field to save the selected
 values.
@@ -122,7 +122,7 @@ repeat the previous two steps.
 1. To grant permissions on LF-Tag expressions, (you need to first choose
    choose **LF-Tag expression permissions** as the **Permission type**).
 
-![Permission type selection interface with LF-Tag expression permissions highlighted.](images/tag-expression.png) 2. Choose a LF-Tag expression. 3. The selected expressions appear as tiles below the **LF-Tag expressions** list.
+![LF-Tag expression permissions option selected with datalake_user added as principal.](images/tag-expression.png) 2. Choose a LF-Tag expression. 3. The selected expressions appear as tiles below the **LF-Tag expressions** list.
 Choose the ✖ to remove an expression. 4. To add another LF-Tag expression, choose another expression.
 
 ## Specify the permissions

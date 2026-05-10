@@ -35,7 +35,7 @@ A data lake administrator needs to complete the following actions:
 
 
 
-    ![Create table interface showing options for resource link creation and shared table details.](images/cross-region-resource-link.png)
+    ![Create table screen with Resource link option selected and Shared table owner region field highlighted.](images/cross-region-resource-link.png)
 
     For instructions on creating resource links to databases and tables, see [Creating resource links](creating-resource-links.md "creating-resource-links.md").
     2. Grant `Describe` permission to IAM principals on the resource link in Region B.
