@@ -4,13 +4,13 @@ AWS End User Messaging SMS includes support for two-way SMS. When you set up two
 messages from your customers. You can also use two-way messaging together with other AWS services, such as Lambda and Amazon Lex, to create interactive text messaging experiences.
 
 When one of your customers sends a message to your phone number, the message body is sent to
-an Amazon SNS topic or Amazon Connect instance for processing.
+an Amazon SNS topic or Connect Customer instance for processing.
 
 ###### Note
 
 - Two-way SMS is only available in certain countries and regions. For more information
   about two-way SMS support by country or region, see [SMS and MMS country capabilities and limitations](phone-numbers-sms-support-by-country.md "phone-numbers-sms-support-by-country.md").
-- Amazon Connect for two-way SMS is available in the AWS Regions listed in [Chat messaging: SMS subtype](../../../connect/latest/adminguide/regions.md#chatmessaging_region "../../../connect/latest/adminguide/regions.md#chatmessaging_region") in the _Amazon Connect
+- Connect Customer for two-way SMS is available in the AWS Regions listed in [Chat messaging: SMS subtype](../../../connect/latest/adminguide/regions.md#chatmessaging_region "../../../connect/latest/adminguide/regions.md#chatmessaging_region") in the _Connect Customer
   Administrator Guide_.
 - Two-way MMS is not supported but your phone number can still receive incoming SMS messages in
   response to an outbound MMS message.
@@ -31,7 +31,7 @@ To enable two-way SMS using the AWS End User Messaging SMS console, follow these
 5. On the **Edit settings** page, choose
    **Enable two-way message**.
 6. For **Destination type**, choose either
-   **Amazon SNS** or **Amazon Connect**.
+   **Amazon SNS** or **Connect Customer**.
    - For Amazon SNS choose either **New Amazon SNS topic**
      or **Existing Amazon SNS topic** and then for
      **Two-way channel role**, choose either
@@ -57,18 +57,18 @@ To enable two-way SMS using the AWS End User Messaging SMS console, follow these
          Amazon SNS topic policy to grant access to AWS End User Messaging SMS. For
          example Amazon SNS policies, see [Topic policies for Amazon SNS topics](two-way-sms-iam-policy-auto.md "two-way-sms-iam-policy-auto.md").
 
-   - For Amazon Connect, in **Two-way channel role**,
+   - For Connect Customer, in **Two-way channel role**,
      choose **Choose existing IAM roles**.
      - In the **Existing IAM roles** drop
        down choose an existing IAM role as the message
-       destination. For example IAM policies, see [IAM policies for Amazon Connect](two-way-connect-iam-policy.md "two-way-connect-iam-policy.md") .
+       destination. For example IAM policies, see [IAM policies for Connect Customer](two-way-connect-iam-policy.md "two-way-connect-iam-policy.md") .
 
 7. Choose **Save changes**.
-8. _(Optional)_ If you've chosen Amazon Connect as the
+8. _(Optional)_ If you've chosen Connect Customer as the
    **Destination type** then in the **Import
-   Phone Number to Amazon Connect** window:
+   Phone Number to Connect Customer** window:
    1. For the **Incoming messages destination**
-      dropdown choose the Amazon Connect instance that will receive incoming
+      dropdown choose the Connect Customer instance that will receive incoming
       messages.
    2. Choose **Import Phone Number**.
 
@@ -91,14 +91,14 @@ In the preceding command, make the following changes:
   or Amazon Resource Name (ARN) of the of the phone number.
 - Replace `TwoWayARN` with the Amazon Resource
   Name (ARN) to receive the incoming SMS messages. For example Amazon SNS
-  policies, see [Topic policies for Amazon SNS topics](two-way-sms-iam-policy-auto.md "two-way-sms-iam-policy-auto.md"). To set Amazon Connect
+  policies, see [Topic policies for Amazon SNS topics](two-way-sms-iam-policy-auto.md "two-way-sms-iam-policy-auto.md"). To set Connect Customer
   as the inbound destination set `TwoWayARN` to
   `connect.`region`.amazonaws.com`.
   Replace `region` with the AWS Region the
-  Amazon Connect instance is hosted in.
+  Connect Customer instance is hosted in.
 - Replace `TwoChannelWayRole` with the Amazon
   Resource Name (ARN) of the IAM role to use. For example SNS permission
   policies, see [IAM policies for Amazon SNS topics](two-way-sms-iam-policy.md "two-way-sms-iam-policy.md") and for example
-  Amazon Connect policies, see [IAM policies for Amazon Connect](two-way-connect-iam-policy.md "two-way-connect-iam-policy.md"). This
+  Connect Customer policies, see [IAM policies for Connect Customer](two-way-connect-iam-policy.md "two-way-connect-iam-policy.md"). This
   parameter is only required if you choose to use IAM permission
   policies.

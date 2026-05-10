@@ -36,3 +36,7 @@ The IAM user/role that you use to visit the AWS End User Messaging SMS console m
 `“sms-voice:*”` permission.
 
 Yes. For more information on sender ID formatting rules, see [Considerations for a sender ID](sender-id.md#sender-id-considerations "sender-id.md#sender-id-considerations").
+
+If your Singapore Sender ID registration shows a status of **Revoke**, this indicates that your Sender ID registration has been suspended by the Singapore SMS Sender ID Registry (SSIR). To resolve this issue, you must contact the Singapore Network Information Centre (SGNIC) directly to obtain further details regarding your registration suspension.
+
+After you have resolved the issue with SGNIC, you can re-submit your existing registration through the AWS End User Messaging SMS console. You do not need to create a new registration request.

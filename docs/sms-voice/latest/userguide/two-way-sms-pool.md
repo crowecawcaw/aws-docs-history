@@ -18,7 +18,7 @@ To enable two-way SMS using the AWS End User Messaging SMS console, follow these
 5. On the **Edit settings** page turn on
    **Enable two-way message**.
 6. For **Destination type**, choose either
-   **Amazon SNS** or **Amazon Connect**.
+   **Amazon SNS** or **Connect Customer**.
    - For Amazon SNS choose either **New Amazon SNS topic**
      or **Existing Amazon SNS topic** and then for
      **Two-way channel role**, choose either
@@ -45,11 +45,11 @@ To enable two-way SMS using the AWS End User Messaging SMS console, follow these
          Amazon SNS topic policy to grant access to AWS End User Messaging SMS. For
          example Amazon SNS policies, see [Topic policies for Amazon SNS topics](two-way-sms-iam-policy-auto.md "two-way-sms-iam-policy-auto.md").
 
-   - For Amazon Connect in **Two-way channel role**, choose
+   - For Connect Customer in **Two-way channel role**, choose
      **Choose existing IAM roles**.
      - In the **Existing IAM roles** drop
        down choose an existing IAM role as the message
-       destination. For example IAM policies, see [IAM policies for Amazon Connect](two-way-connect-iam-policy.md "two-way-connect-iam-policy.md") .
+       destination. For example IAM policies, see [IAM policies for Connect Customer](two-way-connect-iam-policy.md "two-way-connect-iam-policy.md") .
 
 7. Choose **Save changes**.
 
@@ -71,14 +71,14 @@ In the preceding command, make the following changes:
   Amazon Resource Name (ARN) of the phone number.
 - Replace `TwoWayARN` with the Amazon Resource
   Name (ARN) to receive the incoming SMS messages. For example Amazon SNS
-  policies, see [Topic policies for Amazon SNS topics](two-way-sms-iam-policy-auto.md "two-way-sms-iam-policy-auto.md"). To set Amazon Connect
+  policies, see [Topic policies for Amazon SNS topics](two-way-sms-iam-policy-auto.md "two-way-sms-iam-policy-auto.md"). To set Connect Customer
   as the inbound destination set `TwoWayARN` to
   `connect.`region`.amazonaws.com`.
   Replace `region` with the AWS Region the
-  Amazon Connect instance is hosted in.
+  Connect Customer instance is hosted in.
 - Replace `TwoChannelWayRole` with the Amazon
   Resource Name (ARN) of the IAM role to use. For example SNS permission
   policies, see [IAM policies for Amazon SNS topics](two-way-sms-iam-policy.md "two-way-sms-iam-policy.md") and for example
-  Amazon Connect policies, see [IAM policies for Amazon Connect](two-way-connect-iam-policy.md "two-way-connect-iam-policy.md"). This
+  Connect Customer policies, see [IAM policies for Connect Customer](two-way-connect-iam-policy.md "two-way-connect-iam-policy.md"). This
   parameter is only required if you choose to use IAM permission
   policies.
