@@ -103,7 +103,7 @@ encoder.
 1. In the Profile or Job screen, click Advanced Avail Controls (in the Input
    section towards the top of the screen):
 
-![The file images/advanced-avail-controls.png.](/images/elemental-server/latest/ug/images/advanced-avail-controls.png) 2. In Ad Avail Trigger, choose ESAM. More fields appear.
+![The file images/advanced-avail-controls.png.](images/advanced-avail-controls.png) 2. In Ad Avail Trigger, choose ESAM. More fields appear.
 
 ![The file images/profile-esam.png.](images/profile-esam.png) 3. Complete the fields as follows:
 
