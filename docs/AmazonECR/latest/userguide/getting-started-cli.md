@@ -215,6 +215,11 @@ default registry. That way, the **docker** command can push and pull
 images with Amazon ECR. The AWS CLI provides a **get-login-password** command to
 simplify the authentication process.
 
+###### Note
+
+Your IAM principal must have the `ecr:GetAuthorizationToken` permission
+to authenticate to a registry. For more information, see [AWS managed policies for Amazon Elastic Container Registry](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
+
 To authenticate Docker to an Amazon ECR registry with
 get-login-password, run the **aws ecr get-login-password** command. When passing
 the authentication token to the **docker login** command, use the value `AWS` for the username and specify the Amazon ECR registry URI you want to authenticate to. If authenticating to
