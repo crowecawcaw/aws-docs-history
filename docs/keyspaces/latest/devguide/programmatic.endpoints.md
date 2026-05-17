@@ -105,10 +105,12 @@ dual-stack service endpoint for each Region. For more information about Amazon K
 | US West (Oregon)          | us-west-2      | cassandra-streams.us-west-2.api.aws      | HTTPS    |
 | Africa (Cape Town)        | af-south-1     | cassandra-streams.af-south-1.api.aws     | HTTPS    |
 | Asia Pacific (Hong Kong)  | ap-east-1      | cassandra-streams.ap-east-1.api.aws      | HTTPS    |
+| Asia Pacific (Malaysia)   | ap-southeast-5 | cassandra-streams.ap-southeast-5.api.aws | HTTPS    |
 | Asia Pacific (Mumbai)     | ap-south-1     | cassandra-streams.ap-south-1.api.aws     | HTTPS    |
 | Asia Pacific (Seoul)      | ap-northeast-2 | cassandra-streams.ap-northeast-2.api.aws | HTTPS    |
 | Asia Pacific (Singapore)  | ap-southeast-1 | cassandra-streams.ap-southeast-1.api.aws | HTTPS    |
 | Asia Pacific (Sydney)     | ap-southeast-2 | cassandra-streams.ap-southeast-2.api.aws | HTTPS    |
+| Asia Pacific (Thailand)   | ap-southeast-7 | cassandra-streams.ap-southeast-7.api.aws | HTTPS    |
 | Asia Pacific (Tokyo)      | ap-northeast-1 | cassandra-streams.ap-northeast-1.api.aws | HTTPS    |
 | Canada (Central)          | ca-central-1   | cassandra-streams.ca-central-1.api.aws   | HTTPS    |
 | Europe (Frankfurt)        | eu-central-1   | cassandra-streams.eu-central-1.api.aws   | HTTPS    |
