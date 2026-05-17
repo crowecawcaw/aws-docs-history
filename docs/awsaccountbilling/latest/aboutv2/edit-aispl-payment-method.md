@@ -202,49 +202,6 @@ AWS account.
 ## Use Unified Payments Interface (UPI) to make a payment
 
 You can use the Billing console to pay your AWS India bills. Follow this procedure to make a
-payment with Unified Payments Interface (UPI).
-
-###### Note
-
-In order to approve UPI transactions, after you enter a valid UPI ID and billing
-address, AWS India will send a request to the UPI application (app) associated with
-the UPI ID that you specified. To complete a payment, open your UPI app and approve
-the transaction within 10 minutes. If the transaction isn't approved within 10
-minutes, the request expires, and you will need to retry a payment again from the
-Billing console.
-
-###### To use UPI to make a payment
-
-1. Open the AWS Billing and Cost Management console at
-   [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/home?#/ "https://console.aws.amazon.com/costmanagement/home?#/").
-2. In the navigation pane, choose **Payments**.
-
-The **Payments due** table lists all of your remaining
-AWS bills. If there aren't any bills listed, you don't have to do
-anything. 3. Choose the bills that you're paying in the **Payments
-due** table. 4. Choose **Complete payment**. 5. Do one of the following on the **Complete a payment** page:
-
-    * Choose the **Use UPI** button.
-    * Choose **Add payment method**, then choose **Unified Payments
-     Interface (UPI)** from the menu.
-
-6. Enter your UPI ID and choose **Verify**.
-7. If successful, enter the billing address or choose to use an existing
-   address.
-8. Choose **Add payment method**.
-9. Once you're redirected the **Payments** page, review the
-   summary and then choose **Verify and pay**.
-
-You will be redirected to an intermediate page that shows the instructions you
-need to approve the payment. After your payment is verified, you're redirected
-to the **Payments** page with a success message at the top of
-the page.
-
-###### Note
-
-The functionality is in preview release and is subject to change.
-
-You can use the Billing console to pay your AWS India bills. Follow this procedure to make a
 payment with Unified Payments Interface (UPI) Scan and Pay.
 
 ###### Note
@@ -268,25 +225,6 @@ You will be redirected to an intermediate page that displays a QR code shown on 
 
 You can make automatic recurring payments for your AWS India
 bills using Unified Payments Interface (UPI). Your UPI AutoPay can be used to pay your future AWS invoices.
-
-###### To set up automatic payments using UPI
-
-1. Open the AWS Billing and Cost Management console at
-   [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/home?#/ "https://console.aws.amazon.com/costmanagement/home?#/").
-2. In the navigation pane, choose **Payment preferences**.
-3. Choose **Add payment method**.
-4. Choose **UPI AutoPay**.
-5. Enter your UPI ID and choose.
-6. Enter the billing address or choose to use an existing
-   address.
-7. Choose **Add payment method**.
-8. Once you're redirected back to the **Payments preferences** page, review your **Default payment preferences** section.
-
-You will see your UPI AutoPay selected, with an **AutoPay enabled** message below.
-
-###### Note
-
-The functionality is in preview release and is subject to change.
 
 ###### To set up automatic payments using UPI Scan and Pay
 
@@ -324,7 +262,7 @@ table. 4. Choose **Complete payment**. 5. In the **Payment summary** section, se
 
 ###### Note
 
-- You can’t select the checkbox to set up e-mandate if your credit or debit card is not supported, or if it is not set up as the default payment method. Contact your bank to learn more about e-mandate support. To change your default payment method, see [Designate a default payment method](manage-payment-method.md#manage-designate-default "manage-payment-method.md#manage-designate-default").
+- You can't select the checkbox to set up e-mandate if your credit or debit card is not supported, or if it is not set up as the default payment method. Contact your bank to learn more about e-mandate support. To change your default payment method, see [Designate a default payment method](manage-payment-method.md#manage-designate-default "manage-payment-method.md#manage-designate-default").
 - You can't change or edit your default payment method without canceling the active e-mandate on
   the card. This is to ensure we automatically charge the default payment
   instrument only. To cancel the e-mandate, see [Cancel automatic payments on your credit/ debit card or Unified Payments Interface (UPI)](#using-aispl-autopay-disable "#using-aispl-autopay-disable"). After the e-mandate is

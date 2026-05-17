@@ -4,6 +4,11 @@ When the transfer begins, the bill transfer account:
 
 - Receives distinct AWS invoices (for example, distinct consolidated bills) for charges from bill source accounts after the transfer becomes effective. These appear only in the bill transfer account. For more information, see [What is AWS Billing and Cost Management?](billing-what-is.md "billing-what-is.md").
 - Controls the cost data visible to the bill source account in the Billing and Cost Management console, using Billing Conductor.
+
+###### Note
+
+If setting up the transfer relationship through API, you will need to send another API call [CreateBillingGroup](../../../billingconductor/latest/APIReference/API_CreateBillingGroup.md "../../../billingconductor/latest/APIReference/API_CreateBillingGroup.md") to use Billing Conductor.
+
 - Gains access to two billing transfer views for each bill source account:
 
 * My view: Shows the billing data that the bill transfer account is financially responsible for.
