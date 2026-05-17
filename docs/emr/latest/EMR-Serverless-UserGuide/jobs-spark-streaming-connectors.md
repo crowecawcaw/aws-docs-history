@@ -92,7 +92,7 @@ aws emr-serverless start-job-run \
 ```
 
 To use the Kafka connector and the IAM authentication library from Amazon MSK configure the EMR Serverless application with VPC access. Your subnets
-must have Internet access and use a NAT Gateway to access the
+must have Internet access and use a NAT Gateway to access
 the Maven dependencies. For more information, refer to [Configuring VPC access](vpc-access.md "vpc-access.md"). The subnets
 must have network connectivity to access the Kafka cluster. This is true regardless of whether your Kafka cluster is self-managed or if you use
 Amazon Managed Streaming for Apache Kafka.

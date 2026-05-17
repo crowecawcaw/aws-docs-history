@@ -63,7 +63,7 @@ earlier example with the following.
 ```
 "Condition": {
         "StringEquals": {
-          "emr-serverless:ResourceTag/department": ["dev", "test"]
+          "aws:ResourceTag/department": ["dev", "test"]
         }
       }
 ```

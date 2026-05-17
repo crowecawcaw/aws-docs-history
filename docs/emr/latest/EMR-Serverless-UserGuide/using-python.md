@@ -24,15 +24,16 @@ run the following commands in a similar Amazon Linux 2 environment.
 yum install -y gcc openssl-devel bzip2-devel libffi-devel tar gzip wget make
 wget https://www.python.org/ftp/python/3.9.9/Python-3.9.9.tgz && \
 tar xzf Python-3.9.9.tgz && cd Python-3.9.9 && \
-./configure --enable-optimizations && \
+./configure --enable-optimizations --enable-shared && \
 make altinstall
 
 # create python venv with Python 3.9.9
 python3.9 -m venv pyspark_venv_python_3.9.9 --copies
 source pyspark_venv_python_3.9.9/bin/activate
 
-# copy system python3 libraries to venv
+# copy system python3 libraries and shared libraries to venv
 cp -r /usr/local/lib/python3.9/* ./pyspark_venv_python_3.9.9/lib/python3.9/
+cp /usr/local/lib/libpython3.9* ./pyspark_venv_python_3.9.9/lib/
 
 # package venv to archive.
 # **Note** that you have to supply --python-prefix option
@@ -58,6 +59,8 @@ rm -fr pyspark_venv_python_3.9.9
 --conf spark.emr-serverless.driverEnv.PYSPARK_DRIVER_PYTHON=./environment/bin/python
 --conf spark.emr-serverless.driverEnv.PYSPARK_PYTHON=./environment/bin/python
 --conf spark.executorEnv.PYSPARK_PYTHON=./environment/bin/python
+--conf spark.emr-serverless.driverEnv.LD_LIBRARY_PATH=./environment/lib
+--conf spark.executorEnv.LD_LIBRARY_PATH=./environment/lib
 ```
 
 For more on how to use Python virtual environments for PySpark jobs, refer to [Using Virtualenv](https://spark.apache.org/docs/latest/api/python/tutorial/python_packaging.html#using-virtualenv "https://spark.apache.org/docs/latest/api/python/tutorial/python_packaging.html#using-virtualenv"). For more examples of how to submit Spark jobs, refer to [Using Spark configurations when you run EMR Serverless jobs](jobs-spark.md "jobs-spark.md").

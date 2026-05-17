@@ -37,6 +37,9 @@ JSON
  {
  "Sid": "ExamplePermissions1",
  "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::123456789012:root"
+ },
  "Action": [
  "s3:ListBucket"
  ],
@@ -47,6 +50,9 @@ JSON
  {
  "Sid": "ExamplePermissions2",
  "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::123456789012:root"
+ },
  "Action": [
  "s3:PutObject",
  "s3:GetObject",

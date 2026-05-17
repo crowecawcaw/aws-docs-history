@@ -134,7 +134,7 @@ Consider the following if you're using dynamic allocation optimization:
 
 - This optimization is available for the Spark jobs for which you enabled dynamic resource allocation.
 - To achieve the best cost efficiency, we suggest configuration of an upper scaling bound on workers using either
-  the job-level setting `spark.dynamicAllocation.maxExecutors` or the [application-level maxium capacity](app-behavior.md#max-capacity "app-behavior.md#max-capacity")
+  the job-level setting `spark.dynamicAllocation.maxExecutors` or the [application-level maximum capacity](app-behavior.md#max-capacity "app-behavior.md#max-capacity")
   setting based on your workload.
 - You might not notice cost improvement in simpler jobs. For example, if your job runs on a small dataset or finishes
   running in one stage, Spark might not need a larger number of executors or multiple scaling events.

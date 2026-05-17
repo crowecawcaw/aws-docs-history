@@ -183,7 +183,7 @@ EMR Serverless can access the remote thrift metastore. Note that you must set th
     "classification": "hive-site",
     "properties": {
         "hive.metastore.client.factory.class": "org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClientFactory",
-        "hive.metastore.uris": "thrift://`thrift-server-host`:`thirft-server-port`"
+        "hive.metastore.uris": "thrift://`thrift-server-host`:`thrift-server-port`"
     }
 }
 ```
