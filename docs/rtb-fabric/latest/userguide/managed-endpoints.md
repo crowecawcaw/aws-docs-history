@@ -103,6 +103,7 @@ The role must also allow the following permissions in its permissions policies:
 
 ###### Tip
 
+For RTB Fabric to appropriately route traffic to healthy hosts, the provided ASG must **only** have hosts listed as IN_USE if they are available to take traffic. Ensure that hosts which are unhealthy, inactive, or running other services are not set as IN_USE in the provided ASG.
 You can enable application-level health checks to automatically route traffic only to healthy instances in your Auto Scaling groups. For more information, see [Health checks for Managed Endpoints](health-checks-for-managed-endpoints.md "health-checks-for-managed-endpoints.md").
 
 ### EKS endpoints configuration
@@ -131,7 +132,7 @@ The IAM role must allow the services `rtbfabric.amazonaws.com` and `rtbfabric-en
 }
 ```
 
-The role does not need to have any IAM policies attached to it, but must be associated with EKS cluster's RBAC to authorize RTB Fabric to discover IP targets in the cluster:
+The role does not need to have any IAM policies attached to it, but must be associated with your EKS cluster's RBAC to authorize RTB Fabric to discover IP targets in the cluster. First, create the Kubernetes Role and RoleBinding:
 
 ```
 ---
@@ -159,6 +160,28 @@ roleRef:
   kind: Role
   name: rtbfabric-endpoints-role
   apiGroup: rbac.authorization.k8s.io
+```
+
+Then, map the IAM role to the Kubernetes user using one of the following methods:
+
+**Option 1: EKS access entries (recommended)**
+
+For EKS clusters running Kubernetes 1.23 or later, use the EKS access entry API to map the IAM role. This is the recommended approach and is the default authentication mode for new EKS clusters.
+
+```
+`$` `aws eks create-access-entry \
+--cluster-name `my-cluster` \
+--principal-arn arn:aws:iam::`242201309515`:role/`RtbFabricRoleForEksEndpointsManagedEndpoint` \
+--kubernetes-user rtbfabric-integration`
+```
+
+**Option 2: aws-auth ConfigMap (legacy)**
+
+###### Note
+
+The `aws-auth` ConfigMap method is deprecated for EKS clusters that use the EKS API authentication mode (which is the default for new clusters). If your cluster uses the `CONFIG_MAP` or `API_AND_CONFIG_MAP` authentication mode, you can still use this method. For more information, see [EKS access entries](../../../eks/latest/userguide/access-entries.md "../../../eks/latest/userguide/access-entries.md") in the _Amazon EKS User Guide_.
+
+```
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -167,7 +190,7 @@ metadata:
   namespace: kube-system
 data:
   mapRoles: |
-    - rolearn: arn:aws:iam::242201309515:role/RtbFabricRoleForEksEndpointsManagedEndpoint
+    - rolearn: arn:aws:iam::`242201309515`:role/`RtbFabricRoleForEksEndpointsManagedEndpoint`
       username: rtbfabric-integration
 ```
 

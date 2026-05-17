@@ -157,7 +157,7 @@ When logging is configured, default sampling behavior applies. Service logs capt
 
 ## Creating an external responder gateway
 
-Create an external responder gateway in RTB Fabric if you do not already have one. Inbound external links require an external gateway — a gateway type designed for receiving traffic from endpoints outside RTB Fabric.
+Create an external responder gateway in RTB Fabric if you do not already have one. Inbound external links with custom domains require an external gateway — a gateway type designed for receiving traffic from endpoints outside RTB Fabric. Standard (internal) responder gateways do not support inbound external links with custom domains features such as certificate association and routing rules.
 
 Use the following command to create an external responder gateway using the AWS Command Line Interface (AWS CLI).
 
@@ -165,56 +165,58 @@ Use the following command to create an external responder gateway using the AWS 
 
 ```
 `$` `aws rtbfabric create-responder-gateway \
---description `"External gateway for inbound external links"` \
---vpc-id `vpc-0abc123def456` \
---subnet-ids `subnet-0abc123 subnet-0def456` \
---security-group-ids `sg-0abc123` \
---port `80` \
---protocol `HTTP` \
---managed-endpoint-configuration `'{"autoScalingGroups":{"autoScalingGroupNames":["my-asg-name"],"roleArn":"arn:aws:iam::123456789012:role/MyASGRole"}}'` \
---gateway-type `EXTERNAL` \
---endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
---region `us-east-1``
+ --description `"External gateway for inbound external links with custom domains"` \
+ --vpc-id `vpc-0abc123def456` \
+ --subnet-ids `subnet-0abc123 subnet-0def456` \
+ --security-group-ids `sg-0abc123` \
+ --port `80` \
+ --protocol `HTTP` \
+ --managed-endpoint-configuration `'{"autoScalingGroups":{"autoScalingGroupNames":["my-asg-name"],"roleArn":"arn:aws:iam::123456789012:role/MyASGRole"}}'` \
+ --gateway-type `EXTERNAL` \
+ --endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
+ --region `us-east-1``
 ```
 
 **Create an external responder gateway with HTTPS**
 
 ```
 `$` `aws rtbfabric create-responder-gateway \
---description `"External gateway for inbound external links"` \
---vpc-id `vpc-0abc123def456` \
---subnet-ids `subnet-0abc123 subnet-0def456` \
---security-group-ids `sg-0abc123` \
---port `443` \
---protocol `HTTPS` \
---managed-endpoint-configuration `'{"autoScalingGroups":{"autoScalingGroupNames":["my-asg-name"],"roleArn":"arn:aws:iam::123456789012:role/MyASGRole"}}'` \
---gateway-type `EXTERNAL` \
---endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
---region `us-east-1``
+ --description `"External gateway for inbound external links with custom domains"` \
+ --vpc-id `vpc-0abc123def456` \
+ --subnet-ids `subnet-0abc123 subnet-0def456` \
+ --security-group-ids `sg-0abc123` \
+ --port `443` \
+ --protocol `HTTPS` \
+ --managed-endpoint-configuration `'{"autoScalingGroups":{"autoScalingGroupNames":["my-asg-name"],"roleArn":"arn:aws:iam::123456789012:role/MyASGRole"}}'` \
+ --gateway-type `EXTERNAL` \
+ --endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
+ --region `us-east-1``
 ```
 
 **Create an external responder gateway with EKS managed endpoints**
 
 ```
 `$` `aws rtbfabric create-responder-gateway \
---description `"External gateway with EKS endpoint discovery"` \
---vpc-id `vpc-0abc123def456` \
---subnet-ids `subnet-0abc123 subnet-0def456` \
---security-group-ids `sg-0abc123` \
---port `443` \
---protocol `HTTPS` \
---managed-endpoint-configuration `'{"eksEndpoints":{"endpointsResourceName":"my-bidder-service","endpointsResourceNamespace":"bidding-ns","clusterApiServerEndpointUri":"https://ABCDEF1234567890.gr7.us-east-1.eks.amazonaws.com","clusterApiServerCaCertificateChain":"LS0tLS1CRUdJTi...base64-encoded-CA-cert...LS0tLS1FTkQ=","clusterName":"my-eks-cluster","roleArn":"arn:aws:iam::123456789012:role/MyEksEndpointDiscoveryRole"}}'` \
---gateway-type `EXTERNAL` \
---endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
---region `us-east-1``
+ --description `"External gateway with EKS endpoint discovery"` \
+ --vpc-id `vpc-0abc123def456` \
+ --subnet-ids `subnet-0abc123 subnet-0def456` \
+ --security-group-ids `sg-0abc123` \
+ --port `443` \
+ --protocol `HTTPS` \
+ --managed-endpoint-configuration `'{"eksEndpoints":{"endpointsResourceName":"my-bidder-service","endpointsResourceNamespace":"bidding-ns","clusterApiServerEndpointUri":"https://ABCDEF1234567890.gr7.us-east-1.eks.amazonaws.com","clusterApiServerCaCertificateChain":"LS0tLS1CRUdJTi...base64-encoded-CA-cert...LS0tLS1FTkQ=","clusterName":"my-eks-cluster","roleArn":"arn:aws:iam::123456789012:role/MyEksEndpointDiscoveryRole"}}'` \
+ --gateway-type `EXTERNAL` \
+ --endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
+ --region `us-east-1``
 ```
 
 **Key parameters:**
 
-- `--gateway-type EXTERNAL` — Required. Creates an external gateway that supports inbound external links.
+- `--gateway-type EXTERNAL` — Required. Creates an external gateway that supports inbound external links with custom domains, certificate association, and routing rules.
 - `--managed-endpoint-configuration` — Required for external gateways. Specifies the backend that receives traffic. Provide either an `autoScalingGroups` configuration (with ASG names and a role ARN) or an `eksEndpoints` configuration (with EKS cluster details).
 - `--protocol` — `HTTP` or `HTTPS`. Choose based on whether you want TLS termination at the gateway.
 - `--port` — The port the gateway listens on (for example, `80` for HTTP or `443` for HTTPS).
+
+Record the gateway endpoint hostname (for example, `rtb-gw-abc123.123456789012.gateway.rtbfabric.us-east-1.amazonaws.com`). You need this value when updating DNS records to route traffic through your custom domain.
 
 ## Searching for responder gateways
 
@@ -285,7 +287,7 @@ Deleting a responder gateway is permanent and cannot be undone. Check your gatew
 
 1. On the **Responder gateways** page, select the radio button next to the responder gateway you want to delete.
 2. Choose **Delete** from the action buttons at the top of the page.
-3. If the gateway has associated links, a dialog appears with the message "To delete this gateway, you must first delete all of its associated links. You can delete links on the Links table." Follow the provided instructions to delete associated links first, then return to delete the gateway. For more information, see [Deleting links](links.md#deleting-rtb-links "links.md#deleting-rtb-links").
+3. If the gateway has associated links, a dialog appears with the message "To delete this gateway, you must first delete all of its associated links. You can delete links on the Links table." Follow the provided instructions to delete associated links first, then return to delete the gateway. For more information, see [Deleting links](deleting-rtb-links.md "deleting-rtb-links.md").
 4. If the gateway has no associated links, confirm the deletion when prompted.
 
 Use the following command to delete a responder gateway using the AWS Command Line Interface (AWS CLI).

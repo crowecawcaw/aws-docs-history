@@ -142,7 +142,7 @@ Deleting a requester gateway is permanent and cannot be undone. Check your gatew
 
 1. On the **Requester gateways** page, select the radio button next to the gateway you want to delete.
 2. Choose **Delete** from the action buttons at the top of the page.
-3. If the gateway has associated links, a dialog appears with the message "To delete this gateway, you must first delete all of its associated links. You can delete links on the Links table." Follow the provided instructions to delete associated links first, then return to delete the gateway. For more information, see [Deleting links](links.md#deleting-rtb-links "links.md#deleting-rtb-links").
+3. If the gateway has associated links, a dialog appears with the message "To delete this gateway, you must first delete all of its associated links. You can delete links on the Links table." Follow the provided instructions to delete associated links first, then return to delete the gateway. For more information, see [Deleting links](deleting-rtb-links.md "deleting-rtb-links.md").
 4. If the gateway has no associated links, a confirmation dialog appears. Verify that you want to delete the selected gateway.
 5. Choose **Delete** to confirm the deletion.
 
