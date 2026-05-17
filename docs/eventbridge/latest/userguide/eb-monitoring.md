@@ -5,6 +5,15 @@ to the number of times a [target](eb-targets.md "eb-targets.md") is invoked by a
 
 The following video reviews monitoring and auditing EventBridge behavior through CloudWatch:
 
+###### Best-effort CloudWatch metrics delivery
+
+CloudWatch metrics are delivered on a best-effort basis. Most EventBridge operations result in a
+data point being sent to CloudWatch. The completeness and timeliness of metrics are not
+guaranteed. A data point for a given minute might be delayed before being available
+through CloudWatch, or it might not be delivered at all. CloudWatch metrics give you an idea of
+the nature of activity in near-real time. They are not meant to be a complete
+accounting of all operations.
+
 ###### Topics
 
 - [EventBridge metrics](#eb-metrics "#eb-metrics")

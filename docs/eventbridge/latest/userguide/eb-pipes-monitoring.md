@@ -6,6 +6,15 @@ You can log EventBridge Pipes invocations using CloudTrail and monitor the healt
 
 EventBridge Pipes sends metrics to Amazon CloudWatch every minute for everything from a pipe executions being throttled to a target successfully being invoked.
 
+###### Best-effort CloudWatch metrics delivery
+
+CloudWatch metrics are delivered on a best-effort basis. Most EventBridge Pipes operations result
+in a data point being sent to CloudWatch. The completeness and timeliness of metrics are not
+guaranteed. A data point for a given minute might be delayed before being available
+through CloudWatch, or it might not be delivered at all. CloudWatch metrics give you an idea of
+the nature of activity in near-real time. They are not meant to be a complete
+accounting of all operations.
+
 | Metric                       | Description                                                                                                                                  | Dimensions             | Units        |
 | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ------------ |
 | `Concurrency`                | The number of concurrent executions of a pipe.                                                                                               | AwsAccountId           | None         |

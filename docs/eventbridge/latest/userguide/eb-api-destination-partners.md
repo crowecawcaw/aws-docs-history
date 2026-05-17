@@ -621,7 +621,7 @@ DELETE - admin/api/2022-01/products/{product_id}.json
 [Create an
 app](https://shopify.dev/apps/getting-started/create "https://shopify.dev/apps/getting-started/create")
 
-[Amazon EventBridge webhook delivery](https://shopify.dev/apps/webhooks/configuration/eventbridge "https://shopify.dev/apps/webhooks/configuration/eventbridge")
+[Amazon EventBridge webhook delivery](https://shopify.dev/docs/apps/build/webhooks/get-started?framework=remix&deliveryMethod=eventBridge "https://shopify.dev/docs/apps/build/webhooks/get-started?framework=remix&deliveryMethod=eventBridge")
 
 [Access tokens for custom apps in the Shopify
 admin](https://shopify.dev/apps/auth/admin-app-access-tokens "https://shopify.dev/apps/auth/admin-app-access-tokens")
