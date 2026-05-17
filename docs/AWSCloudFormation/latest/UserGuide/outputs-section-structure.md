@@ -12,6 +12,10 @@ output values can be used in various ways:
   output values into other stacks to [create
   references between stacks](using-cfn-stack-exports.md "using-cfn-stack-exports.md"). This is helpful when you need to share
   resources or configurations across multiple stacks.
+- Cross-account and cross-Region references
+  – You can reference output values from stacks in other AWS accounts or
+  Regions using the `Fn::GetStackOutput` function, without requiring
+  explicit export declarations. For more information, see [Fn::GetStackOutput](../TemplateReference/intrinsic-function-reference-getstackoutput.md "../TemplateReference/intrinsic-function-reference-getstackoutput.md") in the .
 
 ###### Important
 

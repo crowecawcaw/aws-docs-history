@@ -44,8 +44,7 @@ For more information about nested stacks, see [Split a template into reusable pi
 The following restrictions apply to cross-stack references:
 
 - For each AWS account, `Export` names must be unique within a Region.
-- You can't create cross-stack references across Regions. You can use the intrinsic function
-  `Fn::ImportValue` to import only values that have been exported within the same Region.
+- When using `Export` and `Fn::ImportValue`, cross-stack references are limited to the same account and Region. To reference stack outputs across accounts or Regions, use `Fn::GetStackOutput`.
 - For outputs, the value of the `Name` property of an `Export` can't use `Ref` or `GetAtt` functions that depend on a resource.
 
 Similarly, the `ImportValue` function can't include `Ref` or `GetAtt` functions that depend on a resource.
@@ -145,3 +144,35 @@ Once you know which stacks are importing a particular exported value, you need t
 those stacks to remove the `Fn::ImportValue` functions that reference the output values. You must
 remove all the imports that reference exported output values before you can delete or modify the
 exported output values.
+
+## Referencing outputs without exports
+
+In addition to using `Export` and `Fn::ImportValue` for cross-stack
+references, you can use `Fn::GetStackOutput` to reference stack outputs directly.
+This approach does not require the referenced stack to declare an export and supports
+cross-account and cross-Region references.
+
+The following table compares the two approaches:
+
+| Comparison of Export with Fn::ImportValue and Fn::GetStackOutput | Capability                                  | Export + `Fn::ImportValue`     | `Fn::GetStackOutput` |
+| ---------------------------------------------------------------- | ------------------------------------------- | ------------------------------ | -------------------- |
+| Same account, same Region                                        | Supported                                   | Supported                      |
+| Cross-account                                                    | Not supported                               | Supported                      |
+| Cross-Region                                                     | Not supported                               | Supported                      |
+| Requires explicit Export                                         | Yes                                         | No                             |
+| Reference type                                                   | Strong (blocks deletion of exporting stack) | Weak (resolved at deploy time) |
+| Referential integrity                                            | Enforced                                    | Not enforced                   |
+
+When to use each approach:
+
+- Use `Export` and `Fn::ImportValue` when you need strong
+  referential integrity. With this approach, CloudFormation prevents you from deleting a
+  stack that exports values consumed by other stacks, protecting you from accidentally
+  breaking dependencies.
+- Use `Fn::GetStackOutput` when you need to reference outputs across
+  accounts or Regions, or when you prefer not to manage explicit exports. Be aware that
+  `Fn::GetStackOutput` creates a weak reference. If the referenced stack or
+  output is deleted, the consuming stack is not notified, and subsequent operations that
+  re-resolve the reference will fail.
+
+For more information, see [Fn::GetStackOutput](../TemplateReference/intrinsic-function-reference-getstackoutput.md "../TemplateReference/intrinsic-function-reference-getstackoutput.md") in the .

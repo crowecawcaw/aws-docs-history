@@ -10,7 +10,7 @@ experience from current CloudFormation customers.
 
 - [Shorten the feedback loop to improve development velocity](#shortenfeedbackloop "#shortenfeedbackloop")
 - [Organize your stacks by lifecycle and ownership](#organizingstacks "#organizingstacks")
-- [Use cross-stack references to return the value of an output exported by another stack](#cross-stack "#cross-stack")
+- [Use cross-stack references to share values between stacks](#cross-stack "#cross-stack")
 - [Use CloudFormation StackSets for multi-account and multi-region deployments](#stack-sets "#stack-sets")
 - [Reuse templates to replicate stacks in multiple environments](#reuse "#reuse")
 - [Verify quotas for all resource types](#limits "#limits")
@@ -118,20 +118,25 @@ represents a self-contained unit of functionality. You can map these services to
 where each stack has its own lifecycle and owners. These services (stacks) can be wired
 together so that they can interact with one another.
 
-## Use cross-stack references to return the value of an output exported by another stack
+## Use cross-stack references to share values between stacks
 
 When you organize your AWS resources based on lifecycle and ownership, you might want to
 build a stack that uses resources that are in another stack. You can hardcode values or use
 input parameters to pass resource names and IDs. However, these methods can make templates
 difficult to reuse or can increase the overhead to get a stack running. Instead, use
-cross-stack references to return the value of an output exported by another stack so that other stacks can use them.
-Stacks can use the exported resources by calling them using the `Fn::ImportValue`
-function.
+cross-stack references to share values between stacks. CloudFormation provides two
+approaches:
 
-For example, you might have a network stack that includes a VPC, a security group, and a
-subnet. You want all public web applications to use these resources. By exporting the
-resources, you allow all stacks with public web applications to use them. For more
-information, see [Get exported outputs from a deployed CloudFormation stack](using-cfn-stack-exports.md "using-cfn-stack-exports.md").
+- `Fn::ImportValue` – Import values that another stack has explicitly
+  exported. This creates a strong reference within the same account and Region. CloudFormation
+  prevents you from deleting the exporting stack while other stacks depend on its
+  exports.
+- `Fn::GetStackOutput` – Reference any stack output directly,
+  including outputs from stacks in other AWS accounts or Regions, without requiring
+  explicit exports. This creates a weak reference that is resolved at create or update
+  time.
+
+For more information, see [Get exported outputs from a deployed CloudFormation stack](using-cfn-stack-exports.md "using-cfn-stack-exports.md") and [Fn::GetStackOutput](../TemplateReference/intrinsic-function-reference-getstackoutput.md "../TemplateReference/intrinsic-function-reference-getstackoutput.md").
 
 ## Use CloudFormation StackSets for multi-account and multi-region deployments
 
