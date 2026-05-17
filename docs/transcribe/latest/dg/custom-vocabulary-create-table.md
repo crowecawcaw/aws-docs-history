@@ -24,6 +24,23 @@ Things to note when creating your table:
 - The `DisplayAs` column supports symbols and special characters (for example, C++).
   All other columns support the characters that are listed on your language's
   [character set](charsets.md "charsets.md") page.
+- The `Phrase` column has the following formatting rules:
+  - Cannot start with a period (`.`), apostrophe (`'`),
+    or hyphen (`-`). For example, `-hello` and
+    `.test` are invalid.
+  - Cannot end with an apostrophe (`'`) or hyphen (`-`).
+    For example, `hello-` and `world'` are invalid.
+  - Cannot contain repeated hyphens (`--`), repeated periods (`..`),
+    or repeated apostrophes (`''`). For example, `well--known`
+    and `can''t` are invalid.
+  - Periods can only be used to denote acronyms (single letters separated by periods,
+    such as `A.B.C.`). A period cannot appear after two or more
+    consecutive non-special characters (for example, `AB.C` is invalid),
+    and cannot be followed by three or more consecutive
+    non-special characters (for example, `A.BCD` is invalid).
+  - Only characters listed in your language's [character set](charsets.md "charsets.md")
+    are supported.
+
 - If you want to include numbers in the `Phrase` column, you must spell them out.
   Digits (`0-9`) are only supported in the `DisplayAs` column.
 - You must save your table as a plaintext (\*.txt) file. Both `LF` and

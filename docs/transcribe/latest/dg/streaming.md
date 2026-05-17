@@ -72,3 +72,46 @@ chunk_size_in_bytes = chunk_duration_in_millisecond / 1000 * audio_sample_rate *
   sampling rate of 16,000 Hz; this provides the best compromise between quality and data
   volume sent over the network. Note that most high-end microphones record at 44,100 Hz or
   48,000 Hz.
+
+## Handling LimitExceededException errors
+
+As with any distributed system, Amazon Transcribe has protection mechanisms that
+detect resource over-consumption and react accordingly.
+`LimitExceededException` errors can occur when one of these mechanisms is
+triggered. There are three distinct causes for this error:
+
+**Concurrent stream service quota exceeded**
+
+This is the most common cause. It occurs when you exceed your
+concurrent stream service quota. To resolve this error, retry with
+exponential backoff. If you consistently hit this limit, request a
+service quota increase through the
+[Service
+Quotas console](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/"). You can also contact the
+[AWS
+Support Center](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") for assistance. For more information about
+retry strategies, see
+[Retry
+behavior](../../../sdkref/latest/guide/feature-retry-behavior.md "../../../sdkref/latest/guide/feature-retry-behavior.md") in the _AWS SDKs and Tools Reference
+Guide_.
+
+**Maximum session duration exceeded**
+
+This error occurs when a stream exceeds the maximum allowed
+session duration. This is a hard limit that cannot be increased.
+To continue transcribing, start a new streaming session.
+
+**Number of concurrent streams increased too quickly**
+
+This is a rare cause. It can occur if you increase your number
+of concurrent streams too quickly, for example during load tests.
+This is a system-level protection mechanism with no adjustable
+quota. To resolve this error, retry with exponential backoff and
+gradually increase your number of concurrent streams. For more
+information about retry strategies, see
+[Retry
+behavior](../../../sdkref/latest/guide/feature-retry-behavior.md "../../../sdkref/latest/guide/feature-retry-behavior.md") in the _AWS SDKs and Tools Reference
+Guide_. You can also visit [AWS
+re:Post](https://repost.aws/ "https://repost.aws/") or contact
+[AWS
+Premium Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").

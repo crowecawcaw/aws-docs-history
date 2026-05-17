@@ -54,7 +54,7 @@ the template you want, then select **Create category**.
 
 ![Amazon Transcribe console screenshot: the 'category settings' panel showing optional templates.](images/analytics-categories-settings-batch.png) 5. If creating a custom category: select **Create from scratch**.
 
-![Amazon Transcribe console screenshot: the 'create category' page showing 'rules' pane.](images/analytics-categories-custom.png) 6. Add rules to your category using the dropdown menu. You can add up to 20 rules
+![Amazon Transcribe console screenshot: the 'create category' page showing 'rules' pane.](/images/transcribe/latest/dg/images/analytics-categories-custom.png) 6. Add rules to your category using the dropdown menu. You can add up to 20 rules
 per category.
 
 ![Amazon Transcribe console screenshot: the 'rules' pane with list of rule types.](images/analytics-categories-custom-rules1.png) 7. Here's an example of a category with two rules: an agent who interrupts a customer
