@@ -24,6 +24,7 @@ well as rich text format like tables, JSON, and .csv files, among other formats.
 - **Max input text tokens** – 256
 - **Languages** – English
 - **Max input image size** – 25 MB
+- **Max input image resolution** – 2048 x 2048 pixels
 - **Output vector size** – 1,024 (default), 384, 256
 - **Inference types** – On-Demand, Provisioned Throughput
 - **Supported use cases** – Search, recommendation, and personalization.

@@ -4,11 +4,11 @@
 
 ## Model Details
 
-GLM 5 is a frontier-class, general-purpose large language model optimized for complex systems engineering and long-horizon agentic tasks. It builds on the GLM 4.5 agent-centric lineage and is designed to support multi-step reasoning, math (including AIME-style benchmarks), advanced coding, and tool-augmented workflows, with long context support suitable for sophisticated agents and enterprise applications. For more information about model development and performance, see the [model/service card](https://docs.z.ai/guides/llm/glm-5-turbo "https://docs.z.ai/guides/llm/glm-5-turbo").
+GLM 5 is a frontier-class, general-purpose large language model optimized for complex systems engineering and long-horizon agentic tasks. It builds on the GLM 4.5 agent-centric lineage and is designed to support multi-step reasoning, math (including AIME-style benchmarks), advanced coding, and tool-augmented workflows, with long context support suitable for sophisticated agents and enterprise applications. For more information about model development and performance, see the [model card](https://huggingface.co/zai-org/GLM-5-FP8 "https://huggingface.co/zai-org/GLM-5-FP8").
 
 - **Model launch date:** Feb 11, 2026
 - **Model EOL date:** N/A
-- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **End User License Agreements and Terms of Use:** [View](https://github.com/zai-org/GLM-5/blob/main/LICENSE "https://github.com/zai-org/GLM-5/blob/main/LICENSE")
 - **Model lifecycle:** Active
 - **Context window:** 200K tokens
 - **Max output tokens:** 128K

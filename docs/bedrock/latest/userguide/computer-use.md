@@ -46,7 +46,7 @@ computer use tools. It can be specified as follows: `"anthropic_beta":
 To use computer use with Anthropic Claude 3.5 Sonnet v2 you can use the Converse API
 ([Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") or [ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md")). You specify the computer use specific fields in the
 `additionalModelRequestFields` field. For general information about calling
-the Converse API, see [Carry out a conversation with the Converse API operations](conversation-inference.md "conversation-inference.md").
+the Converse API, see [Inference using Converse API](conversation-inference.md "conversation-inference.md").
 
 It is possible to use tools with the base inference operations ([InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") or
 [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")). To find the inference parameters that you pass in the request body,

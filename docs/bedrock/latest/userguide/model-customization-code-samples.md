@@ -184,7 +184,7 @@ CLI
     ```
     aws iam create-policy \
         --policy-name MyFineTuningDataAccess \
-        --policy-document file://myFineTuningDataAccess.json
+        --policy-document file://MyFineTuningDataAccess.json
     ```
     6. Make an [AttachRolePolicy](../../../IAM/latest/APIReference/API_AttachRolePolicy.md "../../../IAM/latest/APIReference/API_AttachRolePolicy.md") request to attach the S3 data access policy to your role, replacing the `policy-arn` with the ARN in the response from the previous step:
 

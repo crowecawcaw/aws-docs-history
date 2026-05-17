@@ -44,7 +44,7 @@ Then, complete the following prerequisites:
         - To request access to all models by a provider, select the checkbox next to the provider name.
         - To request access to one model, select the checkbox next to the model name.
 
-   6. For the purposes of the following tutorial, you should minimally request access to the **Titan Embeddings G1 - Text** and **Claude 3 Haiku** models. Then choose **Next**.
+   6. For the purposes of the following tutorial, you should minimally request access to the **Titan Embeddings G1 - Text** and **Claude Haiku 4.5** models. Then choose **Next**.
    7. Review the models that you're requesting access to and the **Terms**. When you're ready, choose **Submit** to request access.
 
 ## Create the mortgage processing flow using CloudFormation

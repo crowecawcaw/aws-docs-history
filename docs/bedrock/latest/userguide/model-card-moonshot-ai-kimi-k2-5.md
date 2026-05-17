@@ -4,11 +4,11 @@
 
 ## Model Details
 
-Kimi K2.5 is Moonshot AI's multimodal model with improved reasoning, coding, and multilingual capabilities. For more information about model development and performance, see the [model/service card](https://platform.moonshot.ai/docs/guide/kimi-k2-5-quickstart#overview-of-kimi-k25-model "https://platform.moonshot.ai/docs/guide/kimi-k2-5-quickstart#overview-of-kimi-k25-model").
+Kimi K2.5 is Moonshot AI's multimodal model with improved reasoning, coding, and multilingual capabilities. For more information about model development and performance, see the [model/service card](https://platform.kimi.ai/docs/guide/kimi-k2-quickstart "https://platform.kimi.ai/docs/guide/kimi-k2-quickstart").
 
 - **Model launch date:** Jan 27, 2026
 - **Model EOL date:** N/A
-- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **End User License Agreements and Terms of Use:** [View](https://huggingface.co/moonshotai/Kimi-K2.5/blob/main/LICENSE "https://huggingface.co/moonshotai/Kimi-K2.5/blob/main/LICENSE")
 - **Model lifecycle:** Active
 - **Context window:** 256K tokens
 - **Max output tokens:** 16K

@@ -4,13 +4,13 @@
 
 ## Model Details
 
-Qwen3 235B A22B is Qwen's 235-billion parameter mixture-of-experts model with 22 billion active parameters, supporting text and code generation with a 128K context window. For more information about model development and performance, see the [model/service card](https://qwen.ai/blog?id=qwen3 "https://qwen.ai/blog?id=qwen3").
+Qwen3 235B A22B is Qwen's 235-billion parameter mixture-of-experts model with 22 billion active parameters, supporting text and code generation with a 256K context window. For more information about model development and performance, see the [model/service card](https://qwen.ai/blog?id=qwen3 "https://qwen.ai/blog?id=qwen3").
 
 - **Model launch date:** Apr 28, 2025
 - **Model EOL date:** N/A
-- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **End User License Agreements and Terms of Use:** [View](https://huggingface.co/Qwen/Qwen3-235B-A22B-Instruct-2507/blob/main/LICENSE "https://huggingface.co/Qwen/Qwen3-235B-A22B-Instruct-2507/blob/main/LICENSE")
 - **Model lifecycle:** Active
-- **Context window:** 128K tokens
+- **Context window:** 256K tokens
 - **Max output tokens:** 8K
 - **Reasoning:** Supported
 

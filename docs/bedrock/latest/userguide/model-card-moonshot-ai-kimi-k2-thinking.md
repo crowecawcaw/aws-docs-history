@@ -4,11 +4,11 @@
 
 ## Model Details
 
-Kimi K2 Thinking is Moonshot AI's reasoning model with chain-of-thought capabilities for complex problem solving in math, coding, and logic. For more information about model development and performance, see the [model/service card](https://platform.moonshot.ai/docs/guide/kimi-k2-quickstart#overview-of-kimi-k2 "https://platform.moonshot.ai/docs/guide/kimi-k2-quickstart#overview-of-kimi-k2").
+Kimi K2 Thinking is Moonshot AI's reasoning model with chain-of-thought capabilities for complex problem solving in math, coding, and logic. For more information about model development and performance, see the [model/service card](https://platform.kimi.ai/docs/guide/kimi-k2-quickstart "https://platform.kimi.ai/docs/guide/kimi-k2-quickstart").
 
 - **Model launch date:** Nov 06, 2025
 - **Model EOL date:** N/A
-- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **End User License Agreements and Terms of Use:** [View](https://huggingface.co/moonshotai/Kimi-K2-Thinking/blob/main/LICENSE "https://huggingface.co/moonshotai/Kimi-K2-Thinking/blob/main/LICENSE")
 - **Model lifecycle:** Active
 - **Context window:** 256K tokens
 - **Max output tokens:** 16K

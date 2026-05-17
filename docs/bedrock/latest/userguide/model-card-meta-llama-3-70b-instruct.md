@@ -8,7 +8,7 @@ Llama 3 70B Instruct is Meta's 70-billion parameter instruction-tuned model with
 
 - **Model launch date:** Apr 18, 2024
 - **Model EOL date:** No sooner than 4/23/2025
-- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **End User License Agreements and Terms of Use:** [View](https://llama.meta.com/llama3/license/ "https://llama.meta.com/llama3/license/")
 - **Model lifecycle:** Active
 - **Context window:** 8K tokens
 - **Max output tokens:** 8K

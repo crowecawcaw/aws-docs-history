@@ -4,6 +4,10 @@ Input tags allow you to mark specific content within the input text that you wan
 be processed by guardrails. This is useful when you want to apply guardrails to certain
 parts of the input, while leaving other parts unprocessed.
 
+###### Important
+
+Input tagging with XML tags applies only to the `InvokeModel` and `InvokeModelWithResponseStream` APIs. If you are using the `Converse` API, use the `guardrailConfiguration` field in the content blocks to control which parts of your messages are evaluated by guardrails. For more information, see [Include a guardrail with the Converse API](guardrails-use-converse-api.md "guardrails-use-converse-api.md").
+
 For example, the input prompt in RAG applications may contain system prompts, search
 results from trusted documentation sources, and user queries. As system prompts are
 provided by the developer and search results are from trusted sources, you may just need

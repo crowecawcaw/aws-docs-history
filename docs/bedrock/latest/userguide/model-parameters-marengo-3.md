@@ -13,8 +13,8 @@ The TwelveLabs Marengo Embed 3.0 model generates enhanced embeddings from video,
 - **Reduced embedding dimension** – Reduced from 1024 to 512, which can help reduce storage costs.
   The TwelveLabs Marengo Embed 3.0 model supports the Amazon Bedrock Runtime operations in the following table.
 
-- For more information about use cases for different API methods, see [Learn about use cases for different model inference methods](inference-methods.md "inference-methods.md").
-- For more information about model types, see [How inference works in Amazon Bedrock](inference-how.md "inference-how.md").
+- For more information about use cases for different API methods, see [Making inference requests](inference.md "inference.md").
+- For more information about model types, see [Making inference requests](inference.md "inference.md").
   - For a list of model IDs and to see the models and AWS Regions that TwelveLabs Marengo Embed 3.0 is supported in, search for the model in the table at [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md").
   - For a full list of inference profile IDs, see [Supported Regions and models for inference profiles](inference-profiles-support.md "inference-profiles-support.md"). The inference profile ID is based on the AWS Region.
 

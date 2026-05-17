@@ -16,7 +16,7 @@ Console
 2. Select **Agents** from the left navigation pane. Then, choose an agent in the **Agents** section.
 3. Choose **Edit in Agent builder**
 4. For the **Knowledge bases** section, choose **Add**.
-5. Choose a knowledge base that you have created and provide instructions for how the agent should interact with it.
+5. Choose a knowledge base that you have created and provide instructions for how the agent should interact with it. These instructions tell the agent when and how to query this knowledge base during a conversation. The agent includes these instructions in its prompt context to decide whether to retrieve information from the knowledge base for a given user request. For example: `Use this knowledge base to answer questions about company HR policies, benefits, and employee guidelines. Only query it when the user asks about internal company policies.`
 6. Choose **Add**. A success banner appears at the top.
 7. To apply the changes that you made to the agent before testing it, choose **Prepare** before testing it.
 
@@ -35,9 +35,9 @@ The following list describes the fields in the request:
 
 - The following fields are optional:
 
-| Field              | Short description                                                         |
-| ------------------ | ------------------------------------------------------------------------- |
-| description        | Description of how the agent can use the knowledge<br>base                |
-| knowledgeBaseState | To prevent the agent from querying the knowledge base, specify `DISABLED` |
+| Field              | Short description                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| description        | Instructions that tell the agent when and how to query this knowledge base. The agent includes this text in its prompt to determine whether to retrieve information from the knowledge base for a given user request. Write it as a directive describing what the knowledge base contains and when to use it. For example: `Use this knowledge base to answer customer questions about product specifications, pricing, and availability. Do not query it for general conversation.` |
+| knowledgeBaseState | To prevent the agent from querying the knowledge base, specify `DISABLED`                                                                                                                                                                                                                                                                                                                                                                                                            |
 
 You can modify the [query configurations](kb-test-config.md "kb-test-config.md") of a knowledge base attached to your agent by using the `sessionState` field in the [InvokeAgent](../APIReference/API_agent-runtime_InvokeAgent.md "../APIReference/API_agent-runtime_InvokeAgent.md") request when you invoke your agent. For more information, see [Control agent session context](agents-session-state.md "agents-session-state.md").

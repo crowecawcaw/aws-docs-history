@@ -8,7 +8,7 @@ Llama 4 Scout is Meta's 17-billion active parameter mixture-of-experts model wit
 
 - **Model launch date:** Apr 05, 2025
 - **Model EOL date:** No sooner than 4/28/2026
-- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **End User License Agreements and Terms of Use:** [View](https://www.llama.com/llama4/license/ "https://www.llama.com/llama4/license/")
 - **Model lifecycle:** Active
 - **Context window:** 10M tokens
 - **Max output tokens:** 8K

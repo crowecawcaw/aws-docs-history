@@ -253,6 +253,18 @@ The `status` for the resource can be one of the following:
   `METADATA_PARTIALLY_INDEXED`, `FAILED`: Once the processing of a document
   is finalized, a log is published with the final status of the document, and the summary of the
   processing inside `chunk_statistics` property.
+- `CRAWLED`, `RESOURCE_CRAWLED`, `RESOURCE_FETCHED`,
+  `CRAWLING_COMPLETED`, `CONNECTOR_CRAWLING_COMPLETED`: These status
+  values indicate that the resource was crawled or fetched from the data source connector.
+- `PENDING`, `STARTING`, `IN_PROGRESS`: These status
+  values indicate that the resource is queued or currently being processed.
+- `DELETE_IN_PROGRESS`, `DELETING`: These status values indicate
+  that the resource is in the process of being deleted.
+- `INGESTION_JOB_STARTED`, `INGESTION_JOB_FAILED`: These status
+  values indicate the start or failure of the overall ingestion job for the resource.
+- `GRAPH_ENTITY_EXTRACTION_STARTED`, `GRAPH_ENTITY_EXTRACTION_COMPLETED`,
+  `GRAPH_ENTITY_EXTRACTION_FAILED`: These status values indicate the progress of
+  graph entity extraction for knowledge bases that use a graph data store.
 
 ## Examples of common queries to debug knowledge base logs
 

@@ -150,7 +150,7 @@ This section provides some IAM policies that you can use to restrict access to a
 The action that allows an identity to make calls with an Amazon Bedrock API key is `bedrock:CallWithBearerToken`. To prevent an identity from making calls with the Amazon Bedrock API key, you can attach an IAM policy on an identity depending the type of key:
 
 - **Long-term key** – Attach the policy to the IAM user associated with the key.
-- **Short-term key** – Attach the policy to the IAM role used to generate the key.
+- **Short-term key** – Attach the policy to the IAM identity used to generate the key.
 
 The IAM policy that you can attach to the IAM identity is as follows:
 
@@ -168,9 +168,9 @@ JSON
 
 ```
 
-### Invalidate an IAM role session
+### Invalidate an IAM session
 
-If a short-term key becomes compromised, you can prevent its usage by invalidating the role session that was used to generate the key. To invalidate the role session, attach the following policy to the IAM identity that generated the key. Replace `2014-05-07T23:47:00Z` with the time after which you want the session to be invalidated.
+If a short-term key becomes compromised, you can prevent its usage by invalidating the session that was used to generate the key. To invalidate the session, attach the following policy to the IAM identity that generated the key. Replace `2014-05-07T23:47:00Z` with the time after which you want the session to be invalidated.
 
 JSON
 

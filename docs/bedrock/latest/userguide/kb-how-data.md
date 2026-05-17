@@ -28,6 +28,7 @@ A data source contains the raw form of your documents. To optimize the query pro
   - Pinecone
   - Redis Enterprise Cloud
   - MongoDB Atlas
+  - Amazon S3 Vectors
 
 The process of converting your data into vector embeddings is called _ingestion_. The ingestion process that turns your data into a knowledge base involves the following steps:
 

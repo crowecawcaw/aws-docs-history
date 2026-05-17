@@ -16,7 +16,7 @@ You can customize how the documents in your data are parsed. To learn about opti
 
 ###### Warning
 
-You can't change the parsing strategy after connecting to the data source. To use a different parsing strategy, you can add a new data source.
+You can't change the parsing strategy type (for example, from `BEDROCK_FOUNDATION_MODEL` to `BEDROCK_DATA_AUTOMATION`) after connecting to the data source. To use a different parsing strategy type, you must add a new data source. However, you can update configuration parameters within the same parsing strategy, such as the `modelArn` in `bedrockFoundationModelConfiguration` or the `parsingPrompt`. When updating, retrieve the complete existing configuration using `GetDataSource` and pass the full `vectorIngestionConfiguration` with only the specific values modified.
 
 You can't add an S3 location to store multimodal data (including images, figures, charts, and tables) after you've created a knowledge base. If you want to include multimodal data and use a parser that supports it, you must create a new knowledge base.
 

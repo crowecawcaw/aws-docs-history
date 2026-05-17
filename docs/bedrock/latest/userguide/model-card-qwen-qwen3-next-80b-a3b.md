@@ -8,7 +8,7 @@ Qwen3 Next 80B A3B is Qwen's efficient mixture-of-experts model with 80B total a
 
 - **Model launch date:** Sep 11, 2025
 - **Model EOL date:** N/A
-- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **End User License Agreements and Terms of Use:** [View](https://huggingface.co/Qwen/Qwen3-Next-80B-A3B-Instruct/blob/main/LICENSE "https://huggingface.co/Qwen/Qwen3-Next-80B-A3B-Instruct/blob/main/LICENSE")
 - **Model lifecycle:** Active
 - **Context window:** 256K tokens
 - **Max output tokens:** 8K

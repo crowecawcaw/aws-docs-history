@@ -39,13 +39,14 @@ You can enable invocation logging through either the console or the API.
 - [Set up an CloudWatch Logs destination](#setup-cloudwatch-logs-destination "#setup-cloudwatch-logs-destination")
 - [Model invocation logging using the console](#model-invocation-logging-console "#model-invocation-logging-console")
 - [Model invocation logging using the API](#using-apis-logging "#using-apis-logging")
+- [Log entry format](#model-invocation-log-format "#model-invocation-log-format")
 
 ## Set up an Amazon S3 destination
 
 ###### Note
 
-When using Amazon S3 as a logging destination, the bucket needs to be created
-in the same AWS Region as the one where you're creating the model invocation
+When using Amazon S3 as a logging destination, the bucket must be in the same
+AWS account and AWS Region as the one where you're creating the model invocation
 logging configuration.
 
 You can set up an S3 destination for logging in Amazon Bedrock with these steps:
@@ -234,3 +235,51 @@ Model invocation logging can be configured using the following APIs:
 - [PutModelInvocationLoggingConfiguration](../APIReference/API_PutModelInvocationLoggingConfiguration.md "../APIReference/API_PutModelInvocationLoggingConfiguration.md")
 - [GetModelInvocationLoggingConfiguration](../APIReference/API_GetModelInvocationLoggingConfiguration.md "../APIReference/API_GetModelInvocationLoggingConfiguration.md")
 - [DeleteModelInvocationLoggingConfiguration](../APIReference/API_DeleteModelInvocationLoggingConfiguration.md "../APIReference/API_DeleteModelInvocationLoggingConfiguration.md")
+
+## Log entry format
+
+Each invocation log entry is a JSON object with the following structure. The format is the same for both CloudWatch Logs and Amazon S3 destinations.
+
+```
+{
+    "schemaType": "ModelInvocationLog",
+    "schemaVersion": "1.0",
+    "timestamp": "2024-01-15T12:00:00Z",
+    "accountId": "123456789012",
+    "region": "us-east-1",
+    "requestId": "abcd1234-5678-efgh-ijkl-mnopqrstuvwx",
+    "operation": "Converse",
+    "modelId": "anthropic.claude-sonnet-4-20250514-v1:0",
+    "input": {
+        "inputContentType": "application/json",
+        "inputBodyJson": { },
+        "inputTokenCount": 25
+    },
+    "output": {
+        "outputContentType": "application/json",
+        "outputBodyJson": { },
+        "outputTokenCount": 150
+    }
+}
+```
+
+The following table describes the fields in a log entry:
+
+| Field                     | Description                                                                                                   |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `schemaType`              | The type of log record. Always `ModelInvocationLog`.                                                          |
+| `schemaVersion`           | The version of the log schema.                                                                                |
+| `timestamp`               | The time the invocation was made, in ISO 8601 format.                                                         |
+| `accountId`               | The AWS account ID that made the invocation.                                                                  |
+| `region`                  | The AWS Region where the invocation was made.                                                                 |
+| `requestId`               | The unique identifier for the request.                                                                        |
+| `operation`               | The API operation called (for example, `Converse`, `InvokeModel`).                                            |
+| `modelId`                 | The model ID or inference profile ID used for the invocation.                                                 |
+| `input.inputBodyJson`     | The request body sent to the model (up to 100 KB). Larger bodies are stored as separate objects in Amazon S3. |
+| `input.inputTokenCount`   | The number of input tokens in the request.                                                                    |
+| `output.outputBodyJson`   | The response body from the model (up to 100 KB). Larger bodies are stored as separate objects in Amazon S3.   |
+| `output.outputTokenCount` | The number of output tokens in the response.                                                                  |
+
+###### Note
+
+Binary data (such as images) and JSON bodies larger than 100 KB are not included inline in the log entry. Instead, they are stored as separate objects in the Amazon S3 bucket under the data prefix, and the log entry contains a reference to the Amazon S3 location.

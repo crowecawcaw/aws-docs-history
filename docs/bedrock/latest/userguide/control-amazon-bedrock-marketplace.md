@@ -7,6 +7,32 @@ deny policy. The following policy demonstrates how to deny access to a specific 
 
 Denying Access to Specific Models:
 
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "MarketplaceModelDeny",
+            "Effect": "Deny",
+            "Action": [
+                "sagemaker:*",
+                "bedrock:*"
+            ],
+            "Resource": [
+                "arn:aws:sagemaker:*:*:endpoint/*",
+                "arn:aws:sagemaker:*:*:endpoint-config/*",
+                "arn:aws:sagemaker:*:*:model/*"
+            ],
+            "Condition": {
+                "StringLike": {
+                    "aws:ResourceTag/sagemaker-studio:hub-content-arn": "arn:aws:sagemaker:*:aws:hub-content/SageMakerPublicHub/Model/`model-id-to-deny`/*"
+                }
+            }
+        }
+    ]
+}
+```
+
 ###### Important
 
 This policy explicitly denies access to the specified model while allowing access to

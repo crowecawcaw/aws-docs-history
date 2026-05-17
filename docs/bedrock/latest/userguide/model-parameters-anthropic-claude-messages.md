@@ -29,7 +29,7 @@ model (assistant).
   inference operations ([InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") or [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")). However, we recommend that you use the
   Converse API to implement messages in your application. The
   Converse API provides a unified set of parameters that work
-  across all models that support messages. For more information, see [Carry out a conversation with the Converse API operations](conversation-inference.md "conversation-inference.md").
+  across all models that support messages. For more information, see [Inference using Converse API](conversation-inference.md "conversation-inference.md").
 - Restrictions apply to the following operations: `InvokeModel`, `InvokeModelWithResponseStream`, `Converse`, and `ConverseStream`. See [API restrictions](inference-api-restrictions.md "inference-api-restrictions.md") for details.
 
 Anthropic trains Claude models to operate on alternating user and assistant

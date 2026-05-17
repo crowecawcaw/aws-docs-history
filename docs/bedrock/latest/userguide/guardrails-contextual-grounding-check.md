@@ -267,14 +267,10 @@ Note that the model response is required to perform the contextual grounding
 checks and so the checks will only be performed on output and not on the
 prompt.
 
-If none of the content blocks are marked with the guard_content qualifier, then
-the contextual grounding checks policy will investigate just the grounding source,
-query, and response. The remaining policies will follow the default investigation
-behavior: system prompt defaults to not getting investigated and messages defaults
-to getting investigated. If, however, a content block is marked with the
-guard_content qualifier, then the contextual grounding checks policy will
-investigate just the grounding source, query, and response, while the remaining
-policies will investigate the content marked with the guardContent tags.
+The contextual grounding check policy always investigates only the grounding source, query, and response — regardless of whether `guardContent` is used. The behavior of the _remaining_ policies depends on whether you use `guardContent`:
+
+- **Without `guardContent`** – Other policies use default behavior: system prompts are not investigated, and messages are investigated.
+- **With `guardContent`** – Other policies investigate only the content marked with `guardContent`. All unmarked content is skipped.
 
 ## Calling contextual grounding check with ApplyGuardrail API
 

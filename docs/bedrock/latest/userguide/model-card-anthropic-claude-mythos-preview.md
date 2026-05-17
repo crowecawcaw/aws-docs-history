@@ -14,7 +14,7 @@ Available only as a gated research preview with access prioritized for defensive
 - **Model lifecycle:** Preview
 - **Context window:** 1M tokens
 - **Max output tokens:** 128K
-- **Reasoning:** Supported
+- **Reasoning:** Supported (`thinking.type: "adaptive"` only). For more information, see [Adaptive thinking](claude-messages-adaptive-thinking.md "claude-messages-adaptive-thinking.md").
 - **Knowledge cutoff:** Dec 2025
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
@@ -34,6 +34,14 @@ Available only as a gated research preview with access prioritized for defensive
 | **Supported**                                                                                                                                                                                                                                                                          | **Not Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | • Yes [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• Yes [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• Yes [Count tokens](count-tokens.md "count-tokens.md") | • No [Guardrails](guardrails.md "guardrails.md")<br>• No [Intelligent prompt routing](prompt-routing.md "prompt-routing.md")<br>• No [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• No [Knowledge base](knowledge-base.md "knowledge-base.md")<br>• No [Model evaluation](evaluation.md "evaluation.md")<br>• No [Prompt management](prompt-management.md "prompt-management.md")<br>• No [Flows](flows.md "flows.md")<br>• No [Agents](agents.md "agents.md") |
+
+**Prompt caching using `bedrock-runtime` endpoint**
+
+For more information, see [Prompt caching for faster model inference](prompt-caching.md "prompt-caching.md").
+
+| **Prompt caching supported** | **Min tokens per cache checkpoint** | **Max cache checkpoints per request** | **Supported TTL** | **Fields that accept prompt cache checkpoints** |
+| ---------------------------- | ----------------------------------- | ------------------------------------- | ----------------- | ----------------------------------------------- |
+| Yes                          | 4,096                               | 4                                     | 5 minutes, 1 hour | `system`, `messages`, and `tools`               |
 
 ## Pricing
 

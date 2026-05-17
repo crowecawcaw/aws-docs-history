@@ -2,11 +2,11 @@
 
 Multiple Amazon Bedrock features require access to data that is stored in Amazon S3 buckets. To access this data, you must configure the following permissions:
 
-| Use case                                                    | Permissions                |
-| ----------------------------------------------------------- | -------------------------- |
-| Permissions to retrieve data from S3 bucket                 | s3:GetObjects3:ListBucket  |
-| Permissions to write data to S3 bucket                      | s3:PutObject               |
-| Permissions to decrypt KMS key that encrypted the S3 bucket | kms:Decryptkms:DescribeKey |
+| Use case                                                    | Permissions                                                                                                              |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Permissions to retrieve data from S3 bucket                 | s3:GetObjects3:ListBucket                                                                                                |
+| Permissions to write data to S3 bucket                      | s3:PutObject                                                                                                             |
+| Permissions to decrypt KMS key that encrypted the S3 bucket | kms:Decryptkms:DescribeKeykms:GenerateDataKey (required for write operations to buckets with default SSE-KMS encryption) |
 
 The identities or resources to which you need to attach the above permissions depends on the following factors:
 

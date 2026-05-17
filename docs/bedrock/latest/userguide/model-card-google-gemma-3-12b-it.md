@@ -8,7 +8,7 @@ Gemma 3 12B IT is Google's 12-billion parameter open model with instruction tuni
 
 - **Model launch date:** Mar 12, 2025
 - **Model EOL date:** N/A
-- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **End User License Agreements and Terms of Use:** [View](https://ai.google.dev/gemma/terms "https://ai.google.dev/gemma/terms")
 - **Model lifecycle:** Active
 - **Context window:** 128K tokens
 - **Max output tokens:** 8K

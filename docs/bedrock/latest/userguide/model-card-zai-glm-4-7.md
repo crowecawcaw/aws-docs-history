@@ -8,7 +8,7 @@ GLM 4.7 is Z.AI's large language model with strong multilingual capabilities and
 
 - **Model launch date:** Dec 22, 2025
 - **Model EOL date:** N/A
-- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **End User License Agreements and Terms of Use:** [View](https://github.com/zai-org/GLM-4/blob/main/LICENSE "https://github.com/zai-org/GLM-4/blob/main/LICENSE")
 - **Model lifecycle:** Active
 - **Context window:** 203K tokens
 - **Max output tokens:** 4K

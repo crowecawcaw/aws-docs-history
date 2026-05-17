@@ -194,7 +194,7 @@ The following example shows how to generate streaming text with Python
 using the prompt
 `write an essay for living on mars in 1000
  words` and the
-Anthropic Claude V2 model:
+Anthropic Claude Sonnet 4 model:
 
 ```
 import boto3

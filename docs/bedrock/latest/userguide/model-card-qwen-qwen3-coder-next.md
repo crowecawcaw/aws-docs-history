@@ -8,7 +8,7 @@ Qwen3 Coder Next is Qwen's coding model with improved code generation, debugging
 
 - **Model launch date:** Feb 04, 2026
 - **Model EOL date:** N/A
-- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **End User License Agreements and Terms of Use:** [View](https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct/blob/main/LICENSE "https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct/blob/main/LICENSE")
 - **Model lifecycle:** Active
 - **Context window:** 256K tokens
 - **Max output tokens:** 16K

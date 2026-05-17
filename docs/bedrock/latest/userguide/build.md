@@ -1,31 +1,22 @@
 # Build
 
-To start building models using Amazon Bedrock, first, start from your use-case. Then choose an API, an endpoint, and then start using the models programmatically.
+This section covers how to interact with Amazon Bedrock programmatically. Choose an endpoint, pick an API, and start making inference requests.
 
-**Choose API based on your use-case**
+**Quick start**
 
-Amazon Bedrock provide five main API patterns to perform inference in Amazon Bedrock. [Responses](bedrock-mantle.md "bedrock-mantle.md"), [Chat Completions](bedrock-mantle.md "bedrock-mantle.md"), [Messages](model-parameters-anthropic-claude-messages.md "model-parameters-anthropic-claude-messages.md"), [Invoke](inference-invoke.md "inference-invoke.md"), and [Converse](conversation-inference.md "conversation-inference.md"). Read more about the APIs supported.
+| **Your situation**                                    | **Recommended path**                                                                                              |
+| ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Use OpenAI APIs                                       | Use the `bedrock-mantle` endpoint with the [Responses API](bedrock-mantle.md "bedrock-mantle.md")                 |
+| Use Anthropic APIs                                    | Use the Messages API (available on both `bedrock-mantle` and `bedrock-runtime`; we recommend `bedrock-mantle`)    |
+| Want a unified AWS-native interface across all models | Use the `bedrock-runtime` endpoint with the [Converse API](conversation-inference.md "conversation-inference.md") |
+| Need direct model control or non-text modalities      | Use the `bedrock-runtime` endpoint with the [Invoke API](inference-invoke.md "inference-invoke.md")               |
 
-| **Scenario**                                                | **Recommended API**                                                                                                                                                                                                                                                                                   |
-| ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Migrating from OpenAI API-compatible endpoint               | Use OpenAI-compatible APIs: [Responses API](https://platform.openai.com/docs/api-reference/responses "https://platform.openai.com/docs/api-reference/responses") or [Chat Completions API](https://platform.openai.com/docs/api-reference/chat "https://platform.openai.com/docs/api-reference/chat") |
-| Migrating from Anthropic API                                | Use the Anthropic-native [Messages API](model-parameters-anthropic-claude-messages.md "model-parameters-anthropic-claude-messages.md") via the `bedrock-mantle` endpoint                                                                                                                              |
-| Using models not compatible with OpenAI-compatible endpoint | Use native Amazon Bedrock APIs: [Converse](conversation-inference.md "conversation-inference.md") and [Invoke](inference-invoke.md "inference-invoke.md"). Read more on choosing the right APIs for your use-case.                                                                                    |
+###### Topics
 
-**Choosing end-point for Amazon Bedrock**
-
-Once you have identified which API to use, you can then identify the endpoint to use to interact programmatically with Amazon Bedrock. Read more about the APIs supported.
-
-| **Endpoint**        | **Supported APIs**                                                                                                                                                                                                                   |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `bedrock-mantle.*`  | [Responses API](bedrock-mantle.md "bedrock-mantle.md"), [Chat Completions API](bedrock-mantle.md "bedrock-mantle.md"), [Messages API](model-parameters-anthropic-claude-messages.md "model-parameters-anthropic-claude-messages.md") |
-| `bedrock-runtime.*` | [Invoke API](inference-invoke.md "inference-invoke.md"), [Converse API](conversation-inference.md "conversation-inference.md"), [Chat Completions API](inference-chat-completions.md "inference-chat-completions.md")                |
-
-**Choosing a model**
-
-You can see the list of models that Amazon Bedrock supports based on the endpoint you are using.
-
-| **Endpoint**        | **API**                | **Description**                                                                                                                                                                                                                                                                                                                                                                                            |
-| ------------------- | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `bedrock-runtime.*` | `ListFoundationModels` | Returns a list of all available foundation models in Bedrock. Provides summary information about multiple models, including their model IDs, provider names, supported modalities (text, image, embedding), input/output formats, and whether they support streaming or customization. Use `GetFoundationModel` API to retrieve detailed information about a specific foundation model using its model ID. |
-| `bedrock-mantle.*`  | `client.models.list`   | OpenAI-compatible API to discover available models. Retrieves a list of models you can use with the Responses API and Chat Completions API.                                                                                                                                                                                                                                                                |
+- [Endpoints supported by Amazon Bedrock](endpoints.md "endpoints.md")
+- [APIs supported by Amazon Bedrock](apis.md "apis.md")
+- [Making inference requests](inference.md "inference.md")
+- [Use a tool to complete an Amazon Bedrock model response](tool-use.md "tool-use.md")
+- [Projects (OpenAI-compatible)](projects.md "projects.md")
+- [Workspaces (Anthropic-compatible)](workspaces.md "workspaces.md")
+- [API keys](api-keys.md "api-keys.md")

@@ -1,9 +1,10 @@
-# Generate responses using OpenAI APIs
+# Inference using Responses API
 
-Amazon Bedrock provides OpenAI compatible API endpoints for model inference, powered by Mantle, a
-distributed inference engine for large-scale machine learning model serving. These endpoints
-allow you to use familiar OpenAI SDKs and tools with Amazon Bedrock models, enabling you to migrate
-existing applications with minimal code changes—simply update your base URL and API key.
+Amazon Bedrock provides the OpenAI Responses API via the `bedrock-mantle` endpoint,
+powered by Mantle, a distributed inference engine for large-scale machine learning model
+serving. This endpoint allows you to use familiar OpenAI SDKs and tools with Amazon Bedrock models,
+enabling you to migrate existing applications with minimal code changes—simply update your
+base URL and API key.
 
 ###### Important
 
@@ -32,7 +33,7 @@ Key benefits include:
 
 ## Supported Regions and Endpoints
 
-Amazon Bedrock is available in the following AWS Regions:
+The `bedrock-mantle` endpoint is available in the following AWS Regions:
 
 | Region Name               | Region         | Endpoint                              |
 | ------------------------- | -------------- | ------------------------------------- |
@@ -70,9 +71,9 @@ Before using OpenAI APIs, ensure you have the following:
 ## Models API
 
 The Models API allows you to discover available models in Amazon Bedrock powered by Mantle. Use this API to
-retrieve a list of models you can use with the Responses API and Chat Completions API.
+retrieve a list of models you can use with the Responses API.
 For complete API details, see the [OpenAI Models
-documentation](https://platform.openai.com/docs/api-reference/models "https://platform.openai.com/docs/api-reference/models").
+documentation](https://developers.openai.com/api/reference/resources/models "https://developers.openai.com/api/reference/resources/models").
 
 ### List available models
 
@@ -112,7 +113,7 @@ curl -X GET $OPENAI_BASE_URL/models \
 The Responses API provides stateful conversation management with support for
 streaming, background processing, and multi-turn interactions. For complete API details,
 see the [OpenAI
-Responses documentation](https://platform.openai.com/docs/api-reference/responses "https://platform.openai.com/docs/api-reference/responses").
+Responses documentation](https://developers.openai.com/api/reference/resources/responses "https://developers.openai.com/api/reference/resources/responses").
 
 ###### Note
 
@@ -201,105 +202,6 @@ curl -X POST $OPENAI_BASE_URL/responses \
    -d '{
     "model": "openai.gpt-oss-120b",
     "input": [
-        {"role": "user", "content": "Tell me a story"}
-    ],
-    "stream": true
-}'
-
-```
-
-## Chat Completions API
-
-The Chat Completions API generates conversational responses. For complete API details,
-see the [OpenAI
-Chat Completions documentation](https://platform.openai.com/docs/api-reference/chat/create "https://platform.openai.com/docs/api-reference/chat/create").
-
-### Create a chat completion
-
-To create a chat completion, choose the tab for your preferred method, and then follow the steps:
-
-OpenAI SDK (Python)
-Configure the OpenAI client using environment variables:
-
-```
-# Create a chat completion using the OpenAI SDK
-# Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
-
-from openai import OpenAI
-
-client = OpenAI()
-
-completion = client.chat.completions.create(
-    model="openai.gpt-oss-120b",
-    messages=[
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": "Hello!"}
-    ]
-)
-
-print(completion.choices[0].message)
-
-```
-
-HTTP request
-Make a POST request to `/v1/chat/completions`:
-
-```
-# Create a chat completion
-# Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
-
-curl -X POST $OPENAI_BASE_URL/chat/completions \
-   -H "Content-Type: application/json" \
-   -H "Authorization: Bearer $OPENAI_API_KEY" \
-   -d '{
-    "model": "openai.gpt-oss-120b",
-    "messages": [
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": "Hello!"}
-    ]
-}'
-
-```
-
-### Enable streaming
-
-To receive responses incrementally, choose the tab for your preferred method, and then follow the steps:
-
-OpenAI SDK (Python)
-
-```
-# Stream chat completion responses incrementally using the OpenAI SDK
-# Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
-
-from openai import OpenAI
-
-client = OpenAI()
-
-stream = client.chat.completions.create(
-    model="openai.gpt-oss-120b",
-    messages=[{"role": "user", "content": "Tell me a story"}],
-    stream=True
-)
-
-for chunk in stream:
-    if chunk.choices[0].delta.content is not None:
-        print(chunk.choices[0].delta.content, end="")
-
-```
-
-HTTP request
-Make a POST request to `/v1/chat/completions` with `stream` set to `true`:
-
-```
-# Stream chat completion responses incrementally
-# Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
-
-curl -X POST $OPENAI_BASE_URL/chat/completions \
-   -H "Content-Type: application/json" \
-   -H "Authorization: Bearer $OPENAI_API_KEY" \
-   -d '{
-    "model": "openai.gpt-oss-120b",
-    "messages": [
         {"role": "user", "content": "Tell me a story"}
     ],
     "stream": true

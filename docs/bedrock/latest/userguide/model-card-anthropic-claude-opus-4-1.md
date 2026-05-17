@@ -7,7 +7,7 @@
 Claude Opus 4.1 is an upgrade to Anthropic's model with improved coding, reasoning, and agentic task capabilities. For more information about model development and performance, see the [model/service card](https://www-cdn.anthropic.com/9fa30625273bafdf5af82c93719d7ca606485a16.pdf "https://www-cdn.anthropic.com/9fa30625273bafdf5af82c93719d7ca606485a16.pdf").
 
 - **Model launch date:** Aug 05, 2025
-- **Model EOL date:** May 31, 2026
+- **Model EOL date:** N/A
 - **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
 - **Model lifecycle:** Active
 - **Context window:** 200K tokens

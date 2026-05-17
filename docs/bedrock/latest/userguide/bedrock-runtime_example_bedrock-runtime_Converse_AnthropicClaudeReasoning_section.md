@@ -47,7 +47,7 @@ public class ReasoningAsync {
 
         // Specify the model ID. For the latest available models, see:
         // https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html
-        var modelId = "us.anthropic.claude-3-7-sonnet-20250219-v1:0";
+        var modelId = "us.anthropic.claude-sonnet-4-20250514-v1:0";
 
         // Create the message with the user's prompt
         var prompt = "Describe the purpose of a 'hello world' program in one line.";
@@ -145,7 +145,7 @@ public class Reasoning {
 
         // Specify the model ID. For the latest available models, see:
         // https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html
-        var modelId = "us.anthropic.claude-3-7-sonnet-20250219-v1:0";
+        var modelId = "us.anthropic.claude-sonnet-4-20250514-v1:0";
 
         // Create the message with the user's prompt
         var prompt = "Describe the purpose of a 'hello world' program in one line.";

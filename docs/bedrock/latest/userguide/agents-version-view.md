@@ -1,6 +1,6 @@
 # View information about versions of agents in Amazon Bedrock
 
-After you create a version of your agent, you can view information about it or delete it. You can only create a new version of an agent by creating a new alias.
+After you create a version of your agent, you can view information about it or delete it. You can create a new version of an agent by creating a new alias or by updating an existing alias.
 
 To learn how to view information about the versions of an agent, choose the tab for your preferred method, and then follow the steps:
 

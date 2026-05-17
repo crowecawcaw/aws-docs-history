@@ -7,7 +7,7 @@ allowing for transformation and adjustment of output. For more information and a
 
 Custom output configuration also works alongside projects. When you pass a file
 to a BDA and reference a project with configured blueprint(s), BDA will process the file using
-the appropriate blueprint. This works for up to 40 document bluperints, one image blueprint, one
+the appropriate blueprint. This works for up to 40 document blueprints, one image blueprint, one
 audio blueprint, and/or one video blueprint. When working with multiple blueprints, BDA attempts
 to send documents to the blueprint that best matches the expected layout. For more information
 about projects and custom output, see [Bedrock Data Automation projects](bda-projects.md "bda-projects.md").

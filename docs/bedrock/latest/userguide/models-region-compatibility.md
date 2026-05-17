@@ -416,7 +416,7 @@ Now, let us look at Regional availability across all the models supported by Ama
 | `eu-west-2` (London)                                                                                    | No     | Yes       | Yes |
 | `eu-west-3` (Paris)                                                                                     | No     | Yes       | Yes |
 | `ap-east-2` (Taipei)                                                                                    | No     | No        | Yes |
-| `ap-northeast-1` (Tokyo)                                                                                | Yes    | No        | Yes |
+| `ap-northeast-1` (Tokyo)                                                                                | Yes    | Yes       | Yes |
 | `ap-northeast-2` (Seoul)                                                                                | No     | No        | Yes |
 | `ap-northeast-3` (Osaka)                                                                                | No     | No        | Yes |
 | `ap-south-1` (Mumbai)                                                                                   | No     | No        | Yes |
@@ -454,7 +454,7 @@ Now, let us look at Regional availability across all the models supported by Ama
 | `eu-west-2` (London)                                                                                       | No     | Yes       | Yes |
 | `eu-west-3` (Paris)                                                                                        | No     | Yes       | Yes |
 | `ap-east-2` (Taipei)                                                                                       | No     | No        | Yes |
-| `ap-northeast-1` (Tokyo)                                                                                   | No     | No        | Yes |
+| `ap-northeast-1` (Tokyo)                                                                                   | No     | Yes       | Yes |
 | `ap-northeast-2` (Seoul)                                                                                   | No     | No        | Yes |
 | `ap-northeast-3` (Osaka)                                                                                   | No     | No        | Yes |
 | `ap-south-1` (Mumbai)                                                                                      | No     | No        | Yes |

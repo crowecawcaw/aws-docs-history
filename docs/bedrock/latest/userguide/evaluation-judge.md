@@ -29,6 +29,7 @@ see [Request access to models](model-access.md "model-access.md").
 - Anthropic Claude 3.5 Sonnet v1 – `anthropic.claude-3-5-sonnet-20240620-v1:0`
 - Anthropic Claude 3.5 Sonnet v2 – `anthropic.claude-3-5-sonnet-20241022-v2:0`
 - Anthropic Claude 3.7 Sonnet – `anthropic.claude-3-7-sonnet-20250219-v1:0`
+- Anthropic Claude Sonnet 4 – `anthropic.claude-sonnet-4-20250514-v1:0`
 - Anthropic Claude 3 Haiku – `anthropic.claude-3-haiku-20240307-v1:0`
 - Anthropic Claude 3.5 Haiku – `anthropic.claude-3-5-haiku-20241022-v1:0`
 - Meta Llama 3.1 70B Instruct – `meta.llama3-1-70b-instruct-v1:0`
@@ -45,6 +46,7 @@ To create an evaluation job that uses an LLM as a judge with custom metrics, you
 - Anthropic Claude 3.5 Sonnet v1 – `anthropic.claude-3-5-sonnet-20240620-v1:0`
 - Anthropic Claude 3.5 Sonnet v2 – `anthropic.claude-3-5-sonnet-20241022-v2:0`
 - Anthropic Claude 3.7 Sonnet – `anthropic.claude-3-7-sonnet-20250219-v1:0`
+- Anthropic Claude Sonnet 4 – `anthropic.claude-sonnet-4-20250514-v1:0`
 - Anthropic Claude 3 Haiku 3 – `anthropic.claude-3-haiku-20240307-v1:0`
 - Anthropic Claude 3 Haiku 3.5 – `anthropic.claude-3-5-haiku-20241022-v1:0`
 - Meta Llama 3.1 70B Instruct – `meta.llama3-1-70b-instruct-v1:0`

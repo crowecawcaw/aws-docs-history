@@ -33,8 +33,8 @@ the following number of songs: {{number}}.`.
 
    | Name   | Type   | Expression    |
    | ------ | ------ | ------------- |
-   | genre  | String | $.data.genre  |
-   | number | Number | $.data.number |
+   | genre  | Object | $.data.genre  |
+   | number | Object | $.data.number |
 
    This configuration means that the prompt node expects a JSON object containing a field called `genre` that will be mapped to the `genre` input and a field called `number` that will be mapped to the `number` input. 7. You can't modify the **Output**. It will be the response from the model, returned as a string.
 

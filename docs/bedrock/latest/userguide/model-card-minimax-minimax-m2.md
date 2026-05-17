@@ -8,7 +8,7 @@ MiniMax M2 is MiniMax's large language model with strong multilingual capabiliti
 
 - **Model launch date:** Oct 23, 2025
 - **Model EOL date:** N/A
-- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **End User License Agreements and Terms of Use:** [View](https://github.com/MiniMax-AI/MiniMax-M2/blob/main/LICENSE "https://github.com/MiniMax-AI/MiniMax-M2/blob/main/LICENSE")
 - **Model lifecycle:** Active
 - **Context window:** 1M tokens
 - **Max output tokens:** 8K

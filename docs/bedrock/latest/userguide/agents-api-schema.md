@@ -4,6 +4,13 @@ When you create an action group in Amazon Bedrock, you must define the parameter
 
 The agent uses the schema to determine the API operation that it needs to invoke and the parameters that are required to make the API request. These details are then sent through a Lambda function that you define to carry out the action or returned in the response of the agent invocation.
 
+###### Note
+
+Amazon Bedrock agents support a subset of the OpenAPI 3.0 specification. The following schema features are not supported:
+
+- The `enum` field for restricting parameter values to a fixed set.
+  If you need to constrain parameter values, describe the allowed values in the parameter's `description` field instead.
+
 For more information about API schemas, see the following resources:
 
 - For more details about OpenAPI schemas, see [OpenAPI specification](https://swagger.io/specification/ "https://swagger.io/specification/") on the Swagger website.

@@ -115,7 +115,7 @@ The following table shows the minimum, maximum, and default values for the numer
 
 ### Model invocation response body field
 
-For information about the format of the `body` field in the response, see [https://docs.ai21.com/reference/j2-complete-api-ref](https://docs.ai21.com/reference/j2-complete-api-ref "https://docs.ai21.com/reference/j2-complete-api-ref").
+For information about the format of the `body` field in the response, see [AI21 API reference](https://docs.ai21.com/reference/introduction "https://docs.ai21.com/reference/introduction").
 
 ###### Note
 

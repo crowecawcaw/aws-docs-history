@@ -8,7 +8,7 @@ Nemotron Nano 12B v2 VL is NVIDIA's 12-billion parameter vision-language model f
 
 - **Model launch date:** Oct 28, 2025
 - **Model EOL date:** N/A
-- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **End User License Agreements and Terms of Use:** [View](https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-nemotron-open-model-license/ "https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-nemotron-open-model-license/")
 - **Model lifecycle:** Active
 - **Context window:** 128K tokens
 - **Max output tokens:** 8K

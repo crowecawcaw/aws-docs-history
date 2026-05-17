@@ -5,8 +5,7 @@ Use the linked topics to learn more about getting setting up.
 
 ###### Cross Origin Resource Sharing (CORS) permission requirements
 
-All console-based model evaluation jobs require Cross Origin Resource Sharing (CORS)
-permissions to be enabled on any Amazon S3 buckets specified in the model evaluation job. To
+CORS permissions are only required on the Amazon S3 output bucket for human-based model evaluation jobs. Automated model evaluation jobs do not require CORS configuration. To
 learn more, see [Required Cross Origin Resource Sharing (CORS) permissions on S3 buckets](model-evaluation-security-cors.md "model-evaluation-security-cors.md")
 
 ###### Required service level resources to start an automatic model evaluation job
@@ -21,9 +20,7 @@ learn more, see [Required Cross Origin Resource Sharing (CORS) permissions on S3
    requirements, see [Service role requirements for automatic model evaluation jobs](automatic-service-roles.md "automatic-service-roles.md").
 4. Amazon Simple Storage Service – All data used and generated must be placed in an Amazon S3 bucket that is
    in the same AWS Region in an automatic model evaluation job.
-5. Cross Origin Resource Sharing (CORS) – Automatic model evaluations jobs
-   that are created using the Amazon Bedrock console require that you specify a CORS
-   configuration on the S3 bucket. To learn more, see [Required Cross Origin Resource Sharing (CORS) permissions on S3 buckets](model-evaluation-security-cors.md "model-evaluation-security-cors.md").
+5. Cross Origin Resource Sharing (CORS) – CORS configuration is not required for automatic model evaluation jobs. It is only required for human-based evaluation jobs. To learn more, see [Required Cross Origin Resource Sharing (CORS) permissions on S3 buckets](model-evaluation-security-cors.md "model-evaluation-security-cors.md").
 6. An IAM service role – To run an automatic model evaluation job you must
    create a service role. The service role allows Amazon Bedrock to perform actions on your
    behalf in your AWS account. To learn more, see [Service role requirements for automatic model evaluation jobs](automatic-service-roles.md "automatic-service-roles.md").

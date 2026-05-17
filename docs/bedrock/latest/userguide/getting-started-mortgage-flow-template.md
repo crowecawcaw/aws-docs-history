@@ -806,7 +806,7 @@ Resources:
       Variants:
         - Name: variantOne
           TemplateType: TEXT
-          ModelId: anthropic.claude-3-haiku-20240307-v1:0
+          ModelId: anthropic.claude-haiku-4-5-20251001-v1:0
           TemplateConfiguration:
             Text:
               Text: |
@@ -848,7 +848,7 @@ Resources:
       Variants:
         - Name: variantOne
           TemplateType: TEXT
-          ModelId: anthropic.claude-3-haiku-20240307-v1:0
+          ModelId: anthropic.claude-haiku-4-5-20251001-v1:0
           TemplateConfiguration:
             Text:
               Text: |
@@ -907,7 +907,7 @@ JSON
           {
             "Name": "variantOne",
             "TemplateType": "TEXT",
-            "ModelId": "anthropic.claude-3-haiku-20240307-v1:0",
+            "ModelId": "anthropic.claude-haiku-4-5-20251001-v1:0",
             "TemplateConfiguration": {
               "Text": {
                 "Text": "Write a mortgage loan rejection letter for a candiate with income {{income}}, totalDebt {{totalDebt}}, loanAmount {{loanAmount}}. \nThe reason for rejection is their income to debt ratio. \nDo not mention any other reason. \nMake the letter as concise as possible. \nTreat all numeric inputs as whole numbers.\nLet the general structure be like the below:\n\nDear [Applicant's Name],\nWe appreciate your interest in obtaining a mortgage loan with our institution...\nThe primary reason for this decision is that ...\nWhile we understand that this news may be disappointing, ...\nThank you again for your interest, and we wish you the best in your future endeavors...\n\nSincerely,\n[Your Institution's Name]\n",
@@ -953,7 +953,7 @@ JSON
           {
             "Name": "variantOne",
             "TemplateType": "TEXT",
-            "ModelId": "anthropic.claude-3-haiku-20240307-v1:0",
+            "ModelId": "anthropic.claude-haiku-4-5-20251001-v1:0",
             "TemplateConfiguration": {
               "Text": {
                 "Text": "Generate a question asking if the user will qualify for a loan for the specified criteria. \n\nInclude instruction to base the answer on key features of the property retrieved from MLS listing. \n\nStart with \"will an applicant...\".\n\n{ \"income\": {{income}}, \"creditScore\": {{creditScore}}, \"totalDebt\": {{totalDebt}}, \"loanAmount\": {{loanAmount}}, \"mlsId\": {{mlsId}} }\n\nInclude a second question on loan requirements an applicant with the below attributes should consider for a Fannie Mae backed loan (other than debt to income).\n",

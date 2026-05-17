@@ -125,6 +125,8 @@ and look ahead are rejected.
 An example of a regular expression filter pattern to exclude URLs that end with ".pdf" or PDF
 web page attachments: _".\*\.pdf$"_
 
+An example of an inclusion filter pattern to only crawl URLs under a specific path: _"https://www\.example\.com/docs/.\*"_
+
 You can use the Web Crawler to crawl the pages of websites that you are authorized to crawl.
 
 When selecting websites to crawl, you must adhere to the

@@ -24,7 +24,18 @@ You can also test the prompt in the following ways:
 API
 You can test your prompt in the following ways:
 
-- To run inference on the prompt, send an [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md"), [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md"), or [ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md") request with an [Amazon Bedrock runtime endpoint](../../../general/latest/gr/bedrock.md#br-rt "../../../general/latest/gr/bedrock.md#br-rt") and specify the ARN of the prompt in the `modelId` parameter.
+- To run inference on the prompt, send an [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md"), [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md"), or [ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md") request with an [Amazon Bedrock runtime endpoint](../../../general/latest/gr/bedrock.md#br-rt "../../../general/latest/gr/bedrock.md#br-rt") and specify the ARN of the prompt in the `modelId` parameter. To pass values for prompt variables, include the `promptVariables` field with a map of variable names to their values:
+
+```
+response = bedrock_runtime.converse(
+    modelId="arn:aws:bedrock:us-east-1:123456789012:prompt/PROMPT_ID:VERSION",
+    promptVariables={
+        "`variable_name`": {"text": "`value`"}
+    }
+)
+```
+
+When invoking a managed prompt, you don't need to specify `messages` or `system` fields — these are defined in the prompt template. You only need to provide values for the variables defined in the prompt. For a complete example, see [Run Prompt management code samples](prompt-management-code-ex.md "prompt-management-code-ex.md").
 
 ###### Note
 

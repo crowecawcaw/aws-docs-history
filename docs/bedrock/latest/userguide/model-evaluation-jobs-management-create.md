@@ -23,9 +23,7 @@ console. To successfully complete this procedure make sure that your IAM user,
 group, or role has the sufficient permissions to access the console. To learn
 more, see [Required console permissions to create an automatic model evaluation job](model-evaluation-type-automatic.md#base-for-automatic "model-evaluation-type-automatic.md#base-for-automatic").
 
-Also, any custom prompt datasets that you want to specify in the model
-evaluation job must have the required CORS permissions added to the Amazon S3 bucket.
-To learn more about adding the required CORS permissions see, [Required Cross Origin Resource Sharing (CORS) permissions on S3 buckets](model-evaluation-security-cors.md "model-evaluation-security-cors.md").
+Also, if you are creating a human-based model evaluation job, the Amazon S3 output bucket must have the required CORS permissions. To learn more, see [Required Cross Origin Resource Sharing (CORS) permissions on S3 buckets](model-evaluation-security-cors.md "model-evaluation-security-cors.md").
 
 ###### To create a automatic model evaluation job
 

@@ -553,7 +553,7 @@ def parse_function_call(sanitized_response, parsed_response):
 
 def addRepromptResponse(parsed_response, error):
     error_message = str(error)
-    logger.warn(error_message)
+    logger.warning(error_message)
 
     parsed_response['orchestrationParsedResponse']['parsingErrorDetails'] = {
         'repromptResponse': error_message

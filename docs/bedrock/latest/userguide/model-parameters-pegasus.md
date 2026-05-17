@@ -84,7 +84,7 @@ The following examples show request formats for the TwelveLabs Pegasus 1.2 model
     "maxOutputTokens": 2048,
     "responseFormat": {
         "type": "json_schema",
-        "json_schema": {
+        "jsonSchema": {
             "name": "video_analysis",
             "schema": {
                 "type": "object",

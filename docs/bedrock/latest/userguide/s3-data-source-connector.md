@@ -114,6 +114,22 @@ must be stored in the same folder or location as the source file in your Amazon 
 must not exceed the limit of 10 KB. For information on the supported attribute/field data types
 and the filtering operators you can apply to your metadata fields, see [Metadata and filtering](kb-test-config.md "kb-test-config.md").
 
+The `includeForEmbedding` field controls whether a metadata attribute is included when embedding the chunk:
+
+- `includeForEmbedding: false` – Only the chunk text is embedded and turned into a vector during ingestion. The metadata is still stored and available for filtering, but does not influence semantic search results.
+- `includeForEmbedding: true` – The metadata key-value pair is concatenated to the chunk text before embedding (for example, `key1: value1\n\nchunk text`). This means the metadata information is included in the embedding vector, so queries mentioning the metadata key or value will contribute to the similarity score and boost search relevance. The metadata key-value pair is not included in the chunk text returned in results, ensuring that results contain only the raw content from source files.
+  You can also use a simplified format for metadata attributes when you don't need to control embedding behavior:
+
+```
+{
+    "metadataAttributes": {
+        "tag": "value"
+    }
+}
+```
+
+With the simplified format, the metadata is stored for filtering but is not included in the embedding (equivalent to `includeForEmbedding: false`).
+
 You can specify an inclusion prefix, which is an Amazon S3 path prefix, where you can use an S3 file
 or a folder instead of the entire bucket to create the S3 data source connector.
 

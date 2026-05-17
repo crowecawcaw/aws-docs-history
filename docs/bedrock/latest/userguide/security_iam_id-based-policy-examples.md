@@ -18,6 +18,7 @@ For details about actions and resource types defined by Amazon Bedrock, includin
 - [Deny access for inference of foundation models](#security_iam_id-based-policy-examples-deny-inference "#security_iam_id-based-policy-examples-deny-inference")
 - [Allow users to invoke a provisioned model](#security_iam_id-based-policy-examples-perform-actions-pt "#security_iam_id-based-policy-examples-perform-actions-pt")
 - [Identity-based policy examples for Amazon Bedrock Agents](security_iam_id-based-policy-examples-agent.md "security_iam_id-based-policy-examples-agent.md")
+- [Minimal policy for Amazon Bedrock Playground chat](#security_iam_id-based-policy-examples-playground "#security_iam_id-based-policy-examples-playground")
 
 ## Policy best practices
 
@@ -137,7 +138,7 @@ JSON
 
 To deny inference access to all foundation models, use `*` for the model ID.
 Other actions, such as `Converse` and `StartAsyncInvoke`, are blocked
-automatically when `InvokeModel` is denied. For a list of model IDs, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md")
+automatically when `InvokeModel` is denied. If you want to explicitly deny all inference actions, you can use `bedrock:InvokeModel*` as a wildcard or add `bedrock:Converse` and `bedrock:ConverseStream` to the action list. For a list of model IDs, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md")
 
 ## Allow users to invoke a provisioned model
 
@@ -162,3 +163,72 @@ JSON
 }`
 
 ```
+
+## Minimal policy for Amazon Bedrock Playground chat
+
+The following policy grants the minimum permissions required to use the Amazon Bedrock Playground in the AWS Management Console to chat with a model. Replace `<region>`, `<account-id>`, and the model resource ARNs with your values.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "BedrockConsoleRead",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:ListFoundationModels",
+                "bedrock:ListInferenceProfiles",
+                "bedrock:ListProvisionedModelThroughputs",
+                "bedrock:ListCustomModels",
+                "bedrock:ListGuardrails",
+                "bedrock:ListFoundationModelAgreementOffers",
+                "bedrock:ListMarketplaceModelEndpoints",
+                "bedrock:ListImportedModels",
+                "bedrock:ListPromptRouters",
+                "bedrock:GetFoundationModel",
+                "bedrock:GetFoundationModelAvailability",
+                "bedrock:GetInferenceProfile",
+                "bedrock:GetUseCaseForModelAccess",
+                "bedrock:PutUseCaseForModelAccess"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "SageMakerHubRead",
+            "Effect": "Allow",
+            "Action": [
+                "sagemaker:ListHubContents"
+            ],
+            "Resource": "arn:aws:sagemaker:*:aws:hub/SageMakerPublicHub"
+        },
+        {
+            "Sid": "InvokeModel",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:InvokeModel",
+                "bedrock:InvokeModelWithResponseStream"
+            ],
+            "Resource": [
+                "arn:aws:bedrock:*::foundation-model/*",
+                "arn:aws:bedrock:`<region>`:`<account-id>`:inference-profile/*"
+            ]
+        },
+        {
+            "Sid": "MarketplaceSubscription",
+            "Effect": "Allow",
+            "Action": [
+                "aws-marketplace:ViewSubscriptions",
+                "aws-marketplace:Subscribe"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:CalledViaLast": "bedrock.amazonaws.com"
+                }
+            }
+        }
+    ]
+}
+```
+
+To restrict access to a specific model, replace the `InvokeModel` statement's `Resource` with the specific model and inference profile ARNs.

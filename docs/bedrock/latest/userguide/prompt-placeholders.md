@@ -3,6 +3,12 @@
 You can use placeholder variables in agent prompt templates. The variables
 will be populated by pre-existing configurations when the prompt template is called. Select a tab to see variables that you can use for each prompt template.
 
+###### Tip
+
+To see what a placeholder variable resolves to for your specific agent, open the agent in the Amazon Bedrock console, navigate to the **Advanced prompts** section, and enable the prompt template you want to inspect. The console displays the resolved prompt with all placeholders filled in based on your agent's current configuration (action groups, knowledge bases, collaborators, etc.).
+
+Variables in the **Routing classifier** tab (such as `$action_routing$` and `$knowledge_base_routing$`) apply only to agents that use [multi-agent collaboration](agents-multi-agent-collaboration.md "agents-multi-agent-collaboration.md"). Variables in the **Orchestration** tab apply to all agents.
+
 Pre-processing
 
 | Variable                | Models supported                                                                                 | Replaced by                                                                  |

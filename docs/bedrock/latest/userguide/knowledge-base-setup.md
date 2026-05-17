@@ -255,10 +255,25 @@ PUT /`<index-name>`
 }
 ```
 
-4. Take note of the domain ARN and endpoint, and the
-   names you choose for the vector index name, vector
-   field name, and metadata management mapping field names for when you
-   create your knowledge base.
+###### Custom metadata fields for filtering
+
+If you plan to use [metadata filtering](kb-test-config.md "kb-test-config.md") with custom metadata fields, you must define those fields with a `keyword` type or as a `text` type with a `keyword` subfield. For example:
+
+```
+"my_custom_field": {
+    "type": "text",
+    "fields": {
+        "keyword": {
+            "type": "keyword"
+        }
+    }
+}
+```
+
+Without this structure, filtering queries on custom metadata fields will fail with a "Rewrite first" error. 4. Take note of the domain ARN and endpoint, and the
+names you choose for the vector index name, vector
+field name, and metadata management mapping field names for when you
+create your knowledge base.
 
 After the vector index is created, you can proceed to [create your knowledge base](knowledge-base-create.md "knowledge-base-create.md"). The
 following table summarizes where you will enter each piece of information that
@@ -431,13 +446,22 @@ For improving hybrid search accuracy and latency with English content, consider 
 CREATE INDEX ON bedrock_integration.bedrock_kb USING gin (to_tsvector('english', chunks));
 ```
 
-3. (Optional) If you [added metadata to
-   your files for filtering](kb-test-config.md "kb-test-config.md"), we recommend that you provide the column
-   name in the custom metadata field to store all your metadata in a single column.
-   During [data ingestion](kb-data-source-sync-ingest.md "kb-data-source-sync-ingest.md"), this
-   column will be populated with all the information in the metadata files from
-   your data sources. If you choose to provide this field, you must create a GIN
-   index on this column.
+###### Note
+
+If you use metadata filtering with your knowledge base, we recommend enabling HNSW iterative index scans (requires pgvector 0.8.0 or later). Without iterative scans, selective metadata filters can return fewer results than expected because filtering is applied after the HNSW index scan. Iterative scans automatically scan more of the index until enough filtered results are found.
+
+```
+ALTER DATABASE `your_database` SET hnsw.iterative_scan = 'relaxed_order';
+ALTER DATABASE `your_database` SET hnsw.max_scan_tuples = 20000;
+```
+
+These settings persist at the database level but only take effect for new sessions. If you are using the RDS Data API, allow a few minutes for connection pool sessions to recycle before the settings take effect. 3. (Optional) If you [added metadata to
+your files for filtering](kb-test-config.md "kb-test-config.md"), we recommend that you provide the column
+name in the custom metadata field to store all your metadata in a single column.
+During [data ingestion](kb-data-source-sync-ingest.md "kb-data-source-sync-ingest.md"), this
+column will be populated with all the information in the metadata files from
+your data sources. If you choose to provide this field, you must create a GIN
+index on this column.
 
 ###### Note
 

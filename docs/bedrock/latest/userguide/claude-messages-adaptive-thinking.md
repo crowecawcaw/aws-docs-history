@@ -4,14 +4,18 @@ Adaptive thinking is the recommended way to use [Extended thinking](claude-messa
 
 The supported models are as follows:
 
-| Model             | Model ID                       |
-| ----------------- | ------------------------------ |
-| Claude Opus 4.6   | `anthropic.claude-opus-4-6-v1` |
-| Claude Sonnet 4.6 | `anthropic.claude-sonnet-4-6`  |
+| Model                 | Model ID                          |
+| --------------------- | --------------------------------- |
+| Claude Opus 4.7       | `anthropic.claude-opus-4-7`       |
+| Claude Mythos Preview | `anthropic.claude-mythos-preview` |
+| Claude Opus 4.6       | `anthropic.claude-opus-4-6-v1`    |
+| Claude Sonnet 4.6     | `anthropic.claude-sonnet-4-6`     |
 
 ###### Note
 
-`thinking.type: "enabled"` and `budget_tokens` are deprecated on Claude Opus 4.6 and will be removed in a future model release. Use `thinking.type: "adaptive"` with the effort parameter instead.
+Claude Opus 4.7 and Claude Mythos Preview _only_ support adaptive thinking. Manual extended thinking (`thinking.type: "enabled"` with `budget_tokens`) is not supported on these models and will return a 400 error.
+
+`thinking.type: "enabled"` and `budget_tokens` are deprecated on Claude Opus 4.6 and Claude Sonnet 4.6 and will be removed in a future model release. Use `thinking.type: "adaptive"` with the effort parameter instead.
 
 Older models (Claude Sonnet 4.5, Claude Opus 4.5, etc.) do not support adaptive thinking and require `thinking.type: "enabled"` with `budget_tokens`.
 
@@ -129,6 +133,29 @@ You can combine adaptive thinking with the effort parameter to guide how much th
 | `medium`         | Claude uses moderate thinking. May skip thinking for very simple queries.                                                                     |
 | `low`            | Claude minimizes thinking. Skips thinking for simple tasks where speed matters most.                                                          |
 
+###### Important
+
+The `effort` parameter must be placed inside a separate `output_config` object in your request body — not inside the `thinking` object. Placing `effort` inside `thinking` will result in a `ValidationException`.
+
+The following example shows how to set the effort level when using the InvokeModel API:
+
+```
+{
+    "anthropic_version": "bedrock-2023-05-31",
+    "max_tokens": 16000,
+    "thinking": {
+        "type": "adaptive"
+    },
+    "output_config": {
+        "effort": "high"
+    },
+    "messages": [{
+        "role": "user",
+        "content": "Your prompt here"
+    }]
+}
+```
+
 ## Using adaptive thinking with the Converse API
 
 When using the [Converse API](conversation-inference.md "conversation-inference.md"), pass the `thinking` and `effort` parameters inside `additionalModelRequestFields`. The following example shows adaptive thinking with the default effort level:
@@ -154,7 +181,7 @@ response = bedrock_runtime.converse(
 print(json.dumps(response["output"], indent=2, default=str))
 ```
 
-To specify an effort level, add the `effort` field inside the `thinking` object:
+To specify an effort level, add the `effort` field inside a separate `output_config` object in `additionalModelRequestFields`:
 
 ```
 response = bedrock_runtime.converse(
@@ -165,7 +192,9 @@ response = bedrock_runtime.converse(
     }],
     additionalModelRequestFields={
         "thinking": {
-            "type": "adaptive",
+            "type": "adaptive"
+        },
+        "output_config": {
             "effort": "low"
         }
     }

@@ -118,6 +118,8 @@ The `inPaintingParams` fields are described below. The _mask_ defines the part o
 
 Don't use negative words in the `negativeText` prompt. For example, if you don't want to include mirrors in an image, enter `mirrors` in the `negativeText` prompt. Don't enter `no mirrors`.
 
+- **returnMask** (Optional) – If set to `true`, the response includes the mask image used for the inpainting operation as a base64-encoded string. This is useful for debugging or verifying which area of the image was modified. Default is `false`.
+
 Outpainting (Request)
 text (Required) – A text prompt to define what to change outside the mask. Must be <= 512 characters.
 negativeText (Optional) – A text prompt to define what not to include in the image. Must be <= 512
@@ -163,6 +165,8 @@ Don't use negative words in the `negativeText` prompt. For example, if you don't
 - **outPaintingMode** – Specifies whether to allow modification of the pixels inside the mask or not. The following values are possible.
   - DEFAULT – Use this option to allow modification of the image inside the mask in order to keep it consistent with the reconstructed background.
   - PRECISE – Use this option to prevent modification of the image inside the mask.
+
+- **returnMask** (Optional) – If set to `true`, the response includes the mask image used for the outpainting operation as a base64-encoded string. This is useful for debugging or verifying which area of the image was preserved. Default is `false`.
 
 Image variation (Request)
 Image variation allow you to create variations of your original image based on the parameter values. The size limit for the input image are

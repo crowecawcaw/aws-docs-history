@@ -8,7 +8,7 @@ Gemma 3 27B PT is Google's 27-billion parameter open model, the largest in the G
 
 - **Model launch date:** Mar 12, 2025
 - **Model EOL date:** N/A
-- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **End User License Agreements and Terms of Use:** [View](https://ai.google.dev/gemma/terms "https://ai.google.dev/gemma/terms")
 - **Model lifecycle:** Active
 - **Context window:** 128K tokens
 - **Max output tokens:** 8K

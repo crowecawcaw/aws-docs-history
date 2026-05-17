@@ -16,7 +16,7 @@ Before using Amazon Bedrock's OpenAI-compatible fine-tuning APIs, ensure you hav
 ###### Note
 
 If you are using Amazon Bedrock short-term/long-term API keys, then make sure that your role has access to the
-following IAM policy permissions: `AmazonBedrockMantleFullAccess` and [AWSLambdaRole](../ug/rft-open-weight-access-security.md#openai-fine-tuning-lambda-permissions "../ug/rft-open-weight-access-security.md#openai-fine-tuning-lambda-permissions"). 3. **OpenAI SDK (optional)** – Install the OpenAI Python SDK if using SDK-based requests. 4. **Environment variables** – Set the following environment variables:
+following IAM policy permissions: `AmazonBedrockMantleFullAccess` and [Lambda permissions for reward functions](#openai-fine-tuning-lambda-permissions "#openai-fine-tuning-lambda-permissions"). 3. **OpenAI SDK (optional)** – Install the OpenAI Python SDK if using SDK-based requests. 4. **Environment variables** – Set the following environment variables:
 
     * `OPENAI_API_KEY` – Set to your Amazon Bedrock API key
     * `OPENAI_BASE_URL` – Set to the Amazon Bedrock endpoint for your region (for example, `https://bedrock-mantle.us-west-2.api.aws/v1`)

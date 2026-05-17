@@ -8,7 +8,7 @@ Nemotron Nano 3 30B is NVIDIA's 30-billion parameter model with strong reasoning
 
 - **Model launch date:** Dec 15, 2025
 - **Model EOL date:** N/A
-- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **End User License Agreements and Terms of Use:** [View](https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-nemotron-open-model-license/ "https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-nemotron-open-model-license/")
 - **Model lifecycle:** Active
 - **Context window:** 256K tokens
 - **Max output tokens:** 8K

@@ -8,7 +8,7 @@ DeepSeek-R1 is DeepSeek's reasoning model that uses chain-of-thought to solve co
 
 - **Model launch date:** Jan 20, 2025
 - **Model EOL date:** No sooner than 3/10/2026
-- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **End User License Agreements and Terms of Use:** [View](https://huggingface.co/deepseek-ai/DeepSeek-R1/blob/main/LICENSE "https://huggingface.co/deepseek-ai/DeepSeek-R1/blob/main/LICENSE")
 - **Model lifecycle:** Active
 - **Context window:** 128K tokens
 - **Max output tokens:** 8K

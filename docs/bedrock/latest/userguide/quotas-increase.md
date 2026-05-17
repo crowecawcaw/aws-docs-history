@@ -4,6 +4,10 @@ The steps for requesting a quota increase for your account depend on the value i
 **Adjustable** column in the quotas table in
 [Amazon Bedrock service quotas](../../../general/latest/gr/bedrock.md#limits_bedrock "../../../general/latest/gr/bedrock.md#limits_bedrock"):
 
+###### Important
+
+Before requesting a quota increase, verify that the model is not in a _Legacy_ or _Deprecated_ lifecycle status. Quota increases are not granted for models that are scheduled for retirement. Check the model's lifecycle status on the [Model lifecycle](model-lifecycle.md "model-lifecycle.md") page and consider migrating to the successor model instead.
+
 - If a quota is marked as **Yes**, you can adjust it by
   following the steps at [Requesting
   a Quota Increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the Service Quotas User Guide.

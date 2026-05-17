@@ -209,8 +209,8 @@ Important considerations for Luma AI model performance and limitations:
 
 For additional information and related services:
 
-- **Amazon S3 Configuration** - [Creating S3 buckets](../../../s3/latest/userguide/creating-buckets-s3.md "../../../s3/latest/userguide/creating-buckets-s3.md") and [bucket policies](../../../s3/latest/userguide/bucket-policies.md "../../../s3/latest/userguide/bucket-policies.md") for output storage.
+- **Amazon S3 Configuration** - [Creating S3 buckets](../../../AmazonS3/latest/userguide/creating-buckets-s3.md "../../../AmazonS3/latest/userguide/creating-buckets-s3.md") and [bucket policies](../../../AmazonS3/latest/userguide/bucket-policies.md "../../../AmazonS3/latest/userguide/bucket-policies.md") for output storage.
 - **Async API Operations** - [StartAsyncInvoke](../APIReference/API_runtime_StartAsyncInvoke.md "../APIReference/API_runtime_StartAsyncInvoke.md"), [GetAsyncInvoke](../APIReference/API_runtime_GetAsyncInvoke.md "../APIReference/API_runtime_GetAsyncInvoke.md"), and [ListAsyncInvokes](../APIReference/API_runtime_ListAsyncInvokes.md "../APIReference/API_runtime_ListAsyncInvokes.md") API reference.
 - **Service Quotas** - [Quotas for Amazon Bedrock](quotas.md "quotas.md") for Bedrock service limits and quota increase requests.
-- **Video Processing Best Practices** - [Submit prompts and generate responses with model inference](inference.md "inference.md") for general model inference guidance.
+- **Video Processing Best Practices** - [Making inference requests](inference.md "inference.md") for general model inference guidance.
 - **Luma AI Documentation** - [Luma Labs Video Generation Documentation](https://docs.lumalabs.ai/docs/video-generation "https://docs.lumalabs.ai/docs/video-generation") for detailed model capabilities and advanced features.

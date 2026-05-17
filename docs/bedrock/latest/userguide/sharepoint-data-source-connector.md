@@ -31,14 +31,20 @@ bases](quotas.md "quotas.md").
 - Auto detection of main document fields
 - Inclusion/exclusion content filters
 - Incremental content syncs for added, updated, deleted content
-- SharePoint App-Only authentication
+- Microsoft Entra ID authentication (OAuth2 client credentials)
 
 ## Prerequisites
 
 ### SharePoint (Online)
 
+###### Important
+
+SharePoint App-Only authentication via Azure ACS was retired by Microsoft on April 2, 2026 and is no longer functional.
+Use Microsoft Entra ID (OAuth2 client credentials) authentication instead. When configuring your data source,
+set the `authType` to `OAUTH2_CLIENT_CREDENTIALS`.
+
 **In your SharePoint (Online), complete the following steps
-for using SharePoint App-Only authentication:**
+to configure Microsoft Entra ID authentication:**
 
 - Take note of your SharePoint Online site URL/URLs. For example,
   `https://yourdomain.sharepoint.com/sites/mysite`.
@@ -50,21 +56,18 @@ for using SharePoint App-Only authentication:**
   URL/URLs.
 - Copy your Microsoft 365 tenant ID. You can find your tenant ID in the
   Properties of your Microsoft Entra portal. For details, see [Find your Microsoft 365 tenant ID](https://learn.microsoft.com/en-us/sharepoint/find-your-office-365-tenant-id "https://learn.microsoft.com/en-us/sharepoint/find-your-office-365-tenant-id").
-
-###### Note
-
-For an example application, see [Register a client application in Microsoft Entra ID](https://learn.microsoft.com/en-us/azure/healthcare-apis/register-application "https://learn.microsoft.com/en-us/azure/healthcare-apis/register-application")
-(formerly known as Azure Active Directory) on the Microsoft Learn
-website.
-
-- Configure SharePoint App-Only credentials.
-- Copy the client ID and client secret value when granting permission to
-  SharePoint App-Only. For more information, see [Granting access using SharePoint App-Only](https://learn.microsoft.com/en-us/sharepoint/dev/solution-guidance/security-apponly-azureacs "https://learn.microsoft.com/en-us/sharepoint/dev/solution-guidance/security-apponly-azureacs").
-
-###### Note
-
-You do not need to setup any API permission for SharePoint
-App-Only. However, you must configure APP permissions on the SharePoint side. For more information about the required APP permissions, see the Microsoft documentation on [Granting access using SharePoint App-Only](https://learn.microsoft.com/en-us/sharepoint/dev/solution-guidance/security-apponly-azureacs "https://learn.microsoft.com/en-us/sharepoint/dev/solution-guidance/security-apponly-azureacs").
+- Register an application in Microsoft Entra ID. Go to the [Microsoft Entra admin center](https://entra.microsoft.com/ "https://entra.microsoft.com/"),
+  navigate to _App registrations_, and select _New registration_.
+  Note the _Application (client) ID_ and _Directory (tenant) ID_.
+- Configure API permissions for the registered application. Add
+  _Microsoft Graph_ → _Application permissions_ →
+  `Sites.Read.All`. Then grant admin consent for your organization.
+- Create a client secret. In your app registration, go to
+  _Certificates & secrets_ → _New client secret_.
+  Copy the secret value immediately, as it will not be shown again.
+- Store the tenant ID, client ID, and client secret in AWS Secrets Manager.
+  Your secret must contain the following key-value pairs:
+  `clientId`, `clientSecret`.
 
 ### AWS account
 
@@ -155,19 +158,13 @@ All data that you sync from your data source becomes available to anyone with
 data with controlled data source permissions. For more
 information, see [Knowledge base permissions](kb-permissions.md "kb-permissions.md").
 
-When using SharePoint App-Only authentication, your secret authentication
+When using Microsoft Entra ID authentication (`OAUTH2_CLIENT_CREDENTIALS`), your secret authentication
 credentials in AWS Secrets Manager must include these key-value pairs:
 
-- `clientId`: `client ID associated with your
-Microsoft Entra SharePoint application`
-- `clientSecret`: `client secret associated with
-your Microsoft Entra SharePoint application`
-- `sharePointClientId`: `client ID generated when
-registering your SharePoint app for App-Only
-authentication`
-- `sharePointClientSecret`: `client secret
-generated when registering your SharePoint app for App-Only
-authentication`
+- `clientId`: `Application (client) ID from your
+Microsoft Entra ID app registration`
+- `clientSecret`: `client secret value from your
+Microsoft Entra ID app registration`
 
 ###### Note
 
@@ -195,17 +192,15 @@ Console
    - **Data deletion policy** – You can delete the vector embeddings for your data source that are stored in the vector store by default, or choose to retain the vector store data.
 
 6. Provide the authentication information to connect to your
-   SharePoint instance. For SharePoint App-Only
+   SharePoint instance. For Microsoft Entra ID
    authentication:
    1. Provide the tenant ID. You can find your tenant ID in the
-      Properties of your Azure Active Directory portal.
+      Properties of your Microsoft Entra admin center.
    2. Go to AWS Secrets Manager to add your secret credentials or use an
       existing Amazon Resource Name (ARN) for the secret you
-      created. Your secret must contain the SharePoint client ID
-      and the SharePoint client secret generated when you
-      registered the App-Only at the tenant level or the site
-      level, and the Entra client ID and Entra client secret
-      generated when you register the app in Entra.
+      created. Your secret must contain the client ID
+      and the client secret from your Microsoft Entra ID
+      app registration.
 
 7. (Optional) In the **Content parsing and chunking** section, you can customize how to parse and chunk your data. Refer to the following resources to learn more about these customizations:
    - For more information about parsing options, see [Parsing options for your data source](kb-advanced-parsing.md "kb-advanced-parsing.md").
@@ -282,8 +277,8 @@ aws bedrock-agent create-data-source \
 
 ###### Important
 
-The OAuth2.0 authentication is not recommended. We recommend that you use SharePoint
-App-Only authentication.
+SharePoint App-Only authentication via Azure ACS was retired by Microsoft on April 2, 2026.
+Use Microsoft Entra ID authentication (`OAUTH2_CLIENT_CREDENTIALS`) as described in the prerequisites above.
 
 Using OAuth 2.0, you can authenticate and authorize access to SharePoint
 resources for SharePoint connectors integrated with Knowledge Bases.

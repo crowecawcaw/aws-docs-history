@@ -9,7 +9,7 @@ Custom prompt datasets must be stored in Amazon S3,
 and use the JSON line format and use the `.jsonl` file extension. Each line must be a valid JSON object. There can be up to 1000
 prompts in your dataset per automatic evaluation job.
 
-For job created using the console you must update the Cross Origin Resource Sharing (CORS) configuration on the S3 bucket. To learn more about
+For human-based evaluation jobs created using the console, you must configure Cross Origin Resource Sharing (CORS) on the S3 output bucket. This is required to display prompts and inference results to human annotators in the annotation portal. To learn more about
 the required CORS permissions, see [Required Cross Origin Resource Sharing (CORS) permissions on S3 buckets](model-evaluation-security-cors.md "model-evaluation-security-cors.md").
 
 ## Perform an evaluation job where Amazon Bedrock invokes a model for you

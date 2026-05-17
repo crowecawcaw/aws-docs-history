@@ -16,17 +16,21 @@ following:
 
 - The source files are of the following supported formats:
 
-| Format                      | Extension  |
-| --------------------------- | ---------- |
-| Plain text (ASCII only)     | .txt       |
-| Markdown                    | .md        |
-| HyperText Markup Language   | .html      |
-| Microsoft Word document     | .doc/.docx |
-| Comma-separated values      | .csv       |
-| Microsoft Excel spreadsheet | .xls/.xlsx |
-| Portable Document Format    | .pdf       |
+| Format                                    | Extension  |
+| ----------------------------------------- | ---------- |
+| Plain text (UTF-8 encoded)                | .txt       |
+| Markdown (UTF-8 encoded)                  | .md        |
+| HyperText Markup Language (UTF-8 encoded) | .html      |
+| Microsoft Word document                   | .doc/.docx |
+| Comma-separated values                    | .csv       |
+| Microsoft Excel spreadsheet               | .xls/.xlsx |
+| Portable Document Format                  | .pdf       |
 
 - Each file size doesn't exceed the quota of 50 MB.
+
+###### Note
+
+The maximum chunk size quota (measured in KB) refers to the size of individual text chunks after your documents are split by the chunking strategy — not the maximum size of the source document itself. Documents larger than the chunk size are automatically split into multiple chunks. For approximately 1 KB of plain text, expect roughly 1,000 characters or 200–250 English words.
 
 If you use an Amazon S3 or custom data source, you can use multimodal data, including
 JPEG (.jpeg) or PNG (.png) images or files that contain tables, charts,

@@ -36,7 +36,7 @@ question answering:
 - Meta Llama 3.1 8B Instruct
 - Meta Llama 3.1 70B Instruct
   The following conversational models are designed for single-turn and multi-turn interactions. If a model uses the Converse API, your fine-tuning dataset must follow the Converse API message format and include system,
-  user, and assistant messages. For examples, see [Prepare data for fine-tuning text-to-text models](#preparing-text-data "#preparing-text-data"). For more information about Converse API operations, see [Carry out a conversation with the Converse API operations](conversation-inference.md "conversation-inference.md").
+  user, and assistant messages. For examples, see [Prepare data for fine-tuning text-to-text models](#preparing-text-data "#preparing-text-data"). For more information about Converse API operations, see [Inference using Converse API](conversation-inference.md "conversation-inference.md").
 
 - Anthropic Claude 3 Haiku
 - Meta Llama 3.2 1B Instruct (Converse API format)
@@ -185,7 +185,7 @@ to send messages to a model. To call `Converse`, you require permission for the
 `bedrock:InvokeModel` operation. To call `ConverseStream`, you require
 permission for the `bedrock:InvokeModelWithResponseStream` operation. For more information,
 see [Using the Converse API](conversation-inference-call.md "conversation-inference-call.md").
-For more information about Converse API operations, see [Carry out a conversation with the Converse API operations](conversation-inference.md "conversation-inference.md")
+For more information about Converse API operations, see [Inference using Converse API](conversation-inference.md "conversation-inference.md")
 
 Example format
 
@@ -398,7 +398,14 @@ For text-to-image or image-to-embedding models, prepare a training dataset. Vali
 not supported. Each JSON object is a sample containing an `image-ref`, the Amazon S3 URI for an
 image, and a `caption` that could be a prompt for the image.
 
-The images must be in JPEG or PNG format.
+The images must be in JPEG or PNG format and meet the following requirements:
+
+- **Dimensions** – Each side must be between 512 and 4,096 pixels.
+- **Aspect ratio** – Between 1:4 and 4:1.
+- **Total pixels** – Must not exceed 12,582,912 (approximately 3,547 x 3,547).
+- **File size** – Must not exceed 50 MB per image.
+- **Caption length** – Between 3 and 1,024 characters.
+  For the full list of constraints, see [Amazon Titan Image Generator G1 V1](#quotas-cm-titan-image "#quotas-cm-titan-image").
 
 ```
 {"image-ref": "s3://bucket/path/to/image001.png", "caption": "<prompt text>"}

@@ -2,6 +2,10 @@
 
 For a list of Region codes and endpoints supported in Amazon Bedrock, see [Amazon Bedrock endpoints and quotas](../../../general/latest/gr/bedrock.md#bedrock_region "../../../general/latest/gr/bedrock.md#bedrock_region"). This topic describes predefined inference profiles that you can use and the Regions and models that support application inference profiles.
 
+###### Note
+
+Looking for inference profile IDs for a specific model? Each model's inference profile IDs and Regional availability are now documented on the model's detail page. Visit [models at a glance](model-cards.md "model-cards.md") and choose the model you are interested in.
+
 ###### Topics
 
 - [Supported cross-Region inference profiles](#inference-profiles-support-system "#inference-profiles-support-system")
@@ -52,8 +56,9 @@ include all commercial AWS Regions.
 
 ###### Important
 
-To find the inference profile IDs and supported Regions for a specific model, visit
-[models at a glance](model-cards.md "model-cards.md") and choose the model you are interested in. Each model page lists its available inference profile IDs and a Regional availability table showing In-Region, Geo, and Global support.
+Each model's cross-Region inference profile IDs, supported source Regions, destination Regions, and Geo scope (Global, US, or EU) are documented on the model's detail page. To find this information, visit [models at a glance](model-cards.md "model-cards.md") and choose the model you are interested in. On the model page, look for the _Regional availability_ table — it shows which Regions support In-Region, Geo, and Global inference profiles, and the _Inference profile IDs_ section lists the exact IDs to use in API calls.
+
+If you need to compare data residency options across multiple models for compliance planning, review the Regional availability table on each model's page to confirm that your chosen model's inference profile routes requests only to Regions that meet your requirements.
 
 ## Supported Regions and models for application inference profiles
 

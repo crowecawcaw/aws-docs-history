@@ -51,9 +51,9 @@ combinations of settings may not be allowed or may require additional permission
 Async
 **Invoke Data Automation Async**
 
-You have a project set up, you can start processing images using the [InvokeDataAutomationAsync](../APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md "../APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md") operation. If using custom output, you can only submit a single blueprint ARN per request.
+You have a project set up, you can start processing images using the [InvokeDataAutomationAsync](../APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md "../APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md") operation. If using custom output, you can submit one or more blueprint ARNs per request.
 
-This API call initiates the asynchronous processing of your files in a specified S3 bucket. The API accepts the project ARN and the file to be processed, then starts the asynchronous processing job. A job ID is returned for tracking the process. Errors will be raised if the project doesn't exist, or if the caller doesn't have the necessary permissions, or if the input files aren't in a supported format.
+This API call initiates the asynchronous processing of your files in a specified S3 bucket. The API accepts the project ARN and the file to be processed, then starts the asynchronous processing job. An `invocationArn` is returned for tracking the process. Errors will be raised if the project doesn't exist, or if the caller doesn't have the necessary permissions, or if the input files aren't in a supported format.
 
 The following is the structure of the JSON request:
 

@@ -65,3 +65,71 @@ Amazon Bedrock throws a validation exception. If there’s a conflict between in
 will result in a failure.
 
 Blank rows found inside a CSV are ignored or skipped.
+
+## Example: Multi-row CSV with metadata
+
+The following example shows a complete CSV file and its corresponding metadata JSON file.
+
+**Example CSV file (`properties.csv`)**
+
+```
+description,city,price,bedrooms
+"Spacious 3-bedroom home with updated kitchen and large backyard.",Seattle,450000,3
+"Modern downtown condo with floor-to-ceiling windows and city views.",Portland,325000,2
+"Charming craftsman bungalow with original hardwood floors.",Austin,275000,2
+```
+
+**Corresponding metadata file (`properties.csv.metadata.json`)**
+
+```
+{
+    "metadataAttributes": {
+        "source": "property_listings_2024"
+    },
+    "documentStructureConfiguration": {
+        "type": "RECORD_BASED_STRUCTURE_METADATA",
+        "recordBasedStructureMetadata": {
+            "contentFields": [
+                {
+                    "fieldName": "description"
+                }
+            ],
+            "metadataFieldsSpecification": {
+                "fieldsToInclude": [
+                    {
+                        "fieldName": "city"
+                    },
+                    {
+                        "fieldName": "price"
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+
+In this example:
+
+- `contentFields` – Specifies one column (`description`) as the content to be chunked and embedded. Only one content field is supported.
+- `fieldsToInclude` – Specifies which columns (`city` and `price`) to treat as filterable metadata. The `bedrooms` column is excluded because it is not listed.
+- `metadataAttributes` – Specifies document-level metadata applied to every chunk from this CSV. In this example, `source` is a static attribute applied to all rows.
+
+Each row produces one chunk. For the first row, the chunk text is the description, and the metadata is `city: "Seattle"`, `price: "450000"`, and `source: "property_listings_2024"`. All metadata values from CSV columns are stored as strings.
+
+## Supported metadata data types
+
+The following data types are supported for metadata attributes:
+
+- `STRING` – A text value.
+- `NUMBER` – A numeric value. When using the CSV-based metadata configuration described on this page, number values are stored as strings.
+- `BOOLEAN` – A true or false value.
+- `STRING_LIST` – A list of string values.
+
+For the full metadata attribute schema used in filtering queries, see [MetadataAttributeSchema](../APIReference/API_agent-runtime_MetadataAttributeSchema.md "../APIReference/API_agent-runtime_MetadataAttributeSchema.md") in the API Reference.
+
+## Related metadata configuration options
+
+In addition to the CSV-based metadata configuration described on this page, you can also configure metadata using a sidecar `.metadata.json` file for any document type in an Amazon S3 data source. This method supports the full set of data types and the `includeForEmbedding` option. For more information, see [Document metadata fields](s3-data-source-connector.md#ds-s3-metadata-fields "s3-data-source-connector.md#ds-s3-metadata-fields").
+
+To learn how to filter query results using metadata, see the **Knowledge base prompt templates** section in [Configure and customize queries and response generation](kb-test-config.md "kb-test-config.md").

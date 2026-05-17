@@ -112,7 +112,7 @@ The following are optional parameters:
 | 0.5     | 0       | 1       |
 
 - **top_p** – Use a
-  lower value to ignore less probable options. Set to 0 or 1.0 to
+  lower value to ignore less probable options. Set to 1.0 to
   disable.
 
 | Default | Minimum | Maximum |

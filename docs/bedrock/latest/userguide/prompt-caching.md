@@ -26,8 +26,8 @@ in subsequent requests will result in cache misses.
 
 Cache checkpoints have a minimum and maximum number of tokens, dependent on the specific
 model you're using. You can only create a cache checkpoint if your total prompt prefix meets
-the minimum number of tokens. For example, the Anthropic Claude 3.7 Sonnet model requires at
-least 1,024 tokens per cache checkpoint. That means that your first cache checkpoint can be
+the minimum number of tokens. For example, Claude 3.7 Sonnet requires at
+least 1,024 tokens per cache checkpoint, while Claude Opus 4.5, Claude Opus 4.6, Claude Haiku 4.5, and Claude Sonnet 4.5 require at least 4,096 tokens per cache checkpoint. That means that for a model with a 1,024-token minimum, your first cache checkpoint can be
 defined after 1,024 tokens and your second cache checkpoint can be defined after 2,048 tokens.
 If you try to add a cache checkpoint before meeting the minimum number of tokens, your inference
 will still succeed, but your prefix will not be cached. The cache has a Time To Live (TTL),
@@ -65,6 +65,10 @@ choose to enable prompt caching. Depending on the model, you can cache
 system prompts, system instructions, and messages (user and assistant). You
 can also choose to disable prompt caching.
 
+###### Note
+
+Prompt caching is only supported for on-demand inference endpoints. It is not supported with the batch inference API.
+
 The APIs provide you with the most flexibility and granular control over the
 prompt cache. You can set an individual cache
 checkpoint within your prompts. You can add to the cache by creating more cache
@@ -73,6 +77,9 @@ model. For more information, see [Supported models, Regions, and limits](#prompt
 
 ## Supported models, Regions, and limits
 
+Prompt caching is available in all AWS Regions where the supported models are available. To check
+model availability by Region, see [Regional availability](models-region-compatibility.md "models-region-compatibility.md").
+
 The following table lists the supported models along with their token minimums, maximum
 number of cache checkpoints, and fields that allow cache checkpoints.
 
@@ -80,11 +87,16 @@ To see which models support prompt caching, please refer to
 [Models at a glance](model-cards.md "model-cards.md") and then choose the model you are interested in.
 The following table shows prompt caching for models that are not present in models-at-a-glance.
 
-| Model name           | Model ID                                  | Release Type        | Minimum number of tokens per cache checkpoint | Maximum number of cache checkpoints per request | Supported TTL | Fields that accept prompt cache checkpoints |
-| -------------------- | ----------------------------------------- | ------------------- | --------------------------------------------- | ----------------------------------------------- | ------------- | ------------------------------------------- |
-| Claude Opus 4        | anthropic.claude-opus-4-20250514-v1:0     | Generally Available | 1,024                                         | 4                                               | 5 minutes     | `system`, `messages`, and `tools`           |
-| Claude 3.7 Sonnet    | anthropic.claude-3-7-sonnet-20250219-v1:0 | Generally Available | 1,024                                         | 4                                               | 5 minutes     | `system`, `messages`, and `tools`           |
-| Claude 3.5 Sonnet v2 | anthropic.claude-3-5-sonnet-20241022-v2:0 | Preview             | 1,024                                         | 4                                               | 5 minutes     | `system`, `messages`, and `tools`           |
+| Model name           | Model ID                                  | Release Type        | Minimum number of tokens per cache checkpoint | Maximum number of cache checkpoints per request | Supported TTL     | Fields that accept prompt cache checkpoints |
+| -------------------- | ----------------------------------------- | ------------------- | --------------------------------------------- | ----------------------------------------------- | ----------------- | ------------------------------------------- |
+| Claude Opus 4.5      | anthropic.claude-opus-4-5-20251101-v1:0   | Generally Available | 4,096                                         | 4                                               | 5 minutes, 1 hour | `system`, `messages`, and `tools`           |
+| Claude Opus 4.6      | anthropic.claude-opus-4-6-v1              | Generally Available | 4,096                                         | 4                                               | 5 minutes         | `system`, `messages`, and `tools`           |
+| Claude Sonnet 4.5    | anthropic.claude-sonnet-4-5-20250929-v1:0 | Generally Available | 4,096                                         | 4                                               | 5 minutes, 1 hour | `system`, `messages`, and `tools`           |
+| Claude Sonnet 4.6    | anthropic.claude-sonnet-4-6               | Generally Available | 1,024                                         | 4                                               | 5 minutes         | `system`, `messages`, and `tools`           |
+| Claude Haiku 4.5     | anthropic.claude-haiku-4-5-20251001-v1:0  | Generally Available | 4,096                                         | 4                                               | 5 minutes, 1 hour | `system`, `messages`, and `tools`           |
+| Claude Opus 4        | anthropic.claude-opus-4-20250514-v1:0     | Generally Available | 1,024                                         | 4                                               | 5 minutes         | `system`, `messages`, and `tools`           |
+| Claude 3.7 Sonnet    | anthropic.claude-3-7-sonnet-20250219-v1:0 | Generally Available | 1,024                                         | 4                                               | 5 minutes         | `system`, `messages`, and `tools`           |
+| Claude 3.5 Sonnet v2 | anthropic.claude-3-5-sonnet-20241022-v2:0 | Preview             | 1,024                                         | 4                                               | 5 minutes         | `system`, `messages`, and `tools`           |
 
 To use the 1-hour TTL option with supported models (Claude Opus 4.5, Claude Haiku 4.5, and Claude Sonnet 4.5),
 specify the `ttl` field in your cache checkpoint. In the Converse API, add `"ttl": "1h"`
@@ -148,7 +160,7 @@ Claude 3.5 Sonnet v2 model, you could place two cache checkpoints in
 `messages`, one cache checkpoint in `system`,
 and one in `tools`. For more detailed information and examples of
 structuring and sending Converse API requests, see
-[Carry out a conversation with the Converse API operations](conversation-inference.md "conversation-inference.md").
+[Inference using Converse API](conversation-inference.md "conversation-inference.md").
 
 Specify the desired ttl value as below, when ttl value not specified the default behavior of
 5 minutes caching applies.
@@ -260,6 +272,12 @@ read from the cache and how many tokens were written to the cache because of
 your previous request. The `CacheDetails` values tell you the ttl
 used for the number of token written to cache. These are values that you're charged for by Amazon Bedrock,
 at a rate that's lower than the cost of full model inference.
+
+###### Important
+
+When prompt caching is enabled, the `inputTokens` field represents only the non-cached input tokens (tokens that were not read from or written to the cache). To calculate the total input tokens sent in a request, use the following formula:
+
+`total input tokens = inputTokens + cacheReadInputTokens + cacheWriteInputTokens`
 
 Prompt caching is enabled by default when you call the [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") API.
 

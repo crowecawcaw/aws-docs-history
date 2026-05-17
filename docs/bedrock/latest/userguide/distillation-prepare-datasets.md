@@ -142,7 +142,7 @@ JSONL must use the following structure.
             }]
         }
     ]
-}}
+}
 ```
 
 ## Validate your dataset

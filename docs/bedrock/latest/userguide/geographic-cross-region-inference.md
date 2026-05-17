@@ -122,7 +122,7 @@ inference in the following ways:
   inference increases throughput and performance by dynamically routing model
   invocation requests across the Regions defined in inference profile. Routing
   factors in user traffic, demand and utilization of resources. For more
-  information, see [Submit prompts and generate responses with model inference](inference.md "inference.md")
+  information, see [Making inference requests](inference.md "inference.md")
 - **Batch inference** – Submit requests
   asynchronously with batch inference by specifying the ID of the inference
   profile as the `modelId` when sending a [CreateModelInvocationJob](../APIReference/API_CreateModelInvocationJob.md "../APIReference/API_CreateModelInvocationJob.md") request.

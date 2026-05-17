@@ -195,7 +195,7 @@ router, where:
      AWS Region where you want to create the router.
     * `<modelA>` and
      `<modelB>` are the models to
-     choose from for routing. For example, `anthropic.claude-3-5-sonnet-20240620-v1:0`.
+     choose from for routing. For example, `anthropic.claude-sonnet-4-5-20250929-v1:0`.
 
 ```
 aws bedrock create-prompt-router \

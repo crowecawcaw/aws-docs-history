@@ -81,3 +81,55 @@ Stop the job that you started.
 ```
 bedrock.stop_model_invocation_job(jobIdentifier=jobArn)
 ```
+
+Java
+
+```
+package com.amazon.aws.sample.bedrock.inference;
+
+import software.amazon.awssdk.services.bedrock.BedrockClient;
+import software.amazon.awssdk.services.bedrock.model.*;
+
+public class BedrockBatchInference {
+    private final BedrockClient bedrockClient = BedrockClient.create();
+
+    public void createModelInvokeJobSampleCode() {
+
+        CreateModelInvocationJobResponse response = bedrockClient.createModelInvocationJob(request -> request
+                .modelId("anthropic.claude-haiku-4-5-20251001-v1:0")
+                .jobName("unique-job-name")
+                .roleArn("arn:aws:iam::123456789:role/bedrock-role")
+                .clientRequestToken("client-token")
+                .inputDataConfig(input -> input
+                        .s3InputDataConfig(s3 -> s3
+                                .s3Uri("s3://batch-input/abc.jsonl")
+                                .s3InputFormat(S3InputFormat.JSONL)))
+                .outputDataConfig(output -> output
+                        .s3OutputDataConfig(s3 -> s3
+                                .s3Uri("s3://batch-output/"))));
+
+        System.out.println(response.jobArn());
+    }
+
+    public void getModelInvokeJobSampleCode() {
+        GetModelInvocationJobResponse response = bedrockClient.getModelInvocationJob(request -> request
+                .jobIdentifier("jobArn"));
+
+        System.out.println(response.status());
+    }
+
+    public void listModelInvokeJobSampleCode() {
+        ListModelInvocationJobsResponse response = bedrockClient.listModelInvocationJobs(request -> request
+                .maxResults(10)
+                .nameContains("matching-string"));
+
+        response.invocationJobSummaries().forEach(job ->
+                System.out.println(job.jobName() + ": " + job.status()));
+    }
+
+    public void stopModelInvokeJobSampleCode() {
+        bedrockClient.stopModelInvocationJob(request -> request
+                .jobIdentifier("jobArn"));
+    }
+}
+```

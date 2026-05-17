@@ -162,7 +162,7 @@ fulfills the following requirements:
        ingestion, these separate columns
        will be populated with the corresponding attribute values.
 
-  If you have PDF documents in your data source and use Amazon OpenSearch Serverless for your vector
+  If you have PDF documents in your data source and use Amazon OpenSearch Serverless or Amazon Aurora for your vector
   store: Amazon Bedrock knowledge bases will generate document page numbers and store them in a
   metadata field/attribute called
   _x-amz-bedrock-kb-document-page-number_. Note that page
@@ -694,6 +694,10 @@ required field for citations to be displayed in the response.
   see [Use XML
   tags](https://docs.anthropic.com/claude/docs/use-xml-tags "https://docs.anthropic.com/claude/docs/use-xml-tags") in the [Anthropic user guide](https://docs.anthropic.com/en/docs/welcome "https://docs.anthropic.com/en/docs/welcome").
   For general prompt engineering guidelines, see [Prompt engineering concepts](prompt-engineering-guidelines.md "prompt-engineering-guidelines.md").
+
+###### Note
+
+When you don't provide a custom prompt template, Amazon Bedrock uses a default system prompt that includes generic example content (such as sample questions and answers about unrelated topics) to guide the model's response formatting. This default prompt is visible in [model invocation logs](model-invocation-logging.md "model-invocation-logging.md"). The example content in the default prompt is not from other customers' data — it is a static template provided by Amazon Bedrock. You can override the default prompt by specifying your own `textPromptTemplate`.
 
 Choose the tab for your preferred method, and then follow the steps:
 

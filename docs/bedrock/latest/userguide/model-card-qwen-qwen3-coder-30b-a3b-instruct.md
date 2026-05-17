@@ -8,9 +8,9 @@ Qwen3 Coder 30B A3B is Qwen's compact coding mixture-of-experts model with 30B t
 
 - **Model launch date:** Jul 31, 2025
 - **Model EOL date:** N/A
-- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **End User License Agreements and Terms of Use:** [View](https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct/blob/main/LICENSE "https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct/blob/main/LICENSE")
 - **Model lifecycle:** Active
-- **Context window:** 128K tokens
+- **Context window:** 256K tokens
 - **Max output tokens:** 16K
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |

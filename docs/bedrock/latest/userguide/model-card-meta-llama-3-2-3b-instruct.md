@@ -8,7 +8,7 @@ Llama 3.2 3B Instruct is Meta's 3-billion parameter lightweight model designed f
 
 - **Model launch date:** Sep 25, 2024
 - **Model EOL date:** July 7, 2026
-- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **End User License Agreements and Terms of Use:** [View](https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/LICENSE "https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/LICENSE")
 - **Model lifecycle:** Legacy
 - **Context window:** 128K tokens
 - **Max output tokens:** 4K

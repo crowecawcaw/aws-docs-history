@@ -16,13 +16,15 @@ alias.
 
 A _version_ is a snapshot that preserves the resource as
 it exists at the time it was created. You can continue to modify the working draft and
-create new aliases (and consequently, versions) of your agent as necessary. In Amazon Bedrock, you
-create a new version of your agent by creating an alias that points to the new version by
-default. Amazon Bedrock creates versions in numerical order, starting from 1.
+create new versions of your agent as necessary. Amazon Bedrock creates versions in numerical order, starting from 1. You can create a new version in the following ways:
 
-Versions are immutable because they act as a snapshot of your agent at the time you
-created it. To make updates to an agent in production, you must create a new version and set
-up your application to make calls to the alias that points to that version.
+- Create a new alias and choose to create a new version to associate with it.
+- Update an existing alias to point to a new version. You can do this by using the
+  [UpdateAgentAlias](../APIReference/API_agent_UpdateAgentAlias.md "../APIReference/API_agent_UpdateAgentAlias.md")
+  operation or by editing the alias in the console. If you omit the `routingConfiguration`, Amazon Bedrock automatically creates a new version and associates it with the alias.
+  Versions are immutable because they act as a snapshot of your agent at the time you
+  created it. To make updates to an agent in production, you must create a new version and set
+  up your application to make calls to the alias that points to that version.
 
 With aliases, you can switch efficiently between different versions of your agent without
 requiring the application to keep track of the version. For example, you can change an alias

@@ -89,9 +89,9 @@ response = client.invoke_model(
 
 Bedrock supports [100+ foundation models](models.md "models.md") from industry-leading providers, including Amazon, Anthropic, DeepSeek, Moonshot AI, MiniMax, and OpenAI.
 
-|            |                                                                                             |                  |               |                  |                 |
-| ---------- | ------------------------------------------------------------------------------------------- | ---------------- | ------------- | ---------------- | --------------- |
-| **Nova 2** | Orange rounded square icon with white radial loading spinner design.<br>**Claude Opus 4.6** | **Deepseek 3.2** | **Kimi K2.5** | **MiniMax M2.1** | **GPT-OSS-20B** |
+|                 |                                                                                    |              |          |             |            |
+| --------------- | ---------------------------------------------------------------------------------- | ------------ | -------- | ----------- | ---------- |
+| **Amazon Nova** | Orange rounded square icon with white radial loading spinner design.<br>**Claude** | **DeepSeek** | **Kimi** | **MiniMax** | **OpenAI** |
 
 ## What's new?
 
@@ -105,5 +105,5 @@ Bedrock supports [100+ foundation models](models.md "models.md") from industry-l
 |                                                                        |                                                                                                                                                                         |
 | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Cloud icon with bidirectional arrows indicating sync or data transfer. | Explore the [APIs supported by Amazon Bedrock](apis.md "apis.md") and [Endpoints supported by Amazon Bedrock](endpoints.md "endpoints.md") supported by Amazon Bedrock. |
-| Wrench and screwdriver icon on purple background.                      | Build using the [Submit prompts and generate responses with model inference](inference.md "inference.md") operations provided by Amazon Bedrock.                        |
+| Wrench and screwdriver icon on purple background.                      | Build using the [Making inference requests](inference.md "inference.md") operations provided by Amazon Bedrock.                                                         |
 |                                                                        | Customize your models to improve performance and quality. [Customize your model to improve its performance for your use case](custom-models.md "custom-models.md")      |

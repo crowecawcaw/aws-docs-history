@@ -435,14 +435,27 @@ JSON
 4. Grant permissions to your service role through AWS Lake Formation (to learn more
    about Lake Formation and its relationship with Amazon Redshift, see [Data
    sources for Redshift](../../../redshift/latest/dg/copy-parameters-data-source.md "../../../redshift/latest/dg/copy-parameters-data-source.md")) by doing the following:
-   1. Sign in to the AWS Management Console, and open the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/").
-   2. Select **Data permissions** from the left
-      navigation pane.
-   3. Grant permissions to the service role you're using for
-      Amazon Bedrock Knowledge Bases.
-   4. Grant **Describe** and
-      **Select** permissions for your databases
-      and tables.
+
+###### Important
+
+You must also add the `lakeformation:GetDataAccess` action to your Amazon Bedrock Knowledge Bases service role's IAM policy. Without this permission, queries to the knowledge base will fail with an authorization error. Add the following statement to the service role policy:
+
+```
+{
+    "Effect": "Allow",
+    "Action": "lakeformation:GetDataAccess",
+    "Resource": "*"
+}
+```
+
+    1. Sign in to the AWS Management Console, and open the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/").
+    2. Select **Data permissions** from the left
+     navigation pane.
+    3. Grant permissions to the service role you're using for
+     Amazon Bedrock Knowledge Bases.
+    4. Grant **Describe** and
+     **Select** permissions for your databases
+     and tables.
 
 5. Depending on the data source you use in AWS Glue Data Catalog, you might need to
    add permissions to access that data source (for more information,

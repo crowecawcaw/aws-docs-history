@@ -9,7 +9,7 @@ parameters that is mentioned for the customized model you are importing. If you 
 inference parameters that do not match with the inference parameters mentioned for that
 model in this documentation, those parameters will be ignored.
 
-Before viewing model parameters for different models, you should familiarize yourself with what model inference is by reading the following chapter: [Submit prompts and generate responses with model inference](inference.md "inference.md").
+Before viewing model parameters for different models, you should familiarize yourself with what model inference is by reading the following chapter: [Making inference requests](inference.md "inference.md").
 
 Refer to the following pages for more information about different models in Amazon Bedrock:
 

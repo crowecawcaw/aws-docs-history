@@ -219,3 +219,31 @@ client.delete_prompt(
     promptIdentifier=prompt_id
 )
 ```
+
+## Invoke a managed prompt
+
+After you create and version a prompt, you can invoke it for inference using the [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") API. Specify the prompt ARN as the `modelId` and provide values for any prompt variables in the `promptVariables` field.
+
+```
+import boto3, json
+
+bedrock_runtime = boto3.client(service_name="bedrock-runtime", region_name="us-east-1")
+
+# Use the prompt ARN (with version) as the modelId
+prompt_arn = "arn:aws:bedrock:us-east-1:123456789012:prompt/PROMPT_ID:VERSION"
+
+response = bedrock_runtime.converse(
+    modelId=prompt_arn,
+    promptVariables={
+        "genre": {"text": "jazz"},
+        "number": {"text": "5"}
+    }
+)
+
+# Print the response
+print(response["output"]["message"]["content"][0]["text"])
+```
+
+###### Note
+
+When invoking a managed prompt, you don't need to specify `messages` or `system` fields — these are defined in the prompt template. You only need to provide values for the variables defined in the prompt.

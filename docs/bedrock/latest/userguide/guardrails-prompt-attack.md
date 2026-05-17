@@ -52,7 +52,7 @@ developer provided system prompts remain unaffected. For more information, see
 [Apply tags to user input to filter content](guardrails-tagging.md "guardrails-tagging.md").
 
 The following example shows how to use the input tags to the
-`InvokeModel` or the `InvokeModelResponseStream` API
+`InvokeModel` or the `InvokeModelWithResponseStream` API
 operations for the preceding scenario. In this example, only the user input that
 is enclosed within the
 `<amazon-bedrock-guardrails-guardContent_xyz>` tag will be
@@ -80,7 +80,7 @@ avoided.
 
 You must always use input tags with your guardrails to indicate user
 inputs in the input prompt while using `InvokeModel` and
-`InvokeModelResponseStream` API operations for model
+`InvokeModelWithResponseStream` API operations for model
 inference. If there are no tags, prompt attacks for those use cases will not
 be filtered.
 

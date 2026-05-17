@@ -36,6 +36,25 @@ The following describes how Amazon Bedrock processes requests with structured ou
 5. **Subsequent requests** – Identical schemas from the same account use cached grammars, resulting in inference latency comparable to standard requests with minimal overhead.
 6. **Response** – You receive standard inference responses with strict schema compliance.
 
+## Supported JSON Schema features
+
+The following JSON Schema Draft 2020-12 features are supported:
+
+- All basic types: `object`, `array`, `string`, `integer`, `number`, `boolean`, `null`
+- `enum` (strings, numbers, booleans, or nulls only)
+- `const`, `anyOf`, `allOf` (with limitations)
+- `$ref`, `$def`, and `definitions` (internal references only)
+- String formats: `date-time`, `time`, `date`, `duration`, `email`, `hostname`, `uri`, `ipv4`, `ipv6`, `uuid`
+- Array `minItems` (only values 0 and 1)
+
+The following features are _not_ supported:
+
+- Recursive schemas
+- External `$ref` references
+- Numerical constraints (`minimum`, `maximum`, `multipleOf`)
+- String constraints (`minLength`, `maxLength`)
+- `additionalProperties` set to anything other than `false`
+
 ## Supported APIs or features
 
 You can use structured outputs across the following Amazon Bedrock features:

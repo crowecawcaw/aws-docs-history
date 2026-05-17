@@ -21,7 +21,7 @@ To generate an Amazon Bedrock API key using the console, do the following:
    [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
 2. In the left navigation pane, select **API keys**.
 3. Generate one of the following types of keys:
-   - **Short-term API key** – In the **Short-term API keys** tab, choose **Generate short-term API keys**. The key expires when your console session expires (and no longer than 12 hours) and lets you make calls to the AWS Region that you generated it from. You can modify the Region directly in the generated key.
+   - **Short-term API key** – In the **Short-term API keys** tab, choose **Generate short-term API keys**. The key expires when your console session expires (and no longer than 12 hours) and lets you make calls to the AWS Region that you generated it from. To generate a key for a different Region, select that Region in the console before generating the key.
    - **Long-term API key** – In the **Long-term API keys** tab, choose **Generate long-term API keys**.
      1. In the **API key expiration** section, choose a time after which the key will expire.
      2. (Optional) By default, the [AmazonBedrockLimitedAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockLimitedAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockLimitedAccess") AWS-managed policy, which grants access to core Amazon Bedrock API operations, is attached to the IAM user associated with the key. To select more policies to attach to the user, expand the **Advanced permissions** section and select the policies that you want to add.

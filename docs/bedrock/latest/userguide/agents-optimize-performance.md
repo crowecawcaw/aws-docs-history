@@ -6,7 +6,9 @@ Amazon Bedrock Agents offers options to choose different flows that can optimize
 - Your agent contains no action groups or they are all disabled.
 - Your agent doesn't request more information from the user if it doesn't have enough information.
 - Your agent is using the default orchestration prompt template.
-  To learn how to check for these conditions, choose the tab for your preferred method, and then follow the steps:
+  When these conditions are met, the service reduces the number of LLM calls needed to process a request. If you override the default orchestration prompt template, the agent uses the standard orchestration flow instead, which may require additional LLM calls and increase latency.
+
+To learn how to check for these conditions, choose the tab for your preferred method, and then follow the steps:
 
 Console
 

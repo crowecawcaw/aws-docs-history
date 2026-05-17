@@ -244,13 +244,12 @@ When editing a template, you can engineer the prompt with the following tools:
 - **XML tags** – Anthropic models support the use of XML tags to structure and delineate your prompts. Use descriptive tag names for optimal results. For example, in the default orchestration prompt template, you'll see the `<examples>` tag used to delineate few-shot examples. For more information, see [Use XML tags](https://docs.anthropic.com/claude/docs/use-xml-tags "https://docs.anthropic.com/claude/docs/use-xml-tags") in the [Anthropic user guide](https://docs.anthropic.com/en/docs/welcome "https://docs.anthropic.com/en/docs/welcome").
   You can enable or disable any step in the agent sequence. The following table shows the default state for each step and whether it differs by model:
 
-| Prompt template                    | Default setting                                                                            | Models                                             |
-| ---------------------------------- | ------------------------------------------------------------------------------------------ | -------------------------------------------------- |
-| Pre-processing                     | Enabled                                                                                    | Anthropic Claude V2.x, Anthropic<br>Claude Instant |
-| Disabled                           | Amazon Titan Text Premier, Anthropic<br>Claude V3, Claude 3.5 Sonnet, Llama 3.1, Llama 3.2 |
-| Orchestration                      | Enabled                                                                                    | All                                                |
-| Knowledge base response generation | Enabled                                                                                    | All except Llama 3.1 and Llama 3.2                 |
-| Post-processing                    | Disabled                                                                                   | All                                                |
+| Prompt template                    | Default setting | Models                             |
+| ---------------------------------- | --------------- | ---------------------------------- |
+| Pre-processing                     | Disabled        | All supported models               |
+| Orchestration                      | Enabled         | All                                |
+| Knowledge base response generation | Enabled         | All except Llama 3.1 and Llama 3.2 |
+| Post-processing                    | Disabled        | All                                |
 
 ###### Note
 

@@ -27,3 +27,7 @@ API
 To edit a guardrail, send an [UpdateGuardrail](../APIReference/API_UpdateGuardrail.md "../APIReference/API_UpdateGuardrail.md") request.
 Include both fields that you want to update as well as fields that you want to
 keep the same.
+
+###### Important
+
+If you are using a guardrail version, you must create a new version after making changes to the guardrail's working draft. Changes to the working draft are not automatically reflected in existing versions. Create a new version and update your applications to use it.

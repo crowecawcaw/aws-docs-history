@@ -31,3 +31,72 @@ After you create the IAM role, attach the following policy to the role.
 
 As a best practice for security purposes, replace the `${region}`, `${account-id}`,
 and `*.ids` with Region, your account id, and specific resource ids. after you have created them.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "InvokeInlineAgent",
+            "Effect": "Allow",
+            "Action": "bedrock:InvokeInlineAgent",
+            "Resource": "*"
+        },
+        {
+            "Sid": "InvokeFoundationModel",
+            "Effect": "Allow",
+            "Action": "bedrock:InvokeModel",
+            "Resource": "arn:aws:bedrock:`region`::foundation-model/`model-id`"
+        },
+        {
+            "Sid": "KnowledgeBaseAccess",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:Retrieve",
+                "bedrock:RetrieveAndGenerate"
+            ],
+            "Resource": "arn:aws:bedrock:`region`:`account-id`:knowledge-base/`knowledge-base-id`"
+        },
+        {
+            "Sid": "GuardrailAccess",
+            "Effect": "Allow",
+            "Action": "bedrock:ApplyGuardrail",
+            "Resource": "arn:aws:bedrock:`region`:`account-id`:guardrail/`guardrail-id`"
+        },
+        {
+            "Sid": "LambdaInvoke",
+            "Effect": "Allow",
+            "Action": "lambda:InvokeFunction",
+            "Resource": "arn:aws:lambda:`region`:`account-id`:function:`function-name`"
+        },
+        {
+            "Sid": "S3AccessForKBAndActions",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:GetObjectMetadata"
+            ],
+            "Resource": "arn:aws:s3:::`bucket-name`/*"
+        },
+        {
+            "Sid": "S3AccessForCodeInterpreter",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObjectVersion",
+                "s3:GetObjectVersionAttributes",
+                "s3:GetObjectAttributes"
+            ],
+            "Resource": "arn:aws:s3:::`bucket-name`/`path/to/file`"
+        },
+        {
+            "Sid": "KMSAccess",
+            "Effect": "Allow",
+            "Action": [
+                "kms:GenerateDataKey*",
+                "kms:Decrypt"
+            ],
+            "Resource": "arn:aws:kms:`region`:`account-id`:key/`key-id`"
+        }
+    ]
+}
+```

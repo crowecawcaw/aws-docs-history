@@ -56,10 +56,10 @@ For pricing, please refer to the [Amazon Bedrock Pricing](https://aws.amazon.com
 
 Use the following model IDs and endpoint URLs to access this model programmatically. For more information about the available APIs and endpoints, see [APIs supported](apis.md "apis.md") and [Endpoints supported](endpoints.md "endpoints.md").
 
-| **Endpoint**      | **Model ID**                               | **In-Region endpoint URL**                                      | **Geo inference ID**                                                                                                                    | **Global inference ID**                           |
-| ----------------- | ------------------------------------------ | --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| `bedrock-runtime` | `anthropic.claude-haiku-4-5-20251001-v1:0` | `https://bedrock-runtime.{region}.amazonaws.com`                | `us.anthropic.claude-haiku-4-5-20251001-v1:0``eu.anthropic.claude-haiku-4-5-20251001-v1:0``au.anthropic.claude-haiku-4-5-20251001-v1:0` | `global.anthropic.claude-haiku-4-5-20251001-v1:0` |
-| `bedrock-mantle`  | `anthropic.claude-haiku-4-5`               | `https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages` | N/A                                                                                                                                     | N/A                                               |
+| **Endpoint**      | **Model ID**                               | **In-Region endpoint URL**                                      | **Geo inference ID**                                                                                                                                                                 | **Global inference ID**                           |
+| ----------------- | ------------------------------------------ | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- |
+| `bedrock-runtime` | `anthropic.claude-haiku-4-5-20251001-v1:0` | `https://bedrock-runtime.{region}.amazonaws.com`                | `us.anthropic.claude-haiku-4-5-20251001-v1:0``eu.anthropic.claude-haiku-4-5-20251001-v1:0``au.anthropic.claude-haiku-4-5-20251001-v1:0``jp.anthropic.claude-haiku-4-5-20251001-v1:0` | `global.anthropic.claude-haiku-4-5-20251001-v1:0` |
+| `bedrock-mantle`  | `anthropic.claude-haiku-4-5`               | `https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages` | N/A                                                                                                                                                                                  | N/A                                               |
 
 _For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime endpoint URL will be "https://bedrock-runtime.us-east-1.amazonaws.com" and for bedrock-mantle will be "https://bedrock-mantle.us-east-1.api.aws/anthropic/v1/messages"._
 
@@ -94,9 +94,9 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 | `eu-west-2` (London)           | No            | Yes     | Yes        |
 | `eu-west-3` (Paris)            | No            | Yes     | Yes        |
 | `ap-east-2` (Taipei)           | No            | No      | Yes        |
-| `ap-northeast-1` (Tokyo)       | Yes           | No      | Yes        |
+| `ap-northeast-1` (Tokyo)       | Yes           | Yes     | Yes        |
 | `ap-northeast-2` (Seoul)       | No            | No      | Yes        |
-| `ap-northeast-3` (Osaka)       | No            | No      | Yes        |
+| `ap-northeast-3` (Osaka)       | No            | Yes     | Yes        |
 | `ap-south-1` (Mumbai)          | No            | No      | Yes        |
 | `ap-south-2` (Hyderabad)       | No            | No      | Yes        |
 | `ap-southeast-1` (Singapore)   | No            | No      | Yes        |
@@ -151,6 +151,15 @@ Geo Inference ID: `au.anthropic.claude-haiku-4-5-20251001-v1:0`
 | ap-southeast-2 (Sydney)      | ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne)                               |
 | ap-southeast-4 (Melbourne)   | ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne)                               |
 | ap-southeast-6 (New Zealand) | ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne), ap-southeast-6 (New Zealand) |
+
+**Geo: JP**
+
+Geo Inference ID: `jp.anthropic.claude-haiku-4-5-20251001-v1:0`
+
+| **Source Region**      | **Destination Regions**                        |
+| ---------------------- | ---------------------------------------------- |
+| ap-northeast-1 (Tokyo) | ap-northeast-1 (Tokyo), ap-northeast-3 (Osaka) |
+| ap-northeast-3 (Osaka) | ap-northeast-1 (Tokyo), ap-northeast-3 (Osaka) |
 
 **Global inference details**
 

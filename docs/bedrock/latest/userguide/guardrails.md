@@ -36,8 +36,7 @@ You can use Amazon Bedrock Guardrails across multiple use cases and applications
 - **Sensitive information filters** – You can configure
   this filter to help block or mask sensitive information, such as personally identifiable
   information (PII), in user inputs and model responses. Blocking or
-  masking is done based on probabilistic detection of sensitive information in
-  in entities such as SSN number, Date of Birth, address, etc. This filter
+  masking is done based on probabilistic detection of sensitive information in entities such as SSN, Date of Birth, Address, etc. This filter
   also allows configuring regular expression based detection of patterns (custom regex).
 - **Contextual grounding checks** – This filter helps you detect
   hallucinations in model responses if they are not grounded (factually inaccurate or add new information) in the source or are irrelevant to

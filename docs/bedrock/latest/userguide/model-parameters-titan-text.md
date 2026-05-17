@@ -47,11 +47,11 @@ The `textGenerationConfig` is optional. You can use it to configure the followin
 | ------- | ------- | ------- |
 | 0.7     | 0.0     | 1.0     |
 
-- **topP** – Use a lower value to ignore less probable options and decrease the diversity of responses.
+- **topP** – Use a lower value to ignore less probable options and decrease the diversity of responses. The minimum value is exclusive of 0 — use a very small value such as 0.0001 instead.
 
-| Default | Minimum | Maximum |
-| ------- | ------- | ------- |
-| 0.9     | 0.0     | 1.0     |
+| Default | Minimum                   | Maximum |
+| ------- | ------------------------- | ------- |
+| 0.9     | > 0 (for example, 0.0001) | 1.0     |
 
 - **maxTokenCount** – Specify the maximum number of tokens to generate in the response. Maximum token limits are strictly enforced.
 

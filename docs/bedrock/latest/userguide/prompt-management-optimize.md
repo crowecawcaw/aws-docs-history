@@ -1,10 +1,13 @@
 # Optimize a prompt
 
-Amazon Bedrock offers a tool to optimize prompts. Optimization rewrites prompts to yield inference
-results that are more suitable for your use case. You can choose the model that you want to
-optimize the prompt for and then generate a revised prompt.
+Amazon Bedrock offers simple prompt optimization, which performs a fast, heuristic rewrite of a
+single short prompt for one model. It works best for prompts of approximately 1k tokens or
+less. You can choose the model that you want to optimize the prompt for and then generate a
+revised prompt. Simple optimization does not use evaluation data or support multiple models.
+For evaluation-driven optimization where your evaluation steers the prompt rewriting across
+multiple models, see [Advanced Prompt Optimization](advanced-prompt-optimization-how.md "advanced-prompt-optimization-how.md").
 
-After you submit a prompt to optimize, Amazon Bedrock analyzes the components of the prompt.
+After you submit a prompt for simple optimization, Amazon Bedrock analyzes the components of the prompt.
 If the analysis is successful, it then rewrites the prompt. You can then copy and use the text
 of the optimized prompt.
 

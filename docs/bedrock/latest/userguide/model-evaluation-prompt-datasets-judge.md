@@ -12,8 +12,7 @@ Custom prompt datasets must be stored in Amazon S3, and use the JSON line format
 `.jsonl` file extension. Each line must be a valid JSON object. There can be
 up to 1000 prompts in your dataset per evaluation job.
 
-For jobs created using the console you must update the Cross Origin Resource Sharing (CORS)
-configuration on the S3 bucket. To learn more about the required CORS permissions, see [Required Cross Origin Resource Sharing (CORS) permissions on S3 buckets](model-evaluation-security-cors.md "model-evaluation-security-cors.md").
+CORS configuration is not required for LLM-as-a-judge evaluation jobs. For human-based evaluation jobs, CORS is required on the S3 output bucket. To learn more, see [Required Cross Origin Resource Sharing (CORS) permissions on S3 buckets](model-evaluation-security-cors.md "model-evaluation-security-cors.md").
 
 ## Prepare a dataset for an evaluation job where Amazon Bedrock invokes models for you
 

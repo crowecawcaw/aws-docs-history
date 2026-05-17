@@ -8,7 +8,7 @@ DeepSeek-V3.1 is DeepSeek's 685B parameter mixture-of-experts model with strong 
 
 - **Model launch date:** Aug 21, 2025
 - **Model EOL date:** N/A
-- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **End User License Agreements and Terms of Use:** [View](https://huggingface.co/deepseek-ai/DeepSeek-V3.1/blob/main/LICENSE "https://huggingface.co/deepseek-ai/DeepSeek-V3.1/blob/main/LICENSE")
 - **Model lifecycle:** Active
 - **Context window:** 128K tokens
 - **Max output tokens:** 8K

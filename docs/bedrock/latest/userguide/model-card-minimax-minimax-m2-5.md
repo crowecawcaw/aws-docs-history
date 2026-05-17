@@ -8,7 +8,7 @@ MiniMax M2.5 is an agent-native frontier model trained explicitly to reason effi
 
 - **Model launch date:** Feb 12, 2026
 - **Model EOL date:** N/A
-- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **End User License Agreements and Terms of Use:** [View](https://github.com/MiniMax-AI/MiniMax-M2.1/blob/main/LICENSE "https://github.com/MiniMax-AI/MiniMax-M2.1/blob/main/LICENSE")
 - **Model lifecycle:** Active
 - **Context window:** 196K tokens
 - **Max output tokens:** 8K

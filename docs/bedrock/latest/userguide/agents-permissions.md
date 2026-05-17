@@ -150,6 +150,16 @@ JSON
 
 ```
 
+###### Important
+
+If your agent uses an [inference profile](inference-profiles-support.md "inference-profiles-support.md") instead of a foundation model directly, you must make the following changes to the `AgentModelInvocationPermissions` statement:
+
+- Add the inference profile ARN to the `Resource` list. The format is `arn:aws:bedrock:`region`:`account-id`:inference-profile/`inference-profile-id``.
+- Add the following actions to the `Action` list:
+  - `bedrock:InvokeModelWithResponseStream`
+  - `bedrock:GetInferenceProfile`
+  - `bedrock:GetFoundationModel`
+
 ## (Optional) Identity-based policy to allow Amazon Bedrock to use Provisioned Throughput with your agent alias
 
 If you associate a [Provisioned Throughput](prov-throughput.md "prov-throughput.md") with an alias of your agent, attach the following identity-based policy to the service role or add the statement to the policy in [Identity-based permissions for the Agents service role](#agents-permissions-identity "#agents-permissions-identity").

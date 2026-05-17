@@ -88,30 +88,12 @@ OpenAPI schema
                 "responseText": "string",
                 "id": "string"
             },
-             "agentCollaboratorInvocation": {
-                "agentCollaboratorName": "string",
-                "input": {
-                    "text": "string"
-                }
-            }
-            ...
-        }
-    },
-    "routingClassifierParsedResponse": {
-        "parsingErrorDetails": {
-            "repromptResponse": "string"
-        },
-        "responseDetails": {
-            "type": "AGENT | LAST_AGENT | UNDECIDED",
             "agentCollaboratorInvocation": {
                 "agentCollaboratorName": "string",
                 "input": {
                     "text": "string"
-                    }
-            }
-        }
-    }
-}
+                }
+            },
             "actionGroupInvocation": {
                 "actionGroupName": "string",
                 "apiName": "string",
@@ -139,7 +121,21 @@ OpenAPI schema
                         "references": [{"sourceId": "string"}]
                     }]
                 }
-            },
+            }
+        }
+    },
+    "routingClassifierParsedResponse": {
+        "parsingErrorDetails": {
+            "repromptResponse": "string"
+        },
+        "responseDetails": {
+            "type": "AGENT | LAST_AGENT | UNDECIDED",
+            "agentCollaboratorInvocation": {
+                "agentCollaboratorName": "string",
+                "input": {
+                    "text": "string"
+                }
+            }
         }
     },
     "knowledgeBaseResponseGenerationParsedResponse": {

@@ -84,17 +84,17 @@ Tips to speed up sync API processing:
 | Maximum Resolution      | 8k                      |
 | Supported File Formats  | JPEG, PNG               |
 
-| Video file requirements                              | Requirement Description                                                                                            | Requirement Details |
-| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ------------------- |
-| Maximum File Size (MB)                               | 10240                                                                                                              |
-| Maximum Video Length (Minutes)                       | 240                                                                                                                |
-| Supported File Formats                               | MP4, MOV, AVI, MKV, or WEBM container formats with H.264, H.265/HEVC, VP8, VP9, AV1, or MPEG-4 Visual video codecs |
-| Maximum Video Blueprints per Project                 | 1                                                                                                                  |
-| Maximum Video Blueprints per Start Inference request | 1                                                                                                                  |
-| Minimum resolution                                   | 224                                                                                                                |
-| Maximum resolution                                   | 7680                                                                                                               |
-| Minimum framerate (Frames per second)                | 1                                                                                                                  |
-| Maximum framerate (Frames per second)                | 60                                                                                                                 |
+| Video file requirements                              | Requirement Description                                                                                                          | Requirement Details |
+| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| Maximum File Size (MB)                               | 10240                                                                                                                            |
+| Maximum Video Length (Minutes)                       | 240                                                                                                                              |
+| Supported File Formats                               | MP4, MOV, AVI, MKV, or WEBM container formats with H.264, H.265/HEVC, VP8, VP9, AV1, MPEG-4 Visual, or Apple ProRes video codecs |
+| Maximum Video Blueprints per Project                 | 1                                                                                                                                |
+| Maximum Video Blueprints per Start Inference request | 1                                                                                                                                |
+| Minimum resolution                                   | 224                                                                                                                              |
+| Maximum resolution                                   | 7680                                                                                                                             |
+| Minimum framerate (Frames per second)                | 1                                                                                                                                |
+| Maximum framerate (Frames per second)                | 60                                                                                                                               |
 
 | Audio file requirements                              | Requirement Description                                                                                                                                          | Requirement Details |
 | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |

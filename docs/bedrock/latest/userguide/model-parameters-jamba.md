@@ -114,7 +114,7 @@ When you make an [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../AP
 ## Model invocation response body field
 
 For information about the format of the `body` field in the response, see
-[https://docs.ai21.com/reference/jamba-instruct-api#response-details](https://docs.ai21.com/reference/jamba-instruct-api#response-details "https://docs.ai21.com/reference/jamba-instruct-api#response-details").
+[AI21 Jamba API reference](https://docs.ai21.com/reference/jamba-1-6-api-ref "https://docs.ai21.com/reference/jamba-1-6-api-ref").
 
 ## Code example
 

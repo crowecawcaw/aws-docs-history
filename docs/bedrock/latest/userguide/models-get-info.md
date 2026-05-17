@@ -23,7 +23,7 @@ aws bedrock list-foundation-models
 Get information about Anthropic Claude v2.
 
 ```
-aws bedrock get-foundation-model --model-identifier anthropic.claude-v2
+aws bedrock get-foundation-model --model-identifier anthropic.claude-sonnet-4-20250514-v1:0
 ```
 
 Python
@@ -42,5 +42,5 @@ Get information about Anthropic Claude v2.
 import boto3
 bedrock = boto3.client(service_name='bedrock')
 
-bedrock.get_foundation_model(modelIdentifier='anthropic.claude-v2')
+bedrock.get_foundation_model(modelIdentifier='anthropic.claude-sonnet-4-20250514-v1:0')
 ```

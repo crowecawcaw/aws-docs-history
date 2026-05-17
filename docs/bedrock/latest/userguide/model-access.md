@@ -43,6 +43,8 @@ to the model is granted immediately after use case details are successfully subm
 The form submission at the root account will be inherited by other accounts in the same
 AWS Organization.
 
+The use case form requires a description of your intended use and a website URL. If you are an individual developer or student without a company website, you can provide a personal portfolio, GitHub profile, or project URL that describes your use case.
+
 ###### Note
 
 For 3P models, by invoking/using the model for the first time you are agreeing to the
@@ -61,10 +63,8 @@ should:
 ###### Topics
 
 - [Grant IAM permissions to request access to Amazon Bedrock foundation models with a product ID](#model-access-permissions "#model-access-permissions")
-- [Use product ID condition keys to control access](model-access-product-ids.md "model-access-product-ids.md")
 - [Manage model access using SDK and CLI](#model-access-modify "#model-access-modify")
 - [Access Amazon Bedrock foundation models in AWS GovCloud (US)](#model-access-govcloud "#model-access-govcloud")
-- [Manage model subscriptions with License Manager](managed-entitlements.md "managed-entitlements.md")
 
 ## Grant IAM permissions to request access to Amazon Bedrock foundation models with a product ID
 
@@ -213,6 +213,10 @@ JSON
 ## Manage model access using SDK and CLI
 
 Model access can be managed using SDK in addition to invoking the model. Below steps can be used to create/delete model access as well as check if access already exists or not. Note this is applicable only for third-party models.
+
+###### Important
+
+By invoking or using a third-party model, you are implicitly agreeing to the applicable End User License Agreement (EULA). For more information, see [Serverless Third-Party Model License Agreements](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/").
 
 Follow these steps to manage model access programmatically:
 

@@ -8,7 +8,7 @@ Nemotron Nano 9B v2 is NVIDIA's 9-billion parameter model optimized for efficien
 
 - **Model launch date:** Aug 18, 2025
 - **Model EOL date:** N/A
-- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **End User License Agreements and Terms of Use:** [View](https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-nemotron-open-model-license/ "https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-nemotron-open-model-license/")
 - **Model lifecycle:** Active
 - **Context window:** 128K tokens
 - **Max output tokens:** 8K

@@ -8,7 +8,7 @@ Jamba 1.5 Mini is AI21 Labs' lightweight hybrid SSM-Transformer model with 52B t
 
 - **Model launch date:** Aug 22, 2024
 - **Model EOL date:** No sooner than 9/23/2025
-- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **End User License Agreements and Terms of Use:** [View](https://www.ai21.com/jamba-open-model-license/ "https://www.ai21.com/jamba-open-model-license/")
 - **Model lifecycle:** Active
 - **Context window:** 256K tokens
 - **Max output tokens:** 4K

@@ -8,7 +8,7 @@ Qwen3 VL 235B A22B is Qwen's vision-language mixture-of-experts model that proce
 
 - **Model launch date:** Sep 23, 2025
 - **Model EOL date:** N/A
-- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **End User License Agreements and Terms of Use:** [View](https://github.com/QwenLM/Qwen3-VL/blob/main/LICENSE "https://github.com/QwenLM/Qwen3-VL/blob/main/LICENSE")
 - **Model lifecycle:** Active
 - **Context window:** 256K tokens
 - **Max output tokens:** 8K

@@ -140,7 +140,7 @@ You can use system prompts with Anthropic Claude version
 
 ###### Note
 
-The 1 million token context length variant of Claude Sonnet 4 is available to you in select AWS Regions as a "Beta Service" as defined in the AWS Service Terms. It is subject to your Agreement with AWS and the AWS Service Terms, and the applicable model EULA. Please see the [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/") page for more information about the pricing for longer context requests. Separate service quotas apply (for more information, see **Service Quotas** in the AWS Management Console).
+The 1 million token context length variant of Claude Sonnet 4 is available to you in select AWS Regions as a "Beta Service" as defined in the AWS Service Terms. It is subject to your Agreement with AWS and the AWS Service Terms, and the applicable model EULA. Please see the [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/") page for more information about the pricing for longer context requests. For requests exceeding 200K input tokens, the long context rate applies to the entire request, not just the tokens above the threshold. Separate service quotas apply (for more information, see **Service Quotas** in the AWS Management Console).
 
 Available beta headers include the following:
 
@@ -151,7 +151,7 @@ Available beta headers include the following:
 | Interleaved thinking                                | `Interleaved-thinking-2025-05-14`  | Compatible with Claude 4+ models.                                                     |
 | Enables output tokens up to 128K                    | `output-128k-2025-02-19`           | Compatible with Claude 3.7 Sonnet.                                                    |
 | Developer mode for raw thinking on Claude 4+ models | `dev-full-thinking-2025-05-14`     | Compatible with Claude 4+ models only. Contact your account team to access this beta. |
-| 1 million tokens                                    | `context-1m-2025-08-07`            | Compatible with Claude Sonnet 4                                                       |
+| 1 million tokens                                    | `context-1m-2025-08-07`            | Compatible with Claude Sonnet 4, Claude Sonnet 4.6, and Claude Opus 4.6.              |
 | Context management                                  | `context-management-2025-06-27`    | Compatible with Claude Sonnet 4.5 and Claude Haiku 4.5                                |
 | Effort                                              | `effort-2025-11-24`                | Compatible with Claude Opus 4.5                                                       |
 | Tool search tool                                    | `tool-search-tool-2025-10-19`      | Compatible with Claude Opus 4.5                                                       |

@@ -8,7 +8,7 @@ Qwen3 Coder 480B A35B is Qwen's largest coding-specialized mixture-of-experts mo
 
 - **Model launch date:** Jul 23, 2025
 - **Model EOL date:** N/A
-- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **End User License Agreements and Terms of Use:** [View](https://huggingface.co/Qwen/Qwen3-Coder-480B-A35B-Instruct/blob/main/LICENSE "https://huggingface.co/Qwen/Qwen3-Coder-480B-A35B-Instruct/blob/main/LICENSE")
 - **Model lifecycle:** Active
 - **Context window:** 128K tokens
 - **Max output tokens:** 16K

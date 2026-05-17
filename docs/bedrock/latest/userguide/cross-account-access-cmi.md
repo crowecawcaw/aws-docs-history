@@ -1,15 +1,18 @@
 # Cross-account access to Amazon S3 bucket for custom model import jobs
 
-If you are importing your model from Amazon S3 bucket and using cross-account Amazon S3 you will
-need to grant permissions to users in the bucket owner's account for accessing the bucket before you import your customized model. See [Prerequisites for importing custom model](custom-model-import-prereq.md "custom-model-import-prereq.md").
+If you are importing your model from an Amazon S3 bucket in a different AWS account, you will
+need to grant permissions for accessing the bucket before you import your customized model. See [Prerequisites for importing custom model](custom-model-import-prereq.md "custom-model-import-prereq.md").
+
+###### Note
+
+If the custom model import job was submitted through the Amazon Bedrock console, a default import execution role is created automatically. You must edit the default import execution role policy and replace the account ID specified for `aws:ResourceAccount` with the AWS account ID of the bucket owner.
 
 ## Configure cross-account access to Amazon S3 bucket
 
-This section walks you through the steps for creating policies for users in the bucket
-owners's account for accessing Amazon S3 bucket.
+Follow these steps to configure cross-account access to an Amazon S3 bucket for a custom model import job.
 
-1. In the bucket owner account, create a bucket policy that provides access to
-   the users in the bucket owner's account.
+1. **Create an import execution role** – In the user's AWS account (the account that will run the import job), create an IAM role that Amazon Bedrock can assume. For more information about creating a service role for custom model import, see [Prerequisites for importing custom model](custom-model-import-prereq.md "custom-model-import-prereq.md").
+2. **Create a bucket policy** – In the bucket owner's account, create a bucket policy that grants access to the import execution role in the user's account.
 
 The following example bucket policy, created and applied to bucket
 `s3://amzn-s3-demo-bucket` by the bucket owner, grants access to
@@ -41,8 +44,7 @@ JSON
 
 ```
 
-2. In the user’s AWS account, create an import execution role policy. For `aws:ResourceAccount` specify
-   account id of the bucket owner's AWS account.
+3. **Create an import execution role policy** – In the user's AWS account, attach a policy to the import execution role that allows access to the cross-account bucket. For `aws:ResourceAccount`, specify the account ID of the bucket owner's AWS account.
 
 The following example import execution role policy in the user's account provides the bucket owner's account id `111222333444555` access to Amazon S3 bucket `s3://amzn-s3-demo-bucket`.
 
@@ -75,13 +77,11 @@ JSON
 
 ## Configure cross-account access to Amazon S3 bucket encrypted with a custom AWS KMS key
 
-If you have an Amazon S3 bucket that is encrypted with a custom AWS Key Management Service (AWS KMS) key, you
-will need to grant access to it to users from bucket owner's account.
+If the Amazon S3 bucket is encrypted with a custom AWS Key Management Service (AWS KMS) key, you
+need to perform additional steps to grant the import execution role permissions to decrypt the key.
 
-To configure cross-account access to Amazon S3 bucket encrypted with a custom AWS KMS key
-
-1. In the bucket owner account, create a bucket policy that provides access to
-   the users in bucket owner's account.
+1. **Create an import execution role** – In the user's AWS account, create an IAM role that Amazon Bedrock can assume. For more information, see [Prerequisites for importing custom model](custom-model-import-prereq.md "custom-model-import-prereq.md").
+2. **Create a bucket policy** – In the bucket owner's account, create a bucket policy that grants access to the import execution role in the user's account.
 
 The following example bucket policy, created and applied to bucket
 `s3://amzn-s3-demo-bucket` by the bucket owner, grants access to
@@ -113,28 +113,26 @@ JSON
 
 ```
 
-2. In the bucket owner account, create the following resource policy to allow user's account import role to decrypt.
+3. **Update the AWS KMS key policy** – In the bucket owner's account, add the following statement to the AWS KMS key policy to allow the user's import execution role to decrypt objects.
 
 ```
 {
-   "Sid": "Allow use of the key by the destination account",
-   "Effect": "Allow",
-   "Principal": {
-   "AWS": "arn:aws:iam::"`arn:aws:iam::123456789123:role/ImportRole`"
+    "Sid": "Allow use of the key by the destination account",
+    "Effect": "Allow",
+    "Principal": {
+        "AWS": "`arn:aws:iam::123456789123:role/ImportRole`"
     },
     "Action": [
-          "kms:Decrypt",
-          "kms:DescribeKey"
+        "kms:Decrypt",
+        "kms:DescribeKey"
     ],
     "Resource": "*"
 }
-
 ```
 
-3. In the user’s AWS account, create an import execution role policy. For `aws:ResourceAccount` specify
-   account id of the bucket owner's AWS account. Also, provide access to the AWS KMS key that is used to encrypt the bucket.
+4. **Create an import execution role policy** – In the user's AWS account, attach a policy to the import execution role that allows access to the cross-account bucket and the AWS KMS key. For `aws:ResourceAccount`, specify the account ID of the bucket owner's AWS account.
 
-The following example import execution role policy in the user's account provides the bucket owner's account id `111222333444555` access to Amazon S3 bucket `s3://amzn-s3-demo-bucket` and the AWS KMS key `arn:aws:kms:`us-west-2:123456789098`:key/`111aa2bb-333c-4d44-5555-a111bb2c33dd``
+The following example import execution role policy provides access to the bucket owner's Amazon S3 bucket `s3://amzn-s3-demo-bucket` in account `111222333444555` and the AWS KMS key `arn:aws:kms:`us-west-2:123456789098`:key/`111aa2bb-333c-4d44-5555-a111bb2c33dd``.
 
 JSON
 

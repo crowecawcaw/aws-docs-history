@@ -8,7 +8,7 @@ GLM 4.7 Flash is Z.AI's lightweight model optimized for fast inference and low-l
 
 - **Model launch date:** Jan 19, 2026
 - **Model EOL date:** N/A
-- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **End User License Agreements and Terms of Use:** [View](https://github.com/zai-org/GLM-4/blob/main/LICENSE "https://github.com/zai-org/GLM-4/blob/main/LICENSE")
 - **Model lifecycle:** Active
 - **Context window:** 203K tokens
 - **Max output tokens:** 4K

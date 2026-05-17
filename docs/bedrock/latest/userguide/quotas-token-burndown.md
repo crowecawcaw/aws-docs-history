@@ -74,7 +74,7 @@ Assume the following parameters:
 - **max_tokens:** 32,000
   The following quota deductions take place:
 
-- **Initial deduction when request is made:** 40,000 (= 3,000 + 4,000 + 1,000 + 32,000)
+- **Initial deduction when request is made:** 36,000 (= 3,000 + 1,000 + 32,000)
 - **Final adjusted deduction after response is generated:** 9,000 (= 3,000 + 1,000 + 1,000 x 5)
   In this scenario, fewer concurrent requests could be made because the `max_tokens` parameter was set too high. This reduces the request concurrency, throughput, and quota utilization, because the TPM quota capacity would be reached quickly.
 
@@ -87,7 +87,7 @@ Assume the following parameters:
 - **max_tokens:** 1,250
   The following quota deductions take place:
 
-- **Initial deduction when request is made:** 9,250 (= 3,000 + 4,000 + 1,000 + 1,250)
+- **Initial deduction when request is made:** 5,250 (= 3,000 + 1,000 + 1,250)
 - **Final adjusted deduction after response is generated:** 9,000 (= 3,000 + 1,000 + 1,000 x 5)
   In this scenario, the `max_tokens` parameter was optimized, because the initial deduction is only slightly higher than the final adjusted deduction. This helped increase the request concurrency, throughput, and quota utilization.
 

@@ -8,7 +8,7 @@ Llama 3.1 405B Instruct is Meta's largest open model with 405 billion parameters
 
 - **Model launch date:** Jul 23, 2024
 - **Model EOL date:** Legacy: July 7, 2026
-- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **End User License Agreements and Terms of Use:** [View](https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/LICENSE "https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/LICENSE")
 - **Model lifecycle:** Legacy
 - **Context window:** 128K tokens
 - **Max output tokens:** 4K

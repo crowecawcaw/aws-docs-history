@@ -145,7 +145,7 @@ limitations:
 - **Variable and rules limits.** Policies with excessive
   numbers of variables or overly complex rule interactions may hit processing limits or return
   TOO_COMPLEX results. See [Amazon Bedrock
-  limits documentation](../../../hgeneral/latest/gr/bedrock.md#limits_bedrock "../../../hgeneral/latest/gr/bedrock.md#limits_bedrock") and [Validation results reference](automated-reasoning-checks-concepts.md#ar-concept-validation-results "automated-reasoning-checks-concepts.md#ar-concept-validation-results").
+  limits documentation](../../../general/latest/gr/bedrock.md#limits_bedrock "../../../general/latest/gr/bedrock.md#limits_bedrock") and [Validation results reference](automated-reasoning-checks-concepts.md#ar-concept-validation-results "automated-reasoning-checks-concepts.md#ar-concept-validation-results").
 - **Natural language dependency.** The accuracy of
   validation depends on how well natural language in user prompts and model
   responses can be translated to your policy's formal logic variables. Automated

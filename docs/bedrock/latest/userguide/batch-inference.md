@@ -6,6 +6,10 @@ With batch inference, you can submit multiple prompts and generate responses asy
 
 Batch inference isn't supported for provisioned models.
 
+###### Note
+
+Batch inference does not support tool calling (function calling) or structured output (`response_format`). Each record in the input JSONL file is processed independently without multi-turn interaction, so features that require back-and-forth exchanges between the model and client are not available.
+
 See the following resources for general information about batch inference:
 
 - To see pricing for batch inference, see [Amazon Bedrock pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/").

@@ -21,7 +21,7 @@ Claude Opus 4.7 is Anthropic's most capable generally available model, advancing
 Claude Opus 4.7 only supports `thinking.type: "adaptive"` for extended thinking.
 Unlike Claude Opus 4.6, `thinking.type: "enabled"` with `budget_tokens`
 is not supported and will return a 400 error. If you are migrating from Opus 4.6, update your
-requests to use `thinking.type: "adaptive"`.
+requests to use `thinking.type: "adaptive"`. For more information, see [Adaptive thinking](claude-messages-adaptive-thinking.md "claude-messages-adaptive-thinking.md").
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
@@ -47,13 +47,13 @@ requests to use `thinking.type: "adaptive"`.
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | • Yes [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• Yes [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• Yes [Guardrails](guardrails.md "guardrails.md")<br>• Yes [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• Yes [Knowledge base](knowledge-base.md "knowledge-base.md")<br>• Yes [Model evaluation](evaluation.md "evaluation.md")<br>• Yes [Prompt management](prompt-management.md "prompt-management.md")<br>• Yes [Flows](flows.md "flows.md")<br>• Yes [Agents](agents.md "agents.md") | • No [Intelligent prompt routing](prompt-routing.md "prompt-routing.md")<br>• No [Count tokens](count-tokens.md "count-tokens.md") |
 
-**Prompt caching**
+**Prompt caching using `bedrock-runtime` endpoint**
 
 For more information, see [Prompt caching for faster model inference](prompt-caching.md "prompt-caching.md").
 
 | **Prompt caching supported** | **Min tokens per cache checkpoint** | **Max cache checkpoints per request** | **Supported TTL** | **Fields that accept prompt cache checkpoints** |
 | ---------------------------- | ----------------------------------- | ------------------------------------- | ----------------- | ----------------------------------------------- |
-| Yes                          | 1,024                               | 4                                     | 5 minutes         | `system`, `messages`, and `tools`               |
+| Yes                          | 4,096                               | 4                                     | 5 minutes, 1 hour | `system`, `messages`, and `tools`               |
 
 ## Pricing
 
@@ -63,10 +63,10 @@ For pricing, please refer to the [Amazon Bedrock Pricing](https://aws.amazon.com
 
 Use the following model IDs and endpoint URLs to access this model programmatically. For more information about the available APIs and endpoints, see [APIs supported](apis.md "apis.md") and [Endpoints supported](endpoints.md "endpoints.md").
 
-| **Endpoint**      | **Model ID**                | **In-Region endpoint URL**                                      | **Geo inference ID**                                                                       | **Global inference ID**            |
-| ----------------- | --------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ---------------------------------- |
-| `bedrock-runtime` | `anthropic.claude-opus-4-7` | N/A                                                             | `us.anthropic.claude-opus-4-7``eu.anthropic.claude-opus-4-7``jp.anthropic.claude-opus-4-7` | `global.anthropic.claude-opus-4-7` |
-| `bedrock-mantle`  | `anthropic.claude-opus-4-7` | `https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages` | N/A                                                                                        | N/A                                |
+| **Endpoint**      | **Model ID**                | **In-Region endpoint URL**                                      | **Geo inference ID**                                                                                                     | **Global inference ID**            |
+| ----------------- | --------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ---------------------------------- |
+| `bedrock-runtime` | `anthropic.claude-opus-4-7` | N/A                                                             | `us.anthropic.claude-opus-4-7``eu.anthropic.claude-opus-4-7``jp.anthropic.claude-opus-4-7``au.anthropic.claude-opus-4-7` | `global.anthropic.claude-opus-4-7` |
+| `bedrock-mantle`  | `anthropic.claude-opus-4-7` | `https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages` | N/A                                                                                                                      | N/A                                |
 
 _For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime endpoint URL will be "https://bedrock-runtime.us-east-1.amazonaws.com" and for bedrock-mantle will be "https://bedrock-mantle.us-east-1.api.aws/anthropic/v1/messages"._
 
@@ -87,7 +87,7 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 | **Region**                     | **In-Region** | **Geo** | **Global** |
 | ------------------------------ | ------------- | ------- | ---------- |
 | `us-east-1` (N. Virginia)      | Yes           | Yes     | Yes        |
-| `us-east-2` (Ohio)             | Yes           | Yes     | Yes        |
+| `us-east-2` (Ohio)             | No            | Yes     | Yes        |
 | `us-west-1` (N. California)    | No            | Yes     | Yes        |
 | `us-west-2` (Oregon)           | No            | Yes     | Yes        |
 | `ca-central-1` (Canada)        | No            | Yes     | Yes        |
@@ -107,9 +107,9 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 | `ap-south-1` (Mumbai)          | No            | No      | Yes        |
 | `ap-south-2` (Hyderabad)       | No            | No      | Yes        |
 | `ap-southeast-1` (Singapore)   | No            | No      | Yes        |
-| `ap-southeast-2` (Sydney)      | No            | No      | Yes        |
+| `ap-southeast-2` (Sydney)      | No            | Yes     | Yes        |
 | `ap-southeast-3` (Jakarta)     | No            | No      | Yes        |
-| `ap-southeast-4` (Melbourne)   | No            | No      | Yes        |
+| `ap-southeast-4` (Melbourne)   | Yes           | Yes     | Yes        |
 | `ap-southeast-5` (Malaysia)    | No            | No      | Yes        |
 | `ap-southeast-6` (New Zealand) | No            | No      | Yes        |
 | `ap-southeast-7` (Thailand)    | No            | No      | Yes        |
@@ -158,6 +158,15 @@ Geo Inference ID: `jp.anthropic.claude-opus-4-7`
 | ---------------------- | ---------------------------------------------- |
 | ap-northeast-1 (Tokyo) | ap-northeast-1 (Tokyo), ap-northeast-3 (Osaka) |
 | ap-northeast-3 (Osaka) | ap-northeast-1 (Tokyo), ap-northeast-3 (Osaka) |
+
+**Geo: AU**
+
+Geo Inference ID: `au.anthropic.claude-opus-4-7`
+
+| **Source Region**          | **Destination Regions**                             |
+| -------------------------- | --------------------------------------------------- |
+| ap-southeast-2 (Sydney)    | ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne) |
+| ap-southeast-4 (Melbourne) | ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne) |
 
 **Global inference details**
 
