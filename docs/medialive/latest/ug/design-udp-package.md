@@ -28,4 +28,4 @@ output. The captions are
 object-style
 captions.
 
-![Output group labeled Output containing five elements: V, A, A, C, and C in oval shapes.](images/output4-nonABR-V-2A-2C.png)
+![Output group labeled Output containing five elements: V, A, A, C, and C in oval shapes.](/images/medialive/latest/ug/images/output4-nonABR-V-2A-2C.png)
