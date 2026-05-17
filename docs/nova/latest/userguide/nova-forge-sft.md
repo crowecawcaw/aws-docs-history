@@ -695,18 +695,16 @@ You can also refer to the README, if you only need to get the essential details 
 
 Container Information:
 
-| Container Information and Launch Commands | Model       | Technique             | Subcategory                                                                                     | Image URI                                                                                                                                                                                                                                                                                                            | Hyperpod Launcher Command |
-| ----------------------------------------- | ----------- | --------------------- | ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
-| Nova 1.0                                  | Fine-tuning | SFT / PEFT            | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-latest               | hyperpod start-job \ -n kubeflow \ --recipe fine-tuning/nova/nova_1_0/nova_micro/SFT/nova_micro_1_0_p5_gpu_sft \ --override-parameters '{ "instance_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-latest" }'                                     |
-| Nova 1.0                                  | Fine-tuning | SFT with Data Mixing  | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:HP-SFT-DATAMIX                 | hyperpod start-job \ -n kubeflow \ --recipe fine-tuning/nova/forge/nova_1_0/nova_micro/SFT/nova_micro_1_0_p5_gpu_sft_text_with_datamix \ --override-parameters '{ "instance_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:HP-SFT-DATAMIX" }'               |
-| Nova 2.0                                  | Fine-tuning | SFT Text              | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest            | hyperpod start-job \ -n kubeflow \ --recipe fine-tuning/nova/nova_2_0/nova_lite/SFT/nova_lite_2_0_p5_gpu_sft \ --override-parameters '{ "instance_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest" }'                                    |
-| Nova 2.0                                  | Fine-tuning | SFT Text + Datamixing | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-DATAMIXING-latest | hyperpod start-job \ -n kubeflow \ --recipe fine-tuning/nova/forge/nova_2_0/nova_lite/SFT/nova_lite_2_0_p5_gpu_sft_text_with_datamix \ --override-parameters '{ "instance_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-DATAMIXING-latest" }' |
-| Nova 2.0                                  | Fine-tuning | SFT MM                | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest            | hyperpod start-job \ -n kubeflow \ --recipe fine-tuning/nova/nova_2_0/nova_lite/SFT/nova_lite_2_0_p5_gpu_sft \ --override-parameters '{ "instance_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest" }'                                    |
-| Nova 2.0                                  | Fine-tuning | SFT MM + Datamixing   | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-DATAMIXING-latest | hyperpod start-job \ -n kubeflow \ --recipe fine-tuning/nova/forge/nova_2_0/nova_lite/SFT/nova_lite_2_0_p5_gpu_sft_mm_with_datamix \ --override-parameters '{ "instance_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-DATAMIXING-latest" }'   |
+| Container Information and Launch Commands | Model       | Technique                              | Subcategory                                                                          | Image URI                                                                                                                                                                                                                                                                                                 | Hyperpod Launcher Command |
+| ----------------------------------------- | ----------- | -------------------------------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| Nova 1.0                                  | Fine-tuning | SFT / PEFT                             | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-latest    | hyperpod start-job \ -n kubeflow \ --recipe fine-tuning/nova/nova_1_0/nova_micro/SFT/nova_micro_1_0_p5_gpu_sft \ --override-parameters '{ "instance_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-latest" }'                          |
+| Nova 1.0                                  | Fine-tuning | SFT with Data Mixing                   | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:HP-SFT-DATAMIX      | hyperpod start-job \ -n kubeflow \ --recipe fine-tuning/nova/forge/nova_1_0/nova_micro/SFT/nova_micro_1_0_p5_gpu_sft_text_with_datamix \ --override-parameters '{ "instance_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:HP-SFT-DATAMIX" }'    |
+| Nova 2.0                                  | Fine-tuning | SFT Text (with or without data mixing) | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest | hyperpod start-job \ -n kubeflow \ --recipe fine-tuning/nova/forge/nova_2_0/nova_lite/SFT/nova_lite_2_0_p5_gpu_sft_text_with_datamix \ --override-parameters '{ "instance_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest" }' |
+| Nova 2.0                                  | Fine-tuning | SFT MM (with or without data mixing)   | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest | hyperpod start-job \ -n kubeflow \ --recipe fine-tuning/nova/forge/nova_2_0/nova_lite/SFT/nova_lite_2_0_p5_gpu_sft_mm_with_datamix \ --override-parameters '{ "instance_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest" }'   |
 
 Once you're all setup, starting from the root of the sagemaker-hyperpod-cli repository, navigate to the default nova sft recipe folder
 
-- cd /src/hyperpod_cli/sagemaker_hyperpod_recipes/recipes_collection/recipes/training/nova/
+- cd /src/hyperpod_cli/sagemaker_hyperpod_recipes/recipes_collection/recipes/fine-tuning/nova/forge/
 - Here you can choose whether you want to run nova 1 or nova 2 recipies based on the choice of base model.
 
 For Nova 1.0 sft:
@@ -773,14 +771,14 @@ We'll be overriding a couple of parameters here to use data mixing:
 
 hyperpod start-job \
  -n kubeflow \
- --recipe fine-tuning/nova/forge/nova_2_0/nova_lite/SFT/nova_lite_2_0_p5x8_gpu_sft_with_datamix \
+ --recipe fine-tuning/nova/forge/nova_2_0/nova_lite/SFT/nova_lite_2_0_p5_gpu_sft_text_with_datamix \
  --override-parameters '{
  "instance_type": "ml.p5.48xlarge",
  "recipes.run.name": "nova-sft-datamixing",
- "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-Datamix",
+ "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest",
  "recipes.run.data_s3_path": "s3://sft-data/sft_train_data.jsonl",
  "recipes.run.validation_data_s3_path": "s3://sft-data/sft_val_data.jsonl",
- "recipes.run.output_s3_path": "s3://sft-data/output/
+ "recipes.run.output_s3_path": "s3://sft-data/output/"
  }'
 
 ```
@@ -791,14 +789,14 @@ Your output should contain a job name as follows:
 
 ⚡ MY Desktop ⚡ % hyperpod start-job \
  -n kubeflow \
- --recipe training/nova/forge/nova_2_0/nova_lite/sft/nova_lite_2_0_p5x8_gpu_pretrain_with_datamix \
+ --recipe fine-tuning/nova/forge/nova_2_0/nova_lite/SFT/nova_lite_2_0_p5_gpu_sft_text_with_datamix \
  --override-parameters '{
  "instance_type": "ml.p5.48xlarge",
  "recipes.run.name": "nova-sft-datamixing",
- "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-Datamix",
+ "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest",
  "recipes.run.data_s3_path": "s3://sft-data/sft_train_data.jsonl",
- "recipes.run.validation_data_s3_path": "3://sft-data/sft_val_data.jsonl",
- "recipes.run.output_s3_path": "3://sft-data/output/
+ "recipes.run.validation_data_s3_path": "s3://sft-data/sft_val_data.jsonl",
+ "recipes.run.output_s3_path": "s3://sft-data/output/"
  }'
 
 ```
@@ -807,11 +805,11 @@ Output would be like this:
 
 ```
 
-Final command: python3 /local/home/my/Downloads/sagemaker-hyperpod-cli/src/hyperpod_cli/sagemaker_hyperpod_recipes/main.py recipes=training/nova/nova_micro_p5x8_gpu_pretrain cluster_type=k8s cluster=k8s base_results_dir=/local/home/niphaded/Downloads/sagemaker-hyperpod-cli/results cluster.pullPolicy="IfNotPresent" cluster.restartPolicy="OnFailure" cluster.namespace="kubeflow" instance_type="p5d.48xlarge" container="900867814919.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:sft-datamix-rig-final"
+Final command: python3 /local/home/my/Downloads/sagemaker-hyperpod-cli/src/hyperpod_cli/sagemaker_hyperpod_recipes/main.py recipes=fine-tuning/nova/forge/nova_2_0/nova_lite/SFT/nova_lite_2_0_p5_gpu_sft_text_with_datamix cluster_type=k8s cluster=k8s base_results_dir=/local/home/my/Downloads/sagemaker-hyperpod-cli/results cluster.pullPolicy="IfNotPresent" cluster.restartPolicy="OnFailure" cluster.namespace="kubeflow" instance_type="ml.p5.48xlarge" container="708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest"
 Prepared output directory at /local/home/my/Downloads/sagemaker-hyperpod-cli/results/my-sft-run-wzdyn/k8s_templates
 Found credentials in shared credentials file: ~/.aws/credentials
-Helm script created at /local/home/my/Downloads/sagemaker-hyperpod-cli/results/my-sft-run-wzdyn/niphaded-sft-run-wzdyn_launch.sh
-Running Helm script: /local/home/my/Downloads/sagemaker-hyperpod-cli/results/my-sft-run-wzdyn/niphaded-sft-run-wzdyn_launch.sh
+Helm script created at /local/home/my/Downloads/sagemaker-hyperpod-cli/results/my-sft-run-wzdyn/my-sft-run-wzdyn_launch.sh
+Running Helm script: /local/home/my/Downloads/sagemaker-hyperpod-cli/results/my-sft-run-wzdyn/my-sft-run-wzdyn_launch.sh
 
 NAME: my-sft-run-wzdyn
 LAST DEPLOYED: Tue Aug 26 16:21:06 2025

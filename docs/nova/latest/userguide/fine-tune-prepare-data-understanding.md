@@ -8,7 +8,7 @@ and reasoning patterns. It does not teach the model new factual knowledge. If yo
 introduce domain-specific facts, terminology, or knowledge the model hasn't seen, consider
 retrieval-augmented generation (RAG) to supply that context at inference time. For guidance on choosing
 between SFT, reinforcement fine-tuning (RFT), and RAG, see
-[SageMaker Training Jobs](../nova2-userguide/nova-model-training-job.md "../nova2-userguide/nova-model-training-job.md").
+[Amazon Nova customization on SageMaker Training Jobs](nova-model-training-job.md "nova-model-training-job.md").
 
 The following are guidelines and requirements for preparing data for fine-tuning Understanding models:
 
