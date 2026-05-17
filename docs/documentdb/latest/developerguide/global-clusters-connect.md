@@ -21,6 +21,7 @@ instance.
 
 For cross region, read only traffic, you should connect to one of your secondary clusters.
 We recommend that you connect to your secondary cluster using the cluster endpoint in
-replica set mode. Since all instances are read-only replica instances, you do not need to
-specify a read preference. To minimize latency, choose whichever reader endpoint is in your
+replica set mode. Since all instances are read-only replica instances, you should specify a
+read preference other than `primary` (for example, `secondary`,
+`secondaryPreferred`, or `nearest`). To minimize latency, choose whichever reader endpoint is in your
 region or the region closest to you.

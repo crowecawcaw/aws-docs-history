@@ -62,7 +62,6 @@ With the release of Amazon DocumentDB 8.0, there are functional differences betw
 - Planner v1 is the default query planner in Amazon DocumentDB 5.0, whereas the more performant Planner v3 is the default in Amazon DocumentDB 8.0.
 - New features in Amazon DocumentDB 8.0 including Views, Collation and operators like $merge are compatible only with Planner v3.
 - Compression is turned ON by default in Amazon DocumentDB 8.0 and is set to use Zstandard algorithm. Furthermore, in Amazon DocumentDB 8.0 'enabled' is no longer a valid choice; you may select from Zstd, LZ4 and none.
-- Serverless are currently not available in Amazon DocumentDB 8.0.
 
 ## MongoDB 5.0 compatibility
 

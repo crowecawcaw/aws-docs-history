@@ -12,11 +12,11 @@
 Amazon DocumentDB global cluster spans at least two AWS Regions. The primary Region supports
 a cluster that has one primary (writer) instance and up to 15 replica instances, while a
 secondary Region runs a read-only cluster made up entirely of up to 16 replica
-instances. A global cluster can have up to five secondary Regions. The table lists the maximum clusters, instances, and replicas allowed in a global cluster.
+instances. A global cluster can have up to 10 secondary Regions. The table lists the maximum clusters, instances, and replicas allowed in a global cluster.
 
 | Description                                                                 | Primary AWS Region | Secondary AWS Region                             |
 | --------------------------------------------------------------------------- | ------------------ | ------------------------------------------------ |
-| Clusters                                                                    | 1                  | 5 (maximum)                                      |
+| Clusters                                                                    | 1                  | 10 (maximum)                                     |
 | Writer instances                                                            | 1                  | 0                                                |
 | Read-only instances (Amazon DocumentDB replicas), per cluster               | 15 (max)           | 16 (total)                                       |
 | Read-only instances (max allowed, given actual number of secondary Regions) | 15<br>• _s_        | \*s<br>• = total number of secondary AWS Regions |
@@ -27,7 +27,7 @@ The clusters have the following specific requirements:
   use the `db.r5` and `db.r6g` instance classes.
 - **AWS Region requirements** — The primary cluster must
   be in one Region, and at least one secondary cluster must be in a different Region
-  of the same account. You can create up to five secondary (read-only) clusters, and
+  of the same account. You can create up to 10 secondary (read-only) clusters, and
   each must be in a different Region. In other words, no two clusters can be in the same Region.
 - **Naming requirements** — The names you choose for each
   of your clusters must be unique, across all Regions. You can't use the same name
@@ -174,10 +174,10 @@ cluster becomes your primary cluster, and you have a new secondary cluster in th
 ## Adding an AWS Region to an Amazon DocumentDB global cluster
 
 A global cluster needs at least one secondary cluster in a different Region than the
-primary cluster, and you can add up to five secondary clusters. Note that for each
+primary cluster, and you can add up to 10 secondary clusters. Note that for each
 secondary cluster that you add, you must reduce the number of replicas allowed in the
-primary cluster by one. For example, if your global cluster has five secondary Regions,
-your primary cluster can have only 10 (rather than 15) replicas. For more information, see [Configuration requirements of an Amazon DocumentDB global cluster](global-clusters.get-started.md#global-clusters.config "global-clusters.get-started.md#global-clusters.config").
+primary cluster by one. For example, if your global cluster has 10 secondary Regions,
+your primary cluster can have only 5 (rather than 15) replicas. For more information, see [Configuration requirements of an Amazon DocumentDB global cluster](global-clusters.get-started.md#global-clusters.config "global-clusters.get-started.md#global-clusters.config").
 
 1. Sign in to the AWS Management Console and open the Amazon DocumentDB console.
 2. In the navigation pane, choose **Clusters**.

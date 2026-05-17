@@ -93,7 +93,7 @@ If the value of `tls` is not what is needs to be, modify its value for this clus
 
 
     	* **disabled** — Disables TLS
-    	* **enabled** — Enables TLS versions 1.0 through 1.3.
+    	* **enabled** — Enables TLS versions 1.0 through 1.3, but we recommend TLS 1.2 or higher.
     	* **fips-140-3** — Enables TLS with FIPS.
     	 The cluster only accepts secure connections per the requirements of the Federal Information Processing Standards (FIPS) publication 140-3.
     	 This is only supported starting with Amazon DocumentDB 5.0 (engine version 3.0.3727) clusters in these regions: ca-central-1, us-west-2, us-east-1, us-east-2, us-gov-east-1, us-gov-west-1.

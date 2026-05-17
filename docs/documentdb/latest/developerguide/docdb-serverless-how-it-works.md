@@ -87,7 +87,7 @@ For each cluster where you intend to use DocumentDB serverless, you define a cap
 The capacity range is the same for each DocumentDB serverless writer or reader in a cluster.
 Each DocumentDB serverless writer or reader has its own capacity, falling somewhere in that range.
 
-DocumentDB serverless is supported on DocumentDB 5.0.0 only (not supported on 8.0) with a capacity range of 0.5 - 256 DCUs.
+DocumentDB serverless is supported on DocumentDB 5.0 and 8.0 with a capacity range of 0.5 - 256 DCUs.
 
 The smallest DocumentDB serverless capacity that you can define is 0.5 DCUs.
 You can specify a higher number if it's less than or equal to the maximum supported capacity value.

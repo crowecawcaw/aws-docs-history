@@ -1,6 +1,6 @@
 # Transactions in Amazon DocumentDB
 
-Amazon DocumentDB (with MongoDB compatibility) now supports MongoDB 4.0 compatibility including transactions. You can perform transactions across multiple documents, statements, collections, and databases. Transactions simplify application development by enabling you to perform atomic, consistent, isolated, and durable (ACID) operations across one or more documents within an Amazon DocumentDB cluster. Common use cases for transactions include financial processing, fulfilling and managing orders, and building multi-player games.
+Amazon DocumentDB (with MongoDB compatibility) supports transactions in Amazon DocumentDB 4.0 and later. You can perform transactions across multiple documents, statements, collections, and databases. Transactions simplify application development by enabling you to perform atomic, consistent, isolated, and durable (ACID) operations across one or more documents within an Amazon DocumentDB cluster. Common use cases for transactions include financial processing, fulfilling and managing orders, and building multi-player games.
 
 There is no additional cost for transactions. You only pay for the read and write IOs that you consume as part of the transactions.
 
@@ -21,8 +21,8 @@ There is no additional cost for transactions. You only pay for the read and writ
 
 To use the transactions feature, you need to meet the following requirements:
 
-- You must be using the Amazon DocumentDB 4.0 engine.
-- You must use a driver compatible with MongoDB 4.0 or greater.
+- You must use Amazon DocumentDB 4.0 or later.
+- You must use a driver compatible with MongoDB 4.0 or later.
 
 ## Best practices
 

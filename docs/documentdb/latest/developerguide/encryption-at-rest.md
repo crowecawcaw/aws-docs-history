@@ -52,17 +52,30 @@ You must use a symmetric encryption KMS key to encrypt your cluster as Amazon Do
 symmetric encryption KMS keys. Do not use an asymmetric KMS key to attempt to encrypt the data in your
 Amazon DocumentDB clusters. For more information, see [Asymmetric keys in AWS KMS](../../../kms/latest/developerguide/symmetric-asymmetric.md "../../../kms/latest/developerguide/symmetric-asymmetric.md") in the _AWS Key Management Service Developer Guide_.
 
-If Amazon DocumentDB can no longer gain access to the encryption key for a cluster — for
-example, when access to a key is revoked — the encrypted cluster goes into a
-terminal state. In this case, you can only restore the cluster from a backup. For Amazon DocumentDB,
-backups are always enabled for 1 day.
+If Amazon DocumentDB can no longer access the KMS key for a cluster — for example, when
+the AWS account that owns the key is suspended, the key is disabled, the key is scheduled
+for deletion, or the key policy or grant that Amazon DocumentDB relies on is removed — the
+cluster first transitions to the
+`inaccessible-encryption-credentials-recoverable` status. While the cluster is
+in this status, Amazon DocumentDB stops the cluster's instances and you can't read from or write to
+the cluster, but the cluster can still be recovered if access to the KMS key is restored
+within 7 days. If access is not restored within 7 days, the cluster transitions to the
+terminal `inaccessible-encryption-credentials` status. From the terminal status,
+the cluster is no longer available and the current state of the database can't be
+recovered — you can only restore from a backup or perform a point-in-time restore
+using the original KMS key. For Amazon DocumentDB, backups are always enabled for at least 1
+day.
 
-In addition, if you disable the key for an encrypted Amazon DocumentDB cluster, you will
-eventually lose read and write access to that cluster. When Amazon DocumentDB encounters a cluster
-that is encrypted by a key that it doesn't have access to, it puts the cluster into a
-terminal state. In this state, the cluster is no longer available, and the current state of
-the database can't be recovered. To restore the cluster, you must re-enable access to the
-encryption key for Amazon DocumentDB, and then restore the cluster from a backup.
+###### Note
+
+Clusters that are part of a global cluster behave differently. When Amazon DocumentDB detects
+that it can no longer access the KMS key, all clusters in the global cluster
+transition directly to the terminal `inaccessible-encryption-credentials`
+status, skipping the recoverable status. This is because a cluster that is part of a
+global cluster can be stopped and started only when it is the only cluster in the
+global cluster. To recover, you must restore from a snapshot or perform a point-in-time
+restore. To delete the original clusters, you must first remove each cluster from the
+global cluster and then delete it.
 
 ###### Important
 
@@ -174,6 +187,119 @@ aws docdb create-db-cluster ^
 After you create an encrypted cluster, you can't change the KMS key for that
 cluster. Be sure to determine your encryption key requirements before you create
 your encrypted cluster.
+
+## Resolving an Amazon DocumentDB cluster in an inaccessible encryption state
+
+An Amazon DocumentDB cluster moves to an inaccessible encryption status when Amazon DocumentDB can't access
+the KMS key that the cluster was encrypted with. There are two such statuses, and the
+recovery path depends on which one the cluster is in.
+
+### `inaccessible-encryption-credentials-recoverable` status
+
+While the cluster is in the
+`inaccessible-encryption-credentials-recoverable` status, you can return the
+cluster to `available` by restoring Amazon DocumentDB's access to the KMS key and
+then starting the cluster. To resolve this status, do the following:
+
+1. Confirm that the AWS account that owns the KMS key is active. If the
+   account is suspended, reactivate it.
+2. Confirm that the KMS key is enabled. For more information, see [Enabling and
+   disabling keys](../../../kms/latest/developerguide/enabling-keys.md "../../../kms/latest/developerguide/enabling-keys.md") in the _AWS Key Management Service Developer Guide_.
+3. Check whether the KMS key is scheduled for deletion. If it is, cancel the
+   scheduled key deletion. For more information, see [Scheduling and canceling key deletion](../../../kms/latest/developerguide/deleting-keys-scheduling-key-deletion.md "../../../kms/latest/developerguide/deleting-keys-scheduling-key-deletion.md") in the
+   _AWS Key Management Service Developer Guide_.
+4. Confirm that the KMS key policy and any grants that Amazon DocumentDB relies on still
+   permit Amazon DocumentDB to use the key.
+5. After access to the KMS key is restored, start the cluster by using the
+   AWS Management Console or by running the `start-db-cluster` AWS CLI
+   command.
+
+###### Example
+
+For Linux, macOS, or Unix:
+
+```
+aws docdb start-db-cluster \
+  --db-cluster-identifier `example-cluster`
+```
+
+For Windows:
+
+```
+aws docdb start-db-cluster ^
+  --db-cluster-identifier `example-cluster`
+```
+
+###### Important
+
+If access to the KMS key is not restored within 7 days, the cluster transitions
+to the terminal `inaccessible-encryption-credentials` status, from which
+it can't be started.
+
+### `inaccessible-encryption-credentials` status
+
+The `inaccessible-encryption-credentials` status is terminal. The cluster
+can't be started, and the running state of the database can't be recovered. To recover
+your data, restore from a snapshot or perform a point-in-time restore to a new cluster.
+You must still have access to the original KMS key to perform the restore. If the
+KMS key was deleted, the data can't be recovered.
+
+For more information, see [Restoring from a cluster snapshot](backup_restore-restore_from_snapshot.md "backup_restore-restore_from_snapshot.md") and [Restoring to a point in time](backup_restore-point_in_time_recovery.md "backup_restore-point_in_time_recovery.md").
+
+###### Note
+
+Clusters that are part of a global cluster transition directly to the
+`inaccessible-encryption-credentials` status when access to the
+KMS key is lost, because a cluster that is part of a global cluster can be
+stopped and started only when it is the only cluster in the global cluster. To
+delete a cluster that is in this status, first remove each cluster from the global
+cluster, and then delete the clusters individually.
+
+If you can't delete a cluster that is in the
+`inaccessible-encryption-credentials` status because deletion protection is
+enabled, turn off deletion protection by using the AWS CLI before retrying the
+delete.
+
+###### Example
+
+For Linux, macOS, or Unix:
+
+```
+aws docdb modify-db-cluster \
+  --db-cluster-identifier `example-cluster` \
+  --no-deletion-protection
+```
+
+For Windows:
+
+```
+aws docdb modify-db-cluster ^
+  --db-cluster-identifier `example-cluster` ^
+  --no-deletion-protection
+```
+
+You can then delete the cluster by using the
+`delete-db-cluster` command.
+
+###### Example
+
+For Linux, macOS, or Unix:
+
+```
+aws docdb delete-db-cluster \
+  --db-cluster-identifier `example-cluster` \
+  --skip-final-snapshot
+```
+
+For Windows:
+
+```
+aws docdb delete-db-cluster ^
+  --db-cluster-identifier `example-cluster` ^
+  --skip-final-snapshot
+```
+
+If the cluster does not delete after you run the preceding commands, contact [AWS Support](https://aws.amazon.com/support "https://aws.amazon.com/support").
 
 ## Limitations for Amazon DocumentDB encrypted clusters
 

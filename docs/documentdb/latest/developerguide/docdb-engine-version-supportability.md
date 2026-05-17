@@ -18,7 +18,7 @@ best fits your workload requirements.
 | Cluster types by version | Cluster Type | v3.6 | v4.0 | v5.0 | v8.0 | Elastic Clusters |
 | ------------------------ | ------------ | ---- | ---- | ---- | ---- | ---------------- |
 | Instance-based cluster   | Yes          | Yes  | Yes  | Yes  | Yes  |
-| Serverless instances     | No           | No   | Yes  | No   | No   |
+| Serverless instances     | No           | No   | Yes  | Yes  | No   |
 
 ## Features
 
@@ -56,7 +56,7 @@ best fits your workload requirements.
 | db.r8g (Graviton4)               | No            | No   | Yes  | Yes  |
 | db.t3.medium                     | Yes           | Yes  | Yes  | Yes  |
 | db.t4g.medium (Graviton2)        | No            | Yes  | Yes  | Yes  |
-| serverless                       | No            | No   | Yes  | No   |
+| serverless                       | No            | No   | Yes  | Yes  |
 
 ## AWS integrations
 

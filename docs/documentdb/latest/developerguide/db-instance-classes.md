@@ -206,7 +206,7 @@ table specifies which instance classes are supported by Amazon DocumentDB in eac
 | Middle East (UAE)                    |           |                  | Supported | Supported |           | Supported | Supported | Supported  |
 | China (Beijing)                      |           | Supported        | Supported | Supported |           | Supported | Supported | Supported  |
 | China (Ningxia)                      |           |                  | Supported | Supported |           | Supported | Supported | Supported  |
-| Israel (Tel Aviv)                    |           |                  | Supported | Supported |           | Supported | Supported | Supported  |
+| Israel (Tel Aviv)                    |           |                  | Supported | Supported |           | Supported | Supported |            |
 | AWS GovCloud (US-West)               | Supported | Supported        | Supported | Supported |           |           | Supported | Supported  |
 | AWS GovCloud (US-East)               |           | Supported        | Supported | Supported |           | Supported | Supported | Supported  |
 

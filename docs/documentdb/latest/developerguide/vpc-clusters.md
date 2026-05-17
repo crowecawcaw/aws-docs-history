@@ -277,45 +277,12 @@ Feature availability and support varies across AWS Regions.
 
 **Region support**
 
-The following list identifies the AWS Regions that support dual-stack mode:
-
-- US East (Ohio)
-- US East (N. Virginia)
-- US West (Oregon)
-- Africa (Cape Town)
-- South America (São Paulo)
-- Asia Pacific (Hong Kong)
-- Asia Pacific (Hyderabad)
-- Asia Pacific (Malaysia)
-- Asia Pacific (Mumbai)
-- Asia Pacific (Osaka)
-- Asia Pacific (Seoul)
-- Asia Pacific (Singapore)
-- Asia Pacific (Sydney)
-- Asia Pacific (Jakarta)
-- Asia Pacific (Thailand)
-- Asia Pacific (Tokyo)
-- Canada (Central)
-- Canada West (Calgary)
-- China (Beijing)
-- China (Ningxia)
-- Europe (Frankfurt)
-- Europe (Ireland)
-- Europe (London)
-- Europe (Milan)
-- Europe (Paris)
-- Europe (Spain)
-- Europe (Stockholm)
-- Israel (Tel Aviv)
-- Mexico (Central)
-- Middle East (UAE)
-- AWS GovCloud (US-West)
-- AWS GovCloud (US-East)
+Dual stack mode for Amazon DocumentDB is currently available in all commercial AWS Regions.
 
 **Version support**
 
-Dual-stack mode is supported on Amazon DocumentDB version 4.0 and 5.0.
-If you are unable to access dual-stack mode on either of these versions, please make sure that you are running the latest engine patch version on your cluster.
+Dual-stack mode is supported on Amazon DocumentDB version 4.0, 5.0 and 8.0.
+If you are unable to access dual-stack mode on any of these versions, please make sure that you are running the latest engine patch version on your cluster.
 
 #### Limitations for dual-stack network clusters
 

@@ -33,6 +33,8 @@ For more information, see the following:
 - [Amazon DocumentDB Failover](failover.md "failover.md")
   - [Controlling the failover target](failover.md#failover-target_control "failover.md#failover-target_control")
 
+In Amazon DocumentDB versions 5.0 and 8.0, replica instances don't restart when the primary instance restarts. They continue to serve read requests during primary instance restarts, maintaining improved availability.
+
 ### High availability with global clusters
 
 For high availability across multiple AWS Regions, you can set up [Amazon DocumentDB global clusters](global-clusters.md "global-clusters.md"). Each global cluster spans multiple regions, enabling low latency global reads and disaster recovery from outages across an AWS Region. Amazon DocumentDB automatically handles replicating all data and updates from the primary region to each of the secondary regions.

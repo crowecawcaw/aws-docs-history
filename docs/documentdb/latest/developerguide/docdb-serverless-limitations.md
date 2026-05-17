@@ -17,7 +17,7 @@ aws docdb describe-orderable-db-instance-options \
 
 ### Engine version availability
 
-DocumentDB serverless is supported by Amazon DocumentDB 5.0.0 engine version only. It is not available on engine versions 3.6, 4.0, or 8.0.
+DocumentDB serverless is supported by Amazon DocumentDB 5.0 and 8.0 engine versions. It is not available on engine versions 3.6 or 4.0.
 
 ###### Note
 
