@@ -32,7 +32,15 @@ The body text uses variable placeholders.
  "components": [
  {
  "type": "BODY",
- "text": "Hi {{1}}, your order #{{2}} has been shipped. Track your delivery below."
+ "text": "Hi {{1}}, your order #{{2}} has been shipped. Track your delivery below.",
+ "example": {
+ "body_text": [
+ [
+ "Jane",
+ "12345"
+ ]
+ ]
+ }
  }
  ]
 }'`
@@ -53,7 +61,15 @@ This example creates a utility message template in English that includes `BODY` 
  "components": [
  {
  "type": "BODY",
- "text": "Hi {{1}}, your order #{{2}} has been shipped. Track your delivery below."
+ "text": "Hi {{1}}, your order #{{2}} has been shipped. Track your delivery below.",
+ "example": {
+ "body_text": [
+ [
+ "Jane",
+ "12345"
+ ]
+ ]
+ }
  },
  {
  "type": "BUTTONS",
@@ -166,7 +182,15 @@ This example creates a marketing message template in English that includes `HEAD
  },
  {
  "type": "BODY",
- "text": "Hi {{1}}! Get {{2}} off all summer items. Shop now before stock runs out!"
+ "text": "Hi {{1}}! Get {{2}} off all summer items. Shop now before stock runs out!",
+ "example": {
+ "body_text": [
+ [
+ "Alex",
+ "20%"
+ ]
+ ]
+ }
  },
  {
  "type": "FOOTER",
