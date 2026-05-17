@@ -59,7 +59,7 @@ https://aws-hpc-recipes.s3.amazonaws.com/main/recipes/pcs/cloudwatch/assets/conf
 
 ###### Notes
 
-- The log paths in the sample file are for Amazon Linux 2. If your instances will use
+- The log paths in the sample file are for Amazon Linux 2023. If your instances will use
   a different base operating system, change the paths as appropriate.
 - To capture other logs, add additional entries under
   `collect_list`.

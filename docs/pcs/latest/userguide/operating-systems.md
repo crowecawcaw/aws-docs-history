@@ -8,7 +8,7 @@ For more information, see [Amazon Machine Images (AMIs) for AWS PCS](working-wit
 
 ###### Supported operating systems
 
-- ###### Amazon Linux 2
+- ###### Amazon Linux 2023
 
 This is the operating system in the AWS PCS sample AMIs.
 
@@ -16,9 +16,9 @@ This is the operating system in the AWS PCS sample AMIs.
 
 Sample AMIs are for demonstration purposes and are not recommended for production
 workloads. You should create and use a custom AMI for production workloads, even if
-you intend to use Amazon Linux 2.
+you intend to use Amazon Linux 2023.
 
-- **Amazon Linux 2023**
+- **Amazon Linux 2**
 - ###### RedHat Enterprise Linux 9 (RHEL 9)
 
 The on-demand cost for RHEL any instance type is higher than

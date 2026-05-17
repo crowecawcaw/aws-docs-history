@@ -30,18 +30,18 @@ NodeName=hpc7g-1 Arch=aarch64 CoresPerSocket=1
    ActiveFeatures=hpc7g
    Gres=(null)
    NodeAddr=10.3.140.69 NodeHostName=ip-10-3-140-69 Version=25.11.2
-   OS=Linux 5.10.218-208.862.amzn2.aarch64 #1 SMP Tue Jun 4 16:52:10 UTC 2024
+   OS=Linux 6.12.80-106.156.amzn2023.aarch64 #1 SMP Fri May 1 14:08:14 UTC 2026
    RealMemory=124518 AllocMem=0 FreeMem=110763 Sockets=64 Boards=1
    State=IDLE+CLOUD ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
    Partitions=efa
-   BootTime=2024-07-02T19:00:09 SlurmdStartTime=2024-07-08T19:33:25
-   LastBusyTime=2024-07-08T19:33:25 ResumeAfterTime=None
+   BootTime=2026-05-02T19:00:09 SlurmdStartTime=2026-05-08T19:33:25
+   LastBusyTime=2026-05-08T19:33:25 ResumeAfterTime=None
    CfgTRES=cpu=64,mem=124518M,billing=64
    AllocTRES=
    CapWatts=n/a
    CurrentWatts=0 AveWatts=0
    ExtSensorsJoules=n/a ExtSensorsWatts=0 ExtSensorsTemp=n/a
-   Reason=Maintain Minimum Number Of Instances [root@2024-07-02T18:59:00]
+   Reason=Maintain Minimum Number Of Instances [root@2026-05-02T18:59:00]
    InstanceId=i-04927897a9ce3c143 InstanceType=hpc7g.16xlarge
 
 NodeName=hpc7g-2 Arch=aarch64 CoresPerSocket=1
@@ -50,18 +50,18 @@ NodeName=hpc7g-2 Arch=aarch64 CoresPerSocket=1
    ActiveFeatures=hpc7g
    Gres=(null)
    NodeAddr=10.3.132.211 NodeHostName=ip-10-3-132-211 Version=25.11.2
-   OS=Linux 5.10.218-208.862.amzn2.aarch64 #1 SMP Tue Jun 4 16:52:10 UTC 2024
+   OS=Linux 6.12.80-106.156.amzn2023.aarch64 #1 SMP Fri May 1 14:08:14 UTC 2026
    RealMemory=124518 AllocMem=0 FreeMem=110759 Sockets=64 Boards=1
    State=IDLE+CLOUD ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
    Partitions=efa
-   BootTime=2024-07-02T19:00:09 SlurmdStartTime=2024-07-08T19:33:25
-   LastBusyTime=2024-07-08T19:33:25 ResumeAfterTime=None
+   BootTime=2026-05-02T19:00:09 SlurmdStartTime=2026-05-08T19:33:25
+   LastBusyTime=2026-05-08T19:33:25 ResumeAfterTime=None
    CfgTRES=cpu=64,mem=124518M,billing=64
    AllocTRES=
    CapWatts=n/a
    CurrentWatts=0 AveWatts=0
    ExtSensorsJoules=n/a ExtSensorsWatts=0 ExtSensorsTemp=n/a
-   Reason=Maintain Minimum Number Of Instances [root@2024-07-02T18:59:00]
+   Reason=Maintain Minimum Number Of Instances [root@2026-05-02T18:59:00]
    InstanceId=i-0a2c82623cb1393a7 InstanceType=hpc7g.16xlarge
 ```
 

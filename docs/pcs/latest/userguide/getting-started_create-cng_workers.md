@@ -30,8 +30,12 @@ submitted to the cluster.
   - **AMI ID** – Select an AMI you want to use, that has a name in the following format:
 
   ```
-  aws-pcs-sample_ami-amzn2-`platform`-slurm-`version`
+  aws-pcs-sample_ami-al2023-`platform`-slurm-`version`
   ```
+
+  ###### Note
+
+  Sample AMIs for Slurm 25.05 and previous versions use Amazon Linux 2 (`amzn2`) instead of Amazon Linux 2023 (`al2023`).
 
   For more information about the sample AMIs, see [Using sample Amazon Machine Images (AMIs) with AWS PCS](working-with_ami_samples.md "working-with_ami_samples.md").
 

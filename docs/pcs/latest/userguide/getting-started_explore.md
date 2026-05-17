@@ -7,7 +7,7 @@ change users, work with data on shared filesystems, and interact with Slurm.
 
 If you have logged in to the cluster using Session Manager, you may be connected as
 `ssm-user`. This is an special user that is created for Session Manager. Switch to
-the default user on Amazon Linux 2 using the following command. You will not need to do this if
+the default user on Amazon Linux 2023 using the following command. You will not need to do this if
 you connected using SSH.
 
 ```

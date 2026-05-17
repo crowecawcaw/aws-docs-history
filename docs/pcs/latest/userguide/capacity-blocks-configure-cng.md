@@ -21,12 +21,14 @@ Your launch template must include:
 When you create or update the compute node group:
 
     * The IAM identity you use to create or update the compute node group must have the following
-     permission:
+     permissions:
 
 
 
     ```
     ec2:DescribeCapacityReservations
+    ec2:DescribeCapacityBlocks
+    ec2:DescribeCapacityBlockStatus
     ```
 
     For more information, see [Minimum permissions for AWS PCS](security-min-permissions.md "security-min-permissions.md").
