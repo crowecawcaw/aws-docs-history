@@ -21,6 +21,15 @@ and optional, fields in the _EventBridge Scheduler API Reference_.
 - **EventBridge** – [`PutEvents`](../../../eventbridge/latest/APIReference/API_PutEvents.md "../../../eventbridge/latest/APIReference/API_PutEvents.md")
   - Parameters: [`EventBridgeParameters`](../APIReference/API_EventBridgeParameters.md "../APIReference/API_EventBridgeParameters.md")
 
+###### Important
+
+EventBridge Scheduler does not support cross-Region delivery when using EventBridge
+`PutEvents` as a templated target. You can use this target to send
+events to an event bus in a different AWS account only if the event bus is in
+the same AWS Region as the schedule. To send events to an event bus in a
+different Region, create a schedule in the Region where the target event bus
+is located.
+
 - **Amazon Inspector** – [`StartAssessmentRun`](../../../inspector/v1/APIReference/API_StartAssessmentRun.md "../../../inspector/v1/APIReference/API_StartAssessmentRun.md")
 - **Kinesis** – [`PutRecord`](../../../kinesis/latest/APIReference/API_PutRecord.md "../../../kinesis/latest/APIReference/API_PutRecord.md")
   - Parameters: [`KinesisParameters`](../APIReference/API_KinesisParameters.md "../APIReference/API_KinesisParameters.md")
