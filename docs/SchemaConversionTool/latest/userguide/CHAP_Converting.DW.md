@@ -246,7 +246,7 @@ With your project open, use the following procedure to create migration rules.
    choose **Save** to save your rule.
    You can also choose **Cancel** to cancel your changes.
 
-![The transformation rules dialog box](images/transformation-rules.png) 7. After you are done adding, editing, and deleting rules,
+![The transformation rules dialog box](/images/SchemaConversionTool/latest/userguide/images/transformation-rules.png) 7. After you are done adding, editing, and deleting rules,
 choose **Save All** to save all your changes. 8. Choose **Close**
 to close the **Transformation rules** dialog box.
 
