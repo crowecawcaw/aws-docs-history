@@ -30,7 +30,15 @@ AWS Resource Explorer.
 
 ###### Note
 
-As of February 10, 2026, Resource Explorer no longer supports the following resource types:
+As of May 15, 2026, Resource Explorer no longer supports the following resource types:
+
+- **AWS IoT Events**—
+  `iotevents:alarmModel`
+- **AWS IoT Events**—
+  `iotevents:detectorModel`
+- **AWS IoT Events**—
+  `iotevents:input`
+  As of February 10, 2026, Resource Explorer no longer supports the following resource types:
 
 - **Amazon Chime**—
   `chime:media-pipeline`
@@ -202,7 +210,6 @@ As of February 10, 2026, Resource Explorer no longer supports the following reso
 - [Amazon Interactive Video Service](#services-ivs "#services-ivs")
 - [AWS IoT](#services-iot "#services-iot")
 - [AWS IoT Core Device Advisor](#services-iotdeviceadvisor "#services-iotdeviceadvisor")
-- [AWS IoT Events](#services-iotevents "#services-iotevents")
 - [AWS IoT FleetWise](#services-iotfleetwise "#services-iotfleetwise")
 - [AWS IoT Greengrass](#services-greengrass "#services-greengrass")
 - [AWS IoT SiteWise](#services-iotsitewise "#services-iotsitewise")
@@ -1014,12 +1021,6 @@ As of February 10, 2026, Resource Explorer no longer supports the following reso
 ### AWS IoT Core Device Advisor
 
 - `iotdeviceadvisor:suitedefinition`
-
-### AWS IoT Events
-
-- `iotevents:alarmModel`
-- `iotevents:detectorModel`
-- `iotevents:input`
 
 ### AWS IoT FleetWise
 
