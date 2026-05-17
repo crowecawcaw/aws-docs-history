@@ -29,15 +29,29 @@ service-linked role trusts the following services to assume the role:
 
 - `logs.amazonaws.com`
 
-The role permissions policy allows CloudWatch Logs to complete the following actions on
-the specified resources:
+The role permissions policy,
+**AWSServiceRoleForLogDeliveryPolicy**,
+allows CloudWatch Logs to complete the following actions on
+the specified resources. For the full JSON policy document, see [AWSServiceRoleForLogDeliveryPolicy](../../../aws-managed-policy/latest/reference/AWSServiceRoleForLogDeliveryPolicy.md "../../../aws-managed-policy/latest/reference/AWSServiceRoleForLogDeliveryPolicy.md") in the _AWS Managed
+Policy Reference Guide_.
 
-- Action: `firehose:PutRecord` and
-  `firehose:PutRecordBatch` on all Firehose streams that have
-  a tag with a `LogDeliveryEnabled` key with a value of
-  `True`. This tag is automatically attached to an Firehose
-  stream when you create a subscription to deliver the logs to
+- Action: `firehose:PutRecord`,
+  `firehose:PutRecordBatch`, and
+  `firehose:ListTagsForDeliveryStream` on all Firehose
+  delivery streams that have a tag with a
+  `LogDeliveryEnabled` key with a value of
+  `true`. This tag is automatically attached to an Firehose
+  delivery stream when you create a subscription to deliver the logs to
   Firehose.
+- Action: `kms:GenerateDataKey` and
+  `kms:Decrypt` on all AWS KMS keys, but only when the
+  request is made through Firehose (enforced by the
+  `kms:ViaService` condition key set to
+  `firehose.*.amazonaws.com`). These permissions allow
+  CloudWatch Logs to deliver logs to Firehose delivery streams that use server-side
+  encryption with customer managed keys (SSE-CMK). The customer's AWS KMS
+  key policy must also independently grant access to the service-linked
+  role.
 
 You must configure permissions to allow an IAM entity to create, edit, or
 delete a service-linked role. This entity could be a user, group, or role. For

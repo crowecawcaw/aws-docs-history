@@ -20,8 +20,8 @@ you must grant permissions to AWS to enable the logs to be sent.
 For services that require these permissions, there are two versions of the permissions
 needed. The services that require these extra permissions are noted as **Supported
 [V1 Permissions]** and **Supported [V2 Permissions]** in the
-table. For information about these required permissions, see the sections after the
-table.
+[Supported log destinations](AWS-logs-destinations-table.md "AWS-logs-destinations-table.md"). For information about these required
+permissions, see the sections after the table.
 
 - [![Amazon API Gateway logo](images/integration-icons/api-gateway.png)Amazon API Gateway](../../../apigateway/latest/developerguide/set-up-logging.md "../../../apigateway/latest/developerguide/set-up-logging.md")
 - [![AWS AppSync logo](images/integration-icons/appsync.png)AWS AppSync](../../../appsync/latest/devguide/monitoring.md "../../../appsync/latest/devguide/monitoring.md")
