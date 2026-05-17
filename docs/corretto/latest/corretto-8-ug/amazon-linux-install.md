@@ -65,8 +65,8 @@ Expected output for 8u492:
 
 ```
 openjdk version "1.8.0_492"
-OpenJDK Runtime Environment Corretto-8.492.09.1 (build 1.8.0_492-b09)
-OpenJDK 64-Bit Server VM Corretto-8.492.09.1 (build 25.492-b09, mixed mode)
+OpenJDK Runtime Environment Corretto-8.492.09.2 (build 1.8.0_492-b09)
+OpenJDK 64-Bit Server VM Corretto-8.492.09.2 (build 25.492-b09, mixed mode)
 ```
 
 If you see a version string that doesn't mention `Corretto`,
