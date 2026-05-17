@@ -10,12 +10,12 @@ requirements.
 
 - You have root access.
 - Use one of the following Linux distributions:
-  - Red Hat Enterprise Linux (RHEL) 7 or 8
-  - CentOS 7 or 8.
+  - Amazon Linux 2023
+  - Red Hat Enterprise Linux (RHEL) 9 or later
 
 - Have 100 MB of disk space available.
-- Use version 2.3.1 or later of [unixODBC](https://www.unixodbc.org/ "https://www.unixodbc.org/").
-- Use version 2.26 or later of the [GNU C Library](https://www.gnu.org/software/libc/ "https://www.gnu.org/software/libc/")
+- Use version 2.3.9 or later of [unixODBC](https://www.unixodbc.org/ "https://www.unixodbc.org/").
+- Use version 2.34 or later of the [GNU C Library](https://www.gnu.org/software/libc/ "https://www.gnu.org/software/libc/")
   (glibc).
 
 ## Installing the ODBC data connector on Linux

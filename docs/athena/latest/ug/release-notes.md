@@ -17,6 +17,26 @@ Describes Amazon Athena features, improvements, and bug fixes by release date.
 
 ## Athena release notes for 2026
 
+### May 12, 2026
+
+Published on 2026-05-12
+
+**Updates and security improvements**
+
+We've updated the third party library versions as following.
+
+- Updated `logback-core` from 1.3.15 to 1.3.16
+- Updated `logback-classic` from 1.3.15 to 1.3.16
+- Updated `jackson-annotations` from 2.16.0 to 2.21.2
+- Updated `jackson-core` from 2.16.0 to 2.21.2
+- Updated `jackson-databind` from 2.16.0 to 2.21.2
+- Replaced hardcoded `NTLM` authentication with the
+  `Negotiate` protocol in the ADFS SAML authentication flow,
+  enabling Kerberos support with automatic `NTLMv2` fallback
+
+For more information, and to download the JDBC 2.x driver, release notes, and
+documentation, see [Athena JDBC 2.x driver](jdbc-v2.md "jdbc-v2.md").
+
 ### April 21, 2026
 
 Published on 2026-04-21
