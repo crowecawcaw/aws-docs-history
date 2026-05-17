@@ -4,8 +4,8 @@ You can use AWS DMS with several other AWS services:
 
 - You can use an Amazon EC2 instance or Amazon RDS DB instance as a target for a data
   migration.
-- You can use the AWS Schema Conversion Tool (AWS SCT) to convert your source schema and SQL
-  code into an equivalent target schema and SQL code.
+- You can use DMS Schema Conversion to convert your source schema and SQL
+  code into a format compatible with the target database.
 - You can use Amazon S3 as a storage site for your data, or you can use it as an
   intermediate step when migrating large amounts of data.
 - You can use CloudFormation to set up your AWS resources for infrastructure management

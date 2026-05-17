@@ -92,9 +92,9 @@ is set to DROP_AND_CREATE (the default). Data validation ignores these columns b
 the rows are meaningless outside the specific database and table. To turn off migration
 of these columns, you can do one of the following preparatory steps:
 
-- Precreate the target table without these columns. Then, set the target
+- Pre-create the target table without these columns. Then, set the target
   table prep mode of the task to either DO_NOTHING or TRUNCATE_BEFORE_LOAD. You
-  can use AWS Schema Conversion Tool (AWS SCT) to precreate the target table without the
+  can use DMS Schema Conversion to pre-create the target table without the
   columns.
 - Add a table mapping rule to a task that filters out these columns so
   that they're ignored. For more information, see [Transformation rules and actions](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Transformations.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Transformations.md").

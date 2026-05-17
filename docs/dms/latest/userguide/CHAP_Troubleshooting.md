@@ -104,8 +104,8 @@ data from the source. For example, it doesn't create secondary indexes, non-prim
 key constraints, or data defaults.
 
 To migrate secondary objects from your database, use the database's native tools
-if you are migrating to the same database engine as your source database. Use the
-AWS Schema Conversion Tool (AWS SCT) if you are migrating to a different database engine than that
+if you are migrating to the same database engine as your source database. Use
+DMS Schema Conversion if you are migrating to a different database engine than that
 used by your source database to migrate secondary objects.
 
 ## AWS DMS does not create CloudWatch logs

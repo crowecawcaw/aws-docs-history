@@ -599,7 +599,7 @@ attribute set to `false` when using the
 `ParallelLoadThreads` task setting. The attribute
 improves performance of larger multithreaded full load tasks by having
 DMS write to disk instead of memory. The default value is
-`true`.
+`false`.
 
 - `ParallelLoadBufferSize` – Specifies the maximum
   data record requests while using parallel load threads with Redshift

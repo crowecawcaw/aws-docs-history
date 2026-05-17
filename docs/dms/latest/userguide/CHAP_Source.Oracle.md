@@ -127,6 +127,10 @@ one of the following situations:
 If you change between using Oracle LogMiner and AWS DMS Binary Reader, make sure
 to restart the CDC task.
 
+###### Note
+
+Oracle Physical Standby only supports an Oracle Primary RAC instance where all nodes are open (available).
+
 ### Configuration for CDC on an Oracle source database
 
 For an Oracle source endpoint to connect to the database for a change data
@@ -1338,6 +1342,13 @@ TABLE` statement to make these columns visible.
   inconsistencies between the source and target systems. To ensure data
   completeness, you must either restart the full load task entirely or reload the
   specific tables affected by the connection interruption.
+- If you are using Oracle LogMiner connected to an Oracle Active Data Guard standby and the
+  primary database is Oracle RAC, all RAC nodes on the primary must be open (available). If any
+  RAC node is stopped, CDC does not progress and the task displays the message REDO events
+  corresponding SCN are not still archived without raising an error. This happens because AWS DMS
+  cannot detect closed redo threads when reading from a standby database. To resolve this, ensure
+  all primary RAC nodes are running, or switch to Binary Reader which reads directly from the
+  primary.
 
 ## SSL support for an Oracle endpoint
 

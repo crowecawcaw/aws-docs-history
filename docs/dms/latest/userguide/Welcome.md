@@ -20,7 +20,7 @@ With AWS DMS, you can discover your source data stores, convert your source sche
   create a source and target connection to tell AWS DMS where to extract data from and where to
   load it. Next, you schedule a task that runs on this server to move your data. AWS DMS creates the tables and
   associated primary keys if they don't exist on the target. You can create the target
-  tables yourself if you prefer. Or you can use AWS Schema Conversion Tool (AWS SCT) to create some or all
+  tables yourself if you prefer. Or you can use DMS Schema Conversion to create some or all
   of the target tables, indexes, views, triggers, and so on.
 
 The following diagram illustrates the AWS DMS replication process.

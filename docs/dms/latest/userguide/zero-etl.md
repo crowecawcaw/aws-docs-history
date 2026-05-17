@@ -86,15 +86,6 @@ PostgreSQL
 
 - For configuration requirements and limitations, see
   [Using a PostgreSQL database as an AWS DMS source](CHAP_Source.PostgreSQL.md "CHAP_Source.PostgreSQL.md").
-- When using a self-managed PostgreSQL database as a source, the following limitation applies:
-  - For self-managed PostgreSQL sources, you must set `CaptureDdls` to `false` in the PostgreSQL endpoint settings when creating the source endpoint. To set this parameter, use the following when creating your source endpoint:
-
-  ```
-  --postgre-sql-settings '{"CaptureDdls": false}'
-  ```
-
-  If you do not set CaptureDdls to false, the task may fail to start successfully.
-  - When `CaptureDdls` is set to `false`, DDL operations (such as CREATE TABLE, ALTER TABLE, and DROP TABLE) performed on the source database during replication will not be captured or replicated to the target.
 
 ## Setting up IAM permissions and encryption for zero-ETL integration
 

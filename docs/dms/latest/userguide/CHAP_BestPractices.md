@@ -44,13 +44,11 @@ When planning a database migration using AWS Database Migration Service, conside
   in the target database. Depending on your source and target database engine, you
   might need to set up supplemental logging or modify other settings for a source
   or target database. For more information, see [Sources for data migration](CHAP_Source.md "CHAP_Source.md") and [Targets for data migration](CHAP_Target.md "CHAP_Target.md").
-- Schema and code migration – AWS DMS doesn't perform
-  schema or code conversion. You can use tools such as Oracle SQL Developer, MySQL
-  Workbench, and pgAdmin III to convert your schema. To convert an existing schema
-  to a different database engine, you can use the AWS Schema Conversion Tool (AWS SCT). It can
-  create a target schema and can generate and create an entire schema: tables,
-  indexes, views, and so on. You can also use the tool to convert PL/SQL or TSQL
-  to PgSQL and other formats. For more information on the AWS SCT, see the [AWS SCT User Guide](../../../SchemaConversionTool/latest/userguide/CHAP_Welcome.md "../../../SchemaConversionTool/latest/userguide/CHAP_Welcome.md").
+- Schema migration –
+  If your source and target use the same database engine, you can use native tools
+  such as Oracle SQL Developer, MySQL Workbench, or pgAdmin 4 to migrate your schema.
+  To convert a schema to a different engine, use DMS Schema Conversion. For more information, see
+  [Converting database schemas using DMS Schema Conversion](CHAP_SchemaConversion.md "CHAP_SchemaConversion.md").
 - Unsupported data types – Make sure that you can convert
   source data types into the equivalent data types for the target database. For
   more information on supported data types, see the source or target section for
@@ -76,17 +74,14 @@ AWS Support team. For more information, see [Working with diagnostic support scr
 
 ## Converting schema
 
-AWS DMS doesn't perform schema or code conversion. If you want to convert an existing
-schema to a different database engine, you can use AWS SCT. AWS SCT converts your
-source objects, table, indexes, views, triggers, and other system objects into the
-target data definition language (DDL) format. You can also use AWS SCT to convert most
-of your application code, like PL/SQL or TSQL, to the equivalent target language.
-
-You can get AWS SCT as a free download from AWS. For more information on AWS SCT, see
-the [AWS SCT User Guide](../../../SchemaConversionTool/latest/userguide/CHAP_SchemaConversionTool.Installing.md "../../../SchemaConversionTool/latest/userguide/CHAP_SchemaConversionTool.Installing.md").
+If you want to convert an existing schema to a different database engine, you can
+use DMS Schema Conversion. It converts your source database schemas and most of the database
+code objects to a format compatible with the target database. This conversion includes
+tables, views, stored procedures, functions, data types, synonyms, and so on. For more
+information, see [Converting database schemas using DMS Schema Conversion](CHAP_SchemaConversion.md "CHAP_SchemaConversion.md").
 
 If your source and target endpoints are on the same database engine, you can use tools
-such as Oracle SQL Developer, MySQL Workbench, or PgAdmin4 to move your schema.
+such as Oracle SQL Developer, MySQL Workbench, or pgAdmin 4 to move your schema.
 
 ## Reviewing the AWS DMS public documentation
 
