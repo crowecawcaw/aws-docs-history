@@ -14,10 +14,12 @@ Choose your preferred access method to configure RDS Protection for a standalone
 Console
 
 1. Open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/").
-2. In the navigation pane, choose **RDS Protection**.
-3. The **RDS Protection** page shows the current status for your
-   account. Choose **Enable** to enable RDS Protection.
-4. Choose **Confirm** to save your selection.
+2. In the navigation pane, choose **Protection Plans**.
+3. Choose **Configure all enablements**. Under
+   **RDS Protection**, choose **Enable** to enable
+   RDS Protection.
+4. Choose **Save all**, then choose **Confirm and
+   save**.
 
 API/CLI
 Run the [updateDetector](../APIReference/API_UpdateDetector.md "../APIReference/API_UpdateDetector.md") API operation using your own regional

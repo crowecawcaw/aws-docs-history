@@ -1,5 +1,10 @@
 # GuardDuty EKS Protection
 
+###### Note
+
+You can configure EKS Protection along with all other protection plans from a single
+page in the GuardDuty console. For more information, see [Configuring protection plans](protection-plans.md "protection-plans.md").
+
 EKS Protection helps you detect potential security risks in Amazon Elastic Kubernetes Service (Amazon EKS) clusters
 in your AWS environment. For example, it helps you detect when a misconfigured EKS
 cluster is being accessed by an unauthenticated actor that attempts to

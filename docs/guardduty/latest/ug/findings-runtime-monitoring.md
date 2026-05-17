@@ -50,6 +50,7 @@ example, you can HTML encode finding fields when displaying them on a webpage.
 - [DefenseEvasion:Runtime/SuspiciousCommand](#defenseevasion-runtime-suspicious-command "#defenseevasion-runtime-suspicious-command")
 - [DefenseEvasion:Runtime/PtraceAntiDebugging](#defenseevasion-runtime-ptrace-anti-debug "#defenseevasion-runtime-ptrace-anti-debug")
 - [Execution:Runtime/MaliciousFileExecuted](#execution-runtime-malicious-file-executed "#execution-runtime-malicious-file-executed")
+- [Execution:Runtime/MaliciousFileExecuted.Custom](#execution-runtime-malicious-file-executed-custom "#execution-runtime-malicious-file-executed-custom")
 - [Execution:Runtime/SuspiciousShellCreated](#execution-runtime-suspicious-shell-created "#execution-runtime-suspicious-shell-created")
 - [PrivilegeEscalation:Runtime/ElevationToRoot](#privilegeesc-runtime-elevation-to-root "#privilegeesc-runtime-elevation-to-root")
 - [Discovery:Runtime/SuspiciousCommand](#discovery-runtime-suspicious-command "#discovery-runtime-suspicious-command")
@@ -1118,6 +1119,34 @@ executed.
 
 GuardDuty examines related runtime activity and context so that it generates this finding only
 when the associated activity and context are potentially suspicious.
+
+The GuardDuty runtime agent monitors events from multiple resources. To identify the affected
+resource, view **Resource type** in the findings details in the GuardDuty
+console. When applicable, additional context, including process and process lineage information, is available
+in the finding for further investigation.
+
+**Remediation recommendations:**
+
+If this activity is unexpected, your resource might have been compromised. For more
+information, see [Remediating Runtime Monitoring findings](guardduty-remediate-runtime-monitoring.md "guardduty-remediate-runtime-monitoring.md").
+
+## Execution:Runtime/MaliciousFileExecuted.Custom
+
+### A malicious executable file on a custom threat list has been executed on an Amazon EC2 instance or a container.
+
+**Default severity: High**
+
+- **Feature:** Runtime Monitoring
+
+This finding informs you that an executable file that is included in a threat entity list
+that you uploaded and activated has been executed on an Amazon EC2 instance or a container within
+your AWS environment. In GuardDuty, a threat entity list can include known malicious IP addresses,
+domains, and SHA-256 file hashes. GuardDuty generates findings based on the activity associated
+with the uploaded threat entity list.
+You can view the name of the threat entity list in the finding details.
+
+**Note:** This finding only triggers when an executable file
+whose hash was included in the threat entity list is executed.
 
 The GuardDuty runtime agent monitors events from multiple resources. To identify the affected
 resource, view **Resource type** in the findings details in the GuardDuty

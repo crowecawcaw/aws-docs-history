@@ -12,11 +12,10 @@ Choose your preferred access method to configure EKS Audit Log Monitoring for th
 Console
 
 1. Open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/").
-2. In the navigation pane, choose EKS Protection.
-3. Under the **Configuration** tab, you can view the current
-   configuration status of EKS Audit Log Monitoring in the respective section. To update the configuration
-   for delegated GuardDuty administrator account, choose **Edit** in the **EKS Audit Log Monitoring**
-   pane.
+2. In the navigation pane, choose **Protection Plans**.
+3. Choose **Configure all enablements**. Under
+   **EKS Audit Logs**, you can view the current
+   configuration status of EKS Audit Log Monitoring.
 4. Do one of the following:
 
 ###### Using **Enable for all accounts**
@@ -72,17 +71,15 @@ Console
 
 Make sure to use the delegated GuardDuty administrator account credentials. 2. Do one of the following:
 
-###### Using the **EKS Protection** page
+###### Using the **Protection Plans** page
 
-    1. In the navigation pane, choose **EKS Protection**.
-    2. Under the **Configuration** tab, you can view the current status of
+    1. In the navigation pane, choose **Protection Plans**.
+    2. Choose **Configure all enablements**. Under
+     **EKS Audit Logs**, you can view the current status of
      EKS Audit Log Monitoring for active member accounts in your organization.
-
-
-    To update the EKS Audit Log Monitoring configuration, choose **Edit**.
     3. Choose **Enable for all accounts**. This action automatically
      enables EKS Audit Log Monitoring for both the existing and new accounts in the organization.
-    4. Choose **Save**.
+    4. Choose **Save all**, then choose **Confirm and save**.
 
 
     ###### Note
@@ -133,8 +130,8 @@ Console
 
 1. Sign in to the AWS Management Console and open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/").
 
-Sign in using the delegated GuardDuty administrator account credentials. 2. In the navigation pane, choose **EKS Protection**. 3. On the **EKS Protection** page, you can view the current status of the
-**GuardDuty-initiated malware scan** configuration. Under the **Active
+Sign in using the delegated GuardDuty administrator account credentials. 2. In the navigation pane, choose **Protection Plans**. 3. Choose **Configure all enablements**. Under
+**EKS Audit Logs**, under the **Active
 member accounts** section, choose **Actions**. 4. From the **Actions** dropdown menu, choose **Enable for all
 existing active member accounts**. 5. Choose **Save**.
 
@@ -179,14 +176,14 @@ either the **EKS Audit Log Monitoring** or **Accounts** page.
 
 Make sure to use the delegated GuardDuty administrator account credentials. 2. Do one of the following:
 
-    * Using the **EKS Protection** page:
+    * Using the **Protection Plans** page:
 
 
 
 
-    	1. In the navigation pane, choose **EKS Protection**.
-    	2. On the **EKS Protection** page, choose **Edit** in the
-    	 **EKS Audit Log Monitoring**.
+    	1. In the navigation pane, choose **Protection Plans**.
+    	2. Choose **Configure all enablements**. Under
+    	 **EKS Audit Logs**, configure the auto-enable setting.
     	3. Choose **Configure accounts manually**.
     	4. Select **Automatically enable for new member accounts**. This
     	 step ensures that whenever a new account joins your organization, EKS Audit Log Monitoring will be

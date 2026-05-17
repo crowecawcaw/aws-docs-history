@@ -29,9 +29,9 @@ GuardDuty offers two implementation approaches: entity lists (recommended) and I
 Both approaches help you specify trusted sources, which stop GuardDuty from generate
 findings and known threats, which GuardDuty uses to generate findings.
 
-**Entity lists** support both IP addresses and domain
-names. They use direct Amazon Simple Storage Service (Amazon S3) access with a single IAM permission that
-doesn't impact IAM policy size limits across multiple Regions.
+**Entity lists** support IP addresses, domain names,
+and SHA-256 file hashes. They use direct Amazon Simple Storage Service (Amazon S3) access with a single IAM
+permission that doesn't impact IAM policy size limits across multiple Regions.
 
 **IP lists** support only IP addresses and use [GuardDuty service-linked role (SLR)](slr-permissions.md "slr-permissions.md") (SLR), requiring
 IAM policy updates per Region, which may impact IAM policy size limits.
@@ -79,6 +79,8 @@ findings, but not to Route53 Resolver DNS query logs findings.
   activity that involves IP addresses (and domains) from the administrator account's trusted
   sources. For more information, see [Multiple accounts in Amazon GuardDuty](guardduty_accounts.md "guardduty_accounts.md").
 - Only IPv4 addresses are accepted. IPv6 addresses are not supported.
+- SHA-256 file hashes are supported only in threat entity lists. You cannot
+  include file hashes in trusted entity lists or IP address lists.
 - After you activate, deactivate, or delete an entity list or IP address list,
   the process is estimated to complete within 15 minutes. In certain scenarios, it
   may take up to 40 minutes for this process to complete.
@@ -94,8 +96,9 @@ findings, but not to Route53 Resolver DNS query logs findings.
 GuardDuty accepts multiple file formats for your lists and entity lists, with a maximum of
 35 MB per file. Each format has specific requirements and capabilities.
 
-This format supports IP addresses, CIDR ranges, and domain names. Each entry
-must appear on a separate line.
+This format supports IP addresses, CIDR ranges, domain names, and
+SHA-256 file hashes. SHA-256 file hashes are supported only in threat entity
+lists. Each entry must appear on a separate line.
 
 ###### Example for entity list
 
@@ -107,6 +110,17 @@ example.org
 *.example.org
 ```
 
+###### Example for threat entity list with file hashes
+
+```
+192.0.2.1
+192.0.2.0/24
+example.com
+example.org
+*.example.org
+a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3
+```
+
 ###### Example for IP address list
 
 ```
@@ -115,9 +129,12 @@ example.org
 203.0.113.1
 ```
 
-This format supports IP addresses, CIDR block, and domain names. STIX allows
+This format supports IP addresses, CIDR block, domain names, and
+SHA-256 file hashes. STIX allows
 you to include additional context with your threat intelligence. GuardDuty processes
-IP addresses, CIDR ranges, and domain names from the STIX indicators.
+IP addresses, CIDR ranges, domain names, and SHA-256 file hashes from the STIX
+indicators. SHA-256 file hashes are supported only in threat entity
+lists.
 
 ###### Example for an entity list
 
@@ -152,6 +169,64 @@ IP addresses, CIDR ranges, and domain names from the STIX indicators.
         </stix:Indicator>
     </stix:Indicators>
 </stix:STIX_Package>
+
+```
+
+###### Example for threat entity list with file hashes
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<stix:STIX_Package
+    xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+    xmlns:cybox="http://cybox.mitre.org/cybox-2"
+    xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2"
+    xmlns:stix="http://stix.mitre.org/stix-1"
+    xmlns:indicator="http://stix.mitre.org/Indicator-2"
+    xmlns:stixCommon="http://stix.mitre.org/common-1"
+    xmlns:stixVocabs="http://stix.mitre.org/default_vocabularies-1"
+    xmlns:DomainNameObj="http://cybox.mitre.org/objects#DomainNameObject-1"
+    xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2"
+    id="example:Package-a1b2c3d4-1111-2222-3333-444455556666"
+    version="1.2">
+    <stix:Indicators>
+        <stix:Indicator
+            id="example:indicator-a1b2c3d4-aaaa-bbbb-cccc-ddddeeeeffff"
+            timestamp="2025-08-12T00:00:00Z"
+            xsi:type="indicator:IndicatorType"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <indicator:Title>Malicious domain observed Example</indicator:Title>
+            <indicator:Type xsi:type="stixVocabs:IndicatorTypeVocab-1.1">Domain Watchlist</indicator:Type>
+            <indicator:Observable id="example:Observable-0000-1111-2222-3333">
+                <cybox:Object id="example:Object-0000-1111-2222-3333">
+                    <cybox:Properties xsi:type="DomainNameObj:DomainNameObjectType">
+                        <DomainNameObj:Value condition="Equals">bad.example.com</DomainNameObj:Value>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+        </stix:Indicator>
+        <stix:Indicator
+            id="example:indicator-a1b2c3d4-eeee-ffff-0000-111122223333"
+            timestamp="2025-08-12T00:00:00Z"
+            xsi:type="indicator:IndicatorType"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <indicator:Title>File hash for malware variant</indicator:Title>
+            <indicator:Type xsi:type="stixVocabs:IndicatorTypeVocab-1.1">File Hash Watchlist</indicator:Type>
+            <indicator:Observable id="example:Observable-4444-5555-6666-7777">
+                <cybox:Object id="example:File-4444-5555-6666-7777">
+                    <cybox:Properties xsi:type="FileObj:FileObjectType">
+                        <FileObj:Hashes>
+                            <cyboxCommon:Hash>
+                                <cyboxCommon:Type xsi:type="cyboxVocabs:HashNameVocab-1.0">SHA256</cyboxCommon:Type>
+                                <cyboxCommon:Simple_Hash_Value condition="Equals">a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3</cyboxCommon:Simple_Hash_Value>
+                            </cyboxCommon:Hash>
+                        </FileObj:Hashes>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+        </stix:Indicator>
+    </stix:Indicators>
+</stix:STIX_Package>
+
 ```
 
 ###### Example for an IP address list
@@ -203,8 +278,10 @@ IP addresses, CIDR ranges, and domain names from the STIX indicators.
 </stix:STIX_Package>
 ```
 
-This format supports CIDR block, individual IP addresses, and domains. This
-file format has comma-separated values.
+This format supports CIDR block, individual IP addresses, domains, and
+the `SHA256` indicator type for file hashes. SHA-256 file hashes are
+supported only in threat entity lists. This file format has comma-separated
+values.
 
 ###### Example for entity list
 
@@ -213,7 +290,18 @@ Indicator type, Indicator, Description
 CIDR, 192.0.2.0/24, example
 IPv4, 198.51.100.1, example
 IPv4, 203.0.113.1, example
-domain name, example.net, example
+Domain name, example.net, example
+```
+
+###### Example for threat entity list with file hashes
+
+```
+Indicator type, Indicator, Description
+CIDR, 192.0.2.0/24, example
+IPv4, 198.51.100.1, example
+IPv4, 203.0.113.1, example
+Domain name, example.net, example
+SHA256, a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3, example
 ```
 
 ###### Example for IP address list
@@ -225,9 +313,10 @@ IPv4, 198.51.100.1, example
 IPv4, 203.0.113.1, example
 ```
 
-This format supports CIDR block, individual IP addresses, and domains. The
-following sample lists uses a `FireEyeTM`
-CSV format.
+This format supports CIDR block, individual IP addresses, domains, and
+SHA-256 file hashes in the `sha256` column. SHA-256 file hashes are
+supported only in threat entity lists. The following sample lists uses a
+`FireEyeTM` CSV format.
 
 ###### Example for entity list
 
@@ -241,6 +330,22 @@ reportId, title, threatScape, audience, intelligenceType, publishDate, reportLin
 01-00000003, Example, Test, Operational, threat, 1494944400, https://www.example.com/report/01-00000003, https://www.example.com/report/01-00000003, , , , , , , , , , , , , , , , , , , , , , , , , , , Related, 203.0.113.1, , , , , network, , Ursnif, 8a78c3db-7bcb-40bc-a080-75bd35a2572d, , , 1494944400
 
  01-00000002, Malicious domain observed in test, Test, Operational, threat, 1494944400, https://www.example.com/report/01-00000002,https://www.example.com/report/01-00000002,,,,,,,,,,,,,,,,,,,,,,,, 203.0.113.0/24, example.com,, Related, 203.0.113.0, 8080, UDP,,, network,, Ursnif, fc13984c-c767-40c9-8329-f4c59557f73b,,, 1494944400
+```
+
+###### Example for threat entity list with file hashes
+
+```
+reportId, title, threatScape, audience, intelligenceType, publishDate, reportLink, webLink, emailIdentifier, senderAddress, senderName, sourceDomain, sourceIp, subject, recipient, emailLanguage, fileName, fileSize, fuzzyHash, fileIdentifier, md5, sha1, sha256, description, fileType, packer, userAgent, registry, fileCompilationDateTime, filePath, asn, cidr, domain, domainTimeOfLookup, networkIdentifier, ip, port, protocol, registrantEmail, registrantName, networkType, url, malwareFamily, malwareFamilyId, actor, actorId, observationTime
+
+01-00000001, Example, Test, Operational, threat, 1494944400, https://www.example.com/report/01-00000001, https://www.example.com/report/01-00000001, , , , , , , , , , , , , , , , , , , , , , , , 192.0.2.0/24, , , Related, , , , , , network, , Ursnif, 21a14673-0d94-46d3-89ab-8281a0466099, , , 1494944400
+
+01-00000002, Example, Test, Operational, threat, 1494944400, https://www.example.com/report/01-00000002, https://www.example.com/report/01-00000002, , , , , , , , , , , , , , , , , , , , , , , , , , , Related, 198.51.100.1, , , , , network, , Ursnif, 12ab7bc4-62ed-49fa-99e3-14b92afc41bf, , ,1494944400
+
+01-00000003, Example, Test, Operational, threat, 1494944400, https://www.example.com/report/01-00000003, https://www.example.com/report/01-00000003, , , , , , , , , , , , , , , , , , , , , , , , , , , Related, 203.0.113.1, , , , , network, , Ursnif, 8a78c3db-7bcb-40bc-a080-75bd35a2572d, , , 1494944400
+
+ 01-00000002, Malicious domain observed in test, Test, Operational, threat, 1494944400, https://www.example.com/report/01-00000002,https://www.example.com/report/01-00000002,,,,,,,,,,,,,,,,,,,,,,,, 203.0.113.0/24, example.com,, Related, 203.0.113.0, 8080, UDP,,, network,, Ursnif, fc13984c-c767-40c9-8329-f4c59557f73b,,, 1494944400
+
+01-00000005, Malicious file hash, Test, Operational, threat, 1494944400, https://www.example.com/report/01-00000005, https://www.example.com/report/01-00000005, , , , , , , , , , , , , , , a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3, , , , , , , , , , , , Related, , , , , , network, , Ursnif, 9b9a6ea0-3cbf-4e12-bd3e-0c1d7b4e5f6a, , , 1494944400
 ```
 
 ###### Example for IP address list
@@ -276,7 +381,9 @@ ip, category, score, first_seen, last_seen, ports (|)
 203.0.113.1, 1, 100, 2000-01-01, 2000-01-01, 80
 ```
 
-The following sample list uses the `AlienVault` format.
+The following sample list uses the `AlienVault` format. This
+format also supports SHA-256 file hashes in the indicator column. SHA-256 file
+hashes are supported only in threat entity lists.
 
 ###### Example for entity list
 
@@ -286,6 +393,17 @@ The following sample list uses the `AlienVault` format.
 192.0.2.3#4#2##CN#Guangzhou#23.1166992188,113.25#3
 www.test.org#4#2#Malicious Host#CA#Brossard#45.4673995972,-73.4832000732#3
 www.example.com#4#2#Malicious Host#PL##52.2393989563,21.0361995697#3
+```
+
+###### Example for threat entity list with file hashes
+
+```
+192.0.2.1#4#2#Malicious Host#KR##37.5111999512,126.974098206#3
+192.0.2.2#4#2#Scanning Host#IN#Gurgaon#28.4666996002,77.0333023071#3
+192.0.2.3#4#2##CN#Guangzhou#23.1166992188,113.25#3
+www.test.org#4#2#Malicious Host#CA#Brossard#45.4673995972,-73.4832000732#3
+www.example.com#4#2#Malicious Host#PL##52.2393989563,21.0361995697#3
+a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3#4#2#Malicious Hash###0.0,0.0#3
 ```
 
 ###### Example for IP address list

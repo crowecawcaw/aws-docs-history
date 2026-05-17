@@ -63,13 +63,14 @@ Console
 
 Make sure to use the delegated GuardDuty administrator account credentials. 2. Do one of the following:
 
-###### Using the **Lambda Protection** page
+###### Using the **Protection Plans** page
 
-    1. In the navigation pane, choose **Lambda Protection**.
-    2. Choose **Enable for all accounts**. This action
+    1. In the navigation pane, choose **Protection Plans**.
+    2. Choose **Configure all enablements**.
+    3. Under **Lambda Protection**, choose **Enable for all accounts**. This action
      automatically enables Lambda Network Activity Monitoring for both existing and new accounts in
      the organization.
-    3. Choose **Save**.
+    4. Choose **Save all**, then choose **Confirm and save**.
 
 
     ###### Note
@@ -131,7 +132,8 @@ Console
 
 1. Sign in to the AWS Management Console and open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/").
 
-Sign in using the delegated GuardDuty administrator account credentials. 2. In the navigation pane, choose **Lambda Protection**. 3. On the **Lambda Protection** page, you can view the current status
+Sign in using the delegated GuardDuty administrator account credentials. 2. In the navigation pane, choose **Protection Plans**. 3. Choose **Configure all enablements**. Under
+**Lambda Protection**, you can view the current status
 of the configuration. Under the **Active member accounts**
 section, choose **Actions**. 4. From the **Actions** dropdown menu, choose **Enable
 for all existing active member accounts**. 5. Choose **Confirm**.
@@ -171,14 +173,13 @@ organization, using either the **Lambda Protection** or
 
 Make sure to use the delegated GuardDuty administrator account credentials. 2. Do one of the following:
 
-    * Using the **Lambda Protection** page:
+    * Using the **Protection Plans** page:
 
 
 
 
-    	1. In the navigation pane, choose **Lambda Protection**.
-    	2. On the **Lambda Protection** page, choose
-    	 **Edit**.
+    	1. In the navigation pane, choose **Protection Plans**.
+    	2. Choose **Configure all enablements**.
     	3. Choose **Configure accounts manually**.
     	4. Select **Automatically enable for new member
     	 accounts**. This step ensures that whenever a new account

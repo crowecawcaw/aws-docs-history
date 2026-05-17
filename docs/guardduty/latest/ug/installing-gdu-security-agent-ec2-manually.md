@@ -101,7 +101,7 @@ signature before installing it on your machine.
 
 
         ```
-        s3://`694911143906`-`eu-west-1`-guardduty-agent-rpm-artifacts/`1.9.2`/publickey.pem
+        s3://`694911143906`-`eu-west-1`-guardduty-agent-rpm-artifacts/`1.15.0`/publickey.pem
         ```
         * **GuardDuty security agent
          RPM signature**:
@@ -113,7 +113,7 @@ signature before installing it on your machine.
 
 
         ```
-        s3://`694911143906`-`eu-west-1`-guardduty-agent-rpm-artifacts/`1.9.2`/x86_64/amazon-guardduty-agent-`1.9.2`.x86_64.sig
+        s3://`694911143906`-`eu-west-1`-guardduty-agent-rpm-artifacts/`1.15.0`/x86_64/amazon-guardduty-agent-`1.15.0`.x86_64.sig
         ```
 
 
@@ -121,7 +121,7 @@ signature before installing it on your machine.
 
 
         ```
-        s3://`694911143906`-`eu-west-1`-guardduty-agent-rpm-artifacts/`1.9.2`/arm64/amazon-guardduty-agent-`1.9.2`.arm64.sig
+        s3://`694911143906`-`eu-west-1`-guardduty-agent-rpm-artifacts/`1.15.0`/arm64/amazon-guardduty-agent-`1.15.0`.arm64.sig
         ```
         * **Access links to the
          RPM scripts in Amazon S3 bucket**:
@@ -133,7 +133,7 @@ signature before installing it on your machine.
 
 
         ```
-        s3://`694911143906`-`eu-west-1`-guardduty-agent-rpm-artifacts/`1.9.2`/x86_64/amazon-guardduty-agent-`1.9.2`.x86_64.rpm
+        s3://`694911143906`-`eu-west-1`-guardduty-agent-rpm-artifacts/`1.15.0`/x86_64/amazon-guardduty-agent-`1.15.0`.x86_64.rpm
         ```
 
 
@@ -141,7 +141,7 @@ signature before installing it on your machine.
 
 
         ```
-        s3://`694911143906`-`eu-west-1`-guardduty-agent-rpm-artifacts/`1.9.2`/arm64/amazon-guardduty-agent-`1.9.2`.arm64.rpm
+        s3://`694911143906`-`eu-west-1`-guardduty-agent-rpm-artifacts/`1.15.0`/arm64/amazon-guardduty-agent-`1.15.0`.arm64.rpm
         ```
 
     |                  |                           |                |
@@ -190,9 +190,9 @@ signature before installing it on your machine.
     Region.
 
     ```
-    aws s3 cp s3://`694911143906`-`eu-west-1`-guardduty-agent-rpm-artifacts/`1.9.2`/x86_64/amazon-guardduty-agent-`1.9.2`.x86_64.rpm ./amazon-guardduty-agent-`1.9.2`.x86_64.rpm
-    aws s3 cp s3://`694911143906`-`eu-west-1`-guardduty-agent-rpm-artifacts/`1.9.2`/x86_64/amazon-guardduty-agent-`1.9.2`.x86_64.sig ./amazon-guardduty-agent-`1.9.2`.x86_64.sig
-    aws s3 cp s3://`694911143906`-`eu-west-1`-guardduty-agent-rpm-artifacts/`1.9.2`/publickey.pem ./publickey.pem
+    aws s3 cp s3://`694911143906`-`eu-west-1`-guardduty-agent-rpm-artifacts/`1.15.0`/x86_64/amazon-guardduty-agent-`1.15.0`.x86_64.rpm ./amazon-guardduty-agent-`1.15.0`.x86_64.rpm
+    aws s3 cp s3://`694911143906`-`eu-west-1`-guardduty-agent-rpm-artifacts/`1.15.0`/x86_64/amazon-guardduty-agent-`1.15.0`.x86_64.sig ./amazon-guardduty-agent-`1.15.0`.x86_64.sig
+    aws s3 cp s3://`694911143906`-`eu-west-1`-guardduty-agent-rpm-artifacts/`1.15.0`/publickey.pem ./publickey.pem
 
     ```
 
@@ -219,7 +219,7 @@ signature before installing it on your machine.
     signature
 
     ```
-    gpg --verify amazon-guardduty-agent-`1.9.2`.x86_64.sig amazon-guardduty-agent-`1.9.2`.x86_64.rpm
+    gpg --verify amazon-guardduty-agent-`1.15.0`.x86_64.sig amazon-guardduty-agent-`1.15.0`.x86_64.rpm
     ```
 
     If verification passes, you will see a message
@@ -262,7 +262,7 @@ signature before installing it on your machine.
     command:
 
 ```
-sudo rpm -ivh amazon-guardduty-agent-`1.9.2`.x86_64.rpm
+sudo rpm -ivh amazon-guardduty-agent-`1.15.0`.x86_64.rpm
 ```
 
 4. Validate if the GuardDuty agent installation is healthy. For
@@ -287,7 +287,7 @@ signature before installing it on your machine.
 
 
         ```
-        s3://`694911143906`-`eu-west-1`-guardduty-agent-deb-artifacts/`1.9.2`/publickey.pem
+        s3://`694911143906`-`eu-west-1`-guardduty-agent-deb-artifacts/`1.15.0`/publickey.pem
         ```
         * **GuardDuty security agent
          Debian signature**:
@@ -299,7 +299,7 @@ signature before installing it on your machine.
 
 
         ```
-        s3://`694911143906`-`eu-west-1`-guardduty-agent-deb-artifacts/`1.9.2`/amd64/amazon-guardduty-agent-`1.9.2`.amd64.sig
+        s3://`694911143906`-`eu-west-1`-guardduty-agent-deb-artifacts/`1.15.0`/amd64/amazon-guardduty-agent-`1.15.0`.amd64.sig
         ```
 
 
@@ -307,7 +307,7 @@ signature before installing it on your machine.
 
 
         ```
-        s3://`694911143906`-`eu-west-1`-guardduty-agent-deb-artifacts/`1.9.2`/arm64/amazon-guardduty-agent-`1.9.2`.arm64.sig
+        s3://`694911143906`-`eu-west-1`-guardduty-agent-deb-artifacts/`1.15.0`/arm64/amazon-guardduty-agent-`1.15.0`.arm64.sig
         ```
         * **Access links to the
          Debian scripts in Amazon S3 bucket**:
@@ -319,7 +319,7 @@ signature before installing it on your machine.
 
 
         ```
-        s3://`694911143906`-`eu-west-1`-guardduty-agent-deb-artifacts/`1.9.2`/amd64/amazon-guardduty-agent-`1.9.2`.amd64.deb
+        s3://`694911143906`-`eu-west-1`-guardduty-agent-deb-artifacts/`1.15.0`/amd64/amazon-guardduty-agent-`1.15.0`.amd64.deb
         ```
 
 
@@ -327,7 +327,7 @@ signature before installing it on your machine.
 
 
         ```
-        s3://`694911143906`-`eu-west-1`-guardduty-agent-deb-artifacts/`1.9.2`/arm64/amazon-guardduty-agent-`1.9.2`.arm64.deb
+        s3://`694911143906`-`eu-west-1`-guardduty-agent-deb-artifacts/`1.15.0`/arm64/amazon-guardduty-agent-`1.15.0`.arm64.deb
         ```
 
     |                  |                           |                |
@@ -371,9 +371,9 @@ signature before installing it on your machine.
     Region with your current Region.
 
     ```
-    aws s3 cp s3://`694911143906`-`eu-west-1`-guardduty-agent-deb-artifacts/`1.9.2`/amd64/amazon-guardduty-agent-`1.9.2`.amd64.deb ./amazon-guardduty-agent-`1.9.2`.amd64.deb
-    aws s3 cp s3://`694911143906`-`eu-west-1`-guardduty-agent-deb-artifacts/`1.9.2`/amd64/amazon-guardduty-agent-`1.9.2`.amd64.sig ./amazon-guardduty-agent-`1.9.2`.amd64.sig
-    aws s3 cp s3://`694911143906`-`eu-west-1`-guardduty-agent-deb-artifacts/`1.9.2`/publickey.pem ./publickey.pem
+    aws s3 cp s3://`694911143906`-`eu-west-1`-guardduty-agent-deb-artifacts/`1.15.0`/amd64/amazon-guardduty-agent-`1.15.0`.amd64.deb ./amazon-guardduty-agent-`1.15.0`.amd64.deb
+    aws s3 cp s3://`694911143906`-`eu-west-1`-guardduty-agent-deb-artifacts/`1.15.0`/amd64/amazon-guardduty-agent-`1.15.0`.amd64.sig ./amazon-guardduty-agent-`1.15.0`.amd64.sig
+    aws s3 cp s3://`694911143906`-`eu-west-1`-guardduty-agent-deb-artifacts/`1.15.0`/publickey.pem ./publickey.pem
 
     ```
 
@@ -394,7 +394,7 @@ signature before installing it on your machine.
     4. Verify the signature
 
     ```
-    gpg --verify amazon-guardduty-agent-`1.9.2`.amd64.sig amazon-guardduty-agent-`1.9.2`.amd64.deb
+    gpg --verify amazon-guardduty-agent-`1.15.0`.amd64.sig amazon-guardduty-agent-`1.15.0`.amd64.deb
     ```
 
     After a successful verification, you will see a
@@ -438,7 +438,7 @@ signature before installing it on your machine.
     command:
 
 ```
-sudo dpkg -i amazon-guardduty-agent-`1.9.2`.amd64.deb
+sudo dpkg -i amazon-guardduty-agent-`1.15.0`.amd64.deb
 ```
 
 4. Validate if the GuardDuty agent installation is healthy. For

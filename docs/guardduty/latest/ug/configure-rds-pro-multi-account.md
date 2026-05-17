@@ -13,9 +13,8 @@ delegated GuardDuty administrator account.
 Console
 
 1. Open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/").
-2. In the navigation pane, choose **RDS Protection**.
-3. On the **RDS Protection** page, choose
-   **Edit**.
+2. In the navigation pane, choose **Protection Plans**.
+3. Choose **Configure all enablements**.
 4. Do one of the following:
 
 ###### Using **Enable for all accounts**
@@ -62,13 +61,14 @@ Console
 
 Make sure to use the delegated GuardDuty administrator account credentials. 2. Do one of the following:
 
-###### Using the **RDS Protection** page
+###### Using the **Protection Plans** page
 
-    1. In the navigation pane, choose **RDS Protection**.
-    2. Choose **Enable for all accounts**. This action
+    1. In the navigation pane, choose **Protection Plans**.
+    2. Choose **Configure all enablements**.
+    3. Under **RDS Protection**, choose **Enable for all accounts**. This action
      automatically enables RDS Protection for both existing and new accounts in the
      organization.
-    3. Choose **Save**.
+    4. Choose **Save all**, then choose **Confirm and save**.
 
 
     ###### Note
@@ -122,7 +122,8 @@ Console
 
 1. Sign in to the AWS Management Console and open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/").
 
-Sign in using the delegated GuardDuty administrator account credentials. 2. In the navigation pane, choose **RDS Protection**. 3. On the **RDS Protection** page, you can view the current status
+Sign in using the delegated GuardDuty administrator account credentials. 2. In the navigation pane, choose **Protection Plans**. 3. Choose **Configure all enablements**. Under
+**RDS Protection**, you can view the current status
 of the configuration. Under the **Active member accounts**
 section, choose **Actions**. 4. From the **Actions** dropdown menu, choose **Enable
 for all existing active member accounts**. 5. Choose **Confirm**.
@@ -165,14 +166,13 @@ console, using either the **RDS Protection** or
 
 Make sure to use the delegated GuardDuty administrator account credentials. 2. Do one of the following:
 
-    * Using the **RDS Protection** page:
+    * Using the **Protection Plans** page:
 
 
 
 
-    	1. In the navigation pane, choose **RDS Protection**.
-    	2. On the **RDS Protection** page, choose
-    	 **Edit**.
+    	1. In the navigation pane, choose **Protection Plans**.
+    	2. Choose **Configure all enablements**.
     	3. Choose **Configure accounts manually**.
     	4. Select **Automatically enable for new member
     	 accounts**. This step ensures that whenever a new account

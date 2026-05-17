@@ -12,6 +12,12 @@ accounts. You can associate the accounts in two ways – by integrating with AWS
 or by using a legacy method of sending and accepting membership invitations in the GuardDuty
 console. GuardDuty recommends that you integrate with AWS Organizations.
 
+###### Note
+
+The **Edit** button in the auto-enable section on the
+**Accounts** page redirects you to the [Configuring protection plans](protection-plans.md "protection-plans.md") page instead of
+opening the legacy configuration modal.
+
 AWS Organizations is a global account management service that enables AWS administrators to
 consolidate and centrally manage multiple AWS accounts. It provides account management and
 consolidated billing features that are designed to support budgetary, security, and

@@ -1,5 +1,10 @@
 # GuardDuty Runtime Monitoring
 
+###### Note
+
+You can configure Runtime Monitoring along with all other protection plans from a single page in
+the GuardDuty console. For more information, see [Configuring protection plans](protection-plans.md "protection-plans.md").
+
 Runtime Monitoring observes and analyzes operating system-level, networking, and file events to help
 you detect potential threats in specific AWS workloads in your environment.
 

@@ -1,5 +1,10 @@
 # GuardDuty Lambda Protection
 
+###### Note
+
+You can configure Lambda Protection along with all other protection plans from a single page in
+the GuardDuty console. For more information, see [Configuring protection plans](protection-plans.md "protection-plans.md").
+
 Lambda Protection helps you identify potential security threats when an [AWS Lambda](../../../lambda/latest/dg/welcome.md "../../../lambda/latest/dg/welcome.md") function gets invoked in your AWS
 environment. When you enable Lambda Protection, GuardDuty starts monitoring Lambda network activity logs. This
 includes [VPC Flow Logs](guardduty_data-sources.md#guardduty_vpc "guardduty_data-sources.md#guardduty_vpc") from all Lambda functions

@@ -64,6 +64,7 @@ GuardDuty security agent.
 
 | Amazon EKS add-on GuardDuty security agent version                               | Kubernetes version |
 | -------------------------------------------------------------------------------- | ------------------ |
+| v1.15.0 (latest<br>• v1.15.0-eksbuild.2)                                         | 1.28<br>• 1.35     |
 | v1.12.2 (latest<br>• v1.12.2-eksbuild.2)                                         | 1.28<br>• 1.35     |
 | v1.12.1 (latest<br>• v1.12.1-eksbuild.4)                                         | 1.28<br>• 1.35     |
 | v1.11.0 (latest<br>• v1.11.0-eksbuild.4)                                         | 1.28<br>• 1.34     |

@@ -1,5 +1,10 @@
 # GuardDuty S3 Protection
 
+###### Note
+
+You can configure S3 Protection along with all other protection plans from a single page
+in the GuardDuty console. For more information, see [Configuring protection plans](protection-plans.md "protection-plans.md").
+
 S3 Protection helps you detect potential security risks for data, such as data exfiltration and
 destruction, in your Amazon Simple Storage Service (Amazon S3) buckets. GuardDuty monitors AWS CloudTrail data events for Amazon S3,
 that includes object-level API operations to identify these risks in all the Amazon S3 buckets in

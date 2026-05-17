@@ -9,6 +9,6 @@ can add the Amazon ECR repository URI that hosts the GuardDuty agent for Fargate
 
 ###### Contents
 
-- [ECR repository for EKS agent versions 1.12.2 - 1.8.1 (eks.build.2)](eks-runtime-agent-ecr-image-uri-v1-8-1-build-2.md "eks-runtime-agent-ecr-image-uri-v1-8-1-build-2.md")
+- [ECR repository for EKS agent versions 1.15.0 - 1.8.1 (eks.build.2)](eks-runtime-agent-ecr-image-uri-v1-8-1-build-2.md "eks-runtime-agent-ecr-image-uri-v1-8-1-build-2.md")
 - [ECR repository for EKS agent version 1.8.1 (eks.build.1)](eks-runtime-agent-ecr-image-uri-v1-8-1-build-1.md "eks-runtime-agent-ecr-image-uri-v1-8-1-build-1.md")
 - [ECR Repository for GuardDuty agent on AWS Fargate (Amazon ECS only)](ecs-runtime-agent-ecr-image-uri.md "ecs-runtime-agent-ecr-image-uri.md")

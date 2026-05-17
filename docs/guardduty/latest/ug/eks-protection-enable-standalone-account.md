@@ -17,11 +17,11 @@ Console
 1. Open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/").
 2. From the **Region** selector in the upper-right
    corner, select a Region where you want to enable EKS Protection.
-3. In the navigation pane, choose EKS Protection.
-4. The **EKS Protection** page provides the current status of
-   EKS Protection for your account. Choose **Enable** to enable
+3. In the navigation pane, choose **Protection Plans**.
+4. Choose **Configure all enablements**. Under
+   **EKS Audit Logs**, choose **Enable** to enable
    EKS Protection.
-5. Choose **Confirm** to save your selection.
+5. Choose **Save all**, then choose **Confirm and save**.
 
 API/CLI
 

@@ -1,5 +1,10 @@
 # GuardDuty RDS Protection
 
+###### Note
+
+You can configure RDS Protection along with all other protection plans from a single page in
+the GuardDuty console. For more information, see [Configuring protection plans](protection-plans.md "protection-plans.md").
+
 RDS Protection in Amazon GuardDuty analyzes and profiles RDS login activity for potential access threats to your
 [Amazon Aurora
 databases](../../../AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.md "../../../AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.md") (Amazon Aurora MySQL-Compatible Edition and Aurora PostgreSQL-Compatible Edition) and
