@@ -486,7 +486,7 @@ which is where it is stored by the install script.
 
 ```
 curl -v -H \\
-    "X-Aws-Parameters-Secrets-Token: $(/var/run/awssmatoken)" \\
+    "X-Aws-Parameters-Secrets-Token: $(</var/run/awssmatoken)" \\
     'http://localhost:2773/secretsmanager/get?secretId=`YOUR_SECRET_ID`' \\
     echo
 ```
@@ -578,7 +578,7 @@ a file, which is where it is stored by the install script.
 
 ```
 curl -v -H \\
-"X-Aws-Parameters-Secrets-Token: $(/var/run/awssmatoken)" \\
+"X-Aws-Parameters-Secrets-Token: $(</var/run/awssmatoken)" \\
 'http://localhost:2773/secretsmanager/get?secretId=`YOUR_SECRET_ID`&refreshNow=true' \\
 echo
 ```
