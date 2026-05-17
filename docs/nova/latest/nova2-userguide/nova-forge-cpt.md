@@ -278,11 +278,100 @@ Summary of Categories and Info Labels:
 
 #### Parameter Guide
 
-- **dataset_catalog:** The only value is cpt_text_lite for now, until we enable the multimodal training.
+- **dataset_catalog:** Use `cpt_text_lite` to read curated data from FSx (default), or `cpt_text_lite_s3` to stream curated data from Amazon S3 and reduce storage costs. For more information, see [Reduce storage costs by streaming training data from Amazon S3](#nova-forge-cpt-s3-catalog "#nova-forge-cpt-s3-catalog").
 - **nova_data:** Percentage of the individual categories of Nova data when mixed in. They should add up to 1.0.
 - **customer_data**: the percentage of customer's data mixed into the Nova data.
 
 The total number of tokens used in training can be calculated from `max_length` \* `global_batch_size` \* `max_steps`
+
+## Reduce storage costs by streaming training data from Amazon S3
+
+When you run continued pre-training (CPT) jobs, Nova Forge reads Amazon curated
+training data from an FSx for Lustre file system by default. The full curated
+corpus is large, and keeping it resident on FSx adds to your training storage
+costs.
+
+You can opt in to an alternative data layout that streams the curated training
+data from Amazon S3 during training. Your FSx file system is still used for
+your own datasets, checkpoints, and job outputs, but the curated training data
+is read directly from S3 on demand. This removes the curated dataset from your
+FSx storage footprint and can meaningfully lower the storage cost of CPT jobs,
+especially for long-running training runs.
+
+The curated data, mix ratios, and dataset composition are identical to the
+default catalog. Only the source location changes.
+
+### Requirements
+
+- Your training RIG must be created on or after **March 1, 2026**. RIGs created
+  before that date do not include the components required to stream the
+  curated training data from S3. If your RIG is older, recreate it to use this
+  feature.
+- The feature currently applies to the text catalog used with Amazon Nova
+  Lite. Other catalogs are not eligible.
+
+### Enable S3-backed training data in your recipe
+
+In the `data_mixing` section of your CPT recipe, change
+`dataset_catalog` to `cpt_text_lite_s3`. Everything
+else in your recipe stays the same.
+
+```
+
+run:
+  name: my-cpt-run
+  model_type: amazon.nova-2-lite-v1:0:256k
+  model_name_or_path: nova-lite-2/prod
+  replicas: 4
+  data_s3_path: s3://my-bucket/my-dataset
+  output_s3_path: s3://my-bucket/my-output
+
+training_config:
+  task_type: cpt
+  max_length: 8192
+  global_batch_size: 32
+  save_steps: 1000
+  trainer:
+    max_steps: 5000
+  optim:
+    lr: 1.0e-05
+
+data_mixing:
+  dataset_catalog: cpt_text_lite_s3   # stream curated data from S3
+  sources:
+    customer_data:
+      percent: 25
+
+```
+
+Submit the job using the same workflow as any other CPT recipe. Nova Forge
+handles the S3 data streaming during training setup with no additional
+configuration on your part.
+
+### What to expect
+
+- The first few minutes of every job include a short data-preparation phase
+  while Nova Forge resolves the data layout for your region. This phase is
+  one-time per job.
+- Training step throughput is comparable to the default FSx-backed catalog.
+  Data loading runs in parallel with training, so S3 streaming does not become
+  the bottleneck during steady-state training.
+- Your own training data (the dataset you provide through `data_s3_path`)
+  continues to be staged on FSx and is not affected by this setting.
+
+### Limitations
+
+- The feature is available only for the text catalog on Amazon Nova Lite.
+  Using `cpt_text_lite_s3` with other models or task types results in an
+  invalid-catalog error at job submission.
+- Changing `dataset_catalog` mid-run is not supported. Set it at job
+  submission time.
+
+### Falling back to the default catalog
+
+If you want to revert to the default FSx-resident catalog at any time, set
+`dataset_catalog: cpt_text_lite` in your recipe. No other changes are
+required.
 
 ###### Limitations
 

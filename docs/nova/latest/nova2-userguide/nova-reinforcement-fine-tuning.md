@@ -272,7 +272,6 @@ training_config:
       max_new_tokens: 6000                      # Cap on tokens generated per sample.
       set_random_seed: true                     # Seed generation for reproducibility across runs.
       temperature: 1                            # Softmax temperature for sampling.
-      top_k: 1                                  # Sample only from top-K logits.
     rewards:
       preset_reward_function: null              # Preset reward functions: exact_match or null for custom.
       api_endpoint:
@@ -478,6 +477,195 @@ If rewards aren't improving:
 - Increase dataset diversity
 - Add more representative examples
 - Verify reward signals are clear and consistent
+
+## Adaptive curriculum learning
+
+Adaptive curriculum learning is an optional feature that dynamically selects which training prompts to present to the model during RFT. Instead of training on all prompts uniformly, the trainer uses the model itself to predict prompt difficulty and selects prompts in the productive difficulty range—where the model sometimes succeeds and sometimes fails. This maximizes the variance of outcomes within each GRPO rollout group, producing higher advantage signal, faster convergence, and improved RL training stability by reducing noisy gradient updates from prompts that are too easy or too hard.
+
+### How adaptive curriculum works
+
+When adaptive curriculum is enabled, the training loop adds a prediction and selection phase before each rollout step:
+
+1. **Prediction** — The model predicts the pass rate (or reward spread) for each candidate prompt using a few-shot prediction format. Three exemplars from the previous training step (one easy, one medium, one hard) provide calibration context.
+2. **Selection** — Prompts are ranked by how close their predicted difficulty is to the selection target (default: 50% pass rate). The best prompts are approved for rollout; the rest are discarded without consuming rollout compute.
+3. **Training** — Standard GRPO training proceeds on the selected prompts.
+4. **Feedback** — Actual pass rates from rollout are compared to predictions. The selection target is auto-calibrated to correct systematic prediction bias. A REINFORCE gradient trains the predictor to improve future predictions.
+
+### When to use adaptive curriculum
+
+Adaptive curriculum is most effective in the following scenarios:
+
+- You want to improve RL training stability by ensuring each training batch contains prompts with meaningful reward variance, reducing noisy gradient updates that can destabilize learning.
+- You have confirmed that basic RFT improves your target metric.
+- You want to accelerate convergence by focusing training compute on the most productive prompts.
+- Your dataset is large (5,000+ prompts) and contains many prompts outside the productive difficulty range that would otherwise waste compute.
+
+### Configuring adaptive curriculum
+
+Add the `adaptive_curriculum` block under `trainer` in your recipe to enable adaptive curriculum learning:
+
+```
+training_config:
+  trainer:
+    adaptive_curriculum:
+      enable: true                               # Enable adaptive curriculum prompt selection.
+      selection_pool_multiplier: 8               # Score 8 x global_batch_size candidates, keep best global_batch_size.
+      prediction_mode: pass_rate                 # "pass_rate" for discrete rewards; "spread" for continuous rewards.
+      exemplar_history_steps: 1                  # Previous training steps kept in the rolling exemplar history buffer.
+      reinforce_coef: 0.01                       # Scale factor for the REINFORCE loss that trains the predictor (0 disables).
+      predictor_prompt_column: predictor_prompt  # Dataset field with clean problem text used by the predictor.
+      selection_lookahead_steps: 4               # Future training batches pre-approved per curriculum screening pass.
+```
+
+The following table describes each adaptive curriculum parameter:
+
+| Parameter                   | Type           | Default            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --------------------------- | -------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enable`                    | Boolean        | `false`            | Whether to enable adaptive curriculum prompt selection.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `selection_pool_multiplier` | Integer (1–32) | `8`                | Controls how many candidate prompts are scored relative to the training batch size. A value of 8 means 8 × `global_batch_size` prompts are scored, and the best `global_batch_size` are selected. Higher values give better selection quality but cost more inference compute.                                                                                                                                                                                                                                                                  |
+| `prediction_mode`           | String         | `pass_rate`        | Prediction mode for prompt difficulty estimation. Use `pass_rate` for discrete reward tasks (e.g., correctness checking) where the predictor estimates the probability of a correct answer. Use `spread` for continuous reward tasks where the predictor estimates the max−min reward spread across rollouts.                                                                                                                                                                                                                                   |
+| `exemplar_history_steps`    | Integer (≥1)   | `1`                | Number of previous training steps to keep in the rolling history buffer for exemplar selection. The predictor uses exemplars from this history to calibrate its few-shot predictions.                                                                                                                                                                                                                                                                                                                                                           |
+| `reinforce_coef`            | Number (≥0)    | `0.01`             | Scale factor for the REINFORCE loss that trains the pass-rate predictor. This enables closed-loop learning where the predictor improves its accuracy over the course of training. Set to 0 to disable predictor training.                                                                                                                                                                                                                                                                                                                       |
+| `predictor_prompt_column`   | String         | `predictor_prompt` | Field name in the dataset containing the clean problem text used as the predictor prompt. This should be a concise version of the problem without system prompts or formatting, so the predictor can quickly assess difficulty.                                                                                                                                                                                                                                                                                                                 |
+| `selection_lookahead_steps` | Integer (1–16) | `4`                | Number of future training batches to pre-approve in a single curriculum screening pass per step. Each pass scores `selection_pool_multiplier × global_batch_size` candidates per step; higher values of `selection_lookahead_steps` repeat that pass multiple times to build up a queue of approved prompts, which reduces per-step predictor overhead on short-prompt datasets. For long-context datasets where the predictor itself is expensive (see the recommendations section), set this to `1` so the predictor runs only once per step. |
+
+### Recommendations for long-context datasets
+
+Adaptive curriculum works by running a lightweight pass-rate predictor on a pool of candidate prompts and selecting the most productive batch to rollout. When `max_prompt_length` is short (a few thousand tokens or less), the predictor runs in a few seconds per screening pass and curriculum overhead is negligible. When prompt length grows, predictor inference time grows roughly quadratically (attention is O(n²) in sequence length), so screening can dominate step time on datasets where prompts exceed roughly 8,000 tokens.
+
+###### Note
+
+Adaptive curriculum is supported for `max_prompt_length` up to 32,768 tokens (32K). Enabling it on datasets that exceed this length is not supported; disable adaptive curriculum or shorten your prompts before training.
+
+The settings below keep adaptive curriculum usable and cost-effective on long-context datasets. Apply them together; they address different components of screening cost.
+
+| Typical `max_prompt_length`   | Recommended adaptive curriculum settings                                                                                                                                                                                          |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Up to 8K tokens               | Use defaults: `selection_pool_multiplier: 8`, `selection_lookahead_steps: 4`. Screening overhead is small and does not need tuning.                                                                                               |
+| Over 8K and up to 16K tokens  | Set `selection_lookahead_steps: 2`. This halves the number of predictor passes per step while keeping enough pre-approved prompts in the queue to avoid rollout starvation.                                                       |
+| Over 16K and up to 24K tokens | Keep `selection_lookahead_steps: 2` \*and<br>• lower `selection_pool_multiplier` to `4`. The smaller pool halves the predictor batch size at some cost to selection quality; together these keep per-step screening time bounded. |
+| Over 24K and up to 32K tokens | Use `selection_pool_multiplier: 4` with `selection_lookahead_steps: 1`. The predictor runs once per training step on a minimum-sized pool. This is the most aggressive supported setting; going beyond 32K is not supported.      |
+
+Example configuration tuned for a long-context dataset (around 24K–32K token prompts):
+
+```
+training_config:
+  max_length: 32768
+  global_batch_size: 32
+
+  trainer:
+    adaptive_curriculum:
+      enable: true
+      selection_pool_multiplier: 4        # Smaller pool keeps predictor prefill bounded.
+      selection_lookahead_steps: 1        # Predictor runs once per training step.
+      prediction_mode: pass_rate
+      exemplar_history_steps: 1
+      reinforce_coef: 0.01
+      predictor_prompt_column: predictor_prompt
+```
+
+### Data preparation for adaptive curriculum
+
+When using adaptive curriculum, your training data should include a `predictor_prompt` field (or the field name specified in `predictor_prompt_column`) containing a concise version of the problem text. This field is used by the pass-rate predictor to quickly assess prompt difficulty without processing the full conversation context.
+
+Example JSONL entry with predictor prompt:
+
+```
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a math tutor. Show your work step by step."
+    },
+    {
+      "role": "user",
+      "content": "A train travels 120 miles in 2 hours. If it then increases speed by 50%, how far will it travel in the next 3 hours?"
+    }
+  ],
+  "reference_answer": "270 miles",
+  "predictor_prompt": "A train travels 120 miles in 2 hours. Speed increases 50%. Distance in next 3 hours?"
+}
+```
+
+If the `predictor_prompt` field is not present, the system falls back to using the full prompt from the `messages` field.
+
+### Full recipe example with adaptive curriculum
+
+The following example shows a complete LoRA RFT recipe with adaptive curriculum enabled:
+
+```
+run:
+  name: "my-rft-adaptive-curriculum"
+  model_type: amazon.nova-2-lite-v1:0:256k
+  model_name_or_path: nova-lite-2/prod
+  data_s3_path: s3://<bucket>/<data-file>
+  replicas: 4
+  generation_replicas: 2
+  reward_lambda_arn: arn:aws:lambda:<region>:<account-id>:function:<function-name>
+
+training_config:
+  max_length: 8192
+  global_batch_size: 32
+  reasoning_effort: null                        # Non-reasoning mode.
+
+  data:
+    shuffle: true
+
+  rollout:
+    rollout_strategy:
+      type: off_policy_async
+      age_tolerance: 2
+    advantage_strategy:
+      number_generation: 16                     # Higher n for better advantage estimates.
+    generator:
+      max_new_tokens: 6000
+      temperature: 1.0
+    rewards:
+      preset_reward_function: exact_match       # Or null for custom Lambda reward.
+      api_endpoint:
+        lambda_arn: ${oc.select:run.reward_lambda_arn}   # Reuse the top-level run.reward_lambda_arn so the two stay in sync.
+        lambda_concurrency_limit: 12
+        lambda_batch_size: 128
+
+  trainer:
+    max_steps: 500
+    save_steps: 50
+    test_steps: 25
+    refit_freq: 4
+    clip_ratio_high: 0.2
+    ent_coeff: 0.0
+    kl_loss_coef: 0.0
+
+    optim_config:
+      lr: 1e-6
+      weight_decay: 0.0
+
+    peft:
+      peft_scheme: "lora"
+      lora_tuning:
+        alpha: 64
+        lora_plus_lr_ratio: 64.0
+
+    adaptive_curriculum:
+      enable: true
+      selection_pool_multiplier: 8
+      prediction_mode: pass_rate
+      exemplar_history_steps: 1
+      reinforce_coef: 0.01
+      predictor_prompt_column: predictor_prompt
+```
+
+### Monitoring adaptive curriculum
+
+When adaptive curriculum is enabled, additional metrics are logged at each training step:
+
+- **Predicted vs. actual pass rate** — The mean predicted pass rate for selected prompts compared to the actual pass rate observed after rollout. A large gap indicates the predictor needs more calibration time.
+- **Selection target** — The current auto-calibrated selection target. This starts at 0.5 and adjusts based on prediction accuracy.
+- **Mastery filter count** — Number of prompts excluded because the model has consistently mastered them.
+
+###### Note
+
+The first 1–2 training steps run without adaptive selection (the predictor needs at least one step of history to build exemplars). Full adaptive selection begins at step 3.
 
 ## Advanced capabilities: Nova Forge
 

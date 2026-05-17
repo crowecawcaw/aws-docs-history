@@ -46,5 +46,5 @@ subscription from this page.
 Also ensure the following prerequisites are complete:
 
 1. [General prerequisites](nova-model.md#nova-model-general-prerequisites "nova-model.md#nova-model-general-prerequisites")
-2. Additional steps for users: Add Restricted Instance Group
+2. Additional steps for SageMaker HyperPod users: Add Restricted Instance Group
    (RIG) to your SageMaker HyperPod cluster (to complete follow steps [here](../../../sagemaker/latest/dg/nova-hp-cluster.md "../../../sagemaker/latest/dg/nova-hp-cluster.md"))

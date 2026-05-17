@@ -576,6 +576,24 @@ processor:
 - The preprocessing step does not process the metadata
   field.
 
+###### Important
+
+`llm_judge` and `mm_llm_judge` can only be
+run against Amazon Nova base models (for example,
+`nova-micro/prod`, `nova-lite/prod`,
+`nova-pro/prod`, or `nova-lite-2/prod`).
+They are not supported on customized model checkpoints.
+
+`rubric_llm_judge` can only be run against Amazon Nova 2.0
+base models (for example, `nova-lite-2/prod`). It is not
+supported on Amazon Nova 1.0 base models or on customized model
+checkpoints.
+
+To evaluate a customized model with a judge workflow, first use
+your customized model to generate the prompt and response dataset,
+and then run the judge workflow against a Amazon Nova base model using
+that dataset as input.
+
 Nova LLM Judge is a model evaluation feature that enables you to
 compare the quality of responses from one model against a baseline
 model's responses using a custom dataset. It accepts a dataset
@@ -884,6 +902,7 @@ image URI and instance configurations.
 | Amazon Nova Micro | Evaluation (SFT/DPO) | g5.12xlarge   | 1                          | 1<br>• 16              |
 | Amazon Nova Lite  | Evaluation (SFT/DPO) | g5.12xlarge   | 1                          | 1<br>• 16              |
 | Amazon Nova Pro   | Evaluation (SFT/DPO) | p5.48xlarge   | 1                          | 1<br>• 16              |
+| Nova 2 Lite       | Evaluation (SFT/DPO) | p5.48xlarge   | 1                          | 1<br>• 16              |
 
 ### Sample notebook
 
