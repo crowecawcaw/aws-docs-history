@@ -56,8 +56,7 @@ There is no impact if you relink to the original AWS account.
 ###### To request unlinking
 
 1. Sign in to [AWS Partner Central](https://partnercentral.awspartner.com/APNLogin "https://partnercentral.awspartner.com/APNLogin") as an alliance lead or cloud administrator.
-2. Under **Account linking**, choose **Manage linked
-   account**.
+2. Navigate to **My Company**, then choose **AWS Marketplace Account Linking**.
 3. Choose **Unlink account**.
 4. Review the warning message and select a reason for unlinking your account.
 5. Enter `confirm` and choose **Open support
