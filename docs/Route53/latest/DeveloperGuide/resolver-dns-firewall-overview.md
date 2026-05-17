@@ -67,7 +67,7 @@ access to, the domains that you want to deny access to, or a combination
 of both. You can create your own domain lists and you can use domain
 lists that AWS manages for you.
 
-For more information, see [Resolver DNS Firewall domain lists](resolver-dns-firewall-domain-lists.md "resolver-dns-firewall-domain-lists.md").
+For more information, see [DNS Firewall Foundational Rules](resolver-dns-firewall-domain-lists.md "resolver-dns-firewall-domain-lists.md").
 
 **Domain redirection setting (Domain lists only)**
 
@@ -133,7 +133,7 @@ In a DNS Firewall Advanced rule you can choose to either block, or alert
 on a query that matches the threat. The threat protection algorithms are
 managed and updated by AWS.
 
-For more information, see [Resolver DNS Firewall Advanced](firewall-advanced.md "firewall-advanced.md").
+For more information, see [DNS Firewall Advanced Rules](firewall-advanced.md "firewall-advanced.md").
 
 **Confidence threshold(DNS Firewall Advanced protection only)**
 
@@ -216,7 +216,7 @@ VPC Resolver:
   identified by DNS Firewall Advanced rule protections, it terminates the query evaluation
   and responds to VPC Resolver with the result. If the action is `alert`,
   DNS Firewall also sends an alert to the configured VPC Resolver logs. For more
-  information, see [Rule actions in DNS Firewall](resolver-dns-firewall-rule-actions.md "resolver-dns-firewall-rule-actions.md"), [Resolver DNS Firewall domain lists](resolver-dns-firewall-domain-lists.md "resolver-dns-firewall-domain-lists.md"), and [Resolver DNS Firewall Advanced](firewall-advanced.md "firewall-advanced.md").
+  information, see [Rule actions in DNS Firewall](resolver-dns-firewall-rule-actions.md "resolver-dns-firewall-rule-actions.md"), [DNS Firewall Foundational Rules](resolver-dns-firewall-domain-lists.md "resolver-dns-firewall-domain-lists.md"), and [DNS Firewall Advanced Rules](firewall-advanced.md "firewall-advanced.md").
 - If DNS Firewall evaluates all rule groups without finding a match, it responds
   to the query
   as normal.
@@ -243,7 +243,7 @@ following high-level steps.
   filter the queries by blocking them all, or you can alert on any suspicious
   query traffic to domains that may contain anomalies associated with threats
   (DGA, DNS tunneling, Dictionary DGA) to test your DNS Firewall settings. For
-  more information, see [Resolver DNS Firewall domain lists](resolver-dns-firewall-domain-lists.md "resolver-dns-firewall-domain-lists.md") and [Resolver DNS Firewall Advanced](firewall-advanced.md "firewall-advanced.md").
+  more information, see [DNS Firewall Foundational Rules](resolver-dns-firewall-domain-lists.md "resolver-dns-firewall-domain-lists.md") and [DNS Firewall Advanced Rules](firewall-advanced.md "firewall-advanced.md").
 - **Create a firewall rule group** – In
   DNS Firewall, create a rule group to filter DNS queries for your VPC. You must
   create a rule group in each Region where you want to use it. You might also
