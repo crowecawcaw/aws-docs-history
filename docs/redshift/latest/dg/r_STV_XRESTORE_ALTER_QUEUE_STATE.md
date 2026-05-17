@@ -6,7 +6,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 Use STV_XRESTORE_ALTER_QUEUE_STATE to monitor the migration progress of each
 table during a classic resize. This is specifically applicable when the
-target node type is RA3. For more information about classic resize to RA3 nodes, go to
+target node type is RG or RA3. For more information about classic resize to RG or RA3 nodes, go to
 [Classic resize](../mgmt/managing-cluster-operations.md#classic-resize-faster "../mgmt/managing-cluster-operations.md#classic-resize-faster").
 
 STV_XRESTORE_ALTER_QUEUE_STATE is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").

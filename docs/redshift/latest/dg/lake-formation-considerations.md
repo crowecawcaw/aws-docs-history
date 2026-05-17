@@ -23,7 +23,7 @@ datashares in Lake Formation](../../../lake-formation/latest/dg/notes-rs-datasha
 - You can't create materialized views on the consumer based on a shared
   table if the table has Lake Formation filters configured.
 - The Lake Formation administrator must have [data lake administrator](../../../lake-formation/latest/dg/getting-started-setup.md#create-data-lake-admin "../../../lake-formation/latest/dg/getting-started-setup.md#create-data-lake-admin") permissions and the [required permissions to accept a datashare](../../../lake-formation/latest/dg/redshift-ds-prereqs.md "../../../lake-formation/latest/dg/redshift-ds-prereqs.md").
-- The producer consumer cluster must be an RA3 cluster with the latest Amazon Redshift
+- The producer consumer cluster must be an RG or RA3 cluster with the latest Amazon Redshift
   cluster version or a serverless workgroup to share datashares via Lake Formation.
 - Both the producer and consumer clusters must be encrypted.
 - Redshift row-level and column-level access control policies implemented in the

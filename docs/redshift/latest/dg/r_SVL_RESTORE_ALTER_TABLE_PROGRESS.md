@@ -5,9 +5,9 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 # SVL_RESTORE_ALTER_TABLE_PROGRESS
 
 Use SVL_RESTORE_ALTER_TABLE_PROGRESS to monitor the migration progress
-of each table in the cluster during a classic resize to RA3 nodes.
+of each table in the cluster during a classic resize to RG or RA3 nodes.
 It captures the historic throughput of data migration during the resize
-operation. For more information about classic resize to RA3 nodes, go to
+operation. For more information about classic resize to RG or RA3 nodes, go to
 [Classic resize](../mgmt/managing-cluster-operations.md#classic-resize-faster "../mgmt/managing-cluster-operations.md#classic-resize-faster").
 
 SVL_RESTORE_ALTER_TABLE_PROGRESS is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").

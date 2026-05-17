@@ -6,8 +6,8 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 When using AWS Data Exchange for Amazon Redshift, consider the following:
 
-- Both producers and consumers must use the RA3 instance types to use Amazon Redshift
-  datashares. Producers must use the RA3 instance types with the latest Amazon Redshift cluster
+- Both producers and consumers must use the RG or RA3 instance types to use Amazon Redshift
+  datashares. Producers must use the RG or RA3 instance types with the latest Amazon Redshift cluster
   version.
 - Both the producer and consumer clusters must be encrypted.
 - You must be registered as an AWS Data Exchange provider to list products on AWS Data Exchange,

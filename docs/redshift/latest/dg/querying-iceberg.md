@@ -11,11 +11,10 @@ generate column statistics for the tables using AWS Glue. For more information, 
 [Generating column statistics for Iceberg tables](../../../glue/latest/dg/iceberg-generate-column-stats.md "../../../glue/latest/dg/iceberg-generate-column-stats.md")
 in the _AWS Glue Developer Guide_.
 
-This topic describes how to use tables in Apache Iceberg format with Redshift Spectrum or Redshift Serverless. Apache
-Iceberg is a high-performance format for huge analytic tables.
+This topic describes how to use tables in Apache Iceberg format with Amazon Redshift. Apache
+Iceberg is a high-performance open-source table format for data lakes. For more information, see [Apache Iceberg](https://iceberg.apache.org/ "https://iceberg.apache.org/") in the Apache Iceberg documentation.
 
-You can use Redshift Spectrum or Redshift Serverless to query Apache Iceberg tables cataloged in the AWS Glue Data Catalog.
-Apache Iceberg is an open-source table format for data lakes. For more information, see [Apache Iceberg](https://iceberg.apache.org/ "https://iceberg.apache.org/") in the Apache Iceberg documentation.
+You can query Apache Iceberg tables cataloged in the AWS Glue Data Catalog with Amazon Redshift. RG instance types and Redshift Serverless use their own compute to process data lake queries, while RA3 instance types use Redshift Spectrum. For more information, see [Querying your Data Lake](../gsg/data-lake.md "../gsg/data-lake.md").
 
 Amazon Redshift provides transactional consistency for querying Apache Iceberg tables.
 You can manipulate the data in your tables using ACID (atomicity, consistency, isolation, durability) compliant services such as Amazon Athena and Amazon EMR while running queries using Amazon Redshift.
@@ -78,11 +77,7 @@ Consider the following when using Amazon Redshift with Iceberg tables:
   Apache Iceberg tables as well.
 - Time travel queries – Time travel
   queries are currently not supported with Apache Iceberg tables.
-- Pricing – When you access Iceberg tables
-  from a cluster, you are charged Redshift Spectrum pricing. When you access Iceberg tables
-  from a workgroup, you are charged Redshift Serverless pricing. For information about Redshift Spectrum and
-  Redshift Serverless pricing, see [Amazon
-  Redshift pricing](https://aws.amazon.com/redshift/pricing/ "https://aws.amazon.com/redshift/pricing/").
+- Pricing – When you access Iceberg tables from an RG cluster or a Redshift Serverless workgroup, data lake queries run on the cluster's or workgroup's own compute resources, so there is no separate charge for data lake queries. When you access Iceberg tables from a DC2 or RA3 cluster, you are charged Redshift Spectrum pricing. For information about pricing, see [Amazon Redshift pricing](https://aws.amazon.com/redshift/pricing/ "https://aws.amazon.com/redshift/pricing/").
 - Metadata caching – Metadata caching
   assumes metadata files are immutable based on the [Iceberg
   specification](https://iceberg.apache.org/spec/#file-system-operations "https://iceberg.apache.org/spec/#file-system-operations"). Metadata file immutability is a requirement for data

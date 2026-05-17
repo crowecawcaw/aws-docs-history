@@ -6,6 +6,13 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 This topic describes details for using Redshift Spectrum to efficiently read from Amazon S3.
 
+###### Note
+
+Amazon Redshift DC2 and RA3 instances use Redshift Spectrum to run data lake queries on a dedicated
+server fleet outside of the cluster. Amazon Redshift RG instances and Amazon Redshift Serverless include an
+integrated data lake query engine that runs on the cluster's own compute resources.
+For information, see [Querying your data lake](../gsg/data-lake.md "../gsg/data-lake.md").
+
 Amazon Redshift Spectrum resides on dedicated Amazon Redshift servers that are independent of your cluster.
 Amazon Redshift pushes many compute-intensive tasks, such as predicate filtering and
 aggregation, down to the Redshift Spectrum layer. Thus, Redshift Spectrum queries use much

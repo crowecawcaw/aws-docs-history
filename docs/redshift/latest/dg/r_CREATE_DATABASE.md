@@ -144,6 +144,8 @@ COLLATE is not supported when you create a database from a datashare.
 CASE_SENSITIVE and CS are interchangeable and yield the same results.
 Similarly, CASE_INSENSITIVE and CI are interchangeable and yield the same results.
 
+To check the current collation of a database, use the [DB_COLLATION](r_DB_COLLATION.md "r_DB_COLLATION.md") function.
+
 ISOLATION LEVEL { SNAPSHOT | SERIALIZABLE }
 
 A clause that specifies the isolation level used when queries run against a

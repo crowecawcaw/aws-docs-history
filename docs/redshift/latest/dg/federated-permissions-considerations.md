@@ -20,7 +20,7 @@ This feature is supported only with [cluster versions 197 and onwards](../mgmt/c
 
 Both registered and consumer Redshift instances must meet these requirements:
 
-- **Instance type**: RA3 provisioned clusters or Serverless workgroups
+- **Instance type**: RG or RA3 provisioned clusters or Serverless workgroups
 - **Region**: Same AWS Region
 - **Account**: Same AWS account
 - **Encryption**: Enabled

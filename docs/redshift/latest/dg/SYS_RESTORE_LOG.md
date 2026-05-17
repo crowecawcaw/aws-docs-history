@@ -5,8 +5,8 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 # SYS_RESTORE_LOG
 
 Use SYS_RESTORE_LOG to monitor the migration progress of each table in the cluster
-during a classic resize to RA3 nodes. It captures the historic throughput of data
-migration during the resize operation. For more information about classic resize to RA3
+during a classic resize to RG or RA3 nodes. It captures the historic throughput of data
+migration during the resize operation. For more information about classic resize to RG or RA3
 nodes, see [Classic
 resize](../mgmt/managing-cluster-operations.md#classic-resize-faster "../mgmt/managing-cluster-operations.md#classic-resize-faster").
 

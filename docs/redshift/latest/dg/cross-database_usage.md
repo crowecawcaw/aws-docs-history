@@ -9,7 +9,7 @@ This topic describes usage details for cross-database queries in Amazon Redshift
 When you work with the cross-database query feature in Amazon Redshift, consider the
 following:
 
-- Amazon Redshift supports cross-database query on all ra3 node types and serverless namespaces.
+- Amazon Redshift supports cross-database query on all RG and RA3 node types and serverless namespaces.
 - Amazon Redshift supports joining data from tables or views across one or more databases in the same Amazon Redshift cluster.
 - All queries in a transaction on the connected database read data in the same state of the
   other database as the data was at the beginning of the transaction. This approach

@@ -20,7 +20,7 @@ Before running the CloudFormation stack for federated queries, make sure that yo
 Amazon Aurora PostgreSQL-Compatible Edition serverless database with the Data API turned on. You can turn on the
 Data API in the database properties. If you can't find the setting, double-check that you
 are running a serverless instance of Aurora PostgreSQL. Also make sure that you have a Amazon Redshift
-cluster that uses RA3 nodes. We recommend that both the Redshift cluster and serverless
+cluster that uses RG or RA3 nodes. We recommend that both the Redshift cluster and serverless
 Aurora PostgreSQL instance are in the same virtual private cloud (VPC) and subnet group. This
 way, you can add the security group for the Amazon Redshift cluster to the inbound rules of the
 security group for your Aurora PostgreSQL database instance.
@@ -68,7 +68,7 @@ If an error occurs while the stack is created, do the following:
 - View the CloudFormation **Events** tab for information that can help you resolve the error.
 - Make sure that you entered the correct name,
   database name, and database user name for the Redshift cluster. Also check the parameters for the Aurora PostgreSQL instance.
-- Make sure that your cluster has RA3 nodes.
+- Make sure that your cluster has RG or RA3 nodes.
 - Make sure that your database and Redshift cluster
   are in the same subnet and security group.
 

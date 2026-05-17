@@ -19,7 +19,7 @@ set up a datashare and grant permissions, without using CloudFormation, see [Sha
 Before running the data sharing CloudFormation stack, you must be logged in with a user
 that has permission to create an IAM role and a Lambda function. You also need two Amazon Redshift
 clusters in the same account. You use one, the _producer_, to share the sample data, and the other, the _consumer_, to read it. The primary requirement for these
-clusters is that each use RA3 nodes. For additional requirements, see [Considerations for data sharing in Amazon Redshift](datashare-considerations.md "datashare-considerations.md").
+clusters is that each use RG or RA3 nodes. For additional requirements, see [Considerations for data sharing in Amazon Redshift](datashare-considerations.md "datashare-considerations.md").
 
 For more information about getting started setting up an Amazon Redshift cluster, see [Get started with Amazon Redshift provisioned data
 warehouses](../gsg/new-user.md "../gsg/new-user.md"). For more information about automating setup with CloudFormation, see
@@ -28,7 +28,7 @@ warehouses](../gsg/new-user.md "../gsg/new-user.md"). For more information about
 ###### Important
 
 Before launching your CloudFormation stack, make sure you have two Amazon Redshift
-clusters in the same account and that the clusters use RA3 nodes. Make sure each
+clusters in the same account and that the clusters use RG or RA3 nodes. Make sure each
 cluster has a database and a superuser. For more information, see [CREATE DATABASE](r_CREATE_DATABASE.md "r_CREATE_DATABASE.md") and [superuser](r_superusers.md "r_superusers.md").
 
 ###### To launch your CloudFormation stack for Amazon Redshift data sharing:
@@ -66,7 +66,7 @@ If an error occurs while the stack is created, do the following:
 
 - Make sure that you entered the correct cluster name, database name, and
   database user name for each Redshift cluster.
-- Make sure that your cluster has RA3 nodes.
+- Make sure that your cluster has RG or RA3 nodes.
 - Make sure you are logged in with a user that has permission to create an
   IAM role and a Lambda function. For more information about creating IAM
   roles, see [Creating IAM

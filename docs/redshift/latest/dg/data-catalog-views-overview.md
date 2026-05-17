@@ -142,7 +142,7 @@ For more information about the SQL commands related to views in the Data Catalog
 
 The following are considerations and limitations that apply to views created in the Data Catalog.
 
-- AWS Glue Data Catalog views are only supported on RA3 provisioned clusters or Redshift Serverless workgroups.
+- AWS Glue Data Catalog views are only supported on RG and RA3 provisioned clusters or Redshift Serverless workgroups.
 - You can’t create a Data Catalog view that is based off of another view.
 - You can only have 10 base tables in a Data Catalog view.
 - The definer of the view must have full `SELECT GRANTABLE` permissions on the base tables.

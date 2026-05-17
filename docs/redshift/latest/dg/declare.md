@@ -77,6 +77,8 @@ type. Maximum result set sizes are in megabytes.
 | DC2 Large multiple nodes   | 192,000                             |
 | DC2 Large single node      | 8,000                               |
 | DC2 8XL multiple nodes     | 3,200,000                           |
+| RG XLARGE multiple nodes   | 240,000                             |
+| RG 4XL multiple nodes      | 1,600,000                           |
 | RA3 16XL multiple nodes    | 14,400,000                          |
 | RA3 4XL multiple nodes     | 3,200,000                           |
 | RA3 XLPLUS multiple nodes  | 1,000,000                           |
@@ -106,6 +108,7 @@ alternatives:
   connection and you are encountering client-side out-of-memory errors, you can
   enable your client to retrieve result sets in smaller batches by setting the JDBC
   fetch size parameter. For more information, see [Setting the JDBC fetch size parameter](set-the-JDBC-fetch-size-parameter.md "set-the-JDBC-fetch-size-parameter.md").
+- RG nodes have smaller cursor sizes. If your workloads require a larger cursor size, consider upgrading to a larger RG node type.
 
 ## DECLARE CURSOR examples
 

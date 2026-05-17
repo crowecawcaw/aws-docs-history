@@ -9,6 +9,13 @@ on Amazon S3. If you already have a cluster and a SQL client, you can complete t
 
 ###### Note
 
+On RG provisioned clusters, data lake queries run on the cluster's own compute
+resources rather than on dedicated Redshift Spectrum servers. Similarly, Amazon Redshift Serverless processes
+data lake queries using its own compute capacity. For information for using integrated
+data lake queries on RG and Redshift Serverless, see [Querying your data lake](../gsg/data-lake.md "../gsg/data-lake.md").
+
+###### Note
+
 Redshift Spectrum queries incur additional charges. The cost of running the sample
 queries in this tutorial is nominal. For more information about pricing, see [Amazon Redshift Spectrum
 pricing](https://aws.amazon.com/redshift/pricing/#redshift-spectrum-pricing "https://aws.amazon.com/redshift/pricing/#redshift-spectrum-pricing").

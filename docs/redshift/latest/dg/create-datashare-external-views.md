@@ -203,9 +203,10 @@ lake objects in a datashare:
 
 - When a consumer queries shared objects from a data lake, the cost of
   scanning is billed to the consumer.
-  - When the consumer is a provisioned cluster, Redshift uses
+  - When the consumer is an RA3 or DC2 provisioned cluster, Redshift uses
     Redshift Spectrum to scan Amazon S3 data. Therefore, the Spectrum cost is
     billed to the consumer account.
+  - When the consumer is an RG provisioned cluster, there is no separate charge for Spectrum as the data lake queries run on the cluster compute that is billed with RG node-hour compute pricing.
   - When the consumer is an Amazon Redshift Serverless workgroup, there is no
     separate charge for Spectrum.
 

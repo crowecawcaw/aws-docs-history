@@ -520,17 +520,7 @@ A clause that specifies whether string search or comparison on the column is
 case sensitive or case insensitive. The default value is the same as the
 current case sensitivity configuration of the database.
 
-To find the database collation information, use the following
-command:
-
-```
-SELECT db_collation();
-
-`db_collation
-----------------
- case_sensitive
-(1 row)`
-```
+To check the current collation of a database, use the [DB_COLLATION](r_DB_COLLATION.md "r_DB_COLLATION.md") function.
 
 CASE_SENSITIVE and CS are interchangeable and yield the same results.
 Similarly, CASE_INSENSITIVE and CI are interchangeable and yield the same results.

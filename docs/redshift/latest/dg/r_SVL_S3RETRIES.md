@@ -4,10 +4,15 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 # SVL_S3RETRIES
 
-Use the SVL_S3RETRIES view to get information about why an Amazon Redshift Spectrum query based
-on Amazon S3 has failed.
+Use the SVL_S3RETRIES view to get information about why a data lake query on Amazon S3 that uses Amazon Redshift Spectrum has failed.
 
 SVL_S3RETRIES is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+
+###### RG provisioned clusters
+
+`SVL_S3RETRIES` is not populated on RG provisioned clusters. The view exists and remains queryable, but returns no rows for queries that ran on RG clusters, because RG uses the cluster's native reader to query Amazon S3 and does not use the Spectrum request retry model.
+
+For Amazon S3 client retry and error details on RG provisioned clusters, use `STL_S3CLIENT` and `STL_S3CLIENT_ERROR`.
 
 ## Table columns
 

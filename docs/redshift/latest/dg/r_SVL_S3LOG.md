@@ -4,7 +4,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 # SVL_S3LOG
 
-Use the SVL_S3LOG view to get details about Amazon Redshift Spectrum queries at the segment and
+Use the SVL_S3LOG view to get details about data lake queries at the segment and
 node slice level.
 
 SVL_S3LOG is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").

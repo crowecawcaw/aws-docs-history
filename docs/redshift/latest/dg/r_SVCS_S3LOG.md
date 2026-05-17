@@ -4,7 +4,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 # SVCS_S3LOG
 
-Use the SVCS_S3LOG view to get troubleshooting details about Redshift Spectrum queries at the segment level.
+Use the SVCS_S3LOG view to get troubleshooting details about data lake queries at the segment level.
 One segment can perform one external table scan.
 This view is derived from the SVL_S3LOG system view but doesn't show slice-level for queries run on a concurrency scaling cluster.
 
