@@ -22,9 +22,21 @@ Follow these steps to update a container image pipeline using the
 
 ###### Note
 
-UpdateImagePipeline does not support selective updates for the pipeline.
-You must specify all of the required properties in the update request, not just
-the properties that have changed.
+The **update-image-pipeline** command replaces the entire
+pipeline configuration. You must specify all required properties in the
+update request. Include all properties—both properties you want to change
+and properties that should stay the same. Properties that you omit are
+reset to default values or are removed.
+
+To prevent unintended removal of existing settings, use the
+**get-image-pipeline** command to retrieve the current
+configuration. Then modify only the fields you want to change:
+
+```
+aws imagebuilder get-image-pipeline --image-pipeline-arn arn:aws:imagebuilder:`us-west-2`:`123456789012`:image-pipeline/`my-container-pipeline`
+```
+
+Use the output as the basis for your update request JSON file.
 
 1. ###### Create a CLI input JSON file
 

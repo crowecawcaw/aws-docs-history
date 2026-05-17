@@ -26,8 +26,11 @@ A `schedule` has the following attributes:
        your pipeline will build a new image every time the cron
        expression matches the current time.
       + `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`
-       – your pipeline will not start a new image build unless
-       there are pending changes to your base image or components.
+       – your pipeline builds a new image only when the
+       schedule expression matches and there are pending updates to
+       your base image or components. If no updates are pending,
+       the build is skipped. To build immediately without waiting
+       for updates, run the pipeline manually.
 
   When you run the **create-image-pipeline** command in the AWS CLI,
   many of the configuration resources are optional. However, some of the resources
@@ -94,4 +97,93 @@ in the _AWS CLI Reference_.
 
 ```
 aws imagebuilder create-image-pipeline --cli-input-json file://create-image-pipeline.json
+```
+
+###### Example: Create a pipeline with image scanning and custom workflows
+
+This example configures a pipeline that checks every seven days and
+runs only when dependency updates are available. The
+configuration file uses existing resources for the image recipe and
+infrastructure. It enables
+[vulnerability scanning](integ-inspector.md "integ-inspector.md")
+with Amazon Inspector. The configuration also specifies
+[custom workflows](manage-image-workflows.md "manage-image-workflows.md")
+with an execution role. Parallel groups run security and functional tests
+at the same time. Pipeline logs are sent to custom
+[CloudWatch log groups](monitor-cwlogs.md "monitor-cwlogs.md").
+
+1. ###### Create a configuration file
+
+Create a JSON file named
+`create-pipeline-with-workflows.json`. This file
+defines the pipeline configuration with image scanning enabled and
+custom test workflows. Replace the placeholder values with your own
+resource ARNs.
+
+```
+{
+	"name": "`MyPipelineWithScanning`",
+	"description": "`Pipeline with vulnerability scanning and custom workflows`",
+	"imageRecipeArn": "arn:aws:imagebuilder:`us-west-2`:`123456789012`:image-recipe/`my-recipe`/1.0.0",
+	"infrastructureConfigurationArn": "arn:aws:imagebuilder:`us-west-2`:`123456789012`:infrastructure-configuration/`my-infra-config`",
+	"distributionConfigurationArn": "arn:aws:imagebuilder:`us-west-2`:`123456789012`:distribution-configuration/`my-dist-config`",
+	"imageScanningConfiguration": {
+		"imageScanningEnabled": true
+	},
+	"workflows": [
+		{
+			"workflowArn": "arn:aws:imagebuilder:`us-west-2`:`123456789012`:workflow/build/`my-build-workflow`/1.0.0"
+		},
+		{
+			"workflowArn": "arn:aws:imagebuilder:`us-west-2`:`123456789012`:workflow/test/`my-security-scan`/1.0.0",
+			"onFailure": "ABORT",
+			"parallelGroup": "security"
+		},
+		{
+			"workflowArn": "arn:aws:imagebuilder:`us-west-2`:`123456789012`:workflow/test/`my-compliance-check`/1.0.0",
+			"onFailure": "ABORT",
+			"parallelGroup": "security"
+		},
+		{
+			"workflowArn": "arn:aws:imagebuilder:`us-west-2`:`123456789012`:workflow/test/`my-functional-test`/1.0.0",
+			"onFailure": "CONTINUE",
+			"parallelGroup": "functional"
+		},
+		{
+			"workflowArn": "arn:aws:imagebuilder:`us-west-2`:`123456789012`:workflow/test/`my-performance-test`/1.0.0",
+			"onFailure": "CONTINUE",
+			"parallelGroup": "functional"
+		}
+	],
+	"executionRole": "arn:aws:iam::`123456789012`:role/`ImageBuilderExecutionRole`",
+	"loggingConfiguration": {
+		"imageLogGroupName": "/aws/imagebuilder/`my-pipeline-image-logs`",
+		"pipelineLogGroupName": "/aws/imagebuilder/`my-pipeline-execution-logs`"
+	},
+	"imageTestsConfiguration": {
+		"imageTestsEnabled": true,
+		"timeoutMinutes": 60
+	},
+	"schedule": {
+		"scheduleExpression": "rate(7 days)",
+		"pipelineExecutionStartCondition": "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE"
+	},
+	"status": "ENABLED"
+}
+
+```
+
+###### Note
+
+    * You must include the `file://` notation
+     at the beginning of the JSON file path.
+    * The path for the JSON file should follow the appropriate
+     convention for the base operating system where you are running
+     the command. For example, Windows uses the backslash (\) to
+     refer to the directory path, while Linux and macOS use the forward slash (/).
+
+2. ###### Run the command
+
+```
+aws imagebuilder create-image-pipeline --cli-input-json file://create-pipeline-with-workflows.json
 ```

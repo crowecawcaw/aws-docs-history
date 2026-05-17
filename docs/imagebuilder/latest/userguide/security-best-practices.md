@@ -250,6 +250,12 @@ if [[ $( sudo ls /var/tmp | sudo wc -l ) -gt 0 ]]; then
         sudo rm -rf /var/tmp/*
 fi
 
+if [[ -f "/var/lib/systemd/random-seed" ]]; then
+        echo "Deleting /var/lib/systemd/random-seed"
+        sudo shred -zuf /var/lib/systemd/random-seed
+        sudo rm -f /var/lib/systemd/random-seed
+fi
+
 # Shredding is not guaranteed to work well on rolling logs
 
 if [[ -f "/var/lib/rsyslog/imjournal.state" ]]; then

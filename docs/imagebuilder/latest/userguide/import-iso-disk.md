@@ -29,15 +29,29 @@ Image Builder does not support the following Windows operating system ISO disk i
 
 ###### Note
 
-After the import process is successful and you launch an instance from the output AMI,
-the Windows operating system runs Sysprep Specialize, which downloads and
-installs EC2Launch v2 and the Systems Manager Agent from public S3 endpoints. These
-endpoints require public internet access. If you plan to launch instances
-in a private subnet, you must ensure that the subnet has access to the
-following S3 endpoints:
+During the import process, the build instance downloads AWS drivers,
+EC2Launch v2, and the Systems Manager Agent from Amazon S3, and
+[Microsoft
+Defender](https://go.microsoft.com/fwlink/?linkid=2144531 "https://go.microsoft.com/fwlink/?linkid=2144531") from the public internet. These components are pre-staged
+onto the output AMI. The build instance also communicates with Amazon EC2,
+Amazon CloudWatch Logs, and SSM APIs.
 
-- `https://s3.amazonaws.com/amazon-ec2launch-v2/windows/amd64/latest/AmazonEC2Launch.msi`
-- `https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/windows_amd64/AmazonSSMAgentSetup.exe`
+If your VPC is not in `us-east-1`, then the build instance requires
+public internet access (for example, via a NAT Gateway) to download AWS
+drivers from the global Amazon S3 endpoint
+(`ec2-windows-drivers-downloads.s3.amazonaws.com`). Without public
+internet access, these downloads fail and the import process fails.
+
+If your VPC is in `us-east-1`, then the Amazon S3 Gateway endpoint is
+sufficient for downloading the drivers. No NAT Gateway is needed for downloading
+the drivers.
+
+However, Microsoft Defender requires public internet access to download regardless
+of region. If the build instance does not have internet access, the import
+still succeeds but Microsoft Defender is not installed on the output AMI.
+
+For the list of the minimal required VPC endpoints and S3 URLs, see
+[Minimal network requirements for private VPC](#iso-import-network-requirements "#iso-import-network-requirements").
 
 To import an ISO disk image, you must meet the following prerequisites:
 
@@ -113,7 +127,7 @@ Image Builder generates. You can specify custom UEFI data only when Secure
 Boot is enabled (the default). The data can be at most 64 KB.
 
 You can inspect and modify UEFI data by using the
-[python-uefivars](https://github.com/awslabs/python-uefivars "https://github.com/awslabs/python-uefivars") tool. For more information, see
+[python-uefivars](https://github.com/awslabs/python-uefivars "https://github.com/awslabs/python-uefivars") tool on the GitHub website. For more information, see
 [UEFI
 variables for Amazon EC2 instances](../../../AWSEC2/latest/UserGuide/uefi-variables.md "../../../AWSEC2/latest/UserGuide/uefi-variables.md").
 
@@ -164,7 +178,7 @@ To import an ISO disk image with the Image Builder console, follow these steps:
 
 5. Choose the import type: **ISO import**.
 6. Enter the following **ISO import configuration**
-   details. Then choose **Import image** when you're done.
+   details. Then choose **Import image** when you are done.
    - **S3 URI** – Enter the location
      where your ISO disk file is stored. To browse for the file,
      choose **Browse S3**.
@@ -355,10 +369,52 @@ that you own. For more details, see [List images](image-details-list.md#list-ima
 
 ## Launch an instance from the output AMI
 
+You can now use the output AMI as a regular AMI and launch instances from it.
 When you launch an instance from the output AMI, the Windows operating system
-runs Sysprep Specialize, which requires access to public S3 endpoints. Before you
-launch, make sure your network configuration meets the endpoint access requirements
-described in [Prerequisites to import an ISO disk image](#iso-import-prereq "#iso-import-prereq").
+runs Sysprep Specialize to finalize the instance configuration.
+
+###### Note
+
+The network requirements described on this page apply to the import
+build process only. After the import completes successfully, launching
+instances from the output AMI follows standard Amazon EC2 networking
+requirements. A successful import does not guarantee a successful instance
+launch — your launch might still fail depending on your network
+configuration.
+
+## Minimal network requirements for private VPC
+
+**Required VPC endpoints:**
+
+| Endpoint                               | Type      | Purpose                                                                                         |
+| -------------------------------------- | --------- | ----------------------------------------------------------------------------------------------- |
+| `com.amazonaws.`{region}`.s3`          | Gateway   | Access Amazon S3 buckets (EC2Launch v2, SSM Agent, your ISO; also<br>drivers if in `us-east-1`) |
+| `com.amazonaws.`{region}`.ec2`         | Interface | Create snapshots and describe volumes                                                           |
+| `com.amazonaws.`{region}`.logs`        | Interface | Write build logs to CloudWatch Logs                                                             |
+| `com.amazonaws.`{region}`.ssm`         | Interface | SSM API calls (SendCommand, DescribeInstanceInformation)                                        |
+| `com.amazonaws.`{region}`.ssmmessages` | Interface | SSM Agent data channel (receive commands, send output)                                          |
+| `com.amazonaws.`{region}`.ec2messages` | Interface | SSM Agent message polling                                                                       |
+
+**Additional requirement for regions outside
+`us-east-1`:**
+
+| Resource    | Purpose                                                                                                                                              |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| NAT Gateway | Provide internet access to download drivers from<br>`ec2-windows-drivers-downloads.s3.amazonaws.com`. Without this,<br>the import process will fail. |
+
+**Amazon S3 endpoints accessed during import:**
+
+- `https://ec2-windows-drivers-downloads.s3.amazonaws.com/NVMe/Latest/AWSNVMe.zip`
+- `https://ec2-windows-drivers-downloads.s3.amazonaws.com/ENA/Latest/AwsEnaNetworkDriver.zip`
+- `https://ec2-windows-drivers-downloads.s3.amazonaws.com/AWSPCISerialDriver/Latest/AWSPCISerialDriver.zip`
+- `https://ec2-windows-drivers-downloads.s3.amazonaws.com/EC2WinUtil/Latest/EC2WinUtil.zip`
+- `https://amazon-ec2launch-v2-`{region}`.s3.dualstack.`{region}`.amazonaws.com/windows/amd64/latest/AmazonEC2Launch.msi`
+- `https://amazon-ssm-`{region}`.s3.`{region}`.amazonaws.com/latest/windows_amd64/AmazonSSMAgentSetup.exe`
+
+This represents the minimum configuration required for the import to
+operate in a private subnet. Depending on your VPC settings and desired outcome,
+you may need additional network configuration to allow traffic between the build
+instance and the VPC endpoints.
 
 ## Next steps
 
