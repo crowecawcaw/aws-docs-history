@@ -73,7 +73,7 @@ a container instance of this image.
         For more information about deployment methods, see [Deployment methods](manage-deploy.md#manage-deploy.methods "manage-deploy.md#manage-deploy.methods").
         2. Choose **Next**.
 
-    ![Source and deployment settings while creating an App Runner service](images/getting-started-create-source-depl.png)
+    ![Source and deployment settings while creating an App Runner service](/images/apprunner/latest/dg/images/getting-started-create-source-depl.png)
 
 3.  Configure the application build.
 
@@ -98,7 +98,7 @@ a container instance of this image.
         	* **Port** – Enter the IP port that your web service listens to.
         3. Choose **Next**.
 
-    ![Build settings while creating an App Runner service](/images/apprunner/latest/dg/images/getting-started-create-build.png)
+    ![Build settings while creating an App Runner service](images/getting-started-create-build.png)
 
 4.  Configure your service.
 
@@ -119,7 +119,7 @@ a container instance of this image.
 **Result:** If the service is created successfully, the console displays the service dashboard with a
 **Service overview** of the new service.
 
-![App Runner service dashboard page](/images/apprunner/latest/dg/images/getting-started-create-dashboard.png) 6. Verify that your service is running.
+![App Runner service dashboard page](images/getting-started-create-dashboard.png) 6. Verify that your service is running.
 
     1. On the service dashboard page, wait until the service **Status** is **Running**.
     2. Choose the **Default domain** value. It's the URL to your service's website.

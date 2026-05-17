@@ -94,7 +94,7 @@ The following diagram outlines the steps for creating an App Runner service:
     1. Open the [App Runner console](https://console.aws.amazon.com/apprunner "https://console.aws.amazon.com/apprunner"), and in the **Regions** list, select your AWS Region.
     2. If the AWS account doesn't have any App Runner services yet, the console home page is displayed. Choose **Create an App Runner service**.
 
-    ![App Runner console home page showing the create service button](/images/apprunner/latest/dg/images/getting-started-home.png)
+    ![App Runner console home page showing the create service button](images/getting-started-home.png)
 
     If the AWS account has existing services, the **Services** page with a list of your services is displayed. Choose **Create
     service**.
