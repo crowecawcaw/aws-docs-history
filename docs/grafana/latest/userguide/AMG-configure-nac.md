@@ -6,15 +6,15 @@ Grafana requires all users to be authenticated and authorized. However, by defau
 Amazon Managed Grafana workspaces are open to all network traffic. You can configure network access
 control for a workspace, to control what network traffic is allowed to reach it.
 
-You can control traffic to your workspace in two ways.
+Control traffic to your workspace in two ways:
 
-- **IP Addresses** (prefix lists) – You can
-  create a [managed
-  prefix list](../../../vpc/latest/userguide/working-with-managed-prefix-lists.md "../../../vpc/latest/userguide/working-with-managed-prefix-lists.md") with IP ranges that are allowed to access workspaces.
-  Amazon Managed Grafana supports only public, IPv4 addresses for network access
-  control.
-- **VPC endpoints** – You can create a list
-  of VPC endpoints to your workspaces that are allowed to access a specific
+- **IP Addresses** (prefix lists) – Create a
+  [managed
+  prefix list](../../../vpc/latest/userguide/working-with-managed-prefix-lists.md "../../../vpc/latest/userguide/working-with-managed-prefix-lists.md") with IP ranges that are allowed to access
+  workspaces. Prefix lists can contain IPv4 or IPv6 address ranges. To filter
+  IPv6 traffic, use an IPv6 prefix list with a dual-stack workspace.
+- **VPC endpoints** – Create a list of VPC
+  endpoints to your workspaces that are allowed to access a specific
   workspace.
   When you configure network access control, you must include at least one prefix list
   or VPC endpoint.
@@ -65,13 +65,14 @@ documentation_.
   limitations for prefix lists when used for Amazon Managed Grafana:
 
       + Each prefix list can contain up to 100 IP address ranges.
-      + Private IP address ranges (for example, `10.0.0.0/16`
+      + IPv6 address ranges in prefix lists are only effective on
+       dual-stack workspaces. On IPv4-only workspaces, IPv6 ranges are
+       ignored.
+      + Private IP address ranges (for example, `10.0.0.0/16`)
        are ignored. You can include private IP address ranges in a prefix
        list, but Amazon Managed Grafana ignores those when filtering traffic to the
        workspace. To allow those hosts to reach the workspace, create a VPC
        endpoint for your workspaces and give them access.
-      + Amazon Managed Grafana only supports IPv4 addresses in prefix lists, not IPv6.
-       IPv6 addresses are ignored.
 
   You create managed prefix lists through the [Amazon VPC Console](https://console.aws.amazon.com/vpc/home?#ManagedPrefixLists "https://console.aws.amazon.com/vpc/home?#ManagedPrefixLists"). After you have
   created the prefix lists, you need the prefix list ID for each list you want
@@ -126,7 +127,10 @@ resource** for each one you want to add.
 
 ###### Note
 
-You can add up to 5 prefix lists and 5 VPC endpoints. 8. Choose **Save changes** to complete the setup.
+You can add up to 5 prefix lists and 5 VPC endpoints. 8. To configure IPv6 (dual-stack) connectivity, use the
+**Workspace configuration options** tab and choose
+**IP Address Type**. Dual-stack mode requires Grafana
+version 10 or later. For prerequisites, see [Create an Amazon Managed Grafana workspace](AMG-create-workspace.md "AMG-create-workspace.md"). 9. Choose **Save changes** to complete the setup.
 
 ###### Warning
 

@@ -1,5 +1,13 @@
 # Use AWS data source configuration to add Amazon Managed Service for Prometheus as a data source
 
+###### Important
+
+Starting in Amazon Managed Grafana version 12, SigV4 authentication support in the
+Core Prometheus plugin has been removed. All Amazon Managed Service for Prometheus data sources that were
+previously using the Core Prometheus plugin are automatically migrated to
+the Amazon Managed Service for Prometheus plugin. Any dashboards using these data sources are automatically
+updated to reflect this change. See [Connect to an Amazon Managed Service for Prometheus data source](amazon-prometheus-data-source.md "amazon-prometheus-data-source.md").
+
 To use AWS data source configuration, first you use the Amazon Managed Grafana console to
 enable service-managed IAM roles that grant the workspace the IAM policies
 necessary to read the Amazon Managed Service for Prometheus resources in your account or in your entire

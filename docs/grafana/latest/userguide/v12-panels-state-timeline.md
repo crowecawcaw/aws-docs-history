@@ -20,7 +20,7 @@ can also be used with time series. When used with time series, the thresholds ar
 to turn the numerical values into discrete state regions. State timeline visualizations
 support pagination, making it easier to navigate large datasets.
 
-![An image showing an example of a state timeline visualizations in Grafana.](/images/grafana/latest/userguide/images/viz/state_timeline_example.png)
+![An image showing an example of a state timeline visualizations in Grafana.](images/viz/state_timeline_example.png)
 
 ## State timeline options
 

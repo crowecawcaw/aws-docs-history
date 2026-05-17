@@ -1,5 +1,9 @@
 # Visualize alerts from Amazon Managed Service for Prometheus
 
+###### Note
+
+The Amazon Managed Service for Prometheus data source is available starting in Amazon Managed Grafana version 12.
+
 You can visualize your Amazon Managed Service for Prometheus or Prometheus alerts in Amazon Managed Grafana by
 configuring an Alertmanager data source for Prometheus data sources that you are
 already connected to.

@@ -155,6 +155,8 @@ The following features were added in Grafana version 12.
   previously using the Core Prometheus plugin are automatically migrated to the
   Amazon Managed Service for Prometheus plugin. Any dashboards using these data sources are automatically
   updated to reflect this change. See [Connect to an Amazon Managed Service for Prometheus data source](amazon-prometheus-data-source.md "amazon-prometheus-data-source.md").
+- **OpsGenie contact point removed** –
+  The OpsGenie contact point is removed in Grafana version 12.
 
 Amazon Managed Grafana v12 includes features from open source Grafana v11.0 through v12.4.
 For AWS-specific features, see the Amazon Managed Grafana User Guide. For detailed

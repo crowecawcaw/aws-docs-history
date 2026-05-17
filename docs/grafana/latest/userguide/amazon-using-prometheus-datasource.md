@@ -1,5 +1,9 @@
 # Using the Prometheus data source
 
+###### Note
+
+The Amazon Managed Service for Prometheus data source is available starting in Amazon Managed Grafana version 12.
+
 ## Prometheus settings
 
 | Name                      | Description                                                                                                                                                                                                        |

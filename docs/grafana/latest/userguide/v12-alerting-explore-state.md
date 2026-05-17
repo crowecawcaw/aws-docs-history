@@ -21,6 +21,10 @@ _alert instance state_, and _alert rule
 health_. Although related, each component conveys subtly
 different information.
 
+###### Important
+
+**Alert rule evaluation result limit** – Beginning in Grafana version 12, the number of query evaluation results per alert rule is limited to 500. If the condition query of an alert rule produces more results than this limit, the evaluation results in an error. To receive alerts when this error occurs, configure `Alert state if execution error or timeout` to `Error` under the alert rule's settings.
+
 **Alert rule state**
 
 An alert rule can be in one of the following states:

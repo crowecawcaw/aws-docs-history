@@ -24,42 +24,76 @@ The same options are available to you when you first create your workspace.
 
 ###### To change the configuration of a Grafana workspace using the Amazon Managed Grafana console
 
-1. Open the Amazon Managed Grafana console at [https://console.aws.amazon.com/grafana/](https://console.aws.amazon.com/grafana/home/ "https://console.aws.amazon.com/grafana/home/").
-2. In the left navigation pane, choose the menu icon.
-3. Choose **All workspaces**.
-4. Choose the name of the workspace that you want to configure. This opens the
-   details for that workspace.
-5. Choose the **Workspace configuration options** tab to see the
-   instance configuration options for your instance.
-6. Select **Edit** next to either **Grafana
-   alerting** or **Plugin management**.
-   - **Grafana alerting**
+1.  Open the Amazon Managed Grafana console at [https://console.aws.amazon.com/grafana/](https://console.aws.amazon.com/grafana/home/ "https://console.aws.amazon.com/grafana/home/").
+2.  In the left navigation pane, choose the menu icon.
+3.  Choose **All workspaces**.
+4.  Choose the name of the workspace that you want to configure. This opens the
+    details for that workspace.
+5.  Choose the **Workspace configuration options** tab to see the
+    instance configuration options for your instance.
+6.  Select **Edit** next to either **Grafana
+    alerting**, **Plugin management**, or **IP
+    Address Type**.
+    - **Grafana alerting**
 
-   You can enable [Grafana alerting](v10-alerts.md "v10-alerts.md"). To
-   view Prometheus alerts in your Grafana workspace, select the check box
-   to **Turn Grafana alerting on**. In workspaces running
-   version 8 or 9, this will send multiple notifications for your Grafana
-   alerts. If you use alerts defined in Grafana, we recommend updating your
-   workspace to version 10.4 or later.
+    You can enable [Grafana alerting](v10-alerts.md "v10-alerts.md"). To
+    view Prometheus alerts in your Grafana workspace, select the check box
+    to **Turn Grafana alerting on**. In workspaces running
+    version 8 or 9, this will send multiple notifications for your Grafana
+    alerts. If you use alerts defined in Grafana, we recommend updating your
+    workspace to version 10.4 or later.
 
-   If you want to the classic Grafana alerts instead,
-   _clear_ the check box next to **Turn
-   Grafana alerting on**. This turns on the [classic dashboard alerts](old-alerts-overview.md "old-alerts-overview.md"). Even
-   if you don't turn Grafana alerting on, your existing Grafana alerts are
-   evaluated.
+    If you want to the classic Grafana alerts instead,
+    _clear_ the check box next to **Turn
+    Grafana alerting on**. This turns on the [classic dashboard alerts](old-alerts-overview.md "old-alerts-overview.md"). Even
+    if you don't turn Grafana alerting on, your existing Grafana alerts are
+    evaluated.
 
-   ###### Note
+    ###### Note
 
-   Classic dashboard alerts have been removed in Grafana version 12.
-   In version 12 workspaces, Grafana alerting is always enabled and
-   the toggle is no longer available. For more information, see [Migrating classic dashboard alerts to Grafana alerting](v10-alerting-use-grafana-alerts.md "v10-alerting-use-grafana-alerts.md").
-   - **Plugin management**
+    Classic dashboard alerts have been removed in Grafana version 12.
+    In version 12 workspaces, Grafana alerting is always enabled and
+    the toggle is no longer available. For more information, see [Migrating classic dashboard alerts to Grafana alerting](v10-alerting-use-grafana-alerts.md "v10-alerting-use-grafana-alerts.md").
+    - **Plugin management**
 
-   To turn on plugin management, select the check box to **Turn
-   plugin management on**. Turning plugin management on allows
-   admins in your Amazon Managed Grafana workspace to install, update, or remove [plugins](grafana-plugins.md "grafana-plugins.md") using the Grafana plugin
-   catalog. This option is only available for workspaces that support
-   Grafana version 9 or newer.
+    To turn on plugin management, select the check box to **Turn
+    plugin management on**. Turning plugin management on allows
+    admins in your Amazon Managed Grafana workspace to install, update, or remove [plugins](grafana-plugins.md "grafana-plugins.md") using the Grafana plugin
+    catalog. This option is only available for workspaces that support
+    Grafana version 9 or newer.
+    - **IP Address type**
+
+    Choose **IPv4 only** or **Dual-stack
+    mode**. Your selection determines the addressing protocols
+    that resources use to communicate with your workspace. Choose dual-stack
+    mode when you have resources that must communicate with your workspace
+    over IPv6. Dual-stack mode is available only for workspaces that support
+    Grafana version 10 or later.
+
+    ###### Important
+
+    Before enabling dual-stack mode, verify the following:
+
+        + The `sso.signin.aws` domain is allowed in your
+         network firewall and identity provider
+         configurations.
+        + Your network allows IPv6 traffic.
+        + Any prefix lists used for network access control include
+         the appropriate IP ranges.
+        + If your identity provider uses CORS validation, the new
+         domain is added to the CORS allowlist.
+        + If your workspace uses a VPC configuration, your subnets
+         must have IPv6 CIDR blocks assigned.Workspaces using direct SAML authentication or AWS Identity and Access Management Identity
+
+    Center's built-in directory are not affected by the sign-in URL
+    change. For more information, see [Assertion
+    Consumer Service (ACS) endpoints](../../../singlesignon/latest/userguide/multi-region-workforce-access.md#acs-endpoints "../../../singlesignon/latest/userguide/multi-region-workforce-access.md#acs-endpoints") in the
+    _AWS Identity and Access Management Identity Center User
+    Guide_.
+
+    If you later switch from dual-stack back to IPv4 only, any clients
+    or resources currently connecting over IPv6 will lose access to your
+    workspace.
 
 ###### Note
 

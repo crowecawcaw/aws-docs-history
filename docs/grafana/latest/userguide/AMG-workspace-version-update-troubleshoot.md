@@ -10,7 +10,8 @@ Some functionality has changed between versions.
     + For a list of major changes between versions, including changes
      that may cause issues in functionality, see [Differences between Grafana versions](version-differences.md "version-differences.md").
     + For documentation of version 9 specific functionality, see [Working in Grafana version 9](using-grafana-v9.md "using-grafana-v9.md").
-     For version 10, see [Working in Grafana version 10](using-grafana-v10.md "using-grafana-v10.md").
+     For version 10, see [Working in Grafana version 10](using-grafana-v10.md "using-grafana-v10.md"). For version 12, see
+     [Working in Grafana version 12](using-grafana-v12.md "using-grafana-v12.md").
 
 - **PostgreSQL TLS issue**
 

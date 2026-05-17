@@ -1,6 +1,6 @@
 # Connect to an Amazon Managed Service for Prometheus data source
 
-###### Important
+###### Note
 
 The Amazon Managed Service for Prometheus data source is available starting in Amazon Managed Grafana version 12.
 

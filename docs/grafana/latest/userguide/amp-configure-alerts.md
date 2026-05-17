@@ -1,5 +1,13 @@
 # Visualize alerts from Amazon Managed Service for Prometheus
 
+###### Important
+
+Starting in Amazon Managed Grafana version 12, SigV4 authentication support in the
+Core Prometheus plugin has been removed. All Amazon Managed Service for Prometheus data sources that were
+previously using the Core Prometheus plugin are automatically migrated to
+the Amazon Managed Service for Prometheus plugin. Any dashboards using these data sources are automatically
+updated to reflect this change. See [Connect to an Amazon Managed Service for Prometheus data source](amazon-prometheus-data-source.md "amazon-prometheus-data-source.md").
+
 You can visualize your Amazon Managed Service for Prometheus or Prometheus alerts in Amazon Managed Grafana by
 configuring an Alertmanager data source for Prometheus data sources that you are
 already connected to.
