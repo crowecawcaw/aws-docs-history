@@ -34,8 +34,9 @@ The following limitations apply when you designate OpenSearch Service domains or
 as sinks:
 
 - A pipeline can't write to more than one VPC domain.
-- You can only migrate data to or from OpenSearch Serverless collections that use VPC access.
-  Public collections aren't supported.
+- Migrating data to or from OpenSearch Serverless collections that use VPC access is
+  supported. Public collections may also work in some configurations; however,
+  VPC-based collections are recommended for production use.
 - You can't specify a combination of VPC and public domains in a single pipeline
   configuration.
 - You can have a maximum of 20 non-pipeline sinks within a single pipeline

@@ -171,7 +171,8 @@ OCUs for your account in order to control costs.
 ###### Note
 
 Collections with unique AWS KMS keys can't share OCUs with other
-collections.
+collections unless they are part of the same collection group. For more
+information, see [Collection groups](serverless-collection-groups.md "serverless-collection-groups.md").
 
 OpenSearch Serverless attempts to use the minimum required resources to account for changing
 workloads. The number of OCUs provisioned at any time can vary and isn't exact. Over

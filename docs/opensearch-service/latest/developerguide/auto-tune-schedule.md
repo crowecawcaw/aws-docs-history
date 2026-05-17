@@ -19,8 +19,9 @@ use the off-peak window for domain maintenance instead. For instructions, see [M
    domain name to open the cluster configuration.
 3. Go to the **Auto-Tune** tab and choose
    **Edit**.
-4. Choose **Turn on** if Auto-Tune isn't already
-   enabled.
+4. In the domain details page, choose the **Auto-Tune**
+   tab, then select **Edit** to turn on or off Auto-Tune
+   for the domain.
 5. Under **Schedule optimizations during off-peak
    window**, select **Off-peak
    window**.

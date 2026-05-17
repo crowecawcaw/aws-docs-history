@@ -10,7 +10,7 @@ window. You can revert to the default OpenSearch Service settings at any time. A
 analyzes performance metrics for your domain, you can view its recommendations in the OpenSearch Service
 console on the **Notifications** page.
 
-Auto-Tune is available in commercial AWS Regions on domains running any OpenSearch
+Auto-Tune is available on domains running any OpenSearch
 version, or Elasticsearch 6.7 or later, with a [supported instance type](supported-instance-types.md "supported-instance-types.md").
 
 ## Types of changes

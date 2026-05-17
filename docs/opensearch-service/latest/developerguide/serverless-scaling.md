@@ -8,9 +8,9 @@ as data transfer to Amazon S3. For more information about the decoupled architec
 see [How it works](serverless-overview.md#serverless-process "serverless-overview.md#serverless-process").
 
 When you create your first collection, OpenSearch Serverless instantiates OCUs based on your redundancy
-settings. By default, redundant active replicas are enabled, which instantiates four OCUs
-(two for indexing and two for search). This ensures high availability with standby nodes in
-another Availability Zone.
+settings. By default, redundant active replicas are enabled, which instantiates a minimum of
+1 OCU (0.5 OCU × 2) for indexing and 1 OCU (0.5 OCU × 2) for search. This ensures high
+availability with standby nodes in another Availability Zone.
 
 For development and testing, you can disable the **Enable redundancy**
 setting for a collection. This removes standby replicas and uses only two OCUs (one for

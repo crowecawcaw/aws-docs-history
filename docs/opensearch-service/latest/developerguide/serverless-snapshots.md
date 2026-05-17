@@ -38,6 +38,7 @@ You can configure policies using the following AWS CLI commands:
 2. [delete-access-policy](../../../cli/latest/reference/opensearchserverless/delete-access-policy.md "../../../cli/latest/reference/opensearchserverless/delete-access-policy.md")
 3. [get-access-policy](../../../cli/latest/reference/opensearchserverless/get-access-policy.md "../../../cli/latest/reference/opensearchserverless/get-access-policy.md")
 4. [update-access-policy](../../../cli/latest/reference/opensearchserverless/update-access-policy.md "../../../cli/latest/reference/opensearchserverless/update-access-policy.md")
+5. [list-access-policies](../../../cli/latest/reference/opensearchserverless/list-access-policies.md "../../../cli/latest/reference/opensearchserverless/list-access-policies.md")
 
 Here is a sample CLI command for creating an access policy. In the command, replace the
 `example` content with your specific information.
@@ -106,7 +107,11 @@ OpenSearch API
 GET /_cat/snapshots/aoss-automated
 ```
 
-OpenSearch Serverless returns a response like the following:
+###### Note
+
+Do not include a trailing slash in this API call. Using
+`GET /_cat/snapshots/aoss-automated/` (with trailing slash) will
+return a 404 error.
 
 ```
 
@@ -140,8 +145,13 @@ OpenSearch API
   information.
 
 ```
-GET _snapshot/aoss-automated/`snapshot`/
+GET _snapshot/aoss-automated/`snapshot_id`/
 ```
+
+###### Note
+
+Replace `<snapshot_id>` with the actual snapshot ID
+retrieved from `GET /_cat/snapshots/aoss-automated`.
 
 Example Request:
 

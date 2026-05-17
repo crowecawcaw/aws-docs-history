@@ -40,6 +40,12 @@ the endpoint. You only need one OpenSearch Serverless VPC endpoint in a VPC to a
 collections and Dashboards in each AWS Region. Every VPC with an endpoint for OpenSearch Serverless
 has its own private hosted zone attached.
 
+###### Note
+
+A single VPC endpoint does not provide Multi-AZ redundancy. If high availability
+is required, consider deploying VPC endpoints in multiple subnets across different
+Availability Zones.
+
 The OpenSearch Serverless interface endpoint also creates a public Route 53 wildcard DNS record for all
 collections in the Region. The DNS name resolves to the OpenSearch Serverless public
 IP addresses. Clients in VPCs that don't have an OpenSearch Serverless VPC endpoint or clients in

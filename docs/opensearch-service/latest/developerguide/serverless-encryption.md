@@ -89,6 +89,20 @@ encryption policy for you named
 and attaches it to the collection. The policy initially only applies to a single
 collection, but you can modify it to include additional collections.
 
+To override the automatic encryption policy assignment during collection creation
+using the console, choose **Customize encryption settings** when
+creating a collection and select your preferred AWS KMS key. Using the AWS CLI, include
+the `--encryption-policy-name` parameter in the
+`CreateCollection` request, or specify the `kmsKeyArn`
+directly:
+
+```
+aws opensearchserverless create-collection \
+    --name `my-collection` \
+    --type SEARCH \
+    --encryption-policy-name `my-encryption-policy`
+```
+
 If you modify policy rules to no longer match a collection, the associated
 KMS key won't be unassigned from that collection. The collection always remains
 encrypted with its initial encryption key. If you want to change the encryption key
@@ -116,8 +130,9 @@ Consider the following when you configure encryption for your collections:
   collection.
 - A collection can only match a single encryption policy.
 - Collections with unique KMS keys can't share OpenSearch Compute Units
-  (OCUs) with other collections. Each collection with a unique key requires
-  its own 4 OCUs.
+  (OCUs) with other collections unless they are part of the same collection
+  group. Each collection with a unique key that is not in a collection group
+  requires its own OCUs. For more information, see [Collection groups](serverless-collection-groups.md "serverless-collection-groups.md").
 - If you update the KMS key in an encryption policy, the change doesn't
   affect existing matching collections with KMS keys already
   assigned.

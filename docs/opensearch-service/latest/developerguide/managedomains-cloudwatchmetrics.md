@@ -44,7 +44,7 @@ dimension combinations within each namespace.
 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. In the left navigation pane, find **Metrics** and choose
    **All metrics**. Select the
-   **ES/OpenSearchService** namespace.
+   **ES** namespace.
 3. Choose a dimension to view the corresponding metrics. Metrics for individual
    nodes are in the `ClientId, DomainName, NodeId` dimension. Cluster
    metrics are in the `Per-Domain, Per-Client Metrics` dimension. Some

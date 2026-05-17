@@ -315,7 +315,7 @@ If you're using the AWS Management Console to create your pipeline, you must als
 pipeline to your VPC in order to use Amazon Aurora as a source. To do this, find the
 **Network configuration** section, choose **Attach to
 VPC**, and choose your CIDR from one of the provided default options,
-or select your own. You can use any CIDR from a private address space as defined in
+or select your own. The CIDR block must use a /24 prefix length. You can use any /24 CIDR from a private address space as defined in
 the [RFC 1918 Best Current
 Practice](https://datatracker.ietf.org/doc/html/rfc1918 "https://datatracker.ietf.org/doc/html/rfc1918").
 

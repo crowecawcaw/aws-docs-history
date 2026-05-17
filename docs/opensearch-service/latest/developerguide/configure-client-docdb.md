@@ -227,7 +227,7 @@ If you're using the AWS Management Console to create your pipeline, you must als
 pipeline to your VPC in order to use Amazon DocumentDB as a source. To do so, find the
 **Source network options** section, select the **Attach to
 VPC** checkbox, and choose your CIDR from one of the provided default
-options. You can use any CIDR from a private address space as defined in the [RFC 1918 Best Current
+options. The CIDR block must use a /24 prefix length. You can use any /24 CIDR from a private address space as defined in the [RFC 1918 Best Current
 Practice](https://datatracker.ietf.org/doc/html/rfc1918 "https://datatracker.ietf.org/doc/html/rfc1918").
 
 To provide a custom CIDR, select **Other** from the dropdown menu. To

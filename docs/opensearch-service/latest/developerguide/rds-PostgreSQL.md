@@ -28,7 +28,7 @@ rds.logical_replication=1
 For more information, see [Performing logical replication for Amazon RDS for PostgreSQL](../../../AmazonRDS/latest/UserGuide/PostgreSQL.Concepts.General.FeatureSupport.LogicalReplication.md "../../../AmazonRDS/latest/UserGuide/PostgreSQL.Concepts.General.FeatureSupport.LogicalReplication.md"). 2. [Select or create an RDS for PostgreSQL DB instance](../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.md "../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.md") and associate the
 parameter group created in step 1 with the DB instance. 3. Set up username and password authentication on your Amazon RDS instance using
 [password
-management with Aurora and AWS Secrets Manager](../../../AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.md "../../../AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.md"). You can also create a
+management with Amazon RDS and AWS Secrets Manager](../../../AmazonRDS/latest/UserGuide/rds-secrets-manager.md "../../../AmazonRDS/latest/UserGuide/rds-secrets-manager.md"). You can also create a
 username/password combination by [creating a
 Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md"). 4. If you use the full initial snapshot feature, create an AWS KMS key and
 an IAM role for exporting data from Amazon RDS to Amazon S3.
@@ -308,7 +308,7 @@ If you're using the AWS Management Console to create your pipeline, you must als
 pipeline to your VPC in order to use Amazon Aurora as a source. To do this, find the
 **Network configuration** section, choose **Attach to
 VPC**, and choose your CIDR from one of the provided default options,
-or select your own. You can use any CIDR from a private address space as defined in
+or select your own. The CIDR block must use a /24 prefix length. You can use any /24 CIDR from a private address space as defined in
 the [RFC 1918 Best Current
 Practice](https://datatracker.ietf.org/doc/html/rfc1918 "https://datatracker.ietf.org/doc/html/rfc1918").
 

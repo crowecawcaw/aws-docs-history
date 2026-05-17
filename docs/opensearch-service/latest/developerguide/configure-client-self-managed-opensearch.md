@@ -151,7 +151,7 @@ steps:
    secrets rotation by following the steps in [Rotate
    AWS Secrets Manager secrets](../../../secretsmanager/latest/userguide/rotating-secrets.md "../../../secretsmanager/latest/userguide/rotating-secrets.md").
 4. Obtain the ID of the VPC that that has access to self-managed OpenSearch or
-   Elasticsearch. Choose the VPC CIDR to be used by OpenSearch Ingestion.
+   Elasticsearch. Choose the /24 VPC CIDR block to be used by OpenSearch Ingestion.
 
 ###### Note
 
@@ -160,7 +160,8 @@ attach your OpenSearch Ingestion pipeline to your VPC in order to use
 self-managed OpenSearch or Elasticsearch. To do so, find the
 **Source network options** section, select the
 **Attach to VPC** checkbox, and choose your CIDR
-from one of the provided default options. You can use any CIDR from a
+from one of the provided default options. The CIDR block must use a /24
+prefix length. You can use any /24 CIDR from a
 private address space as defined in the [RFC 1918 Best
 Current Practice](https://datatracker.ietf.org/doc/html/rfc1918 "https://datatracker.ietf.org/doc/html/rfc1918").
 

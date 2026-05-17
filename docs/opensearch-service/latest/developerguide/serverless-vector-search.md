@@ -120,7 +120,7 @@ common data schema that provides a way for you to store, search, and retrieve yo
 vector embeddings and other fields. You can create and upload data to indexes in an
 OpenSearch Serverless collection by using the [Dev
 Tools](https://opensearch.org/docs/latest/dashboards/dev-tools/index-dev/ "https://opensearch.org/docs/latest/dashboards/dev-tools/index-dev/") console in OpenSearch Dashboards, or an HTTP tool such as [Postman](https://www.postman.com/downloads/ "https://www.postman.com/downloads/") or [awscurl](https://github.com/okigan/awscurl "https://github.com/okigan/awscurl"). This tutorial uses Dev
-Tools.
+Tools. For programmatic access using the Python SDK, see [Ingesting data into Amazon OpenSearch Serverless collections](serverless-clients.md "serverless-clients.md").
 
 ###### To index and search data in the housing collection
 

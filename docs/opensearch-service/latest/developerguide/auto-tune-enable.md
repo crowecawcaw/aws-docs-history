@@ -12,8 +12,9 @@ AWS CloudFormation.
 1. Open the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home ").
 2. In the navigation pane, under **Domains**, choose the
    domain name to open the cluster configuration.
-3. Choose **Turn on** if Auto-Tune isn't already
-   enabled.
+3. In the domain details page, choose the **Auto-Tune**
+   tab, then select **Edit** to turn on or off Auto-Tune
+   for the domain.
 4. Optionally, select **Off-peak window** to schedule
    optimizations that require a blue/green deployment during the domain's
    configured off-peak window. For more information, see [Scheduling Auto-Tune enhancements](auto-tune-schedule.md "auto-tune-schedule.md").

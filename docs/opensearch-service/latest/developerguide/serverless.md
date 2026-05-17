@@ -10,7 +10,7 @@ based on your application's usage. Serverless collections use the same high-capa
 distributed, and highly available storage volume as provisioned OpenSearch Service domains.
 
 OpenSearch Serverless collections are always encrypted. You can choose the encryption key, but you can't
-disable encryption. For more information, see [Encryption in Amazon OpenSearch Serverless](serverless-encryption.md "serverless-encryption.md")
+disable encryption. For more information, see [Encryption in Amazon OpenSearch Serverless](serverless-encryption.md "serverless-encryption.md").
 
 ## Benefits
 

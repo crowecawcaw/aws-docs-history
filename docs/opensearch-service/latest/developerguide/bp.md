@@ -68,7 +68,7 @@ shards, and then to data nodes that contain replica shards. Search requests are 
 by the coordinator node to either a primary or replica shard for all shards belonging to
 the index.
 
-For example, for an index with five primary shards and one replica, each indexing
+For example, for an index with five primary shards and one replica for each primary shard, each indexing
 request touches 10 shards. In contrast, search requests are sent to _n_ shards, where _n_ is
 the number of primary shards. For an index with five primary shards and one replica,
 each search query touches five shards (primary or replica) from that index.

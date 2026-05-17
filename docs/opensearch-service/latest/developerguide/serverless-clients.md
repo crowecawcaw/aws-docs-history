@@ -566,8 +566,6 @@ response = client.index(
     id = '1'
 )
 
-
-# delete the index
 delete_response = client.indices.delete(
     index_name
 )
@@ -575,6 +573,14 @@ delete_response = client.indices.delete(
 print('\nDeleting index:')
 print(delete_response)
 ```
+
+###### Note
+
+The `id = '1'` parameter in this example specifies a custom document
+ID. Custom document IDs are only supported for _search_
+collections. For time series and vector search collections, indexing with a custom
+document ID is not supported and will return an error. Omit the `id`
+parameter when indexing into time series or vector search collections.
 
 ## Ruby
 

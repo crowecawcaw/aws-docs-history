@@ -116,6 +116,104 @@ aws opensearch get-index \
 
 ```
 
+## Update an existing index
+
+You can update an existing index to add new semantic enrichment fields, enable or disable
+semantic enrichment on existing fields, or add non-semantic text fields. Use the
+`update-index` command and provide only the fields you want to change in the
+`index-schema`. Fields not included in the request are left
+unchanged.
+
+###### Note
+
+Index `settings` cannot be updated. If you include a
+`settings` block in the request, the operation returns a validation
+error. To change index settings, you must delete and recreate the index.
+
+To update an index using the AWS CLI, use the `update-index` command:
+
+```
+aws opensearch update-index \
+--domain-name [domain_name] \
+--index-name [index_name] \
+--index-schema [index_body]
+```
+
+### Add a new semantic enrichment field
+
+You can add a new `text` field with semantic enrichment enabled to an
+existing index. The service automatically sets up the required ML model, ingest
+pipeline, and search pipeline. New documents indexed after the update are enriched
+automatically.
+
+###### Important
+
+Existing documents are not backfilled. To populate the semantic enrichment field
+on existing documents, you must re-ingest them after the update. Until re-ingested,
+existing documents will not benefit from semantic search on the new field.
+
+```
+aws opensearch update-index \
+--domain-name my-domain \
+--index-name product-catalog \
+--index-schema '{
+    "mappings": {
+        "properties": {
+            "description": {
+                "type": "text",
+                "semantic_enrichment": {
+                    "status": "ENABLED",
+                    "language_options": "english"
+                }
+            }
+        }
+    }
+}'
+```
+
+### Disable semantic enrichment on a field
+
+To disable semantic enrichment on a field that currently has it enabled, set
+`status` to `DISABLED`. The field is removed from the ingest
+and search pipelines. The underlying text field and its embedding field remain in the
+index but are no longer enriched.
+
+```
+aws opensearch update-index \
+--domain-name my-domain \
+--index-name product-catalog \
+--index-schema '{
+    "mappings": {
+        "properties": {
+            "title_semantic": {
+                "type": "text",
+                "semantic_enrichment": {
+                    "status": "DISABLED"
+                }
+            }
+        }
+    }
+}'
+```
+
+### Update limitations
+
+The following operations are not supported by `update-index` and require
+you to delete and recreate the index:
+
+- **Changing `language_options`** on a
+  field that currently has semantic enrichment enabled. Disable the field first,
+  then re-enable it with the new language option.
+- **Updating nested fields.** Semantic enrichment
+  is only supported on top-level `text` fields.
+- **Updating index `settings`.**
+
+###### Note
+
+If the index has a custom ingest or search pipeline that was not created by
+automatic semantic enrichment, the update operation is blocked. Remove the custom
+pipeline before adding semantic enrichment fields.
+
 ## Data ingestion and search
 
 Once you've created an index with automatic semantic enrichment enabled,

@@ -7,7 +7,7 @@ Elasticsearch 6.7 or later. To use SAML authentication, you must enable [fine-gr
 Rather than authenticating through [Amazon Cognito](cognito-auth.md "cognito-auth.md") or the [internal user database](fgac.md#fgac-dashboards "fgac.md#fgac-dashboards"), SAML authentication for
 OpenSearch Dashboards lets you use third-party identity providers to log in to Dashboards, manage
 fine-grained access control, search your data, and build visualizations. OpenSearch Service supports
-providers that use the SAML 2.0 standard, such as Okta, Keycloak, Active Directory
+providers that use the SAML 2.0 standard, such as Okta, Keycloak, Microsoft Entra ID, Active Directory
 Federation Services (ADFS), Auth0, and AWS IAM Identity Center.
 
 SAML authentication for Dashboards is only for accessing OpenSearch Dashboards through a web
@@ -277,6 +277,13 @@ within the OpenSearch Service console:
   `entityID` property from your metadata file and paste it into
   this field. Many identity providers also display this value as part of a
   post-configuration summary. Some providers call it the "issuer".
+
+###### Note
+
+The IdP Entity ID value must be in URL format (for example,
+`https://idp.example.com/...`). Non-URL values such as a
+plain string (for example, "JumpCloud") will cause a 500 error.
+
 - **SAML master username** and **SAML master
   backend role** – The user and/or backend role that you
   specify receive full permissions to the cluster, equivalent to a [new master user](fgac.md#fgac-more-masters "fgac.md#fgac-more-masters"), but can only use

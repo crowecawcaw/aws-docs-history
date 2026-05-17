@@ -262,7 +262,7 @@ topic in [Permissions to create an application that uses IAM Identity Center aut
 
 
         	+ Procedure: [Create
-        	 IAM policies (console)](access_policies_create-console.md "access_policies_create-console.md")
+        	 IAM policies (console)](../../../IAM/latest/UserGuide/access_policies_create-console.md "../../../IAM/latest/UserGuide/access_policies_create-console.md")
 
 
         	As you follow the steps in this procedure,
