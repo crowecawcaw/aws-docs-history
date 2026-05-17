@@ -37,7 +37,7 @@ docker run -v ~/WickrIO:/opt/WickrIO -v /home/ubuntu/
 
 3. Select your preference for the welcome message.
 
-![The Wickr IO welcome message prompt.](images/wickrio-welcome-message-prompt.png) 4. At the **Enter command:** prompt, enter the command
+![The Wickr IO welcome message prompt.](/images/wickr/latest/wickrio/images/wickrio-welcome-message-prompt.png) 4. At the **Enter command:** prompt, enter the command
 **add**.
 
 ![The Wickr IO translation bot add command.](images/wickrio-translation-add.png) 5. Over the next several prompts, enter the username and password created in the previous
@@ -62,7 +62,7 @@ US East (N. Virginia)(us-east-1). AWS Wickr is available in the following region
 
 1. In the top right corner of the navigation panel, select the new message button.
 
-![The Wickr IO new message image.](/images/wickr/latest/wickrio/images/wickrio-new-message.png) 2. In the pop up menu, choose **New Direct Message**. 3. Search for your bot by display name.
+![The Wickr IO new message image.](images/wickrio-new-message.png) 2. In the pop up menu, choose **New Direct Message**. 3. Search for your bot by display name.
 
 ![The Wickr IO translation bot search.](images/wickrio-translation-search.png) 4. Select your bot for a direct message, and send a message.
 
