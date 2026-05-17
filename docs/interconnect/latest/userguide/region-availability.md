@@ -1,0 +1,21 @@
+# Regional Availability
+
+## AWS Interconnect – last mile
+
+AWS Interconnect – last mile is available with Lumen in us-east-1 (N. Virginia). You can create a last mile connection from the New Jersey sites in us-east-1 to any AWS Region globally. You can also connect from anywhere in the continental United States through the Lumen connectivity fabric. Additional partners and Regions will be added over time.
+
+## AWS Interconnect – multicloud
+
+Interconnect - multicloud is supported with the following AWS Regions and cloud services providers:
+
+### Google Cloud
+
+- AWS US East (N. Virginia) us-east-1 – Google Cloud N. Virginia (us-east4)
+- AWS US West (N. California) us-west-1 – Google Cloud Los Angeles (us-west2)
+- AWS US West (Oregon) us-west-2 – Google Cloud Oregon (us-west1)
+- AWS Europe (London) eu-west-2 – Google Cloud London (europe-west2)
+- AWS Europe (Frankfurt) eu-central-1 – Google Cloud Frankfurt (europe-west3)
+
+### Oracle Cloud Infrastructure
+
+- AWS US East (N. Virginia) us-east-1 – OCI US East (Ashburn): us-ashburn-1

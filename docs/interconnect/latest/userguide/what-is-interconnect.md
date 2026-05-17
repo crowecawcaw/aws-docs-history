@@ -31,22 +31,6 @@ AWS and your provider manage all aspects of the physical network infrastructure 
 
 Every Interconnect is provisioned across redundant network devices spanning at least two physically distinct facilities with independent power and networking. This architecture eliminates single points of failure at the device, cross-connect, and facility level. Multicloud and last mile connections use a four-connection model with Equal-Cost Multi-Path (ECMP) load balancing, ensuring at least one link remains operational during planned maintenance.
 
-## Region Availability
-
-### AWS Interconnect – last mile
-
-AWS Interconnect – last mile initially launches with Lumen in us-east-1 (N. Virginia). You can create a last mile connection from the NJ sites in us-east-1 to any AWS region globally, and connect from anywhere in the continental United States via the Lumen connectivity fabric. Additional partners and regions will be added over time.
-
-### AWS Interconnect – Multicloud
-
-Interconnect - multicloud is supported in the following AWS and Google Cloud Regions:
-
-- AWS US East (N. Virginia) us-east-1 – Google Cloud N. Virginia (us-east4)
-- AWS US West (N. California) us-west-1 – Google Cloud Los Angeles (us-west2)
-- AWS US West (Oregon) us-west-2 – Google Cloud Oregon (us-west1)
-- AWS Europe (London) eu-west-2 – Google Cloud London (europe-west2)
-- AWS Europe (Frankfurt) eu-central-1 – Google Cloud Frankfurt (europe-west3)
-
 ## How AWS Interconnect works
 
 AWS Interconnect is designed to connect your private networks in AWS with your private networks in remote locations or other cloud environments. You don’t need to think about physical networking devices or configure routing protocols. The service is also designed to provision capacity quickly. It follows our standards for security and maximum network resiliency.
@@ -103,8 +87,7 @@ AWS Interconnect can connect to your VPCs through supported AWS networking servi
 
 ### Virtual Private Gateways and Transit Gateways
 
-Virtual gateways or Transit Gateways in a specific AWS Region, through a Direct Connect gateway, can only reach an Interconnect that provides connectivity to the paired Google Cloud Region.
-This Interconnect is considered "local" to that AWS Region. For example, a Transit Gateway in the AWS Region N. Virginia (us-east-1) can only reach an Interconnect that connects to the Google Cloud N. Virginia (us-east4) Region.
+Virtual gateways or Transit Gateways in a specific AWS Region, through a Direct Connect gateway, can only reach an Interconnect that is local to that Region.
 
 ### Cloud WAN
 
