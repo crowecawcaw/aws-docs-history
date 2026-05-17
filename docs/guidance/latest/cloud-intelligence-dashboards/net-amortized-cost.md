@@ -86,7 +86,7 @@ see the added fields and use them in your analysis and dashboard.
 
 1. Navigate to Amazon Quick Sight in the console.
 
-![AWS Console search with results for Quick Sight](/images/guidance/latest/cloud-intelligence-dashboards/images/cust_navqs.png) 2. Select Datasets on the left side of the page.
+![AWS Console search with results for Quick Sight](images/cust_navqs.png) 2. Select Datasets on the left side of the page.
 
 ![Left navigation in Quick Sight with datasets option highlighted](images/cust_qs_ds.png) 3. Locate **summary_view** in the list of datasets and click on the
 dataset. 4. Click on Edit Dataset under the **summary** tab in the top right of the
