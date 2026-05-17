@@ -57,7 +57,7 @@ what constitutes a simple AWS Proton workflow.
 
 ![A diagram that describes the main AWS Proton concepts discussed in the preceding paragraph. It also offers a high-level overview of what constitutes a simple AWS Proton workflow divided into the following six steps.](images/service-diagram_1.png)
 
-![Number 1 icon.](/images/proton/latest/userguide/images/label-one.png)
+![Number 1 icon.](images/label-one.png)
 As an **Administrator**, you create and register an **Environment Template**
 with AWS Proton, which defines the shared resources.
 
