@@ -49,7 +49,7 @@ AWS CodePipeline.
 As we go through the tutorial, we will discuss the services in detail and point to
 resources that will help you get up to speed with them.
 
-![A diagram showing a CI/CD deployment workflow using AWS CodePipeline. The flow starts with users pushing source code to a Git repository, which triggers the CodePipeline in AWS Cloud. The pipeline includes steps for source (Git repository), build (AWS CodeBuild), manual approval (review), and deployment to AWS Elastic Beanstalk.](images/diagram-deployment-workflow-using-acplong.png)
+![A diagram showing a CI/CD deployment workflow using AWS CodePipeline. The flow starts with users pushing source code to a Git repository, which triggers the CodePipeline in AWS Cloud. The pipeline includes steps for source (Git repository), build (AWS CodeBuild), manual approval (review), and deployment to AWS Elastic Beanstalk.](/images/hands-on/latest/create-continuous-delivery-pipeline/images/diagram-deployment-workflow-using-acplong.png)
 
 ## Modules
 
