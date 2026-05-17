@@ -10,14 +10,15 @@ You must identify the name of the data retention bot using the
 `WICKRIO_BOT_NAME` environment variable.
 
 ```
-docker run -v /opt/`compliance_1234567890_bot`:/tmp/`compliance_1234567890_bot` --network=host \
+docker run -v /opt/`compliance_1234567890_bot`:/tmp/`compliance_1234567890_bot` \
 -d --restart on-failure:5 --name="`compliance_1234567890_bot`" -ti \
 -e WICKRIO_BOT_NAME='`compliance_1234567890_bot`' \
 -e WICKRIO_BOT_PASSWORD='`password`' \
+-e WICKRIO_COMP_TIMEROTATE=`10` \
 -e WICKRIO_S3_BUCKET_NAME='`bot-compliance`' \
 -e WICKRIO_S3_FOLDER_NAME='`network1234567890`' \
 -e WICKRIO_S3_REGION='`us-east-1`' \
-wickr/bot-compliance-cloud:latest
+public.ecr.aws/x3s2s6k3/wickrio/bot-compliance-cloud:latest
 ```
 
 You can use environment values to identify the data retention bot’s credentials,
