@@ -4,20 +4,22 @@ When using mutual TLS authentication, CloudFront can extract information from cl
 
 The following headers are available to for creating cache behaviors:
 
-| Header name                          | Description                                                                                                                   | Example value                                                    |
-| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| CloudFront-Viewer-Cert-Serial-Number | Hexadecimal representation of the certificate serial number                                                                   | 4a:3f:5c:92:d1:e8:7b:6c                                          |
-| CloudFront-Viewer-Cert-Issuer        | RFC2253 string representation of the issuer's distinguished name (DN)                                                         | CN=rootcamtls.com,OU=rootCA,O=mTLS,L=Seattle,ST=Washington,C=US  |
-| CloudFront-Viewer-Cert-Subject       | RFC2253 string representation of the subject's distinguished name (DN)                                                        | CN=client\_.com,OU=client-3,O=mTLS,ST=Washington,C=US            |
-| CloudFront-Viewer-Cert-Present       | Either 1 (present) or 0 (not present) indicating whether the certificate is present. This value is always 1 in Required mode. | 1                                                                |
-| CloudFront-Viewer-Cert-Sha256        | The SHA256 hash of the client certificate                                                                                     | 01fbf94fef5569753420c349f49adbfd80af5275377816e3ab1fb371b29cb586 |
+| Header name                          | Description                                                                                                                   | Example value                                                    | Supported Modes                 |
+| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------------------------------- |
+| CloudFront-Viewer-Cert-Serial-Number | Hexadecimal representation of the certificate serial number                                                                   | 4a:3f:5c:92:d1:e8:7b:6c                                          | Required, Optional, Passthrough |
+| CloudFront-Viewer-Cert-Issuer        | RFC2253 string representation of the issuer's distinguished name (DN)                                                         | CN=rootcamtls.com,OU=rootCA,O=mTLS,L=Seattle,ST=Washington,C=US  | Required, Optional, Passthrough |
+| CloudFront-Viewer-Cert-Subject       | RFC2253 string representation of the subject's distinguished name (DN)                                                        | CN=client\_.com,OU=client-3,O=mTLS,ST=Washington,C=US            | Required, Optional, Passthrough |
+| CloudFront-Viewer-Cert-Present       | Either 1 (present) or 0 (not present) indicating whether the certificate is present. This value is always 1 in Required mode. | 1                                                                | Required, Optional, Passthrough |
+| CloudFront-Viewer-Cert-Sha256        | The SHA256 hash of the client certificate                                                                                     | 01fbf94fef5569753420c349f49adbfd80af5275377816e3ab1fb371b29cb586 | Required, Optional, Passthrough |
 
 For origin requests, two additional headers are supplied, in addition to the headers above made available for cache behaviors. Due to potential header size, CloudFront-Viewer-Cert-Pem header is not exposed to edge functions (Lambda@Edge or CloudFront Functions) and is only forwarded to the origin.
 
-| Header name                     | Description                                       | Example value                                                                                                          |
-| ------------------------------- | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| CloudFront-Viewer-Cert-Validity | ISO8601 format of the notBefore and notAfter date | CloudFront-Viewer-Cert-Validity: NotBefore=2023-09-21T01:50:17Z;NotAfter=2024-09-20T01:50:17Z                          |
-| CloudFront-Viewer-Cert-Pem      | URL-encoded PEM format of the leaf certificate    | CloudFront-Viewer-Cert-Pem: -----BEGIN%20CERTIFICATE-----%0AMIIG<...reduced...>NmrUlw%0A-----END%20CERTIFICATE-----%0A |
+| Header name                     | Description                                       | Example value                                                                                                          | Supported Modes                 |
+| ------------------------------- | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| CloudFront-Viewer-Cert-Validity | ISO8601 format of the notBefore and notAfter date | CloudFront-Viewer-Cert-Validity: NotBefore=2023-09-21T01:50:17Z;NotAfter=2024-09-20T01:50:17Z                          | Required, Optional, Passthrough |
+| CloudFront-Viewer-Cert-Pem      | URL-encoded PEM format of the leaf certificate    | CloudFront-Viewer-Cert-Pem: -----BEGIN%20CERTIFICATE-----%0AMIIG<...reduced...>NmrUlw%0A-----END%20CERTIFICATE-----%0A | Required, Optional              |
+| Client-Cert                     | Leaf certificate                                  | Client-Cert: :MIIG<...reduced...>NmrUlw:                                                                               | Passthrough                     |
+| Client-Cert-Chain               | Non-leaf certificate chain                        | Client-Cert-Chain: :MIIG<...reduced...>NmrUlw:                                                                         | Passthrough                     |
 
 ## Configure header forwarding
 
@@ -88,4 +90,4 @@ When working with certificate headers, consider these best practices:
 
 After configuring header forwarding, you can implement certificate revocation
 checking using CloudFront Connection Functions and KeyValueStore. For details on
-implementing revocation checks, see [Revocation using CloudFront Connection Function and KVS](revocation-connection-function-kvs.md "revocation-connection-function-kvs.md").
+implementing revocation checks, see [Certificate revocation](certificate-revocation.md "certificate-revocation.md").

@@ -6,7 +6,25 @@ Mutual TLS Authentication (Mutual Transport Layer Security Authentication — mT
 
 In a standard TLS handshake, only the server presents a certificate to prove its identity to the client. With mutual TLS, the authentication process becomes bidirectional. When a client attempts to connect to your CloudFront distribution, CloudFront requests a client certificate during the TLS handshake. The client must present a valid X.509 certificate that CloudFront validates against your configured trust store before establishing the secure connection.
 
-CloudFront performs this certificate validation at AWS edge locations, offloading the authentication complexity from your origin servers while maintaining CloudFront's global performance benefits. You can configure mTLS in two modes: verify mode (which requires all clients to present valid certificates) or optional mode (which validates certificates when presented but also allows connections without certificates).
+CloudFront performs this certificate validation at AWS edge locations, offloading the
+authentication complexity from your origin servers while maintaining CloudFront's global
+performance benefits. You can configure mTLS in three modes:
+
+- **Required mode** (default) — CloudFront
+  validates the client certificate against a trust store. If validation fails or
+  no certificate is presented, CloudFront denies the connection. Use required mode when
+  every client must authenticate with a valid certificate.
+- **Optional mode** — CloudFront validates the
+  client certificate if one is presented, but allows connections without a
+  certificate. Certificate metadata is available in Connection Functions and HTTP
+  headers for your origin to make authorization decisions. Use optional mode when
+  you support both authenticated and unauthenticated clients.
+- **Passthrough mode** — CloudFront does not
+  validate the client certificate against a trust store. CloudFront only validates that
+  the client possesses the corresponding private key. It forwards the certificate
+  to your origin as HTTP headers for your origin to perform validation. No trust
+  store is required and no caching occurs. Use passthrough mode when you have
+  existing mTLS implementations at your origin.
 
 ## Use cases
 
@@ -22,5 +40,7 @@ Mutual TLS authentication with CloudFront addresses several critical security sc
 - [Associate a CloudFront Connection Function](connection-functions.md "connection-functions.md")
 - [Configuring additional settings](configuring-additional-settings.md "configuring-additional-settings.md")
 - [Viewer mTLS headers for cache policies and forwarded to origin](viewer-mtls-headers.md "viewer-mtls-headers.md")
-- [Revocation using CloudFront Connection Function and KVS](revocation-connection-function-kvs.md "revocation-connection-function-kvs.md")
+- [Certificate revocation](certificate-revocation.md "certificate-revocation.md")
+- [Helper methods for mutual TLS](mtls-helper-methods-link.md "mtls-helper-methods-link.md")
+- [Additional validation modes](mtls-validation-modes.md "mtls-validation-modes.md")
 - [Observability using connection logs](connection-logs.md "connection-logs.md")

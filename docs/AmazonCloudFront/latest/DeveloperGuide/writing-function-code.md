@@ -20,3 +20,4 @@ examples, see [CloudFront Functions examples for CloudFront](service_code_exampl
 - [Use async and await](async-await-syntax.md "async-await-syntax.md")
 - [CWT support for CloudFront Functions](cwt-support-cloudfront-functions.md "cwt-support-cloudfront-functions.md")
 - [General helper methods](general-helper-methods.md "general-helper-methods.md")
+- [Helper methods for mutual TLS](mtls-helper-methods.md "mtls-helper-methods.md")

@@ -117,6 +117,8 @@ Failed:ClientCertInvalid
 Failed:ClientCertIntentInvalid
 Failed:ClientCertRejected
 Failed:ClientCertMissing
+Failed:ClientCertOcspProcessingError
+Failed:ClientCertOcspDenied
 Failed:TcpError
 Failed:TcpTimeout
 Failed:ConnectionFunctionError

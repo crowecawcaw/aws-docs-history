@@ -143,7 +143,7 @@ The maximum length of a path is 4,000 characters.
 
 ###### Example: Invalidation paths
 
-- To invalidate all files in a directory:
+- To invalidate all files in a directory, all of its subdirectories, and all files in the directory and subdirectories:
 
 `/`
 `directory-path`

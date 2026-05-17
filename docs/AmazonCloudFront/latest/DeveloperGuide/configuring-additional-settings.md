@@ -2,45 +2,6 @@
 
 After enabling basic mutual TLS authentication, you can configure additional settings to customize the authentication behavior for specific use cases and requirements.
 
-## Client certificate validation Optional mode
-
-CloudFront offers an alternative Optional client certificate validation mode that validates client certificates that are presented but allows access to clients that don't present certificates.
-
-### Optional mode behavior
-
-- Grants connection to clients with valid certificates, (invalid certificates are denied).
-- Allows connection to clients without certificates
-- Allows mixed client authentication scenarios through a single distribution.
-
-Optional mode is ideal for gradual migration to mTLS authentication, supporting clients with certificates and clients without certificates, or maintaining backward compatibility with legacy clients.
-
-###### Note
-
-In optional mode, Connection Functions are still invoked even when clients don't present certificates. This allows you to implement custom logic such as logging client IP addresses or applying different policies based on whether certificates are presented.
-
-### To configure optional mode (Console)
-
-1. In your distribution settings, navigate to the
-   **General** tab, choose
-   **Edit**.
-2. Scroll to the **Viewer mutual authentication (mTLS)**
-   section within the **Connectivity** container.
-3. For **Client certificate validation mode**, select **Optional**.
-4. Save changes.
-
-### To configure optional mode (AWS CLI)
-
-The following example shows how to configure optional mode:
-
-```
-
-"ViewerMtlsConfig": {
-   "Mode": "optional",
-   ...other settings
-}
-
-```
-
 ## Certificate Authority advertisement
 
 The AdvertiseTrustStoreCaNames field controls whether CloudFront sends the list of trusted CA names to clients during the TLS handshake, helping clients select the appropriate certificate.
