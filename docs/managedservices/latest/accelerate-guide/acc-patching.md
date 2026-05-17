@@ -125,7 +125,7 @@ For more information, see [Patching solution design for mutable EC2 instances](.
 
 ### Example design for high availability Windows application
 
-![Patch Tuesday schedule showing development, test, and production environments with baseline approval timelines.](images/acc-maint-window.png)
+![Patch deployment timeline showing Dev, Test, and Production environments with baseline approval schedules.](images/acc-maint-window.png)
 
 **Overview:**
 

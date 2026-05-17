@@ -12,18 +12,18 @@ To create the role from the AWS Management Console, complete the following steps
 1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 
-![CloudFormation Stacks interface showing no stacks and options to create or view guide.](images/image1.png) 2. Choose **Create Stack > With new resources (standard)**. You see the following page.
+![CloudFormation console showing the Stacks page with options to create a new stack.](images/image1.png) 2. Choose **Create Stack > With new resources (standard)**. You see the following page.
 
-![Create stack interface with options to specify template and upload template file.](images/image2.png) 3. Choose **Upload a template file**, upload the JSON or YAML file of the IAM role,
+![CloudFormation Stacks console showing empty state with Create stack and View getting started guide buttons.](images/image2.png) 3. Choose **Upload a template file**, upload the JSON or YAML file of the IAM role,
 and then choose **Next**. You see the following page.
 
-![Form for specifying stack details, including stack name and parameters fields.](images/image3.png) 4. Enter the stack name "`ams-onboarding-role`" in the **Stack
+![Specify template step showing options to upload a template file or use Amazon S3 URL.](images/image3.png) 4. Enter the stack name "`ams-onboarding-role`" in the **Stack
 Name** field. Enter a **DateOfExpiry** using
 the format "YYYY-MM-DDT00:00:00Z" (30 days from the current date is
 recommended). Continue scrolling down and selecting next until you reach
 this page:
 
-![Capabilities section with AWSIAM role requirement and checkbox for custom names.](images/image4.png) 5. Make sure the check box is selected and then select **Create Stack**. 6. Make sure the stack was created successfully.
+![Specify stack details page with Stack name field and Parameters section showing LocalUserName.](images/image4.png) 5. Make sure the check box is selected and then select **Create Stack**. 6. Make sure the stack was created successfully.
 To deploy the `aws_managedservices_onboarding_role` IAM role, run the following command in [AWS CloudShell](../../../cloudshell/latest/userguide/welcome.md "../../../cloudshell/latest/userguide/welcome.md"):
 
 AWS CLI
