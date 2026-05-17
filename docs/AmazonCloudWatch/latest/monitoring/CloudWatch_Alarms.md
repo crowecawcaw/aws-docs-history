@@ -10,7 +10,7 @@ You can create both _metric_ and _composite_ alarms
 in Amazon CloudWatch.
 
 You can create alarms on Metrics Insights queries that use AWS resource tags to filter and
-group metrics. To use tags with alarms, on the [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/"), choose
+group metrics. To use tags with alarms, on the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"), choose
 **Settings**. On the **CloudWatch Settings** page, under
 **Enable resource tags on telemetry**, choose **Enable**.
 For context-aware monitoring that automatically adapts to your tagging strategy, create alarms

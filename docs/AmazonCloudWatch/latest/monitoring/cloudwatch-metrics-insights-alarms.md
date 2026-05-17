@@ -14,7 +14,7 @@ sections in [Query components and syntax in CloudWatch Metrics Insights](cloudwa
 
 **Using tags in alarm queries**
 
-You can create alarms on Metrics Insights queries that use AWS resource tags to filter and group metrics. To use tags with alarms, on the [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/"), choose **Settings**. On the **CloudWatch Settings** page, under **Enable resource tags on telemetry**, choose
+You can create alarms on Metrics Insights queries that use AWS resource tags to filter and group metrics. To use tags with alarms, on the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"), choose **Settings**. On the **CloudWatch Settings** page, under **Enable resource tags on telemetry**, choose
 **Enable**.
 Context-aware alarms monitor specific applications, environments, or teams automatically as resources change.
 

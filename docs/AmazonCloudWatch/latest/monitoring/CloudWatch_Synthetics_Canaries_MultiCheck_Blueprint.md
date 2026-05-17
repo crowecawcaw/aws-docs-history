@@ -282,7 +282,7 @@ Synthetics refreshes OAuth tokens when a 401 or 407 response is returned.
 
 To avoid storing secret values (such as passwords or API keys) in plain text,
 Synthetics provides an integration with AWS Secrets Manager. You can reference an entire secret
-value in your blueprint configuration with the format `${aws_SECRET:<secret_name>}`, or to reference a particular key `${aws_SECRET:<secret_name>:<secret_key>}`.
+value in your blueprint configuration with the format `${AWS_SECRET:<secret_name>}`, or to reference a particular key `${AWS_SECRET:<secret_name>:<secret_key>}`.
 
 For example, if you have a secret named login/basic-auth-credentials, storing a
 username and password with the following JSON structure:
@@ -311,7 +311,8 @@ authenticate your request:
 ```
 
 To allow Synthetics to retrieve the specified secret, the role ARN assumed by the
-canary needs to have secretsManager:GetSecretValue permissions. If the secret is
+canary needs to have both `secretsmanager:GetSecretValue` and
+`secretsmanager:DescribeSecret` permissions. If the secret is
 encrypted using a customer-managed key instead of the AWS managed key
 AWS/secretsmanager, then you also need kms:Decrypt permissions for that key.
 
@@ -324,7 +325,10 @@ Example permissions:
     "Statement": [
         {
             "Effect": "Allow",
-            "Action": "secretsmanager:GetSecretValue",
+            "Action": [
+                "secretsmanager:GetSecretValue",
+                "secretsmanager:DescribeSecret"
+            ],
             "Resource": "arn:AWS:secretsmanager:us-east-1:123456789012:secret:secretName-AbCdEf"
         },
         {

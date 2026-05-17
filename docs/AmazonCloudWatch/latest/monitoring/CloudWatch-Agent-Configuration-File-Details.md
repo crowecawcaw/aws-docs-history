@@ -28,7 +28,7 @@ on servers running Windows Server. After you have created the file, you can copy
 servers where you want to install the agent.
 
 When the agent is started, it creates a copy of each configuration file in
-`/opt/aws/amazon-cloudwatch/etc/amazon-cloudwatch-agent.d` directory, with the
+`/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.d` directory, with the
 filename prefixed with either `file_` (for local file sources) or
 `ssm_` (for Systems Manager parameter store sources) to indicate the configuration
 origin.

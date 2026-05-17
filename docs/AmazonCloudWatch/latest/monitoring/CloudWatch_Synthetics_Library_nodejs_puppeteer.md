@@ -19,9 +19,9 @@ based on the canary's frequency. If you configure a timeout value, make it no sh
 15 seconds to allow for Lambda cold starts and the time it takes to boot up the canary
 instrumentation.
 
-## syn-nodejs-puppeteer-15.0
+## syn-nodejs-puppeteer-15.1
 
-`syn-nodejs-puppeteer-15.0` is the most recent Synthetics runtime for
+`syn-nodejs-puppeteer-15.1` is the most recent Synthetics runtime for
 Node.js and Puppeteer.
 
 ###### Important
@@ -51,9 +51,35 @@ support only the following step-level configuration overrides:
 
 For more information, see the following:
 
-- [Puppeteer Change log](https://pptr.dev/CHANGELOG#24375-2026-02-19 "https://pptr.dev/CHANGELOG#24375-2026-02-19")
+- [Puppeteer Change log](https://pptr.dev/CHANGELOG#24420-2026-04-20 "https://pptr.dev/CHANGELOG#24420-2026-04-20")
 - [Puppeteer
-  API reference](https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.37.5/docs/api/index.md "https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.37.5/docs/api/index.md")
+  API reference](https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.42.0/docs/api/index.md "https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.42.0/docs/api/index.md")
+
+**Major dependencies**:
+
+- Lambda runtime Node.js 22.x
+- Puppeteer-core version 24.42.0
+- Chromium version 147.0.7727.57
+- Firefox version 147.0.4
+
+**Changes in syn-nodejs-puppeteer-15.1**
+
+- Updated Puppeteer and browser versions.
+- Upgrade `basic-ftp` to 5.3.1 to address the following CVEs:
+  - CVE-2026-39983
+  - CVE-2026-41324
+  - GHSA-6v7q-wjvx-w8wg
+  - GHSA-rpmf-866q-6p89
+
+- Upgrade `Chromium` to 147.0.7727.57 to address the following CVEs:
+  - CVE-2026-3909
+  - CVE-2026-3910
+  - CVE-2026-5281
+
+The following earlier runtime versions for Node.js and Puppeteer are still
+supported.
+
+### syn-nodejs-puppeteer-15.0
 
 **Major dependencies**:
 
@@ -67,8 +93,11 @@ For more information, see the following:
 - Applied security patches and updated Puppeteer and browser versions.
 - Fixed bug where continueOnHttpStepFailure was not being honored, causing canary runs to be incorrectly marked as successful despite HTTP step failures occurring.
 
-The following earlier runtime versions for Node.js and Puppeteer are still
-supported.
+For more information, see the following:
+
+- [Puppeteer Change log](https://pptr.dev/CHANGELOG#24375-2026-02-19 "https://pptr.dev/CHANGELOG#24375-2026-02-19")
+- [Puppeteer
+  API reference](https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.37.5/docs/api/index.md "https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.37.5/docs/api/index.md")
 
 ### syn-nodejs-puppeteer-14.0
 

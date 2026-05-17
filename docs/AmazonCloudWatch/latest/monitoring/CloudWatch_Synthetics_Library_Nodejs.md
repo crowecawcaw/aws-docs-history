@@ -6,7 +6,7 @@ for Node.js. This runtime does not have any browser or framework included.
 The naming convention for these runtime versions is `syn-`language`
  -`majorversion`.`minorversion``.
 
-## syn-nodejs-4.1
+## syn-nodejs-4.2
 
 ###### Important
 
@@ -15,6 +15,32 @@ the new namespace. Please migrate the canary script to use the new namespace. Le
 namespace will be deprecated in a future release.
 
 - @amzn/synthetics-core → @aws/synthetics-core
+
+**Major dependencies**:
+
+- AWS Lambda runtime Node.js 22.x
+
+**Changes in syn-nodejs-4.2**
+
+- Upgrade `axios` to 1.15.2 to address the following CVEs:
+  - CVE-2025-62718
+  - CVE-2026-42033
+  - CVE-2026-42035
+  - CVE-2026-42038
+  - CVE-2026-42039
+  - CVE-2026-42043
+  - CVE-2026-42044
+  - CVE-2026-42264
+
+- Upgrade `brace-expansion` to 5.0.5 to address the following CVE:
+  - CVE-2026-33750
+
+- Upgrade `fast-xml-builder` to 1.1.7 to address the following CVE:
+  - GHSA-5wm8-gmm8-39j9
+
+The following earlier runtime versions for Node.js are still supported.
+
+### syn-nodejs-4.1
 
 **Major dependencies**:
 
@@ -29,8 +55,6 @@ namespace will be deprecated in a future release.
   - CVE-2026-27942
   - CVE-2026-33036
 
-The following earlier runtime versions for Node.js are still supported.
-
 ### syn-nodejs-4.0
 
 **Major dependencies**:
@@ -42,14 +66,6 @@ The following earlier runtime versions for Node.js are still supported.
 - Applied security patches.
 
 ### syn-nodejs-3.1
-
-###### Important
-
-Starting Synthetics `syn-nodejs-3.1` and later, Synthetics runtime
-uses the new namespace. Please migrate the canary script to use the new namespace.
-Legacy namespace will be deprecated in a future release.
-
-- @amzn/synthetics-core → @aws/synthetics-core
 
 **Major dependencies**:
 

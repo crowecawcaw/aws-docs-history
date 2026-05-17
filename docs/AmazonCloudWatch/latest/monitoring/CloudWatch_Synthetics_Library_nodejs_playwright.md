@@ -7,7 +7,7 @@ testing. For more information about Playwright, see [https://playwright.dev/](ht
 The naming convention for these runtime versions is `syn-`language`
  -`framework`-`majorversion`.`minorversion``.
 
-## syn-nodejs-playwright-6.0
+## syn-nodejs-playwright-6.1
 
 ###### Important
 
@@ -16,6 +16,37 @@ runtime uses the new namespace. Please migrate the canary script to use the new
 namespace. Legacy namespace will be deprecated in a future release.
 
 - @amzn/synthetics-playwright → @aws/synthetics-playwright
+
+**Major dependencies**:
+
+- AWS Lambda runtime Node.js 22.x
+- Playwright version 1.59.1
+- Playwright/test version 1.59.1
+- Chromium version 147.0.7727.15
+- Firefox version 148.0.2
+
+**Changes in syn-nodejs-playwright-6.1**
+
+- Updated Playwright and browser versions.
+- Upgrade `fast-xml-parser` to 5.5.7 to address the following CVEs:
+  - CVE-2026-27942
+  - CVE-2026-33036
+
+- Upgrade `Chromium` to 147.0.7727.15 to address the following CVEs:
+  - CVE-2026-3909
+  - CVE-2026-3910
+  - CVE-2026-5281
+
+For more information, see the following:
+
+- [Playwright change log](https://playwright.dev/docs/release-notes "https://playwright.dev/docs/release-notes")
+- [Playwright API
+  reference](https://playwright.dev/docs/api/class-playwright "https://playwright.dev/docs/api/class-playwright")
+
+The following earlier runtime versions for Node.js and Playwright are still
+supported.
+
+### syn-nodejs-playwright-6.0
 
 **Major dependencies**:
 
@@ -34,9 +65,6 @@ For more information, see the following:
 - [Playwright change log](https://playwright.dev/docs/release-notes "https://playwright.dev/docs/release-notes")
 - [Playwright API
   reference](https://playwright.dev/docs/api/class-playwright "https://playwright.dev/docs/api/class-playwright")
-
-The following earlier runtime versions for Node.js and Playwright are still
-supported.
 
 ### syn-nodejs-playwright-5.1
 
