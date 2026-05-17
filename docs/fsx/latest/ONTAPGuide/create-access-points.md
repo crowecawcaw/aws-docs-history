@@ -83,3 +83,12 @@ For a successful request, the system responds by returning the new S3 access poi
  }
 }`
 ```
+
+###### Note
+
+After an S3 access point is created and in the `AVAILABLE` state, it can transition to
+`MISCONFIGURED` if the file system identity associated with the access point can no longer be
+resolved on the file system, or if the attached volume becomes offline or unmounted. Amazon FSx periodically
+checks for these conditions and automatically returns the access point to `AVAILABLE` when the
+underlying issue is resolved. While in the `MISCONFIGURED` state, S3 requests made through
+the access point may fail. For more information, see [S3 access point is in MISCONFIGURED state](troubleshooting-access-points-for-fsxn.md#misconfigured-access-point "troubleshooting-access-points-for-fsxn.md#misconfigured-access-point").

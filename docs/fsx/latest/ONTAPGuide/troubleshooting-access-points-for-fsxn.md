@@ -2,6 +2,24 @@
 
 This section describes symptoms, causes, and resolutions for when you encounter issues accessing your FSx data from S3 access points.
 
+## S3 access point is in MISCONFIGURED state
+
+An S3 access point attachment can transition to the `MISCONFIGURED` state for the following reasons:
+
+- **File system identity cannot be resolved** – The UNIX or Windows
+  user associated with the access point can no longer be resolved on the file system. This can happen if the user
+  is removed from the name service (for example, local files, LDAP, or Active Directory), or if the name
+  service becomes unreachable. To resolve this, ensure the user exists and is resolvable on the SVM. For
+  more information, see [S3 access point creation failed due to file system user identity lookup failure](#name-mapping "#name-mapping").
+- **Attached volume is offline or unmounted** – The volume that the
+  access point is attached to is offline or has been unmounted (no longer has a junction path). To resolve this,
+  bring the volume back online or remount it. See
+  [ONTAP
+  documentation](https://docs.netapp.com/us-en/ontap/nfs-admin/mount-unmount-existing-volumes-nas-namespace-task.html "https://docs.netapp.com/us-en/ontap/nfs-admin/mount-unmount-existing-volumes-nas-namespace-task.html") for more details.
+
+Amazon FSx periodically checks for these conditions and automatically returns the access point to
+`AVAILABLE` when the underlying issue is resolved.
+
 ## S3 access point creation failed due to file system user identity lookup failure
 
 When creating and attaching an S3 Access Point, a [`FileSystemIdentity`](../APIReference/API_OntapFileSystemIdentity.md#FSx-Type-OntapFileSystemIdentity-Type "../APIReference/API_OntapFileSystemIdentity.md#FSx-Type-OntapFileSystemIdentity-Type") must be provided. You are responsible for configuring

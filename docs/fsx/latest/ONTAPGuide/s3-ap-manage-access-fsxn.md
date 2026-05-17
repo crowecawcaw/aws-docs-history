@@ -41,6 +41,14 @@ Attaching an S3 access point to an FSx for ONTAP volume doesn't change the volum
 accessed directly via NFS or SMB. All existing operations against the volume will continue to work as before. Restrictions that you
 include in an S3 access point policy apply only to requests made using the access point.
 
+###### Note
+
+An S3 access point can transition to the `MISCONFIGURED` state if the file system identity associated
+with the access point can no longer be resolved on the file system, or if the attached volume becomes offline or unmounted.
+While in this state, S3 requests made through the access point may fail. Amazon FSx periodically checks for these conditions
+and automatically returns the access point to `AVAILABLE` when the issue is resolved. For more information,
+see [S3 access point is in MISCONFIGURED state](troubleshooting-access-points-for-fsxn.md#misconfigured-access-point "troubleshooting-access-points-for-fsxn.md#misconfigured-access-point").
+
 ## S3 API request authorization
 
 When you make an S3 API request through an access point attached to an FSx for NetApp ONTAP volume, Amazon S3 evaluates the IAM permissions of the calling principal against the access point's IAM resource policy. The IAM principal caller must have the necessary permissions granted through their identity-based policies, and the access point's resource policy must also permit the requested action.
