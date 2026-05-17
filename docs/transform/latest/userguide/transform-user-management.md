@@ -1,6 +1,9 @@
 # Managing users
 
-AWS Transform integrates with IAM Identity Center for user management. This section describes how to add users to IAM Identity Center and grant them access to AWS Transform.
+How you manage user access to AWS Transform depends on the access model you chose during setup.
+If you configured IAM Identity Center, you add users through IAM Identity Center. If you configured a third-party identity
+provider, you manage users in that provider. If you chose IAM-only access, user access is managed
+through IAM policies.
 
 ## Adding users in IAM Identity Center
 
@@ -37,3 +40,18 @@ After adding users to IAM Identity Center, you can grant them access to AWS Tran
 5. Choose **Assign users and groups** to grant the selected users or groups access to AWS Transform.
 
 After adding users, they appear in the **Users** list with a status of "Pending" until they accept the invitation and sign in.
+
+## Managing users with IAM-only access
+
+If you configured AWS Transform with IAM-only access, user access is managed through IAM
+policies. Any IAM principal with the `transform:AccessTransformProfile` permission
+on the profile resource can access AWS Transform.
+
+To grant a user or role access to AWS Transform:
+
+1. Navigate to the IAM console.
+2. Attach a policy that includes the `transform:AccessTransformProfile` action
+   to the IAM user or role. For an example policy, see [Allow users to access AWS Transform
+   with IAM credentials](security_iam_id-based-policy-examples.md#id-based-policy-examples-access-transform-webapp "security_iam_id-based-policy-examples.md#id-based-policy-examples-access-transform-webapp").
+
+To revoke access, remove the policy from the IAM user or role.

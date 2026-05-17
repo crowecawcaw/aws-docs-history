@@ -30,7 +30,7 @@ The Transformation Summary Report provides an overview of the transformation and
 After a transformation job finishes, transformation detail reports are available for both web console and IDE users.
 
 - Web console users: a detail report is available for each transformed repository. On the **Dashboard** tab, use the **Download detailed report** links in the repository list to download a detail report.
-- IDE users: a detail report is available for the transformed solution or project. On the **Transformation summary pane**, use the **Download report button** to download a detail report.
+- IDE users: download the transformation report from the **AWS Transform Hub** window using the download icon.
 
 The transformation detail report is an interactive HTML report. It contains in-depth information about the transformation, including the reasons for file changes and actionable error details. The information is arranged in the following hierarchy:
 

@@ -7,9 +7,9 @@ unnecessary costs.
 
 ###### To clean up test infrastructure
 
-1. The agent informs you that the test infrastructure will be torn down.
-2. Approve the destroy operation when the agent requests it.
-3. Wait for the cleanup to complete. The agent displays the results when
+1. AWS Transform informs you that the test infrastructure will be torn down.
+2. Approve the destroy operation when AWS Transform requests it.
+3. Wait for the cleanup to complete. AWS Transform displays the results when
    all test resources have been removed.
 
 For Amazon ECS deployments, this step removes all resources that were created during

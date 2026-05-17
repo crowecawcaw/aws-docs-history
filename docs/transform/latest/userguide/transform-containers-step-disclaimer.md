@@ -23,11 +23,11 @@ Central). The security disclaimer informs you that:
 
 ###### To review and accept the security disclaimer
 
-1. Read the security disclaimer that the agent presents.
+1. Read the security disclaimer that AWS Transform presents.
 2. Accept the disclaimer to proceed with the containerization
    workflow.
 
-After you accept the disclaimer, the agent proceeds to the next step where you
+After you accept the disclaimer, AWS Transform proceeds to the next step where you
 provide your source code.
 
 ###### Note

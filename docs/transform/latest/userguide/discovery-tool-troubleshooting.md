@@ -269,9 +269,9 @@ This warning indicates that the SSH user account does not have sudo access on th
 
 ## OS metrics collection errors
 
-### Missing server UUID for Linux bare metal servers
+### Missing server UUID for Linux servers
 
-If the discovery tool is unable to collect the server UUID (showing as empty or missing) for Linux bare metal servers, verify that the SSH credentials configured for those servers have sudo privileges. The tool uses `dmidecode` to read the server UUID. If `dmidecode` is not installed, the tool falls back to reading `/sys/class/dmi/id/product_uuid`, which also requires sudo access. Without sudo, neither method can retrieve the UUID.
+If the discovery tool is unable to collect the server UUID (showing as empty or missing) for Linux servers, verify that the SSH credentials configured for those servers have sudo privileges. The tool uses `dmidecode` to read the server UUID. If `dmidecode` is not installed, the tool falls back to reading `/sys/class/dmi/id/product_uuid`, which also requires sudo access. Without sudo, neither method can retrieve the UUID.
 
 **Resolution:** Ensure the SSH user account provided to the discovery tool has sudo access on the target Linux servers.
 
@@ -288,16 +288,58 @@ If you see a message in **Server collection status** such as Missing credentials
 
 The discovery tool retries the connection after you save your changes.
 
+## SSH key authentication troubleshooting
+
+**Testing SSH key connectivity from the discovery tool**
+
+If SSH key authentication fails, verify connectivity from the discovery tool to the target server:
+
+1. Log in to the discovery tool (via vSphere console or SSH to the Linux host).
+2. Test SSH connectivity using your private key:
+
+```
+ssh -i /path/to/private_key -o StrictHostKeyChecking=no <username>@<target_ip>
+```
+
+3. If the connection succeeds, the issue is with how the key was uploaded to the discovery tool. Re-upload the key and verify the username matches.
+4. If the connection fails, check the error message in the following table.
+
+| Error message                             | Cause                                                                                                  | Resolution                                                                                                                                                                 |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Permission denied (publickey)`           | The public key is not in the target server's `authorized_keys` file, or the username is wrong.         | Add the public key to `~/.ssh/authorized_keys` on the target server for the correct user. Verify file permissions: `chmod 700 ~/.ssh && chmod 600 ~/.ssh/authorized_keys`. |
+| `Connection timed out after 20s`          | Port 22 is not reachable from the discovery tool.                                                      | Verify that port 22 is open between the discovery tool and the target server. Check firewalls and security groups.                                                         |
+| `Connection refused`                      | SSH service is not running on the target server.                                                       | Start the SSH service: `sudo systemctl start sshd`.                                                                                                                        |
+| `Invalid SSH key for credential '`name`'` | The key format is not supported, the key data is corrupted, or the passphrase is missing or incorrect. | Verify the key format is RSA, ECDSA, or Ed25519 in PEM, OpenSSH, or PKCS#8 format. If the key is encrypted, make sure the passphrase is correct.                           |
+
+## Linux installer troubleshooting
+
+**Port 5000 is already in use**
+
+**Symptom:** The discovery tool service fails to start after installation.
+
+**Resolution:** Identify and stop the process using port 5000:
+
+```
+sudo ss -tlnp | grep :5000
+```
+
+Stop the conflicting process, then restart the discovery tool:
+
+```
+sudo ./AWS-Transform-discovery-tool.sh start
+```
+
 ## Common error messages
 
-This table describes common UI messages and their explanations:
+This table describes common error messages and their explanations:
 
-| Message                                        | Location             | Explanation                                                                                                                        |
-| ---------------------------------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| One or more credentials contain unknown UUIDs  | OS access page       | Race condition when two users edit OS credentials at the same time; try again                                                      |
-| A password has already been created            | Create password page | Race condition when two users create passwords at the same time; refresh                                                           |
-| Invalid password                               | Sign-in page         | Incorrect password for logging in; contact admin or reach out                                                                      |
-| An on-demand collection is already in progress | Inventory page       | Race condition when two users start manual collections at the same time; try again after the current manual collection is finished |
-| An internal error occurred                     | Various pages        | Retry or send logs                                                                                                                 |
-| Export failed                                  | Inventory page       | Retry or send logs                                                                                                                 |
-| Your session has expired. Please log in again. | Sign-in page         | Session has timed out, need to login again                                                                                         |
+| Message                                        | Location                 | Explanation                                                                                                                                                                |
+| ---------------------------------------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A password has already been created            | Create password page     | Race condition when two users create passwords at the same time; refresh                                                                                                   |
+| Export failed                                  | Inventory page           | Retry or send logs                                                                                                                                                         |
+| An on-demand collection is already in progress | Inventory page           | Race condition when two users start manual collections at the same time; try again after the current manual collection is finished                                         |
+| `Command timed out after 60s`                  | Server collection status | A command on the target server did not complete within 60 seconds. This can occur on heavily loaded servers. Retry the collection or investigate the target server's load. |
+| One or more credentials contain unknown UUIDs  | OS access page           | Race condition when two users edit OS credentials at the same time; try again                                                                                              |
+| Invalid password                               | Sign-in page             | Incorrect password for logging in; contact admin or reach out                                                                                                              |
+| Your session has expired. Please log in again. | Sign-in page             | Session has timed out, need to login again                                                                                                                                 |
+| An internal error occurred                     | Various pages            | Retry or send logs                                                                                                                                                         |

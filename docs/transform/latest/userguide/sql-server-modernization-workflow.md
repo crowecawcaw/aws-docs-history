@@ -38,43 +38,275 @@ Connect AWS Transform to your SQL Server database to enable schema analysis and 
 
 ## Step 3: Connect source code repository
 
-AWS Transform needs access to your .NET application source code to analyze and transform the code that interacts with your SQL Server database.
+AWS Transform needs access to your .NET application source code to analyze and transform the code that interacts with your SQL Server database. AWS Transform supports three methods for providing source code.
+
+### Choose your authentication method
+
+Personal Access Token (PAT) connector (recommended)
+
+Best for teams that need custom permission scopes, self-hosted provider support, or access to provider-specific APIs such as GitHub Secrets. You create a PAT in your source code provider with custom permissions, store it in AWS Secrets Manager, and AWS Transform retrieves it when needed. You are responsible for managing token rotation and expiration.
+
+AWS CodeConnections
+
+Best for teams that want automated credential management. AWS CodeConnections uses a managed provider integration that handles authentication through an OAuth 2.0 authorization flow. AWS manages the entire credential lifecycle, including automatic token refresh and rotation. No manual credential management is required.
+
+Amazon S3
+
+Upload your source code directly to an Amazon S3 bucket. AWS Transform accesses the code from the bucket during the transformation job.
+
+| Feature                      | PAT connector (recommended)                  | AWS CodeConnections          |
+| ---------------------------- | -------------------------------------------- | ---------------------------- |
+| Credential management        | Manual (customer-managed)                    | Automatic (AWS-managed)      |
+| Token lifecycle              | Manual rotation required                     | Automatic refresh            |
+| Permission flexibility       | Fully customizable scopes                    | Fixed permissions            |
+| Self-hosted provider support | Supported                                    | Not available                |
+| Setup complexity             | Moderate (manual token creation and storage) | Low (one-time authorization) |
+| Token storage                | Customer's AWS Secrets Manager               | AWS-managed                  |
+
+### Set up a PAT connector (recommended)
+
+With a PAT connector, you create a Personal Access Token in your source code provider with custom permissions, store it securely in AWS Secrets Manager, and AWS Transform retrieves it when needed. You are responsible for managing the token lifecycle including rotation and expiration. AWS Transform automatically creates the necessary IAM role with permissions to access your secret.
+
+PAT connector supports the following providers, including self-hosted and custom DNS/URL versions:
+
+- GitHub and GitHub Enterprise Server
+- GitLab.com and GitLab Self-Managed
+- Bitbucket Cloud and Bitbucket Data Center
+- Azure DevOps and Azure DevOps Server
+
+#### Create a Personal Access Token
+
+Create a PAT in your source code provider. The required permissions vary by provider. Choose the tab for your provider.
+
+###### Important
+
+Copy the token immediately after creation. You cannot view it again. Set the expiration for the duration of the transformation job. Do not set the expiration to never expire.
+
+###### Warning
+
+Never commit PAT tokens to code repositories or share them through insecure channels. Always store them in AWS Secrets Manager.
+
+##### GitHub
+
+Navigate to **Settings**, **Developer settings**, **Personal access tokens**, **Fine-grained tokens**. Select the repositories to transform and grant the following permissions.
+
+**Repository permissions**
+
+| Permission | Access         | Purpose                                                          |
+| ---------- | -------------- | ---------------------------------------------------------------- |
+| Contents   | Read and write | Reads source code and writes transformed code back to repository |
+| Metadata   | Read-only      | Accesses basic repository information                            |
+
+**Organization permissions (required for organization repositories)**
+
+| Permission | Access    | Purpose                                                              |
+| ---------- | --------- | -------------------------------------------------------------------- |
+| Members    | Read-only | Lists organizations accessible to the token for repository discovery |
+
+##### GitLab
+
+Navigate to **Edit Profile**, **Access Tokens**. Select the following scopes.
+
+| Scope              | Purpose                                                                                     |
+| ------------------ | ------------------------------------------------------------------------------------------- |
+| `read_api`         | Reads repository metadata, project information, user details, and lists groups and branches |
+| `read_repository`  | Reads source code files and repository structure for analysis                               |
+| `write_repository` | Writes transformed code back to repository                                                  |
+
+##### Bitbucket
+
+Navigate to **Account settings**, **Security**, **Create and manage API Tokens**. The required scopes depend on your token type.
+
+**Workspace/Repository Token (ATCT — Bearer auth, no username required)**
+
+| Permission   | Access         | Purpose                                                               |
+| ------------ | -------------- | --------------------------------------------------------------------- |
+| Repositories | Read and write | Lists repos, reads branches, and writes transformed code via git push |
+
+**Account API Token (ATAT — Basic auth with email) or App Password (ATBB — Basic auth with username)**
+
+| Scope                        | Purpose                                                                                                                                                   |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `read:account`               | Identifies the authenticated user to resolve repository membership                                                                                        |
+| `read:workspace:bitbucket`   | Lists the workspaces the token can access so AWS Transform can enumerate their repositories. Not required if you specify a workspaces list in the secret. |
+| `read:repository:bitbucket`  | Lists repositories and reads metadata and branch information                                                                                              |
+| `write:repository:bitbucket` | Writes transformed code back to repository via git push                                                                                                   |
+
+##### Azure DevOps
+
+Navigate to **User settings**, **Personal access tokens**. Select **Custom defined** scopes. For organization scope, choose **All accessible organizations** (recommended) or specify a single organization.
+
+| Scope                         | Access       | Purpose                                                                              |
+| ----------------------------- | ------------ | ------------------------------------------------------------------------------------ |
+| Code                          | Read & write | Reads source code, lists repositories and branches, and writes transformed code back |
+| User Profile                  | Read         | Validates token access and discovers user identity for organization lookup           |
+| Member Entitlement Management | Read         | Lists organizations accessible to the token for repository discovery                 |
+
+#### Store the PAT in AWS Secrets Manager
+
+1.  Open the AWS Secrets Manager console.
+2.  Choose **Store a new secret**.
+3.  For **Secret type**, choose **Other type of secret**.
+4.  Add key-value pairs based on your provider and hosting type:
+
+        * **Cloud-hosted providers** — Add a key named `token` with your PAT as the value.
+
+
+
+
+        	+ For Azure DevOps with a specific organization, also add a key named `organization` with your organization name.
+        	+ For Bitbucket app passwords (ATBB), also add a key named `username` with your Bitbucket username. For Bitbucket account API tokens (ATAT), add a key named `email` with your Bitbucket email address.
+        * **Self-hosted and custom DNS/URL providers** — Add the following keys: `host` (your server URL, for example `https://github.mycompany.com`), `provider_type` (`github`, `gitlab`, `bitbucket`, or `ado`), and `token` (your PAT).
+
+
+
+
+        	+ For Azure DevOps with a specific organization, also add a key named `organization` with your organization name.
+        	+ For Bitbucket app passwords (ATBB), also add a key named `username` with your Bitbucket username. For Bitbucket account API tokens (ATAT), add a key named `email` with your Bitbucket email address.
+
+    The following example shows how a secret looks in AWS Secrets Manager for a GitHub cloud-hosted provider:
+
+```
+{
+  "token": "`your-github-personal-access-token`"
+}
+```
+
+The following example shows a Bitbucket app password (ATBB):
+
+```
+{
+  "token": "`your-bitbucket-app-password`",
+  "username": "my-bitbucket-username"
+}
+```
+
+The following example shows a self-hosted GitLab instance:
+
+```
+{
+  "host": "https://gitlab.mycompany.com",
+  "provider_type": "gitlab",
+  "token": "`your-gitlab-personal-access-token`"
+}
+```
+
+5. Choose **Next**.
+6. Enter a secret name, for example `github-pat-myproject`.
+7. (Optional) Select a customer-managed KMS key for encryption.
+8. Complete the wizard and choose **Store**.
+9. Copy the Secret ARN. You need this value when you configure the AWS Transform job.
+
+If you use a customer-managed KMS key to encrypt your secret (instead of the default AWS-managed key), you must update the KMS key policy to allow AWS Transform to decrypt the secret. Add the following statement to your customer-managed KMS key policy:
+
+```
+{
+  "Sid": "Allow AWS Transform to decrypt secrets",
+  "Effect": "Allow",
+  "Principal": {
+    "Service": "transform.amazonaws.com"
+  },
+  "Action": [
+    "kms:Decrypt",
+    "kms:DescribeKey"
+  ],
+  "Resource": "*",
+  "Condition": {
+    "StringEquals": {
+      "kms:ViaService": "secretsmanager.`REGION`.amazonaws.com",
+      "kms:EncryptionContext:SecretARN": "`YOUR-SECRET-ARN`"
+    }
+  }
+}
+```
+
+Replace `REGION` with your AWS Region (for example, `us-east-1`) and `YOUR-SECRET-ARN` with the ARN of your secret. The `kms:ViaService` condition ensures the KMS key can only be used through the AWS Secrets Manager service. The `kms:EncryptionContext:SecretARN` condition restricts decryption to your specific secret.
+
+To update your KMS key policy:
+
+1. Open the AWS KMS console at `https://console.aws.amazon.com/kms`.
+2. In the navigation pane, choose **Customer managed keys**.
+3. Select your KMS key.
+4. On the **Key policy** tab, choose **Edit**.
+5. Add the policy statement to the existing policy.
+6. Choose **Save changes**.
+
+###### Note
+
+If you use the default AWS-managed key (`aws/secretsmanager`), you do not need to modify any KMS key policy.
+
+#### Configure the AWS Transform job
+
+1. In your AWS Transform job, navigate to **Connect to resources**.
+2. Choose **Connect source code repository**.
+3. Select **PAT Connector** as the authentication method.
+4. Enter the Secret ARN from Step 2.
+5. (Optional) Enter the KMS Key ARN if you used a customer-managed KMS key.
+6. Select your repository and branch.
+7. Choose **Continue**.
+
+AWS Transform automatically creates an IAM role with the permissions required to access your secret.
+
+#### Token rotation and maintenance
+
+You are responsible for rotating PAT tokens before they expire. To rotate a token:
+
+1. Generate a new PAT in your source code provider with the same permissions.
+2. Update the secret value in AWS Secrets Manager.
+3. Verify that your AWS Transform job can access the repository with the new token.
+4. Revoke the old PAT in your source code provider.
+
+#### Troubleshoot PAT connector issues
+
+Access Denied — Invalid PAT
+
+Verify that the PAT has not expired. Confirm that the PAT has the required scopes for your provider. Check that the PAT is correctly stored in AWS Secrets Manager.
+
+Cannot retrieve secret
+
+Verify that the Secret ARN is correct. Check the job logs to confirm that AWS Transform created the IAM role. If you are using a customer-managed KMS key, verify the key policy.
+
+Insufficient permissions
+
+The PAT might lack the required scopes for the operation. Regenerate the PAT with the required scopes and update the secret value in AWS Secrets Manager.
 
 ### Set up AWS CodeConnections
 
+AWS CodeConnections uses a managed provider integration that automatically retrieves temporary OAuth credentials through an OAuth 2.0 authorization flow. Permissions are configured in the provider app and managed entirely by AWS. You authorize the app once, and AWS handles all credential management.
+
 1. In your SQL Server modernization job, navigate to **Connect to
-   resources**
-2. Choose **Connect source code repository**
+   resources**.
+2. Choose **Connect source code repository**.
 3. If you don't have an existing connection, choose **Create
-   connection**
+   connection**.
 4. Select your repository provider:
    - GitHub / GitHub Enterprise
    - GitLab.com
    - Bitbucket Cloud
    - Azure Repositories
 
-5. Follow the authorization flow for your provider
-6. After authorization, choose **Connect**
+5. Follow the authorization flow for your provider.
+6. After authorization, choose **Connect**.
 
 ### Select your repository and branch
 
-1. Select your repository from the list
-2. Choose the branch you want to transform (typically main, master, or develop)
-3. (Optional) Specify a subdirectory if your .NET application is not in the repository root
-4. Choose **Continue**
+1. Select your repository from the list.
+2. Choose the branch you want to transform (typically main, master, or develop).
+3. (Optional) Specify a subdirectory if your .NET application is not in the repository root.
+4. Choose **Continue**.
 
 ###### Note
 
-AWS Transform will create a new branch for the transformed code. You can review and merge the changes through your normal code review process.
+AWS Transform creates a new branch for the transformed code. You can review and merge the changes through your normal code review process.
 
 ### Repository access approval
 
 For GitHub and some other platforms, the repository administrator must approve the connection request:
 
-1. AWS Transform displays a verification link
-2. Share this link with your repository administrator
-3. The administrator reviews and approves the request in their repository settings
-4. Once approved, the connection status changes to _Approved_
+1. AWS Transform displays a verification link.
+2. Share this link with your repository administrator.
+3. The administrator reviews and approves the request in their repository settings.
+4. After the administrator approves the request, the connection status changes to _Approved_.
 
 ###### Important
 

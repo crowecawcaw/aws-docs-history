@@ -19,7 +19,7 @@ for your application. The generated templates include:
 
 ### Optional: CloudWatch logging
 
-The agent asks if you want to include CloudWatch logging for your Amazon EKS
+AWS Transform asks if you want to include CloudWatch logging for your Amazon EKS
 deployment. If you opt in, AWS Transform generates a Fluent Bit DaemonSet
 configuration that collects pod logs and ships them to CloudWatch Logs.
 
@@ -57,7 +57,7 @@ presenting them to you. The validation includes:
 - Security scanning using Checkov to identify potential security
   misconfigurations in the generated infrastructure code.
 
-The agent reports any validation issues and resolves them before proceeding.
+AWS Transform reports any validation issues and resolves them before proceeding.
 
 ## Generating IaC without published images
 
@@ -71,11 +71,11 @@ that you can update later with your actual image locations.
 
 1. When prompted, choose your target platform: **Amazon EKS**
    or **Amazon ECS**.
-2. If you chose Amazon EKS, the agent asks whether to include CloudWatch logging.
+2. If you chose Amazon EKS, AWS Transform asks whether to include CloudWatch logging.
    Respond yes or no.
 3. If prompted, provide health check endpoint details for your
    application (such as a `/health` path).
-4. The agent generates and validates the infrastructure templates. This
-   step runs automatically and the agent displays progress updates,
+4. AWS Transform generates and validates the infrastructure templates. This
+   step runs automatically and AWS Transform displays progress updates,
    including any validation or security scan results.
-5. Review the generated templates when the agent presents them.
+5. Review the generated templates when AWS Transform presents them.

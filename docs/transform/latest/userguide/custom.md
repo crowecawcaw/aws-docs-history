@@ -54,18 +54,21 @@ This section explains key concepts for working with AWS Transform custom.
 
 ### Transformation Definitions
 
-A **transformation definition** is a package that contains the instructions and knowledge needed to perform a specific code transformation. It consists of:
+A **transformation definition** contains the instructions and knowledge needed to perform a specific code transformation. It is represented as a skill and consists of:
 
-- `transformation_definition.md` (required) - Contains the core transformation logic and instructions
-- `summaries.md` (optional) - Summaries for user-provided reference documentation
-- `document_references/` folder (optional) - User-provided documentation and reference materials
+- `SKILL.md` (required) - Instructions in Markdown with YAML frontmatter (`name` and `description` fields) that contains the core transformation logic and execution instructions
+- `references/` folder (optional) - Documentation loaded as needed during transformation execution
 
 AWS Transform CLI automatically downloads transformation definitions to the
 current directory when needed for execution, inspection, or modification.
 
 ###### Important
 
-When publishing a transformation, the directory must only contain these files and folders. No other files or subdirectories are allowed.
+When publishing a transformation, the directory must only contain `SKILL.md` and optionally the `references/` folder. No other files or subdirectories are allowed.
+
+###### Note
+
+CLI version 2.0 and later uses the skills format. Existing transformation definitions are automatically handled by the CLI.
 
 ### Transformation Registry
 
@@ -101,10 +104,11 @@ You can also publish a transformation directly without saving it as a draft.
 
 AWS Transform custom uses two types of knowledge to improve transformation quality:
 
-**References** are user-provided documentation that
-you explicitly add to a transformation definition. References support text files
+**References** are user-provided documentation stored
+in the `references/` folder of a transformation definition. References support text files
 only (maximum 10MB total for all files) and usually contain documentation, API
-specifications, migration guides, and code samples. You add references when creating
+specifications, migration guides, and code samples. References are loaded as needed
+during transformation execution. You add references when creating
 or updating a transformation definition in interactive mode.
 
 **Knowledge items** are automatically extracted learnings from transformation executions. These are created asynchronously by the continual learning system based on execution trajectories, developer feedback, and code fixes encountered during transformations. Knowledge items start in a "not approved" state and must be explicitly approved by transformation owners before they can be used in future executions. Unlike references which you provide upfront, knowledge items accumulate over time as the transformation is executed across different codebases.
@@ -131,6 +135,12 @@ This information is processed to create **knowledge items** that are added to th
 ###### Important
 
 Knowledge items are transformation-specific and are not shared across different transformations or different customer accounts.
+
+### Client-Side Skills
+
+**Client-side skills** are additional capabilities that extend the agent during transformation executions. Unlike transformation definitions which define what transformation to perform, client-side skills provide supplementary tools, scripts, and instructions that the agent can use alongside its built-in capabilities during any transformation.
+
+Client-side skills are discovered from project-level and user-level directories. Project-level skills are only available when a code repository path is provided. For detailed configuration and usage, see [Client-Side Skills](custom-workflows.md#custom-client-side-skills "custom-workflows.md#custom-client-side-skills").
 
 ## Introduction to custom transformation commands
 

@@ -1,14 +1,17 @@
 # Modernizing .NET in the IDE
 
-AWS Transform for .NET is a new generative AI-powered agent designed to modernize legacy .NET applications. For more information, see Modernizing .NET with AWS Transform. You can modernize your legacy .NET code by using the AWS Transform web application or the Visual Studio AWS Toolkit extension. Use AWS Transform in integrated development environments (IDEs) to get assistance with your software development needs. In IDEs, AWS Transform includes capabilities to provide guidance and support across various aspects of .NET code modernization.
+AWS Transform includes an interactive, agentic AI assistant in the AWS Toolkit for Visual Studio. It enables you to modernize applications through a conversational, step-by-step guided experience directly in your IDE. To transform a .NET solution or project, the AWS Transform agent analyzes your codebase, determines the necessary updates to port your application, and generates an assessment report and transformation plan before the transformation begins.
 
-To transform a .NET solution or project, the AWS Transform agent analyzes your codebase, determines the necessary updates to port your application, and generates a transformation plan before the transformation begins. During this analysis, the AWS Transform agent divides your .NET solution or project into code groups that you can view in the transformation plan. A code group is a project and all its dependencies that together generate a buildable unit of code such as a dynamic link library (DLL) or an executable.
+The IDE experience offers autonomous and interactive modes. Use autonomous mode for unattended transformation, suitable for overnight or long-running jobs. Use interactive mode to work alongside the agent in chat, with high visibility into transformation, a customizable transformation plan, and step-by-step review of each project. You can iterate to refine results or change direction until satisfied.
 
-During the transformation, the AWS Transform agent provides step-by-step updates in the AWS **Transformation Hub** window where you can monitor progress. After transforming your application, AWS Transform generates a summary with the proposed changes in a diff view for you to optionally verify the changes before you accept them. When you accept the changes, AWS Transform makes in-place updates to your .NET solution or project.
+When a transformation job is active, you can interact with three windows:
 
-AWS Transform performs four keys tasks to port .NET applications to Linux:
+- The **Chat** window is your primary interaction point with the transformation agent. Use chat to ask questions, discuss options, steer the transformation, and iterate.
+- The **AWS Transform Hub** window shows progress steps and is where you can download/upload artifacts or view code change differences.
+- The **Worklog** window shows a log of transformation activity in natural language.
+  AWS Transform performs four keys tasks to port .NET applications to Linux:
 
-- Upgrades language version – Replaces outdated C# versions of code with Linux-compatible C# versions.
+- Upgrades .NET and language versions – Upgrades older .NET C# code to current .NET and language versions.
 - Migrates from .NET Framework to cross-platform .NET – Migrates projects and packages from Windows dependent .NET Framework to cross-platform .NET compatible with Linux.
 - Rewrites code for Linux compatibility – Refactors and rewrites deprecated and inefficient code components.
 - Generates a Linux compatibility readiness report – For open-ended tasks where user intervention is needed to make the code build and run on Linux, AWS Transform provides a detailed report of actions needed to configure your application after transformation.

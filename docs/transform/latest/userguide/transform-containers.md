@@ -1,9 +1,13 @@
 # Source code containerization
 
-AWS Transform can help you containerize your applications for deployment on AWS using
-generative AI. This chapter describes how to use AWS Transform to analyze your source code,
-generate container images, and deploy containerized applications to Amazon Elastic Container Service or
-Amazon Elastic Kubernetes Service.
+AWS Transform supports replatforming applications to containers during migration to AWS.
+This chapter describes AWS Transform's agentic AI capabilities to automate the containerization
+of your source code. You can migrate and modernize in parallel, reducing the time
+and complexity of moving from on-premises to cloud-native architectures. You can
+containerize source code from GitHub, Bitbucket, GitLab, or .zip files, generate Docker
+images, publish to Amazon Elastic Container Registry (Amazon ECR), and deploy to Amazon Elastic Container Service (Amazon ECS) or Amazon Elastic Kubernetes Service (Amazon EKS).
+This brings containerization into the same workflow you use to plan and execute
+rehost migrations.
 
 ## Capabilities and key features
 
@@ -21,7 +25,7 @@ applications.
   Amazon Elastic Container Service (Terraform modules), with automated validation and security
   scanning.
 - **Private dependency support** —
-  Optionally configure AWS CodeArtifact repositories (Maven, PyPI, npm) and
+  You can optionally configure AWS CodeArtifact repositories (Maven, PyPI, npm) and
   private Amazon ECR base images as dependency sources for your builds.
 - **Iterative test and cutover deployment** —
   Deploys test infrastructure for validation, then deploys finalized
@@ -30,9 +34,9 @@ applications.
 ## How containerization works
 
 AWS Transform uses an AI-powered agent to guide you through the containerization process
-in a chat-based workflow. The agent coordinates specialized tasks such as source code
+in a chat-based workflow. AWS Transform coordinates specialized tasks such as source code
 analysis, Docker image generation, and infrastructure creation. At key points in the
-workflow, you review and approve the agent's output before proceeding.
+workflow, you review and approve the output before proceeding.
 
 You access source code containerization by creating a VMware migration job. Within
 the job, you can run containerization as a standalone workflow, or as part of an
@@ -108,5 +112,5 @@ containerization.
 2. Choose **VMware migration**.
 3. Choose whether to run a standalone containerization workflow or an
    end-to-end migration flow that includes containerization.
-4. The agent guides you through the workflow steps, starting with
+4. AWS Transform guides you through the workflow steps, starting with
    [Step 1: Review security disclaimer](transform-containers-step-disclaimer.md "transform-containers-step-disclaimer.md").

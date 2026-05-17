@@ -8,6 +8,78 @@ Before you set up AWS Transform make sure you have an AWS account with administr
 
 If you want to try out AWS Transform as a proof-of-concept or for test environments see [Quick start: Trying AWS Transform](transform-setup.md#transform-app-admin-starting-standalone "transform-setup.md#transform-app-admin-starting-standalone").
 
+## Getting started with IAM-only access
+
+With IAM-only access, users authenticate with their existing AWS credentials.
+
+To set up IAM-only access:
+
+1. In the AWS console, navigate to AWS Transform and choose **Get started**.
+2. Complete the account settings configuration.
+3. Under **User access**, select **IAM-only access**.
+4. Choose **Enable** to create your profile.
+
+Users log in to the AWS Transform web application through [AWS Sign-In](../../../signin/latest/userguide/what-is-sign-in.md "../../../signin/latest/userguide/what-is-sign-in.md"). Their user
+identifier in the web application is based on their IAM principal.
+
+###### Important
+
+You cannot add an identity provider after setup is complete. To manage users with
+IAM Identity Center or an existing identity provider, choose one of those options during initial
+setup.
+
+With IAM-only access, any IAM principal with the `transform:AccessTransformProfile`
+permission on the profile resource can access AWS Transform. You manage user access through IAM
+policies rather than through identity provider user assignments.
+
+The `transform:AccessTransformProfile` action only grants access to AWS Transform. Once
+inside AWS Transform, workspace roles control what actions a user can perform. These roles include
+Admin, Contributor, Approver, and Read-only. Workspace roles apply regardless of how the user
+authenticated.
+
+## Using IAM credentials
+
+### User information handling
+
+When IAM principals access AWS Transform, the service handles user identity differently than
+with identity provider-based access.
+
+User identity
+
+IAM users are identified by their [IAM principal](../../../IAM/latest/UserGuide/reference_identifiers.md "../../../IAM/latest/UserGuide/reference_identifiers.md").
+
+Dual identity
+
+A user who has both an identity provider identity (such as IAM Identity Center) and an IAM session
+appears as two separate users in AWS Transform. Their work is not linked between the
+two identities.
+
+Email notifications
+
+Email notifications are only enabled for SSO users. IAM principals can still be
+added to workspaces but they will not receive email notifications.
+
+Audit
+
+IAM API calls are logged in AWS CloudTrail with the caller's IAM identity. Actions
+performed by IAM users in a job are also traceable in AWS Transform worklogs.
+
+### Enabling IAM access alongside an identity provider
+
+If you set up AWS Transform with IAM Identity Center or a third-party identity provider, you can also enable
+IAM access as an additional way to authenticate. This allows IAM principals to access AWS Transform
+alongside your existing identity provider users.
+
+IAM access is enabled by default when you create a profile with IAM Identity Center or a third-party identity
+provider. To enable or disable IAM access at any time:
+
+1. In the AWS Transform console, navigate to **Settings**.
+2. Under **Access AWS Transform with IAM credentials**, toggle
+   **Enable IAM access** on or off.
+
+When IAM access is enabled, both identity provider users and IAM principals can use AWS Transform.
+IAM users and identity provider users can collaborate in the same workspace.
+
 ## Getting started with AWS Organizations
 
 Follow these steps to set up AWS Transform:
@@ -45,7 +117,7 @@ Configure IAM Identity Center to use an external enterprise identity provider, a
     1. Under **Encryption key**, choose **Customize encryption settings**.
     2. Select **Use an AWS KMS key**.
     3. Choose an existing key or create a new one.
-    4. Choose **Submit** to apply your changes, and then choose **Enable AWS Transform**.Click **View profile** to view the configuration. The Web application URL is used by your users to access the AWS Transform unified web experience.
+    4. Choose **Submit** to apply your changes, and then choose **Enable AWS Transform**.Choose **View profile** to view the configuration. The Web application URL is used by your users to access the AWS Transform unified web experience.
 
 5. Select **Users** in the navigation pane and select **Assign users or groups**.
 6. Search for the name of the user or groups you want to authorize to use AWS Transform. The search references users and groups propagated from your identity provider.

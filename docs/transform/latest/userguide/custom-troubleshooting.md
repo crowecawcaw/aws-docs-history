@@ -14,6 +14,14 @@ AWS Transform CLI maintains logs in the following locations:
 
 These logs contain the full conversation history for debugging specific transformation executions.
 
+**Subagent logs:**
+
+```
+~/.aws/atx/custom/<conversation_id>/logs/subagents/<name>.log
+```
+
+These logs contain output from subagents that the main agent spawns during transformations. You do not need to manage subagents directly.
+
 **Developer debug logs:**
 
 ```
@@ -101,6 +109,7 @@ For additional assistance, visit AWS Support through the [AWS Console](https://s
 When opening a support ticket, include:
 
 - Conversation logs from `~/.aws/atx/custom/<conversation_id>/logs/`
+- Subagent logs from `~/.aws/atx/custom/<conversation_id>/logs/subagents/`
 - Debug logs from `~/.aws/atx/logs/`
 - Steps to reproduce the issue
 - AWS Transform CLI version (`atx --version`)

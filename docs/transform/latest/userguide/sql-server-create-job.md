@@ -21,13 +21,12 @@ Establish secure connectivity to your SQL Server databases by configuring databa
 
 ### Connect source code repository
 
-Enable AWS Transform to access your .NET application source code through AWS CodeConnections. This integration allows the service to analyze your application code, identify database dependencies, and perform automated code transformations for PostgreSQL compatibility.
+Enable AWS Transform to access your .NET application source code. AWS Transform supports three methods for providing source code: a Personal Access Token (PAT) connector (recommended), AWS CodeConnections, or Amazon S3. This integration allows the service to analyze your application code, identify database dependencies, and perform automated code transformations for PostgreSQL compatibility.
 
 **Actions to Complete:**
 
 - Navigate to **Connect Source Code Repository** section
-- Select your source code platform (GitHub, GitLab, Bitbucket, Azure Repos)
-- Configure AWS CodeConnections and authorize access
+- Choose your authentication method: **PAT Connector** (recommended), **AWS CodeConnections**, or **Amazon S3**
 - Select repositories containing .NET applications
 - Specify branch for analysis (typically main/master or development)
 - Validate repository access and code structure

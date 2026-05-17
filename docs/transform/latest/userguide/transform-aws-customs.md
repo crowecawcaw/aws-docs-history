@@ -63,6 +63,8 @@ Many modern Java applications are already Arm64-compatible.
 - `AWS/vue.js-version-upgrade` - [Early Access] An early-access transformation for major version upgrades from Vue.js 2 to Vue.js 3 to modernize components, state management, routing, and global APIs to Vue.js 3 patterns. Minor or patch updates are outside the scope.
 - `AWS/angular-version-upgrade` - [Early Access] This is an early-access transformation to transform an older Angular application to a target Angular version by upgrading components, services, templates, and routing to modern Angular patterns.
 - `AWS/early-access-log4j-to-slf4j-migration` - [Early Access] This transformation migrates Java applications from Log4j (1.x/2.x) to SLF4J with Logback backend. Handles source code, dependency management (Maven/Gradle), and logging configuration files. Validates via compile, test, and residual import scan.
+- `AWS/agentic-readiness-analysis` - [Early Access] This is an early-access transformation that evaluates whether systems are ready to be safely called by AI agents - covering APIs, identity, state management, human-in-the-loop, and observability.
+- `AWS/modernization-readiness-analysis` - [Early Access] This is an early-access transformation that scans portfolios for cloud-native maturity gaps and maps findings to AWS modernization pathways.
 
 ## Customizing AWS-Managed Transformations
 

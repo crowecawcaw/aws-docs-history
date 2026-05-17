@@ -2,21 +2,21 @@
 
 ## Discovery tool collection schedule
 
-After your initial discovery collection, the discovery tool continues to run on this schedule:
+After your initial discovery collection, the discovery tool continues to run on a staggered schedule to avoid resource contention:
 
-- VMware discovery – every hour
-- Hyper-V discovery – every hour
+- VMware discovery – every hour (at :00 UTC)
+- Hyper-V discovery – every hour (at :20 UTC)
 
-The discovery tool also collects OS metrics through the following independent modules, each with its own schedule:
+The discovery tool also collects OS metrics through the following independent modules, each with its own staggered schedule:
 
 - Database discovery – once a day
 - Network metrics – every 15 seconds, might be less frequent for large environments
-- Server performance metrics – every 10 minutes
-- Storage performance metrics – every 10 minutes
-- Server provisioning data – daily
-- Storage provisioning data – daily
-- Network interfaces – daily
-- Running processes – hourly
+- Server performance metrics – every 10 minutes (at :03, :13, :23, :33, :43, :53 UTC)
+- Storage performance metrics – every 10 minutes (at :07, :17, :27, :37, :47, :57 UTC)
+- Server provisioning data – daily (at 00:05 UTC)
+- Storage provisioning data – daily (at 00:35 UTC)
+- Network interfaces – daily (at 01:05 UTC)
+- Running processes – hourly (at :40 UTC)
 
 You can independently start, stop, or trigger each OS metrics module by using **Collect data now**.
 
@@ -38,13 +38,44 @@ After a collection failure, the discovery tool attempts to collect networking da
 
 ## Discovered inventory
 
-After you configure a discovery source, the **Number of discovered servers** value in the **Discovery tool status** frame begins to increment. The discovery status for the configured source changes to **Enabled** in the **Collection module** frame. The inventory page shows servers from all configured sources: VMware VMs, Hyper-V VMs, and imported bare metal servers. Each server shows its source and collection status per module.
+After you configure a discovery source, the **Number of discovered servers** value in the **Discovery tool status** frame begins to increment. The discovery status for the configured source changes to **Enabled** in the **Collection module** frame. The inventory page shows servers from all configured sources: VMware VMs, Hyper-V VMs, and imported servers. Each server shows its source and collection status per module.
 
-Navigate to the **Discovered inventory** page to see the servers that the discovery tool has found. From this page, choose **Download inventory** to download a ZIP file (`discovery_tool_export.zip`) that contains up to 28 days of collected data, including MPA files for all configured sources, performance utilization data, database information, and server-to-server communication information.
+Navigate to the **Discovered inventory** page to see the servers that the discovery tool has found. From this page, choose **Download inventory** to download a ZIP file (`discovery_tool_export.zip`) that contains up to 30 days of collected data, including MPA files for all configured sources, performance utilization data, database information, and server-to-server communication information.
 
 You can download the ZIP file while the discovery tool continues to work, and obtain partial
 results. Upload this file to [Migration assessment](transform-app-assessments.md "transform-app-assessments.md") to obtain a business
 case for migration.
+
+### Export options
+
+When exporting data, you can customize the export with the following options:
+
+**Date range**
+
+Select a start date and end date to export only data collected within that time period. Both dates are inclusive. The maximum date range is 30 days.
+
+###### Note
+
+The discovery tool stores up to 30 days of collected data. If you need data spanning more than 30 days, run incremental exports every 30 days to capture all data.
+
+**Module selection**
+
+Choose which data modules to include in the export. You can export all modules or select specific ones:
+
+| Module                     | Description                                    |
+| -------------------------- | ---------------------------------------------- |
+| VMware data                | Virtual machine inventory from vCenter servers |
+| Hyper-V data               | Virtual machine inventory from Hyper-V hosts   |
+| Network data               | Network connections between servers            |
+| Database data              | SQL Server database inventory                  |
+| Server inventory           | Server hardware and OS information             |
+| Server performance metrics | CPU, memory, and network utilization           |
+| Server storage performance | Disk IOPS and throughput                       |
+| Storage config             | Disk and volume configuration                  |
+| Network interfaces         | Network adapter details                        |
+| Process metrics            | Running processes                              |
+
+If you don't select any modules, the discovery tool exports all available data.
 
 ### Data points collected
 
@@ -91,9 +122,9 @@ This table describes the Hyper-V virtual machine information collected by the di
 | cluster_name     | String  | Host     | "FailoverCluster01"                    |
 | hypervisor       | String  | VM Info  | "Hyper-V"                              |
 
-#### Bare metal data
+#### Imported server data
 
-Bare metal servers are not auto-discovered. They are imported through a CSV file. The discovery tool does not collect hypervisor-level data for bare metal servers. Instead, it collects database, network, and OS metrics data by using the OS credentials associated with each server during import.
+Imported servers are not auto-discovered. They are imported through a CSV file. The discovery tool does not collect hypervisor-level data for imported servers. Instead, it collects database, network, and OS metrics data by using the OS credentials associated with each server during import.
 
 ## Discovery tool's OS-related data
 
@@ -145,7 +176,7 @@ Combines server provisioning (hardware and OS configuration) with aggregated sto
 
 #### Server performance metrics (server_performance_metrics.csv)
 
-CPU, memory, and network throughput utilization. Sampled every 10 minutes, aggregated over 28 days.
+CPU, memory, and network throughput utilization. Sampled every 10 minutes, aggregated over 30 days.
 
 | Name                        | Type    | Category    | Sample Value       |
 | --------------------------- | ------- | ----------- | ------------------ |
@@ -166,7 +197,7 @@ CPU, memory, and network throughput utilization. Sampled every 10 minutes, aggre
 
 #### Storage performance (server_storage_performance.csv)
 
-Per-volume disk I/O and space utilization. Sampled every 10 minutes, aggregated over 28 days.
+Per-volume disk I/O and space utilization. Sampled every 10 minutes, aggregated over 30 days.
 
 | Name                            | Type   | Category        | Sample Value       |
 | ------------------------------- | ------ | --------------- | ------------------ |
@@ -234,7 +265,7 @@ Network adapter configuration. Collected every 24 hours.
 
 #### Running processes (process_metrics.csv)
 
-Snapshot of running processes. Collected every hour, deduplicated over 28 days.
+Snapshot of running processes. Collected every hour, deduplicated over 30 days.
 
 | Name                 | Type    | Category     | Sample Value        |
 | -------------------- | ------- | ------------ | ------------------- |
@@ -248,7 +279,7 @@ Snapshot of running processes. Collected every hour, deduplicated over 28 days.
 
 The Network collection module helps you discover dependencies among servers in your on-premises data center. This network data accelerates your migration planning by providing visibility into how applications communicate across servers.
 
-This module collects network data for servers from all configured sources, including VMware, Hyper-V, and bare metal. It uses WinRM to collect data from Windows servers and uses SSH, SNMPv2, and SNMPv3 to collect data from Linux servers.
+This module collects network data for servers from all configured sources, including VMware, Hyper-V, and imported servers. It uses WinRM to collect data from Windows servers and uses SSH, SNMPv2, and SNMPv3 to collect data from Linux servers.
 
 #### Network data collection
 
@@ -276,13 +307,31 @@ These data points are collected for each connection:
 ###### Tip
 
 To maximize the completeness of your network dependency map, configure all
-discovery sources (VMware, Hyper-V, and bare metal CSV import) and add OS
+discovery sources (VMware, Hyper-V, and server CSV import) and add OS
 credentials before reviewing network data. The more servers in your
 inventory, the more connections the network module can capture.
 
+#### Private address network collection
+
+By default, the Network collection module only captures connections where both endpoints are servers in your discovered inventory. You can enable private address collection to also capture connections to and from RFC 1918 private IP addresses (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) that are not in your inventory.
+
+###### To start private address collection
+
+1. On the **Collector configuration** page, locate the **Collection modules** section.
+2. Find **Network connections discovery** under **Application discovery**.
+3. Open the **Actions** dropdown.
+4. Choose **Start private address collection**.
+5. If the module status was **Enabled**, you can see it change to **Enabled · Private Address on**.
+
+To stop private address collection, open the **Actions** dropdown and choose **Stop private address collection**. Previously collected private address data is retained even after stopping.
+
+Private address connections appear only in the full CSV export (inside the ZIP file), not in the MPA CSV files. If an IP address belongs to a server already in your inventory, it is always identified by its discovered server ID regardless of this setting.
+
+This setting persists across restarts. You can start or stop private address collection at any time. Previously collected private address data is exported regardless of the current setting.
+
 ### Database collection
 
-The Database collection module gathers database (SQL Server) information from Windows servers across all configured sources, including VMware, Hyper-V, and bare metal. The module uses the WinRM protocol to remotely connect to each Windows server and run PowerShell queries to get information about all installed SQL Server services (components) on the server by using WMI namespaces, registry, and file properties.
+The Database collection module gathers database (SQL Server) information from Windows servers across all configured sources, including VMware, Hyper-V, and imported servers. The module uses the WinRM protocol to remotely connect to each Windows server and run PowerShell queries to get information about all installed SQL Server services (components) on the server by using WMI namespaces, registry, and file properties.
 
 A SQL Server component is a specific service or feature instance installed as part of
 a SQL Server deployment on a Windows server. The discovery tool collects Database

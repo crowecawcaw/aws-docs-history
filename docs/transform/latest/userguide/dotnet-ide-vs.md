@@ -15,90 +15,55 @@ from the Visual Studio Marketplace. Review the AWS Transform [capabilities](dotn
 To connect to your AWS accounts from the Toolkit for Visual Studio, open the Getting Started with the AWS Toolkit User Interface (connection UI):
 
 1. From the Visual Studio main menu, navigate to **Extensions > AWS Toolkit > Getting Started** to open the **Getting Started: AWS Toolkit page**.
-2. Select either **AWS Transform** or **Amazon Q Developer** authentication.
+2. Select **AWS Transform** authentication.
 3. Choose an existing profile or create a new one. When creating a new profile, enter a name for the
    profile and your AWS Transform start URL, which was emailed to you after you were added to IAM Identity Center by your administrator.
 4. Choose **Connect**. Follow the prompts to sign in and grant access permissions through your web browser.
    In Visual Studio, you should see **Connected with IAM Identity Center**.
+5. After signing in, you are taken to the **AWS Transform Dashboard**. From this landing page, you can do the following:
+   - Select an AWS Transform profile (region)
+   - Select or create a workspace
+   - View status of transformation jobs
 
 ## Step 3: Transform your application
 
 To transform your .NET solution or project, complete the following procedure:
 
-1. Open any C# based solution or project in Visual Studio that you want to transform.
-2. Open any C# code file in the editor.
-3. Choose **Solution Explorer**.
-4. From the **Solution Explorer**, right click a solution or project you want to
-   transform, and then choose to port or transform the solution or project with AWS Transform.
-5. The AWS Transform window appears.
+###### Start transformation
 
-The solution or project you selected will be chosen in the **Choose a solution
-or project to transform** dropdown menu. You can expand the menu to choose a
-different solution or project to transform. 6. In the **Choose a workspace** dialog, create a workspace or select an existing one.
-Workspaces make your activity visible in the AWS Transform web application, where you can invite collaborators to view and chat about transformation jobs. 7. In the **Choose a .NET target** dropdown menu, choose the
-.NET version you want to upgrade to. 8. You can update the Default Settings, or leave them as-is. These include:
+1. Open any C# or VB.NET based solution or project in Visual Studio that you want to transform.
+2. From **Solution Explorer**, right click a solution or project you want to
+   transform, and choose **Port with AWS Transform**.
+3. The **Port with AWS Transform** dialog appears.
+   1. In the **Choose a workspace** dropdown, create a workspace or select an existing one.
+      Workspaces make your activity visible in the AWS Transform web application, where you can invite collaborators to view and chat about transformation jobs.
+   2. In the **Choose a .NET target** dropdown menu, choose the
+      .NET version you want to upgrade to.
+   3. For **Transformation Mode**, select **Autonomous** for unattended transformation or **Interactive** for interactive transformation.
+   4. Choose **Start** to begin the transformation.
 
-    * Exclude .NET Standard projects from the transformation plan
+4. The **AWS Transform Hub**, **Chat**, and **Worklog** windows appear.
 
+###### Assessment and transformation plan
 
-    This setting is selected by default. When selected, AWS Transform excludes any .NET Standard projects from the transformation plan. If you deselect this setting, .NET Standard projects will be transformed, which will make them no longer compatible with the .NET Framework.
-    * Check the NuGet sources and get .NET compatible package versions
+1. After AWS Transform analyzes your code, an assessment report and transformation plan are shown in chat. In interactive mode, chat will pause for you to review them. If you prefer not to review in chat, you can use these alternatives:
+   - To view assessment or plan in the code editor, choose **Show assessment** or **Show transformation plan** in the AWS Transform Hub.
+   - To download assessment or plan, use the download icon in the AWS Transform Hub.
 
+2. Optionally modify the transformation plan. You can discuss the plan with chat, such as exploring other options. You make plan changes by giving instructions in chat, or by uploading a revised transformation plan using the AWS Transform Hub's upload icon. You can freely add, remove, or modify steps. Chat will confirm its understanding of your instructions with a revised plan.
+3. Once you are satisfied with the plan, give approval in chat and the transformation will begin.
+4. In interactive mode, you can set checkpoints to stop after a project is transformed for review. The steps under **Transforming code** in the Transform Hub will have round checkpoint icons. All projects have checkpoints enabled by default. Use the check boxes to clear or set a checkpoint.
 
-    Allow AWS Transform to search for and get .NET compatible package versions for the code that you would like to transform.
+###### Transformation and checkpoint reviews
 
-9. Choose **Start** to begin the transformation.
-10. Wait while AWS Transform analyzes your code and generates an assessment report and a code transformation plan.
+1. AWS Transform begins transforming your code. You can monitor progress of transformation steps in the AWS Transform Hub. The Transform Hub will display estimated max time remaining and your Job ID.
+2. As projects are transformed, summaries are displayed in chat and code changes are applied.
+3. In interactive mode, when a checkpoint is reached, the agent will pause so you can review the results. In the AWS Transform Hub, you'll see a **View Results** button for the step it is paused on where you can review code differences. After reviewing the changes, you can ask for further changes in chat or make code changes yourself in Visual Studio.
+4. You can iterate at the checkpoint as much as desired. When you're satisfied, instruct chat to continue, and it will move on to the next project.
 
-You will be prompted with **View Transformation Plan?** **Choose Edit Plan** to review or edit the transformation plan,
-or **Start transformation** to transform with the existing plan. 11. If you choose to edit the plan, a _transformation-plan.md_ markdown file will open in the code editor.
-The transformation plan describes the objective and details of the transformation in a series of steps. Refer to the instruction comments
-at the end if the plan. You can modify this plan in the following ways:
+###### End of transformation
 
-    * **Transformation steps and substeps**: change, add, or remove
-     steps and substeps to control structural transformation and package update
-     details
-    * **Preview Project Transformation**: Add experimental
-     transformation of WinForms desktop projects, WPF projects, Xamarin projects, or
-     projects written in VB.NET
-
-
-    ###### Note
-
-    Other project transformations are a preview feature, available only in the US East (N. Virginia) Region.
-    * **Customization section**: add customization instructions, such as dependency injection instructions or coding pattern examples.
-
-
-    ###### Note
-
-    Coding pattern examples are a preview feature, available only in the US East (N. Virginia) Region.After saving any plan changes, choose **Start Transformation** to start the transformation.
-
-12. AWS Transform begins transforming your code.
-
-An **AWS Transformation Hub** opens where you can monitor
-progress for the duration of the transformation. Here you can see
-estimated time remaining, a Job ID you can copy to the clipboard, and
-transformation steps. Choose a step to see the worklog for that step, which explains
-the current transformation activity.
-
-Once AWS Transform
-has started the **Transforming code** step you
-can navigate away from the project or solution for the duration of the
-transformation. 13. After the transformation is complete, navigate to the **Transformation Hub** and
-choose **View diffs** to review the proposed changes in a diff view. To update your files in place,
-choose **Accept changes** from the Actions dropdown menu. 14. Choose **View code transformation summary** for a summary of the changes AWS Transform made.
-For details about transformation, including changes made, the reason for changes, and actionable error details,
-you can download a transformation detail report by choosing **Download transformation report**.
-Refer to [Transformation Reports](tdotnet-reports.md "tdotnet-reports.md") for more information.
-The transformation detail report includes a Linux readiness report section that identifies compatibility issues in moving from
-Windows to Linux that require human attention.
-
-If any of the items in the **Code groups** table require input under the Linux porting status,
-you must manually update some files to run your application on Linux.
-The transformation detail report includes a Linux readiness report section that
-identifies compatibility issues in moving from Windows to Linux that require human attention. 15. AWS Transform generates a _NextSteps.md_ file, which describes any
-remaining porting work needed. To download the report, choose the **Download next steps**
-button at the top of the transformation detail report. You can use the NextSteps.md
-file to transform the project again with AWS Transform and a revised plan, or use it as input
-to an AI code companion. 16. To update your files in place, choose **Accept changes** from
-the **Actions** dropdown menu.
+1. After transforming your projects, the .NET agent will trigger a local build in Visual Studio, to confirm that the code builds successfully on your local machine. If there are errors, it will work to resolve them.
+2. Once transformation is completed, there may be additional steps needed — such as transformation tasks AWS Transform could not perform, or changes needed for Linux compatibility. A next steps markdown file (_NextSteps.md_) is available for download which you can use as prompts to an AI code companion. Use the AWS Transform Hub's download icon button to download _NextSteps.md_.
+3. You can continue to interact in chat to ask questions or request additional changes.
+4. Tell chat when you are ready to end your transformation job.

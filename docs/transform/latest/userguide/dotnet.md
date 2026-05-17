@@ -2,6 +2,20 @@
 
 The AWS Transform agent for .NET can help you modernize your .NET applications to be compatible with cross-platform .NET. This capability is called .NET modernization. After [AWS Transform environment](transform-environment.md "transform-environment.md") in AWS Transform, you can create a .NET modernization transformation job.
 
+## Experiences
+
+AWS Transform is available in several experiences:
+
+- **Web console**: for large-scale transformation of up to 500 repositories at a time.
+- **Visual Studio IDE**: developer-led transformation of a solution or project working alongside agent interactively and iteratively. Recommended for medium to large projects.
+
+You can freely shift between web console and IDE to work on a transformation job.
+
+You can also invoke AWS Transform from other IDEs and AI code companions:
+
+- **Kiro**: transform from Kiro using the AWS Transform for Kiro power.
+- **Other AI code companions**: transform from your preferred AI coding assistants using AWS Transform MCP agents.
+
 ## Capabilities and key features
 
 - Analyze .NET Framework codebases from your source control systems, which includes private NuGet support, identifying cross repository dependencies, and providing an analysis report.
@@ -37,12 +51,12 @@ AWS Transform supports transformation of these types of projects (C# only):
 - Windows Communication Foundation (WCF) services
 - Projects with provided cross-platform versions for third-party or private NuGet packages. If a cross-platform equivalent is missing or unavailable, AWS Transform for .NET will attempt a best-effort conversion.
 
-AWS Transform can also transform the following project types to modern .NET. This is a preview feature, available only in the US East (N. Virginia) Region.
+AWS Transform can also transform the following project types to modern .NET. This is a preview feature, and may not transform as completely as supported project types.
 
-- WinForms desktop projects. This is a preview feature, available only in the US East (N. Virginia) Region.
-- WPF desktop projects. This is a preview feature, available only in the US East (N. Virginia) Region.
-- Xamarin mobile projects. This is a preview feature, available only in the US East (N. Virginia) Region.
-- Projects written in VB.NET. This is a preview feature, available only in the US East (N. Virginia) Region.
+- WinForms desktop projects.
+- WPF desktop projects.
+- Xamarin mobile projects.
+- Projects written in VB.NET.
 
 ## Limitations
 

@@ -13,8 +13,8 @@ during the test deployment step.
    the same values.
 2. Review the deployment preview that shows the production resources that
    will be created.
-3. Approve the production deployment when the agent requests it.
-4. Wait for the deployment to complete. The agent displays the cutover
+3. Approve the production deployment when AWS Transform requests it.
+4. Wait for the deployment to complete. AWS Transform displays the cutover
    deployment results.
 5. Verify that your application is running correctly in the production
    environment.

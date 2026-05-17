@@ -21,23 +21,30 @@ To enable AWS Transform:
    later step.
 6. Select an **Encryption key**: **default
    AWS managed key** or **Customize encryption settings.**
-7. Choose which AWS Transform capabilities you want to enable:
+7. Optional: Use your own Amazon S3 bucket. By default, AWS Transform uses a service-managed Amazon S3
+   bucket to store transformation artifacts. You can choose to use your own bucket instead.
+   For more information, see [Using your own Amazon S3 bucket](custom-s3-bucket.md "custom-s3-bucket.md").
+8. Choose which AWS Transform capabilities you want to enable:
    - **Command line interface** (CLI), needed to create and run
      [custom transformations](transform-app-custom.md "transform-app-custom.md"). To enable the CLI, view
      and follow the download instructions.
    - **Web application**, the agentic user interface for modernization.
      Choose **Enable web application** to use it.
 
-8. Choose **Enable AWS Transform**.
-9. Optional: choose **Enable View profile** to access the AWS Transform **Users**, **Settings**, and **Connectors** tabs, or **Manage users** to manage
-   users.
+9. Choose **Enable AWS Transform**.
+10. Optional: choose **Enable View profile** to access the AWS Transform **Users**, **Settings**, and **Connectors** tabs, or **Manage users** to manage
+    users.
 
 You can access the **Users**, **Settings**, and **Connectors** tabs at any time by
-choosing the menu icon in the top left corner of the console. 10. Configure User access by choosing an identity provider, either IAM Identity Center or a [third-party identity provider (IdP)](transform-setup.md#transform-third-party-identity "transform-setup.md#transform-third-party-identity").
+choosing the menu icon in the top left corner of the console. 11. Configure User access by choosing one of the following options:
+
+    * IAM Identity Center
+    * A [third-party identity provider (IdP)](transform-setup.md#transform-third-party-identity "transform-setup.md#transform-third-party-identity")
+    * [IAM-only access](transform-setup.md#transform-iam-only-access "transform-setup.md#transform-iam-only-access")
 
 ###### Note
 
-This choice is finalized and cannot be changed when you enable AWS Transform. 11. Choose **Enable web application**. 12. The system displays "Enabling AWS Transform" while it creates the necessary resources.
+This choice is finalized and cannot be changed when you enable AWS Transform. 12. Choose **Enable web application**. 13. The system displays "Enabling AWS Transform" while it creates the necessary resources.
 
 After AWS Transform is enabled, the **Settings** tab displays the following information:
 

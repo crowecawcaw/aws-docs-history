@@ -6,7 +6,7 @@ source code from Git repositories or by uploading zip files.
 ## Option 1: Git repositories
 
 You can provide your source code from Git repositories. If you have not yet
-configured AWS CodeConnections, the agent prompts you to provide your
+configured AWS CodeConnections, AWS Transform prompts you to provide your
 CodeConnections ARN at this point. You have two ways to specify your
 repositories:
 
@@ -24,7 +24,7 @@ owner/another-repo,
 ```
 
 - **Provide repository details in the chat**
-  — Tell the agent the repository name(s) and branch(es) directly in the
+  — Tell AWS Transform the repository name(s) and branch(es) directly in the
   chat instead of uploading a CSV.
 
 AWS Transform validates that each repository exists and is accessible through your
@@ -64,7 +64,7 @@ following private dependency types:
 
 - **AWS CodeArtifact repositories** —
   Configure Maven, PyPI, or npm repositories hosted in AWS CodeArtifact.
-  The agent presents a list of available repositories in your account for
+  AWS Transform presents a list of available repositories in your account for
   you to select from.
 - **Private Amazon ECR base images** —
   If your Dockerfiles use base images from a private Amazon ECR repository,
@@ -77,7 +77,7 @@ is only required if you use private dependencies.
 
 ## Confirming containerization preferences
 
-After your source code is available, the agent asks if you have specific
+After your source code is available, AWS Transform asks if you have specific
 instructions for how the containerization should be done. You can optionally
 specify:
 

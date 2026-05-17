@@ -5,7 +5,7 @@ the IDE with AWS Transform.
 
 ## How do I know if a job is progressing?
 
-If AWS Transform appears to be spending a long time on a step in the
+You should see regular activity in the Worklog window. If AWS Transform appears to be spending a long time on a step in the
 **AWS Transformation
 Hub**, you can check whether the job is still active in the output
 logs. If diagnostic messages are being generated, the job is still active.

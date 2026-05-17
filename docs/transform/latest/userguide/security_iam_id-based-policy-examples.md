@@ -18,6 +18,7 @@ For details about actions and resource types defined by AWS Transform, including
 - [Allow administrators to accept a connector request from the account with AWS Transform](#id-based-policy-examples-admin-connector "#id-based-policy-examples-admin-connector")
 - [Allow administrators to assign existing IAM Identity Center users and create new IAM Identity Center users to assign to AWS Transform](#id-based-policy-examples-admin-idc-users "#id-based-policy-examples-admin-idc-users")
 - [Allow administrators to enable AWS Transform](#id-based-policy-examples-admin-enable-transform "#id-based-policy-examples-admin-enable-transform")
+- [Allow users to access AWS Transform with IAM credentials](#id-based-policy-examples-access-transform-webapp "#id-based-policy-examples-access-transform-webapp")
 
 ## Policy best practices
 
@@ -345,3 +346,52 @@ administrators only and should be scoped to trusted principals in your account.
   ]
 }
 ```
+
+## Allow users to access AWS Transform with IAM credentials
+
+The following policy grants an IAM principal access to the AWS Transform web application and
+APIs using IAM credentials. This policy is required for IAM-only access and for IAM access
+enabled alongside an identity provider.
+
+Replace `region`,
+`account-id`, and
+`profile-id` with your values. You can find the
+profile ID in the AWS Transform console under **Settings**.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowTransformAccess",
+      "Effect": "Allow",
+      "Action": "transform:AccessTransformProfile",
+      "Resource": "arn:aws:transform:`region`:`account-id`:profile/`profile-id`"
+    }
+  ]
+}
+```
+
+To grant access to all profiles in an account, use a wildcard for the profile ID:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowTransformAccessAllProfiles",
+      "Effect": "Allow",
+      "Action": "transform:AccessTransformProfile",
+      "Resource": "arn:aws:transform:`region`:`account-id`:profile/*"
+    }
+  ]
+}
+```
+
+###### Note
+
+The `transform:AccessTransformProfile` action grants access to AWS Transform
+only. Actions within workspaces are controlled by AWS Transform workspace roles (Admin,
+Contributor, Approver, Read-only), not by IAM policies. Workspace roles determine
+what a user can do, such as creating jobs, managing collaborators, or approving
+tasks.

@@ -328,7 +328,54 @@ The AWS Transform CLI supports Model Context Protocol (MCP) servers, which exten
 
 **Configuration:**
 
-Configure MCP servers in the `~/.aws/atx/mcp.json` file.
+Configure MCP servers in the `~/.aws/atx/mcp.json` file. The AWS Transform CLI supports two types of MCP servers: local command-based servers and remote HTTP servers.
+
+**Local command-based servers:**
+
+Local servers run as child processes on your machine. Configure them with the `command` property:
+
+```
+{
+  "mcpServers": {
+    "my-local-server": {
+      "command": "npx",
+      "args": ["-y", "@example/mcp-server"]
+    }
+  }
+}
+```
+
+**Remote HTTP servers:**
+
+Remote servers connect to MCP servers hosted at an HTTP or HTTPS URL. Configure them with the `url` property:
+
+```
+{
+  "mcpServers": {
+    "my-remote-server": {
+      "url": "https://api.example.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${MCP_API_TOKEN}"
+      }
+    }
+  }
+}
+```
+
+The `headers` property is optional and supports environment variable expansion using `${VAR_NAME}` syntax. This allows you to store sensitive values like API tokens in environment variables rather than in the configuration file.
+
+**Configuration properties:**
+
+Local command-based servers support the following properties:
+
+- `command` (required) - The command to run the server
+- `args` (optional) - Array of command-line arguments
+- `env` (optional) - Environment variables to pass to the server process
+
+Remote HTTP servers support the following properties:
+
+- `url` (required) - The HTTP or HTTPS URL of the remote MCP server
+- `headers` (optional) - HTTP headers to include in requests, with support for `${VAR_NAME}` environment variable expansion
 
 **Managing MCP servers:**
 
@@ -352,6 +399,68 @@ The CLI automatically tracks MCP tool usage during transformation executions. Us
 - Number of errors per tool
 - Total execution time per tool
 - Last error details (if any)
+
+### Client-Side Skills
+
+Client-side skills are additional capabilities that extend the agent during transformation executions. They allow you to provide custom tools, scripts, and instructions that the agent can use alongside its built-in capabilities.
+
+**Skill discovery directories:**
+
+Skills are discovered from four directories in precedence order. If a skill with the same name exists in multiple directories, the first directory in the list takes priority:
+
+1. `<project>/.aws/atx/skills/` - Project-level, AWS Transform CLI-specific
+2. `<project>/.agents/skills/` - Project-level, cross-client (available to any compatible agent tooling)
+3. `~/.aws/atx/skills/` - User-level, AWS Transform CLI-specific
+4. `~/.agents/skills/` - User-level, cross-client (available to any compatible agent tooling)
+
+The `.aws/atx/skills/` directories are specific to the AWS Transform CLI. The `.agents/skills/` directories are cross-client, meaning skills placed there are available to any compatible agent tooling beyond the AWS Transform CLI.
+
+**Skill directory structure:**
+
+Each skill is a directory containing a `SKILL.md` file with YAML frontmatter:
+
+```
+~/.aws/atx/skills/
+└── my-skill/
+    ├── SKILL.md          # Required: frontmatter + instructions
+    ├── references/       # Optional: reference docs the agent can read
+    │   └── guide.md
+    └── scripts/          # Optional: scripts the agent can execute
+        └── validate.py
+```
+
+**SKILL.md format:**
+
+```
+---
+name: my-skill
+description: When to use this skill
+---
+# Skill Title
+
+Instructions for the agent...
+```
+
+The `name` field must match the parent directory name.
+
+**Skill availability by execution mode:**
+
+- **Exec mode** (`atx custom def exec` with `--code-repository-path`) - Discovers skills from both user-level and project-level directories.
+- **Interactive mode** (`atx`) - Only user-level skills are discovered initially. When you provide a code repository path during the session, project-level skills are also loaded.
+
+**Verifying skill discovery:**
+
+Check the CLI's debug log after a run to verify which skills were discovered:
+
+```
+grep -i "skill" ~/.aws/atx/logs/debug.log | tail -20
+```
+
+Skills that fail validation are skipped with a warning in the debug logs.
+
+###### Note
+
+Client-side skills require CLI version 2.0 or later.
 
 ### Tags and Organization
 
@@ -383,13 +492,19 @@ Tags can be used for grouped access control in IAM policies. You can create poli
 
 ### Logs
 
-AWS Transform CLI maintains two types of logs for troubleshooting and debugging.
+AWS Transform CLI maintains three types of logs for troubleshooting and debugging.
 
 **Conversation logs:**
 
 Location: `~/.aws/atx/custom/<conversation_id>/logs/<timestamp>-conversation.log`
 
 These logs contain the full conversation history for a specific session.
+
+**Subagent logs:**
+
+Location: `~/.aws/atx/custom/<conversation_id>/logs/subagents/<name>.log`
+
+These logs contain output from subagents that the main agent spawns during transformations. You do not need to manage subagents directly.
 
 **Developer debug logs:**
 
@@ -468,7 +583,7 @@ atx
 
 ### Providing Reference Materials
 
-You can provide reference files to AWS Transform custom by specifying file paths during the conversation.
+You can provide reference files to AWS Transform custom by specifying file paths during the conversation. These files are stored in the `references/` folder of the transformation definition.
 
 Recommended types of reference files:
 
