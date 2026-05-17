@@ -48,6 +48,14 @@ Key capabilities include:
 - Amazon Quick does not use your user data for service improvement or for
   training its underlying large language models (LLMs).
 
+###### Note
+
+Some features, such as inbox prioritization, calendar management, and email
+organization, require Microsoft Graph API permissions that must be
+granted by your administrator. If you are unable to perform these tasks, contact
+your administrator to ensure the required Graph API permissions have been approved
+for your organization. For more information, see [Microsoft Outlook extension permissions](outlook-extension-preview.md#outlook-preview-permissions "outlook-extension-preview.md#outlook-preview-permissions") in the admin guide.
+
 ## Amazon Quick Microsoft Outlook extension usage guidelines
 
 As a user, you are responsible for keeping company information safe. The

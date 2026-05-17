@@ -45,6 +45,7 @@ The Outlook extension enables users to:
 ###### Topics
 
 - [Prerequisites for deploying the Microsoft Outlook extension to your organization](#outlook-preview-prerequisites "#outlook-preview-prerequisites")
+- [Microsoft Outlook extension permissions](#outlook-preview-permissions "#outlook-preview-permissions")
 - [Deploying the Microsoft Outlook extension to your organization](#outlook-preview-deployment "#outlook-preview-deployment")
 
 ## Prerequisites for deploying the Microsoft Outlook extension to your organization
@@ -56,22 +57,218 @@ Outlook, administrators must complete the following steps:
    Admin or have administrative permissions (specifically
    `AppCatalog.ReadWrite.All`).
 2. Have an Amazon Quick instance.
+3. Grant tenant-wide admin consent for Microsoft Graph
+   permissions. This allows the extension to access inbox, calendar, and
+   contact data for all users in your organization. Without these permissions,
+   the extension can only respond to questions about the currently open email
+   thread. For instructions, see [Grant tenant-wide admin consent](#outlook-preview-grant-admin-consent "#outlook-preview-grant-admin-consent").
+
+## Microsoft Outlook extension permissions
+
+The Amazon Quick Outlook extension uses the
+`ReadWriteMailbox` Office JavaScript API permission level. This is an
+Office add-in manifest permission, not a Microsoft Graph API
+scope.
+
+The default app capabilities for the Outlook add-in are:
+
+- Can read and make changes to your document
+- Access your profile information such as your name, email address, company
+  name, and preferred language
+- Can send data over the Internet
+
+### Graph API delegated permissions
+
+The Outlook extension uses Microsoft Graph
+integration, which requires additional delegated permissions.
+
+###### Important
+
+These permissions are required for the Amazon Quick Outlook
+extension to provide its full range of capabilities. Without these permissions
+granted, the extension can only answer questions about the currently open email
+thread and draft a reply. It cannot summarize your inbox, manage your calendar,
+or perform inbox-wide operations such as searching, organizing, or triaging
+emails.
+
+###### Note
+
+The Amazon Quick Outlook extension does not send emails or
+create calendar appointments automatically. It uses Human-in-the-Loop (HITL)
+confirmation before any sending action, so users always review and approve
+outgoing messages and calendar changes.
+
+Users are prompted
+to sign in the first time they interact with the extension. Administrators can
+pre-approve these permissions by granting tenant-wide admin consent (see
+[Grant tenant-wide admin consent](#outlook-preview-grant-admin-consent "#outlook-preview-grant-admin-consent")).
+
+The following table lists the delegated Graph API permissions used by the
+Outlook extension.
+
+| Permission                  | Purpose                                                                                      |
+| --------------------------- | -------------------------------------------------------------------------------------------- |
+| `Calendars.Read.Shared`     | Read events in user's and shared/delegate calendars for<br>availability checks               |
+| `Calendars.ReadWrite`       | Create, update, and delete calendar events; accept/decline<br>invites; check free/busy times |
+| `Contacts.ReadWrite`        | Resolve recipients by name, look up contact details, and save<br>new contacts                |
+| `Files.Read`                | Read user's OneDrive/SharePoint<br>files to summarize or reference attachments               |
+| `Mail.Read`                 | Read full email content, attachments, and threads for<br>summarization and action items      |
+| `Mail.ReadBasic`            | Read email metadata (subject, sender, date) for efficient<br>mailbox listing and search      |
+| `Mail.ReadWrite`            | Organize mail: move, delete, mark read/unread, create drafts,<br>and manage attachments      |
+| `MailboxSettings.ReadWrite` | Read and update timezone, working hours, out-of-office, inbox<br>rules, and categories       |
+| `offline_access`            | Obtain refresh token for persistent sessions without repeated<br>re-authentication           |
+| `People.Read`               | Suggest recipients and resolve names using collaboration and<br>org signals                  |
+| `Tasks.ReadWrite`           | Create, update, complete, and delete tasks and task lists<br>across To Do/Planner            |
+| `User.Read`                 | Identify the signed-in user's profile, email, job title, and<br>timezone                     |
+| `User.ReadBasic.All`        | Read basic profile info (name, email, photo) of other users<br>in the org                    |
+
+### Grant tenant-wide admin consent
+
+To enable the full capabilities of the Amazon Quick Outlook
+extension for all users in your organization, grant tenant-wide admin consent
+for the Microsoft Graph permissions listed above. This
+pre-approves the permissions so that individual users are not prompted to
+approve them when they first use the extension.
+
+You can complete this process using either Microsoft Graph
+PowerShell or Microsoft Graph Explorer.
+
+#### Prerequisites
+
+Before granting admin consent, ensure you have a role that includes the
+following permissions:
+
+- `Application.ReadWrite.All`
+- `DelegatedPermissionGrant.ReadWrite.All`
+
+#### Grant admin consent using PowerShell
+
+Follow these steps to grant admin consent using Microsoft
+Graph PowerShell:
+
+1. Connect to Microsoft Graph with the required
+   permissions:
+
+```
+Connect-MgGraph -Scopes "Application.ReadWrite.All","DelegatedPermissionGrant.ReadWrite.All"
+```
+
+2. Look up the Microsoft Graph service principal ID
+   for your tenant and save the ID:
+
+```
+Get-MgServicePrincipal -Filter "displayName eq 'Microsoft Graph'"
+```
+
+3. Create a service principal for the Amazon Quick
+   Outlook extension in your tenant and save the
+   returned ID:
+
+```
+New-MgServicePrincipal -AppId "a5342f89-ebb1-4b1d-966c-34e8df972aaf"
+```
+
+4. Grant admin consent for all delegated permissions on behalf of
+   all users in your tenant. Replace
+   `ServicePrincipalId` with the ID from
+   step 3 and `GraphServicePrincipalId` with
+   the ID from step 2:
+
+```
+
+$params = @{
+    "ClientId"    = "`ServicePrincipalId`"
+    "ConsentType" = "AllPrincipals"
+    "ResourceId"  = "`GraphServicePrincipalId`"
+    "Scope"       = "Calendars.Read.Shared Calendars.ReadWrite Contacts.ReadWrite Files.Read Mail.Read Mail.ReadBasic Mail.ReadWrite MailboxSettings.ReadWrite offline_access People.Read Tasks.ReadWrite User.Read User.ReadBasic.All"
+}
+New-MgOauth2PermissionGrant -BodyParameter $params
+```
+
+#### Grant admin consent using Graph Explorer
+
+Follow these steps to grant admin consent using Microsoft
+Graph Explorer:
+
+1. Sign in to Microsoft Graph Explorer with a role
+   that has the `Application.ReadWrite.All` and
+   `DelegatedPermissionGrant.ReadWrite.All`
+   permissions.
+2. Look up the Microsoft Graph service principal ID
+   for your tenant and save the ID from the response:
+
+```
+GET https://graph.microsoft.com/v1.0/servicePrincipals?$filter=displayName eq 'Microsoft Graph'&$select=id,displayName
+```
+
+3. Create a service principal for the Amazon Quick
+   Outlook extension in your tenant and save the
+   returned ID:
+
+```
+POST https://graph.microsoft.com/v1.0/servicePrincipals
+```
+
+Request body:
+
+```
+
+{
+    "appId": "a5342f89-ebb1-4b1d-966c-34e8df972aaf"
+}
+```
+
+4. Grant admin consent for all delegated permissions on behalf of
+   all users in your tenant. Replace
+   `ServicePrincipalId` with the ID from
+   step 3 and `GraphServicePrincipalId` with
+   the ID from step 2:
+
+```
+POST https://graph.microsoft.com/v1.0/oauth2PermissionGrants
+```
+
+Request body:
+
+```
+
+{
+    "clientId": "`ServicePrincipalId`",
+    "consentType": "AllPrincipals",
+    "resourceId": "`GraphServicePrincipalId`",
+    "scope": "Calendars.Read.Shared Calendars.ReadWrite Contacts.ReadWrite Files.Read Mail.Read Mail.ReadBasic Mail.ReadWrite MailboxSettings.ReadWrite offline_access People.Read Tasks.ReadWrite User.Read User.ReadBasic.All"
+}
+```
+
+After granting admin consent, users in your organization will not be
+prompted to approve permissions individually when they first use the
+Amazon Quick Outlook extension. The extension will have
+immediate access to its full capabilities.
+
+### Where to review permissions
+
+To review permissions for the Outlook extension, go to
+Microsoft Entra > **Enterprise Applications** >
+find the app called "Amazon Quick Outlook Agent" >
+**Permissions**.
 
 ## Deploying the Microsoft Outlook extension to your organization
 
-Follow these steps to deploy the extension to your users:
+After completing the prerequisites and granting admin consent for
+Microsoft Graph permissions, follow these steps to deploy the
+extension to your users:
 
-1. Login to M365 admin center.
+1. Sign in to the M365 admin center.
 2. Select **Settings** > **Integrated
    apps** in the left navigation menu.
-3. Click on **Get apps**.
+3. Choose **Get apps**.
 4. Search for "Amazon Quick".
-5. Locate the tile for the Amazon Quick in Outlook and click
-   on **Get it now**.
+5. Locate the tile for Amazon Quick in Outlook and choose
+   **Get it now**.
 6. Confirm that you want to add the app.
-7. Under **Assign users** you can choose
+7. Under **Assign users**, choose
    **Entire organization** or **Specific
    users/groups** depending on your needs.
 8. After selecting the users, review the app's requested permissions and
-   capabilities and click **Next**.
-9. Click **Finish Deployment**.
+   capabilities and choose **Next**.
+9. Choose **Finish Deployment**.

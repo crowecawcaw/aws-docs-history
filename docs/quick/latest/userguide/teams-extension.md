@@ -26,6 +26,7 @@ The Teams extension enables users to:
 ###### Topics
 
 - [Prerequisites for Microsoft Teams extension](#teams-prerequisites "#teams-prerequisites")
+- [Microsoft Teams extension permissions](teams-extension-permissions.md "teams-extension-permissions.md")
 - [Configure Microsoft Teams extension access](#configure-teams-extension "#configure-teams-extension")
 
 ## Prerequisites for Microsoft Teams extension

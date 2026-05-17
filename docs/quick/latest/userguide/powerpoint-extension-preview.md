@@ -45,6 +45,7 @@ The PowerPoint extension enables users to:
 
 - [Prerequisites for deploying the Microsoft PowerPoint extension to your organization](#powerpoint-preview-prerequisites "#powerpoint-preview-prerequisites")
 - [Deploying the Microsoft PowerPoint extension to your organization](#powerpoint-preview-deployment "#powerpoint-preview-deployment")
+- [Microsoft PowerPoint extension permissions](#powerpoint-preview-permissions "#powerpoint-preview-permissions")
 
 ## Prerequisites for deploying the Microsoft PowerPoint extension to your organization
 
@@ -74,3 +75,21 @@ Follow these steps to deploy the extension to your users:
 8. After selecting the users, review the app's requested permissions and
    capabilities and click **Next**.
 9. Click **Finish Deployment**.
+
+## Microsoft PowerPoint extension permissions
+
+The Amazon Quick PowerPoint extension uses the
+`ReadWriteDocument` Office JavaScript API permission level. This is an
+Office add-in manifest permission, not a Microsoft Graph API scope.
+No Graph API permissions are needed during deployment.
+
+The default app capabilities for the PowerPoint add-in are:
+
+- Can read and make changes to your document
+- Access your profile information such as your name, email address, company
+  name, and preferred language
+- Can send data over the Internet
+
+Administrators should review the permissions listed during the consent step of
+deployment through the M365 admin center integrated apps
+portal.

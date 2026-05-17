@@ -46,6 +46,7 @@ The Word extension enables users to:
 
 - [Prerequisites for deploying the Microsoft Word extension to your organization](#word-preview-prerequisites "#word-preview-prerequisites")
 - [Deploying the Microsoft Word extension to your organization](#word-preview-deployment "#word-preview-deployment")
+- [Microsoft Word extension permissions](#word-preview-permissions "#word-preview-permissions")
 
 ## Prerequisites for deploying the Microsoft Word extension to your organization
 
@@ -75,3 +76,21 @@ Follow these steps to deploy the extension to your users:
 8. After selecting the users, review the app's requested permissions and
    capabilities and click **Next**.
 9. Click **Finish Deployment**.
+
+## Microsoft Word extension permissions
+
+The Amazon Quick Word extension uses the
+`ReadWriteDocument` Office JavaScript API permission level. This is an
+Office add-in manifest permission, not a Microsoft Graph API scope.
+No Graph API permissions are needed during deployment.
+
+The default app capabilities for the Word add-in are:
+
+- Can read and make changes to your document
+- Access your profile information such as your name, email address, company
+  name, and preferred language
+- Can send data over the Internet
+
+Administrators should review the permissions listed during the consent step of
+deployment through the M365 admin center integrated apps
+portal.
