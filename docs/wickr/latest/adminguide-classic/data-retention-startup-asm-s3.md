@@ -8,11 +8,12 @@ When you start the data retention bot, you will need to set an environment varia
 that specifies the Secrets Manager where this information is stored.
 
 ```
-docker run -v /opt/`compliance_1234567890_bot`:/tmp/`compliance_1234567890_bot` --network=host \
+docker run -v /opt/`compliance_1234567890_bot`:/tmp/`compliance_1234567890_bot` \
 -d --restart on-failure:5 --name="`compliance_1234567890_bot`" -ti \
  -e WICKRIO_BOT_NAME='`compliance_1234567890_bot`' \
  -e AWS_SECRET_NAME='`wickrpro/alpha/compliance_1234567890_bot`' \
-wickr/bot-compliance-cloud:latest
+ -e WICKRIO_COMP_TIMEROTATE=`10` \
+public.ecr.aws/x3s2s6k3/wickrio/bot-compliance-cloud:latest
 ```
 
 The `wickrpro/compliance/compliance_1234567890_bot` secret has the

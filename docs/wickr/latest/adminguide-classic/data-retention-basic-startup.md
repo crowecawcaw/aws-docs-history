@@ -13,5 +13,5 @@ docker run -v /opt/`compliance_1234567890_bot`:/tmp/`compliance_1234567890_bot` 
 -d --restart on-failure:5 --name="`compliance_1234567890_bot`" -ti \
 -e WICKRIO_BOT_NAME='`compliance_1234567890_bot`' \
 -e WICKRIO_BOT_PASSWORD='`password`' \
-wickr/bot-compliance-cloud:latest
+public.ecr.aws/x3s2s6k3/wickrio/bot-compliance-cloud:latest
 ```

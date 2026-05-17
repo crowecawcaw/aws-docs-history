@@ -39,9 +39,12 @@ credentials:
   GiB.
 - `WICKRIO_COMP_TIMEROTATE` – The amount of time, in minutes,
   for which the data retention bot will put received messages into a received
-  messages file. A new file is started when the time limit is reached. You can
-  only use the file size or time to limit the size of the received messages file.
-  The default value is `0`, as in no limit.
+  messages file. The default value is `0`, as in no rotation. This
+  variable is _required_ when using Amazon S3 for data retention.
+  Without setting this value, message files are never rotated and therefore never
+  delivered to Amazon S3. A recommended starting value is `10` minutes. You
+  can adjust this value based on your message volume and delivery
+  requirements.
   Use the following environment variable to define the default AWS Region to
   use.
 

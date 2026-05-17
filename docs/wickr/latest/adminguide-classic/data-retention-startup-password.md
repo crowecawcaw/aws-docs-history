@@ -11,7 +11,7 @@ streaming using the default values defined in the [Environment variables to conf
 docker run -v /opt/`compliance_1234567890_bot`:/tmp/`compliance_1234567890_bot` \
 -d --restart on-failure:5 --name="`compliance_1234567890_bot`" -ti \
 -e WICKRIO_BOT_NAME='`compliance_1234567890_bot`' \
-wickr/bot-compliance-cloud:latest
+public.ecr.aws/x3s2s6k3/wickrio/bot-compliance-cloud:latest
 
 docker attach `compliance_1234567890_bot`
 .
