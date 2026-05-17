@@ -21,7 +21,7 @@ The links in the table point to the Microsoft SQL Server topic pages, which are 
 
 ## Creating Tables
 
-![Four star automation level](/images/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)
+![Four star automation level](images/pb-automation-4.png)
 
 AWS SCT automatically converts the most commonly used constructs of the `CREATE TABLE` statement as both SQL Server and Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) support the entry level American National Standards Institute (ANSI) compliance. These items include table names, containing security schema or database, column names, basic column data types, column and table constraints, column default values, primary, `UNIQUE`, and foreign keys. Some changes may be required for computed columns and global temporary tables.
 
@@ -39,7 +39,7 @@ For more information, see [Creating Tables](chap-sql-server-aurora-pg.sql.tables
 
 ## Data Types
 
-![Four star automation level](/images/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)
+![Four star automation level](images/pb-automation-4.png)
 
 Data type syntax and rules are very similar between SQL Server and Aurora PostgreSQL and most are converted automatically by AWS SCT. Note that date and time handling paradigms are different for SQL Server and Aurora PostgreSQL and require manual verification or conversion. Also note that due to differences in data type behavior between SQL Server and Aurora PostgreSQL, manual verification and strict testing are highly recommended.
 
@@ -85,7 +85,7 @@ For more information, see [PIVOT and UNPIVOT](chap-sql-server-aurora-pg.tsql.piv
 
 ## TOP and FETCH
 
-![Four star automation level](/images/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)
+![Four star automation level](images/pb-automation-4.png)
 
 Aurora PostgreSQL supports the non-ANSI compliant but popular with other engines `LIMIT…​ OFFSET` operator for paging results sets. AWS SCT can’t automatically convert some options such as `WITH TIES`. These options require manual conversion.
 
@@ -150,7 +150,7 @@ For more information, see [Transactions](chap-sql-server-aurora-pg.tsql.transact
 
 ## Stored Procedures
 
-![Four star automation level](/images/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)
+![Four star automation level](images/pb-automation-4.png)
 
 Aurora PostgreSQL stored procedures provide very similar functionality to SQL Server stored procedures. You can automatically convert them with AWS SCT. Manual conversion is required for procedures that use `RETURN` values and some less common `EXECUTE` options such as the `RECOMPILE` and `RESULTS SETS`.
 
@@ -341,7 +341,7 @@ For more information, see [JSON and XML](chap-sql-server-aurora-pg.tsql.json.md 
 
 ## Constraints
 
-![Four star automation level](/images/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)
+![Four star automation level](images/pb-automation-4.png)
 
 Constraints feature is almost fully automated and compatible between SQL Server and Aurora PostgreSQL. The differences are: missing `SET DEFAULT` and check constraint with sub-query.
 
