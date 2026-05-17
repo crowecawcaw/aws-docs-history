@@ -71,8 +71,7 @@ The following registration forms can be filled out and submitted through the AWS
   and voice messages. They can't be used to send messages to recipients outside of the United
   States or the US territories of Puerto Rico, US Virgin Islands, Guam, and American Samoa.
   For more information on completing the registration, see [US toll-free number registration form](registrations-tfn-register.md "registrations-tfn-register.md").
-- **US Short Code** – (Only the United States and the
-  US territories of Puerto Rico, US Virgin Islands, Guam, and American Samoa). A Common Short Code (Short Code)
+- **US Short Code** – (Only the United States). A Common Short Code (Short Code)
   is a five- or six-digit number to and from which text messages can be sent from and to Consumers of all
   participating U.S. Wireless Providers. Short Code Programs offer a convenient, efficient, and innovative
   means to communicate with Consumers. They can't be used to send messages to recipients outside of the United

@@ -35,6 +35,7 @@ and managing your AWS RCS Agent, see
 - [Per-carrier launch status](#rcs-country-launch-carrier-status "#rcs-country-launch-carrier-status")
 - [Carrier approval timelines](#rcs-country-launch-timelines "#rcs-country-launch-timelines")
 - [Common registration issues and troubleshooting](#rcs-country-launch-troubleshooting "#rcs-country-launch-troubleshooting")
+- [RCS country launch compliance guide](rcs-country-launch-compliance.md "rcs-country-launch-compliance.md")
 
 ## Testing registration
 
@@ -97,16 +98,18 @@ The US launch registration requires the following information:
   You must provide a screen recording that demonstrates your
   RCS messaging experience. The recording should show the end-user
   experience of receiving and interacting with your RCS messages.
-  This is a requirement specific to the US launch.
+  For detailed video requirements, see
+  [Launch video requirements](rcs-compliance-video.md "rcs-compliance-video.md").
 - **Privacy policy and terms of service**
   — URLs to your privacy policy and terms of service pages.
 
 ###### Important
 
-The screen recording requirement is specific to the US launch
-registration. You must provide a recording that clearly demonstrates
+Both the US and Canada launch registrations require a screen
+recording. You must provide a recording that clearly demonstrates
 your RCS messaging use case. Registrations submitted without a valid
-screen recording are rejected.
+screen recording are rejected. For detailed requirements, see
+[Launch video requirements](rcs-compliance-video.md "rcs-compliance-video.md").
 
 ## Launching in Canada
 
@@ -126,15 +129,19 @@ The Canada launch registration requires the following information:
   Select the use case category for your RCS messaging. Available
   categories include OTP (one-time passwords), Transactional,
   Promotional, and Multi-use.
+- **Screen recording** —
+  You must provide a screen recording that demonstrates your
+  RCS messaging experience. For detailed video requirements, see
+  [Launch video requirements](rcs-compliance-video.md "rcs-compliance-video.md").
 - **Privacy policy and terms of service**
   — URLs to your privacy policy and terms of service pages.
 
 ###### Note
 
-The Canada launch registration does not require a screen recording.
-The form field requirements differ from the US launch registration.
-Review the registration form carefully to ensure all required fields
-are completed for the Canadian market.
+The Canada launch registration form field requirements differ from
+the US launch registration. A screen recording is required for both
+countries. Review the registration form carefully to ensure all
+required fields are completed for the Canadian market.
 
 ## Use case selection
 
@@ -354,8 +361,9 @@ To help ensure a smooth approval process:
 
 - Complete all required registration fields accurately before
   submitting.
-- For US launches, provide a clear and complete screen recording that
-  demonstrates your RCS messaging use case.
+- Provide a clear and complete screen recording that
+  demonstrates your RCS messaging use case. See
+  [Launch video requirements](rcs-compliance-video.md "rcs-compliance-video.md").
 - Respond promptly to any REQUIRES_UPDATES feedback from the review
   process.
 - Ensure your privacy policy and terms of service URLs are accessible
@@ -364,7 +372,9 @@ To help ensure a smooth approval process:
 ## Common registration issues and troubleshooting
 
 The following sections describe common issues that you might encounter during
-the country launch registration process and how to resolve them.
+the country launch registration process and how to resolve them. For detailed
+compliance requirements and how to avoid denials, see
+[RCS country launch compliance guide](rcs-country-launch-compliance.md "rcs-country-launch-compliance.md").
 
 ### Registration requires updates
 
@@ -372,7 +382,7 @@ If your registration enters the REQUIRES_UPDATES state, review the
 feedback provided in the registration details. Common reasons include:
 
 - Incomplete or inaccurate brand information.
-- Missing or invalid screen recording (US launches only).
+- Missing or invalid screen recording.
 - Privacy policy or terms of service URLs that are inaccessible or
   do not meet requirements.
 - Use case description that does not clearly explain your intended
@@ -415,24 +425,7 @@ longer than expected:
 
 ### Registration denial reasons
 
-When a registration is denied, AWS End User Messaging provides a denial reason that
-explains why the registration was not approved. The following table lists
-all RCS registration denial reasons and the recommended action for each.
-
-| RCS registration denial reasons      | Denial reason                                                                                                                                          | Description                                                                                                                                                                                                                                                                   | Recommended action |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `REQUIRES_OFFLINE_REVIEW`            | This registration requires manual offline review.                                                                                                      | Create a support case in the AWS Support Center.<br>Choose the RCS Agent assistance category and include your<br>registration ID. See<br>[Get more information through Support for registration issues](registrations-request-support.md "registrations-request-support.md"). |
-| `CANNOT_UPDATE_REGISTRATION`         | Certain RCS agent fields cannot be modified on an<br>existing registration.                                                                            | Create a new testing registration with the corrected<br>fields.                                                                                                                                                                                                               |
-| `IMAGE_URL_INACCESSIBLE`             | The image URL provided is not publicly<br>accessible.                                                                                                  | Provide a URL that can be accessed without<br>authentication. Update the registration and<br>resubmit.                                                                                                                                                                        |
-| `IMAGE_FORMAT_INVALID`               | The image must be in JPEG or PNG format.                                                                                                               | Upload an image in the correct format and<br>resubmit.                                                                                                                                                                                                                        |
-| `IMAGE_RESOLUTION_INVALID`           | The image does not meet the required resolution. The<br>logo must be 224 x 224 pixels and the banner must be<br>1440 x 448 pixels.                     | Resize the image to the required dimensions and<br>resubmit.                                                                                                                                                                                                                  |
-| `IMAGE_SIZE_EXCEEDED`                | The image file size exceeds the allowed limit. The<br>logo must not exceed 50 KB and the banner must not<br>exceed 200 KB.                             | Reduce the file size and resubmit.                                                                                                                                                                                                                                            |
-| `ACCENT_COLOR_CONTRAST_INSUFFICIENT` | The accent color must have a contrast ratio of at<br>least 4.5:1 relative to white.                                                                    | Choose a darker accent color that meets the contrast<br>requirement and resubmit.                                                                                                                                                                                             |
-| `PRIVACY_POLICY_INACCESSIBLE`        | The privacy policy URL provided is inaccessible or<br>invalid.                                                                                         | Provide a publicly accessible privacy policy URL and<br>resubmit.                                                                                                                                                                                                             |
-| `TERMS_AND_CONDITIONS_INACCESSIBLE`  | The terms and conditions URL provided is inaccessible<br>or invalid.                                                                                   | Provide a publicly accessible terms and conditions URL<br>and resubmit.                                                                                                                                                                                                       |
-| `CONTACT_DETAILS_MISSING`            | At least one contact method (phone, email, or website)<br>is required in the agent profile, and each contact value<br>must have a corresponding label. | Add at least one contact method to your agent profile.<br>Ensure each contact value has a corresponding label (for<br>example, if you provide a phone number, also provide a<br>phone label). Update the registration and resubmit.                                           |
-
-For denial reasons that require AWS Support assistance, create a
-support case in the [AWS
-Support Center](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase"). Include your AWS RCS Agent ID and registration ID
-in the case description.
+When a registration is denied, AWS End User Messaging provides a denial reason code that
+explains why the registration was not approved. For the complete list of
+denial reason codes with descriptions and recommended actions, see
+[RCS registration denial reasons](rcs-compliance-denial-reasons.md "rcs-compliance-denial-reasons.md").

@@ -16,6 +16,17 @@ create an AWS Support case.
 
 ## India transactional message sender ID registration
 
+###### Important
+
+AWS End User Messaging SMS only supports local India routes through AWS regions AP-SOUTH-1 Asia
+Pacific (Mumbai) and AP-SOUTH-2 Asia Pacific (Hyderabad). This restriction
+applies to local routes that use DLT-registered sender IDs. It does not apply
+to international routes or short codes, which can be used from any
+AWS Region. If you complete this registration in a different region, your
+messages will be delivered via international (ILDO) routes using a generic
+numeric sender instead of your registered sender ID. For more information, see
+[Understanding international and local routes for India](registrations-sms-senderid-india-routes.md "registrations-sms-senderid-india-routes.md").
+
 Follow these directions to register your sender ID for transactional messages in
 India.
 

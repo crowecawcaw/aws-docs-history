@@ -22,6 +22,7 @@ The following registrations can be filled out and submitted through the AWS End 
 - [Russia sender ID registration](registrations-russia.md "registrations-russia.md")
 - [Saudi Arabia sender ID registration](registrations-saudi-arabia.md "registrations-saudi-arabia.md")
 - [Singapore sender ID registration](registrations-sg.md "registrations-sg.md")
+- [Spain sender ID registration](registrations-spain.md "registrations-spain.md")
 - [Sri Lanka sender ID registration](registrations-sri-lanka.md "registrations-sri-lanka.md")
 - [Thailand sender ID registration](registrations-thailand.md "registrations-thailand.md")
 - [Turkey sender ID registration](registrations-turkey.md "registrations-turkey.md")

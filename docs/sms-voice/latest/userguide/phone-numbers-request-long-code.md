@@ -18,7 +18,9 @@ default, your monthly spending threshold is $1.00 (USD). For more information, s
 
 You can request a long code for the following countries through the AWS End User Messaging SMS console or
 API. Most countries require you to submit a dedicated number registration before you can
-obtain a long code.
+obtain a long code. Long codes provisioned through the console or API are provisioned
+with **SMS capability only**. If you need voice capability
+on a long code, you must create a support case as described in [Requesting a long code for other countries](#phone-numbers-request-number-support "#phone-numbers-request-number-support").
 
 - Australia (AU)
 - Austria (AT)

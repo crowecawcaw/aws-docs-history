@@ -239,7 +239,12 @@ Key characteristics of sticky sending:
 When SMS fallback occurs, AWS End User Messaging generates a single delivery receipt
 for the final channel that delivered the message. If the message is
 delivered via SMS after RCS fallback, the delivery receipt indicates SMS
-as the delivery channel.
+as the delivery channel. You can determine the delivery channel by
+inspecting the `originationPhoneNumber` field in the event. If
+the value is an RCS agent ID, the message was delivered via RCS. If the
+value is an E.164 phone number or short code, the message was delivered
+via SMS. For more information about event fields, see
+[Example AWS End User Messaging SMS event data](configuration-sets-event-format.md "configuration-sets-event-format.md").
 
 Under normal circumstances, AWS End User Messaging revokes the RCS message before
 the SMS fallback message is delivered. This prevents the recipient from
