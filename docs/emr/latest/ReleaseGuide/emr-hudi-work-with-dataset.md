@@ -48,7 +48,7 @@ commands.
   from the configuration.
 - Amazon EMR 6.6 and 5.36 and later (Hudi 0.10.x and later)
   must include the
-  `HoodieSparkSessionExtension` config as described in the [Version: 0.10.0 Spark Guide](https://hudi.apache.org/docs/0.10.0/quick-start-guide/ "https://hudi.apache.org/docs/0.10.0/quick-start-guide/"):
+  `HoodieSparkSessionExtension` config as described in the [Version: 0.10.0 Spark Guide](https://hudi.apache.org/docs/quick-start-guide "https://hudi.apache.org/docs/quick-start-guide"):
 
 ```
 --conf  "spark.sql.extensions=org.apache.spark.sql.hudi.HoodieSparkSessionExtension" \

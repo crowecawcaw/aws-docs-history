@@ -352,5 +352,5 @@ KMS.
   started. Reconfiguring `hdfs-encryption-zones` classification or
   any of the Hadoop KMS configuration classifications on a running cluster is
   not supported on Amazon EMR cluster with multiple primary nodes.
-- The PEM certificate bundle that you downlaod from [Download certificate bundles for Amazon RDS](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md#UsingWithRDS.SSL.CertificatesDownload "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md#UsingWithRDS.SSL.CertificatesDownload") groups multiple certificates into one file. Amazon EMR 7.3.0 and higher supports importing multiple
+- The PEM certificate bundle that you download from [Download certificate bundles for Amazon RDS](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md#UsingWithRDS.SSL.CertificatesDownload "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md#UsingWithRDS.SSL.CertificatesDownload") groups multiple certificates into one file. Amazon EMR 7.3.0 and higher supports importing multiple
   certificates from the PEM file with the configuration `ranger.kms.trust.ca.file.s3.url`.

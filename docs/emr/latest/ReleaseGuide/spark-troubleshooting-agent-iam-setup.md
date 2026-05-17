@@ -4,6 +4,14 @@ The CloudFormation stack in Setup Instructions automates the IAM role setup for 
 
 ## IAM Role Setup for MCP Server
 
+###### Upcoming change effective May 29, 2026
+
+The `sagemaker-unified-studio-mcp` permissions shown below will no
+longer be required after May 29, 2026. Authorization will instead occur at the AWS
+service level using your existing IAM policies. If you use these permissions to deny
+access, see [Upcoming permissions change (May 29, 2026)](#spark-troubleshooting-agent-mcp-permissions-change "#spark-troubleshooting-agent-mcp-permissions-change") to
+update your policies before that date.
+
 To access the SMUS Managed MCP server, an IAM role is required with the following inline policy:
 
 ```
@@ -221,3 +229,58 @@ If the CloudWatch Logs are encrypted with a CMK, add the following policy so the
     "Resource": "arn:aws:kms:<region>:<account-id>:key/<cw-logs-cmk-id>"
 }
 ```
+
+## Upcoming permissions change (May 29, 2026)
+
+Starting May 29, 2026, the AWS SMUS MCP server will no longer require separate IAM
+permissions to authorize MCP server operations. Instead, authorization will occur at the
+AWS service level using your existing IAM roles and policies.
+
+Two condition keys will automatically be added to all requests made through the SMUS
+MCP server:
+
+- `aws:ViaAWSMCPService` – Set to `true` for
+  any request made via an AWS managed MCP server.
+- `aws:CalledViaAWSMCP` – Set to the MCP server service
+  principal (for example,
+  `sagemaker-unified-studio-mcp.amazonaws.com`).
+
+If you currently use the `sagemaker-unified-studio-mcp` permissions to
+deny access to the SMUS MCP server, or if you do not want to allow any AWS managed MCP
+server initiated actions on your account, you must update your policies before May 29, 2026. Use the new condition keys instead.
+
+**Deny all operations via any AWS managed MCP
+server:**
+
+```
+{
+  "Effect": "Deny",
+  "Action": "*",
+  "Resource": "*",
+  "Condition": {
+    "Bool": {
+      "aws:ViaAWSMCPService": "true"
+    }
+  }
+}
+```
+
+**Deny specific operations via a specific AWS managed MCP
+server:**
+
+```
+{
+  "Effect": "Deny",
+  "Action": ["glue:GetJobRun", "glue:StartJobRun"],
+  "Resource": "*",
+  "Condition": {
+    "StringEquals": {
+      "aws:CalledViaAWSMCP": "sagemaker-unified-studio-mcp.amazonaws.com"
+    }
+  }
+}
+```
+
+For more information about condition keys, see
+[AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md")
+in the _IAM User Guide_.
