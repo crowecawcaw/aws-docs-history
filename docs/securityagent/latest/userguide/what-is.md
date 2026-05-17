@@ -16,7 +16,7 @@ AWS Security Agent shifts security left by providing real-time security feedback
 
 ### Code security review
 
-AWS Security Agent proactively secures applications by analyzing pull requests against your organizational security requirements and common vulnerabilities like missing input validation and SQL injection risks. Developers receive remediation guidance directly in their GitHub workflow, while security teams configure which repositories to monitor and intervene on critical issues. This embeds security expertise across all repositories, reducing security-related delays in the development pipeline and scaling evaluation across all codebases.
+AWS Security Agent proactively secures applications through two complementary approaches. First, you can create code reviews in the web application to perform comprehensive scans of your full source code from GitHub repositories or S3 buckets, identifying security vulnerabilities and validating compliance with your organizational requirements across your entire codebase. Second, you can enable automated pull request analysis for connected GitHub repositories, where AWS Security Agent reviews code changes and posts security findings directly as pull request comments. In both cases, developers receive remediation guidance, and AWS Security Agent can automatically generate pull requests with code fixes for identified vulnerabilities. This embeds security expertise across all repositories, reducing security-related delays in the development pipeline and scaling evaluation across all codebases.
 
 ### Penetration testing
 

@@ -55,7 +55,7 @@ This step is optional, however we recommend connecting to your GitHub account to
 6. Click **Next**
 7. Select the repositories you want to be associated for penetration testing. This allows the web application users to associate these repositories to a penetration test, when they create a new pentest.
 8. Click **Next**
-9. If you want to enable automatic code remediation, enable **Pentest remediation enabled** on the repositories you want to allow AWS Security Agent to create pull requests with ready-to-implement code fix for pentest findings.
+9. If you want to enable automatic code remediation, enable **Automatic remediation enabled** on the repositories you want to allow AWS Security Agent to create pull requests with ready-to-implement code fix for pentest findings.
 10. Click **Connect**
 
 ## Step 4: Run a penetration test

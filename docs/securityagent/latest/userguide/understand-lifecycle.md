@@ -25,7 +25,7 @@ Each Agent Space represents a distinct application or project you want to secure
 | **Penetration test configurations**       | Test configurations for specific features, API endpoints, or functionality within your application                     | Each application has unique targets, authentication methods, and scope boundaries specific to that application.                 |
 | **Design reviews**                        | Individual architectural security assessments of design documents                                                      | Each application has its own architecture and design documents that are assessed independently.                                 |
 | **Connected repositories**                | GitHub repositories linked to this Agent Space                                                                         | Different applications use different repositories. Connecting them at the Agent Space level keeps application boundaries clear. |
-| **Code review settings**                  | Configuration of which connected repositories have automated code review enabled                                       | Teams control which repositories receive automated security feedback based on their application’s needs.                        |
+| **Code review settings**                  | Configuration of code review capabilities including connected sources, scan settings, and PR comment enablement        | Each application has its own repositories and security review needs configured independently.                                   |
 | **Penetration test remediation settings** | Configuration of which connected repositories can receive automated fix pull requests for penetration testing findings | Teams control where AWS Security Agent can submit code changes based on their application’s workflow.                           |
 | **User assignments**                      | Users who have access to this specific Agent Space                                                                     | Teams only see security assessments for applications they’re responsible for, keeping work organized and focused.               |
 
@@ -40,9 +40,9 @@ GitHub repositories are integrated through a multi-step process that connects or
 1. **Register at the tenant level** - Authorize the AWS Security Agent GitHub App for your GitHub organization or user account once
 2. **Connect at the Agent Space level** - Select specific repositories to connect to each Agent Space
 3. **Configure usage per repository** - Enable specific capabilities for each connected repository:
-   - **Code review** - Automated security analysis of pull requests
+   - **Code review** - Full source code scanning and automated pull request analysis
    - **Penetration testing context** - Application understanding from source code during penetration tests
-   - **Penetration test remediation** - Automated pull requests with vulnerability fixes for penetration testing findings
+   - **Automatic code remediation** - Automated pull requests with vulnerability fixes for code review and penetration testing findings
 
 A single repository can be connected to multiple Agent Spaces with different capabilities enabled in each one.
 
@@ -69,15 +69,14 @@ Design reviews are independent assessments that don’t follow a reusable config
 
 This model supports point-in-time architectural security assessments.
 
-### Code reviews: Automatic and independent
+### Code reviews: Reusable configurations with on-demand scans and automatic PR analysis
 
-Code reviews integrate into your GitHub workflow without manual configuration per review:
+Code reviews provide two modes of operation for securing your source code:
 
-- **Automatic trigger** - AWS Security Agent automatically analyzes pull requests in repositories where code review is enabled
-- **Independent reviews** - Each pull request receives its own independent security analysis
-- **Findings in GitHub** - Security findings appear as comments on pull requests, not in the Security Agent Web Application
+- **Full code reviews (web application)** - Create code review configurations that select GitHub repositories or S3 sources, then run comprehensive scans on demand. Each run performs static analysis across your full source code and generates findings with remediation guidance. You can re-run the same code review configuration as your code evolves.
+- **Pull request comments (GitHub)** - Enable automated analysis for connected GitHub repositories. AWS Security Agent automatically reviews pull requests when they are marked as ready for review and posts security findings as comments directly in GitHub.
 
-This model embeds security feedback directly into your development workflow.
+Both modes use your configured code review settings (security vulnerabilities, custom requirements, or both) and support automated code remediation through pull requests.
 
 ## Understanding resource relationships
 
@@ -93,13 +92,14 @@ The hierarchy determines where you configure and access different resources:
 
 - Create and manage penetration test configurations and test executions
 - Create and manage design reviews
-- View findings from penetration tests and design reviews
+- Create, manage, and run code reviews against connected repositories and S3 sources
+- View findings from penetration tests, code reviews, and design reviews
 
 **In GitHub:**
 
-- View code review findings as pull request comments
-- Receive automated remediation pull requests for penetration testing findings (when enabled in the Agent Space)
+- View pull request code review findings as pull request comments
+- Receive automated remediation pull requests for code review and penetration testing findings (when enabled in the Agent Space)
 
 ###### Note
 
-Code review findings and penetration test remediation pull requests appear in GitHub. Penetration test and design review findings appear in the Security Agent Web Application.
+Pull request code review findings appear in GitHub. Full code review, penetration test, and design review findings appear in the Security Agent Web Application.

@@ -6,10 +6,10 @@ AWS Security Agent has quotas that limit the number of resources you can create 
 
 Operations quotas limit the monthly usage of security testing and review features to help manage service capacity.
 
-| Resource       | Scope                            | Quota | Adjustable |
-| -------------- | -------------------------------- | ----- | ---------- |
-| Design reviews | Per month per account per region | 200   | Yes        |
-| Code reviews   | Per month per account per region | 1,000 | Yes        |
+| Resource        | Scope                            | Quota | Adjustable |
+| --------------- | -------------------------------- | ----- | ---------- |
+| Design reviews  | Per month per account per region | 200   | Yes        |
+| PR code reviews | Per month per account per region | 1,000 | Yes        |
 
 ## Configuration Quotas
 
@@ -23,3 +23,5 @@ Configuration quotas limit the number of resources and settings you can configur
 | Custom security requirements         | Per account per region | 20    | No         |
 | Pentest projects                     | Per account per region | 1,000 | Yes        |
 | Concurrent pentest runs              | Per account per region | 5     | Yes        |
+| Code review projects                 | Per account per region | 1,000 | Yes        |
+| Concurrent code review runs          | Per account per region | 5     | Yes        |

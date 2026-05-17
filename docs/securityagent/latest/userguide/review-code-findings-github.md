@@ -1,6 +1,6 @@
-# Review code security findings in GitHub
+# Review code security findings in GitHub pull requests
 
-After enabling code review for your repositories, AWS Security Agent automatically analyzes pull requests and posts security findings directly in GitHub. This allows developers to address security issues within their normal workflow without leaving the pull request.
+After enabling code review for pull requests for your repositories, AWS Security Agent automatically analyzes pull requests and posts security findings directly in GitHub. This allows developers to address security issues within their normal workflow without leaving the pull request.
 
 ## How code review works in GitHub
 
@@ -27,7 +27,7 @@ If AWS Security Agent identifies security issues in your code changes, it posts 
 
 ###### Note
 
-The types of security issues analyzed depend on your code review settings. If you configured security requirement validation, findings will reference your organization’s custom security requirements. If you configured security vulnerability findings, findings will identify common security vulnerabilities. For more information about code review settings, see [Enable code review capability for a GitHub repository](enable-code-review.md "enable-code-review.md").
+The types of security issues analyzed depend on your code review settings. If you configured security requirement validation, findings will reference your organization’s custom security requirements. If you configured security vulnerability findings, findings will identify common security vulnerabilities. For more information about code review settings, see [Enable pull request code review for GitHub repositories](enable-code-review.md "enable-code-review.md").
 
 ### When no security issues are found
 
@@ -115,6 +115,6 @@ After reviewing code security findings:
 
 - Update your code based on remediation guidance
 - Push new commits to trigger re-analysis of your changes
-- Adjust code review settings if needed (see [Enable code review capability for a GitHub repository](enable-code-review.md "enable-code-review.md"))
+- Adjust code review settings if needed (see [Enable pull request code review for GitHub repositories](enable-code-review.md "enable-code-review.md"))
 - Review your organization’s security requirements to understand validation criteria
 - Consider penetration testing for comprehensive security validation of deployed applications
