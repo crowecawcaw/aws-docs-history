@@ -62,11 +62,13 @@ AWS Regions.
 - **`p6-b300.48xlarge`**
   - US East (N. Virginia) — `us-east-1`
   - US West (Oregon) — `us-west-2`
+  - AWS GovCloud (US-East) — `us-gov-east-1`
 
 - **`p6-b200.48xlarge`**
   - US East (N. Virginia) — `us-east-1`
   - US East (Ohio) — `us-east-2`
   - US West (Oregon) — `us-west-2`
+  - AWS GovCloud (US-West) — `us-gov-west-1`
 
 - **`p5.4xlarge`**
   - US East (N. Virginia) — `us-east-1`
@@ -132,7 +134,6 @@ AWS Regions.
 - **`trn1.32xlarge`**
   - US East (N. Virginia) — `us-east-1`
   - US East (Ohio) — `us-east-2`
-  - US West (N. California) — `us-west-1`
   - US West (Oregon) — `us-west-2`
   - Europe (Stockholm) — `eu-north-1`
   - Asia Pacific (Mumbai) — `ap-south-1`

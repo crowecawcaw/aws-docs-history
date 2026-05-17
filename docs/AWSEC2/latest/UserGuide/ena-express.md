@@ -3,14 +3,14 @@
 ENA Express is powered by AWS Scalable Reliable Datagram (SRD) technology.
 SRD is a high performance network transport protocol that uses dynamic routing
 to increase throughput and minimize tail latency. With ENA Express, you can communicate between two EC2 instances in
-the same Availability Zone.
+the same Availability Zone or across Availability Zones within the same Region.
 
 ###### Benefits of ENA Express
 
 - Increases the maximum bandwidth a single flow can use from 5 Gbps up to 25 Gbps
-  within the Availability Zone, up to the aggregate instance limit.
-- Reduces tail latency of network traffic between EC2 instances, especially during
-  periods of high network load.
+  within the same Region, up to the aggregate instance limit.
+- Reduces tail latency of network traffic between EC2 instances in the same
+  Availability Zone, especially during periods of high network load.
 - Detects and avoids congested network paths.
 - Handles some tasks directly in the network layer, such as packet reordering on the
   receiving end, and most retransmits that are needed. This frees up the application
@@ -18,11 +18,13 @@ the same Availability Zone.
 
 ###### Note
 
-- If your application sends or receives a high volume of packets per second, and
-  needs to optimize for latency most of the time, especially during periods when
-  there is no congestion on the network, [Enhanced networking](enhanced-networking.md "enhanced-networking.md") might be a better fit for your
-  network.
+- If your application has high packets-per-second requirements and needs to
+  optimize for latency during uncongested periods, [Enhanced networking](enhanced-networking.md "enhanced-networking.md") might be a better
+  fit.
 - ENA Express traffic can't be sent in a Local Zone.
+- ENA Express support for traffic between Availability Zones is not available
+  in South America (São Paulo), Middle East (Bahrain), and
+  Middle East (UAE).
   After you've enabled ENA Express for the network interface attachment on an instance, the
   sending instance initiates communication with the receiving instance, and SRD detects if ENA
   Express is operating on both the sending instance and the receiving instance. If ENA Express
@@ -30,16 +32,16 @@ the same Availability Zone.
   the communication falls back to standard ENA transmission.
 
 During periods of time when network traffic is light, you might notice a slight increase
-in packet latency (tens of microseconds) when the packet uses ENA Express. During those
+in median packet latency (tens of microseconds) when the packet uses ENA Express. During those
 times, applications that prioritize specific network performance characteristics can benefit
 from ENA Express as follows:
 
 - Processes can benefit from increased maximum single flow bandwidth from 5 Gbps up
-  to 25 Gbps within the same Availability Zone, up to the aggregate instance limit.
+  to 25 Gbps within the same Region, up to the aggregate instance limit.
   For example, if a specific instance type supports up to 12.5 Gbps, the single flow
   bandwidth is also limited to 12.5 Gbps.
-- Longer running processes should experience reduced tail latency during periods of
-  network congestion.
+- Longer running processes in the same Availability Zone will experience reduced
+  tail latency during periods of network congestion.
 - Processes can benefit from a smoother and more standard distribution for network
   response times.
 
@@ -79,7 +81,7 @@ instances have enabled it. However, since one of the instances does not use ENA 
 for UDP traffic, communication between these two instances over UDP uses standard ENA
 transmission.
 
-- The sending and receiving instances must run in the same Availability Zone.
+- The sending and receiving instances must run in the same Region.
 - The network path between the instances must not include middleware boxes. ENA Express
   doesn't currently support middleware boxes.
 - (Linux instances only) To utilize full bandwidth potential, use driver version 2.2.9 or higher.
@@ -619,7 +621,7 @@ by default.
   well as the core network socket buffer defaults and maximums, are large
   enough to sustain high throughput. These settings are important
   in environments with increased network latency, where you need larger
-  buffers to fully utilize the connection.
+  buffers to utilize the connection.
 - **TCP congestion control**
   – Verifies that the TCP congestion control configuration is optimized
   for use with ENA Express in environments with increased network

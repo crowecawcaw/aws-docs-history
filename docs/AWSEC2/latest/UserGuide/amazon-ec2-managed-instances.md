@@ -153,7 +153,7 @@ appear in your Amazon EC2 console views and API list operations.
 
 ### What is managed resource visibility?
 
-AWS services such as Amazon EKS, Amazon ECS, Workspaces, and AWS Lambda provision and operate
+AWS services such as Amazon EKS, Amazon ECS, WorkSpaces Core, and AWS Lambda provision and operate
 Amazon EC2 instances directly within your account. These services assume responsibility
 for scaling, OS patches, security updates, and lifecycle management. The resulting
 Amazon EC2 instances, Amazon EC2 launch templates, Amazon EBS volumes, and network interfaces (ENIs) appear
@@ -166,16 +166,13 @@ surface in your resource views.
 | Resource type               | Services that provision these resources                                                                               | Description                                           |
 | --------------------------- | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
 | Amazon EC2 instances        | Amazon EKS worker nodes, Amazon ECS container instances, AWS Lambda execution<br>environments, Amazon WorkSpaces Core | Primary resource type affected by visibility settings |
-| Amazon EC2 launch templates | Amazon EKS, Amazon ECS                                                                                                | Launch templates created by managed services          |
-| Amazon EBS volumes          | Amazon EKS, Amazon ECS                                                                                                | Volumes attached to managed instances                 |
-| Network interfaces (ENIs)   | Amazon EKS, Amazon ECS, Lambda                                                                                        | Network interfaces provisioned for managed workloads  |
+| Amazon EC2 launch templates | Amazon EKS, Amazon ECS, Amazon WorkSpaces Core                                                                        | Launch templates created by managed services          |
+| Amazon EBS volumes          | Amazon EKS, Amazon ECS, Amazon WorkSpaces Core                                                                        | Volumes attached to managed instances                 |
+| Network interfaces (ENIs)   | Amazon EKS, Amazon ECS, AWS Lambda, Amazon WorkSpaces Core                                                            | Network interfaces provisioned for managed workloads  |
 
 ###### Note
 
-By default, new managed resources are hidden. Existing managed resources
-already created in your account by managed instance offerings (such as Amazon EKS
-Auto Mode, Amazon ECS managed instances, or Lambda managed instances) remain visible.
-You can change visibility settings at any time.
+By default, Amazon EC2 hides managed resources for accounts that did not have managed resources before visibility settings became available. For accounts that already had managed resources, Amazon EC2 sets the visibility setting to **Visible** to preserve existing workflows. The visibility setting applies to all managed resources in a Region, regardless of when they were created. You can change visibility settings at any time.
 
 ### Why configure visibility settings
 
@@ -201,8 +198,8 @@ permissions. Hidden resources remain fully operational and billable.
 
 ### Configure managed resource visibility
 
-You can configure managed resource visibility by using the Amazon EC2 console or
-the AWS CLI.
+You can configure the visibility of managed resources by using the Amazon EC2 console
+or the AWS CLI.
 
 Console
 
@@ -210,11 +207,17 @@ Console
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. In the navigation pane, choose **Dashboard**.
 3. On the **Account attributes** card, under
-   **Settings**, choose **Managed resource
-   visibility**.
-4. Choose **Manage**.
-5. Toggle visibility on or off for managed instances.
-6. Choose **Save changes**.
+   **Settings**, choose **Managed
+   resources**.
+4. Choose **Modify**.
+5. Under **Default visibility**, choose one
+   of the following options:
+   - **Hidden (default)** – Hides
+     all managed resources.
+   - **Visible** – Shows all
+     managed resources.
+
+6. Choose **Modify visibility**.
 
 AWS CLI
 

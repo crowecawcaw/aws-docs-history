@@ -217,7 +217,7 @@ The number of network as follows:
   [Supported instance types for ENA Express](ena-express.md#ena-express-supported-instance-types "ena-express.md#ena-express-supported-instance-types")
   table for more information.
 - Both sending and receiving instances must have ENA Express configured.
-- The sending and receiving instances must run in the same Availability Zone.
+- The sending and receiving instances must run in the same Region.
 - The network path between the instances must not include middleware boxes. ENA Express
   doesn't currently support middleware boxes.
 

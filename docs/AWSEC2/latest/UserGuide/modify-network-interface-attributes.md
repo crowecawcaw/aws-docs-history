@@ -55,8 +55,8 @@ Console
         connections in an established state.
         - Min: `60` seconds
         - Max: `432000` seconds
-        - Default: `350` seconds for [Nitrov6](../../../ec2/latest/instancetypes/ec2-nitro-instances.md "../../../ec2/latest/instancetypes/ec2-nitro-instances.md")
-          instance types, excluding P6e-GB200. And `432000` seconds for other instance types, including P6e-GB200.
+        - Default: `350` seconds for [Nitro v6](../../../ec2/latest/instancetypes/ec2-nitro-instances.md "../../../ec2/latest/instancetypes/ec2-nitro-instances.md")
+          instance types (excluding P6e-GB200); `432000` seconds for all other instance types (including P6e-GB200).
         - Recommended: Less than `432000` seconds
 
       - **UDP timeout**: Timeout (in seconds) for idle UDP flows that
