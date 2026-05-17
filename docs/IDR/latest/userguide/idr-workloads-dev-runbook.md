@@ -1,10 +1,10 @@
 # Develop runbooks and response plans for responding to an incident in Incident Detection and Response
 
-Incident Detection and Response uses information captured from your onboarding questionnaire to develop runbooks
+Incident Detection and Response uses information captured from your AWS Incident Detection and Response Customer Command Line Interface onboarding to develop runbooks
 and response plans for the management of incidents affecting your workloads. Runbooks
 document steps Incident Managers take when responding to an incident. A response plan is
 mapped to at least one of your workloads. The incident management team creates these
-templates from the information provided by you during [workload discovery](idr-gs-discovery.md "idr-gs-discovery.md"). Response plans are AWS Systems Manager (SSM) document templates
+templates from the information provided by you during [workload onboarding](getting-started-idr.md#workload-onboarding "getting-started-idr.md#workload-onboarding"). Response plans are AWS Systems Manager (SSM) document templates
 used to trigger incidents. To learn more about SSM documents, see [AWS Systems Manager Documents](../../../systems-manager/latest/userguide/sysman-ssm-docs.md "../../../systems-manager/latest/userguide/sysman-ssm-docs.md"). To learn more about Incident Manager, see [What Is
 AWS Systems Manager Incident Manager?](../../../incident-manager/latest/userguide/index.md "../../../incident-manager/latest/userguide/index.md")
 

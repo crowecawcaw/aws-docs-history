@@ -17,57 +17,31 @@ your workload.
 
 ## Request an Incident Response using the AWS Support Center Console
 
-1. Open the [AWS Support Center Console](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/"), and then choose **Create case**.
-2. Choose **Technical**.
-3. For **Service**, choose **Incident Detection and Response**.
-4. For **Category**, choose **Active Incident**.
-5. For **Severity**, choose **Business-critical system down**.
-6. Enter a **Subject** for this incident.
-   For example:
+To request an incident response, complete the following steps:
 
-AWS Incident Detection and Response - Active Incident - workload_name 7. Enter the **Problem Description** for
-this incident. Add the following details:
+1. Open the [AWS Support Center Console](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/") to create a new support case.
+2. For **Subject**, enter a brief summary of the incident.
+   For example, `AWS Incident Detection and Response - Active Incident - workload_name`.
+3. For **Description**, enter the details of the incident. We recommend that you include the following details in your support case:
+   - Affected AWS resource ARN(s), workload name and its function
+   - Description of impact to the business
+   - (Optional) Your preferred conference bridge URL. If you don't provide
+     bridge details, AWS Incident Detection and Response creates an AWS conference bridge and sends you
+     an invitation with the bridge URL.
 
-    * **Technical Information:**
+4. (Optional) Attach files that can help describe the incident, such as screenshots or log excerpts.
+5. Configure the following case classification fields:
+   - **Case type**: **Technical**
+   - **Service**: **Incident Detection and Response**
+   - **Category**: **Active Incident**
+   - **Severity**: **Business-critical system down**
 
-
-     Workload Name
-
-
-    Affected AWS Resource ARN(s)
-    * **Business Information:**
-
-
-    Description of impact to the business
-
-
-    [Optional] Customer Bridge Details
-
-8. To help us engage AWS experts faster, provide the following details:
-   - Impacted AWS service
-   - Additional Service(s) / Other Impacted
-   - Impacted AWS Region
-
-9. In the **Additional contacts** section,
-   enter any email addresses that you want to receive correspondences about
-   this incident.
-
-The following illustration shows the console screen with the **Additional contacts** field highlighted.
-
-![The AWS Support console screen with Additional contacts highlighted.](images/internal-2.png) 10. Choose **Submit**.
-
-After submitting an Incident Response request, you can add additional
-email addresses from your organization. To add additional addresses,
-reply to the case, and then add the email addresses in the **Additional contacts** section.
-
-The following illustration shows the **Case details** screen with the **Reply** button highlighted.
-
-![The Case details screen with the Reply button highlighted.](images/internal-3.png)
-
-The following illustration shows the case Reply with the **Additional contacts** field and **Submit** button highlighted.
-
-![The Case details screen with Additional contacts highlighted.](images/internal-4.png) 11. AWS Incident Detection and Response acknowledges your case within five minutes and engages you
-on a conference bridge with the appropriate AWS experts.
+6. Provide additional context to help AWS Incident Detection and Response engage AWS experts faster,
+   such as the impacted AWS service, impacted AWS Region, business impact, impact start time,
+   and affected resources.
+7. Choose **Submit**.
+8. AWS Incident Detection and Response acknowledges your case within five minutes and engages you
+   on a conference bridge with the appropriate AWS experts.
 
 ## Request an Incident Response using the AWS Support API
 

@@ -14,7 +14,6 @@ review, account configuration, incident management, and post-incident review.
 | Operations                                                               | Responsible  | Accountable                         |
 | Determine CloudWatch alarms to be configured                             | Responsible  | Accountable                         |
 | Define incident response plan                                            | Responsible  | Accountable                         |
-| Completing onboarding questionnaire                                      | Responsible  | Accountable                         |
 | **Operations readiness review**                                          |
 | Conduct well architected review (WAR) on workload                        | Consulted    | Responsible                         |
 | Validate incident response                                               | Consulted    | Responsible                         |

@@ -8,11 +8,9 @@ response plans customized to each onboarded workload.
 Incident Detection and Response offers the following key features:
 
 - **Improved observability**: AWS experts provide guidance to help you define and correlate metrics and alarms between the application and infrastructure layers of your workload to detect disruptions early.
-- **5-minute response time**: Incident Management Engineers (IMEs) monitor your onboarded workloads 24x7 to
-  detect critical incidents. The IMEs respond within 5 minutes of an alarm trigger or
-  in response to a business-critical Support case that you raise to Incident Detection and Response.
+- **5-minute response time**: Incident Management Engineers proactively engage you within 5 minutes of an alarm, from your workloads, or in response to a critical case that you submit.
 - **Faster resolution**: IMEs use pre-defined and custom runbooks developed for
-  your workloads to respond within 5 minutes, create a Support case on your behalf,
+  your workloads, create a Support case on your behalf,
   and manage incidents on your workload. IMEs provide single-threaded ownership for
   incidents and keep you engaged with the right AWS experts until the incident is
   resolved.
