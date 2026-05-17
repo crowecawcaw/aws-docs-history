@@ -28,6 +28,11 @@ Installed Bitbucket provider types, such as Bitbucket Server, are not supported.
 
 You can use the connections app with GitHub and GitHub Enterprise Cloud.
 
+###### Important
+
+AWS CodeConnections does not yet support GitHub Enterprise Cloud with data residency
+(custom \*.ghe.com domains).
+
 ## Supported provider type and versions for GitHub Enterprise Server
 
 You can use the connections app with supported versions of GitHub Enterprise Server. For a
