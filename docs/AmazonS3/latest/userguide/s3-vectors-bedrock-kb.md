@@ -5,7 +5,7 @@ simplify and reduce the cost of vector storage for retrieval augmented generatio
 applications.
 
 For more information about high-level CLI commands that integrate Amazon Bedrock embedding models with
-S3 Vectors operations, see .
+S3 Vectors operations, see [Creating vector embeddings and performing semantic searches with s3vectors-embed-cli](s3-vectors-cli.md "s3-vectors-cli.md").
 
 ###### Topics
 

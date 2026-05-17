@@ -71,7 +71,7 @@ lifecycle actions until it marks the object's replication status as
 `COMPLETED`. If replication status is `FAILED`,
 S3 Lifecycle continues to block expiration and transition actions on the object
 until you resolve the underlying replication issue. For more information, see
-[S3 Lifecycle and](lifecycle-and-other-bucket-config.md#lifecycle-and-replication "lifecycle-and-other-bucket-config.md#lifecycle-and-replication").
+[S3 Lifecycle and S3 Replication](lifecycle-and-other-bucket-config.md#lifecycle-and-replication "lifecycle-and-other-bucket-config.md#lifecycle-and-replication").
 
 ## Replication status if replicating to multiple destination buckets
 

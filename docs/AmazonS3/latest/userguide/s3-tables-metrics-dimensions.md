@@ -32,21 +32,25 @@ The `AWS/S3/Tables` namespace includes the following table maintenance metrics w
 
 The `AWS/S3/Tables` namespace includes the following request metrics which are billed at the same rate as CloudWatch custom metrics. You can filter these metrics by table bucket, table, or namespace name.
 
-| Request metrics                            | Metric Name                                                                                              | Description  | Units | Statistics | Granularity |
-| ------------------------------------------ | -------------------------------------------------------------------------------------------------------- | ------------ | ----- | ---------- | ----------- |
-| All requests count                         | The total number of HTTP requests made to a table bucket                                                 | Count        | Sum   | 1-minute   |
-| Get requests count                         | The number of HTTP GET requests made to retrieve objects from tables                                     | Count        | Sum   | 1-minute   |
-| Put requests count                         | The number of HTTP PUT requests made to add objects to tables                                            | Count        | Sum   | 1-minute   |
-| Head requests count                        | The number of HTTP HEAD requests made to retrieve metadata from tables                                   | Count        | Sum   | 1-minute   |
-| Post requests counts                       | The number of HTTP POST requests made to tables                                                          | Count        | Sum   | 1-minute   |
-| UpdateTableMetadataLocation requests count | The number of requests made to update table metadata locations                                           | Count        | Sum   | 1-minute   |
-| GetTableMetadataLocation requests count    | The number of requests made to retrieve table metadata locations                                         | Count        | Sum   | 1-minute   |
-| BytesDownloaded                            | The number of bytes downloaded for table requests                                                        | Bytes        | Sum   | 1-minute   |
-| BytesUploaded                              | The number of bytes uploaded for table requests                                                          | Bytes        | Sum   | 1-minute   |
-| 4xxErrors                                  | The count of HTTP 4xx client error status codes returned                                                 | Count        | Sum   | 1-minute   |
-| 5xxErrors                                  | The count of HTTP 5xx server error status codes returned                                                 | Count        | Sum   | 1-minute   |
-| FirstByteLatency                           | The per-request time from the complete request being received to when the response starts being returned | Milliseconds | Sum   | 1-minute   |
-| TotalRequestLatency                        | The elapsed per-request time from the first byte received to the last byte sent                          | Milliseconds | Sum   | 1-minute   |
+###### Note
+
+Request metrics are published only when all three dimensions (`TableBucketName`, `Namespace`, `TableName`) can be resolved. Requests that target a table or namespace that does not exist do not appear in CloudWatch request metrics. To monitor these requests, use AWS CloudTrail.
+
+| Request metrics                            | Metric Name                                                                                                                                                                      | Description  | Units | Statistics | Granularity |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ----- | ---------- | ----------- |
+| All requests count                         | The total number of HTTP requests made to a table bucket, regardless of type. This metric does not include `GetTableMetadataLocation` or `UpdateTableMetadataLocation` requests. | Count        | Sum   | 1-minute   |
+| Get requests count                         | The number of HTTP GET requests made to retrieve objects from tables. This metric does not include `GetTableMetadataLocation` requests.                                          | Count        | Sum   | 1-minute   |
+| Put requests count                         | The number of HTTP PUT requests made to add objects to tables. This metric does not include `UpdateTableMetadataLocation` requests.                                              | Count        | Sum   | 1-minute   |
+| Head requests count                        | The number of HTTP HEAD requests made to retrieve metadata from tables.                                                                                                          | Count        | Sum   | 1-minute   |
+| Post requests count                        | The number of HTTP POST requests made to tables.                                                                                                                                 | Count        | Sum   | 1-minute   |
+| UpdateTableMetadataLocation requests count | The number of `UpdateTableMetadataLocation` requests made to a table bucket. This metric is not included in `Put requests count` or `All requests count`.                        | Count        | Sum   | 1-minute   |
+| GetTableMetadataLocation requests count    | The number of `GetTableMetadataLocation` requests made to a table bucket. This metric is not included in `Get requests count` or `All requests count`.                           | Count        | Sum   | 1-minute   |
+| BytesDownloaded                            | The number of bytes downloaded for table requests.                                                                                                                               | Bytes        | Sum   | 1-minute   |
+| BytesUploaded                              | The number of bytes uploaded for table requests.                                                                                                                                 | Bytes        | Sum   | 1-minute   |
+| 4xxErrors                                  | The count of HTTP 4xx client error status codes returned.                                                                                                                        | Count        | Sum   | 1-minute   |
+| 5xxErrors                                  | The count of HTTP 5xx server error status codes returned.                                                                                                                        | Count        | Sum   | 1-minute   |
+| FirstByteLatency                           | The per-request time from the complete request being received to when the response starts being returned.                                                                        | Milliseconds | Sum   | 1-minute   |
+| TotalRequestLatency                        | The elapsed per-request time from the first byte received to the last byte sent.                                                                                                 | Milliseconds | Sum   | 1-minute   |
 
 ## S3 Tables dimensions in CloudWatch
 

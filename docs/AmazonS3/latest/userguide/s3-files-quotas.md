@@ -95,6 +95,6 @@ S3 Files supports NFSv4.1 and NFSv4.2, with the following exceptions:
 - Kerberos-based security
 - NFSv4.1 data retention
 - SetUID on directories
-- Block devices, character devices, attribute directories, and named
-  attributes
+- Block devices, character devices, attribute directories, named
+  attributes, and extended attributes
 - The `nconnect` mount option

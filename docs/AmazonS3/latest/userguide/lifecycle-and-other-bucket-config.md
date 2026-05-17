@@ -28,9 +28,9 @@ Amazon S3 follows these general rules:
   S3 Glacier Flexible Retrieval transition.
   For examples, see [Examples of overlapping filters and conflicting lifecycle actions](lifecycle-conflicts.md#lifecycle-config-conceptual-ex5 "lifecycle-conflicts.md#lifecycle-config-conceptual-ex5").
 
-## S3 Lifecycle and
+## S3 Lifecycle and S3 Replication
 
-When you have both and S3 Lifecycle enabled on a bucket, S3 Lifecycle blocks expiration and transition actions on objects with `PENDING` or `FAILED` replication status. This ensures that Lifecycle does not act on objects until they have successfully replicated to their destination bucket.
+When you have both S3 Replication and S3 Lifecycle enabled on a bucket, S3 Lifecycle blocks expiration and transition actions on objects with `PENDING` or `FAILED` replication status. This ensures that Lifecycle does not act on objects until they have successfully replicated to their destination bucket.
 
 Objects transition to a `FAILED` replication state for issues such as missing replication role permissions, AWS Key Management Service (AWS KMS) permissions, or bucket permissions. For more information, see [Troubleshooting replication](replication-troubleshoot.md "replication-troubleshoot.md").
 
