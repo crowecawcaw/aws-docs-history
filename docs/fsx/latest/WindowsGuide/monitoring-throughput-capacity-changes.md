@@ -8,7 +8,7 @@ the API, and the AWS CLI.
 In the **Updates** tab in the **File system details**
 window, you can view the 10 most recent update actions for each update action type.
 
-![Console screen shot showing the file system updates window.](images/fs-updates-panel.png)
+![Console screen shot showing the file system updates window.](/images/fsx/latest/WindowsGuide/images/fs-updates-panel.png)
 
 For throughput capacity update actions, you can view the following information.
 
