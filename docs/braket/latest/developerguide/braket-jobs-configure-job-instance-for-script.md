@@ -41,6 +41,9 @@ To view the default classical compute instance quotas for Hybrid Jobs, see the [
 
 | Standard Instances    | vCPU | Memory (GiB) |
 | --------------------- | ---- | ------------ |
+| ml.t3.large           | 2    | 8            |
+| ml.t3.xlarge          | 4    | 16           |
+| ml.t3.2xlarge         | 8    | 32           |
 | ml.m5.large (default) | 4    | 16           |
 | ml.m5.xlarge          | 4    | 16           |
 | ml.m5.2xlarge         | 8    | 32           |
@@ -70,6 +73,22 @@ To view the default classical compute instance quotas for Hybrid Jobs, see the [
 | ml.g4dn.8xlarge           | 1    | 32   | 128          | 16               |
 | ml.g4dn.12xlarge          | 4    | 48   | 192          | 64               |
 | ml.g4dn.16xlarge          | 1    | 64   | 256          | 16               |
+| ml.g6.xlarge              | 1    | 4    | 16           | 24               |
+| ml.g6.2xlarge             | 1    | 8    | 32           | 24               |
+| ml.g6.4xlarge             | 1    | 16   | 64           | 24               |
+| ml.g6.8xlarge             | 1    | 32   | 128          | 24               |
+| ml.g6.12xlarge            | 4    | 48   | 192          | 96               |
+| ml.g6.16xlarge            | 1    | 64   | 256          | 24               |
+| ml.g6.24xlarge            | 4    | 96   | 384          | 96               |
+| ml.g6.48xlarge            | 8    | 192  | 768          | 192              |
+| ml.g6e.xlarge             | 1    | 4    | 32           | 48               |
+| ml.g6e.2xlarge            | 1    | 8    | 64           | 48               |
+| ml.g6e.4xlarge            | 1    | 16   | 128          | 48               |
+| ml.g6e.8xlarge            | 1    | 32   | 256          | 48               |
+| ml.g6e.12xlarge           | 4    | 48   | 384          | 192              |
+| ml.g6e.16xlarge           | 1    | 64   | 512          | 48               |
+| ml.g6e.24xlarge           | 4    | 96   | 768          | 192              |
+| ml.g6e.48xlarge           | 8    | 192  | 1536         | 384              |
 
 Each instance uses a default configuration of data storage (SSD) of 30 GB. But you can
 adjust the storage in the same way that you configure the `instanceType`. The

@@ -42,21 +42,20 @@ used for Braket:
 ## Plugins
 
 Then there are the various plugins that are used along with various devices and
-programming tools. These include Braket supported plugins as well as plugins that are
-supported by third parties as shown below.
+programming tools. These include Braket supported plugins as well as community plugins
+as shown below.
 
 **Amazon Braket supported**:
 
-- [Amazon Braket algorithm library](https://github.com/aws-samples/amazon-braket-algorithm-library "https://github.com/aws-samples/amazon-braket-algorithm-library") - A catalog of pre-built quantum
+- [Amazon Braket algorithm library](https://github.com/amazon-braket/amazon-braket-algorithm-library "https://github.com/amazon-braket/amazon-braket-algorithm-library") - A catalog of pre-built quantum
   algorithms written in Python. Run them as they are or use them as a starting point
   to build more complex algorithms.
-- [Braket-PennyLane plugin](https://github.com/aws/amazon-braket-pennylane-plugin-python "https://github.com/aws/amazon-braket-pennylane-plugin-python") - Use PennyLane as the QML
+- [Braket-PennyLane plugin](https://github.com/amazon-braket/amazon-braket-pennylane-plugin-python "https://github.com/amazon-braket/amazon-braket-pennylane-plugin-python") - Use PennyLane as the QML
   framework on Braket.
-
-**Third-party (Braket team monitors and
-contributes)**:
-
-- [Qiskit-Braket provider](https://github.com/qiskit-community/qiskit-braket-provider "https://github.com/qiskit-community/qiskit-braket-provider") - Use the Qiskit SDK to access
+- [Qiskit-Braket provider](https://github.com/amazon-braket/qiskit-braket-provider "https://github.com/amazon-braket/qiskit-braket-provider") - Use the Qiskit SDK to access
   Braket resources.
-- [Braket-Julia SDK](https://github.com/awslabs/Braket.jl "https://github.com/awslabs/Braket.jl") -
+
+**Community**:
+
+- [Braket-Julia SDK](https://github.com/amazon-braket/Braket.jl "https://github.com/amazon-braket/Braket.jl") -
   (EXPERIMENTAL) A Julia native version of the Braket SDK

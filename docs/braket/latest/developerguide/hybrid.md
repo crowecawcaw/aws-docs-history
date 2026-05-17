@@ -99,7 +99,7 @@ Braket quantum devices to work with PennyLane:
   Braket SDK's local simulator
 
 The Amazon
-Braket PennyLane plugin is open source. You can install it from the [PennyLane Plugin GitHub repository](https://github.com/aws/amazon-braket-pennylane-plugin-python "https://github.com/aws/amazon-braket-pennylane-plugin-python").
+Braket PennyLane plugin is open source. You can install it from the [PennyLane Plugin GitHub repository](https://github.com/amazon-braket/amazon-braket-pennylane-plugin-python "https://github.com/amazon-braket/amazon-braket-pennylane-plugin-python").
 
 For more information about PennyLane, see the documentation on the [PennyLane website](https://pennylane.ai "https://pennylane.ai").
 

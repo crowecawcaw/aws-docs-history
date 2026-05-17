@@ -34,9 +34,9 @@ new ones.
   - To learn more about professional services offerings on the AWS Marketplace, see
     [Professional services products](../../../marketplace/latest/buyerguide/buyer-proserv-products.md "../../../marketplace/latest/buyerguide/buyer-proserv-products.md").
 
-- **Amazon Quantum Solutions Lab (QSL):** The QSL is a collaborative research
+- **Amazon Advanced Solutions Lab (ASL):** The ASL is a collaborative research
   and professional services team staffed with quantum computing experts who can help you
   effectively explore quantum computing and assess the current performance of this technology.
-  - To contact the QSL, select **Connect**, and fill out contact
+  - To contact the ASL, select **Connect**, and fill out contact
     information and use case details.
-  - The QSL team will reach out to you through email with next steps.
+  - The ASL team will reach out to you through email with next steps.
