@@ -165,8 +165,8 @@ for **Cluster identifier**, **Node type**, and
 
     ###### Note
 
-    The following step assumes an AWS Region that supports RA3 node types. For a list of AWS Regions
-     that support RA3 node types, see [Overview of RA3 node types](../mgmt/working-with-clusters.md#rs-ra3-node-types "../mgmt/working-with-clusters.md#rs-ra3-node-types") in the
+    The following step assumes an AWS Region that supports RG node types. For a list of AWS Regions
+     that support RG or RA3 node types, see [Overview of RG node types](../mgmt/working-with-clusters.md#rs-rg-node-types "../mgmt/working-with-clusters.md#rs-rg-node-types") in the
      *Amazon Redshift Management Guide*. To learn more about the node specifications for each
      node type and size, see [Node type
      details](../mgmt/working-with-clusters.md#rs-node-type-info "../mgmt/working-with-clusters.md#rs-node-type-info").
@@ -186,7 +186,7 @@ for **Cluster identifier**, **Node type**, and
     	 to size your cluster.
 
 
-    	For this tutorial, choose **ra3.4xlarge** for **Node type**
+    	For this tutorial, choose **rg.4xlarge** for **Node type**
     	 and **2** for **Number of nodes**.
 
 
