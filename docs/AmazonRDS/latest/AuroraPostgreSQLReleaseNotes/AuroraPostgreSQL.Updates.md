@@ -249,6 +249,12 @@ the improvements in PostgreSQL 17.7, see [PostgreSQL release
 
 - Fixed a bug in the babelfish_set_role function that improved permission validation when setting roles.
 
+**General enhancements**
+
+- Fixed an issue where ANALYZE operations did not work correctly on tables containing large LOB data
+- Fixed an issue where correlated any transform could return an error message 'failed to build any 3-way joins' during transformation.
+- Fixed an issue where optimization was not triggered due to incorrect tracking of transaction metadata.
+
 #### Aurora PostgreSQL 17.7.1, January 16th, 2026
 
 **Critical stability enhancements**
@@ -333,7 +339,7 @@ the improvements in PostgreSQL 17.6, see [PostgreSQL release
 
 - Fixed a bug in Query Plan Management that prevented plan capture.
 - Fixed a bug in the Aurora Storage Daemon that could cause database unavailability in rare cases when enhanced logical replication is enabled.
-- nan
+- Fixed an issue that can result in reader unavailability during catching up with the writer instance
 - Fixed an issue where file handlers could remain improperly allocated after a major version upgrade.
 - Fixed an issue where databases could run out of memory due to excessive storage metadata in rare circumstances.
 - Fixed an issue in cache initialization that could cause database unavailability during startup.
@@ -342,6 +348,15 @@ the improvements in PostgreSQL 17.6, see [PostgreSQL release
 **Security enhancements**
 
 - Fixed a bug in the babelfish_set_role function that improved permission validation when setting roles.
+
+**General enhancements**
+
+- Fixed an issue where ANALYZE operations did not work correctly on tables containing large LOB data
+- Fixed an issue to reduce CPU overhead while establishing Encryption in Transit between the database engine and the storage layer.
+- Fixed improper handling of empty response during connection loss with storage nodes
+- Fixed an issue where correlated any transform could return an error message 'failed to build any 3-way joins' during transformation.
+- Fixed an issue where optimization was not triggered due to incorrect tracking of transaction metadata.
+- Fixed an issue where ALTER FUNCTION could fail with "routine name is not unique".
 
 #### Aurora PostgreSQL 17.6.1, November 25, 2025
 
@@ -636,7 +651,7 @@ the improvements in PostgreSQL 17.4, see [PostgreSQL release
 
 - Fixed a bug in Query Plan Management that prevented plan capture.
 - Fixed a bug in the Aurora Storage Daemon that could cause database unavailability in rare cases when enhanced logical replication is enabled.
-- Fixed an issue that can result in reader crash during catching up with the writer instance
+- Fixed an issue that can result in reader unavailability during catching up with the writer instance
 - Fixed an issue in cache initialization that could cause database unavailability during startup.
 - Fixed an issue where global databases planned switchover operations could become unresponsive while waiting for storage volume growth to complete.
 
@@ -1037,6 +1052,12 @@ the improvements in PostgreSQL 16.11, see [PostgreSQL release
 
 - Fixed a bug in the babelfish_set_role function that improved permission validation when setting roles.
 
+**General enhancements**
+
+- Fixed an issue where ANALYZE operations did not work correctly on tables containing large LOB data
+- Fixed an issue where correlated any transform could return an error message 'failed to build any 3-way joins' during transformation.
+- Fixed an issue where optimization was not triggered due to incorrect tracking of transaction metadata.
+
 #### Aurora PostgreSQL 16.11.1, January 16th, 2026
 
 **Critical stability enhancements**
@@ -1121,7 +1142,7 @@ the improvements in PostgreSQL 16.10, see [PostgreSQL release
 
 - Fixed a bug in Query Plan Management that prevented plan capture.
 - Fixed a bug in the Aurora Storage Daemon that could cause database unavailability in rare cases when enhanced logical replication is enabled.
-- nan
+- Fixed an issue that can result in reader unavailability during catching up with the writer instance
 - Fixed an issue where file handlers could remain improperly allocated after a major version upgrade.
 - Fixed an issue where databases could run out of memory due to excessive storage metadata in rare circumstances.
 - Fixed an issue in cache initialization that could cause database unavailability during startup.
@@ -1130,6 +1151,15 @@ the improvements in PostgreSQL 16.10, see [PostgreSQL release
 **Security enhancements**
 
 - Fixed a bug in the babelfish_set_role function that improved permission validation when setting roles.
+
+**General enhancements**
+
+- Fixed an issue where ANALYZE operations did not work correctly on tables containing large LOB data
+- Fixed an issue to reduce CPU overhead while establishing Encryption in Transit between the database engine and the storage layer.
+- Fixed improper handling of empty response during connection loss with storage nodes
+- Fixed an issue where correlated any transform could return an error message 'failed to build any 3-way joins' during transformation.
+- Fixed an issue where optimization was not triggered due to incorrect tracking of transaction metadata.
+- Fixed an issue where ALTER FUNCTION could fail with "routine name is not unique".
 
 #### Aurora PostgreSQL 16.10.1, November 25, 2025
 
@@ -1420,7 +1450,7 @@ the improvements in PostgreSQL 16.8, see [PostgreSQL release
 
 - Fixed a bug in Query Plan Management that prevented plan capture.
 - Fixed a bug in the Aurora Storage Daemon that could cause database unavailability in rare cases when enhanced logical replication is enabled.
-- Fixed an issue that can result in reader crash during catching up with the writer instance
+- Fixed an issue that can result in reader unavailability during catching up with the writer instance
 - Fixed an issue in cache initialization that could cause database unavailability during startup.
 - Fixed an issue where global databases planned switchover operations could become unresponsive while waiting for storage volume growth to complete.
 
@@ -2672,6 +2702,12 @@ the improvements in PostgreSQL 15.15, see [PostgreSQL release
 
 - Fixed a bug in the babelfish_set_role function that improved permission validation when setting roles.
 
+**General enhancements**
+
+- Fixed an issue where ANALYZE operations did not work correctly on tables containing large LOB data
+- Fixed an issue where correlated any transform could return an error message 'failed to build any 3-way joins' during transformation.
+- Fixed an issue where optimization was not triggered due to incorrect tracking of transaction metadata.
+
 #### Aurora PostgreSQL 15.15.1, January 16th, 2026
 
 **Critical stability enhancements**
@@ -2752,7 +2788,7 @@ the improvements in PostgreSQL 15.14, see [PostgreSQL release
 
 - Fixed a bug in Query Plan Management that prevented plan capture.
 - Fixed a bug in the Aurora Storage Daemon that could cause database unavailability in rare cases when enhanced logical replication is enabled.
-- nan
+- Fixed an issue that can result in reader unavailability during catching up with the writer instance
 - Fixed an issue where file handlers could remain improperly allocated after a major version upgrade.
 - Fixed an issue where databases could run out of memory due to excessive storage metadata in rare circumstances.
 - Fixed an issue in cache initialization that could cause database unavailability during startup.
@@ -2761,6 +2797,15 @@ the improvements in PostgreSQL 15.14, see [PostgreSQL release
 **Security enhancements**
 
 - Fixed a bug in the babelfish_set_role function that improved permission validation when setting roles.
+
+**General enhancements**
+
+- Fixed an issue where ANALYZE operations did not work correctly on tables containing large LOB data
+- Fixed an issue to reduce CPU overhead while establishing Encryption in Transit between the database engine and the storage layer.
+- Fixed improper handling of empty response during connection loss with storage nodes
+- Fixed an issue where correlated any transform could return an error message 'failed to build any 3-way joins' during transformation.
+- Fixed an issue where optimization was not triggered due to incorrect tracking of transaction metadata.
+- Fixed an issue where ALTER FUNCTION could fail with "routine name is not unique".
 
 #### Aurora PostgreSQL 15.14.1, November 25, 2025
 
@@ -3036,7 +3081,7 @@ about the improvements in PostgreSQL 15.12, see [PostgreSQL release
 
 - Fixed a bug in Query Plan Management that prevented plan capture.
 - Fixed a bug in the Aurora Storage Daemon that could cause database unavailability in rare cases when enhanced logical replication is enabled.
-- Fixed an issue that can result in reader crash during catching up with the writer instance
+- Fixed an issue that can result in reader unavailability during catching up with the writer instance
 - Fixed an issue in cache initialization that could cause database unavailability during startup.
 - Fixed an issue where global databases planned switchover operations could become unresponsive while waiting for storage volume growth to complete.
 
@@ -4903,6 +4948,12 @@ the improvements in PostgreSQL 14.20, see [PostgreSQL release
 
 - Fixed a bug in the babelfish_set_role function that improved permission validation when setting roles.
 
+**General enhancements**
+
+- Fixed an issue where ANALYZE operations did not work correctly on tables containing large LOB data
+- Fixed an issue where correlated any transform could return an error message 'failed to build any 3-way joins' during transformation.
+- Fixed an issue where optimization was not triggered due to incorrect tracking of transaction metadata.
+
 #### Aurora PostgreSQL 14.20.1, January 16th, 2026
 
 **Critical stability enhancements**
@@ -4983,7 +5034,7 @@ the improvements in PostgreSQL 14.19, see [PostgreSQL release
 
 - Fixed a bug in Query Plan Management that prevented plan capture.
 - Fixed a bug in the Aurora Storage Daemon that could cause database unavailability in rare cases when enhanced logical replication is enabled.
-- nan
+- Fixed an issue that can result in reader unavailability during catching up with the writer instance
 - Fixed an issue where file handlers could remain improperly allocated after a major version upgrade.
 - Fixed an issue where databases could run out of memory due to excessive storage metadata in rare circumstances.
 - Fixed an issue in cache initialization that could cause database unavailability during startup.
@@ -4992,6 +5043,15 @@ the improvements in PostgreSQL 14.19, see [PostgreSQL release
 **Security enhancements**
 
 - Fixed a bug in the babelfish_set_role function that improved permission validation when setting roles.
+
+**General enhancements**
+
+- Fixed an issue where ANALYZE operations did not work correctly on tables containing large LOB data
+- Fixed an issue to reduce CPU overhead while establishing Encryption in Transit between the database engine and the storage layer.
+- Fixed improper handling of empty response during connection loss with storage nodes
+- Fixed an issue where correlated any transform could return an error message 'failed to build any 3-way joins' during transformation.
+- Fixed an issue where optimization was not triggered due to incorrect tracking of transaction metadata.
+- Fixed an issue where ALTER FUNCTION could fail with "routine name is not unique".
 
 #### Aurora PostgreSQL 14.19.1, November 25, 2025
 
@@ -7693,6 +7753,12 @@ the improvements in PostgreSQL 13.23, see [PostgreSQL release
 **Security enhancements**
 
 - Fixed a bug in the babelfish_set_role function that improved permission validation when setting roles.
+
+**General enhancements**
+
+- Fixed an issue where ANALYZE operations did not work correctly on tables containing large LOB data
+- Fixed an issue where correlated any transform could return an error message 'failed to build any 3-way joins' during transformation.
+- Fixed an issue where optimization was not triggered due to incorrect tracking of transaction metadata.
 
 #### Aurora PostgreSQL 13.23.1, January 16th, 2026
 

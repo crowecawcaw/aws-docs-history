@@ -56,35 +56,35 @@ Dates with only a month and a year are approximate, and will be updated with an 
 | PostgreSQL minor engine version | Community release date | Aurora release date | Aurora end of standard support date |
 | ------------------------------- | ---------------------- | ------------------- | ----------------------------------- |
 | **17**                          |
-| 17.9                            | 26 February 2026       | 6 April 2026        | October 2028                        |
+| 17.9                            | 26 February 2026       | 6 April 2026        | 30 September 2027                   |
 | 17.7 (LTS)                      | 13 November 2025       | 18 December 2025    | 28 February 2030                    |
-| 17.6                            | 14 August 2025         | 25 November 2025    | June 2027                           |
-| 17.5                            | 8 May 2025             | 30 June 2025        | December 2026                       |
-| 17.4                            | 20 February 2025       | May 1 2025          | November 2026                       |
+| 17.6                            | 14 August 2025         | 25 November 2025    | 30 April 2027                       |
+| 17.5                            | 8 May 2025             | 30 June 2025        | 31 December 2026                    |
+| 17.4                            | 20 February 2025       | 1 May 2025          | 30 November 2026                    |
 | **16**                          |
-| 16.13                           | 26 February 2026       | 6 April 2026        | October 2028                        |
-| 16.11                           | 13 November 2025       | 18 December 2025    | July 2027                           |
-| 16.10                           | 14 August 2025         | 25 November 2025    | June 2027                           |
-| 16.9                            | 8 May 2025             | 30 June 2025        | December 2026                       |
-| 16.8 (LTS)                      | 20 February 2025       | April 8 2025        | 28 February 2029                    |
-| 16.6                            | 21 November 2024       | 13 December 2024    | May 2026                            |
-| 16.4                            | 08 August 2024         | 30 September 2024   | May 2026                            |
+| 16.13                           | 26 February 2026       | 6 April 2026        | 30 September 2027                   |
+| 16.11                           | 13 November 2025       | 18 December 2025    | 31 May 2027                         |
+| 16.10                           | 14 August 2025         | 25 November 2025    | 30 April 2027                       |
+| 16.9                            | 8 May 2025             | 30 June 2025        | 31 December 2026                    |
+| 16.8 (LTS)                      | 20 February 2025       | 8 April 2025        | 28 February 2029                    |
+| 16.6                            | 21 November 2024       | 13 December 2024    | 31 May 2026                         |
+| 16.4                            | 08 August 2024         | 30 September 2024   | 31 May 2026                         |
 | **15**                          |
-| 15.17                           | 26 February 2026       | 6 April 2026        | October 2028                        |
-| 15.15                           | 13 November 2025       | 18 December 2025    | July 2027                           |
-| 15.14                           | 14 August 2025         | 25 November 2025    | June 2027                           |
-| 15.13                           | 8 May 2025             | 30 June 2025        | December 2026                       |
-| 15.12                           | 20 February 2025       | April 8 2025        | November 2026                       |
+| 15.17                           | 26 February 2026       | 6 April 2026        | 30 September 2027                   |
+| 15.15                           | 13 November 2025       | 18 December 2025    | 31 May 2027                         |
+| 15.14                           | 14 August 2025         | 25 November 2025    | 30 April 2027                       |
+| 15.13                           | 8 May 2025             | 30 June 2025        | 31 December 2026                    |
+| 15.12                           | 20 February 2025       | 8 April 2025        | 30 November 2026                    |
 | 15.10 (LTS)                     | 21 November 2024       | 13 December 2024    | 29 February 2028                    |
-| 15.8                            | 08 August 2024         | 30 September 2024   | May 2026                            |
+| 15.8                            | 08 August 2024         | 30 September 2024   | 31 May 2026                         |
 | **14**                          |
-| 14.22                           | 26 February 2026       | 6 April 2026        | October 2028                        |
-| 14.20                           | 13 November 2025       | 18 December 2025    | 28 February 2027                    |
-| 14.19                           | 14 August 2025         | 25 November 2025    | 28 February 2027                    |
-| 14.18                           | 8 May 2025             | 30 June 2025        | December 2026                       |
-| 14.17                           | 20 February 2025       | April 8 2025        | November 2026                       |
-| 14.15                           | 21 November 2024       | 13 December 2024    | May 2026                            |
-| 14.13                           | 08 August 2024         | 30 September 2024   | May 2026                            |
+| 14.22                           | 26 February 2026       | 6 April 2026        | 30 September 2027                   |
+| 14.20                           | 13 November 2025       | 18 December 2025    | 31 May 2027                         |
+| 14.19                           | 14 August 2025         | 25 November 2025    | 30 April 2027                       |
+| 14.18                           | 8 May 2025             | 30 June 2025        | 31 December 2026                    |
+| 14.17                           | 20 February 2025       | 8 April 2025        | 30 November 2026                    |
+| 14.15                           | 21 November 2024       | 13 December 2024    | 31 May 2026                         |
+| 14.13                           | 08 August 2024         | 30 September 2024   | 31 May 2026                         |
 | 14.6 (LTS)                      | 10 November 2022       | 23 January 2023     | 28 February 2027                    |
 | **13**                          |
 | 13.23\*                         | 13 November 2025       | 18 December 2025    | 28 February 2026                    |
@@ -110,7 +110,9 @@ Dates with only a month and a year are approximate, and will be updated with an 
 
 | PostgreSQL Limitless minor engine version | Aurora release date | Aurora end of standard support date |
 | ----------------------------------------- | ------------------- | ----------------------------------- |
-| 16.11-limitless                           | February 25, 2026   | August 25, 2027                     |
-| 16.10-limitless                           | February 24, 2026   | August 24, 2027                     |
-| 16.9-limitless                            | September 5, 2025   | March 5, 2027                       |
-| 16.8-limitless                            | May 8, 2025         | November 8, 2026                    |
+| 16.11-limitless                           | February 25, 2026   | October 2027                        |
+| 16.10-limitless                           | February 24, 2026   | September 2027                      |
+| 16.9-limitless                            | September 5, 2025   | March 2027                          |
+| 16.8-limitless                            | May 8, 2025         | November 2026                       |
+| 16.6-limitless                            | January 24, 2025    | August 2026                         |
+| 16.4-limitless                            | October 31, 2024    | August 2026                         |
