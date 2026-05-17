@@ -30,6 +30,7 @@ parameters on your Aurora PostgreSQL DB instance.
 - [Logging autovacuum and vacuum activities](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.Logging.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.Logging.md")
 - [Understanding the behavior of autovacuum with invalid databases](appendix.postgresql.commondbatasks.autovacuumbehavior.md "appendix.postgresql.commondbatasks.autovacuumbehavior.md")
 - [Identify and resolve aggressive vacuum blockers in Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md")
+- [Adaptive autovacuum enhancements in PostgreSQL version 18](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.AdaptivePG18.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.AdaptivePG18.md")
 
 ## Allocating memory for autovacuum
 
@@ -123,7 +124,9 @@ parameters are modified in memory on the DB instance. The values in the paramete
 aren't changed. To view the current in-memory settings, use the PostgreSQL [SHOW](https://www.postgresql.org/docs/current/sql-show.html "https://www.postgresql.org/docs/current/sql-show.html") SQL command.
 
 When Amazon RDS modifies any of these autovacuum parameters, it generates an event for the
-affected DB instance. This event is visible on the AWS Management Console and through the Amazon RDS API. After
+affected DB instance. This event is visible on the AWS Management Console and through the Amazon RDS API. For
+more information about RDS events, see [Amazon RDS event categories and event messages](../UserGuide/USER_Events.Messages.md "../UserGuide/USER_Events.Messages.md"). To receive notifications when these
+events occur, see [Subscribing to Amazon RDS event notification](../UserGuide/USER_Events.Subscribing.md "../UserGuide/USER_Events.Subscribing.md"). After
 the `MaximumUsedTransactionIDs` CloudWatch metric returns below the threshold, Amazon RDS
 resets the autovacuum-related parameters in memory back to the values specified in the
 parameter group. It then generates another event corresponding to this change.

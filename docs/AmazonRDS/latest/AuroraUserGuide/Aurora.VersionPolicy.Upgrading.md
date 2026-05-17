@@ -38,7 +38,7 @@ specify for your cluster. For more information, see [Automatic minor version upg
 
 Automatic minor version upgrades are communicated in advance through an Amazon RDS DB cluster
 event with a category of `maintenance` and ID of `RDS-EVENT-0156`. For
-more information, see [Amazon RDS event categories and event messagesfor Aurora](USER_Events.Messages.md "USER_Events.Messages.md").
+more information, see [Amazon RDS event categories and event messages for Aurora](USER_Events.Messages.md "USER_Events.Messages.md").
 
 ## Manually controlling upgrades of your DB clusters to new versions
 

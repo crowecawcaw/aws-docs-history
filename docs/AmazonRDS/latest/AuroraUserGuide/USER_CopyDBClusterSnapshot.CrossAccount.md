@@ -2,8 +2,7 @@
 
 You can enable other AWS accounts to copy DB cluster snapshots that you specify by using
 the Amazon RDS API `ModifyDBClusterSnapshotAttribute` and
-`CopyDBClusterSnapshot` actions. You can only
-copy DB cluster snapshots across accounts in the same AWS Region. The cross-account copying
+`CopyDBClusterSnapshot` actions. The cross-account copying
 process works as follows, where Account A is making the snapshot available to copy, and
 Account B is copying it.
 
