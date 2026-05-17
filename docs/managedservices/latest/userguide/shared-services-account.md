@@ -6,7 +6,7 @@ management (AD), end-point security management (Trend Micro), and it contains th
 customer bastions (SSH/RDP). A high-level overview of the resources contained within
 Shared Services Account is shown in the following graphic. 
 
-![Diagram of Shared Services Account architecture with VPC, subnets, and various AWS services.](images/malzSharedServicesAccount2.png)
+![Shared Services account architecture with three availability zones containing AD, bastions, and security resources.](images/malzSharedServicesAccount2.png)
 The Shared Services VPC is composed of the AD subnet, the EPS subnet, and the customer bastions subnet
 in the three availability zones (AZs). The resources created in the Shared Services VPC are listed below and require your input.
 

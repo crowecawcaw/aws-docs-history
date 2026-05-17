@@ -57,7 +57,7 @@ a new application account in AMS, you must select the OU for the account.
 
 MALZ architecture and associated AMS modes
 
-![Diagram showing AWS account structure with Management, Shared Services, Network, Security, and Log Archive accounts.](</images/managedservices/latest/userguide/images/MALZ-high-level-(Mar2021).png>)
+![Organizational structure showing Management Account at top, four account types in middle, and application accounts with customer stacks at bottom.](</images/managedservices/latest/userguide/images/MALZ-high-level-(Mar2021).png>)
 
 AMS leverages the foundational OUs based on AWS best practices as a way to logically manage accounts
 using Service Control Policies (SCPs). This serves as a way to enforce the governance framework with
@@ -69,7 +69,7 @@ between AMS and customers.
 
 Figure 1: MALZ architecture and associated AMS modes
 
-![Table comparing AMS modes, default governance controls, and support for customer-added controls.](/images/managedservices/latest/userguide/images/ams-modes-guardrails-dcm.png)
+![Table showing AMS modes with preventative and detective controls and customer governance support.](/images/managedservices/latest/userguide/images/ams-modes-guardrails-dcm.png)
 
 ###### Note
 

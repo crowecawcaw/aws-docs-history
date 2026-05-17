@@ -22,7 +22,7 @@ For estimates of costs, see
 The following diagram outlines at a high level the account structure and how infrastructure is segregated into each of
 the accounts:
 
-![AWS account structure diagram showing management, shared services, network, security, and log archive accounts.](images/MALZ-high-level-Nov2022.png)
+![AWS multi-account structure showing management, shared services, network, security, log archive, and application accounts with organizational units.](images/MALZ-high-level-Nov2022.png)
 
 ### Service region
 

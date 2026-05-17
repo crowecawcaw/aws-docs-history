@@ -56,7 +56,7 @@ search by RFC:
 
 The search allows you to add the filters, as shown in the following screenshot.
 
-![Search or filter options including Subject, RFC ID, Activity state, and various time-related fields.](images/filterRfcAllOptions3.png) 5. Click on the Subject link for the RFC you want.
+![Filter menu showing options such as Subject, RFC ID, Activity state, and Creation time.](images/filterRfcAllOptions3.png) 5. Click on the Subject link for the RFC you want.
 
 The RFC details page opens for that RFC with information including RFC ID.
 You can use multiple filters to find an RFC.

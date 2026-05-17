@@ -9,7 +9,7 @@ To monitor a case, incident or service request, using the AMS console, follow th
 1. In the AMS console **Incident reports** or **Service requests** dashboard,
    browse to a case and choose the **Subject** to open a details page with current status and correspondences.
 
-![Incident detail card showing type, status, subject, ID, creation date, and priority.](images/guiIncidentDetail.png)
+![Incident detail page showing type, created date, status as Resolved, subject, ID, and priority.](images/guiIncidentDetail.png)
 
 ![Service request detail showing type, subject, creation date, ID, and resolved status.](images/guiSRdetail.png)
 

@@ -28,7 +28,7 @@ Your AMS cloud architect (CA) will work with you as part of your Well-Architecte
 
 HA DR utilizes application and AWS-native services and features, as illustrated in the following graphic:
 
-![DNS and CloudFront connecting users to production and HA/DR instances with data replication.](images/dr-ha.png)
+![Architecture diagram showing prod and HA/DR instances with data replication via Route 53 and CloudFront.](images/dr-ha.png)
 
 The DR site can be in the same or different AWS Region.
 
@@ -64,7 +64,7 @@ Well-Architected-Review and DR planning.
 
 Warm Standby DR utilizes application and AWS-native services and features, as illustrated in the following graphic:
 
-![Diagram showing DNS, ELB, production and DR site subnets with data replication and config updates.](images/dr-warm-standby.png)
+![DNS routes users to prod subnet with ELB and instances, or DR site subnet during failover.](images/dr-warm-standby.png)
 
 DR site can be in the same or different AWS Region.
 
@@ -101,7 +101,7 @@ DR planning.
 
 Pilot Light DR utilizes application and AWS-native services and features, as illustrated in the following graphic:
 
-![Diagram showing DNS, production and DR site subnets with ELBs, instances, and data replication.](images/dr-pilot-light.png)
+![Prod subnet with ELB and instances replicating data to DR site subnet with ELB and instances.](images/dr-pilot-light.png)
 
 DR site can be in the same or different AWS Region.
 
@@ -183,7 +183,7 @@ Snapshot replication solution:
 The following diagram represents the EC2 restore process from EBS snapshots on
 AMS:
 
-![Diagram showing EC2 restore process from EBS snapshots, with production and DR site subnets.](images/dr-ebs-snapshots.png)
+![Snapshot replication from prod subnet to DR site with placeholder instance restoration steps.](images/dr-ebs-snapshots.png)
 
 **EC2 DR steps on AMS**:
 

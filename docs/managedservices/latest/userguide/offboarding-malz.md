@@ -365,14 +365,14 @@ Description : The pbis-enterprise-devel package includes the development
 
 ### PBIS Open
 
-PBIS Open is a deprecated product that BeyondTrust no longer supports. For more information, see the [BeyondTrust pbis-open documentation](https://github.com/BeyondTrust/pbis-open/wiki/Documentation "https://github.com/BeyondTrust/pbis-open/wiki/Documentation").
+PBIS Open is a deprecated product that BeyondTrust no longer supports.
 
 ### AD Bridge (PBIS Enterprise)
 
 You can do one of the following:
 
 - **Renew licensing and continue operating AD Bridge.** Contact BeyondTrust to discuss licensing and support.
-- **Discontinue use of AD Bridge.** Run the following Shell command to remove PBIS-Enterprise package from Linux managed instances. For more information, see the BeyondTrust documentation [Leave a Domain and Uninstall the AD Bridge Agent](https://www.beyondtrust.com/docs/ad-bridge/getting-started/installation/leaving-domain.htm "https://www.beyondtrust.com/docs/ad-bridge/getting-started/installation/leaving-domain.htm").
+- **Discontinue use of AD Bridge.** Run the following Shell command to remove PBIS-Enterprise package from Linux managed instances. For more information, see the BeyondTrust documentation [Leave a Domain and Uninstall the AD Bridge Agent](https://docs.beyondtrust.com/adb/docs/leaving-domain "https://docs.beyondtrust.com/adb/docs/leaving-domain").
 
 ```
 $ sudo /opt/pbis/bin/uninstall.sh purge
@@ -382,7 +382,7 @@ $ sudo /opt/pbis/bin/uninstall.sh purge
 
 You have the option to leave the AMS managed Active Directory without removing the PBIS agent. Use one of the following solutions, depending on your operating system:
 
-Linux operating systemsUse PBIS from the AMS managed AD to run the following shell command to unjoin a Linux EC2 instance. For more information, see the [BeyondTrust pbis-open](https://github.com/BeyondTrust/pbis-open/wiki/Documentation "https://github.com/BeyondTrust/pbis-open/wiki/Documentation") or [BeyondTrust AD Bridge](https://www.beyondtrust.com/docs/ad-bridge "https://www.beyondtrust.com/docs/ad-bridge") documentation, depending on which version you use.
+Linux operating systemsUse PBIS from the AMS managed AD to run the following shell command to unjoin a Linux EC2 instance. For more information, see the [BeyondTrust AD Bridge](https://www.beyondtrust.com/docs/ad-bridge "https://www.beyondtrust.com/docs/ad-bridge") documentation.
 
 ```
 $ sudo /opt/pbis/bin/domainjoin-cli leave

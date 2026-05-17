@@ -11,4 +11,4 @@ Collector (HEC) input and submit a request to AMS for the added functionality.
 
 Here’s how the data input settings might look:
 
-![Splunk Add Data review page showing input settings for VPC Flow Logs via Lambda.](images/configure-Splunk-HEC.png)
+![Review page showing input configuration with name vpcFlowLogsViaLambdaInput and source type aws:cloudwatchlogs:vpcflow.](images/configure-Splunk-HEC.png)
