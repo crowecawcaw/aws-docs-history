@@ -1,4 +1,4 @@
-# Training plans utilization for Amazon SageMaker HyperPod clusters
+# Using training plans in Amazon SageMaker HyperPod clusters
 
 To use SageMaker training plans for your Amazon SageMaker HyperPod cluster, you specify the training plan you
 want to use at the cluster instance level when creating or updating your cluster.

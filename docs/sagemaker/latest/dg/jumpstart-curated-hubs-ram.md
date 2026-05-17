@@ -12,7 +12,7 @@ The available access permissions are read, read and use, and full access permiss
 The permission name, description, and list of specific APIs available for each
 permission are listed in the following:
 
-- Read permission (`AWSRAMPermissionSageMaker AIHubRead`): The read privilege allows
+- Read permission (`AWSRAMPermissionSageMakerHubRead`): The read privilege allows
   resource consumer accounts to read contents in the shared hubs and view details
   and metadata.
   - `DescribeHub`: Retrieves details about a hub and its configuration
@@ -21,7 +21,7 @@ permission are listed in the following:
   - `ListHubContent`: Lists all models available in a hub
   - `ListHubContentVersions`: Lists the version of all models available in a hub
 
-- Read and use permission (`AWSRAMPermissionSageMaker AIHubReadAndUse`): The read and use privilege allows
+- Read and use permission (`AWSRAMPermissionSageMakerHubReadAndUse`): The read and use privilege allows
   resource consumer accounts to read contents in the shared hubs and deploy available models for inference.
   - `DescribeHub`: Retrieves details about a hub and its configuration
   - `DescribeHubContent`: Retrieves details about a model available in a specific
@@ -30,7 +30,7 @@ permission are listed in the following:
   - `ListHubContentVersions`: Lists the version of all models available in a hub
   - `DeployHubModel`: Allows access to deploy available open-weight hub models for inference
 
-- Full access permission (`AWSRAMPermissionSageMaker AIHubFullAccessPolicy`): The full access
+- Full access permission (`AWSRAMPermissionSageMakerHubFullAccessPolicy`): The full access
   privilege allows resource consumer accounts to read contents in the shared hubs,
   add and remove hub content, and deploy available models for inference.
   - `DescribeHub`: Retrieves details about a hub and its configuration

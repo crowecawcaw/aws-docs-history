@@ -96,6 +96,13 @@ application becomes **Failed**. If an application is in the
 same type. For information about creating Studio Classic applications, see [Shut Down and Update Amazon SageMaker Studio Classic and Apps](studio-tasks-update.md "studio-tasks-update.md"). For information
 about creating SageMaker Canvas applications, see [Applications management](canvas-manage-apps.md "canvas-manage-apps.md").
 
+For apps running on training plan capacity, Studio requires an additional instance
+from the training plan during maintenance. If no instances are available, maintenance
+fails and the app transitions to `Failed` status. To recover the app in case
+of maintenance failures, verify that your training plan has at least one available
+instance, then create the app again. Also ensure that your instance group has at least
+one subnet in the Availability Zone with one free IP address.
+
 For more information, contact https://aws.amazon.com/premiumsupport/.
 
 ###### Topics

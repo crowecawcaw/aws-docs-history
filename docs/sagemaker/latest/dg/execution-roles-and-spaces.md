@@ -143,7 +143,7 @@ USER_IDENTITY
 
 The session name of the execution role corresponds to the user's identity. For
 IAM domains, the session name is the IAM session name used to generate the
-presigned URL. For IAM Identity Center domains, the session name is the username of the associated
+Studio presigned URL. For IAM Identity Center domains, the session name is the username of the associated
 IAM Identity Center user.
 
 STATIC

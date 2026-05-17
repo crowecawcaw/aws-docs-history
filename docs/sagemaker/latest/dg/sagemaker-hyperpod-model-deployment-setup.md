@@ -509,7 +509,7 @@ All add-ons should show status "ACTIVE" and all pods should be in "Running" stat
 
 ###### Note
 
-If you created your HyperPod cluster using the quick setup or custom setup options, the FSx CSI Driver and Cert Manager may already be installed. Verify their presence using the commands above.
+If you created your HyperPod cluster using the quick setup or custom setup options, the FSx CSI Driver and Cert Manager may already be installed. Verify their presence using the preceding commands.
 
 ### Installing the Inference Operator with EKS add-on
 

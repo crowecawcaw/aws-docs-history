@@ -424,7 +424,7 @@ The following KEDA yaml policy uses prometheus metrics query as a trigger to
 perform autoscaling on a kubernetes deployment. This policy uses a
 `minReplicaCount` of 0 which enables KEDA to scale the deployment
 down to 0 pods. When `minReplicaCount` is set to 0, you need to provide
-an activation criteria in order to bring up the first pod, after the pods scale down
+an activation criteria to bring up the first pod, after the pods scale down
 to 0. For the Prometheus trigger, this value is provided by
 `activationThreshold`. For the SQS queue, it comes from
 `activationQueueLength`.

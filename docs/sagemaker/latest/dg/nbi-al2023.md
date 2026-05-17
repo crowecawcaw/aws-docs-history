@@ -1,7 +1,6 @@
 # AL2023 notebook instances
 
-Amazon SageMaker notebook instances currently support AL2023 operating systems. AL2023
-is now the latest and recommended operating system for notebook instances. You can
+SageMaker AI notebook instances support AL2023 operating systems. You can
 select the operating system that your notebook instance is based on when you create the
 notebook instance.
 
@@ -19,7 +18,7 @@ SageMaker AI supports notebook instances based on the following AL2023 operating
 
 AL2023 supports instance types listed under **Notebook Instances** in
 [SageMaker AI Pricing](https://aws.amazon.com/sagemaker/pricing/ "https://aws.amazon.com/sagemaker/pricing/"), with the
-exception that AL2023 does not support `ml.p2`, `ml.p3`, `ml.g3` instances.
+exception that AL2023 does not support `ml.p2`, `ml.p3`, `ml.p3dn`, `ml.inf1`, and `ml.g3` instances.
 
 ## Available kernels
 
@@ -27,11 +26,11 @@ The following table gives information about the available kernels for SageMaker 
 instances. All of these images are supported on notebook instances based on the
 `notebook-al2023-v1` operating system.
 
-| Kernel name          | Description                                                                                                                                                                       |
-| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| R                    | A kernel used to perform data analysis and visualization using R code<br>from a Jupyter notebook.                                                                                 |
-| Sparkmagic (PySpark) | A kernel used to do data science with remote Spark clusters from<br>Jupyter notebooks using the Python programming language. This kernel<br>comes with Python 3.10.               |
-| Sparkmagic (Spark)   | A kernel used to do data science with remote Spark clusters from<br>Jupyter notebooks using the Scala programming language. This kernel<br>comes with Python 3.10.                |
-| Sparkmagic (SparkR)  | A kernel used to do data science with remote Spark clusters from<br>Jupyter notebooks using the R programming language. This kernel comes<br>with Python 3.10.                    |
-| conda_python3        | A conda environment that comes pre-installed with popular packages<br>for data science and machine learning. This kernel comes with Python<br>3.10.                               |
-| conda_pytorch        | A conda environment that comes pre-installed with PyTorch version<br>2.7.0, as well as popular data science and machine learning packages.<br>This kernel comes with Python 3.10. |
+| Kernel name          | Description                                                                                                                                                                        |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| R                    | A kernel used to perform data analysis and visualization using R code<br>from a Jupyter notebook.                                                                                  |
+| Sparkmagic (PySpark) | A kernel used to do data science with remote Spark clusters from<br>Jupyter notebooks using the Python programming language. This kernel<br>comes with Python 3.10.                |
+| Sparkmagic (Spark)   | A kernel used to do data science with remote Spark clusters from<br>Jupyter notebooks using the Scala programming language. This kernel<br>comes with Python 3.10.                 |
+| Sparkmagic (SparkR)  | A kernel used to do data science with remote Spark clusters from<br>Jupyter notebooks using the R programming language. This kernel comes<br>with Python 3.10.                     |
+| conda_python3        | A conda environment that comes pre-installed with popular packages<br>for data science and machine learning. This kernel comes with Python<br>3.10.                                |
+| conda_pytorch        | A conda environment that comes pre-installed with PyTorch version<br>2.10.0, as well as popular data science and machine learning packages.<br>This kernel comes with Python 3.10. |

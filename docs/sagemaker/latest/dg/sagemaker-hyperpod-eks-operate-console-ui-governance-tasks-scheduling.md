@@ -20,6 +20,7 @@ Topology-aware scheduling supports the following instance types:
 - ml.p5e.48xlarge
 - ml.p5en.48xlarge
 - ml.p6e-gb200.36xlarge
+- ml.p6-b300.48xlarge
 - ml.trn1.2xlarge
 - ml.trn1.32xlarge
 - ml.trn1n.32xlarge

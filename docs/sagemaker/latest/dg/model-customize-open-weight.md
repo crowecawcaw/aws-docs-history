@@ -32,6 +32,7 @@ The following table shows the base models that you can customize.
 | Alibaba        | Qwen3.5 4B                    | `huggingface-vlm-qwen3-5-4b`                 | ✓          |            | ✓            | ✓           |
 | Alibaba        | Qwen3.5 9B                    | `huggingface-vlm-qwen3-5-9b`                 | ✓          |            | ✓            | ✓           |
 | Alibaba        | Qwen3.5 27B                   | `huggingface-vlm-qwen3-5-27b`                | ✓          |            | ✓            | ✓           |
+| Alibaba        | Qwen3.6 27B                   | `huggingface-vlm-qwen3-6-27b`                | ✓          |            | ✓            | ✓           |
 | DeepSeek       | DeepSeek R1 Distill Llama 8B  | `deepseek-llm-r1-distill-llama-8b`           | ✓          | ✓          | ✓            | ✓           |
 | DeepSeek       | DeepSeek R1 Distill Llama 70B | `deepseek-llm-r1-distill-llama-70b`          | ✓          | ✓          | ✓            | ✓           |
 | DeepSeek       | DeepSeek R1 Distill Qwen 1.5B | `deepseek-llm-r1-distill-qwen-1-5b`          | ✓          | ✓          | ✓            | ✓           |

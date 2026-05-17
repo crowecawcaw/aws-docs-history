@@ -96,7 +96,7 @@ derives the expected volume name from `modelVolumeMount.name` in
 your worker configuration. `kubernetes.volumes` must contain a
 volume with that same name. The operator validates this and rejects the
 deployment with a `KubernetesVolumeValidationFailed` condition if
-no matching volume is found. In the examples below, both use
+no matching volume is found. In the following examples, both use
 `model-weights`.
 
 1. Create the `InferenceEndpointConfig` YAML file. Replace

@@ -21,6 +21,8 @@ To monitor the status or retrieve details of a training plan, you can use the [`
   the plan becomes `Active`.
 - For HyperPod clusters using a training plan for compute capacity, the
   instance group status appears as `InService` once created.
+- For Studio apps, the app launches on reserved GPU capacity when the training plan
+  is `Active`.
   The following example uses an AWS CLI command to retrieve the details of a training plan
   by its name.
 

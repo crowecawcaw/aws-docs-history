@@ -1,4 +1,4 @@
-# Training plans utilization for SageMaker training jobs
+# Using training plans in SageMaker training jobs
 
 You can use a SageMaker training plans for your training jobs by specifying the plan of your choice
 when creating a training job.

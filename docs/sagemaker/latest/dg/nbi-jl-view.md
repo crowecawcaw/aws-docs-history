@@ -2,7 +2,7 @@
 
 ###### Important
 
-JupyterLab 1 and JupyterLab 3 are no longer supported as of June 30, 2025. You can no longer create new or restart stopped notebook instances using these versions. Existing in-service instances may continue to function but will not receive security updates or bug fixes. Migrate to JupyterLab 4 notebook instances for continued support. For more information, see [JupyterLab version maintenance](nbi-jl.md#nbi-jl-version-maintenance "nbi-jl.md#nbi-jl-version-maintenance").
+JupyterLab 1 and JupyterLab 3 are no longer supported as of June 30, 2025. You can no longer create new or restart stopped notebook instances using these versions. Existing in-service instances may continue to function but will not receive security updates or bug fixes. Migrate to AL2023 (`notebook-al2023-v1`) for continued support. For more information, see [JupyterLab version maintenance](nbi-jl.md#nbi-jl-version-maintenance "nbi-jl.md#nbi-jl-version-maintenance").
 
 You can view the JupyterLab version of a notebook using the following procedure:
 

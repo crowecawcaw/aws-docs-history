@@ -296,7 +296,7 @@ performance and resolve complex performance issues.
 
 **Hypothetical scenario:** A customer's chat model
 experiences intermittent slow responses. Users are complaining about 5-10 second
-delays. The MLE can leverage inference observability for systematic performance
+delays. The MLE can use inference observability for systematic performance
 investigation.
 
 **What you need to do:**
@@ -419,7 +419,7 @@ Inference (TGI) containers:**
 With a custom observability integration, you're responsible for:
 
 1. **Metrics Scraping:** Implement
-   Prometheus-compatible scraping from the endpoints above
+   Prometheus-compatible scraping from the endpoints described previously
 2. **Data Export:** Configure export to your
    chosen observability platform
 3. **Alerting:** Set up alerting rules based on

@@ -2,7 +2,7 @@
 
 ###### Important
 
-JupyterLab 1 and JupyterLab 3 are no longer supported as of June 30, 2025. You can no longer create new or restart stopped notebook instances using these versions. Existing in-service instances may continue to function but will not receive security updates or bug fixes. Migrate to JupyterLab 4 notebook instances for continued support. For more information, see [JupyterLab version maintenance](#nbi-jl-version-maintenance "#nbi-jl-version-maintenance").
+JupyterLab 1 and JupyterLab 3 are no longer supported as of June 30, 2025. You can no longer create new or restart stopped notebook instances using these versions. Existing in-service instances may continue to function but will not receive security updates or bug fixes. Migrate to AL2023 (`notebook-al2023-v1`) for continued support. For more information, see [JupyterLab version maintenance](#nbi-jl-version-maintenance "#nbi-jl-version-maintenance").
 
 The Amazon SageMaker notebook instance interface is based on JupyterLab, which is a web-based
 interactive development environment for notebooks, code, and data. Notebooks now support using
@@ -14,7 +14,7 @@ You can configure your notebook to run your preferred JupyterLab version by sele
 appropriate platform identifier. Use either the AWS CLI or the SageMaker AI console when creating your
 notebook instance. For more information about platform identifiers, see [AL2023 notebook instances](nbi-al2023.md "nbi-al2023.md")
 and [Amazon Linux 2 notebook instances](nbi-al2.md "nbi-al2.md"). If you don’t explicitly configure a platform identifier, your notebook
-instance defaults to running JupyterLab 1.
+instance defaults to `notebook-al2023-v1` (JupyterLab 4).
 
 ###### Topics
 
@@ -35,11 +35,12 @@ JupyterLab 1 and JupyterLab 3 platforms reached end of standard support on June 
 
 Migrate your work to JupyterLab 4 notebook instances (the latest version's platform identifier is
 [notebook-al2023-v1](nbi-al2023.md "nbi-al2023.md")) to ensure you have a secure and supported environment. This allows you to leverage the
-latest versions of Jupyter notebooks, JupyterLab, and other ML libraries. For instructions, see [migrate your work to an SageMaker AI notebook instance with Amazon Linux 2](https://aws.amazon.com/blogs//machine-learning/migrate-your-work-to-amazon-sagemaker-notebook-instance-with-amazon-linux-2/ "https://aws.amazon.com/blogs//machine-learning/migrate-your-work-to-amazon-sagemaker-notebook-instance-with-amazon-linux-2/").
+latest versions of Jupyter notebooks, JupyterLab, and other ML libraries. For migration instructions, see
+[Migrating from Amazon Linux 2 to AL2023](nbi-al2.md#nbi-al2-migration "nbi-al2.md#nbi-al2-migration").
 
 ## JupyterLab 4
 
-JupyterLab 4 support is available only on the Amazon Linux 2 operating system platform.
+JupyterLab 4 support is available on the AL2023 and Amazon Linux 2 operating system platforms.
 JupyterLab 4 includes the following features that are not available in JupyterLab 3:
 
 - Optimized rendering for a faster experience
@@ -53,7 +54,9 @@ JupyterLab 4 includes the following features that are not available in JupyterLa
 
 You can run JupyterLab 4 by specifying [notebook-al2023-v1](nbi-al2023.md "nbi-al2023.md")
 (the latest and recommended version) or [notebook-al2-v3](nbi-al2.md "nbi-al2.md") as the
-platform identifier when creating your notebook instance.
+platform identifier when creating your notebook instance. Note that
+`notebook-al2-v3` is deprecating on July 1, 2026. Use
+`notebook-al2023-v1` for all new instances.
 
 ###### Note
 
@@ -73,7 +76,7 @@ JupyterLab 4 has the following package version changes from JupyterLab 3:
 
 ###### Important
 
-JupyterLab 1 and JupyterLab 3 are no longer supported as of June 30, 2025. You can no longer create new or restart stopped notebook instances using these versions. Existing in-service instances may continue to function but will not receive security updates or bug fixes. Migrate to JupyterLab 4 notebook instances for continued support. For more information, see [JupyterLab version maintenance](#nbi-jl-version-maintenance "#nbi-jl-version-maintenance").
+JupyterLab 1 and JupyterLab 3 are no longer supported as of June 30, 2025. You can no longer create new or restart stopped notebook instances using these versions. Existing in-service instances may continue to function but will not receive security updates or bug fixes. Migrate to AL2023 (`notebook-al2023-v1`) for continued support. For more information, see [JupyterLab version maintenance](#nbi-jl-version-maintenance "#nbi-jl-version-maintenance").
 
 JupyterLab 3 support is available only on the Amazon Linux 2 operating system platform.
 JupyterLab 3 includes the following features that are not available in JupyterLab 1. For

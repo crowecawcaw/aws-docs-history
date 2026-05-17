@@ -127,7 +127,17 @@ instance with this storage is launched.
 
     ###### Important
 
-    JupyterLab 1 and JupyterLab 3 are no longer supported as of June 30, 2025. You can no longer create new or restart stopped notebook instances using these versions. Existing in-service instances may continue to function but will not receive security updates or bug fixes. Migrate to JupyterLab 4 notebook instances for continued support. For more information, see [JupyterLab version maintenance](nbi-jl.md#nbi-jl-version-maintenance "nbi-jl.md#nbi-jl-version-maintenance"). 4. (Optional) **Additional configuration** lets advanced
+    On June 30, 2026, Amazon Linux 2 reaches end of support for notebook
+    instances. Starting July 1, 2026, you can no longer create new
+    or restart stopped AL2 notebook instances.
+
+    JupyterLab 1 and JupyterLab 3 are no longer supported as of
+    June 30, 2025. You can no longer create new or restart stopped
+    notebook instances using these versions.
+
+    Use `notebook-al2023-v1` for all new instances. For
+    more information, see [AL2 Maintenance Phase Plan](nbi-al2.md#nbi-al2-end-of-support "nbi-al2.md#nbi-al2-end-of-support") and
+    [JupyterLab version maintenance](nbi-jl.md#nbi-jl-version-maintenance "nbi-jl.md#nbi-jl-version-maintenance"). 4. (Optional) **Additional configuration** lets advanced
     users create a shell script that can run when you create or start the
     instance. This script, called a lifecycle configuration script, can be
     used to set the environment for the notebook or to perform other

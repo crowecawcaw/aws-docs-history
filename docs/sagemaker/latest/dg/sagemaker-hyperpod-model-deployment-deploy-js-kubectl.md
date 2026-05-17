@@ -39,7 +39,7 @@ export MODEL_VERSION="2.0.4"
 ```
 
 4. Configure the model ID and cluster name you’ve selected into the
-   variables below.
+   following variables.
 
 ###### Note
 
@@ -84,7 +84,7 @@ export SAGEMAKER_ENDPOINT_NAME="deepsek-qwen-1-5b-test"
 7. The following is an example for a
    `deepseek-llm-r1-distill-qwen-1-5b` model deployment from
    Jumpstart. Create a similar deployment yaml file based on the model
-   selected iin the above step.
+   selected in the preceding step.
 
 ###### Note
 

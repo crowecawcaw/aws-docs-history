@@ -41,7 +41,7 @@ Choose between two quota sharing approaches based on your requirements:
    independently handle peak demand and may result in idle nodes during
    low-traffic periods.
 2. **Flexible Resource Sharing:** Enable quota
-   borrowing to utilize idle resources from other teams when needed. Borrowed
+   borrowing to use idle resources from other teams when needed. Borrowed
    pods are marked as preemptible and may be evicted if the lending team
    reclaims capacity.
 

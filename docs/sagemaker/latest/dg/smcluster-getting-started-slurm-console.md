@@ -236,7 +236,7 @@ process.
         * **Use default lifecycle scripts** —
          Default lifecycle scripts are uploaded to the chosen Amazon S3
          bucket and used to provision nodes. This option uses the
-         scripts from the [Awsome Distributed Training repository](https://github.com/awslabs/awsome-distributed-training/tree/main/1.architectures/5.sagemaker-hyperpod/LifecycleScripts/base-config "https://github.com/awslabs/awsome-distributed-training/tree/main/1.architectures/5.sagemaker-hyperpod/LifecycleScripts/base-config").
+         scripts from the [Awsome Distributed Training repository](https://github.com/awslabs/awsome-distributed-training/tree/main/1.architectures/5.sagemaker-hyperpod/LifecycleScripts/base-config "https://github.com/awslabs/awsome-distributed-training/tree/main/1.architectures/5.sagemaker-hyperpod/LifecycleScripts/base-config") (ADTR).
         * **Use custom lifecycle scripts** — Choose
          lifecycle scripts from an Amazon S3 bucket. This corresponds to
          the `OnCreate` path in the API, where your

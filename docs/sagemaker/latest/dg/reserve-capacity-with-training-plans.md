@@ -72,6 +72,11 @@ PM, you can make a last-minute search as late as 1:30 PM and complete your purch
   SageMaker training plans allow you to reserve instances with specific duration and quantity
   options. For available instance types in a given AWS Region, duration, and quantity
   options, see [Supported instance types, AWS Regions, and pricing](#training-plans-supported-instances-and-regions "#training-plans-supported-instances-and-regions").
+  - **UltraServers**: Reach out to your account manager
+    to request UltraServers.
+  - Add **P5.4xl, P4de, B300, G6**: Reach out to your
+    account manager to request these instance types.
+
 - **End time**: Training Plans always end at 11:30 AM UTC
   on the final day of the reservation.
 - **Training plan termination**: If you're using training jobs as a target resource and

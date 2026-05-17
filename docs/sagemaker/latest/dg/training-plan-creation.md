@@ -27,10 +27,12 @@ involves selecting your chosen offering and initiating the reservation.
      Once the payment is completed, the plan is ready for scheduling your SageMaker training jobs
      or creating HyperPod clusters.
 
-To learn about how to use training plans for your SageMaker training jobs , see [Training plans utilization for SageMaker training jobs](training-plan-utilization-for-training-jobs.md "training-plan-utilization-for-training-jobs.md").
+To learn about how to use training plans for your SageMaker training jobs , see [Using training plans in SageMaker training jobs](training-plan-utilization-for-training-jobs.md "training-plan-utilization-for-training-jobs.md").
 
 To learn about how to use training plans for your HyperPod clusters,
-see [Training plans utilization for Amazon SageMaker HyperPod clusters](training-plan-utilization-for-hyperpod.md "training-plan-utilization-for-hyperpod.md").
+see [Using training plans in Amazon SageMaker HyperPod clusters](training-plan-utilization-for-hyperpod.md "training-plan-utilization-for-hyperpod.md").
+
+To learn about how to use training plans for your SageMaker Studio apps, see [Using training plans in Studio applications](training-plan-utilization-for-studio-apps.md "training-plan-utilization-for-studio-apps.md").
 You can create a training plan using either the SageMaker AI console or programmatic methods. The
 SageMaker AI console offers a visual, graphical interface with a comprehensive view of your options,
 while programmatic creation can be done using the AWS CLI or SageMaker SDKs to interact directly with

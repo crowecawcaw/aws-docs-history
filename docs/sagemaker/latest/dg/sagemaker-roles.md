@@ -886,6 +886,23 @@ In the preceding policy, you scope the policy as follows:
 The `cloudwatch` and `logs` actions are applicable for "\*"
 resources. For more information, see [CloudWatch Resources and Operations](../../../AmazonCloudWatch/latest/monitoring/iam-access-control-overview-cw.md#CloudWatch_ARN_Format "../../../AmazonCloudWatch/latest/monitoring/iam-access-control-overview-cw.md#CloudWatch_ARN_Format") in the Amazon CloudWatch User Guide.
 
+If you specify an AWS KMS key to encrypt the storage volume of the notebook
+instance, add the following permissions to the execution role:
+
+```
+{
+    "Effect": "Allow",
+    "Action": [
+        "kms:CreateGrant",
+        "kms:DescribeKey",
+        "kms:Decrypt",
+        "kms:GenerateDataKey",
+        "kms:GenerateDataKeyWithoutPlaintext"
+    ],
+    "Resource": "arn:aws:kms:`us-east-1`:`111122223333`:key/`kms-key-id`"
+}
+```
+
 ## CreateHyperParameterTuningJob API: Execution Role Permissions
 
 For an execution role that you can pass in a
