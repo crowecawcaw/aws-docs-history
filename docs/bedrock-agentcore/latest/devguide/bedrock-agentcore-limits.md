@@ -321,15 +321,18 @@ The following table describes the rate limits for the Code Interpreter tool APIs
 
 The following table describes the service quotas for AgentCore Evaluations:
 
-| Limit                                               | Default Value                                  | Adjustable                          | Note                                           |
-| --------------------------------------------------- | ---------------------------------------------- | ----------------------------------- | ---------------------------------------------- |
-| Input tokens per minute for built-in evaluators     | 200,000                                        | No                                  | Evaluations per minute for built-in evaluators |
-| 100                                                 | No                                             | Spans per on-demand evaluation      | 1000                                           |
-| No                                                  | On-demand evaluation payload size (in MB)      | 15                                  | No                                             |
-| Evaluators per on-demand evaluation                 | 1                                              | No                                  | Input tokens per evaluation                    |
-| 200,000                                             | No                                             | Spans evaluated per sampled session | 1000                                           |
-| No                                                  | Size of all spans in a sampled session (in MB) | 15                                  | No                                             |
-| Active online evaluation configurations per account | 100                                            | No                                  | Evaluators per online evaluation configuration |
+| Limit                                               | Default Value | Adjustable | Notes |
+| --------------------------------------------------- | ------------- | ---------- | ----- |
+| Input tokens per minute for built-in evaluators     | 200,000       | No         |       |
+| Evaluations per minute for built-in evaluators      | 100           | No         |       |
+| Spans per on-demand evaluation                      | 1000          | No         |       |
+| On-demand evaluation payload size (in MB)           | 15            | No         |       |
+| Evaluators per on-demand evaluation                 | 1             | No         |       |
+| Input tokens per evaluation                         | 200,000       | No         |       |
+| Spans evaluated per sampled session                 | 1000          | No         |       |
+| Size of all spans in a sampled session (in MB)      | 15            | No         |       |
+| Active online evaluation configurations per account | 100           | No         |       |
+| Evaluators per online evaluation configuration      | 10            | No         |       |
 
 ## AgentCore Policy Service Quotas
 

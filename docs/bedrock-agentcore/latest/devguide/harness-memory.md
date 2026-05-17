@@ -116,12 +116,23 @@ If you update your Memory instance’s strategies (add or remove) after creating
 
 ## Filesystem
 
-Mount S3-backed persistent storage that survives session termination. Files written to the mount path persist across session restarts when using the same `runtimeSessionId`.
+The harness mounts persistent storage at paths you specify. Files written to these mounts survive session termination and are visible to later invocations.
+
+A harness supports three filesystem types:
+
+- **Session storage** - service-managed, per-session storage that persists across stop/resume cycles for the same `runtimeSessionId`. No VPC required.
+- **Amazon EFS access point** - bring-your-own EFS file system, shared across sessions and agents. VPC required.
+- **Amazon S3 Files access point** - bring-your-own S3 Files file system that syncs bidirectionally with an S3 bucket. VPC required.
+
+For prerequisites (VPC networking, IAM permissions, security groups), type comparison, limits, and lifecycle behavior, see [File system configurations for AgentCore Runtime](runtime-filesystem-configurations.md "runtime-filesystem-configurations.md"). The same requirements apply to harnesses.
+
+### Session storage
+
+Files written to the mount path persist across stop/resume cycles when you invoke with the same `runtimeSessionId`.
 
 ###### Example
 
 AgentCore CLI
-Configure at create time or add to an existing harness:
 
 ```
 # At create time
@@ -140,9 +151,79 @@ aws bedrock-agentcore-control update-harness \
   --environment '{"agentCoreRuntimeEnvironment": {"filesystemConfigurations": [{"sessionStorage": {"mountPath": "/mnt/data/"}}]}}'
 ```
 
+### Amazon EFS access point
+
+Attach an EFS access point ARN at a mount path under `/mnt`. Data persists in your account and can be shared with other harnesses or agent runtimes that mount the same access point.
+
+###### Example
+
+AWS CLI/boto3
+
+```
+aws bedrock-agentcore-control create-harness \
+  --harness-name "SharedToolsAgent" \
+  --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole" \
+  --environment '{
+    "agentCoreRuntimeEnvironment": {
+      "networkConfiguration": {
+        "networkMode": "VPC",
+        "networkModeConfig": {
+          "subnets": ["subnet-abc123", "subnet-def456"],
+          "securityGroups": ["sg-abc123"]
+        }
+      },
+      "filesystemConfigurations": [
+        {
+          "efsAccessPoint": {
+            "accessPointArn": "arn:aws:elasticfilesystem:us-west-2:123456789012:access-point/fsap-0123456789abcdef0",
+            "mountPath": "/mnt/efs"
+          }
+        }
+      ]
+    }
+  }'
+```
+
+### Amazon S3 Files access point
+
+Attach an S3 Files access point ARN at a mount path under `/mnt`. Files at the mount path sync bidirectionally with the backing S3 bucket.
+
+###### Example
+
+AWS CLI/boto3
+
+```
+aws bedrock-agentcore-control create-harness \
+  --harness-name "DataAgent" \
+  --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole" \
+  --environment '{
+    "agentCoreRuntimeEnvironment": {
+      "networkConfiguration": {
+        "networkMode": "VPC",
+        "networkModeConfig": {
+          "subnets": ["subnet-abc123", "subnet-def456"],
+          "securityGroups": ["sg-abc123"]
+        }
+      },
+      "filesystemConfigurations": [
+        {
+          "s3FilesAccessPoint": {
+            "accessPointArn": "arn:aws:s3files:us-west-2:123456789012:file-system/fs-0123456789abcdef0/access-point/fsap-0123456789abcdef0",
+            "mountPath": "/mnt/s3data"
+          }
+        }
+      ]
+    }
+  }'
+```
+
+###### Important
+
+`UpdateHarness` replaces the entire `filesystemConfigurations` list. To add a new mount to a harness that already has filesystems configured, call `GetHarness` first, then send the full desired list (existing entries plus the new one) in `UpdateHarness`.
+
 Learn more: [AgentCore Memory](memory.md "memory.md"), [create a memory store](memory-create-a-memory-store.md "memory-create-a-memory-store.md"), [long-term memory strategies](long-term-configuring-built-in-strategies.md "long-term-configuring-built-in-strategies.md"), [file system configurations on Runtime](runtime-filesystem-configurations.md "runtime-filesystem-configurations.md").
 
-### Related topics
+#### Related topics
 
 - [Configure agents and models](harness-config-and-models.md "harness-config-and-models.md") - configure models and system prompts
 - [Environment and Skills](harness-environment.md "harness-environment.md") - bring your own container with persistent storage mounts

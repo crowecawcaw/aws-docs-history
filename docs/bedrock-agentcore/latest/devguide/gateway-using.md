@@ -8,15 +8,19 @@ AgentCore Gateway supports the following MCP versions: \* 2025-06-18 \* 2025-03-
 
 You can use the following MCP operations with an AgentCore gateway:
 
-| Operation                | Description                                                                |
-| ------------------------ | -------------------------------------------------------------------------- |
-| tools/call               | Invokes a specific tool with the provided arguments                        |
-| tools/list               | Lists all available tools provided by the gateway                          |
-| prompts/list             | Lists all available prompts provided by the gateway                        |
-| prompts/get              | Retrieves a specific prompt template, rendered with the provided arguments |
-| resources/list           | Lists all available resources provided by the gateway                      |
-| resources/read           | Reads the contents of a specific resource by URI                           |
-| resources/templates/list | Lists all available resource templates provided by the gateway             |
+| Operation                | Description                                                                      |
+| ------------------------ | -------------------------------------------------------------------------------- |
+| tools/call               | Invokes a specific tool with the provided arguments                              |
+| tools/list               | Lists all available tools provided by the gateway                                |
+| prompts/list             | Lists all available prompts provided by the gateway                              |
+| prompts/get              | Retrieves a specific prompt template, rendered with the provided arguments       |
+| resources/list           | Lists all available resources provided by the gateway                            |
+| resources/read           | Reads the contents of a specific resource by URI                                 |
+| resources/templates/list | Lists all available resource templates provided by the gateway                   |
+| elicitation/create       | Requests additional input from the client during a tool call (server-initiated)  |
+| sampling/createMessage   | Requests an LLM completion from the client during a tool call (server-initiated) |
+| notifications/progress   | Reports progress on long-running tool calls (server-initiated)                   |
+| notifications/message    | Sends log messages from the server during tool execution (server-initiated)      |
 
 The following topics describe how to invoke your AgentCore gateway:
 

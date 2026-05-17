@@ -2,7 +2,7 @@
 
 A Payment Manager is the top-level resource that coordinates payment operations for your AWS account. When you create a Payment Manager, you specify an authorizer type and an IAM role, and the service provisions a corresponding workload identity in AgentCore Identity.
 
-This guide walks you through creating a Payment Manager and attaching a Payment Connector using the AWS Management Console or the AWS SDK.
+This guide walks you through creating a Payment Manager and attaching a Payment Connector using the AWS Management Console or the AWS SDK. For the complete request and response schemas, see [CreatePaymentManager](../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentManager.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentManager.md") and [CreatePaymentConnector](../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentConnector.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentConnector.md") in the API Reference.
 
 Before you begin, ensure you have:
 
@@ -64,7 +64,7 @@ Payment connectors store the credentials and configuration needed to connect wit
 
 1. In the **Payment connector: New Connector** section, for **Name**, enter a name for the connector. Valid characters are `a–z`, `A–Z`, `0–9`, and `_` (underscore). The name can have up to 48 characters.
 2. (Optional) Choose **Description** to expand the section, and then enter a description for the connector.
-3. In the **Add Outbound Auth** section, if you want to reuse a payment credential provider previously created in [AgentCore Identity](resource-providers.md#payment-credential-provider "resource-providers.md#payment-credential-provider"), select an existing outbound auth from the dropdown; or choose **create a new one** to create a new payment credential provider. If you choose to create a new one, see **Create a new outbound auth** below.
+3. In the **Add Outbound Auth** section, if you want to reuse a payment credential provider previously created in [AgentCore Identity](resource-providers.md#payment-credential-provider "resource-providers.md#payment-credential-provider"), select an existing outbound auth from the dropdown; or choose **create a new one** to create a new payment credential provider. If you choose to create a new one, see **Create a new outbound auth**.
 4. (Optional) To add additional connectors, choose **+ Add connector** and repeat the steps above.
 
 **Create a new outbound auth**

@@ -1,6 +1,6 @@
 # How AgentCore payments works
 
-Amazon Bedrock AgentCore payments offers payment connection, wallet management, payment limits, payment processing, and payment observability. Using the components and workflows described here, you can configure payment providers, connect to external wallet infrastructure, and enable your agents to autonomously pay for APIs, MCP servers, and web content using the x402 protocol.
+Amazon Bedrock AgentCore payments offers payment connection, wallet management, payment limits, payment processing, and payment observability. Using the components and workflows described on this page, you can configure payment providers, connect to external wallet infrastructure, and enable your agents to autonomously pay for APIs, MCP servers, and web content using the x402 protocol.
 
 ## PaymentManager
 
@@ -51,7 +51,7 @@ Payment instruments represent the end user’s payment credentials, such as a cr
 
 At runtime, the agent creates a session and instrument, then calls `ProcessPayment` when the agent encounters a paid resource. The service orchestrates the full payment lifecycle (payment limit check, secure connection to wallet, and transaction signing across both x402 v1 and v2) through the configured PaymentConnector.
 
-For more information about data plane operations, see [Processing payments](payments-process-payment.md "payments-process-payment.md").
+For more information about data plane operations, see [Processing payments](payments-process-payment.md "payments-process-payment.md"). For the complete API schemas, see [CreatePaymentSession](../APIReference/API_CreatePaymentSession.md "../APIReference/API_CreatePaymentSession.md"), [CreatePaymentInstrument](../APIReference/API_CreatePaymentInstrument.md "../APIReference/API_CreatePaymentInstrument.md"), and [ProcessPayment](../APIReference/API_ProcessPayment.md "../APIReference/API_ProcessPayment.md") in the API Reference.
 
 ## Authentication and security
 

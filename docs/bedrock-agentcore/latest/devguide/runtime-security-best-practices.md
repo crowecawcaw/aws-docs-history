@@ -194,7 +194,7 @@ Implement comprehensive auditing to detect and investigate security events:
 
 Understand the division of security responsibilities between AWS and you:
 
-**AWS responsibilities:**
+###### AWS responsibilities:
 
 - Secure infrastructure and microVM isolation at the hardware level
 - OS kernel patching for all deployment modes
@@ -202,7 +202,7 @@ Understand the division of security responsibilities between AWS and you:
 - Network infrastructure security
 - Service availability and resilience
 
-**Your responsibilities:**
+###### Your responsibilities:
 
 - Agent code security and dependency management
 - IAM access controls and resource policies

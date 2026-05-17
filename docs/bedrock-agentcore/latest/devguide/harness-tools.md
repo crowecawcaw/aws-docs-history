@@ -39,6 +39,12 @@ The `--type` flag uses underscore-separated names (e.g., `agentcore_browser`), w
 agentcore add tool --harness my-agent --type remote_mcp \
   --name exa --url https://mcp.exa.ai/mcp
 
+# Add a remote MCP server with an API key from AgentCore Identity Token Vault.
+# Use ${arn:...} syntax in header values to reference a credential provider.
+agentcore add tool --harness my-agent --type remote_mcp \
+  --name exa-secure --url https://mcp.exa.ai/mcp \
+  --header 'x-api-key=${arn:aws:bedrock-agentcore:us-west-2:123456789012:token-vault/default/apikeycredentialprovider/my-exa-key}'
+
 # Add Browser
 agentcore add tool --harness my-agent --type agentcore_browser --name browser
 
@@ -79,7 +85,7 @@ tools = [
         "name": "exa",
         "config": {"remoteMcp": {"url": "https://mcp.exa.ai/mcp"}},
     },
-    # MCP server with authentication headers
+    # MCP server with authentication headers (plain text)
     {
         "type": "remote_mcp",
         "name": "my-private-mcp",
@@ -88,7 +94,18 @@ tools = [
             "headers": {"Authorization": "Bearer <your-token>"}
         }},
     },
-    # For managed credential rotation and API key storage, put your MCP server
+    # MCP server with API key stored in AgentCore Identity Token Vault.
+    # Use ${arn:...} to reference a credential provider — the ARN is resolved
+    # to the actual API key at invocation time.
+    {
+        "type": "remote_mcp",
+        "name": "exa-secure",
+        "config": {"remoteMcp": {
+            "url": "https://mcp.exa.ai/mcp",
+            "headers": {"x-api-key": "${arn:aws:bedrock-agentcore:us-west-2:123456789012:token-vault/default/apikeycredentialprovider/my-exa-key}"}
+        }},
+    },
+    # For managed credential rotation and OAuth-protected tools, put your MCP server
     # behind AgentCore Gateway and use AgentCore Identity instead of raw headers.
     #
     # AgentCore Gateway with SigV4 auth (default)

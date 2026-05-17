@@ -1,6 +1,6 @@
 # Prerequisites for AgentCore payments
 
-Before you use AgentCore payments, complete the following prerequisites.
+Complete the prerequisites on this page before you use AgentCore payments.
 
 ## AWS account and credentials
 
@@ -130,7 +130,7 @@ To rotate credentials:
 
 Plan for a brief overlap period where both old and new credentials are active. This prevents downtime during rotation.
 
-After you obtain credentials from your provider, you store them in AgentCore Identity as a PaymentCredentialProvider. For instructions, see [Configure payment credential providers](resource-providers.md "resource-providers.md").
+After you obtain credentials from your provider, you store them in AgentCore Identity as a PaymentCredentialProvider. For instructions, see [Configure payment credential providers](resource-providers.md "resource-providers.md"). For the complete request and response schema, see [CreatePaymentCredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentCredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentCredentialProvider.md") in the API Reference.
 
 ## (Optional) Identity provider for JWT authorization
 

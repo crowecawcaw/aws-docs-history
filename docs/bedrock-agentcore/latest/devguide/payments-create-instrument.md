@@ -1,6 +1,6 @@
 # Create a payment instrument
 
-A payment instrument represents an embedded crypto wallet that an agent uses to pay merchants on behalf of a user. Each instrument is associated with a specific blockchain network.
+A payment instrument represents an embedded crypto wallet that an agent uses to pay merchants on behalf of a user. Each instrument is associated with a specific blockchain network. For the complete request and response schema, see [CreatePaymentInstrument](../APIReference/API_CreatePaymentInstrument.md "../APIReference/API_CreatePaymentInstrument.md") in the API Reference.
 
 ###### Example
 
@@ -84,7 +84,7 @@ For Solana compatible chain, use enum `SOLANA` for network input.
 
 ###### Note
 
-Once the payment instrument is created, the end user must fund the instrument and grant signing permissions before the agent can process payments. See [Funding the wallet](payments-how-it-works.md#payments-how-it-works-funding-wallet "payments-how-it-works.md#payments-how-it-works-funding-wallet").
+Once the payment instrument is created, the end user must fund the instrument and grant signing permissions before the agent can process payments. To learn more about funding your wallet, see [How AgentCore payments works](payments-how-it-works.md#payments-how-it-works-funding-wallet "payments-how-it-works.md#payments-how-it-works-funding-wallet").
 
 ## Get a payment instrument
 

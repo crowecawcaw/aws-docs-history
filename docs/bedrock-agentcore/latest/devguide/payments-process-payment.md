@@ -4,7 +4,7 @@ To process a payment, you need two resources:
 
 - **Payment instrument** — An embedded crypto wallet with Coinbase or Stripe. See [Create a payment instrument](payments-create-instrument.md "payments-create-instrument.md").
 - **Payment session** — A time-bounded session that optionally enforces a spending budget. See [Create a payment session](payments-create-session.md "payments-create-session.md").
-  Once both exist, call `ProcessPayment` with the payment session ID, payment instrument ID, and an x402 payment payload. The service validates the request, checks the budget, signs the transaction on the appropriate blockchain, and returns a cryptographic proof.
+  Once both exist, call `ProcessPayment` with the payment session ID, payment instrument ID, and an x402 payment payload. The service validates the request, checks the budget, signs the transaction on the appropriate blockchain, and returns a cryptographic proof. For the complete request and response schema, see [ProcessPayment](../APIReference/API_ProcessPayment.md "../APIReference/API_ProcessPayment.md") in the API Reference.
 
 There are three ways to invoke the ProcessPayment API:
 

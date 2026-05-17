@@ -449,7 +449,7 @@ Interactive
 agentcore deploy
 ```
 
-![Deploy progress: CloudFormation resource creation and deployment status](images/tui/common-deploy-progress.png)
+![Deploy progress: CloudFormation resource creation and deployment status](/images/bedrock-agentcore/latest/devguide/images/tui/common-deploy-progress.png)
 
 You can preview the deployment before confirming by using the `--plan` flag:
 

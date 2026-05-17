@@ -13,7 +13,7 @@ Before you start, ensure you have:
 - Credentials from at least one payment provider (Coinbase CDP or Stripe Privy). See [Prerequisites](payments-prerequisites.md "payments-prerequisites.md") for details.
 - An AWS Region where AgentCore payments is available (us-east-1, us-west-2, eu-central-1, or ap-southeast-2). See [Supported AWS Regions](agentcore-regions.md "agentcore-regions.md").
 
-## Steps
+## Setting up payments for your first transaction
 
 Follow these steps to set up payments and process your first transaction:
 

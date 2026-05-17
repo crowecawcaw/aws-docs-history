@@ -80,29 +80,33 @@ principal.getTag("scope") like "*refund:write*"
 
 For IAM-authenticated gateways, the principal has an `id` attribute containing the caller’s IAM ARN. IAM principals do not support tags.
 
-The `principal.id` attribute contains the full IAM ARN in one of these formats:
+#### Principal entity format
 
-- **IAM user:**
-  `arn:aws:iam::123456789012:user/username`
-- **IAM role (assumed):**
-  `arn:aws:sts::123456789012:assumed-role/role-name/session-name`
-- **IAM role:**
-  `arn:aws:iam::123456789012:role/role-name`
+The Cedar principal for IAM-authenticated gateways is `AgentCore::IamEntity`. The `principal.id` attribute contains the caller’s IAM ARN.
 
-Use the `like` operator with wildcards to match patterns in the IAM ARN:
+For callers authenticating via an assumed IAM role, the `principal.id` and Cedar entity ID use the format:
+
+`arn:aws:sts::<account-id>:assumed-role/<role-name>`
+
+For example, if a caller assumes the role `MyServiceRole`, the Cedar entity ID is:
+
+`AgentCore::IamEntity::"arn:aws:sts::123456789012:assumed-role/MyServiceRole"`
+
+This format is stable across invocations, so you can use `principal ==` for exact role matching.
+
+#### Pattern matching with `like`
+
+You can also use the `like` operator with wildcards for broader matching:
 
 ```
-// Match specific AWS account
+// Match any role in a specific account
+principal.id like "arn:aws:sts::123456789012:assumed-role/*"
+
+// Match specific AWS account (any ARN format)
 principal.id like "*:123456789012:*"
 
-// Match specific IAM role
-principal.id like "arn:aws:iam::*:role/AdminRole"
-
-// Match any role in a specific account
-principal.id like "arn:aws:iam::123456789012:role/*"
-
-// Match assumed role sessions
-principal.id like "arn:aws:sts::*:assumed-role/ServiceRole/*"
+// Match a specific IAM role name across any account
+principal.id like "arn:aws:sts::*:assumed-role/AdminRole"
 ```
 
 ## Logical operators

@@ -1,6 +1,6 @@
 # Create a payment session
 
-A payment session is a time-bounded payment context that optionally enforces a spending budget. When the session expires or the budget is reached, further payment requests within that session are denied.
+A payment session is a time-bounded payment context that optionally enforces a spending budget. When the session expires or the budget is reached, further payment requests within that session are denied. For the complete request and response schema, see [CreatePaymentSession](../APIReference/API_CreatePaymentSession.md "../APIReference/API_CreatePaymentSession.md") in the API Reference.
 
 ###### Example
 
@@ -85,40 +85,4 @@ session = manager.get_payment_session(
     payment_session_id="payment-session-abc123"
 )
 print(f"Status: {session['status']}, Remaining: {session['remainingAmount']}")
-```
-
-## Update a payment session
-
-You can update an active session to modify its payment limits or extend its expiry time.
-
-###### Example
-
-AWS CLI
-
-```
-aws bedrock-agentcore update-payment-session \
-    --payment-manager-arn "arn:aws:bedrock-agentcore:us-west-2:123456789012:payment-manager/my-manager" \
-    --payment-session-id "payment-session-abc123" \
-    --limits '{"maxSpendAmount": {"value": "200.00", "currency": "USD"}}' \
-    --region us-west-2
-```
-
-AWS SDK
-
-```
-response = dp_client.update_payment_session(
-    paymentManagerArn=PAYMENT_MANAGER_ARN,
-    paymentSessionId="payment-session-abc123",
-    limits={"maxSpendAmount": {"value": "200.00", "currency": "USD"}}
-)
-```
-
-AgentCore SDK
-
-```
-updated_session = manager.update_payment_session(
-    user_id="test-user-123",
-    payment_session_id="payment-session-abc123",
-    limits={"maxSpendAmount": {"value": "200.00", "currency": "USD"}}
-)
 ```

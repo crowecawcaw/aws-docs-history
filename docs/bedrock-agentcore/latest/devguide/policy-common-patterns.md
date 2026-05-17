@@ -71,7 +71,7 @@ when {
 };
 ```
 
-**Use case:** Block test or unauthorized accounts from accessing production tools.
+**Use case:** Block test or unauthorized accounts from accessing production tools. The pattern `**:444455556666:**` matches any ARN format (assumed-role, IAM user, or IAM role) containing that account ID.
 
 ## Role-based access control
 
@@ -97,29 +97,27 @@ when {
 
 ### IAM: Using IAM role ARNs
 
-Permit access only to callers using specific IAM roles:
+Permit access only to callers using specific IAM roles. You can use exact `principal ==` matching or `principal.id like` pattern matching:
 
 ```
+// Exact match (recommended for single-role policies)
 permit(
-  principal is AgentCore::IamEntity,
+  principal == AgentCore::IamEntity::"arn:aws:sts::123456789012:assumed-role/AdminRole",
   action == AgentCore::Action::"AdminAPI___delete_resource",
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/admin"
-)
-when {
-  principal.id like "arn:aws:iam::*:role/AdminRole"
-};
+);
 ```
 
-**Use case:** Allow administrative operations only for callers using the AdminRole IAM role.
+**Use case:** Allow administrative operations only for callers assuming the AdminRole IAM role. The Cedar entity ID for assumed roles uses the format `arn:aws:sts::<account>:assumed-role/<role-name>`.
 
-**Variations:**
+**Variations using pattern matching:**
 
 ```
-// Match assumed role sessions
-principal.id like "arn:aws:sts::*:assumed-role/AdminRole/*"
+// Match a specific role from any account
+principal.id like "arn:aws:sts::*:assumed-role/AdminRole"
 
 // Match any role in a specific account
-principal.id like "arn:aws:iam::123456789012:role/*"
+principal.id like "arn:aws:sts::123456789012:assumed-role/*"
 ```
 
 ## Data type operations

@@ -4,10 +4,6 @@
 
 AWS Agent Registry can automatically synchronize record metadata from external sources by connecting to the provided URL with outbound credentials. When you provide a URL and credential provider (Optional for public resources that do not require any Authorization to access), the system extracts server and tool definitions and populates the record’s descriptors conforming to the official protocol schemas. It also updates the record’s name, description, and version if those values are found at the source.
 
-###### Note
-
-At public preview launch, SSE stream from MCP server is not supported yet.
-
 ## Synchronize from a public MCP server
 
 For Public MCP servers that don’t require authentication or authorization:

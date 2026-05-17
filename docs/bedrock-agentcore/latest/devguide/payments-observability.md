@@ -5,7 +5,7 @@ AgentCore payments supports observability through Amazon CloudWatch, so you can 
 - **Amazon CloudWatch** is the AWS monitoring and observability service. It collects and tracks metrics, logs, and traces from your AWS resources, giving you visibility into application performance.
 - **Vended logs** are logs that AWS services publish on your behalf directly to your CloudWatch log group. Unlike application logs that you instrument yourself, vended logs are generated automatically by the service. You configure where to deliver them.
 - **Spans** represent units of work within a request (for example, an API call and its downstream operations). Use spans to trace the flow of a request through the system and identify latency bottlenecks or failures.
-  After you complete the setup steps below, any data plane API call (for example, `CreatePaymentInstrument`) produces logs and trace data in your configured CloudWatch log group.
+  After you complete the following setup procedures, any data plane API call (for example, `CreatePaymentInstrument`) produces logs and trace data in your configured CloudWatch log group.
 
 ## Prerequisites
 

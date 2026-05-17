@@ -93,7 +93,7 @@ npx tsc --init --target ES2022 --module commonjs --outDir ./dist
 npx tsc
 ```
 
-The compiled output in `dist/app.js` is what you deploy. When creating the agent, use `"entryPoint": ["dist/app.js"]` тАФ the compiled JavaScript output, not the `.ts` source.
+The compiled output in `dist/app.js` is what you deploy. When creating the agent, use `"entryPoint": ["dist/app.js"]` — the compiled JavaScript output, not the `.ts` source.
 
 HTTP (no framework)
 This example uses the built-in `node:http` module with no external dependencies.
@@ -166,7 +166,7 @@ curl -X POST http://localhost:8080/invocations \
   -d '{"prompt": "What time is it right now?"}'
 ```
 
-**Success:** You should see a response containing the current time returned by the agentтАЩs `current_time` tool. In the terminal window thatтАЩs running the agent, enter `Ctrl+C` to stop the agent.
+**Success:** You should see a response containing the current time returned by the agent’s `current_time` tool. In the terminal window that’s running the agent, enter `Ctrl+C` to stop the agent.
 
 HTTP (no framework)
 
@@ -182,7 +182,7 @@ curl -X POST http://localhost:8080/invocations \
   -d '{"prompt": "Hello!"}'
 ```
 
-**Success:** You should see a response like `{"result": "Hello from Node.js managed runtime! You said: Hello!","runtime":"NODE_22",тАжтАЛ}` . In the terminal window thatтАЩs running the agent, enter `Ctrl+C` to stop the agent.
+**Success:** You should see a response like `{"result": "Hello from Node.js managed runtime! You said: Hello!","runtime":"NODE_22",…​}` . In the terminal window that’s running the agent, enter `Ctrl+C` to stop the agent.
 
 ## Step 4: Enable observability for your agent
 
@@ -206,7 +206,7 @@ When deploying, include `node_modules/` in your ZIP and use the `opentelemetry-i
 
 AgentCore Runtime does not run TypeScript (`.ts`) files natively. You must transpile TypeScript to JavaScript before deploying. For details, see [Working with TypeScript](#concept-node-typescript "#concept-node-typescript") .
 
-Create a .zip file with your agent code and dependencies. AgentCore Runtime only supports **arm64** instruction set architecture тАФ ensure any native modules (`.node` files) are compiled for arm64.
+Create a .zip file with your agent code and dependencies. AgentCore Runtime only supports **arm64** instruction set architecture — ensure any native modules (`.node` files) are compiled for arm64.
 
 ###### Example
 
@@ -218,7 +218,7 @@ npm install --production
 zip -r deployment_package.zip dist/ node_modules/ package.json
 ```
 
-When creating the agent, use `"entryPoint": ["dist/app.js"]` тАФ the compiled JavaScript output, not the `.ts` source.
+When creating the agent, use `"entryPoint": ["dist/app.js"]` — the compiled JavaScript output, not the `.ts` source.
 
 HTTP (no framework)
 Since this example has no external dependencies, only the entry point file is needed:
@@ -231,7 +231,7 @@ When creating the agent, use `"entryPoint": ["app.js"]` .
 
 ###### Note
 
-. The maximum size for a .zip deployment package for AgentCore Runtime is 250 MB (zipped) and 750 MB (unzipped). Note that this limit applies to the combined size of all the files you upload. . The AgentCore Runtime needs permission to read the files in your deployment package. In Linux permissions octal notation, AgentCore Runtime needs 644 permissions for non-executable files (rw-rтАФr--) and 755 permissions (rwxr-xr-x) for directories and executable files. . In Linux and MacOS, use the `chmod` command to change file permissions on files and directories in your deployment package. For example, to give a non-executable file the correct permissions, run the following command, `chmod 644 <filepath>` . To change file permissions in Windows, see [Set, View, Change, or Remove Permissions on an Object](<https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731667(v=ws.10)> "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731667(v=ws.10)") in the Microsoft Windows documentation. + .. If you donтАЩt grant AgentCore Runtime the permissions it needs to access directories in your deployment package, AgentCore Runtime sets the permissions for those directories to 755 (rwxr-xr-x).
+. The maximum size for a .zip deployment package for AgentCore Runtime is 250 MB (zipped) and 750 MB (unzipped). Note that this limit applies to the combined size of all the files you upload. . The AgentCore Runtime needs permission to read the files in your deployment package. In Linux permissions octal notation, AgentCore Runtime needs 644 permissions for non-executable files (rw-r—r--) and 755 permissions (rwxr-xr-x) for directories and executable files. . In Linux and MacOS, use the `chmod` command to change file permissions on files and directories in your deployment package. For example, to give a non-executable file the correct permissions, run the following command, `chmod 644 <filepath>` . To change file permissions in Windows, see [Set, View, Change, or Remove Permissions on an Object](<https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731667(v=ws.10)> "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731667(v=ws.10)") in the Microsoft Windows documentation. + .. If you don’t grant AgentCore Runtime the permissions it needs to access directories in your deployment package, AgentCore Runtime sets the permissions for those directories to 755 (rwxr-xr-x).
 
 A ZIP archive containing Linux **arm64** dependencies needs to be uploaded to S3 as a pre-requisite to Create Agent Runtime. The below code requires the specified S3 bucket to already exist. Please follow the AWS documentation [here](../../../AmazonS3/latest/userguide/creating-bucket-s3.md "../../../AmazonS3/latest/userguide/creating-bucket-s3.md") to create a bucket. The following TypeScript code will upload the .zip file archive to S3 and create an Amazon Bedrock AgentCore runtime.
 
@@ -399,9 +399,9 @@ Learn about Node.js-specific concepts when using direct code deployment with Ama
 
 ###### Topics
 
-AgentCore Runtime for Node.js only accepts `.js` entry points. TypeScript files (`.ts`) are not accepted directly тАФ you must transpile them to JavaScript before packaging. We recommend using [esbuild](https://esbuild.github.io/ "https://esbuild.github.io/") to transpile and bundle in a single step. Add esbuild as a development dependency with `npm install -D esbuild` .
+AgentCore Runtime for Node.js only accepts `.js` entry points. TypeScript files (`.ts`) are not accepted directly — you must transpile them to JavaScript before packaging. We recommend using [esbuild](https://esbuild.github.io/ "https://esbuild.github.io/") to transpile and bundle in a single step. Add esbuild as a development dependency with `npm install -D esbuild` .
 
-Entry points can be in subdirectories. For example, `src/app.js` or `dist/index.js` are valid entry points. Node.js module resolution walks up the directory tree from the entry pointтАЩs location, so dependencies in `node_modules/` at the root of your ZIP are found automatically тАФ no `NODE_PATH` configuration is needed.
+Entry points can be in subdirectories. For example, `src/app.js` or `dist/index.js` are valid entry points. Node.js module resolution walks up the directory tree from the entry point’s location, so dependencies in `node_modules/` at the root of your ZIP are found automatically — no `NODE_PATH` configuration is needed.
 
 When you specify a subdirectory entry point, ensure the path in your `entryPoint` configuration matches the path within the ZIP file.
 
@@ -420,9 +420,9 @@ This produces a ZIP with the following structure:
 
 ```
 my-agent.zip
-тФЬтФАтФА app.js
-тФЬтФАтФА package.json
-тФФтФАтФА node_modules/
+├── app.js
+├── package.json
+└── node_modules/
 ```
 
 **Bundled with esbuild (smallest ZIP):**
@@ -438,10 +438,10 @@ This produces a minimal ZIP:
 
 ```
 my-agent.zip
-тФФтФАтФА bundle.js
+└── bundle.js
 ```
 
-Both approaches work. Bundled deployments are typically under 10 MB and deploy faster. Vendored deployments are simpler and donтАЩt require a build step but can be larger.
+Both approaches work. Bundled deployments are typically under 10 MB and deploy faster. Vendored deployments are simpler and don’t require a build step but can be larger.
 
 AgentCore Runtime only supports the **arm64** instruction set architecture. If your agent uses npm packages that include native modules (compiled `.node` or `.so` files), those binaries must be compiled for Linux arm64.
 
@@ -450,7 +450,7 @@ AgentCore Runtime validates the architecture of all `.node` and `.so` files in y
 To install arm64-compatible native modules:
 
 - Install dependencies on an arm64 machine (such as an AWS Graviton-based Amazon EC2 instance)
-- Use npmтАЩs `--arch` and `--platform` flags:
+- Use npm’s `--arch` and `--platform` flags:
 
 ```
 npm install --arch=arm64 --platform=linux

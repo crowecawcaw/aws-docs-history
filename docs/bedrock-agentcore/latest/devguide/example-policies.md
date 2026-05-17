@@ -318,7 +318,7 @@ Scenario 6: Premium calculation for auto coverage
 
 ## IAM-based authorization examples
 
-When your AgentCore Gateway uses AWS_IAM authentication instead of OAuth, the principal in Cedar policies is represented as `AgentCore::IamEntity` . IAM principals have an `id` attribute containing the caller’s IAM ARN, which enables account-based and role-based access control using pattern matching.
+When your AgentCore Gateway uses AWS_IAM authentication instead of OAuth, the principal in Cedar policies is represented as `AgentCore::IamEntity`. For callers authenticating via assumed roles, the Cedar entity ID uses the format `arn:aws:sts::<account>:assumed-role/<role-name>`, enabling stable `principal ==` matching and `principal.id` pattern matching.
 
 ### Basic IAM entity permit
 
@@ -333,6 +333,37 @@ permit(
 ```
 
 **Explanation:** This is the simplest form of IAM policy. It permits any caller authenticated via AWS_IAM to call the get_order tool. Use this when you only need to verify that callers are IAM-authenticated without additional restrictions.
+
+### Role-based restriction with exact principal matching
+
+Restrict tool access to callers using a specific IAM role using `principal ==`:
+
+```
+permit(
+  principal == AgentCore::IamEntity::"arn:aws:sts::111122223333:assumed-role/MyServiceRole",
+  action == AgentCore::Action::"OrderAPI___process_order",
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/order-gateway"
+);
+```
+
+**Explanation:** The Cedar entity ID for assumed roles is `arn:aws:sts::<account>:assumed-role/<role-name>`. This allows stable `principal ==` matching regardless of the session name used during authentication.
+
+### Role-based restriction with pattern matching
+
+You can also use `principal.id like` for broader matching patterns:
+
+```
+permit(
+  principal is AgentCore::IamEntity,
+  action == AgentCore::Action::"OrderAPI___process_order",
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/order-gateway"
+)
+when {
+  principal.id like "arn:aws:sts::111122223333:assumed-role/MyServiceRole"
+};
+```
+
+**Explanation:** This achieves the same result as `principal ==` but uses a `when` clause. Pattern matching is useful when you need broader matching, such as matching any role in an account (`principal.id like "arn:aws:sts::111122223333:assumed-role/*"`).
 
 ### Account-based restriction
 
@@ -349,24 +380,32 @@ when {
 };
 ```
 
-**Explanation:** The `principal.id` contains the full IAM ARN (e.g., `arn:aws:iam::111122223333:role/MyRole` ). The pattern \*:111122223333:\* matches any ARN containing that account ID. This restricts access to callers from the specified AWS account only.
+**Explanation:** The pattern \*:111122223333:\* matches any ARN containing that account ID. This restricts access to callers from the specified AWS account only.
 
-### Role-based restriction
+### Multi-agent federation
 
-Restrict administrative tools to specific IAM roles:
+When multiple agents with different IAM roles access the same gateway, create separate policies to control which tools each agent can use:
 
 ```
+// Agent A can only read orders
 permit(
-  principal is AgentCore::IamEntity,
-  action == AgentCore::Action::"AdminAPI___delete_resource",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/admin-gateway"
-)
-when {
-  principal.id like "arn:aws:iam::*:role/AdminRole"
-};
+  principal == AgentCore::IamEntity::"arn:aws:sts::111122223333:assumed-role/AgentA-Role",
+  action == AgentCore::Action::"OrderAPI___get_order",
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/order-gateway"
+);
+
+// Agent B can read and process orders
+permit(
+  principal == AgentCore::IamEntity::"arn:aws:sts::111122223333:assumed-role/AgentB-Role",
+  action in [
+    AgentCore::Action::"OrderAPI___get_order",
+    AgentCore::Action::"OrderAPI___process_order"
+  ],
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/order-gateway"
+);
 ```
 
-**Explanation:** This policy uses pattern matching to restrict access to callers using a specific IAM role name. The wildcard \* in the account position allows the role from any account. To restrict to a specific account, use the full account ID: `arn:aws:iam::111122223333:role/AdminRole`.
+**Explanation:** This pattern is useful for multi-agent architectures where different agents have different IAM roles and should have different levels of tool access. Each policy uses `principal ==` with the specific role’s entity ID. The `tools/list` response for each agent only includes the tools they are authorized to use.
 
 ### IAM with input validation
 
@@ -374,18 +413,17 @@ Combine IAM principal matching with tool input validation:
 
 ```
 permit(
-  principal is AgentCore::IamEntity,
+  principal == AgentCore::IamEntity::"arn:aws:sts::111122223333:assumed-role/RefundProcessorRole",
   action == AgentCore::Action::"RefundAPI___process_refund",
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/refund-gateway"
 )
 when {
-  principal.id like "*:111122223333:*" &&
   context.input has amount &&
   context.input.amount < 1000
 };
 ```
 
-**Explanation:** This policy combines account-based access control with input validation. Only callers from the specified account can process refunds, and only when the refund amount is less than $1000. This demonstrates how IAM authorization works alongside the same `context.input` conditions used with OAuth.
+**Explanation:** This policy combines exact principal matching with input validation. Only callers assuming the `RefundProcessorRole` from the specified account can process refunds, and only when the refund amount is less than $1000.
 
 ### Forbid specific accounts
 
@@ -402,4 +440,21 @@ when {
 };
 ```
 
-**Explanation:** This forbid policy blocks all callers from a third-party vendor account (444455556666) from performing administrative deletions. Even though the vendor may have been granted IAM permissions for other operations, this policy ensures they cannot delete resources. Due to forbid-wins semantics, this takes precedence over any permit policies.
+**Explanation:** This forbid policy blocks all callers from a third-party vendor account (444455556666) from performing administrative deletions. Due to forbid-wins semantics, this takes precedence over any permit policies.
+
+### Forbid specific roles from sensitive operations
+
+Block callers using read-only roles from performing write operations:
+
+```
+forbid(
+  principal == AgentCore::IamEntity::"arn:aws:sts::111122223333:assumed-role/ReadOnlyAgentRole",
+  action in [
+    AgentCore::Action::"OrderAPI___process_order",
+    AgentCore::Action::"OrderAPI___cancel_order"
+  ],
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/order-gateway"
+);
+```
+
+**Explanation:** This forbid policy prevents callers using the `ReadOnlyAgentRole` from performing write operations, regardless of any permit policies that might otherwise allow them.

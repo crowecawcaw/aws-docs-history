@@ -28,7 +28,7 @@ A target defines the APIs or Lambda function that a Gateway will provide as tool
 Cedar policies use principals to represent the entity making an authorization request. Policy in AgentCore supports two principal types depending on how your AgentCore Gateway is configured for authentication:
 
 - **AgentCore::OAuthUser** - Represents OAuth-authenticated users. When a AgentCore Gateway uses OAuth authorization, the principal is created from the JWT token’s `sub` claim. OAuth principals support tags that contain JWT claims such as username, scope, role, etc.
-- **AgentCore::IamEntity** - Represents IAM-authenticated callers. When a AgentCore Gateway uses AWS_IAM authorization, the principal is created from the caller’s IAM ARN. IAM principals have an `id` attribute containing the full IAM ARN, which can be used for account-based or role-based access control.
+- **AgentCore::IamEntity** - Represents IAM-authenticated callers. When a AgentCore Gateway uses AWS_IAM authorization, the principal is created from the caller’s IAM identity. IAM principals have an `id` attribute containing the IAM ARN (format: `arn:aws:sts::<account>:assumed-role/<role-name>` for assumed roles), enabling stable `principal ==` matching. See [Policy conditions](policy-conditions.md "policy-conditions.md") for details.
 
 ## Cedar
 
