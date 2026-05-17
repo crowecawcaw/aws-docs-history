@@ -269,3 +269,30 @@ pools.
 - [ListTagsForResource](../../../cognitoidentity/latest/APIReference/API_ListTagsForResource.md "../../../cognitoidentity/latest/APIReference/API_ListTagsForResource.md")
 - [UntagResource](../../../cognitoidentity/latest/APIReference/API_UntagResource.md "../../../cognitoidentity/latest/APIReference/API_UntagResource.md")
 - [CreateIdentityPool](../../../cognitoidentity/latest/APIReference/API_CreateIdentityPool.md "../../../cognitoidentity/latest/APIReference/API_CreateIdentityPool.md")
+
+## CloudFormation tagging permissions
+
+When you create or update Amazon Cognito user pool or identity pool resources with AWS CloudFormation,
+CloudFormation can propagate stack-level tags and system-level tags to your resources. To
+permit this tag propagation, the IAM principal that deploys the stack must have
+tagging permissions in addition to the resource-creation permissions.
+
+For example, to create a user pool with `cognito-idp:CreateUserPool`,
+the caller must also have the following permissions:
+
+- `cognito-idp:TagResource`
+- `cognito-idp:UntagResource`
+- `cognito-idp:ListTagsForResource`
+
+Similarly, to create an identity pool with
+`cognito-identity:CreateIdentityPool`, the caller must also have the
+following permissions:
+
+- `cognito-identity:TagResource`
+- `cognito-identity:UntagResource`
+- `cognito-identity:ListTagsForResource`
+
+Without these permissions, stack creation or update can fail when CloudFormation attempts to
+apply tags to the resource. If you see an access-denied error related to tagging
+during a stack operation, verify that your IAM policy includes these
+permissions.

@@ -74,6 +74,20 @@ Guide_. For an example trust policy that grants
 permissions to the Amazon Cognito service principal `cognito-identity.amazonaws.com`,
 see [Using attributes for access control policy example](#using-attributes-for-access-control-policy-example "#using-attributes-for-access-control-policy-example").
 
+###### Important
+
+If you map custom attributes from a Amazon Cognito user pool to principal tags, ensure
+that end users cannot modify those attributes. An attribute that a user can change
+through `UpdateUserAttributes` should not serve as a security boundary
+in your IAM policies. To prevent user modification, do one of the following:
+
+- Remove the attribute from your app client's [WriteAttributes](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.md#CognitoUserPools-CreateUserPoolClient-request-WriteAttributes "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.md#CognitoUserPools-CreateUserPoolClient-request-WriteAttributes").
+- Define the attribute as `Mutable: false` when you add it to
+  your user pool schema.
+  If your application requires the attribute to remain user-writable for other
+  purposes, use a [pre token generation Lambda trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md") to validate or override the claim
+  before it is included in the ID token.
+
 ###### To configure attributes for access control in the console
 
 1. Sign in to the [Amazon Cognito
