@@ -38,7 +38,7 @@ For AWS Organizations users, repeat these steps for each member account that req
 2. Create an AWS standard account. AWS recommends creating a new AWS standard account that will only be used for AWS GovCloud (US) sign-up and billing.
 3. Log in to the AWS standard account.
 4. Go to the [ROSA console](https://console.aws.amazon.com/rosa "https://console.aws.amazon.com/rosa") and enable ROSA.
-5. Link your AWS standard account to your [Red Hat account](https://docs.redhat.com/en/documentation/red_hat_openshift_service_on_aws/4/html/tutorials/rosa-activation-and-account-linking "https://docs.redhat.com/en/documentation/red_hat_openshift_service_on_aws/4/html/tutorials/rosa-activation-and-account-linking").
+5. Link your AWS standard account to your [Red Hat account](https://docs.redhat.com/en/documentation/red_hat_openshift_service_on_aws/4/html/tutorials/cloud-experts-activation-account-linking "https://docs.redhat.com/en/documentation/red_hat_openshift_service_on_aws/4/html/tutorials/cloud-experts-activation-account-linking").
 6. Sign up for an AWS GovCloud (US) account. For more information, see [AWS GovCloud (US) Sign Up](getting-started-sign-up.md "getting-started-sign-up.md").
 
 ###### Note

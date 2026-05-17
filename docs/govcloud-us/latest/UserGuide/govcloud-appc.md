@@ -8,7 +8,7 @@ AWS CodePipeline resources are not currently supported for AWS AppConfig in the 
 
 ## Documentation for AWS AppConfig
 
-https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html [AWS AppConfig documentation].
+[AWS AppConfig documentation](../../../appconfig/latest/userguide/what-is-appconfig.md "../../../appconfig/latest/userguide/what-is-appconfig.md").
 
 ## Export-controlled content
 
