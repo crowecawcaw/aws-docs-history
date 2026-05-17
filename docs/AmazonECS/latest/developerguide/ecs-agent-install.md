@@ -57,7 +57,8 @@ listed below for reference.
 1. Launch an Amazon EC2 instance with an IAM role that allows access to Amazon ECS. For
    more information, see [Amazon ECS container instance IAM role](instance_IAM_role.md "instance_IAM_role.md").
 2. Connect to your instance.
-3. Install the latest version of Docker on your instance.
+3. Install a supported version of Docker on your instance. For more
+   information, see [Docker Support](ecs-agent-versions.md#docker-support "ecs-agent-versions.md#docker-support").
 4. Check your Docker version to verify that your system meets the minimum version
    requirement. For more information about Docker support, see [Amazon ECS EC2 Container Instances](ecs-agent-versions.md "ecs-agent-versions.md").
 
