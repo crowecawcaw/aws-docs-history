@@ -10,6 +10,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
   subnets without internet access (Amazon S3 VPC gateway endpoint policy). For more
   information, see [Communication between
   the staging area subnet and S3](preparing-environments.md#Communication-Staging-S3 "preparing-environments.md#Communication-Staging-S3").
+- Added support for CentOS Stream 9.
 
 ## April 2026
 
