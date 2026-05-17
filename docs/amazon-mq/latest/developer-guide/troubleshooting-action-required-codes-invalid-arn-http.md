@@ -34,5 +34,4 @@ fields @timestamp, @message
    - Confirm the ARN syntax is correct
    - Ensure the IAM role has s3:GetObject and secretsmanager:GetSecretValue permissions
 
-4. Validate the fix using the [ARN access validation](arn-support-rabbitmq-configuration.md#arn-support-validation "arn-support-rabbitmq-configuration.md#arn-support-validation") API endpoint before updating the broker configuration.
-5. Update the broker configuration and reboot the broker.
+4. Update the broker configuration and reboot the broker.

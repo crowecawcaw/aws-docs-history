@@ -14,7 +14,6 @@ Amazon MQ for RabbitMQ supports AWS ARNs for the values of some RabbitMQ configu
 
 - [Supported keys](#arn-support-supported-keys "#arn-support-supported-keys")
 - [IAM policy samples](#arn-support-iam-policy-samples "#arn-support-iam-policy-samples")
-- [Access validation](#arn-support-validation "#arn-support-validation")
 - [Related broker quarantine states](#arn-support-quarantine-states "#arn-support-quarantine-states")
 - [Example scenario](#arn-support-example-scenario "#arn-support-example-scenario")
 
@@ -58,18 +57,6 @@ For IAM policy examples including assume role policy documents and role policy d
 
 See [Using LDAP authentication and authorization](rabbitmq-ldap-tutorial.md "rabbitmq-ldap-tutorial.md") for steps on how to set up AWS Secrets Manager and Amazon S3 resources.
 
-## Access validation
-
-To troubleshoot scenarios where ARN values cannot be fetched, the aws plugin supports a [RabbitMQ management API endpoint](https://github.com/amazon-mq/rabbitmq-aws/blob/main/API.md "https://github.com/amazon-mq/rabbitmq-aws/blob/main/API.md") that can be called to check if Amazon MQ is able to successfully assume the role and resolve AWS ARNs. This avoids the need to update broker configuration, update broker with the new configuration revision and reboot broker to test configuration changes.
-
-###### Note
-
-Use of this API requires an existing RabbitMQ administrator user. Amazon MQ recommends creating test brokers with an internal user in addition to other access methods. See [enabling both OAuth 2.0 and simple (internal) authentication](oauth-tutorial.md#oauth-tutorial-config-both-auth-methods-using-cli "oauth-tutorial.md#oauth-tutorial-config-both-auth-methods-using-cli"). This user can then be used to access the validation API.
-
-###### Note
-
-Though aws plugin supports passing a new role as an input to the validation API, this parameter is not supported by Amazon MQ. The IAM role used for validation should match the value of `aws.arns.assume_role_arn` in broker configuration.
-
 ## Related broker quarantine states
 
 For information about broker quarantine states related to ARN support issues, see:
@@ -96,8 +83,3 @@ Additionally, the broker will enter the `INVALID_ASSUMEROLE` quarantine state. F
 ```
 
 - Fix the IAM role with the proper permissions
-- Call the validation endpoint to verify if RabbitMQ is now able to access the secret:
-
-```
-curl -4su 'guest:guest' -XPUT -H 'content-type: application/json' <broker-endpoint>/api/aws/arn/validate -d '{"assume_role_arn":"arn:aws:iam::<account-id>:role/<role-name>","arns":["arn:aws:secretsmanager:<region>:<account-id>:secret:<secret-name>"]}' | jq '.'
-```

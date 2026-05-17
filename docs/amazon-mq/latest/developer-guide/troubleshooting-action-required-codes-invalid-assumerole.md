@@ -34,5 +34,4 @@ fields @timestamp, @message
    - Verify the trust policy allows mq.amazonaws.com to assume the role
    - Confirm the role has appropriate permissions to access the required AWS resources
 
-4. Validate the fix using the [ARN access validation](arn-support-rabbitmq-configuration.md#arn-support-validation "arn-support-rabbitmq-configuration.md#arn-support-validation") API endpoint before updating the broker configuration.
-5. Update the broker configuration and reboot the broker.
+4. Update the broker configuration and reboot the broker.
