@@ -19,7 +19,7 @@ Create an IAM OpenID Connect provider for the Amazon Elastic Kubernetes Service 
 
 ### Create IAM OpenID Connect provider
 
-![Form for creating an OpenID Connect Provider with fields for ID, execution mode, and version.](images/guiIamOpenIdCreateCT.png)
+![Stack details showing ID, execution mode as Automated, version 1.0, and classification path.](images/guiIamOpenIdCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

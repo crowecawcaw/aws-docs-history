@@ -21,7 +21,7 @@ Delete an existing period used in AMS Resource Scheduler.
 
 The following shows this change type in the AMS console.
 
-![Delete Resource Scheduler Period interface showing description, ID, and version fields.](images/guiResSchedPeriodDeleteCT.png)
+![Delete Resource Scheduler Period page showing ID ct-042luqo63j4mx and version 1.0.](images/guiResSchedPeriodDeleteCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

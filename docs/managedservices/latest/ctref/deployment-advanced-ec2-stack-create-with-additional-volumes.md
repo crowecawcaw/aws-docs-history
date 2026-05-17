@@ -21,7 +21,7 @@ Create an Amazon Elastic Compute Cloud (EC2) instance with up to five additional
 
 The following shows this change type in the AMS console.
 
-![EC2 stack creation details showing ID, execution mode, and version for additional volumes.](images/guiEc2CreateAddlVolCT.png)
+![Create EC2 Stack With Additional Volumes change type details showing ID, execution mode, and version.](images/guiEc2CreateAddlVolCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

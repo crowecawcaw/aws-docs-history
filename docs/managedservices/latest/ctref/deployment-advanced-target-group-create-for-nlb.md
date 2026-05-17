@@ -21,7 +21,7 @@ Use to create a target group for a Network Load Balancer.
 
 Screenshot of this change type in the AMS console:
 
-![Change type details for creating a target group for Network Load Balancer.](images/guiTarGroupNlbCreateCT.png)
+![Change type details showing ID ct-3t4lifos8tu58, version 2.0, and automated execution mode.](images/guiTarGroupNlbCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

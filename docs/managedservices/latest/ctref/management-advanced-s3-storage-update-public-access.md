@@ -21,7 +21,7 @@ Update the existing S3 Block Public Access setting for a specified bucket. Block
 
 Screenshot of this change type in the AMS console:
 
-![S3 Bucket Block Public Access update details, including ID, execution mode, and description.](images/guiS3UpdatePublicAccessCT.png)
+![Update S3 Bucket Block Public Access change type details including ID, execution mode, and classification.](images/guiS3UpdatePublicAccessCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

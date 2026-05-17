@@ -19,7 +19,7 @@ Delete Identity and Access Management (IAM) role or policy created with change t
 
 ### Delete IAM entity or policy
 
-![Delete Entity or Policy interface showing ID, execution mode, classification, and description.](images/guiIamEntityDeleteCT.png)
+![Delete Entity or Policy change type details showing ID, execution mode, version, and classification.](images/guiIamEntityDeleteCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

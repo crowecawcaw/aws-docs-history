@@ -21,7 +21,7 @@ Delete one or more recovery points (snapshots) from the specified vault. Use thi
 
 The following shows this change type in the AMS console.
 
-![Delete Recovery Points interface showing description, ID, and version for manual deletion.](images/guiAwsBackupRecoveryPointDeleteCT.png)
+![Delete Recovery Points change type showing ID ct-1r1vbr8ahr156 and version 2.0.](images/guiAwsBackupRecoveryPointDeleteCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

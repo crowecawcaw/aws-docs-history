@@ -22,7 +22,7 @@ Request deletion of the specified NAT gateways. This operation requires manual r
 This operation requires manual review and approval before its completed
 successfully.
 
-![](images/ex-nat-gateway-delete-rr.png)
+![Delete NAT gateway request details showing manual execution mode and version 1.0.](images/ex-nat-gateway-delete-rr.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

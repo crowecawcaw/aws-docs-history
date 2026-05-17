@@ -19,7 +19,7 @@ Delete a SAML identity provider (IdP). The given IdP must not be referenced in a
 
 ### Delete IAM SAML identity provider
 
-![Delete SAML identity provider interface with description, ID, and version details.](images/guiIamSamlIdpDeleteCT.png)
+![Delete SAML Identity Provider page showing description, ID ct-01zl37gmuk4q2, and version 1.0.](images/guiIamSamlIdpDeleteCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

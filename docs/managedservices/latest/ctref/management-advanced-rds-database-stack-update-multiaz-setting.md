@@ -21,7 +21,7 @@ Change the DB instance MultiAZ value through direct API calls. The MultiAZ setti
 
 Screenshot of this change type in the AMS console:
 
-![Change RDS MultiAZ Setting interface showing ID, execution mode, version, and description.](images/guiRdsUpdateMultiAzCT.png)
+![Change RDS MultiAZ Setting page showing ID, execution mode, version, classification, and description.](images/guiRdsUpdateMultiAzCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

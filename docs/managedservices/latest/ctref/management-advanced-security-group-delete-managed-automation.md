@@ -21,7 +21,7 @@ Disassociate a security group from the specified AWS resources and optionally de
 
 Screenshot of this change type in the AMS console:
 
-![](images/guiSecGroupDeleteRrCT.png)
+![Change type details for deleting or disassociating a security group from AWS resources.](images/guiSecGroupDeleteRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

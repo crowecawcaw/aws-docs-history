@@ -19,7 +19,7 @@ Archive Elastic Block Store (EBS) snapshots. The maximum number of EBS snapshots
 
 ### Archive EBS snapshot
 
-![Archive EBS Snapshots interface showing ID, execution mode, version, and description details.](images/guiEbsSnpshtArchiveCT.png)
+![Archive EBS Snapshots page showing snapshot ID, execution mode, version, and description.](images/guiEbsSnpshtArchiveCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

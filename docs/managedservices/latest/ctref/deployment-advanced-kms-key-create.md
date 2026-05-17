@@ -21,7 +21,7 @@ Create an AWS KMS Customer Master Key (CMK) using SSM automation document with p
 
 Screenshot of this change type in the AMS console:
 
-![Create KMS key change type with description, ID, version, and execution mode details.](images/guiKmsKeyCreateCT.png)
+![Change type details showing ID ct-1d84keir1fjhg, version 1.0, and automated execution mode.](images/guiKmsKeyCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

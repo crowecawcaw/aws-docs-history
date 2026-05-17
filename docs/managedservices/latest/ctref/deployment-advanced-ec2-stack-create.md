@@ -21,7 +21,7 @@ Use to create an Amazon Elastic Compute Cloud (EC2) instance.
 
 The following shows this change type in the AMS console.
 
-![EC2 stack creation details showing ID, execution mode, and version in a classification hierarchy.](images/guiEc2CreateCT.png)
+![Create EC2 stack page showing ID ct-14027q0sjyt1h, Automated execution mode, and version 4.0.](images/guiEc2CreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

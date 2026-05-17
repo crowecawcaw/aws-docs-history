@@ -21,7 +21,7 @@ Remove an Active Directory (AD) user from an AD group in the AMS managed AD. For
 
 The following shows this change type in the AMS console.
 
-![Remove AD User From AD Group change type with description and version details.](images/guiDirservRemoveUserFromGroupCT.png)
+![Remove AD User From AD Group change type showing description, ID, and version fields.](images/guiDirservRemoveUserFromGroupCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

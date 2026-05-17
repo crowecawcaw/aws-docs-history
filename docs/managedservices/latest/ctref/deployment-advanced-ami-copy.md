@@ -21,7 +21,7 @@ Copy an Amazon Machine Image (AMI) in your AMS account.
 
 The following shows this change type in the AMS console.
 
-![Copy an Amazon Machine Image (AMI) interface showing ID and version details.](images/guiAmiCopyCT.png)
+![Copy AMI change type showing ID ct-046aizcwg5idf with version 1.0 only version.](images/guiAmiCopyCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

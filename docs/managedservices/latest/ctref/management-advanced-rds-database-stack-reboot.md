@@ -21,7 +21,7 @@ Use to reboot an RDS DB instance.
 
 Screenshot of this change type in the AMS console:
 
-![Change type details for rebooting an RDS DB instance, including ID and version.](images/guiRdsStackRebootCT.png)
+![Change type details showing ID ct-0bpxsrtu16igp, version 1.0, and automated execution mode.](images/guiRdsStackRebootCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

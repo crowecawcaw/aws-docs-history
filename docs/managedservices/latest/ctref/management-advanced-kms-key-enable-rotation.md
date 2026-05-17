@@ -21,7 +21,7 @@ Enable automatic key rotation for an AWS Key Management Service (KMS) customer m
 
 Screenshot of this change type in the AMS console:
 
-![Enable KMS Auto Rotation panel showing description, ID, and version for AWS KMS customer master key.](images/guiKmsKeyEnableAutoRotateCT.png)
+![Enable KMS Auto Rotation change type showing description, ID ct-2lt0jeydeumpe, and version 1.0.](images/guiKmsKeyEnableAutoRotateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

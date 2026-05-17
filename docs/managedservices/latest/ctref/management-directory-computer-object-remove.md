@@ -21,7 +21,7 @@ Remove a stale computer object from Microsoft Active Directory (AD) and the corr
 
 The following shows this change type in the AMS console.
 
-![Remove Computer Object change type details in AMS console interface.](images/guiDirservCompObjectRemoveCT.png)
+![Remove Computer Object change type showing ID ct-3d0lfrb8eckuu and version 1.0.](images/guiDirservCompObjectRemoveCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

@@ -19,7 +19,7 @@ Create an IAM identity provider using the SAML metadata document file that you s
 
 ### Create IAM SAML identity provider
 
-![Form to create SAML identity provider with ID and version fields.](images/guiIamSamlIdpCreateCT.png)
+![Create SAML Identity Provider page showing ID ct-3hox8uwjgze1f and Version 1.0 only version.](images/guiIamSamlIdpCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

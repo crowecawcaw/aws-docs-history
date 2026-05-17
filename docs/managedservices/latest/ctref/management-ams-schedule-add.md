@@ -21,7 +21,7 @@ Add a new schedule to be used in AMS Resource Scheduler. Schedules employ define
 
 The following shows this change type in the AMS console.
 
-![Resource Scheduler interface showing ID and version for a new schedule in AMS.](images/guiResSchedScheduleAddCT.png)
+![Add Resource Scheduler Schedule page showing ID ct-2bxelbn765ive and version 1.0.](images/guiResSchedScheduleAddCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

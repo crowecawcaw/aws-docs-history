@@ -21,7 +21,7 @@ Stops the directory sharing between the directory owner and consumer accounts. R
 
 The following shows this change type in the AMS console.
 
-![Unshare Directory details showing ID, execution mode, version, and description.](images/guiDirservUnshareDirectoryCT.png)
+![Unshare Directory change type details showing ID, execution mode, version, and classification.](images/guiDirservUnshareDirectoryCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

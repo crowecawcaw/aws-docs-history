@@ -21,7 +21,7 @@ Modify the default version for the instance metadata service (IMDS) at the accou
 
 The following shows this change type in the AMS console.
 
-![](images/guiEc2ImdsRegionUpdateCT.png)
+![Update IMDS Region-Level Default Settings change type details in the AMS console.](images/guiEc2ImdsRegionUpdateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

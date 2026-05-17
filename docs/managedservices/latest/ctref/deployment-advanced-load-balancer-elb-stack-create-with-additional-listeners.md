@@ -21,7 +21,7 @@ Create an Elastic ("Classic") load balancer (ELB).
 
 Screenshot of this change type in the AMS console:
 
-![Create Load Balancer (ELB) change type details including ID and version.](images/guiElbCreateAddlListenersCT.png)
+![Change type details showing Create Load Balancer with ID ct-0ary07xiajwx4, version 1.0, automated execution.](images/guiElbCreateAddlListenersCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

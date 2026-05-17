@@ -21,7 +21,7 @@ Add RDP or SSH bastion ingress Classless Inter-Domain Routing (CIDR) allow lists
 
 The following shows this change type in the AMS console.
 
-![](images/guiBastionCidrIngressAddCT.png)
+![Form for adding CIDR ingress with ID, execution mode, version, and classification details.](images/guiBastionCidrIngressAddCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

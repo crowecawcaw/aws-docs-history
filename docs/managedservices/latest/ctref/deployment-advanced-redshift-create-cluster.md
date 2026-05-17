@@ -21,7 +21,7 @@ Create an Amazon Redshift cluster that is a fully managed data warehouse that co
 
 Screenshot of this change type in the AMS console:
 
-![Details of an Amazon Redshiftcluster creation change type, including ID and version.](images/guiRedshiftCreateClusterCT.png)
+![Change type details showing ID, version, execution mode, and description for creating a Redshift cluster.](images/guiRedshiftCreateClusterCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

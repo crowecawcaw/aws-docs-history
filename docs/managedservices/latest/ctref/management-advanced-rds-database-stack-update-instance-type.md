@@ -21,7 +21,7 @@ Change the DB instance type through direct API calls. The RDS instance can be st
 
 Screenshot of this change type in the AMS console:
 
-![Update Instance Type form showing ID, execution mode, version, and description for RDS database stack change.](images/guiRdsUpdateInstanceTypeCT.png)
+![Update Instance Type page showing ID, execution mode, version, classification path, and description.](images/guiRdsUpdateInstanceTypeCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

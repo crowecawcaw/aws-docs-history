@@ -21,7 +21,7 @@ Update an S3 bucket policy.
 
 Screenshot of this change type in the AMS console:
 
-![](images/guiS3UpdatePolicyRrCT.png)
+![Update policy details for an S3 bucket, showing ID, execution mode, and classification.](images/guiS3UpdatePolicyRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

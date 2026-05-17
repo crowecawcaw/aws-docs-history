@@ -21,7 +21,7 @@ Create an AWS Systems Manager (SSM) patch window for patching to take place on i
 
 Screenshot of this change type in the AMS console:
 
-![AWS Systems Manager patch window creation interface with description and ID fields.](images/guiPatchWindowCT.png)
+![Create SSM Patch Window page showing description, ID ct-0el2j07lirxs7, and Version 1.0.](images/guiPatchWindowCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

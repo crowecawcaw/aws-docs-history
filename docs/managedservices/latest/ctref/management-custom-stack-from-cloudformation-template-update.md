@@ -19,7 +19,7 @@ Update the template and/or parameters of a CFN stack. To only update the paramet
 
 ### Update CloudFormation ingest stack
 
-![CloudFormation stack update interface showing description, ID, and version details.](images/guiCfnStackUpdateCT-v2.png)
+![Update CloudFormation Stack page showing description, ID ct-361tlo1k7339x, and version 2.0.](images/guiCfnStackUpdateCT-v2.png)
 **To update a CloudFormation Ingest Stack using the console**
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

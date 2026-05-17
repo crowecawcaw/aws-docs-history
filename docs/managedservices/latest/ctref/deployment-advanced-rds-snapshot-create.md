@@ -21,7 +21,7 @@ Create a snapshot of an Amazon Relational Database Service (RDS) database (DB) i
 
 Screenshot of this change type in the AMS console:
 
-![Change type details for creating an RDS DB snapshot, including description and execution mode.](images/guiRdsDbSnpshtCreateCT.png)
+![Change type details showing ID ct-393q3yaq9ewlm, version 1.0, and execution mode Automated.](images/guiRdsDbSnpshtCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

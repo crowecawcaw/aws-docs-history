@@ -21,7 +21,7 @@ Update an existing backup plan rule with copy actions like cross region destinat
 
 The following shows this change type in the AMS console.
 
-![Enable Cross Region Copy interface with description, ID, and version details.](images/guiAwsBackupPlanEnableXRegionCopyCT.png)
+![Enable Cross Region Copy change type showing description, ID ct-0fqo03yizfnw6, and version 1.0.](images/guiAwsBackupPlanEnableXRegionCopyCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

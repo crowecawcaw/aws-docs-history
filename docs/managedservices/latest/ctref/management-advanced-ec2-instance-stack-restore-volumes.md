@@ -21,7 +21,7 @@ Replace the instance volumes from an existing backup image of the instance. To r
 
 The following shows this change type in the AMS console.
 
-![Change type details for restoring EC2 volumes from backup, including ID and execution mode.](images/guiEc2RestoreVolsCT.png)
+![Change type details showing ID, automated execution mode, and version 3.0 with description.](images/guiEc2RestoreVolsCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

@@ -21,7 +21,7 @@ Associate transit gateway (TGW) attachment to the transit gateway (TGW) route ta
 
 Screenshot of this change type in the AMS console:
 
-![Associate Transit Gateway Attachment details showing ID and version information.](images/guiManLzNetAcctAsscTgwAttachCT.png)
+![Associate Transit Gateway Attachment page showing ID ct-3nmhh0qr338q6 and version 1.0.](images/guiManLzNetAcctAsscTgwAttachCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

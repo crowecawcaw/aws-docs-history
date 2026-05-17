@@ -21,7 +21,7 @@ Deploy an AMS pattern to the current account. Patterns provide tools, architectu
 
 Screenshot of this change type in the AMS console:
 
-![](images/guiAmsPatternDeployRrCT.png)
+![Deploy AMS Patterns section showing ID, execution mode as Manual, and version 1.0.](images/guiAmsPatternDeployRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

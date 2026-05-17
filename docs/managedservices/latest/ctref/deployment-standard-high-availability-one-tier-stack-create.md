@@ -19,7 +19,7 @@ Use to create an Application Load Balancer and an Auto Scaling Group.
 
 ### High availability one-tier stacks: Creating
 
-![Change type details for creating a high availability one-tier stack with Application Load Balancer.](images/guiHa1tCreateCT.png)
+![Change type details showing ID, version 2.0, and automated execution mode for creating high availability stack.](images/guiHa1tCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

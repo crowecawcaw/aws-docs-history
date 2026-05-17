@@ -24,7 +24,7 @@ target endpoint.
 
 Screenshot of this change type in the AMS console:
 
-![Database Migration Service target endpoint creation details for RDS-supported databases.](images/guiDmsCreateTargetEpCT.png)
+![Change type details showing Create DMS target endpoint with ID, version, and execution mode.](images/guiDmsCreateTargetEpCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

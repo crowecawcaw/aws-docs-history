@@ -21,7 +21,7 @@ Remove the specified TGW static route from the specified transit gateway (TGW) r
 
 Screenshot of this change type in the AMS console:
 
-![Console interface showing details for Remove TGW Static Route change type in a Networking account.](images/guiMalzNetAcctTgwRouteRemoveCT.png)
+![Remove TGW Static Route change type details showing ID, execution mode, version, and classification.](images/guiMalzNetAcctTgwRouteRemoveCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

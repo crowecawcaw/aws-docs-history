@@ -19,7 +19,7 @@ Deploy a revision of an existing AWS CodeDeploy application, which are source fi
 
 ### Deploy CodeDeploy application
 
-![Deploy CodeDeploy Application settings with ID, version, and execution mode details.](images/guiCDAppDeployCT.png)
+![Deploy CodeDeploy Application change type showing ID, version 2.0, and automated execution mode.](images/guiCDAppDeployCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

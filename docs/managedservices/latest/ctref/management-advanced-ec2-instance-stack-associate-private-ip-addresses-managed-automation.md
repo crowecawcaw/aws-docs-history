@@ -21,7 +21,7 @@ Associate one or more secondary private IP addresses to the specified network in
 
 The following shows this change type in the AMS console.
 
-![](images/guiEc2AssociateIpRrCT.png)
+![Console interface showing details for associating private IP addresses to an EC2 instance.](images/guiEc2AssociateIpRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

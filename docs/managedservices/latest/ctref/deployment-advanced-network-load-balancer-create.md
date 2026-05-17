@@ -21,7 +21,7 @@ Use to create a Network Load Balancer.
 
 Screenshot of this change type in the AMS console:
 
-![Network Load Balancer creation details showing change type, description, ID, version, and execution mode.](images/guiNlbCreateCT.png)
+![Change type details showing ID, version 1.0, and automated execution mode for creating a Network Load Balancer.](images/guiNlbCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

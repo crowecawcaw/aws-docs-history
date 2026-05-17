@@ -21,7 +21,7 @@ Create an Amazon Relational Database Service (RDS) DB instance. To provision an 
 
 Screenshot of this change type in the AMS console:
 
-![Change type details for creating an Amazon RDS database stack, including ID and version.](images/guiRdsStackCreateCT.png)
+![Change type details showing ID, version 2.0, and automated execution mode for RDS database.](images/guiRdsStackCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

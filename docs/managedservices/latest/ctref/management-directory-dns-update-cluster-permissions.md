@@ -21,7 +21,7 @@ Grants full control to the Cluster object on the Listener object to bring the SQ
 
 The following shows this change type in the AMS console.
 
-![Update Cluster Permissions interface showing description, ID, and version details.](images/guiDirservClusterPermsUpdateCT.png)
+![Update Cluster Permissions change type showing ID cc-03ytgoevfebjr and version 1.0.](images/guiDirservClusterPermsUpdateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

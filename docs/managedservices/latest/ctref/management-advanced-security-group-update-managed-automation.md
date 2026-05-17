@@ -21,7 +21,7 @@ Update the inbound and the outbound rules of a security group, and optionally as
 
 Screenshot of this change type in the AMS console:
 
-![](images/guiSecGroupUpdateRrCT.png)
+![Security group update interface showing ID, execution mode, version, and description.](images/guiSecGroupUpdateRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

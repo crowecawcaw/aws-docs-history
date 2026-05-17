@@ -21,7 +21,7 @@ Disable AMS Resource Scheduler in the account. This will prevent resources from 
 
 The following shows this change type in the AMS console.
 
-![AMS Resource Scheduler disable option with ID, execution mode, version, and description.](images/guiResSchedStateDisableCT.png)
+![Disable AMS Resource Scheduler change type details showing ID, execution mode, and version.](images/guiResSchedStateDisableCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

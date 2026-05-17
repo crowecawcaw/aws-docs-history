@@ -21,7 +21,7 @@ Create multiple custom AWS organizational units (OU) under the following paths, 
 
 Screenshot of this change type in the AMS console:
 
-![Create Custom OUs panel showing description, ID, and version for AWS organizational units.](images/guiMalzMgmtAcctCreateOuCT.png)
+![Create Custom OUs interface showing ID ct-1ksyoxreh35tu and version 2.0 with Modify version button.](images/guiMalzMgmtAcctCreateOuCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

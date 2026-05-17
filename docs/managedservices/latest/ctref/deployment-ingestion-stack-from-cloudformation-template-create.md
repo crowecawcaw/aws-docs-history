@@ -19,7 +19,7 @@ Create a stack by pointing to a customized CloudFormation (CFN) template in an S
 
 ### Create CloudFormation ingest stack
 
-![Create Stack From CloudFormation Template interface showing description, ID, and version.](images/guiCfnIngestCT.png)
+![Create Stack From CloudFormation Template dialog showing description, ID, and version fields.](images/guiCfnIngestCT.png)
 **To create a CloudFormation ingest stack using the console**
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

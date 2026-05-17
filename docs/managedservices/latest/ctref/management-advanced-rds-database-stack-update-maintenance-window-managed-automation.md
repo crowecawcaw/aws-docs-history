@@ -21,7 +21,7 @@ Update an existing RDS maintenance window, which is a weekly time range (in UTC)
 
 Screenshot of this change type in the AMS console:
 
-![](images/guiRdsWindowUpdateRrCT.png)
+![Update RDS Maintenance Window change type showing ID, execution mode as Manual, and version.](images/guiRdsWindowUpdateRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

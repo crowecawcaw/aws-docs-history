@@ -21,7 +21,7 @@ Delete an AWS Key Management Service (KMS) Key from an AMS account. By default, 
 
 Screenshot of this change type in the AMS console:
 
-![](images/guiKmsKeyDeleteRrCT.png)
+![Delete KMS key interface showing ID, execution mode, version, and description details.](images/guiKmsKeyDeleteRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

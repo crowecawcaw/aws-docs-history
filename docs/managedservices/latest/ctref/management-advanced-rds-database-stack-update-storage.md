@@ -21,7 +21,7 @@ Change the RDS instance storage type, capacity or IOPS through direct API calls.
 
 Screenshot of this change type in the AMS console:
 
-![Update RDS Storage interface showing ID, execution mode, version, and description fields.](images/guiRdsUpdateStorageCT.png)
+![Update RDS Storage change type details showing ID, execution mode, version, and classification.](images/guiRdsUpdateStorageCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

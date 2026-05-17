@@ -21,7 +21,7 @@ Request a read-only login to the Trend Micro console for your account. For multi
 
 The following shows this change type in the AMS console.
 
-![Form for adding a DSM read-only login with ID, execution mode, version, and description fields.](images/guiHostSecTmLoginAddCT.png)
+![Add DSM Read-Only Login change type details showing ID, execution mode, version, and classification.](images/guiHostSecTmLoginAddCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

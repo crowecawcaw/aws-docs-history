@@ -21,7 +21,7 @@ Run on-demand SSM patching on specified instances; either a list of instances or
 
 Screenshot of this change type in the AMS console:
 
-![On Demand Patching details showing description, ID, and version for SSM patching on instances.](images/guiPatchOndemandCT.png)
+![On Demand Patching change type showing description, ID, and version fields in AMS console.](images/guiPatchOndemandCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

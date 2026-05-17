@@ -21,7 +21,7 @@ Modify the properties of an existing Amazon ELB Classic Load Balancer created us
 
 Screenshot of this change type in the AMS console:
 
-![Change type details for updating an Amazon ELB Classic Load Balancer stack.](images/guiElbUpdateCT.png)
+![Change type details showing ID, version, execution mode, and description for ELB stack update.](images/guiElbUpdateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

@@ -21,7 +21,7 @@ Enable Developer Mode for an existing application account. Note that, in Develop
 
 Screenshot of this change type in the AMS console:
 
-![Enable Developer Mode interface with description, ID, and version details.](images/guiManLzMastAcctEnableDevModeCT.png)
+![Enable Developer Mode change type showing description, ID ct-1opjmhuddw194, and version 1.0.](images/guiManLzMastAcctEnableDevModeCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

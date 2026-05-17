@@ -19,7 +19,7 @@ Delete Elastic Block Store (EBS) snapshots. Because deleted snapshots cannot be 
 
 ### Delete EBS snapshot
 
-![Delete EBS Snapshots operation details, including execution mode, version, and description.](images/guiEbsSnpshtDeleteCT.png)
+![Delete EBS Snapshots page showing ID, execution mode, version, classification, and description.](images/guiEbsSnpshtDeleteCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

@@ -19,7 +19,7 @@ Creates up to five EBS volumes, and attaches them to an existing EC2 instance th
 
 ### Create EBS volume
 
-![Description of EBS volume creation and attachment feature for EC2 instances.](images/guiEbsCreateFromBackupCT.png)
+![Automation document details showing ID ct-16xg8qguovg2w and version 1.0 only version.](images/guiEbsCreateFromBackupCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

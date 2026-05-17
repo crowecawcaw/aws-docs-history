@@ -21,7 +21,7 @@ Create an AWS Systems Manager (SSM) patch baseline to define which patches are a
 
 Screenshot of this change type in the AMS console:
 
-![SSM patch baseline creation interface for Amazon Linux with description and version details.](images/guiPatchBaseAlCT.png)
+![Create SSM Patch Baseline page showing description, ID, and version fields for Amazon Linux.](images/guiPatchBaseAlCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

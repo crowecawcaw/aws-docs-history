@@ -21,7 +21,7 @@ Stop an Aurora DB cluster, which is a provisioned capacity type and does not hav
 
 Screenshot of this change type in the AMS console:
 
-![Details of a Stop Aurora DB Cluster change type, including ID, execution mode, and description.](images/guiRdsDbStopAuroraClusterCT.png)
+![Stop Aurora DB Cluster change type showing ID, execution mode as Automated, and version 1.0.](images/guiRdsDbStopAuroraClusterCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

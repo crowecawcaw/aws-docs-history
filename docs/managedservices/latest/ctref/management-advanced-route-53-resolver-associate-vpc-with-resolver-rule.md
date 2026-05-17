@@ -21,7 +21,7 @@ Associate a VPC with a Route 53 resolver rule, this causes the resolver to forwa
 
 The following shows this change type in the AMS console.
 
-![Associate VPC with resolver rule details, including ID, execution mode, and description.](images/gui-vpc-associate-resolver-rule.png)
+![Run RFC details page showing Associate VPC With Resolver Rule change type configuration.](images/gui-vpc-associate-resolver-rule.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

@@ -21,7 +21,7 @@ Add tags to existing, supported resources except those in AMS infrastructure sta
 
 Screenshot of this change type in the AMS console:
 
-![](images/guiTagCreateRrCT.png)
+![Console interface for creating resource tags, showing details like execution mode and description.](images/guiTagCreateRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

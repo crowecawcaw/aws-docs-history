@@ -21,7 +21,7 @@ Use to create an Amazon ElastiCache cluster (one or more cache nodes) that uses 
 
 The following shows this change type in the AMS console.
 
-![Details of a Create Cache change type for an ElastiCache Memcached stack, including description and execution mode.](images/guiCacheMemCreateCT.png)
+![Change type details showing ID, version 1.0, and automated execution mode for ElastiCache stack.](images/guiCacheMemCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

@@ -21,7 +21,7 @@ Enable and configure cross-account backup and monitoring in a management account
 
 The following shows this change type in the AMS console.
 
-![Enable Cross Account Copy configuration panel with description, ID, and version details.](images/guiAwsBackupPlanEnableXAcctCopyCT.png)
+![Enable Cross Account Copy change type showing description, ID ct-2yja7ihh30ply, and version 1.0.](images/guiAwsBackupPlanEnableXAcctCopyCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

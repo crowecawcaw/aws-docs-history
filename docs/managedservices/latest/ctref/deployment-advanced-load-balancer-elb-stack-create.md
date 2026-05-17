@@ -21,7 +21,7 @@ Use to create an Amazon ELB Classic Load Balancer. Use alternate change types to
 
 Screenshot of this change type in the AMS console:
 
-![Change type details for creating an Amazon ELB Classic Load Balancer stack.](images/guiElbCreateCT.png)
+![Change type details showing Create load balancer stack with ID, version 2.0, and Automated execution mode.](images/guiElbCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

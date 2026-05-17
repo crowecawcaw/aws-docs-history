@@ -19,7 +19,7 @@ Create an Elastic Block Store (EBS) snapshot from an EBS volume. The volume must
 
 ### Create EBS snapshot
 
-![Create EBS Snapshot interface with description, ID, and version details.](images/guiEbsSnpshtCreateCT.png)
+![Create EBS Snapshot dialog showing description, ID ct-3mlsibqhuqrf1, and version 1.0.](images/guiEbsSnpshtCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

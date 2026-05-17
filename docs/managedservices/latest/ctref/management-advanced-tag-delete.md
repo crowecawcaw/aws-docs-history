@@ -21,7 +21,7 @@ Delete tags from existing, tagged resources: Autoscaling, EC2, Elastic Load Bala
 
 Screenshot of this change type in the AMS console:
 
-![Delete Resource Tags change type details showing ID, execution mode, version, and description.](images/guiTagDeleteCT.png)
+![Delete Resource Tags change type details showing ID, execution mode, version, and classification.](images/guiTagDeleteCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

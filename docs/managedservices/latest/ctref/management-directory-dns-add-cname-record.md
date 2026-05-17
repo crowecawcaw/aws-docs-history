@@ -26,7 +26,7 @@ To create a CNAME record in AWS, see
 
 The following shows this change type in the AMS console.
 
-![Interface for adding a DNS CNAME record with description, ID, and version fields.](images/guiDirservCnameRecordAddCT.png)
+![Add DNS CNAME Record interface showing ID ct-2murl5xzbxoxf and Version 1.0.](images/guiDirservCnameRecordAddCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

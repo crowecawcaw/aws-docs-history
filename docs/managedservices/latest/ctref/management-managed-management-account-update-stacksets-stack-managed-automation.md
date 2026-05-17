@@ -21,7 +21,7 @@ Update an existing AWS CloudFormation (CFN) StackSets stack to deploy, or to upd
 
 Screenshot of this change type in the AMS console:
 
-![](images/guiManLzStckstsStckUpdateCT.png)
+![Update StackSets Stack interface showing ID, execution mode, version, and description.](images/guiManLzStckstsStckUpdateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

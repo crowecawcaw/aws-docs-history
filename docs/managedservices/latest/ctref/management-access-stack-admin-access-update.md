@@ -21,7 +21,7 @@ Update admin access for one or more users for one or more stacks. The maximum ac
 
 The following shows this change type in the AMS console.
 
-![Grant stack admin access interface showing ID, execution mode, version, and description.](images/guiAccessAdminUpdateCT.png)
+![Grant stack admin access change type details showing ID, execution mode, version, and classification.](images/guiAccessAdminUpdateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

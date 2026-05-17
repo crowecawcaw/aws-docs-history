@@ -21,7 +21,7 @@ Add an Active Directory (AD) user to an AD group in the AMS managed AD. For mult
 
 The following shows this change type in the AMS console.
 
-![Add AD User To AD Group interface showing description, ID, and version details.](images/guiDirservAddUserToGroupCT.png)
+![Add AD User To AD Group change type showing description, ID, and version fields.](images/guiDirservAddUserToGroupCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

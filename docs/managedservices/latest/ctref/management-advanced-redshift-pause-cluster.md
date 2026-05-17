@@ -21,7 +21,7 @@ Pause an Amazon Redshift cluster. If a recent snapshot is not available, a tempo
 
 Screenshot of this change type in the AMS console:
 
-![Description of pausing an Amazon Redshiftcluster and its snapshot behavior.](images/guiRedshiftPauseClusterCT.png)
+![Pause Redshift Cluster change type showing description, ID ct-1n323w7eu27u9, and version 1.0.](images/guiRedshiftPauseClusterCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

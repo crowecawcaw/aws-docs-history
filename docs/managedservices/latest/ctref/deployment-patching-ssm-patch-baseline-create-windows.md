@@ -21,7 +21,7 @@ Create an AWS Systems Manager (SSM) patch baseline to define which patches are a
 
 Screenshot of this change type in the AMS console:
 
-![AWS Systems Manager patch baseline creation interface for Windows OS with description and version details.](images/guiPatchBaseWinCT.png)
+![Create SSM Patch Baseline page showing description, ID ct-0kbey7hb00atp, and version 1.0.](images/guiPatchBaseWinCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

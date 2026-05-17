@@ -21,7 +21,7 @@ Add a specific, allowed, AWS service to your AMS account. AMS adds the necessary
 
 The following shows this change type in the AMS console.
 
-![](images/guiAwsSelfServeAddRRCT.png)
+![Form for adding a self-provisioned AWS service with ID, execution mode, and classification details.](images/guiAwsSelfServeAddRRCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

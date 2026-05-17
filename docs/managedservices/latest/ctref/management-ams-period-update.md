@@ -21,7 +21,7 @@ Update an existing period used in AMS Resource Scheduler.
 
 The following shows this change type in the AMS console.
 
-![Update Resource Scheduler Period interface showing description, ID, and version fields.](images/guiResSchedPeriodUpdateCT.png)
+![Update Resource Scheduler Period page showing ID ct-2pkdckieh62ps and Version 1.0.](images/guiResSchedPeriodUpdateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

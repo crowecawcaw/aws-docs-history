@@ -21,7 +21,7 @@ Add a certificate to the specified Network Load Balancer (NLB) listener. Use the
 
 The following shows this change type in the AMS console.
 
-![Form for adding an NLB listener certificate, showing description, ID, and version fields.](images/guiNlbAddListenerCertCT.png)
+![Add NLB Listener Certificate change type showing ID ct-35p977vul06df and version 1.0.](images/guiNlbAddListenerCertCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

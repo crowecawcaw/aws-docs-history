@@ -19,7 +19,7 @@ Use to create an AWS CodeDeploy application resource with the specified name.
 
 ### Create CodeDeploy application
 
-![Change type details for creating an AWS CodeDeploy application with specified name and ID.](images/guiCDAppCreateCT.png)
+![Change type details showing ID, version 1.0, and automated execution mode for CodeDeploy application.](images/guiCDAppCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

@@ -21,7 +21,7 @@ Update Performance Insights for a DB instance or Multi-AZ DB cluster. Amazon RDS
 
 Screenshot of this change type in the AMS console:
 
-![](images/guiRdsInsightsUpdateRrCT.png)
+![Update Performance Insights panel showing execution mode, version, and description for RDS database tuning.](images/guiRdsInsightsUpdateRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

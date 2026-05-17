@@ -21,7 +21,7 @@ Set Amazon Elastic Block Store (EBS) to enforce the encryption. After you enable
 
 The following shows this change type in the AMS console.
 
-![Configuration details for enabling encryption by default on Amazon EBS volumes.](images/guiEbsEncryptEbsByDefaultCT.png)
+![Encrypt EBS By Default change type showing ID ct-0vevjppj9eta4 with version 1.0.](images/guiEbsEncryptEbsByDefaultCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

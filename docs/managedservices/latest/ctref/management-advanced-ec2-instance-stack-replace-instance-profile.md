@@ -21,7 +21,7 @@ Replace the instance profile of an EC2 instance that is not part of an Auto Scal
 
 The following shows this change type in the AMS console.
 
-![Replace Instance Profile dialog showing description, ID, and version fields.](images/guiEc2ReplaceInstanceCT.png)
+![Replace Instance Profile change type showing ID ct-37kcp2v1mriu6 with version 1.0.](images/guiEc2ReplaceInstanceCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

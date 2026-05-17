@@ -21,7 +21,7 @@ Bulk add tags to existing, supported resources except those in AMS infrastructur
 
 Screenshot of this change type in the AMS console:
 
-![](images/guiTagBulkUpdateRrCT.png)
+![Bulk Update Resource Tags interface showing ID, execution mode, version, and description details.](images/guiTagBulkUpdateRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

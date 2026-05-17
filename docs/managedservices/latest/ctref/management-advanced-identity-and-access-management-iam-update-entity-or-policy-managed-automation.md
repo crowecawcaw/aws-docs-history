@@ -19,7 +19,7 @@ Update Identity and Access Management (IAM) user, role, or policy.
 
 ### Update IAM entity or policy
 
-![](images/guiIamResourceUpdateCT.png)
+![Update IAM Resource change type with description, ID, version, and execution mode details.](images/guiIamResourceUpdateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

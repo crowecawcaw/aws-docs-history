@@ -21,7 +21,7 @@ Use to create a Redshift cluster subnet group.
 
 Screenshot of this change type in the AMS console:
 
-![Change type details for creating a Redshift cluster subnet group, including ID and version.](images/guiRedshiftCreateClusterSGCT.png)
+![Change type details showing ID ct-0q43l40hxrzum, version 1.0, and automated execution mode.](images/guiRedshiftCreateClusterSGCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

@@ -21,7 +21,7 @@ Update existing defined termination protection for stacks.
 
 The following shows this change type in the AMS console.
 
-![Update Termination Protection interface showing description, ID, and version fields.](images/guiCfnProTermUpdateCT.png)
+![Update Termination Protection change type showing ID ct-2uzbqr7x7mekd and version 1.0.](images/guiCfnProTermUpdateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

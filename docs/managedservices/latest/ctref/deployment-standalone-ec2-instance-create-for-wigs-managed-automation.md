@@ -21,7 +21,7 @@ Create an Amazon Elastic Compute Cloud (EC2) instance for use with Workload Inge
 
 The following shows this change type in the AMS console.
 
-![](images/guiEc2CreatePreIngestRrCT.png)
+![Create EC2 for WIGS change type details showing ID, execution mode, version, and classification.](images/guiEc2CreatePreIngestRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

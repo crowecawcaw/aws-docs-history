@@ -27,7 +27,7 @@ offboarding request fails and the process of confirming and then offboarding mus
 
 Screenshot of this change type in the AMS console:
 
-![Account offboarding confirmation details showing ID, execution mode, and classification.](images/guiManLzAppAcctConfirmOffBCT.png)
+![Confirm Account Offboarding change type details showing ID, execution mode, version, and classification.](images/guiManLzAppAcctConfirmOffBCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

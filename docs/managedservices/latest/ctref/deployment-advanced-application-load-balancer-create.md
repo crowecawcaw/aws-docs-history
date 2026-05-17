@@ -21,7 +21,7 @@ Create an AWS Application Load Balancer (ALB), with additional listeners.
 
 The following shows this change type in the AMS console.
 
-![Application Load Balancer creation interface showing description, ID, and version details.](images/guiAlbCreateCT.png)
+![Create Application Load Balancer interface showing ID ct-111r1yayblnw4 and version 3.0.](images/guiAlbCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

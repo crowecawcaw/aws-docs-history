@@ -21,7 +21,7 @@ Change the hostname of an EC2 Windows instance. Note that the instance will be r
 
 The following shows this change type in the AMS console.
 
-![Change Windows Hostname interface showing description, ID, and version fields.](images/guiEc2HostnameChangeWinCT.png)
+![Change Windows Hostname interface showing description, ID ct-0h3p576mj4rqm, and version 1.0.](images/guiEc2HostnameChangeWinCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

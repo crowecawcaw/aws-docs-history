@@ -21,7 +21,7 @@ Remove resources from a CloudFormation stack using a change set. If you set Allo
 
 Screenshot of this change type in the AMS console:
 
-![](images/guiRemoveStackResourcesCT.png)
+![Remove Stack Resources change type details showing ID, execution mode, and version fields.](images/guiRemoveStackResourcesCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

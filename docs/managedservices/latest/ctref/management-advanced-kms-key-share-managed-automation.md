@@ -21,7 +21,7 @@ Allow cross-account access to a KMS key by adding a statement to the key policy 
 
 The following shows this change type in the AMS console.
 
-![](images/guiShareKmsKeyCT.png)
+![Share KMS Key change type details showing manual execution mode and classification path.](images/guiShareKmsKeyCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

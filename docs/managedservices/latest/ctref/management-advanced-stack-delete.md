@@ -21,7 +21,7 @@ Delete an existing stack and its resources from your account. The effects of del
 
 Screenshot of this change type in the AMS console:
 
-![Delete stack change type details showing ID, version, and execution mode.](images/guiStackDeleteCT.png)
+![Change type Delete stack details showing ID, version 1.0, and automated execution mode.](images/guiStackDeleteCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

@@ -21,7 +21,7 @@ Request admin access for one or more users for one or more stacks. The maximum a
 
 The following shows this change type in the AMS console.
 
-![Grant Stack Admin access interface showing ID, execution mode, version, and description.](images/guiAccessAdminGrantCT.png)
+![Grant Stack Admin access change type showing ID, execution mode, version, and classification details.](images/guiAccessAdminGrantCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

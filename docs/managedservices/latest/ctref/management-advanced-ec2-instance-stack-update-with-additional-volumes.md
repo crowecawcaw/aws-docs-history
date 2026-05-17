@@ -21,7 +21,7 @@ Use to modify the properties of an EC2 instance created using CT id ct-1aqsjf86w
 
 Screenshot of this change type in the AMS console:
 
-![Change type details for updating EC2 stack with additional volumes, showing ID and version.](images/guiEc2UpdateAddlVolCT.png)
+![Change type details showing Update EC2 stack with ID ct-1o1x2itd6rk8, version 3.0, automated execution.](images/guiEc2UpdateAddlVolCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

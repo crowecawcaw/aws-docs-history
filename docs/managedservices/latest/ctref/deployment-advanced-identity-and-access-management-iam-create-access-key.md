@@ -19,7 +19,7 @@ Create a new AWS secret access key and corresponding AWS access key ID for the s
 
 ### Create access key
 
-![Create Access Key interface showing ID, execution mode, version, and description details.](images/guiIamKeyCreateCT.png)
+![Create Access Key runbook details showing ID, execution mode, version, and classification.](images/guiIamKeyCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

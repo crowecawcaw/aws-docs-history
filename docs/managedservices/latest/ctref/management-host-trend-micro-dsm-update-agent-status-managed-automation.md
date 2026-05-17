@@ -21,7 +21,7 @@ Start, stop, deactivate, or reactivate Trend Micro agent.
 
 The following shows this change type in the AMS console.
 
-![](images/guiHostSecTmDsmUpdateAgentStatusCT.png)
+![Update Trend Micro DSM agent status interface with ID, execution mode, and version details.](images/guiHostSecTmDsmUpdateAgentStatusCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

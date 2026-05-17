@@ -21,7 +21,7 @@ Update AD DNS conditional forwarder for a remote domain. For multi-account landi
 
 The following shows this change type in the AMS console.
 
-![Update AD DNS Conditional Forwarder change type details for a remote domain.](images/guiDirservCondForwardUpdateCT.png)
+![Update AD DNS Conditional Forwarder change type showing ID and version 1.0 details.](images/guiDirservCondForwardUpdateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

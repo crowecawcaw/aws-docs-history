@@ -21,7 +21,7 @@ Move an account under an AWS organizational unit (OU) to a different OU.
 
 Screenshot of this change type in the AMS console:
 
-![Form displaying details for moving an AWS account to a different organizational unit (OU).](images/guiManLzMvAcctToOuCT.png)
+![Move Account To OU change type showing ID ct-1vq0f289r36ay and version 1.0.](images/guiManLzMvAcctToOuCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

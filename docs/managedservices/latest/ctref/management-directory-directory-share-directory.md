@@ -21,7 +21,7 @@ Share a specified directory in your AWS account (directory owner) with another A
 
 The following shows this change type in the AMS console.
 
-![Share Directory interface showing ID, execution mode, version, and description details.](images/guiDirservShareDirectoryCT.png)
+![Share Directory details page showing ID, execution mode as Automated, and version 1.0.](images/guiDirservShareDirectoryCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

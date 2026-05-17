@@ -21,7 +21,7 @@ Revoke the ingress rule for the specified security group (SG). You must specify 
 
 Screenshot of this change type in the AMS console:
 
-![Revoke Ingress Rule interface showing ID, execution mode, version, and description.](images/guiSecGroupIngressRevokeCT.png)
+![Revoke Ingress Rule change type details showing ID, execution mode, version, and classification.](images/guiSecGroupIngressRevokeCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

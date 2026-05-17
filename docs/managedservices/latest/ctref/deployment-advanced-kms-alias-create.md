@@ -21,7 +21,7 @@ Create an alias for an AWS Key Management Service (KMS) customer master key (CMK
 
 Screenshot of this change type in the AMS console:
 
-![Form to create an alias for an AWS KMS customer master key, showing description and ID fields.](images/guiKmsAliasCreateCT.png)
+![Create KMS Alias interface showing description, ID ct-2svg4k2fqi4ak, and version 1.0.](images/guiKmsAliasCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

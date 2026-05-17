@@ -21,7 +21,7 @@ Use to delete an Amazon GuardDuty IPSet instance which is a list of trusted IP a
 
 The following shows this change type in the AMS console.
 
-![](images/guiGuardDutyIpSetDeleteRrCT.png)
+![Delete GuardDuty IPSet interface showing description, ID, and version for an instance.](images/guiGuardDutyIpSetDeleteRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

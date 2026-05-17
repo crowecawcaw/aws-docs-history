@@ -21,7 +21,7 @@ Enable the Transit Gateway (TGW) attachment to propagate routes to the TGW route
 
 Screenshot of this change type in the AMS console:
 
-![Enable TGW Propagation change type with description, ID, and version details.](images/guiManLzNetAcctTgwPropEnableCT.png)
+![Enable TGW Propagation change type showing description, ID ct-1f9hi4bephqa9, and version 1.0.](images/guiManLzNetAcctTgwPropEnableCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

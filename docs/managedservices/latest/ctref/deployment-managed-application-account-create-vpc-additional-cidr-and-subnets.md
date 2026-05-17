@@ -21,7 +21,7 @@ Create an additional VPC CIDR, or subnets, or both, for an existing application 
 
 Screenshot of this change type in the AMS console:
 
-![Form for creating additional VPC CIDR or subnets for an application account VPC.](images/guiMalzAppAcctCreateVpcCidrSubnetsCT.png)
+![Create Application Account CIDRs interface showing description, ID ct-2ha68tpd7nr3y, and version 1.0.](images/guiMalzAppAcctCreateVpcCidrSubnetsCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

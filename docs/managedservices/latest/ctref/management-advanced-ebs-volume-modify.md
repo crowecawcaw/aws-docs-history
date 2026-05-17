@@ -21,7 +21,7 @@ Modify EBS Volumes that are not attached to an EC2 instance in an Auto Scaling g
 
 Screenshot of this change type, in the AMS console:
 
-![Modify EBS Volume change type details with description and ID information.](images/guiEbsModifyCT.png)
+![Modify EBS Volume page showing description, ID ct-1wle0ai4en6km, and version 1.0 only version.](images/guiEbsModifyCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

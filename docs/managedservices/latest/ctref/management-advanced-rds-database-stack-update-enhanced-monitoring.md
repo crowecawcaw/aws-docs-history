@@ -21,7 +21,7 @@ Update the Enhanced Monitoring property of an Amazon Relational Database Service
 
 The following shows this change type in the AMS console.
 
-![Update Enhanced Monitoring interface for an Amazon RDS database instance or cluster.](images/guiRdsDbUpdateEnhancedMonitoring.png)
+![Update Enhanced Monitoring change type details showing ID, execution mode, version, and classification.](images/guiRdsDbUpdateEnhancedMonitoring.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

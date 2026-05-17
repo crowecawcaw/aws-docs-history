@@ -21,7 +21,7 @@ Enable monitoring on non-root volumes of an EC2 instance.
 
 The following shows this change type in the AMS console.
 
-![Change type for enabling non-root volumes monitoring on EC2 instances with ID and version.](images/guiCwEnableNonRootVolMonCT.png)
+![Enable Non-Root Volumes Monitoring change type showing description, ID, and version details.](images/guiCwEnableNonRootVolMonCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

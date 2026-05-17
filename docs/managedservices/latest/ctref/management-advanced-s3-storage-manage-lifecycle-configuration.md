@@ -21,7 +21,7 @@ Add a new lifecycle configuration, or replace an existing one for an Amazon S3 b
 
 Screenshot of this change type in the AMS console:
 
-![Lifecycle configuration details for an Amazon S3 bucket, including ID and execution mode.](images/guiS3ManageLifecycleCT.png)
+![Manage lifecycle configuration details showing ID, execution mode as Automated, and version 1.0.](images/guiS3ManageLifecycleCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

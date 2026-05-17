@@ -21,7 +21,7 @@ Update an existing Route 53 DNS Hosted Zone with the supplied resource record se
 
 Screenshot of this change type in the AMS console:
 
-![Configure Public DNS Record change type details, including description and execution mode.](images/guiDnsPubUpdateCT.png)
+![Change type details showing ID ct-1hzofpphabs3i, version 1.0, and Automated execution mode.](images/guiDnsPubUpdateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

@@ -19,7 +19,7 @@ Use to create an instance profile.
 
 ### Create application IAM instance profile (Managed Automation)
 
-![](images/guiAppIamInstanceProfileCreateRrCT.png)
+![Form to create an IAM instance profile with ID, execution mode, version, and description.](images/guiAppIamInstanceProfileCreateRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

@@ -19,7 +19,7 @@ Delete an existing AWS account alias. Note that if you delete the account alias,
 
 ### Delete IAM account alias
 
-![Delete AWS Account Alias interface with description, ID, and version details.](images/guiIamAcctAliasDeleteCT.png)
+![Delete AWS Account Alias page showing description, ID ct-2rfzmkm6ugjgh, and version 1.0.](images/guiIamAcctAliasDeleteCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

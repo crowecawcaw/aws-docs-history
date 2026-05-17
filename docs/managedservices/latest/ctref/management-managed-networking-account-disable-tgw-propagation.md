@@ -21,7 +21,7 @@ Disable the Transit Gateway (TGW) attachment from propagating routes to the TGW 
 
 Screenshot of this change type in the AMS console:
 
-![Configuration details for disabling TGW propagation, including description, ID, and version.](images/guiManLzNetAcctTgwPropDisableCT.png)
+![Disable TGW Propagation change type showing ID ct-2pxyajek47am2 and version 1.0.](images/guiManLzNetAcctTgwPropDisableCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

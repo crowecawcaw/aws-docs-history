@@ -21,7 +21,7 @@ Request a Trusted Remediator configuration update. Use this change type in the T
 
 Screenshot of this change type in the AMS console:
 
-![Trusted Remediator configuration update details including ID, execution mode, and description.](images/guiTrRemConfigUpdateCT.png)
+![Update Trusted Remediator configuration change type showing ID, execution mode, and version details.](images/guiTrRemConfigUpdateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

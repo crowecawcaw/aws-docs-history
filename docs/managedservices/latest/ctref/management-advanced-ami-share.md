@@ -21,7 +21,7 @@ Share an AMI with multiple AMS accounts or Organizational Units (OUs).
 
 The following shows this change type in the AMS console.
 
-![Share AMI interface showing ID, execution mode, version, classification, and description.](images/guiAmiShareCT.png)
+![Share AMI change type details showing ID, execution mode, version, and classification path.](images/guiAmiShareCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

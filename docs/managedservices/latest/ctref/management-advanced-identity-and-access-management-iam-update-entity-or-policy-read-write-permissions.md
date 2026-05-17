@@ -19,7 +19,7 @@ Update Identity and Access Management (IAM) role or policy with read-write permi
 
 ### Update IAM entity or policy
 
-![Update IAM role or policy interface showing ID, execution mode, version, and description.](images/guiIamEntityUpdateCT.png)
+![Update Entity or Policy change type details showing ID, execution mode, version, and classification.](images/guiIamEntityUpdateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

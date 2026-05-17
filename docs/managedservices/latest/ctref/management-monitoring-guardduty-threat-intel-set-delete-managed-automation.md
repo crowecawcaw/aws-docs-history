@@ -21,7 +21,7 @@ Use to delete an Amazon GuardDuty ThreatIntelSet instance which is a list of kno
 
 The following shows this change type in the AMS console.
 
-![](images/guiGuardDutyThreatIntelSetDeleteRrCT.png)
+![Delete GuardDuty ThreatIntelSet interface showing description, ID, and version details.](images/guiGuardDutyThreatIntelSetDeleteRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

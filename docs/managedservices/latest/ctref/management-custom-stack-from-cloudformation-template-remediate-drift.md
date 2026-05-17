@@ -50,7 +50,7 @@ AWS::CloudWatch::Alarm
 
 Screenshot of this change type in the AMS console:
 
-![Description of Remediate Stack Drift change type with ID and version details.](images/guiStackRemediateDriftCT.png)
+![Remediate Stack Drift change type showing description, ID ct-3kinq0u4l33zf, and version 1.0.](images/guiStackRemediateDriftCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

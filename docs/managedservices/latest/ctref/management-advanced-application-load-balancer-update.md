@@ -21,7 +21,7 @@ Update the properties of an existing AWS Application Load Balancer (ALB) that wa
 
 The following shows this change type in the AMS console.
 
-![Update Application Load Balancer interface showing description, ID, and version details.](images/guiAlbUpdateCT.png)
+![Update Application Load Balancer page showing description, ID ct-1a1zzgi2nb83d, and version 3.0.](images/guiAlbUpdateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

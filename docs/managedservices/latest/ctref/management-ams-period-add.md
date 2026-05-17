@@ -21,7 +21,7 @@ Add a new period to use with AMS Resource Scheduler. Periods are used in schedul
 
 The following shows this change type in the AMS console.
 
-![Form to add a new Resource Scheduler Period, showing Description field and ID details.](images/guiResSchedPeriodAddCT.png)
+![Add Resource Scheduler Period page showing description, ID ct-1976sir132k22, and version 1.0.](images/guiResSchedPeriodAddCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

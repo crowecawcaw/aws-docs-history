@@ -21,7 +21,7 @@ Delete an alias of an AWS Key Management Service (KMS) customer master key (CMK)
 
 Screenshot of this change type in the AMS console:
 
-![Delete KMS Alias interface showing description, ID, and version for an AWS KMS customer master key.](images/guiKmsAliasDeleteCT.png)
+![Delete KMS Alias change type showing description, ID ct-04gzyy008v1bg, and version 1.0.](images/guiKmsAliasDeleteCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

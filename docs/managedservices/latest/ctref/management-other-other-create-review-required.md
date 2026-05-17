@@ -21,7 +21,7 @@ Use to request manual creation of a resource.
 
 Screenshot of this change type in the AMS console:
 
-![Change type form for manual creation of a resource, showing ID and version details.](images/guiOtherCreate.png)
+![Change type Create other interface showing description, ID, version, and execution mode fields.](images/guiOtherCreate.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

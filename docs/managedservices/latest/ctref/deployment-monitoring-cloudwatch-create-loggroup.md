@@ -19,7 +19,7 @@ Creates a CloudWatch LogGroup with optional subscription filter, up to 5 log str
 
 ### Create CloudWatch LogGroup
 
-![CloudWatch LogGroup details showing ID, version, and execution mode for log streams and metric filters.](images/guiCwCreateLGCT.png)
+![Change type details showing CloudWatch LogGroup creation with ID, version 1.0, and automated execution mode.](images/guiCwCreateLGCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

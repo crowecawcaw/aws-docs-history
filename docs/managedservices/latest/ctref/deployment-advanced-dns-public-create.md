@@ -21,7 +21,7 @@ Create a new Route 53 DNS resource record set and a new public hosted zone for a
 
 Screenshot of this change type in the AMS console:
 
-![Change type details for creating a public DNS record, including description and execution mode.](images/guiDnsPubCreateCT.png)
+![Change type details showing ID ct-0vzsr2nyraedl, version 1.0, and automated execution mode.](images/guiDnsPubCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

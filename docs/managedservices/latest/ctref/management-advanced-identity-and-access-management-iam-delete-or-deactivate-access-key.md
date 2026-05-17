@@ -19,7 +19,7 @@ Deactivates AWS IAM Access key ID for the specified user and conditionally delet
 
 ### Delete or deactivate access key
 
-![Delete or Deactivate Access Key interface showing ID, execution mode, and classification details.](images/guiIamKeyDeactivateCT.png)
+![Delete or Deactivate Access Key interface showing ID, execution mode, version, and description.](images/guiIamKeyDeactivateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

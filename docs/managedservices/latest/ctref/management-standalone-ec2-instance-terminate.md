@@ -21,7 +21,7 @@ Terminate up to fifty EC2 instances. The automation checks that none of the inst
 
 The following shows this change type in the AMS console.
 
-![Console interface for terminating EC2 instances with ID, execution mode, and description.](images/guiEc2TerminateStandaloneInstancesCT.png)
+![Terminate EC2 Instances change type details showing ID, execution mode, version, and description.](images/guiEc2TerminateStandaloneInstancesCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

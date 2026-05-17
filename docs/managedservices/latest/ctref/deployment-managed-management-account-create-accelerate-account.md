@@ -21,7 +21,7 @@ Create an Accelerate account in your AMS-managed landing zone. Accelerate provid
 
 Screenshot of this change type in the AMS console:
 
-![Details for creating an Accelerate account in AMS-managed landing zone with ID and execution mode.](images/guiMalzAccAcctCreateCT.png)
+![Create Accelerate Account change type details showing ID, execution mode, version, and classification.](images/guiMalzAccAcctCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

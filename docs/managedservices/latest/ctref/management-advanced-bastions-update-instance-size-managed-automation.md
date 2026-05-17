@@ -21,7 +21,7 @@ Update the instance size for an RDP or SSH customer bastion in an AMS account.
 
 The following shows this change type in the AMS console.
 
-![](images/guiBastionInstSizeUpdateCT.png)
+![Update Instance Size interface showing ID, execution mode, version, and description details.](images/guiBastionInstSizeUpdateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

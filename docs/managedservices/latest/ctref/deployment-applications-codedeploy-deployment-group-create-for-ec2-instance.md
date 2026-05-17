@@ -19,7 +19,7 @@ Create an AWS CodeDeploy application deployment group specifically for an EC2 in
 
 ### Create CodeDeploy deployment group for EC2
 
-![CodeDeploy deployment group creation details for EC2 instance target with ID and version.](images/guiCDDepGroupCreate4Ec2CT.png)
+![Change type details showing CodeDeploy deployment group creation with EC2 instance targeting.](images/guiCDDepGroupCreate4Ec2CT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

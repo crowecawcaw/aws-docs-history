@@ -21,7 +21,7 @@ Delete AD DNS conditional forwarder for a remote domain. For multi-account landi
 
 The following shows this change type in the AMS console.
 
-![Delete AD DNS Conditional Forwarder change type with ID and version details.](images/guiDirservCondForwardDeleteCT.png)
+![Delete AD DNS Conditional Forwarder change type details showing ID and version information.](images/guiDirservCondForwardDeleteCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

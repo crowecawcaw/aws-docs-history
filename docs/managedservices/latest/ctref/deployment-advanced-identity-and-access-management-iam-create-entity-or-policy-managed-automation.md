@@ -19,7 +19,7 @@ Create Identity and Access Management (IAM) user, role, or policy.
 
 ### Create IAM entity or policy (Managed Automation)
 
-![](images/guiIamResourceCreateRrCT.png)
+![Change type details showing Create IAM Resource with ID, version 1.0, and manual execution mode.](images/guiIamResourceCreateRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

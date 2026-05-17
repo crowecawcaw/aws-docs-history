@@ -21,7 +21,7 @@ Create a custom AWS Transit Gateway (TGW) route table for the application accoun
 
 Screenshot of this change type in the AMS console:
 
-![](images/guiMalzNetAcctCreateAppAcctRouteTableRrCT.png)
+![Create Application Account Route Table change type details showing manual execution mode.](images/guiMalzNetAcctCreateAppAcctRouteTableRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

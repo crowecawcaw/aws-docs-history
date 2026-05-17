@@ -21,7 +21,7 @@ Create an Amazon OpenSearch Service domain. An OpenSearch domain encapsulates Op
 
 Screenshot of this change type in the AMS console:
 
-![Amazon OpenSearch Service domain creation details, including ID, execution mode, and classification.](images/guiCreateOpenSearchDomainCT.png)
+![Create an Amazon OpenSearch Service Domain change type details showing ID, execution mode, and version.](images/guiCreateOpenSearchDomainCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

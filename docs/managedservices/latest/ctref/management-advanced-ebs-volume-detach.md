@@ -19,7 +19,7 @@ Detach an EBS volume from an EC2 instance. For Linux instances, use this change 
 
 ### Detach EBS volume
 
-![Description of detaching an EBS volume from an EC2 instance with CloudFormation stack drift remediation.](images/guiEbsVolDetachCT.png)
+![Detach EBS Volume automation details showing ID ct-2d55p1d7z6w3d and version 1.0.](images/guiEbsVolDetachCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

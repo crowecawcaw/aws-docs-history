@@ -21,7 +21,7 @@ Detach instances or private IPv4 addresses from a target group. If the instances
 
 Screenshot of this change type in the AMS console:
 
-![Console interface for detaching instances or private IPv4 addresses from a target group.](images/guiTarGroupDetachInstanceCT.png)
+![Detach Instance or Private Ipv4 From Target Group change type details in AMS console.](images/guiTarGroupDetachInstanceCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

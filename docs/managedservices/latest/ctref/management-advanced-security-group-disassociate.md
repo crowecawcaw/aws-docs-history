@@ -21,7 +21,7 @@ Disassociate a security group from up to 50 AWS resources.
 
 Screenshot of this change type in the AMS console:
 
-![Disassociate Security Group change type details, including ID, execution mode, and description.](images/guiSecGroupDisassociateCT.png)
+![Disassociate Security Group change type details showing ID, execution mode, and classification.](images/guiSecGroupDisassociateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

@@ -21,7 +21,7 @@ Bulk add tags to existing, supported resources: Autoscaling, EC2, Elastic Load B
 
 Screenshot of this change type in the AMS console:
 
-![Description of Bulk Update Resource Tags (Auto) change type with supported resources and usage.](images/guiTagBulkUpdateCT.png)
+![Bulk Update Resource Tags change type showing description, ID ct-3047c34zuvswh, and version 1.0.](images/guiTagBulkUpdateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

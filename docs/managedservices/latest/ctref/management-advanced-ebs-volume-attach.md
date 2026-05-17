@@ -19,7 +19,7 @@ Attach an EBS volume to an EC2 instance. This change type provides an option tha
 
 ### Attach EBS volume
 
-![Description of attaching an EBS Volume to an EC2 instance with CloudFormation stack drift remediation.](images/guiEbsVolAttachCT.png)
+![Attach EBS Volume page showing ID ct-34jldf2qihaic with version 1.0 only version.](images/guiEbsVolAttachCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

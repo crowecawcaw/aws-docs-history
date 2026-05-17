@@ -21,7 +21,7 @@ Start up to 50 stopped EC2 instances.
 
 The following shows this change type in the AMS console.
 
-![Interface showing "Start EC2 Instances" with description and version details.](images/guiEc2StartCT.png)
+![Start EC2 Instances change type showing description, ID, and version fields in the console.](images/guiEc2StartCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

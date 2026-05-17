@@ -21,7 +21,7 @@ Request an update of a KMS Key.
 
 Screenshot of this change type in the AMS console:
 
-![](images/guiKmsKeyUpdateRrCT.png)
+![Update KMS Key interface showing ID, execution mode, version, and classification details.](images/guiKmsKeyUpdateRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

@@ -21,7 +21,7 @@ Create a custom RDS parameter group and optionally attach it to an existing RDS 
 
 The following shows this change type in the AMS console.
 
-![](images/guiRDSCreateParamCT.png)
+![Create Custom RDS Parameter Group change type showing manual execution mode and version 1.0.](images/guiRDSCreateParamCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

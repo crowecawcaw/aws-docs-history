@@ -21,7 +21,7 @@ Create a public AWS Certificate Manager (ACM) certificate with email or DNS vali
 
 Screenshot of this change type in the AMS console:
 
-![Create Public ACM Certificate interface with description, ID, and version details.](images/guiAcmCreatePublicCT.png)
+![Create Public ACM Certificate page showing ID ct-3ll9hnadql9s1 and version 1.0.](images/guiAcmCreatePublicCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

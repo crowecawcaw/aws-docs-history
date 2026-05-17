@@ -19,7 +19,7 @@ Creates a stack consisting of an Auto Scaling group, an RDS DB instance, and a l
 
 ### Create high availability two-tier stacks
 
-![Change type details for creating a high availability two-tier stack with configurable parameters.](images/guiHa2tCreateCT.png)
+![Change type details showing ID ct-06mjngx5flwto, version 3.0, and automated execution mode.](images/guiHa2tCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

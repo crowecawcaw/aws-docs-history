@@ -19,7 +19,7 @@ Update the MaxSessionDuration property of an AWS Identity and Access Management 
 
 ### Update IAM role MaxSessionDuration
 
-![Update max session duration interface showing ID, execution mode, and version details.](images/guiIamMaxSessionUpdateCT.png)
+![Document details showing ID, execution mode as Automated, and version 1.0 for IAM role update.](images/guiIamMaxSessionUpdateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

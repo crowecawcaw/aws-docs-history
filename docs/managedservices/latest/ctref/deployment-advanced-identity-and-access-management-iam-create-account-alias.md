@@ -21,7 +21,7 @@ Create an AWS account alias. Note that an AWS account can have only one alias. T
 
 The following shows this change type in the AMS console.
 
-![Create AWS Account Alias interface with description and ID/Version fields.](images/guiIamAcctAliasCreateCT.png)
+![Create AWS Account Alias change type showing ID ct-36x3u7v2oklwd and version 1.0.](images/guiIamAcctAliasCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

@@ -21,7 +21,7 @@ Update the EBS volume DeleteOnTermination property of the specified EC2 instance
 
 Screenshot of this change type in the AMS console:
 
-![](images/guiEc2TerminationOptionUpdateRrCT.png)
+![Update DeleteOnTermination change type details for EC2 instance EBS volumes in AMS console.](images/guiEc2TerminationOptionUpdateRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

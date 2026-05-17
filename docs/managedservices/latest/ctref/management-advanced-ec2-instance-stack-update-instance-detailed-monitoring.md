@@ -21,7 +21,7 @@ Update EC2 instances' detailed monitoring setting through direct API calls. The 
 
 Screenshot of this change type in the AMS console:
 
-![Update Detailed Monitoring interface showing ID, execution mode, version, and description.](images/guiEc2UpdateDetailedMonCT.png)
+![Update Detailed Monitoring page showing ID, execution mode as Automated, and version 1.0.](images/guiEc2UpdateDetailedMonCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

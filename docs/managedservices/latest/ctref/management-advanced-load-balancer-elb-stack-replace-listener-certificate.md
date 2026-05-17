@@ -21,7 +21,7 @@ Replace the certificate of an existing Elastic (Classic) Load Balancer (ELB) lis
 
 Screenshot of this change type in the AMS console:
 
-![Replace ELB Listener Certificate change type with description, ID, and version details.](images/guiElbReplaceListenerCertCT.png)
+![Replace ELB Listener Certificate change type showing ID ct-0aqx5t0pgfzbg and version 1.0.](images/guiElbReplaceListenerCertCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

@@ -19,7 +19,7 @@ Generate a set of credentials consisting of a user name and password, to use to 
 
 ### Create service specific credentials
 
-![Form to create service-specific credentials with ID, execution mode, and version details.](images/guiIamServSpecificCredsCreateCT.png)
+![Create Service Specific Credentials interface showing ID, execution mode, version, and classification details.](images/guiIamServSpecificCredsCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

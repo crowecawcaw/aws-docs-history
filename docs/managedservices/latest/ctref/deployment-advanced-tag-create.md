@@ -21,7 +21,7 @@ Add tags to existing, supported resources: Autoscaling, EC2, Elastic Load Balanc
 
 Screenshot of this change type in the AMS console:
 
-![Create Resource Tags interface showing ID, execution mode, version, classification, and description.](images/guiTagCreateCT.png)
+![Create Resource Tags change type details showing ID, execution mode, version, and classification.](images/guiTagCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

@@ -21,7 +21,7 @@ Update an existing AWS account alias. Note that an AWS account can have only one
 
 The following shows this change type in the AMS console.
 
-![Update AWS Account Alias interface showing description, ID, and version fields.](images/guiIamAcctAliasUpdateCT.png)
+![Update AWS Account Alias page showing description, ID ct-3skaisgnq0pf8, and version 1.0.](images/guiIamAcctAliasUpdateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

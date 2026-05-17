@@ -21,7 +21,7 @@ Modify the properties of an S3 bucket created using change type ID ct-1a68ck03fn
 
 Screenshot of this change type in the AMS console:
 
-![Update S3 Bucket change type details showing ID, execution mode, version, and description.](images/guiS3UpdateCT.png)
+![Update S3 Bucket change type details showing ID, execution mode, version, and classification.](images/guiS3UpdateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

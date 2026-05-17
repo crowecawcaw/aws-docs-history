@@ -21,7 +21,7 @@ Create a security group, and optionally associate it with AWS resources.
 
 Screenshot of this change type in the AMS console:
 
-![](images/guiSecGroupCreateRrCT.png)
+![Create Security Group change type showing manual execution mode and version 2.0 details.](images/guiSecGroupCreateRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

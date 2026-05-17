@@ -19,7 +19,7 @@ Delete Elastic Block Store (EBS) volumes in an available state. Volumes that are
 
 ### Delete EBS volume
 
-![Delete EBS volumes interface showing description, ID, and version details.](images/guiEbsVolDeleteCT.png)
+![Delete EBS Volumes page showing description, ID ct-3e3h8u0sp5z80, and version 1.0.](images/guiEbsVolDeleteCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

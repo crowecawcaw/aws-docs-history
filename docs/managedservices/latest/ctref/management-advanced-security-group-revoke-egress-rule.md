@@ -21,7 +21,7 @@ Revoke the egress rule for the specified security group (SG). You must specify t
 
 Screenshot of this change type in the AMS console:
 
-![Revoke Egress Rule interface showing description, ID, and version for a security group rule.](images/guiSecGroupEgressRevokeCT.png)
+![Revoke Egress Rule page showing ID ct-111fhplhx9axe and version 1.0 only version.](images/guiSecGroupEgressRevokeCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

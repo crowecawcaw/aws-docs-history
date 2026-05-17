@@ -21,7 +21,7 @@ Remove the specified DNS resource record name, either an A or CNAME, or pointer 
 
 The following shows this change type in the AMS console.
 
-![Remove DNS Record interface with description of record removal process and options.](images/guiDirservRecordRemoveCT.png)
+![Remove DNS Record section showing ID ct-1icrtx8ydvdwe and Version 1.0 only version.](images/guiDirservRecordRemoveCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

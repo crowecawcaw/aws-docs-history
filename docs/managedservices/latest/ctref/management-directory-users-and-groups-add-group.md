@@ -21,7 +21,7 @@ Create an Active Directory (AD) group in the AMS managed AD. For multi-account l
 
 The following shows this change type in the AMS console.
 
-![Form to add an Active Directory group in AMS managed AD, showing description and ID fields.](images/guiDirservAddGroupCT.png)
+![Add AD Group change type showing description, ID ct-3eutt7grkict4, and version 1.0.](images/guiDirservAddGroupCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

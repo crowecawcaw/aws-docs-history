@@ -21,7 +21,7 @@ Use to create an Amazon GuardDuty IPSet instance which is a list of trusted IP a
 
 The following shows this change type in the AMS console.
 
-![](images/guiGuardDutyIpSetCreateRrCT.png)
+![Create GuardDuty IPSet interface showing description, ID, and version details.](images/guiGuardDutyIpSetCreateRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

@@ -19,7 +19,7 @@ Use to create an AWS CodeDeploy application deployment group, an entity that des
 
 ### Create CodeDeploy deployment group
 
-![AWS CodeDeploy deployment group creation details, including ID and execution mode.](images/guiCDDepGroupCreateCT.png)
+![Change type details showing ID, version 1.0, and automated execution mode for deployment group.](images/guiCDDepGroupCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

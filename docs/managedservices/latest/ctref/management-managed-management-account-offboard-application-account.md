@@ -31,7 +31,7 @@ Before submitting this change type to initiate application account offboarding, 
 
 Screenshot of this change type in the AMS console:
 
-![Offboard Application Account details showing ID, execution mode, version, and description.](images/guiManLzAppAcctRunOffBCT.png)
+![Offboard Application Account page showing ID, execution mode as Automated, and version 2.0.](images/guiManLzAppAcctRunOffBCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

@@ -21,7 +21,7 @@ Create an interface VPC endpoint, which allows you to connect to services powere
 
 The following shows this change type in the AMS console.
 
-![Interface for creating a VPC endpoint with ID, execution mode, and classification details.](images/guiVpcEndpointCreateCT.png)
+![Create VPC Endpoint Interface change type showing ID, execution mode as Automated, and version 1.0.](images/guiVpcEndpointCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

@@ -21,7 +21,7 @@ Use to reboot all running EC2 and RDS DB instances in the specified stack.
 
 Screenshot of this change type in the AMS console:
 
-![Change type details for "Reboot stack" including description, ID, version, and execution mode.](images/guiStackRebootCT.png)
+![Change type details showing Reboot stack with ID ct-02u0hoaa9grat, version 1.0, automated execution.](images/guiStackRebootCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

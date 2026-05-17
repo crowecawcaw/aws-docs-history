@@ -21,7 +21,7 @@ Describe existing periods used in AMS Resource Scheduler.
 
 The following shows this change type in the AMS console.
 
-![Form titled "Describe Resource Scheduler Periods" with description field and ID/Version details.](images/guiResSchedPeriodDescribeCT.png)
+![Describe Resource Scheduler Periods change type showing ID and version information.](images/guiResSchedPeriodDescribeCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

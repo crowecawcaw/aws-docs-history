@@ -21,7 +21,7 @@ Create an Amazon Relational Database Service (RDS) DB instance from an RDS snaps
 
 Screenshot of this change type in the AMS console:
 
-![Interface for creating an Amazon RDS instance from a snapshot, showing description and version details.](images/guiRdsStackCreateFrmSnpshtCT.png)
+![Create RDS Instance From Snapshot change type showing ID, execution mode, and version details.](images/guiRdsStackCreateFrmSnpshtCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

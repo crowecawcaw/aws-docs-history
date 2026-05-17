@@ -21,7 +21,7 @@ Create a KMS key encrypted copy of an Amazon Relational Database Service (Amazon
 
 Screenshot of this change type in the AMS console:
 
-![Description and details for creating an encrypted copy of an Amazon RDS DB snapshot.](images/guiRdsDbSnpshtCopyCT.png)
+![Copy RDS DB Snapshot change type showing description, ID ct-1c0jrxd3su5oe, and version 1.0.](images/guiRdsDbSnpshtCopyCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

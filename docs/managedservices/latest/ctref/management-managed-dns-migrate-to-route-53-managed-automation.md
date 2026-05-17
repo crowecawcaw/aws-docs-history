@@ -21,7 +21,7 @@ Change the DNS resolution in your Amazon VPC by enabling Route 53 as the default
 
 The following shows this change type in the AMS console.
 
-![](images/gui-man-acct-migrate-r53CT.png)
+![Change type details for migrating AWS Managed Microsoft AD to Route 53 DNS resolver.](images/gui-man-acct-migrate-r53CT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

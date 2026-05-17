@@ -19,7 +19,7 @@ Update IAM identity provider using the SAML metadata document file that you stor
 
 ### Update IAM SAML identity provider
 
-![Update SAML Identity Provider interface showing description, ID, and version fields.](images/guiIamSamlIdpUpdateCT.png)
+![Update SAML Identity Provider page showing ID ct-379uwo67vbvng and Version 1.0.](images/guiIamSamlIdpUpdateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

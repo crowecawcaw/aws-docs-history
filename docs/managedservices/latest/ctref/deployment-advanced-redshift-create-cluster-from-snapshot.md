@@ -21,7 +21,7 @@ Create a Redshift cluster with the same configration as the source snapshot.
 
 Screenshot of this change type in the AMS console:
 
-![Redshift cluster creation interface showing description, ID, and version details.](images/guiRedshiftCreateClusterFromSnapshotCT.png)
+![Create Redshift Cluster From Snapshot change type details showing ID and version 1.0.](images/guiRedshiftCreateClusterFromSnapshotCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

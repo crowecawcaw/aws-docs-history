@@ -19,7 +19,7 @@ Reset the password for the specified service-specific credential.
 
 ### Reset service specific credentials
 
-![Reset service specific credentials interface showing ID, execution mode, and version details.](images/guiIamServSpecificCredsResetCT.png)
+![Reset Service Specific Credentials details showing ID, execution mode, version, and classification.](images/guiIamServSpecificCredsResetCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

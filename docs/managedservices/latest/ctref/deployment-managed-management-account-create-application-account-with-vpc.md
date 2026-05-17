@@ -21,7 +21,7 @@ Create a managed AWS landing zone application account and a VPC with up to 10 pr
 
 Screenshot of this change type in the AMS console:
 
-![Application account creation interface with description, ID, and version details.](images/guiMalzMastAcctCreateAppAcctVpcCT.png)
+![Create Application Account With VPC change type showing description, ID, and version details.](images/guiMalzMastAcctCreateAppAcctVpcCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

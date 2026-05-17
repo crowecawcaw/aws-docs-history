@@ -21,7 +21,7 @@ Create an SNS topic and up to five subscriptions.
 
 Screenshot of this change type in the AMS console:
 
-![Change type details for creating an SNS topic with ID, version, and execution mode.](images/guiSnsTopSubCreateCT.png)
+![Change type details showing Create SNS topic with ID, version 1.0, and Automated execution mode.](images/guiSnsTopSubCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

@@ -21,7 +21,7 @@ Enable detailed monitoring for the specified EC2 instance. Detailed monitoring i
 
 The following shows this change type in the AMS console.
 
-![](images/guiEc2EnableDetailMonitoringRr.png)
+![Interface showing Enable Detailed Monitoring option for EC2 instance with execution details.](images/guiEc2EnableDetailMonitoringRr.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

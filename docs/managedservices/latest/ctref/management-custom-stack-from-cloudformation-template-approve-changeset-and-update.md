@@ -19,7 +19,7 @@ Approve and execute an existing ChangeSet to update a CloudFormation stack. This
 
 ### Approve a CloudFormation ingest stack changeset
 
-![Details of a CloudFormation ChangeSet for approving and updating a stack, including ID and execution mode.](images/guiCfnStackApproveAndUpdateCT.png)
+![ChangeSet details showing ID ct-1404e21baa2ox, Automated execution mode, and version 1.0.](images/guiCfnStackApproveAndUpdateCT.png)
 **To approve and update a CloudFormation ingest stack using
 the console**
 

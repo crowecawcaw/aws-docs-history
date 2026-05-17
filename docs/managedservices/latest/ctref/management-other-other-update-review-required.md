@@ -21,7 +21,7 @@ Use to request a manual update to a resource.
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing ID, version, description, and manual execution mode.](images/guiOtherUpdate.png)
+![Change type Update other with ID, version 1.0, and execution mode set to Manual.](images/guiOtherUpdate.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

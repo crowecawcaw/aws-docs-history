@@ -21,7 +21,7 @@ Delete the virtual private cloud (VPC) in a managed landing zone application acc
 
 Screenshot of this change type in the AMS console:
 
-![Delete Application Account VPC interface showing description, ID, and version details.](images/guiManLzAppAcctDeleteVpcCT.png)
+![Delete Application Account VPC change type details showing ID ct-2paw0y79kvr3l and version 1.0.](images/guiManLzAppAcctDeleteVpcCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

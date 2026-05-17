@@ -21,7 +21,7 @@ Use to create an Amazon Simple Queue Service instance for messages to be shared 
 
 Screenshot of this change type in the AMS console:
 
-![Change type details for creating an Amazon SQS instance, including description and execution mode.](images/guiSqsCreateCT.png)
+![Change type details showing Create SQS with ID ct-1vbv99k07psrq, version 1.0, and automated execution mode.](images/guiSqsCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

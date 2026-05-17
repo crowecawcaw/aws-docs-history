@@ -21,7 +21,7 @@ Remove the Service Principal Name (SPN) associated with a specified hostname or 
 
 The following shows this change type in the AMS console.
 
-![Remove Service Principal Name option with description, ID, and version details.](images/guiDirservCompObjectRemoveSpnCT.png)
+![Remove Service Principal Name change type showing ID ct-1078jhyxq32dp and version 1.0.](images/guiDirservCompObjectRemoveSpnCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

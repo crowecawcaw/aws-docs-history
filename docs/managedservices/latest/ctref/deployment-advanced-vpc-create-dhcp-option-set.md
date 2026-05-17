@@ -21,7 +21,7 @@ Create a Dynamic Host Configuration Protocol (DHCP) option set for resources in 
 
 The following shows this change type in the AMS console.
 
-![](images/guiCreateDHCPOptionSetCT.png)
+![Create DHCP option set interface showing ID, execution mode as Automated, and version 1.0.](images/guiCreateDHCPOptionSetCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

@@ -21,7 +21,7 @@ Create a resource share through Resource Access Manager(RAM) to share up to 20 R
 
 The following shows this change type in the AMS console.
 
-![Resource Access Manager interface for creating a resolver rule share with specified details.](images/guiCreateResolverRuleShareCT.png)
+![Create resolver rule share interface showing ID, execution mode, version, and classification details.](images/guiCreateResolverRuleShareCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

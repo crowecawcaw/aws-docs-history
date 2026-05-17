@@ -21,7 +21,7 @@ Remove one or more Certificates attached to the ELB Listener. If a drift is intr
 
 The following shows this change type in the AMS console.
 
-![Remove ALB Listener Certificate change type details in AMS console interface.](images/guiAlbRemoveListenerCertCT.png)
+![Remove ALB Listener Certificates change type showing ID, execution mode, version, and classification details.](images/guiAlbRemoveListenerCertCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

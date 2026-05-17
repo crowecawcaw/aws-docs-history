@@ -21,7 +21,7 @@ Delete tags from existing, supported resources except those in AMS infrastructur
 
 Screenshot of this change type in the AMS console:
 
-![](images/guiTagDeleteRrCT.png)
+![Delete Resource Tags interface showing details for a manual change type in AWS.](images/guiTagDeleteRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

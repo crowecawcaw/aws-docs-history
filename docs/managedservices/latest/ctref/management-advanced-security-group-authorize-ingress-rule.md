@@ -21,7 +21,7 @@ Authorize multiple ingress rules for the specified security group (SG). You must
 
 The following is a screenshot of this change type in the AMS console:
 
-![Authorize Ingress Rule interface showing ID, execution mode, version, and description.](images/guiSecGroupIngressAuthorizeCT.png)
+![Authorize Multiple Ingress Rules change type showing ID, execution mode, version, and classification path.](images/guiSecGroupIngressAuthorizeCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

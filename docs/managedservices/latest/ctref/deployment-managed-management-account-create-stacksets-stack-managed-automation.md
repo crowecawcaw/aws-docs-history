@@ -21,7 +21,7 @@ Create AWS CloudFormation (CFN) StackSets stacks and deploy the stack instances.
 
 Screenshot of this change type in the AMS console:
 
-![](images/guiManLzStckstsStckCreateCT.png)
+![Details of a StackSets stack creation change type, including ID, execution mode, and description.](images/guiManLzStckstsStckCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

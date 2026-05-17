@@ -21,7 +21,7 @@ Resume a paused Amazon Redshift cluster.
 
 Screenshot of this change type in the AMS console:
 
-![Resume Redshift Cluster interface with description, ID, and version details.](images/guiRedshiftResumeClusterCT.png)
+![Resume Redshift Cluster change type showing description, ID ct-39c5qiasbe4he, and version 1.0.](images/guiRedshiftResumeClusterCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

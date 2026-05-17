@@ -21,7 +21,7 @@ Add a new DSM console user to the Trend Micro console for your account. Once the
 
 The following shows this change type in the AMS console.
 
-![](images/guiHostSecTmUserAddCT.png)
+![Add user interface for Trend Micro DSM console with ID, execution mode, and classification details.](images/guiHostSecTmUserAddCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

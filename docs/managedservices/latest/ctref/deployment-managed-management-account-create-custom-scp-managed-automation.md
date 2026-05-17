@@ -21,7 +21,7 @@ Create a custom service control policy (SCP) to manage permissions across AWS or
 
 Screenshot of this change type in the AMS console:
 
-![](images/guiMalzMastAcctCreateScpCT.png)
+![Form for creating a custom SCP with ID, execution mode, version, and classification details.](images/guiMalzMastAcctCreateScpCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

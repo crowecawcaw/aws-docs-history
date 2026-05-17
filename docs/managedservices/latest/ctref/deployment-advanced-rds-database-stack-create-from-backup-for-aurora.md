@@ -21,7 +21,7 @@ Create an AWS Relational Database Service (RDS) Aurora stack from AWS Backup.
 
 Screenshot of this change type in the AMS console:
 
-![Details of an AWS RDS Aurora stack creation from backup, showing ID and version.](images/guiRdsStackCreateAuroraFromBackupCT.png)
+![Create RDS Aurora Stack From Backup change type showing description, ID, and version fields.](images/guiRdsStackCreateAuroraFromBackupCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
