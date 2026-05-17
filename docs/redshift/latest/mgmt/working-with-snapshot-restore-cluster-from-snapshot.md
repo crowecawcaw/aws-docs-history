@@ -12,8 +12,8 @@ data.
 
 ###### Note
 
-No-backup tables aren't supported for RA3 provisioned clusters and Amazon Redshift Serverless workgroups.
-A table marked as no-backup in an RA3 cluster or serverless workgroup is treated as a permanent table that will
+No-backup tables aren't supported for RG or RA3 provisioned clusters and Amazon Redshift Serverless workgroups.
+A table marked as no-backup in an RG or RA3 cluster or serverless workgroup is treated as a permanent table that will
 always be backed up while taking a snapshot, and always restored when restoring from a snapshot.
 
 For the new cluster created from the original snapshot, you can choose the
@@ -39,10 +39,10 @@ complete.
 
 ###### Note
 
-RA3 clusters only emit RESTORE_STARTED and RESTORE_SUCCEEDED events. There is no
-explicit data transfer to be done after a RESTORE succeeds because RA3 node types store
-data in Amazon Redshift managed storage. With RA3 nodes, data is continuously transferred between
-RA3 nodes and Amazon Redshift managed storage as part of normal query processing. RA3 nodes cache
+RG and RA3 clusters only emit RESTORE_STARTED and RESTORE_SUCCEEDED events. There is no
+explicit data transfer to be done after a RESTORE succeeds because RG and RA3 node types store
+data in Amazon Redshift managed storage. With RG and RA3 nodes, data is continuously transferred between
+RG and RA3 nodes and Amazon Redshift managed storage as part of normal query processing. RG and RA3 nodes cache
 hot data locally and keep less frequently queried blocks in Amazon Redshift managed storage
 automatically.
 
@@ -108,41 +108,46 @@ aws redshift describe-node-configuration-options --snapshot-identifier mycluster
 
 This command returns an option list with recommended node types, number of nodes,
 and disk utilization for each option. For this example, the preceding command lists
-the following possible node configurations. We choose to restore into a three-node
+the following possible node configurations. We choose to restore into a four-node
 cluster.
 
 ```
 {
     "NodeConfigurationOptionList": [
         {
-            "EstimatedDiskUtilizationPercent": 65.26134808858235,
-            "NodeType": "dc2.large",
-            "NumberOfNodes": 24
-        },
-        {
-            "EstimatedDiskUtilizationPercent": 32.630674044291176,
-            "NodeType": "dc2.large",
-            "NumberOfNodes": 48
+            "NodeType": "ra3.16xlarge",
+            "NumberOfNodes": 2,
+            "EstimatedDiskUtilizationPercent": 0.1
         },
         **{
- "EstimatedDiskUtilizationPercent": 65.26134808858235,
- "NodeType": "dc2.8xlarge",
- "NumberOfNodes": 3
+ "NodeType": "ra3.16xlarge",
+ "NumberOfNodes": 4,
+ "EstimatedDiskUtilizationPercent": 0.05
  },**
         {
-            "EstimatedDiskUtilizationPercent": 48.94601106643677,
-            "NodeType": "dc2.8xlarge",
-            "NumberOfNodes": 4
+            "NodeType": "ra3.4xlarge",
+            "NumberOfNodes": 8,
+            "EstimatedDiskUtilizationPercent": 0.03
         },
         {
-            "EstimatedDiskUtilizationPercent": 39.156808853149414,
-            "NodeType": "dc2.8xlarge",
-            "NumberOfNodes": 5
+            "NodeType": "ra3.4xlarge",
+            "NumberOfNodes": 10,
+            "EstimatedDiskUtilizationPercent": 0.02
         },
         {
-            "EstimatedDiskUtilizationPercent": 32.630674044291176,
-            "NodeType": "dc2.8xlarge",
-            "NumberOfNodes": 6
+            "NodeType": "ra3.4xlarge",
+            "NumberOfNodes": 12,
+            "EstimatedDiskUtilizationPercent": 0.02
+        },
+        {
+            "NodeType": "ra3.xlplus",
+            "NumberOfNodes": 8,
+            "EstimatedDiskUtilizationPercent": 0.11
+        },
+        {
+            "NodeType": "ra3.xlplus",
+            "NumberOfNodes": 16,
+            "EstimatedDiskUtilizationPercent": 0.06
         }
     ]
 }
@@ -150,19 +155,19 @@ cluster.
 
 4. Run the following command to restore the snapshot into the cluster configuration
    that we chose. After this cluster is restored, we have the same content as the source
-   cluster, but the data has been consolidated into three `dc2.8xlarge`
+   cluster, but the data has been consolidated into four `ra3.16xlarge`
    nodes.
 
 ```
-aws redshift restore-from-cluster-snapshot --region eu-west-1 --snapshot-identifier mycluster-snapshot --cluster-identifier mycluster-123456789012-x --node-type dc2.8xlarge --number-of-nodes 3
+aws redshift restore-from-cluster-snapshot --region eu-west-1 --snapshot-identifier mycluster-snapshot --cluster-identifier mycluster-123456789012-x --node-type ra3.16xlarge --number-of-nodes 4
 ```
 
 If you have reserved nodes, for example
-DC2
-reserved nodes, you can upgrade to RA3 reserved nodes. You can do this when you restore
+RA3
+reserved nodes, you can upgrade to RG reserved nodes. You can do this when you restore
 from a snapshot or perform an elastic resize. You can use the console to guide you through
-this process. For more information about upgrading to RA3 nodes, see [Upgrading to RA3 node
-types](working-with-clusters.md#rs-upgrading-to-ra3 "working-with-clusters.md#rs-upgrading-to-ra3").
+this process. For more information about upgrading to RG nodes, see [Upgrading to RG node
+types](working-with-clusters.md#rs-upgrading-to-rg "working-with-clusters.md#rs-upgrading-to-rg").
 
 ###### To restore a cluster from a snapshot on the console
 
@@ -196,7 +201,7 @@ you must continue using AWS Secrets Manager to manage the admin password. You ca
 secret after restoring the cluster by updating the cluster's admin credentials in the
 cluster detail page.
 
-If you have reserved nodes, you can upgrade to RA3 reserved nodes. You can do this when
+If you have reserved nodes, you can upgrade to RG reserved nodes. You can do this when
 you restore from a snapshot or perform an elastic resize. You can use the console to guide
-you through this process. For more information about upgrading to RA3 nodes, see [Upgrading to RA3 node
-types](working-with-clusters.md#rs-upgrading-to-ra3 "working-with-clusters.md#rs-upgrading-to-ra3").
+you through this process. For more information about upgrading to RG nodes, see [Upgrading to RG node
+types](working-with-clusters.md#rs-upgrading-to-rg "working-with-clusters.md#rs-upgrading-to-rg").

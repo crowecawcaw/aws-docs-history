@@ -21,7 +21,7 @@ that is different from the current configuration of the data warehouse.
 5. Follow the instructions on the page. You can resize the cluster now,
    once at a specific time, or increase and decrease the size of your
    cluster on a schedule.
-6. Under **New configurations**, choose one of the RA3
+6. Under **New configurations**, choose one of the RG or RA3
    node types from the Node type drop-down list.
 7. Click **Resize cluster**.
 
@@ -34,6 +34,6 @@ that is different from the current configuration of the data warehouse.
 aws redshift resize-cluster \
     --cluster-identifier test-maz-11
     --cluster-type multi-node
-    --node-type ra3.4xlarge
+    --node-type rg.4xlarge
     --number-of-nodes 6
 ```

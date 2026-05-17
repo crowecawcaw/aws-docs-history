@@ -7,7 +7,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 The following considerations apply to zero-ETL integrations with Amazon Redshift.
 
 - Your target Amazon Redshift data warehouse must meet the following prerequisites:
-  - Running Amazon Redshift Serverless or an RA3 node type.
+  - Running Amazon Redshift Serverless or a provisioned cluster of an RG or RA3 node type.
   - Encrypted (if using a provisioned cluster).
   - Has case sensitivity enabled.
 

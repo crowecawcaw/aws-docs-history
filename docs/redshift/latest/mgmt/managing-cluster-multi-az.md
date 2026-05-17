@@ -4,13 +4,13 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 # Multi-AZ deployment
 
-Amazon Redshift supports multiple Availability Zones (Multi-AZ) deployments for provisioned RA3
+Amazon Redshift supports multiple Availability Zones (Multi-AZ) deployments for provisioned RG or RA3
 clusters. By using Multi-AZ deployments, your Amazon Redshift data warehouse can continue operating in
 failure scenarios when an unexpected event happens in an Availability Zone. A Multi-AZ
 deployment deploys compute resources in two Availability Zones (AZs) and these compute
 resources can be accessed through a single endpoint. In the event of an entire Availability
 Zone failure, the remaining compute resources in the second Availability Zone are available
-to continue processing workloads. Amazon Redshift charges the same hourly compute rates for RA3
+to continue processing workloads. Amazon Redshift charges the same hourly compute rates for RG or RA3
 when running a Multi-AZ data warehouse. Storage costs remain the same as it is shared across
 all Availability Zones within and AWS Region.
 

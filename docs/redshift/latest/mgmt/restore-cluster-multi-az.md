@@ -16,9 +16,9 @@ following procedure.
    provisioned cluster**.
 4. Enter properties for your cluster. For general information about
    creating clusters, see [Creating a cluster](create-cluster.md "create-cluster.md").
-5. Choose one of the RA3 node types from the **Node
+5. Choose one of the RG or RA3 node types from the **Node
    type** drop-down list. The AZ configuration option becomes
-   available only when you chose an RA3 node type.
+   available only when you chose an RG or RA3 node type.
 6. Under **AZ configuration**, choose
    **Multi-AZ**.
 7. Under **Number of nodes per AZ**, enter at least two

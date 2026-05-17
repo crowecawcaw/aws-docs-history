@@ -28,9 +28,11 @@ of resizing clusters using different approaches, see Resizing a cluster.
    schedule.
 6. Depending on your choices, choose **Resize now** or
    **Schedule resize**.
-   If you have reserved nodes, you can upgrade to RA3 reserved nodes. You can do this
+   If you have reserved nodes, you can upgrade to RG or RA3 reserved nodes. You can do this
    when you use the console to restore from a snapshot or to perform an elastic resize. You
    can use the console to guide you through this process. For more information about
+   upgrading to RG node types, see [Upgrading to RG
+   node types](working-with-clusters.md#rs-upgrading-to-rg "working-with-clusters.md#rs-upgrading-to-rg"). For more information about
    upgrading to RA3 nodes, see [Upgrading to RA3
    node types](working-with-clusters.md#rs-upgrading-to-ra3 "working-with-clusters.md#rs-upgrading-to-ra3").
 
@@ -50,7 +52,7 @@ A resize operation comes in two types:
 
 - **Elastic resize** – You can add nodes to
   or remove nodes from your cluster. You can also change the node type, such as
-  from DC2 nodes to RA3 nodes. An elastic resize typically completes quickly,
+  from DC2 nodes to RG or RA3 nodes. An elastic resize typically completes quickly,
   taking ten minutes on average. For this reason, we recommend it as a first
   option. When you perform an elastic resize, it redistributes data slices, which
   are partitions that are allocated memory and disk space in each node. Elastic
@@ -85,8 +87,8 @@ An elastic resize operation, when you add or remove nodes of the same type, has
 the following stages:
 
 1. Elastic resize takes a cluster snapshot.
-   No-backup tables are only supported for DC2 nodes. For all
-   other types of cluster, no-backup tables are included in the
+   No-backup tables are only supported for DC2 nodes. For RG and RA3 clusters
+   no-backup tables are included in the
    snapshot. For more information, see
    [Excluding tables from snapshots](working-with-snapshots.md#snapshots-no-backup-tables "working-with-snapshots.md#snapshots-no-backup-tables").
    If your cluster doesn't have a recent
@@ -123,7 +125,9 @@ manual intervention.
 If you have reserved nodes, for example DC2 reserved nodes, you can upgrade to RA3
 reserved nodes when you perform a resize. You can do this when you perform an
 elastic resize or use the console to restore from a snapshot. The console guides you
-through this process. For more information about upgrading to RA3 nodes, see [Upgrading to
+through this process. For more information about upgrading to RG node types, see [Upgrading to RG
+node types](working-with-clusters.md#rs-upgrading-to-rg "working-with-clusters.md#rs-upgrading-to-rg"). For more information about
+upgrading to RA3 nodes, see [Upgrading to
 RA3 node types](working-with-clusters.md#rs-upgrading-to-ra3 "working-with-clusters.md#rs-upgrading-to-ra3").
 
 Elastic resize doesn't sort tables or reclaims disk space, so it isn't a
@@ -163,7 +167,7 @@ Elastic resize has the following constraints:
 
 The following example CLI command describes the configuration options
 available. In this example, the cluster named `mycluster` is a
-`dc2.large` 8-node cluster.
+`rg.4xl` 8-node cluster.
 
 ```
 aws redshift describe-node-configuration-options --cluster-identifier mycluster --region eu-west-1 --action-type resize-cluster
@@ -176,10 +180,10 @@ configurations when you specify the options of the
 `resize-cluster` CLI command.
 
 - _Ceiling on additional nodes_ - Elastic resize has
-  limits on the nodes that you can add to a cluster. For example, a dc2
-  cluster supports elastic resize up to double the number of nodes. To
-  illustrate, you can add a node to a 4-node dc2.8xlarge cluster to make it a
-  five-node cluster, or add more nodes until you reach eight.
+  limits on the nodes that you can add to a cluster. For example, a RG or RA3
+  cluster supports elastic resize up to four times the number of nodes. To
+  illustrate, you can add a node to a 4-node rg.4xl cluster to make it a
+  five-node cluster, or add more nodes until it reaches sixteen.
 
 ###### Note
 
@@ -188,7 +192,7 @@ and the number of nodes in the original cluster or its last classic
 resize. If an elastic resize will exceed the growth or reduction limits,
 use a classic resize.
 
-With some ra3 node types, you can increase the number of nodes up to four
+With some rg and ra3 node types, you can increase the number of nodes up to four
 times the existing count. Specifically, suppose that your cluster consists
 of ra3.4xlarge or ra3.16xlarge nodes. You can then use elastic resize to
 increase the number of nodes in an 8-node cluster to 32. Or you can pick a
@@ -196,7 +200,7 @@ value below the limit. (Keep in mind that the ability to grow the cluster by
 4x depends on the source cluster size.) If your cluster has ra3.xlplus
 nodes, the limit is double.
 
-All ra3 node types support a decrease in the number of nodes to a quarter
+All rg and ra3 node types support a decrease in the number of nodes to a quarter
 of the existing count. For example, you can decrease the size of a cluster
 with ra3.4xlarge nodes from 12 nodes to 3, or to a number above the
 minimum.
@@ -206,6 +210,8 @@ that supports elastic resize.
 
 | Original node type | Growth limit                         | Reduction limit                                                   |
 | ------------------ | ------------------------------------ | ----------------------------------------------------------------- |
+| rg.4xlarge         | 4x                                   | To one quarter of the number                                      |
+| rg.xlarge          | 2x                                   | To one half of the number                                         |
 | ra3.16xlarge       | 4x (from 4 to 16 nodes, for example) | To one quarter of the number (from 16 to 4 nodes,<br>for example) |
 | ra3.4xlarge        | 4x                                   | To one quarter of the number                                      |
 | ra3.xlplus         | 2x (from 4 to 8 nodes, for example)  | To one quarter of the number                                      |
@@ -215,9 +221,9 @@ that supports elastic resize.
 
 ###### Note
 
-**Choosing legacy node types when you resize an RA3
+**Choosing legacy node types when you resize an RG or RA3
 cluster** – If you attempt to resize from a cluster
-with RA3 nodes to another node type, such as DC2
+with RG or RA3 nodes to another node type, such as DC2
 ,
 a validation warning message appears in the console, and the resize
 operation won't complete. This occurs because resize to legacy node
@@ -231,9 +237,9 @@ Classic resize handles use cases where the change in cluster size or node type
 isn't supported by elastic resize. When you perform a classic resize, Amazon Redshift creates a
 target cluster and migrates your data and metadata to it from the source cluster.
 
-### Classic resize to RA3 can provide better availability
+### Classic resize to RG or RA3 can provide better availability
 
-Classic resize has been enhanced when the target node type is RA3. It does
+Classic resize has been enhanced when the target node type is RG or RA3. It does
 this by using a backup and restore operation between the source and target
 cluster. When the resize begins, the source cluster restarts and is unavailable
 for a few minutes. After that, the cluster is available for read and write
@@ -242,9 +248,9 @@ operations while the resize continues in the background.
 #### Checking your cluster
 
 To ensure you have the best performance and results when you perform a
-classic resize to an RA3 cluster, complete this checklist. When you don't
+classic resize to an RG or RA3 cluster, complete this checklist. When you don't
 follow the checklist, you may not get some of the benefits of classic
-resizing with RA3 nodes, such as the ability to do read and write
+resizing with RG or RA3 nodes, such as the ability to do read and write
 operations.
 
 1. The size of the data must be below 2 petabytes. (A petabyte is
@@ -266,9 +272,9 @@ snapshot that is no more than 10 hours old. If not, take a
 snapshot. 3. The snapshot used to perform the classic resize can't be used for
 a table restore or other purpose. 4. The cluster must be in a VPC.
 
-#### Sorting and distribution operations that result from classic resize to RA3
+#### Sorting and distribution operations that result from classic resize to RG or RA3
 
-During classic resize to RA3, tables with KEY distribution that are
+During classic resize to RG or RA3, tables with KEY distribution that are
 migrated as EVEN distribution are converted back to their original
 distribution style.
 The
@@ -299,10 +305,10 @@ tables](../dg/t_Reclaiming_storage_space202.md "../dg/t_Reclaiming_storage_space
 [Data
 warehouse system architecture](../dg/c_high_level_system_architecture.md "../dg/c_high_level_system_architecture.md").
 
-#### Classic resize steps when the target cluster is RA3
+#### Classic resize steps when the target cluster is RG or RA3
 
 Classic resize consists of the following steps, when the target cluster
-type is RA3 and you've met the prerequisites detailed in the previous
+type is RG or RA3 and you've met the prerequisites detailed in the previous
 section.
 
 1. Migration initiates from the source cluster to the target cluster.
@@ -315,7 +321,7 @@ section.
    Additionally, data sharing resumes, which takes an additional few
    minutes.
 3. Data is migrated to the target cluster. When the target node type
-   is RA3, reads and writes are available during data migration.
+   is RG or RA3, reads and writes are available during data migration.
 4. When the resize process nears completion, Amazon Redshift updates the
    endpoint to the target cluster, and all connections to the source
    cluster are dropped. The target cluster becomes the producer for
@@ -327,9 +333,9 @@ to resize a cluster depends on the amount of data.
 
 ###### Note
 
-**Choosing legacy node types when you resize an RA3
+**Choosing legacy node types when you resize an RG or RA3
 cluster** – If you attempt to resize from a cluster
-with RA3 nodes to another node type, such as DC2
+with RG or RA3 nodes to another node type, such as DC2
 ,
 a validation warning message appears in the console, and the resize
 operation won't complete. This occurs because resize to legacy node
@@ -337,7 +343,7 @@ types isn't supported. This is to prevent a customer from resizing to a
 node type that's deprecated or soon to be deprecated. This applies for
 both elastic resize and classic resize.
 
-#### Monitoring a classic resize when the target cluster is RA3
+#### Monitoring a classic resize when the target cluster is RG or RA3
 
 To monitor a classic resize of a provisioned cluster in progress,
 including KEY distribution, use
@@ -349,10 +355,10 @@ data.
 Drop tables that you don't need when you perform a classic resize. When
 you do this, existing tables can be distributed more quickly.
 
-### Classic resize steps when the target cluster isn't RA3
+### Classic resize steps when the target cluster isn't RG or RA3
 
 Classic resize consists of the following, when the target node type is
-anything other than RA3, like DC2, for instance.
+anything other than RG or RA3, like DC2, for instance.
 
 1. Migration initiates from the source cluster to the target cluster.
    When the new, target cluster is provisioned,
@@ -378,7 +384,7 @@ resize a cluster depends on the amount of data.
 ###### Note
 
 It can take days or possibly weeks to resize a cluster with a large amount
-of data when the target cluster isn't RA3, or it doesn't meet the
+of data when the target cluster isn't RG or RA3, or it doesn't meet the
 prerequisites for an RA3 target cluster detailed in the previous
 section.
 
@@ -392,12 +398,12 @@ stays the same.
 
 The following table compares behavior between the two resize types.
 
-| Behavior                             | Elastic resize                                                                                                                                                                                                                           | Classic resize                                                                                                                                             | Comments                                                                                                                                                                                                                                                                                                                                    |
-| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **System data<br>retention**         | Elastic resize retains system log data.                                                                                                                                                                                                  | Classic resize doesn't retain system tables and data.                                                                                                      | If you have audit logging enabled in your source cluster, you<br>can continue to access the logs in Amazon S3 or in CloudWatch, following a<br>resize. You can keep or delete these logs as your data policies<br>specify.                                                                                                                  |
-| **Changing node types**              | Elastic resize, when the node type doesn't change:<br>In-place resize, and most queries are held.<br>Elastic resize, with a new node type selected: A new<br>cluster is created. Queries are dropped as the resize<br>process completes. | Classic Resize: A new cluster is created. Queries are dropped<br>during the resize process.                                                                |                                                                                                                                                                                                                                                                                                                                             |
-| **Session and query<br>retention**   | Elastic resize retains sessions and queries when the node<br>type is the same in the source cluster and target. If you choose<br>a new node type, queries are dropped.                                                                   | Classic resize doesn't retain sessions and queries. Queries<br>are dropped.                                                                                | When queries are dropped, you can expect some performance<br>degradation. It's best to perform a resize operation during a<br>period of light use.                                                                                                                                                                                          |
-| **Cancelling a resize<br>operation** | You can't cancel an elastic resize.                                                                                                                                                                                                      | You can cancel a classic resize operation before it<br>completes by choosing **Cancel resize**<br>from the cluster details in the Amazon Redshift console. | The amount of time it takes to cancel a resize depends<br>on the stage of the resize operation when you cancel. When<br>you do this, the cluster isn't available until the<br>cancel operation completes. If the resize operation is in<br>the final stage, you can't cancel.<br>For classic resize to an RA3 cluster, you can't<br>cancel. |
+| Behavior                             | Elastic resize                                                                                                                                                                                                                           | Classic resize                                                                                                                                             | Comments                                                                                                                                                                                                                                                                                                                                          |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **System data<br>retention**         | Elastic resize retains system log data.                                                                                                                                                                                                  | Classic resize doesn't retain system tables and data.                                                                                                      | If you have audit logging enabled in your source cluster, you<br>can continue to access the logs in Amazon S3 or in CloudWatch, following a<br>resize. You can keep or delete these logs as your data policies<br>specify.                                                                                                                        |
+| **Changing node types**              | Elastic resize, when the node type doesn't change:<br>In-place resize, and most queries are held.<br>Elastic resize, with a new node type selected: A new<br>cluster is created. Queries are dropped as the resize<br>process completes. | Classic Resize: A new cluster is created. Queries are dropped<br>during the resize process.                                                                |                                                                                                                                                                                                                                                                                                                                                   |
+| **Session and query<br>retention**   | Elastic resize retains sessions and queries when the node<br>type is the same in the source cluster and target. If you choose<br>a new node type, queries are dropped.                                                                   | Classic resize doesn't retain sessions and queries. Queries<br>are dropped.                                                                                | When queries are dropped, you can expect some performance<br>degradation. It's best to perform a resize operation during a<br>period of light use.                                                                                                                                                                                                |
+| **Cancelling a resize<br>operation** | You can't cancel an elastic resize.                                                                                                                                                                                                      | You can cancel a classic resize operation before it<br>completes by choosing **Cancel resize**<br>from the cluster details in the Amazon Redshift console. | The amount of time it takes to cancel a resize depends<br>on the stage of the resize operation when you cancel. When<br>you do this, the cluster isn't available until the<br>cancel operation completes. If the resize operation is in<br>the final stage, you can't cancel.<br>For classic resize to an RG or RA3 cluster, you can't<br>cancel. |
 
 ### Scheduling a resize
 

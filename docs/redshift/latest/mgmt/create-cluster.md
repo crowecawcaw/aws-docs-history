@@ -22,7 +22,9 @@ Before you create a cluster, read [Amazon Redshift provisioned clusters](working
    **Cluster configuration**.
 
 The following step describes an Amazon Redshift console that is running in an
-AWS Region that supports RA3 node types. For a list of AWS Regions that
+AWS Region that supports RG or RA3 node types. For a list of AWS Regions that
+support RG node types, see [Overview of RG node types](working-with-clusters.md#rs-rg-node-types "working-with-clusters.md#rs-rg-node-types") in the
+_Amazon Redshift Management Guide_. For a list of AWS Regions that
 support RA3 node types, see [Overview of RA3 node types](working-with-clusters.md#rs-ra3-node-types "working-with-clusters.md#rs-ra3-node-types") in the
 _Amazon Redshift Management Guide_.
 
@@ -43,7 +45,7 @@ create a cluster under the Amazon Redshift free trial program. Choose either
 **Production** or **Free trial** to
 answer the question **What are you planning to use this cluster
 for?** When you choose **Free trial**, you
-create a configuration with the dc2.large node type. For more information about choosing a free trial, see
+create a configuration with the ra3.large node type. For more information about choosing a free trial, see
 [Amazon Redshift free
 trial](https://aws.amazon.com/redshift/free-trial/ "https://aws.amazon.com/redshift/free-trial/").
 For a list of AWS Regions where Amazon Redshift Serverless

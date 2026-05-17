@@ -10,7 +10,7 @@ for use with zero-ETL integrations, you can skip this step.
 
 Your target data warehouse must have the following characteristics:
 
-- Running Amazon Redshift Serverless or a provisioned cluster of an RA3 node type.
+- Running Amazon Redshift Serverless or a provisioned cluster of an RG or RA3 node type.
 - Has case sensitivity (`enable_case_sensitive_identifier`) turned on. For
   more information, see [Turn on case sensitivity for your data warehouse](zero-etl-setting-up.case-sensitivity.md "zero-etl-setting-up.case-sensitivity.md").
 - Encrypted, if your target data warehouse is an Amazon Redshift provisioned cluster. For more

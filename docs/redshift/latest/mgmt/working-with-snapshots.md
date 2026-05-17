@@ -70,7 +70,7 @@ by using the Amazon Redshift API or CLI.
 To disable automated snapshots, set the retention period to zero. If you disable
 automated snapshots, Amazon Redshift stops taking snapshots and deletes any existing automated
 snapshots for the cluster. You can't disable automated
-snapshots for RA3 node types. You can set an RA3 node type automated retention period from
+snapshots for RG or RA3 node types. You can set an RG or RA3 node type automated retention period from
 1–35 days.
 
 Only Amazon Redshift can delete an automated snapshot; you cannot delete them manually.
@@ -244,7 +244,7 @@ _Amazon Redshift Database Developer Guide_.
 
 ###### Note
 
-No-backup tables aren't supported for RA3 provisioned clusters and Amazon Redshift Serverless workgroups.
-A table marked as no-backup in an RA3 cluster or serverless workgroup is treated as a permanent table that will
+No-backup tables aren't supported for RG or RA3 provisioned clusters and Amazon Redshift Serverless workgroups.
+A table marked as no-backup in an RG or RA3 cluster or serverless workgroup is treated as a permanent table that will
 always be backed up while taking a snapshot, and always restored when restoring from a snapshot. To avoid snapshot costs for no-backup tables,
 truncate them before taking a snapshot.

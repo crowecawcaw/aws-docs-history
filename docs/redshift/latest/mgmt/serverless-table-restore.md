@@ -12,8 +12,8 @@ must first rename or drop the table before you restore the table.
 
 ###### Note
 
-No-backup tables aren't supported for RA3 provisioned clusters and Amazon Redshift Serverless workgroups.
-A table marked as no-backup in an RA3 cluster or serverless workgroup is treated as a permanent table that will
+No-backup tables aren't supported for RG or RA3 provisioned clusters and Amazon Redshift Serverless workgroups.
+A table marked as no-backup in an RG or RA3 cluster or serverless workgroup is treated as a permanent table that will
 always be backed up while taking a snapshot, and always restored when restoring from a snapshot. However, selective restoration of no-backup tables
 isn't supported.
 

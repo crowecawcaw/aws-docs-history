@@ -22,8 +22,8 @@ continue operations without modifications or loss of data. However, relocation m
 always be possible due to potential resource constraints in a given Availability
 Zone.
 
-Amazon Redshift cluster relocation is supported for the RA3 instance types only.
-RA3 instance types use Redshift Managed Storage
+Amazon Redshift cluster relocation is supported for the RG and RA3 instance types.
+RG and RA3 instance types use Redshift Managed Storage
 (RMS) as a durable storage layer. The latest copy of a cluster's data is always available in
 other Availability Zones in an AWS Region. In other words, you can relocate an Amazon Redshift
 cluster to another Availability Zone without any loss of data.
@@ -37,7 +37,7 @@ the new Availability Zone. However, you don't have to make any changes to your
 applications because the cluster endpoint remains unchanged even after the cluster is
 relocated to the new Availability Zone.
 
-Cluster relocation is enabled by default on newly created or restored
+Cluster relocation is enabled by default on newly created or restored RG or
 RA3 clusters whose subnet group includes multiple Availability Zones. Amazon Redshift assigns
 5439 as the default port while creating a provisioned cluster. You can change to another port from the port
 range of 5431-5455 or 8191-8215. (Don't change to a port outside the ranges. It results in an error.) To change the default

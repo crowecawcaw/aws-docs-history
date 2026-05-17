@@ -23,8 +23,8 @@ Amazon Redshift Serverless creates snapshots in Redshift Managed Storage (RMS). 
 
 ###### Note
 
-No-backup tables aren't supported for RA3 provisioned clusters and Amazon Redshift Serverless workgroups.
-A table marked as no-backup in an RA3 cluster or serverless workgroup is treated as a permanent table that will
+No-backup tables aren't supported for RG or RA3 provisioned clusters and Amazon Redshift Serverless workgroups.
+A table marked as no-backup in an RG or RA3 cluster or serverless workgroup is treated as a permanent table that will
 always be backed up while taking a snapshot, and always restored when restoring from a snapshot. To avoid snapshot costs for no-backup tables,
 truncate them before taking a snapshot.
 
@@ -36,7 +36,7 @@ scenarios in which you can restore snapshots:
 - Restore a serverless snapshot to a provisioned cluster.
 - Restore a provisioned cluster snapshot to a serverless namespace.
   When you restore a serverless snapshot to a provisioned cluster, you must choose the node
-  type to use, such as RA3, and the number of nodes, letting you control settings at the
+  type to use, such as RG or RA3, and the number of nodes, letting you control settings at the
   cluster or node level.
 
 To restore a provisioned cluster snapshot to a serverless namespace, start from the

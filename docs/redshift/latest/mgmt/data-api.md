@@ -63,6 +63,8 @@ Consider the following when calling the Data API:
   of the following node types:
   - dc2.large
   - dc2.8xlarge
+  - rg.xlarge
+  - rg.4xlarge
   - ra3.large
   - ra3.xlplus
   - ra3.4xlarge

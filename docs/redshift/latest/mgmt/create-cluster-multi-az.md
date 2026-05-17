@@ -26,7 +26,7 @@ configure a Single-AZ data warehouse into a Multi-AZ data warehouse either using
 Amazon Redshift console or the AWS CLI `restore-from-cluster-snapshot` command using
 the `multi-az` parameter.
 
-Multi-AZ deployment only supports RA3 node types that use Amazon Redshift Managed Storage (RMS).
+Multi-AZ deployment only supports RG or RA3 node types that use Amazon Redshift Managed Storage (RMS).
 Amazon Redshift stores data in RMS, which uses Amazon S3 and is accessible in all Availability Zones
 in an AWS Region, without having to replicate the data at the Amazon Redshift level.
 
@@ -44,9 +44,9 @@ Amazon Redshift console or the AWS Command Line Interface.
    cluster page.
 4. Enter properties for your cluster. For general information about
    creating clusters, see [Creating a cluster](create-cluster.md "create-cluster.md").
-5. Choose one of the RA3 node types from the **Node
+5. Choose one of the RG or RA3 node types from the **Node
    type** drop-down list. The AZ configuration option becomes
-   available only when you chose an RA3 node type.
+   available only when you chose an RG or RA3 node type.
 6. Under **AZ configuration**, choose
    **Multi-AZ**.
 7. Under **Number of nodes per AZ**, enter at least two
@@ -93,7 +93,7 @@ aws redshift create-cluster
     --port 5439
     --master-username master
     --master-user-password #####
-    --node-type ra3.4xlarge
+    --node-type rg.4xlarge
     --number-of-nodes 2
     --profile maz-test
     --endpoint-url https://redshift.eu-west-1.amazonaws.com

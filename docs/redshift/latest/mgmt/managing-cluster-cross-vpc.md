@@ -47,7 +47,7 @@ IAM policy, in addition to other permissions specified in the AWS managed policy
 
 When using Redshift-managed VPC endpoints, keep the following in mind:
 
-- If you're using a provisioned cluster, it must have the RA3 node type. An
+- If you're using a provisioned cluster, it must have the RG or RA3 node type. An
   Amazon Redshift Serverless workgroup works for setting up a VPC endpoint too.
 - For provisioned clusters, make sure that the cluster is enabled for either
   cluster relocation or Multi-AZ. For information about requirements to turn on

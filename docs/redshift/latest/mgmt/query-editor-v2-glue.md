@@ -13,7 +13,7 @@ _AWS Glue Developer Guide_.
 
 ###### Note
 
-Querying the AWS Glue Data Catalog is only supported in Amazon Redshift RA3 node type clusters and
+Querying the AWS Glue Data Catalog is only supported in Amazon Redshift RG or RA3 node type clusters and
 Amazon Redshift Serverless.
 
 You can configure your data warehouse and view the AWS Glue database objects cataloged

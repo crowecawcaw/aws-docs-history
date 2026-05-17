@@ -52,9 +52,9 @@ being restored, Amazon Redshift will delete the data warehouse. While a warehous
 
 ## Encryption process improvements for better performance and availability
 
-### Encryption with RA3 nodes
+### Encryption with RG and RA3 nodes
 
-Updates to the encryption process for RA3 nodes have made the experience much
+Updates to the encryption process for RG and RA3 nodes have made the experience much
 better. Both read and write queries can run during the process with less performance
 impact from the encryption. Also, encryption finishes much more quickly. The updated
 process steps include a restore operation and migration of cluster metadata to a
@@ -70,10 +70,10 @@ before you encrypt. Note that adding nodes typically results in higher cost.
 ### Encryption with other node types
 
 When you encrypt a cluster with DC2 nodes, you don't have the
-ability to run write queries, like with RA3 nodes. Only read queries can be
+ability to run write queries, like with RG or RA3 nodes. Only read queries can be
 run.
 
-### Usage notes for encryption with RA3 nodes
+### Usage notes for encryption with RG and RA3 nodes
 
 The following insights and resources help you prepare for encryption and monitor
 the process.
@@ -233,7 +233,7 @@ If you don't use AWS KMS for key management, you can use a hardware security mod
 
 ###### Important
 
-HSM encryption is not supported for DC2 and RA3 node types.
+HSM encryption is not supported for DC2, RG, and RA3 node types.
 
 HSMs are devices that provide direct control of key generation and management. They
 provide greater security by separating key management from the application and database

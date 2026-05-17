@@ -60,7 +60,7 @@ when you choose the default security group or a custom security group:
    **Edit inbound rules**.
 4. Choose the **Protocol** and **Port** for
    the inbound rule, or rules, per your requirements, to allow traffic from
-   clients. For an RA3 cluster, select a port within the ranges 5431-5455 or
+   clients. For an RG or RA3 cluster, select a port within the ranges 5431-5455 or
    8191-8215. When you are finished, save each rule.
 5. Edit the **Publicly accessible** setting to enable it.
    You can do this from your cluster or workgroup's **Actions**

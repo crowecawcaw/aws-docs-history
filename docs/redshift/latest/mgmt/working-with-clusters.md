@@ -33,30 +33,39 @@ architecture](../dg/c_high_level_system_architecture.md "../dg/c_high_level_syst
 
 When you create a cluster on the Amazon Redshift console ([https://console.aws.amazon.com/redshiftv2/](https://console.aws.amazon.com/redshiftv2/ "https://console.aws.amazon.com/redshiftv2/")), you can get a
 recommendation of your cluster configuration based on the size of your data and
-query characteristics. To use this sizing calculator, look for **Help me choose** on the console in AWS Regions that support RA3 node
+query characteristics. To use this sizing calculator, look for **Help me choose** on the console in AWS Regions that support RG or RA3 node
 types. For more information, see [Creating a cluster](create-cluster.md "create-cluster.md").
 
 When you launch a cluster, one option that you specify is the node type. The node type
 determines the CPU, RAM, storage capacity, and storage drive type for each node.
 
 Amazon Redshift offers different node types to accommodate your workloads, and we recommend
-choosing RA3 or DC2 depending on the required performance, data size, and expected data
+choosing RG or RA3 depending on the required performance, data size, and expected data
 growth.
 
-RA3 nodes with managed storage enable you to optimize your data warehouse by scaling
-and paying for compute and managed storage independently. With RA3, you choose the
-number of nodes based on your performance requirements and only pay for the managed
-storage that you use. Size your RA3 cluster based on the amount of data you process
-daily. You launch clusters that use the RA3 node types in a virtual private cloud (VPC).
-For more information, see [Creating a Redshift provisioned cluster or Amazon Redshift Serverless workgroup in a VPC](getting-started-cluster-in-vpc.md "getting-started-cluster-in-vpc.md").
+RG and RA3 nodes with managed storage enable you to optimize your data warehouse
+by scaling and paying for compute and managed storage independently. With RG or RA3,
+you choose the number of nodes based on your performance requirements and only pay
+for the managed storage that you use. Size your RG or RA3 cluster based on the amount
+of data you process daily. You launch clusters that use the RG or RA3 node types in a
+virtual private cloud (VPC). For more information, see [Creating a Redshift provisioned cluster or Amazon Redshift Serverless workgroup in a VPC](getting-started-cluster-in-vpc.md "getting-started-cluster-in-vpc.md").
 
-Amazon Redshift managed storage uses large, high-performance SSDs in each RA3 node for fast local
+Amazon Redshift managed storage uses large, high-performance SSDs in each RG and RA3 node for fast local
 storage and Amazon S3 for longer-term durable storage. If the data in a node grows beyond the
 size of the large local SSDs, Amazon Redshift managed storage automatically offloads that data to
 Amazon S3. You pay the same low rate for Amazon Redshift managed storage regardless of whether the data
 sits in high-performance SSDs or Amazon S3. For workloads that require ever-growing storage,
 managed storage lets you automatically scale your data warehouse storage capacity
 separate from compute nodes.
+
+RG nodes provide the following features over RA3 node types:
+
+- **Graviton-based instance types** – Deliver
+  superior price performance for analytics workloads
+- **Integrated data lake query engine** – RG
+  clusters include an integrated data lake query engine that runs directly on the
+  cluster's own compute resources. RA3 clusters use Amazon Redshift Spectrum for data lake
+  queries.
 
 DC2 nodes enable you to have compute-intensive data warehouses with local SSD storage
 included. You choose the number of nodes you need based on data size and performance
@@ -125,6 +134,27 @@ see [Quotas and limits in Amazon Redshift](amazon-redshift-limits.md "amazon-red
   cluster if you deploy the maximum number of nodes that is specified in the
   node range.
 
+The following table describes specifications for RG nodes.
+
+| Node type              | vCPU | RAM (GiB) | Default slices per node | Managed storage limit per node<br>1 | Node range with create cluster | Total managed storage capacity<br>2 |
+| ---------------------- | ---- | --------- | ----------------------- | ----------------------------------- | ------------------------------ | ----------------------------------- |
+| rg.xlarge (multi-node) | 4    | 32        | 2                       | 32 TB                               | 2–163                          | 1024 TB3                            |
+| rg.4xlarge             | 16   | 128       | 8                       | 128 TB                              | 2–324                          | 8192 TB4                            |
+
+1 The storage limit for Amazon Redshift managed storage. This is a
+hard limit.
+
+2 Total managed storage limit is the maximum number of
+nodes times the managed storage limit per node.
+
+3 You can create a cluster with the rg.xlarge
+(multi-node) node type that has up to 16 nodes. For multiple-node clusters, you can
+resize with elastic resize to a maximum of 32 nodes.
+
+4 You can create a cluster with the rg.4xlarge (multi-node) node type
+with up to 32 nodes. You can resize it with elastic resize to a maximum of 64
+nodes.
+
 The following table describes specifications for RA3 nodes.
 
 | Node type                | vCPU | RAM (GiB) | Default slices per node | Managed storage limit per node<br>1 | Node range with create cluster | Total managed storage capacity<br>2 |
@@ -132,7 +162,7 @@ The following table describes specifications for RA3 nodes.
 | ra3.large (single-node)  | 2    | 16        | 2                       | 1 TB                                | 1                              | 1 TB3                               |
 | ra3.large (multi-node)   | 2    | 16        | 2                       | 8 TB                                | 2-16                           | 128 TB                              |
 | ra3.xlplus (single-node) | 4    | 32        | 2                       | 4 TB                                | 1                              | 4 TB3                               |
-| ra3.xlplus (multi-node)  | 4    | 32        | 2                       | 32 TB                               | 2–324                          | 1024 TB4                            |
+| ra3.xlplus (multi-node)  | 4    | 32        | 2                       | 32 TB                               | 2–164                          | 1024 TB4                            |
 | ra3.4xlarge              | 12   | 96        | 4                       | 128 TB                              | 2–325                          | 8192 TB5                            |
 | ra3.16xlarge             | 48   | 384       | 16                      | 128 TB                              | 2–128                          | 16,384 TB                           |
 
@@ -147,7 +177,7 @@ classic resize is
 supported.
 
 4 You can create a cluster with the ra3.xlplus
-(multi-node) node type that has up to 32 nodes. For multiple-node clusters, you can
+(multi-node) node type that has up to 16 nodes. For multiple-node clusters, you can
 resize with elastic resize to a maximum of 32 nodes.
 
 5 You can create a cluster with the ra3.4xlarge

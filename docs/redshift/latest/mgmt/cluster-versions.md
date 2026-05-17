@@ -64,6 +64,8 @@ and avoid potential disruptions to your workloads, see
 
 Cluster versions in this patch:
 
+- 1.0.300094 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
+  workgroup version – Released May 12, 2026
 - 1.0.298697 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
   workgroup version – Released May 7, 2026
 - 1.0.292316 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
@@ -73,6 +75,7 @@ Cluster versions in this patch:
 
 ### New features and improvements in this patch
 
+- Added support for RG node types (rg.xlarge and rg.4xlarge multi-node). This is the minimum required cluster version to migrate to rg.xlarge and rg.4xlarge. Available on the CURRENT maintenance track only.
 - Added support for ALTERs on Iceberg tables.
 - Added support to write to Iceberg tables mounted under AwsDataCatalog.
 - Added support for the SHOW GRANTS command when connected to a database using the USE command.
@@ -134,7 +137,6 @@ Cluster versions in this patch:
 - Added proper error messaging when users attempt to run ANALYZE on catalog tables.
 - Spectrum COPY is now generally available, removing the dependency on temporary tables for Spectrum-based COPY operations.
 - Improved Auto COPY reliability by throttling S3 notification queue reads when durable persistence tasks cannot keep pace, reducing the need for S3 listing operations to reconcile COPY JOB state.
-- Stream ingestion for Amazon Kinesis is now generally available, removing the dependency on temporary tables. This allows customers to offload Kinesis ingestion from the main cluster when it is under heavy load.
 - Concurrency Scaling is now generally available for read and write operations on zero-ETL tables.
 - Fixed a race condition in zero-ETL CDC replication that could cause cluster restarts when concurrent disk commits interfered with uncommitted table state tracking.
 - Improved zero-ETL CDC ingestion reliability by using the most recent ingestion position across both table and client state to filter already-applied data.
@@ -159,6 +161,7 @@ Cluster versions in this patch:
 - Fixed a rare issue where an internal limit check during vacuum operations could cause unnecessary query failures on tables with a large number of partitions.
 - Fixed an issue where background statistics collection could fail or produce errors when encountering tables that had been deleted, improving cluster stability.
 - Fixed an issue where vacuum operations could use stale table metadata, potentially causing incorrect behavior during vacuum on tables with concurrent schema changes.
+- Released a [new query compilation enhancement](https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-redshift-increases-performance-for-new-queries/ "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-redshift-increases-performance-for-new-queries/") that increases performance for new queries (first runs of queries) in Amazon Redshift patch P198 on the CURRENT Maintenance Track. Now, this feature is enabled on all releases starting with Amazon Redshift patch P200 on the TRAILING track as well.
 
 ## Amazon Redshift patch 199
 
