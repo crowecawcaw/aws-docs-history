@@ -71,6 +71,10 @@ control, choose the control.
 
 [[BedrockAgentCore.2] Bedrock AgentCore Gateways should require authorization for inbound requests](bedrockagentcore-controls.md#bedrockagentcore-2 "bedrockagentcore-controls.md#bedrockagentcore-2")
 
+[[BedrockAgentCore.5] Bedrock AgentCore custom browsers should not use public network mode](bedrockagentcore-controls.md#bedrockagentcore-5 "bedrockagentcore-controls.md#bedrockagentcore-5")
+
+[[BedrockAgentCore.6] Bedrock AgentCore custom browsers should have session recording enabled](bedrockagentcore-controls.md#bedrockagentcore-6 "bedrockagentcore-controls.md#bedrockagentcore-6")
+
 [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
 
 [[CloudFormation.4] CloudFormation stacks should have associated service roles](cloudformation-controls.md#cloudformation-4 "cloudformation-controls.md#cloudformation-4")

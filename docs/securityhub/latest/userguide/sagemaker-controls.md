@@ -603,6 +603,44 @@ For information on enabling encryption at rest for SageMaker Feature Store offli
 stores using AWS KMS customer-managed keys, see [Security and access control](../../../sagemaker/latest/dg/feature-store-security.md#feature-store-authorizing-use-cmk-offline-store "../../../sagemaker/latest/dg/feature-store-security.md#feature-store-authorizing-use-cmk-offline-store") in the _Amazon SageMaker AI
 Developer Guide_.
 
+## [SageMaker.18] SageMaker feature group online stores with standard storage should be encrypted with AWS KMS keys
+
+**Related requirements:** NIST.800-53.r5 AU-9,
+NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-7(10),
+NIST.800-53.r5 SC-12(2), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5
+SC-28(1), NIST.800-53.r5 SI-7(6)
+
+**Category:** Protect > Data protection >
+Encryption of data at rest
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::SageMaker::FeatureGroup`
+
+**AWS Config rule:**
+[sagemaker-featuregroup-online-store-encryption](../../../config/latest/developerguide/sagemaker-featuregroup-online-store-encryption.md "../../../config/latest/developerguide/sagemaker-featuregroup-online-store-encryption.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether an Amazon SageMaker online store for a feature group with
+standard storage is encrypted at rest with an AWS KMS key. The control fails if KMS key
+encryption is not configured for the online store.
+
+Using customer-managed AWS KMS keys for encryption at rest of SageMaker feature
+group online stores provides enhanced security. Customer-managed KMS keys give you
+full control over encryption key lifecycle and key policies. Additionally, all encryption
+key usage can be logged and monitored through AWS CloudTrail for auditability.
+
+### Remediation
+
+For information on enabling encryption at rest for SageMaker Feature Store online
+stores using AWS KMS customer-managed keys, see [Security and access
+control](../../../sagemaker/latest/dg/feature-store-security.md "../../../sagemaker/latest/dg/feature-store-security.md") in the _Amazon SageMaker AI Developer
+Guide_.
+
 ## [SageMaker.19] SageMaker models should use private registry in VPC for multi-container inference pipelines
 
 **Category:** Protect > Secure network

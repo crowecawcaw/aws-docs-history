@@ -172,6 +172,15 @@ unexpected issues in your AWS environment. To safely maintain an EC2 instance ov
 time in an inactive state, start it periodically for maintenance and then stop it after
 maintenance. Ideally, this should be an automated process.
 
+###### Note
+
+This control evaluates the number of days that an EC2 instance has been stopped using the
+timestamp from `StateTransitionReason` for the instance. When the
+`StateTransitionReason` does not include a timestamp (such as when an instance
+is stopped due to an internal error), the control uses the instance's launch time instead.
+In this case, if the launch time is older than the maximum allowed time period,
+the control generates a FAILED finding.
+
 ### Remediation
 
 To terminate an inactive EC2 instance, see [Terminate an instance](../../../AWSEC2/latest/UserGuide/terminating-instances.md#terminating-instances-console "../../../AWSEC2/latest/UserGuide/terminating-instances.md#terminating-instances-console") in the _Amazon EC2 User Guide_.
