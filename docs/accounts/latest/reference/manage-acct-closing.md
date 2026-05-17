@@ -261,7 +261,7 @@ Your account will permanently close in 90 days, after which you will not be able
 to reopen your account and AWS will delete the content remaining in your account.
 To reopen your account before it is permanently closed, (1) you must contact [AWS Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") as soon as possible,
 and (2) we must receive full payment of any outstanding balance, including providing
-required information as specified on the invoice, within 60 days from the date of
+required information as specified on the invoice, within 30 days from the date of
 account closure.
 
 ###### Note
