@@ -11,7 +11,7 @@ available after the table.
 
 **Warning codes**
 
-[100000](#100000 "#100000") | [220000](#220000 "#220000") | [230001](#230001 "#230001") | [230002](#230002 "#230002") | [230004](#230004 "#230004") | [230005](#230005 "#230005") | [230006](#230006 "#230006") | [230007](#230007 "#230007") | [230008](#230008 "#230008") | [240000](#240000 "#240000") | [240001](#240001 "#240001") | [240003](#240003 "#240003") | [250001](#250001 "#250001") | [250002](#250002 "#250002") | [250003](#250003 "#250003") | [260000](#260000 "#260000") | [270000](#270000 "#270000")
+[100000](#100000 "#100000") | [220000](#220000 "#220000") | [230001](#230001 "#230001") | [230002](#230002 "#230002") | [230004](#230004 "#230004") | [230005](#230005 "#230005") | [230006](#230006 "#230006") | [230007](#230007 "#230007") | [230008](#230008 "#230008") | [240000](#240000 "#240000") | [240001](#240001 "#240001") | [240003](#240003 "#240003") | [250000](#250000 "#250000") | [250001](#250001 "#250001") | [250002](#250002 "#250002") | [250003](#250003 "#250003") | [260000](#260000 "#260000") | [270000](#270000 "#270000")
 
 The following is a list of warning codes and troubleshooting steps:
 
@@ -214,6 +214,20 @@ Warning message:
 
 **`MediaConvert converted your full range input into a limited range
  HDR10+ output.`**
+
+**250000 | Image overlay warning**
+
+What this means: MediaConvert wasn't able to add one or more of your image overlays to your output. This can happen when the image file can't be loaded or isn't in a supported format (PNG, TGA, or BMP).
+
+Recommended actions:
+
+- Verify that your image overlay files are accessible at the specified Amazon S3 location.
+- Confirm that your image files are in a supported format: PNG, TGA, or BMP.
+- Check that your image files are not corrupted.
+
+Warning message:
+
+**`MediaConvert can't add one or more of your image overlays to your output.`**
 
 **250001 | Input caption font warning**
 
