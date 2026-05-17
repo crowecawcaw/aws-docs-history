@@ -14,9 +14,19 @@ a connector, you can specify zero or more of the following log destinations:
   [Creating
   an Amazon Data Firehose delivery stream](../../../firehose/latest/dev/basic-create.md "../../../firehose/latest/dev/basic-create.md") in the _Firehose User
   Guide_.
-  To learn more about setting up logging, see [Enabling logging from certain AWS
-  services](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md") in the _Amazon CloudWatch Logs User
-  Guide_.
+
+###### Important
+
+MSK Connect applies internal rate limiting to connector log output. If a connector
+produces a high volume of log lines in a short period, some log lines may be dropped
+before delivery to any configured destination. This rate limiting applies equally to
+CloudWatch Logs, Amazon S3, and Amazon Data Firehose destinations. To avoid log loss,
+design your connector plugins to minimize excessive logging during burst
+periods.
+
+To learn more about setting up logging, see [Enabling logging from certain AWS
+services](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md") in the _Amazon CloudWatch Logs User
+Guide_.
 
 MSK Connect emits the following types of log events:
 

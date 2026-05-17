@@ -27,6 +27,15 @@ plugin. Package your connector as one of the following:
   Not bundling your plugin dependencies may impact availability or compatibility
   in the runtime environment and cause unexpected errors.
 
+The following table shows the Java runtime version used for each supported Apache Kafka
+Connect version. Ensure that your custom plugin is compatible with the Java runtime version
+for your selected Kafka Connect version.
+
+| Java runtime versions for Apache Kafka Connect | Apache Kafka Connect version | Java runtime |
+| ---------------------------------------------- | ---------------------------- | ------------ |
+| 2.7.1                                          | Java 11                      |
+| 3.7.x                                          | Java 17                      |
+
 For information on how to develop the code for a connector, see the [Connector Development
 Guide](https://kafka.apache.org/documentation/#connect_development "https://kafka.apache.org/documentation/#connect_development")in the Apache Kafka documentation.
 

@@ -90,6 +90,13 @@ send.buffer.bytes
 status.storage.topic
 ```
 
+###### Note
+
+Worker configuration properties apply only to Kafka Connect worker-level
+settings. JVM and logging framework properties (such as `log4j.*` or
+`log4j2.*`) are not supported and have no effect when specified in a
+custom worker configuration.
+
 For more information about worker configuration properties and what they represent,
 see [Kafka Connect
 Configs](https://kafka.apache.org/documentation/#connectconfigs "https://kafka.apache.org/documentation/#connectconfigs") in the Apache Kafka documentation.
