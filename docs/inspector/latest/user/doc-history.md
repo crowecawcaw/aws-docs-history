@@ -100,32 +100,3 @@ To receive notifications about documentation updates, you can subscribe to an RS
 | [New feature](doc-history.md "doc-history.md")                                                                     | [Amazon Inspector now supports changing your ECR automated re-scan duration<br>setting](scanning-ecr.md#scan-duration-setting "scanning-ecr.md#scan-duration-setting"). The Amazon ECR automated re-scan duration setting determines how<br>long Amazon Inspector continuously monitors images pushed into repositories. When an image<br>is older than the scan duration, Amazon Inspector will no longer scan the image and close<br>all existing findings for it. All new accounts will automatically have their ECR<br>automated re-scan duration set to lifetime. Previously created accounts had an<br>ECR automated re-scan duration of 30 days, but you can now choose from<br>30‐day, 180‐day, or lifetime durations for scans.                              | June 25, 2022      |
 | [New functionality](doc-history.md "doc-history.md")                                                               | Amazon Inspector added a new AWS managed policy, the [AmazonInspector2ReadOnlyAccess policy](security-iam-awsmanpol.md "security-iam-awsmanpol.md"), to allow<br>read-only access to Amazon Inspector functionality.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | January 21, 2022   |
 | [General availability](doc-history.md "doc-history.md")                                                            | This is the initial public release of the _Amazon Inspector<br>User Guide_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | November 29, 2021  |
-
-## Amazon Inspector Security Research
-
-Amazon Inspector continuously monitors and identifies malicious packages from the NPM registry to protect your applications from supply chain attacks.
-
-**Latest Update:** 2026-04-24 16:00:00 UTC
-
-### Detection Summary
-
-- **Lifetime Total:** 193,501 malicious packages identified
-- **This Month:** 492 new malicious packages identified
-- **Last Month:** 1,026 new malicious packages identified
-- **This Week:** 80 new malicious packages identified
-- **Last Week:** 288 new malicious packages identified
-
-### Recent Malicious Package Reports (Last 10)
-
-| Package Name                  | MAL-ID        | Detection Date |
-| ----------------------------- | ------------- | -------------- |
-| eth-logger                    | MAL-2026-3029 | 2026-04-23     |
-| amplitude-ma-ts               | MAL-2026-3028 | 2026-04-24     |
-| wrapped-logger-utils          | MAL-2026-3027 | 2026-04-24     |
-| sagat-core                    | MAL-2026-3026 | 2026-04-24     |
-| next-rwa                      | MAL-2026-3025 | 2026-04-24     |
-| auth0-ui-components-docs      | MAL-2026-3024 | 2026-04-24     |
-| lightspark-js                 | MAL-2026-3021 | 2026-04-23     |
-| @bitwarden/cli                | MAL-2026-3020 | 2026-04-23     |
-| hls.js                        | MAL-2026-3019 | 2026-04-23     |
-| microsoft-employee-experience | MAL-2026-3018 | 2026-04-23     |

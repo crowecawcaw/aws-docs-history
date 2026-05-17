@@ -13,12 +13,12 @@ To set up your CI/CD integration, you can use plugins or create a custom CI/CD i
 - [Setting up an AWS account to use the Amazon Inspector CI/CD integration](configure-cicd-account.md "configure-cicd-account.md")
 - [Amazon Inspector Dockerfile checks](dockerfile-checks.md "dockerfile-checks.md")
 - [Creating a custom CI/CD pipeline integration with Amazon Inspector Scan](cicd-custom.md "cicd-custom.md")
-- [Using the Amazon Inspector Jenkins plugin](cicd-jenkins.md "cicd-jenkins.md")
-- [Using the Amazon Inspector TeamCity plugin](cicd-teamcity.md "cicd-teamcity.md")
 - [Using Amazon Inspector with GitHub actions](cicd-inspector-github-actions.md "cicd-inspector-github-actions.md")
-- [Using Amazon Inspector with GitLab components](cicd-inspector-gitlab-components.md "cicd-inspector-gitlab-components.md")
+- [Using the Amazon Inspector Jenkins plugin](cicd-jenkins.md "cicd-jenkins.md")
 - [Using CodeCatalyst actions with Amazon Inspector](cicd-inspector-codecatalyst-actions.md "cicd-inspector-codecatalyst-actions.md")
 - [Using Amazon Inspector Scan actions with CodePipeline](cicd-inspector-codepipeline-actions.md "cicd-inspector-codepipeline-actions.md")
+- [Using the Amazon Inspector TeamCity plugin](cicd-teamcity.md "cicd-teamcity.md")
+- [Using Amazon Inspector with GitLab components](cicd-inspector-gitlab-components.md "cicd-inspector-gitlab-components.md")
 
 ## Plugin integration
 
@@ -51,9 +51,9 @@ Amazon Inspector currently supports the following CI/CD solutions. For complete 
 on setting up the CI/CD integration using a plugin, select the plugin for your CI/CD
 solution:
 
+- [GitHub actions](cicd-inspector-github-actions.md "cicd-inspector-github-actions.md")
 - [Jenkins plugin](cicd-jenkins.md "cicd-jenkins.md")
 - [TeamCity plugin](cicd-teamcity.md "cicd-teamcity.md")
-- [GitHub actions](cicd-inspector-github-actions.md "cicd-inspector-github-actions.md")
 
 ## Custom integration
 

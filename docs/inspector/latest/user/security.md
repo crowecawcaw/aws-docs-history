@@ -33,4 +33,5 @@ cloud and security _in_ the cloud:
 - [Resilience in Amazon Inspector](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Amazon Inspector](infrastructure-security.md "infrastructure-security.md")
 - [Incident response in Amazon Inspector](security-incident-response.md "security-incident-response.md")
+- [Amazon Inspector Security Research](security-research.md "security-research.md")
 - [Access Amazon Inspector using an interface endpoint (AWS PrivateLink](vpc-interface-endpoints-inspector.md "vpc-interface-endpoints-inspector.md")

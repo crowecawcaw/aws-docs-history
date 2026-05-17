@@ -72,9 +72,7 @@ For some operating systems, like Ubuntu, a reboot is required for upgrades to sh
 | Debian Server (Bullseye)            | 11              | DSA CVE                                                                                                           | Yes                    | Yes                      |
 | Debian Server (Bookworm)            | 12              | DSA CVE                                                                                                           | Yes                    | Yes                      |
 | Debian Server (Trixie)              | 13              | DSA CVE                                                                                                           | Yes                    | Yes                      |
-| Fedora                              | 42              | Errata CVE                                                                                                        | Yes                    | Yes                      |
 | Fedora                              | 43              | Errata CVE                                                                                                        | Yes                    | Yes                      |
-| OpenSUSE Leap                       | 15.6            | Errata CVE                                                                                                        | Yes                    | Yes                      |
 | Oracle Linux (Oracle)               | 8               | Errata CVE                                                                                                        | Yes                    | Yes                      |
 | Oracle Linux (Oracle)               | 9               | Errata CVE                                                                                                        | Yes                    | Yes                      |
 | Oracle Linux (Oracle)               | 10              | Errata CVE                                                                                                        | Yes                    | Yes                      |
@@ -125,10 +123,8 @@ It also specifies the vendor security advisory for each operating system.
 | Debian Server (Bookworm)            | 12      | DSA CVE                                                                                                           |
 | Debian Server (Trixie)              | 13      | DSA CVE                                                                                                           |
 | Echo                                | 2       | Errata CVE                                                                                                        |
-| Fedora                              | 42      | Errata CVE                                                                                                        |
 | Fedora                              | 43      | Errata CVE                                                                                                        |
 | Minimus                             | –       | Errata CVE                                                                                                        |
-| OpenSUSE Leap                       | 15.6    | Errata CVE                                                                                                        |
 | Oracle Linux (Oracle)               | 8       | Errata CVE                                                                                                        |
 | Oracle Linux (Oracle)               | 9       | Errata CVE                                                                                                        |
 | Oracle Linux (Oracle)               | 10      | Errata CVE                                                                                                        |
@@ -146,6 +142,10 @@ It also specifies the vendor security advisory for each operating system.
 | Ubuntu (Jammy)                      | 22.04   | USN, Ubuntu Pro (esm-infra & esm-apps)                                                                            |
 | Ubuntu (Noble Numbat)               | 24.04   | USN, Ubuntu Pro (esm-infra & esm-apps)                                                                            |
 | Ubuntu (Questing Quokka)            | 25.10   | USN, Ubuntu Pro (esm-infra & esm-apps)                                                                            |
+| Windows Server                      | 2016    | MSKB                                                                                                              |
+| Windows Server                      | 2019    | MSKB                                                                                                              |
+| Windows Server                      | 2022    | MSKB                                                                                                              |
+| Windows Server                      | 2025    | MSKB                                                                                                              |
 | Wolfi                               | –       | Errata CVE                                                                                                        |
 
 ### Supported operating systems: CIS scanning
@@ -199,11 +199,9 @@ For more information, see [ScanSbom](../../v2/APIReference/API_scan_ScanSbom.md 
 | Debian                   | 13      |
 | Debian Sid               | –       |
 | Echo                     | 2       |
-| Fedora                   | 42      |
 | Fedora                   | 43      |
 | macOS                    | 11+     |
 | MinimOS                  | –       |
-| OpenSUSE                 | 15.6    |
 | Oracle Linux             | 8       |
 | Oracle Linux             | 9       |
 | Oracle Linux             | 10      |
@@ -277,10 +275,12 @@ As a result, Amazon Inspector can stop generating findings for known CVEs.
 | Fedora                              | 39      | November 26, 2024 |
 | Fedora                              | 40      | May 13, 2025      |
 | Fedora                              | 41      | November 19, 2025 |
+| Fedora                              | 42      | May 13, 2026      |
 | OpenSUSE Leap                       | 15.2    | December 1, 2021  |
 | OpenSUSE Leap                       | 15.3    | December 1, 2022  |
 | OpenSUSE Leap                       | 15.4    | December 7, 2023  |
 | OpenSUSE Leap                       | 15.5    | December 31, 2024 |
+| OpenSUSE Leap                       | 15.6    | April 30, 2026    |
 | Oracle Linux (Oracle)               | 6       | March 1, 2021     |
 | Oracle Linux (Oracle)               | 7       | December 31, 2024 |
 | Photon OS                           | 2       | December 2, 2021  |
