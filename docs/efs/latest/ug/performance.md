@@ -205,7 +205,7 @@ credits accrue when the file system consumes below its base throughput rate, and
 deducted when throughput exceeds the base rate.
 
 When burst credits are available, a file system can drive throughput up to 100 MiBps
-per TiB in Standard storage (50 KiBps per GiB), up to the AWS Region
+per TiB in Standard storage (100 KiBps per GiB), up to the AWS Region
 limit, with a minimum of 100 MiBps. If no burst credits are available, a file system can
 drive up to 50 MiBps per TiB of storage, with a minimum of 1 MiBps.
 
