@@ -8,6 +8,7 @@ Use the following sections to help troubleshoot file system, volume mounting, an
 - [Troubleshooting volume mounting issues](#fs-mount-fails "#fs-mount-fails")
 - [Troubleshooting storage issues](#storage-issues "#storage-issues")
 - [Troubleshooting I/O errors and NFS lock reclaim failures](#nfs-failover-issues "#nfs-failover-issues")
+- [The VPC owner account has disabled Multi-AZ VPC sharing](#maz-shared-vpc-disabled "#maz-shared-vpc-disabled")
 
 ## Troubleshooting file system issues
 
@@ -200,3 +201,30 @@ Verify that there are fewer occurrences of messages such as `Lock reclaim failed
 
 - **Monitor application logs** to confirm fewer I/O timeouts, connection errors, and retry-related failures during failover events.
 - **Validate network impact** to ensure that the increased ARP traffic does not adversely affect network performance in your environment.
+
+## The VPC owner account has disabled Multi-AZ VPC sharing
+
+Multi-AZ file systems created by a participant AWS account in a shared VPC subnet will enter a
+`MISCONFIGURED` state for one of the following reasons:
+
+- The owner account that shared the VPC subnet has disabled Multi-AZ VPC sharing support
+  for FSx for OpenZFS file systems.
+- The owner account has stopped sharing the VPC subnet.
+
+If the owner account has stopped sharing the VPC subnet, you will see the following message in the
+console for that file system:
+
+```
+The vpc ID `vpc-012345abcde` does not exist
+```
+
+If the owner account has disabled VPC sharing for Multi-AZ file systems, you will see the following
+message in the console for that file system:
+
+```
+FSx VPC Sharing has been disabled. Please ensure that the owner of the VPC has enabled the FSx VPC Sharing feature.
+```
+
+To resolve the issue, contact the owner account that shared the VPC subnet with you and ask them to
+re-enable Multi-AZ VPC sharing or reshare the subnet. For more information, see
+[Creating a FSx for OpenZFS file system using shared subnets](creating-file-systems.md#creating-fs-shared-subnets "creating-file-systems.md#creating-fs-shared-subnets").

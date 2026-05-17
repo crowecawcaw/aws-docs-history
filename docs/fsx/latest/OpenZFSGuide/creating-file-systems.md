@@ -6,6 +6,7 @@ This section contains instructions on how to create a file system using the AWS 
 
 - [Creating a file system (AWS CLI and Amazon FSx API)](#create-file-system-cli "#create-file-system-cli")
 - [Configurable file system properties](#fsx-openzfs-file-system-properties "#fsx-openzfs-file-system-properties")
+- [Creating a FSx for OpenZFS file system using shared subnets](#creating-fs-shared-subnets "#creating-fs-shared-subnets")
 
 ## Creating a file system (AWS CLI and Amazon FSx API)
 
@@ -104,3 +105,136 @@ after you create the file system. For more information, see [Modifying throughpu
   data in your file system at rest using the Amazon FSx service AWS Key Management Service key for
   your AWS account by default. You can choose to use a different
   KMS key.
+
+## Creating a FSx for OpenZFS file system using shared subnets
+
+VPC sharing enables multiple AWS accounts to create resources into shared, centrally-managed virtual private clouds (VPCs).
+In this model, the account that owns the VPC (owner) shares one or more subnets with other accounts (participants) that
+belong to the same AWS Organization.
+
+Participant accounts can create FSx for OpenZFS Single-AZ and Multi-AZ file systems in a VPC subnet
+that the owner account has shared with them.
+
+### Prerequisites for VPC owners
+
+Before participant accounts can create FSx for OpenZFS file systems in shared subnets, the VPC owner must
+complete the following:
+
+- **Share VPC subnets using AWS Resource Access Manager:** Use AWS RAM to share subnets
+  with participant accounts. For more information, see
+  [Sharing your AWS resources](../../../ram/latest/userguide/getting-started-sharing.md#getting-started-sharing-orgs "../../../ram/latest/userguide/getting-started-sharing.md#getting-started-sharing-orgs") in the _AWS Resource Access Manager User Guide_.
+- **Grant Amazon FSx permission to modify route tables in the shared subnets on behalf
+  of participant accounts (For Multi-AZ file systems only):** Multi-AZ file systems need to update routes
+  during failover events so that clients can seamlessly connect to the host. For instructions, see
+  [Shared VPC settings for Multi-AZ file systems](#maz-shared-vpc-openzfs "#maz-shared-vpc-openzfs").
+
+### Shared subnet considerations
+
+When creating FSx for OpenZFS file systems in shared subnets, note the following:
+
+- Participant accounts can view, create, modify, and delete file systems and their associated
+  resources in subnets that the owner account has shared with them.
+- The shared VPC owner cannot view, modify, or delete resources that a participant creates in
+  the shared subnet. This is in addition to the VPC resources that each account has different access to. For
+  more information, see
+  [Responsibilities
+  and permissions for owners and participants](../../../vpc/latest/userguide/vpc-sharing.md#vpc-share-limitations "../../../vpc/latest/userguide/vpc-sharing.md#vpc-share-limitations") in the _Amazon VPC User Guide_.
+- Participant accounts can't launch resources using the default security group for the VPC
+  because it belongs to the owner. Additionally, participant accounts can't launch resources using security
+  groups that are owned by other participant accounts.
+- In a shared subnet, the participant and the owner separately controls the security groups
+  within each respective account. The owner account can see security groups that are created by participants
+  accounts, but cannot perform any actions on them. If the owner account wants to remove or modify these
+  security groups, the participant that created the security group must take the action.
+- VPC subnets that overlap with a file system's in-VPC CIDR range can interrupt network
+  traffic to the file system. Ensure that subnets in the shared VPC do not conflict with the CIDR ranges
+  used by existing file systems.
+- If a subnet is unshared while participant-created file systems exist, Single-AZ file systems
+  continue to operate but participants can no longer manage them. Multi-AZ file systems enter a
+  `MISCONFIGURED` state and cannot fail over, fail back, or be patched. The same applies if the
+  VPC owner disables route table permissions for Multi-AZ file systems. To restore normal operation, reshare
+  the subnet or re-enable route table permissions.
+
+For more information, see [Share
+your VPC with other accounts](../../../vpc/latest/userguide/vpc-sharing.md "../../../vpc/latest/userguide/vpc-sharing.md") in the _Amazon VPC User Guide_.
+
+### Shared VPC settings for Multi-AZ file systems
+
+Owner accounts can manage whether or not participant accounts can create Multi-AZ FSx for OpenZFS file systems in VPC subnets that
+the owner has shared with participants using the AWS Management Console, AWS CLI, and API, as described in the following sections.
+
+###### Note
+
+This setting must be enabled by the AWS account that owns the VPC. If you need to create a Multi-AZ
+FSx file system in a VPC that was shared with you, contact the VPC owner and ask them to enable this
+feature under their FSx settings.
+
+###### To manage VPC sharing for Multi-AZ file systems (console)
+
+1. Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/").
+2. In the navigation pane, choose **Settings**.
+3. Locate the **Multi-AZ shared VPC settings** on the **Settings** page.
+   - To enable VPC sharing for Multi-AZ file systems in VPC subnets that you share, choose
+     **Enable**.
+   - To disable VPC sharing for Multi-AZ file systems in all VPCs that you own, choose
+     **Disable**.
+
+4. If disabling the feature, you will be prompted to **Confirm**.
+
+###### Important
+
+We recommend that participant-created Multi-AZ file systems in the shared VPC
+are deleted before you disable this feature. Once the feature is disabled, these file systems will enter
+a `MISCONFIGURED` state and will be at risk of becoming unavailable.
+
+###### To manage VPC sharing for Multi-AZ file systems (AWS CLI)
+
+1. To view the current setting for Multi-AZ VPC sharing, use the
+   [describe-shared-vpc-configuration](../../../cli/latest/reference/fsx/describe-shared-vpc-configuration.md "../../../cli/latest/reference/fsx/describe-shared-vpc-configuration.md")
+   CLI command, or the equivalent
+   [DescribeSharedVpcConfiguration](../APIReference/API_DescribeSharedVpcConfiguration.md "../APIReference/API_DescribeSharedVpcConfiguration.md") API command,
+   shown as follows:
+
+```
+`$` `aws fsx describe-shared-vpc-configuration`
+```
+
+The service responds to a successful request as follows:
+
+```
+`{
+ "EnableFsxRouteTableUpdatesFromParticipantAccounts": "false"
+}`
+```
+
+2. To manage the Multi-AZ shared VPC configuration, use the
+   [update-shared-vpc-configuration](../../../cli/latest/reference/fsx/update-shared-vpc-configuration.md "../../../cli/latest/reference/fsx/update-shared-vpc-configuration.md")
+   CLI command, or the equivalent
+   [UpdateSharedVpcConfiguration](../APIReference/API_UpdateSharedVpcConfiguration.md "../APIReference/API_UpdateSharedVpcConfiguration.md") API command.
+   The following example enables VPC sharing for Multi-AZ file systems.
+
+```
+`$` `aws fsx update-shared-vpc-configuration --enable-fsx-route-table-updates-from-participant-accounts true`
+```
+
+The service responds to a successful request as follows:
+
+```
+`{
+ "EnableFsxRouteTableUpdatesFromParticipantAccounts": "true"
+}`
+```
+
+3. To disable the feature, set `EnableFsxRouteTableUpdatesFromParticipantAccounts` to `false`, as shown in the following example.
+
+```
+`$` `aws fsx update-shared-vpc-configuration --enable-fsx-route-table-updates-from-participant-accounts false`
+```
+
+The service responds to a successful request as follows:
+
+```
+`{
+ "EnableFsxRouteTableUpdatesFromParticipantAccounts": "false"
+}`
+```
