@@ -13,14 +13,16 @@ price.
 
 ## What types of resources can I use as the origin of my distributions?
 
-Lightsail distributions allow you to use your Lightsail instances and load balancers
-as origins. Lightsail containers are not currently supported as origins. Resources outside
-of Lightsail, such as S3 buckets, are not supported.
+Lightsail distributions allow you to use your Lightsail instances, load balancers,
+container services, and buckets as origins. Resources outside of Lightsail, such as S3
+buckets, are not supported.
 
 ## Do I need to attach a static IPv4 address to my Lightsail instance in order to use it as an origin for my Lightsail distribution?
 
-Yes, static IPv4 addresses are required to be attached to instances that are specified
-as origins. Lightsail distributions do not currently support IPv6.
+For dual-stack instances, we recommend attaching a static IPv4 address to ensure the IP
+does not change when the instance is stopped and started. For IPv6-only instances, a static
+IPv4 address is not required—Lightsail distributions now support IPv6-only instances
+as origins and can communicate with them over IPv6.
 
 ## How do I setup a Lightsail distribution with my WordPress website?
 
@@ -145,6 +147,6 @@ Networking tab of the CDN's management page.
 
 ## Do the origins need to be IPv6 enabled to work with the Lightsail CDN distributions?
 
-No. CDN distributions accept both IPv6 and IPv4 traffic, and seamlessly convert it to
-IPv4 when communicating with the origins in the backend. Hence, origins behind a
-distribution can either be dual-stack or IPv4 only.
+No. Lightsail CDN distributions can communicate with origins over IPv4 or IPv6. IPv6
+is only required on the origin if you configure the distribution to use dual-stack or
+IPv6-only origin communication.

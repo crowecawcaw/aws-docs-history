@@ -160,7 +160,7 @@ After restoring your data, verify that the application is working correctly:
    submissions).
 4. Check application and server logs for any errors.
 
-## Step 6: Update DNS and networking (if applicable)
+## Step 6: Transfer the static IP address (if applicable)
 
 If your application uses a custom domain with a static IP already attached to your old
 instance, you can preserve your existing DNS setup by moving the static IP to the new
@@ -171,18 +171,21 @@ instance:
 2. **Attach the static IP** to your new Lightsail
    instance. Since your DNS records already point to this IP, no DNS changes are needed and
    there will be no propagation delay.
-3. **Re-generate your SSL/TLS certificates** on the new
-   instance, as the certificates from the old instance cannot be transferred. For WordPress,
-   refer to [Enable HTTPS with
-   guided workflow](amazon-lightsail-enabling-https-on-wordpress.md "amazon-lightsail-enabling-https-on-wordpress.md").
 
 ###### Note
 
-If you did not previously have a static IP attached, attach a new static IP to your new
-instance first, then update your DNS records to point your domain to the new static IP
-address. Allow time for DNS propagation before decommissioning the old instance.
+If your application uses a custom domain but you did not previously have a static IP
+attached, attach a new static IP to your new instance first, then update your DNS records to
+point your domain to the new static IP address. Allow time for DNS propagation before
+decommissioning the old instance.
 
-## Step 7: Delete the old instance
+## Step 7: Regenerate SSL/TLS certificates (if applicable)
+
+The SSL/TLS certificates from your old instance cannot be transferred to the new instance.
+You must regenerate them on the new instance. For WordPress, refer to [Enable HTTPS with guided
+workflow](amazon-lightsail-enabling-https-on-wordpress.md "amazon-lightsail-enabling-https-on-wordpress.md").
+
+## Step 8: Delete the old instance
 
 Once you have verified the migration is successful and DNS has fully propagated:
 

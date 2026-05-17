@@ -49,7 +49,7 @@ see
 
 - Use the browser-based SSH terminal in the Lightsail console to perform the steps in this tutorial:
 
-![SSH quick connect on the Lightsail home page.](/images/lightsail/latest/userguide/images/instances/resource_cards/nginx-ssh-quick-connect.png)
+![SSH quick connect on the Lightsail home page.](images/instances/resource_cards/nginx-ssh-quick-connect.png)
 
 ###### Note
 
@@ -215,7 +215,7 @@ Example:
 _acme-challenge.`example.com`
 ```
 
-![MxToolbox TXT record lookup.](/images/lightsail/latest/userguide/images/instances/lets-encrypt/mxtoolbox-text-record-lookup.png) 3. Choose **TXT Lookup** to run the check. 4. One of the following responses occurs:
+![MxToolbox TXT record lookup.](images/instances/lets-encrypt/mxtoolbox-text-record-lookup.png) 3. Choose **TXT Lookup** to run the check. 4. One of the following responses occurs:
 
     * If your TXT records have propagated to the Internet’s DNS, you see a response similar to the one shown in
      the following screenshot. Close the browser window and continue to the

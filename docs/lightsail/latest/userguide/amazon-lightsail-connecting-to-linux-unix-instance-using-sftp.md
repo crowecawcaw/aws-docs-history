@@ -56,6 +56,13 @@ where your instance is located.
 
 Complete the following steps to configure FileZilla to connect to your instance.
 
+###### Important
+
+Ensure your instance's firewall allows SSH (TCP port 22) connections from your
+IP address. To verify, go to your instance's **Networking** tab in
+the Lightsail console. To add a rule, choose **Add rule** and
+select SSH with your IP address as the source.
+
 1. Open FileZilla.
 2. Choose **File**, **Site Manager**.
 3. Choose **New site**, then give your site a name.

@@ -214,6 +214,7 @@ to your bucket:
 
 ###### Topics
 
+- [API actions for Lightsail objects](object-storage-s3-actions.md "object-storage-s3-actions.md")
 - [Copy and move
   objects](amazon-lightsail-copying-moving-bucket-objects.md "amazon-lightsail-copying-moving-bucket-objects.md")
 - [Delete

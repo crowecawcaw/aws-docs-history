@@ -35,7 +35,7 @@ cat ~/application_credentials
 You should see a response similar to this, which contains the default application
 password:
 
-![Default application password.](images/amazon-lightsail-application-password.png)
+![Default application password.](/images/lightsail/latest/userguide/images/amazon-lightsail-application-password.png)
 
 ## Step 2: Attach a static IP address to your Nginx instance
 

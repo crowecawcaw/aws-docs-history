@@ -93,8 +93,9 @@ service, even when it is in a disabled state.
 
 ## Can I use container services as the origin to my Lightsail content delivery network (CDN) distributions?
 
-Container services are currently not supported as origins for Lightsail CDN
-distributions.
+Yes. You can use Lightsail container services as the origin for Lightsail CDN
+distributions. For more information, see [Create a
+distribution](amazon-lightsail-creating-content-delivery-network-distribution.md "amazon-lightsail-creating-content-delivery-network-distribution.md").
 
 ## Can I use container services as targets for my Lightsail load balancer?
 

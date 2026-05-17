@@ -7,9 +7,7 @@ disable IPv6 as needed.
 
 With IPv6-only networking, your instance is assigned a public IPv6 address and doesn't
 support public IPv4 traffic. Not all Lightsail blueprints are compatible with IPv6. To
-learn which blueprints support IPv6-only, see [IPv6 compatible blueprints](ipv6-only-blueprints.md "ipv6-only-blueprints.md"). Additionally, an instance with IPv6-only
-networking can't be configured as the origin resource for a Lightsail content delivery
-network (CDN) distribution. For more information about Lightsail distributions, see [Serve web content globally with Lightsail content delivery distributions](amazon-lightsail-content-delivery-network-distributions.md "amazon-lightsail-content-delivery-network-distributions.md").
+learn which blueprints support IPv6-only, see [IPv6 compatible blueprints](ipv6-only-blueprints.md "ipv6-only-blueprints.md").
 
 Use IPv6-only networking if you don’t require a public IPv4 address. But first, make sure
 that your local network, computer, devices, and end-users can communicate using IPv6. For

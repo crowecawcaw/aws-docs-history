@@ -29,7 +29,7 @@ Review the following considerations:
   incoming or outgoing public IPv4 traffic. It will receive a private IPv4
   address for communicating with other resources in your Lightsail account.
   For more information, see [View and manage IP addresses for Lightsail resources](understanding-public-ip-and-private-ip-addresses-in-amazon-lightsail.md "understanding-public-ip-and-private-ip-addresses-in-amazon-lightsail.md").
-- IPv6-only instances can't be configured as the origin for a Lightsail
+- You can configure IPv6-only instances as the origin for a Lightsail
   content delivery network (CDN) distribution.
 - You can add IPv6-only instances to a Lightsail load balancer.
 - The allowance for your instance's data transfer plan will carry over when
@@ -93,7 +93,7 @@ networking type of your instance:
 - (Dual-stack) Attach a static IP address to
   your instance. For more information, see [Attach a static IP to an
   instance](lightsail-create-static-ip.md "lightsail-create-static-ip.md").
-- (Dual-stack) Configure your instance as the
+- (Both) Configure your instance as the
   origin of a Lightsail distribution. For more information, see [CDN
   distributions in Lightsail](amazon-lightsail-content-delivery-network-distributions.md "amazon-lightsail-content-delivery-network-distributions.md").
 - (Both) Add or update the firewall settings

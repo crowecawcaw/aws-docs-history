@@ -91,73 +91,81 @@ and not your instance, container service, load balancer, or bucket.
 These are the general steps to follow to serve your website or web application using a
 Lightsail instance and a distribution.
 
-1. Complete one of the following, depending on whether you want to use an instance,
-   container service, or a bucket with your distribution.
-   - **Create a Lightsail instance to host your
-     content.** The instance serves as the origin of your distribution. The
-     origin stores the original, definitive version of your content. For more information,
-     see [Create an instance](how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md "how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md").
+1.  Complete one of the following, depending on whether you want to use an instance,
+    container service, or a bucket with your distribution.
+    - **Create a Lightsail instance to host your
+      content.** The instance serves as the origin of your distribution. The
+      origin stores the original, definitive version of your content. For more information,
+      see [Create an instance](how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md "how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md").
 
-   Attach a Lightsail static IP to your instance. Your instance's default public IP
-   address changes if you stop and start your instance, which will break the connection
-   between your distribution and your origin instance. A static IP does not change if you
-   stop and start your instance. For more information, see [Create a static IP and attach it to an
-   instance](lightsail-create-static-ip.md "lightsail-create-static-ip.md").
+          1. **For IPv4-only and dual-stack instances**, attach
+           a Lightsail static IP to your instance. Your instance's default public IPv4
+           address changes if you stop and start your instance, which will break the
+           connection between your distribution and your origin instance. A static IP does not
+           change if you stop and start your instance. For more information, see [Create a static IP and attach it to an
+           instance](lightsail-create-static-ip.md "lightsail-create-static-ip.md").
+          2. **For IPv6-only instances**, a static IP is not
+           required. The IPv6 address persists when you stop and start your instance. It's
+           released only when you delete your instance, or disable IPv6 for your instance.
+           You cannot get the IPv6 address back after you perform either of those
+           actions.
 
-   Upload your content and files to your instance. Your files, also known as
-   _objects_, typically include web pages, images, and media files,
-   but can be anything that can be served over HTTP.
-   - **Create a Lightsail container service to host your website
-     or web application.** The container service serves as the origin of your
-     distribution. The origin stores the original, definitive version of your content. For
-     more information, see [Create Amazon Lightsail container services](amazon-lightsail-creating-container-services.md "amazon-lightsail-creating-container-services.md").
-   - **Create a Lightsail bucket to store your static
-     content.** The bucket serves as the origin of your distribution. The origin
-     stores the original, definitive version of your content. For more information, see
-     [Create a bucket](amazon-lightsail-creating-buckets.md "amazon-lightsail-creating-buckets.md").
+      **Upload your content and files to your
+      instance.** Your files, also known as _objects_,
+      typically include web pages, images, and media files, but can be anything that can be
+      served over HTTP.
 
-   Upload files to your bucket using the Lightsail console, AWS Command Line Interface (AWS CLI), and
-   AWS APIs. For more information about uploading files, see [Upload files to a
-   bucket](amazon-lightsail-uploading-files-to-a-bucket.md#amazon-lightsail-uploading-files-to-a-bucket.title "amazon-lightsail-uploading-files-to-a-bucket.md#amazon-lightsail-uploading-files-to-a-bucket.title").
+    - **Create a Lightsail container service to host your website
+      or web application.** The container service serves as the origin of your
+      distribution. The origin stores the original, definitive version of your content. For
+      more information, see [Create Amazon Lightsail container services](amazon-lightsail-creating-container-services.md "amazon-lightsail-creating-container-services.md").
+    - **Create a Lightsail bucket to store your static
+      content.** The bucket serves as the origin of your distribution. The origin
+      stores the original, definitive version of your content. For more information, see
+      [Create a bucket](amazon-lightsail-creating-buckets.md "amazon-lightsail-creating-buckets.md").
 
-2. **(Optional) Create a Lightsail load balancer if your website
-   being hosted on an instance requires fault tolerance.** Then attach multiple
-   copies of your instance to your load balancer. You can configure your load balancer (with
-   one or more instances attached to it) as the origin of your distribution, instead of
-   configuring your instance as the origin. For more information, see [Create a load
-   balancer and attach instances to it](create-lightsail-load-balancer-and-attach-lightsail-instances.md "create-lightsail-load-balancer-and-attach-lightsail-instances.md").
-3. **Create a Lightsail distribution, and configure your instance,
-   container service, load balancer, or bucket as the origin.** At the same time,
-   you specify details such as the cache lifespan of your content, and which elements of your
-   website or web application are cached. For more information, see [Create a
-   distribution](amazon-lightsail-creating-content-delivery-network-distribution.md "amazon-lightsail-creating-content-delivery-network-distribution.md").
-4. (Optional) If your distribution's origin is a WordPress instance, you must edit the
-   WordPress configuration file in your instance to make your WordPress website work with
-   your distribution. For more information, see [Configure your WordPress
-   instance to work with your distribution](amazon-lightsail-editing-wp-config-for-distribution.md "amazon-lightsail-editing-wp-config-for-distribution.md").
-5. **(Optional) Create a Lightsail DNS zone to manage your domain's
-   DNS in the Lightsail console.** This allows you to easily map your domain to
-   your Lightsail resources. For more information, see [Create a DNS zone to manage your domain’s
-   DNS records](lightsail-how-to-create-dns-entry.md "lightsail-how-to-create-dns-entry.md"). Alternately, you can continue hosting your domain's DNS where it's
-   currently being hosted.
-6. **Create a Lightsail SSL/TLS certificate for your domain to use
-   it with your distribution.** Lightsail distributions require HTTPS, so you
-   must request an SSL/TLS certificate for your domain before you can use it with your
-   distribution. For more information, see [Create SSL/TLS certificates
-   for your distribution](amazon-lightsail-create-a-distribution-certificate.md "amazon-lightsail-create-a-distribution-certificate.md").
-7. **Enable custom domains for your distribution to use your
-   registered domain names with your distributions.** Enabling custom domains
-   requires that you specify the Lightsail SSL/TLS certificate that you created for your
-   domains. This adds your domains to your distribution and enables HTTPS. For more
-   information, see [Enable custom domains for your distribution](amazon-lightsail-enabling-distribution-custom-domains.md "amazon-lightsail-enabling-distribution-custom-domains.md").
-8. **Add an alias record to your domain's DNS to begin routing
-   traffic for your domain to your distribution.** After you add the alias record,
-   users who visit your domain are routed through your distribution. For more information,
-   see [Point your domain to a
-   distribution](amazon-lightsail-point-domain-to-distribution.md "amazon-lightsail-point-domain-to-distribution.md").
-9. **Test that your distribution is caching your content.**
-   For more information, see [Test your
-   distribution](amazon-lightsail-testing-distribution.md "amazon-lightsail-testing-distribution.md").
+    Upload files to your bucket using the Lightsail console, AWS Command Line Interface (AWS CLI), and
+    AWS APIs. For more information about uploading files, see [Upload files to a
+    bucket](amazon-lightsail-uploading-files-to-a-bucket.md#amazon-lightsail-uploading-files-to-a-bucket.title "amazon-lightsail-uploading-files-to-a-bucket.md#amazon-lightsail-uploading-files-to-a-bucket.title").
+
+2.  **(Optional) Create a Lightsail load balancer if your website
+    being hosted on an instance requires fault tolerance.** Then attach multiple
+    copies of your instance to your load balancer. You can configure your load balancer (with
+    one or more instances attached to it) as the origin of your distribution, instead of
+    configuring your instance as the origin. For more information, see [Create a load
+    balancer and attach instances to it](create-lightsail-load-balancer-and-attach-lightsail-instances.md "create-lightsail-load-balancer-and-attach-lightsail-instances.md").
+3.  **Create a Lightsail distribution, and configure your instance,
+    container service, load balancer, or bucket as the origin.** At the same time,
+    you specify details such as the cache lifespan of your content, and which elements of your
+    website or web application are cached. For more information, see [Create a
+    distribution](amazon-lightsail-creating-content-delivery-network-distribution.md "amazon-lightsail-creating-content-delivery-network-distribution.md").
+4.  (Optional) If your distribution's origin is a WordPress instance, you must edit the
+    WordPress configuration file in your instance to make your WordPress website work with
+    your distribution. For more information, see [Configure your WordPress
+    instance to work with your distribution](amazon-lightsail-editing-wp-config-for-distribution.md "amazon-lightsail-editing-wp-config-for-distribution.md").
+5.  **(Optional) Create a Lightsail DNS zone to manage your domain's
+    DNS in the Lightsail console.** This allows you to easily map your domain to
+    your Lightsail resources. For more information, see [Create a DNS zone to manage your domain’s
+    DNS records](lightsail-how-to-create-dns-entry.md "lightsail-how-to-create-dns-entry.md"). Alternately, you can continue hosting your domain's DNS where it's
+    currently being hosted.
+6.  **Create a Lightsail SSL/TLS certificate for your domain to use
+    it with your distribution.** Lightsail distributions require HTTPS, so you
+    must request an SSL/TLS certificate for your domain before you can use it with your
+    distribution. For more information, see [Create SSL/TLS certificates
+    for your distribution](amazon-lightsail-create-a-distribution-certificate.md "amazon-lightsail-create-a-distribution-certificate.md").
+7.  **Enable custom domains for your distribution to use your
+    registered domain names with your distributions.** Enabling custom domains
+    requires that you specify the Lightsail SSL/TLS certificate that you created for your
+    domains. This adds your domains to your distribution and enables HTTPS. For more
+    information, see [Enable custom domains for your distribution](amazon-lightsail-enabling-distribution-custom-domains.md "amazon-lightsail-enabling-distribution-custom-domains.md").
+8.  **Add an alias record to your domain's DNS to begin routing
+    traffic for your domain to your distribution.** After you add the alias record,
+    users who visit your domain are routed through your distribution. For more information,
+    see [Point your domain to a
+    distribution](amazon-lightsail-point-domain-to-distribution.md "amazon-lightsail-point-domain-to-distribution.md").
+9.  **Test that your distribution is caching your content.**
+    For more information, see [Test your
+    distribution](amazon-lightsail-testing-distribution.md "amazon-lightsail-testing-distribution.md").
 
 ## Edge locations and IP address ranges
 

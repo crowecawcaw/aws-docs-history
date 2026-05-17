@@ -155,9 +155,6 @@ Here are some next steps:
 
 - [Configure automatic snapshots for your new Lightsail instance](amazon-lightsail-configuring-automatic-snapshots.md "amazon-lightsail-configuring-automatic-snapshots.md")
 - Customize your new blog's appearance and/or install some WordPress plugins
-- [Migrate your DNS so that your domain name servers point to the new version of your blog with HTTPS](amazon-lightsail-enabling-https-on-wordpress.md "amazon-lightsail-enabling-https-on-wordpress.md")
-- Delete your source instance. If your source instance is hosted on Lightsail,
-  [delete it to save on future charges](delete-an-amazon-lightsail-instance.md "delete-an-amazon-lightsail-instance.md")
-- Delete any resources associated with your source instance. If your source instance is hosted on Lightsail,
-  [delete any old snapshots associated with the instance to save on future charges](amazon-lightsail-deleting-snapshots.md "amazon-lightsail-deleting-snapshots.md")
-- [Launch and configure a WordPress instance on Lightsail](amazon-lightsail-tutorial-launching-and-configuring-wordpress.md "amazon-lightsail-tutorial-launching-and-configuring-wordpress.md")
+- [Enable HTTPS on your WordPress instance using Quick Setup](amazon-lightsail-enabling-https-on-wordpress.md "amazon-lightsail-enabling-https-on-wordpress.md")
+- [Delete your old Bitnami instance](delete-an-amazon-lightsail-instance.md "delete-an-amazon-lightsail-instance.md") to save on future charges
+- [Delete any old snapshots](amazon-lightsail-deleting-snapshots.md "amazon-lightsail-deleting-snapshots.md") associated with your old instance to save on future charges

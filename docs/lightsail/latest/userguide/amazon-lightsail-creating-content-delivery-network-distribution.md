@@ -31,42 +31,48 @@ distributions](amazon-lightsail-content-delivery-network-distributions.md "amazo
 Complete the following prerequisites before you get started with creating a
 distribution:
 
-1. Complete one of the following, depending on whether you want to use an instance,
-   container service, or a bucket with your distribution.
-   - **Create a Lightsail instance to host your
-     content.** The instance serves as the origin of your distribution. The
-     origin stores the original, definitive version of your content. For more information,
-     see [Create an instance](how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md "how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md").
+1.  Complete one of the following, depending on whether you want to use an instance,
+    container service, or a bucket with your distribution.
+    - **Create a Lightsail instance to host your
+      content.** The instance serves as the origin of your distribution. The
+      origin stores the original, definitive version of your content. For more information,
+      see [Create an instance](how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md "how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md").
 
-   **Attach a Lightsail static IP to your instance.**
-   Your instance's default public IP address changes if you stop and start your instance,
-   which will break the connection between your distribution and your origin instance. A
-   static IP does not change if you stop and start your instance. For more information,
-   see [Create a static IP and attach it to an
-   instance](lightsail-create-static-ip.md "lightsail-create-static-ip.md").
+          1. **For IPv4-only and dual-stack instances**, attach
+           a Lightsail static IP to your instance. Your instance's default public IPv4
+           address changes if you stop and start your instance, which will break the
+           connection between your distribution and your origin instance. A static IP does not
+           change if you stop and start your instance. For more information, see [Create a static IP and attach it to an
+           instance](lightsail-create-static-ip.md "lightsail-create-static-ip.md").
+          2. **For IPv6-only instances**, a static IP is not
+           required. The IPv6 address persists when you stop and start your instance. It's
+           released only when you delete your instance, or disable IPv6 for your instance.
+           You cannot get the IPv6 address back after you perform either of those
+           actions.
 
-   **Upload your content and files to your instance.**
-   Your files, also known as _objects_, typically include web pages,
-   images, and media files, but can be anything that can be served over HTTP.
-   - **Create a Lightsail container service to host your website
-     or web application.** The container service serves as the origin of your
-     distribution. The origin stores the original, definitive version of your content. For
-     more information, see [Creating Amazon Lightsail container services](amazon-lightsail-creating-container-services.md "amazon-lightsail-creating-container-services.md").
-   - **Create a Lightsail bucket to store your static
-     content.** The bucket serves as the origin of your distribution. The origin
-     stores the original, definitive version of your content. For more information, see
-     [Create a bucket](amazon-lightsail-creating-buckets.md "amazon-lightsail-creating-buckets.md").
+      **Upload your content and files to your instance.**
+      Your files, also known as _objects_, typically include web pages,
+      images, and media files, but can be anything that can be served over HTTP.
 
-   Upload files to your bucket using the Lightsail console, AWS Command Line Interface (AWS CLI), and
-   AWS APIs. For more information about uploading files, see [Upload files to a
-   bucket](amazon-lightsail-uploading-files-to-a-bucket.md "amazon-lightsail-uploading-files-to-a-bucket.md").
+    - **Create a Lightsail container service to host your website
+      or web application.** The container service serves as the origin of your
+      distribution. The origin stores the original, definitive version of your content. For
+      more information, see [Creating Amazon Lightsail container services](amazon-lightsail-creating-container-services.md "amazon-lightsail-creating-container-services.md").
+    - **Create a Lightsail bucket to store your static
+      content.** The bucket serves as the origin of your distribution. The origin
+      stores the original, definitive version of your content. For more information, see
+      [Create a bucket](amazon-lightsail-creating-buckets.md "amazon-lightsail-creating-buckets.md").
 
-2. (Optional) Create a Lightsail load balancer if your website requires fault
-   tolerance. Then attach multiple copies of your instance to your load balancer. You can
-   configure your load balancer (with one or more instances attached to it) as the origin of
-   your distribution, instead of configuring your instance as the origin. For more
-   information, see [Create a load
-   balancer and attach instances to it](create-lightsail-load-balancer-and-attach-lightsail-instances.md "create-lightsail-load-balancer-and-attach-lightsail-instances.md").
+    Upload files to your bucket using the Lightsail console, AWS Command Line Interface (AWS CLI), and
+    AWS APIs. For more information about uploading files, see [Upload files to a
+    bucket](amazon-lightsail-uploading-files-to-a-bucket.md "amazon-lightsail-uploading-files-to-a-bucket.md").
+
+2.  (Optional) Create a Lightsail load balancer if your website requires fault
+    tolerance. Then attach multiple copies of your instance to your load balancer. You can
+    configure your load balancer (with one or more instances attached to it) as the origin of
+    your distribution, instead of configuring your instance as the origin. For more
+    information, see [Create a load
+    balancer and attach instances to it](create-lightsail-load-balancer-and-attach-lightsail-instances.md "create-lightsail-load-balancer-and-attach-lightsail-instances.md").
 
 ## Origin resource
 
@@ -74,11 +80,6 @@ An _origin_ is the definitive source of content for your distribution.
 When you create your distribution, you choose the Lightsail instance, container service,
 bucket, or load balancer (with one or more instances attached to it) that hosts the content of
 your website or web application.
-
-###### Note
-
-IPv6-only instances cannot be configured as the origin for a Lightsail content
-delivery network (CDN) distribution at this time.
 
 You can choose only one origin per distribution. You can change the origin at any time
 after you create your distribution. For more information, see [Change the origin of your
@@ -110,6 +111,30 @@ When you select a Lightsail bucket as the origin of your distribution, the
 **Origin protocol policy** defaults to **HTTPS only**.
 You cannot change the origin protocol policy when a bucket is the origin of your
 distribution.
+
+## Origin IP address type
+
+The origin IP address type determines which Internet Protocol version your distribution
+uses when communicating with your origin resource. After you choose an origin for your
+distribution, you can select the IP address type that your distribution should use to connect
+to the origin.
+
+You can choose one of the following origin IP address types for your distribution:
+
+- **IPv4-only** - Your distribution uses only IPv4 to communicate with
+  the origin. For instance origins, a static IP must be attached.
+- **Dual-stack** - Your distribution can use either IPv4 or IPv6 to
+  communicate with the origin. For instance origins, a static IP must be attached.
+- **IPv6-only** - Your distribution uses only IPv6 to communicate with
+  the origin. For instance origins, no static IP is required, but the instance must have
+  IPv6 connectivity.
+
+###### Note
+
+The Origin IP address type setting is only available for instance origins. When you
+select a bucket, container service, or load balancer as the origin, the
+**Origin IP address type** defaults to **IPv4-only** and
+cannot be changed.
 
 ## Caching behavior and caching presets
 

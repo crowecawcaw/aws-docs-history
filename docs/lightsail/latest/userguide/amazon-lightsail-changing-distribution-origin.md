@@ -34,6 +34,26 @@ You can choose one of the following origin protocol policies for your distributi
 The steps to edit your origin protocol policy are included in the following [Change your distribution's
 origin](#changing-distribution-origin "#changing-distribution-origin") section of this guide.
 
+## Origin IP address type
+
+The origin IP address type determines which Internet Protocol version your distribution
+uses when communicating with your origin resource. After you choose an origin for your
+distribution, you can select the IP address type that your distribution should use to connect
+to the origin.
+
+You can choose one of the following origin IP address types for your distribution:
+
+- **IPv4-only** - Your distribution uses only IPv4 to communicate with
+  the origin. For instance origins, a static IP must be attached.
+- **Dual-stack** - Your distribution can use either IPv4 or IPv6 to
+  communicate with the origin. For instance origins, a static IP must be attached.
+- **IPv6-only** - Your distribution uses only IPv6 to communicate with
+  the origin. For instance origins, no static IP is required, but the instance must have
+  IPv6 connectivity.
+
+The steps to edit your origin IP address type are included in the following [Change your distribution's
+origin](#changing-distribution-origin "#changing-distribution-origin") section of this guide.
+
 ## Change your distribution's origin
 
 Complete the following procedure to change your distribution's origin.
@@ -70,7 +90,24 @@ only**. You cannot change the origin protocol policy when a bucket is the
 origin of your distribution.
 
 ![Origin protocol policy](images/origin-protocol-policy.png) 10. Choose **HTTP only** or **HTTPS only**, then choose
-**Save** to save the origin protocol policy.
+**Save** to save the origin protocol policy. 11. (Optional) To change your origin IP address type, choose the pencil icon displayed
+next to the current origin IP address type that your distribution uses. For more
+information, see [Origin IP address
+type](#changing-distribution-origin-ip-address-type "#changing-distribution-origin-ip-address-type").
+
+This option is listed in the **Choose your origin** section of the
+page, under the origin resource you selected for your distribution.
+
+###### Note
+
+The Origin IP address type setting is only available for instance origins. When you
+select a bucket, container service, or load balancer as the origin, the
+**Origin IP address type** defaults to
+**IPv4-only** and cannot be changed.
+
+![Origin IP address type](images/origin-ip-address-type.png) 12. Choose **IPv4-only**, **Dual-stack**, or
+**IPv6-only**, then choose **Save** to save the origin
+IP address type.
 
 When you save changes to your distribution's configuration, your distribution starts to
 propagate the changes to all edge locations. Until your configuration is updated in an edge
