@@ -91,3 +91,39 @@ image ID.
 Sort-Object Name |
 Format-Table Name, ImageID -AutoSize`
 ```
+
+## Update Secure Boot certificates on Windows instances
+
+Microsoft is updating the Secure Boot certificates originally issued in 2011 to ensure
+Windows devices continue to verify trusted boot software. These older certificates
+begin expiring in June 2026. Devices that haven't received the newer 2023 certificates will
+continue to start and operate normally, and standard Windows updates will continue to
+install. However, these devices will no longer be able to receive new security protections for
+the early boot process, including updates to Windows Boot Manager, Secure Boot
+databases, revocation lists, or mitigations for newly discovered boot level vulnerabilities.
+For more information, see [Microsoft's Secure Boot
+documentation](https://aka.ms/GetSecureBoot "https://aka.ms/GetSecureBoot").
+
+###### Important
+
+Instances launched from NitroTPM enabled Windows AMIs release dated 2026.01.14
+or earlier should follow the steps to update Secure Boot certificates on Windows
+instances. For Windows AMIs release dated 2026.02.11 or later, no further action
+is needed.
+
+To update to the latest Secure Boot certificates (Microsoft Corporation KEK 2K CA 2023 and
+Windows UEFI CA 2023), you can either migrate to new instances launched from the latest
+Windows AMIs, or follow the steps below to update existing instances.
+
+1. Run Windows Update and reboot the instance if prompted.
+2. Download the following PowerShell script to the instance: [Update-EC2SecureBootCertificate.ps1](https://s3.amazonaws.com/ec2-downloads-windows/Scripts/Update-EC2SecureBootCertificate.ps1 "https://s3.amazonaws.com/ec2-downloads-windows/Scripts/Update-EC2SecureBootCertificate.ps1").
+3. Open a PowerShell command prompt as an Administrator, and run the downloaded
+   PowerShell script.
+
+```
+`.\Update-EC2SecureBootCertificate.ps1`
+```
+
+4. Reboot your instance if prompted.
+
+If you encounter errors during the certificate update, contact [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
