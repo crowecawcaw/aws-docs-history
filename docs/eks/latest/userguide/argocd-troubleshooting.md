@@ -4,17 +4,15 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Troubleshoot issues with Argo CD capabilities
 
-This topic provides troubleshooting guidance for the EKS Capability for Argo CD, including capability health checks, application sync issues, repository authentication, and multi-cluster deployments.
-
 ###### Note
 
 EKS Capabilities are fully managed and run outside your cluster.
-You don’t have access to Argo CD server logs or the `argocd` namespace.
+You do not have access to controller logs or controller namespaces.
 Troubleshooting focuses on capability health, application status, and configuration.
 
-## Capability is ACTIVE but applications aren’t syncing
+## Capability is ACTIVE but applications are not syncing
 
-If your Argo CD capability shows `ACTIVE` status but applications aren’t syncing, check the capability health and application status.
+If your Argo CD capability shows `ACTIVE` status but applications are not syncing, check the capability health and application status.
 
 **Check capability health**:
 
@@ -33,9 +31,9 @@ You can view capability health and status issues in the EKS console or using the
 ```
 # View capability status and health
 aws eks describe-capability \
-  --region region-code \
-  --cluster-name my-cluster \
-  --capability-name my-argocd
+  --region `region-code` \
+  --cluster-name `my-cluster` \
+  --capability-name `my-argocd`
 
 # Look for issues in the health section
 ```
@@ -55,20 +53,20 @@ aws eks describe-capability \
 kubectl get application -n argocd
 
 # View sync status
-kubectl get application my-app -n argocd -o jsonpath='{.status.sync.status}'
+kubectl get application `my-app` -n argocd -o jsonpath='{.status.sync.status}'
 
 # View application health
-kubectl get application my-app -n argocd -o jsonpath='{.status.health}'
+kubectl get application `my-app` -n argocd -o jsonpath='{.status.health}'
 ```
 
 **Check application conditions**:
 
 ```
 # Describe application to see detailed status
-kubectl describe application my-app -n argocd
+kubectl describe application `my-app` -n argocd
 
 # View application health
-kubectl get application my-app -n argocd -o jsonpath='{.status.health}'
+kubectl get application `my-app` -n argocd -o jsonpath='{.status.health}'
 ```
 
 ## Applications stuck in "Progressing" state
@@ -79,10 +77,10 @@ If an application shows `Progressing` but never reaches `Healthy`, check the app
 
 ```
 # View application resources
-kubectl get application my-app -n argocd -o jsonpath='{.status.resources}'
+kubectl get application `my-app` -n argocd -o jsonpath='{.status.resources}'
 
 # Check for unhealthy resources
-kubectl describe application my-app -n argocd | grep -A 10 "Health Status"
+kubectl describe application `my-app` -n argocd | grep -A 10 "Health Status"
 ```
 
 **Common causes**:
@@ -146,7 +144,7 @@ aws secretsmanager get-secret-value --secret-id `arn:aws:secretsmanager:region-c
 
 ## Multi-cluster deployment issues
 
-If applications aren’t deploying to remote clusters, verify the cluster registration and access configuration.
+If applications are not deploying to remote clusters, verify the cluster registration and access configuration.
 
 **Check cluster registration**:
 
@@ -155,7 +153,7 @@ If applications aren’t deploying to remote clusters, verify the cluster regist
 kubectl get secret -n argocd -l argocd.argoproj.io/secret-type=cluster
 
 # Verify cluster secret format
-kubectl get secret CLUSTER_SECRET_NAME -n argocd -o yaml
+kubectl get secret `CLUSTER_SECRET_NAME` -n argocd -o yaml
 ```
 
 Ensure the `server` field contains the EKS cluster ARN, not the Kubernetes API URL.
@@ -171,7 +169,7 @@ aws eks list-access-entries --cluster-name `target-cluster`
 # Describe specific access entry
 aws eks describe-access-entry \
   --cluster-name `target-cluster` \
-  --principal-arn arn:aws:iam::[.replaceable]`111122223333`:role/`my-argocd-capability-role`
+  --principal-arn `arn:aws:iam::111122223333:role/my-argocd-capability-role`
 
 ```
 

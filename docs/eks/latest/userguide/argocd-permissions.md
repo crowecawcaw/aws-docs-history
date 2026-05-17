@@ -103,7 +103,7 @@ Map AWS Identity Center users and groups to Argo CD roles when creating or updat
 
 ```
 {
-  "rbacRoleMapping": {
+  "rbacRoleMappings": {
     "ADMIN": ["AdminGroup", "alice@example.com"],
     "EDITOR": ["DeveloperGroup", "DevOpsTeam"],
     "VIEWER": ["ReadOnlyGroup", "bob@example.com"]
@@ -128,7 +128,7 @@ aws eks update-capability \
   --cluster-name `cluster` \
   --capability-name `capname` \
   --endpoint "https://eks.`ap-northeast-2`.amazonaws.com" \
-  --role-arn "arn:aws:iam::[.replaceable]`111122223333`:role/[.replaceable]`EKSCapabilityRole`" \
+  --role-arn `"arn:aws:iam::111122223333:role/EKSCapabilityRole"` \
   --configuration '{
     "argoCd": {
       "rbacRoleMappings": {
@@ -157,7 +157,7 @@ The admin account is designed for initial setup and administrative tasks like re
 
 **Best practices for admin account**:
 
-- Don’t commit account tokens to version control
+- Do not commit account tokens to version control
 - Rotate tokens immediately if exposed
 - Limit account token usage to setup and administrative tasks
 - Set short expiration times (maximum 12 hours)
@@ -350,7 +350,7 @@ Find these IDs in the AWS Identity Center console or using the AWS CLI.
 
 ```
 {
-  "rbacRoleMapping": {
+  "rbacRoleMappings": {
     "ADMIN": ["PlatformTeam", "SRETeam"]
   }
 }
@@ -362,7 +362,7 @@ ADMIN users can see and manage all project-scoped resources without additional c
 
 ```
 {
-  "rbacRoleMapping": {
+  "rbacRoleMappings": {
     "ADMIN": ["PlatformTeam"],
     "EDITOR": ["TeamLeads"],
     "VIEWER": ["AllDevelopers"]
@@ -382,7 +382,7 @@ ADMIN users can see and manage all project-scoped resources without additional c
 
 ```
 {
-  "rbacRoleMapping": {
+  "rbacRoleMappings": {
     "ADMIN": ["PlatformTeam"],
     "EDITOR": ["TeamLeads"],
     "VIEWER": ["AllDevelopers"]

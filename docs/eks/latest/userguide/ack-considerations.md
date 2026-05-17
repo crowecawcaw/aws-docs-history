@@ -44,8 +44,9 @@ For development, testing, or simple use cases, grant all necessary permissions d
       "Resource": "*",
       "Condition": {
         "StringEquals": {
-          "aws:RequestedRegion": ["us-west-2", "us-east-1"]
-        },
+          "aws:RequestedRegion": ["us-west-2", "us-east-1"],
+          "aws:ResourceTag/ManagedBy": "ACK"
+        }
       }
     }
   ]
@@ -201,7 +202,7 @@ Choose the right policy based on the resource lifecycle and your operational req
 ### Delete (default)
 
 The AWS resource is deleted when you delete the Kubernetes resource.
-This maintains consistency between your cluster and AWS, ensuring resources don’t accumulate.
+This maintains consistency between your cluster and AWS, ensuring resources do not accumulate.
 
 **When to use delete**:
 

@@ -4,7 +4,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Create an ACK capability using the AWS CLI
 
-This topic describes how to create an AWS Controllers for Kubernetes (ACK) capability using the AWS CLI.
+Create an ACK capability on your Amazon EKS cluster using the AWS CLI. This procedure walks you through creating an IAM role and verifying the capability is active.
 
 ## Prerequisites
 

@@ -4,11 +4,11 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Create an ACK capability using eksctl
 
-This topic describes how to create an AWS Controllers for Kubernetes (ACK) capability using eksctl.
+Create an ACK capability on your Amazon EKS cluster using eksctl.
 
 ###### Note
 
-The following steps require eksctl version `0.220.0` or later.
+The following steps require eksctl version `0.215.0` or later.
 To check your version, run `eksctl version`.
 
 ## Step 1: Create an IAM Capability Role
@@ -57,22 +57,6 @@ The suggested `AdministratorAccess` policy grants broad permissions and is inten
 For production use, replace this with a custom policy that grants only the permissions needed for the specific AWS services you plan to manage with ACK.
 For guidance on creating least-privilege policies, see [Configure ACK permissions](ack-permissions.md "ack-permissions.md") and [Security considerations for EKS Capabilities](capabilities-security.md "capabilities-security.md").
 
-###### Important
-
-This policy grants permissions for S3 bucket management with `"Resource": "*"`, which allows operations on all S3 buckets.
-
-For production use: \* Restrict the `Resource` field to specific bucket ARNs or name patterns \* Use IAM condition keys to limit access by resource tags \* Grant only the minimum permissions needed for your use case
-
-For other AWS services, see [Configure ACK permissions](ack-permissions.md "ack-permissions.md").
-
-Attach the policy to the role:
-
-```
-aws iam attach-role-policy \
-  --role-name ACKCapabilityRole \
-  --policy-arn arn:aws:iam::$(aws sts get-caller-identity --query Account --output text):policy/ACKS3Policy
-```
-
 ## Step 2: Create the ACK capability
 
 Create the ACK capability using eksctl.
@@ -80,8 +64,8 @@ Replace `region-code` with the AWS Region that your cluster is in and replace `m
 
 ```
 eksctl create capability \
-  --cluster [.replaceable]`my-cluster` \
-  --region [.replaceable]`region-code` \
+  --cluster `my-cluster` \
+  --region `region-code` \
   --name ack \
   --type ACK \
   --role-arn arn:aws:iam::$(aws sts get-caller-identity --query Account --output text):role/ACKCapabilityRole \
@@ -103,8 +87,8 @@ Check the capability status:
 
 ```
 eksctl get capability \
-  --cluster [.replaceable]`my-cluster` \
-  --region [.replaceable]`region-code` \
+  --cluster `my-cluster` \
+  --region `region-code` \
   --name ack
 ```
 

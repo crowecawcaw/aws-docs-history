@@ -4,7 +4,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Working with capability resources
 
-This topic describes common operations for managing capability resources across all capability types.
+List, describe, update, and delete capability resources on your Amazon EKS clusters.
 
 ## EKS capability resources
 
@@ -155,7 +155,7 @@ Get detailed information about a specific capability, including its configuratio
 
 ### AWS CLI
 
-Use the `describe-capability` command to view detailed information. Replace `region-code` with the AWS Region that your cluster is in, replace `my-cluster` with the name of your cluster, and replace `capability-name` with the capability name (ack, argocd, or kro).
+Use the `describe-capability` command to view detailed information. Replace `region-code` with the AWS Region that your cluster is in, replace `my-cluster` with the name of your cluster, and replace `capability-name` with the name you gave your capability when you created it (for example, `my-ack`, `my-argocd`, or `my-kro`).
 
 ```
 aws eks describe-capability \
@@ -207,7 +207,7 @@ aws eks update-capability \
   --region `region-code` \
   --cluster-name `my-cluster` \
   --capability-name `capability-name` \
-  --role-arn arn:aws:iam::[.replaceable]`111122223333`:role/`NewCapabilityRole`
+  --role-arn `arn:aws:iam::111122223333:role/NewCapabilityRole`
 
 ```
 

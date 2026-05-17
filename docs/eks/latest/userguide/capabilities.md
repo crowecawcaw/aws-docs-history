@@ -24,7 +24,7 @@ All Kubernetes versions supported by EKS are supported for EKS Capabilities.
 EKS Capabilities are available in all AWS commercial Regions where Amazon EKS is available.
 For a list of supported Regions, see [Amazon EKS endpoints and quotas](../../../general/latest/gr/eks.md "../../../general/latest/gr/eks.md") in the AWS General Reference.
 
-## Available Capabilities
+## Available capabilities
 
 ### AWS Controllers for Kubernetes (ACK)
 
@@ -48,7 +48,7 @@ Argo CD integrates with AWS Identity Center for authentication and authorization
 
 ### kro (Kube Resource Orchestrator)
 
-kro enables you to create custom Kubernetes APIs that compose multiple resources into higher-level abstractions, allowing platform teams to define reusable patterns for common resource combinations-cloud building blocks.
+kro enables you to create custom Kubernetes APIs that compose multiple resources into higher-level abstractions, allowing platform teams to define reusable patterns for common resource combinations—cloud building blocks.
 With kro, you can compose both Kubernetes and AWS resources together into unified abstractions, using simple syntax to enable dynamic configurations and conditional logic.
 kro enables platform teams to provide self-service capabilities with appropriate guardrails, allowing developers to provision complex infrastructure using simple, purpose-built APIs while maintaining organizational standards and best practices.
 kro resources are simply Kubernetes resources, and are specified in Kubernetes manifests which can be stored in Git, or pushed to OCI-compatible registries like Amazon ECR for broad organizational distribution.
@@ -84,7 +84,7 @@ For current pricing information, see the [Amazon EKS pricing page](https://aws.a
 You can use AWS Cost Explorer and Cost and Usage Reports to track capability costs separately from other EKS charges.
 You can tag your capabilities with cluster name, capability type, and other details for cost allocation purposes.
 
-## How EKS Capabilities Work
+## How EKS capabilities work
 
 Each capability is an AWS resource that you create on your EKS cluster.
 Once created, the capability runs in EKS and is fully managed by AWS.
@@ -112,7 +112,7 @@ All EKS Compute types are supported for use with EKS Capabilities. For more info
 For security configuration and details on IAM roles, see [Security considerations for EKS Capabilities](capabilities-security.md "capabilities-security.md").
 For multi-cluster architecture patterns, see [EKS Capabilities considerations](capabilities-considerations.md "capabilities-considerations.md").
 
-## Common Use Cases
+## Common use cases
 
 **GitOps for Applications and Infrastructure**
 

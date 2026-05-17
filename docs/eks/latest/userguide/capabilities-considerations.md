@@ -4,7 +4,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # EKS Capabilities considerations
 
-This topic covers important considerations for using EKS Capabilities, including access control design, choosing between EKS Capabilities and self-managed solutions, architectural patterns for multi-cluster deployments, and operational best practices.
+Review important considerations before deploying EKS capabilities, including access control design, choosing between managed and self-managed solutions, architectural patterns for multi-cluster deployments, and operational best practices.
 
 ## Capability IAM roles and Kubernetes RBAC
 
@@ -82,7 +82,7 @@ Capabilities are independent—you can deploy them differently across clusters b
 EKS Capabilities provide fully managed experiences for popular Kubernetes tools and controllers that run in EKS.
 This differs from self-managed solutions, which you install and operate in your cluster.
 
-### Key Differences
+### Key differences
 
 **Deployment and management**
 
@@ -137,7 +137,7 @@ Self-managed solutions provide flexibility for specialized use cases, and you ha
 
 EKS Capabilities can coexist in your cluster with self-managed solutions, and step-wise migrations are possible to achieve.
 
-### Capability-Specific Comparisons
+### Capability-specific comparisons
 
 For detailed comparisons including capability-specific features, upstream differences, and migration paths see:
 

@@ -7,7 +7,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 Argo CD Projects (AppProject) provide logical grouping and access control for Applications.
 Projects define which Git repositories, target clusters, and namespaces Applications can use, enabling multi-tenancy and security boundaries in shared Argo CD instances.
 
-## When to use Projects
+## When to use projects
 
 Use Projects to:
 
@@ -17,14 +17,14 @@ Use Projects to:
 - Enforce resource quotas and allowed resource types
 - Provide self-service application deployment with guardrails
 
-## Default Project
+## Default project
 
 Every Argo CD capability includes a `default` project that allows access to all repositories, clusters, and namespaces.
 While useful for initial testing, create dedicated projects with explicit restrictions for production use.
 
 For details on the default project configuration and how to restrict it, see [The Default Project](https://argo-cd.readthedocs.io/en/stable/user-guide/projects/#the-default-project "https://argo-cd.readthedocs.io/en/stable/user-guide/projects/#the-default-project") in the Argo CD documentation.
 
-## Create a Project
+## Create a project
 
 Create a Project by applying an `AppProject` resource to your cluster.
 
@@ -145,7 +145,7 @@ spec:
   # Destination restrictions
   destinations:
     - namespace: 'team-a-*'
-      server: https://kubernetes.default.svc
+      server: arn:aws:eks:us-west-2:111122223333:cluster/my-cluster  # Use cluster ARN from: aws eks describe-cluster
 ```
 
 ###### Note
@@ -212,7 +212,7 @@ spec:
       kind: Secret  # Prevent direct Secret creation
 ```
 
-## Assign Applications to Projects
+## Assign applications to projects
 
 When creating an Application, specify the project in the `spec.project` field:
 

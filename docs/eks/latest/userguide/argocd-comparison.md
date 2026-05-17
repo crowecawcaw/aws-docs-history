@@ -40,7 +40,7 @@ The managed capability has specific requirements for CLI usage and AppProject co
 
 - Config Management Plugins (CMPs) for custom manifest generation
 - Custom Lua scripts for resource health assessment (built-in health checks for standard resources are supported)
-- The Notifications controller
+- Notifications controller
 - Custom SSO providers (only AWS Identity Center is supported, including third-party federated identity through AWS Identity Center)
 - UI extensions and custom banners
 - Direct access to `argocd-cm`, `argocd-params`, and other configuration ConfigMaps
@@ -120,7 +120,7 @@ argocd cluster add $CLUSTER_ARN \
 
 For complete Argo CD CLI documentation, see the [Argo CD CLI reference](https://argo-cd.readthedocs.io/en/stable/user-guide/commands/argocd/ "https://argo-cd.readthedocs.io/en/stable/user-guide/commands/argocd/").
 
-## Migration Path
+## Migration path
 
 You can migrate from self-managed Argo CD to the managed capability:
 

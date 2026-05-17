@@ -303,5 +303,4 @@ For advanced configuration including label selectors, resource-specific role map
 ## Next steps
 
 - [ACK concepts](ack-concepts.md "ack-concepts.md") - Understand ACK concepts and resource lifecycle
-- [ACK concepts](ack-concepts.md "ack-concepts.md") - Learn about resource adoption and deletion policies
 - [Security considerations for EKS Capabilities](capabilities-security.md "capabilities-security.md") - Understand security best practices for capabilities

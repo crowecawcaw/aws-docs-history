@@ -709,4 +709,4 @@ The expected output will show EFA interfaces with traffic statistics.
 - [Deploy the FSx for Lustre driver](fsx-csi-create.md "fsx-csi-create.md")
 - [Optimize Amazon FSx for Lustre performance on nodes (non-EFA)](fsx-csi-tuning-non-efa.md "fsx-csi-tuning-non-efa.md")
 - [Amazon FSx for Lustre Performance](../../../fsx/latest/LustreGuide/performance.md "../../../fsx/latest/LustreGuide/performance.md")
-- [Elastic Fabric Adapter](../../../ec2/latest/userguide/efa.md "../../../ec2/latest/userguide/efa.md")
+- [Elastic Fabric Adapter](../../../AWSEC2/latest/UserGuide/efa.md "../../../AWSEC2/latest/UserGuide/efa.md")

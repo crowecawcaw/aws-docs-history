@@ -82,7 +82,8 @@ Before you install the Hybrid Nodes gateway, confirm that your environment meets
         --cluster-name `CLUSTER_NAME` \
         --namespace eks-hybrid-nodes-gateway \
         --service-account eks-hybrid-nodes-gateway \
-        --role-arn arn:aws:iam::[.replaceable]`ACCOUNT_ID`:role/EKSHybridNodesGatewayRole
+        --role-arn `arn:aws:iam::ACCOUNT_ID:role/EKSHybridNodesGatewayRole`
+
       ```
 
   Node IAM role

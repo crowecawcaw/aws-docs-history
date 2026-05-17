@@ -4,12 +4,10 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Troubleshooting EKS Capabilities
 
-This topic provides general troubleshooting guidance for EKS Capabilities, including capability health checks, common issues, and links to capability-specific troubleshooting.
-
 ###### Note
 
 EKS Capabilities are fully managed and run outside your cluster.
-You don’t have access to controller logs or controller namespaces.
+You do not have access to controller logs or controller namespaces.
 Troubleshooting focuses on capability health, resource status, and configuration.
 
 ## General troubleshooting approach
@@ -43,9 +41,10 @@ The Capabilities tab shows:
 
 ```
 aws eks describe-capability \
-  --region region-code \
-  --cluster-name my-cluster \
-  --capability-name my-capability-name
+  --region `region-code` \
+  --cluster-name `my-cluster` \
+  --capability-name `my-capability-name`
+
 ```
 
 The response includes:
@@ -57,14 +56,14 @@ The response includes:
 
 **CREATING**: Capability is being set up.
 
-**ACTIVE**: Capability is running and ready to use. If resources aren’t working as expected, check resource status and IAM permissions.
+**ACTIVE**: Capability is running and ready to use. If resources are not working as expected, check resource status and IAM permissions.
 
 **UPDATING**: Configuration changes are being applied. Wait for the status to return to `ACTIVE`.
 
 **CREATE_FAILED** or **UPDATE_FAILED**: Setup or update encountered an error. Check the health section for details. Common causes:
 
 - IAM role trust policy incorrect or missing
-- IAM role doesn’t exist or isn’t accessible
+- IAM role does not exist or is not accessible
 - Cluster access issues
 - Invalid configuration parameters
 
@@ -200,9 +199,9 @@ If a capability remains in `CREATING` state for longer than expected:
 
 ```
 aws eks describe-capability \
-  --region region-code \
-  --cluster-name my-cluster \
-  --capability-name my-capability-name \
+  --region `region-code` \
+  --cluster-name `my-cluster` \
+  --capability-name `my-capability-name` \
   --query 'capability.health'
 ```
 
@@ -212,7 +211,7 @@ aws eks describe-capability \
 
 ### Resources not being created or updated
 
-If the capability is `ACTIVE` but resources aren’t being created or updated:
+If the capability is `ACTIVE` but resources are not being created or updated:
 
 1. Check the resource status for error conditions
 2. Verify IAM permissions for the specific AWS services (ACK) or repositories (Argo CD)

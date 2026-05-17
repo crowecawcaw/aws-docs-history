@@ -4,7 +4,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Create a kro capability using the AWS CLI
 
-This topic describes how to create a kro (Kube Resource Orchestrator) capability using the AWS CLI.
+Create a kro capability on your Amazon EKS cluster using the AWS CLI. This procedure walks you through creating an IAM role and verifying the capability is active.
 
 ## Prerequisites
 
@@ -154,5 +154,4 @@ You should see the `ResourceGraphDefinition` resource type listed.
 ## Next steps
 
 - [kro concepts](kro-concepts.md "kro-concepts.md") - Understand kro concepts and resource composition
-- [kro concepts](kro-concepts.md "kro-concepts.md") - Learn about SimpleSchema, CEL expressions, and composition patterns
 - [Working with capability resources](working-with-capabilities.md "working-with-capabilities.md") - Manage your kro capability resource

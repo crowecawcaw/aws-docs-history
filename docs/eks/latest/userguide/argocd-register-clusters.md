@@ -78,7 +78,7 @@ Replace `region-code` with the AWS Region that your remote cluster is in, replac
 aws eks create-access-entry \
   --region `region-code` \
   --cluster-name `remote-cluster` \
-  --principal-arn arn:aws:iam::[.replaceable]`111122223333`:role/`ArgoCDCapabilityRole` \
+  --principal-arn `arn:aws:iam::111122223333:role/ArgoCDCapabilityRole` \
   --type STANDARD
 ```
 
@@ -91,7 +91,7 @@ For getting started quickly, you can use the `AmazonEKSClusterAdminPolicy`:
 aws eks associate-access-policy \
   --region `region-code` \
   --cluster-name `remote-cluster` \
-  --principal-arn arn:aws:iam::[.replaceable]`111122223333`:role/`ArgoCDCapabilityRole` \
+  --principal-arn `arn:aws:iam::111122223333:role/ArgoCDCapabilityRole` \
   --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy \
   --access-scope type=cluster
 ```
@@ -165,7 +165,7 @@ AWS manages connectivity between the Argo CD capability and private remote clust
 
 Simply register the private cluster using its ARN—no additional networking setup required.
 
-## Access Entry RBAC requirements
+## Access entry RBAC requirements
 
 When you create an Argo CD capability, an EKS Access Entry is automatically created for the Capability Role, but no Kubernetes RBAC permissions are granted by default.
 This intentional design follows the principle of least privilege—different use cases require different permissions.
@@ -198,7 +198,7 @@ For getting started quickly, testing, or development environments, use `AmazonEK
 aws eks associate-access-policy \
   --region `region-code` \
   --cluster-name `my-cluster` \
-  --principal-arn arn:aws:iam::[.replaceable]`111122223333`:role/`ArgoCDCapabilityRole` \
+  --principal-arn `arn:aws:iam::111122223333:role/ArgoCDCapabilityRole` \
   --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy \
   --access-scope type=cluster
 ```
@@ -222,7 +222,7 @@ For production environments, create custom Kubernetes RBAC that grants:
 aws eks associate-access-policy \
   --region `region-code` \
   --cluster-name `my-cluster` \
-  --principal-arn arn:aws:iam::[.replaceable]`111122223333`:role/`ArgoCDCapabilityRole` \
+  --principal-arn `arn:aws:iam::111122223333:role/ArgoCDCapabilityRole` \
   --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSEditPolicy \
   --access-scope type=namespace,namespaces=`app-namespace`
 

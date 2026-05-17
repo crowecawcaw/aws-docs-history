@@ -57,5 +57,4 @@ To learn more about access entries and how to configure additional permissions, 
 After creating the ACK capability:
 
 - [ACK concepts](ack-concepts.md "ack-concepts.md") - Understand ACK concepts and get started with AWS resources
-- [ACK concepts](ack-concepts.md "ack-concepts.md") - Learn about reconciliation, field exports, and resource adoption patterns
 - [Configure ACK permissions](ack-permissions.md "ack-permissions.md") - Configure IAM permissions and multi-account patterns

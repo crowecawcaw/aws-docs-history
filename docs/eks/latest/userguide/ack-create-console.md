@@ -4,7 +4,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Create an ACK capability using the Console
 
-This topic describes how to create an AWS Controllers for Kubernetes (ACK) capability using the AWS Management Console.
+Create an ACK capability on your Amazon EKS cluster using the AWS Management Console.
 
 ## Create the ACK capability
 

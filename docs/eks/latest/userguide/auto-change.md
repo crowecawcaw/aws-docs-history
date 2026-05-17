@@ -12,6 +12,10 @@ To receive notifications of all source file changes to this specific documentati
 https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/automode/auto-change.adoc.atom
 ```
 
+## May 5, 2026
+
+**Feature**: Added support for EC2 Placement Groups in EKS Auto Mode. For more information, see [Node Class Specification](create-node-class.md#auto-node-class-spec "create-node-class.md#auto-node-class-spec").
+
 ## April 10, 2026
 
 **New supported instance types**: p6-b200, p6-b300, p5e, p5en, trn2, hpc8a, x8aedz, x8i. For the full list of supported instances, see [Learn about Amazon EKS Auto Mode Managed instances](automode-learn-instances.md "automode-learn-instances.md").

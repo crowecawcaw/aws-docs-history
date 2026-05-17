@@ -9,7 +9,7 @@ With AWS Controllers for Kubernetes (ACK), you can manage workload resources and
 
 With EKS Capabilities, ACK is fully managed by AWS, eliminating the need to install, maintain, and scale ACK controllers on your clusters.
 
-## How ACK Works
+## How ACK works
 
 ACK translates Kubernetes custom resource specifications into AWS API calls.
 When you create, update, or delete a Kubernetes custom resource representing an AWS service resource, ACK makes the required AWS API calls to create, update, or delete the AWS resource.
@@ -52,7 +52,7 @@ ACK also provides read-only resources for AWS resource observation without modif
 
 To learn more and get started with the EKS Capability for ACK, see [ACK concepts](ack-concepts.md "ack-concepts.md") and [ACK considerations for EKS](ack-considerations.md "ack-considerations.md").
 
-## Supported AWS Services
+## Supported AWS services
 
 ACK supports a wide range of AWS services, including but not limited to:
 
@@ -80,7 +80,7 @@ ACK integrates with other EKS Managed Capabilities.
 - **kro (Kube Resource Orchestrator)**: Use kro to compose complex resources from ACK resources, creating higher-level abstractions that simplify resource management.
   - You can create composite custom resources with kro that define both Kubernetes resources and AWS resources. Team members can use these custom resources to quickly deploy complex applications.
 
-## Getting Started with ACK
+## Getting started with ACK
 
 To get started with the EKS Capability for ACK:
 

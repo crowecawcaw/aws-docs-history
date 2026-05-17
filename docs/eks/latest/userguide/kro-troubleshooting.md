@@ -4,12 +4,10 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Troubleshoot issues with kro capabilities
 
-This topic provides troubleshooting guidance for the EKS Capability for kro, including capability health checks, RBAC permissions, CEL expression errors, and resource composition issues.
-
 ###### Note
 
 EKS Capabilities are fully managed and run outside your cluster.
-You don’t have access to controller logs or the `kro-system` namespace.
+You do not have access to controller logs or controller namespaces.
 Troubleshooting focuses on capability health, RBAC configuration, and resource status.
 
 ## Capability is ACTIVE but ResourceGraphDefinitions aren’t working

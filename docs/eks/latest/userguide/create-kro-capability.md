@@ -53,4 +53,3 @@ To learn more about access entries and how to configure additional permissions, 
 After creating the kro capability:
 
 - [kro concepts](kro-concepts.md "kro-concepts.md") - Understand kro concepts and resource composition
-- [kro concepts](kro-concepts.md "kro-concepts.md") - Learn about SimpleSchema, CEL expressions, and resource composition patterns

@@ -4,11 +4,11 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Create a kro capability using eksctl
 
-This topic describes how to create a kro (Kube Resource Orchestrator) capability using eksctl.
+Create a kro capability on your Amazon EKS cluster using eksctl.
 
 ###### Note
 
-The following steps require eksctl version `0.220.0` or later.
+The following steps require eksctl version `0.215.0` or later.
 To check your version, run `eksctl version`.
 
 ## Step 1: Create an IAM Capability Role
@@ -59,7 +59,8 @@ eksctl create capability \
   --cluster `my-cluster` \
   --name my-kro \
   --type KRO \
-  --role-arn arn:aws:iam::[.replaceable]`111122223333`:role/KROCapabilityRole
+  --role-arn `arn:aws:iam::111122223333:role/KROCapabilityRole`
+
 ```
 
 The command returns immediately, but the capability takes some time to become active.
@@ -124,5 +125,4 @@ You should see the `ResourceGraphDefinition` resource type listed.
 ## Next steps
 
 - [kro concepts](kro-concepts.md "kro-concepts.md") - Understand kro concepts and resource composition
-- [kro concepts](kro-concepts.md "kro-concepts.md") - Learn about SimpleSchema, CEL expressions, and composition patterns
 - [Working with capability resources](working-with-capabilities.md "working-with-capabilities.md") - Manage your kro capability resource

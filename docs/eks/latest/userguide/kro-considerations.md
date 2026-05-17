@@ -4,7 +4,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # kro considerations for EKS
 
-This topic covers important considerations for using the EKS Capability for kro, including when to use resource composition, RBAC patterns, and integration with other EKS capabilities.
+Review important considerations for using the EKS managed capability for kro, including when to use resource composition, RBAC patterns, and integration with other EKS capabilities.
 
 ## When to use kro
 

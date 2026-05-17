@@ -4,11 +4,11 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Create an Argo CD capability using eksctl
 
-This topic describes how to create an Argo CD capability using eksctl.
+Create an Argo CD capability on your Amazon EKS cluster using eksctl.
 
 ###### Note
 
-The following steps require eksctl version `0.220.0` or later.
+The following steps require eksctl version `0.215.0` or later.
 To check your version, run `eksctl version`.
 
 ## Step 1: Create an IAM Capability Role
@@ -81,7 +81,7 @@ metadata:
 capabilities:
   - name: my-argocd
     type: ARGOCD
-    roleArn: arn:aws:iam::[.replaceable]`111122223333`:role/ArgoCDCapabilityRole
+    roleArn: `arn:aws:iam::111122223333:role/ArgoCDCapabilityRole`
     deletePropagationPolicy: RETAIN
     configuration:
       argocd:

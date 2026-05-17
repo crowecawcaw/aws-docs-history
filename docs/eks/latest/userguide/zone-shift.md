@@ -229,7 +229,7 @@ If you are running a stateful application, you must assess its fault tolerance, 
 
 **Does this feature work with Karpenter?**
 
-Karpenter support is currently not available with ARC zonal shift and zonal autoshift in EKS. If an AZ is impaired, you can adjust the relevant Karpenter NodePool configuration by removing the unhealthy AZ so that new worker nodes are only launched in the other AZs.
+Karpenter support is available with ARC zonal shift and zonal autoshift in EKS with [Karpenter version 1.12 or greater](https://github.com/aws/karpenter-provider-aws "https://github.com/aws/karpenter-provider-aws").
 
 **Does this feature work with EKS Fargate?**
 
