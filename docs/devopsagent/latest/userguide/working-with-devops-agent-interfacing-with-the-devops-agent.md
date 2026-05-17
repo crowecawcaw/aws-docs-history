@@ -16,6 +16,8 @@ You can access AWS DevOps Agent capabilities directly from MCP-compatible client
 
 For [Kiro](https://kiro.dev/ "https://kiro.dev/") users, a dedicated **aws-devops-agent** power is available in the [Kiro powers repository](https://github.com/kirodotdev/powers "https://github.com/kirodotdev/powers"). This power connects Kiro to AWS DevOps Agent through the AWS MCP Server. It delivers AI-powered operational intelligence directly in your IDE.
 
+For [Claude Code](https://docs.anthropic.com/en/docs/claude-code "https://docs.anthropic.com/en/docs/claude-code") users, the [sample-aws-devops-agent-claude-plugin](https://github.com/aws-samples/sample-aws-devops-agent-claude-plugin "https://github.com/aws-samples/sample-aws-devops-agent-claude-plugin") provides a pre-configured plugin that connects Claude Code to AWS DevOps Agent through the AWS MCP Server.
+
 ## Agent Client Protocol (ACP) integration
 
 You can invoke AWS DevOps Agent programmatically using the [Agent Client Protocol (ACP)](https://agentclientprotocol.com/get-started/introduction "https://agentclientprotocol.com/get-started/introduction"). For a sample implementation, see the [sample-aws-devops-agent-acp-mcp](https://github.com/aws-samples/sample-aws-devops-agent-acp-mcp "https://github.com/aws-samples/sample-aws-devops-agent-acp-mcp") repository on GitHub.

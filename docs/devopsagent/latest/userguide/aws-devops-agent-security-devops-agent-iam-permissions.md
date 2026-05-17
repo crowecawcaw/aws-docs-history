@@ -358,6 +358,7 @@ Provides full access to Amazon DevOps Agent via the AWS Management Console
 			"Sid": "AIDevOpsSupportAccess",
 			"Effect": "Allow",
 			"Action": [
+				"aidevops:DescribeServices",
 				"aidevops:DescribeSupportLevel",
 				"aidevops:EndChatForCase",
 				"aidevops:InitiateChatForCase"
@@ -432,7 +433,8 @@ Provides access to use the AWS DevOps operator web app for an Agent Space.
 				"aidevops:DescribeSupportLevel",
 				"aidevops:ListChats",
 				"aidevops:CreateChat",
-				"aidevops:SendMessage"
+				"aidevops:SendMessage",
+				"aidevops:DescribeServices"
 			],
 			"Resource": "arn:aws:aidevops:*:*:agentspace/${aws:PrincipalTag/AgentSpaceId}",
 			"Condition": {
@@ -459,6 +461,7 @@ Provides access to use the AWS DevOps operator web app for an Agent Space.
 			"Effect": "Allow",
 			"Action": [
 				"support:DescribeCases",
+				"support:DescribeServices",
 				"support:InitiateChatForCase",
 				"support:DescribeSupportLevel"
 			],
@@ -575,8 +578,7 @@ Provides permissions required by the AWS DevOps Agent to conduct investigations 
                 "budgets:Describe*",
                 "budgets:List*",
                 "ce:Describe*",
-                "ce:GetAnomalyMonitors",
-                "ce:GetAnomalySubscriptions",
+                "ce:Get*",
                 "ce:List*",
                 "chatbot:Describe*",
                 "chatbot:GetMicrosoftTeamsChannelConfiguration",
@@ -1193,6 +1195,7 @@ Provides permissions required by the AWS DevOps Agent to conduct investigations 
                 "servicecatalog:GetAttributeGroup",
                 "servicecatalog:List*",
                 "servicequotas:GetServiceQuota",
+                "servicequotas:ListServiceQuotas",
                 "ses:Describe*",
                 "ses:GetAccount",
                 "ses:GetAddonInstance",

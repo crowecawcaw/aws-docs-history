@@ -80,7 +80,7 @@ Private connections are account-level resources. After you create a private conn
 8. (Optional) For **Number of IPv4 addresses**, if you selected IPv4 or Dualstack for the IP address type, you can enter the number of IPv4 addresses per ENI for your resource gateway. The default is 16 IPv4 addresses per ENI.
 9. (Optional) For **Security groups**, select existing security groups (up to 5) to restrict what traffic is allowed to reach your target service. If you don't select any, a default security group is created.
 10. (Optional) For **Port ranges**, specify the TCP ports your target application listens on (for example, `443` or `8080-8090`). You can specify up to 11 port ranges.
-11. For **Host address**, enter the IP address or DNS name of your target service (for example, `mcp.internal.example.com` or `10.0.1.50`). The service must be reachable from the selected VPC. If you choose a DNS name, it must be resolvable from the selected VPC.
+11. For **Host address**, enter the IP address or DNS name of your target service (for example, `mcp.internal.example.com` or `10.0.1.50`). The service must be reachable from the selected VPC. If you choose a DNS name, it must be publicly resolvable.
 12. (Optional) For **Certificate public key**, if the host address you specified uses TLS certificates issued by a private certificate authority, enter the PEM-encoded public key of the certificate. This allows AWS DevOps Agent to trust the TLS connection to your target service.
 13. Choose **Create connection**.
 

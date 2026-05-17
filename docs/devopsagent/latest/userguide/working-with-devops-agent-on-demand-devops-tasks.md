@@ -22,7 +22,7 @@ AWS DevOps Agent On Demand Tasks provides comprehensive capabilities to help you
 
 ## Accessing Chat
 
-Chat is available as a persistent panel on the left side of the DevOps Agent Space web app. The left sidebar includes a **+ New chat** button, a **Pages** section for navigating to Incidents, Ops Backlog, and Topology, and a **Chats** section that displays your recent conversations. Choose **View all** to see your full conversation history.
+Chat is available as a persistent panel on the left side of the DevOps Agent Space web app. The left sidebar includes a **+ New chat** button, a **Pages** section for navigating to Incidents, Improvements, and Topology, and a **Chats** section that displays your recent conversations. Choose **View all** to see your full conversation history.
 
 Chat provides context-aware responses based on where you access it:
 

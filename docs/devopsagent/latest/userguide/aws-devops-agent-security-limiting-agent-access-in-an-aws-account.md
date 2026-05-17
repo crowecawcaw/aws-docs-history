@@ -11,6 +11,75 @@ AWS DevOps Agent uses IAM roles to access resources in two types of accounts:
 
 For either type of account, you can restrict which AWS services the agent can access, limit access to specific resources within those services, and control which regions the agent can operate in.
 
+## Understanding permission guardrails
+
+AWS DevOps Agent applies a permission guardrail to every session it creates when accessing your AWS resources. This guardrail acts as a ceiling — it defines the maximum set of permissions the agent can ever use, regardless of what permissions you grant on the IAM role.
+
+### How it works
+
+When the agent assumes your IAM role, it passes a [session policy](../../../IAM/latest/UserGuide/access_policies.md#policies_session "../../../IAM/latest/UserGuide/access_policies.md#policies_session") that limits the effective permissions for that session. The effective permissions are the intersection of:
+
+1. **Your IAM role policies** — The managed policy and any inline policies you attach to the role.
+2. **The permission guardrail** — A session policy applied by AWS DevOps Agent at assume-role time.
+
+A permission must be present in both layers to take effect. If you add a permission to your role that is not included in the guardrail, the agent cannot use it.
+
+### Default permissions
+
+The `AIDevOpsAgentAccessPolicy` managed policy provides the default set of read-only permissions the agent uses for investigations. These permissions are included in the guardrail, so they work without additional configuration.
+
+### Extending permissions beyond the default
+
+AWS DevOps Agent supports a curated set of additional permissions beyond the default managed policy. These permissions are included in the guardrail but are not enabled by default. To use them, add the specific permissions to your role as an inline policy.
+
+For example, to allow the agent to read objects from your S3 buckets during investigations, add an inline policy to your role:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::my-application-bucket",
+        "arn:aws:s3:::my-application-bucket/*"
+      ]
+    }
+  ]
+}
+```
+
+Because `s3:GetObject` and `s3:ListBucket` are included in the guardrail, this inline policy takes effect. You can scope the `Resource` to specific buckets to follow the principle of least privilege.
+
+### Supported additional permissions
+
+The following permissions are included in the guardrail and can be enabled by adding them to your role as an inline policy. These are not granted by default — you must explicitly opt in.
+
+| Service            | Actions                                                                                                                                                                                                               | Use case                                                   |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| Amazon S3          | `s3:GetObject`, `s3:ListBucket`                                                                                                                                                                                       | Read application data, logs, or configuration stored in S3 |
+| AWS Direct Connect | `directconnect:DescribeConnections`, `directconnect:DescribeDirectConnectGatewayAssociations`, `directconnect:DescribeDirectConnectGateways`, `directconnect:DescribeLags`, `directconnect:DescribeVirtualInterfaces` | Investigate network connectivity issues                    |
+
+### Permissions blocked by the guardrail
+
+If you add a permission to your role that is not in the guardrail, the agent cannot use it. This is by design — the guardrail prevents the agent from performing actions outside its intended scope, even if the role would otherwise allow them.
+
+For example, write operations like `s3:PutObject`, `ec2:TerminateInstances`, or `dynamodb:DeleteItem` are not included in the guardrail. Even if your role grants these permissions, the agent cannot perform these actions.
+
+### Summary
+
+| Layer                 | Who controls it      | Purpose                                           |
+| --------------------- | -------------------- | ------------------------------------------------- |
+| IAM role policies     | You                  | Define what you intend the agent to be able to do |
+| Permission guardrail  | AWS DevOps Agent     | Defines the maximum the agent can ever do         |
+| Effective permissions | Intersection of both | What the agent can actually do                    |
+
+This model ensures that the agent operates within a well-defined security boundary while giving you flexibility to extend its capabilities for your specific use case.
+
 ## Choosing your resource boundaries
 
 When limiting resource access, you need to include enough permissions for the agent to successfully investigate application incidents. This includes:

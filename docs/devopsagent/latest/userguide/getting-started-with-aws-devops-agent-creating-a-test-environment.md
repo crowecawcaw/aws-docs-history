@@ -6,6 +6,7 @@ This guide provides hands-on tests to validate AWS DevOps Agent’s incident res
 
 - AWS account with administrative access
 - AWS DevOps Agent Space created with and configured using the Auto create DevOps Agent role flow
+- For the EC2 test: an existing VPC with at least one subnet in the region where you'll deploy.
 
 ## Cost and safety overview
 
@@ -75,6 +76,12 @@ We'll use CloudFormation to create our test resources, which allows AWS DevOps A
            AWSTemplateFormatVersion: '2010-09-09'
            Description: 'AWS DevOps Agent EC2 CPU Test Stack'
            Parameters:
+             VpcId:
+               Type: AWS::EC2::VPC::Id
+               Description: ID of an existing VPC where the test instance will be launched.
+             SubnetId:
+               Type: AWS::EC2::Subnet::Id
+               Description: ID of an existing subnet within the selected VPC. Choose a subnet that routes to an internet gateway if you plan to connect via SSH.
              MyIP:
                Type: String
                Description: Your current IP address for SSH access (find at https://whatismyipaddress.com)
@@ -87,8 +94,8 @@ We'll use CloudFormation to create our test resources, which allows AWS DevOps A
         TestSecurityGroup:
         Type: AWS::EC2::SecurityGroup
         Properties:
-        GroupName: AWS-DevOpsAgent-test-sg
         GroupDescription: AWS DevOps Agent beta testing security group
+        VpcId: !Ref VpcId
         SecurityGroupIngress: - IpProtocol: tcp
         FromPort: 22
         ToPort: 22
@@ -109,6 +116,29 @@ We'll use CloudFormation to create our test resources, which allows AWS DevOps A
         Value: AWS-DevOpsAgent-Test-Key - Key: Purpose
         Value: AWS-DevOpsAgent-Testing
 
+        # IAM Role for Session Manager access
+
+        SSMInstanceRole:
+        Type: AWS::IAM::Role
+        Properties:
+        AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement: - Effect: Allow
+        Principal:
+        Service: ec2.amazonaws.com
+        Action: sts:AssumeRole
+        ManagedPolicyArns: - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+        Tags: - Key: Name
+        Value: AWS-DevOpsAgent-Test-SSMRole - Key: Purpose
+        Value: AWS-DevOpsAgent-Testing
+
+        # Instance profile wrapping the SSM role
+
+        SSMInstanceProfile:
+        Type: AWS::IAM::InstanceProfile
+        Properties:
+        Roles: - !Ref SSMInstanceRole
+
         # EC2 Instance for CPU testing
 
         TestInstance:
@@ -117,7 +147,10 @@ We'll use CloudFormation to create our test resources, which allows AWS DevOps A
         InstanceType: t3.micro
         ImageId: '{{resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-6.1-x86_64}}'
         KeyName: !Ref TestKeyPair
-        SecurityGroupIds: - !Ref TestSecurityGroup
+        SubnetId: !Ref SubnetId
+        SecurityGroupIds: - !GetAtt TestSecurityGroup.GroupId
+        IamInstanceProfile: !Ref SSMInstanceProfile
+        InstanceInitiatedShutdownBehavior: terminate
         UserData:
         Fn::Base64: !Sub |
         #!/bin/bash
@@ -204,7 +237,7 @@ We'll use CloudFormation to create our test resources, which allows AWS DevOps A
 
         SecurityGroupId:
         Description: Security Group ID
-        Value: !Ref TestSecurityGroup
+        Value: !GetAtt TestSecurityGroup.GroupId
 
         AlarmName:
         Description: CloudWatch Alarm Name
@@ -226,7 +259,9 @@ We'll use CloudFormation to create our test resources, which allows AWS DevOps A
 3.  **Configure stack**:
     1. **Stack name**:`AWS-DevOpsAgent-EC2-Test`
     2. **Parameters**:
-       1. **MyIP**: Leave as default `0.0.0.0/0` (you can secure this later if needed)
+       1. **VpcId**: Select an existing VPC from the dropdown.
+       2. **SubnetId**: Select a subnet within the VPC you chose. For SSH access, the subnet must route to an internet gateway, and the instance must have a public IPv4 address associated. Otherwise, the `SSHCommand` output will be empty and SSH connections won't succeed.
+       3. **MyIP**: Leave as default `0.0.0.0/0` (you can secure this later if needed)
 
     3. Click **Next**
 
@@ -246,9 +281,10 @@ We'll use CloudFormation to create our test resources, which allows AWS DevOps A
 
 Skip this step if you just want to run the automated test
 
-1. **Navigate to EC2 Security Groups**:
-   1. In AWS Console, go to **EC2** → **Security Groups**
-   2. Find`AWS-DevOpsAgent-test-sg`
+1. **Locate the security group**:
+   1. In AWS Console, go to **CloudFormation** and select the `AWS-DevOpsAgent-EC2-Test` stack
+   2. Open the **Outputs** tab and copy the value of `SecurityGroupId` (starts with `sg-`)
+   3. Go to **EC2** → **Security Groups** and paste the ID into the search bar to open the security group
 
 2. **Update SSH rule**:
    1. Select the security group → **Inbound rules** tab → **Edit inbound rules**

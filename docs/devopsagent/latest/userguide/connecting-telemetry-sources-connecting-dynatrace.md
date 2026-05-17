@@ -17,7 +17,7 @@ Onboarding your Dynatrace observability system involves three stages:
 
 1. **Connect** - Establish connection to Dynatrace by configuring account access credentials, with all the environments you may need
 2. **Enable** - Activate Dynatrace in specific Agent spaces with specific Dynatrace environments
-3. **Configure your Dynatrace environment** - download the workflows and dashboard and import into Dynatrace, making a note of the webhook details to trigger investigations in designated Agent spaces
+3. **Configure your Dynatrace environment** - use the Dynatrace SRE Agents app to complete the connection in 2 clicks
 
 ### Step 1: Connect
 
@@ -28,7 +28,7 @@ Establish connection to your Dynatrace environment
 1. Go to the **Capability Providers** page (accessible from the side navigation)
 2. Find **Dynatrace** in the **Available** providers section under **Telemetry** and click **Register**
 3. **Create OAuth client in Dynatrace, with the detailed permissions.**
-   1. See [Dynatrace documentation](https://docs.dynatrace.com/docs/shortlink/aws-devops-agent "https://docs.dynatrace.com/docs/shortlink/aws-devops-agent")
+   1. See [Dynatrace documentation](https://docs.dynatrace.com/docs/manage/identity-access-management/access-tokens-and-oauth-clients/oauth-clients#create-an-oauth2-client "https://docs.dynatrace.com/docs/manage/identity-access-management/access-tokens-and-oauth-clients/oauth-clients#create-an-oauth2-client")
    2. When ready press next
    3. You can connect multiple Dynatrace environments and later scope to specific ones for each DevOps Agent Space you may have.
 
@@ -54,11 +54,11 @@ Activate Dynatrace in a specific Agent space and configure appropriate scoping
 5. Dynatrace Environment ID - Provide the Dynatrace environment ID you would like to associate with this DevOps agent space.
 6. Enter one or more Dynatrace Entity IDs - these help DevOps agent discover your most important resources, examples might be services or applications. **If you are unsure you can press remove.**
 7. Review and press Save
-8. Copy the Webhook URL and Webhook Secret. See [Dynatrace documentation](https://docs.dynatrace.com/docs/shortlink/aws-devops-agent "https://docs.dynatrace.com/docs/shortlink/aws-devops-agent") to add these credentials to Dynatrace.
+8. Copy the Webhook URL and Webhook Secret. You will use these in the Dynatrace **SRE Agents** app to complete the connection. See the [Getting Started section](https://www.dynatrace.com/hub/detail/community-cloudsreagents/ "https://www.dynatrace.com/hub/detail/community-cloudsreagents/") for details.
 
 ### Step 3: Configure your Dynatrace environment
 
-To complete your Dynatrace set up you will need to perform certain setup steps in your Dynatrace environment. Follow the instructions in the [Dynatrace documentation](https://docs.dynatrace.com/docs/shortlink/aws-devops-agent "https://docs.dynatrace.com/docs/shortlink/aws-devops-agent").
+To complete your Dynatrace setup, use the Dynatrace **SRE Agents** app to configure the Dynatrace side of the integration in 2 clicks — no manual workflow setup is needed. For details, see the [Getting Started section](https://www.dynatrace.com/hub/detail/community-cloudsreagents/ "https://www.dynatrace.com/hub/detail/community-cloudsreagents/").
 
 #### Supported Event Schemas
 

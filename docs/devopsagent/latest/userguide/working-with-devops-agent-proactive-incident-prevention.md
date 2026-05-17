@@ -1,6 +1,6 @@
 # Proactive incident prevention
 
-AWS DevOps Agent analyzes patterns across your incident investigations to deliver targeted recommendations that continuously improve your operational posture and prevent future incidents. Access proactive incident prevention through the Ops Backlog page in the Operator Web App.
+AWS DevOps Agent analyzes patterns across your incident investigations to deliver targeted recommendations that continuously improve your operational posture and prevent future incidents. Access proactive incident prevention through the Improvements page in the Operator Web App.
 
 ## How proactive incident prevention works
 
@@ -8,7 +8,7 @@ AWS DevOps Agent evaluates recent incident investigations to identify lasting im
 
 By default, the agent automatically runs evaluations weekly. You can pause the schedule if you prefer to run evaluations only on demand. Manual evaluations are always available, which is useful when a recent investigation warrants a quick turnaround on recommended improvements.
 
-The agent identifies improvements across four categories, shown in the Recommendation Categorization chart on the Ops Backlog page:
+The agent identifies improvements across four categories, shown in the Recommendation Categorization chart on the Improvements page:
 
 - **Observability** – Recommendations to enhance monitoring, alerting, logging, and system visibility to detect issues quicker and more accurately.
 - **Infrastructure** – Recommendations to optimize resource configurations, capacity tuning, and architectural resilience.
@@ -26,7 +26,7 @@ This categorization helps you understand where your operational improvements are
 
 ## Agent summary
 
-The Agent Summary in the Ops Backlog page of the Web App provides a description of the outcomes from the last evaluation of recent incidents. The summary explains the number of incident investigations analyzed, which incidents are similar to past ones, and which recommendations were created or updated with new information.
+The Agent Summary in the Improvements page of the Web App provides a description of the outcomes from the last evaluation of recent incidents. The summary explains the number of incident investigations analyzed, which incidents are similar to past ones, and which recommendations were created or updated with new information.
 
 The summary helps you quickly understand what the agent discovered during its most recent evaluation and highlights the most notable recommendations that could have the greatest impact on your operational posture.
 
@@ -34,18 +34,18 @@ The summary helps you quickly understand what the agent discovered during its mo
 
 You can control when AWS DevOps Agent evaluates incidents and generates recommendations:
 
-- **Running evaluations manually** – Click the **Run Now** button in the Ops Backlog page to start an evaluation immediately. This is useful when a recent investigation warrants a quick turnaround on recommended improvements.
-- **Stopping active evaluations** – Click the **Stop Evaluation** button in the Ops Backlog page to halt an evaluation that is currently in progress.
+- **Running evaluations manually** – Click the **Run Now** button in the Improvements page to start an evaluation immediately. This is useful when a recent investigation warrants a quick turnaround on recommended improvements.
+- **Stopping active evaluations** – Click the **Stop Evaluation** button in the Improvements page to halt an evaluation that is currently in progress.
 
 ## Managing recommendations
 
-AWS DevOps Agent provides recommendations in the Ops Backlog page where you can review and manage them:
+AWS DevOps Agent provides recommendations in the Improvements page where you can review and manage them:
 
 - **Viewing recommendation details** – Click on a recommendation to open the recommendation details page, where you can see more information about the suggested improvement including the incidents that informed the recommendation, the expected impacts, and next steps. For recommendations with code changes, you can also view the agent-ready specification that can be handed to a coding agent for implementation.
 - **Keep** – Click ‘Keep’ to retain a recommendation in your backlog for tracking. This allows you to monitor which improvements you plan to implement and track their progress.
 - **Discard** – Click ‘Discard’ to remove a recommendation from your backlog. When you discard a recommendation, you can provide a natural language explanation of why it doesn’t meet your needs. The agent learns from this feedback and uses it to inform future recommendations, ensuring they become more aligned with your operational priorities and requirements over time.
 - **Implemented** – Click ‘Implemented’ to mark a recommendation as completed. This helps you track which improvements have been applied and allows the agent to measure the effectiveness of its recommendations over time.
-- **Automatic removal** – Recommendations that have not been marked as Keep or Implemented may be removed after approximately 6 weeks if no new incidents would have been prevented by implementing the recommendation. This ensures the Ops Backlog page focuses on the most relevant improvements for your operational challenges.
+- **Automatic removal** – Recommendations that have not been marked as Keep or Implemented may be removed after approximately 6 weeks if no new incidents would have been prevented by implementing the recommendation. This ensures the Improvements page focuses on the most relevant improvements for your operational challenges.
 - **Recommendation updates** – Existing recommendations are updated when newer incidents are found that would have been prevented by the recommendation. Updates may change the recommendation’s priority or refine the recommendation based on new insights.
 
 ## Agent-ready specifications

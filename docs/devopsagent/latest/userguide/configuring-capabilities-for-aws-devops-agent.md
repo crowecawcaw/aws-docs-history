@@ -11,6 +11,6 @@ The following capabilities help you maximize your DevOps Agent's effectiveness:
 - **Multi-Account AWS Access** - Configure secondary AWS accounts to investigate resources across your entire organization during incident response
 - **Telemetry Source Integration** - Connect monitoring platforms like Datadog, Dynatrace, Grafana, New Relic, and Splunk for comprehensive observability data access
 - **Ticketing and Chat Integration** - Connect ServiceNow, PagerDuty, and Slack to automate incident response workflows and enable team collaboration
-- **Webhook Configuration** - Allow external systems to automatically trigger DevOps Agent investigations through HTTP requests
+- **Webhook Configuration** - Allow external systems to automatically trigger DevOps Agent investigations through HTTP requests. For details on webhook setup, authentication methods, and request format, see [Invoking DevOps Agent through Webhook](configuring-capabilities-for-aws-devops-agent-invoking-devops-agent-through-webhook.md "configuring-capabilities-for-aws-devops-agent-invoking-devops-agent-through-webhook.md").
 - **Amazon EventBridge Integration** - Incorporate AWS DevOps Agent into event-driven applications by routing investigation and mitigation lifecycle events to Amazon EventBridge targets
   You can configure each capability independently based on your team's specific needs and existing tool stack. Start with the integrations most critical to your incident response workflow, then expand to additional capabilities as needed.
