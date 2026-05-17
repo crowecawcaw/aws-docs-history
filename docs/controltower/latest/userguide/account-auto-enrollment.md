@@ -3,11 +3,12 @@
 The account auto-enrollment feature is available for landing zones of version 3.1 and above.
 
 If you optionally enable this feature, you can utilize the AWS Organizations APIs and console to
-move accounts into AWS Control Tower, without creating [_inheritance drift_](governance-drift.md "governance-drift.md"). The
-account automatically receives baseline resources and control configurations from the destination
-organizational unit (OU) in AWS Control Tower. This optional capability also allows you to move
-accounts between OUs within AWS Control Tower, without creating inheritance drift, if the two OUs
-have the same baseline configuration and the same controls enabled.
+move accounts into AWS Control Tower, without creating [_inheritance
+drift_](governance-drift.md "governance-drift.md"). The account automatically receives baseline resources and
+control configurations from the destination organizational unit (OU) in AWS Control Tower. This
+optional capability also allows you to move accounts between OUs within AWS Control Tower, without
+creating inheritance drift, if the two OUs have the same baseline configuration and the same
+controls enabled.
 
 **To activate auto-enrollment:** You can select
 auto-enrollment of accounts on the landing zone **Settings** page in
@@ -16,19 +17,20 @@ the AWS Control Tower console, or by calling the AWS Control Tower `CreateLandin
 `RemediationType` parameter set to **Inheritance
 Drift**.
 
-**To apply auto-enrollment:** After selecting this option
-in your **Settings** page, you can move an account by means of the
-AWS Organizations console, the AWS Organizations `MoveAccount` API, or the AWS Control Tower
-console.
+**To enroll accounts:** After you activate auto-enrollment,
+move an account into a registered OU using the AWS Organizations console, the AWS Organizations
+`MoveAccount` API, or the AWS Control Tower console. The account automatically receives
+baseline resources and controls from that OU. This applies to both existing accounts and
+newly created accounts (which are created in the organization root by default).
 
-**To unenroll an account with auto-enrollment:** If you
-move an account outside an OU that's registered, AWS Control Tower removes all deployed baseline resources
-and controls automatically.
+**To unenroll an account:** Move the account to an OU
+that is not registered with AWS Control Tower, or to the root of the organization. AWS Control Tower removes
+all deployed baseline resources and controls automatically.
 
 ###### Note
 
-If the source and
-destination OUs in AWS Control Tower have different configurations, the account may show [Moved member account](governance-drift.md#drift-account-moved "governance-drift.md#drift-account-moved") drift.
+If the source and destination OUs in AWS Control Tower have different configurations, the
+account may show [Moved member account](governance-drift.md#drift-account-moved "governance-drift.md#drift-account-moved") drift.
 
 ## Prerequisites: Configure for auto-enrollment
 
@@ -57,7 +59,11 @@ Reference_.
   OU that's registered with AWS Control Tower is enrolled with an _eventual
   consistency_ model. This process typically takes a few minutes, up
   to several hours, depending on the number of accounts being moved.
-- **Unenrollment process:** You can use the same
-  process to unenroll your accounts from AWS Control Tower by moving them to an OU outside
-  AWS Control Tower. This process removes any roles and resources deployed by AWS Control Tower and
-  any controls enabled in AWS Control Tower.
+- **AWS Service Catalog provisioned products:**
+  Auto-enrollment does not create, modify, or terminate AWS Service Catalog
+  provisioned products. If an account was previously enrolled through Account Factory
+  and has an associated provisioned product, that provisioned product remains in
+  the management account after the account is unenrolled. To clean up orphaned
+  provisioned products, see [Deleting
+  provisioned products](../../../servicecatalog/latest/userguide/enduser-delete.md "../../../servicecatalog/latest/userguide/enduser-delete.md") in the _AWS Service
+  Catalog User Guide_.
