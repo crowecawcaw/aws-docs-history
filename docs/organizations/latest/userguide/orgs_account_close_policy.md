@@ -13,7 +13,7 @@ Service Control Policies (SCPs) don't affect IAM principals in the management ac
 
 ## Example IAM policies that prevent member account closures
 
-The following code examples show two different methods you can use to restrict
+The following code examples show different methods you can use to restrict
 member accounts from closing their account.
 
 Prevent member accounts with
@@ -57,6 +57,27 @@ accounts explicitly specified in the `Resource` element.
                 "arn:aws:organizations::555555555555:account/o-12345abcdef/123456789012",
                 "arn:aws:organizations::555555555555:account/o-12345abcdef/123456789014"
             ]
+        }
+    ]
+}
+```
+
+Prevent member accounts from closure with AWS Organizations You can attach the following policy to an identity in your management account.
+This policy prevents principals in the management account from closing any
+member account by denying both the `account:CloseAccount` and
+`organizations:CloseAccount` actions.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": [
+                "account:CloseAccount",
+                "organizations:CloseAccount"
+                ],
+            "Resource": "*"
         }
     ]
 }
