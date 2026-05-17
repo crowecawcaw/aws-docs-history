@@ -16,7 +16,7 @@ is determined by the workflow's coordination logic.
 
 The following figure shows an e-commerce order-processing workflow involving both people and automated processes:
 
-![Illustrative e-commerce example workflow](/images/amazonswf/latest/developerguide/images/swf-overview-workflow.png)
+![Illustrative e-commerce example workflow](images/swf-overview-workflow.png)
 The e-commerce application workflow starts when a customer places an order, and includes four _tasks_:
 
 1. Verify the order.
