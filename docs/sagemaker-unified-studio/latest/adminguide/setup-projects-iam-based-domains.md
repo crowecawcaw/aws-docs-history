@@ -21,6 +21,12 @@ across AWS accounts and Regions.
   attached. An inline policy is needed to allow this role to pass itself to other
   services. A trust policy is needed to allow Amazon SageMaker Unified Studio and related services to
   assume this execution IAM role.
+- During project creation, the Amazon SageMaker Unified Studio service creates the project IAM role
+  as a group profile and adds the group as a project member. An IAM role session user
+  profile is created for the project IAM role. Any logic that depends on the project
+  role being present as a user profile must be updated to handle its presence as a
+  group profile. For more information about user profiles, see
+  [Managing users in Amazon SageMaker Unified Studio](user-management.md "user-management.md").
 
 ## Create a project from the domain administration page
 

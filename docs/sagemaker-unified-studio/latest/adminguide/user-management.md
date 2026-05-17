@@ -1,122 +1,113 @@
 # Managing users in Amazon SageMaker Unified Studio
 
-By default, Amazon SageMaker unified domains support IAM user credentials. You can also
-enable single sign-on access to Amazon SageMaker Unified Studio through IAM Identity Center or a direct SAML 2.0 federation. To do this, complete the following procedures.
+Users can access the Amazon SageMaker Unified Studio data portal by using either their AWS credentials or
+single sign-on (SSO) credentials. For IAM-based domains, see
+[Managing users for IAM-based domains](manage-users-iam-based-domains.md "manage-users-iam-based-domains.md") to manage users in the domain management
+portal. For Identity Center-based domains, see
+[Managing users for Identity Center-based domains](manage-users-idc-based-domains.md "manage-users-idc-based-domains.md") to manage users in the Amazon SageMaker Unified Studio
+console.
 
-## Enable IAM Identity Center
+Amazon SageMaker Unified Studio supports IAM roles, IAM users, single sign-on users, and single sign-on
+groups. When these users are added to a domain, the service creates a unique profile for the
+user. These profiles are most relevant for programmatic interactions with Amazon SageMaker Unified Studio,
+where API requests accept a user or group profile identifier and responses return user or
+group profile information. The following types of profiles exist in Amazon SageMaker Unified Studio:
 
-To enable access to the Amazon SageMaker unified domains in the Amazon SageMaker Unified Studio for users with SSO
-credentials, complete the following procedure:
+## User profiles
+
+Amazon SageMaker Unified Studio supports both IAM identities and single sign-on (SSO) identities to
+interact with the administration portal and the builder portal. Domain administrators use
+IAM identities to perform initial administrative domain-related work in the Amazon SageMaker Unified Studio
+administration portal, including creating projects, configuring VPCs, configuring metadata
+form types and glossaries, and managing users. Data workers use their SSO corporate
+identities through to log in to the Amazon SageMaker Unified Studio portal and access projects where
+they have memberships.
+
+When an IAM identity or single sign-on identity is added as a user of the domain, a
+user profile is created. There are two types of user profiles:
+
+User profile
+
+Created from an IAM user or a single sign-on user. The first time an IAM user or
+single sign-on user logs in to the Amazon SageMaker Unified Studio portal, the service creates a user
+profile.
+
+IAM role session user profile
+
+When an IAM role principal is added to Amazon SageMaker Unified Studio, a group profile is created.
+For each user that federates with the IAM role, an IAM role session user profile is
+created. This allows the federated user to be identified when working within
+Amazon SageMaker Unified Studio. For example, the IAM role session user profile has its own space within
+a notebook.
+
+You can create user profiles programmatically through the
+`CreateUserProfile` API call:
+
+- If `userType` is `IAM_USER` or `SSO_USER`, a user
+  profile is created.
+- If `userType` is `IAM_ROLE` and `sessionName` is
+  provided, an IAM role group profile and an IAM role session user profile are
+  created.
+- If `userType` is `IAM_ROLE` and `sessionName` is
+  not provided, an IAM role user profile is created.
+
+###### Implicit and explicit user creation
+
+**Implicit user creation:** When an IAM role logs in to
+the portal for the first time, the service creates a group profile for the new IAM role
+and IAM role session user profiles for the user federating into Amazon SageMaker Unified Studio through the
+IAM role. Previously, the service created the IAM role as a user profile that was not
+session-aware. This also applies to API calls. If a user of an IAM role submits a call to
+get programmatic access, the service creates the session user profile the first time they
+log in.
+
+**Explicit user creation:** When you create users
+programmatically through the `CreateUserProfile` API, you can choose to create
+the IAM role as either a user profile that isn't session-aware or as a group profile with
+an IAM role session user profile. In the `CreateUserProfile` call:
+
+- Passing only the IAM role ARN and type creates a user profile that isn't
+  session-aware.
+- Passing the IAM role ARN, the `sessionName`, and type creates a group
+  profile (if one does not already exist) and an IAM role session user profile.
+
+## Group profiles
+
+Group profiles represent groups of Amazon SageMaker Unified Studio users. Groups can be manually created
+or mapped to identity provider groups of enterprise customers. In Amazon SageMaker Unified Studio, groups
+serve two purposes:
+
+- A group can map to a team of users in the organizational chart, reducing the
+  administrative work of a project owner when employees join or leave a team.
+- Corporate administrators use identity provider groups to manage and update user
+  statuses, and domain administrators can use these group memberships to implement domain
+  policies.
+
+Group profiles are created by default for single sign-on groups and IAM roles that are
+added to the domain.
+
+IAM roles
+
+When an IAM role is added to the domain, a group profile is created. The first
+time a user belonging to the group logs in to the Amazon SageMaker Unified Studio portal, an IAM role
+session user profile is created for the user federating through that IAM role. Project
+membership and access policies are managed through the IAM role group profile. To
+create IAM roles programmatically through the `CreateGroupProfile` API,
+supply the `rolePrincipalARN` to support IAM role session user
+profiles.
+
+Single sign-on groups
+
+When a single sign-on group is added to the domain, a group profile is created.
+The first time a user belonging to the group logs in to the Amazon SageMaker Unified Studio portal, a
+user profile is created for the user. Project membership and access policies are
+managed through the single sign-on group profile. To create single sign-on groups
+programmatically through the `CreateGroupProfile` API, supply the
+`groupIdentifier`.
 
 ###### Note
 
-The Amazon SageMaker Unified Studio domain can reside in a different AWS Region than where the IAM
-Identity Center organization instance is located using IAM Identity Center multi-Region
-support. Once IAM Identity Center multi-Region is setup follow the same steps below to
-enable single sign-on through IAM Identity Center for your domain. To use this feature,
-your IAM Identity Center instance must be connected to an external identity provider (IdP).
-For information on setting up IAM Identity Center multi-Region, see [Using IAM Identity Center across multiple AWS Regions](../../../singlesignon/latest/userguide/multi-region-iam-identity-center.md "../../../singlesignon/latest/userguide/multi-region-iam-identity-center.md").
-
-1. Navigate to the Amazon SageMaker management console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") and use the region selector in the top
-   navigation bar to choose the appropriate AWS Region.
-2. Either create a new or choose an existing Amazon SageMaker unified domain where you want
-   to configure SSO user access.
-3. On the domain's details page, either choose **Configure** next to the
-   **Configure SSO user access** in the **Next steps for your domain
-   section** or navigate to the **User management** tab and choose
-   **Configure SSO user access**.
-4. On the **Choose user authentication method**, choose the **IAM
-   Identity Center**. With IAM Identity Center, users configured in IAM Identity
-   Center get to access the domain's Amazon SageMaker Unified Studio.
-
-You are either connecting to an organization instance of the IAM Identity Center or to
-an account instance of the IAM Identity Center.
-
-    * If the account is the management account of an AWS Organization and IAM Identity
-     Center organization instance is enabled, the IAM Identity Center organization instance
-     is selected.
-    * If the account is a member account of an AWS Organization and IAM Identity Center
-     organization instance is enabled, an IAM Identity Center account instance is
-     selected.
-    * If the account is not a member account of an AWS Organization, an IAM Identity
-     Center account instance is selected.
-
-5. On the **Configure IAM Identity Center** details page, verify that your
-   domain is connected to the IAM Identity Center and then choose user and group assignment
-   method. You can choose either **Require assignments** - which allows only
-   assigned IAM Identity Center users and groups access to this domain or **Do not
-   require assignments** - which allows all authorized IAM Identity Center users and
-   groups access to this domain.
-6. On the **Review and save** page, review your choices and then choose
-   **Save**. These settings cannot be changed once you save them.
-7. If you've chosen to require assignments, use the **Add users and
-   groups** to add IAM Identity Center users and groups to your Amazon SageMaker Unified Studio
-   domain.
-
-## Enable SAML
-
-Complete the following procedure to configure SAML user access to Amazon SageMaker Unified Studio for your Amazon
-SageMaker unified domain.
-
-1. Navigate to the Amazon SageMaker management console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") and use the region selector in the top
-   navigation bar to choose the appropriate AWS Region.
-2. Either create a new or choose an existing Amazon SageMaker unified domain where you want
-   to configure SAML user access.
-3. On the domain's details page, either choose **Configure** next to the
-   **Configure SSO user access** in the **Next steps for your
-   domain** section or navigate to the **User management** tab and
-   choose **Configure SSO user access**.
-4. On the **Choose user authentication method** page, choose
-   **SAML**. With SAML, users configured through external Identity Providers
-   (IdPs) get to access the domain's Amazon SageMaker Unified Studio. Choose **Next**.
-5. On the **Configure SAML** page, specify the Identity Provider (IdP) SSO
-   URL. You must first configure a new IdP in the IAM console. You must then also choose the
-   user and group assignment method. You can choose either **Require
-   assignments** - which allows only assigned IAM Identity Center users and groups
-   access to this domain or **Do not require assignments** - which allows all
-   authorized IAM Identity Center users and groups access to this domain.
-6. On the **Review and save** page, review your choices and then choose
-   **Save**. These settings cannot be changed once you save them.
-7. If you've chosen to require assignments, use the **Add users and
-   groups** to add SAML users and groups to your domain.
-
-## Update Root Domain Unit Owner
-
-Complete the following procedure to manage root domain owners for your Amazon SageMaker
-unified domain.
-
-1. Navigate to the Amazon SageMaker management console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") and use the region selector in the top
-   navigation bar to choose the appropriate AWS Region.
-2. Either create a new or choose an existing Amazon SageMaker unified domain and the
-   nativate to the **User management** tab.
-3. You can select existing owners and then expand the **Actions** menu and
-   choose to **Remove** these owners.
-
-You can add new owners, by expanding **Add** and choosing the add SSO
-users and groups or IAM users and groups.
-
-The root domain unit owner for your Amazon SageMaker domain can be changed using AWS CLI
-or API. This procedure is helpful when the original IAM role/user no longer exists and
-ownership needs to be replaced.
-
-To use the AWS CLI to update the root domain unit owner, use the
-update-root-domain-unit-owner command. The IAM user or role initiating the call needs to have
-the datazone:UpdateRootDomainUnitOwner permission.
-
-Considerations:
-
-1. Domain ID, Current Owner, and New Owner are required.
-2. The new owner needs to exist as a user in the domain.
-3. SSO users/groups are referenced using their display name. IAM users/groups are
-   referenced using their ARN.
-
-Example command:
-
-```
-
-  aws datazone update-root-domain-unit-owner \
-  --domain-identifier DOMAIN_ID \
-  --current-owner CURRENT_OWNER \
-  --new-owner NEW_OWNER
-
-```
+During project creation, the Amazon SageMaker Unified Studio service creates the project IAM role as a
+group profile and adds the group as a project member. An IAM role session user profile
+is created for the project IAM role. Any logic that depends on the project role being present as a
+user profile must be updated to handle its presence as a group profile.
