@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 26, 2021, 21:51 UTC
-- **Edited time:** March 06, 2025, 21:22 UTC
+- **Edited time:** May 12, 2026, 18:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSECRPullThroughCache_ServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -45,7 +45,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ecr:GetDownloadUrlForLayer",
         "ecr:GetImageCopyStatus"
       ],
-      "Resource" : "*"
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
     },
     {
       "Sid" : "SecretsManager",

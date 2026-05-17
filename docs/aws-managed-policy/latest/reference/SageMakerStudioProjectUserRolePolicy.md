@@ -12,13 +12,13 @@ You can attach `SageMakerStudioProjectUserRolePolicy` to your users, groups, and
 
 - **Type**: AWS managed policy
 - **Creation time**: November 20, 2024, 21:59 UTC
-- **Edited time:** April 23, 2026, 22:12 UTC
+- **Edited time:** May 11, 2026, 20:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioProjectUserRolePolicy`
 
 ## Policy version
 
-**Policy version:** v66 (default)
+**Policy version:** v67 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -355,14 +355,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "glue:DeleteDataQualityRuleset",
         "glue:GetDataQualityModel",
         "glue:GetDataQualityModelResult",
-        "glue:GetDataQualityResult",
         "glue:GetDataQualityRuleRecommendationRun",
         "glue:GetDataQualityRuleset",
         "glue:GetDataQualityRulesetEvaluationRun",
-        "glue:ListDataQualityResults",
-        "glue:ListDataQualityRuleRecommendationRuns",
-        "glue:ListDataQualityRulesetEvaluationRuns",
-        "glue:ListDataQualityRulesets",
+        "glue:GetDataQualityResult",
         "glue:PublishDataQuality",
         "glue:PutDataQualityProfileAnnotation",
         "glue:PutDataQualityStatisticAnnotation",
@@ -390,7 +386,34 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "GlueListJobsPermissions",
+      "Sid" : "GlueDQ",
+      "Effect" : "Allow",
+      "Action" : "glue:ListDataQuality*",
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:PrincipalTag/EnableGlueWorkloadsPermissions" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "GlueDQVetl",
+      "Effect" : "Allow",
+      "Action" : [
+        "glue:GetDataQualityResult",
+        "glue:PublishDataQuality"
+      ],
+      "Resource" : [
+        "arn:aws:glue:*:*:dataQualityRuleset/dq_etl_ruleset_${aws:PrincipalTag/AmazonDataZoneProject}_*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:PrincipalTag/EnableGlueWorkloadsPermissions" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "GlueListJobs",
       "Effect" : "Allow",
       "Action" : [
         "glue:ListJobs"
@@ -404,7 +427,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "GlueVisualETLPermissions",
+      "Sid" : "GlueVisualETL",
       "Effect" : "Allow",
       "Action" : [
         "glue:GetGeneratedCode"
@@ -412,7 +435,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*"
     },
     {
-      "Sid" : "GlueCompletionsPermissions",
+      "Sid" : "GlueCompletions",
       "Effect" : "Allow",
       "Action" : [
         "glue:StartCompletion",
@@ -424,7 +447,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ]
     },
     {
-      "Sid" : "GlueJobRunnerSessionLogPermissions",
+      "Sid" : "GlueJobRunnerSessionLog",
       "Effect" : "Allow",
       "Action" : [
         "logs:CreateLogGroup",
@@ -434,7 +457,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:logs:*:*:log-group:/aws-glue/*"
     },
     {
-      "Sid" : "EC2TagsPermissionsForGlue",
+      "Sid" : "EC2TagsForGlue",
       "Effect" : "Allow",
       "Action" : [
         "ec2:DeleteTags",
@@ -482,32 +505,21 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "EmrServerlessInteractivePermissions",
+      "Sid" : "EMRS",
       "Effect" : "Allow",
       "Action" : [
         "emr-serverless:AccessInteractiveEndpoints",
         "emr-serverless:AccessLivyEndpoints",
         "emr-serverless:GetApplication",
         "emr-serverless:StartApplication",
-        "emr-serverless:StopApplication"
-      ],
-      "Resource" : "arn:aws:emr-serverless:*:*:/applications/*",
-      "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"
-        }
-      }
-    },
-    {
-      "Sid" : "EmrServerlessJobAccessPermissions",
-      "Effect" : "Allow",
-      "Action" : [
+        "emr-serverless:StopApplication",
         "emr-serverless:GetDashboardForJobRun",
-        "emr-serverless:GetJobRun"
+        "emr-serverless:GetJobRun",
+        "emr-serverless:*Session*",
+        "emr-serverless:GetResourceDashboard",
+        "emr-serverless:TagResource"
       ],
-      "Resource" : [
-        "arn:aws:emr-serverless:*:*:/applications/*/jobruns/*"
-      ],
+      "Resource" : "*",
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"
@@ -553,6 +565,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "logs:CreateLogStream",
         "logs:CreateLogGroup",
+        "logs:DescribeLogStreams",
         "logs:PutLogEvents",
         "logs:GetLogEvents",
         "logs:GetLogRecord",
@@ -587,7 +600,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "StringLike" : {
           "cloudwatch:namespace" : [
             "Glue",
-            "AWS/Glue"
+            "AWS/Glue",
+            "Glue Data Quality"
           ]
         }
       }
@@ -873,7 +887,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*"
     },
     {
-      "Sid" : "GlueJobLogGroupPermissions",
+      "Sid" : "GlueJobLogGroup",
       "Effect" : "Allow",
       "Action" : [
         "logs:DescribeLogStreams",
@@ -888,14 +902,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "logs:FilterLogEvents"
       ],
       "Resource" : [
-        "arn:aws:logs:*:*:log-group:${aws:PrincipalTag/LogGroupName}/output",
-        "arn:aws:logs:*:*:log-group:${aws:PrincipalTag/LogGroupName}/error",
-        "arn:aws:logs:*:*:log-group:${aws:PrincipalTag/LogGroupName}/output:log-stream:*",
-        "arn:aws:logs:*:*:log-group:${aws:PrincipalTag/LogGroupName}/error:log-stream:*"
+        "arn:aws:logs:*:*:log-group:${aws:PrincipalTag/LogGroupName}/*"
       ]
     },
     {
-      "Sid" : "ProjectLogGroupPermissions",
+      "Sid" : "ProjectLogGroup",
       "Effect" : "Allow",
       "Action" : [
         "logs:DescribeLogStreams",

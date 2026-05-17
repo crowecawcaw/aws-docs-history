@@ -12,13 +12,13 @@ You can attach `SageMakerStudioUserIAMDefaultExecutionPolicy` to your users, gro
 
 - **Type**: AWS managed policy
 - **Creation time**: August 18, 2025, 17:19 UTC
-- **Edited time:** March 27, 2026, 17:27 UTC
+- **Edited time:** May 11, 2026, 20:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioUserIAMDefaultExecutionPolicy`
 
 ## Policy version
 
-**Policy version:** v23 (default)
+**Policy version:** v24 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -69,9 +69,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "datazone:UpdateEnvironment",
         "datazone:UpdateProject",
         "datazone:UpdateSubscriptionRequest",
-        "datazone:CreateNotebook",
-        "datazone:UpdateNotebook",
-        "datazone:DeleteNotebook",
+        "datazone:*Notebook*",
         "datazone:CreateCell",
         "datazone:UpdateCell",
         "datazone:DeleteCell",
@@ -81,13 +79,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "datazone:DeleteCellRun",
         "datazone:BatchGetCellRun",
         "datazone:PutCellRunResult",
-        "datazone:StartNotebookCompute",
-        "datazone:StopNotebookCompute",
         "datazone:StartConversation",
         "datazone:GenerateCode",
         "datazone:SendMessage",
-        "datazone:StartNotebookImport",
-        "datazone:StartNotebookExport"
+        "datazone:CancelMessage"
       ],
       "Resource" : "*"
     },
@@ -288,18 +283,18 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
-        "ForAllValues:StringNotLike" : {
-          "aws:TagKeys" : [
-            "AmazonDataZone*",
-            "sagemaker:shared-with:*"
-          ]
-        },
         "ForAllValues:StringLike" : {
           "aws:TagKeys" : [
             "ProjectUserTag*",
             "sagemaker*",
             "sm-jumpstart*",
             "endpoint-has-jumpstart-model"
+          ]
+        },
+        "ForAllValues:StringNotLike" : {
+          "aws:TagKeys" : [
+            "AmazonDataZone*",
+            "sagemaker:shared-with:*"
           ]
         }
       }
@@ -335,27 +330,37 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "glue:StartCompletion",
         "glue:StopSession",
         "glue:UseGlueStudio",
-        "glue:TagResource",
-        "glue:UntagResource",
+        "glue:*Resource",
         "glue:*Job*",
-        "glue:TestConnection"
+        "glue:TestConnection",
+        "glue:*DataQuality*"
       ],
       "Resource" : "*"
     },
     {
-      "Sid" : "GlueSessionIsolation",
+      "Sid" : "DenyForeignSessionAccess",
       "Effect" : "Deny",
       "Action" : [
+        "athena:GetResourceDashboard",
+        "athena:GetSession",
+        "athena:GetSessionEndpoint",
+        "athena:GetSessionStatus",
+        "athena:StartSession",
+        "athena:TerminateSession",
+        "emr-serverless:*Session*",
+        "emr-serverless:*Dashboard*",
         "glue:CancelStatement",
         "glue:CreateSession",
         "glue:DeleteSession",
+        "glue:GetDashboardUrl",
         "glue:GetSession",
         "glue:GetStatement",
         "glue:RunStatement",
-        "glue:StopSession",
-        "glue:GetDashboardUrl"
+        "glue:StopSession"
       ],
       "Resource" : [
+        "arn:aws:athena:*:*:workgroup/*/session/*",
+        "arn:aws:emr-serverless:*:*:/applications/*/sessions/*",
         "arn:aws:glue:*:*:session/*"
       ],
       "Condition" : {
@@ -369,10 +374,17 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "DenyTaggingUntaggingForeignSessions",
       "Effect" : "Deny",
       "Action" : [
+        "athena:TagResource",
+        "athena:UntagResource",
+        "emr-serverless:*Resource",
         "glue:TagResource",
         "glue:UntagResource"
       ],
-      "Resource" : "arn:aws:glue:*:*:session/*",
+      "Resource" : [
+        "arn:aws:athena:*:*:workgroup/*/session/*",
+        "arn:aws:emr-serverless:*:*:/applications/*/sessions/*",
+        "arn:aws:glue:*:*:session/*"
+      ],
       "Condition" : {
         "StringNotEquals" : {
           "aws:ResourceTag/AmazonDataZoneSessionOwner" : "${aws:SourceIdentity}"
@@ -472,6 +484,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:iam::*:role/${aws:PrincipalTag/AmazonDataZonePassedRolePath}",
       "Condition" : {
         "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
           "iam:PassedToService" : [
             "bedrock.amazonaws.com",
             "glue.amazonaws.com",
@@ -481,8 +494,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "emr-serverless.amazonaws.com",
             "redshift.amazonaws.com",
             "airflow-serverless.amazonaws.com"
-          ],
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+          ]
         }
       }
     },
@@ -503,6 +515,17 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*"
     },
     {
+      "Sid" : "AirflowMWAA",
+      "Effect" : "Allow",
+      "Action" : [
+        "airflow:GetEnvironment",
+        "airflow:ListEnvironments",
+        "airflow:CreateWebLoginToken",
+        "airflow:InvokeRestApi"
+      ],
+      "Resource" : "*"
+    },
+    {
       "Sid" : "S3List",
       "Effect" : "Allow",
       "Action" : [
@@ -512,7 +535,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*"
     },
     {
-      "Sid" : "S3CrossAccount",
+      "Sid" : "CrossAccount",
       "Effect" : "Allow",
       "Action" : [
         "s3:GetObject*"
@@ -578,41 +601,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "athena:UpdatePreparedStatement"
       ],
       "Resource" : "*"
-    },
-    {
-      "Sid" : "AthenaSessionIsolation",
-      "Effect" : "Deny",
-      "Action" : [
-        "athena:StartSession",
-        "athena:GetSession",
-        "athena:TerminateSession",
-        "athena:GetSessionStatus",
-        "athena:GetSessionEndpoint",
-        "athena:GetResourceDashboard"
-      ],
-      "Resource" : [
-        "arn:aws:athena:*:*:workgroup/*/session/*"
-      ],
-      "Condition" : {
-        "StringNotEquals" : {
-          "aws:RequestTag/AmazonDataZoneSessionOwner" : "${aws:SourceIdentity}",
-          "aws:ResourceTag/AmazonDataZoneSessionOwner" : "${aws:SourceIdentity}"
-        }
-      }
-    },
-    {
-      "Sid" : "DenyTaggingUntaggingForeignAthenaSessions",
-      "Effect" : "Deny",
-      "Action" : [
-        "athena:TagResource",
-        "athena:UntagResource"
-      ],
-      "Resource" : "arn:aws:athena:*:*:workgroup/*/session/*",
-      "Condition" : {
-        "StringNotEquals" : {
-          "aws:ResourceTag/AmazonDataZoneSessionOwner" : "${aws:SourceIdentity}"
-        }
-      }
     },
     {
       "Sid" : "PrivateSecret",
@@ -708,11 +696,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
-        "StringLike" : {
-          "kms:ViaService" : "datazone.*.amazonaws.com"
-        },
         "ForAnyValue:StringEquals" : {
           "kms:EncryptionContextKeys" : "aws:datazone:domainId"
+        },
+        "StringLike" : {
+          "kms:ViaService" : "datazone.*.amazonaws.com"
         }
       }
     },
@@ -725,11 +713,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
-        "StringLike" : {
-          "kms:ViaService" : "s3.*.amazonaws.com"
-        },
         "Null" : {
           "kms:EncryptionContext:aws:s3:arn" : "false"
+        },
+        "StringLike" : {
+          "kms:ViaService" : "s3.*.amazonaws.com"
         }
       }
     },
@@ -757,11 +745,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
-        "StringLike" : {
-          "kms:ViaService" : "secretsmanager.*.amazonaws.com"
-        },
         "Null" : {
           "kms:EncryptionContext:SecretARN" : "false"
+        },
+        "StringLike" : {
+          "kms:ViaService" : "secretsmanager.*.amazonaws.com"
         }
       }
     },
@@ -778,11 +766,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
-        "StringLike" : {
-          "kms:ViaService" : "sagemaker.*.amazonaws.com"
-        },
         "Null" : {
           "kms:EncryptionContextKeys" : "false"
+        },
+        "StringLike" : {
+          "kms:ViaService" : "sagemaker.*.amazonaws.com"
         }
       }
     },
@@ -807,9 +795,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
-        "StringLike" : {
-          "kms:ViaService" : "datazone.*.amazonaws.com"
-        },
         "ForAllValues:StringEquals" : {
           "kms:GrantOperations" : [
             "Encrypt",
@@ -822,6 +807,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "RetireGrant",
             "CreateGrant"
           ]
+        },
+        "StringLike" : {
+          "kms:ViaService" : "datazone.*.amazonaws.com"
         }
       }
     },
@@ -836,11 +824,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
-        "StringLike" : {
-          "kms:ViaService" : "glue.*.amazonaws.com"
-        },
         "Null" : {
           "kms:EncryptionContextKeys" : "false"
+        },
+        "StringLike" : {
+          "kms:ViaService" : "glue.*.amazonaws.com"
         }
       }
     },
@@ -854,11 +842,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
-        "StringLike" : {
-          "kms:ViaService" : "bedrock.*.amazonaws.com"
-        },
         "Null" : {
           "kms:EncryptionContextKeys" : "false"
+        },
+        "StringLike" : {
+          "kms:ViaService" : "bedrock.*.amazonaws.com"
         }
       }
     },
@@ -870,12 +858,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:*:kms:*:*:key/*",
       "Condition" : {
-        "StringLike" : {
-          "kms:ViaService" : "airflow-serverless.*.amazonaws.com"
-        },
-        "ForAnyValue:StringEquals" : {
-          "kms:EncryptionContextKeys" : "aws:airflow-serverless:workflow-arn"
-        },
         "ForAllValues:StringEquals" : {
           "kms:GrantOperations" : [
             "Decrypt",
@@ -884,6 +866,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "GenerateDataKeyWithoutPlaintext",
             "RetireGrant"
           ]
+        },
+        "ForAnyValue:StringEquals" : {
+          "kms:EncryptionContextKeys" : "aws:airflow-serverless:workflow-arn"
+        },
+        "StringLike" : {
+          "kms:ViaService" : "airflow-serverless.*.amazonaws.com"
         }
       }
     },
@@ -956,16 +944,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "EMRServerless",
       "Effect" : "Allow",
       "Action" : [
-        "emr-serverless:ListApplications",
-        "emr-serverless:GetApplication",
-        "emr-serverless:GetDashboardForJobRun",
-        "emr-serverless:GetJobRun",
-        "emr-serverless:ListJobRunAttempts",
-        "emr-serverless:ListJobRuns",
-        "emr-serverless:ListTagsForResource",
-        "emr-serverless:StartApplication",
-        "emr-serverless:StartJobRun",
-        "emr-serverless:AccessLivyEndpoints"
+        "emr-serverless:Get*",
+        "emr-serverless:List*",
+        "emr-serverless:Start*",
+        "emr-serverless:Access*Endpoints",
+        "emr-serverless:Terminate*",
+        "emr-serverless:*Resource"
       ],
       "Resource" : "*"
     }

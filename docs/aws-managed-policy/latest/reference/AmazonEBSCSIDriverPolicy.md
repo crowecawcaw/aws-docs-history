@@ -12,13 +12,13 @@ You can attach `AmazonEBSCSIDriverPolicy` to your users, groups, and roles.
 
 - **Type**: Service role policy
 - **Creation time**: April 04, 2022, 17:24 UTC
-- **Edited time:** February 12, 2026, 18:02 UTC
+- **Edited time:** May 13, 2026, 17:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy`
 
 ## Policy version
 
-**Policy version:** v14 (default)
+**Policy version:** v15 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -34,6 +34,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "ec2:DescribeAvailabilityZones",
         "ec2:DescribeInstances",
+        "ec2:DescribeInstanceTypes",
         "ec2:DescribeSnapshots",
         "ec2:DescribeTags",
         "ec2:DescribeVolumes",

@@ -12,13 +12,13 @@ You can attach `AmazonAuroraDSQLConsoleFullAccess` to your users, groups, and ro
 
 - **Type**: AWS managed policy
 - **Creation time**: December 03, 2024, 15:36 UTC
-- **Edited time:** February 12, 2026, 18:00 UTC
+- **Edited time:** May 13, 2026, 18:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonAuroraDSQLConsoleFullAccess`
 
 ## Policy version
 
-**Policy version:** v15 (default)
+**Policy version:** v16 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -57,7 +57,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "dsql:StartRestoreJob",
         "dsql:GetRestoreJob",
         "dsql:StopRestoreJob",
-        "dsql:InjectError"
+        "dsql:InjectError",
+        "dsql:CreateStream",
+        "dsql:DeleteStream",
+        "dsql:GetStream",
+        "dsql:ListStreams",
+        "dsql:UpdateStream"
       ],
       "Resource" : "*"
     },
@@ -71,7 +76,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "cloudwatch:GetMetricData",
         "ec2:DescribeVpcEndpoints",
         "kms:ListAliases",
-        "kms:DescribeKey"
+        "kms:DescribeKey",
+        "cloudwatch:ListMetrics",
+        "kinesis:DescribeStreamSummary",
+        "kinesis:ListStreams"
       ],
       "Resource" : "*"
     },
@@ -105,6 +113,17 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "StringEquals" : {
           "iam:AWSServiceName" : "dsql.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "PassRoleForChangeStreams",
+      "Effect" : "Allow",
+      "Action" : "iam:PassRole",
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:PassedToService" : "dsql.amazonaws.com"
         }
       }
     }

@@ -12,13 +12,13 @@ You can attach `SageMakerStudioProjectRoleMachineLearningPolicy` to your users, 
 
 - **Type**: AWS managed policy
 - **Creation time**: November 20, 2024, 21:55 UTC
-- **Edited time:** February 26, 2026, 21:42 UTC
+- **Edited time:** May 13, 2026, 20:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioProjectRoleMachineLearningPolicy`
 
 ## Policy version
 
-**Policy version:** v38 (default)
+**Policy version:** v39 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -42,14 +42,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ec2:*:*:security-group/*"
       ],
       "Condition" : {
+        "ArnLike" : {
+          "ec2:Vpc" : "arn:aws:ec2:*:*:vpc/${aws:PrincipalTag/VpcId}"
+        },
         "StringEquals" : {
           "aws:CalledViaLast" : [
             "sagemaker.amazonaws.com",
             "airflow.amazonaws.com"
           ]
-        },
-        "ArnLike" : {
-          "ec2:Vpc" : "arn:aws:ec2:*:*:vpc/${aws:PrincipalTag/VpcId}"
         }
       }
     },
@@ -251,8 +251,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*",
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}",
-          "aws:PrincipalTag/EnableSageMakerMLWorkloadsPermissions" : "true"
+          "aws:PrincipalTag/EnableSageMakerMLWorkloadsPermissions" : "true",
+          "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"
         }
       }
     },
@@ -290,8 +290,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*",
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}",
-          "aws:PrincipalTag/EnableSageMakerMLWorkloadsPermissions" : "true"
+          "aws:PrincipalTag/EnableSageMakerMLWorkloadsPermissions" : "true",
+          "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"
         }
       }
     },
@@ -338,8 +338,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*",
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}",
-          "aws:PrincipalTag/EnableSageMakerMLWorkloadsPermissions" : "true"
+          "aws:PrincipalTag/EnableSageMakerMLWorkloadsPermissions" : "true",
+          "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"
         }
       }
     },
@@ -359,8 +359,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*",
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}",
-          "aws:PrincipalTag/EnableSageMakerMLWorkloadsPermissions" : "true"
+          "aws:PrincipalTag/EnableSageMakerMLWorkloadsPermissions" : "true",
+          "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"
         }
       }
     },
@@ -436,8 +436,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*",
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}",
-          "aws:PrincipalTag/EnableSageMakerMLWorkloadsPermissions" : "true"
+          "aws:PrincipalTag/EnableSageMakerMLWorkloadsPermissions" : "true",
+          "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"
         }
       }
     },
@@ -473,8 +473,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:resource-groups:*:*:group/*",
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
-          "aws:PrincipalTag/EnableSageMakerMLWorkloadsPermissions" : "true"
+          "aws:PrincipalTag/EnableSageMakerMLWorkloadsPermissions" : "true",
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -504,8 +504,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "aws:ResourceTag/sagemaker:collection" : "false"
         },
         "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
-          "aws:PrincipalTag/EnableSageMakerMLWorkloadsPermissions" : "true"
+          "aws:PrincipalTag/EnableSageMakerMLWorkloadsPermissions" : "true",
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -521,8 +521,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "aws:ResourceTag/sagemaker:collection" : "false"
         },
         "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
-          "aws:PrincipalTag/EnableSageMakerMLWorkloadsPermissions" : "true"
+          "aws:PrincipalTag/EnableSageMakerMLWorkloadsPermissions" : "true",
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -548,8 +548,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:sagemaker:*:*:user-profile/*/${aws:PrincipalTag/datazone:userId}",
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}",
-          "aws:PrincipalTag/EnableSageMakerMLWorkloadsPermissions" : "true"
+          "aws:PrincipalTag/EnableSageMakerMLWorkloadsPermissions" : "true",
+          "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"
         }
       }
     },
@@ -562,9 +562,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:sagemaker:*:*:user-profile/*",
       "Condition" : {
         "StringEquals" : {
+          "aws:PrincipalTag/EnableSageMakerMLWorkloadsPermissions" : "true",
           "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}",
-          "aws:ResourceTag/AmazonDataZoneUser" : "${aws:PrincipalTag/datazone:userId}",
-          "aws:PrincipalTag/EnableSageMakerMLWorkloadsPermissions" : "true"
+          "aws:ResourceTag/AmazonDataZoneUser" : "${aws:PrincipalTag/datazone:userId}"
         }
       }
     },
@@ -649,15 +649,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"
-        },
-        "ForAllValues:StringNotLike" : {
-          "aws:TagKeys" : [
-            "AmazonDataZone*",
-            "sagemaker:shared-with:*"
-          ]
-        },
         "ForAllValues:StringLike" : {
           "aws:TagKeys" : [
             "ProjectUserTag*",
@@ -665,6 +656,15 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "sm-jumpstart*",
             "endpoint-has-jumpstart-model"
           ]
+        },
+        "ForAllValues:StringNotLike" : {
+          "aws:TagKeys" : [
+            "AmazonDataZone*",
+            "sagemaker:shared-with:*"
+          ]
+        },
+        "StringEquals" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"
         }
       }
     },
@@ -707,14 +707,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:sagemaker:*:*:space/*",
       "Condition" : {
+        "ArnLike" : {
+          "sagemaker:OwnerUserProfileArn" : "arn:aws:sagemaker:*:*:user-profile/*/${aws:PrincipalTag/datazone:userId}"
+        },
         "StringEquals" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}",
           "sagemaker:SpaceSharingType" : [
             "Private"
           ]
-        },
-        "ArnLike" : {
-          "sagemaker:OwnerUserProfileArn" : "arn:aws:sagemaker:*:*:user-profile/*/${aws:PrincipalTag/datazone:userId}"
         }
       }
     },
@@ -751,14 +751,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:sagemaker:*:*:app/*/*/JupyterLab/*"
       ],
       "Condition" : {
+        "ArnLike" : {
+          "sagemaker:OwnerUserProfileArn" : "arn:aws:sagemaker:*:*:user-profile/*/${aws:PrincipalTag/datazone:userId}"
+        },
         "StringEquals" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}",
           "sagemaker:SpaceSharingType" : [
             "Private"
           ]
-        },
-        "ArnLike" : {
-          "sagemaker:OwnerUserProfileArn" : "arn:aws:sagemaker:*:*:user-profile/*/${aws:PrincipalTag/datazone:userId}"
         }
       }
     },
@@ -835,8 +835,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:cloudwatch:*:*:alarm:TargetTracking*",
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
-          "aws:CalledViaLast" : "application-autoscaling.amazonaws.com"
+          "aws:CalledViaLast" : "application-autoscaling.amazonaws.com",
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -909,8 +909,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:application-autoscaling:*:*:scalable-target/*",
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
-          "application-autoscaling:service-namespace" : "sagemaker"
+          "application-autoscaling:service-namespace" : "sagemaker",
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -949,13 +949,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:kms:*:*:key/${aws:PrincipalTag/KmsKeyId}",
       "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        },
         "StringLike" : {
           "kms:ViaService" : [
             "sagemaker.*.amazonaws.com"
           ]
-        },
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -973,13 +973,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "ArnEquals" : {
           "s3:AccessGrantsInstanceArn" : [
             "arn:aws:s3:*:*:access-grants/default"
           ]
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -998,13 +998,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "ArnEquals" : {
           "s3:AccessGrantsInstanceArn" : [
             "arn:aws:s3:*:*:access-grants/default"
           ]
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -1018,13 +1018,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:s3:::*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "ArnEquals" : {
           "s3:AccessGrantsInstanceArn" : [
             "arn:aws:s3:*:*:access-grants/default"
           ]
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -1039,11 +1039,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "*"
       ],
       "Condition" : {
-        "StringLike" : {
-          "kms:ViaService" : "s3.*.amazonaws.com"
-        },
         "ForAnyValue:StringEquals" : {
           "kms:EncryptionContextKeys" : "aws:s3:arn"
+        },
+        "StringLike" : {
+          "kms:ViaService" : "s3.*.amazonaws.com"
         }
       }
     },
@@ -1089,13 +1089,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        },
         "StringEqualsIfExists" : {
           "ram:RequestedResourceType" : [
             "s3:AccessGrants"
           ]
-        },
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -1196,12 +1196,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:kms:*:*:key/${aws:PrincipalTag/KmsKeyId}",
       "Condition" : {
-        "StringLike" : {
-          "kms:ViaService" : "airflow-serverless.*.amazonaws.com"
-        },
-        "ForAnyValue:StringEquals" : {
-          "kms:EncryptionContextKeys" : "aws:airflow-serverless:workflow-arn"
-        },
         "ForAllValues:StringEquals" : {
           "kms:GrantOperations" : [
             "Decrypt",
@@ -1210,6 +1204,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "GenerateDataKeyWithoutPlaintext",
             "RetireGrant"
           ]
+        },
+        "ForAnyValue:StringEquals" : {
+          "kms:EncryptionContextKeys" : "aws:airflow-serverless:workflow-arn"
+        },
+        "StringLike" : {
+          "kms:ViaService" : "airflow-serverless.*.amazonaws.com"
         }
       }
     },
@@ -1242,7 +1242,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "datazone:GenerateCode",
-        "datazone:SendMessage",
+        "datazone:List*",
+        "datazone:Search*",
+        "datazone:*Message*",
         "datazone:*Conversation*",
         "datazone:*Cell*",
         "datazone:*Notebook*"

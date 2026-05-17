@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: October 04, 2019, 17:31 UTC
-- **Edited time:** January 16, 2025, 21:37 UTC
+- **Edited time:** May 15, 2026, 21:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForLogDeliveryPolicy`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -42,6 +42,20 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceTag/LogDeliveryEnabled" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "KMSForFirehoseSSECMK",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:GenerateDataKey",
+        "kms:Decrypt"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringLike" : {
+          "kms:ViaService" : "firehose.*.amazonaws.com"
         }
       }
     }
