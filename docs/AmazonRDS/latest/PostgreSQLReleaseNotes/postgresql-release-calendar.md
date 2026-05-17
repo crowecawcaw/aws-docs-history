@@ -21,7 +21,7 @@ about support dates for major engine versions by using the AWS CLI or the RDS AP
 
 | PostgreSQL major version     | Community release date | RDS release date | Community end of life date | RDS end of standard support date | RDS start of Extended Support year 1 pricing | RDS start of Extended Support year 3 pricing | RDS end of Extended Support date |
 | ---------------------------- | ---------------------- | ---------------- | -------------------------- | -------------------------------- | -------------------------------------------- | -------------------------------------------- | -------------------------------- |
-| PostgreSQL 18                | 13 November 2025       | 14 November 2025 | November 2030              | 28 February 2031                 | 1 March 2032                                 | 1 March 2033                                 | 28 February 2034                 |
+| PostgreSQL 18                | 13 November 2025       | 14 November 2025 | November 2030              | 28 February 2031                 | 1 March 2031                                 | 1 March 2033                                 | 28 February 2034                 |
 | PostgreSQL 17                | 14 November 2024       | 14 November 2024 | November 2029              | 28 February 2030                 | 1 March 2030                                 | 1 March 2032                                 | 28 February 2033                 |
 | PostgreSQL 16                | 9 November 2023        | 20 November 2023 | November 2028              | 28 February 2029                 | 1 March 2029                                 | 1 March 2031                                 | 29 February 2032                 |
 | PostgreSQL 15                | 13 October 2022        | 27 February 2023 | November 2027              | 29 February 2028                 | 1 March 2028                                 | 1 March 2030                                 | 28 February 2031                 |
@@ -49,9 +49,11 @@ exact date when it is known.
 
 | PostgreSQL minor engine version | Community release date | RDS release date | RDS end of standard support date |
 | ------------------------------- | ---------------------- | ---------------- | -------------------------------- |
-| 18.1                            | 13 November 2025       | 14 November 2022 | March 2027                       |
-| 18.2\*\*                        | 12 February 2026       | 12 February 2026 | March 2027                       |
+| 18.4                            | 14 May 2026            | 14 May 2026      | September 2027                   |
 | 18.3                            | 26 February 2026       | 27 February 2026 | March 2027                       |
+| 18.2\*\*                        | 12 February 2026       | 12 February 2026 | March 2027                       |
+| 18.1                            | 13 November 2025       | 14 November 2025 | March 2027                       |
+| 17.10                           | 14 May 2026            | 14 May 2026      | September 2027                   |
 | 17.9                            | 26 February 2026       | 27 February 2026 | March 2027                       |
 | 17.8\*\*                        | 12 February 2026       | 12 February 2026 | March 2027                       |
 | 17.7                            | 13 November 2025       | 13 November 2025 | March 2027                       |
@@ -61,6 +63,7 @@ exact date when it is known.
 | 17.3\*\*                        | 13 February 2025       | 13 February 2025 | May 2026                         |
 | 17.2                            | 21 November 2024       | 21 November 2024 | May 2026                         |
 | 17.1\*\*                        | 14 November 2024       | 14 November 2024 | May 2026                         |
+| 16.14                           | 14 May 2026            | 14 May 2026      | September 2027                   |
 | 16.13                           | 26 February 2026       | 27 February 2026 | March 2027                       |
 | 16.12\*\*                       | 12 February 2026       | 12 February 2026 | March 2027                       |
 | 16.11                           | 13 November 2025       | 13 November 2025 | March 2027                       |
@@ -70,6 +73,7 @@ exact date when it is known.
 | 16.7\*\*                        | 13 February 2025       | 13 February 2025 | May 2026                         |
 | 16.6                            | 21 November 2024       | 21 November 2024 | May 2026                         |
 | 16.5\*\*                        | 14 November 2024       | 14 November 2024 | May 2026                         |
+| 15.18                           | 14 May 2026            | 14 May 2026      | September 2027                   |
 | 15.17                           | 26 February 2026       | 27 February 2026 | March 2027                       |
 | 15.16\*\*                       | 12 February 2026       | 12 February 2026 | March 2027                       |
 | 15.15                           | 13 November 2025       | 13 November 2025 | March 2027                       |
@@ -79,6 +83,7 @@ exact date when it is known.
 | 15.11\*\*                       | 13 February 2025       | 13 February 2025 | May 2026                         |
 | 15.10                           | 21 November 2024       | 21 November 2024 | May 2026                         |
 | 15.9\*\*                        | 14 November 2024       | 14 November 2024 | May 2026                         |
+| 14.23                           | 14 May 2026            | 14 May 2026      | September 2027                   |
 | 14.22                           | 26 February 2026       | 27 February 2026 | March 2027                       |
 | 14.21\*\*                       | 12 February 2026       | 12 February 2026 | March 2027                       |
 | 14.20                           | 13 November 2025       | 13 November 2025 | February 2027                    |
@@ -118,9 +123,12 @@ exact date when it’s known.
 
 | Minor engine version | Community release date | RDS release date  | RDS end of Extended Support date |
 | -------------------- | ---------------------- | ----------------- | -------------------------------- |
+| 13.23-rds.20260224   | Not applicable         | 15 May 2026       | 30 September 2027                |
+| 12.22-rds.20260224   | Not applicable         | 15 May 2026       | 30 September 2027                |
 | 12.22-rds.20250814\* | Not applicable         | 29 September 2025 | 30 September 2026                |
 | 12.22-rds.20250508\* | Not applicable         | 4 June 2025       | 30 September 2026                |
 | 12.22-rds.20250220\* | Not applicable         | 3 April 2025      | 30 September 2026                |
+| 11.22-rds.20260224   | Not applicable         | 15 May 2026       | 30 September 2027                |
 | 11.22-rds.20250814\* | Not applicable         | 29 September 2025 | 30 September 2026                |
 | 11.22-rds.20250508\* | Not applicable         | 4 June 2025       | 30 September 2026                |
 | 11.22-rds.20250220\* | Not applicable         | 3 April 2025      | 30 September 2026                |
