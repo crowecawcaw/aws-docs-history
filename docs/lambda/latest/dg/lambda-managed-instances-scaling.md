@@ -28,7 +28,7 @@ Lambda Managed Instances uses a distributed architecture to manage scaling:
 
 ## Adjusting scaling behavior
 
-You can customize the scaling behavior of Managed Instances through four controls:
+You can customize the scaling behavior of Managed Instances through five controls:
 
 ### Function level controls
 
@@ -57,9 +57,36 @@ Set the maximum concurrency per execution environment.
 
 **Important:** Since Lambda Managed Instances are meant for multi-concurrent applications, execution environments with very low concurrency may experience throttles when scaling.
 
+#### 3. Execution environments per function
+
+Set the minimum and maximum number of execution environments for your function.
+
+**Default behavior:** Lambda maintains a default minimum of 3 execution environments to ensure high availability across Availability Zones.
+
+**Adjustment guidelines:**
+
+- **Set the minimum:** Provision capacity for baseline traffic and reduce throttles during sudden bursts.
+- **Set the maximum:** Cap the number of execution environments to control scale-out and prevent noisy neighbor issues when multiple functions share a Capacity Provider.
+- **Deactivate the function:** Set both minimum and maximum to 0 to deactivate a function without deleting it.
+
+**Example:**
+
+```
+aws lambda put-function-scaling-config \
+  --function-name my-lmi-function \
+  --qualifier '$LATEST.PUBLISHED' \
+  --function-scaling-config MinExecutionEnvironments=5,MaxExecutionEnvironments=20 \
+  --region us-east-1
+```
+
+**Important notes:**
+
+- **Qualifier scope:** These configurations apply at the function level for each qualified ARN. When set on `$LATEST.PUBLISHED`, the configuration propagates to future `$LATEST.PUBLISHED` versions. When set on a specific version, newly published versions revert to the default values.
+- **Paired configuration:** You must set both the minimum and maximum values together. Any unspecified setting reverts to its default value. Valid values for both `MinExecutionEnvironments` and `MaxExecutionEnvironments` range from 0 to 15000.
+
 ### Capacity provider level controls
 
-#### 3. Target resource utilization
+#### 4. Target resource utilization
 
 Choose your own target for CPU utilization consumption.
 
@@ -70,16 +97,96 @@ Choose your own target for CPU utilization consumption.
 - If your workload is very steady or if your application is not sensitive to throttles, you may set the target to a high level to achieve higher utilization and lower costs
 - If you want to maintain headroom for bursts of traffic, you can set resource targets to a low level, which will require more capacity
 
-#### 4. Instance type selection
+#### 5. Instance type selection
 
 Set allowed or excluded instance types.
 
-**Default behavior:** Lambda chooses the best instance types for your workload. We recommend letting Lambda Managed Instances choose instance types for you, as restricting the number of possible instance types may result in lower availability.
+**Default behavior:** Lambda chooses the best instance types for your workload. Letting Lambda Managed Instances choose instance types is recommended, as restricting the number of possible instance types may result in lower availability.
 
 **Custom configuration:**
 
 - **Specific hardware requirements:** Set allowed instance types to a list of compatible instances. For example, if you have an application that requires high network bandwidth, you can select several n instance types
 - **Cost optimization:** For testing or development environments, you might choose smaller instance types, like m7a.large instance types
+
+## Scheduled scaling
+
+Use [Amazon EventBridge Scheduler](../../../scheduler/latest/UserGuide/managing-targets-universal.md "../../../scheduler/latest/UserGuide/managing-targets-universal.md") to adjust your function's minimum and maximum execution environments on a recurring or one-time schedule. This is useful for predictable traffic patterns, such as scaling up before peak hours and scaling down during off-peak hours.
+
+**Scheduler configuration:**
+
+- Create an EventBridge Scheduler execution role or use an existing role that grants permission to call `lambda:PutFunctionScalingConfig` on your target function.
+- Create a schedule using a cron or rate expression, targeting the `PutFunctionScalingConfig` API as a universal target. Specify the new `MinExecutionEnvironments` and `MaxExecutionEnvironments` values in the Input payload.
+
+**Example 1: Scale to handle planned peak traffic**
+
+Create two schedules to scale up before peak hours and scale down afterward. Each schedule targets the `PutFunctionScalingConfig` API with updated `MinExecutionEnvironments` and `MaxExecutionEnvironments` values.
+
+Scale up at 8:00 AM UTC (min=100, max=1000):
+
+```
+aws scheduler create-schedule \
+  --name "ScaleUpLambdaManagedInstances" \
+  --schedule-expression "cron(0 8 * * ? *)" \
+  --flexible-time-window '{"Mode": "OFF"}' \
+  --target '{
+    "Arn": "arn:aws:scheduler:::aws-sdk:lambda:PutFunctionScalingConfig",
+    "RoleArn": "arn:aws:iam::<account-id>:role/eventbridge-scheduler-role",
+    "Input": "{\"FunctionName\": \"my-lmi-function\", \"Qualifier\": \"$LATEST.PUBLISHED\", \"FunctionScalingConfig\": {\"MinExecutionEnvironments\": 100, \"MaxExecutionEnvironments\": 1000}}"
+  }'
+```
+
+Scale down at 6:00 PM UTC (min=5, max=20):
+
+```
+aws scheduler create-schedule \
+  --name "ScaleDownLambdaManagedInstances" \
+  --schedule-expression "cron(0 18 * * ? *)" \
+  --flexible-time-window '{"Mode": "OFF"}' \
+  --target '{
+    "Arn": "arn:aws:scheduler:::aws-sdk:lambda:PutFunctionScalingConfig",
+    "RoleArn": "arn:aws:iam::<account-id>:role/eventbridge-scheduler-role",
+    "Input": "{\"FunctionName\": \"my-lmi-function\", \"Qualifier\": \"$LATEST.PUBLISHED\", \"FunctionScalingConfig\": {\"MinExecutionEnvironments\": 5, \"MaxExecutionEnvironments\": 20}}"
+  }'
+```
+
+**Example 2: Deactivate during off-peak hours and reactivate**
+
+Setting both `MinExecutionEnvironments` and `MaxExecutionEnvironments` to 0 deactivates the function version without deleting it. A deactivated function does not automatically scale back up with traffic. You must explicitly reactivate it by setting non-zero values through another scheduled action.
+
+Deactivate at 10:00 PM UTC (min=0, max=0):
+
+```
+aws scheduler create-schedule \
+  --name "DeactivateLambdaManagedInstances" \
+  --schedule-expression "cron(0 22 * * ? *)" \
+  --flexible-time-window '{"Mode": "OFF"}' \
+  --target '{
+    "Arn": "arn:aws:scheduler:::aws-sdk:lambda:PutFunctionScalingConfig",
+    "RoleArn": "arn:aws:iam::<account-id>:role/eventbridge-scheduler-role",
+    "Input": "{\"FunctionName\": \"my-lmi-function\", \"Qualifier\": \"$LATEST.PUBLISHED\", \"FunctionScalingConfig\": {\"MinExecutionEnvironments\": 0, \"MaxExecutionEnvironments\": 0}}"
+  }'
+```
+
+Reactivate at 7:00 AM UTC (min=10, max=20):
+
+```
+aws scheduler create-schedule \
+  --name "ReactivateLambdaManagedInstances" \
+  --schedule-expression "cron(0 7 * * ? *)" \
+  --flexible-time-window '{"Mode": "OFF"}' \
+  --target '{
+    "Arn": "arn:aws:scheduler:::aws-sdk:lambda:PutFunctionScalingConfig",
+    "RoleArn": "arn:aws:iam::<account-id>:role/eventbridge-scheduler-role",
+    "Input": "{\"FunctionName\": \"my-lmi-function\", \"Qualifier\": \"$LATEST.PUBLISHED\", \"FunctionScalingConfig\": {\"MinExecutionEnvironments\": 10, \"MaxExecutionEnvironments\": 20}}"
+  }'
+```
+
+**Adjustment guidelines:**
+
+- For workloads with predictable peaks, create multiple schedules to match your traffic pattern: one to scale up your function before peak hours, and another to scale down after peak hours. Each schedule follows the same pattern with updated `MinExecutionEnvironments` and `MaxExecutionEnvironments` values.
+- Scheduled scaling adjusts the provisioned floor and ceiling of execution environments, but actual scaling between min and max still responds to CPU utilization and concurrency saturation.
+- If your traffic more than doubles within 5 minutes of a scheduled scale-up, you might still experience throttles as capacity is provisioned.
+- When scaling to zero to deactivate a function, remember that reactivation requires an explicit `PutFunctionScalingConfig` call with non-zero values.
 
 ## Next steps
 

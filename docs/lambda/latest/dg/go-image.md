@@ -23,7 +23,7 @@ Go is implemented differently than other managed runtimes. Because Go compiles n
 | Name            | Identifier        | Operating system  | Deprecation date | Block function create | Block function update |
 | --------------- | ----------------- | ----------------- | ---------------- | --------------------- | --------------------- |
 | OS-only Runtime | `provided.al2023` | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
-| OS-only Runtime | `provided.al2`    | Amazon Linux 2    | Jul 31, 2026     | Aug 31, 2026          | Sep 30, 2026          |
+| OS-only Runtime | `provided.al2`    | Amazon Linux 2    | Jul 31, 2026     | Feb 1, 2027           | Mar 3, 2027           |
 
 Amazon Elastic Container Registry Public Gallery: [gallery.ecr.aws/lambda/provided](https://gallery.ecr.aws/lambda/provided "https://gallery.ecr.aws/lambda/provided")
 
