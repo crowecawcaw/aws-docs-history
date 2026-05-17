@@ -317,18 +317,31 @@ However, note the following functionality:
 
 ## Cases
 
-| UI name                    | API name             | Use                                                                            |
-| -------------------------- | -------------------- | ------------------------------------------------------------------------------ |
-| Audit History<br>• View    | CaseHistory.View     | View the audit history of cases in the agent<br>application.                   |
-| Cases<br>• Create          | Cases.Create         | [Create cases in the agent<br>application](create-cases.md "create-cases.md"). |
-| Cases<br>• View            | Cases.View           | View cases in the agent application.                                           |
-| Cases<br>• Edit            | Cases.Edit           | Edit cases in the agent application.                                           |
-| Case Fields<br>• Create    | CaseFields.Create    | [Create case fields](case-fields.md "case-fields.md").                         |
-| Case Fields<br>• View      | CaseFields.View      | View case fields.                                                              |
-| Case Fields<br>• Edit      | CaseFields.Edit      | Edit case fields.                                                              |
-| Case Templates<br>• Create | CaseTemplates.Create | [Create case<br>templates](case-templates.md "case-templates.md").             |
-| Case Templates<br>• View   | CaseTemplates.View   | View case templates.                                                           |
-| Case Templates<br>• Edit   | CaseTemplates.Edit   | Edit case templates.                                                           |
+| UI name                                  | API name                        | Use                                                                            |
+| ---------------------------------------- | ------------------------------- | ------------------------------------------------------------------------------ |
+| Audit History<br>• View                  | CaseHistory.View                | View the audit history of cases in the agent<br>application.                   |
+| Cases<br>• Create                        | Cases.Create                    | [Create cases in the agent<br>application](create-cases.md "create-cases.md"). |
+| Cases<br>• View                          | Cases.View                      | View cases in the agent application.                                           |
+| Cases<br>• Edit                          | Cases.Edit                      | Edit cases in the agent application.                                           |
+| Case Fields<br>• Create                  | CaseFields.Create               | [Create case fields](case-fields.md "case-fields.md").                         |
+| Case Fields<br>• View                    | CaseFields.View                 | View case fields.                                                              |
+| Case Fields<br>• Edit                    | CaseFields.Edit                 | Edit case fields.                                                              |
+| Case Templates<br>• Create               | CaseTemplates.Create            | [Create case<br>templates](case-templates.md "case-templates.md").             |
+| Case Templates<br>• View                 | CaseTemplates.View              | View case templates.                                                           |
+| Case Templates<br>• Edit                 | CaseTemplates.Edit              | Edit case templates.                                                           |
+| Cases<br>• Delete                        | Cases.Delete                    | Delete any case in the domain.                                                 |
+| My Cases<br>• Delete                     | MyCases.Delete                  | Delete cases the user created.                                                 |
+| Case Comments<br>• Edit                  | CaseComments.Edit               | Edit any comment on a case.                                                    |
+| Case Comments<br>• Delete                | CaseComments.Delete             | Delete any comment on a case.                                                  |
+| My Case Comments<br>• Edit               | MyCaseComments.Edit             | Edit comments the user authored.                                               |
+| My Case Comments<br>• Delete             | MyCaseComments.Delete           | Delete comments the user authored.                                             |
+| Case Custom Related Items<br>• Edit      | CaseCustomRelatedItems.Edit     | Edit any custom related item on a case.                                        |
+| Case Custom Related Items<br>• Delete    | CaseCustomRelatedItems.Delete   | Delete any custom related item from a case.                                    |
+| My Case Custom Related Items<br>• Edit   | MyCaseCustomRelatedItems.Edit   | Edit custom related items the user created.                                    |
+| My Case Custom Related Items<br>• Delete | MyCaseCustomRelatedItems.Delete | Delete custom related items the user created.                                  |
+| Case Contacts<br>• Delete                | CaseContacts.Delete             | Remove any contact associated with a case.                                     |
+| My Case Contacts<br>• Delete             | MyCaseContacts.Delete           | Remove contact associations the user created.                                  |
+| Case Files<br>• Delete                   | CaseFiles.Delete                | Delete any file attached to a case.                                            |
 
 ## Outbound Campaigns
 

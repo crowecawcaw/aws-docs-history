@@ -11,6 +11,7 @@ The following tables list the various Connect Customer feature specifications.
 
 - [Chat feature
   specifications](#feature-limits-chat "#feature-limits-chat")
+- [Chat message size limits by channel](#chat-message-size-limits "#chat-message-size-limits")
 - [WhatsApp business messaging feature specifications](#whatsapp-specs "#whatsapp-specs")
 - [Email feature
   specifications](#email-feature-specs "#email-feature-specs")
@@ -56,7 +57,7 @@ The following tables list the various Connect Customer feature specifications.
 | People who can monitor the same agent chat at the same time<br>regardless of whether the [Enable Multi-Party Chats and Enhanced Monitoring for<br>Chat](monitor-barge.md#monitor-barge-set-up "monitor-barge.md#monitor-barge-set-up") capability is enabled for an instance | 5<br>For example, you can have a group of 5 people monitor a chat<br>at the same time, and then a different group of 5 people monitor<br>a different chat at the same time, and so on.<br>The total number of participants on the chat would look like<br>this:<br>1. Customer<br>2. Agent<br>3. Supervisor who can monitor the chat but not barge<br>in<br>4. Supervisor who can monitor the chat but not barge<br>in<br>5. Supervisor who can monitor the chat but not barge<br>in<br>6. Supervisor who can monitor the chat but not barge<br>in<br>7. Supervisor who can monitor the chat but not barge<br>in |
 | Supervisors who can barge in on a chat between an agent and a<br>customer when the [Enable<br>Multi-Party Chats and Enhanced Monitoring for Chat](monitor-barge.md#monitor-barge-set-up "monitor-barge.md#monitor-barge-set-up")<br>capability enabled for an instance       | 1<br>Only 1 supervisor can be in barged in mode for a given<br>chat.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | Total duration per chat                                                                                                                                                                                                                                                      | Up to 7 days, including wait time<br>• The default is 25 hours. You configure the chat<br>duration using [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") API and add the<br>`ChatDurationInMinutes` parameter.<br>• Minimum configurable chat duration is 1 hour (60<br>minutes).<br>• Maximum configurable chat duration is 7 days (10,080<br>minutes).                                                                                                                                                                                                   |
-| Characters per chat message                                                                                                                                                                                                                                                  | 1024                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Maximum message size                                                                                                                                                                                                                                                         | Varies by channel and direction. See [Chat message size limits by channel](#chat-message-size-limits "#chat-message-size-limits").                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | Open websocket connections per chat participant                                                                                                                                                                                                                              | 5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | Chat Amazon Lex bot integration timeout                                                                                                                                                                                                                                      | 10 seconds<br>The maximum time within which the Amazon Lex bot must respond to<br>the chat customer's prompt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Past chat transcript file size. This applies to [persistent chat](chat-persistence.md "chat-persistence.md").                                                                                                                                                                | 5MB                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
@@ -65,9 +66,31 @@ The following tables list the various Connect Customer feature specifications.
 | File types supported for attachments to cases, chats,<br>or tasks                                                                                                                                                                                                            | .csv, .doc, .docx, .heic, .jfif, .jpeg, .jpg, .mov, .mp4, .pdf,<br>.png, .ppt, .pptx, .rtf, .txt, .wav, .xls, .xlsx<br>Administrators can also configure custom file extensions through<br>the Connect Customer admin website or the Connect Customer API.                                                                                                                                                                                                                                                                                                                                                       |
 | Maximum file size for an attachment to a case, chat,<br>or task                                                                                                                                                                                                              | 20 MB (configurable up to 100 MB)<br>NoteAdministrators can configure up to<br>100 MB through the Connect Customer admin website or the Connect Customer API.                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
+## Chat message size limits by channel
+
+The following table lists the maximum message size for each messaging channel, direction, and receiver.
+
+| Messaging channel           | Direction                  | Message initiator | Receiver               | Limit            |
+| --------------------------- | -------------------------- | ----------------- | ---------------------- | ---------------- |
+| SMS                         | Inbound                    | End customer      | Agent or Lex (Connect) | 1,024 characters |
+| Outbound                    | Agent or Lex bot (Connect) | End customer      | 1,024 characters       |
+| WhatsApp                    | Inbound                    | End customer      | Lex (Connect)          | 1,024 characters |
+| End customer                | Agent                      | 4,096 characters  |
+| Outbound                    | Agent or Lex bot (Connect) | End customer      | 4,096 characters       |
+| Apple Messages for Business | Inbound                    | End customer      | Lex (Connect)          | 1,024 characters |
+| End customer                | Agent                      | 4,096 characters  |
+| Outbound                    | Agent or Lex bot (Connect) | End customer      | 4,096 characters       |
+| Chat                        | Inbound                    | End customer      | Lex (Connect)          | 1,024 characters |
+| End customer                | Agent                      | 16,384 bytes      |
+| Outbound                    | Agent or Lex bot (Connect) | End customer      | 16,384 bytes           |
+
+###### Note
+
+_Agent_ includes human agents and AI agents created through custom participant. For more information, see [Customize chat flow experiences using custom participants](chat-customize-flow.md "chat-customize-flow.md"). Amazon Lex bots have separate message size limits.
+
 ## WhatsApp business messaging feature specifications
 
-The following table ists the specifications for WhatsApp business messaging
+The following table lists the specifications for WhatsApp business messaging
 
 | **Media type** | **Supported file types**                          | **Maximum file size** |
 | -------------- | ------------------------------------------------- | --------------------- |
@@ -108,8 +131,8 @@ The following table ists the specifications for WhatsApp business messaging
 
 | Item                                                                   | Feature Specification                           |
 | ---------------------------------------------------------------------- | ----------------------------------------------- |
-| Agents per schedule generation run                                     | 800                                             |
-| Agents per staffing group                                              | 200                                             |
+| Agents per schedule generation run                                     | 5,000                                           |
+| Agents per staffing group                                              | 350                                             |
 | Capacity plans per instance                                            | 500                                             |
 | Capacity scenarios per instance                                        | 500                                             |
 | Capacity plan user data uploads per instance                           | 500                                             |
@@ -136,7 +159,7 @@ The following table ists the specifications for WhatsApp business messaging
 | Shift rotation weeks per pattern                                       | 52                                              |
 | Shift rotations associated with a single shift profile                 | 1300                                            |
 | Shift rotations per instance                                           | 1300                                            |
-| Staffing groups per forecast group                                     | 100                                             |
+| Staffing groups per forecast group                                     | 300                                             |
 | Staffing groups per instance                                           | 1300                                            |
 | Staffing groups per supervisor/manager                                 | 250                                             |
 | Supervisors/managers per staffing group                                | 100                                             |
@@ -192,8 +215,8 @@ Rules.
 | Item                                                                                 | Feature Specification |
 | ------------------------------------------------------------------------------------ | --------------------- |
 | Conditions in a rule                                                                 | 20                    |
-| Rules with Natural Language condition for `OnPostCallAnalysisAvailable` event source | 15                    |
-| Rules with Natural Language condition for `OnPostChatAnalysisAvailable` event source | 15                    |
+| Rules with Natural Language condition for `OnPostCallAnalysisAvailable` event source | 100                   |
+| Rules with Natural Language condition for `OnPostChatAnalysisAvailable` event source | 100                   |
 | Rules for `OnPostCallAnalysisAvailable` event<br>source                              | 500                   |
 | Rules for `OnPostChatAnalysisAvailable` event<br>source                              | 500                   |
 | Rules for `OnRealTimeCallAnalysisAvailable` event<br>source                          | 500                   |

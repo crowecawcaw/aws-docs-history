@@ -5,31 +5,118 @@ they reach any participant. This capability enables automatic redaction of sensi
 data and custom message processing, helping businesses maintain compliance and security
 standards.
 
+## Processing options
+
 The following are processing options, along with features of each option:
 
-- Built-in sensitive data redaction
-  - Automatically detects and removes credit card numbers, social security
-    numbers, and other PII
-  - Supports multiple languages, including English, French, Portuguese,
-    German, Italian, and Spanish variants. For a list of the languages
-    supported by Contact Lens redaction, see [Languages supported by Connect Customer features](supported-languages.md "supported-languages.md").
-  - Choose to redact selected or all sensitive data entities
-  - Replace with generic placeholders ([PII]) or entity-specific
-    placeholders ([NAME], [CREDIT\_CARD])
+**Built-in sensitive data redaction**
 
-- Custom message processors (via Lambda). For more information, see [What is Lambda?](../../../lambda/latest/dg/welcome.md "../../../lambda/latest/dg/welcome.md") in the AWS
-  _Lambda Developer's Guide_.
+- Automatically detects and removes configurable categories of sensitive
+  information, such as credit card numbers and names
+- Supports multiple languages, including English, French, Portuguese,
+  German, Italian, and Spanish variants. For a list of the languages
+  supported by Conversational Analytics redaction, see [Languages supported by Connect Customer features](supported-languages.md "supported-languages.md").
+- Choose to redact selected or all sensitive data entities
+- Replace with generic placeholders ([PII]) or entity-specific
+  placeholders ([NAME], [CREDIT\_CARD])
 
-      + Integrate third-party services for language translation
-      + Apply profanity filtering
-      + Transform messages using AI/LLM services
-      + Implement business-specific message modifications
+**Custom message processors (via Lambda)**
 
-  To configure message processing, define redaction rules in the **Set recording
-  and analytics behavior** block. For more information, see [Enable redaction of sensitive data](enable-analytics.md#enable-redaction "enable-analytics.md#enable-redaction"). You can also specify a Lambda function for custom
-  processing.
+With a custom processor Lambda, you have the freedom to transform messages in any
+way you choose. A copy of each message is sent to your Lambda function, and if a
+valid response is received within the timeout, the content in the response becomes
+the new canonical form of that message.
 
-Your custom processor Lambda will take in an input JSON in the following format:
+This enables use cases such as:
+
+- Language translation via third-party services
+- Profanity filtering
+- AI/LLM-powered message transformation
+- Business-specific message modifications
+
+For more information about Lambda, see [What is Lambda?](../../../lambda/latest/dg/welcome.md "../../../lambda/latest/dg/welcome.md") in the
+_Lambda Developer Guide_.
+
+## How it works
+
+When message processing is enabled, every plaintext, markdown, and JSON message
+passes through the configured processor before being delivered to participants. The
+processor can modify, approve, or reject the message. If processing fails, you can
+configure whether the original unprocessed message is delivered or
+suppressed.
+
+Message processing stays active for the entire duration of the chat, even if an
+individual contact segment ends (for example, during a transfer). Processing does
+not retroactively apply to messages sent before it was enabled.
+
+###### Note
+
+When both built-in redaction and a custom message processor are enabled
+simultaneously, the output of redaction becomes the input for the custom
+processor.
+
+## Configure message processing
+
+You can enable message processing using either of the following methods:
+
+- **Flow block** – Use the
+  **Set recording, analytics and processing behavior** flow
+  block. For more information, see [Flow block in Connect Customer: Set recording, analytics and processing behavior](set-recording-analytics-processing-behavior.md "set-recording-analytics-processing-behavior.md").
+- **API** – Call the
+  `StartContactMediaProcessing` API for programmatic activation.
+  For more information, see [StartContactMediaProcessing](../APIReference/API_StartContactMediaProcessing.md "../APIReference/API_StartContactMediaProcessing.md") in the _Connect Customer API
+  Reference_.
+
+To stop message processing before the chat ends, call the
+`StopContactMediaProcessing` API. For more information, see [StopContactMediaProcessing](../APIReference/API_StopContactMediaProcessing.md "../APIReference/API_StopContactMediaProcessing.md") in the _Connect Customer API
+Reference_.
+
+###### Note
+
+The `StartContactMediaProcessing` and
+`StopContactMediaProcessing` APIs are for custom message processors
+(BYOP) only. Built-in redaction is configured exclusively through the flow
+block.
+
+## Enable built-in sensitive data redaction
+
+In-flight sensitive data redaction is powered by Conversational Analytics. To
+enable it, configure the **Set recording, analytics and processing
+behavior** flow block with the following settings:
+
+1. **Select Action**: Choose
+   `Set recording and analytics behavior`.
+2. **Select Channel**: Choose
+   `Chat`.
+3. **Enable Conversational Analytics**: Select
+   **Enable conversational analytics**.
+4. Under **Configure Conversational Analytics** >
+   **Redaction** > **In-flight message
+   redaction**: Select **Enable in-flight
+   redaction**.
+
+![The Set recording, analytics and processing behavior flow block configured with conversational analytics enabled for chat.](images/message-processing-enable-analytics.png)
+
+![The in-flight message redaction configuration with redaction enabled.](images/message-processing-redaction-config.png)
+
+For more information about how Conversational Analytics redacts sensitive data,
+see [Enable redaction of sensitive data](enable-analytics.md#enable-redaction "enable-analytics.md#enable-redaction").
+
+## Create a custom message processor
+
+You can create a custom Lambda function that transforms messages in-flight. Custom
+processors can perform any transformation, such as language translation, profanity
+filtering, or AI-powered message enhancement.
+
+### Step 1: Create your Lambda function
+
+###### Note
+
+Connect Customer honors your Lambda function's configured timeout, which must be
+between 3 seconds and 3 minutes.
+
+Your custom processor Lambda receives an input event in the following
+format:
 
 ```
 {
@@ -50,19 +137,92 @@ Your custom processor Lambda will take in an input JSON in the following format:
 }
 ```
 
-And output a JSON in the following format:
+Your Lambda function must return a response in the following format:
 
 ```
 {
-  "status": "string", // "PROCESSED"|"APPROVED"|"FAILED"|"REJECTED"
+  "status": "PROCESSED | APPROVED | REJECTED",
   "result": {
     "processedChatContent": {
       "content": "string",
-      "contentType": "string" // "text/plain"|"text/markdown"|"application/json"
+      "contentType": "text/plain | text/markdown | application/json"
     }
   }
 }
 ```
 
-The processed chat content will replace the original message when published to chat
+The processed content replaces the original message when published to chat
 participants.
+
+### Step 2: Grant Connect Customer permission to invoke your Lambda function
+
+You must grant Connect Customer permission to invoke your Lambda function:
+
+1. In the Connect Customer console, choose your instance.
+2. In the navigation pane, choose **Flows**.
+3. In the **Lambda** section, select your Lambda
+   function.
+4. Under **Lambda Usecase**, select
+   `Custom Processor Lambda`.
+
+Alternatively, you can use the `CreateIntegrationAssociation` API
+with `IntegrationType` set to `MESSAGE_PROCESSOR`. For
+more information, see [CreateIntegrationAssociation](../APIReference/API_CreateIntegrationAssociation.md "../APIReference/API_CreateIntegrationAssociation.md") in the _Connect Customer API
+Reference_.
+
+![The Lambda section in the Amazon Connect console showing the Custom Processor Lambda usecase selection.](images/message-processing-lambda-integration.png)
+
+### Step 3: Activate your Lambda function
+
+Choose one of the following methods to activate your custom processor:
+
+**Option 1: Use the flow block**
+
+Configure the **Set recording, analytics and processing
+behavior** flow block with the following settings:
+
+1. **Select Action**: Choose
+   `Set message processor`.
+2. **Select Channel**: Choose
+   `Chat`.
+3. **Enable Processing**: Select the
+   checkbox.
+4. **Function ARN**: Select your Lambda
+   function.
+5. **Processing failure handling**: Choose
+   whether to deliver the original unprocessed message or suppress it if
+   processing fails.
+
+**Option 2: Use the StartContactMediaProcessing
+API**
+
+![The Set recording, analytics and processing behavior flow block configured with Set message processor action for chat.](images/message-processing-activate-flow-block.png)
+
+Alternatively, you can activate message processing by calling the
+`StartContactMediaProcessing` API. This requires your instance ID,
+the chat's contact ID, the Lambda processor ARN, and a failure mode. For more
+information, see [StartContactMediaProcessing](../APIReference/API_StartContactMediaProcessing.md "../APIReference/API_StartContactMediaProcessing.md") in the _Connect Customer API
+Reference_.
+
+## Additional information
+
+### Transcript storage
+
+- Processed chat messages replace the original messages in the S3 Chat
+  Transcripts folder:
+  `<bucket-name>/connect/<instance-name>/<path-prefix>/`
+- The unprocessed (original) chat transcript is stored in a separate S3
+  folder:
+  `<bucket-name>/connect/<instance-name>/Unprocessed<path-prefix>/`
+
+### Important considerations
+
+- Message processing stays active for the entire duration of the chat,
+  even if an individual contact segment ends (for example, during a
+  transfer).
+- `StartContactMediaProcessing` and the **Set
+  recording, analytics and processing behavior** flow block
+  do not retroactively process prior messages.
+- To stop message processing before the chat ends, call the [StopContactMediaProcessing](../APIReference/API_StopContactMediaProcessing.md "../APIReference/API_StopContactMediaProcessing.md") API.
+- Message processing is not available in the AWS GovCloud (US-West)
+  Region.

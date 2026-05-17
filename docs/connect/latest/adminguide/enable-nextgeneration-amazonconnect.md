@@ -1,6 +1,6 @@
-# Connect Customer Customer
+# Connect Customer
 
-Connect Customer Customer is an AI-native solution that helps companies of any scale deliver
+Connect Customer is an AI-native solution that helps companies of any scale deliver
 exceptional customer experiences at every touchpoint. You can use fully autonomous AI agents,
 a blend of AI and human agents working together, or fully human-supported experiences. AI is
 embedded across all channels for every customer, with simple per-channel pricing. For more
@@ -15,8 +15,8 @@ Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect
 
 ## AI capabilities
 
-Connect Customer Customer embeds AI at every stage of the customer journey. The following
-capabilities are included with Connect Customer Customer.
+Connect Customer embeds AI at every stage of the customer journey. The following
+capabilities are included with Connect Customer.
 
 - **End-customer self-service** — agentic
   voice and agentic chat powered by AI agents
@@ -44,27 +44,26 @@ capabilities are included with Connect Customer Customer.
 
 ## Updating existing Connect Customer instances
 
-All new instances are Connect Customer Customer instances.
+All new instances are Connect Customer instances.
 
-If your Connect Customer instance was created before Connect Customer Customer was available, you may need to
-update your instance to Connect Customer Customer.
+If your Connect Customer instance was created before Connect Customer was available, you may need to
+update your instance to Connect Customer.
 
 1. Log in to the AWS Management Console using your AWS account.
 2. In the AWS Management Console, in the search box, type
    **Connect Customer**. Choose **Connect Customer**.
 3. On the **Connect Customer virtual contact center instances** page,
    choose the **instance alias** where you want to enable
-   Connect Customer Customer.
+   Connect Customer.
 4. In the navigation pane, choose **Connect Customer**.
-5. In the **Enable Connect Customer Customer across your entire
+5. In the **Enable Connect Customer across your entire
    instance** section, confirm the status is **Not
    enabled**.
 6. Choose **Enable**.
 
 ## How to switch to Customer Basic
 
-Connect Customer Customer Basic does not include all the AI capabilities available in Connect Customer
-Customer. If you move to Customer Basic, some capabilities you are using today may no longer
+Connect Customer Basic does not include all the AI capabilities available in Connect Customer. If you move to Connect Customer Basic, some capabilities you are using today may no longer
 be available, including:
 
 - Conversational analytics for email
@@ -82,7 +81,7 @@ be available, including:
 If these features are configured in contact flows, you may encounter runtime
 errors.
 
-Complete the following steps to switch from Connect Customer Customer to Customer Basic for a
+Complete the following steps to switch from Connect Customer to Connect Customer Basic for a
 given Connect Customer instance.
 
 1. Log in to the AWS Management Console using your AWS account.
@@ -92,7 +91,7 @@ given Connect Customer instance.
    choose the **instance alias** where you want to switch to
    Customer Basic.
 4. In the navigation pane, choose **Connect Customer**.
-5. In the **Enable Connect Customer Customer across your entire
+5. In the **Enable Connect Customer across your entire
    instance** section, confirm the status is
    **enabled**.
 6. Choose **Disable**.

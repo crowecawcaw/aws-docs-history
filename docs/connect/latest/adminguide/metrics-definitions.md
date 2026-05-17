@@ -2463,6 +2463,13 @@ customer messages. It only supports filtering and grouping by channel = CHAT.
 
 **Calculation logic**:
 
+###### Note
+
+This metric includes the queue wait time. For example, when a customer sends
+the first message, they may wait in the queue until an agent sends their first
+message. This metric calculation includes the total time from the customer's
+first message to the agent's first message.
+
 - For every contact record:
   - If `ChatMetrics.AgentMetrics.TotalResponseTimeInMillis` or
     `ChatMetrics.AgentMetrics.NumResponses` is missing skip

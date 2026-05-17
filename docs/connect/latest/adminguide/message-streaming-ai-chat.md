@@ -115,12 +115,16 @@ You can add this permission by calling the Amazon Lex [UpdateResourcePolicy](../
 resource-based policy to include the `lex:RecognizeMessageAsync`
 action for the Connect Customer instance ARN resource.
 
-###### Important
+## Incremental message responses
 
-This feature currently does not support branching back to the same [Flow block in Connect Customer: Get customer input](get-customer-input.md "get-customer-input.md") flow block or reusing a Amazon Lex bot with the same
-alias in another **Get customer input** block. Instead, create a
-new **Get customer input** block using a different Amazon Lex bot
-alias.
+###### Note
+
+Incremental message responses (growing message bubble) only work with Connect Customer AI agents
+of type **Orchestration**.
+
+To enable incremental responses, start a chat with [ParticipantConfiguration](../APIReference/API_ParticipantConfiguration.md "../APIReference/API_ParticipantConfiguration.md") and
+set Response Mode to `INCREMENTAL`. The default Response Mode is
+`COMPLETE`.
 
 ## Timeout limits
 

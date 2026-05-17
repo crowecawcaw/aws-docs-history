@@ -111,7 +111,7 @@ a test command to end the test.
 **Run test and analyze results**
 
 After configuring all interaction groups and blocks, publish the test case
-and click **Run test** to open the test results page and
+and choose **Run test** to open the test results page and
 monitor results in real time.
 
 Once the test is complete, the results for each interaction group are
@@ -121,11 +121,11 @@ entries are added to the execution trace to provide visibility into the system
 steps for initiating and completing the test.
 
 ![Test results showing 5 passed interactions with 18 second completion time and expandable steps.](images/test-case-result-detail.png)
-Click on each interaction group trace to view detailed results for each
+Choose each interaction group trace to view detailed results for each
 observe and action block.
 
 ![Flight booking bot flow test results showing passed validation steps for message handling and data collection.](images/test-case-result-detail-expanded.png)
-Click the **Contact ID** link to navigate to the Contact
+Choose the **Contact ID** link to navigate to the Contact
 detail page. If the contact flow has automated agent interaction and automated
 interaction summary enabled, the simulation chat or voice call will be analyzed
 accordingly.

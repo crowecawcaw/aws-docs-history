@@ -46,6 +46,13 @@ following two images.
     add comments, and associate contacts to cases.
   - **Create case**: Allows the user to create new
     cases, and associate contacts to cases.
+  - **Delete case**: Allows the user to delete any
+    case in the domain.
+
+- **My Cases**: Manage if the user can delete cases that they
+  created.
+  - **Delete case**: Allows the user to delete cases
+    that they created.
 
 - **Case Fields**: Manage who can configure case fields by
   using the Connect Customer admin website.
@@ -60,14 +67,58 @@ following two images.
 
 - **Case Templates**: Manage who can configure case
   templates by using the Connect Customer admin website.
-  - **View Case Fields**: Allows users to view the
-    case fields page and all of the existing case fields (could be
-    system or custom).
-  - **Edit Case Fields**: Allows users to edit any of
-    the case fields (for example, change title, description,
-    single-select options).
-  - **Create Case Fields**: Allows users to create
-    new case fields.
+  - **View Case Templates**: Allows users to view
+    the case templates page and all of the existing case
+    templates.
+  - **Edit Case Templates**: Allows users to edit
+    any of the case templates.
+  - **Create Case Templates**: Allows users to
+    create new case templates.
+
+- **Case Comments**: Manage who can edit or delete
+  comments on any case, regardless of who authored them.
+  - **Edit Case Comment**: Allows the user to edit
+    any comment on a case.
+  - **Delete Case Comment**: Allows the user to
+    delete any comment on a case.
+
+- **My Case Comments**: Manage if the user can edit or delete
+  comments that they authored.
+  - **Edit Case Comment**: Allows the user to edit
+    comments that they authored.
+  - **Delete Case Comment**: Allows the user to
+    delete comments that they authored.
+
+- **Case Custom Related Items**: Manage who can edit or
+  delete custom related items on any case, regardless of who created
+  them.
+  - **Edit Case Custom Related Item**: Allows the
+    user to edit any custom related item on a case.
+  - **Delete Case Custom Related Item**: Allows
+    the user to delete any custom related item from a case.
+
+- **My Case Custom Related Items**: Manage if the user can edit
+  or delete custom related items that they created.
+  - **Edit Case Custom Related Item**: Allows the
+    user to edit custom related items that they created.
+  - **Delete Case Custom Related Item**: Allows
+    the user to delete custom related items that they created.
+
+- **Case Contacts**: Manage who can remove contact
+  associations (calls, chats, tasks, emails) from any case, regardless of
+  who associated the contact.
+  - **Delete Case Contact**: Allows the user to
+    remove any contact associated with a case.
+
+- **My Case Contacts**: Manage if the user can remove contact
+  associations that they created.
+  - **Delete Case Contact**: Allows the user to
+    remove contact associations that they created.
+
+- **Case Files**: Manage who can remove files attached to
+  cases.
+  - **Delete Case File**: Allows the user to delete
+    any file attached to a case.
 
 When users have permissions to **View Case Fields** and
 **View Case Templates**, they will see the **Case

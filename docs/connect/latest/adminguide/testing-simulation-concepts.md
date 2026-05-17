@@ -5,7 +5,7 @@ step IDs and transitions that are inconsistent with natural human interaction pa
 creating a disconnect in validation processes. Connect's simulation capabilities
 use an event-driven trigger response model that mirrors natural cause-and-effect
 reasoning patterns used by QA engineers and business testers. This approach removes the
-need to know every interaction that are programmed in order to test and validate the
+need to know every interaction that are programmed to test and validate the
 experience. Each test case is constructed as a sequence of observations paired with
 actions. Dependencies between observations are handled as transitions, creating a
 logical flow that matches human reasoning while maintaining technical precision. The

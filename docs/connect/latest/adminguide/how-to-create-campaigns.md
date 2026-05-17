@@ -93,7 +93,7 @@ configured to say:
     + 70% for Campaign2
     + 90% for Campaign3
 
-The dialer will allocate the most capacity to Campaign3 (up to 90%), then to Camaign2
+The dialer will allocate the most capacity to Campaign3 (up to 90%), then to Campaign2
 (up to 70%) and then to Campaign1 (up to 50%) of the telecom capacity dynamically
 available.
 

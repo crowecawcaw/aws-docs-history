@@ -110,7 +110,9 @@ To consistently receive both AI-generated answers and answer justifications in
 your preferred language, you can set the language of an evaluation form, choosing from
 **English**, **Spanish**,
 **Portuguese**, **French**,
-**German** and **Italian**.
+**German**, **Italian**,
+**Chinese**, **Japanese**,
+and **Korean**.
 By explicitly setting the language of an evaluation, you can also perform cross-language
 evaluations, where generative AI fills a evaluation form in English, even when the
 conversation transcript is in another language, say Spanish. This enables multilingual
