@@ -54,4 +54,4 @@ scanning process if permissions haven't already been granted.
 
 **On iOS devices**
 
-![Permission dialog requesting camera access for Monitron app to scan gateway QR code.](/images/Monitron/latest/user-guide/images/scan-4.png)
+![Permission dialog requesting camera access for Monitron app to scan gateway QR code.](images/scan-4.png)
