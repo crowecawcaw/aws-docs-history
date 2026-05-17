@@ -23,13 +23,13 @@ Every workload and account is different. AMS will work with you to prepare for a
 
 The following diagram depicts the AMS workload ingestion process.
 
-![Workflow diagram showing workload ingestion process from customer instance to AMS stack.](images/Workload_ingestion_product_process.png)
+![Workflow showing migration partner moving customer instance to EC2, then CT workflow launching stack in AMS.](images/Workload_ingestion_product_process.png)
 
 ## Workload Ingest Stack: Creating
 
 Screenshot of this change type in the AMS console:
 
-![Instance migration details showing ID, execution mode, version, classification, and description.](images/guiIngestStackFromPartMigStackCreateCT.png)
+![Migrate Instance to AMS Stack change type showing ID, execution mode, version, classification, and description fields.](images/guiIngestStackFromPartMigStackCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

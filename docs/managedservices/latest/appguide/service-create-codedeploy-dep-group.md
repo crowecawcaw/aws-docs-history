@@ -4,7 +4,7 @@ Create CodeDeploy application groups.
 
 ## Create CodeDeploy deployment group
 
-![AWS CodeDeploy deployment group creation details, including ID and execution mode.](images/guiCDDepGroupCreateCT.png)
+![Change type details showing ID, version 1.0, and automated execution mode for deployment group.](images/guiCDDepGroupCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -114,7 +114,7 @@ For more information about AWS CodeDeploy deployment groups, see [Create a Deplo
 
 ## Create CodeDeploy deployment group for EC2
 
-![CodeDeploy deployment group creation details for EC2 instance target with ID and version.](images/guiCDDepGroupCreate4Ec2CT.png)
+![Change type details showing CodeDeploy deployment group creation with EC2 instance targeting.](images/guiCDDepGroupCreate4Ec2CT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

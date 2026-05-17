@@ -6,7 +6,7 @@ AWS DMS management examples.
 
 Screenshot of this change type in the AMS console:
 
-![Database Migration Service replication task details showing ID and version.](images/guiDmsStartRepTaskCT.png)
+![Start DMS Replication Task interface showing task description, ID ct-1yq7hhqse71yg, and version 1.0.](images/guiDmsStartRepTaskCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -119,7 +119,7 @@ For more information, see [Working with AWS DMS Tasks](../../../dms/latest/userg
 
 Screenshot of this change type in the AMS console:
 
-![Database Migration Service replication task details showing ID and version information.](images/guiDmsStopRepTaskCT.png)
+![Stop DMS Replication Task page showing task ID ct-1vd3y4ygbqmfk with version 1.0.](images/guiDmsStopRepTaskCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

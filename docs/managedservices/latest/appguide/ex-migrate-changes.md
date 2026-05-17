@@ -24,7 +24,7 @@ _Changes made to ingested Linux instances_:
   - [Ruby](https://www.ruby-lang.org/en/documentation/installation/ "https://www.ruby-lang.org/en/documentation/installation/"): Required for CodeDeploy
   - [System Performance Tools (sysstat)](https://github.com/sysstat/sysstat "https://github.com/sysstat/sysstat"): Sysstat contains various utilities to monitor system performance
     and usage activity.
-  - [AD Bridge (Formerly PowerBroker Identity Services)](https://github.com/BeyondTrust/pbis-open "https://github.com/BeyondTrust/pbis-open"): Joins non-Microsoft hosts to Active Directory domains.
+  - [AD Bridge (Formerly PowerBroker Identity Services)](https://docs.beyondtrust.com/adb/docs/adb-overview "https://docs.beyondtrust.com/adb/docs/adb-overview"): Joins non-Microsoft hosts to Active Directory domains.
   - [Trend Micro Deep Security Agent](https://success.trendmicro.com/solution/1104569-deploying-deep-security-agent-dsa-for-linux "https://success.trendmicro.com/solution/1104569-deploying-deep-security-agent-dsa-for-linux"): Anti-Virus software.
 
 - Software that is changed:

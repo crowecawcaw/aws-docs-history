@@ -22,4 +22,4 @@
 6. Install the CloudEndure agent on the machine and look for the replication instance to come up in your AMS account in the EC2 console.
    The AMS ingestion process:
 
-![Flowchart showing AMS ingestion process steps from customer instance to application deployment.](images/Ingestion_Process_v1.png)
+![Flowchart showing AMS ingestion steps from data center replication through AMI creation.](images/Ingestion_Process_v1.png)

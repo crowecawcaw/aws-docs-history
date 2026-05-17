@@ -6,7 +6,7 @@ You can use the AMS console or API/CLI to create an AMS AWS DMS replication inst
 
 Screenshot of this change type in the AMS console:
 
-![Database Migration Service (DMS) replication instance creation details with ID and version.](images/guiDmsCreateRepInstanceCT.png)
+![Change type details showing ID ct-27apldkhqr0ol, version 1.0, and automated execution mode.](images/guiDmsCreateRepInstanceCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

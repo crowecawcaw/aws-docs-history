@@ -7,7 +7,7 @@ CTs help you create AWS DMS resources in your AMS-managed account
 
 The following graphic depicts the workflow of an database migration.
 
-![Database migration workflow showing source database, AWS DMS components, and target database.](images/datarep-Welcome.png)
+![AWS DMS workflow showing source database connecting through endpoints and replication task to target database.](images/datarep-Welcome.png)
 
 ###### Topics
 

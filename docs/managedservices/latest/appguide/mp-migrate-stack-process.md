@@ -5,7 +5,7 @@
 Because two parties are required for this process, this section describes the tasks for each:
 an AMS Cloud Migration Partner (migration partner), and an Application Owner (you).
 
-![Workflow diagram showing migration steps from on-premises to AWS EC2 and AMS.](images/migration-ams-wigs.png)
+![Migration workflow showing VM migration to EC2 through four stages: preparation, ingestion, stack deployment, and validation.](images/migration-ams-wigs.png)
 
 1. Migration partner, Set Up:
    1. The migration partner submits a Service Request to AMS for an IAM role for the purpose

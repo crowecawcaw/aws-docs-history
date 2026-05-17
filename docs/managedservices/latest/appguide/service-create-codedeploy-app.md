@@ -4,7 +4,7 @@ Create or deploy CodeDeploy applications.
 
 ## Create CodeDeploy application
 
-![Change type details for creating an AWS CodeDeploy application with specified name and ID.](images/guiCDAppCreateCT.png)
+![Change type details showing ID, version 1.0, and automated execution mode for CodeDeploy application.](images/guiCDAppCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -106,7 +106,7 @@ For more information about AWS CodeDeploy, see [Create an Application with AWS C
 
 ## Deploy CodeDeploy application
 
-![Deploy CodeDeploy Application settings with ID, version, and execution mode details.](images/guiCDAppDeployCT.png)
+![Deploy CodeDeploy Application change type showing ID, version 2.0, and automated execution mode.](images/guiCDAppDeployCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

@@ -2,7 +2,7 @@
 
 Ingest a CloudFormation template for a standard 3-Tier Web Application.
 
-![AWS Cloud architecture diagram showing VPC with two availability zones, load balancer, and multi-AZ RDS setup.](images/cfn-ingest-ex-3-tier.png)
+![VPC with Application Load Balancer, Auto Scaling group with web servers, and RDS databases across two availability zones.](images/cfn-ingest-ex-3-tier.png)
 This includes an Application Load Balancer, Application Load Balancer target group, Auto Scaling group, Auto Scaling group launch template, Amazon Relational Database Service (RDS for SQL Server) with a MySQL database,
 AWS SSM Parameter store, and AWS Secrets Manager. Allow 30-60 minutes to walk through this example.
 

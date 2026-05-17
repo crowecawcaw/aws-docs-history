@@ -38,7 +38,7 @@ For information on CFN drift detection, see
 
 ## Create CloudFormation ingest stack
 
-![Create Stack From CloudFormation Template interface showing description, ID, and version.](images/guiCfnIngestCT.png)
+![Create Stack From CloudFormation Template dialog showing description, ID, and version fields.](images/guiCfnIngestCT.png)
 **To create a CloudFormation ingest stack using the console**
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -222,7 +222,7 @@ To learn more about CFN validation and validator, see
 
 ## Update CloudFormation ingest stack
 
-![CloudFormation stack update interface showing description, ID, and version details.](images/guiCfnStackUpdateCT-v2.png)
+![Update CloudFormation Stack page showing description, ID ct-361tlo1k7339x, and version 2.0.](images/guiCfnStackUpdateCT-v2.png)
 **To update a CloudFormation Ingest Stack using the console**
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -375,7 +375,7 @@ To learn more about CFN validation and validator, see
 
 ## Approve a CloudFormation ingest stack changeset
 
-![Details of a CloudFormation ChangeSet for approving and updating a stack, including ID and execution mode.](images/guiCfnStackApproveAndUpdateCT.png)
+![ChangeSet details showing ID ct-1404e21baa2ox, Automated execution mode, and version 1.0.](images/guiCfnStackApproveAndUpdateCT.png)
 **To approve and update a CloudFormation ingest stack using
 the console**
 
@@ -452,7 +452,7 @@ To learn more about AWS CloudFormation, see [AWS CloudFormation](https://aws.ama
 
 The following shows this change type in the AMS console.
 
-![Update Termination Protection interface showing description, ID, and version fields.](images/guiCfnProTermUpdateCT.png)
+![Update Termination Protection change type showing ID ct-2uzbqr7x7mekd and version 1.0.](images/guiCfnProTermUpdateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

@@ -4,7 +4,7 @@ You can use the AMS console or API/CLI to create an AMS AWS DMS replication subn
 
 ## Create AWS DMS replication subnet group
 
-![Database Migration Service (DMS) replication subnet group creation interface with ID and execution details.](images/guiDmsCreateRepSubGroupCT.png)
+![DMS replication subnet group details showing ID, execution mode, version, and classification.](images/guiDmsCreateRepSubGroupCT.png)
 
 ###### Note
 
