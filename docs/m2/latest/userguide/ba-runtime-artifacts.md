@@ -20,12 +20,14 @@ The following artifacts are accessible from [AWS Transform for mainframe refacto
 This archive, where x.y.z represents the version number (see [AWS Transform for mainframe versioning](ba-versioning.md "ba-versioning.md")), contains the core
 AWS Transform for mainframe Runtime components essential for executing AWS Transform for mainframe applications, including:
 
-| Artifact                      | Description                                                                                           | Type | Distribution Folder |
-| ----------------------------- | ----------------------------------------------------------------------------------------------------- | ---- | ------------------- |
-| gapwalk-application-x.y.z.war | AWS Transform for mainframe main web application **Gapwalk**                                          | War  | webapps             |
-| \*.jar                        | AWS Transform for mainframe Runtime Framework \*_Shared Libraries_<br>• (Gapwalk)                     | Jars | shared              |
-| gapwalk-\*-x.y.z.war          | AWS Transform for mainframe additional web applications **(utility-pgm, hierarchical support, ... )** | War  | webapps-extra       |
-| bac-x.y.z.war / jac-x.y.z.war | AWS Transform for mainframe **Administration Consoles (non-standalone)**                              | War  | webapps-consoles    |
+| Artifact                          | Description                                                                                           | Type | Distribution Folder |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------- | ---- | ------------------- |
+| gapwalk-application-x.y.z.war     | AWS Transform for mainframe main web application **Gapwalk**                                          | War  | webapps             |
+| \*.jar                            | AWS Transform for mainframe Runtime Framework \*_Shared Libraries_<br>• (Gapwalk)                     | Jars | shared              |
+| gapwalk-\*-x.y.z.war              | AWS Transform for mainframe additional web applications **(utility-pgm, hierarchical support, ... )** | War  | webapps-extra       |
+| bac-x.y.z.war / jac-x.y.z.war     | AWS Transform for mainframe **Administration Consoles (non-standalone)**                              | War  | webapps-consoles    |
+| gapwalk-runtime-x.y.z-javadoc.zip | AWS Transform for mainframe **Runtime Framework Javadoc**                                             | zip  | api-docs            |
+| gapwalk-webapps-x.y.z-javadoc.zip | AWS Transform for mainframe **Administration Consoles (BAC and JAC) Javadoc**                         | zip  | api-docs            |
 
 **aws-bluage-webapps-x.y.z.zip**
 
