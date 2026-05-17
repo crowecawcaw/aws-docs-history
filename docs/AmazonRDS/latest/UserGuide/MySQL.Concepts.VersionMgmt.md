@@ -29,6 +29,7 @@ supports.
 
 | MySQL engine version | Community release date | RDS release date | RDS end of standard support date |
 | -------------------- | ---------------------- | ---------------- | -------------------------------- |
+| 8.4.9                | 21 April 2026          | 8 May 2026       | 8 May 2027                       |
 | 8.4.8                | 20 January 2026        | 3 February 2026  | 3 February 2027                  |
 | 8.4.7                | 21 October 2025        | 13 November 2025 | 30 November 2026                 |
 | 8.4.6                | 22 July 2025           | 1 August 2025    | 30 September 2026                |
@@ -48,6 +49,7 @@ dates. We recommend that you upgrade to the latest available minor version as of
 
 | MySQL engine version | Community release date | RDS release date | RDS end of standard support date |
 | -------------------- | ---------------------- | ---------------- | -------------------------------- |
+| 8.0.46               | 21 April 2026          | 8 May 2026       | 31 July 2026                     |
 | 8.0.45               | 20 January 2026        | 3 February 2026  | 31 July 2026                     |
 | 8.0.44               | 21 October 2025        | 13 November 2025 | 31 July 2026                     |
 | 8.0.43               | 22 July 2025           | 1 August 2025    | 31 July 2026                     |
@@ -153,11 +155,13 @@ minor version. And then choose the MySQL minor version under **Affected Products
 
 ###### Minor versions
 
+- [MySQL version 8.4.9](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.9 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.9")
 - [MySQL version 8.4.8](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.8 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.8")
 - [MySQL version 8.4.7](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.7 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.7")
 - [MySQL version 8.4.6](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.6 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.6")
 - [MySQL version 8.4.5](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.5 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.5")
 - [MySQL version 8.4.4](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.4 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.4")
+- [MySQL version 8.0.46](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.46 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.46")
 - [MySQL version 8.0.45](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.45 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.45")
 - [MySQL version 8.0.44](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.44 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.44")
 - [MySQL version 8.0.43](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.43 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.43")
@@ -166,6 +170,16 @@ minor version. And then choose the MySQL minor version under **Affected Products
 - [MySQL version 8.0.40](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.40 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.40")
 - [MySQL version 8.0.39](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.39 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.39")
 - [MySQL version 8.0.37](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.37 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.37")
+
+#### MySQL version 8.4.9
+
+MySQL version 8.4.9 is now available on Amazon RDS. This release contains fixes and
+improvements added by the MySQL community and Amazon RDS.
+
+**New features and enhancements**
+
+- Fixed an issue that could cause a "Row size too large" error with tables using InnoDB DYNAMIC row format.
+- Fixed an issue that could cause incorrect sort order for queries using ORDER BY DESC with range comparisons and LIMIT.
 
 #### MySQL version 8.4.8
 
@@ -211,6 +225,16 @@ improvements added by the MySQL community and Amazon RDS.
 - Fixed a bug that caused a collation error while executing the Amazon RDS
   stored procedures `mysql.rds_set_configuration` and
   `mysql.rds_kill`.
+
+#### MySQL version 8.0.46
+
+MySQL version 8.0.46 is now available on Amazon RDS. This release contains fixes
+and improvements added by the MySQL community and Amazon RDS.
+
+**New features and enhancements**
+
+- Fixed an issue that could cause a "Row size too large" error with tables using InnoDB DYNAMIC row format.
+- Fixed an issue that could cause incorrect sort order for queries using ORDER BY DESC with range comparisons and LIMIT.
 
 #### MySQL version 8.0.45
 

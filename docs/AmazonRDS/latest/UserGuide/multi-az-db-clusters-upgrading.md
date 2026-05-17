@@ -95,4 +95,4 @@ When you upgrade the engine version of a Multi-AZ DB cluster, Amazon RDS emits a
 
 For more information about RDS events, see [Monitoring Amazon RDS events](working-with-events.md "working-with-events.md").
 
-For detailed information about a specific Amazon RDS event that occurs during your engine upgrade, see [Amazon RDS event categories and event messages](USER_Events.Messages.md "USER_Events.Messages.md").
+For detailed information about a specific Amazon RDS event that occurs during your engine upgrade, see [Amazon RDS event categories and event messages](USER_Events.Messages.md "USER_Events.Messages.md") .

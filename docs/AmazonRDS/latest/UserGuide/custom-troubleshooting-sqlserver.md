@@ -25,7 +25,7 @@ This section explains how to troubleshoot RDS Custom for SQL Server. For trouble
 The procedure for viewing events is the same for RDS Custom and Amazon RDS DB instances. For more information, see [Viewing Amazon RDS events](USER_ListEvents.md "USER_ListEvents.md").
 
 To view RDS Custom event notification using the AWS CLI, use the `describe-events` command. RDS Custom introduces several new
-events. The event categories are the same as for Amazon RDS. For the list of events, see [Amazon RDS event categories and event messages](USER_Events.Messages.md "USER_Events.Messages.md").
+events. The event categories are the same as for Amazon RDS. For the list of events, see [Amazon RDS event categories and event messages](USER_Events.Messages.md "USER_Events.Messages.md") .
 
 The following example retrieves details for the events that have occurred for the specified RDS Custom DB instance.
 
@@ -60,7 +60,7 @@ aws rds create-event-subscription \
 
 When you try to create a CEV, it might fail. In this case, RDS Custom issues the
 `RDS-EVENT-0198` event message. For more information on viewing RDS events,
-see [Amazon RDS event categories and event messages](USER_Events.Messages.md "USER_Events.Messages.md").
+see [Amazon RDS event categories and event messages](USER_Events.Messages.md "USER_Events.Messages.md") .
 
 Use the following information to help you address possible causes.
 
@@ -105,7 +105,7 @@ information about RDS Custom for Oracle, see [Fixing unsupported configurations 
 In the following tables, you can find descriptions of the notifications and events that
 the support perimeter sends and how to fix them. These notifications and the support
 perimeter are subject to change. For background on the support perimeter, see [RDS Custom support perimeter](custom-concept.md#custom-troubleshooting.support-perimeter "custom-concept.md#custom-troubleshooting.support-perimeter"). For event descriptions, see
-[Amazon RDS event categories and event messages](USER_Events.Messages.md "USER_Events.Messages.md").
+[Amazon RDS event categories and event messages](USER_Events.Messages.md "USER_Events.Messages.md") .
 
 | Event Code | Configuration area               | RDS event message                                                                                 | Validation process                            |
 | ---------- | -------------------------------- | ------------------------------------------------------------------------------------------------- | --------------------------------------------- |

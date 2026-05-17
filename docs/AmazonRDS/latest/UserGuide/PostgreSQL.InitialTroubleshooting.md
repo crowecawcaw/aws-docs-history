@@ -69,7 +69,7 @@ issue:
    more information, see [Best practices for parallel queries in RDS for PostgreSQL](PostgreSQL.ParallelQueries.md "PostgreSQL.ParallelQueries.md").
 5. **Check CloudWatch and Performance Insights metrics.** Review
    CPU utilization, connection count, IOPS, and freeable memory. For more information, see
-   [Monitoring Amazon RDS](MonitoringOverview.md "MonitoringOverview.md").
+   [Monitoring Amazon RDS](MonitoringOverview.md "MonitoringOverview.md"). For common wait events and corrective actions, see [RDS for PostgreSQL wait events](PostgreSQL.Tuning.concepts.summary.md "PostgreSQL.Tuning.concepts.summary.md").
 6. **Review your DB parameter group.** Check
    `max_parallel_workers_per_gather` and autovacuum settings. For more
    information, see [Tuning PostgreSQL parameters in Amazon RDS and Amazon Aurora](../../../prescriptive-guidance/latest/tuning-postgresql-parameters/introduction.md "../../../prescriptive-guidance/latest/tuning-postgresql-parameters/introduction.md").
@@ -118,14 +118,14 @@ recommendations.
 ## Parallel query resource exhaustion
 
 PostgreSQL can execute queries in parallel to improve performance for large sequential
-scans and aggregations. However, each parallel worker is a full backend process that consumes
-a connection slot from `max_connections` and allocates its own
-`work_mem`. A single query with 4 parallel workers uses 5 connection slots
-(1 leader + 4 workers) and can consume hundreds of megabytes of memory. Under high
-concurrency, this can exhaust both connections and memory rapidly.
+scans and aggregations. However, each parallel worker is a full backend process that counts
+against `max_worker_processes` (and the sub-limit
+`max_parallel_workers`) and allocates its own `work_mem`. A single
+query with 4 parallel workers can consume hundreds of megabytes of memory and significant CPU.
+Under high concurrency, excessive parallelism can exhaust CPU and memory rapidly.
 
-Common symptoms include sudden CPU spikes, `FATAL: too many connections`
-errors, high memory usage per query, and elevated `DatabaseConnections` in CloudWatch
+Common symptoms include sudden CPU spikes, high memory usage per query, and elevated
+`DatabaseConnections` in CloudWatch
 without application changes. You may also observe wait events such as
 `IPC:BgWorkerStartup`, `IPC:ExecuteGather`, and
 `IPC:ParallelFinish`. For more information about these wait events, see
@@ -188,9 +188,37 @@ and prevent autovacuum from reclaiming dead tuples.
 
 ###### Note
 
-Parallel query workers also consume connection slots. If you observe connection
+Parallel query workers consume CPU and memory. If you observe resource
 exhaustion alongside parallel query activity, see [Parallel query resource exhaustion](#PostgreSQL.InitialTroubleshooting.ParallelQuery "#PostgreSQL.InitialTroubleshooting.ParallelQuery") for guidance on controlling
 parallel worker usage.
+
+## Using Performance Insights wait events for troubleshooting
+
+Performance Insights captures wait events that show where your database is spending time.
+When you investigate performance issues, wait events help you identify whether the bottleneck
+is CPU, I/O, locking, network, or inter-process communication. Common wait event categories
+that appear during the issues described in this guide include:
+
+- **CPU** — The session is active on CPU or waiting for
+  CPU. High CPU wait events often correlate with excessive parallelism or inefficient query
+  plans scanning bloated tables.
+- **IPC (inter-process communication)** — Wait events such
+  as `IPC:BgWorkerStartup`, `IPC:ExecuteGather`, and
+  `IPC:ParallelFinish` indicate parallel query coordination overhead.
+- **IO** — Wait events such as
+  `IO:DataFileRead` indicate that queries are reading data from storage because
+  the required pages are not in shared memory. This is common when bloated tables exceed the
+  buffer cache.
+- **Lock** — Wait events such as
+  `Lock:transactionid` and `Lock:tuple` indicate contention between
+  sessions. Idle-in-transaction connections can hold locks that block other queries and
+  autovacuum.
+- **Client** — Wait events such as
+  `Client:ClientRead` indicate the database is waiting for the application to
+  send data. High client wait events can indicate connection churn or network latency.
+
+For a complete reference of wait events that commonly indicate performance problems and
+their recommended corrective actions, see [RDS for PostgreSQL wait events](PostgreSQL.Tuning.concepts.summary.md "PostgreSQL.Tuning.concepts.summary.md").
 
 ## Autovacuum tuning
 

@@ -31,6 +31,7 @@ high-level information, see [Best practices for working with PostgreSQL](CHAP_Be
 - [Logging autovacuum and vacuum activities](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.Logging.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.Logging.md")
 - [Understanding the behavior of autovacuum with invalid databases](appendix.postgresql.commondbatasks.autovacuumbehavior.md "appendix.postgresql.commondbatasks.autovacuumbehavior.md")
 - [Identify and resolve aggressive vacuum blockers in RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md")
+- [Adaptive autovacuum enhancements in PostgreSQL version 18](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.AdaptivePG18.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.AdaptivePG18.md")
 
 ## Allocating memory for autovacuum
 
@@ -118,13 +119,19 @@ avoid wraparound. Amazon RDS updates the following autovacuum-related parameters
 - [autovacuum_vacuum_cost_limit](https://www.postgresql.org/docs/current/static/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-COST-LIMIT "https://www.postgresql.org/docs/current/static/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-COST-LIMIT")
 - [`autovacuum_work_mem`](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-AUTOVACUUM-WORK-MEM "https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-AUTOVACUUM-WORK-MEM")
 - [autovacuum_naptime](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-NAPTIME "https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-NAPTIME")
+- [autovacuum_max_workers](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-MAX-WORKERS "https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-MAX-WORKERS") (PostgreSQL version 18 and higher only)
+
+For RDS for PostgreSQL version 18, adaptive autovacuum scales
+`autovacuum_max_workers` dynamically. For more information, see [Adaptive autovacuum enhancements in PostgreSQL version 18](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.AdaptivePG18.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.AdaptivePG18.md").
 
 RDS modifies these parameters only if the new value makes autovacuum more aggressive. The
 parameters are modified in memory on the DB instance. The values in the parameter group
 aren't changed. To view the current in-memory settings, use the PostgreSQL [SHOW](https://www.postgresql.org/docs/current/sql-show.html "https://www.postgresql.org/docs/current/sql-show.html") SQL command.
 
 When Amazon RDS modifies any of these autovacuum parameters, it generates an event for the
-affected DB instance. This event is visible on the AWS Management Console and through the Amazon RDS API. After
+affected DB instance. This event is visible on the AWS Management Console and through the Amazon RDS API. For
+more information about RDS events, see [Amazon RDS event categories and event messages](USER_Events.Messages.md "USER_Events.Messages.md"). To receive notifications when these
+events occur, see [Subscribing to Amazon RDS event notification](USER_Events.Subscribing.md "USER_Events.Subscribing.md"). After
 the `MaximumUsedTransactionIDs` CloudWatch metric returns below the threshold, Amazon RDS
 resets the autovacuum-related parameters in memory back to the values specified in the
 parameter group. It then generates another event corresponding to this change.

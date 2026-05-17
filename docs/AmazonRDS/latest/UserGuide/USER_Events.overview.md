@@ -52,7 +52,7 @@ Developer Guide_.
 
 Amazon RDS sends notifications to the addresses that you provide when you create the subscription.
 The notification can include message attributes which provide structured metadata about the message.
-For more information about message attributes, see [Amazon RDS event categories and event messages](USER_Events.Messages.md "USER_Events.Messages.md").
+For more information about message attributes, see [Amazon RDS event categories and event messages](USER_Events.Messages.md "USER_Events.Messages.md") .
 
 Event notifications might take up to five minutes to be delivered.
 

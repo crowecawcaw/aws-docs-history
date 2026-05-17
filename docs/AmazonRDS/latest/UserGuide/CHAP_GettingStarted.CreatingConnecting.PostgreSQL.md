@@ -164,7 +164,7 @@ engine with a db.t3.micro DB instance class.
 3. In the navigation pane, choose **Databases**.
 4. Choose **Create database** and make sure that **Easy create** is chosen.
 
-![Easy create option.](images/easy-create-option.png) 5. In **Configuration**, choose **PostgreSQL**. 6. For **DB instance size**, choose **Free tier**.
+![Easy create option.](/images/AmazonRDS/latest/UserGuide/images/easy-create-option.png) 5. In **Configuration**, choose **PostgreSQL**. 6. For **DB instance size**, choose **Free tier**.
 **Free tier** appears for free plan accounts.
 **Sandbox** appears for paid plan
 accounts. 7. For **DB instance identifier**, enter `database-test1`. 8. For **Master username**, enter a name for the master user, or keep

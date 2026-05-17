@@ -137,7 +137,7 @@ need when you connect using SSH:
 
 
 
-    ![EC2 public DNS name on Details tab of Instances page.](images/easy-create-ec2-public-dns.png)
+    ![EC2 public DNS name on Details tab of Instances page.](/images/AmazonRDS/latest/UserGuide/images/easy-create-ec2-public-dns.png)
     2. In **Instance details**, note the value for **Key
      pair name**.
 
@@ -185,7 +185,7 @@ up EC2 connection - _optional_**.
 Select **Connect to an EC2 compute resource**. Choose the EC2
 instance you created previously.
 
-![Set up EC2 connection option.](images/EC2_RDS_Setup_Conn-EasyCreate.png) 11. Expand **View default settings for Easy create**.
+![Set up EC2 connection option.](/images/AmazonRDS/latest/UserGuide/images/EC2_RDS_Setup_Conn-EasyCreate.png) 11. Expand **View default settings for Easy create**.
 
 ![Easy create default settings.](images/easy-create-view-default-maria.png)
 
