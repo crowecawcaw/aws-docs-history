@@ -172,6 +172,15 @@ aws groundstation describe-contact \
     --region `us-east-2`
 ```
 
+Contact scheduled on a digital twin ground station
+
+Digital twin ground stations do not support telemetry delivery. Contacts
+scheduled on digital twin antennas do not produce telemetry data. Verify
+that the ground station used for your contact is not a digital twin by
+checking the ground station name. Digital twin ground stations have a
+"Digital Twin " prefix in their name. For more information, see
+[Use the AWS Ground Station digital twin feature](digital-twin.md "digital-twin.md").
+
 ### Intermittent telemetry data
 
 **Symptoms**

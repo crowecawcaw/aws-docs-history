@@ -14,7 +14,9 @@ via the AWS SDK [ListGroundStations](../APIReference/API_ListGroundStations.md "
 [AWS Ground Station Locations](aws-ground-station-antenna-locations.md "aws-ground-station-antenna-locations.md")
 with a modifying prefix to Ground Station Name of “Digital Twin ”. This includes their antenna capabilities and metadata,
 including, but not limited to, site mask and actual GPS coordinates. At this time, the digital twin feature does not support data
-delivery as described in [Work with dataflows](dataflows.md "dataflows.md").
+delivery as described in [Work with dataflows](dataflows.md "dataflows.md"). Additionally,
+telemetry delivery as described in [Work with telemetry](telemetry.md "telemetry.md") is not
+supported on digital twin ground stations.
 
 Once onboarded, the digital twin feature emits the same Amazon EventBridge events and API responses as the production service as
 described in [Automate AWS Ground Station with Events](monitoring.automating-events.md "monitoring.automating-events.md").
