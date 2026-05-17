@@ -1,4 +1,4 @@
-# Connect Customer Customer agent workspace File API
+# Connect Customer agent workspace File API
 
 The Amazon Connect SDK provides a `FileClient` which serves as an interface that you can use
 to make file requests to upload, retrieve, and delete attached files.

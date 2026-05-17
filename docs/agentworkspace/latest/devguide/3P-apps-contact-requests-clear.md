@@ -1,4 +1,4 @@
-# Clears the contact for the given contactId in Connect Customer Customer agent workspace
+# Clears the contact for the given contactId in Connect Customer agent workspace
 
 Clears the contact for the given contactId.
 

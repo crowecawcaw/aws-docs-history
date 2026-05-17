@@ -1,4 +1,4 @@
-# Get all the availability states configured for the current agent in Connect Customer Customer agent workspace
+# Get all the availability states configured for the current agent in Connect Customer agent workspace
 
 Get all the availability states configured for the current agent.
 

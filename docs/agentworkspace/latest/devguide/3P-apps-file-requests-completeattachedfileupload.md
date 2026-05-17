@@ -1,4 +1,4 @@
-# Confirm that an attached file has been uploaded in Connect Customer Customer agent workspace
+# Confirm that an attached file has been uploaded in Connect Customer agent workspace
 
 Allows you to confirm that the attachment has been uploaded using the pre-signed
 URL provided in the startAttachedFileUpload API. The request accepts an Attachment

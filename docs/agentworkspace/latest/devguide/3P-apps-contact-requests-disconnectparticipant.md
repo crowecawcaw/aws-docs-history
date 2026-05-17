@@ -1,4 +1,4 @@
-# Disconnect a participant from a contact in Connect Customer Customer agent workspace
+# Disconnect a participant from a contact in Connect Customer agent workspace
 
 Disconnects a specific participant from the contact.
 

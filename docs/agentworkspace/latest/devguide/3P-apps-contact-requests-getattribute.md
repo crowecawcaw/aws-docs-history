@@ -1,7 +1,7 @@
-# Get specific attributes for a contact in Connect Customer Customer agent workspace
+# Get specific attributes for a contact in Connect Customer agent workspace
 
 Returns the requested attribute associated with the contact in the Connect Customer
-Customer agent workspace.
+agent workspace.
 
 ```
 

@@ -1,9 +1,9 @@
-# Building third-party services in the Connect Customer Customer agent workspace
+# Building third-party services in the Connect Customer agent workspace
 
 ## What is a third-party (3P) service?
 
 third-party (3P) services are headless applications that customers can build and
-integrate into Connect Customer Customer agent workspace. Services begin running when the
+integrate into Connect Customer agent workspace. Services begin running when the
 agent workspace loads and remain active throughout the agent workspace session. They can perform
 various background tasks and enhance the agent experience, such as:
 

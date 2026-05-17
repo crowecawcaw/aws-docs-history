@@ -1,7 +1,7 @@
-# Close an application in Connect Customer Customer agent workspace
+# Close an application in Connect Customer agent workspace
 
 Closes the application for the given application instance ID in the Connect Customer
-Customer agent workspace.
+agent workspace.
 
 **Signature**
 

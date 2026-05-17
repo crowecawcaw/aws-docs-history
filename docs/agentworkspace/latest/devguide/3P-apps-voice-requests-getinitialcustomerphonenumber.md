@@ -1,4 +1,4 @@
-# Gets the phone number of the initial customer connection in Connect Customer Customer agent workspace
+# Gets the phone number of the initial customer connection in Connect Customer agent workspace
 
 Gets the phone number of the initial customer connection. Applicable only for
 voice contacts.

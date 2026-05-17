@@ -1,4 +1,4 @@
-# Subscribe to expiration warning cleared event in Connect Customer Customer agent workspace
+# Subscribe to expiration warning cleared event in Connect Customer agent workspace
 
 Subscribes a callback function to be invoked when the agent has acknowledged the
 expiration warning and chooses to update their session.

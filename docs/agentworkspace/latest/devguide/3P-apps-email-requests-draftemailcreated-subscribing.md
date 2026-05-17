@@ -1,4 +1,4 @@
-# Subscribe to draft email creation notifications in Connect Customer Customer agent workspace
+# Subscribe to draft email creation notifications in Connect Customer agent workspace
 
 Subscribes a callback function to-be-invoked whenever a draft email contact has
 been created.

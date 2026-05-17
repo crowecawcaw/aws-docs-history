@@ -1,7 +1,7 @@
-# Integrate application with Connect Customer Customer agent workspace contact data
+# Integrate application with Connect Customer agent workspace contact data
 
 To integrate your application with contact data from the Connect Customer
-Customer agent workspace, instantiate
+agent workspace, instantiate
 the contact client as follows:
 
 ```

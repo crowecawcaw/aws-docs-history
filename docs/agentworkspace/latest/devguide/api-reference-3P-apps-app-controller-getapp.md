@@ -1,7 +1,7 @@
-# Get application information in Connect Customer Customer agent workspace
+# Get application information in Connect Customer agent workspace
 
 Returns the application information for the given application instance ID in the
-Connect Customer Customer agent workspace.
+Connect Customer agent workspace.
 
 **Signature**
 

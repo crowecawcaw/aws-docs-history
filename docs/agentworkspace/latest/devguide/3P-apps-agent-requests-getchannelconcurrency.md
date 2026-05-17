@@ -1,7 +1,7 @@
-# Get the limit of contacts for the agent in Connect Customer Customer agent workspace
+# Get the limit of contacts for the agent in Connect Customer agent workspace
 
 Returns a map of `ChannelType`-to-number indicating how many concurrent
-contacts can an Connect Customer Customer agent workspace agent have on a given channel. 0 represents a disabled
+contacts can an Connect Customer agent workspace agent have on a given channel. 0 represents a disabled
 channel.
 
 ```

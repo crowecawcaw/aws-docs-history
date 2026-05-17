@@ -1,4 +1,4 @@
-# Place a participant on hold in Connect Customer Customer agent workspace
+# Place a participant on hold in Connect Customer agent workspace
 
 Places a specific participant on hold.
 

@@ -1,7 +1,7 @@
-# Get all active application information in Connect Customer Customer agent workspace
+# Get all active application information in Connect Customer agent workspace
 
 Returns the application information for all active application instances in the
-Connect Customer Customer agent workspace.
+Connect Customer agent workspace.
 
 **Signature**
 

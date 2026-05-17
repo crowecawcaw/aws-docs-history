@@ -1,7 +1,7 @@
-# Subscribe to incoming contact events in Connect Customer Customer agent workspace
+# Subscribe to incoming contact events in Connect Customer agent workspace
 
 Creates a subscription whenever a new incoming event occurs in the Connect Customer
-Customer agent workspace.
+agent workspace.
 
 **Signature**
 

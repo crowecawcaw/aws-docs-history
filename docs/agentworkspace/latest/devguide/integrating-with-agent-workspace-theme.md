@@ -1,7 +1,7 @@
-# Apply a theme to your application in Connect Customer Customer agent workspace
+# Apply a theme to your application in Connect Customer agent workspace
 
 The theme package defines and applies the Connect Customer theme when developing with [Cloudscape](https://cloudscape.design "https://cloudscape.design") for the Connect Customer
-Customer agent workspace.
+agent workspace.
 
 **Install from NPM**
 

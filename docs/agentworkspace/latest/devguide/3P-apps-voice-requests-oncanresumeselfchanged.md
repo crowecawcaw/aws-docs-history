@@ -1,4 +1,4 @@
-# Subscribe to self resume capability change events in Connect Customer Customer agent workspace
+# Subscribe to self resume capability change events in Connect Customer agent workspace
 
 Subscribes to events when the current user's capability to be resumed from hold
 changes.

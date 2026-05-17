@@ -1,6 +1,6 @@
-# Focus an application in Connect Customer Customer agent workspace
+# Focus an application in Connect Customer agent workspace
 
-Brings the application into focus in the Connect Customer Customer agent workspace for the given
+Brings the application into focus in the Connect Customer agent workspace for the given
 application instance ID.
 
 **Signature**

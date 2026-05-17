@@ -1,7 +1,7 @@
-# Creates a subscription whenever a contact cleared event occurs in Connect Customer Customer agent workspace
+# Creates a subscription whenever a contact cleared event occurs in Connect Customer agent workspace
 
 It creates a subscription whenever a contact cleared event occurs in Connect Customer
-Customer agent workspace. If no contact ID is provided, then it uses the context of
+agent workspace. If no contact ID is provided, then it uses the context of
 the current contact that the 3P app was opened on.
 
 **Signature**

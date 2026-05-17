@@ -1,9 +1,9 @@
-# Get the routing profile of the agent in Connect Customer Customer agent workspace
+# Get the routing profile of the agent in Connect Customer agent workspace
 
-Returns the routing profile of the agent currently logged in to the Connect Customer Customer agent workspace.
+Returns the routing profile of the agent currently logged in to the Connect Customer agent workspace.
 The routing profile contains the following fields:
 
-- `channelConcurrencyMap`: See agent.[Get the limit of contacts for the agent in Connect Customer Customer agent workspace](3P-apps-agent-requests-getchannelconcurrency.md "3P-apps-agent-requests-getchannelconcurrency.md") for more
+- `channelConcurrencyMap`: See agent.[Get the limit of contacts for the agent in Connect Customer agent workspace](3P-apps-agent-requests-getchannelconcurrency.md "3P-apps-agent-requests-getchannelconcurrency.md") for more
   info.
 - `defaultOutboundQueue`: The default queue which should be
   associated with outbound contacts. See queues for details on properties.

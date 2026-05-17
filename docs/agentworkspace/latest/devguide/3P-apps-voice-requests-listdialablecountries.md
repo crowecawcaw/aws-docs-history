@@ -1,4 +1,4 @@
-# Get a list of dialable countries in Connect Customer Customer agent workspace
+# Get a list of dialable countries in Connect Customer agent workspace
 
 Get a list of `DialableCountry` that contains the country code and calling
 code that the Connect Customer instance is allowed to make calls to.

@@ -1,4 +1,4 @@
-# Unsubscribe from participant resume events in Connect Customer Customer agent workspace
+# Unsubscribe from participant resume events in Connect Customer agent workspace
 
 Unsubscribes from participant resume events.
 

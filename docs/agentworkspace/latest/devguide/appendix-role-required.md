@@ -1,4 +1,4 @@
-# IAM role required for creating applications in Connect Customer Customer agent workspace
+# IAM role required for creating applications in Connect Customer agent workspace
 
 On top of the `AmazonConnect_FullAccess` IAM policy, users need the following IAM permissions for creating an app
 and associating it with an Connect Customer instance.

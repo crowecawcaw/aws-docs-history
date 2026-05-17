@@ -1,6 +1,6 @@
-# The create event in Connect Customer Customer agent workspace
+# The create event in Connect Customer agent workspace
 
-The create event in the Connect Customer Customer agent workspace results in the `onCreate` handler passed into the `AmazonConnectApp.init()` to
+The create event in the Connect Customer agent workspace results in the `onCreate` handler passed into the `AmazonConnectApp.init()` to
 be invoked. `Init` should be called in an application once it has successfully
 loaded and is ready to start handling events from the workspace. The create
 event provides the _appInstanceId_ and the _appConfig_ .

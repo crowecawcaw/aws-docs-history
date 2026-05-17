@@ -1,4 +1,4 @@
-# Subscribe to session extension errors in Connect Customer Customer agent workspace
+# Subscribe to session extension errors in Connect Customer agent workspace
 
 Subscribes a callback function to be invoked when an attempt to extend the agent's
 session fails.

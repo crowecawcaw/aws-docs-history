@@ -1,4 +1,4 @@
-# Unsubscribe from draft email creation notifications in Connect Customer Customer agent workspace
+# Unsubscribe from draft email creation notifications in Connect Customer agent workspace
 
 Unsubscribes a callback function from the event that is fired when a draft email
 contact is created.

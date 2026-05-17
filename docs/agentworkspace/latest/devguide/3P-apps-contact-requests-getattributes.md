@@ -1,6 +1,6 @@
-# Get the attributes of a contact in Connect Customer Customer agent workspace
+# Get the attributes of a contact in Connect Customer agent workspace
 
-Returns a map of the attributes associated with the contact in the Connect Customer Customer agent workspace. Each
+Returns a map of the attributes associated with the contact in the Connect Customer agent workspace. Each
 value in the map has the following shape: `{ name: string, value: string
  }`.
 

@@ -1,4 +1,4 @@
-# Unsubscribe from participant hold events in Connect Customer Customer agent workspace
+# Unsubscribe from participant hold events in Connect Customer agent workspace
 
 Unsubscribes from participant hold events.
 

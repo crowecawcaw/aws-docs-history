@@ -1,4 +1,4 @@
-# Connect Customer Customer agent workspace Message Template API
+# Connect Customer agent workspace Message Template API
 
 The Amazon Connect SDK provides a `MessageTemplateClient` which serves as an interface that
 you can use to make requests to search and get content from your Amazon Connect Message

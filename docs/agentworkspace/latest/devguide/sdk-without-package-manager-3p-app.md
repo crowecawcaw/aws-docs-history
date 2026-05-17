@@ -1,7 +1,7 @@
 # Using the SDK in a 3P app
 
 This section explains how to use the prebuilt bundle in a third-party application
-that runs within the Connect Customer Customer agent workspace.
+that runs within the Connect Customer agent workspace.
 
 ## Prerequisites
 

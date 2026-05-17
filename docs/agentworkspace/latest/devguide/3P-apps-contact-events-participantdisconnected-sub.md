@@ -1,4 +1,4 @@
-# Subscribe to participant disconnected events in Connect Customer Customer agent workspace
+# Subscribe to participant disconnected events in Connect Customer agent workspace
 
 Subscribes to participant disconnected events. This event fires when a participant
 leaves

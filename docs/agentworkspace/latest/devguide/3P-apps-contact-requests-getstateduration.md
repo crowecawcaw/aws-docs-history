@@ -1,7 +1,7 @@
-# Get the duration of the contact state in Connect Customer Customer agent workspace
+# Get the duration of the contact state in Connect Customer agent workspace
 
 Returns the duration of the contact state in milliseconds relative to local time,
-in the Connect Customer Customer agent workspace. This takes into account time skew between the JS client and the
+in the Connect Customer agent workspace. This takes into account time skew between the JS client and the
 Connect Customer backend servers.
 
 ```

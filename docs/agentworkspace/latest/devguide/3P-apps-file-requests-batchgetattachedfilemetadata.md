@@ -1,4 +1,4 @@
-# Get metadata about multiple attached files in Connect Customer Customer agent workspace
+# Get metadata about multiple attached files in Connect Customer agent workspace
 
 Get metadata about multiple attached files on an associated resource while
 handling an active contact. The activeContactId is the id of the contact the agent

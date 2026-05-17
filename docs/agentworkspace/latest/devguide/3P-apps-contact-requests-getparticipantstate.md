@@ -1,4 +1,4 @@
-# Get participant state in Connect Customer Customer agent workspace
+# Get participant state in Connect Customer agent workspace
 
 Retrieves the current state of a specific participant.
 

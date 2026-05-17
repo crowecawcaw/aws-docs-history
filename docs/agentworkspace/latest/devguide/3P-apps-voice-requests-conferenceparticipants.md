@@ -1,4 +1,4 @@
-# Conference all participants on a contact in Connect Customer Customer agent workspace
+# Conference all participants on a contact in Connect Customer agent workspace
 
 Conferences all participants on a contact together, removing any hold states and
 enabling all participants to communicate with each other.

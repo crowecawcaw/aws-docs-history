@@ -1,4 +1,4 @@
-# Subscribe to participant resume events in Connect Customer Customer agent workspace
+# Subscribe to participant resume events in Connect Customer agent workspace
 
 Subscribes to events when any participant is taken off hold.
 

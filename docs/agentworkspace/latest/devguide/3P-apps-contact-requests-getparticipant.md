@@ -1,4 +1,4 @@
-# Get specific participant information in Connect Customer Customer agent workspace
+# Get specific participant information in Connect Customer agent workspace
 
 Retrieves information for a specific participant.
 
