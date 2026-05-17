@@ -201,8 +201,30 @@ policy. Be sure to replace:
 
 For resources in AWS GovCloud (US) Regions, use the following format for the
 ARN:
-`arn:aws-us-gov:workspaces:`<region-code>`:`<account-id>`:directory/`<directory-id>``. 22. Choose Next. 23. Enter a name for the policy, and then choose **Create
-policy**.
+`arn:aws-us-gov:workspaces:`<region-code>`:`<account-id>`:directory/`<directory-id>``.
+
+JSON
+
+```
+`{
+ "Version": "2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": "workspaces:Stream",
+ "Resource": "arn:aws:workspaces:`<region-code>`:`<account-id>`:directory/`<directory-id>`",
+ "Condition": {
+ "StringEquals": {"workspaces:userId": "${saml:sub}"}
+ }
+ }
+ ]
+}`
+
+```
+
+22. Choose Next.
+23. Enter a name for the policy, and then choose **Create
+    policy**.
 
 ## Step 6: Configure your SAML 2.0 identity provider
 

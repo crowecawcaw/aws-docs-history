@@ -28,7 +28,7 @@ using WorkSpaces again.
    choose **AWS Directory Service**.
 5. Choose **Create directory**, which opens the **Set up a directory**
    page on the AWS Directory Service
-6. Choose **AWS Managed Microsoft AD**, and then **Next**.
+6. Choose **AD Connector**, and then **Next**.
 7. For **Organization name**, enter a unique organization name for
    your directory (for example, my-example-directory). This name must be at least four
    characters in length, consist of only alphanumeric characters and hyphens (-), and

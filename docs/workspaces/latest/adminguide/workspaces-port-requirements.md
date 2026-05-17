@@ -259,7 +259,7 @@ in the _AWS Global Accelerator Developer Guide_ for more information.
 | Asia Pacific (Seoul)      | ap-northeast-2 | • 3.35.160.0/22<br>• 93.77.156.0/24 (AGA endpoints)<br>• 93.77.157.0/24 (AGA endpoints)<br>• 2406:da22:4::/48                      |
 | Asia Pacific (Singapore)  | ap-southeast-1 | • 13.212.132.0/22<br>• 93.77.158.0/24 (AGA endpoints)<br>• 93.77.159.0/24 (AGA endpoints)<br>• 2406:da28:28::/48                   |
 | Asia Pacific (Sydney)     | ap-southeast-2 | • 3.25.248.0/22<br>• 93.77.150.0/24 (AGA endpoints)<br>• 93.77.151.0/24 (AGA endpoints)<br>• 2406:da2c:24::/48                     |
-| Asia Pacific (Malaysia)   | ap-southeast-5 | • 43.217.232.0/22                                                                                                                  |
+| Asia Pacific (Malaysia)   | ap-southeast-5 | • 43.217.232.0/22<br>• 24.110.0.0/24 (AGA endpoints)<br>• 24.110.1.0/24 (AGA endpoints)<br>• 2406:da20:8018::/48                   |
 | Asia Pacific (Tokyo)      | ap-northeast-1 | • 3.114.164.0/22<br>• 93.77.134.0/24 (AGA endpoints)<br>• 93.77.135.0/24 (AGA endpoints)<br>• 2406:da24:28::/48                    |
 | Canada (Central)          | ca-central-1   | • 3.97.20.0/22<br>• 93.77.128.0/24 (AGA endpoints)<br>• 93.77.129.0/24 (AGA endpoints)<br>• 2600:1f21:8::/48                       |
 | Europe (Frankfurt)        | eu-central-1   | • 18.192.216.0/22<br>• 93.77.154.0/24 (AGA endpoints)<br>• 93.77.155.0/24 (AGA endpoints)<br>• 2a05:d024:18::/48                   |
