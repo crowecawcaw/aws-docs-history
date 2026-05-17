@@ -1,8 +1,8 @@
 # Track usage and costs with the Deadline Cloud usage explorer
 
 With the Deadline Cloud usage explorer, you can see real-time metrics on the activity happening on
-each farm. You can look at the farm’s costs by different variables, such as queue, job,
-license product, or instance types. Select various time frames to see usage during a
+each farm. You can look at the farm’s costs by different variables, such as queue, fleet,
+job, license product, or instance types. Select various time frames to see usage during a
 specific period of time, and look at usage trends over the course of time. You can also see
 a detailed breakdown of selected data points, allowing for a closer look into metrics. Usage
 can be shown by time (minutes and hours) or by cost ($USD).
@@ -46,10 +46,13 @@ be displayed. By default, you see total usage in time (hours and minutes) within
 last 7 days. You can change these parameters, and the information displayed changes
 dynamically in accordance to the parameter settings.
 
-You can group the results based on the queue, job, user, compute usage, instance type, or
-license product. If you choose license product, costs are calculated for specific
+You can group the results based on the queue, fleet, job, user, compute usage, instance type,
+or license product. If you choose license product, costs are calculated for specific
 licenses. For all other groups the time is calculated by adding up the time taken for
 each task to run.
+
+You can filter results by queues or by fleets, but you cannot filter by both
+at the same time.
 
 The usage explorer returns only 100 results based on the filter criteria that you set.
 The results are listed in descending order by the date created timestamp. If there are
@@ -57,14 +60,14 @@ more than 100 results, you get an error message. You can refine your query to re
 number of results:
 
 - Select a smaller time range
-- Select fewer queues
-- Select a different grouping, such as grouping by queue instead of job
+- Select fewer queues or fleets
+- Select a different grouping, such as grouping by queue or fleet instead of job
 
 ###### Topics
 
 - [Use visual graphs to review data](#visual-graphs "#visual-graphs")
 - [View a breakdown of metrics](#breakdown "#breakdown")
-- [View approximate runtime of queues](#approximate-runtime "#approximate-runtime")
+- [View approximate runtime of queues and fleets](#approximate-runtime "#approximate-runtime")
 
 ### Use visual graphs to review data
 
@@ -92,11 +95,11 @@ Breakdown is minimized by default. To expand and display the results, select the
 **View all breakdown** arrow. To download the breakdown, choose
 **Download data**.
 
-### View approximate runtime of queues
+### View approximate runtime of queues and fleets
 
-You can also view the approximate runtime of your queues based on different
+You can also view the approximate runtime of your queues or fleets based on different
 intervals that you specify. The interval options are hourly, daily, weekly, and
 monthly. After you select an interval, the graph displays the approximate runtime of
-your queues.
+your queues or fleets.
 
-![A bar chart showing the approximate runtime of a queue using a daily interval.](images/usage-explorer-approximate-runtime.png)
+![A bar chart showing the approximate runtime of a queue or fleet using a daily interval.](images/usage-explorer-approximate-runtime.png)

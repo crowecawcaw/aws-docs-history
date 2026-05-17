@@ -3,12 +3,12 @@
 The _worker dashboard_ provides details for the worker that
 processes a task. You can see:
 
-- Metadata, such as the instance type, for the worker
-- The session actions that the worker performed
-- Worker performance, including CPU, memory and disk usage
-- A graph of the CPU, memory, and disk usage over time
-- A graph of the disk speed over time
-- The worker log for the task
+- Metadata, such as the instance type, for the worker.
+- The session actions that the worker performed.
+- Worker performance, including CPU, memory, and disk usage. The dashboard also shows GPU utilization for GPU-accelerated instances.
+- A graph of the CPU, memory, and disk usage over time. The graph also includes GPU utilization for GPU-accelerated instances.
+- A graph of the disk speed over time.
+- The worker log for the task.
 
 ###### To view the worker dashboard from a task
 
@@ -36,7 +36,7 @@ When renders take longer than expected, the worker dashboard can help determine
 if your instances are adequately sized for your workloads. While 100% vCPU utilization
 is normal for many renderers, consistently high memory usage near maximum capacity
 and elevated disk space utilization may indicate that your instances are
-under-provisioned. In such cases, upgrading your fleet's instance configuration can
+under-provisioned. For GPU-accelerated workloads, consistently high GPU utilization might also indicate that you need additional GPU capacity. In such cases, upgrading your fleet's instance configuration can
 reduce render errors and significantly improve render times. However, it's important
 to continue monitoring worker performance after upgrading to ensure you've found the
 optimal balance - upgrading too aggressively can lead to unnecessary costs through
