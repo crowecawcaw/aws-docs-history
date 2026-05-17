@@ -44,7 +44,7 @@ For important considerations about Network Load Balancers, see [Avoid placing NL
       - **Use Amazon API Gateway to connect your identity provider** – You can create an API Gateway method backed by a Lambda function for use as an identity provider.
         You provide an Amazon API Gateway URL and an invocation role. For more information, see [Using Amazon API Gateway to integrate your identity provider](authentication-api-gateway.md "authentication-api-gateway.md").
 
-    ![The Choose an identity provider console section with Custom identity provider selected.](images/custom-lambda-console-no-sftp.png)
+    ![The Choose an identity provider console section with Custom identity provider selected.](/images/transfer/latest/userguide/images/custom-lambda-console-no-sftp.png)
 
 4.  Choose **Next**.
 5.  In **Choose an endpoint**, do the following:
@@ -158,7 +158,7 @@ following:
     	 For additional details,
     	 see the `PassiveIp` documentation in the [ProtocolDetails](../APIReference/API_ProtocolDetails.md "../APIReference/API_ProtocolDetails.md") topic.
 
-    ![The Additional configuration screen showing the SetStat, TLS session resumption, and Passive IP parameters.](images/create-server-configure-additional-items-all.png)
+    ![The Additional configuration screen showing the SetStat, TLS session resumption, and Passive IP parameters.](/images/transfer/latest/userguide/images/create-server-configure-additional-items-all.png)
 
 8.  In **Review and create**, review your choices.
 
