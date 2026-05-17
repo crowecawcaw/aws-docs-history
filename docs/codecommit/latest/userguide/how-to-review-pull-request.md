@@ -24,7 +24,7 @@ You can use the CodeCommit console to review a pull request in a CodeCommit repo
 4. By default, a list of all open pull requests is displayed. Choose the open
    pull request you want to review.
 
-![Open pull requests displayed in the CodeCommit console.](/images/codecommit/latest/userguide/images/codecommit-pull-request-view-list.png)
+![Open pull requests displayed in the CodeCommit console.](images/codecommit-pull-request-view-list.png)
 
 ###### Note
 
@@ -39,7 +39,7 @@ or reopen it. 5. In the pull request, choose **Changes**. 6. Do one of the follo
 
 
 
-    ![A general comment on the changes in a pull request.](images/codecommit-commenting-changecomment.png)
+    ![A general comment on the changes in a pull request.](/images/codecommit/latest/userguide/images/codecommit-commenting-changecomment.png)
     * To add a comment to a file in the commit, in
      **Changes**, find the name of the file. Choose the
      comment icon
