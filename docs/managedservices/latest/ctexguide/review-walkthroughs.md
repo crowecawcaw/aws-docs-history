@@ -1161,7 +1161,7 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 
 The following shows this change type in the AMS console.
 
-![](images/guiCreateDHCPOptionSetCT.png)
+![Create DHCP option set interface showing ID, execution mode as Automated, and version 1.0.](images/guiCreateDHCPOptionSetCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -1448,7 +1448,7 @@ To learn more about AWS Application Load Balancers, see
 
 The following shows this change type in the AMS console.
 
-![](images/guiVpcEndpointUpdatePolicyCT.png)
+![Update VPC Endpoint Policy change type details showing ID, execution mode, and version fields.](images/guiVpcEndpointUpdatePolicyCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -1555,7 +1555,7 @@ be sure to allow at least 24 hours, if approval does not happen before the sched
 This operation requires manual review and approval before its completed
 successfully.
 
-![](images/ex-nat-gateway-delete-rr.png)
+![Delete NAT gateway request details showing manual execution mode and version 1.0.](images/ex-nat-gateway-delete-rr.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -1661,7 +1661,7 @@ be sure to allow at least 24 hours, if approval does not happen before the sched
 
 The following shows this change type in the AMS console.
 
-![](images/guiEc2ImdsRegionUpdateCT.png)
+![Update IMDS Region-Level Default Settings change type details in the AMS console.](images/guiEc2ImdsRegionUpdateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -1766,7 +1766,7 @@ do not affect existing instances. For more information about Amazon EC2 IMDS set
 
 The following shows this change type in the AMS console.
 
-![Console interface showing details for creating service principal names (SPNs).](images/guiDirservCompObjectSpnCreateCT.png)
+![Create service principal names change type showing ID, execution mode, version, and classification details.](images/guiDirservCompObjectSpnCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -1875,7 +1875,7 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 
 Screenshot of this change type in the AMS console:
 
-![Change type details form showing ID, version, category, subcategory, and operation fields.](images/guiTargetGroupDeleteCT.png)
+![Delete Target Group page showing execution mode, version, classification path, and description.](images/guiTargetGroupDeleteCT.png)
 
 ###### Note
 
@@ -1991,7 +1991,7 @@ be sure to allow at least 24 hours, if approval does not happen before the sched
 
 The following shows this change type in the AMS console.
 
-![Application Load Balancer creation interface showing description, ID, and version details.](images/guiAlbCreateCT.png)
+![Create Application Load Balancer interface showing ID ct-111r1yayblnw4 and version 3.0.](images/guiAlbCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -2118,7 +2118,7 @@ To create an Application Load Balancer target group, see
 
 The following shows this change type in the AMS console.
 
-![Update Application Load Balancer interface showing description, ID, and version details.](images/guiAlbUpdateCT.png)
+![Update Application Load Balancer page showing description, ID ct-1a1zzgi2nb83d, and version 3.0.](images/guiAlbUpdateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -2365,7 +2365,7 @@ You can specify up to four Target IDs, Ports, and Availability Zones.
 
 ## High availability one-tier stacks: Creating
 
-![Change type details for creating a high availability one-tier stack with Application Load Balancer.](images/guiHa1tCreateCT.png)
+![Change type details showing ID, version 2.0, and automated execution mode for creating high availability stack.](images/guiHa1tCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -2475,7 +2475,7 @@ EC2 console by searching with the load balancer stack ID returned in the RFC exe
 
 ## Create IAM entity or policy (Managed Automation)
 
-![Create IAM Resource panel showing change type, description, ID, version, and execution mode.](images/guiIamResourceCreateRrCT.png)
+![Change type details showing Create IAM Resource with ID, version 1.0, and manual execution mode.](images/guiIamResourceCreateRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -2714,7 +2714,7 @@ For more information see
 
 The following shows this change type in the AMS console.
 
-![Manage subnet public IPv4 auto assignment panel with ID, execution mode, and classification details.](images/guiVpcManageSubnetAddressCT.png)
+![Manage subnet public IPv4 auto assignment change type details in the AMS console.](images/guiVpcManageSubnetAddressCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -2821,7 +2821,7 @@ For general information on VPCs and subnet addressing, see
 
 The following shows this change type in the AMS console.
 
-![Resource Scheduler interface showing ID and version for a new schedule in AMS.](images/guiResSchedScheduleAddCT.png)
+![Add Resource Scheduler Schedule page showing ID ct-2bxelbn765ive and version 1.0.](images/guiResSchedScheduleAddCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -3247,7 +3247,7 @@ To learn more about Amazon S3, see [Amazon Simple Storage Service Documentation]
 
 The following shows this change type in the AMS console.
 
-![Console interface showing Create Custom RDS Parameter Group with manual execution mode.](images/guiRDSCreateParamCT.png)
+![Create Custom RDS Parameter Group change type showing manual execution mode and version 1.0.](images/guiRDSCreateParamCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -3674,7 +3674,7 @@ be sure to allow at least 24 hours, if approval does not happen before the sched
 
 The following shows this change type in the AMS console.
 
-![Console view of change type for disassociating resolver rules from VPC, with ID and execution details.](images/guiVpcDisassociateResolverRule.png)
+![Console page showing disassociate resolver rules from VPC change type with ID, execution mode, and version details.](images/guiVpcDisassociateResolverRule.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -3785,7 +3785,7 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 
 The following shows this change type in the AMS console.
 
-![Update Enhanced Monitoring interface for an Amazon RDS database instance or cluster.](images/guiRdsDbUpdateEnhancedMonitoring.png)
+![Update Enhanced Monitoring change type details showing ID, execution mode, version, and classification.](images/guiRdsDbUpdateEnhancedMonitoring.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -3890,7 +3890,7 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 
 The following shows this change type in the AMS console.
 
-![Associate VPC with resolver rule details, including ID, execution mode, and description.](images/gui-vpc-associate-resolver-rule.png)
+![Run RFC details page showing Associate VPC With Resolver Rule change type configuration.](images/gui-vpc-associate-resolver-rule.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -3996,7 +3996,7 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 
 Screenshot of this change type in the AMS console:
 
-![Deploy AMS Patterns interface showing ID, execution mode, version, and description details.](images/guiAmsPatternDeployRrCT.png)
+![Deploy AMS Patterns section showing ID, execution mode as Manual, and version 1.0.](images/guiAmsPatternDeployRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -4102,7 +4102,7 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 
 The following shows this change type in the AMS console.
 
-![Share KMS Key interface showing ID, execution mode, version, and description for cross-account access.](images/guiShareKmsKeyCT.png)
+![Share KMS Key change type details showing manual execution mode and classification path.](images/guiShareKmsKeyCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -4208,7 +4208,7 @@ To log in to the instance through a bastion, follow the next procedure,
 
 The following shows this change type in the AMS console.
 
-![Create Active Directory Trust interface showing ID, execution mode, and classification details.](images/guiDirservCreateTrustCT.png)
+![Create Active Directory Trust change type showing ID, execution mode as Automated, and version 1.0.](images/guiDirservCreateTrustCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -4326,7 +4326,7 @@ For information about Directory Service, see the
 
 Screenshot of this change type in the AMS console:
 
-![Override Stack Access Duration change type details, including ID, execution mode, and description.](images/guiStackAccessOverrideCT.png)
+![Override Stack Access Duration change type details showing manual execution mode and version.](images/guiStackAccessOverrideCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -4423,7 +4423,7 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 
 Screenshot of this change type in the AMS console:
 
-![Interface for enabling Automated IAM Provisioning with details on execution mode and permissions.](images/guiAutomatedIAMProvisioningReadWriteCT.png)
+![Enable Automated IAM Provisioning checkbox selected with manual execution mode details.](images/guiAutomatedIAMProvisioningReadWriteCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -4521,7 +4521,7 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 
 The following shows this change type in the AMS console.
 
-![Add Static Route form with ID, execution mode, version, and classification details.](images/guiVpcStaticRouteAddRrCT.png)
+![Add Static Route change type details showing ID, execution mode as Manual, and version 1.0.](images/guiVpcStaticRouteAddRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -4784,7 +4784,7 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 
 ## Update IAM entity or policy
 
-![Update IAM role or policy interface showing ID, execution mode, version, and description.](images/guiIamEntityUpdateCT.png)
+![Update Entity or Policy change type details showing ID, execution mode, version, and classification.](images/guiIamEntityUpdateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -4911,7 +4911,7 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 
 ## Delete IAM entity or policy
 
-![Delete Entity or Policy interface showing ID, execution mode, classification, and description.](images/guiIamEntityDeleteCT.png)
+![Delete Entity or Policy change type details showing ID, execution mode, version, and classification.](images/guiIamEntityDeleteCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -5016,7 +5016,7 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 
 Screenshot of this change type in the AMS console:
 
-![Update Detailed Monitoring interface showing ID, execution mode, version, and description.](images/guiEc2UpdateDetailedMonCT.png)
+![Update Detailed Monitoring page showing ID, execution mode as Automated, and version 1.0.](images/guiEc2UpdateDetailedMonCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -5122,7 +5122,7 @@ To learn more about Amazon EC2, see
 
 The following shows this change type in the AMS console.
 
-![Share Directory interface showing ID, execution mode, version, and description details.](images/guiDirservShareDirectoryCT.png)
+![Share Directory details page showing ID, execution mode as Automated, and version 1.0.](images/guiDirservShareDirectoryCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -5228,7 +5228,7 @@ For related CTs, see [Directory Service Subcategory](../ctref/management-directo
 
 The following shows this change type in the AMS console.
 
-![Unshare Directory details showing ID, execution mode, version, and description.](images/guiDirservUnshareDirectoryCT.png)
+![Unshare Directory change type details showing ID, execution mode, version, and classification.](images/guiDirservUnshareDirectoryCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -5335,7 +5335,7 @@ For related CTs, see [Directory Service Subcategory](../ctref/management-directo
 
 The following shows this change type in the AMS console.
 
-![Interface for creating a VPC endpoint with ID, execution mode, and classification details.](images/guiVpcEndpointCreateCT.png)
+![Create VPC Endpoint Interface change type showing ID, execution mode as Automated, and version 1.0.](images/guiVpcEndpointCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -5452,7 +5452,7 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 
 Screenshot of this change type in the AMS console:
 
-![Update RDS Storage interface showing ID, execution mode, version, and description fields.](images/guiRdsUpdateStorageCT.png)
+![Update RDS Storage change type details showing ID, execution mode, version, and classification.](images/guiRdsUpdateStorageCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -5569,7 +5569,7 @@ To update an RDS stack for Aurora, see
 
 Screenshot of this change type in the AMS console:
 
-![Change RDS MultiAZ Setting interface showing ID, execution mode, version, and description.](images/guiRdsUpdateMultiAzCT.png)
+![Change RDS MultiAZ Setting page showing ID, execution mode, version, classification, and description.](images/guiRdsUpdateMultiAzCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -5684,7 +5684,7 @@ To update an RDS stack for Aurora, see
 
 Screenshot of this change type in the AMS console:
 
-![Update Instance Type form showing ID, execution mode, version, and description for RDS database stack change.](images/guiRdsUpdateInstanceTypeCT.png)
+![Update Instance Type page showing ID, execution mode, version, classification path, and description.](images/guiRdsUpdateInstanceTypeCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -5801,7 +5801,7 @@ To update an RDS stack for Aurora, see
 
 Screenshot of this change type in the AMS console:
 
-![S3 bucket versioning change type with ID, execution mode, version, and description details.](images/guiS3UpdateVersioningCT.png)
+![Change S3 Bucket Versioning Setting page showing ID, execution mode, version, and classification.](images/guiS3UpdateVersioningCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -5905,7 +5905,7 @@ To learn more about Amazon S3, see [Amazon Simple Storage Service Documentation]
 
 Screenshot of this change type in the AMS console:
 
-![Change S3 Bucket Encryption Setting interface with ID, execution mode, and description.](images/guiS3UpdateEncryptionCT.png)
+![Change S3 Bucket Encryption Setting page showing ID, execution mode, version, and classification.](images/guiS3UpdateEncryptionCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -6012,7 +6012,7 @@ To learn more about Amazon S3, see [Amazon Simple Storage Service Documentation]
 
 Screenshot of this change type in the AMS console:
 
-![VPC creation details with ID, version, and description of subnet configuration options.](images/guiMalzAppAcctCreateVpcCT.png)
+![Create Application Account VPC interface showing description, ID ct-1j3503fres5a5, and version 3.0.](images/guiMalzAppAcctCreateVpcCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -6331,7 +6331,7 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 
 Screenshot of this change type in the AMS console:
 
-![Console interface showing details for Remove TGW Static Route change type in a Networking account.](images/guiMalzNetAcctTgwRouteRemoveCT.png)
+![Remove TGW Static Route change type details showing ID, execution mode, version, and classification.](images/guiMalzNetAcctTgwRouteRemoveCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -6439,7 +6439,7 @@ To learn more about AMS multi-account landing zones, see
 
 The following shows this change type in the AMS console.
 
-![Create EC2 for WIGS form showing ID, execution mode, version, and description details.](images/guiEc2CreatePreIngestRrCT.png)
+![Create EC2 for WIGS change type details showing ID, execution mode, version, and classification.](images/guiEc2CreatePreIngestRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -6551,7 +6551,7 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 
 Screenshot of this change type, in the AMS console:
 
-![Modify EBS Volume change type details with description and ID information.](images/guiEbsModifyCT.png)
+![Modify EBS Volume page showing description, ID ct-1wle0ai4en6km, and version 1.0 only version.](images/guiEbsModifyCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -6679,7 +6679,7 @@ Elastic Block Store (EBS)](https://aws.amazon.com/ebs/ "https://aws.amazon.com/e
 
 The following shows this change type in the AMS console.
 
-![AWS Backup Plan update interface showing ID, execution mode, version, and description.](images/guiAwsBackupPlanUpdateRrCT.png)
+![Update AWS Backup Plan change type showing manual execution mode and version 1.0.](images/guiAwsBackupPlanUpdateRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -6811,7 +6811,7 @@ offboarding request fails and the process of confirming and then offboarding mus
 
 Screenshot of this change type in the AMS console:
 
-![Account offboarding confirmation details showing ID, execution mode, and classification.](images/guiManLzAppAcctConfirmOffBCT.png)
+![Confirm Account Offboarding change type details showing ID, execution mode, version, and classification.](images/guiManLzAppAcctConfirmOffBCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -6937,7 +6937,7 @@ Before submitting this change type to initiate application account offboarding, 
 
 Screenshot of this change type in the AMS console:
 
-![Offboard Application Account details showing ID, execution mode, version, and description.](images/guiManLzAppAcctRunOffBCT.png)
+![Offboard Application Account page showing ID, execution mode as Automated, and version 2.0.](images/guiManLzAppAcctRunOffBCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -7054,7 +7054,7 @@ Run this change type within 48 hours of successfully running the confirmation ch
 
 The following shows this change type in the AMS console.
 
-![Deployment details for AMS Resource Scheduler, showing ID, execution mode, version, and description.](images/guiResSchedSolutionDeployCT.png)
+![Deploy AMS Resource Scheduler change type details showing ID, execution mode, and version.](images/guiResSchedSolutionDeployCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -7173,7 +7173,7 @@ AMS Resource Scheduler is based on the AWS Instance Scheduler; to learn more, se
 
 The following shows this change type in the AMS console.
 
-![AMS Resource Scheduler update details showing ID, execution mode, version, and classification.](images/guiResSchedSolutionUpdateCT.png)
+![Update AMS Resource Scheduler page showing ID, execution mode as Automated, and version 2.0.](images/guiResSchedSolutionUpdateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -7290,7 +7290,7 @@ AMS Resource Scheduler is based on the AWS Instance Scheduler; to learn more, se
 
 ## Delete or deactivate access key
 
-![Delete or Deactivate Access Key interface showing ID, execution mode, and classification details.](images/guiIamKeyDeactivateCT.png)
+![Delete or Deactivate Access Key interface showing ID, execution mode, version, and description.](images/guiIamKeyDeactivateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -7402,7 +7402,7 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 
 ## Create access key
 
-![Create Access Key interface showing ID, execution mode, version, and description details.](images/guiIamKeyCreateCT.png)
+![Create Access Key runbook details showing ID, execution mode, version, and classification.](images/guiIamKeyCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -7715,7 +7715,7 @@ To learn more about Amazon EC2, including size recommendations, see
 
 Screenshot of this change type in the AMS console:
 
-![RDS maintenance window update form with ID, execution mode, version, and description fields.](images/guiRdsWindowUpdateRrCT.png)
+![Update RDS Maintenance Window change type showing ID, execution mode as Manual, and version.](images/guiRdsWindowUpdateRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -7931,7 +7931,7 @@ To update an RDS stack for Aurora, see
 
 Screenshot of this change type in the AMS console:
 
-![Interface for creating a security group with ID, execution mode, version, and description.](images/guiSecGroupCreateRrCT.png)
+![Create Security Group change type showing manual execution mode and version 2.0 details.](images/guiSecGroupCreateRrCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
