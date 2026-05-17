@@ -323,16 +323,18 @@ Scroll down to the **Job parameters** section. 3. Specify the following key-valu
 
 
     This is the main parameter that configures the shuffle manager in AWS Glue to use
-     Amazon S3 buckets for writing and reading shuffle data. By default, this
-     parameter has a value of `false`.
+     Amazon S3 buckets for writing and reading shuffle data. This parameter is a
+     presence-based flag — adding it with any value enables Amazon S3 shuffling. To
+     disable Amazon S3 shuffling, remove this parameter entirely from your job
+     configuration.
     * (Optional) `--write-shuffle-spills-to-s3` —
-     `true`
+     `true` (Supported only on AWS Glue version 2.0)
 
 
     This parameter allows you to offload spill files to Amazon S3 buckets,
      which provides additional resiliency to your Spark job in AWS Glue. This is only
-     required for large workloads that spill a lot of data to disk. By default, this
-     parameter has a value of `false`.
+     required for large workloads that spill a lot of data to disk. When the flag is not
+     specified, no intermediate spill files are written.
     * (Optional) `--conf spark.shuffle.glue.s3ShuffleBucket` —
      `S3://<`shuffle-bucket`>`
 

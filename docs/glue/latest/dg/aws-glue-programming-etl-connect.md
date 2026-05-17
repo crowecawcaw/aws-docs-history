@@ -206,7 +206,12 @@ These include the following:
 
 ### Connection options for type custom.jdbc or marketplace.jdbc
 
-- `className` – String, required, driver class name.
+- `className` – String, required, the fully-qualified Java class
+  name of the JDBC driver (for example,
+  `com.mysql.cj.jdbc.Driver`). You must specify this
+  option when using a custom or AWS Marketplace JDBC connector. If you omit this option, the
+  job may fail with a `No suitable driver` error, particularly when
+  using parameterized JDBC URLs.
 - `connectionName` – String, required, name of the connection that
   is associated with the connector.
 - `url` – String, required, JDBC URL with placeholders

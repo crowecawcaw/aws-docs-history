@@ -57,6 +57,13 @@ console or AWS Glue Studio when configuring a job: choose the **--write-shuffle-
 
 The following job parameters turn on and tune the AWS Glue shuffle manager. These parameters are flags, so any values provided are not considered.
 
+###### Important
+
+To disable Amazon S3 shuffling, you must remove the `--write-shuffle-files-to-s3`
+parameter entirely from your job configuration. Setting the value to `false` does
+not disable Amazon S3 shuffling — the parameter acts as a presence-based flag, meaning that
+any value (including `false`) enables Amazon S3 shuffling when the parameter is present.
+
 - `--write-shuffle-files-to-s3` — The main flag, which enables the AWS Glue Spark shuffle manager to use Amazon S3 buckets for writing and
   reading shuffle data. When the flag is not specified, the shuffle manager is not used.
 - `--write-shuffle-spills-to-s3` — (Supported only on AWS Glue

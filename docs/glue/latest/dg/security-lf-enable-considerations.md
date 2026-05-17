@@ -3,8 +3,7 @@
 Consider the following considerations and limitations when you use Lake Formation with
 AWS Glue.
 
-AWS Glue with Lake Formation is available in all supported Regions except AWS GovCloud (US-East) and AWS GovCloud (US-West).
-
+- AWS Glue with Lake Formation is available in all supported Regions.
 - AWS Glue supports fine-grained access control via Lake Formation only for Apache Hive and Apache Iceberg tables. Apache Hive
   formats include Parquet, ORC, and CSV.
 - You can only use Lake Formation with Spark jobs.
