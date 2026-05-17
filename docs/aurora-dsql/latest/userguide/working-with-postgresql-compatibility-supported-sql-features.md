@@ -7,24 +7,24 @@ can learn about general PostgreSQL expression support. This list is not exhausti
 
 Aurora DSQL supports the following clauses of the `SELECT` command.
 
-| Primary clause                    | Supported clauses                |
-| --------------------------------- | -------------------------------- |
-| `FROM`                            |                                  |
-| `GROUP BY`                        | `ALL`, `DISTINCT`                |
-| `ORDER BY`                        | `ASC`, `DESC`, `NULLS`           |
-| `LIMIT`                           |                                  |
-| `DISTINCT`                        |                                  |
-| `HAVING`                          |                                  |
-| `USING`                           |                                  |
-| `WITH` (common table expressions) |                                  |
-| `INNER JOIN`                      | `ON`                             |
-| `OUTER JOIN`                      | `LEFT`, `RIGHT`, `FULL`,<br>`ON` |
-| `CROSS JOIN`                      | `ON`                             |
-| `UNION`                           | `ALL`                            |
-| `INTERSECT`                       | `ALL`                            |
-| `EXCEPT`                          | `ALL`                            |
-| `OVER`                            | `RANK ()`, `PARTITION BY`        |
-| `FOR UPDATE`                      |                                  |
+| Primary clause                    | Supported clauses                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `FROM`                            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `GROUP BY`                        | `ALL`, `DISTINCT`                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `ORDER BY`                        | `ASC`, `DESC`, `NULLS`                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `LIMIT`                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `DISTINCT`                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `HAVING`                          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `USING`                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `WITH` (common table expressions) |                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `INNER JOIN`                      | `ON`                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `OUTER JOIN`                      | `LEFT`, `RIGHT`, `FULL`,<br>`ON`                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `CROSS JOIN`                      | `ON`                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `UNION`                           | `ALL`                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `INTERSECT`                       | `ALL`                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `EXCEPT`                          | `ALL`                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `OVER`                            | `RANK ()`, `PARTITION BY`                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `FOR UPDATE`                      | Specify equality predicates on all primary key columns (for example, `WHERE pk = value`). If you use range, `IN`, `OR`, or other non-equality predicates, the query returns `ERROR: locking clause such as FOR UPDATE can be applied only on tables with equality predicates on the key`.<br>Specify on a single table query. If you use joins or multiple tables, the query returns `ERROR: locking clause such as FOR UPDATE can be applied on a single table`. |
 
 ## Data Definition Language (DDL)
 
@@ -51,11 +51,11 @@ Aurora DSQL supports the following PostgreSQL DDL commands.
 
 Aurora DSQL supports the following PostgreSQL DML commands.
 
-| Command  | Primary clause | Supported clauses                |
-| -------- | -------------- | -------------------------------- |
-| `INSERT` | `INTO`         | `VALUES``SELECT`                 |
-| `UPDATE` | `SET`          | `WHERE (SELECT)`<br>`FROM, WITH` |
-| `DELETE` | `FROM`         | `USING`, `WHERE`                 |
+| Command  | Primary clause | Supported clauses                       |
+| -------- | -------------- | --------------------------------------- |
+| `INSERT` | `INTO`         | `VALUES`<br>`SELECT`<br>`[ON CONFLICT]` |
+| `UPDATE` | `SET`          | `WHERE (SELECT)`<br>`FROM, WITH`        |
+| `DELETE` | `FROM`         | `USING`, `WHERE`                        |
 
 ## Data Control Language (DCL)
 

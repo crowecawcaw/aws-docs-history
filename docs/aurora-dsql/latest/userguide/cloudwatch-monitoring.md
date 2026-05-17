@@ -35,3 +35,20 @@ Aurora DSQL measures all request-based activity, such as query processing, reads
 | ReadDPU                | Read Units               | <cluster-id>          | DPU  | Approximates the read active-use component of your Aurora DSQL cluster DPU<br>usage.                                                     |
 | ComputeDPU             | Compute Units            | <cluster-id>          | DPU  | Approximates the compute active-use component of your Aurora DSQL cluster DPU<br>usage.                                                  |
 | TotalDPU               | Total Units              | <cluster-id>          | DPU  | Approximates the total active-use component of your Aurora DSQL cluster DPU<br>usage.                                                    |
+
+## CDC stream metrics
+
+Aurora DSQL publishes the following metrics for change data capture (CDC) streams. These
+metrics use the `ClusterId` and `StreamId` dimensions, so you
+can monitor each CDC stream independently. For more information about CDC streams, see
+[Change data capture (CDC)
+streams](cdc-streams.md "cdc-streams.md").
+
+| CloudWatch Metric Name | Metric            | Unit         | Description                                                                                                                                                                                                                                                                                                           |
+| ---------------------- | ----------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| IsImpaired             | Is impaired       | none         | Indicates whether the stream is impaired. The value is `1`<br>when the stream is in the `IMPAIRED` state, and<br>`0` when the stream is healthy. Use this metric to create a<br>CloudWatch alarm that notifies you when a stream becomes impaired.                                                                    |
+| PublishedBytes         | Published bytes   | bytes        | The total number of bytes that Aurora DSQL wrote to the target Kinesis data<br>stream.                                                                                                                                                                                                                                |
+| PublishedRecords       | Published records | none         | The number of CDC records that Aurora DSQL wrote to the target Kinesis data<br>stream.                                                                                                                                                                                                                                |
+| BehindSourceLag        | Behind source lag | milliseconds | The delay, in milliseconds, between when a transaction commits in Aurora DSQL and when<br>the CDC system processes the resulting record. A rising value indicates<br>that the CDC pipeline is falling behind the write workload. If lag<br>grows beyond the failure threshold, the stream transitions to<br>`FAILED`. |
+| BytesStreamed          | Bytes streamed    | bytes        | The total bytes streamed through the CDC pipeline for billing<br>purposes. This metric reflects the data volume used to calculate<br>streaming charges.                                                                                                                                                               |
+| StreamDPU              | Stream DPU        | DPU          | The Distributed Processing Units (DPU) consumed by the CDC stream.<br>This metric reflects the processing cost of streaming change<br>data.                                                                                                                                                                           |

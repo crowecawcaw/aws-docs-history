@@ -23,10 +23,12 @@ This policy grants permissions that allows full administrative access to Aurora 
 
 - Create, delete, and update Aurora DSQL clusters, including multi-Region clusters
 - Manage cluster inline policies (create, view, update, and delete policies)
-- Add and remove tags from clusters
+- Create, update, delete, and manage CDC streams for clusters
+- Add and remove tags from clusters and CDC streams
 - List clusters and view information about individual clusters
 - See tags attached to Aurora DSQL clusters
 - Connect to the database as any user, including admin
+- Pass IAM roles to CDC streams for data delivery to target destinations
 - Perform backup and restore operations for Aurora DSQL clusters, including starting, stopping, and monitoring backup and restore jobs
 - Use customer-managed AWS KMS keys for cluster encryption
 - View any metrics from CloudWatch for their account
@@ -37,12 +39,12 @@ This policy grants permissions that allows full administrative access to Aurora 
 
 This policy includes the following permissions.
 
-- `dsql`—grants principals full access to Aurora DSQL.
-- `cloudwatch`—grants permission to publish metric data points to Amazon CloudWatch.
-- `iam`—grants permission to create a service-linked role.
-- `backup and restore`—grants permissions to start, stop, and monitor backup and restore jobs for Aurora DSQL clusters.
-- `kms`—grants permissions required to validate access to customer-managed keys used for Aurora DSQL cluster encryption when creating, updating, or connecting to clusters.
-- `fis`—grants permissions to use AWS Fault Injection Service (AWS FIS) to inject failures into Aurora DSQL clusters for fault tolerance testing.
+- `dsql` – grants principals full access to Aurora DSQL.
+- `cloudwatch` – grants permission to publish metric data points to Amazon CloudWatch.
+- `iam` – grants permission to create a service-linked role and pass roles to CDC streams for data delivery.
+- `backup and restore` – grants permissions to start, stop, and monitor backup and restore jobs for Aurora DSQL clusters.
+- `kms` – grants permissions required to validate access to customer-managed keys used for Aurora DSQL cluster encryption when creating, updating, or connecting to clusters.
+- `fis` – grants permissions to use AWS Fault Injection Service (AWS FIS) to inject failures into Aurora DSQL clusters for fault tolerance testing.
 
 You can find the `AmazonAuroraDSQLFullAccess` policy in the IAM console and
 in the [AWS Managed
@@ -53,7 +55,7 @@ Policy Reference Guide](../../../aws-managed-policy/latest/reference/AmazonAuror
 You can attach `AmazonAuroraDSQLReadOnlyAccess` to your users, groups, and roles.
 
 Allows read access to Aurora DSQL. Principals with these permissions can list clusters and view information about
-individual clusters. They can see the tags attached to Aurora DSQL clusters, and view cluster inline policies. They can retrieve and see any metrics
+individual clusters. They can see the tags attached to Aurora DSQL clusters and CDC streams, view information about individual CDC streams, and view cluster inline policies. They can retrieve and see any metrics
 from CloudWatch on your account.
 
 **Permissions details**
@@ -63,6 +65,7 @@ This policy includes the following permissions.
 - `dsql` – grants read only permissions to all resources in Aurora DSQL.
 - `cloudwatch` – grants permission to retrieve batch amounts of
   CloudWatch metric data and perform metric math on retrieved data
+- `iam` – grants permissions to pass roles to CDC streams for data delivery configuration.
 
 You can find the `AmazonAuroraDSQLReadOnlyAccess` policy in the IAM console
 and the [AWS
@@ -95,22 +98,22 @@ in the AWS Managed Policy Reference Guide.
 
 This policy includes the following permissions.
 
-- `dsql`—grants full administrative permissions to all resources in Aurora DSQL via
+- `dsql` – grants full administrative permissions to all resources in Aurora DSQL via
   the AWS Management Console.
-- `cloudwatch`—grants permission to retrieve batch amounts of CloudWatch
+- `cloudwatch` – grants permission to retrieve batch amounts of CloudWatch
   metric data and perform metric math on retrieved data.
-- `tag`—grants permission to returns tag keys and values currently
+- `tag` – grants permission to returns tag keys and values currently
   in use in the specified AWS Region for the calling account.
-- `backup and restore`—grants permissions to start, stop, and
+- `backup and restore` – grants permissions to start, stop, and
   monitor backup and restore jobs for Aurora DSQL clusters.
-- `kms`—grants permissions required to validate access to
+- `kms` – grants permissions required to validate access to
   customer-managed keys used for Aurora DSQL cluster encryption when creating, updating, or
   connecting to clusters.
-- `cloudshell`—grants permissions to launch AWS CloudShell to interact with Aurora DSQL.
-- `ec2`—grants permission to view Amazon VPC endpoint information needed for Aurora DSQL connections.
-- `fis`—grants permissions to use AWS FIS to inject failures into Aurora DSQL clusters for fault tolerance testing.
+- `cloudshell` – grants permissions to launch AWS CloudShell to interact with Aurora DSQL.
+- `ec2` – grants permission to view Amazon VPC endpoint information needed for Aurora DSQL connections.
+- `fis` – grants permissions to use AWS FIS to inject failures into Aurora DSQL clusters for fault tolerance testing.
 - `access-analyzer:ValidatePolicy` grants permission for the linter in the policy editor, which provides real-time feedback about errors, warnings, and security issues in the current policy.
-- `fis`—grants permissions to use AWS Fault Injection Service (AWS FIS) to inject failures into Aurora DSQL clusters for fault tolerance testing.
+- `fis` – grants permissions to use AWS Fault Injection Service (AWS FIS) to inject failures into Aurora DSQL clusters for fault tolerance testing.
 
 You can find the `AmazonAuroraDSQLConsoleFullAccess` policy in the IAM
 console and the [AWS Managed Policy Reference Guide](../../../aws-managed-policy/latest/reference/AmazonAuroraDSQLConsoleFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonAuroraDSQLConsoleFullAccess.md").

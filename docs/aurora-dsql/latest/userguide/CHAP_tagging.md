@@ -1,12 +1,13 @@
 # Tagging resources in Aurora DSQL
 
 In AWS, tags are user-defined key-value pairs that you define and associate with Aurora DSQL
-resources such as clusters. Tags are optional. If you provide a key, the value is optional.
+resources such as clusters and CDC streams. Tags are optional. If you provide a key, the
+value is optional.
 
 You can use the AWS Management Console, the AWS CLI, or the AWS SDKs to add, list, and delete tags
-on Aurora DSQL clusters. You can add tags during and after
-cluster creation using the AWS console. To tag a cluster after creation with the AWS CLI
-use the `TagResource` operation.
+on Aurora DSQL clusters and CDC streams. You can add tags during and after resource creation
+by using the AWS console. To tag a resource after creation with the AWS CLI, use the
+`TagResource` operation.
 
 ## Tagging clusters with a Name
 
@@ -30,6 +31,22 @@ Tags have the following requirements:
 - Allowed characters for keys and values are letters, digits, white space, and
   any of the following symbols: \_ . : / = + - @.
 - Keys and values are case sensitive.
+
+## Tagging CDC streams
+
+CDC streams are independently taggable resources. You can add tags when you create
+a stream by passing the `--tags` parameter to `CreateStream`,
+and you can read, add, or remove tags on an existing stream by using
+`ListTagsForResource`, `TagResource`, and
+`UntagResource` with the stream ARN. Tags on a CDC stream are separate
+from tags on the parent cluster and from tags on the destination Amazon Kinesis data
+stream.
+
+A CDC stream ARN has the format
+`arn:aws:dsql:`region`:`account-id`:cluster/`cluster-id`/stream/`stream-id``.
+For more information about CDC streams, see
+[Change
+data capture (CDC) streams](cdc-streams.md "cdc-streams.md").
 
 ## Tagging usage notes
 

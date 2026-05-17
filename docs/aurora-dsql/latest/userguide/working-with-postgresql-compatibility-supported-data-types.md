@@ -51,7 +51,7 @@ Aurora DSQL supports the following PostgreSQL date and time data types.
 | Name                                                    | Aliases       | Description                        | Range                              | Resolution    | Storage size | Index support |
 | ------------------------------------------------------- | ------------- | ---------------------------------- | ---------------------------------- | ------------- | ------------ | ------------- |
 | `date`                                                  |               | Calendar date (year, month, day)   | 4713 BC – 5874897 AD               | 1 day         | 4 bytes      | Yes           |
-| `time` [ `(``p``)`<br>] [ `without time zone` ]         | `timestamp`   | Time of day, with no time zone     | 0 – 1                              | 1 microsecond | 8 bytes      | Yes           |
+| `time` [ `(``p``)`<br>] [ `without time zone` ]         |               | Time of day, with no time zone     | 00:00:00 – 24:00:00                | 1 microsecond | 8 bytes      | Yes           |
 | `time` [ `(``p``)`<br>] `with time zone`                | `timetz`      | time of day, including time zone   | 00:00:00+1559 – 24:00:00 –1559     | 1 microsecond | 12 bytes     | No            |
 | `timestamp` [<br>`(``p``)` ] [ `without<br>time zone` ] |               | Date and time, with no time zone   | 4713 BC – 294276 AD                | 1 microsecond | 8 bytes      | Yes           |
 | `timestamp` [<br>`(``p``)` ] `with time<br>zone`        | `timestamptz` | Date and time, including time zone | 4713 BC – 294276 AD                | 1 microsecond | 8 bytes      | Yes           |

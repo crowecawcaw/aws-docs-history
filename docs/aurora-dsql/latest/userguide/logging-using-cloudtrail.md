@@ -46,6 +46,17 @@ Amazon Aurora DSQL logs the following Aurora DSQL control plane operations to Cl
 - [UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md")
 - [UpdateCluster](../APIReference/API_UpdateCluster.md "../APIReference/API_UpdateCluster.md")
 
+**CDC stream logs**
+
+Amazon Aurora DSQL logs the following CDC stream operations to CloudTrail as management events. For
+more information about CDC streams, see [Change data capture (CDC)
+streams](cdc-streams.md "cdc-streams.md").
+
+- [CreateStream](../APIReference/API_CreateStream.md "../APIReference/API_CreateStream.md")
+- [DeleteStream](../APIReference/API_DeleteStream.md "../APIReference/API_DeleteStream.md")
+- [GetStream](../APIReference/API_GetStream.md "../APIReference/API_GetStream.md")
+- [ListStreams](../APIReference/API_ListStreams.md "../APIReference/API_ListStreams.md")
+
 **Backup and restore logs**
 
 Amazon Aurora DSQL logs the following Aurora DSQL backup and restore operations to CloudTrail as management

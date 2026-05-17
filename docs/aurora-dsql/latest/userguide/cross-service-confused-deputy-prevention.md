@@ -26,7 +26,7 @@ characters (`*`) for the unknown portions of the ARN. For example,
 If the `aws:SourceArn` value does not contain the account ID, such as an Amazon S3
 bucket ARN, you must use both global condition context keys to limit permissions.
 
-The value of `aws:SourceArn` must be ResourceDescription.
+The value of `aws:SourceArn` must be the ARN of the Aurora DSQL resource that the service role acts on behalf of.
 
 The following example shows how you can use the `aws:SourceArn` and
 `aws:SourceAccount` global condition context keys in Aurora DSQL to prevent
@@ -59,3 +59,43 @@ JSON
 }`
 
 ```
+
+## CDC stream service role
+
+Change data capture (CDC) streams require an IAM service role that Aurora DSQL assumes
+to write CDC records to your target. When you create this role, use
+`aws:SourceAccount` and `aws:SourceArn` conditions in the trust
+policy to ensure that only CDC streams in your account can assume the role.
+
+Set `aws:SourceArn` to the stream ARN pattern for the cluster that uses
+the role. Because Aurora DSQL hasn't assigned the stream identifier when you create
+the stream, use a wildcard for the stream portion of the ARN:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DSQLAssumeRole",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "dsql.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole",
+            "Condition": {
+                "StringEquals": {
+                    "aws:SourceAccount": "`your-account-id`"
+                },
+                "ArnLike": {
+                    "aws:SourceArn": "arn:aws:dsql:`region`:`your-account-id`:cluster/`cluster-id`/stream/*"
+                }
+            }
+        }
+    ]
+}
+```
+
+After you create a stream, you can tighten `aws:SourceArn` to the exact
+stream ARN if the role serves a single stream. For a full explanation of the trust
+policy and permissions policy for CDC service roles, see
+[Configuring IAM](cdc-iam.md "cdc-iam.md").

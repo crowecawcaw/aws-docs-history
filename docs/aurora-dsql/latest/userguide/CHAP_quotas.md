@@ -19,6 +19,7 @@ other quota increases, contact AWS Support.
 | Maximum connection burst capacity per cluster  | 1,000 connections                                                | No            | No error code                                        | No error message                                          |
 | Maximum concurrent restore jobs                | 4                                                                | No            | No error code                                        | No error message                                          |
 | Connection Refill Rate                         | 100 connections per second                                       | No            | No error code                                        | No error message                                          |
+| Maximum CDC streams per cluster                | 5 streams                                                        | No            | API error code `ServiceQuotaExceededException : 402` | `You have reached the stream limit.`                      |
 
 ## Database limits in Aurora DSQL
 
