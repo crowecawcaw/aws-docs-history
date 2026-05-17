@@ -151,6 +151,10 @@ choose **Cancel**.
 `AutoMinorVersionUpgrade` is only effective for minor
 version upgrades above [engine release 1.3.0.0](engine-releases-1.3.0.0.md "engine-releases-1.3.0.0.md").
 
+Automatic minor version upgrades don't apply to Neptune clusters that are part of a
+global database. You can set this option on a DB instance in a global database cluster,
+but it has no effect.
+
 If you have the `AutoMinorVersionUpgrade` field set to `true`
 in the writer (primary) instance of your DB cluster, minor version updates are applied
 automatically to all instances in your DB cluster during the next maintenance window
