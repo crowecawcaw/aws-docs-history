@@ -5,6 +5,29 @@ compute environment that can then be saved to a file and used with the AWS CLI `
 more information about these parameters, see [CreateComputeEnvironment](../APIReference/API_CreateComputeEnvironment.md "../APIReference/API_CreateComputeEnvironment.md") in the
 _AWS Batch API Reference_.
 
+Before creating a managed Amazon EC2 compute environment, make sure you have the following
+prerequisites in place. These prerequisites apply when the `type` field is set to
+`MANAGED`.
+
+- **Security group** – Your compute resources require a
+  security group that allows outbound traffic so that instances can communicate with the Amazon ECS
+  service endpoint and pull container images. For more information, see [Create a security group](create-a-base-security-group.md "create-a-base-security-group.md").
+- **IAM roles** – AWS Batch requires an Amazon ECS instance
+  role that allows container instances to make AWS API calls on your behalf. For more
+  information, see [Amazon ECS instance role](instance_IAM_role.md "instance_IAM_role.md") and
+  [Using service-linked roles for AWS Batch](using-service-linked-roles.md "using-service-linked-roles.md").
+
+###### Note
+
+The `instanceRole` field accepts an instance profile ARN, not a role ARN.
+The format is
+`arn:aws:iam::`account_id`:instance-profile/`ecsInstanceRole``.
+
+- **Network access** – Compute resources must be able
+  to reach the Amazon ECS service endpoint. If your instances are in a private subnet without a
+  public IP address, you can use either a NAT gateway or Amazon VPC interface endpoints. For more
+  information, see [Use an interface endpoint to Access AWS Batch](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
+
 ###### Note
 
 You can generate a compute environment template with the following AWS CLI command.
@@ -13,56 +36,68 @@ You can generate a compute environment template with the following AWS CLI comma
 `$` `aws batch create-compute-environment --generate-cli-skeleton`
 ```
 
+###### Important
+
+Compute environments must be created in `ENABLED` state.
+
+The following example shows a skeleton template for a **managed Amazon EC2
+compute environment**. The `computeResources` block is required when
+`type` is `MANAGED`.
+
 ```
 {
     "computeEnvironmentName": "",
-    "type": "UNMANAGED",
-    "state": "DISABLED",
-    "unmanagedvCpus": 0,
+    "type": "MANAGED",
+    "state": "ENABLED",
     "computeResources": {
         "type": "EC2",
         "allocationStrategy": "BEST_FIT_PROGRESSIVE",
         "minvCpus": 0,
-        "maxvCpus": 0,
+        "maxvCpus": 16,
         "desiredvCpus": 0,
         "instanceTypes": [
-            ""
+            "default_arm64"
         ],
-        "imageId": "",
         "subnets": [
-            ""
+            "`subnet-a1b2c3d4`"
         ],
         "securityGroupIds": [
-            ""
+            "`sg-a1b2c3d4`"
         ],
-        "ec2KeyPair": "",
-        "instanceRole": "",
+        "instanceRole": "arn:aws:iam::`123456789012`:instance-profile/`ecsInstanceRole`",
         "tags": {
             "KeyName": ""
         },
-        "placementGroup": "",
-        "bidPercentage": 0,
-        "spotIamFleetRole": "",
         "launchTemplate": {
             "launchTemplateId": "",
-            "launchTemplateName": "",
-            "version": ""
+            "version": "$Default"
         },
         "ec2Configuration": [
             {
-                "imageType": "",
-                "imageIdOverride": "",
-                "imageKubernetesVersion": ""
+                "imageType": "ECS_AL2023"
             }
         ]
     },
     "serviceRole": "",
     "tags": {
         "KeyName": ""
-    },
-    "eksConfiguration": {
-        "eksClusterArn": "",
-        "kubernetesNamespace": ""
+    }
+}
+```
+
+The following example shows a skeleton template for an **unmanaged Amazon EC2
+compute environment**. The `computeResources` block is not used for
+`UNMANAGED` compute environments and should be omitted.
+
+```
+{
+    "computeEnvironmentName": "",
+    "type": "UNMANAGED",
+    "state": "ENABLED",
+    "unmanagedvCpus": 0,
+    "serviceRole": "",
+    "tags": {
+        "KeyName": ""
     }
 }
 ```

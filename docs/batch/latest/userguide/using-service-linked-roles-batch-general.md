@@ -21,6 +21,13 @@ to specify a service role for an AWS Batch compute environment.
   `arn:aws:iam::`account_number`:role/aws-service-role/batch.amazonaws.com/AWSServiceRoleForBatch`.
   For more information, see [Incorrect role name or ARN](invalid_compute_environment.md#invalid_service_role_arn "invalid_compute_environment.md#invalid_service_role_arn") in the AWS Batch User Guide.
 
+###### Important
+
+Service-linked role auto-creation only applies to `MANAGED` compute
+environments. For `UNMANAGED` compute environments, you must explicitly specify a
+`serviceRole`. Omitting the role for an `UNMANAGED` compute environment results in
+a `ServiceRole is required` error.
+
 You can delete a service-linked role only after first deleting their related resources.
 This protects your AWS Batch resources because you can't inadvertently remove permission
 to access the resources.
@@ -64,6 +71,12 @@ _IAM User Guide_.
 You don't need to manually create a service-linked role. When you
 create a compute environment in the AWS Management Console, the AWS CLI, or the AWS API, AWS Batch
 creates the service-linked role for you.
+
+###### Note
+
+This automatic service-linked role creation only applies to `MANAGED`
+compute environments. For `UNMANAGED` compute environments, you must explicitly provide a
+`serviceRole` when calling `CreateComputeEnvironment`.
 
 ###### Important
 

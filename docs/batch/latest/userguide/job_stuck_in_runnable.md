@@ -212,5 +212,18 @@ AWS Batch run jobs. The Amazon ECS container agent is installed by default on Am
 AMIs. For more information about the Amazon ECS container agent, see [Amazon ECS container agent](../../../AmazonECS/latest/developerguide/ECS_agent.md "../../../AmazonECS/latest/developerguide/ECS_agent.md") in the
 _Amazon Elastic Container Service Developer Guide_.
 
+**Long-running user data scripts in a launch template**
+
+If your launch template includes a user data script that takes a long time to complete,
+instances can time out before they register with Amazon ECS. When this happens, the instances
+never become available to pick up jobs, leaving all jobs stuck in `RUNNABLE`
+status. All user data scripts must finish before an instance can register with Amazon ECS and
+start running jobs.
+
+To resolve this, review your launch template user data for long-running or blocking
+operations. Consider optimizing scripts to reduce execution time, running non-critical
+operations asynchronously, or moving initialization logic out of user data entirely. For more
+information, see [Use Amazon EC2 launch templates with AWS Batch](launch-templates.md "launch-templates.md").
+
 For more information, see [Why is my AWS Batch job stuck in `RUNNABLE` status?](https://aws.amazon.com/premiumsupport/knowledge-center/batch-job-stuck-runnable-status/ "https://aws.amazon.com/premiumsupport/knowledge-center/batch-job-stuck-runnable-status/") in
 _re:Post_.

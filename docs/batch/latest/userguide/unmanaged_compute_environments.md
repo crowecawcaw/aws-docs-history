@@ -44,3 +44,15 @@ while AWS Batch integrates with your existing Amazon EKS cluster to schedule and
 
 For more information, see [Tutorial: Create an unmanaged compute
 environment using Amazon EKS resources](create-compute-environment-unmanaged-eks.md "create-compute-environment-unmanaged-eks.md").
+
+###### Amazon EKS Auto Mode compatibility
+
+AWS Batch does not run jobs on [Amazon EKS
+Auto Mode](../../../eks/latest/userguide/automode.md "../../../eks/latest/userguide/automode.md") worker nodes today — AWS Batch's unmanaged Amazon EKS compute environment requires persistent,
+customer-labeled nodes, whereas Auto Mode provisions nodes dynamically via Karpenter based on pending-pod
+pressure.
+
+An unmanaged Amazon EKS compute environment can coexist with an Amazon EKS cluster that has Auto Mode enabled for
+other workloads, as long as the AWS Batch compute environment points at a dedicated node group not managed by
+Auto Mode. Auto Mode will continue to manage the non-AWS Batch workloads independently without interfering with
+the AWS Batch node group.

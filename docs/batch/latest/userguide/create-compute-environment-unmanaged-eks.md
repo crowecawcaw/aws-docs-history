@@ -19,16 +19,22 @@ Complete the following steps to create an unmanaged compute environment using Am
 7. For **EKS cluster**, choose an existing Amazon EKS cluster. To create a new EKS cluster,
    follow the steps on [Create
    an Amazon EKS cluster page](../../../eks/latest/userguide/create-cluster.md "../../../eks/latest/userguide/create-cluster.md").
-8. For **Namespace**, enter a Kubernetes namespace to group your AWS Batch
-   processes in the cluster.
-9. (Optional) For **Maximum vCPUs**, specify the maximum number of vCPUs available
-   for job scheduling from your provisioned capacity.
-10. (Optional) Expand **Tags**. Choose **Add tag** and
-    then enter a key-value pair.
-11. Choose **Next page**.
-12. For **Review**, review the configuration steps. If you
-    need to make changes, choose **Edit**. When you're finished,
-    choose **Create compute environment**.
+
+###### Note
+
+AWS Batch does not run jobs on [Amazon EKS Auto Mode](../../../eks/latest/userguide/automode.md "../../../eks/latest/userguide/automode.md") worker nodes today —
+AWS Batch's unmanaged Amazon EKS compute environment requires persistent, customer-labeled nodes, whereas
+Auto Mode provisions nodes dynamically via Karpenter based on pending-pod pressure.
+
+An unmanaged Amazon EKS compute environment can coexist with an Amazon EKS cluster that has Auto Mode
+enabled for other workloads, as long as the AWS Batch compute environment points at a dedicated node
+group not managed by Auto Mode. Auto Mode will continue to manage the non-AWS Batch workloads
+independently without interfering with the AWS Batch node group. 8. For **Namespace**, enter a Kubernetes namespace to group your AWS Batch
+processes in the cluster. 9. (Optional) For **Maximum vCPUs**, specify the maximum number of vCPUs available
+for job scheduling from your provisioned capacity. 10. (Optional) Expand **Tags**. Choose **Add tag** and
+then enter a key-value pair. 11. Choose **Next page**. 12. For **Review**, review the configuration steps. If you
+need to make changes, choose **Edit**. When you're finished,
+choose **Create compute environment**.
 
 ###### Assigning Amazon EKS cluster nodes to unmanaged compute environment
 

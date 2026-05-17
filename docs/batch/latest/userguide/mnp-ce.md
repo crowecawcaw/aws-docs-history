@@ -20,7 +20,8 @@ AWS Batch.
 - Your compute environment might have no more than five security groups associated with it.
   The elastic network interfaces that are created and attached to an MNP task will use the
   security groups specified in your compute environment, If you don't specify a security group,
-  the default security group for the VPC is used.
+  the default security group for the VPC is used. Unlike regular AWS Batch jobs, multi-node
+  parallel jobs do not use security groups specified in launch templates.
 - The `awsvpc` network mode doesn't provide the elastic network interfaces for
   multi-node parallel jobs with public IP addresses. To access the internet, your compute
   resources must be launched in a private subnet that is configured to use a NAT gateway. For
