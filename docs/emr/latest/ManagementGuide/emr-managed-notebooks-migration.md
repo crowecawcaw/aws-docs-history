@@ -94,7 +94,7 @@ EMR Studio. For more information, see [Administrator permissions to create and m
 "emr-containers:DescribeVirtualCluster",
 "emr-containers:ListManagedEndpoints",
 "emr-containers:DescribeManagedEndpoint",
-"emr-containers:CreateAccessTokenForManagedEndpoint",
+"emr-containers:GetManagedEndpointSessionCredentials",
 "emr-containers:ListJobRuns",
 "emr-containers:DescribeJobRun",
 "servicecatalog:SearchProducts",

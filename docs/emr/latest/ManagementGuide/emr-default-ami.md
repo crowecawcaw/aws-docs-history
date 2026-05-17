@@ -1,9 +1,7 @@
 # Using the default Amazon Linux AMI for Amazon EMR
 
 Each Amazon EMR release version uses a default Amazon Linux AMI for Amazon EMR unless you specify a
-custom AMI. Starting with Amazon EMR 5.36, Amazon EMR 6.6, and Amazon EMR 7.0 releases the default behavior for
-updating Amazon Linux 2 (AL2 for EMR 5.x and 6.x, AL2023 for EMR 7.x) in an Amazon EMR default AMI is to automatically apply the latest Amazon Linux
-release for the default Amazon EMR AMI.
+custom AMI. Starting with Amazon EMR 5.36, Amazon EMR 6.6, and Amazon EMR 7.0 releases, Amazon EMR automatically incorporates Amazon Linux updates into the default Amazon EMR AMI (AL2 for Amazon EMR 5.x and 6.x, AL2023 for Amazon EMR 7.x) as the default behavior. New Amazon Linux releases are typically integrated within 2 weeks of their availability, though integration may occasionally go beyond 2 weeks due to testing requirements.
 
 ## Automatic Amazon Linux updates for Amazon EMR releases
 

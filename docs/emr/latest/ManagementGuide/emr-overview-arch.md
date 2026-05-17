@@ -36,6 +36,13 @@ You can use either HDFS or Amazon S3 as the file system in your cluster. Most of
 Amazon S3 is used to store input and output data and intermediate results are stored
 in HDFS.
 
+### S3A File System
+
+Starting with the Amazon EMR 7.10.0 release, the S3A File System is the default file system and Amazon S3 connector
+for Amazon EMR clusters for all Amazon S3 file schemes, including `s3://`, `s3a://`, and
+`s3n://`. For more information, see [Migrating to S3A on Amazon EMR](../ReleaseGuide/emr-s3a-migrate.md "../ReleaseGuide/emr-s3a-migrate.md") in the
+_Amazon EMR Release Guide_.
+
 ### Local file system
 
 The local file system refers to a locally connected disk. When you create a
