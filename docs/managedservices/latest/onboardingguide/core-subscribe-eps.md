@@ -8,9 +8,9 @@ subscribe to the Trend Micro Deep Security AMI on AWS Marketplace. Your CSDM or 
    `CustomerEPSSubscriptionIAMRoleOrUser`
 2. Navigate to the **Switch Role** screen.
 
-![AWS console dropdown menu showing account options and service status indicator.](images/image5.png)
+![AWS console navigation bar showing the account dropdown menu.](images/image5.png)
 
-![Switch Role dialog with account, role, display name, and color selection options.](images/image6.png)
+![AWS console dropdown menu showing account options and service status indicator.](images/image6.png)
 
     * Account: Provided by AMS
     * Role: `EPSMarketplaceSubscriptionRole`

@@ -6,4 +6,4 @@ addition, this account contains public DMZ bastions that are the entry point for
 engineers to access hosts in the AMS environment. For details, see the following high-level
 diagram of the networking account below.
 
-![Network architecture diagram showing Egress VPC, DMZ VPC, and connections to on-premises and internet.](images/malzNetworkAccount.png)
+![Network architecture diagram showing Egress and DMZ VPCs with availability zones, NAT gateways, DMZ bastions, and routing to internet and on-premises networks.](images/malzNetworkAccount.png)

@@ -12,7 +12,7 @@ The environment components described would already need to be in place for this 
 
 AMS would provide additional notes and instructions.
 
-![SSH tunneling diagram showing remote user connection through firewall to SSH server and RDP client.](images/SSH_Tunneling_Bastion_Generic.png)
+![SSH tunneling architecture showing remote user connecting through firewall to SSH server, then to RDP client, with AWS subnets containing bastion and application servers.](images/SSH_Tunneling_Bastion_Generic.png)
 SSH tunneling steps with PuTTy:
 
 Within PuTTY, you would create an SSH session, with the public IP of the bastion host, provide the PEM key in the AUTH section, and then create a Tunnel.
@@ -22,13 +22,13 @@ it each time you log into the box. Connect to the bastion host, and log in. Then
 
 1. Set Host Name or public IP of the bastion host
 
-![PuTTY Configuration window showing session settings with SSH connection type selected.](images/sshBastionPutty.png) 2. In SSH ->Auth, set the private key file in .ppk format
+![PuTTY Configuration window showing Session category with host name and port fields.](images/sshBastionPutty.png) 2. In SSH ->Auth, set the private key file in .ppk format
 
-![PuTTY Configuration window showing SSH authentication options and private key file selection.](images/sshBastionPutty2.png) 3. In SSH ->Tunnels, add the new forwarded port. The Source Port should be the arbitrary unused port, and the Destination
+![PuTTY Configuration window showing SSH Auth section with private key file path field.](images/sshBastionPutty2.png) 3. In SSH ->Tunnels, add the new forwarded port. The Source Port should be the arbitrary unused port, and the Destination
 should be the IP of the destination server behind the bastion host, with the RDP port appended.
 
-![PuTTY Configuration window showing SSH port forwarding options with a forwarded port example.](images/sshBastionPutty3.png) 4. Connect to the bastion host via PuTTY and log in.
+![PuTTY Configuration window showing SSH port forwarding setup with source port 5000 to destination 10.0.101.51:3389.](images/sshBastionPutty3.png) 4. Connect to the bastion host via PuTTY and log in.
 
-![PuTTY terminal window showing an error message about an unusable SSH key file.](images/sshBastionConnect.png) 5. Start an RDP session to localhost:5000 to reach the destination server.
+![PuTTY terminal window showing successful SSH connection to the bastion host with login prompt.](images/sshBastionConnect.png) 5. Start an RDP session to localhost:5000 to reach the destination server.
 
-![Remote Desktop Connection dialog with computer field set to localhost:5000.](images/sshBastionConnect2.png)
+![Remote Desktop Connection dialog with localhost:5000 in the Computer field and Connect button.](images/sshBastionConnect2.png)

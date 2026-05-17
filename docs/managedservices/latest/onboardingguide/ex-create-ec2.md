@@ -6,7 +6,7 @@ You can use the AMS console or API/CLI to create an Amazon EC2 and an Amazon EC2
 
 The following shows this change type in the AMS console.
 
-![EC2 stack creation details showing ID, execution mode, and version in a classification hierarchy.](images/guiEc2CreateCT.png)
+![Create EC2 stack page showing ID ct-14027q0sjyt1h, Automated execution mode, and version 4.0.](images/guiEc2CreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -153,7 +153,7 @@ If needed, see [EC2 instance stack create fail](../userguide/rfc-troubleshoot.md
 
 The following shows this change type in the AMS console.
 
-![EC2 stack creation details showing ID, execution mode, and version for additional volumes.](images/guiEc2CreateAddlVolCT.png)
+![Create EC2 Stack With Additional Volumes change type details showing ID, execution mode, and version.](images/guiEc2CreateAddlVolCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

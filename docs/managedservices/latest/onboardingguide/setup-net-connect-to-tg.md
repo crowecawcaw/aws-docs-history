@@ -8,7 +8,7 @@ The Direct Connect connection should be a dedicated or hosted connection running
 For information about using Direct Connect with AWS services, see
 [Getting Started at an AWS Direct Connect Location](../../../directconnect/latest/UserGuide/getstarted.md "../../../directconnect/latest/UserGuide/getstarted.md").
 
-![AWS Transit Gateway network diagram showing connections to VPCs and Direct Connect.](images/malzEdgeConnect.png)
+![Transit Gateway connecting VPCs to Transit Virtual Interface and Direct Connect locations.](images/malzEdgeConnect.png)
 To use an existing Direct Connect dedicated connection, the connection must not have more than 3 transit virtual interfaces created on it. This is because Direct Connect dedicated connections have a limit of 4 transit virtual interfaces per connection.
 
 For additional information on Direct Connect Limits, see [AWS Direct Connect Limits](../../../directconnect/latest/UserGuide/limits.md "../../../directconnect/latest/UserGuide/limits.md").

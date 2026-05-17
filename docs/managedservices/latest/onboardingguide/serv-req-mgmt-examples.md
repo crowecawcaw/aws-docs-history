@@ -6,11 +6,11 @@ To create a service request using the AWS Managed Services (AMS) console:
 
 The **Service requests** list opens.
 
-![Service requests interface with options to create requests and view open requests.](images/guiSrCreateOpenPnC.png)
+![Service requests page with filter dropdown, table headers, and Create service request button.](images/guiSrCreateOpenPnC.png)
 
 If your service request list is empty, the **Clear filter** option resets the filter to **Any status**.
 
-![Service requests list showing resolved items with options to filter and create new requests.](images/guiSRlist2.png)
+![Service requests list showing multiple resolved requests with subjects, IDs, and status.](images/guiSRlist2.png)
 
 If you know you want to use phone or chat, click **Create service request in Support Center** to
 open the service request **Create** page in the Support Center Console, auto-populated with the AMS service type.
@@ -25,15 +25,15 @@ call back through the Support Center case, AWS has no mechanism for calling you 
 Phone and chat support is designed to help with support cases, incidents and service requests.
 For RFC issues, use the correspondence option on the relevant RFC details page, to reach an AMS engineer. 2. If you want to find an existing service request, select a service request status filter in the drop-down list.
 
-|                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Dropdown menu showing ticket status options including Open, Reopened, and Resolved. | • All service requests that are not yet resolved.<br>• A new service request that is not yet assigned.<br>• A service request that has been assigned.<br>• A service request that you reopened.<br>• An assigned, complicated, service request.<br>• Service requests that require your feedback before the next step.<br>• Service requests to which you have recently submitted information.<br>• A service request that has concluded.<br>• All service requests in the account. |
+|                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Dropdown menu showing ticket status options including Unassigned, Open, Reopened, and Resolved. | • All service requests that are not yet resolved.<br>• A new service request that is not yet assigned.<br>• A service request that has been assigned.<br>• A service request that you reopened.<br>• An assigned, complicated, service request.<br>• Service requests that require your feedback before the next step.<br>• Service requests to which you have recently submitted information.<br>• A service request that has concluded.<br>• All service requests in the account. |
 
 3. Choose **Create**.
 
 The **Create a service request** page opens.
 
-![Service request form with fields for category, subject, CC emails, and details.](images/guiServiceRequestCreate.png) 4. Select a **Category**.
+![Create a service request form with fields for Category, Subject, CC Emails, Details, and attachment option.](images/guiServiceRequestCreate.png) 4. Select a **Category**.
 
 ###### Note
 
@@ -52,7 +52,7 @@ A details page opens with information on the service request--such as **Type**, 
 **Created**, **ID**, and **Status**--and a **Correspondence** area
 that includes the description of the request you created.
 
-![Service request detail showing type, subject, creation date, ID, and resolved status.](images/guiSRdetail.png)
+![Service Request Detail page showing Type, Subject, Created date, ID, and Resolved status.](images/guiSRdetail.png)
 
 Additionally, your service request displays on the **Service Request** list page. Use this when you have an alert but have not yet heard from AMS.
 
@@ -64,6 +64,6 @@ Click **Load More** to view additional correspondences that do not fit on the in
 
 Don't forget to rate the communication!
 
-![Correspondence section showing a test message from Amazon Web Services with rating stars.](images/guiSRcorrespond.png)
+![Correspondence interface showing email exchange with star rating options for feedback.](images/guiSRcorrespond.png)
 For billing-related queries, use the **Other** Category in the
 AMS console; the `ChangeTypeId ct-1e1xtak34nx76` in the AMS CM API, or the `IssueType=AMS` in the AWS Support API.

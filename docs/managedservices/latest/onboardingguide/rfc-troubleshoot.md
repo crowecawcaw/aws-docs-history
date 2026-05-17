@@ -302,7 +302,7 @@ _AMS Advanced Application Developer's Guide_
 - Check to see if the instance has the right permissions to connect with the SSM agent. These permissions come with the `customer-mc-ec2-instance-profile`,
   you can check for this in the EC2 console:
 
-![EC2 instance details showing IAM role set to customer-mc-ec2-instance-profile.](images/ec2ConsoleWCircle.png)
+![EC2 instance details showing IAM role field with customer-mc-ec2-instance-profile value.](images/ec2ConsoleWCircle.png)
 
 ### EC2 instance stack stop errors
 

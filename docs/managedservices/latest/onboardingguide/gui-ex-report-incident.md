@@ -14,7 +14,7 @@ To report an incident using the AMS console:
 
 The **Incidents** list opens:
 
-![Incidents page with options to create an incident and view open incidents.](images/guiIncidentlistOpenPnC.png)
+![Incidents page showing filter dropdown set to All open, with columns for Created, Subject, ID, and Status.](images/guiIncidentlistOpenPnC.png)
 
 If your incident list is empty, the **Clear filter** option
 resets the filter to **Any status**.
@@ -40,7 +40,7 @@ open the incident **Create** page in the Support Center Console, auto-populated 
 
 The **Create an incident** page opens:
 
-![Incident details form with priority options, access issues dropdown, and input fields for subject and details.](images/guiIncidentCreate5.png) 4. Select a **Priority**:
+![Incident details form with priority levels, Access Issues dropdown, subject field, and details section.](images/guiIncidentCreate5.png) 4. Select a **Priority**:
 
     * **Low**: Non-critical functions of your business service or
      application related to AWS/AMS resources are impacted.

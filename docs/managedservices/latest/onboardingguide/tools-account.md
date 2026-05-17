@@ -13,7 +13,7 @@ A tools account provides the following:
   you can share the image to the destination account via an AMS Management | Advanced stack components | AMI | Share (ct-1eiczxw8ihc18) RFC.
   High level architecture diagram:
 
-![AWS account structure with Management, Shared Services, Network, Security, and Log Archive accounts.](images/high-level-diagram_v1.png)
+![Multi-account AWS architecture with management, shared services, network, security, log archive, production, tools, and AWS accounts.](images/high-level-diagram_v1.png)
 Use the Deployment | Managed landing zone | Management account | Create tools account (with VPC) change type (ct-2j7q1hgf26x5c), to quickly deploy a tools account
 and instantiate a Workload Ingestion process within a Multi-Account Landing Zone environment. See
 [Management account, Tools account: Creating (with VPC)](../ctref/ex-malz-master-acct-create-tools-acct-col.md "../ctref/ex-malz-master-acct-create-tools-acct-col.md").

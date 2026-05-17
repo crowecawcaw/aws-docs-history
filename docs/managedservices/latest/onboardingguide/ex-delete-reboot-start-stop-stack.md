@@ -6,7 +6,7 @@ You can use the AMS console or API/CLI to delete, reboot, start, or stop, an AMS
 
 Screenshot of this change type in the AMS console:
 
-![Delete stack change type details showing ID, version, and execution mode.](images/guiStackDeleteCT.png)
+![Change type Delete stack details showing ID, version 1.0, and automated execution mode.](images/guiStackDeleteCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -102,7 +102,7 @@ RFC Troubleshooting section
 
 Screenshot of this change type in the AMS console:
 
-![Change type details for "Reboot stack" including description, ID, version, and execution mode.](images/guiStackRebootCT.png)
+![Change type details showing Reboot stack with ID ct-02u0hoaa9grat, version 1.0, automated execution.](images/guiStackRebootCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -195,7 +195,7 @@ For information about Application Load Balancers, see
 
 Screenshot of this change type in the AMS console:
 
-![Change type details for "Start stack" with description, ID, version, and execution mode.](images/guiStackStartCT.png)
+![Change type details showing Start stack with ID, version 1.0, and Automated execution mode.](images/guiStackStartCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -285,7 +285,7 @@ For information about Application Load Balancers, see
 
 Screenshot of this change type in the AMS console:
 
-![Change type details for stopping EC2 instances in a specified stack, including ID and version.](images/guiStackStopCT.png)
+![Stop stack change type details showing ID, version 1.0, and automated execution mode.](images/guiStackStopCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
