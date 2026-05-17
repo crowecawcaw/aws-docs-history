@@ -22,6 +22,7 @@ attributes. You can also use intrinsic functions to conditionally create stack r
 - [Fn::ForEach](intrinsic-function-reference-foreach.md "intrinsic-function-reference-foreach.md")
 - [Fn::GetAtt](intrinsic-function-reference-getatt.md "intrinsic-function-reference-getatt.md")
 - [Fn::GetAZs](intrinsic-function-reference-getavailabilityzones.md "intrinsic-function-reference-getavailabilityzones.md")
+- [Fn::GetStackOutput](intrinsic-function-reference-getstackoutput.md "intrinsic-function-reference-getstackoutput.md")
 - [Fn::ImportValue](intrinsic-function-reference-importvalue.md "intrinsic-function-reference-importvalue.md")
 - [Fn::Join](intrinsic-function-reference-join.md "intrinsic-function-reference-join.md")
 - [Fn::Length](intrinsic-function-reference-length.md "intrinsic-function-reference-length.md")

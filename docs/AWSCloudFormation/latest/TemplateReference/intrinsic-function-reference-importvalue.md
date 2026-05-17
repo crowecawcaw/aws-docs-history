@@ -9,6 +9,13 @@ by another stack. You typically use this function to create cross-stack referenc
 information, see [Walkthrough: Refer to resource outputs in another CloudFormation stack](../UserGuide/walkthrough-crossstackref.md "../UserGuide/walkthrough-crossstackref.md") in the
 _AWS CloudFormation User Guide_.
 
+###### Tip
+
+To reference stack outputs across AWS accounts or Regions without requiring explicit
+exports, use [`Fn::GetStackOutput`](intrinsic-function-reference-getstackoutput.md "intrinsic-function-reference-getstackoutput.md"). `Fn::GetStackOutput` creates a
+weak reference that is resolved at stack create or update time and does not require the
+referenced stack to declare an `Export`.
+
 In the following example template snippets, Stack A exports VPC security group values and
 Stack B imports them.
 
@@ -17,8 +24,7 @@ Stack B imports them.
 The following restrictions apply to cross-stack references:
 
 - For each AWS account, `Export` names must be unique within a Region.
-- You can't create cross-stack references across Regions. You can use the intrinsic function
-  `Fn::ImportValue` to import only values that have been exported within the same Region.
+- When using `Export` and `Fn::ImportValue`, cross-stack references are limited to the same account and Region. To reference stack outputs across accounts or Regions, use `Fn::GetStackOutput`.
 - For outputs, the value of the `Name` property of an `Export` can't use `Ref` or `GetAtt` functions that depend on a resource.
 
 Similarly, the `ImportValue` function can't include `Ref` or `GetAtt` functions that depend on a resource.
