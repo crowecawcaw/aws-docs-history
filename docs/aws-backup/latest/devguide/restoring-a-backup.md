@@ -30,6 +30,18 @@ When you use AWS Backup to restore a backup, it creates a new resource with the 
 you are restoring. This is to protect your existing resources from being destroyed by your
 restore activity.
 
+###### Important
+
+The following resource types perform destructive restores that overwrite existing
+data:
+
+- **Amazon Redshift Serverless** – Namespace restores overwrite
+  all existing data in the target namespace. For more information, see [Amazon Redshift Serverless restore
+  considerations](redshift-serverless-restore.md#redshift-serverless-restore-considerations "redshift-serverless-restore.md#redshift-serverless-restore-considerations").
+- **SAP HANA on Amazon EC2** – Restores overwrite
+  the database at the specified target restore location. For more information, see [Restore an SAP HANA database on an Amazon EC2 instance](saphana-restore.md "saphana-restore.md").
+  For all other resource types, AWS Backup creates a new resource during restore.
+
 ## Restore testing
 
 You can conduct tests on your resources to simulate a restore experience. This helps

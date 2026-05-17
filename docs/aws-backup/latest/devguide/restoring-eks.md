@@ -67,7 +67,11 @@ restore failures.
    and troubleshooting prior to restore. You can also subscribe to
    [SNS
    notifications](backup-notifications.md "backup-notifications.md") to notify of skipped or failed objects on restore.
-   **EKS Configurations**
+10. **New EKS Cluster Creation Restore Buffer**: When creating a new EKS cluster
+    during restore, AWS Backup introduces a 15-minute buffer after the EKS cluster reaches an available state
+    but before creating any additional EKS resources. This buffer ensures that all underlying EKS
+    components are fully initialized before dependent resources are created.
+    **EKS Configurations**
 
 When you restore the composite Amazon AWS Backup, you choose the restore type and target destination.
 You can choose to restore to the source EKS cluster,
