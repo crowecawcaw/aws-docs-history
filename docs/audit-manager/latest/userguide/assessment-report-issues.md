@@ -65,24 +65,10 @@ following issues on this page.
 
 ## I followed the checklist above, and my assessment report still failed to generate
 
-Audit Manager limits how much evidence you can add to an assessment report. The limit is
-based on the AWS Region of your assessment, the Region of the S3 bucket that's
-used as your assessment report destination, and whether your assessment uses a
-customer managed AWS KMS key.
-
-1. The limit is 22,000 for same-Region reports (where the S3 bucket and
-   assessment are in the same AWS Region)
-2. The limit is 3,500 for cross-Region reports (where the S3 bucket and
-   assessment are in different AWS Regions)
-3. The limit is 3,500 if the assessment uses a customer managed
-   KMS key
-
-If you try to generate a report that contains more evidence than this, the
-operation might fail.
-
-As a workaround, you can generate multiple assessment reports rather than one
-larger assessment report. By doing this, you can export evidence from your
-assessment into more manageable-sized batches.
+If your assessment report fails to generate, the most probable cause is the
+size of the report. As a workaround, you can generate multiple assessment reports
+rather than one larger assessment report. By doing this, you can export evidence
+from your assessment into more manageable-sized batches.
 
 ## I get an _access denied_ error when I try to generate a report
 
