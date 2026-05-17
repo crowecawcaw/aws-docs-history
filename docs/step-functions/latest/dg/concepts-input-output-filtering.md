@@ -25,7 +25,7 @@ in the `Assign` field. For more info, see [Transforming data with JSONata](trans
 
 The following diagram shows how JSON information moves through a JSONata task state.
 
-![Diagram showing JSONata task state flow with input, arguments, output, and action components.](images/vars-jsonata.png)
+![Flow diagram showing State Input passing through Arguments in Task state JSONata to Action and then to State Output or Variables.](images/vars-jsonata.png)
 **Processing input and output with JSONPath**
 
 ###### Managing state and transforming data
