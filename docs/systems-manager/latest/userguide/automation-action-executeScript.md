@@ -133,8 +133,9 @@ table.
 
 | Runtime name               | Runtime value for `runtime`<br>input |
 | -------------------------- | ------------------------------------ |
-| Python 3.10                | `python3.10`                         |
+| Python 3.12                | `python3.12`                         |
 | Python 3.11                | `python3.11`                         |
+| Python 3.10                | `python3.10`                         |
 | PowerShell 7.4 (`dotnet8`) | `PowerShell 7.4`                     |
 
 Type: String

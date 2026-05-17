@@ -339,13 +339,8 @@ Note the following information.
   an association using a new version of a document shared form another
   account, you must set the document version to
   `default`.
-- State Manager doesn't support
-  `IncludeChildOrganizationUnits`,
-  `ExcludeAccounts`,
-  `TargetsMaxErrors`,
-  `TargetsMaxConcurrency`,
-  `Targets`,
-  `TargetLocationAlarmConfiguration` parameters for [TargetLocation](../APIReference/API_TargetLocation.md "../APIReference/API_TargetLocation.md").
+- State Manager doesn't support the
+  `TargetLocationAlarmConfiguration` parameter for [TargetLocation](../APIReference/API_TargetLocation.md "../APIReference/API_TargetLocation.md").
 - You can specify a maximum of five tag keys by using the AWS CLI. If
   you use the AWS CLI, _all_ tag keys specified in
   the `create-association` command must be currently
