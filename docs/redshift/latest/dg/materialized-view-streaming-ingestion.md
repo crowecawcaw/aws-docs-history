@@ -43,7 +43,7 @@ practices to avoid errors or data loss. These derived from internal testing and 
   convert JSON records to Redshift's SUPER data type. After the streamed data lands in the materialized view, use PartiQL to extract individual strings from the SUPER
   representation of the JSON data. For more information, see [Querying semi-structured data](query-super.md "query-super.md").
 
-Additionally, note that JSON_EXTRACT_PATH_TEXT has a 64KB data-size maximum. Thus, if any JSON record is larger than 64KB, processing it with
+Additionally, note that JSON_EXTRACT_PATH_TEXT has a 16MB data-size maximum. Thus, if any JSON record is larger than 16MB, processing it with
 JSON_EXTRACT_PATH_TEXT results in an error.
 
 - **Mapping an Amazon Kinesis Data Streams stream or Amazon MSK topic to multiple materialized views** – We don't recommend creating

@@ -25,8 +25,8 @@ If the _null_if_invalid_
 argument is set to `TRUE` and the JSON string is invalid, the function
 returns `NULL` instead of returning an error.
 
-JSON_EXTRACT_PATH_TEXT has a 64KB data-size maximum.
-Thus, if any JSON record is larger than 64KB, processing it with JSON_EXTRACT_PATH_TEXT results in an error.
+JSON_EXTRACT_PATH_TEXT has a 16MB data-size maximum.
+Thus, if any JSON record is larger than 16MB, processing it with JSON_EXTRACT_PATH_TEXT results in an error.
 
 For information about additional JSON functions, see [JSON functions](json-functions.md "json-functions.md"). For more information about working with JSON, see [COPY from JSON format](copy-usage_notes-copy-from-json.md "copy-usage_notes-copy-from-json.md").
 
