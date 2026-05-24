@@ -57,12 +57,9 @@ accounts**
   organization. To avoid having the account count against the quota, see
   [Remove a member account from your organization](../../../organizations/latest/userguide/orgs_manage_accounts_remove-member-account.md "../../../organizations/latest/userguide/orgs_manage_accounts_remove-member-account.md") before closing
   it.
-- You can only close 10% of member accounts within a rolling 30 day period.
+- You can only close 20% or 250 of member accounts to a maximum of 1,000 within a rolling 30 day period, whichever is higher.
   This quota is not bound by a calendar month, but starts when you close an
-  account. Within 30 days of that initial account closure, you can't exceed
-  the 10% account closure limit. The minimum account closure is 10 and the
-  maximum account closure is 1000, even if 10% of accounts exceeds 1000. For
-  more information about Organizations quotas, see [Quotas
+  account. For more information about Organizations quotas, see [Quotas
   for AWS Organizations](../../../organizations/latest/userguide/orgs_reference_limits.md "../../../organizations/latest/userguide/orgs_reference_limits.md").
 - If you use AWS Control Tower, you need to unmanage the member account
   before you attempt to close the account. See [Unmanage a
