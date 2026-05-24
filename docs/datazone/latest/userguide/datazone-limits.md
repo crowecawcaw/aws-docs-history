@@ -13,7 +13,7 @@ Amazon DataZone has the following quotas and limits.
 | Data assets                        | The maximum number of data assets that can be created in an Amazon DataZone domain | 1 million |
 | Glossaries                         | The maximum number of business glossaries you can create in a domain               | 1000      |
 | Business glossary terms            | The maximum number of total business glossary terms you can create in a domain     | 10000     |
-| Environments in a domain           | The maximum number of environments in an Amazon DataZone domain                    | 500       |
+| Environments in a domain           | The maximum number of environments in an Amazon DataZone domain                    | 1000      |
 | Number of asset filters per asset  | The maximum number of asset filters per Amazon DataZone asset                      | 100       |
 | Number of filters per subscription | The maximum number of filters per Amazon DataZone subscription                     | 5         |
 | Domain units in a domain           | The maximum number of domain units in an Amazon DataZone domain                    | 500       |
