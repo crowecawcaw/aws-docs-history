@@ -15,7 +15,6 @@ streamlining your audit and compliance efforts.
 
 - [Prerequisites for setting up AWS Audit Manager](setup-prerequisites.md "setup-prerequisites.md")
   - [Sign up for an AWS account](setup-prerequisites.md#sign-up-for-aws "setup-prerequisites.md#sign-up-for-aws")
-  - [Create a user with administrative access](setup-prerequisites.md#create-an-admin "setup-prerequisites.md#create-an-admin")
   - [Add the required permissions to access and enable Audit Manager](setup-prerequisites.md#attach-IAM "setup-prerequisites.md#attach-IAM")
   - [Next steps](setup-prerequisites.md#setup-prerequisites-next-steps "setup-prerequisites.md#setup-prerequisites-next-steps")
 

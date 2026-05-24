@@ -139,7 +139,7 @@ menu and look for the rule in the table. If the rule is a managed rule,
 the **Type** column shows **AWS
 managed**.
 
-![A managed rule as shown in the AWS Config console.](images/rules-managed-console.png)
+![A managed rule as shown in the AWS Config console.](/images/audit-manager/latest/userguide/images/rules-managed-console.png)
 
 After you've confirmed that it's a managed rule, return to Audit Manager and
 select **Managed rule** as the rule type. Then, look
