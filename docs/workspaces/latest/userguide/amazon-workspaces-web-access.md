@@ -22,7 +22,7 @@ The following information will help you get started with WorkSpaces web access.
 
 - Web access for PCoIP-based WorkSpaces has the following limitations:
   - Web access for PCoIP is not supported in the AWS GovCloud (US), Asia Pacific (Mumbai), Africa (Cape Town), Israel (Tel Aviv), or Europe (Paris) regions.
-  - Web access for PCoIP is only supported for Windows-based WorkSpaces, not Linux-based WorkSpaces.
+  - Web access for PCoIP is only supported for Windows-based WorkSpaces.
   - Web access for PCoIP is only supported on Google Chrome and Mozilla Firefox browsers on Windows, macOS and Linux devices when running on the latest three browser versions.
   - Web access for PCoIP does not support multiple monitors.
   - Web access for PCoIP does not support connecting to GPU-enabled WorkSpaces.

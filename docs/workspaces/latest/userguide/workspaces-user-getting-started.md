@@ -45,7 +45,7 @@ Firefox web browser, or a Linux PC running a Firefox browser.
 
 ###### Note
 
-Ubuntu, Rocky Linux, and Red Hat Enterprise Linux WorkSpaces currently supports Windows client application and Web Access.
+Linux WorkSpaces can be accessed using the Windows client application, the macOS client application, the Linux client application, and Web Access.
 
 For information about connecting to your WorkSpace, see the following client documentation.
 
