@@ -13,7 +13,7 @@ on the NVIDIA website.
 ###### Considerations
 
 - G7e instances require GRID 19.1 or later for Linux and 19.4 (582.16) or later for Windows.
-- G6f and Gr6f instances require GRID 18.4 or later.
+- G6f and Gr6f instances require GRID 18.4 to GRID 19.5.
 - G6e instances require GRID 17.4 or later.
 - G6 and Gr6 instances require GRID 17.1 or later.
 - G5 instances require GRID 13.1 or later (or GRID 12.4 or
