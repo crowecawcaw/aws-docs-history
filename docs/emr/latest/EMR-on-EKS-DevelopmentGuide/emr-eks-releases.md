@@ -20,6 +20,7 @@ For a comparison between Amazon EMR on EKS and Amazon EMR running on EC2, see th
 
 ###### Topics
 
+- [AWS runtime for Apache Spark (emr-spark-8.0.0) on EKS](emr-eks-spark-8.0.0.md "emr-eks-spark-8.0.0.md")
 - [Amazon EMR on EKS 7.13.0 releases](emr-eks-7.13.0.md "emr-eks-7.13.0.md")
 - [Amazon EMR on EKS 7.12.0 releases](emr-eks-7.12.0.md "emr-eks-7.12.0.md")
 - [Amazon EMR on EKS 7.11.0 releases](emr-eks-7.11.0.md "emr-eks-7.11.0.md")

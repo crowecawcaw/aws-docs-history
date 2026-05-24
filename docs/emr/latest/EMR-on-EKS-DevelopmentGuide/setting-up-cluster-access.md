@@ -70,6 +70,52 @@ For more information about authentication modes, see [Cluster authentication mod
 }
 ```
 
+- To create a least permissive policy, add the context keys `accessScope` and `namespaces`. The following example shows a policy with these context keys:
+
+```
+{
+            "Effect": "Allow",
+            "Action": [
+                "eks:CreateAccessEntry"
+            ],
+            "Resource": [
+                "arn:`<AWS_PARTITION>`:eks:`<AWS_REGION>`:`<AWS_ACCOUNT_ID>`:cluster/`<EKS_CLUSTER_NAME>`"
+
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "eks:DescribeAccessEntry",
+                "eks:DeleteAccessEntry",
+                "eks:ListAssociatedAccessPolicies"
+            ],
+            "Resource": [
+                "arn:`<AWS_PARTITION>`:eks:`<AWS_REGION>`:`<AWS_ACCOUNT_ID>`:access-entry/`<EKS_CLUSTER_NAME>`/role/`<AWS_ACCOUNT_ID>`/AWSServiceRoleForAmazonEMRContainers/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "eks:DisassociateAccessPolicy",
+                "eks:AssociateAccessPolicy"
+            ],
+            "Resource": [
+                "arn:`<AWS_PARTITION>`:eks:`<AWS_REGION>`:`<AWS_ACCOUNT_ID>`:access-entry/`<EKS_CLUSTER_NAME>`/role/`<AWS_ACCOUNT_ID>`/AWSServiceRoleForAmazonEMRContainers/*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "eks:accessScope": "namespace"
+                },
+                "ForAllValues:StringEquals": {
+                    "eks:namespaces": [
+                        "`<EKS_NAMESPACE>`"
+                    ]
+                }
+            }
+        }
+```
+
 ### Concepts and terminology
 
 The following is a list of terminologies and concepts related to Amazon EKS CAM.
