@@ -225,7 +225,7 @@ Replace `task-id` with the task ID returned by the procedure.
 
 Tasks are executed asynchronously.
 
-You can use the `UTL_FILE.FREMOVE` Oracle procedure to remove files from a directory. For more information, see [FREMOVE procedure](https://docs.oracle.com/database/121/ARPLS/u_file.htm#ARPLS70924 "https://docs.oracle.com/database/121/ARPLS/u_file.htm#ARPLS70924") in the Oracle
+You can use the `UTL_FILE.FREMOVE` Oracle procedure to remove files from a directory. For more information, see [FREMOVE procedure](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html") in the Oracle
 documentation.
 
 ## Monitoring the status of a file transfer

@@ -56,7 +56,7 @@ This tutorial requires you to have an AWS account and a user with administrative
 If you don't already have those set up, complete the steps in the following sections:
 
 - [Sign up for an AWS account](CHAP_SettingUp.md#sign-up-for-aws "CHAP_SettingUp.md#sign-up-for-aws")
-- [Create a user with administrative access](CHAP_SettingUp.md#create-an-admin "CHAP_SettingUp.md#create-an-admin")
+-
 
 ## Create an Amazon RDS parameter group
 

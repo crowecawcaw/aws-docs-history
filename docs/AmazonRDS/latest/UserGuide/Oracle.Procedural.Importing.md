@@ -21,6 +21,17 @@ How you import data into an Amazon RDS for Oracle DB instance depends on the fol
 Before you use the preceding migration techniques, we recommend that you back up your database. After you import the data, you can back up your
 RDS for Oracle DB instances by creating snapshots. Later, you can restore the snapshots. For more information, see [Backing up, restoring, and exporting data](CHAP_CommonTasks.BackupRestore.md "CHAP_CommonTasks.BackupRestore.md").
 
+The following table compares the import methods available for RDS for Oracle DB instances.
+
+| Choosing an import method for Oracle on Amazon RDS | Method                                              | Best for | Downtime impact | Complexity                                              | Limitations |
+| -------------------------------------------------- | --------------------------------------------------- | -------- | --------------- | ------------------------------------------------------- | ----------- |
+| Oracle SQL Developer                               | Simple schemas under 100 MB                         | High     | Low             | Not suitable for large or complex databases             |
+| Data Pump via Amazon S3                            | 100 MB to 5 TB without a network link to the source | Medium   | Medium          | 5 TB maximum per dump file                              |
+| Data Pump via database link                        | Any size with network connectivity to the source    | Medium   | Medium          | Requires VPC or VPN connectivity to the source database |
+| Transportable tablespaces                          | Multi-TB migrations requiring minimum downtime      | Low      | High            | Enterprise Edition only                                 |
+| SQL\*Loader                                        | Flat file loads and ETL workflows                   | Varies   | Medium          | Manual DDL required; data must be in flat file format   |
+| Materialized views                                 | Ongoing synchronization before cutover              | Very low | Medium          | Requires a database link to the source database         |
+
 For many database engines, ongoing replication can continue until you are ready to switch
 over to the target database. You can use AWS DMS to migrate to RDS for Oracle from either the same
 database engine or a different engine. If you migrate from a different database engine, you

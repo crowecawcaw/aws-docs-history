@@ -76,7 +76,7 @@ This command produces output similar to the following.
         "DBInstanceIdentifier" : "my-cdb-inst",
         "TenantDBName" : "pdb1",
         "Status" : "modifying",
-        "MasterUsername" : "tenant-admin-user"
+        "MasterUsername" : "tenant-admin-user",
         "Port" : "6555",
         "CharacterSetName" : "UTF-16",
         "MaxAllocatedStorage" : "1000",

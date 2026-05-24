@@ -4,7 +4,7 @@ You can use the Amazon RDS package `rdsadmin.rdsadmin_rman_util` to validate
 Amazon RDS for Oracle database files, such as data files, tablespaces, control files, and
 server parameter files (SPFILEs).
 
-For more information about RMAN validation, see [Validating database files and backups](https://docs.oracle.com/database/121/BRADV/rcmvalid.htm#BRADV90063 "https://docs.oracle.com/database/121/BRADV/rcmvalid.htm#BRADV90063") and [VALIDATE](https://docs.oracle.com/database/121/RCMRF/rcmsynta2025.htm#RCMRF162 "https://docs.oracle.com/database/121/RCMRF/rcmsynta2025.htm#RCMRF162") in the Oracle documentation.
+For more information about RMAN validation, see [Validating database files and backups](https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/validating-database-files-and-backups.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/validating-database-files-and-backups.html") and [VALIDATE](https://docs.oracle.com/en/database/oracle/oracle-database/19/rcmrf/VALIDATE.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/rcmrf/VALIDATE.html") in the Oracle documentation.
 
 ###### Topics
 

@@ -3,7 +3,7 @@
 Amazon RDS supports Oracle Java Virtual Machine (JVM) through the use of the `JVM`
 option. Oracle Java provides a SQL schema and functions that facilitate Oracle Java features
 in an Oracle database. For more information, see [Introduction to Java in
-Oracle database](https://docs.oracle.com/database/121/JJDEV/chone.htm "https://docs.oracle.com/database/121/JJDEV/chone.htm") in the Oracle documentation. You can use Oracle JVM with all
+Oracle database](https://docs.oracle.com/en/database/oracle/oracle-database/19/jjdev/Java-introduction.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/jjdev/Java-introduction.html") in the Oracle documentation. You can use Oracle JVM with all
 versions of Oracle Database 21c (21.0.0) and Oracle Database 19c (19.0.0).
 
 ## Considerations for Oracle JVM
@@ -85,8 +85,7 @@ Oracle DB instance is available.
     Otherwise, create a custom DB option group with the following settings:
 
         * For **Engine**,
-         choose the DB engine used by the DB instance (**oracle-ee**,
-         **oracle-se**, **oracle-se1**, or **oracle-se2**).
+         choose the DB engine used by the DB instance (**oracle-ee** or **oracle-se2**).
         * For **Major engine version**,
          choose the version of your DB instance.
 

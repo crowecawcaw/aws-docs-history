@@ -8,7 +8,7 @@ example modifies two settings in the option.
 ```
 aws rds add-option-to-option-group \
     --option-group-name my-option-group \
-    --options "OptionName=NATIVE_NETWORK_ENCRYPTION,OptionSettings=[{Name=SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER,Value=SHA256},{Name=SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER,Value=SHA256}]" \
+    --options "OptionName=NATIVE_NETWORK_ENCRYPTION,OptionSettings=[{Name=SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER,Value=SHA256},{Name=SQLNET.CRYPTO_CHECKSUM_TYPES_CLIENT,Value=SHA256}]" \
     --apply-immediately
 ```
 
@@ -51,7 +51,7 @@ make sure that the following conditions are met:
 - `SQLNET.ENCRYPTION_TYPES_SERVER` and `SQLNET.ENCRYPTION_TYPES_CLIENT` have
   one matching secure encryption method. A method is considered secure if it's not `DES`,
   `3DES`, or `RC4` (all key lengths).
-- `SQLNET.CHECKSUM_TYPES_SERVER` and `SQLNET.CHECKSUM_TYPES_CLIENT` have one
+- `SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER` and `SQLNET.CRYPTO_CHECKSUM_TYPES_CLIENT` have one
   matching secure checksumming method. A method is considered secure if it's not
   `MD5`.
 - The client is patched with the July 2021 PSU. If the client isn't patched, the client loses the

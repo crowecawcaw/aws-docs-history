@@ -3,8 +3,7 @@
 To use an SSL connection over JDBC, you must create a keystore, trust the Amazon RDS
 root CA certificate, and use the code snippet specified following.
 
-To create the keystore in JKS format, you can use the following command. For more
-information about creating the keystore, see the [Creating a keystore](https://docs.oracle.com/cd/E35822_01/server.740/es_admin/src/tadm_ssl_jetty_keystore.html "https://docs.oracle.com/cd/E35822_01/server.740/es_admin/src/tadm_ssl_jetty_keystore.html") in the Oracle documentation. For reference information,
+For more information about creating the keystore, see the [Creating a keystore](https://docs.oracle.com/en/database/oracle/oracle-database/19/jjdbc/client-side-security.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/jjdbc/client-side-security.html") in the Oracle documentation. For reference information,
 see [keytool](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/keytool.html "https://docs.oracle.com/javase/8/docs/technotes/tools/windows/keytool.html") in the _Java Platform, Standard Edition Tools
 Reference_.
 
@@ -54,7 +53,7 @@ import java.util.Properties;
 
 public class OracleSslConnectionTest {
     private static final String DB_SERVER_NAME = "`dns-name-provided-by-amazon-rds`";
-    private static final Integer SSL_PORT = "`ssl-option-port-configured-in-option-group`";
+    private static final String SSL_PORT = "`ssl-option-port-configured-in-option-group`";
     private static final String DB_SID = "`oracle-sid`";
     private static final String DB_USER = "`user-name`";
     private static final String DB_PASSWORD = "`password`";
@@ -65,7 +64,7 @@ public class OracleSslConnectionTest {
     public static void main(String[] args) throws SQLException {
         final Properties properties = new Properties();
         final String connectionString = String.format(
-                "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCPS)(HOST=%s)(PORT=%d))(CONNECT_DATA=(SID=%s)))",
+                "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCPS)(HOST=%s)(PORT=%s))(CONNECT_DATA=(SID=%s)))",
                 DB_SERVER_NAME, SSL_PORT, DB_SID);
         properties.put("user", DB_USER);
         properties.put("password", DB_PASSWORD);

@@ -50,8 +50,8 @@ The following example performs PITR and adds a new 5,000 GiB General Purpose SSD
 
 ```
 aws rds restore-db-instance-to-point-in-time \
-  --source-db-instance-identifier `my-source-instance`my-source-instance \
-  --target-db-instance `my-pitr-instance`\
+  --source-db-instance-identifier `my-source-instance` \
+  --target-db-instance-identifier `my-pitr-instance` \
   --use-latest-restorable-time \
   --region us-east-1 \
   --additional-storage-volumes '[

@@ -90,7 +90,7 @@ EXEC rdsadmin.rdsadmin_util.resize_temp_tablespace('TEMP','4G');
 ```
 
 ```
-EXEC rdsadmin.rdsadmin_util.resize_temp_tablespace('TEMP','4096000000');
+EXEC rdsadmin.rdsadmin_util.resize_temp_tablespace('TEMP','4294967296');
 ```
 
 The following example resizes a temporary tablespace based on the temp

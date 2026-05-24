@@ -85,7 +85,7 @@ The short name for the directory, such as `CORP`.
 The password for the directory administrator. The directory creation process creates an administrator account with
 the user name Admin and this password.
 
-The directory administrator password and can't include the word "admin." The password is case-sensitive and
+The directory administrator password can't include the word "admin." The password is case-sensitive and
 must be 8–64 characters in length. It must also contain at least one character from three of the following four
 categories:
 

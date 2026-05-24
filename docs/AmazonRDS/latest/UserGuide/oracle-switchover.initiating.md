@@ -2,6 +2,13 @@
 
 You can switch over an RDS for Oracle read replica to the primary role, and the former primary DB instance to a replica role.
 
+Before initiating a switchover, verify the following:
+
+- The `ReplicaLag` CloudWatch metric is zero or near zero.
+- No long-running transactions are active on the primary database.
+- Your application connection strings are configured to handle the endpoint change, or you have a plan to update them after the switchover.
+- You have verified that the replica is in a healthy state (status is `available`).
+
 ###### To switch over an Oracle read replica to the primary DB role
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at

@@ -33,7 +33,7 @@ ORDER BY ROLE, TABLE_NAME ASC;
 
 The following example creates a non-master user named `user1`, grants
 the `CREATE SESSION` privilege, and grants the `SELECT`
-privilege on a database named _sh.sales_.
+privilege on a table named _sh.sales_.
 
 ```
 CREATE USER `user1` IDENTIFIED BY PASSWORD;

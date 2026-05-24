@@ -205,7 +205,7 @@ OGGSOURCE=
    (DESCRIPTION=
         (ENABLE=BROKEN)
         (ADDRESS_LIST=
-            (ADDRESS=(PROTOCOL=TCP)(HOST=goldengate-source.abcdef12345.us-west-2.rds.amazonaws.com)(PORT=8200)))
+            (ADDRESS=(PROTOCOL=TCP)(HOST=goldengate-source.abcdef12345.us-west-2.rds.amazonaws.com)(PORT=1521)))
         (CONNECT_DATA=(SERVICE_NAME=ORCL))
     )
 ```
@@ -224,7 +224,7 @@ In this task, you set up a target DB instance for use with Oracle GoldenGate.
 ### Step 1: Set the ENABLE_GOLDENGATE_REPLICATION initialization parameter to true
 
 When you set the `ENABLE_GOLDENGATE_REPLICATION` initialization
-parameter is to `true`, it allows database services to support logical
+parameter to `true`, it allows database services to support logical
 replication. If your source database is on an Amazon RDS DB instance, make sure that you have a
 parameter group assigned to the DB instance with the
 `ENABLE_GOLDENGATE_REPLICATION` initialization parameter set to
@@ -240,7 +240,7 @@ sure it has these privileges, create a user account on the target database.
 The following statement creates a user named `oggadm1`.
 
 ```
-CREATE TABLESPSACE administrator;
+CREATE TABLESPACE administrator;
 CREATE USER oggadm1  IDENTIFIED BY "`password`"
    DEFAULT TABLESPACE administrator
    TEMPORARY TABLESPACE temp;
@@ -309,7 +309,7 @@ OGGTARGET=
     (DESCRIPTION=
         (ENABLE=BROKEN)
         (ADDRESS_LIST=
-            (ADDRESS=(PROTOCOL=TCP)(HOST=goldengate-target.abcdef12345.us-west-2.rds.amazonaws.com)(PORT=8200)))
+            (ADDRESS=(PROTOCOL=TCP)(HOST=goldengate-target.abcdef12345.us-west-2.rds.amazonaws.com)(PORT=1521)))
         (CONNECT_DATA=(SERVICE_NAME=ORCL))
     )
 ```

@@ -14,7 +14,7 @@ You can add up to three storage volumes beyond the primary storage volume.
 To add a new storage volume to your RDS for Oracle DB instance, use the `modify-db-instance` command with the
 `additional-storage-volumes` parameter.
 
-The following code snippet adds a mew 5,000 GiB general purpose SSD (gp3) volume with 4000 provision IOPS name `rdsdbdata3`.
+The following code snippet adds a new 5,000 GiB general purpose SSD (gp3) volume with 4000 provision IOPS name `rdsdbdata3`.
 
 ```
 aws rds modify-db-instance \
@@ -24,7 +24,7 @@ aws rds modify-db-instance \
         {
             "VolumeName":"rdsdbdata3",
             "StorageType":"gp3",
-            "AllocatedStorage":5000
+            "AllocatedStorage":5000,
             "IOPS":4000}
     ]' \
   --apply-immediately
@@ -65,7 +65,7 @@ Before you remove an additional storage volume, make sure that no database files
 are stored on the volume. Removing a volume with active database files
 causes database corruption.
 
-The following example removes the `rdsdbdata4` volume.
+The following example removes the `rdsdbdata2` volume.
 
 ```
 aws rds modify-db-instance \

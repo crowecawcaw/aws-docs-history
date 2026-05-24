@@ -18,7 +18,7 @@ Before you can use RCU, make sure that you do the following:
 - Follow the Oracle licensing guidelines for the Oracle database that hosts the repository. For more information, see [Oracle Fusion Middleware Licensing Information User
   Manual](https://docs.oracle.com/en/middleware/fusion-middleware/fmwlc/ "https://docs.oracle.com/en/middleware/fusion-middleware/fmwlc/") in the Oracle documentation.
 
-Fusion MiddleWare supports repositories on Oracle Database Enterprise Edition and Standard Edition 2. Oracle recommends Enterprise Edition
+Fusion Middleware supports repositories on Oracle Database Enterprise Edition and Standard Edition 2. Oracle recommends Enterprise Edition
 for production installations that require partitioning and installations that require online index rebuild.
 
 Before you create your RDS for Oracle instance, confirm the Oracle database version that you need to support the components that you want to deploy.

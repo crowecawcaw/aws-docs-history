@@ -4,7 +4,7 @@ Use RDS for Oracle redo transport compression to improve the replication perform
 
 ## Obtaining a license for redo transport compression
 
-Redo transport compression is part of the [Oracle Advanced Compression](//www.oracle.com/database/advanced-compression/ "//www.oracle.com/database/advanced-compression/") option. To use redo transport compression, you need a valid license for the Oracle Advanced Compression option. For licensing information, contact your Oracle representative.
+Redo transport compression is part of the [Oracle Advanced Compression](https://www.oracle.com/database/advanced-compression/ "https://www.oracle.com/database/advanced-compression/") option. To use redo transport compression, you need a valid license for the Oracle Advanced Compression option. For licensing information, contact your Oracle representative.
 
 ## Configuring redo transport compression
 

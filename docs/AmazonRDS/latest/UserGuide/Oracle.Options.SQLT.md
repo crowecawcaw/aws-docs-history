@@ -56,7 +56,7 @@ using a SQL client, and drop them using the following statements:
 
 DROP USER SQLTXPLAIN CASCADE;
 DROP USER SQLTXADMIN CASCADE;
-DROP ROLE SQLT_USER_ROLE CASCADE;
+DROP ROLE SQLT_USER_ROLE;
 
 ```
 

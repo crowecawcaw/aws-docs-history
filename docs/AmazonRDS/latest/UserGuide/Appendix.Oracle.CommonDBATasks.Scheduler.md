@@ -32,7 +32,7 @@ parameters.
 ## Modifying DBMS_SCHEDULER jobs
 
 To modify certain components of Oracle Scheduler, use the Oracle procedure
-`dbms_scheduler.set_attribute`. For more information, see [DBMS_SCHEDULER](https://docs.oracle.com/database/121/ARPLS/d_sched.htm#ARPLS72235 "https://docs.oracle.com/database/121/ARPLS/d_sched.htm#ARPLS72235") and [SET_ATTRIBUTE procedure](https://docs.oracle.com/database/121/ARPLS/d_sched.htm#ARPLS72399 "https://docs.oracle.com/database/121/ARPLS/d_sched.htm#ARPLS72399") in the Oracle documentation.
+`dbms_scheduler.set_attribute`. For more information, see [DBMS_SCHEDULER](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SCHEDULER.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SCHEDULER.html") and [SET_ATTRIBUTE procedure](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SCHEDULER.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SCHEDULER.html") in the Oracle documentation.
 
 When working with Amazon RDS DB instances, prepend the schema name `SYS` to
 the object name. The following example sets the resource plan attribute for the
@@ -235,7 +235,7 @@ END;
 
 To modify the repeat interval to modify a SYS-owned Oracle Scheduler job of
 `CALENDAR` type, use the
-`rdsadmin.rdsadmin_dbms_scheduler.disable` procedure.
+`rdsadmin.rdsadmin_dbms_scheduler.set_attribute` procedure.
 
 This procedure uses the following common parameters for Oracle Scheduler
 tasks:

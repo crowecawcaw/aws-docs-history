@@ -30,4 +30,4 @@ SELECT SID, SERIAL#, STATUS FROM V$SESSION WHERE USERNAME = '`AWSUSER`';
 ```
 
 The database must be open to use this method. For more information about
-disconnecting a session, see [ALTER SYSTEM](http://docs.oracle.com/cd/E11882_01/server.112/e41084/statements_2014.htm#SQLRF53166 "http://docs.oracle.com/cd/E11882_01/server.112/e41084/statements_2014.htm#SQLRF53166") in the Oracle documentation.
+disconnecting a session, see [ALTER SYSTEM](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/ALTER-SYSTEM.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/ALTER-SYSTEM.html") in the Oracle documentation.

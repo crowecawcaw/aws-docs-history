@@ -8,6 +8,7 @@ concepts.
 - [Major and minor version upgrades](#USER_UpgradeDBInstance.Oracle.Overview.versions "#USER_UpgradeDBInstance.Oracle.Overview.versions")
 - [Support dates and mandatory upgrades for RDS for Oracle](#Aurora.VersionPolicy.MajorVersionLifetime "#Aurora.VersionPolicy.MajorVersionLifetime")
 - [Oracle engine version management](#Oracle.Concepts.Patching "#Oracle.Concepts.Patching")
+- [Pre-upgrade checklist](#USER_UpgradeDBInstance.Oracle.Overview.pre-upgrade-checklist "#USER_UpgradeDBInstance.Oracle.Overview.pre-upgrade-checklist")
 - [Automatic snapshots during engine upgrades](#USER_UpgradeDBInstance.Oracle.Overview.snapshots "#USER_UpgradeDBInstance.Oracle.Overview.snapshots")
 - [Oracle upgrades in a Multi-AZ deployment](#USER_UpgradeDBInstance.Oracle.Overview.multi-az "#USER_UpgradeDBInstance.Oracle.Overview.multi-az")
 - [Oracle upgrades of read replicas](#USER_UpgradeDBInstance.Oracle.Overview.read-replicas "#USER_UpgradeDBInstance.Oracle.Overview.read-replicas")
@@ -23,11 +24,13 @@ including the RU patches for the specified quarter. For example,
 21.0.0.0.ru-2024-10.rur-2024-10.r1 is a minor version of Oracle Database 21c that
 incorporates the October 2024 RU.
 
-A Spatial Patch Bundle (SPB) engine version contains RU patches and patches specific
-to Oracle Spatial. For example, 19.0.0.0.ru-2025-01.spb-1.r1 is a minor engine version
-that contains the RU patches in engine version 19.0.0.0.ru-2025-01.rur-2025-01.r1 plus
-Spatial patches. Typically, RDS for Oracle releases SPBs 2–3 weeks after the
-corresponding RU. For an explanation of the differences between RUs and SPBs, see [Release Updates (RUs) and Spatial Patch Bundles (SPBs)](USER_UpgradeDBInstance.Oracle.Minor.md#RUs-and-SPBs "USER_UpgradeDBInstance.Oracle.Minor.md#RUs-and-SPBs"). For information about
+A Supplemental Patch Bundle (SPB) engine version is an RU engine version that
+includes additional database patches recommended by Oracle for specific use cases, such
+as Oracle Spatial, Oracle Data Pump, and Oracle GoldenGate. For example,
+19.0.0.0.ru-2026-04.spb-1.r1 is a minor engine version that contains the RU patches in
+engine version 19.0.0.0.ru-2026-04.rur-2026-04.r1 plus supplemental patches. Typically,
+RDS for Oracle releases SPBs 2–3 weeks after the
+corresponding RU. For an explanation of the differences between RUs and SPBs, see [Release Updates (RUs) and Supplemental Patch Bundles (SPBs)](USER_UpgradeDBInstance.Oracle.Minor.md#RUs-and-SPBs "USER_UpgradeDBInstance.Oracle.Minor.md#RUs-and-SPBs"). For information about
 supported RUs and SPBs, see [Release notes for Amazon Relational Database Service (Amazon RDS) for
 Oracle](../OracleReleaseNotes.md "../OracleReleaseNotes.md").
 
@@ -133,6 +136,29 @@ Amazon RDS periodically aggregates official Oracle database patches using an Ama
 version. To see a list of which Oracle patches are contained in an Amazon RDS Oracle-specific engine version,
 go to [_Amazon RDS for Oracle Release Notes_](../OracleReleaseNotes/Welcome.md "../OracleReleaseNotes/Welcome.md").
 
+## Pre-upgrade checklist
+
+Before you perform a major version upgrade of your RDS for Oracle DB instance, complete the
+following preparation steps:
+
+- Verify that your applications are compatible with the target Oracle Database
+  version. Test your application code, queries, and stored procedures against the
+  target version.
+- Check for deprecated initialization parameters in the target version. Remove
+  or replace any parameters that are no longer supported.
+- Verify that your option group is compatible with the target version. Some
+  options require updates or have different settings for different major
+  versions.
+- Verify that your parameter group is compatible with the target version. Some
+  parameters have different valid ranges or default values in newer
+  versions.
+- Confirm that the backup retention period for your DB instance is greater than 0.
+  This ensures that Amazon RDS takes an automatic pre-upgrade snapshot that you can use
+  for recovery.
+- Plan for read replica upgrades. Amazon RDS upgrades read replicas automatically
+  after the source DB instance upgrade completes. Factor the additional downtime for
+  replicas into your maintenance window planning.
+
 ## Automatic snapshots during engine upgrades
 
 During upgrades of an Oracle DB instance, snapshots offer protection against upgrade issues. If the backup
@@ -149,6 +175,11 @@ To change your backup retention period, see [Modifying an Amazon RDS DB instance
 
 After an upgrade, you can't revert to the previous engine version. However, you can create a new Oracle DB
 instance by restoring the pre-upgrade snapshot.
+
+To recover from a failed or problematic upgrade, restore the automatic pre-upgrade
+snapshot using the [restore-db-instance-from-db-snapshot](../../../cli/latest/reference/rds/restore-db-instance-from-db-snapshot.md "../../../cli/latest/reference/rds/restore-db-instance-from-db-snapshot.md") AWS CLI command. Note that the restored
+DB instance has a new endpoint. Update your application connection strings to point to the new
+DB instance endpoint after the restore completes.
 
 ## Oracle upgrades in a Multi-AZ deployment
 

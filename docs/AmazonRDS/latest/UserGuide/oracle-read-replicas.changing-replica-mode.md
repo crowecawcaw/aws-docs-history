@@ -32,7 +32,7 @@ For Linux, macOS, or Unix:
 ```
 aws rds modify-db-instance \
     --db-instance-identifier `myreadreplica` \
-    --replica-mode `mode`
+    --replica-mode `open-read-only`
 ```
 
 For Windows:
@@ -40,8 +40,8 @@ For Windows:
 ```
 aws rds modify-db-instance ^
     --db-instance-identifier `myreadreplica` ^
-    --replica-mode `mode`
+    --replica-mode `open-read-only`
 ```
 
-To change a read-only replica to mounted mode, set `ReplicaMode=mounted` in [ModifyDBInstance](../APIReference/API_CreateDBInstanceReadReplica.md "../APIReference/API_CreateDBInstanceReadReplica.md"). To change a mounted
-replica to read-only mode, set `ReplicaMode=read-only`.
+To change a read-only replica to mounted mode, set `ReplicaMode=mounted` in [ModifyDBInstance](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md"). To change a mounted
+replica to read-only mode, set `ReplicaMode=open-read-only`.

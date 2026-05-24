@@ -3,7 +3,7 @@
 The Oracle Statspack option installs and enables the Oracle Statspack performance
 statistics feature. Oracle Statspack is a collection of SQL, PL/SQL, and SQL\*Plus
 scripts that collect, store, and display performance data. For information about using
-Oracle Statspack, see [Oracle Statspack](http://docs.oracle.com/cd/E13160_01/wli/docs10gr3/dbtuning/statsApdx.html "http://docs.oracle.com/cd/E13160_01/wli/docs10gr3/dbtuning/statsApdx.html") in the Oracle documentation.
+Oracle Statspack, see [Oracle Statspack](https://docs.oracle.com/en/database/oracle/oracle-database/19/tgdba/gathering-database-statistics.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/tgdba/gathering-database-statistics.html") in the Oracle documentation.
 
 ###### Note
 
@@ -123,7 +123,7 @@ ERROR at line 1:
 ORA-20000: Invalid snapshot IDs. Find valid ones in perfstat.stats$snapshot.
 ```
 
-If you use an invalid number a Statspack snapshot, the output shows an
+If you use an invalid number for a Statspack snapshot, the output shows an
 error. For example, if you try to generate a report for snapshots 1 and 50,
 but snapshot 50 doesn't exist, the output shows an error.
 

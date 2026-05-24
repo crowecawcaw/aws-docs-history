@@ -48,18 +48,13 @@ For more information, see [Managing Blockchain Tables](https://docs.oracle.com/e
 For more information, see [Using Continuous Query Notification (CQN)](https://docs.oracle.com/en/database/oracle/oracle-database/19/adfns/cqn.html#GUID-373BAF72-3E63-42FE-8BEA-8A2AEFBF1C35 "https://docs.oracle.com/en/database/oracle/oracle-database/19/adfns/cqn.html#GUID-373BAF72-3E63-42FE-8BEA-8A2AEFBF1C35") in the Oracle documentation.
 
 - Data Redaction
-- Continuous Query Notification
-
-For more information, see [Database
-Change Notification](https://docs.oracle.com/cd/E11882_01/java.112/e16548/dbchgnf.htm#JJDBC28815 "https://docs.oracle.com/cd/E11882_01/java.112/e16548/dbchgnf.htm#JJDBC28815") in the Oracle documentation.
-
 - Database In-Memory
 - Distributed Queries and Transactions
 - Edition-Based Redefinition
 
 For more information, see [Setting the default edition for a DB instance](Appendix.Oracle.CommonDBATasks.DefaultEdition.md "Appendix.Oracle.CommonDBATasks.DefaultEdition.md").
 
-- EM Express (12c and higher)
+- EM Express
 
 For more information, see [Oracle Enterprise Manager](Oracle.Options.OEM.md "Oracle.Options.OEM.md").
 
@@ -67,7 +62,7 @@ For more information, see [Oracle Enterprise Manager](Oracle.Options.OEM.md "Ora
 - Flashback Table, Flashback Query, Flashback Transaction Query
 - Gradual password rollover for applications (Oracle Database 21c and higher)
 
-For more information, see [Managing Gradual Database Password Rollover for Applications](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/configuring-authentication.html#GUID-ACBA8DAE-C5B4-4811-A31D-53B97C50249B "https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/configuring-authentication.html#GUID-ACBA8DAE-C5B4-4811-A31D-53B97C50249B") in the Oracle Database
+For more information, see [Managing Gradual Database Password Rollover for Applications](https://docs.oracle.com/en/database/oracle/oracle-database/21/dbseg/configuring-authentication.html#GUID-ACBA8DAE-C5B4-4811-A31D-53B97C50249B "https://docs.oracle.com/en/database/oracle/oracle-database/21/dbseg/configuring-authentication.html#GUID-ACBA8DAE-C5B4-4811-A31D-53B97C50249B") in the Oracle Database
 documentation.
 
 - HugePages

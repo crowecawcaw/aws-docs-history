@@ -93,7 +93,7 @@ The following steps enable and start the `REPLICAT` utility so that it can
 replicate the captured data to the table `EXAMPLE.TABLE` in target database
 `OGGTARGET`.
 
-###### To run the REPLICATE utility
+###### To run the REPLICAT utility
 
 1. Configure the `REPLICAT` parameter file on the Oracle GoldenGate hub
    (on-premises or EC2 instance). The following listing shows an example

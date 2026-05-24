@@ -50,7 +50,7 @@ To create a public DB instance, you must use **Standard create**. For informatio
 Before you begin, complete the steps in the following sections:
 
 - [Sign up for an AWS account](CHAP_SettingUp.md#sign-up-for-aws "CHAP_SettingUp.md#sign-up-for-aws")
-- [Create a user with administrative access](CHAP_SettingUp.md#create-an-admin "CHAP_SettingUp.md#create-an-admin")
+-
 
 ## Create an EC2 instance
 
@@ -362,7 +362,7 @@ You can explore your sample DB instance by using Microsoft SQL Server Management
    1. In SSMS, on the **View** menu, choose **Object Explorer**.
    2. Expand your DB instance, expand **Databases**, and then expand **System Databases** as shown.
 
-   ![Object Explorer displaying the system databases.](images/SQL-SSMS-SystemDBs.png)Your SQL Server DB instance also comes with a database named `rdsadmin`. Amazon RDS
+   ![Object Explorer displaying the system databases.](/images/AmazonRDS/latest/UserGuide/images/SQL-SSMS-SystemDBs.png)Your SQL Server DB instance also comes with a database named `rdsadmin`. Amazon RDS
    uses this database to store the objects that it uses to manage your database. The
    `rdsadmin` database also includes stored procedures that you can run to
    perform advanced tasks.

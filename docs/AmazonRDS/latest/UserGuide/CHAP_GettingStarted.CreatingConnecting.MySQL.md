@@ -50,7 +50,7 @@ To create a public DB instance, you must use **Standard create**. For informatio
 Before you begin, complete the steps in the following sections:
 
 - [Sign up for an AWS account](CHAP_SettingUp.md#sign-up-for-aws "CHAP_SettingUp.md#sign-up-for-aws")
-- [Create a user with administrative access](CHAP_SettingUp.md#create-an-admin "CHAP_SettingUp.md#create-an-admin")
+-
 
 ## Create an EC2 instance
 

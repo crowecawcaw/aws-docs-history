@@ -19,4 +19,4 @@ The following command disables audit of `ALL` on
 EXEC rdsadmin.rdsadmin_master_util.noaudit_all_sys_aud_table;
 ```
 
-For more information, see [NOAUDIT (traditional auditing)](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/sqlrf/NOAUDIT-Traditional-Auditing.html#GUID-9D8EAF18-4AB3-4C04-8BF7-37BD0E15434D "https://docs.oracle.com/en/database/oracle/oracle-database/12.2/sqlrf/NOAUDIT-Traditional-Auditing.html#GUID-9D8EAF18-4AB3-4C04-8BF7-37BD0E15434D") in the Oracle documentation.
+For more information, see [NOAUDIT (traditional auditing)](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/NOAUDIT-Traditional-Auditing.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/NOAUDIT-Traditional-Auditing.html") in the Oracle documentation.

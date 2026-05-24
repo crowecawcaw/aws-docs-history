@@ -6,10 +6,7 @@ standby role, while the original standby database transitions to the primary rol
 
 In an Oracle Data Guard environment, a primary database supports one or more standby
 databases. You can perform a managed, switchover-based role transition from a primary
-database to a standby database. A _switchover_ is a role reversal between
-a primary database and a standby database. During a switchover, the original primary
-database transitions to a standby role, while the original standby database transitions to
-the primary role.
+database to a standby database.
 
 ###### Topics
 

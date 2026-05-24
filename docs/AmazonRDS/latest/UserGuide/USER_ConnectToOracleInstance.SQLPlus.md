@@ -29,7 +29,7 @@ sqlplus `user_name`@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=`dns_name`)(PORT=`
 You should see output similar to the following.
 
 ```
-SQL*Plus: Release 12.1.0.2.0 Production on Mon Aug 21 09:42:20 2017
+SQL*Plus: Release 19.0.0.0.0 Production on Wed Jan 15 14:23:45 2025
 ```
 
 After you enter the password for the user, the SQL prompt appears.
@@ -40,7 +40,14 @@ SQL>
 
 ###### Note
 
+SQL\*Plus prompts you for the password after you run the command. Alternatively,
+you can specify the password inline (for example,
+``user_name`/`password`@(DESCRIPTION=...)`),
+but this approach exposes the password in your shell history.
+
+###### Note
+
 The shorter format connection string (EZ Connect), such as `sqlplus
  USER/PASSWORD@`longer-than-63-chars-rds-endpoint-here`:1521/`database-identifier``,
-might encounter a maximum character limit, so you we recommend that you don't use it
+might encounter a maximum character limit, so we recommend that you don't use it
 to connect.

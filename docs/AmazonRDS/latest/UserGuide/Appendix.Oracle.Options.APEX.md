@@ -46,7 +46,7 @@ RDS for Oracle supports the following types of listeners:
      applications that run on the internet.
 
 For more information about these listener types, see [About
-choosing a web listener](https://docs.oracle.com/database/apex-5.1/HTMIG/choosing-web-listener.htm#HTMIG29321 "https://docs.oracle.com/database/apex-5.1/HTMIG/choosing-web-listener.htm#HTMIG29321") in the Oracle documentation.
+choosing a web listener](https://docs.oracle.com/en/database/oracle/apex/23.2/htmig/choosing-web-listener.html "https://docs.oracle.com/en/database/oracle/apex/23.2/htmig/choosing-web-listener.html") in the Oracle documentation.
 
 When you add the `APEX` and `APEX-DEV` options to your RDS for Oracle
 DB instance, Amazon RDS installs the Oracle APEX repository only. Install your listener on a

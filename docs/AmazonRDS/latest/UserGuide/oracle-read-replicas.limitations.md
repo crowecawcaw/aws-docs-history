@@ -91,7 +91,7 @@ Before you create an RDS for Oracle replica, consider the following:
   is significant because a replica can lag behind the primary for minutes or
   hours.
 
-To find the difference, use the `describe-db-snapshots` command. Compare the `snapshotDatabaseTime`, which
+To find the difference, use the `describe-db-snapshots` command. Compare the `SnapshotDatabaseTime`, which
 is the database time of the replica backup, and the `OriginalSnapshotCreateTime` field, which is the latest applied
 transaction on the primary database.
 

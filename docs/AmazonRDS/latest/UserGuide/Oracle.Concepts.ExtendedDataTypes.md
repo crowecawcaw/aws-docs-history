@@ -4,7 +4,7 @@ Amazon RDS for Oracle supports extended data types. With extended data types, th
 is 32,767 bytes for the `VARCHAR2`, `NVARCHAR2`, and `RAW`
 data types. To use extended data types, set the `MAX_STRING_SIZE` parameter to
 `EXTENDED`. For more information, see [Extended
-data types](https://docs.oracle.com/database/121/SQLRF/sql_elements001.htm#SQLRF55623 "https://docs.oracle.com/database/121/SQLRF/sql_elements001.htm#SQLRF55623") in the Oracle documentation.
+data types](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Data-Types.html#GUID-8EFA29E9-E8D8-40A6-A43E-954908C954A4 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Data-Types.html#GUID-8EFA29E9-E8D8-40A6-A43E-954908C954A4") in the Oracle documentation.
 
 If you don't want to use extended data types, keep the `MAX_STRING_SIZE` parameter set to
 `STANDARD` (the default). In this case, the size limits are 4,000 bytes for the
@@ -24,6 +24,11 @@ Consider the following when you enable extended data types for your DB instance:
   the standard size for data types. If you set the `MAX_STRING_SIZE`
   parameter back to `STANDARD` it results in the
   `incompatible-parameters` status.
+
+###### Important
+
+Enabling extended data types is irreversible. After you set `MAX_STRING_SIZE` to `EXTENDED`, you cannot revert to `STANDARD`. This means you cannot downgrade to an engine version that does not support extended data types, and logical exports (Data Pump) of tables using extended columns may not be importable into databases using `STANDARD` mode.
+
 - When you restore a DB instance that uses extended data types, you must specify a
   parameter group with the `MAX_STRING_SIZE` parameter set to
   `EXTENDED`. During restore, if you specify the default parameter

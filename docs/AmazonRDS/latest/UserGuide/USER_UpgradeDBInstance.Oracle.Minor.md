@@ -1,7 +1,7 @@
 # Oracle minor version upgrades
 
 In RDS for Oracle, a minor version upgrade is an update to a major DB engine version. In RDS, a
-minor engine version is either a Release Update (RU) or Spatial Patch Bundle (SPB). For
+minor engine version is either a Release Update (RU) or Supplemental Patch Bundle (SPB). For
 example, if your DB instance runs major version Oracle Database 19c and minor version
 19.0.0.0.ru-2025-10.rur-2025-10.r1, you can upgrade your DB engine to minor version
 19.0.0.0.ru-2026-01.rur-2026-01.r1. RDS for Oracle doesn't support minor version
@@ -25,21 +25,23 @@ information, see [Testing an Oracle DB upgrade](USER_UpgradeDBInstance.Oracle.Up
 
 ###### Topics
 
-- [Release Updates (RUs) and Spatial Patch Bundles (SPBs)](#RUs-and-SPBs "#RUs-and-SPBs")
+- [Release Updates (RUs) and Supplemental Patch Bundles (SPBs)](#RUs-and-SPBs "#RUs-and-SPBs")
 - [Turning on automatic minor version upgrades for Oracle](#oracle-minor-version-upgrade-tuning-on "#oracle-minor-version-upgrade-tuning-on")
 - [Using AWS Organizations upgrade rollout policy for automatic minor version upgrades](#oracle-minor-version-upgrade-rollout "#oracle-minor-version-upgrade-rollout")
 - [Notification of automatic minor version upgrades in RDS for Oracle](#oracle-minor-version-upgrade-advance "#oracle-minor-version-upgrade-advance")
 - [How Amazon RDS schedules automatic minor version upgrades](#oracle-minor-version-upgrade-scheduled "#oracle-minor-version-upgrade-scheduled")
 - [Managing an automatic minor version upgrade in RDS for Oracle](#oracle-minor-version-upgrade-managing "#oracle-minor-version-upgrade-managing")
 
-## Release Updates (RUs) and Spatial Patch Bundles (SPBs)
+## Release Updates (RUs) and Supplemental Patch Bundles (SPBs)
 
 In RDS, a release update (RU) is a quarterly minor engine version that includes
-security fixes, bug fixes, and new features for Oracle Database. A Spatial Patch Bundle
-(SPB) is an RU engine version that includes patches designed for the Oracle Spatial
-option. For example, the SPB named 19.0.0.0.ru-2025-01.spb-1.r1 includes all patches in
-the corresponding RU 19.0.0.0.ru-2025-01.rur-2025-01.r1 plus patches specific to
-Spatial. SPBs are supported only for Oracle Database 19c.
+security fixes, bug fixes, and new features for Oracle Database. A Supplemental Patch
+Bundle (SPB) is an RU engine version that includes additional database patches
+recommended by Oracle for specific use cases, such as Oracle Spatial, Oracle Data Pump,
+and Oracle GoldenGate. For example, the SPB named
+19.0.0.0.ru-2026-04.spb-1.r1 includes all patches in the corresponding RU
+19.0.0.0.ru-2026-04.rur-2026-04.r1 plus supplemental patches. SPBs are supported only
+for Oracle Database 19c.
 
 When your instance is configured for automatic minor version upgrades, RUs and SPBs
 are on separate upgrade paths. Typically, an SPB is released 2–3 weeks after its
@@ -55,33 +57,33 @@ corresponding RU. The following table shows sample minor versions for Oracle Dat
 
 If your DB instance is configured for automatic upgrades, your instance is on the upgrade
 path corresponding to your current version. For example, if your DB instance runs version
-19.0.0.0.ru-2025-01.rur-2025-01.r1, then when 19.0.0.0.ru-2025-04.rur-2025-04.r1 is
+19.0.0.0.ru-2026-04.rur-2026-04.r1, then when 19.0.0.0.ru-2026-07.rur-2026-07.r1 is
 released, your instance automatically upgrades to this RU. Similarly, if your DB instance runs
-19.0.0.0.ru-2025-01.spb-1.r1, then when 19.0.0.0.ru-2025-04.spb-1.r1 is released, your
+19.0.0.0.ru-2026-04.spb-1.r1, then when 19.0.0.0.ru-2026-07.spb-1.r1 is released, your
 instance automatically upgrades to this SPB. An instance running
-19.0.0.0.ru-2025-01.rur-2025-01.r1, which is an RU, won't automatically upgrade to
-19.0.0.0.ru-2025-04.spb-1.r1, which is an SPB on a separate upgrade path.
+19.0.0.0.ru-2026-04.rur-2026-04.r1, which is an RU, won't automatically upgrade to
+19.0.0.0.ru-2026-07.spb-1.r1, which is an SPB on a separate upgrade path.
 
-You can upgrade your DB instance to SPBs even if your instance doesn't use Spatial, but the
-Spatial patches apply only to Oracle Spatial. You can upgrade manually from an RU to an
-SPB at the same engine version or higher. For example, you can upgrade your instance
-from 19.0.0.0.ru-2025-01.rur-2025-01.r1 to either of the following engine
-versions:
+You can upgrade your DB instance to SPBs even if your instance doesn't currently have use
+cases such as Oracle Spatial, Oracle Data Pump, and Oracle GoldenGate. You can upgrade
+manually from an RU to an SPB at the same engine version or higher. For example, you
+can upgrade your instance from 19.0.0.0.ru-2026-04.rur-2026-04.r1 to either of the
+following engine versions:
 
-- 19.0.0.0.ru-2025-01.spb-1.r1
-- 19.0.0.0.ru-2025-04.spb-1.r1
+- 19.0.0.0.ru-2026-04.spb-1.r1
+- 19.0.0.0.ru-2026-07.spb-1.r1
 
 You can upgrade your instance from an SPB to an RU only if the RU is a higher
 engine version. For example, you can upgrade from SPB version
-19.0.0.0.ru-2025-04.spb-1.r1 to a higher RU version 19.0.0.0.ru-2025-07.rur-2025-07.r1
-but not to the same RU version 19.0.0.0.ru-2025-04.rur-2025-04.r1.
+19.0.0.0.ru-2026-04.spb-1.r1 to a higher RU version 19.0.0.0.ru-2026-07.rur-2026-07.r1
+but not to the same RU version 19.0.0.0.ru-2026-04.rur-2026-04.r1.
 
 If your DB instance is configured for automatic minor version upgrades, and you manually
 upgrade from an RU to an SPB or from an SPB to an RU, your automatic upgrade path
 changes. Suppose that you manually upgrade from RU version
-19.0.0.0.ru-2025-01.rur-2025-01.r1 to SPB version 19.0.0.0.ru-2025-01.spb-1.r1. Your
+19.0.0.0.ru-2026-04.rur-2026-04.r1 to SPB version 19.0.0.0.ru-2026-04.spb-1.r1. Your
 next automatic minor version upgrade will be to SPB version
-19.0.0.0.ru-2025-04.spb-1.r1.
+19.0.0.0.ru-2026-07.spb-1.r1.
 
 Because SPBs function as RUs, the RDS APIs for upgrading your instance to RUs
 and SPBs are identical. The following commands demonstrate upgrading to an RU
@@ -90,16 +92,23 @@ and to an SPB.
 ```
 aws rds modify-db-instance \
     --db-instance-identifier mydbinstance \
-    --engine-version 19.0.0.0.ru-2025-01.rur-2025-01.r1
+    --engine-version 19.0.0.0.ru-2026-04.rur-2026-04.r1
 
 aws rds modify-db-instance \
     --db-instance-identifier mydbinstance \
-    --engine-version 19.0.0.0.ru-2025-01.spb-1.r1
+    --engine-version 19.0.0.0.ru-2026-04.spb-1.r1
 ```
 
-For more information about the Oracle Spatial option, see [How Spatial Patch Bundles (SPBs) work](Oracle.Options.Spatial.md#Oracle.Options.Spatial.SPBs "Oracle.Options.Spatial.md#Oracle.Options.Spatial.SPBs").
+For more information about how SPBs work with Oracle Spatial, see [How Supplemental Patch Bundles (SPBs) work](Oracle.Options.Spatial.md#Oracle.Options.Spatial.SPBs "Oracle.Options.Spatial.md#Oracle.Options.Spatial.SPBs").
 For supported RUs and SPBs for Oracle Database 19c, see [Amazon RDS for
 Oracle Database 19c (19.0.0.0)](../OracleReleaseNotes/oracle-version-19-0.md "../OracleReleaseNotes/oracle-version-19-0.md").
+
+###### Note
+
+Spatial Patch Bundle has been renamed to Supplemental Patch Bundle (SPB). SPBs
+now include additional bundle patches beyond Oracle Spatial such as Data Pump and
+GoldenGate. The abbreviation "SPB" remains unchanged. All existing SPB engine
+versions continue to work as before.
 
 ## Turning on automatic minor version upgrades for Oracle
 

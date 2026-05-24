@@ -10,7 +10,7 @@ sqlnet.ora:
 - `SQLNET.CRYPTO_CHECKSUM_TYPES_CLIENT`
 - `SQLNET.ENCRYPTION_CLIENT`
 - `SQLNET.ENCRYPTION_TYPES_CLIENT`
-  For information, see [Configuring network data encryption and integrity for Oracle servers and clients](http://docs.oracle.com/cd/E11882_01/network.112/e40393/asoconfg.htm "http://docs.oracle.com/cd/E11882_01/network.112/e40393/asoconfg.htm") in the Oracle
+  For information, see [Configuring network data encryption and integrity for Oracle servers and clients](https://docs.oracle.com/en/database/oracle/oracle-database/19/asoag/configuring-network-data-encryption-and-integrity.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/asoag/configuring-network-data-encryption-and-integrity.html") in the Oracle
   documentation.
 
 Sometimes, the DB instance rejects a connection request from an application. For example, a rejection can occur
@@ -27,4 +27,4 @@ TRACE_LEVEL_CLIENT=16
 When a connection is attempted, the preceding lines generate a trace file on the client called
 `/tmp/nettrace*`. The trace file contains information about the connection. For more information
 about connection-related issues when you are using Oracle Native Network Encryption, see [About negotiating
-encryption and integrity](http://docs.oracle.com/cd/E11882_01/network.112/e40393/asoconfg.htm#autoId12 "http://docs.oracle.com/cd/E11882_01/network.112/e40393/asoconfg.htm#autoId12") in the Oracle Database documentation.
+encryption and integrity](https://docs.oracle.com/en/database/oracle/oracle-database/19/asoag/configuring-network-data-encryption-and-integrity.html#GUID-3A2171E6-1116-4831-B0BE-68B6B8505D61 "https://docs.oracle.com/en/database/oracle/oracle-database/19/asoag/configuring-network-data-encryption-and-integrity.html#GUID-3A2171E6-1116-4831-B0BE-68B6B8505D61") in the Oracle Database documentation.

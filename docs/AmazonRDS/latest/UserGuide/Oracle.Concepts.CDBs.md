@@ -139,7 +139,7 @@ The following limitations apply to RDS for Oracle at the CDB level:
   _pdb_name_ for the database name, where
   _pdb_name_ is the name you chose for your PDB.
 - You can't convert a CDB in the multi-tenant configuration to a CDB in the
-  single-tenant conversion. Conversion to the multi-tenant configuration is
+  single-tenant configuration. Conversion to the multi-tenant configuration is
   one-way and irreversible.
 - You can't enable or convert to the multi-tenant configuration if your
   DB instance uses an Oracle database release lower than
@@ -168,7 +168,7 @@ configuration:
   performance and stability of the smaller instance classes and increases the
   time of most instance-level operations, for example, database
   upgrades.
-- You cannot rename a PDB using `rdsadmin.rdsadmin_util.rename_global_name`,
+- You can't rename a PDB using `rdsadmin.rdsadmin_util.rename_global_name`.
   You must use the `modify-tenant-database` API instead.
 - You can't use multiple AWS accounts to create PDBs in the same CDB. PDBs
   must be owned by the same account as the DB instance that the PDBs are hosted
@@ -207,12 +207,12 @@ The following list is not exhaustive.
 
 
     The PDB inherits options settings from the CDB option group. For
-     more information about setting options, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). For best
+     more information about setting options, see [Adding options to Oracle DB instances](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md"). For best
      practices, see [Working with DB parameter groups](CHAP_BestPractices.md#CHAP_BestPractices.DBParameterGroup "CHAP_BestPractices.md#CHAP_BestPractices.DBParameterGroup").
     + Configuring parameters in a PDB
 
 
     The PDB inherits parameter settings from the CDB. For more
-     information about setting option, see [Adding options to Oracle DB instances](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md").
+     information about setting parameters, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
     + Configuring different listeners for PDBs in the same CDB
     + Oracle Flashback features

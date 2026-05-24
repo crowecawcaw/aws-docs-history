@@ -22,7 +22,7 @@ variable.
 prompt>export ORACLE_HOME=/home/user/app/user/product/19.0.0/dbhome_1
 ```
 
-For information about setting Oracle environment variables, see [SQL\*Plus environment variables](http://docs.oracle.com/database/121/SQPUG/ch_two.htm#SQPUG331 "http://docs.oracle.com/database/121/SQPUG/ch_two.htm#SQPUG331") in the Oracle documentation, and
+For information about setting Oracle environment variables, see [SQL\*Plus environment variables](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqpug/configuring-sql-plus.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqpug/configuring-sql-plus.html") in the Oracle documentation, and
 also see the Oracle installation guide for your operating system. 2. Append `$ORACLE_HOME/lib` to the
 `LD_LIBRARY_PATH` environment variable.
 
@@ -76,19 +76,19 @@ prompt>mkdir $ORACLE_HOME/ssl_wallet
 
 To communicate with entities over a TLS secured connection, Oracle requires a wallet with the necessary certificates for authentication.
 You can use Oracle's ORAPKI utility to create and maintain Oracle wallets, as shown in step 7. For more information, see
-[Setting up Oracle wallet using ORAPKI](https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tsvt/task_SettingUpOracleWalletUsingORAPKI.html "https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tsvt/task_SettingUpOracleWalletUsingORAPKI.html") in the Oracle documentation.
+[Setting up Oracle wallet using ORAPKI](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/managing-wallets-and-certificates.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/managing-wallets-and-certificates.html") in the Oracle documentation.
 
 ```
 WALLET_LOCATION = (SOURCE = (METHOD = FILE) (METHOD_DATA = (DIRECTORY = $ORACLE_HOME/ssl_wallet)))
 SSL_CLIENT_AUTHENTICATION = FALSE
-SSL_VERSION = 1.0
-SSL_CIPHER_SUITES = (SSL_RSA_WITH_AES_256_CBC_SHA)
+SSL_VERSION = 1.2
+SSL_CIPHER_SUITES = (SSL_RSA_WITH_AES_256_CBC_SHA256)
 SSL_SERVER_DN_MATCH = ON
 ```
 
 ###### Note
 
-You can set `SSL_VERSION` to a higher value if your DB instance supports it. 7. Run the following command to create the Oracle wallet.
+You can set `SSL_VERSION` to a different value if your DB instance supports it. 7. Run the following command to create the Oracle wallet.
 
 ```
 prompt>orapki wallet create -wallet $ORACLE_HOME/ssl_wallet -auto_login_only

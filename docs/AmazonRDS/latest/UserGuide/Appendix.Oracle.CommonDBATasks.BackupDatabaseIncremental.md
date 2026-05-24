@@ -4,7 +4,7 @@ You can perform an incremental backup of your DB instance using the Amazon RDS
 procedure
 `rdsadmin.rdsadmin_rman_util.backup_database_incremental`.
 
-For more information about incremental backups, see [Incremental backups](https://docs.oracle.com/database/121/RCMRF/rcmsynta006.htm#GUID-73642FF2-43C5-48B2-9969-99001C52EB50__BGBHABHH "https://docs.oracle.com/database/121/RCMRF/rcmsynta006.htm#GUID-73642FF2-43C5-48B2-9969-99001C52EB50__BGBHABHH") in the Oracle documentation.
+For more information about incremental backups, see [Incremental backups](https://docs.oracle.com/en/database/oracle/oracle-database/19/rcmrf/BACKUP.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/rcmrf/BACKUP.html") in the Oracle documentation.
 
 This procedure uses the following common parameters for RMAN tasks:
 

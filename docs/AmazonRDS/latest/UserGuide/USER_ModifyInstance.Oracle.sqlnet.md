@@ -3,7 +3,7 @@
 The sqlnet.ora file includes parameters that configure Oracle Net features on Oracle database servers and clients.
 Using the parameters in the sqlnet.ora file, you can modify properties for connections in and out of the database.
 
-For more information about why you might set sqlnet.ora parameters, see [Configuring profile parameters](https://docs.oracle.com/database/121/NETAG/profile.htm#NETAG009 "https://docs.oracle.com/database/121/NETAG/profile.htm#NETAG009") in
+For more information about why you might set sqlnet.ora parameters, see [Configuring profile parameters](https://docs.oracle.com/en/database/oracle/oracle-database/19/netag/configuring-profiles.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/netag/configuring-profiles.html") in
 the Oracle documentation.
 
 ## Setting sqlnet.ora parameters

@@ -72,7 +72,7 @@ EXEC rdsadmin.rdsadmin_util.switch_logfile;
 /* Query V$LOG to see the logs.        */
 /* Now one of the new logs is current. */
 
-SQL>SELECT GROUP#, BYTES, STATUS FROM V$LOG;
+SELECT GROUP#, BYTES, STATUS FROM V$LOG;
 
 GROUP#     BYTES      STATUS
 ---------- ---------- ----------------
@@ -102,7 +102,7 @@ GROUP#     BYTES      STATUS
 8          536870912  UNUSED
 
 
-# Drop the final inactive log.
+/* Drop the final inactive log. */
 
 EXEC rdsadmin.rdsadmin_util.drop_logfile(grp => 2);
 

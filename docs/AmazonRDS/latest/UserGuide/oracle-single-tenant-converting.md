@@ -36,8 +36,8 @@ The conversion from single-tenant to multi-tenant has the following limitations:
 2. In the upper-right corner of the Amazon RDS console, choose the
    AWS Region where your DB instance resides.
 3. In the navigation pane, choose **Databases**, and
-   then choose the non-CDB instance that you want to convert to a CDB
-   instance.
+   then choose the CDB instance that you want to convert to the
+   multi-tenant configuration.
 4. Choose **Modify**.
 5. For **Architecture settings**, select **Oracle
    multitenant architecture**.
@@ -72,7 +72,7 @@ single-tenant configuration to the multi-tenant configuration. The `--apply-imme
 For Linux, macOS, or Unix:
 
 ```
-aws rds modify-db-instance --region `us-east-1`\
+aws rds modify-db-instance --region `us-east-1` \
     --db-instance-identifier `my-st-cdb` \
     --multi-tenant \
     --apply-immediately

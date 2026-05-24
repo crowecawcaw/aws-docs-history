@@ -106,11 +106,11 @@ https://`endpoint`.rds.amazonaws.com:`port`/em
 
 For example, if the endpoint for your Amazon RDS DB instance is
 `mydb.a1bcde234fgh.us-east-1.rds.amazonaws.com`, and your EM Express
-port is `1158`, then use the following URL to access EM
+port is `5500`, then use the following URL to access EM
 Express.
 
 ```
-https://`mydb.f9rbfa893tft.us-east-1`.rds.amazonaws.com:`1158`/em
+https://`mydb.f9rbfa893tft.us-east-1`.rds.amazonaws.com:`5500`/em
 ```
 
 3. When prompted for your login details, do one of the following actions,

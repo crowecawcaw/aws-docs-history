@@ -4,9 +4,9 @@ To enable and disable restricted sessions, use the Amazon RDS procedure
 `rdsadmin.rdsadmin_util.restricted_session`. The
 `restricted_session` procedure has the following parameters.
 
-| Parameter name | Data type | Default | Yes | Description                                                                             |
-| -------------- | --------- | ------- | --- | --------------------------------------------------------------------------------------- |
-| `p_enable`     | boolean   | true    | No  | Set to `true` to enable restricted sessions,<br>`false` to disable restricted sessions. |
+| Parameter name | Data type | Default | Required | Description                                                                             |
+| -------------- | --------- | ------- | -------- | --------------------------------------------------------------------------------------- |
+| `p_enable`     | boolean   | true    | No       | Set to `true` to enable restricted sessions,<br>`false` to disable restricted sessions. |
 
 The following example shows how to enable and disable restricted sessions.
 

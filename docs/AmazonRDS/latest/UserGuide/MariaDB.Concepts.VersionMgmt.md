@@ -8,11 +8,29 @@ number changes, for example going from version 10.6.14 to 10.6.16.
 
 ###### Topics
 
+- [Version currency timelines](#MariaDB.Concepts.VersionMgmt.VersionCurrencyTimelines "#MariaDB.Concepts.VersionMgmt.VersionCurrencyTimelines")
 - [Supported MariaDB minor versions on Amazon RDS](#MariaDB.Concepts.VersionMgmt.Supported "#MariaDB.Concepts.VersionMgmt.Supported")
 - [Supported MariaDB major versions on Amazon RDS](#MariaDB.Concepts.VersionMgmt.ReleaseCalendar "#MariaDB.Concepts.VersionMgmt.ReleaseCalendar")
 - [Working with the Database Preview environment](#mariadb-working-with-the-database-preview-environment "#mariadb-working-with-the-database-preview-environment")
 - [MariaDB version 11.7 in the Database Preview environment](#mariadb-preview-environment-version-11-7 "#mariadb-preview-environment-version-11-7")
 - [Deprecated versions for Amazon RDS for MariaDB](#MariaDB.Concepts.DeprecatedVersions "#MariaDB.Concepts.DeprecatedVersions")
+
+## Version currency timelines
+
+RDS for MariaDB tracks community database engine releases on a defined cadence. These
+version currency timelines are published to give you transparency into that cadence.
+You can use these timelines to:
+
+- Plan major version upgrades and estimate when a new RDS for MariaDB major
+  version will be available.
+- Schedule minor version upgrades during your maintenance windows.
+
+The following table lists the version currency timelines for RDS for MariaDB.
+
+| Release type   | Timelines                                                           |
+| -------------- | ------------------------------------------------------------------- |
+| Major versions | Within 3 months of the community release of the first patch version |
+| Minor versions | Within 30 days of the community release                             |
 
 ## Supported MariaDB minor versions on Amazon RDS
 

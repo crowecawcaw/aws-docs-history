@@ -39,7 +39,7 @@ In these scenarios, RDS Proxy can bring the following benefits:
 
 ### Connection handling in container-based distributed applications
 
-A container-based distributed application architecture may hundreds or
+A container-based distributed application architecture may have hundreds or
 even thousands of containers, each running a copy of the application code. Even if the individual
 containers are capable of connection pooling, those pools are container-specific and therefore
 very small. The number of containers multiplied by the size of each container mini-pool can

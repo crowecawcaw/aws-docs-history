@@ -19,7 +19,7 @@ Use the following connection string to enforce DN matching when using SSL.
 
 ```
 final String connectionString = String.format(
-    "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCPS)(HOST=%s)(PORT=%d))" +
+    "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCPS)(HOST=%s)(PORT=%s))" +
     "(CONNECT_DATA=(SID=%s))" +
     "(SECURITY = (SSL_SERVER_CERT_DN =
 \"C=US,ST=Washington,L=Seattle,O=Amazon.com,OU=RDS,CN=%s\")))",

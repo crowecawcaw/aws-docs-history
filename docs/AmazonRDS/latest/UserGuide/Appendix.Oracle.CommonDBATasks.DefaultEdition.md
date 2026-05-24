@@ -22,5 +22,5 @@ EXEC rdsadmin.rdsadmin_util.alter_default_edition('ORA$BASE');
 ```
 
 For more information about Oracle edition-based redefinition, see [About
-editions and edition-based redefinition](https://docs.oracle.com/database/121/ADMIN/general.htm#ADMIN13167 "https://docs.oracle.com/database/121/ADMIN/general.htm#ADMIN13167") in the Oracle
+editions and edition-based redefinition](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/getting-started-with-database-administration.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/getting-started-with-database-administration.html") in the Oracle
 documentation.

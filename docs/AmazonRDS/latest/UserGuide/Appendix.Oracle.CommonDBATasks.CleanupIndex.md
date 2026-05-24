@@ -24,4 +24,4 @@ end;
 /
 ```
 
-For more information, see [ONLINE_INDEX_CLEAN function](https://docs.oracle.com/database/121/ARPLS/d_repair.htm#ARPLS67555 "https://docs.oracle.com/database/121/ARPLS/d_repair.htm#ARPLS67555") in the Oracle documentation.
+For more information, see [ONLINE_INDEX_CLEAN function](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_REPAIR.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_REPAIR.html") in the Oracle documentation.

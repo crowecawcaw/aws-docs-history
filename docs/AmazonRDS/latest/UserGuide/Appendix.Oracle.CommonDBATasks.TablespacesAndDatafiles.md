@@ -36,7 +36,7 @@ instance has a volume mounted on `/rdsdbdata/db`, you can set
 You can modify the `DB_CREATE_FILE_DEST` parameter at either the
 session level or Oracle database instance level.
 
-### Modifying DB_CREATE_FILE_SET at the instance level
+### Modifying DB_CREATE_FILE_DEST at the instance level
 
 To modify the parameter at the instance level, update the parameter in the
 parameter group assigned to your DB instance and apply it. For more information, see

@@ -91,7 +91,7 @@ aws rds describe-db-snapshots \
             "DBInstanceIdentifier": "my-oracle-replica",
             "SnapshotDatabaseTime": "2022-07-26T**17:49:44Z**",
             ...
-            "OriginalSnapshotCreateTime": "2021-07-26T**19:49:44Z**"
+            "OriginalSnapshotCreateTime": "2022-07-26T**19:49:44Z**"
         }
     ]
 }

@@ -7,8 +7,8 @@ from a DB instance. Amazon RDS supports NNE for all editions of Oracle Database.
 A detailed discussion of Oracle native network encryption is beyond the scope of this guide, but you should
 understand the strengths and weaknesses of each algorithm and key before you decide on a solution for your
 deployment. For information about the algorithms and keys that are available through Oracle native network
-encryption, see [Configuring network data encryption](http://www.oracle.com/webfolder/technetwork/tutorials/obe/db/11g/r2/prod/security/network_encrypt/ntwrkencrypt.htm "http://www.oracle.com/webfolder/technetwork/tutorials/obe/db/11g/r2/prod/security/network_encrypt/ntwrkencrypt.htm") in the Oracle documentation. For more information about AWS
-security, see the [AWS security center](http://aws.amazon.com/security "http://aws.amazon.com/security").
+encryption, see [Configuring network data encryption and integrity](https://docs.oracle.com/en/database/oracle/oracle-database/19/asoag/configuring-network-data-encryption-and-integrity.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/asoag/configuring-network-data-encryption-and-integrity.html") in the Oracle documentation. For more information about AWS
+security, see the [AWS security center](https://aws.amazon.com/security "https://aws.amazon.com/security").
 
 ###### Note
 

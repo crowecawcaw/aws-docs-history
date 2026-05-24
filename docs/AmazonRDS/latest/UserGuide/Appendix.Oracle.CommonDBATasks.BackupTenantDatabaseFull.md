@@ -1,6 +1,6 @@
 # Performing a full backup of a tenant database
 
-You can perform a backup of all data blocks included a tenant database in a
+You can perform a backup of all data blocks in a tenant database in a
 container database (CDB). Use the Amazon RDS procedure
 `rdsadmin.rdsadmin_rman_util.backup_tenant_full`. This procedure
 applies only to the current database backup and uses the following common parameters

@@ -44,8 +44,17 @@ This architecture change is permanent and irreversible. For more information, se
 
 You can't access the CDB itself.
 
+###### Note
+
+To help you choose a configuration: Choose non-CDB if you are running
+Oracle Database 19c and do not need multitenant features. Choose single-tenant CDB if you
+want to prepare for future migration to Oracle Database 21c or higher (which requires CDB).
+Choose multi-tenant CDB if you need workload isolation with shared
+infrastructure, or want to consolidate multiple databases into one
+instance.
+
 In Oracle Database 21c and higher, all databases are CDBs. In contrast, you can create an Oracle Database 19c DB instance as either a CDB or non-CDB. You can't upgrade a non-CDB to a CDB, but you
-convert an Oracle Database 19c non-CDB to a CDB, and then upgrade it. You can't convert a
+can convert an Oracle Database 19c non-CDB to a CDB, and then upgrade it. You can't convert a
 CDB to a non-CDB.
 
 For more information, see the following resources:

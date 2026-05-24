@@ -51,7 +51,7 @@ For information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.
 Before you begin, complete the steps in the following sections:
 
 - [Sign up for an AWS account](CHAP_SettingUp.md#sign-up-for-aws "CHAP_SettingUp.md#sign-up-for-aws")
-- [Create a user with administrative access](CHAP_SettingUp.md#create-an-admin "CHAP_SettingUp.md#create-an-admin")
+-
 
 ## Step 1: Create an EC2 instance
 

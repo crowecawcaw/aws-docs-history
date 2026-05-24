@@ -17,7 +17,7 @@ you can copy the backup files to an Amazon S3 bucket. For more information, see 
 The backup files for RMAN backups remain on the Amazon RDS DB instance host until you remove them
 manually. You can use the `UTL_FILE.FREMOVE` Oracle procedure to remove files
 from a directory. For more information, see [FREMOVE
-procedure](https://docs.oracle.com/database/121/ARPLS/u_file.htm#ARPLS70924 "https://docs.oracle.com/database/121/ARPLS/u_file.htm#ARPLS70924") in the Oracle Database documentation.
+procedure](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html") in the Oracle Database documentation.
 
 You can't use the RMAN to restore RDS for Oracle DB instances. However, you can use RMAN to
 restore a backup to an on-premises or Amazon EC2 instance. For more information, see the blog

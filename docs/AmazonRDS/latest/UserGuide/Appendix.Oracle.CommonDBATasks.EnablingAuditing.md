@@ -38,4 +38,4 @@ The following command enables audit of `ALL` on `SYS.AUD$`
 EXEC rdsadmin.rdsadmin_master_util.audit_all_sys_aud_table(p_by_access => false);
 ```
 
-For more information, see [AUDIT (traditional auditing)](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/sqlrf/AUDIT-Traditional-Auditing.html#GUID-ADF45B07-547A-4096-8144-50241FA2D8DD "https://docs.oracle.com/en/database/oracle/oracle-database/12.2/sqlrf/AUDIT-Traditional-Auditing.html#GUID-ADF45B07-547A-4096-8144-50241FA2D8DD") in the Oracle documentation.
+For more information, see [AUDIT (traditional auditing)](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/AUDIT-Traditional-Auditing.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/AUDIT-Traditional-Auditing.html") in the Oracle documentation.

@@ -23,15 +23,15 @@ For more information, see [Amazon RDS for Oracle database log files](USER_LogAcc
 
 In force logging mode, Oracle logs all changes to the database except changes in
 temporary tablespaces and temporary segments (`NOLOGGING` clauses are
-ignored). For more information, see [Specifying FORCE LOGGING mode](https://docs.oracle.com/cd/E11882_01/server.112/e25494/create.htm#ADMIN11096 "https://docs.oracle.com/cd/E11882_01/server.112/e25494/create.htm#ADMIN11096") in the Oracle documentation.
+ignored). For more information, see [Specifying FORCE LOGGING mode](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-the-redo-log.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-the-redo-log.html") in the Oracle documentation.
 
 To set force logging, use the Amazon RDS procedure
 `rdsadmin.rdsadmin_util.force_logging`. The
 `force_logging` procedure has the following parameters.
 
-| Parameter name | Data type | Default | Yes | Description                                                                                                            |
-| -------------- | --------- | ------- | --- | ---------------------------------------------------------------------------------------------------------------------- |
-| `p_enable`     | boolean   | true    | No  | Set to `true` to put the database in force logging<br>mode, `false` to remove the database from force<br>logging mode. |
+| Parameter name | Data type | Default | Required | Description                                                                                                            |
+| -------------- | --------- | ------- | -------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `p_enable`     | boolean   | true    | No       | Set to `true` to put the database in force logging<br>mode, `false` to remove the database from force<br>logging mode. |
 
 The following example puts the database in force logging mode.
 
@@ -42,7 +42,7 @@ EXEC rdsadmin.rdsadmin_util.force_logging(p_enable => `true`);
 ## Setting supplemental logging
 
 If you enable supplemental logging, LogMiner has the necessary information to
-support chained rows and clustered tables. For more information, see [Supplemental logging](https://docs.oracle.com/cd/E11882_01/server.112/e22490/logminer.htm#SUTIL1582 "https://docs.oracle.com/cd/E11882_01/server.112/e22490/logminer.htm#SUTIL1582") in the Oracle documentation.
+support chained rows and clustered tables. For more information, see [Supplemental logging](https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-logminer-utility.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-logminer-utility.html") in the Oracle documentation.
 
 Oracle Database doesn't enable supplemental logging by default. To enable and
 disable supplemental logging, use the Amazon RDS procedure
@@ -53,10 +53,10 @@ DB instances, see [Retaining archived redo logs](Appendix.Oracle.CommonDBATasks.
 The `alter_supplemental_logging` procedure has the following
 parameters.
 
-| Parameter name | Data type | Default | Required | Description                                                                                                                         |
-| -------------- | --------- | ------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `p_action`     | varchar2  | —       | Yes      | `'ADD'` to add supplemental logging,<br>`'DROP'` to drop supplemental logging.                                                      |
-| `p_type`       | varchar2  | null    | No       | The type of supplemental logging. Valid values are<br>`'ALL'`, `'FOREIGN KEY'`,<br>`'PRIMARY KEY'`, `'UNIQUE'`, or<br>`PROCEDURAL`. |
+| Parameter name | Data type | Default | Required | Description                                                                                                                           |
+| -------------- | --------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `p_action`     | varchar2  | —       | Yes      | `'ADD'` to add supplemental logging,<br>`'DROP'` to drop supplemental logging.                                                        |
+| `p_type`       | varchar2  | null    | No       | The type of supplemental logging. Valid values are<br>`'ALL'`, `'FOREIGN KEY'`,<br>`'PRIMARY KEY'`, `'UNIQUE'`, or<br>`'PROCEDURAL'`. |
 
 The following example enables supplemental logging.
 
@@ -91,6 +91,12 @@ end;
 /
 ```
 
+To verify that supplemental logging is enabled, run the following query:
+
+```
+SELECT SUPPLEMENTAL_LOG_DATA_MIN, SUPPLEMENTAL_LOG_DATA_PK, SUPPLEMENTAL_LOG_DATA_UI, SUPPLEMENTAL_LOG_DATA_FK, SUPPLEMENTAL_LOG_DATA_ALL FROM V$DATABASE;
+```
+
 ## Switching online log files
 
 To switch log files, use the Amazon RDS procedure
@@ -118,7 +124,7 @@ The parameters are mutually exclusive.
 | Parameter name | Data type | Default | Required | Description                                                                                                                                                                                                                               |
 | -------------- | --------- | ------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `bytes`        | positive  | null    | No       | The size of the log file in bytes.<br>Use this parameter only if the size of the log is under<br>2147483648 bytes (2 GiB). Otherwise, RDS issues an error. For<br>log sizes above this byte value, use the `p_size`<br>parameter instead. |
-| `p_size`       | varchar2  | —       | Yes      | The size of the log file in kilobytes (K), megabytes (M), or<br>gigabytes (G).                                                                                                                                                            |
+| `p_size`       | varchar2  | —       | No       | The size of the log file in kilobytes (K), megabytes (M), or<br>gigabytes (G).                                                                                                                                                            |
 
 The following command adds a 100 MB log file.
 

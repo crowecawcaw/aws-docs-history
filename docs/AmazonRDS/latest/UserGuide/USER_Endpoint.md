@@ -43,7 +43,7 @@ of the JSON endpoint output.
 ```
 "Endpoint": {
     "HostedZoneId": "Z1PVIF0B656C1W",
-    "Port": 3306,
+    "Port": 1521,
     "Address": "myinstance.123456789012.us-west-2.rds.amazonaws.com"
 },
 ```

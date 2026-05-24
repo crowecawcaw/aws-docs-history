@@ -21,5 +21,5 @@ You can configure a DB instance with an option group and a DB parameter group.
 - [Working with option groups](USER_WorkingWithOptionGroups.md "USER_WorkingWithOptionGroups.md")
 - [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")
 - [Creating an Amazon ElastiCache cache using Amazon RDS DB instance settings](creating-elasticache-cluster-with-RDS-settings.md "creating-elasticache-cluster-with-RDS-settings.md")
-- [Auto migrating EC2 databases to Amazon RDS using AWS Database Migration Service](USER_DMS_migration.md "USER_DMS_migration.md")
+- [Auto migrating databases to Amazon RDS using AWS Database Migration Service](USER_DMS_migration.md "USER_DMS_migration.md")
 - [Tutorial: Creating a MySQL DB instance with a custom parameterand new option group](tutorial-creating-custom-OPG.md "tutorial-creating-custom-OPG.md")

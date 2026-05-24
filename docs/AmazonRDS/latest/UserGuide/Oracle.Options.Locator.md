@@ -4,7 +4,7 @@ Amazon RDS supports Oracle Locator through the use of the `LOCATOR` option. Orac
 Locator provides capabilities that are typically required to support internet and wireless
 service-based applications and partner-based GIS solutions. Oracle Locator is a limited
 subset of Oracle Spatial. For more information, see [Oracle
-Locator](https://docs.oracle.com/database/121/SPATL/sdo_locator.htm#SPATL340 "https://docs.oracle.com/database/121/SPATL/sdo_locator.htm#SPATL340") in the Oracle documentation.
+Locator](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/oracle-locator.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/oracle-locator.html") in the Oracle documentation.
 
 ###### Important
 
@@ -98,12 +98,12 @@ Don't use any Oracle Spatial features unless you have a license for Oracle Spati
 
 For a list of features that are supported for Oracle Locator,
 see
-[Features Included with Locator](https://docs.oracle.com/database/121/SPATL/sdo_locator.htm#GUID-EC6DEA23-8FD7-4109-A0C1-93C0CE3D6FF2__CFACCEEG "https://docs.oracle.com/database/121/SPATL/sdo_locator.htm#GUID-EC6DEA23-8FD7-4109-A0C1-93C0CE3D6FF2__CFACCEEG")
+[Features Included with Locator](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/oracle-locator.html#GUID-EC6DEA23-8FD7-4109-A0C1-93C0CE3D6FF2 "https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/oracle-locator.html#GUID-EC6DEA23-8FD7-4109-A0C1-93C0CE3D6FF2")
 in the Oracle documentation.
 
 For a list of features that are not supported for Oracle Locator,
 see
-[Features Not Included with Locator](https://docs.oracle.com/database/121/SPATL/sdo_locator.htm#GUID-EC6DEA23-8FD7-4109-A0C1-93C0CE3D6FF2__CFABACEA "https://docs.oracle.com/database/121/SPATL/sdo_locator.htm#GUID-EC6DEA23-8FD7-4109-A0C1-93C0CE3D6FF2__CFABACEA")
+[Features Not Included with Locator](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/oracle-locator.html#GUID-EC6DEA23-8FD7-4109-A0C1-93C0CE3D6FF2 "https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/oracle-locator.html#GUID-EC6DEA23-8FD7-4109-A0C1-93C0CE3D6FF2")
 in the Oracle documentation.
 
 ## Removing the Oracle Locator option

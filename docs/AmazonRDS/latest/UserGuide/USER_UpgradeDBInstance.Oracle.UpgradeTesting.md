@@ -9,7 +9,7 @@ access the database for compatibility with the new version. We recommend that yo
    to see if there are compatibility issues
    that might affect your database or applications.
    For more information, see
-   [Database Upgrade Guide](https://docs.oracle.com/database/121/UPGRD/toc.htm "https://docs.oracle.com/database/121/UPGRD/toc.htm")
+   [Database Upgrade Guide](https://docs.oracle.com/en/database/oracle/oracle-database/19/upgrd/intro.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/upgrd/intro.html")
    in the Oracle documentation.
 2. If your DB instance uses a custom option group,
    create a new option group compatible with the new version you are upgrading to.

@@ -115,7 +115,7 @@ import java.util.Properties;
 
 public class OracleSslConnectionTest {
     private static final String DB_SERVER_NAME = "<dns-name-provided-by-amazon-rds>";
-    private static final Integer SSL_PORT = "<ssl-option-port-configured-in-option-group>";
+    private static final String SSL_PORT = "<ssl-option-port-configured-in-option-group>";
     private static final String DB_SID = "<oracle-sid>";
     private static final String DB_USER = "<user name>";
     private static final String DB_PASSWORD = "<password>";

@@ -84,7 +84,7 @@ java -jar ords.war install advanced
 ```
 
 The program prompts you for the following information. The default values are
-in brackets. For more information, see [Introduction to Oracle REST data services](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/20.2/aelig/installing-REST-data-services.html#GUID-6F7B4E61-B730-4E73-80B8-F53299123730 "https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/20.2/aelig/installing-REST-data-services.html#GUID-6F7B4E61-B730-4E73-80B8-F53299123730") in the Oracle
+in brackets. For more information, see [Introduction to Oracle REST data services](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/23.4/ordig/installing-and-configuring-oracle-rest-data-services.html "https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/23.4/ordig/installing-and-configuring-oracle-rest-data-services.html") in the Oracle
 documentation.
 
     * Enter the location to store configuration data:
@@ -361,7 +361,7 @@ installing ORDS.
 ```
 
 The program prompts you for the following information. The default values are
-in brackets. For more information, see [Introduction to Oracle REST data services](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/20.2/aelig/installing-REST-data-services.html#GUID-6F7B4E61-B730-4E73-80B8-F53299123730 "https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/20.2/aelig/installing-REST-data-services.html#GUID-6F7B4E61-B730-4E73-80B8-F53299123730") in the Oracle
+in brackets. For more information, see [Introduction to Oracle REST data services](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/23.4/ordig/installing-and-configuring-oracle-rest-data-services.html "https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/23.4/ordig/installing-and-configuring-oracle-rest-data-services.html") in the Oracle
 documentation.
 
     * `Choose the type of installation:`

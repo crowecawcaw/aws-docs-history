@@ -8,7 +8,7 @@ Before you upgrade your Oracle instance, review the following information.
 - [Option group considerations](#USER_UpgradeDBInstance.Oracle.OGPG.OG "#USER_UpgradeDBInstance.Oracle.OGPG.OG")
 - [Parameter group considerations](#USER_UpgradeDBInstance.Oracle.OGPG.PG "#USER_UpgradeDBInstance.Oracle.OGPG.PG")
 - [Time zone considerations](#USER_UpgradeDBInstance.Oracle.OGPG.DST "#USER_UpgradeDBInstance.Oracle.OGPG.DST")
-- [Spatial Patch Bundle (SPB) considerations](#USER_UpgradeDBInstance.Oracle.SPB "#USER_UpgradeDBInstance.Oracle.SPB")
+- [Supplemental Patch Bundle (SPB) considerations](#USER_UpgradeDBInstance.Oracle.SPB "#USER_UpgradeDBInstance.Oracle.SPB")
 
 ## Oracle Multitenant considerations
 
@@ -97,23 +97,18 @@ when the target time zone version is lower than the source time zone version.
 
 For more information, see [TIMESTAMP WITH TIMEZONE restrictions](https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-data-pump-overview.html#GUID-9B6C92EE-860E-43DD-9728-735B17B9DA89 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-data-pump-overview.html#GUID-9B6C92EE-860E-43DD-9728-735B17B9DA89") in the Oracle documentation.
 
-## Spatial Patch Bundle (SPB) considerations
+## Supplemental Patch Bundle (SPB) considerations
 
-In RDS for Oracle, release update (RU) is a minor engine version that includes security fixes,
-bug fixes, and new features for Oracle Database. A Spatial Patch Bundle (SPB) is minor
-engine version that also includes patches designed for the Oracle Spatial option. For
-example, 19.0.0.0.ru-2025-01.spb-1.r1 is a minor engine version that contains the RU patches
-in engine version 19.0.0.0.ru-2025-01.rur-2025-01.r1 plus Spatial patches.
+In RDS for Oracle, a release update (RU) is a minor engine version that includes security fixes,
+bug fixes, and new features for Oracle Database. A Supplemental Patch Bundle (SPB) is an RU
+engine version that includes additional database patches recommended by Oracle for specific
+use cases, such as Oracle Spatial, Oracle Data Pump, and Oracle GoldenGate. For example,
+19.0.0.0.ru-2025-01.spb-1.r1 is a minor engine version that contains the RU patches in
+engine version 19.0.0.0.ru-2025-01.rur-2025-01.r1 plus supplemental patches.
 
 When you upgrade your database to SPBs, consider the following:
 
 - SPBs are supported only for Oracle Database 19c.
-- Typically, an SPB is released 2–3 weeks after its corresponding quarterly
-  RU.
-- You can upgrade your DB instance to an SPB even if the instance doesn't use the Oracle
-  Spatial option, but the Spatial patches in the engine version apply only to Oracle
-  Spatial. You can create a new instance on an SPB and install the Oracle Spatial
-  option later.
 - If you enable automatic minor version upgrade for your DB instance, your upgrade path
   depends on whether your instance currently uses an SPB or RU. If your
   instance uses an SPB, RDS automatically upgrades your instance to the latest SPB. If

@@ -3,7 +3,7 @@
 _Oracle external tables_ are tables with data that is not
 in the database. Instead, the data is in external files that the database can
 access. By using external tables, you can access data without loading it into
-the database. For more information about external tables, see [Managing external tables](http://docs.oracle.com/database/121/ADMIN/tables.htm#ADMIN01507 "http://docs.oracle.com/database/121/ADMIN/tables.htm#ADMIN01507") in the Oracle documentation.
+the database. For more information about external tables, see [Managing external tables](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-tables.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-tables.html") in the Oracle documentation.
 
 With Amazon RDS, you can store external table files in directory objects. You can
 create a directory object, or you can use one that is predefined in the Oracle
@@ -20,7 +20,7 @@ audit, trace, and other files—counts against allocated
 storage.
 
 You can move an external data file from one Oracle database to another by
-using the [DBMS_FILE_TRANSFER](https://docs.oracle.com/database/121/ARPLS/d_ftran.htm#ARPLS095 "https://docs.oracle.com/database/121/ARPLS/d_ftran.htm#ARPLS095") package or the [UTL_FILE](https://docs.oracle.com/database/121/ARPLS/u_file.htm#ARPLS069 "https://docs.oracle.com/database/121/ARPLS/u_file.htm#ARPLS069") package. The external data file is moved from a directory on the
+using the [DBMS_FILE_TRANSFER](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_FILE_TRANSFER.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_FILE_TRANSFER.html") package or the [UTL_FILE](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html") package. The external data file is moved from a directory on the
 source database to the specified directory on the destination database. For information
 about using `DBMS_FILE_TRANSFER`, see [Importing using Oracle Data Pump](Oracle.Procedural.Importing.DataPump.md "Oracle.Procedural.Importing.DataPump.md").
 

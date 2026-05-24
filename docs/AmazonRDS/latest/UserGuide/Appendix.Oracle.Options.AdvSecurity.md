@@ -127,9 +127,7 @@ For more information about adding options, see [Adding an option to an option gr
      [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
 
 In the following example, you use the AWS CLI [add-option-to-option-group](../../../cli/latest/reference/rds/add-option-to-option-group.md "../../../cli/latest/reference/rds/add-option-to-option-group.md") command to add the `TDE`
-option to an option group called `myoptiongroup`. For more
-information, see [Getting
-started: Flink 1.13.2](../../../managed-flink/latest/java/earlier.md#getting-started-1-13 "../../../managed-flink/latest/java/earlier.md#getting-started-1-13") .
+option to an option group called `myoptiongroup`.
 
 For Linux, macOS, or Unix:
 

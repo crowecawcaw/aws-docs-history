@@ -73,7 +73,7 @@ tenant database, make sure you meet the following prerequisites:
          before creating a read replica if needed.
         * For **Tenant database national character
          set**, choose a national character set for the PDB.
-         The default is **AL32UTF8**. The national
+         The default is **AL16UTF16**. The national
          character set specifies the encoding only for columns that use
          the `NCHAR` data type (`NCHAR`,
          `NVARCHAR2`, and `NCLOB`) and doesn't
@@ -110,7 +110,7 @@ aws rds create-tenant-database --region us-east-1 \
 For Windows:
 
 ```
-aws rds create-tenant-database --region us-east-1 \
+aws rds create-tenant-database --region us-east-1 ^
     --db-instance-identifier `my-cdb-inst` ^
     --tenant-db-name `mypdb2` ^
     --master-username `mypdb2-admin` ^

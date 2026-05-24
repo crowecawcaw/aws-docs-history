@@ -355,7 +355,7 @@ generation Intel Xeon Scalable processors**
 | Instance class     | vCPU | Processor cores | Sockets | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
 | ------------------ | ---- | --------------- | ------- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
 | db.x2iezn.metal    | 48   | 24              | 2       | —   | 1,536        | EBS-optimized only     | 19,000                    | 100                      |
-| db.x2iezn.12xlarge | >48  | —               | —       | —   | 1,536        | EBS-optimized only     | 19,000                    | 100                      |
+| db.x2iezn.12xlarge | 48   | —               | —       | —   | 1,536        | EBS-optimized only     | 19,000                    | 100                      |
 | db.x2iezn.8xlarge  | 32   | —               | —       | —   | 1,024        | EBS-optimized only     | 12,000                    | 75                       |
 | db.x2iezn.6xlarge  | 24   | —               | —       | —   | 768          | EBS-optimized only     | Up to 9,500               | 50                       |
 | db.x2iezn.4xlarge  | 16   | —               | —       | —   | 512          | EBS-optimized only     | Up to 4,750               | Up to 25                 |
@@ -666,7 +666,7 @@ classes**
 | --------------- | ---- | --- | ------------ | ---------------- | ---------------------- | ------------------------- | ------------------------ |
 | db.r5.24xlarge  | 96   | 347 | 768          | 192              | EBS-optimized only     | 19,000                    | 25                       |
 | db.r5.16xlarge  | 64   | 264 | 512          | 128              | EBS-optimized only     | 13,600                    | 20                       |
-| db.r5.12xlarge  | 48   | 173 | 384          | 96               | EBS-optimized only     | 9,500                     | 12                       |
+| db.r5.12xlarge  | 48   | 173 | 384          | 96               | EBS-optimized only     | 9,500                     | 10                       |
 | db.r5.8xlarge   | 32   | 132 | 256          | 64               | EBS-optimized only     | 6,800                     | 10                       |
 | db.r5.4xlarge   | 16   | 71  | 128          | 32               | EBS-optimized only     | 4,750                     | Up to 10                 |
 | db.r5.2xlarge\* | 8    | 38  | 64           | 16               | EBS-optimized only     | Up to 4,750               | Up to 10                 |

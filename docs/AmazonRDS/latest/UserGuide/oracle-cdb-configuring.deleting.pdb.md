@@ -84,7 +84,7 @@ This command produces output similar to the following.
         "DBInstanceIdentifier" : "my-cdb-inst",
         "TenantDBName" : "pdb-test",
         "Status" : "deleting",
-        "MasterUsername" : "pdb-test-admin"
+        "MasterUsername" : "pdb-test-admin",
         "Port" : "6555",
         "CharacterSetName" : "UTF-16",
         "MaxAllocatedStorage" : "1000",

@@ -410,7 +410,7 @@ ALTER TABLESPACE tbs3 READ ONLY;
 
 ### Step 2: Export tablespace metadata on your source host
 
-Export your tablespace metadata by running the `expdb` utility
+Export your tablespace metadata by running the `expdp` utility
 on your source host. The following example exports tablespaces
 `TBS1`, `TBS2`, and
 `TBS3` to dump file

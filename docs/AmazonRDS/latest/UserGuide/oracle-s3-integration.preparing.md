@@ -91,7 +91,7 @@ server-side encryption](../../../AmazonS3/latest/userguide/serv-side-encryption.
        **Add**.
 
     For more information, see [Protecting Data Using Server-Side Encryption with KMS keys
-    Stored in AWS Key Management Service (SSE-KMS)](../../../AmazonS3/latest/userguide/UsingKMSEncryption.md "../../../AmazonS3/latest/userguide/UsingKMSEncryption.md") in the _Amazon Simple Storage Service User Guide_. 5. If you want Amazon RDS to access to access other buckets, add the ARNs
+    Stored in AWS Key Management Service (SSE-KMS)](../../../AmazonS3/latest/userguide/UsingKMSEncryption.md "../../../AmazonS3/latest/userguide/UsingKMSEncryption.md") in the _Amazon Simple Storage Service User Guide_. 5. If you want Amazon RDS to access other buckets, add the ARNs
     for these buckets. Optionally, you can also grant access to all
     buckets and objects in Amazon S3.
 
@@ -479,3 +479,29 @@ aws rds add-role-to-db-instance ^
 
 Replace `your-role-arn` with the role ARN that you noted in a previous step.
 `S3_INTEGRATION` must be specified for the `--feature-name` option.
+
+### Verifying your S3 integration configuration
+
+To verify your S3 integration configuration, confirm the IAM role is associated:
+
+```
+SELECT * FROM TABLE(rdsadmin.rdsadmin_util.list_iam_roles());
+```
+
+The output should show your role with the feature name `S3_INTEGRATION` and a status of
+`ACTIVE`.
+
+To test connectivity, upload a small test file:
+
+```
+BEGIN
+    rdsadmin.rdsadmin_util.upload_to_s3(
+        p_bucket_name    => '`my-s3-bucket`',
+        p_s3_prefix      => 'test/',
+        p_directory_name => 'DATA_PUMP_DIR',
+        p_file_name      => 'test_upload.txt');
+END;
+/
+```
+
+If the upload succeeds without errors, your S3 integration is configured correctly.

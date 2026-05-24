@@ -61,7 +61,7 @@ This command produces output similar to the following.
             "DBInstanceIdentifier" : "my-cdb-inst2",
             "TenantDBName" : "pdb-dev",
             "Status" : "modifying",
-            "MasterUsername" : "masterrdsuser"
+            "MasterUsername" : "masterrdsuser",
             "DbiResourceId" : "db-xyz789",
             "TenantDatabaseResourceId" : "tdb-ghp890",
             "TenantDatabaseArn" : "arn:aws:rds:us-east-1:123456789012:db:my-cdb-inst2:pdb-dev",
@@ -107,7 +107,7 @@ This command produces output similar to the following.
         "MasterUsername": "tenant-admin-user",
         "DbiResourceId": "db-abc123",
         "TenantDatabaseResourceId": "tdb-bac567",
-        "TenantDatabaseARN": "arn:aws:rds:us-west-2:579508833180:pdb-hr:tdb-abcdefghi1jklmno2p3qrst4uvw5xy6zabc7defghi8jklmn90op",
+        "TenantDatabaseArn": "arn:aws:rds:us-west-2:579508833180:pdb-hr:tdb-abcdefghi1jklmno2p3qrst4uvw5xy6zabc7defghi8jklmn90op",
         "CharacterSetName": "AL32UTF8",
         "NcharCharacterSetName": "AL16UTF16",
         "DeletionProtection": false,
@@ -153,11 +153,11 @@ This command produces output similar to the following.
         {
             "DbiResourceId" : "db-abc123",
             "TenantDatabaseResourceId" : "tdb-bac567",
-            "TenantDatabaseArn" : "arn:aws:rds:us-east-1:123456789012:db:my-cdb-inst:pdb1"
+            "TenantDatabaseArn" : "arn:aws:rds:us-east-1:123456789012:db:my-cdb-inst:pdb1",
             "DBInstanceIdentifier" : "my-cdb-inst",
             "TenantDBName" : "pdb1",
-            "Status" : "ACTIVE",
-            "MasterUsername" : "masterawsuser"
+            "Status" : "available",
+            "MasterUsername" : "masterawsuser",
             "Port" : "1234",
             "CharacterSetName": "UTF-8",
             "ParameterGroups": [
@@ -166,7 +166,6 @@ This command produces output similar to the following.
                     "ParameterApplyStatus": "in-sync"
                 }
             ],
-            {
             "OptionGroupMemberships": [
                 {
                     "OptionGroupName": "tenant-custom-og",

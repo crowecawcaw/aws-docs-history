@@ -3,24 +3,33 @@
 Amazon RDS supports Oracle Spatial through the use of the `SPATIAL` option. Oracle
 Spatial provides a SQL schema and functions that facilitate the storage, retrieval, update,
 and query of collections of spatial data in an Oracle database. For more information, see
-[Spatial Concepts](http://docs.oracle.com/database/121/SPATL/spatial-concepts.htm#SPATL010 "http://docs.oracle.com/database/121/SPATL/spatial-concepts.htm#SPATL010") in the Oracle documentation. Amazon RDS supports Oracle Spatial in
+[Spatial Concepts](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/spatial-concepts.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/spatial-concepts.html") in the Oracle documentation. Amazon RDS supports Oracle Spatial in
 all editions of all supported releases.
 
-## How Spatial Patch Bundles (SPBs) work
+## How Supplemental Patch Bundles (SPBs) work
 
 Every quarter, RDS for Oracle releases new minor engine versions for every supported major
 engine. A Release Update (RU) engine version incorporates bug fixes from Oracle by
-including the RU patches for the specified quarter. A Spatial Patch Bundle (SPB) engine
-version contains RU patches plus patches specific to Oracle Spatial. For example,
-19.0.0.0.ru-2025-01.spb-1.r1 is a minor engine version that contains the RU patches in
-engine version 19.0.0.0.ru-2025-01.rur-2025-01.r1 plus Spatial patches. SPBs are
-supported only for Oracle Database 19c.
+including the RU patches for the specified quarter. A Supplemental Patch Bundle (SPB)
+engine version contains all of the RU patches plus additional supplemental patches. If
+your DB instance uses Oracle Spatial and you require additional patches related to the
+Spatial option, use the SPB release. For example, 19.0.0.0.ru-2026-04.spb-1.r1 is a
+minor engine version that contains the RU patches in engine version
+19.0.0.0.ru-2026-04.rur-2026-04.r1 plus supplemental patches. SPBs are supported only
+for Oracle Database 19c.
+
+###### Note
+
+Spatial Patch Bundle has been renamed to Supplemental Patch Bundle (SPB). SPBs
+now include additional bundle patches beyond Oracle Spatial such as Data Pump and
+GoldenGate. The abbreviation "SPB" remains unchanged. All existing SPB engine
+versions continue to work as before.
 
 SPBs function in the same way as RUs, although they are named differently. An RU uses
 the naming format 19.0.0.0.ru-2025-01.rur-2025-01.r1. An SPB name includes the text
-"spb," as in 19.0.0.0.ru-2025-01.spb-1.r1. Typically, an SPB is released 2–3
-weeks after its corresponding quarterly RU. For example, 19.0.0.0.ru-2025-01.spb-1.r1 is
-released after 19.0.0.0.ru-2025-01.rur-2025-01.r1.
+"spb," as in 19.0.0.0.ru-2026-04.spb-1.r1. Typically, an SPB is released 2–3
+weeks after its corresponding quarterly RU. For example, 19.0.0.0.ru-2026-04.spb-1.r1 is
+released after 19.0.0.0.ru-2026-04.rur-2026-04.r1.
 
 RDS for Oracle has separate paths for automatic minor version upgrades of RUs and
 SPBs. If your DB instance uses an RU, then RDS automatically upgrades your instance to

@@ -6,8 +6,7 @@ Management Service (OMS). Amazon RDS supports Management Agent through the use o
 `OEM_AGENT` option.
 
 For more information, see [Overview of Oracle
-Enterprise Manager cloud control 12c](http://docs.oracle.com/cd/E24628_01/doc.121/e25353/overview.htm "http://docs.oracle.com/cd/E24628_01/doc.121/e25353/overview.htm") and [Overview of Oracle
-Enterprise Manager cloud control 13c](http://docs.oracle.com/cd/E63000_01/EMCON/overview.htm#EMCON109 "http://docs.oracle.com/cd/E63000_01/EMCON/overview.htm#EMCON109") in the Oracle documentation.
+Enterprise Manager Cloud Control](https://docs.oracle.com/en/enterprise-manager/cloud-control/enterprise-manager-cloud-control/13.5/emcon/overview-oracle-enterprise-manager-cloud-control.html "https://docs.oracle.com/en/enterprise-manager/cloud-control/enterprise-manager-cloud-control/13.5/emcon/overview-oracle-enterprise-manager-cloud-control.html") in the Oracle documentation.
 
 ###### Topics
 
@@ -42,7 +41,7 @@ Following are general requirements for using Management Agent:
 - You can use Management Agent with Oracle Enterprise Manager Cloud Control for
   12c and 13c. Ensure that you have sufficient storage space for your OEM
   release:
-  - At least 8.5 GiB for OEM 24ai Release 1
+  - At least 8.5 GiB for OEM 24.1 Release 1
   - At least 8.5 GiB for OEM 13c Release 5
   - At least 8.5 GiB for OEM 13c Release 4
   - At least 8.5 GiB for OEM 13c Release 3
@@ -471,7 +470,7 @@ To display the output file for the task and view the result, see [Viewing the st
 To make the Management Agent upload the Oracle Management Server (OMS) associated
 with it, run the Amazon RDS procedure
 `rdsadmin.rdsadmin_oem_agent_tasks.upload_oem_agent`. This procedure
-is equivalent to running the `emclt upload agent` command.
+is equivalent to running the `emctl upload agent` command.
 
 The following procedure creates a task that makes the Management Agent upload its
 associated OMS and return the ID of the task.

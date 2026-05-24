@@ -85,7 +85,7 @@ client and the RDS for Oracle DB instance.
 Clients must use the cipher suite that is FIPS-compliant. When establishing a
 connection, the client and RDS for Oracle DB instance negotiate which cipher suite to use when
 transmitting messages back and forth. The table in [Cipher suites for the Oracle SSL option](#Appendix.Oracle.Options.SSL.CipherSuites "#Appendix.Oracle.Options.SSL.CipherSuites") shows the FIPS-compliant
-SSL cipher suites for each TLS version. For more information, see [Oracle database FIPS 140-2 settings](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dbseg/oracle-database-fips-140-settings.html#GUID-DDBEB3F9-B216-44BB-8C18-43B5E468CBBB "https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dbseg/oracle-database-fips-140-settings.html#GUID-DDBEB3F9-B216-44BB-8C18-43B5E468CBBB") in the Oracle Database
+SSL cipher suites for each TLS version. For more information, see [Oracle database FIPS 140-2 settings](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/oracle-database-fips-140-settings.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/oracle-database-fips-140-settings.html") in the Oracle Database
 documentation.
 
 ## Certificate compatibility with cipher suites

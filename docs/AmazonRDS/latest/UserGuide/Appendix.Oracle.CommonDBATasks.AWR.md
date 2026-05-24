@@ -80,6 +80,12 @@ rdsadmin_diagnostic_util package.
 To generate an AWR report, use the
 `rdsadmin.rdsadmin_diagnostic_util.awr_report` procedure.
 
+To find valid snapshot IDs for your AWR report, run the following query:
+
+```
+SELECT SNAP_ID, BEGIN_INTERVAL_TIME, END_INTERVAL_TIME FROM DBA_HIST_SNAPSHOT ORDER BY SNAP_ID DESC FETCH FIRST 10 ROWS ONLY;
+```
+
 The following example generates a AWR report for the snapshot range
 101–106. The output text file is named
 `awrrpt_101_106.txt`. You can access this report from the
@@ -168,7 +174,7 @@ END;
 ```
 
 The following example generates an ASH report that includes the data from
-November 18, 2019, at 6:07 PM through November 18, 2019, at 6:15 PM. The name of
+September 18, 2019, at 6:07 PM through September 18, 2019, at 6:15 PM. The name of
 the output HTML report is
 `ashrpt_20190918180700_20190918181500.html`. The report
 is stored in the nondefault database directory named

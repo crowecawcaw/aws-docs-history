@@ -158,7 +158,7 @@ aws rds create-db-instance \
     --multi-tenant \
     --db-name `mypdb` \
     --allocated-storage `250` \
-    --db-instance-class `db.t3.large` \
+    --db-instance-class `db.m5.large` \
     --master-username `pdb_admin` \
     --manage-master-user-password \
     --backup-retention-period `3`
@@ -173,15 +173,11 @@ aws rds create-db-instance ^
     --multi-tenant ^
     --db-name `mypdb` ^
     --allocated-storage `250` ^
-    --db-instance-class `db.t3.large` ^
+    --db-instance-class `db.m5.large` ^
     --master-username `pdb_admin` ^
-    --manage-master-user-password \ ^
+    --manage-master-user-password ^
     --backup-retention-period `3`
 ```
-
-###### Note
-
-Specify a password other than the prompt shown here as a security best practice.
 
 This command produces output similar to the following. The database name,
 character set, national character set, master user, and master user secret
@@ -192,7 +188,7 @@ command `describe-tenant-databases`.
 {
     "DBInstance": {
         "DBInstanceIdentifier": "my-cdb-inst",
-        "DBInstanceClass": "db.t3.large",
+        "DBInstanceClass": "db.m5.large",
         "MultiTenant": true,
         "Engine": "oracle-ee-cdb",
         "DBResourceId": "db-ABCDEFGJIJKLMNOPQRSTUVWXYZ",
@@ -245,20 +241,20 @@ For information about finding the preceding information, see [Finding the endpoi
 
 In the following examples, substitute your master user for
 `master_user_name`. Also, substitute the endpoint for your
-DB instance, and then include the port number and the Oracle SID. The SID value is the name of
+DB instance, and then include the port number and the PDB service name. The service name is the name of
 the PDB that you specified when you created your DB instance, and not the DB instance
 identifier.
 
 For Linux, macOS, or Unix:
 
 ```
-sqlplus '`master_user_name`@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=`endpoint`)(PORT=`port`))(CONNECT_DATA=(SID=`pdb_name`)))'
+sqlplus '`master_user_name`@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=`endpoint`)(PORT=`port`))(CONNECT_DATA=(SERVICE_NAME=`pdb_name`)))'
 ```
 
 For Windows:
 
 ```
-sqlplus `master_user_name`@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=`endpoint`)(PORT=`port`))(CONNECT_DATA=(SID=`pdb_name`)))
+sqlplus `master_user_name`@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=`endpoint`)(PORT=`port`))(CONNECT_DATA=(SERVICE_NAME=`pdb_name`)))
 ```
 
 You should see output similar to the following.

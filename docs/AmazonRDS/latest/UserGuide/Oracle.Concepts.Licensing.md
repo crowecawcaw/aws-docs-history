@@ -23,7 +23,7 @@ Included model is only supported on Amazon RDS for Oracle Database Standard Edit
 (SE2).
 
 In this model, if you have an AWS Support account with case support, contact Support for
-both Amazon RDS and Oracle Database service requests. Your use of RDS for Oracle the LI option is
+both Amazon RDS and Oracle Database service requests. Your use of the RDS for Oracle LI option is
 subject to Section 10.3.1 of the [AWS Service Terms](https://aws.amazon.com/service-terms/ "https://aws.amazon.com/service-terms/").
 
 ## Bring Your Own License (BYOL) for EE and SE2

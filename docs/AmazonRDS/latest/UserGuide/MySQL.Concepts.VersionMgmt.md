@@ -8,6 +8,7 @@ version number changes—for example, going from version 8.0.32 to 8.0.34.
 
 ###### Topics
 
+- [Version currency timelines](#MySQL.Concepts.VersionMgmt.CurrencyTimelines "#MySQL.Concepts.VersionMgmt.CurrencyTimelines")
 - [Supported MySQL minor versions on Amazon RDS](#MySQL.Concepts.VersionMgmt.Supported "#MySQL.Concepts.VersionMgmt.Supported")
 - [Supported MySQL major versions on Amazon RDS](#MySQL.Concepts.VersionMgmt.ReleaseCalendar "#MySQL.Concepts.VersionMgmt.ReleaseCalendar")
 - [Amazon RDS Extended Support versions for RDS for MySQL](#mysql-extended-support-releases "#mysql-extended-support-releases")
@@ -15,6 +16,23 @@ version number changes—for example, going from version 8.0.32 to 8.0.34.
 - [MySQL version 9.6 in the Database Preview environment](#mysql-preview-environment-version-9-6 "#mysql-preview-environment-version-9-6")
 - [MySQL version 9.5 in the Database Preview environment](#mysql-preview-environment-version-9-5 "#mysql-preview-environment-version-9-5")
 - [Deprecated versions for Amazon RDS for MySQL](#MySQL.Concepts.DeprecatedVersions "#MySQL.Concepts.DeprecatedVersions")
+
+## Version currency timelines
+
+Amazon RDS for MySQL tracks community database engine releases on a defined cadence. These
+version currency timelines are published to give you transparency into that cadence. You
+can use these timelines to:
+
+- Plan major version upgrades and estimate when a new RDS for MySQL major version
+  will be available.
+- Schedule minor version upgrades during your maintenance windows.
+
+The following table lists the version currency timelines for RDS for MySQL.
+
+| Release type   | Timelines                                                                                                            |
+| -------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Major versions | Within 6 months of community release for first minor of the new<br>major version <major>.1 (Oracle MySQL LTS majors) |
+| Minor versions | Within 30 days of the community release                                                                              |
 
 ## Supported MySQL minor versions on Amazon RDS
 

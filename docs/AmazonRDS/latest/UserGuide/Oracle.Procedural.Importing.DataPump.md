@@ -82,7 +82,7 @@ damage the Oracle data dictionary and affect the stability of your database.
 
 - To exclude unsupported Oracle Scheduler objects, use additional directives during the Data Pump export. If you use
   `DBMS_DATAPUMP`, you can add an additional `METADATA_FILTER` before the
-  `DBMS_METADATA.START_JOB`:
+  `DBMS_DATAPUMP.START_JOB`:
 
 ```
 DBMS_DATAPUMP.METADATA_FILTER(
@@ -145,7 +145,7 @@ The process has the following requirements:
 
 ###### Note
 
-If you dump file exceeds 5 TB, you can run the Oracle Data Pump export with the parallel option. This operation spreads the data
+If your dump file exceeds 5 TB, you can run the Oracle Data Pump export with the parallel option. This operation spreads the data
 into multiple dump files so that you do not exceed the 5 TB limit for individual files.
 
 - You must prepare the Amazon S3 bucket for Amazon RDS integration by following the instructions in [Configuring IAM permissions for RDS for Oracle integration with Amazon S3](oracle-s3-integration.preparing.md "oracle-s3-integration.preparing.md").
@@ -295,7 +295,7 @@ might be required.
 1. Start SQL\*Plus or SQL Developer and log in as the master user to your RDS for Oracle DB instance.
 2. Import the data by calling `DBMS_DATAPUMP` procedures.
 
-The following example imports the `SCHEMA_1` data from `sample_copied.dmp` into your target DB
+The following example imports the `SCHEMA_1` data from `sample.dmp` into your target DB
 instance.
 
 ```
@@ -308,7 +308,7 @@ BEGIN
     job_name  => null);
   DBMS_DATAPUMP.ADD_FILE(
     handle    => v_hdnl,
-    filename  => 'sample_copied.dmp',
+    filename  => 'sample.dmp',
     directory => 'DATA_PUMP_DIR',
     filetype  => dbms_datapump.ku$_file_type_dump_file);
   DBMS_DATAPUMP.ADD_FILE(
@@ -333,6 +333,22 @@ For example, the following query returns the number of tables for `SCHEMA_1`.
 SELECT COUNT(*) FROM DBA_TABLES WHERE OWNER='`SCHEMA_1`';
 ```
 
+#### Troubleshooting Data Pump imports
+
+To check the status of a Data Pump import job, query the import log file:
+
+```
+SELECT * FROM TABLE(rdsadmin.rds_file_util.read_text_file('DATA_PUMP_DIR', 'import.log'));
+```
+
+Common errors include:
+
+- `ORA-39083`: Object type failed to create. Typically caused by missing privileges or tablespace. Grant the required privileges or remap the tablespace using `METADATA_REMAP`.
+- `ORA-39166`: Object was not found. The source schema or object does not exist in the dump file.
+- `ORA-31693`: Table data object failed to load. Check for tablespace quota or space issues.
+
+To re-run an import that partially failed, add `TABLE_EXISTS_ACTION => 'REPLACE'` to your import parameters to overwrite existing objects.
+
 ### Step 6: Clean up
 
 After the data has been imported, you can delete the files that you don't want to keep.
@@ -346,16 +362,16 @@ After the data has been imported, you can delete the files that you don't want t
 SELECT * FROM TABLE(rdsadmin.rds_file_util.listdir('DATA_PUMP_DIR')) ORDER BY MTIME;
 ```
 
-3. Delete files in `DATA_PUMP_DIR` that you no longer require, use the following command.
+3. To delete files in `DATA_PUMP_DIR` that you no longer require, use the following command.
 
 ```
 EXEC UTL_FILE.FREMOVE('DATA_PUMP_DIR','`filename`');
 ```
 
-For example, the following command deletes the file named `sample_copied.dmp`.
+For example, the following command deletes the file named `sample.dmp`.
 
 ```
-EXEC UTL_FILE.FREMOVE('DATA_PUMP_DIR','sample_copied.dmp');
+EXEC UTL_FILE.FREMOVE('DATA_PUMP_DIR','sample.dmp');
 ```
 
 ## Importing data with Oracle Data Pump and a database link
