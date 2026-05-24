@@ -1,6 +1,6 @@
 # Model Serving
 
-The following are model serving options installed on the Deep Learning AMI with Conda. Click on one of the options to learn how to use it.
+The following are model serving options installed on the Deep Learning AMI with Conda. Choose one of the options to learn how to use it.
 
 ###### Topics
 

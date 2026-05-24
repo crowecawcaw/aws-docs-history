@@ -30,8 +30,8 @@ doesn't have a GPU, you may need to change some of the example's code to get it 
 
 Once you're logged in to the Jupyter server and can see the tutorials directory (on Deep Learning AMI with Conda only), you will
 be presented with folders of tutorials by each framework name. If you don't see a framework
-listed, then tutorials are not available for that framework on your current DLAMI. Click on
-the name of the framework to see the listed tutorials, then click a tutorial to launch
+listed, then tutorials are not available for that framework on your current DLAMI. Choose
+the name of the framework to see the listed tutorials, then choose a tutorial to launch
 it.
 
 The first time you run a notebook on the Deep Learning AMI with Conda, it will want to know which
@@ -54,8 +54,8 @@ when you first log in to the DLAMI.
 
 If you decide to try a tutorial for a different framework, be sure to verify the currently
 running kernel. This info can be seen in the upper right of the Jupyter interface, just below
-the logout button. You can change the kernel on any open notebook by clicking the Jupyter menu
-item **Kernel**, then **Change Kernel**, and then clicking
+the logout button. You can change the kernel on any open notebook by choosing the Jupyter menu
+item **Kernel**, then **Change Kernel**, and then choosing
 the environment that suits the notebook you're running.
 
 At this point you'll need to rerun any cells because a change in the kernel will erase the
@@ -66,7 +66,7 @@ state of anything you've run previously.
 Switching between frameworks can be fun and educational, however you can run out of memory. If
 you start running into errors, look at the terminal window that has the Jupyter server
 running. There are helpful messages and error logging here, and you may see an out-of-memory
-error. To fix this, you can go to the home page of your Jupyter server, click the
-**Running** tab, then click **Shutdown** for each of the
+error. To fix this, you can go to the home page of your Jupyter server, choose the
+**Running** tab, then choose **Shutdown** for each of the
 tutorials that are probably still running in the background and eating up all of your
 memory.

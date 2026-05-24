@@ -7,6 +7,8 @@ Policy](support-policy.md "support-policy.md").
 
 | Framework | Current version | CUDA version | GitHub GA  | End of patch |
 | --------- | --------------- | ------------ | ---------- | ------------ |
+| PyTorch   | 2.11.0          | 13.0         | 2026-03-23 | 2027-03-23   |
+| PyTorch   | 2.10.0          | 13.0         | 2026-01-21 | 2027-01-21   |
 | PyTorch   | 2.9.0           | 13.0         | 2025-10-15 | 2026-10-15   |
 | PyTorch   | 2.8.0           | 12.9         | 2025-08-06 | 2026-08-06   |
 

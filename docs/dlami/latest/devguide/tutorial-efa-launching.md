@@ -124,7 +124,7 @@ information on launching an EFA enabled instance, see [Launch EFA-Enabled Instan
 
 After launching the instance, check the instance details in the AWS Console. To do this,
 select the instance in the EC2 console and look at the Description Tab in the lower pane on
-the page. Find the parameter ‘Network Interfaces: eth0’ and click on eth0 which opens a
+the page. Find the parameter ‘Network Interfaces: eth0’ and choose eth0 which opens a
 pop-up. Make sure that ‘Elastic Fabric Adapter’ is enabled.
 
 If EFA is not enabled, you can fix this by either:
@@ -132,13 +132,13 @@ If EFA is not enabled, you can fix this by either:
 - Terminating the EC2 instance and launching a new one with the same steps. Make sure the EFA is attached.
 - Attach EFA to an existing instance.
   1.  In the EC2 Console, go to Network Interfaces.
-  2.  Click on Create a Network Interface.
+  2.  Choose Create a Network Interface.
   3.  Select the same subnet that your instance is in.
-  4.  Make sure to enable the ‘Elastic Fabric Adapter’ and click on Create.
+  4.  Make sure to enable the ‘Elastic Fabric Adapter’ and choose Create.
   5.  Go back to the EC2 Instances Tab and select your instance.
   6.  Go to Actions: Instance State and stop the instance before you attach EFA.
   7.  From Actions, select Networking: Attach Network Interface.
-  8.  Select the interface you just created and click on attach.
+  8.  Select the interface you just created and choose attach.
   9.  Restart your instance.
 
 ### From the Instance
