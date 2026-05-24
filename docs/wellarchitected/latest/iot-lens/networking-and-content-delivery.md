@@ -85,6 +85,5 @@ messaging costs when compared to the usage of the optimized AWS IoT Device Manag
 
 ### Resources
 
-- [Example: Device HeartBeat to monitor device connections with AWS IoT Events](../../../iotevents/latest/developerguide/iotevents-examples-dhb.md "../../../iotevents/latest/developerguide/iotevents-examples-dhb.md")
 - [Fleet
   indexing](../../../iot/latest/developerguide/iot-indexing.md "../../../iot/latest/developerguide/iot-indexing.md")

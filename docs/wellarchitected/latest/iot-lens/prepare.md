@@ -545,8 +545,6 @@ disconnection status for anomaly detection._
 
 ### Resources
 
-- [Use
-  AWS IoT events to monitor IoT devices](../../../iotevents/latest/developerguide/iotevents-how-to-use.md "../../../iotevents/latest/developerguide/iotevents-how-to-use.md")
 - [AWS IoT Now Supports WebSockets, Custom Keepalive Intervals, and Enhanced Console](https://aws.amazon.com/about-aws/whats-new/2016/01/aws-iot-now-supports-websockets-custom-keepalive-intervals-and-enhanced-console/ "https://aws.amazon.com/about-aws/whats-new/2016/01/aws-iot-now-supports-websockets-custom-keepalive-intervals-and-enhanced-console/")
 - [AWS Solutions Library: Real-Time IoT Device Monitoring with Managed Service for Apache Flink](https://aws.amazon.com/solutions/implementations/real-time-iot-device-monitoring-with-kinesis/ "https://aws.amazon.com/solutions/implementations/real-time-iot-device-monitoring-with-kinesis/")
 

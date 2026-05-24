@@ -20,9 +20,6 @@ practices related to reliability:
   AWS](https://aws.amazon.com/blogs/iot/how-to-implement-a-disaster-recovery-solution-for-iot-platforms-on-aws/ "https://aws.amazon.com/blogs/iot/how-to-implement-a-disaster-recovery-solution-for-iot-platforms-on-aws/")
 - [How
   to build smart applications using Protocol Buffers with AWS IoT Core](https://aws.amazon.com/blogs/iot/how-to-build-smart-applications-using-protocol-buffers-with-aws-iot-core/ "https://aws.amazon.com/blogs/iot/how-to-build-smart-applications-using-protocol-buffers-with-aws-iot-core/")
-- [Monitoring
-  AWS IoT Events to maintain reliability, availability, and
-  performance](../../../iotevents/latest/developerguide/monitoring_overview.md "../../../iotevents/latest/developerguide/monitoring_overview.md")
 
 **Videos**
 
