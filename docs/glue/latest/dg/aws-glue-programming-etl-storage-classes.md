@@ -14,6 +14,9 @@ The following storage classes are available in Amazon S3:
   frequently accessed data.
 - `GLACIER`, `DEEP_ARCHIVE`, and `REDUCED_REDUNDANCY`
   — For long-term archive and digital preservation.
+- `EXPRESS_ONEZONE` — For latency-sensitive applications that require
+  single-digit millisecond data access. (Supported starting AWS Glue version
+  5.1)
   For more information, see
   [Amazon S3 Storage Classes](../../../AmazonS3/latest/userguide/storage-class-intro.md "../../../AmazonS3/latest/userguide/storage-class-intro.md") in the
   _Amazon S3 Developer Guide_.

@@ -41,3 +41,7 @@ AWS services supported by Zero-ETL targets in AWS Glue include:
 - Amazon S3 Tables via Lakehouse architecture of Amazon SageMaker
 - Redshift Managed Storage via Lakehouse architecture of Amazon SageMaker
 - Amazon Redshift Datawarehouse
+
+###### Note
+
+For self-managed database sources, you can replicate data only to an Amazon Redshift data warehouse. Other targets are not supported.

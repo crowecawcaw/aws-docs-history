@@ -18,6 +18,7 @@ together when transforming your data to improve performance. You can read and wr
 - [Amazon S3 connection option reference](#aws-glue-programming-etl-connect-s3 "#aws-glue-programming-etl-connect-s3")
 - [Deprecated connection syntaxes for data formats](#aws-glue-programming-etl-connect-legacy-format "#aws-glue-programming-etl-connect-legacy-format")
 - [Excluding Amazon S3 storage classes](aws-glue-programming-etl-storage-classes.md "aws-glue-programming-etl-storage-classes.md")
+- [Using Amazon S3 Express One Zone with AWS Glue](aws-glue-programming-etl-s3-express.md "aws-glue-programming-etl-s3-express.md")
 - [Managing partitions for ETL output in AWS Glue](aws-glue-programming-etl-partitions.md "aws-glue-programming-etl-partitions.md")
 - [Reading input files in larger groups](grouping-input-files.md "grouping-input-files.md")
 - [Amazon VPC endpoints for Amazon S3](vpc-endpoints-s3.md "vpc-endpoints-s3.md")
