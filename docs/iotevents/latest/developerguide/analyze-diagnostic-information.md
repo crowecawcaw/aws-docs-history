@@ -119,7 +119,7 @@ the following error message:
   information about the analysis result. This can be an information, warning,
   or error message.
 
-You
+**Solution:** You
 might receive this error message if you specified an action that
 AWS IoT Events currently doesn't support. For a list of supported
 actions, see [Supported actions to receive data and trigger actions in AWS IoT Events](iotevents-supported-actions.md "iotevents-supported-actions.md").
@@ -132,7 +132,7 @@ corresponds to the following error messages:
 - **Message:** Invalid action type present in
   action definition: `action-definition`.
 
-You
+**Solution:** You
 might receive this error message if you specified an action that
 AWS IoT Events currently doesn't support. For a list of supported
 actions, see [Supported actions to receive data and trigger actions in AWS IoT Events](iotevents-supported-actions.md "iotevents-supported-actions.md").
@@ -142,7 +142,7 @@ actions, see [Supported actions to receive data and trigger actions in AWS IoT E
   `aws-service` service is not supported in the
   region `region-name`.
 
-You
+**Solution:** You
 might receive this error message if the action that you
 specified is supported by AWS IoT Events, but the action isn't available
 in your current Region. This might occur when you try to send
@@ -161,7 +161,7 @@ corresponds to the following error messages:
   `event-name` in state
   `state-name`.
 
-You
+**Solution:** You
 might receive this error message if the content expression for
 your action payload is greater than 1024 bytes. The size of the
 content expression for a payload can be up to 1024 bytes.
@@ -170,7 +170,7 @@ content expression for a payload can be up to 1024 bytes.
   detector model definition exceeded the limit
   `states-per-detector-model`.
 
-You
+**Solution:** You
 might receive this error message if your detector model has more
 than 20 states. A detector model can have up to 20
 states.
@@ -179,7 +179,7 @@ states.
   `timer-name` should be at least
   `minimum-timer-duration` seconds long.
 
-You
+**Solution:** You
 might receive this error message if the duration of your timer
 is less than 60 seconds. We recommend that the duration of a
 timer is between 60 and 31622400 seconds. If you specify an
@@ -191,7 +191,7 @@ number.
   event exceeded the limit `actions-per-event` in
   detector model definition
 
-You
+**Solution:** You
 might receive this error message if the event has more than 10
 actions. You can have up to 10 actions for each event in your
 detector model.
@@ -201,7 +201,7 @@ detector model.
   `transition-events-per-state` in detector model
   definition.
 
-You
+**Solution:** You
 might receive this error message if the state has more than 20
 transition events. You can have up to 20 transition events for
 each state in your detector model.
@@ -210,7 +210,7 @@ each state in your detector model.
   state exceeded the limit `events-per-state` in
   detector model definition
 
-You
+**Solution:** You
 might receive this error message if the state has more than 20
 events. You can have up to 20 events for each state in your
 detector model.
@@ -221,7 +221,7 @@ detector model.
   `detector-models-per-input` detector model
   routes.
 
-You
+**Solution:** You
 might receive this warning message if you tried to route an
 input to more than 10 detector models. You can have up to 10
 different detector models associated with a single detector
@@ -236,7 +236,7 @@ the following error messages:
   defined, but found an action with `number-of-types`
   types. Please split into separate Actions.
 
-You
+**Solution:** You
 might receive this error message if you specified two or more
 actions in a single field by using API operations to create or
 update your detector model. You can define an array of
@@ -247,7 +247,7 @@ action as a separate object.
   `transition-event-name` transitions to a
   non-existent state `state-name`.
 
-You
+**Solution:** You
 might receive this error message if AWS IoT Events couldn't find the next
 state that your transition event referenced. Make sure that the
 next state is defined and that you entered the correct state
@@ -257,7 +257,7 @@ name.
   a shared state name: found state `state-name` with
   `number-of-states` repetitions.
 
-You
+**Solution:** You
 might receive this error message if you use the same name for
 one or more states. Make sure that you give a unique name to
 each state in your detector model. The state name must have
@@ -268,7 +268,7 @@ each state in your detector model. The state name must have
   initialStateName `initial-state-name` did not
   correspond to a defined State.
 
-You
+**Solution:** You
 might receive this error message if the initial state name is
 incorrect. The detector model remains in the initial (start)
 state until an input arrives. Once an input arrives, the
@@ -279,7 +279,7 @@ and that you enter the correct name.
 - **Message:** Detector Model Definition must
   use at least one Input in a condition.
 
-You
+**Solution:** You
 might receive this error if you didn't specify an input in a
 condition. You must use at least one input in at least one
 condition. Otherwise, AWS IoT Events doesn't evaluate incoming
@@ -288,7 +288,7 @@ data.
 - **Message:** Only one of seconds and
   durationExpression can be set in SetTimer.
 
-You
+**Solution:** You
 might receive this error message if you used both
 `seconds` and `durationExpression` for
 your timer. Make sure that you use either `seconds`
@@ -300,7 +300,7 @@ _AWS IoT Events API Reference_.
 - **Message:** An action in your detector model
   is unreachable. Check the condition that initiates the action.
 
-If
+**Solution:** If
 an action in your detector model is unreachable, the event's
 condition evaluates to false. Check the condition of the event
 that contains the action, to ensure that it evaluates to true.
@@ -309,13 +309,14 @@ become reachable.
 
 - **Message:** An input attribute is being read, but this may be caused by a timer expiration.
 
-An
+**Solution:** An
 input attribute’s value can be read when either of the following
 occurs:
 
     + A new input value has been received.
-    + When a timer in the detector has expired.To ensure that an input attribute is being evaluated only when
+    + When a timer in the detector has expired.
 
+To ensure that an input attribute is being evaluated only when
 the new value for that input is received, include a call to the
 `triggerType(“Message”)` function in your
 condition as follows:
@@ -346,7 +347,7 @@ _AWS IoT Events Developer Guide_
   is unreachable. Check the condition that will cause a transition to the
   desired state.
 
-If
+**Solution:** If
 a state in your detector model is unreachable, a condition that
 causes an incoming transition to that state evaluates to false.
 Check that the conditions of the incoming transitions to that
@@ -356,7 +357,7 @@ the desired state can become reachable.
 - **Message:** An expiring timer can cause an
   unexpected amount of messages to be sent.
 
-To
+**Solution:** To
 prevent your detector model from entering into an infinite state
 of sending an unexpected amount of messages because a timer has
 expired, consider using a call to the
@@ -393,7 +394,7 @@ corresponds to the following error messages:
   type is JSON, so you must specify an expression that AWS IoT Events would evaluate to
   a string.
 
-If
+**Solution:** If
 the specified payload type is JSON, AWS IoT Events first checks if the
 service can evaluate your expression to a string. The evaluated
 result can't be a Boolean or number. If the validation doesn't
@@ -403,7 +404,7 @@ succeed, you might receive this error.
   an expression. Failed to parse value
   '`variable-value`'
 
-You
+**Solution:** You
 can use `SetVariableAction` to define a variable with
 a `name` and `value`. The
 `value` can be a string, number, or Boolean
@@ -415,7 +416,7 @@ _AWS IoT Events API Reference_.
   expression of the attributes (`attribute-name`) for
   the DynamoDB action. Enter expression with the correct syntax.
 
-You
+**Solution:** You
 must use expressions for all parameters in `DynamoDBAction`.
 substitution templates. For more information, see [DynamoDBAction](../apireference/API_DynamoDBAction.md "../apireference/API_DynamoDBAction.md") in the
 _AWS IoT Events API Reference_.
@@ -424,7 +425,7 @@ _AWS IoT Events API Reference_.
   expression of the tableName for the DynamoDBv2 action. Enter expression with
   the correct syntax.
 
-The
+**Solution:** The
 `tableName` in `DynamoDBv2Action` must be a
 string. You must use an expression for the
 `tableName`. The expressions accept literals,
@@ -436,7 +437,7 @@ _AWS IoT Events API Reference_.
   expression to valid JSON. The DynamoDBv2 action only supports the JSON payload
   type.
 
-The
+**Solution:** The
 payload type for `DynamoDBv2` must be JSON. Make sure
 that AWS IoT Events can evaluate your content expression for the payload
 to valid JSON. For more information, see [DynamoDBv2Action](../apireference/API_DynamoDBv2Action.md "../apireference/API_DynamoDBv2Action.md"), in the
@@ -446,7 +447,7 @@ _AWS IoT Events API Reference_.
   expression for the payload of `action-type`. Enter
   a content expression with the correct syntax.
 
-The
+**Solution:** The
 content expression can contain strings
 ('`string`'), variables
 ($variable.`variable-name`), input
@@ -457,7 +458,7 @@ string concatenations, and strings that contain `${}`.
 - **Message:** Customized Payloads must be
   non-empty.
 
-You
+**Solution:** You
 might receive this error message, if you chose **Custom
 payload** for your action and didn't enter a
 content expression in the AWS IoT Events console. If you choose
@@ -470,7 +471,7 @@ the _AWS IoT Events API Reference_.
   expression '`duration-expression`' for timer
   '`timer-name`'.
 
-The
+**Solution:** The
 evaluated result of your duration expression for the timer must
 be a value between 60–31622400. The evaluated result of the
 duration is rounded down to the nearest whole number.
@@ -479,7 +480,7 @@ duration is rounded down to the nearest whole number.
   '`expression`' for
   `action-name`
 
-You
+**Solution:** You
 might receive this message if the expression for the specified
 action has incorrect syntax. Make sure that you enter an
 expression with the correct syntax. For more information, see
@@ -489,7 +490,7 @@ expression with the correct syntax. For more information, see
   `fieldName` for `IotSitewiseAction`
   couldn't be parsed. You must use correct syntax in your expression.
 
-You
+**Solution:** You
 might receive this error if AWS IoT Events couldn't parse your
 `fieldName` for
 `IotSitewiseAction`. Make sure the
@@ -507,7 +508,7 @@ to the following error messages:
   `timer-name` is not valid, it must return a
   number.
 
-You
+**Solution:** You
 might receive this error message if AWS IoT Events couldn't evaluate the
 duration expression for your timer to a number. Make sure that
 your `durationExpression` can be converted to a
@@ -517,7 +518,7 @@ number. Other data types, such as Boolean, aren't supported.
   `condition-expression` is not a valid condition
   expression.
 
-You
+**Solution:** You
 might receive this error message if AWS IoT Events couldn't evaluate your
 `condition-expression` to a Boolean value. The
 Boolean value must be either `TRUE` or
@@ -532,6 +533,7 @@ specified in the event.
   `reference` in the following expression:
   `expression`
 
+**Solution:**
 **Solution**: All expressions for
 the same input attribute or variable in the detector model must
 reference the same data type.
@@ -575,14 +577,16 @@ Use the following information to resolve the issue:
 
     For the `convert(`type`, `expression`)` function,
      if you use a reference for the `type` value,
-     the evaluated result of your reference must be `String`, `Decimal`, or `Boolean`.For more information, see [AWS IoT Events reference for inputs and variables in expressions](iotevents-expressions.md#expression-reference "iotevents-expressions.md#expression-reference").
+     the evaluated result of your reference must be `String`, `Decimal`, or `Boolean`.
+
+For more information, see [AWS IoT Events reference for inputs and variables in expressions](iotevents-expressions.md#expression-reference "iotevents-expressions.md#expression-reference").
 
 - **Message:** Incompatible data types
   [`inferred-types`] used with
   `reference`. This may lead to a runtime
   error.
 
-You
+**Solution:** You
 might receive this warning message if two expressions for the
 same input attribute or variable reference two data types. Make
 sure that your expressions for the same input attribute or
@@ -594,7 +598,7 @@ model.
   the operator [`operator`] aren't compatible for the
   following expression: '`expression`'
 
-You
+**Solution:** You
 might receive this error message if your expression combines
 data types that are not compatible with a specified operator.
 For example, in the following expression, the operator
@@ -613,7 +617,7 @@ are compatible.
   `input‐attribute` aren't compatible and
   can lead to a runtime error.
 
-You
+**Solution:** You
 might receive this error message if two expressions for the same
 input attribute reference two data types for either the
 `OnEnterLifecycle` of a state, or for both the
@@ -629,7 +633,7 @@ for each state of your detector model.
   expression that would evaluate to a string at runtime because the payload
   type is JSON format.
 
-You
+**Solution:** You
 might receive this error if your specified payload type is JSON,
 but AWS IoT Events can't
 evaluate
@@ -644,7 +648,7 @@ number.
   expression {`payload-expression`} won't be
   parseable at runtime as valid JSON.
 
-You
+**Solution:** You
 might receive this error message if AWS IoT Events couldn't evaluate your
 interpolated expression to an integer or a Boolean value. Make
 sure your interpolated expression can be converted to an integer
@@ -658,7 +662,7 @@ aren't supported.
   `inferred‐type`. The defined type and the
   inferred type must be the same.
 
-You
+**Solution:** You
 might receive this error message if your expression in the
 `propertyValue` of `IotSitewiseAction`
 has a data type defined differently than the data type inferred
@@ -670,7 +674,7 @@ of this expression in your detector model.
   `setTimer` action don't evaluate to `Integer` for
   the following expression: `expression`
 
-You
+**Solution:** You
 might receive this error message if the inferred data type for
 your duration expression isn't Integer or Decimal. Make sure
 your `durationExpression` can be converted to a
@@ -682,7 +686,7 @@ supported.
   comparison operator [`operator`] are not compatible
   in the following expression: `expression`
 
-The
+**Solution:** The
 inferred data types for the operands of the
 `operator` in the conditional
 expression (`expression`) of your
@@ -706,7 +710,7 @@ corresponds to the following error messages:
   `timer-name` is used in an expression but is
   never set.
 
-You
+**Solution:** You
 might receive this error message if you use a timer that isn't
 set. You must set a timer before you use it in an expression.
 Also, make sure that you enter the correct timer name.
@@ -715,7 +719,7 @@ Also, make sure that you enter the correct timer name.
   variable `variable-name` is used in an expression
   but is never set.
 
-You
+**Solution:** You
 might receive this error message if you use a variable that
 isn't set. You must set a variable before you use it in an
 expression. Also, make sure that you enter the correct variable
@@ -724,7 +728,7 @@ name.
 - **Message:** Detected broken Variable: a
   variable is used in an expression before being set to a value.
 
-Each variable must be assigned to a value before it can be evaluated
+**Solution:** Each variable must be assigned to a value before it can be evaluated
 in an expression. Set the value of the
 variable before every use so its value can be retrieved.
 Also, make sure that you enter the correct variable
@@ -738,7 +742,7 @@ corresponds to the following error messages:
 - **Message:** Detector Model Definition
   contains reference to Input that does not exist.
 
-You
+**Solution:** You
 might receive this error message if you use expressions to
 reference an input that doesn't exist. Make sure that your
 expression references an existing input and enter the correct
@@ -747,7 +751,7 @@ input name. If you don't have an input, create one first.
 - **Message:** Detector Model Definition
   contains invalid InputName: `input-name`
 
-You
+**Solution:** You
 might receive this error message if your detector model contains
 an invalid input name. Make sure that you enter the correct
 input name. The input name must have 1-128 characters. Valid

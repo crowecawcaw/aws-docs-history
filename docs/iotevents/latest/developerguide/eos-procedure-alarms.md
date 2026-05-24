@@ -72,7 +72,7 @@ action to trigger in AWS IoT Core Message Rules.
 ###### Note
 
 This procedure assumes that you've already migrated your detector
-model. If you don't have an IAM role, see . 6. Choose **Create function**. 7. Paste in the following code snippet after replacing the hard coded
+model. If you don't have an IAM role, see [Step 2: Create an IAM role](eos-procedure-detector-models.md#eos-detector-model-create-iam-role "eos-procedure-detector-models.md#eos-detector-model-create-iam-role"). 6. Choose **Create function**. 7. Paste in the following code snippet after replacing the hard coded
 constants.
 
 ```
