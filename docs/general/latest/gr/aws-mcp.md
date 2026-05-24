@@ -1,4 +1,4 @@
-# AWS MCP Server (Preview) endpoints and quotas
+# AWS MCP Server endpoints and quotas
 
 To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types
 in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints.
@@ -12,7 +12,7 @@ The following are the service endpoints and service quotas for this service.
 ## Service endpoints
 
 The following table shows the AWS Regions and endpoints for
-AWS MCP Server (Preview).
+AWS MCP Server.
 
 | Region name           | Region       | Endpoint                         | Protocol |
 | --------------------- | ------------ | -------------------------------- | -------- |
@@ -22,4 +22,4 @@ AWS MCP Server (Preview).
 ## Service quotas
 
 For more information, see [Quotas for
-AWS MCP Server](../../../aws-mcp/latest/userguide/aws-mcp-limits.md "../../../aws-mcp/latest/userguide/aws-mcp-limits.md") in the _AWS MCP User Guide_.
+AWS MCP Server](../../../agent-toolkit/latest/userguide/aws-mcp-limits.md "../../../agent-toolkit/latest/userguide/aws-mcp-limits.md") in the _Agent Toolkit User Guide_.

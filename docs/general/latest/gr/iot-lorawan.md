@@ -137,7 +137,7 @@ Reference_.
 
 The following tables describes the maximum number of transactions per second (TPS)
 that can be made to each action in the [AWS IoT
-Wireless API](../../../iot-wireless/2020-11-22/apireference/Welcome.md "../../../iot-wireless/2020-11-22/apireference/Welcome.md"), which includes AWS IoT Core for LoRaWAN and AWS IoT Core for Amazon Sidewalk.
+Wireless API](../../../iot-wireless/latest/apireference/Welcome.md "../../../iot-wireless/latest/apireference/Welcome.md"), which includes AWS IoT Core for LoRaWAN and AWS IoT Core for Amazon Sidewalk.
 
 ###### Contents
 
