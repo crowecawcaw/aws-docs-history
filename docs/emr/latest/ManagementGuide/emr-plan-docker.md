@@ -88,7 +88,7 @@ this endpoint with your specific ECR endpoint.
 
 To launch an Amazon EMR 6.0.0 cluster with this configuration using the AWS Command Line Interface (AWS CLI),
 create a file named `container-executor.json` with the contents of the
-preceding ontainer-executor JSON configuration. Then, use the following commands to launch the
+preceding container-executor JSON configuration. Then, use the following commands to launch the
 cluster.
 
 ```
