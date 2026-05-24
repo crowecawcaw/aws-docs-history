@@ -168,10 +168,18 @@ JSON
 
 ```
 
-### Amazon ECR repository policies
+The permissions that Lambda needs to retrieve your container image depend on whether the Amazon ECR repository is in the same AWS account as the function or in a different account. The following sections explain the requirements for each scenario.
 
-For a function in the same account as the container image in Amazon ECR, you can add `ecr:BatchGetImage`
-and `ecr:GetDownloadUrlForLayer` permissions to your Amazon ECR repository policy. The following example shows the
+###### Note
+
+In IAM, same-account access requires only one side to grant permission – either the identity-based policy (on the role) or the resource-based policy (on the Amazon ECR repository). Cross-account access requires both sides to grant permission – the identity-based policy on the role in the consuming account AND the resource-based policy on the Amazon ECR repository in the owning account must both allow the action.
+
+### Same-account Amazon ECR repository policies
+
+For a function in the same account as the container image in Amazon ECR, you can grant Lambda access through either the identity-based policy on the execution role or the resource-based policy on the Amazon ECR repository. Only one side needs to allow access.
+
+If you choose to use an Amazon ECR repository policy, add `ecr:BatchGetImage`
+and `ecr:GetDownloadUrlForLayer` permissions. The following example shows the
 minimum policy:
 
 ```
@@ -201,8 +209,9 @@ _Amazon Elastic Container Registry User Guide_.
 
 #### Amazon ECR cross-account permissions
 
-A different account in the same region can create a function that uses a container image owned by your
-account. In the following example, your [Amazon ECR repository permissions policy](../../../AmazonECR/latest/userguide/set-repository-policy.md "../../../AmazonECR/latest/userguide/set-repository-policy.md") needs the following statements to
+When a function in one account uses a container image from an Amazon ECR repository in a different account, both sides must grant access. The identity-based policy on the role in the consuming account must allow `ecr:BatchGetImage` and `ecr:GetDownloadUrlForLayer`, and the resource-based policy on the Amazon ECR repository in the owning account must also allow these actions.
+
+In the following example, your [Amazon ECR repository permissions policy](../../../AmazonECR/latest/userguide/set-repository-policy.md "../../../AmazonECR/latest/userguide/set-repository-policy.md") needs the following statements to
 grant access to account number 123456789012.
 
 - **CrossAccountPermission** – Allows account 123456789012 to create and update Lambda
@@ -263,7 +272,7 @@ If you are working with multiple accounts in an AWS Organization, we recommend t
 account ID in the ECR permissions policy. This approach aligns with the AWS security best practice of setting
 narrow permissions in IAM policies.
 
-In addition to Lambda permissions, the user or role that creates the function must also have `BatchGetImage` and `GetDownloadUrlForLayer` permissions.
+In addition to the Amazon ECR repository policy, the user or role that creates the function must also have `BatchGetImage` and `GetDownloadUrlForLayer` permissions in their identity-based policy.
 
 ## Function lifecycle
 

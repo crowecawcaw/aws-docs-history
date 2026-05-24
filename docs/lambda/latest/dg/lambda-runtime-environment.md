@@ -79,7 +79,7 @@ The `Init` phase ends when the runtime and all extensions signal that they are r
 complete within 10 seconds, Lambda retries the `Init` phase at the time of the first function
 invocation with the configured function timeout.
 
-When [Lambda SnapStart](snapstart.md "snapstart.md") is activated, the `Init` phase happens when you publish a function version. Lambda saves a snapshot of the memory and disk state of the initialized execution environment, persists the encrypted snapshot, and caches it for low-latency access. If you have a before-checkpoint [runtime hook](snapstart-runtime-hooks.md "snapstart-runtime-hooks.md"), then the code runs at the end of `Init` phase.
+When [SnapStart](snapstart.md "snapstart.md") is activated, the `Init` phase happens when you publish a function version. Lambda saves a snapshot of the memory and disk state of the initialized execution environment, persists the encrypted snapshot, and caches it for low-latency access. If you have a before-checkpoint [runtime hook](snapstart-runtime-hooks.md "snapstart-runtime-hooks.md"), then the code runs at the end of `Init` phase.
 
 ###### Note
 

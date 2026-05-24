@@ -16,7 +16,9 @@ https://`<url-id>`.lambda-url.<region>.on.aws
 
 ###### Note
 
-Function URLs are not supported in the following AWS Regions: Asia Pacific (Hyderabad) (`ap-south-2`), Asia Pacific (Melbourne) (`ap-southeast-4`), Asia Pacific (Malaysia) (`ap-southeast-5`), Asia Pacific (New Zealand) (`ap-southeast-6`), Asia Pacific (Thailand) (`ap-southeast-7`), Asia Pacific (Taipei) (`ap-east-2`), Canada West (Calgary) (`ca-west-1`), Europe (Spain) (`eu-south-2`), Europe (Zurich) (`eu-central-2`), Israel (Tel Aviv) (`il-central-1`), and Middle East (UAE) (`me-central-1`).
+Function URLs are not supported in all AWS regions. To check availability,
+see [AWS Regional Services](https://builder.aws.com/build/capabilities/explore?tab=service-feature "https://builder.aws.com/build/capabilities/explore?tab=service-feature")
+and filter by `Feature Name = Function URLs`.
 
 Function URLs are dual stack-enabled, supporting IPv4 and IPv6. After you configure a function URL for your
 function, you can invoke your function through its HTTP(S) endpoint via a web browser, curl, Postman, or any HTTP
@@ -44,7 +46,7 @@ The following section show how to create and manage a function URL using the Lam
 - [Cross-origin resource sharing (CORS)](#urls-cors "#urls-cors")
 - [Throttling function URLs](#urls-throttling "#urls-throttling")
 - [Deactivating function URLs](#urls-deactivating "#urls-deactivating")
-- [Deleting function URLs](#w2aac39c81c53 "#w2aac39c81c53")
+- [Deleting function URLs](#w2aac11c31c75c53 "#w2aac11c31c75c53")
 - [Control access to Lambda function URLs](urls-auth.md "urls-auth.md")
 - [Invoking Lambda function URLs](urls-invocation.md "urls-invocation.md")
 - [Monitoring Lambda function URLs](urls-monitoring.md "urls-monitoring.md")

@@ -99,8 +99,6 @@ require fetching data from a DynamoDB table. It should commit any permanent data
 as Amazon S3, DynamoDB, or Amazon SQS before exiting. It should not rely on any existing data structures or temporary files,
 or any internal state that would be managed by multiple invocations.
 
-When using Durable Functions, state is automatically preserved between invocations, eliminating the need to manually persist state to external storage. However, you should still follow stateless principles for any data not explicitly managed through the DurableContext.
-
 To initialize database connections and libraries, or load state, you can take advantage of
 [static initialization](lambda-runtime-environment.md#static-initialization "lambda-runtime-environment.md#static-initialization"). Since execution environments are reused
 where possible to improve performance, you can amortize the time taken to initialize these resources over

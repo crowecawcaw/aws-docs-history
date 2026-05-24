@@ -50,7 +50,7 @@ SnapStart is available for the following [Lambda managed runtimes](lambda-runtim
 
 Other managed runtimes (such as `nodejs24.x` and `ruby4.0`), [OS-only runtimes](runtimes-provided.md "runtimes-provided.md"), and [container images](images-create.md "images-create.md") are not supported.
 
-SnapStart does not support [provisioned concurrency](provisioned-concurrency.md "provisioned-concurrency.md"), [Amazon Elastic File System (Amazon EFS)](../../../efs/latest/ug/accessing-fs.md "../../../efs/latest/ug/accessing-fs.md"), or ephemeral
+SnapStart does not support [provisioned concurrency](provisioned-concurrency.md "provisioned-concurrency.md"), [Amazon Elastic File System (Amazon EFS)](../../../efs/latest/ug/accessing-fs.md "../../../efs/latest/ug/accessing-fs.md"), [Amazon S3 Files](../../../AmazonS3/latest/userguide/s3-files.md "../../../AmazonS3/latest/userguide/s3-files.md"), or ephemeral
 storage greater than 512 MB.
 
 ###### Note

@@ -44,6 +44,17 @@ For Lambda Managed Instances (LMI), the `Resource` dimension supports function v
 - **ExecutionEnvironmentCPUUtilization** - The percentage of CPU utilization for the function's execution environments
 - **ExecutionEnvironmentMemoryUtilization** - The percentage of memory utilization for the function's execution environments
 
+## Throttle reason metrics
+
+Lambda Managed Instances emits granular throttle reason metrics that identify the resource constraint that caused a throttle. For each throttle, Lambda emits exactly one of the following sub-metrics with a value of 1, while the remaining three are emitted with a value of 0:
+
+- **ConcurrencyThrottles** – The execution environment reached its maximum concurrency limit. This can be addressed by either raising [ExecutionEnvironmentMaxConcurrency](lambda-managed-instances-scaling.md#lambda-managed-instances-maximum-concurrency "lambda-managed-instances-scaling.md#lambda-managed-instances-maximum-concurrency") or by [scaling execution environments more aggressively](lambda-managed-instances-scaling.md#lambda-managed-instances-target-resource-utilization "lambda-managed-instances-scaling.md#lambda-managed-instances-target-resource-utilization").
+- **CPUThrottles** – The execution environment exhausted its allocated CPU resources. This can be addressed by increasing your function's [vCPU allocation](lambda-managed-instances-scaling.md#lambda-managed-instances-function-memory-vcpus "lambda-managed-instances-scaling.md#lambda-managed-instances-function-memory-vcpus") or by reducing [ExecutionEnvironmentMaxConcurrency](lambda-managed-instances-scaling.md#lambda-managed-instances-maximum-concurrency "lambda-managed-instances-scaling.md#lambda-managed-instances-maximum-concurrency") to lower per-environment load.
+- **MemoryThrottles** – The execution environment exhausted its allocated memory. This can be addressed by increasing your function's [memory allocation](configuration-memory.md "configuration-memory.md") or by reducing [ExecutionEnvironmentMaxConcurrency](lambda-managed-instances-scaling.md#lambda-managed-instances-maximum-concurrency "lambda-managed-instances-scaling.md#lambda-managed-instances-maximum-concurrency") to lower per-environment load.
+- **DiskThrottles** – The execution environment exhausted its allocated disk space. This can be addressed by increasing your function's [ephemeral storage](configuration-ephemeral-storage.md "configuration-ephemeral-storage.md") or by reducing [ExecutionEnvironmentMaxConcurrency](lambda-managed-instances-scaling.md#lambda-managed-instances-maximum-concurrency "lambda-managed-instances-scaling.md#lambda-managed-instances-maximum-concurrency") to lower per-environment load.
+
+Lambda always emits the standard `Throttles` metric alongside these sub-metrics. Use these metrics to understand why your function is scaling and whether to adjust your maximum concurrency, function memory, vCPU allocation, or disk configuration. For the full list of Lambda metrics, see [Types of metrics for Lambda functions](monitoring-metrics-types.md "monitoring-metrics-types.md").
+
 ## Metric frequency and retention
 
 Lambda Managed Instances metrics are published at 5-minute intervals and retained for 15 months.

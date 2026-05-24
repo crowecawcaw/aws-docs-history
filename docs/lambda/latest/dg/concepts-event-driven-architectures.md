@@ -6,7 +6,7 @@ Many AWS services can directly invoke your Lambda functions. These services _pus
 a schedule managed by an EventBridge rule, an AWS IoT event, or an Amazon S3 event. With event source mapping, Lambda actively fetches (or _pulls_) events from a queue or stream.
 You configure Lambda to check for events from a supported service, and Lambda handles the polling and invocation of your function.
 
-When passed to your function, events are structured in JSON format. The JSON structure varies depending on the service that generates it and the event type. While standard Lambda function invocations can last up to 15 minutes (or up to one year with [durable functions](durable-functions.md "durable-functions.md")), Lambda is best-suited for short invocations that last one second or less.
+When passed to your function, events are structured in JSON format. The JSON structure varies depending on the service that generates it and the event type. While standard Lambda function invocations can last up to 15 minutes, Lambda is best-suited for short invocations that last one second or less.
 This is particularly true of event-driven architectures, where each Lambda function is treated as a microservice responsible for performing a narrow set of specific instructions.
 
 ###### Note

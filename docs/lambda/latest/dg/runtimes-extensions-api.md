@@ -5,7 +5,7 @@ observability, security, and governance. Function authors can use extensions fro
 open-source projects. For more information on using extensions, see [Introducing AWS Lambda Extensions](https://aws.amazon.com/blogs/aws/getting-started-with-using-your-favorite-operational-tools-on-aws-lambda-extensions-are-now-generally-available/ "https://aws.amazon.com/blogs/aws/getting-started-with-using-your-favorite-operational-tools-on-aws-lambda-extensions-are-now-generally-available/") on the AWS
 Compute Blog. This section describes how to use the Lambda Extensions API, the Lambda execution environment lifecycle, and the Lambda Extensions API reference.
 
-![The Extensions API and the Telemetry API connect Lambda and external extensions.](images/telemetry-api-concept-diagram.png)
+![The Extensions API and the Telemetry API connect Lambda and external extensions.](/images/lambda/latest/dg/images/telemetry-api-concept-diagram.png)
 As an extension author, you can use the Lambda Extensions API to integrate deeply into the Lambda [execution environment](lambda-runtime-environment.md "lambda-runtime-environment.md"). Your extension can register for function and execution
 environment lifecycle events. In response to these events, you can start new processes, run logic, and control and
 participate in all phases of the Lambda lifecycle: initialization, invocation, and shutdown. In addition, you can use

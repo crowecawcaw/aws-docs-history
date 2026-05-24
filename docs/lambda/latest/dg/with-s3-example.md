@@ -633,7 +633,7 @@ async fn function_handler(
    Lambda created.
 3. In the **DEPLOY** section, choose **Deploy** to update your function's code:
 
-![Deploy button in the Lambda console code editor](/images/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
+![Deploy button in the Lambda console code editor](images/getting-started-tutorial/deploy-console.png)
 
 ## Create the Amazon S3 trigger
 

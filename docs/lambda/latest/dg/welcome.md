@@ -20,6 +20,16 @@ You can use Lambda for:
 - **IoT backends**: Handle web, mobile, IoT, and third-party API requests. See [IoT](services-iot.md "services-iot.md") for details.
   For pricing information, see [AWS Lambda Pricing](https://aws.amazon.com/lambda/pricing/ "https://aws.amazon.com/lambda/pricing/").
 
+## Functions and durable functions
+
+[Lambda functions](lambda-functions-chapter.md "lambda-functions-chapter.md")
+run for up to 15 minutes and are ideal for event-driven tasks like processing API requests, handling
+file uploads, or responding to database changes. [Durable functions](durable-functions.md "durable-functions.md")
+extend this model for workloads that need to run longer and survive interruptions. They can execute for
+up to one year, automatically checkpointing their progress so they resume reliably after failures. Use
+durable functions when you need multi-step workflows, human-in-the-loop approvals, or coordination
+across services over extended periods.
+
 ## How Lambda works
 
 When using Lambda, you are responsible only for your code. Lambda runs your code on a high-availability compute infrastructure and manages all the computing resources,
@@ -43,13 +53,13 @@ To learn how to build **serverless solutions**, check out the [Serverless Develo
 
 - [Environment variables](configuration-envvars.md "configuration-envvars.md") modify application behavior without new code deployments.
 - [Versions](configuration-versions.md "configuration-versions.md") safely test new features while maintaining stable production environments.
-- [Lambda layers](chapter-layers.md "chapter-layers.md") optimize code reuse and maintenance by sharing common components across multiple functions.
+- [Layers](chapter-layers.md "chapter-layers.md") optimize code reuse and maintenance by sharing common components across multiple functions.
 - [Code signing](configuration-codesigning.md "configuration-codesigning.md") enforce security compliance by ensuring only approved code reaches production systems.
 
 **Scale and perform reliably:**
 
 - [Concurrency and scaling controls](lambda-concurrency.md "lambda-concurrency.md") precisely manage application responsiveness and resource utilization during traffic spikes.
-- [Lambda SnapStart](snapstart.md "snapstart.md") significantly reduce cold start times. Lambda SnapStart can provide as low as sub-second startup performance, typically with no changes to your function code.
+- [SnapStart](snapstart.md "snapstart.md") significantly reduce cold start times. Lambda SnapStart can provide as low as sub-second startup performance, typically with no changes to your function code.
 - [Response streaming](configuration-response-streaming.md "configuration-response-streaming.md") optimize function performance by delivering large payloads incrementally for real-time processing.
 - [Container images](images-create.md "images-create.md") package functions with complex dependencies using container workflows.
 
@@ -58,7 +68,7 @@ To learn how to build **serverless solutions**, check out the [Serverless Develo
 - [VPC networks](configuration-vpc.md "configuration-vpc.md") secure sensitive resources and internal services.
 - [File systems](configuration-filesystem.md "configuration-filesystem.md") integration that shares persistent data and manage stateful operations across function invocations.
 - [Function URLs](urls-configuration.md "urls-configuration.md") create public-facing APIs and endpoints without additional services.
-- [Lambda extensions](lambda-extensions.md "lambda-extensions.md") augment functions with monitoring, security, and operational tools.
+- [Extensions](lambda-extensions.md "lambda-extensions.md") augment functions with monitoring, security, and operational tools.
 
 ## Related information
 

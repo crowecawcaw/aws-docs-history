@@ -791,7 +791,7 @@ old- and new-style function segments, see [Understanding X-Ray traces](services-
 
 ###### Note
 
-[Lambda SnapStart](snapstart.md "snapstart.md") functions also include a `Restore` subsegment. The `Restore` subsegment shows the time it takes for Lambda to restore a snapshot, load the runtime, and run any after-restore [runtime hooks](snapstart-runtime-hooks.md "snapstart-runtime-hooks.md"). The process of restoring snapshots can include time spent on activities outside the MicroVM. This time is reported in the `Restore` subsegment. You aren't charged for the time spent outside the microVM to restore a snapshot.
+[SnapStart](snapstart.md "snapstart.md") functions also include a `Restore` subsegment. The `Restore` subsegment shows the time it takes for Lambda to restore a snapshot, load the runtime, and run any after-restore [runtime hooks](snapstart-runtime-hooks.md "snapstart-runtime-hooks.md"). The process of restoring snapshots can include time spent on activities outside the MicroVM. This time is reported in the `Restore` subsegment. You aren't charged for the time spent outside the microVM to restore a snapshot.
 
 You can also instrument HTTP clients, record SQL queries, and create custom subsegments with annotations and
 metadata. For more information, see [AWS X-Ray SDK for Java](../../../xray/latest/devguide/xray-sdk-java.md "../../../xray/latest/devguide/xray-sdk-java.md") in the _AWS X-Ray Developer Guide_.

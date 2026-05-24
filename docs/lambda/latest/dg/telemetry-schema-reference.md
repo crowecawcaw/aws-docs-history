@@ -371,7 +371,7 @@ The following is an example `Event` of type `platform.report`:
 
 A `platform.restoreStart` event indicates that a function environment restoration event started.
 In an environment restoration event, Lambda creates the environment from a cached snapshot rather than initializing it
-from scratch. For more information, see [Lambda SnapStart](snapstart.md "snapstart.md"). A
+from scratch. For more information, see [SnapStart](snapstart.md "snapstart.md"). A
 `platform.restoreStart`
 `Event` object has the following shape:
 
@@ -412,7 +412,7 @@ The following is an example `Event` of type `platform.restoreStart`:
 
 A `platform.restoreRuntimeDone` event indicates that a function environment restoration event completed.
 In an environment restoration event, Lambda creates the environment from a cached snapshot rather than initializing it
-from scratch. For more information, see [Lambda SnapStart](snapstart.md "snapstart.md"). A
+from scratch. For more information, see [SnapStart](snapstart.md "snapstart.md"). A
 `platform.restoreRuntimeDone`
 `Event` object has the following shape:
 

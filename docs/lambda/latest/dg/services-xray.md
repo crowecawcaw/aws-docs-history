@@ -74,7 +74,7 @@ The old-style X-Ray structure for the `AWS::Lambda` segment looks like the follo
 ![Diagram showing the structure of an old-style X-Ray trace containing invocation segment](images/V2_sandbox_images/v1_XRay_structure.png)
 
 In this format, the function segment has subsegments for `Initialization`, `Invocation`, and
-`Overhead`. For [Lambda SnapStart](snapstart.md "snapstart.md") only, there is also a `Restore` subsegment
+`Overhead`. For [SnapStart](snapstart.md "snapstart.md") only, there is also a `Restore` subsegment
 (not shown on this diagram).
 
 The `Initialization` subsegment represents the init phase of the Lambda execution environment lifecycle.

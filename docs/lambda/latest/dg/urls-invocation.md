@@ -16,7 +16,9 @@ https://`<url-id>`.lambda-url.<region>.on.aws
 
 ###### Note
 
-Function URLs are not supported in the following AWS Regions: Asia Pacific (Hyderabad) (`ap-south-2`), Asia Pacific (Melbourne) (`ap-southeast-4`), Asia Pacific (Malaysia) (`ap-southeast-5`), Asia Pacific (New Zealand) (`ap-southeast-6`), Asia Pacific (Thailand) (`ap-southeast-7`), Asia Pacific (Taipei) (`ap-east-2`), Canada West (Calgary) (`ca-west-1`), Europe (Spain) (`eu-south-2`), Europe (Zurich) (`eu-central-2`), Israel (Tel Aviv) (`il-central-1`), and Middle East (UAE) (`me-central-1`).
+Function URLs are not supported in all AWS regions. To check availability,
+see [AWS Regional Services](https://builder.aws.com/build/capabilities/explore?tab=service-feature "https://builder.aws.com/build/capabilities/explore?tab=service-feature")
+and filter by `Feature Name = Function URLs`.
 
 Function URLs are dual stack-enabled, supporting IPv4 and IPv6. After configuring your function URL, you can
 invoke your function through its HTTP(S) endpoint via a web browser, curl, Postman, or any HTTP client. To invoke a
