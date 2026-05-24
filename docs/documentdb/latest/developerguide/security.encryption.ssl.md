@@ -30,7 +30,7 @@ Unless you specify differently when you create a cluster, your cluster is create
     ###### Tip
 
     If you don't see the navigation pane on the left side of your screen, choose the menu icon
-    (![Menu button.](images/docdb-menu-icon.png))
+    (![Menu button.](/images/documentdb/latest/developerguide/images/docdb-menu-icon.png))
     in the upper-left corner of the page. 3. Note that in the **Clusters** navigation box, the column **Cluster Identifier** shows both clusters and instances. Instances are listed underneath clusters. See the screenshot below for reference.
 
     ![Image of the Clusters navigation box showing a list of existing cluster links and their corresponding instance links.](images/clusters.png) 4. Choose the cluster that
@@ -93,7 +93,7 @@ If the value of `tls` is not what is needs to be, modify its value for this clus
 
 
     	* **disabled** — Disables TLS
-    	* **enabled** — Enables TLS versions 1.0 through 1.3, but we recommend TLS 1.2 or higher.
+    	* **enabled** — Enables TLS. For Amazon DocumentDB 5.0 and earlier, this enables TLS 1.0 through 1.3. For Amazon DocumentDB 8.0 and later, the minimum supported version is TLS 1.2.
     	* **fips-140-3** — Enables TLS with FIPS.
     	 The cluster only accepts secure connections per the requirements of the Federal Information Processing Standards (FIPS) publication 140-3.
     	 This is only supported starting with Amazon DocumentDB 5.0 (engine version 3.0.3727) clusters in these regions: ca-central-1, us-west-2, us-east-1, us-east-2, us-gov-east-1, us-gov-west-1.
@@ -244,7 +244,7 @@ To change the value of the `tls` cluster parameter, run the [`modify-db-cluster-
 
 
 
-    		- `enabled` — The cluster accepts secure connections using TLS version 1.0 through 1.3.
+    		- `enabled` — The cluster accepts secure connections using TLS. For Amazon DocumentDB 5.0 and earlier, this enables TLS 1.0 through 1.3. For Amazon DocumentDB 8.0 and later, the minimum supported version is TLS 1.2.
     		- `disabled` — The cluster does not accept secure connections using TLS.
     		- `fips-140-3` — The cluster only accepts secure connections per the requirements of the Federal Information Processing Standards (FIPS) publication 140-3.
     		 This is only supported starting with Amazon DocumentDB 5.0 (engine version 3.0.3727) clusters in these regions: ca-central-1, us-west-2, us-east-1, us-east-2, us-gov-east-1, us-gov-west-1.
@@ -277,8 +277,7 @@ aws docdb modify-db-cluster-parameter-group \
 ```
 
 The following code _enables_
-`tls` (version 1.0 through 1.3) applying the change to each instance when it is
-rebooted.
+`tls`, applying the change to each instance when it is rebooted.
 
 ```
 aws docdb modify-db-cluster-parameter-group \

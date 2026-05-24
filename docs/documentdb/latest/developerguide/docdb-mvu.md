@@ -156,6 +156,10 @@ After performing a major version upgrade from Amazon DocumentDB 5.0 to 8.0, the 
 - **Compression.** Amazon DocumentDB 8.0 supports dictionary-based document compression using the Zstd algorithm. After the upgrade, new collections are created with Zstd compression enabled by default. Existing collections from 5.0 retain their compression settings. To take advantage of Zstd compression on existing collections, you can modify their compression settings. For more information, see [Dictionary-based compression](dict-compression.md "dict-compression.md").
 - **Index rebuild.** If you are upgrading from Amazon DocumentDB 5.0 to Amazon DocumentDB 8.0, no index rebuild is needed.
 
+###### Important
+
+Amazon DocumentDB 8.0 requires TLS 1.2 or higher. TLS 1.0 and TLS 1.1 are no longer supported.
+
 ###### Note
 
 For a full list of functional differences, see [Amazon DocumentDB compatibility with MongoDB](compatibility.md "compatibility.md").

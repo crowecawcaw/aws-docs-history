@@ -63,6 +63,10 @@ With the release of Amazon DocumentDB 8.0, there are functional differences betw
 - New features in Amazon DocumentDB 8.0 including Views, Collation and operators like $merge are compatible only with Planner v3.
 - Compression is turned ON by default in Amazon DocumentDB 8.0 and is set to use Zstandard algorithm. Furthermore, in Amazon DocumentDB 8.0 'enabled' is no longer a valid choice; you may select from Zstd, LZ4 and none.
 
+###### Important
+
+Amazon DocumentDB 8.0 requires TLS 1.2 or higher. TLS 1.0 and TLS 1.1 are no longer supported.
+
 ## MongoDB 5.0 compatibility
 
 ###### Topics
