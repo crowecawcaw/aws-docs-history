@@ -22,11 +22,11 @@ The following instance types are available in US East (N. Virginia).
 
 - **General Purpose:** A1 | M1 | M2 | M3 | M4 | M5 | M5a | M5ad | M5d | M5dn | M5n | M5zn | M6a | M6g | M6gd | M6i | M6id | M6idn | M6in | M7a | M7g | M7gd | M7i | M7i-flex | M8a | M8azn | M8g | M8gb | M8gd | M8gn | M8i | M8id | M8i-flex | M8in | M8idn | M8ine | M8ib | M8idb | Mac1 | Mac2 | Mac2-m1ultra | Mac2-m2 | Mac2-m2pro | Mac-m4 | Mac-m4pro | Mac-m4max | T1 | T2 | T3 | T3a | T4g
 - **Compute Optimized:** C1 | C3 | C4 | C5 | C5a | C5ad | C5d | C5n | C6a | C6g | C6gd | C6gn | C6i | C6id | C6in | C7a | C7g | C7gd | C7gn | C7i | C7i-flex | C8a | C8g | C8gb | C8gd | C8gn | C8i | C8id | C8i-flex | C8in | C8ine | C8ib
-- **Memory Optimized:** R3 | R4 | R5 | R5a | R5ad | R5b | R5d | R5dn | R5n | R6a | R6g | R6gd | R6i | R6id | R6idn | R6in | R7a | R7g | R7gd | R7i | R7iz | R8a | R8g | R8gb | R8gd | R8gn | R8i | R8id | R8i-flex | R8in | R8idn | R8ib | R8idb | U-3tb1 | U-6tb1 | U7i-6tb | U7i-8tb | U7i-12tb | U7in-16tb | U7in-24tb | X1 | X1e | X2gd | X2idn | X2iedn | X2iezn | X8g | X8i | z1d
+- **Memory Optimized:** R3 | R4 | R5 | R5a | R5ad | R5b | R5d | R5dn | R5n | R6a | R6g | R6gd | R6i | R6id | R6idn | R6in | R7a | R7g | R7gd | R7i | R7iz | R8a | R8g | R8gb | R8gd | R8gn | R8i | R8id | R8i-flex | R8in | R8idn | R8ib | R8idb | U-3tb1 | U-6tb1 | U7i-6tb | U7i-8tb | U7i-12tb | U7in-16tb | U7in-24tb | U7in-32tb | X1 | X1e | X2gd | X2idn | X2iedn | X2iezn | X8g | X8i | z1d
 - **Storage Optimized:** D2 | D3 | D3en | H1 | I2 | I3 | I3en | I4g | I4i | I7i | I7ie | I8g | I8ge | Im4gn | Is4gen
-- **Accelerated Computing:** F2 | G4ad | G4dn | G5 | G5g | G6 | G6e | G6f | G7e | Inf1 | Inf2 | P4d | P4de | P5 | P5en | P6-B200 | Trn1 | Trn1n | VT1
+- **Accelerated Computing:** DL1 | F2 | G4ad | G4dn | G5 | G5g | G6 | G6e | G6f | Gr6 | Gr6f | G7e | Inf1 | Inf2 | P3dn | P4d | P4de | P5 | P5en | P6-B200 | P6-B300 | Trn1 | Trn1n | VT1
 - **High Performance Computing:** Hpc7g
-- **Previous Generation:** A1 | C1 | C3 | C4 | I2 | M1 | M2 | M3 | M4 | R3 | R4 | T1
+- **Previous Generation:** A1 | C1 | C3 | C4 | I2 | M1 | M2 | M3 | M4 | P3dn | R3 | R4 | T1
 
 ## US East (Ohio) — `us-east-2`
 
@@ -36,7 +36,7 @@ The following instance types are available in US East (Ohio).
 - **Compute Optimized:** C4 | C5 | C5a | C5ad | C5d | C5n | C6a | C6g | C6gd | C6gn | C6i | C6id | C6in | C7a | C7g | C7gd | C7gn | C7i | C7i-flex | C8a | C8g | C8gd | C8gn | C8i | C8id | C8i-flex
 - **Memory Optimized:** R3 | R4 | R5 | R5a | R5ad | R5b | R5d | R5dn | R5n | R6a | R6g | R6gd | R6i | R6id | R6idn | R6in | R7a | R7g | R7gd | R7i | R7iz | R8a | R8g | R8gd | R8i | R8id | R8i-flex | R8in | R8idn | R8ib | R8idb | U-3tb1 | U-6tb1 | U7i-6tb | U7i-8tb | U7i-12tb | U7in-16tb | U7in-24tb | X1 | X1e | X2gd | X2idn | X2iedn | X8g | X8i | z1d
 - **Storage Optimized:** D2 | D3 | H1 | I2 | I3 | I3en | I4g | I4i | I7i | I7ie | I8g | I8ge | Im4gn | Is4gen
-- **Accelerated Computing:** G4ad | G4dn | G5 | G6 | G6e | G6f | Gr6 | G7e | Inf1 | Inf2 | P4d | P5 | P5e | P5en | P6-B200 | Trn1 | Trn1n | Trn2
+- **Accelerated Computing:** G4ad | G4dn | G5 | G6 | G6e | G6f | Gr6 | Gr6f | G7e | Inf1 | Inf2 | P4d | P5 | P5e | P5en | P6-B200 | Trn1 | Trn1n | Trn2
 - **High Performance Computing:** Hpc6a | Hpc6id | Hpc7a | Hpc8a
 - **Previous Generation:** A1 | C4 | I2 | M4 | R3 | R4
 
@@ -57,10 +57,10 @@ The following instance types are available in US West (Oregon).
 
 - **General Purpose:** A1 | M1 | M2 | M3 | M4 | M5 | M5a | M5ad | M5d | M5dn | M5n | M5zn | M6a | M6g | M6gd | M6i | M6id | M6idn | M6in | M7a | M7g | M7gd | M7i | M7i-flex | M8a | M8azn | M8g | M8gb | M8gd | M8gn | M8i | M8id | M8i-flex | M8in | M8idn | M8ine | M8ib | M8idb | Mac1 | Mac2 | Mac2-m1ultra | Mac2-m2 | Mac2-m2pro | Mac-m4 | Mac-m4pro | Mac-m4max | T1 | T2 | T3 | T3a | T4g
 - **Compute Optimized:** C1 | C3 | C4 | C5 | C5a | C5ad | C5d | C5n | C6a | C6g | C6gd | C6gn | C6i | C6id | C6in | C7a | C7g | C7gd | C7gn | C7i | C7i-flex | C8a | C8g | C8gb | C8gd | C8gn | C8i | C8id | C8i-flex | C8in | C8ine | C8ib
-- **Memory Optimized:** R3 | R4 | R5 | R5a | R5ad | R5b | R5d | R5dn | R5n | R6a | R6g | R6gd | R6i | R6id | R6idn | R6in | R7a | R7g | R7gd | R7i | R7iz | R8a | R8g | R8gb | R8gd | R8gn | R8i | R8id | R8i-flex | R8in | R8idn | R8ib | R8idb | U-3tb1 | U-6tb1 | U7i-6tb | U7i-8tb | U7i-12tb | U7in-16tb | U7in-24tb | X1 | X1e | X2gd | X2idn | X2iedn | X2iezn | X8g | X8aedz | X8i | z1d
+- **Memory Optimized:** R3 | R4 | R5 | R5a | R5ad | R5b | R5d | R5dn | R5n | R6a | R6g | R6gd | R6i | R6id | R6idn | R6in | R7a | R7g | R7gd | R7i | R7iz | R8a | R8g | R8gb | R8gd | R8gn | R8i | R8id | R8i-flex | R8in | R8idn | R8ib | R8idb | U-3tb1 | U-6tb1 | U7i-6tb | U7i-8tb | U7i-12tb | U7in-16tb | U7in-24tb | U7in-32tb | X1 | X1e | X2gd | X2idn | X2iedn | X2iezn | X8g | X8aedz | X8i | z1d
 - **Storage Optimized:** D2 | D3 | D3en | H1 | I2 | I3 | I3en | I4g | I4i | I7i | I7ie | I8g | I8ge | Im4gn | Is4gen
-- **Accelerated Computing:** F2 | G4ad | G4dn | G5 | G5g | G6 | G6e | G6f | G7e | Inf1 | Inf2 | P4d | P4de | P5 | P5en | P6-B200 | Trn1 | Trn1n | VT1
-- **Previous Generation:** A1 | C1 | C3 | C4 | I2 | M1 | M2 | M3 | M4 | R3 | R4 | T1
+- **Accelerated Computing:** DL1 | DL2q | F2 | G4ad | G4dn | G5 | G5g | G6 | G6e | G6f | Gr6 | Gr6f | G7e | Inf1 | Inf2 | P3dn | P4d | P4de | P5 | P5e | P5en | P6-B200 | P6-B300 | Trn1 | Trn1n | VT1
+- **Previous Generation:** A1 | C1 | C3 | C4 | I2 | M1 | M2 | M3 | M4 | P3dn | R3 | R4 | T1
 
 ## Africa (Cape Town) — `af-south-1`
 
@@ -86,8 +86,8 @@ The following instance types are available in Asia Pacific (Hong Kong).
 
 The following instance types are available in Asia Pacific (Hyderabad).
 
-- **General Purpose:** M5 | M5d | M6a | M6g | M6gd | M6i | M7g | M8g | M8i | M8i-flex | T3 | T4g
-- **Compute Optimized:** C5 | C5d | C6a | C6g | C6i | C6in | C7g | C7i | C8g | C8gn | C8i | C8i-flex
+- **General Purpose:** M5 | M5d | M6a | M6g | M6gd | M6i | M7g | M7i | M7i-flex | M8g | M8i | M8i-flex | T3 | T4g
+- **Compute Optimized:** C5 | C5d | C6a | C6g | C6i | C6in | C7g | C7i | C7i-flex | C8g | C8gn | C8i | C8i-flex
 - **Memory Optimized:** R5 | R5d | R6a | R6g | R6i | R7a | R7g | R7gd | R7i | R8g | R8i | R8i-flex | U-6tb1 | U7i-8tb | U7i-12tb | X2idn | X2iedn
 - **Storage Optimized:** I3 | I3en | I4i | I7i
 
@@ -400,21 +400,31 @@ The following instance types are available in South America (Sao Paulo).
 
 The following instance types are available in AWS GovCloud (US-East).
 
-- **General Purpose:** M5 | M5a | M5d | M5dn | M5n | M6g | M6gd | M6i | M7g | M7i | M7i-flex | T3 | T3a | T4g
-- **Compute Optimized:** C5 | C5a | C5d | C5n | C6g | C6gd | C6gn | C6i | C6in | C7g | C7gd | C7i
-- **Memory Optimized:** R5 | R5a | R5d | R5dn | R5n | R6g | R6gd | R6i | R7g | R7gd | R7i | U-6tb1 | U7in-24tb | X1 | X1e | X2idn | X2iedn
-- **Storage Optimized:** I3 | I3en | I4i | I7ie
-- **Accelerated Computing:** G4dn | G6 | Gr6 | Inf1 | P3dn
+- **General Purpose:** M5 | M5a | M5d | M5dn | M5n | M6g | M6gd | M6i | M7g | M7i | M7i-flex | M8g | T3 | T3a | T4g
+- **Compute Optimized:** C5 | C5a | C5d | C5n | C6g | C6gd | C6gn | C6i | C6in | C7g | C7gd | C7i | C8gn
+- **Memory Optimized:** R5 | R5a | R5d | R5dn | R5n | R6g | R6gd | R6i | R7g | R7gd | R7i | R8g | U-6tb1 | U7i-6tb | U7i-12tb | U7in-16tb | U7in-24tb | X1 | X1e | X2idn | X2iedn
+- **Storage Optimized:** I3 | I3en | I4i | I7i | I7ie
+- **Accelerated Computing:** G4dn | G6 | Gr6 | Inf1 | P3dn | P6-B300
 - **High Performance Computing:** Hpc6a
 
 ## AWS GovCloud (US-West) — `us-gov-west-1`
 
 The following instance types are available in AWS GovCloud (US-West).
 
-- **General Purpose:** M5 | M5a | M5ad | M5d | M5dn | M5n | M6g | M6gd | M6i | M6id | M6idn | M6in | M7g | M7i | M7i-flex | T2 | T3 | T3a | T4g
-- **Compute Optimized:** C5 | C5a | C5d | C5n | C6g | C6gd | C6gn | C6i | C6id | C6in | C7g | C7gd | C7i | C7i-flex
-- **Memory Optimized:** R5 | R5a | R5ad | R5d | R5dn | R5n | R6g | R6gd | R6i | R6id | R6idn | R6in | R7g | R7gd | R7i | R8g | U-3tb1 | U-6tb1 | U7i-8tb | U7i-12tb | U7in-16tb | U7in-24tb | X1 | X1e | X2idn | X2iedn
+- **General Purpose:** M5 | M5a | M5ad | M5d | M5dn | M5n | M6g | M6gd | M6i | M6id | M6idn | M6in | M7g | M7i | M7i-flex | M8a | M8g | M8i | M8i-flex | T2 | T3 | T3a | T4g
+- **Compute Optimized:** C5 | C5a | C5d | C5n | C6g | C6gd | C6gn | C6i | C6id | C6in | C7g | C7gd | C7i | C7i-flex | C8g | C8gn
+- **Memory Optimized:** R5 | R5a | R5ad | R5d | R5dn | R5n | R6g | R6gd | R6i | R6id | R6idn | R6in | R7g | R7gd | R7i | R8g | R8i | R8i-flex | U-3tb1 | U-6tb1 | U7i-6tb | U7i-8tb | U7i-12tb | U7in-16tb | U7in-24tb | X1 | X1e | X2idn | X2iedn
 - **Storage Optimized:** D3 | I3 | I3en | I3p | I4i | I7i | I7ie
-- **Accelerated Computing:** G4dn | G6 | Gr6 | Inf1 | P3 | P3dn | P4d | P5 | P5en
-- **High Performance Computing:** Hpc6a | Hpc6id | Hpc7a | Hpc7g
+- **Accelerated Computing:** F1 | G3 | G3s | G4dn | G6 | Gr6 | Inf1 | P2 | P3 | P3dn | P4d | P5 | P5en | P6-B200
+- **High Performance Computing:** Hpc6a | Hpc6id | Hpc7a | Hpc7g | Hpc8a
 - **Previous Generation:** C4 | G3 | M4 | R4
+
+## AWS European Sovereign Cloud — `eusc-de-east-1`
+
+The following instance types are available in AWS European Sovereign Cloud.
+
+- **General Purpose:** M6g | M6gd | M6i | M6id | M7g | M7gd | M7i | M7i-flex | T3 | T4g
+- **Compute Optimized:** C6g | C6gn | C6i | C6id | C7g | C7i | C7i-flex
+- **Memory Optimized:** R6g | R6i | R6id | R7g | R7gd | R7i
+- **Storage Optimized:** I3en | I4i
+- **Accelerated Computing:** G6

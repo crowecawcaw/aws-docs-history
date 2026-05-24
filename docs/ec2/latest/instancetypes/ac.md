@@ -153,15 +153,15 @@ Linux operating systems. `p5.48xlarge` supports Linux operating systems only.
 | g6e.24xlarge       | 768.00       | AMD EPYC 7R13               | 96    | 48        | 2                | 4 x NVIDIA L40S GPU                               | 178 GiB (4 x 44 GiB)    |
 | g6e.48xlarge       | 1536.00      | AMD EPYC 7R13               | 192   | 96        | 2                | 8 x NVIDIA L40S GPU                               | 357 GiB (8 x 44 GiB)    |
 | **G6f**            |
-| g6f.large          | 8.00         | AMD EPYC 7R13               | 2     | 1         | 2                | 0 x NVIDIA L4 GPU                                 | 2 GiB (0 x 2 GiB)       |
-| g6f.xlarge         | 16.00        | AMD EPYC 7R13               | 4     | 2         | 2                | 0 x NVIDIA L4 GPU                                 | 2 GiB (0 x 2 GiB)       |
-| g6f.2xlarge        | 32.00        | AMD EPYC 7R13               | 8     | 4         | 2                | 0 x NVIDIA L4 GPU                                 | 5 GiB (0 x 5 GiB)       |
-| g6f.4xlarge        | 64.00        | AMD EPYC 7R13               | 16    | 8         | 2                | 0 x NVIDIA L4 GPU                                 | 11 GiB (0 x 11 GiB)     |
+| g6f.large          | 8.00         | AMD EPYC 7R13               | 2     | 1         | 2                | 0.125 x NVIDIA L4 GPU                             | 2.79 GiB                |
+| g6f.xlarge         | 16.00        | AMD EPYC 7R13               | 4     | 2         | 2                | 0.125 x NVIDIA L4 GPU                             | 2.79 GiB                |
+| g6f.2xlarge        | 32.00        | AMD EPYC 7R13               | 8     | 4         | 2                | 0.25 x NVIDIA L4 GPU                              | 5.59 GiB                |
+| g6f.4xlarge        | 64.00        | AMD EPYC 7R13               | 16    | 8         | 2                | 0.5 x NVIDIA L4 GPU                               | 11.18 GiB               |
 | **Gr6**            |
 | gr6.4xlarge        | 128.00       | AMD EPYC 7R13               | 16    | 8         | 2                | 1 x NVIDIA L4 GPU                                 | 22 GiB (1 x 22 GiB)     |
 | gr6.8xlarge        | 256.00       | AMD EPYC 7R13               | 32    | 16        | 2                | 1 x NVIDIA L4 GPU                                 | 22 GiB (1 x 22 GiB)     |
 | **Gr6f**           |
-| gr6f.4xlarge       | 128.00       | AMD EPYC 7R13               | 16    | 8         | 2                | 0 x NVIDIA L4 GPU                                 | 11 GiB (0 x 11 GiB)     |
+| gr6f.4xlarge       | 128.00       | AMD EPYC 7R13               | 16    | 8         | 2                | 0.5 x NVIDIA L4 GPU                               | 11.18 GiB               |
 | **G7e**            |
 | g7e.2xlarge        | 64.00        | Intel Xeon Emerald Rapids   | 8     | 4         | 2                | 1 x NVIDIA RTX PRO Server 6000 GPU                | 96 GiB (1 x 96 GiB)     |
 | g7e.4xlarge        | 128.00       | Intel Xeon Emerald Rapids   | 16    | 8         | 2                | 1 x NVIDIA RTX PRO Server 6000 GPU                | 96 GiB (1 x 96 GiB)     |
