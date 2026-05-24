@@ -1,13 +1,13 @@
-# `AWS-ArchiveEBSSnapshots`
+# `AWS-ArchiveEBSVolumeSnapshots`
 
 **Description**
 
-The `AWS-ArchiveEBSSnapshots` runbook helps you archive snapshots for
+The `AWS-ArchiveEBSVolumeSnapshots` runbook helps you archive snapshots for
 Amazon Elastic Block Store (Amazon EBS) volumes by specifying the tag you've applied to your snapshots.
 Alternatively, you can provide the ID of a volume if your snapshots are not
 tagged.
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ArchiveEBSSnapshots "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ArchiveEBSSnapshots")
+[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ArchiveEBSVolumeSnapshots "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ArchiveEBSVolumeSnapshots")
 
 **Document type**
 

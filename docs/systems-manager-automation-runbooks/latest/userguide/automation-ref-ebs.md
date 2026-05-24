@@ -7,7 +7,7 @@ runbooks](../../../systems-manager/latest/userguide/automation-documents.md "../
 ###### Topics
 
 - [AWSSupport-AnalyzeEBSResourceUsage](automation-aws-analyze-ebs-resource-usage.md "automation-aws-analyze-ebs-resource-usage.md")
-- [AWS-ArchiveEBSSnapshots](aws-archiveebssnapshots.md "aws-archiveebssnapshots.md")
+- [AWS-ArchiveEBSVolumeSnapshots](aws-archiveebsvolumesnapshots.md "aws-archiveebsvolumesnapshots.md")
 - [AWS-AttachEBSVolume](automation-aws-attachebsvolume.md "automation-aws-attachebsvolume.md")
 - [AWSSupport-CalculateEBSPerformanceMetrics](automation-calculate-ebs-performance-metrics.md "automation-calculate-ebs-performance-metrics.md")
 - [AWS-CopySnapshot](automation-aws-copysnapshot.md "automation-aws-copysnapshot.md")
