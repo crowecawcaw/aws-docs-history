@@ -117,6 +117,15 @@ to Amazon OpenSearch Service. Both policies provide the minimum Amazon Cognito p
 Amazon Cognito authentication. For policy details, see [AmazonOpenSearchServiceCognitoAccess](../../../aws-managed-policy/latest/reference/AmazonOpenSearchServiceCognitoAccess.md "../../../aws-managed-policy/latest/reference/AmazonOpenSearchServiceCognitoAccess.md") in the _AWS Managed
 Policy Reference Guide_.
 
+###### Important
+
+Do not manually modify the Amazon Cognito App Client settings (such as adding
+additional identity providers) after enabling Amazon Cognito authentication for your
+domain. Amazon OpenSearch Service may overwrite manual App Client changes when you modify Amazon Cognito
+options on the domain or during Elasticsearch-to-OpenSearch upgrades. To
+preserve custom App Client configurations, apply them after each domain
+modification.
+
 If you use the console to create or configure your OpenSearch Service domain, it creates an
 IAM role for you and attaches the
 `AmazonOpenSearchServiceCognitoAccess` policy (or the

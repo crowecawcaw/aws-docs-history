@@ -115,8 +115,10 @@ data between OpenSearch Service domains or collections. For more information, se
 OpenSearch Ingestion uses your source domain version and distribution to determine
 what mechanism to use for migration. Some versions support the
 `point_in_time` option. OpenSearch Serverless uses the `search_after`
-option because it doesn't support `point_in_time` or
-`scroll`.
+option because it doesn't support `scroll`. Note that OpenSearch Serverless does
+support `point_in_time` (PIT) operations; however, the pipeline uses
+`search_after` for compatibility across all source
+types.
 
 New indexes might be in the process of being created during the migration process, or
 documents might be updating while migration is in progress. Because of this, you might

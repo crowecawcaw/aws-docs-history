@@ -57,7 +57,9 @@ community. Serverless automatically deploys and manages plugins for you.
 
 **Scripting plugins**
 
-- [Painless](https://opensearch.org/docs/latest/api-reference/script-apis/exec-script/ "https://opensearch.org/docs/latest/api-reference/script-apis/exec-script/")
+- [Painless](https://opensearch.org/docs/latest/search-plugins/search-pipelines/index/ "https://opensearch.org/docs/latest/search-plugins/search-pipelines/index/") (inline scripts in search queries and aggregations only;
+  stored scripts and the `/_scripts` endpoint are not supported in
+  OpenSearch Serverless)
 - [Expression](https://opensearch.org/docs/latest/data-prepper/pipelines/expression-syntax/ "https://opensearch.org/docs/latest/data-prepper/pipelines/expression-syntax/")
 - [Mustache](https://mustache.github.io/mustache.5.html "https://mustache.github.io/mustache.5.html")
 

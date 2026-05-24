@@ -135,7 +135,11 @@ Consider the following when you configure network access for your collections:
   `ResourceType` is `dashboard`, AWS services cannot
   be granted access to OpenSearch Dashboards.
 - If a collection is accessible from public networks, it's also accessible from
-  all OpenSearch Serverless-managed VPC endpoints and all AWS services.
+  all OpenSearch Serverless-managed VPC endpoints and all AWS services. Even with public
+  network access enabled, data access policies still control who can read and
+  write data to the collection. Network access only determines which networks can
+  reach the collection endpoint; data access policies determine which principals
+  can perform operations on the data. For more information, see [Data access control for Amazon OpenSearch Serverless](serverless-data-access.md "serverless-data-access.md").
 - Multiple network policies can apply to a single collection. For more
   information, see [Policy precedence](#serverless-network-precedence "#serverless-network-precedence").
 

@@ -245,14 +245,19 @@ PUT _snapshot/`my-snapshot-repo-name`
   "settings": {
     "bucket": "`amzn-s3-demo-bucket`",
     "region": "`us-west-2`",
-    "role_arn": "arn:aws:iam::123456789012:role/OpenSearchSnapshotRole"
+    "role_arn": "arn:aws:iam::123456789012:role/OpenSearchSnapshotRole",
+    "base_path": "snapshots/my-snapshot-path"
   }
 }
 ```
 
-2. Then list the snapshots in the repository, and find the one you want to
-   restore. At this point, you can continue using Postman or switch to a tool like
-   [curl](https://curl.haxx.se/ "https://curl.haxx.se/").
+###### Note
+
+The `base_path` parameter specifies the path within the S3 bucket
+where snapshots are stored. Without `base_path`, OpenSearch Service
+cannot locate uploaded snapshots in the S3 bucket. 2. Then list the snapshots in the repository, and find the one you want to
+restore. At this point, you can continue using Postman or switch to a tool like
+[curl](https://curl.haxx.se/ "https://curl.haxx.se/").
 
 **Shorthand**
 

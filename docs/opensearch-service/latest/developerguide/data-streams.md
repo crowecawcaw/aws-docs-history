@@ -122,6 +122,11 @@ remains independent and not part of the original data stream. After an index has
 been removed from the data stream, searching against the stream won't return any
 data from the index.
 
+Snapshot recovery limitations: When data-stream backing indices include
+UltraWarm tier data, snapshot recovery may not fully restore the data stream
+state. Ensure all backing indices are in hot storage before taking snapshots
+intended for recovery of complete data streams.
+
 ###### Warning
 
 The write index for a data stream can't be migrated to cold storage. If you

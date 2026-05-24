@@ -1,8 +1,13 @@
-# Restoring snapshots
+# Restoring data from snapshots
 
-Before you restore a snapshot, make sure that the destination domain does not use
-[Multi-AZ with Standby](managedomains-multiaz.md#managedomains-za-standby "managedomains-multiaz.md#managedomains-za-standby"). Having
-standby enabled causes the restore operation to fail.
+Before you restore a snapshot, note that restoring to a domain with
+[Multi-AZ with Standby](managedomains-multiaz.md#managedomains-za-standby "managedomains-multiaz.md#managedomains-za-standby") requires
+that restored indices have replica settings compatible with the standby configuration.
+If the snapshot contains indices with incompatible replica counts, the restore will fail
+unless you override the settings during restore. To avoid failures, ensure that the
+replica count for restored indices is compatible with your domain's standby
+configuration, or use the `index_settings` parameter to override replica
+settings during the restore operation.
 
 ###### Warning
 

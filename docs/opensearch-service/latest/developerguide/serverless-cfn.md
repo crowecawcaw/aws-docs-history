@@ -15,7 +15,7 @@ We recommend using VPC access to protect your collections. For more information,
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
-Description: 'Amazon OpenSearch Serverless template to create an IAM user, encryption policy, data access policy and collection'
+Description: 'Amazon OpenSearch Serverless template to create an IAM user, encryption policy, network policy, data access policy and collection'
 Resources:
   IAMUSer:
     Type: 'AWS::IAM::User'

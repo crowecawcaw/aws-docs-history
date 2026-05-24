@@ -360,7 +360,11 @@ values:
 - Batch size of 1,000
 
 We recommend tuning these parameters to accommodate your data. For large documents,
-consider a smaller batch size and/or longer timeout. For more information, see [Paginate results](https://docs.opensearch.org/docs/latest/search-plugins/searching-data/paginate/ "https://docs.opensearch.org/docs/latest/search-plugins/searching-data/paginate/").
+consider a smaller batch size and/or longer timeout. As a general guideline, documents
+larger than 100 MB should be considered "large" and may require a batch size of 100 or
+fewer. For documents between 10 MB and 100 MB, a batch size of 500 is recommended.
+Adjust the socket timeout to at least 60 seconds for documents exceeding 50 MB. For
+more information, see [Paginate results](https://docs.opensearch.org/docs/latest/search-plugins/searching-data/paginate/ "https://docs.opensearch.org/docs/latest/search-plugins/searching-data/paginate/").
 
 ```
 POST _reindex?pretty=true&scroll=10h&wait_for_completion=false

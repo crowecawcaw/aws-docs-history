@@ -2,6 +2,13 @@
 
 Now that you've created your data source, you can set it up in OpenSearch Dashboards.
 
+###### Note
+
+DirectQuery in Discover is only supported when logging into the OpenSearch
+UI application with IAM authentication. IAM Identity Center (IAM Identity Center) is not
+supported for DirectQuery. Since DirectQuery Security Lake can only be used from
+Discover, customers using IAM Identity Center cannot use DirectQuery Security Lake.
+
 This section walks you through various use cases with your data source in
 OpenSearch Dashboards before you query your data. To get started, you need to
 navigate to your data source in OpenSearch Dashboards. In the left-hand menu, under

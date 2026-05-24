@@ -5,6 +5,12 @@ On-Demand Instances. The instances themselves are identical; RIs are just a bill
 applied to On-Demand Instances in your account. For long-lived applications with predictable
 usage, RIs can provide considerable savings over time.
 
+###### Note
+
+Tagging Reserved Instances is not supported in Amazon OpenSearch Service. Unlike some other AWS
+services such as Amazon RDS, you cannot apply resource tags to OpenSearch Service Reserved
+Instances.
+
 OpenSearch Service RIs require one- or three-year terms and have three payment options that affect the
 discount rate:
 

@@ -6,8 +6,9 @@ double-check that you want to proceed. You can use these same steps to perform t
 pre-upgrade check without actually starting an upgrade.
 
 If the cluster has dedicated master nodes, OpenSearch upgrades complete without
-downtime. Otherwise, the cluster might be unresponsive for several seconds post-upgrade
-while it elects a master node.
+downtime. However, a brief sub-second interruption (approximately 300ms) may occur
+during master node re-election. Otherwise, the cluster might be unresponsive for
+several seconds post-upgrade while it elects a master node.
 
 ###### To upgrade a domain to a later version of OpenSearch or Elasticsearch
 

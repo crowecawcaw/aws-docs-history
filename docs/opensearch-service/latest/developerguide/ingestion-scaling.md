@@ -31,6 +31,13 @@ compute units (GiB of memory). When your pipeline is processing smaller workload
 not processing data at all, it can scale down to the minimum configured Ingestion
 OCUs.
 
+###### Note
+
+OpenSearch Ingestion pipelines process a maximum of 150 shards per Ingestion OCU. If
+your pipeline sources contain more shards than this limit allows for your configured
+OCU count, consider increasing the maximum OCU capacity or reducing the number of
+shards in your source.
+
 You can specify a minimum of 1 Ingestion OCU, a maximum of 96 Ingestion OCUs for
 stateless pipelines, and a maximum of 48 Ingestion OCUs for stateful pipelines. We
 recommend a minimum of at least 2 Ingestion OCUs for push-based sources. When persistent

@@ -296,13 +296,13 @@ extension:
 You can use a preconfigured Amazon RDS blueprint to create this pipeline. For more
 information, see [Working with blueprints](pipeline-blueprint.md "pipeline-blueprint.md").
 
-To use Amazon Aurora as a source, you need to configure VPC access for the pipeline.
-The VPC you choose should be the same VPC your Amazon Aurora source uses. Then choose
-one or more subnets and one or more VPC security groups. Note that the pipeline
-needs network access to a Aurora MySQL database, so you should also verify that your
-Aurora cluster is configured with a VPC security group that allows inbound traffic
-from the pipeline's VPC security group to the database port. For more information,
-see [Controlling access with security groups](../../../AmazonRDS/latest/AuroraUserGuide/Overview.RDSSecurityGroups.md "../../../AmazonRDS/latest/AuroraUserGuide/Overview.RDSSecurityGroups.md").
+To use RDS for PostgreSQL as a source, you need to configure VPC access for the
+pipeline. The VPC you choose should be the same VPC your Amazon RDS source uses. Then
+choose one or more subnets and one or more VPC security groups. Note that the
+pipeline needs network access to a RDS for PostgreSQL database, so you should also
+verify that your Amazon RDS instance is configured with a VPC security group that allows
+inbound traffic from the pipeline's VPC security group to the database port. For
+more information, see [Controlling access with security groups](../../../AmazonRDS/latest/AuroraUserGuide/Overview.RDSSecurityGroups.md "../../../AmazonRDS/latest/AuroraUserGuide/Overview.RDSSecurityGroups.md").
 
 If you're using the AWS Management Console to create your pipeline, you must also attach your
 pipeline to your VPC in order to use Amazon Aurora as a source. To do this, find the

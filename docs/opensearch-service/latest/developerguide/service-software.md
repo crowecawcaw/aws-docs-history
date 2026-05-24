@@ -42,9 +42,12 @@ and a console notification. You can choose to apply the update immediately or re
 for a more appropriate date and time. You can also schedule it during the domain's [off-peak window](off-peak.md "off-peak.md"). The majority of software updates are
 optional.
 
-Regardless of whether or not you schedule an update, if you make a change on the domain
-that causes a [blue/green
-deployment](managedomains-configuration-changes.md "managedomains-configuration-changes.md"), OpenSearch Service automatically updates your service software for you.
+Regardless of whether or not you schedule an update, if the
+`UseLatestServiceSoftwareForBlueGreen` setting is enabled and you make a change
+on the domain that causes a [blue/green
+deployment](managedomains-configuration-changes.md "managedomains-configuration-changes.md"), OpenSearch Service automatically updates your service software for you. If this
+setting is disabled, the service software is not automatically updated during a blue/green
+deployment.
 
 You can configure your domain to automatically apply optional updates during [off-peak hours](off-peak.md "off-peak.md"). When this option is turned on, OpenSearch Service waits at
 least 13 days from when an optional update is available and then schedules the update after
@@ -72,9 +75,12 @@ you don't make any domain changes that cause a blue/green deployment, OpenSearch
 update at any time beyond the specified deadline (typically 14 days from availability),
 within the domain's off-peak window.
 
-Regardless of when the update is scheduled for, if you make a change on the domain that
-causes a [blue/green deployment](managedomains-configuration-changes.md "managedomains-configuration-changes.md"),
-OpenSearch Service automatically updates your domain for you.
+Regardless of when the update is scheduled for, if the
+`UseLatestServiceSoftwareForBlueGreen` setting is enabled and you make a change
+on the domain that causes a [blue/green
+deployment](managedomains-configuration-changes.md "managedomains-configuration-changes.md"), OpenSearch Service automatically updates your domain for you. If this setting is
+disabled, the service software is not automatically updated during a blue/green
+deployment.
 
 ## Patch updates
 
@@ -100,6 +106,13 @@ Consider the following when deciding whether to update your domain:
 - Updates typically complete within minutes, but can also take several hours or even
   days if your system is experiencing heavy load. Consider updating your domain during the
   configured [off-peak window](off-peak.md "off-peak.md") to avoid long update periods.
+
+###### Note
+
+The `UseLatestServiceSoftwareForBlueGreen` setting is disabled by default.
+When enabled, any blue/green deployment on your domain automatically applies the latest
+available service software update along with the configuration change. To enable this
+setting, use the `UpdateDomainConfig` API or the AWS CLI.
 
 ## Starting a service software update
 
@@ -348,8 +361,8 @@ available:
   - The software update was applied during a blue/green deployment triggered by a
     configuration change. This includes cases where the
     `UseLatestServiceSoftwareForBlueGreen` setting is enabled, which
-    bundles the latest software update with configuration changes. You have the option
-    to disable this setting.
+    bundles the latest software update with configuration changes. This setting is
+    disabled by default.
   - The update was applied during a service-initiated maintenance operation on your
     domain, such as infrastructure recovery, automated remediation, or other internal
     operations performed by OpenSearch Service to maintain the health and availability of your
@@ -427,18 +440,18 @@ Response fields:
 The following table describes the possible response messages returned by the
 `RollbackServiceSoftwareUpdate` API.
 
-| Case                                  | Description                                                                                                                                                                                                                    |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Success                               | Rollback initiated successfully. The domain will be rolled back from<br>`current-version` to<br>`previous-version`.                                                                                                            |
-| Feature not enabled                   | Rollback is not available. Contact [Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") for assistance.                                                                        |
-| Previous software not available       | No previous software version available for rollback. Contact [Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") for assistance.                                              |
-| Previous software is same as current  | Rollback is not available. No previous software version available for<br>rollback. Contact [Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") for<br>assistance.             |
-| Domain is already rolled back         | Domain is already in a rolled-back state.                                                                                                                                                                                      |
-| Cluster is on pinned software version | Software override is currently applied to the domain.                                                                                                                                                                          |
-| Outside the time window               | Rollback is not available. The 15-day rollback window has expired. Contact<br>[Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") for<br>assistance.                          |
-| Mandatory service update auto-applied | Rollback is not available. The current version was applied through a<br>mandatory service update. Contact [Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") for assistance. |
-| Engine version upgrade                | Rollback is not available. Engine version upgrades are irreversible. Contact<br>[Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") for<br>assistance.                        |
-| Configuration changed after update    | Rollback is not available. Cluster configuration has changed since last<br>software update. Contact [Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home")<br>for assistance.    |
+| Case                                  | Description                                                                                                                                                                                                                     |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Success                               | Rollback initiated successfully. The domain will be rolled back from<br>`current-version` to<br>`previous-version`.                                                                                                             |
+| Feature not enabled                   | Rollback is not available. Contact [Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") for assistance.                                                                         |
+| Previous software not available       | No previous software version available for rollback. Contact [Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") for assistance.                                               |
+| Previous software is same as current  | Rollback is not available. No previous software version available for<br>rollback. Contact [Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") for<br>assistance.              |
+| Domain is already rolled back         | Domain is already in a rolled-back state.                                                                                                                                                                                       |
+| Rollback not available                | Rollback is not available. A service-side configuration is preventing<br>rollback for this domain. Contact [Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") for assistance. |
+| Outside the time window               | Rollback is not available. The 15-day rollback window has expired. Contact<br>[Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") for<br>assistance.                           |
+| Mandatory service update auto-applied | Rollback is not available. The current version was applied through a<br>mandatory service update. Contact [Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") for assistance.  |
+| Engine version upgrade                | Rollback is not available. Engine version upgrades are irreversible. Contact<br>[Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") for<br>assistance.                         |
+| Configuration changed after update    | Rollback is not available. Cluster configuration has changed since last<br>software update. Contact [Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home")<br>for assistance.     |
 
 **Example response:**
 

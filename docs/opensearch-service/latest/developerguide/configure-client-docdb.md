@@ -192,8 +192,8 @@ documentdb-pipeline:
       host: "https://`docdb-cluster-id`.`us-east-1`.docdb.amazonaws.com"
       port: 27017
       authentication:
-        username: ${aws_secrets:secret:`username`}
-        password: ${aws_secrets:secret:`password`}
+        username: ${{aws_secrets:secret:`username`}}
+        password: ${{aws_secrets:secret:`password`}}
       aws:
       s3_bucket: "`bucket-name`"
       s3_region: "`bucket-region`"

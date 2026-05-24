@@ -43,4 +43,4 @@ This request returns the contents of the Apache log pipeline blueprint:
 ```
 
 To get information about pipeline blueprints using the OpenSearch Ingestion API,
-use the the [ListPipelineBlueprints](../APIReference/API_osis_ListPipelineBlueprints.md "../APIReference/API_osis_ListPipelineBlueprints.md") and [GetPipelineBlueprint](../APIReference/API_osis_GetPipelineBlueprint.md "../APIReference/API_osis_GetPipelineBlueprint.md") operations.
+use the [ListPipelineBlueprints](../APIReference/API_osis_ListPipelineBlueprints.md "../APIReference/API_osis_ListPipelineBlueprints.md") and [GetPipelineBlueprint](../APIReference/API_osis_GetPipelineBlueprint.md "../APIReference/API_osis_GetPipelineBlueprint.md") operations.

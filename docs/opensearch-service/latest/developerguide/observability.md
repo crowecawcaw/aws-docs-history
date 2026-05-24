@@ -38,7 +38,7 @@ Amazon OpenSearch Service differentiates itself in three key ways:
   Each language is optimized for its signal type, giving you expressive querying
   without compromise.
 
-![](/images/opensearch-service/latest/developerguide/images/otel-sdk-service.png)
+![](images/otel-sdk-service.png)
 
 ###### Note
 

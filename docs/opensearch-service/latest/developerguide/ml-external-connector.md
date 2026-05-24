@@ -19,6 +19,14 @@ To create a connector for Cohere or any external provider with OpenSearch Servic
 an IAM role that grants OpenSearch Service access to AWS Secrets Manager, where you store your
 credentials. You must also store your credentials in Secrets Manager.
 
+Additionally, note the following network requirements:
+
+- The external provider must allow inbound traffic from public IP addresses,
+  as ML Connector requests do not originate from the OpenSearch VPC.
+- You must add your external provider URL to the cluster setting
+  `plugins.ml_commons.trusted_connector_endpoints_regex` to
+  allow the connector to communicate with the external endpoint.
+
 ### Create an IAM role
 
 Set up an IAM role to delegate Secrets Manager permissions to OpenSearch Service. You can also

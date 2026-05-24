@@ -96,10 +96,6 @@ Now that your user is configured, you can map your user to a role.
 9. Choose **Mapped users**, **Manage mapping**. Then
    add `new-user` to **Users** and choose
    **Map**.
-10. Return to the list of roles and choose
-    **opensearch_dashboards_user**. Choose **Mapped
-    users**, **Manage mapping**. Then add `new-user`
-    to **Users** and choose **Map**.
 
 ## Step 4: Test the permissions
 

@@ -202,6 +202,39 @@ and Amazon S3.
 For full pricing details, see [Amazon OpenSearch Service pricing](https://aws.amazon.com/elasticsearch-service/pricing/ "https://aws.amazon.com/elasticsearch-service/pricing/"). For information about
 charges incurred during configuration changes, see [Charges for configuration changes](managedomains-configuration-changes.md#managedomains-config-charges "managedomains-configuration-changes.md#managedomains-config-charges").
 
+## Understanding billing and usage reports
+
+Amazon OpenSearch Service usage appears in your AWS billing reports with specific usage type codes.
+Understanding these codes helps you analyze costs across deployment types.
+
+**Usage type codes**
+
+- `ESInstance` – Instance hours for managed OpenSearch Service domains.
+- `EBS` – EBS storage volumes attached to domain instances.
+- `ServerlessOCU` – OpenSearch Compute Units consumed by OpenSearch Serverless collections.
+- `IngestionOCU` – OpenSearch Compute Units consumed by OpenSearch Ingestion pipelines.
+
+**Region abbreviations in usage type codes**
+
+Usage type codes are prefixed with a region abbreviation. The following table shows
+common examples:
+
+| Abbreviation | Region                   |
+| ------------ | ------------------------ |
+| USE1         | US East (N. Virginia)    |
+| USE2         | US East (Ohio)           |
+| USW1         | US West (N. California)  |
+| USW2         | US West (Oregon)         |
+| EUW1         | Europe (Ireland)         |
+| EUC1         | Europe (Frankfurt)       |
+| APS1         | Asia Pacific (Singapore) |
+| APS2         | Asia Pacific (Sydney)    |
+| APN1         | Asia Pacific (Tokyo)     |
+
+For example, a usage type of `USE1-ESInstance:r6g.large.search` represents
+an `r6g.large.search` instance hour in US East (N. Virginia). For full
+details on billing, see [Amazon OpenSearch Service pricing](https://aws.amazon.com/elasticsearch-service/pricing/ "https://aws.amazon.com/elasticsearch-service/pricing/").
+
 ## Related services
 
 OpenSearch Service commonly is used with the following services:

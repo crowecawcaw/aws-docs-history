@@ -92,7 +92,14 @@ send requests to the collection. For more information, see [Using OpenSearch API
 ## IAM permissions required to configure data access policies
 
 Data access control for OpenSearch Serverless uses the following IAM permissions. You can specify
-IAM conditions to restrict users to specific access policy names.
+IAM conditions to restrict users to specific access policy names. Amazon OpenSearch Service also
+supports global IAM condition keys in resource-based access policies, including
+`aws:SecureTransport`. You can use `aws:SecureTransport` to
+require that requests to your domain be made over HTTPS. For example:
+
+```
+"Condition": {"Bool": {"aws:SecureTransport": "true"}}
+```
 
 - `aoss:CreateAccessPolicy` – Create an access policy.
 - `aoss:ListAccessPolicies` – List all access policies.

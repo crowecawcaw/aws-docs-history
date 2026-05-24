@@ -146,7 +146,7 @@ create CloudWatch alarms for both. For more information, see [Recommended CloudW
 - Certain instance types don't support encryption of data at rest. For details, see
   [Supported instance types in Amazon OpenSearch Service](supported-instance-types.md "supported-instance-types.md").
 - Domains that encrypt data at rest use a different repository name for their
-  automated snapshots. For more information, see [Restoring snapshots](managedomains-snapshot-restore.md "managedomains-snapshot-restore.md").
+  automated snapshots. For more information, see [Restoring data from snapshots](managedomains-snapshot-restore.md "managedomains-snapshot-restore.md").
 - While we highly recommend enabling encryption at rest, it can add additional CPU
   overhead and a few milliseconds of latency. Most use cases aren't sensitive to these
   differences, however, and the magnitude of impact depends on the configuration of your

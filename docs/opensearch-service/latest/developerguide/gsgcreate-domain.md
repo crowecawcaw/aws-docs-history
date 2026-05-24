@@ -29,7 +29,10 @@ create**. 6. For templates, choose **Dev/test**. 7. For the deployment option, c
 standby**. 8. For **Version**, choose the latest version. 9. For now, ignore the **Data nodes**, **Warm and cold
 data storage**, **Dedicated master nodes**,
 **Snapshot configuration**, and **Custom
-endpoint** sections. 10. For simplicity in this tutorial, use a public access domain. Under
+endpoint** sections. Note that the default data node instance type
+(`r7g.large.search`) incurs charges. If you want to minimize costs
+for this tutorial, consider selecting a smaller instance type such as
+`t3.small.search` under **Data nodes**. 10. For simplicity in this tutorial, use a public access domain. Under
 **Network**, choose **Public
 access**. 11. In the fine-grained access control settings, keep the **Enable
 fine-grained access control** check box selected. Select

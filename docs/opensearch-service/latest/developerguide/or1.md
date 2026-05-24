@@ -37,6 +37,9 @@ Consider the following limitations when using OpenSearch optimized instances for
   For more information about dedicated master nodes, see [Dedicated master nodes in Amazon OpenSearch Service](managedomains-dedicatedmasternodes.md "managedomains-dedicatedmasternodes.md").
 - The refresh interval for indexes on OpenSearch optimized instances must be 10 seconds or
   higher. The default refresh interval for OpenSearch optimized instances is 10 seconds.
+- Migrating to OpenSearch optimized (OR1) instances is irreversible. Clusters
+  using OR1 instances cannot be changed back to standard instance types. Plan your
+  migration carefully before proceeding.
 
 ## Tuning for better ingestion throughput
 

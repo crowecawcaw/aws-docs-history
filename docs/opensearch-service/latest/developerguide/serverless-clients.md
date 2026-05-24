@@ -232,6 +232,11 @@ name (`aoss` instead of `es`).
 ```
 // import OpenSearchClient to establish connection to OpenSearch Serverless collection
 import org.opensearch.client.opensearch.OpenSearchClient;
+import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
+import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
+
+// Configure credential provider
+AwsCredentialsProvider credentialsProvider = DefaultCredentialsProvider.create();
 
 SdkHttpClient httpClient = ApacheHttpClient.builder().build();
 // create an opensearch client and use the request-signer
@@ -289,6 +294,45 @@ Response response = client.generic()
                 + "    }"
                 + "}")
             .build());
+
+httpClient.close();
+```
+
+The following sample code establishes a secure connection and indexes a document into
+a collection.
+
+```
+import org.opensearch.client.opensearch.OpenSearchClient;
+import org.opensearch.client.opensearch.core.IndexRequest;
+import org.opensearch.client.opensearch.core.IndexResponse;
+import java.util.HashMap;
+import java.util.Map;
+
+SdkHttpClient httpClient = ApacheHttpClient.builder().build();
+
+OpenSearchClient client = new OpenSearchClient(
+    new AwsSdk2Transport(
+        httpClient,
+        "...us-west-2.aoss.amazonaws.com", // serverless collection endpoint
+        "aoss" // signing service name
+        Region.US_WEST_2, // signing service region
+        AwsSdk2TransportOptions.builder().build()
+    )
+);
+
+// index a document
+Map<String, Object> document = new HashMap<>();
+document.put("title", "The Green Mile");
+document.put("director", "Frank Darabont");
+document.put("year", "1999");
+
+IndexRequest<Map<String, Object>> indexRequest = IndexRequest.of(i -> i
+    .index("books-index")
+    .document(document)
+);
+
+IndexResponse indexResponse = client.index(indexRequest);
+System.out.println("Index response: " + indexResponse.result());
 
 httpClient.close();
 ```
