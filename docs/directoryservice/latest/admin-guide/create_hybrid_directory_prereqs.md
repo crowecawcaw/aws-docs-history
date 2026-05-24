@@ -39,7 +39,7 @@ Gather the following information about your self-managed AD:
 
 - Directory DNS name
 - Directory DNS IPs
-- Service account credentials with Administrator permissions to your
+- A service account credential that is a member of the Domain Admins group in your
   self-managed AD
 - AWS Secret ARN for storing your service account credentials (see [AWS Secret ARN for hybrid directory](#aws_secret_arn_for_hybrid "#aws_secret_arn_for_hybrid"))
 
