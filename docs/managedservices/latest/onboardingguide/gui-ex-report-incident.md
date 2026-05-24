@@ -32,9 +32,9 @@ open the incident **Create** page in the Support Center Console, auto-populated 
 
 ![Incidents page showing a list of resolved incidents with their creation dates, subjects, and IDs.](images/guiIncidentList2.png) 2. If you want to find an existing incident, select an incident status filter in the drop-down list.
 
-|                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Dropdown menu showing ticket status options including Open, Reopened, and Resolved. | • All incidents that<br>are not yet resolved.<br>• A new incident<br>that is not yet assigned.<br>• An incident that has<br>been assigned.<br>• An incident that<br>you reopened.<br>• An<br>assigned, complicated incident.<br>• Incidents<br>that require your feedback before the next step.<br>• Incidents<br>to which you have recently submitted information.<br>• An incident that<br>has concluded.<br>• All incidents in<br>the account. |
+|     |                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|     | • All incidents that<br>are not yet resolved.<br>• A new incident<br>that is not yet assigned.<br>• An incident that has<br>been assigned.<br>• An incident that<br>you reopened.<br>• An<br>assigned, complicated incident.<br>• Incidents<br>that require your feedback before the next step.<br>• Incidents<br>to which you have recently submitted information.<br>• An incident that<br>has concluded.<br>• All incidents in<br>the account. |
 
 3. Choose **Create**.
 
@@ -64,7 +64,7 @@ If you are going to test incident functionality, then add the no-action flag (AM
 
 To add an attachment, choose **Add Attachment**, browse to the attachment you want, and
 click **Open**. To delete the attachment, click the Delete icon:
-![Blue circular icon with a white X symbol in the center.](images/icon-delete-attachment.png)
+![](images/icon-delete-attachment.png)
 . 7. Choose **Submit**.
 
 A details page opens with information on the incident—such as **Type**, **Subject**, **Created**, **ID**, and **Status**—and a **Correspondence** area that includes the description of the request you created.
@@ -77,6 +77,6 @@ Click **Load More** if there is more correspondence than will fit on one page.
 
 Don't forget to rate the communication!
 
-![Correspondence section showing a test message from Amazon Web Services with rating stars.](images/guiSRcorrespond.png)
+![](images/guiSRcorrespond.png)
 
 Your incident displays on the **Incidents** list page.

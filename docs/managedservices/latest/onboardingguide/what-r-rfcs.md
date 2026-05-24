@@ -15,7 +15,7 @@ RFCs go through two key stages: Validation and Execution.
 
 1. In the Validation Stage, AMS reviews the RFC Request for completeness and
    correctness. AMS also evaluates the request for security in accordance with our
-   [security technical standards](rfc-security.md#rfc-security.title "rfc-security.md#rfc-security.title"). AMS validates that the requested change is valid and
+   [security technical standards](rfc-security.md "rfc-security.md"). AMS validates that the requested change is valid and
    executable.
 2. In the Execution Stage, AMS attempts the requested changes on your account.
    AMS handles both stages through an automated process, manual process, or a combination of both. The manual process is handled by the AMS Operations team. For more information, see [Automated and manual CTs](ug-automated-or-manual.md "ug-automated-or-manual.md").

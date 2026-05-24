@@ -11,12 +11,12 @@
 2. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 
-![CloudFormation Stacks interface showing no stacks and options to create or view guide.](images/image1.png) 3. Choose **Create Stack**. You see the following page.
+![](images/image1.png) 3. Choose **Create Stack**. You see the following page.
 
-![Create stack interface with options to specify template and upload template file.](images/image2.png) 4. Choose **Upload a template file**, upload the JSON or YAML file of the IAM role,
+![](images/image2.png) 4. Choose **Upload a template file**, upload the JSON or YAML file of the IAM role,
 and then choose **Next**. You see the following page.
 
-![Form for specifying stack details, including stack name and parameters fields.](images/image3.png) 5. Enter `ams-onboarding-role` into the **Stack name** section and
+![](images/image3.png) 5. Enter `ams-onboarding-role` into the **Stack name** section and
 continue scrolling down and selecting next until you reach this page.
 
-![Capabilities section with AWSIAM role requirement and checkbox for custom names.](images/image4.png) 6. Make sure the check box is selected and then select **Create Stack**. 7. Make sure the stack was created successfully.
+![](images/image4.png) 6. Make sure the check box is selected and then select **Create Stack**. 7. Make sure the stack was created successfully.
