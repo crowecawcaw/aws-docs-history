@@ -75,7 +75,8 @@ as a standalone service or with Amazon GameLift Servers game hosting.
 ## FlexMatch with Amazon GameLift Servers hosting
 
 FlexMatch offers the following additional features for use with games that you're hosting
-with Amazon GameLift Servers. This includes games with custom game servers or Amazon GameLift Servers Realtime.
+with Amazon GameLift Servers on managed EC2 fleets, managed container fleets, or Amazon GameLift Servers Anywhere fleets.
+This includes games with custom game servers or Amazon GameLift Servers Realtime.
 
 - **Game session placement.** When a match is
   successfully made, FlexMatch automatically requests a new game session placement

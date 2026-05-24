@@ -7,6 +7,8 @@ time and on a best-effort basis.
 This topic describes the structure of FlexMatch events and provides an example for each event
 type. For more information on matchmaking ticket statuses, see [MatchmakingTicket](../../../gamelift/latest/apireference/API_MatchmakingTicket.md "../../../gamelift/latest/apireference/API_MatchmakingTicket.md") in the _Amazon GameLift Servers API Reference_.
 
+All timestamps in FlexMatch events use ISO 8601 format.
+
 ###### Topics
 
 - [MatchmakingSearching](match-events-matchmakingsearching.md "match-events-matchmakingsearching.md")

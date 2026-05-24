@@ -49,6 +49,7 @@ Matchmaking has successfully completed and a game session has been created.
     "gameSessionInfo": {
       "gameSessionArn": "arn:aws:gamelift:us-west-2:123456789012:gamesession/836cf48d-bcb0-4a2c-bec1-9c456541352a",
       "ipAddress": "192.168.1.1",
+      "dnsName": "ec2-192-168-1-1.us-west-2.compute.amazonaws.com",
       "port": 10777,
       "playerGatewayStatus": "ENABLED",
       "computeName": "i-1234567890abcdef0",

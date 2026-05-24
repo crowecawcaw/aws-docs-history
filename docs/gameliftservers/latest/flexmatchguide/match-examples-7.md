@@ -64,7 +64,7 @@ The example rule set creates a match using the following instructions:
         "steps": [{
             "waitTimeSeconds": 12,
             "value": 200
-        }],
+        }]
     }, {
         "target": "teams[Marauders].minPlayers",
         "steps": [{
