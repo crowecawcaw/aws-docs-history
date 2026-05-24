@@ -44,7 +44,7 @@ amazon/java21-base | amazon/java17-base | amazon/java11-base |
 amazon/nodejs24.x-base | amazon/nodejs22.x-base | amazon/nodejs20.x-base | amazon/nodejs18.x-base
 | amazon/nodejs16.x-base | amazon/python3.14-base | amazon/python3.13-base |
 amazon/python3.12-base | amazon/python3.11-base | amazon/python3.10-base
-| amazon/python3.9-base | amazon/python3.8-base | amazon/ruby3.4-base |
+| amazon/python3.9-base | amazon/python3.8-base | amazon/ruby4.0-base | amazon/ruby3.4-base |
 amazon/ruby3.3-base | amazon/ruby3.2-base ]``
 
 The base image of your application. This option applies only when the package type
@@ -129,7 +129,7 @@ archive, and `Image` creates a container image.
 
 `--runtime, -r `[ dotnet8 | dotnet6 | java25 | java21 | java17 | java11 |
 nodejs24.x | nodejs22.x | nodejs20.x | nodejs18.x | nodejs16.x | python3.14 | python3.13 |
-python3.12 | python3.11 | python3.10 | python3.9 | python3.8 | ruby3.4 |
+python3.12 | python3.11 | python3.10 | python3.9 | python3.8 | ruby4.0 | ruby3.4 |
 ruby3.3 | ruby3.2 ]``
 
 The Lambda runtime of your application. This option applies only when the package

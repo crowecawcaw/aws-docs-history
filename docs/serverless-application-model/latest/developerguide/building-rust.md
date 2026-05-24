@@ -133,11 +133,12 @@ Which runtime would you like to use?
         ...
         18 - python3.11
         19 - python3.10
-        20 - ruby3.3
-        21 - ruby3.2
-        22 - rust (provided.al2)
-        23 - rust (provided.al2023)
-Runtime: `22`
+        20 - ruby4.0
+        21 - ruby3.3
+        22 - ruby3.2
+        23 - rust (provided.al2)
+        24 - rust (provided.al2023)
+Runtime: `23`
 
 Based on your selections, the only Package type available is Zip.
 We will proceed to selecting the Package type as Zip.

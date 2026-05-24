@@ -19,5 +19,9 @@ Consider using `AWS::LanguageExtensions` transform instead.
 
 For more information, refer to [Properties section of AWS::Serverless::Function](sam-resource-function.md#sam-resource-function-properties "sam-resource-function.md#sam-resource-function-properties").
 
+For details about how the AWS SAM CLI handles the `AWS::LanguageExtensions`
+transform, including using intrinsic functions in `CodeUri` and other packageable properties, see
+[CloudFormation language extensions support](sam-specification-language-extensions.md "sam-specification-language-extensions.md").
+
 For more information about intrinsic functions, see
 [Intrinsic Function Reference](../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.md "../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.md") in the _AWS CloudFormation User Guide_.

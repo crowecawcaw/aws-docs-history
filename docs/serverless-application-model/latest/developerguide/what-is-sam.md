@@ -65,4 +65,4 @@ layers. For more information, see [AWS SAM CLI Terraform support](terraform-su
 
 - For information on how AWS SAM works, see [How AWS SAM works](what-is-sam-overview.md "what-is-sam-overview.md").
 - To start using AWS SAM, see [Getting started with AWS SAM](serverless-getting-started.md "serverless-getting-started.md").
-- For an overview on how you can use AWS SAM to create a serverless application, see [How to use AWS SAM](chapter-using-sam.md#chapter-using-sam.title "chapter-using-sam.md#chapter-using-sam.title").
+- For an overview on how you can use AWS SAM to create a serverless application, see [How to use AWS SAM](chapter-using-sam.md "chapter-using-sam.md").

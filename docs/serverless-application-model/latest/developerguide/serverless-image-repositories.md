@@ -63,6 +63,7 @@ an earlier version of the AWS SAM CLI, we recommend that you upgrade.
 | Python 3.10             | [public.ecr.aws/sam/build-python3.10](https://gallery.ecr.aws/sam/build-python3.10 "https://gallery.ecr.aws/sam/build-python3.10")                |
 | Python 3.9              | [public.ecr.aws/sam/build-python3.9](https://gallery.ecr.aws/sam/build-python3.9 "https://gallery.ecr.aws/sam/build-python3.9")                   |
 | Python 3.8              | [public.ecr.aws/sam/build-python3.8](https://gallery.ecr.aws/sam/build-python3.8 "https://gallery.ecr.aws/sam/build-python3.8")                   |
+| Ruby 4.0                | [public.ecr.aws/sam/build-ruby4.0](https://gallery.ecr.aws/sam/build-ruby4.0 "https://gallery.ecr.aws/sam/build-ruby4.0")                         |
 | Ruby 3.4                | [public.ecr.aws/sam/build-ruby3.4](https://gallery.ecr.aws/sam/build-ruby3.4 "https://gallery.ecr.aws/sam/build-ruby3.4")                         |
 | Ruby 3.3                | [public.ecr.aws/sam/build-ruby3.3](https://gallery.ecr.aws/sam/build-ruby3.3 "https://gallery.ecr.aws/sam/build-ruby3.3")                         |
 | Ruby 3.2                | [public.ecr.aws/sam/build-ruby3.2](https://gallery.ecr.aws/sam/build-ruby3.2 "https://gallery.ecr.aws/sam/build-ruby3.2")                         |

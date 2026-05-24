@@ -32,3 +32,4 @@ your AWS Serverless Application Model (AWS SAM) template.
 - [Resource attributes supported by AWS SAM](sam-specification-resource-attributes.md "sam-specification-resource-attributes.md")
 - [API Gateway extensions for AWS SAM](sam-specification-api-gateway-extensions.md "sam-specification-api-gateway-extensions.md")
 - [Intrinsic functions for AWS SAM](sam-specification-intrinsic-functions.md "sam-specification-intrinsic-functions.md")
+- [CloudFormation language extensions support](sam-specification-language-extensions.md "sam-specification-language-extensions.md")
