@@ -15,7 +15,6 @@ action's service is available.
 | [DynamoDBv2](dynamodb-v2-rule-action.md "dynamodb-v2-rule-action.md")                       | Sends message data to multiple columns in a DynamoDB table.                                     | `dynamoDBv2`       |
 | [Elasticsearch](elasticsearch-rule-action.md "elasticsearch-rule-action.md")                | Sends a message to an OpenSearch endpoint.                                                      | `OpenSearch`       |
 | [HTTP](https-rule-action.md "https-rule-action.md")                                         | Posts a message to an HTTPS endpoint.                                                           | `http`             |
-| [AWS IoT Events](iotevents-rule-action.md "iotevents-rule-action.md")                       | Sends a message to an AWS IoT Events input.                                                     | `iotEvents`        |
 | [AWS IoT SiteWise](iotsitewise-rule-action.md "iotsitewise-rule-action.md")                 | Sends message data to AWS IoT SiteWise asset properties.                                        | `iotSiteWise`      |
 | [Firehose](kinesis-firehose-rule-action.md "kinesis-firehose-rule-action.md")               | Sends a message to a Firehose delivery stream.                                                  | `firehose`         |
 | [Kinesis Data Streams](kinesis-rule-action.md "kinesis-rule-action.md")                     | Sends a message to a Kinesis data stream.                                                       | `kinesis`          |

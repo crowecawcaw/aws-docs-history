@@ -558,6 +558,13 @@ as the car battery percentage in this case.
 }
 ```
 
+###### Note
+
+When the `UpdateCommandExecution` MQTT request fails, the service
+publishes an error response to the `/rejected` topic. For a complete
+list of error codes and troubleshooting guidance, see
+[AWS IoT Commands Troubleshooting](commands-troubleshooting.md "commands-troubleshooting.md").
+
 ## Retrieve a command execution
 
 After you run a command, you can retrieve information about the command execution from

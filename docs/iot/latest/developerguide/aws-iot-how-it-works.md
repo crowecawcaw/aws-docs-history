@@ -249,18 +249,6 @@ applications for live peer-to-peer media streaming, or real-time
 audio or video interactivity between camera IoT devices, web
 browsers, and mobile devices for a variety of use cases.
 
-**AWS IoT Events**
-
-[AWS IoT Events](../../../iotevents.md "../../../iotevents.md")
-detects and responds to events from IoT sensors and applications.
-Events are patterns of data that identify more complicated
-circumstances than expected, such as motion detectors using movement
-signals to activate lights and security cameras. AWS IoT Events
-continuously monitors data from multiple IoT sensors and
-applications, and integrates with other services, such as AWS IoT Core,
-IoT SiteWise, DynamoDB, and others to enable early detection and
-unique insights.
-
 **AWS IoT FleetWise**
 
 [AWS IoT FleetWise](../../../iot-fleetwise/latest/developerguide/what-is-iotfleetwise.md "../../../iot-fleetwise/latest/developerguide/what-is-iotfleetwise.md") is a managed service that you can use

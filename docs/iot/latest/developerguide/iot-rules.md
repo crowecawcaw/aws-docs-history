@@ -18,7 +18,6 @@ following tasks:
   machine learning (ML) model.
 - Send a message to a Salesforce IoT Input Stream.
 - Start process of a Step Functions state machine.
-- Send message data to an AWS IoT Events input.
 - Send message data to an asset property in AWS IoT SiteWise.
 - Send message data to a web application or service.
   Your rules can use MQTT messages that pass through the publish/subscribe protocol

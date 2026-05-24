@@ -29,7 +29,7 @@ Amazon EC2 User Guide.
   re-enabled, you must re-associate the elastic IPs with
   the new ENIs.
 
-- If an Apache Kafka Virtual Private Cloud (VPC) destination doesn't receive any traffic for 30
+- If an Apache Kafka Virtual Private Cloud (VPC) destination doesn't receive any traffic for 7
   days in a row, it will be disabled.
 - If any resources used by the Apache Kafka Virtual Private Cloud (VPC) destination change, the
   destination will be disabled and unable to be used.
