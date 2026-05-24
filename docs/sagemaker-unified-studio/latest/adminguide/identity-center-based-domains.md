@@ -14,6 +14,7 @@ application) where you can use all your data and configured tools for analytics 
 - [Create a Amazon SageMaker Unified Studio domain - quick setup](create-domain-sagemaker-unified-studio-quick.md "create-domain-sagemaker-unified-studio-quick.md")
 - [Create a Amazon SageMaker Unified Studio domain - manual setup](create-domain-sagemaker-unified-studio-manual.md "create-domain-sagemaker-unified-studio-manual.md")
 - [Create an Amazon DataZone domain](create-domain-datazone.md "create-domain-datazone.md")
+- [Domain administration for Identity Center-based domains](access-domain-admin-portal-idc.md "access-domain-admin-portal-idc.md")
 - [Edit domains](edit-domain.md "edit-domain.md")
 - [Delete domains](delete-domain.md "delete-domain.md")
 - [Upgrade Amazon DataZone domains to Amazon SageMaker unified domains](upgrade-domain.md "upgrade-domain.md")

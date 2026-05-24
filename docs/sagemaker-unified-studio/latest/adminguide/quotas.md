@@ -10,14 +10,16 @@ resource quotas in one project can affect all other projects within the account.
 
 Amazon SageMaker Unified Studio has the following quotas and limits.
 
-| Resource                                                                                                                                                              | Default |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| Maximum number of account pools for your Amazon SageMaker unified<br>domain                                                                                           | 100     |
-| Maximum number of JupyterLab instances                                                                                                                                | 4000    |
-| Maximum number of project members for your Amazon SageMaker unified<br>domain. The total number of project members is the product of project<br>members and projects. | 6000    |
-| Maximum number of spaces                                                                                                                                              | 6000    |
-| Maximum number of projects                                                                                                                                            | 500     |
-| Maximum number of Micro environments                                                                                                                                  | 200     |
+| Resource                                                                    | Default |
+| --------------------------------------------------------------------------- | ------- |
+| Maximum number of account pools for your Amazon SageMaker unified<br>domain | 100     |
+| Maximum number of JupyterLab instances                                      | 4000    |
+| Maximum number of user type project members per project                     | 100     |
+| Maximum number of group type project members per project                    | 20      |
+| Maximum number of spaces                                                    | 6000    |
+| Maximum number of projects                                                  | 1000    |
+| Maximum number of environments                                              | 1000    |
+| Maximum number of Micro environments                                        | 200     |
 
 ### Amazon DataZone quotas
 

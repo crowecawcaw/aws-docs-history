@@ -1,11 +1,25 @@
-# Update Individual Projects with VPC Configuration
+# Update VPC configuration and projects
 
-When you configure VPC networking for your domain with the "Update projects separately"
-option, existing projects are not automatically updated with the VPC configuration. You must
-manually update each project to apply the domain's VPC settings.
+Updating the VPC configuration for the domain will apply to new projects created after
+that point automatically. Projects that had been created when a VPC configuration did not
+exist will have the VPC configuration applied only after the project is updated.
 
-This approach allows you to control when projects are updated and ensures that active
-workloads are not disrupted during the VPC configuration process.
+## Update VPC
+
+![Update VPC configuration in Amazon SageMaker Unified Studio](images/vpc/VPC_Edit.png)
+
+To update a VPC, complete the following steps:
+
+1. From the domain administration page, choose **Settings** in the
+   left navigation pane.
+2. Under the **Actions** column, select
+   **Update**.
+3. Update the VPC, Subnets, or Security group.
+4. Choose **Update**.
+
+## Update project with VPC configuration
+
+To a project with VPC configuration settings, complete the following steps:
 
 1. From the domain administration page, choose **Projects** in the
    left navigation pane.

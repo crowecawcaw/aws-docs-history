@@ -32,7 +32,6 @@ provider. Additional details to setup an Identity Center based domain are availa
 - [Manage data encryption in IAM-based domains](manage-data-encryption-iam-based-domains.md "manage-data-encryption-iam-based-domains.md")
 - [Access the Domain Administration Page](access-domain-administration-page.md "access-domain-administration-page.md")
 - [Set up single sign-on for IAM-based domains](setting-up-sso-iam-based.md "setting-up-sso-iam-based.md")
-- [Configure VPC Networking for Amazon SageMaker Unified Studio Domain](vpc-networking-iam-based-domains.md "vpc-networking-iam-based-domains.md")
 - [Manage Projects from Domain Administration](manage-projects-domain-administration.md "manage-projects-domain-administration.md")
 - [Configure Domain Settings](configure-domain-settings-iam-based.md "configure-domain-settings-iam-based.md")
 - [Projects in IAM-based domains](projects-iam-based-domains.md "projects-iam-based-domains.md")
