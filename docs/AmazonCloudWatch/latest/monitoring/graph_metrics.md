@@ -13,3 +13,4 @@ how to graph metrics in CloudWatch.
 - [Zoom in on a line graph or stacked area graph](zoom-graph.md "zoom-graph.md")
 - [Modify the y-axis for a graph](switch_graph_axes.md "switch_graph_axes.md")
 - [Create an alarm from a metric on a graph](create_alarm_metric_graph.md "create_alarm_metric_graph.md")
+- [GetMetricWidgetImage: Metric Widget Structure and Syntax](CloudWatch-Metric-Widget-Structure.md "CloudWatch-Metric-Widget-Structure.md")

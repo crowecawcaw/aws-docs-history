@@ -17,8 +17,8 @@ different Regions or AWS services, like Amazon CloudFront.
 - Internet Monitor also publishes internet measurements to CloudWatch Logs and CloudWatch Metrics,
   to support using CloudWatch tools to explore data for city-networks that are specific to your monitored application traffic.
   Optionally, you can also publish internet measurements to Amazon S3.
-- Internet Monitor sends overall (global) health events to Amazon EventBridge so that you can set up notifications.
-  (Local health events are not published to EventBridge.) If an issue is caused by the AWS network,
+- Internet Monitor sends health events to Amazon EventBridge so that you can set up notifications.
+  Both overall (global) health events and local health events are published to EventBridge. If an issue is caused by the AWS network,
   you also automatically receive an AWS Health Dashboard notification with the steps that AWS is taking to mitigate the problem.
   **How to use Internet Monitor**
 

@@ -176,11 +176,11 @@ Once the workflow is configured, mention `@awsapm` in any GitHub issue to trigge
 
 `@awsapm, can you help me investigate availability issues in my appointment service?`
 
-![](images/github-availability-issue-investigate.png)
+![GitHub issue showing investigation results for appointment service availability problems with error analysis.](images/github-availability-issue-investigate.png)
 
 `@awsapm, can you post a fix?`
 
-![](images/github-availability-issue-pr-fix.png) 2. Enable instrumentation:
+![GitHub issue thread showing investigation results with summary of fix implementation and status updates.](images/github-availability-issue-pr-fix.png) 2. Enable instrumentation:
 
 `@awsapm, please enable Application Signals for lambda-audit-service and create a PR with the required changes.` 3. Query telemetry data:
 

@@ -14,7 +14,7 @@ Consider that,
 - An Alarm has actions configured for its ALARM state
 - An alarm mute rule is scheduled to be active from t1 to t5 that targets the Alarm
 
-![](images/alarm_mute_rules_scenario-1.png)
+![Timeline showing Alarm Mute Rule active from t1 to t5, creating Effective Mute Window that suppresses alarm from t2 to t4.](images/alarm_mute_rules_scenario-1.png)
 
 - At **t0** - Alarm is in OK state, mute rule status is SCHEDULED
 - At **t1** - Mute rule status becomes ACTIVE
