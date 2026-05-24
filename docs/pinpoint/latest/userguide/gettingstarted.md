@@ -8,29 +8,14 @@ supported by AWS End User Messaging.
 
 # Getting started with Amazon Pinpoint
 
-To start sending targeted messages in Amazon Pinpoint, you have to complete a few steps. For
-example, you have to add customer contact information into Amazon Pinpoint, and then create segments
-that target certain customers. Next, you have to create your messages and schedule your
-campaigns. Finally, after you send your campaigns, you can use the analytics dashboards that
-are built into Amazon Pinpoint to see how well the campaigns performed.
+###### Important
 
-This tutorial includes procedures for all steps involved in sending an email campaign to a
-segment of customers with the Amazon Pinpoint console.
+Amazon Pinpoint is no longer accepting new customers as of May 20, 2025. Existing customers
+can continue using Amazon Pinpoint until end of support on October 30, 2026. For migration
+guidance, see [Amazon Pinpoint end of support](migrate.md "migrate.md").
 
-###### Note
-
-As soon as you set up a new Amazon Pinpoint account, it is placed in a sandbox for email, SMS,
-and voice message channels until you request production access. In the sandbox, you can
-access all of Amazon Pinpoint's features, with the following restrictions on your email, SMS, and
-voice messages:
-
-- For email sandbox restrictions, see [Amazon Pinpoint email sandbox](channels-email-setup-production-access.md "channels-email-setup-production-access.md").
-- For SMS sandbox restrictions, see [SMS sandbox](../../../sms-voice/latest/userguide/sandbox.md#sandbox-sms "../../../sms-voice/latest/userguide/sandbox.md#sandbox-sms") in the _AWS End User Messaging SMS User Guide_.
-- For voice sandbox restrictions, see [Voice sandbox](../../../sms-voice/latest/userguide/sandbox.md#sandbox-voice "../../../sms-voice/latest/userguide/sandbox.md#sandbox-voice") in the _AWS End User Messaging SMS User Guide_.
-- There are no Amazon Pinpoint sandbox restrictions for push notifications.
-  To move to production access from the sandbox, create an AWS Support case for a
-  **Service limit increase** request for each channel you want to
-  move.
+The following tutorial content is preserved for existing customers who need to reference
+the original onboarding steps. New implementations should use [Amazon Connect Customer outbound campaigns](https://aws.amazon.com/connect/outbound/ "https://aws.amazon.com/connect/outbound/") or [AWS End User Messaging](https://aws.amazon.com/end-user-messaging/ "https://aws.amazon.com/end-user-messaging/") instead.
 
 ## About this tutorial
 

@@ -8,6 +8,12 @@ supported by AWS End User Messaging.
 
 # Create and configure a project
 
+###### Important
+
+Amazon Pinpoint is no longer accepting new customers as of May 20, 2025. Existing customers
+can continue using Amazon Pinpoint until end of support on October 30, 2026. For migration
+guidance, see [Amazon Pinpoint end of support](migrate.md "migrate.md").
+
 In Amazon Pinpoint, a _project_ is a collection of settings, customer
 information, segments, and campaigns. If you're new to Amazon Pinpoint, the first step you should take
 is to create a project.

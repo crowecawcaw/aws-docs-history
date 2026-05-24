@@ -40,10 +40,44 @@ functionality in SES by October 30, 2026.
 
 ###### Topics
 
+- [Choosing the right migration path](#choosing-migration-path "#choosing-migration-path")
 - [Migration steps: Transition features for Amazon Pinpoint engagement](#migration-steps "#migration-steps")
 - [Offboarding steps: Export data to 3rd party](#offboarding-steps "#offboarding-steps")
 - [Summary](#migration-summary "#migration-summary")
 - [Additional resources](#migration-additional-resources "#migration-additional-resources")
+
+## Choosing the right migration path
+
+Amazon Connect Customer outbound campaigns and AWS End User Messaging (EUM) with Amazon Simple Email Service serve
+different use cases. Before you begin migration, review your workload characteristics to
+determine the right destination.
+
+**Consider Amazon Connect Customer outbound campaigns if your workload
+includes:**
+
+- Personalized customer engagement across voice, SMS, email, and
+  WhatsApp
+- AI-driven contact strategies such as predictive dialing, progressive dialing,
+  or customer segmentation
+- Agent-assisted outbound calling with real-time routing
+- Coordinated inbound and outbound engagement in a single application
+
+**Consider AWS End User Messaging and Amazon Simple Email Service if your
+workload includes:**
+
+- Throughput requirements that exceed Amazon Connect Customer outbound campaign limits or
+  needs for guaranteed delivery SLAs (see [Service
+  quotas](../../../connect/latest/adminguide/amazon-connect-service-limits.md "../../../connect/latest/adminguide/amazon-connect-service-limits.md"))
+- No requirement for agent involvement or AI-driven decisioning
+- No requirement for customer segmentation, contact orchestration, or contact
+  limit management
+
+For workloads that combine both patterns, you can use Amazon Connect Customer for agent-assisted
+engagement and AWS End User Messaging with Amazon Simple Email Service for high-volume transactional
+delivery.
+
+For automated migration assistance, see [Pronetx
+migration tooling](https://aws.amazon.com/marketplace/pp/prodview-zzpgnprbmmnj6 "https://aws.amazon.com/marketplace/pp/prodview-zzpgnprbmmnj6") on AWS Marketplace.
 
 ## Migration steps: Transition features for Amazon Pinpoint engagement
 
@@ -227,11 +261,11 @@ creation guide](../../../connect/latest/adminguide/how-to-create-campaigns.md ".
 
 #### Migrate journeys
 
-Journeys are not yet fully supported in Connect Customer. We recommend you to evaluate
-your journey use cases if they can be solved using Connect Customer Campaigns. If yes,
-follow the similar approach as above using get-journey API to fetch its
-definition, and then recreate it in Connect Customer using the campaign creation
-guide.
+Journeys are now supported in Amazon Connect Customer outbound campaigns. You can recreate
+your Amazon Pinpoint journeys using Amazon Connect Customer campaign orchestration features. Use the
+[get-journey](../../../cli/latest/reference/pinpoint/get-journey.md "../../../cli/latest/reference/pinpoint/get-journey.md") API to fetch your journey definitions, and then
+recreate them using the [Amazon Connect Customer
+journey creation guide](../../../connect/latest/adminguide/create-a-multi-step-and-multi-channel-journey.md "../../../connect/latest/adminguide/create-a-multi-step-and-multi-channel-journey.md").
 
 ### Events collection and mobile analytics customers
 
@@ -255,10 +289,12 @@ As of now, the following Amazon Pinpoint engagement features are not available i
 Connect Customer.
 
 - In-App Messaging
-- PUSH (GCM, APNS, BAIDU, etc.) notifications in Campaigns
-- Custom Channel
-- Imported Segments
-- Journeys
+- PUSH (GCM, APNS, BAIDU, etc.) notifications are not natively
+  supported in campaigns. However, you can send push notifications
+  through journeys using a Lambda action with Amazon Connect Customer push
+  templates.
+- Custom Channel is available for journeys but not for
+  campaigns.
 
 ## Offboarding steps: Export data to 3rd party
 
