@@ -24,6 +24,10 @@ The Security Hub Usage page is not available in the AWS GovCloud (US) Region. Th
 
 The Security Hub Extended plan is not available in the AWS GovCloud (US) Region. The Extended plan enables customers to protect their enterprise estate across cloud, endpoint, network, identity, data, email, and browser through an integrated security operations experience centered in Security Hub. With the Extended plan, customers can subscribe to partner solutions with flexible pay-as-you-go pricing through AWS Marketplace, with no upfront investments or long-term commitments required.
 
+**Unused access findings**
+
+In the AWS GovCloud (US) Region the unused access analyzer runs in the us-gov-west-1 region. For more information about unused access findings see: [Understanding unused access findings in Security Hub](../../../securityhub/latest/userguide/unused-access-findings.md "../../../securityhub/latest/userguide/unused-access-findings.md") in the _AWS Security Hub User Guide_.
+
 **AWS Security Hub CSPM and Amazon Inspector**
 
 Security Hub leverages findings from AWS Security Hub CSPM (Cloud Security Posture Management) and Amazon Inspector. For information about the availability of these features in AWS GovCloud (US) Region, see the following:
