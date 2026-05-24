@@ -4,7 +4,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Grant Kubernetes workloads access to AWS using Kubernetes Service Accounts
 
-[Managing Service Accounts](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin "https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin")[IAM roles for service accounts](iam-roles-for-service-accounts.md "iam-roles-for-service-accounts.md")[Learn how EKS Pod Identity grants pods access to AWS services](pod-identities.md "pod-identities.md")
+A Kubernetes service account provides an identity for processes that run in a Pod. For more information see [Managing Service Accounts](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin "https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin") in the Kubernetes documentation. If your Pod needs access to AWS services, you can map the service account to an AWS Identity and Access Management identity to grant that access. For more information, see [IAM roles for service accounts](iam-roles-for-service-accounts.md "iam-roles-for-service-accounts.md") or [Learn how EKS Pod Identity grants pods access to AWS services](pod-identities.md "pod-identities.md").
 
 ## Service account tokens
 
@@ -68,7 +68,7 @@ EKS Pod Identity offers cluster administrators a simplified workflow for authent
 
 ### Comparing EKS Pod Identity and IRSA
 
-At a high level, both EKS Pod Identity and IRSA enables you to grant IAM permissions to applications running on Kubernetes clusters. But they are fundamentally different in how you configure them, the limits supported, and features enabled. Below, we compare some of the key facets of both solutions.
+At a high level, both EKS Pod Identity and IRSA enable you to grant IAM permissions to applications running on Kubernetes clusters. But they are fundamentally different in how you configure them, the limits supported, and features enabled. Below, we compare some of the key facets of both solutions.
 
 ###### Note
 

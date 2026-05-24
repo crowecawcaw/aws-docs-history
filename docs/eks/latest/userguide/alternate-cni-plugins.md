@@ -21,7 +21,7 @@ Amazon EKS aims to give you a wide selection of options to cover all use cases.
 
 ## Alternate compatible network policy plugins
 
-[Calico](https://www.tigera.io/project-calico "https://www.tigera.io/project-calico") is a widely adopted solution for container networking and security. Using Calico on EKS provides a fully compliant network policy enforcement for your EKS clusters. Additionally, you can opt to use Calico’s networking, which conserve IP addresses from your underlying VPC. [Calico Cloud](https://www.tigera.io/tigera-products/calico-cloud/ "https://www.tigera.io/tigera-products/calico-cloud/") enhances the features of Calico Open Source, providing advanced security and observability capabilities.
+[Calico](https://www.tigera.io/project-calico "https://www.tigera.io/project-calico") is a widely adopted solution for container networking and security. Using Calico on EKS provides a fully compliant network policy enforcement for your EKS clusters. Additionally, you can opt to use Calico’s networking, which conserves IP addresses from your underlying VPC. [Calico Cloud](https://www.tigera.io/tigera-products/calico-cloud/ "https://www.tigera.io/tigera-products/calico-cloud/") enhances the features of Calico Open Source, providing advanced security and observability capabilities.
 
 Traffic flow to and from Pods with associated security groups are not subjected to Calico network policy enforcement and are limited to Amazon VPC security group enforcement only.
 

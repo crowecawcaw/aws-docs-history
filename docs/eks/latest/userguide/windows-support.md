@@ -11,7 +11,7 @@ Learn how to enable and manage Windows support for your Amazon EKS cluster to ru
 Before deploying Windows nodes, be aware of the following considerations.
 
 - EKS Auto Mode does not support Windows nodes
-- You can use host networking on Windows nodes using `HostProcess` Pods. For more information, see [Create a Windows HostProcessPod](https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/ "https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/") in the Kubernetes documentation.
+- You can use host networking on Windows nodes using `HostProcess` Pods. For more information, see [Create a Windows HostProcess Pod](https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/ "https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/") in the Kubernetes documentation.
 - Amazon EKS clusters must contain one or more Linux or Fargate nodes to run core system Pods that only run on Linux, such as CoreDNS.
 - The `kubelet` and `kube-proxy` event logs are redirected to the `EKS Windows` Event Log and are set to a 200 MB limit.
 - You can’t use [Assign security groups to individual pods](security-groups-for-pods.md "security-groups-for-pods.md") with Pods running on Windows nodes.

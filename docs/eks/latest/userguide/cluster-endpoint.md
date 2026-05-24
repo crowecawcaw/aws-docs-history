@@ -29,11 +29,11 @@ EKS cluster public/private endpoint:
 
 ###### Note
 
-The dual-stack cluster endpoint was introduced in October 2024. For more information about `IPv6` clusters, see [Learn about IPv6 addresses to clusters, Pods, and services](cni-ipv6.md "cni-ipv6.md"). Clusters made before October 2024, use following endpoint format instead.
+The dual-stack cluster endpoint was introduced in October 2024. For more information about `IPv6` clusters, see [Learn about IPv6 addresses to clusters, Pods, and services](cni-ipv6.md "cni-ipv6.md"). Clusters made before October 2024 use the following endpoint format instead.
 
 ## `IPv4` cluster endpoint format
 
-EKS creates a unique endpoint in the following format for each cluster that select `IPv4` in the IP family (ipFamily) setting of the cluster:
+EKS creates a unique endpoint in the following format for each cluster that selects `IPv4` in the IP family (ipFamily) setting of the cluster:
 
 ###### Example
 

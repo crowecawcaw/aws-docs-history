@@ -41,7 +41,7 @@ kubectl get pods --namespace kubecost
 http://localhost:9090
 ```
 
-You see the Kubecost Overview page in your browser. It might take 5–10 minutes (or more) for Kubecost to gather metrics, depends on your cluster size. You can see your Amazon EKS spend, including cumulative cluster costs, associated Kubernetes asset costs, and monthly aggregated spend. 3. To track costs at a cluster level, tag your Amazon EKS resources for billing. For more information, see [Tagging your resources for billing](eks-using-tags.md#tag-resources-for-billing "eks-using-tags.md#tag-resources-for-billing").
+You see the Kubecost Overview page in your browser. It might take 5–10 minutes (or more) for Kubecost to gather metrics, depending on your cluster size. You can see your Amazon EKS spend, including cumulative cluster costs, associated Kubernetes asset costs, and monthly aggregated spend. 3. To track costs at a cluster level, tag your Amazon EKS resources for billing. For more information, see [Tagging your resources for billing](eks-using-tags.md#tag-resources-for-billing "eks-using-tags.md#tag-resources-for-billing").
 
     * **Cost allocation** – View monthly Amazon EKS costs and cumulative costs for each of your namespaces and other dimensions over the past seven days. This is helpful for understanding which parts of your application are contributing to Amazon EKS spend.
     * **Assets** – View the costs of the AWS infrastructure assets that are associated with your Amazon EKS resources.

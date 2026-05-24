@@ -71,7 +71,7 @@ To run the steps in this section, the IAM principal using the AWS console or AWS
 
 ### AWS CloudFormation
 
-Install and configure the AWS CLI, if you haven’t already. See [Installing or updating to the last version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
+Install and configure the AWS CLI, if you haven’t already. See [Installing or updating to the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
 
 **Steps for AWS SSM hybrid activations**
 
@@ -150,7 +150,7 @@ aws cloudformation deploy \
 
 ### AWS CLI
 
-Install and configure the AWS CLI, if you haven’t already. See [Installing or updating to the last version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
+Install and configure the AWS CLI, if you haven’t already. See [Installing or updating to the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
 
 **Create EKS Describe Cluster Policy**
 

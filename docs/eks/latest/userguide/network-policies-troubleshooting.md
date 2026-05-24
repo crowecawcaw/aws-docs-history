@@ -2,7 +2,7 @@
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
-# Troubleshooting Kubernetes network policies For Amazon EKS
+# Troubleshooting Kubernetes network policies for Amazon EKS
 
 This is the troubleshooting guide for network policy feature of the Amazon VPC CNI.
 
@@ -193,7 +193,7 @@ rules:
 
 ## Network policy logs
 
-Each decision by the VPC CNI whether connections are allowed or denied by a network policies is logged in _flow logs_. The network policy logs on each node include the flow logs for every pod that has a network policy. Network policy logs are stored at `/var/log/aws-routed-eni/network-policy-agent.log`. The following example is from a `network-policy-agent.log` file:
+Each decision by the VPC CNI whether connections are allowed or denied by a network policy is logged in _flow logs_. The network policy logs on each node include the flow logs for every pod that has a network policy. Network policy logs are stored at `/var/log/aws-routed-eni/network-policy-agent.log`. The following example is from a `network-policy-agent.log` file:
 
 ```
 {"level":"info","timestamp":"2023-05-30T16:05:32.573Z","logger":"ebpf-client","msg":"Flow Info: ","Src
@@ -283,7 +283,7 @@ For EKS clusters, the policy logs will be located under `/aws/eks/`cluster-name`
 
 #### Send network policy logs with Amazon VPC CNI plugin for Kubernetes
 
-If you enable network policy, a second container is add to the `aws-node` pods for a _node agent_. This node agent can send the network policy logs to CloudWatch Logs.
+If you enable network policy, a second container is added to the `aws-node` pods for a _node agent_. This node agent can send the network policy logs to CloudWatch Logs.
 
 ###### Note
 
@@ -425,10 +425,10 @@ The following sections describe known issues with the Amazon VPC CNI network pol
 
 **Issue**: Network policy feature is enabled in the Amazon VPC CNI plugin, but network policies are not being applied correctly.
 
-If you make a network policy `kind: NetworkPolicy` and it doesn’t effect the pod, check that the policyendpoint object was created in the same namespace as the pod.
+If you make a network policy `kind: NetworkPolicy` and it doesn’t affect the pod, check that the policyendpoint object was created in the same namespace as the pod.
 If there aren’t `policyendpoint` objects in the namespaces, the network policy controller (part of the EKS cluster) was unable to create network policy rules for the network policy agent (part of the VPC CNI) to apply.
 
-**Solution**: The solution is to fix the permissions of the VPC CNI (`ClusterRole` : `aws-node`) and the network policy controller (`ClusterRole` : `eks:network-policy-controller`) and to allow these actions in any policy enforcement tool such as Kyverno. Ensure that Kyverno policies are not blocking the creation of `policyendpoint` objects. See previous section for the permissions necessary permissions in [New policyendpoints CRD and permissions](#network-policies-troubleshooting-permissions "#network-policies-troubleshooting-permissions").
+**Solution**: The solution is to fix the permissions of the VPC CNI (`ClusterRole` : `aws-node`) and the network policy controller (`ClusterRole` : `eks:network-policy-controller`) and to allow these actions in any policy enforcement tool such as Kyverno. Ensure that Kyverno policies are not blocking the creation of `policyendpoint` objects. See previous section for the necessary permissions in [New policyendpoints CRD and permissions](#network-policies-troubleshooting-permissions "#network-policies-troubleshooting-permissions").
 
 ### Pods don’t return to default deny state after policy deletion in strict mode
 

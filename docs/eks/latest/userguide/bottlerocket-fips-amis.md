@@ -13,7 +13,7 @@ Using Bottlerocket FIPS AMIs makes your worker nodes "FIPS ready" but not automa
 ## Considerations
 
 - If your cluster uses isolated subnets, the Amazon ECR FIPS endpoint may not be accessible. This can cause the node bootstrap to fail. Make sure that your network configuration allows access to the necessary FIPS endpoints. For more information, see [Access a resource through a resource VPC endpoint](../../../vpc/latest/privatelink/use-resource-endpoint.md "../../../vpc/latest/privatelink/use-resource-endpoint.md") in the _AWS PrivateLink Guide_.
-- If your cluster uses a subnet with [PrivateLink](vpc-interface-endpoints.md "vpc-interface-endpoints.md"), image pulls will fail because Amazon ECR FIPS endpoints are not available through PrivateLink.
+- If your cluster uses a subnet with [PrivateLink](vpc-interface-endpoints.md "vpc-interface-endpoints.md"), make sure that you have configured the Amazon ECR FIPS PrivateLink endpoints. Amazon ECR supports FIPS endpoints through PrivateLink. For more information, see [Amazon ECR interface VPC endpoints](../../../AmazonECR/latest/userguide/vpc-endpoints.md "../../../AmazonECR/latest/userguide/vpc-endpoints.md").
 
 ## Create a managed node group with a Bottlerocket FIPS AMI
 

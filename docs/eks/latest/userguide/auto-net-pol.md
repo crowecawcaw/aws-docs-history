@@ -112,10 +112,10 @@ kubectl get nodeclass network-policy-config
 ![Illustration of workflow when a DNS-based policy is applied in EKS Auto](images/apply-dns-policy-2.png)
 
 1. The platform team applies a DNS-based policy to the EKS cluster.
-2. The Network Policy Controller is responsible for monitoring the creation of policies within the cluster and then reconciling policy endpoints. In this use case, the network policy controller instructs the node agent to filter DNS requests based on the allow-listed domains in the created policy. Domain names are allow-listed using the FQDN or a domain names that matches a pattern defined in the Kubernetes resource configuration.
+2. The Network Policy Controller is responsible for monitoring the creation of policies within the cluster and then reconciling policy endpoints. In this use case, the network policy controller instructs the node agent to filter DNS requests based on the allow-listed domains in the created policy. Domain names are allow-listed using the FQDN or a domain name that matches a pattern defined in the Kubernetes resource configuration.
 3. Workload A attempts to resolve the IP for a cluster-external endpoint. The DNS request first goes through a proxy that filters such requests based on the allow list applied through the network policy.
 4. Once the DNS request goes through the DNS filter allow list, it is proxied to CoreDNS,
-5. CoreDNS in turn sends the request to the External DNS Resolver (Amazon Route 53 Resolver) to get the list of IP address behind the domain name.
+5. CoreDNS in turn sends the request to the External DNS Resolver (Amazon Route 53 Resolver) to get the list of IP addresses behind the domain name.
 6. The resolved IPs with TTL are returned in the response to the DNS request. These IPs are then written in an eBPF map which is used in the next step for IP layer enforcement.
 7. The eBPF probes attached to the Pod veth interface will then filter egress traffic from Workload A to the cluster-external endpoint based on the rules in place. This ensures pods can only send cluster-external traffic to the IPs of allow listed domains. The validity of these IPs is based on the TTL retrieved from the External DNS Resolver (Amazon Route 53 Resolver).
 
@@ -162,7 +162,7 @@ spec:
       port: 8080
 ```
 
-At the Kubernetes network level, this would allow egress from any pods in the "galaxy" namespace labelled with `role: backend` to connect to the domain name **myapp.mydomain.com** on TCP port 8080. In addition, you would need to setup the network connectivity for egress traffic from your VPC to your corporate data center.
+At the Kubernetes network level, this would allow egress from any pods in the "galaxy" namespace labelled with `role: backend` to connect to the domain name **myapp.mydomain.com** on TCP port 8080. In addition, you would need to set up the network connectivity for egress traffic from your VPC to your corporate data center.
 
 ![Illustration of workload in EKS Auto communicating with applications on prem](images/eks-auto-to-on-prem.png)
 

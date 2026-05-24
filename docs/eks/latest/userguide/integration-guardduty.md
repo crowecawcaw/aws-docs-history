@@ -4,7 +4,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Detect threats with Amazon GuardDuty
 
-Amazon GuardDuty is a threat detection service that helps protect your accounts, containers, workloads, and the data with your AWS environment. Using machine learning (ML) models, and anomaly and threat detection capabilities, GuardDuty continuously monitors different log sources and runtime activity to identify and prioritize potential security risks and malicious activities in your environment.
+Amazon GuardDuty is a threat detection service that helps protect your accounts, containers, workloads, and the data within your AWS environment. Using machine learning (ML) models, and anomaly and threat detection capabilities, GuardDuty continuously monitors different log sources and runtime activity to identify and prioritize potential security risks and malicious activities in your environment.
 
 Among other features, GuardDuty offers the following two features that detect potential threats to your EKS clusters: _EKS Protection_ and _Runtime Monitoring_.
 
@@ -26,6 +26,6 @@ This feature monitors and analyzes operating system-level, networking, and file 
 
 When you enable _Runtime Monitoring_ and install the GuardDuty agent in your Amazon EKS clusters, GuardDuty starts monitoring the runtime events associated with this cluster. Note that the GuardDuty agent and _Runtime Monitoring_ aren’t available for Amazon EKS Hybrid Nodes, so _Runtime Monitoring_ isn’t available for runtime events that occur on your hybrid nodes. If GuardDuty identifies a potential threat to your cluster, it generates an associated _Runtime Monitoring finding_. For example, a threat can potentially start by compromising a single container that runs a vulnerable web application. This web application might have access permissions to the underlying containers and workloads. In this scenario, incorrectly configured credentials could potentially lead to a broader access to the account, and the data stored within it.
 
-To configure _Runtime Monitoring_, you install the GuardDuty agent to your cluster as an _Amazon EKS add-on_. For more information the add-on, see [AWS add-ons](workloads-add-ons-available-eks.md "workloads-add-ons-available-eks.md").
+To configure _Runtime Monitoring_, you install the GuardDuty agent to your cluster as an _Amazon EKS add-on_. For more information about the add-on, see [AWS add-ons](workloads-add-ons-available-eks.md "workloads-add-ons-available-eks.md").
 
 For more information, see [Runtime Monitoring](../../../guardduty/latest/ug/runtime-monitoring.md "../../../guardduty/latest/ug/runtime-monitoring.md") in the Amazon GuardDuty User Guide.

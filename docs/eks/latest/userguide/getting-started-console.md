@@ -19,7 +19,7 @@ The procedures in this guide give you complete visibility into how each resource
 Before starting this tutorial, you must install and configure the following tools and resources that you need to create and manage an Amazon EKS cluster.
 
 - **AWS CLI**
-  – A command line tool for working with AWS services, including Amazon EKS. For more information, see [Installing](../../../cli/latest/userguide/cli-chap-install.md "../../../cli/latest/userguide/cli-chap-install.md") in the AWS Command Line Interface User Guide. After installing the AWS CLI, we recommend that you also configure it. For more information, see [Quick configuration with aws configure](../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-config "../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-config") in the AWS Command Line Interface User Guide. Note that AWS CLI v2 is required to use the **update-kubeconfig** option shown in this page.
+  – A command line tool for working with AWS services, including Amazon EKS. For more information, see [Installing](../../../cli/latest/userguide/cli-chap-install.md "../../../cli/latest/userguide/cli-chap-install.md") in the AWS Command Line Interface User Guide. After installing the AWS CLI, we recommend that you also configure it. For more information, see [Quick configuration with aws configure](../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-config "../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-config") in the AWS Command Line Interface User Guide. Note that AWS CLI v2 is required to use the **update-kubeconfig** option shown on this page.
 - **`kubectl`**
   – A command line tool for working with Kubernetes clusters. For more information, see [Set up kubectl and eksctl](install-kubectl.md "install-kubectl.md").
 - **Required IAM permissions**
@@ -219,7 +219,7 @@ To learn more about different ways to configure nodes in EKS, see [Manage comput
    8. Choose **Add Node Group**.
 
 2. On the **Configure Node Group** page, do the following:
-   1. For **Name**, enter a unique name for your managed node group, such as `my-nodegroup`. The node group name can’t be longer than 63 characters. It must start with letter or digit, but can also include hyphens and underscores for the remaining characters.
+   1. For **Name**, enter a unique name for your managed node group, such as `my-nodegroup`. The node group name can’t be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
    2. For **Node IAM role name**, choose `myAmazonEKSNodeRole` role that you created in a previous step. We recommend that each node group use its own unique IAM role.
    3. Choose **Next**.
 
@@ -243,7 +243,7 @@ You can view your nodes and Kubernetes workloads.
 
 After you’ve finished with the cluster and nodes that you created for this tutorial, you should delete the resources that you created. If you want to do more with this cluster before you delete the resources, see [Next steps](#gs-console-next-steps "#gs-console-next-steps").
 
-1. Delete any node groups profiles that you created.
+1. Delete any node groups or Fargate profiles that you created.
    1. Open the Amazon EKS console at [https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
    2. In the left navigation pane, choose **Clusters**. In the list of clusters, choose `my-cluster`.
    3. Choose the **Compute** tab.

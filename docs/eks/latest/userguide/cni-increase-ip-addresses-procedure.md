@@ -51,7 +51,7 @@ If you’re deploying a self-managed node group or a managed node group with a l
 
 ###### Important
 
-Managed node groups enforces a maximum number on the value of `maxPods`. For instances with less than 30 vCPUs the maximum number is 110 and for all other instances the maximum number is 250. This maximum number is applied whether prefix delegation is enabled or not. 3. If you’re using a cluster configured for `IPv6`, skip to the next step.
+Managed node groups enforce a maximum number on the value of `maxPods`. For instances with less than 30 vCPUs the maximum number is 110 and for all other instances the maximum number is 250. This maximum number is applied whether prefix delegation is enabled or not. 3. If you’re using a cluster configured for `IPv6`, skip to the next step.
 
 Specify the parameters in one of the following options. To determine which option is right for you and what value to provide for it, see [WARM_PREFIX_TARGET, WARM_IP_TARGET, and MINIMUM_IP_TARGET](https://github.com/aws/amazon-vpc-cni-k8s/blob/master/docs/prefix-and-ip-target.md "https://github.com/aws/amazon-vpc-cni-k8s/blob/master/docs/prefix-and-ip-target.md") on GitHub.
 

@@ -16,7 +16,7 @@ The Kubernetes [Vertical Pod Autoscaler](https://github.com/kubernetes/autoscale
 In this section, you deploy the Vertical Pod Autoscaler to your cluster.
 
 1. Open a terminal window and navigate to a directory where you would like to download the Vertical Pod Autoscaler source code.
-2. Clone the [kubernetes/autoscaler](https://github.com/kubernetes/autoscaler "https://github.com/kubernetes/autoscaler")GitHub repository.
+2. Clone the [kubernetes/autoscaler](https://github.com/kubernetes/autoscaler "https://github.com/kubernetes/autoscaler") GitHub repository.
 
 ```
 git clone https://github.com/kubernetes/autoscaler.git
@@ -128,7 +128,7 @@ Containers:
 [...]
 ```
 
-You can see that the original Pod reserves 100 millicpu of CPU and 50 mebibytes of memory. For this example application, 100 millicpu is less than the Pod needs to run, so it is CPU-constrained. It also reserves much less memory than it needs. The Vertical Pod Autoscaler `vpa-recommender` deployment analyzes the hamster Pods to see if the CPU and memory requirements are appropriate. If adjustments are needed, the `vpa-updater` relaunches the Pods with updated values. 4. Wait for the `vpa-updater` to launch a new hamster Pods. This should take a minute or two. You can monitor the Pods with the following command.
+You can see that the original Pod reserves 100 millicpu of CPU and 50 mebibytes of memory. For this example application, 100 millicpu is less than the Pod needs to run, so it is CPU-constrained. It also reserves much less memory than it needs. The Vertical Pod Autoscaler `vpa-recommender` deployment analyzes the hamster Pods to see if the CPU and memory requirements are appropriate. If adjustments are needed, the `vpa-updater` relaunches the Pods with updated values. 4. Wait for the `vpa-updater` to launch a new hamster Pod. This should take a minute or two. You can monitor the Pods with the following command.
 
 ###### Note
 
@@ -138,7 +138,7 @@ If you are not sure that a new Pod has launched, compare the Pod names with your
 kubectl get --watch Pods -l app=hamster
 ```
 
-5. When a new hamster Pods is started, describe it and view the updated CPU and memory reservations.
+5. When a new hamster Pod is started, describe it and view the updated CPU and memory reservations.
 
 ```
 kubectl describe pod hamster-c7d89d6db-jxgfv

@@ -62,7 +62,7 @@ The Cluster IAM role of an EKS Cluster cannot be changed after the cluster is cr
 4. From the **EKS Node Pool** dropdown, select the default node pools you want to create.
    - Learn more about Node Pools in EKS Auto Mode. For more information, see [Create a Node Pool for EKS Auto Mode](create-node-pool.md "create-node-pool.md").
 
-5. If you have previously created an EKS Auto Mode Node IAM role this AWS account, select it in the **Node IAM Role** dropdown. If you have not created this role before, select **Create recommended Role** and follow the steps.
+5. If you have previously created an EKS Auto Mode Node IAM role in this AWS account, select it in the **Node IAM Role** dropdown. If you have not created this role before, select **Create recommended Role** and follow the steps.
 
 ## AWS CLI
 
@@ -115,5 +115,5 @@ For more information, see [Update an Amazon EKS add-on](updating-an-add-on.md "u
 
 ## Next Steps
 
-- To migrate Manage Node Group workloads, see [Migrate from EKS Managed Node Groups to EKS Auto Mode](auto-migrate-mng.md "auto-migrate-mng.md").
+- To migrate Managed Node Group workloads, see [Migrate from EKS Managed Node Groups to EKS Auto Mode](auto-migrate-mng.md "auto-migrate-mng.md").
 - To migrate from Self-Managed Karpenter, see [Migrate from Karpenter to EKS Auto Mode using kubectl](auto-migrate-karpenter.md "auto-migrate-karpenter.md").

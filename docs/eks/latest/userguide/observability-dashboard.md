@@ -39,7 +39,7 @@ The following table describes available metrics.
 | APIServer Total Requests 5XX         | The count of API server requests per minute that had HTTP 5XX response codes (server-side errors). |
 | APIServer Total Requests 429         | The count of API server requests per minute that had HTTP 429 response codes (too many requests).  |
 | Storage size                         | The storage database (`etcd`) size.                                                                |
-| Scheduler attempts                   | The number of attempts to schedule pods by results "unschedulable" "error", and "scheduled".       |
+| Scheduler attempts                   | The number of attempts to schedule pods by results "unschedulable", "error", and "scheduled".      |
 | Pending pods                         | The number of pending pods by queue type of "active", "backoff", "unschedulable", and "gated".     |
 | API server request latency           | The latency for API server requests.                                                               |
 | API server current inflight requests | The current in-flight requests for the API server.                                                 |
@@ -51,7 +51,7 @@ The following table describes available metrics.
 
 The **CloudWatch Log Insights** section shows various lists based on the control plane audit logs. The Amazon EKS control plane logs need to be turned on to use this feature, which you can do from the **View control plane logs in CloudWatch** section.
 
-When enough time has passed to collect data, you can **Run all queries** or choose **Run query** for a single list at a time. An additional cost will incur from CloudWatch whenever you run queries. Choose the time period of results you want to view at the top of the section. If you want more advanced control for any query, you can choose **View in CloudWatch**. This will allow you to update a query in CloudWatch to fit your needs.
+When enough time has passed to collect data, you can **Run all queries** or choose **Run query** for a single list at a time. Additional charges will be incurred from CloudWatch whenever you run queries. Choose the time period of results you want to view at the top of the section. If you want more advanced control for any query, you can choose **View in CloudWatch**. This will allow you to update a query in CloudWatch to fit your needs.
 
 For more information, see [Analyzing log data with CloudWatch Logs Insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md") in the Amazon CloudWatch Logs User Guide.
 

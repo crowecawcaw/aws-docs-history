@@ -46,7 +46,7 @@ The following steps refer to the AWS Load Balancer Controller **v2.14.1** releas
 curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.14.1/docs/install/iam_policy.json
 ```
 
-    * If you are a non-standard AWS partition, such as a Government or China region, [review the policies on GitHub](https://github.com/kubernetes-sigs/aws-load-balancer-controller/tree/main/docs/install "https://github.com/kubernetes-sigs/aws-load-balancer-controller/tree/main/docs/install") and download the appropriate policy for your region.
+    * If you are in a non-standard AWS partition, such as a Government or China region, [review the policies on GitHub](https://github.com/kubernetes-sigs/aws-load-balancer-controller/tree/main/docs/install "https://github.com/kubernetes-sigs/aws-load-balancer-controller/tree/main/docs/install") and download the appropriate policy for your region.
 
 2. Create an IAM policy using the policy downloaded in the previous step.
 

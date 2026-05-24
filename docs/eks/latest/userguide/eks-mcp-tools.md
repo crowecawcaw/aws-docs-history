@@ -10,7 +10,7 @@ The server exposes the following [MCP tools](https://modelcontextprotocol.io/doc
 
 The Amazon EKS MCP Server is in preview release for Amazon EKS and is subject to change.
 
-## Read only tools
+## Read-only tools
 
 This section describes the read-only tools available for the EKS MCP Server. Note that all read-only Kubernetes API operations can access both:
 
@@ -28,7 +28,7 @@ Parameters:
 
 ## search_eks_troubleshooting_guide
 
-Searches the EKS Troubleshoot Guide for troubleshooting information based on a query. It helps identify common problems and provides step-by-step solutions.
+Searches the EKS Troubleshooting Guide for troubleshooting information based on a query. It helps identify common problems and provides step-by-step solutions.
 
 Parameters:
 

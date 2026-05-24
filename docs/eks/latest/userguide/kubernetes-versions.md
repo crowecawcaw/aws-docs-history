@@ -111,9 +111,9 @@ aws eks describe-cluster-versions
 
 In line with the Kubernetes community support for Kubernetes versions, Amazon EKS is committed to offering support for at least three Kubernetes versions at any given time. We will announce the end of standard support date of a given Kubernetes minor version at least 60 days in advance. Because of the Amazon EKS qualification and release process for new Kubernetes versions, the end of standard support date of a Kubernetes version on Amazon EKS will be after the date that the Kubernetes project stops supporting the version upstream.
 
-**How long does a Kubernetes receive standard support by Amazon EKS?**
+**How long does a Kubernetes version receive standard support by Amazon EKS?**
 
-A Kubernetes version received standard support for 14 months after first being available on Amazon EKS. This is true even if upstream Kubernetes no longer support a version that’s available on Amazon EKS. We backport security patches that are applicable to the Kubernetes versions that are supported on Amazon EKS.
+A Kubernetes version receives standard support for 14 months after first being available on Amazon EKS. This is true even if upstream Kubernetes no longer supports a version that’s available on Amazon EKS. We backport security patches that are applicable to the Kubernetes versions that are supported on Amazon EKS.
 
 **Am I notified when standard support is ending for a Kubernetes version on Amazon EKS?**
 
@@ -165,7 +165,7 @@ If you don’t want to be automatically enrolled in extended support, you can up
 
 **What will happen at the end of 12 months of extended support?**
 
-Clusters running on a Kubernetes version that has completed its 26-month lifecycle (14 months of standard support plus 12 months of extended support) will be auto-upgraded to the next version. The auto-upgrade includes only the Kubernetes control plane. If you have EKS Auto Mode nodes, they may automatically update. Self managed nodes and EKS Managed Node Groups will remain on the previous version.
+Clusters running on a Kubernetes version that has completed its 26-month lifecycle (14 months of standard support plus 12 months of extended support) will be auto-upgraded to the next version. The auto-upgrade includes only the Kubernetes control plane. If you have EKS Auto Mode nodes, they may automatically update. Self-managed nodes and EKS Managed Node Groups will remain on the previous version.
 
 On the end of extended support date, you can no longer create new Amazon EKS clusters with the unsupported version. Existing control planes are automatically updated by Amazon EKS to the earliest supported version through a gradual deployment process after the end of support date. After the automatic control plane update, make sure to manually update cluster add-ons and Amazon EC2 nodes. For more information, see [Update existing cluster to new Kubernetes version](update-cluster.md "update-cluster.md").
 

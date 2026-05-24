@@ -30,7 +30,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 ###### Example
 
-**Kubernetes version 1.35**
+Kubernetes version 1.35
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------- |
@@ -44,7 +44,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 ###### Example
 
-**Kubernetes version 1.35**
+Kubernetes version 1.35
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------- |
@@ -58,7 +58,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 ###### Example
 
-**Kubernetes version 1.35**
+Kubernetes version 1.35
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------- |
@@ -66,7 +66,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.35-2026.02.16` | `1.35.0`        | `2.1.6`            | `1.2.1`           |               |
 | `1.35-2026-01-22` | `1.35.0`        | `2.1.6`            | `1.2.1`           |               |
 
-**Kubernetes version 1.34**
+Kubernetes version 1.34
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                     |
 | ----------------- | --------------- | ------------------ | ----------------- | --------------------------------- |
@@ -78,7 +78,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.34-2025.10.18` | `1.34.1`        | `2.1.4`            | `1.2.1`           |                                   |
 | `1.34-2025.09.13` | `1.34.0`        | `2.1.4`            | `1.2.1`           |                                   |
 
-**Kubernetes version 1.33**
+Kubernetes version 1.33
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
@@ -94,7 +94,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.33-2025.06.13` | `1.33.1`        | `1.7.27`           | `1.2.1`           |                                            |
 | `1.33-2025.05.17` | `1.33.1`        | `1.7.27`           | `1.2.1`           |                                            |
 
-**Kubernetes version 1.32**
+Kubernetes version 1.32
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
@@ -114,7 +114,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.32-2025.02.18` | `1.32.1`        | `1.7.20`           | `1.1.3`           |                                            |
 | `1.32-2025.01.15` | `1.32.0`        | `1.7.20`           | `1.1.3`           |                                            |
 
-**Kubernetes version 1.31**
+Kubernetes version 1.31
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
@@ -140,7 +140,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.31-2024.10.01` | `1.31.1`        | `1.7.20`           | `1.1.3`           |                                            |
 | `1.31-2024.09.10` | `1.31.0`        | `1.7.20`           | `1.1.3`           |                                            |
 
-**Kubernetes version 1.30**
+Kubernetes version 1.30
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
@@ -169,7 +169,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.30-2024.06.17` | `1.30.0`        | `1.7.14`           | `1.1.2`           | Upgraded `containerd` to `1.7.14`.         |
 | `1.30-2024.05.15` | `1.30.0`        | `1.6.28`           | `1.1.2`           |                                            |
 
-**Kubernetes version 1.29**
+Kubernetes version 1.29
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ----------------- | --------------- | ------------------ | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -202,7 +202,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.29-2024.02.06` | `1.29.0`        | `1.6.25`           | `1.1.2`           | Fixed a bug where the pause image was incorrectly deleted by `kubelet` garbage collection process.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | `1.29-2024.01.11` | `1.29.0`        | `1.6.18`           | `1.1.2`           | Excluded Standalone Windows Update [KB5034439](https://support.microsoft.com/en-au/topic/kb5034439-windows-recovery-environment-update-for-azure-stack-hci-version-22h2-and-windows-server-2022-january-9-2024-6f9d26e6-784c-4503-a3c6-0beedda443ca "https://support.microsoft.com/en-au/topic/kb5034439-windows-recovery-environment-update-for-azure-stack-hci-version-22h2-and-windows-server-2022-january-9-2024-6f9d26e6-784c-4503-a3c6-0beedda443ca") on Windows Server 2022 Core AMIs. The KB applies only to Windows installations with a separate WinRE partition, which aren’t included with any of our Amazon EKS Optimized Windows AMIs. |
 
-**Kubernetes version 1.28**
+Kubernetes version 1.28
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ----------------- | --------------- | ------------------ | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -242,7 +242,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 ###### Example
 
-**Kubernetes version 1.35**
+Kubernetes version 1.35
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------- |
@@ -250,7 +250,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.35-2026.02.16` | `1.35.0`        | `2.1.6`            | `1.2.1`           |               |
 | `1.35-2026-01-22` | `1.35.0`        | `2.1.6`            | `1.2.1`           |               |
 
-**Kubernetes version 1.34**
+Kubernetes version 1.34
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                     |
 | ----------------- | --------------- | ------------------ | ----------------- | --------------------------------- |
@@ -262,7 +262,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.34-2025.10.18` | `1.34.1`        | `2.1.4`            | `1.2.1`           |                                   |
 | `1.34-2025.09.13` | `1.34.0`        | `2.1.4`            | `1.2.1`           |                                   |
 
-**Kubernetes version 1.33**
+Kubernetes version 1.33
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
@@ -278,7 +278,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.33-2025.06.13` | `1.33.1`        | `1.7.27`           | `1.2.1`           |                                            |
 | `1.33-2025.05.17` | `1.33.1`        | `1.7.27`           | `1.2.1`           |                                            |
 
-**Kubernetes version 1.32**
+Kubernetes version 1.32
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
@@ -298,7 +298,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.32-2025.02.18` | `1.32.1`        | `1.7.20`           | `1.1.3`           |                                            |
 | `1.32-2025.01.01` | `1.32.0`        | `1.7.20`           | `1.1.3`           |                                            |
 
-**Kubernetes version 1.31**
+Kubernetes version 1.31
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
@@ -324,7 +324,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.31-2024.10.01` | `1.31.1`        | `1.7.20`           | `1.1.3`           |                                            |
 | `1.31-2024.09.10` | `1.31.0`        | `1.7.20`           | `1.1.3`           |                                            |
 
-**Kubernetes version 1.30**
+Kubernetes version 1.30
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
@@ -353,7 +353,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.30-2024.06.17` | `1.30.0`        | `1.7.14`           | `1.1.2`           | Upgraded `containerd` to `1.7.14`.         |
 | `1.30-2024.05.15` | `1.30.0`        | `1.6.28`           | `1.1.2`           |                                            |
 
-**Kubernetes version 1.29**
+Kubernetes version 1.29
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                                                                                      |
 | ----------------- | --------------- | ------------------ | ----------------- | -------------------------------------------------------------------------------------------------- |
@@ -386,7 +386,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.29-2024.02.06` | `1.29.0`        | `1.6.25`           | `1.1.2`           | Fixed a bug where the pause image was incorrectly deleted by `kubelet` garbage collection process. |
 | `1.29-2024.01.09` | `1.29.0`        | `1.6.18`           | `1.1.2`           |                                                                                                    |
 
-**Kubernetes version 1.28**
+Kubernetes version 1.28
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                                                                                                                                                                                                                                                                           |
 | ----------------- | --------------- | ------------------ | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -426,7 +426,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 ###### Example
 
-**Kubernetes version 1.35**
+Kubernetes version 1.35
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------- |
@@ -434,7 +434,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.35-2026.02.16` | `1.35.0`        | `2.1.6`            | `1.2.1`           |               |
 | `1.35-2026-01-22` | `1.35.0`        | `2.1.6`            | `1.2.1`           |               |
 
-**Kubernetes version 1.34**
+Kubernetes version 1.34
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                     |
 | ----------------- | --------------- | ------------------ | ----------------- | --------------------------------- |
@@ -446,7 +446,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.34-2025.10.18` | `1.34.1`        | `2.1.4`            | `1.2.1`           |                                   |
 | `1.34-2025.09.13` | `1.34.0`        | `2.1.4`            | `1.2.1`           |                                   |
 
-**Kubernetes version 1.33**
+Kubernetes version 1.33
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
@@ -462,7 +462,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.33-2025.06.13` | `1.33.1`        | `1.7.27`           | `1.2.1`           |                                            |
 | `1.33-2025.05.17` | `1.33.1`        | `1.7.27`           | `1.2.1`           |                                            |
 
-**Kubernetes version 1.32**
+Kubernetes version 1.32
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
@@ -482,7 +482,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.32-2025.02.18` | `1.32.1`        | `1.7.20`           | `1.1.3`           |                                            |
 | `1.32-2025.01.15` | `1.32.4`        | `1.7.20`           | `1.1.3`           |                                            |
 
-**Kubernetes version 1.31**
+Kubernetes version 1.31
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
@@ -508,7 +508,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.31-2024.10.01` | `1.31.1`        | `1.7.20`           | `1.1.3`           |                                            |
 | `1.31-2024.09.10` | `1.31.0`        | `1.7.20`           | `1.1.3`           |                                            |
 
-**Kubernetes version 1.30**
+Kubernetes version 1.30
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
@@ -537,7 +537,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.30-2024.06.17` | `1.30.0`        | `1.7.14`           | `1.1.2`           | Upgraded `containerd` to `1.7.14`.         |
 | `1.30-2024.05.15` | `1.30.0`        | `1.6.28`           | `1.1.2`           |                                            |
 
-**Kubernetes version 1.29**
+Kubernetes version 1.29
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                                                                                      |
 | ----------------- | --------------- | ------------------ | ----------------- | -------------------------------------------------------------------------------------------------- |
@@ -570,7 +570,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.29-2024.02.06` | `1.29.0`        | `1.6.25`           | `1.1.2`           | Fixed a bug where the pause image was incorrectly deleted by `kubelet` garbage collection process. |
 | `1.29-2024.01.09` | `1.29.0`        | `1.6.18`           | `1.1.2`           |                                                                                                    |
 
-**Kubernetes version 1.28**
+Kubernetes version 1.28
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                                                                                                                                                                                                                                                                           |
 | ----------------- | --------------- | ------------------ | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -610,7 +610,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 
 ###### Example
 
-**Kubernetes version 1.35**
+Kubernetes version 1.35
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------- |
@@ -618,7 +618,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.35-2026.02.16` | `1.35.0`        | `2.1.6`            | `1.2.1`           |               |
 | `1.35-2026-01-22` | `1.35.0`        | `2.1.6`            | `1.2.1`           |               |
 
-**Kubernetes version 1.34**
+Kubernetes version 1.34
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                     |
 | ----------------- | --------------- | ------------------ | ----------------- | --------------------------------- |
@@ -630,7 +630,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.34-2025.10.18` | `1.34.1`        | `2.1.4`            | `1.2.1`           |                                   |
 | `1.34-2025.09.13` | `1.34.0`        | `2.1.4`            | `1.2.1`           |                                   |
 
-**Kubernetes version 1.33**
+Kubernetes version 1.33
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
@@ -646,7 +646,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.33-2025.06.13` | `1.33.1`        | `1.7.27`           | `1.2.1`           |                                            |
 | `1.33-2025.05.17` | `1.33.1`        | `1.7.27`           | `1.2.1`           |                                            |
 
-**Kubernetes version 1.32**
+Kubernetes version 1.32
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
@@ -666,7 +666,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.32-2025.02.18` | `1.32.1`        | `1.7.20`           | `1.1.3`           |                                            |
 | `1.32-2025.01.15` | `1.32.0`        | `1.7.20`           | `1.1.3`           |                                            |
 
-**Kubernetes version 1.31**
+Kubernetes version 1.31
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
@@ -692,7 +692,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.31-2024.10.01` | `1.31.1`        | `1.7.20`           | `1.1.3`           |                                            |
 | `1.31-2024.09.10` | `1.31.0`        | `1.7.20`           | `1.1.3`           |                                            |
 
-**Kubernetes version 1.30**
+Kubernetes version 1.30
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                              |
 | ----------------- | --------------- | ------------------ | ----------------- | ------------------------------------------ |
@@ -721,7 +721,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.30-2024.06.17` | `1.30.0`        | `1.7.14`           | `1.1.2`           | Upgraded `containerd` to `1.7.14`.         |
 | `1.30-2024.05.15` | `1.30.0`        | `1.6.28`           | `1.1.2`           |                                            |
 
-**Kubernetes version 1.29**
+Kubernetes version 1.29
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                                                                                      |
 | ----------------- | --------------- | ------------------ | ----------------- | -------------------------------------------------------------------------------------------------- |
@@ -754,7 +754,7 @@ The following tables list the current and previous versions of the Amazon EKS op
 | `1.29-2024.02.06` | `1.29.0`        | `1.6.25`           | `1.1.2`           | Fixed a bug where the pause image was incorrectly deleted by `kubelet` garbage collection process. |
 | `1.29-2024.01.09` | `1.29.0`        | `1.6.18`           | `1.1.2`           |                                                                                                    |
 
-**Kubernetes version 1.28**
+Kubernetes version 1.28
 
 | AMI version       | kubelet version | containerd version | csi-proxy version | Release notes                                                                                                                                                                                                                                                                           |
 | ----------------- | --------------- | ------------------ | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

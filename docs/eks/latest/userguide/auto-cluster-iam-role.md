@@ -6,7 +6,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 An Amazon EKS cluster IAM role is required for each cluster. Kubernetes clusters managed by Amazon EKS use this role to automate routine tasks for storage, networking, and compute autoscaling.
 
-Before you can create Amazon EKS clusters, you must create an IAM role with the policies required for EKS Auto Mode. You can either attach the suggested AWS IAM managed policies, or create custom polices with equivalent permissions.
+Before you can create Amazon EKS clusters, you must create an IAM role with the policies required for EKS Auto Mode. You can either attach the suggested AWS IAM managed policies, or create custom policies with equivalent permissions.
 
 - [AmazonEKSComputePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEKSComputePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEKSComputePolicy")
 - [AmazonEKSBlockStoragePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEKSBlockStoragePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEKSBlockStoragePolicy")

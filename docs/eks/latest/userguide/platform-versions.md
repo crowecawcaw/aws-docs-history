@@ -240,7 +240,7 @@ The following admission controllers are enabled for all `1.30` platform versions
 2. In the navigation pane, choose **Clusters**.
 3. In the list of clusters, choose the **Cluster Name** to check the platform version of.
 4. Choose the **Overview** tab.
-5. The **Platform Version** is available under in the **Details** section.
+5. The **Platform Version** is available in the **Details** section.
 6. Determine the **Name** of the cluster you want to check the platform version of.
 7. Run the following command:
 

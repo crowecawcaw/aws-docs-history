@@ -4,7 +4,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Deploy a sample application on Linux
 
-In this topic, you deploy a sample application to your cluster on linux nodes.
+In this topic, you deploy a sample application to your cluster on Linux nodes.
 
 ## Prerequisites
 

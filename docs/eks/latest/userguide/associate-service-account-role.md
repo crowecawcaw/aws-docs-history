@@ -59,7 +59,7 @@ eksctl create iamserviceaccount --name my-service-account --namespace default --
 
 ###### Important
 
-If the role or service account already exist, the previous command might fail. `eksctl` has different options that you can provide in those situations. For more information run `eksctl create iamserviceaccount --help`.
+If the role or service account already exists, the previous command might fail. `eksctl` has different options that you can provide in those situations. For more information run `eksctl create iamserviceaccount --help`.
 
 ### Create and associate role (AWS CLI)
 

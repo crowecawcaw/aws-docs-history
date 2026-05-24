@@ -6,6 +6,8 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 ## What is the Amazon EKS Dashboard?
 
+![screenshot of account level cluster metrics](images/eks-dashboard.png)
+
 The Amazon EKS Dashboard provides consolidated visibility into your Kubernetes clusters across multiple AWS Regions and AWS Accounts. With this dashboard, you can:
 
 - Track clusters scheduled for end-of-support auto-upgrades within the next 90 days.
@@ -40,7 +42,7 @@ The us-east-1 AWS region generates the dashboard. You must log in to this region
 - **Member account**: Any account within the organization except the management account.
 - **Delegated administrator**: A member account granted specific cross-account administrative permissions. Within the management account, you can select one delegated administrator account per AWS Service.
 - **Trusted access**: Authorization for the EKS Dashboard to access cluster information across organizational accounts.
-- **Service-Linked Role (SLRs)**: A unique type of IAM role directly linked to an AWS service. The EKS Dashboard uses a SLR to read information about your accounts and organizations.
+- **Service-Linked Role (SLR)**: A unique type of IAM role directly linked to an AWS service. The EKS Dashboard uses an SLR to read information about your accounts and organizations.
 - For more information, see [Terminology and concepts](../../../organizations/latest/userguide/orgs_getting-started_concepts.md "../../../organizations/latest/userguide/orgs_getting-started_concepts.md") in the AWS Organizations User Guide.
 
 ### General overview

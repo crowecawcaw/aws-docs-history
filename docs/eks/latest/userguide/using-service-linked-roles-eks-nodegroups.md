@@ -8,7 +8,7 @@ Amazon EKS uses AWS Identity and Access Management (IAM) [service-linked roles](
 
 A service-linked role makes setting up Amazon EKS easier because you don’t have to manually add the necessary permissions. Amazon EKS defines the permissions of its service-linked roles, and unless defined otherwise, only Amazon EKS can assume its roles. The defined permissions include the trust policy and the permissions policy, and that permissions policy cannot be attached to any other IAM entity.
 
-You can delete a service-linked role only after first deleting their related resources. This protects your Amazon EKS resources because you can’t inadvertently remove permission to access the resources.
+You can delete a service-linked role only after first deleting its related resources. This protects your Amazon EKS resources because you can’t inadvertently remove permission to access the resources.
 
 For information about other services that support service-linked roles, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") and look for the services that have **Yes** in the **Service-linked role** column. Choose a **Yes** with a link to view the service-linked role documentation for that service.
 

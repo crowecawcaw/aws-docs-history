@@ -380,7 +380,7 @@ Enable Kubernetes to automatically apply the `ENIConfig` for an Availability Zon
 
 2. Create one of the following types of node groups. To determine the instance type that you want to deploy, see [Choose an optimal Amazon EC2 node instance type](choosing-instance-type.md "choosing-instance-type.md"). For this tutorial, complete the **Managed**, **Without a launch template or with a launch template without an AMI ID specified** option. If you’re going to use the node group for production workloads, then we recommend that you familiarize yourself with all of the [managed node group](create-managed-node-group.md "create-managed-node-group.md") and [self-managed node group](worker.md "worker.md") options before deploying the node group.
    - **Managed** – Deploy your node group using one of the following options:
-     - **Without a launch template or with a launch template without an AMI ID specified** – Run the following command. For this tutorial, use the example values. For a production node group, replace all example values with your own. The node group name can’t be longer than 63 characters. It must start with letter or digit, but can also include hyphens and underscores for the remaining characters.
+     - **Without a launch template or with a launch template without an AMI ID specified** – Run the following command. For this tutorial, use the example values. For a production node group, replace all example values with your own. The node group name can’t be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
 
      ```
      aws eks create-nodegroup --cluster-name my-custom-networking-cluster --nodegroup-name my-nodegroup \

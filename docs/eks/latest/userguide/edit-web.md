@@ -4,7 +4,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Edit multiple files from a web browser with the GitHub Web Editor
 
-If you want to propose change to multiple pages, or create a new docs page, use the GitHub.dev web editor. This web editor is based on the popular Visual Studio Code text editor.
+If you want to propose changes to multiple pages, or create a new docs page, use the GitHub.dev web editor. This web editor is based on the popular Visual Studio Code text editor.
 
 ![GitHub.dev web editor user interface](images/contribute-web-dev.png)
 

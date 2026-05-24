@@ -189,7 +189,7 @@ packer build -only=general-build.qemu.rhel9 template.pkr.hcl
 
 You can pass configuration for `nodeadm` in your user-data through cloud-init to configure and automatically connect hybrid nodes to your EKS cluster at host startup. Below is an example for how to accomplish this when using VMware vSphere as the infrastructure for your hybrid nodes.
 
-1. Install the the `govc` CLI following the instructions in the [govc readme](https://github.com/vmware/govmomi/blob/main/govc/README.md "https://github.com/vmware/govmomi/blob/main/govc/README.md") on GitHub.
+1. Install the `govc` CLI following the instructions in the [govc readme](https://github.com/vmware/govmomi/blob/main/govc/README.md "https://github.com/vmware/govmomi/blob/main/govc/README.md") on GitHub.
 2. After running the Packer build in the previous section and provisioning your template, you can clone your template to create multiple different nodes using the following. You must clone the template for each new VM you are creating that will be used for hybrid nodes. Replace the variables in the command below with the values for your environment. The `VM_NAME` in the command below is used as your `NODE_NAME` when you inject the names for your VMs via your `metadata.yaml` file.
 
 ```

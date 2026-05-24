@@ -283,7 +283,7 @@ For Amazon EKS optimized Windows AMIs, there’s no reservation for compute reso
 
 ## EKS Log Collector
 
-To troubleshoot issue with Amazon EKS nodes, there is a pre-built script available on nodes located at `/etc/eks/log-collector-script/eks-log-collector.sh`. You can use the script to collect diagnostic logs for support cases and general troubleshooting.
+To troubleshoot issues with Amazon EKS nodes, there is a pre-built script available on nodes located at `/etc/eks/log-collector-script/eks-log-collector.sh`. You can use the script to collect diagnostic logs for support cases and general troubleshooting.
 
 Use the following command to run the script on your node:
 
@@ -396,7 +396,7 @@ spec:
 
 ## Node groups must match Kubernetes version before upgrading control plane
 
-Before you upgrade a control plane to a new Kubernetes version, the minor version of the managed and Fargate nodes in your cluster must be the same as the version of your control plane’s current version. The Amazon EKS `update-cluster-version` API rejects requests until you upgrade all Amazon EKS managed nodes to the current cluster version. Amazon EKS provides APIs to upgrade managed nodes. For information on upgrading a managed node group’s Kubernetes version, see [Update a managed node group for your cluster](update-managed-node-group.md "update-managed-node-group.md"). To upgrade the version of a Fargate node, delete the pod that’s represented by the node and redeploy the pod after you upgrade your control plane. For more information, see [Update existing cluster to new Kubernetes version](update-cluster.md "update-cluster.md").
+Before you upgrade a control plane to a new Kubernetes version, the minor version of the managed and Fargate nodes in your cluster must be the same as your control plane’s current version. The Amazon EKS `update-cluster-version` API rejects requests until you upgrade all Amazon EKS managed nodes to the current cluster version. Amazon EKS provides APIs to upgrade managed nodes. For information on upgrading a managed node group’s Kubernetes version, see [Update a managed node group for your cluster](update-managed-node-group.md "update-managed-node-group.md"). To upgrade the version of a Fargate node, delete the pod that’s represented by the node and redeploy the pod after you upgrade your control plane. For more information, see [Update existing cluster to new Kubernetes version](update-cluster.md "update-cluster.md").
 
 ## When launching many nodes, there are `Too Many Requests` errors
 
@@ -529,7 +529,7 @@ Amazon EKS detects issues with your EKS clusters and the cluster infrastructure 
 
 The health of an Amazon EKS cluster is a shared responsibility between Amazon EKS and its users. You are responsible for the prerequisite infrastructure of IAM roles and Amazon VPC subnets, as well as other necessary infrastructure, that must be provided in advance. Amazon EKS detects changes in the configuration of this infrastructure and the cluster.
 
-To access the health of your cluster in the Amazon EKS console, look for a table called **Health Issues** in the **Cluster health issues** tab of the observability dashboard accessed from the Amazon EKS cluster detail page. This data will be also be available by calling the `DescribeCluster` action in the EKS API, for example from within the AWS Command Line Interface.
+To access the health of your cluster in the Amazon EKS console, look for a table called **Health Issues** in the **Cluster health issues** tab of the observability dashboard accessed from the Amazon EKS cluster detail page. This data will also be available by calling the `DescribeCluster` action in the EKS API, for example from within the AWS Command Line Interface.
 
 **Why should I use this feature?**
 

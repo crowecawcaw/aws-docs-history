@@ -4,7 +4,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Deploy an accelerated workload
 
-This tutorial demonstrates how Amazon EKS Auto Mode simplifies launching hardware-accelerated workloads. Amazon EKS Auto Mode streamlines operations beyond the cluster itself by automating key infrastructure components providing compute, networking, load balancing, storage, and Identity Access and Management capabilities out of the box.
+This tutorial demonstrates how Amazon EKS Auto Mode simplifies launching hardware-accelerated workloads. Amazon EKS Auto Mode streamlines operations beyond the cluster itself by automating key infrastructure components providing compute, networking, load balancing, storage, and Identity and Access Management capabilities out of the box.
 
 Amazon EKS Auto Mode includes the drivers and device plugins required for certain instance types, such as NVIDIA and AWS Neuron drivers. You do not have to install or update these components.
 
@@ -133,7 +133,7 @@ gpu-dnknr   g6e.2xlarge   on-demand   us-west-2b   i-02315c7d7643cdee6   True   
 
 ## Step 2: Validate
 
-You can see Amazon EKS Auto Mode launched a `g6e.2xlarge` rather than an `g6.2xlarge` as the workload required an instance with l40s `GPU`, according to the following Kubernetes scheduling constraints:
+You can see Amazon EKS Auto Mode launched a `g6e.2xlarge` rather than a `g6.2xlarge` as the workload required an instance with l40s `GPU`, according to the following Kubernetes scheduling constraints:
 
 ```
 ...
@@ -149,7 +149,7 @@ You can see Amazon EKS Auto Mode launched a `g6e.2xlarge` rather than an `g6.2xl
         nvidia.com/gpu: 1
 ```
 
-Now, look at the containers logs, by running the following command:
+Now, look at the container’s logs by running the following command:
 
 ```
 kubectl logs nvidia-smi
@@ -198,7 +198,7 @@ The following NodePool defines:
 
 - Only launch instances of `g6e` and `g6` family
 - Consolidate nodes when empty for 1 hour
-  - The 1 hour value for `consolidateAfter` supports spiky workloads and reduce node churn. You can tune `consolidateAfter` based on your workload requirements.
+  - The 1 hour value for `consolidateAfter` supports spiky workloads and reduces node churn. You can tune `consolidateAfter` based on your workload requirements.
 
 **Example NodePool with GPU instance family and consolidation**
 
@@ -235,7 +235,7 @@ spec:
       terminationGracePeriod: 24h0m0s
 ```
 
-Instead of to setting the `eks.amazonaws.com/instance-gpu-name` you might use `eks.amazonaws.com/instance-family` to specify the instance family. For other well-known labels which influence scheduling review, see [EKS Auto Mode Supported Labels](create-node-pool.md#auto-supported-labels "create-node-pool.md#auto-supported-labels").
+Instead of setting the `eks.amazonaws.com/instance-gpu-name` you might use `eks.amazonaws.com/instance-family` to specify the instance family. For other well-known labels which influence scheduling review, see [EKS Auto Mode Supported Labels](create-node-pool.md#auto-supported-labels "create-node-pool.md#auto-supported-labels").
 
 If you have specific storage requirements you can tune the nodes ephemeral storage `iops`, `size` and `throughput` by creating your own [NodeClass](create-node-class.md "create-node-class.md") to reference in the NodePool. Learn more about the [configurable NodeClass options](create-node-class.md "create-node-class.md").
 

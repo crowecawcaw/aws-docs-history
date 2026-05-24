@@ -62,7 +62,7 @@ aws ec2 get-console-output --instance-id <instance id> --latest --output text
 
 ## Get node logs by using _debug containers_ and the `kubectl` CLI
 
-The recommended way of retrieving logs from an EKS Auto Mode node is to use `NodeDiagnostic` resource. For these steps, see [Retrieve node logs for a managed node using kubectl and S3](auto-get-logs.md "auto-get-logs.md").
+The recommended way of retrieving logs from an EKS Auto Mode node is to use a `NodeDiagnostic` resource. For these steps, see [Retrieve node logs for a managed node using kubectl and S3](auto-get-logs.md "auto-get-logs.md").
 
 However, you can stream logs live from an instance by using the `kubectl debug node` command. This command launches a new Pod on the node that you want to debug which you can then interactively use.
 
@@ -134,7 +134,7 @@ Look for errors related to your EKS cluster. Use the error messages to update yo
 
 ## Troubleshoot Pod failing to schedule onto Auto Mode node
 
-If pods staying in the `Pending` state and aren’t being scheduled onto an auto mode node, verify if your pod or deployment manifest has a `nodeSelector`. If a `nodeSelector` is present, ensure that it is using `eks.amazonaws.com/compute-type: auto` to be scheduled on nodes that are made by EKS Auto Mode. For more information about the node labels that are used by EKS Auto Mode, see [Control if a workload is deployed on EKS Auto Mode nodes](associate-workload.md "associate-workload.md").
+If pods are staying in the `Pending` state and aren’t being scheduled onto an auto mode node, verify if your pod or deployment manifest has a `nodeSelector`. If a `nodeSelector` is present, ensure that it is using `eks.amazonaws.com/compute-type: auto` to be scheduled on nodes that are made by EKS Auto Mode. For more information about the node labels that are used by EKS Auto Mode, see [Control if a workload is deployed on EKS Auto Mode nodes](associate-workload.md "associate-workload.md").
 
 ## Troubleshoot node not joining the cluster
 
@@ -222,7 +222,7 @@ With these two pieces of information, you can perform the analysis. First naviga
 8. Enter a "Destination Port" of 443
 9. Select "Protocol" as TCP if it is not already selected
 10. Click "Create and Analyze Path"
-11. The analysis might take a few minutes to complete. If the analysis results indicates failed reachability, it will indicate where the failure was in the network path so you can resolve the issue.
+11. The analysis might take a few minutes to complete. If the analysis results indicate failed reachability, it will indicate where the failure was in the network path so you can resolve the issue.
 
 ## Sharing Volumes Across Pods
 

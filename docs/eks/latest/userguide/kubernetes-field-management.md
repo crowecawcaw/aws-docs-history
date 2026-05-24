@@ -28,7 +28,7 @@ Each key is either a `.` representing the field itself, which always maps to an 
 - `f:`name``, where `name` is the name of a field in a list.
 - `k:`keys``, where `keys` is a map of a list item’s fields.
 - `v:`value``, where `value` is the exact JSON formatted value of a list item.
-- `i:`index``, where `index` is position of an item in the list.
+- `i:`index``, where `index` is the position of an item in the list.
 
 The following portions of output for the CoreDNS add-on illustrate the previous declarations:
 
@@ -124,4 +124,4 @@ If you don’t see `managedFields` in the output, add `--show-managed-fields` to
 
 ## Next steps
 
-Customize the fields not owned by AWS for you add-on.
+Customize the fields not owned by AWS for your add-on.

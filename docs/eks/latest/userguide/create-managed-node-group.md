@@ -37,13 +37,13 @@ eksctl version
 For instructions on how to install or upgrade `eksctl`, see [Installation](https://eksctl.io/installation "https://eksctl.io/installation") in the `eksctl` documentation.
 
 1. (Optional) If the **AmazonEKS_CNI_Policy** managed IAM policy is attached to your [Amazon EKS node IAM role](create-node-role.md "create-node-role.md"), we recommend assigning it to an IAM role that you associate to the Kubernetes `aws-node` service account instead. For more information, see [Configure Amazon VPC CNI plugin to use IRSA](cni-iam-role.md "cni-iam-role.md").
-2. Create a managed node group with or without using a custom launch template. Manually specifying a launch template allows for greater customization of a node group. For example, it can allow deploying a custom AMI or providing arguments to the `boostrap.sh` script in an Amazon EKS optimized AMI. For a complete list of every available option and default, enter the following command.
+2. Create a managed node group with or without using a custom launch template. Manually specifying a launch template allows for greater customization of a node group. For example, it can allow deploying a custom AMI or providing arguments to the `bootstrap.sh` script in an Amazon EKS optimized AMI. For a complete list of every available option and default, enter the following command.
 
 ```
 eksctl create nodegroup --help
 ```
 
-In the following command, replace `my-cluster` with the name of your cluster and replace `my-mng` with the name of your node group. The node group name can’t be longer than 63 characters. It must start with letter or digit, but can also include hyphens and underscores for the remaining characters.
+In the following command, replace `my-cluster` with the name of your cluster and replace `my-mng` with the name of your node group. The node group name can’t be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
 
 ###### Important
 
@@ -137,7 +137,7 @@ eksctl create nodegroup --config-file eks-nodegroup.yaml
 4. Select the **Compute** tab.
 5. Choose **Add node group**.
 6. On the **Configure node group** page, fill out the parameters accordingly, and then choose **Next**.
-   - **Name** – Enter a unique name for your managed node group. The node group name can’t be longer than 63 characters. It must start with letter or digit, but can also include hyphens and underscores for the remaining characters.
+   - **Name** – Enter a unique name for your managed node group. The node group name can’t be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
    - **Node IAM role** – Choose the node instance role to use with your node group. For more information, see [Amazon EKS node IAM role](create-node-role.md "create-node-role.md").
 
 ###### Important

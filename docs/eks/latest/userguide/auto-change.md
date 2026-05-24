@@ -30,7 +30,7 @@ https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/auto
 
 ## December 19, 2025
 
-**Feature**: Added support for secondary IP mode that provisions secondary IP addresses instead of prefix to Auto nodes. The mode maintains a one secondary IP as MinimalIPTarget and save IP resources for customers who don’t need to warm up more secondary IPs or prefixes. For more information, see [Node Class Specification](create-node-class.md#auto-node-class-spec "create-node-class.md#auto-node-class-spec") and [Secondary IP Mode for Pods](create-node-class.md#secondary-IP-mode "create-node-class.md#secondary-IP-mode").
+**Feature**: Added support for secondary IP mode that provisions secondary IP addresses instead of prefixes to Auto nodes. The mode maintains one secondary IP as MinimalIPTarget and saves IP resources for customers who don’t need to warm up more secondary IPs or prefixes. For more information, see [Node Class Specification](create-node-class.md#auto-node-class-spec "create-node-class.md#auto-node-class-spec") and [Secondary IP Mode for Pods](create-node-class.md#secondary-IP-mode "create-node-class.md#secondary-IP-mode").
 
 ## November 19, 2025
 

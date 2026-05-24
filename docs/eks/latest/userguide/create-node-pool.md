@@ -132,7 +132,7 @@ When you create a cluster without built-in node pools, the `default` NodeClass i
 
 **Overview:**
 
-1. Create an EKS cluster with the both `nodePools` and `nodeRoleArn` values empty.
+1. Create an EKS cluster with both `nodePools` and `nodeRoleArn` values empty.
    - Sample eksctl `autoModeConfig`:
 
    ```

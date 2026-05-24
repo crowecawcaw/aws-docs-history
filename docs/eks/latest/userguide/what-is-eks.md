@@ -67,7 +67,7 @@ For [compute resources](eks-compute.md "eks-compute.md"), EKS allows the full ra
 **Storage**
 
 EKS Auto Mode automatically creates storage classes using [EBS volumes](create-storage-class.md "create-storage-class.md").
-Using Container Storage Interface (CSI) drivers, you can also use Amazon S3, Amazon S3 Files, Amazon EFS, Amazon FSX, and Amazon File Cache for your application storage needs. For more information, see [Use application data storage for your cluster](storage.md "storage.md").
+Using Container Storage Interface (CSI) drivers, you can also use Amazon S3, Amazon S3 Files, Amazon EFS, Amazon FSx, and Amazon File Cache for your application storage needs. For more information, see [Use application data storage for your cluster](storage.md "storage.md").
 
 **Security**
 
@@ -78,7 +78,7 @@ and [Kubernetes security](security-k8s.md "security-k8s.md").
 **Monitoring tools**
 
 Use the [observability dashboard](observability-dashboard.md "observability-dashboard.md") to monitor Amazon EKS clusters.
-Monitoring tools include [Prometheus](prometheus.md "prometheus.md"), [CloudWatch](cloudwatch.md "cloudwatch.md"), [Cloudtrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md"),
+Monitoring tools include [Prometheus](prometheus.md "prometheus.md"), [CloudWatch](cloudwatch.md "cloudwatch.md"), [CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md"),
 and [ADOT Operator](opentelemetry.md "opentelemetry.md").
 For more information on dashboards, metrics servers, and other tools, see [EKS cluster costs](cost-monitoring.md "cost-monitoring.md") and [Kubernetes Metrics Server](metrics-server.md "metrics-server.md").
 
@@ -138,7 +138,7 @@ Amazon EKS has per cluster pricing based on Kubernetes cluster version support, 
 
 When using Amazon EKS, you pay separately for the AWS resources you use to run your applications on Kubernetes worker nodes. For example, if you are running Kubernetes worker nodes as Amazon EC2 instances with Amazon EBS volumes and public IPv4 addresses, you are charged for the instance capacity through Amazon EC2, the volume capacity through Amazon EBS, and the IPv4 address through Amazon VPC.
 
-Communication between the Amazon EKS control plane and worker nodes in your cluster uses cross-account elastic network interfaces in your VPC. You are charged standard AWS data transfer rates for traffic on the customer side of this connection — specifically, ingress to your worker nodes from the control plane and egress from your worker nodes to the control plane. Amazon EKS absorbs the data transfer costs on the control plane side of the connection. For more information about data transfer pricing, see [Data Transfer pricing](https://aws.amazon.com/ec2/pricing/on-demand/#Data-Transfer "https://aws.amazon.com/ec2/pricing/on-demand/#Data-Transfer").
+Communication between the Amazon EKS control plane and worker nodes in your cluster uses [requester-managed network interfaces](../../../AWSEC2/latest/UserGuide/requester-managed-eni.md "../../../AWSEC2/latest/UserGuide/requester-managed-eni.md") in your VPC. You are charged standard AWS data transfer rates for traffic on the customer side of this connection — specifically, ingress to your worker nodes from the control plane and egress from your worker nodes to the control plane. Amazon EKS absorbs the data transfer costs on the control plane side of the connection. For more information about data transfer pricing, see [Data Transfer pricing](https://aws.amazon.com/ec2/pricing/on-demand/#Data-Transfer "https://aws.amazon.com/ec2/pricing/on-demand/#Data-Transfer").
 
 Visit the respective pricing pages of the AWS services you are using with your Kubernetes applications for detailed pricing information.
 

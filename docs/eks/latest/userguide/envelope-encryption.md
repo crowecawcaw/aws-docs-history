@@ -161,7 +161,7 @@ Without your cluster’s CMK, the API server will no longer be able to encrypt a
 You should only proceed with deleting a CMK key for your EKS cluster when you are sure that you don’t need to use the EKS cluster anymore.
 
 Please note that if the CMK is not found (KMS_KEY_NOT_FOUND) or the grants for the CMK associated with your cluster are revoked (KMS_GRANT_REVOKED), your cluster will not be recoverable.
-For more information about about cluster health and error codes, see [Cluster health FAQs and error codes with resolution paths](troubleshooting.md#cluster-health-status "troubleshooting.md#cluster-health-status").
+For more information about cluster health and error codes, see [Cluster health FAQs and error codes with resolution paths](troubleshooting.md#cluster-health-status "troubleshooting.md#cluster-health-status").
 
 ### Will I still be charged for a degraded/unhealthy EKS cluster because I disabled or deleted my CMK?
 

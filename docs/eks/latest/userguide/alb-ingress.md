@@ -22,7 +22,7 @@ Before you can load balance application traffic to an application, you must meet
 - Have the AWS Load Balancer Controller deployed on your cluster. For more information, see [Route internet traffic with AWS Load Balancer Controller](aws-load-balancer-controller.md "aws-load-balancer-controller.md"). We recommend version `2.7.2` or later.
 - At least two subnets in different Availability Zones. The AWS Load Balancer Controller chooses one subnet from each Availability Zone. When multiple tagged subnets are found in an Availability Zone, the controller chooses the subnet whose subnet ID comes first lexicographically. Each subnet must have at least eight available IP addresses.
 
-If you’re using multiple security groups attached to worker node, exactly one security group must be tagged as follows. Replace `my-cluster` with your cluster name.
+If you’re using multiple security groups attached to worker nodes, exactly one security group must be tagged as follows. Replace `my-cluster` with your cluster name.
 
     + **Key**
     – `kubernetes.io/cluster/<my-cluster>`
@@ -118,7 +118,7 @@ You can add an order number of your ingress resource.
 alb.ingress.kubernetes.io/group.order: '10'
 ```
 
-The number can be 1-1000. The lowest number for all ingresses in the same ingress group is evaluated first. All ingresses without this annotation are evaluated with a value of zero. Duplicate rules with a higher number can overwrite rules with a lower number. By default, the rule order between ingresses within the same ingress group is determined lexicographically based namespace and name.
+The number can be 1-1000. The lowest number for all ingresses in the same ingress group is evaluated first. All ingresses without this annotation are evaluated with a value of zero. Duplicate rules with a higher number can overwrite rules with a lower number. By default, the rule order between ingresses within the same ingress group is determined lexicographically based on namespace and name.
 
 ###### Important
 
@@ -217,7 +217,7 @@ kubectl logs -f -n kube-system -l app.kubernetes.io/instance=aws-load-balancer-c
 
 1. If you deployed to a public subnet, open a browser and navigate to the `ADDRESS` URL from the previous command output to see the sample application. If you don’t see anything, refresh your browser and try again. If you deployed to a private subnet, then you’ll need to view the page from a device within your VPC, such as a bastion host. For more information, see [Linux Bastion Hosts on AWS](https://aws.amazon.com/quickstart/architecture/linux-bastion/ "https://aws.amazon.com/quickstart/architecture/linux-bastion/").
 
-![2048 sample application](images/2048.png) 2. When you finish experimenting with your sample application, delete it by running one of the the following commands.
+![2048 sample application](images/2048.png) 2. When you finish experimenting with your sample application, delete it by running one of the following commands.
 
     * If you applied the manifest, rather than applying a copy that you downloaded, use the following command.
 

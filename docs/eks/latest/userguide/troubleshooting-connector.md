@@ -98,7 +98,7 @@ docker logout public.ecr.aws
 
 ## Console error: the cluster is stuck in the Pending state
 
-If the cluster gets stuck in the `Pending` state on the Amazon EKS console after you’re registered it, it might be because the Amazon EKS Connector didn’t successfully connect the cluster to AWS yet. For a registered cluster, the `Pending` state means that the connection isn’t successfully established. To resolve this issue, make sure that you have applied the manifest to the target Kubernetes cluster. If you applied it to the cluster, but the cluster is still in the `Pending` state, then the `eks-connector` statefulset might be unhealthy. To troubleshoot this issue, see [Amazon EKS connector Pods are crash looping](#symp-loop "#symp-loop")in this topic.
+If the cluster gets stuck in the `Pending` state on the Amazon EKS console after you’ve registered it, it might be because the Amazon EKS Connector didn’t successfully connect the cluster to AWS yet. For a registered cluster, the `Pending` state means that the connection isn’t successfully established. To resolve this issue, make sure that you have applied the manifest to the target Kubernetes cluster. If you applied it to the cluster, but the cluster is still in the `Pending` state, then the `eks-connector` statefulset might be unhealthy. To troubleshoot this issue, see [Amazon EKS connector Pods are crash looping](#symp-loop "#symp-loop") in this topic.
 
 ## Console error: User system:serviceaccount:eks-connector:eks-connector can’t impersonate resource users in API group at cluster scope
 
@@ -137,7 +137,7 @@ helm upgrade eks-connector oci://public.ecr.aws/eks-connector/eks-connector-char
 
 Or, as the cluster administrator, grant the appropriate level of RBAC privileges to individual Kubernetes users. For more information and examples, see [Grant access to view Kubernetes cluster resources on an Amazon EKS console](connector-grant-access.md "connector-grant-access.md").
 
-## Console error: Amazon EKS can’t communicate with your Kubernetes cluster API server. The cluster must be in an ACTIVE state for successful connection. Try again in few minutes.
+## Console error: Amazon EKS can’t communicate with your Kubernetes cluster API server. The cluster must be in an ACTIVE state for successful connection. Try again in a few minutes.
 
 If the Amazon EKS service can’t communicate with the Amazon EKS connector in the target cluster, it might be because of one of the following reasons:
 

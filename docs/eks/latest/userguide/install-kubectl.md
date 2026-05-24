@@ -150,7 +150,7 @@ Procedure:
    openssl sha1 -sha256 kubectl
    ```
 
-   3. Make sure that the generated checksum in the output matches in the checksum in the downloaded `kubectl.sha256` file.
+   3. Make sure that the generated checksum in the output matches the checksum in the downloaded `kubectl.sha256` file.
 
 3. Apply execute permissions to the binary.
 
@@ -269,7 +269,7 @@ Procedure:
    openssl sha1 -sha256 kubectl
    ```
 
-   3. For the first, you should see `kubectl: OK`, for the second, you can check that the generated checksum in the output matches in the checksum in the downloaded `kubectl.sha256` file.
+   3. For the first, you should see `kubectl: OK`, for the second, you can check that the generated checksum in the output matches the checksum in the downloaded `kubectl.sha256` file.
 
 3. Apply execute permissions to the binary.
 
@@ -392,7 +392,7 @@ Procedure:
    openssl sha1 -sha256 kubectl
    ```
 
-   3. For the first, you should see `kubectl: OK`, for the second, you can check that the generated checksum in the output matches in the checksum in the downloaded `kubectl.sha256` file.
+   3. For the first, you should see `kubectl: OK`, for the second, you can check that the generated checksum in the output matches the checksum in the downloaded `kubectl.sha256` file.
 
 3. Apply execute permissions to the binary.
 
@@ -509,7 +509,7 @@ Procedure:
    Get-FileHash kubectl.exe
    ```
 
-   3. Make sure that the generated checksum in the output matches in the checksum in the downloaded `kubectl.sha256` file. The PowerShell output should be an uppercase equivalent string of characters.
+   3. Make sure that the generated checksum in the output matches the checksum in the downloaded `kubectl.sha256` file. The PowerShell output should be an uppercase equivalent string of characters.
 
 4. Copy the binary to a folder in your `PATH`. If you have an existing directory in your `PATH` that you use for command line utilities, copy the binary to that directory. Otherwise, complete the following steps.
    1. Create a new directory for your command line binaries, such as `C:\bin`.

@@ -76,7 +76,7 @@ You can create a cluster by using:
 ### Create cluster - eksctl
 
 1. You need version `0.215.0` or later of the `eksctl` command line tool installed on your device or AWS CloudShell. To install or update `eksctl`, see [Installation](https://eksctl.io/installation "https://eksctl.io/installation") in the `eksctl` documentation.
-2. Create an Amazon EKS `IPv4` cluster with the Amazon EKS default Kubernetes version in your default AWS Region. Before running command, make the following replacements:
+2. Create an Amazon EKS `IPv4` cluster with the Amazon EKS default Kubernetes version in your default AWS Region. Before running the command, make the following replacements:
 3. Replace `region-code` with the AWS Region that you want to create your cluster in.
 4. Replace `my-cluster` with a name for your cluster. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphanumeric character and can’t be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you’re creating the cluster in.
 5. Replace `1.35` with any [Amazon EKS supported version](kubernetes-versions.md "kubernetes-versions.md").
@@ -128,7 +128,7 @@ Kubernetes assigns `IPv4` addresses to Pods and services, by default. Before dec
 1.  Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
 2.  Choose **Add cluster** and then choose **Create**.
 3.  Under **Configuration options** select **Custom configuration**
-    - For information about quickly creating a cluster wih EKS Auto Mode, see [Create an EKS Auto Mode Cluster with the AWS Management Console](automode-get-started-console.md "automode-get-started-console.md").
+    - For information about quickly creating a cluster with EKS Auto Mode, see [Create an EKS Auto Mode Cluster with the AWS Management Console](automode-get-started-console.md "automode-get-started-console.md").
 
 4.  Under **EKS Auto Mode**, toggle **Use EKS Auto Mode** off.
     - For information about creating an EKS Auto Mode cluster with custom configuration, see [Create an Amazon EKS Auto Mode cluster](create-cluster-auto.md "create-cluster-auto.md").
@@ -162,7 +162,7 @@ Kubernetes assigns `IPv4` addresses to Pods and services, by default. Before dec
 
 
         Whether you choose any security groups or not, Amazon EKS creates a security group that enables communication between your cluster and your VPC. Amazon EKS associates this security group, and any that you choose, to the network interfaces that it creates. For more information about the cluster security group that Amazon EKS creates, see [View Amazon EKS security group requirements for clusters](sec-group-reqs.md "sec-group-reqs.md"). You can modify the rules in the cluster security group that Amazon EKS creates.
-        * **Choose cluster IP address family** – You can choose either **IPv4** and **IPv6**.
+        * **Choose cluster IP address family** – You can choose either **IPv4** or **IPv6**.
 
 
         Kubernetes assigns `IPv4` addresses to Pods and services, by default. Before deciding to use the `IPv6` family, make sure that you’re familiar with all of the considerations and requirements in the [VPC requirements and considerations](network-reqs.md#network-requirements-vpc "network-reqs.md#network-requirements-vpc"), [Subnet requirements and considerations](network-reqs.md#network-requirements-subnets "network-reqs.md#network-requirements-subnets"), [View Amazon EKS security group requirements for clusters](sec-group-reqs.md "sec-group-reqs.md"), and [Learn about IPv6 addresses to clusters, Pods, and services](cni-ipv6.md "cni-ipv6.md") topics. If you choose the `IPv6` family, you can’t specify an address range for Kubernetes to assign `IPv6` service addresses from like you can for the `IPv4` family. Kubernetes assigns service addresses from the unique local address range (`fc00::/7`).
@@ -195,7 +195,7 @@ Kubernetes assigns `IPv4` addresses to Pods and services, by default. Before dec
 
     When you’re done with this page, choose **Next**.
 
-9.  On the **Select add-ons** page, choose the add-ons that you want to add to your cluster. Certain add-ons are pre-selected. You can choose as many **Amazon EKS add-ons** and **AWS Marketplace add-ons** as you require. If the **AWS Marketplace add-ons** that you want to install isn’t listed, you can click the page numbering to view additional page results or search for available **AWS Marketplace add-ons** by entering text in the search box. You can also filter by **category**, **vendor**, or **pricing model** and then choose the add-ons from the search results. When creating a cluster, you can view, select, and install any add-on that supports EKS Pod Identities as detailed in [Learn how EKS Pod Identity grants pods access to AWS services](pod-identities.md "pod-identities.md").
+9.  On the **Select add-ons** page, choose the add-ons that you want to add to your cluster. Certain add-ons are pre-selected. You can choose as many **Amazon EKS add-ons** and **AWS Marketplace add-ons** as you require. If the **AWS Marketplace add-ons** that you want to install aren’t listed, you can click the page numbering to view additional page results or search for available **AWS Marketplace add-ons** by entering text in the search box. You can also filter by **category**, **vendor**, or **pricing model** and then choose the add-ons from the search results. When creating a cluster, you can view, select, and install any add-on that supports EKS Pod Identities as detailed in [Learn how EKS Pod Identity grants pods access to AWS services](pod-identities.md "pod-identities.md").
 
 When you’re done with this page, choose **Next**.
 

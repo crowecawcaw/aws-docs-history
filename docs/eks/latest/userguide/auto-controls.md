@@ -92,7 +92,7 @@ In this case the NodeClass field `spec.advancedNetworking.associatePublicIPAddre
 
 ```
   {
-        "Sid": "DenyPublicEC2IPAddesses",
+        "Sid": "DenyPublicEC2IPAddresses",
         "Effect": "Deny",
         "Action": "ec2:RunInstances",
         "Resource": "arn:aws:ec2:*:*:network-interface/*",

@@ -79,7 +79,7 @@ If you have automation that expects the pre-signed URL in a certain format or if
 kubectl delete Pods -n kube-system -l k8s-app=aws-node
 ```
 
-5. Confirm that the all Pods restarted.
+5. Confirm that all Pods restarted.
 
 ```
 kubectl get Pods -n kube-system -l k8s-app=aws-node

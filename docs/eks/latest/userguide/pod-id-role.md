@@ -35,7 +35,7 @@ EKS Pod Identity uses `TagSession` to include _session tags_ in the requests to 
 
 You can use these tags in the _condition keys_ in the trust policy to restrict which service accounts, namespaces, and clusters can use this role. For the list of request tags that Pod Identity adds, see [Enable or disable session tags](pod-id-abac.md#pod-id-abac-tags "pod-id-abac.md#pod-id-abac-tags").
 
-For example, you can restrict which pods can assume the role a Pod Identity IAM Role to a specific `ServiceAccount` and `Namespace` with the following Trust Policy with the added `Condition`:
+For example, you can restrict which pods can assume a Pod Identity IAM Role to a specific `ServiceAccount` and `Namespace` with the following Trust Policy with the added `Condition`:
 
 ```
 {

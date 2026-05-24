@@ -71,7 +71,7 @@ eksctl associate identityprovider -f associate-identity-provider.yaml
 
 1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
 2. Select your cluster, and then select the **Access** tab.
-3. In the **OIDC Identity Providers** section, select\* Associate Identity Provider\*.
+3. In the **OIDC Identity Providers** section, select **Associate Identity Provider**.
 4. On the **Associate OIDC Identity Provider** page, enter or select the following options, and then select **Associate**.
    - For **Name**, enter a unique name for the provider.
    - For **Issuer URL**, enter the URL for your provider. This URL must be accessible over the internet.

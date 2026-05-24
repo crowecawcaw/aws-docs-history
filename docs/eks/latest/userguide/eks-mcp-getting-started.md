@@ -4,7 +4,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Getting Started with the Amazon EKS MCP Server
 
-This guide walks you through the steps to setup and use the EKS MCP Server with your AI code assistants. You’ll learn how to configure your environment, connect to the server, and start managing your EKS clusters through natural language interactions.
+This guide walks you through the steps to set up and use the EKS MCP Server with your AI code assistants. You’ll learn how to configure your environment, connect to the server, and start managing your EKS clusters through natural language interactions.
 
 ###### Note
 
@@ -36,7 +36,7 @@ aws configure list
 
 ### 2. Setup IAM permissions
 
-To connect to the EKS MCP server, your [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") must have the following policies attached: **`eks-mcp:InvokeMcp`** (required permissions for initialization and retrieving information about available tools), **`eks-mcp:CallReadOnlyTool`** (required permissions for usage of read only tools), and **`eks-mcp:CallPrivilegedTool`** (required permissions for usage of full access (write) tools). These `eks-mcp` permissions are included in the read-only and full-access AWS managed policies provided, below.
+To connect to the EKS MCP server, your [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") must have the following policies attached: **`eks-mcp:InvokeMcp`** (required permissions for initialization and retrieving information about available tools), **`eks-mcp:CallReadOnlyTool`** (required permissions for usage of read-only tools), and **`eks-mcp:CallPrivilegedTool`** (required permissions for usage of full access (write) tools). These `eks-mcp` permissions are included in the read-only and full-access AWS managed policies provided, below.
 
 - Open the [IAM console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 - In the left navigation pane, choose **Users**, **User groups**, or **Roles** depending on the identity you want to attach the policy to, then the name of the specific user, group, or role.

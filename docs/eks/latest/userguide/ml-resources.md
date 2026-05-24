@@ -18,7 +18,7 @@ Learn how to get started with Large Language Model (LLM) applications and infere
 
 ## [Best Practices](../best-practices/aiml.md "../best-practices/aiml.md")
 
-The AI/ML focused topics in the Amazon EKS Best Practices guide provides detailed recommendations across the following areas to optimize your AI/ML workloads on Amazon EKS.
+The AI/ML focused topics in the Amazon EKS Best Practices guide provide detailed recommendations across the following areas to optimize your AI/ML workloads on Amazon EKS.
 
 ### [AI/ML Compute and Autoscaling](../best-practices/aiml-compute.md "../best-practices/aiml-compute.md")
 
@@ -38,7 +38,7 @@ This section provides best practices for optimizing storage in AI/ML workloads o
 
 ### [AI/ML Observability](../best-practices/aiml-observability.md "../best-practices/aiml-observability.md")
 
-This section focuses on monitoring and optimizing GPU utilization for AI/ML workloads on Amazon EKS to improve efficiency and reduce costs, including strategies such as targeting high GPU usage with tools like CloudWatch Container Insights and NVIDIA’s DCGM-Exporter integrated with Prometheus and Grafana, and metrics we recommend you analyzing for your AI/ML workloads.
+This section focuses on monitoring and optimizing GPU utilization for AI/ML workloads on Amazon EKS to improve efficiency and reduce costs, including strategies such as targeting high GPU usage with tools like CloudWatch Container Insights and NVIDIA’s DCGM-Exporter integrated with Prometheus and Grafana, and metrics we recommend you analyze for your AI/ML workloads.
 
 ### [AI/ML Performance](../best-practices/aiml-performance.md "../best-practices/aiml-performance.md")
 

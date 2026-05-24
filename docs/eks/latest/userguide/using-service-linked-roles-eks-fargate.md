@@ -8,7 +8,7 @@ Amazon EKS uses AWS Identity and Access Management (IAM) [service-linked roles](
 
 A service-linked role makes setting up Amazon EKS easier because you don’t have to manually add the necessary permissions. Amazon EKS defines the permissions of its service-linked roles, and unless defined otherwise, only Amazon EKS can assume its roles. The defined permissions include the trust policy and the permissions policy, and that permissions policy cannot be attached to any other IAM entity.
 
-You can delete a service-linked role only after first deleting their related resources. This protects your Amazon EKS resources because you can’t inadvertently remove permission to access the resources.
+You can delete a service-linked role only after first deleting its related resources. This protects your Amazon EKS resources because you can’t inadvertently remove permission to access the resources.
 
 For information about other services that support service-linked roles, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") and look for the services that have **Yes** in the **Service-linked role** column. Choose a **Yes** with a link to view the service-linked role documentation for that service.
 
@@ -32,7 +32,7 @@ You don’t need to manually create a service-linked role. When you create a Far
 
 ###### Important
 
-This service-linked role can appear in your account if you completed an action in another service that uses the features supported by this role. If you were using the Amazon EKS service before December 13, 2019, when it began supporting service-linked roles, then Amazon EKS created the AWSServiceRoleForAmazonEKSForFargate role in your account. To learn more, see [A New role appeared in my IAM account](../../../IAM/latest/UserGuide/troubleshoot_roles.md#troubleshoot_roles_new-role-appeared "../../../IAM/latest/UserGuide/troubleshoot_roles.md#troubleshoot_roles_new-role-appeared").
+This service-linked role can appear in your account if you completed an action in another service that uses the features supported by this role. If you were using the Amazon EKS service before December 13, 2019, when it began supporting service-linked roles, then Amazon EKS created the AWSServiceRoleForAmazonEKSForFargate role in your account. To learn more, see [A new role appeared in my IAM account](../../../IAM/latest/UserGuide/troubleshoot_roles.md#troubleshoot_roles_new-role-appeared "../../../IAM/latest/UserGuide/troubleshoot_roles.md#troubleshoot_roles_new-role-appeared").
 
 ### Creating a service-linked role in Amazon EKS (AWS API)
 

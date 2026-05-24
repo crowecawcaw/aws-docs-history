@@ -6,7 +6,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 ## Using EKS Pod Identity credentials
 
-To use the credentials from a EKS Pod Identity association, your code can use any AWS SDK to create a client for an AWS service with an SDK, and by default the SDK searches in a chain of locations for AWS Identity and Access Management credentials to use. The EKS Pod Identity credentials will be used if you don’t specify a credential provider when you create the client or otherwise initialized the SDK.
+To use the credentials from an EKS Pod Identity association, your code can use any AWS SDK to create a client for an AWS service with an SDK, and by default the SDK searches in a chain of locations for AWS Identity and Access Management credentials to use. The EKS Pod Identity credentials will be used if you don’t specify a credential provider when you create the client or otherwise initialized the SDK.
 
 This works because EKS Pod Identities have been added to the _Container credential provider_ which is searched in a step in the default credential chain. If your workloads currently use credentials that are earlier in the chain of credentials, those credentials will continue to be used even if you configure an EKS Pod Identity association for the same workload.
 

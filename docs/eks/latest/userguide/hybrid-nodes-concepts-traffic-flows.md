@@ -73,7 +73,7 @@ Your on-premises router receives the packet and recognizes the destination IP (`
 
 ## Hybrid node `kube-proxy` to EKS control plane
 
-If you enable public endpoint access for the cluster, the return traffic uses the public internet. This traffiic originates from the `kube-proxy` on the hybrid node to the EKS control plane and follows the same path as the traffic from the `kubelet` to the EKS control plane.
+If you enable public endpoint access for the cluster, the return traffic uses the public internet. This traffic originates from the `kube-proxy` on the hybrid node to the EKS control plane and follows the same path as the traffic from the `kubelet` to the EKS control plane.
 
 ## EKS control plane to hybrid node (`kubelet` server)
 
@@ -127,7 +127,7 @@ After the hybrid node’s `kubelet` processes the request, it sends back a respo
 
 **6. `kubelet` Sends Response**
 
-The `kubelet` on the hybrid node (`10.80.0.2`) creates a response packet with the original source IP as the destination. The destination doesn’t belong to the local network so its sent to the host’s default gateway, which is the local router.
+The `kubelet` on the hybrid node (`10.80.0.2`) creates a response packet with the original source IP as the destination. The destination doesn’t belong to the local network so it’s sent to the host’s default gateway, which is the local router.
 
 **5. Local Router Routing**
 

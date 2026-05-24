@@ -12,7 +12,7 @@ One example of software that might need security patching is `containerd`.
 
 ## `Containerd`
 
-`containerd` is the standard Kubernetes container runtime and core dependency for EKS Hybrid Nodes, used for managing container lifecycle, including pulling images and managing container execution. On an hybrid node, you can install `containerd` through the [nodeadm CLI](hybrid-nodes-nodeadm.md "hybrid-nodes-nodeadm.md") or manually. Depending on the operating system of your node, `nodeadm` will install `containerd` from the OS-distributed package or Docker package.
+`containerd` is the standard Kubernetes container runtime and core dependency for EKS Hybrid Nodes, used for managing container lifecycle, including pulling images and managing container execution. On a hybrid node, you can install `containerd` through the [nodeadm CLI](hybrid-nodes-nodeadm.md "hybrid-nodes-nodeadm.md") or manually. Depending on the operating system of your node, `nodeadm` will install `containerd` from the OS-distributed package or Docker package.
 
 When a CVE in `containerd` has been published, you have the following options to upgrade to the patched version of `containerd` on your Hybrid nodes.
 
