@@ -36,4 +36,4 @@ In the diagram above
 1. A malicious actor attempts to access SAP systems from VPC managed by customer peered to RISE VPC or scan ports.
 2. The connection attempt from malicious actor IP logged in VPC Flow Logs.
 3. The suspicious connection attempt is detected by Amazon GuardDuty and reported to administrators.
-   For instructions to configure Amazon GuardDuty, see [Getting Started](../../../guardduty/latest/ug/guardduty_settingup.md "../../../guardduty/latest/ug/guardduty_settingup.md").
+   For instructions to configure Amazon GuardDuty, see {https---docs-aws-amazon-com-guardduty-latest-ug-guardduty-settingup-html}[Getting Started].

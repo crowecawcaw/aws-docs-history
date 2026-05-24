@@ -6,13 +6,15 @@ Using AWS KMS as the keystore in [HYOK (Hold Your Own Key) scenario](https://hel
 
 This integration allows customers to manage and control the encryption keys used to protect their sensitive data, ensuring greater security and compliance. SAP Data Custodian Key Management Service can be interfaced with AWS KMS in HYOK (Hold Your Own Key) scenario with the following supported key:
 
-| Area                        | AWS KMS (HYOK Scenario) | Supported Key Types and Key Sizes             |
-| --------------------------- | ----------------------- | --------------------------------------------- |
-| AES (256), RSA (3072, 4096) | Key Management          | Key is created and stored in AWS KMS keystore |
+| Area                              | AWS KMS (HYOK Scenario)                         |
+| --------------------------------- | ----------------------------------------------- |
+| Supported Key Types and Key Sizes | AES (256), RSA (3072, 4096)                     |
+| Key Management                    | Key is created and stored in AWS KMS keystore   |
+| Key Revocation                    | Key can be disabled or unregistered at any time |
 
 Below is the SAP KMS integration with AWS KMS - HYOK
 
-![The SAP KMS integration with KMS - BYOK](images/rise-security-hyok.png)
+![The SAP KMS integration with KMS - HYOK](images/rise-security-hyok.png)
 In the diagram above:
 
 - Key is created in AWS KMS keystore

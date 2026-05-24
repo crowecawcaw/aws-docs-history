@@ -7,6 +7,6 @@ These following partner solutions are not exhaustive. We recommend checking the 
 ###### Topics
 
 - [New Relic Monitoring for SAP](rise-observability-newrelic.md "rise-observability-newrelic.md")
-- [SoftwareOne: PowerConnect for SAP Solutions](rise-observability-powerconnect.md "rise-observability-powerconnect.md")
+- [Rhondos: PowerConnect for SAP Solutions](rise-observability-powerconnect.md "rise-observability-powerconnect.md")
 - [PowerConnect for SAP on Dynatrace](rise-observability-dynatrace.md "rise-observability-dynatrace.md")
 - [Splunk Service Intelligence for SAP Solutions](rise-observability-splunk.md "rise-observability-splunk.md")

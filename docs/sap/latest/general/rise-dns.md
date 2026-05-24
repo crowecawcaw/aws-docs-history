@@ -5,7 +5,6 @@ This documentation offers guidance on Domain Name System (DNS) integration optio
 A bi-directional DNS integration is essential for connecting RISE with SAP systems to various AWS cloud and on-premises resources and enterprise infrastructure. In manufacturing environments, a common use case involves connecting SAP applications to shop floor equipment. For example, SAP might need to communicate with printers located on the production floor to generate labels, work orders, or shipping documents. This requires the ability to resolve internal hostnames like “printer-line1.factory.company.local” within the RISE with SAP environment.
 
 Conversely, external systems and applications usually require a DNS lookup to access resources in the RISE with SAP environment, particularly when calling ODATA API endpoints to execute business transactions such as generating a work orders.
-Integration scenarios between RISE with SAP systems and existing enterprise systems typically require internal network connectivity due to compliance and security requirements. This is particularly true for RISE with SAP deployments, which is why the following sections focus on DNS resolution within private networks.
 
 Integration scenarios between RISE with SAP systems and existing enterprise systems typically require internal network connectivity due to compliance and security requirements. This is particularly true for RISE with SAP deployments, which is why the following sections focus on DNS resolution within private networks.
 
@@ -74,7 +73,7 @@ The following diagram shows a reference architecture for integrating the RISE en
 
 5. Configure the on-premises DNS server as follows:
    1. SAP-bound DNS queries: Zone transfer of sap.<customer>.<domain> from SAP DNS server
-   2. AWS-bound DNS queries: Zone transfer of aws.<customer>.<domain> from AWS-hosed DNS server
+   2. AWS-bound DNS queries: Zone transfer of aws.<customer>.<domain> from AWS-hosted DNS server
 
 6. SAP DNS servers are configured as follows:
    1. Customer data center-bound DNS queries: Zone transfer of dc.<customer>.<domain> from on-premises DNS server

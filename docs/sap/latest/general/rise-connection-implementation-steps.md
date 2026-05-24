@@ -67,7 +67,7 @@ Configure for active/active topology: Implement routing policies to balance traf
 
 Coordinate with SAP to enable the BGP sessions for both Direct Connect connections. Verify the BGP paths and test failover scenarios by simulating the failure of one connection to ensure traffic properly fails over to the other.
 
-Confirm end-to-end connectivity with SAP for both paths. You can also leverage the [AWS Direct Connect Resiliency Toolkit](../../../directconnect/latest/UserGuide/resiliency_toolkit.md "../../../directconnect/latest/UserGuide/resiliency_toolkit.md") to [perform scheduled failover tests](../../../directconnect/latest/UserGuide/resiliency_failover.md "../../../directconnect/latest/UserGuide/resiliency_failover.md") and verify the resiliency of your connections. and validate the resiliency of your connections.
+Confirm end-to-end connectivity with SAP for both paths. You can also leverage the [AWS Direct Connect Resiliency Toolkit](../../../directconnect/latest/UserGuide/resiliency_toolkit.md "../../../directconnect/latest/UserGuide/resiliency_toolkit.md") to [perform scheduled failover tests](../../../directconnect/latest/UserGuide/resiliency_failover.md "../../../directconnect/latest/UserGuide/resiliency_failover.md") and verify the resiliency of your connections.
 
 **Maintain the Connections**
 

@@ -110,10 +110,10 @@ Verified Access provides centralized policy management through [AWS Cedar Policy
 - AWS IAM Identity Center enabled in the AWS Region that you prefer. For more information, see [Enable AWS IAM Identity Center](../../../singlesignon/latest/userguide/get-set-up-for-idc.md "../../../singlesignon/latest/userguide/get-set-up-for-idc.md").
 - A [security group](../../../vpc/latest/userguide/vpc-security-groups.md "../../../vpc/latest/userguide/vpc-security-groups.md") to allow network access to SAP applications.
 - SAP application running behind an internal AWS Elastic Load Balancer. Associate your security group with the load balancer. (you can use a Network Load Balancer for both SAP GUI and SAP Fiori access, or Application Load Balancer for SAP Fiori access only).
-- A public TLS certificate in [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/ "https://aws.amazon.com/certificate-manager/") when configuring AWS Verified Access for HTTP(s) based access (i.e. SAP Fiori). Use an RSA certificate with a key length of 1,024 or 2,048.
+- A public TLS certificate in [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/ "https://aws.amazon.com/certificate-manager/") when configuring AWS Verified Access for HTTP(s) based access (i.e. SAP Fiori). Use an RSA certificate with a key length of 2,048 or higher.
 - A public hosted domain and the permissions required to update DNS records for the domain. (example: Amazon Route 53)
 - An IAM policy with the permissions required to create an AWS Verified Access instance. For more information, see [Policy for creating Verified Access instances](../../../verified-access/latest/ug/security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-create-instance "../../../verified-access/latest/ug/security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-create-instance").
-- Set the system environment variable **SAP_IPV6_ACTIVE=1** as per [SAP note 1346768](http://me.sap.com/notes/1346768 "http://me.sap.com/notes/1346768") (requires a SAP S-user ID to access), this is needed when accessing SAP application using Verified Access endpoint from SAP GUI.
+- Set the system environment variable **SAP_IPV6_ACTIVE=1** as per [SAP note 1346768](https://me.sap.com/notes/1346768 "https://me.sap.com/notes/1346768") (requires a SAP S-user ID to access), this is needed when accessing SAP application using Verified Access endpoint from SAP GUI.
 
 **How to Implement AWS Verified Access for SAP**
 

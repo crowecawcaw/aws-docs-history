@@ -16,7 +16,7 @@ Data flow
 1. User accesses SAP Fiori launchpad via Internet browser or mobile device
 2. The request is routed to Amazon CloudFront to the closest edge compute of the user location
 3. Optionally, AWS Web Application Firewall (WAF) evaluates the request based on the customer’s configured rules to block malicious traffic. Additionally, [Distributed Denial of Service (DDOS) protection](https://aws.amazon.com/developer/application-security-performance/articles/ddos-protection/ "https://aws.amazon.com/developer/application-security-performance/articles/ddos-protection/") is also provided by [AWS Shield Standard](../../../waf/latest/developerguide/ddos-standard-summary.md "../../../waf/latest/developerguide/ddos-standard-summary.md") which is automatically included at no extra cost when you use CloudFront with AWS WAF
-4. The request is then parsed to the AWS ALB which forwards the traffic to the SAP system hosted in the SAP managed RISE account.
+4. The request is then passed to the AWS ALB which forwards the traffic to the SAP system hosted in the SAP managed RISE account.
    This improves the security posture of SAP systems by:
 
 - Eliminating direct exposure of SAP servers to the public internet

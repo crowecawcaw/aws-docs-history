@@ -18,7 +18,7 @@ Data can also be federated to the SAP HANA Cloud by configuring Athena as a remo
 
 **Amazon Redshift**
 
-[Amazon Redshift](https://aws.amazon.com/redshift/ "https://aws.amazon.com/redshift/") iis a fully managed, peta-byte scale data warehouse service from AWS. Customers have built their data warehouses and build data models for analytics and reporting.
+[Amazon Redshift](https://aws.amazon.com/redshift/ "https://aws.amazon.com/redshift/") is a fully managed, peta-byte scale data warehouse service from AWS. Customers have built their data warehouses and build data models for analytics and reporting.
 
 [Data federation](https://discovery-center.cloud.sap/missiondetail/3406/3446/ "https://discovery-center.cloud.sap/missiondetail/3406/3446/") from Amazon Redshift into SAP Datasphere is possible with SAP HANA Smart Data Integration (SDI) or the SAP Data Provisioning Agent. Amazon Redshift data can also be federated through the Athena Federated Query data source connector.
 

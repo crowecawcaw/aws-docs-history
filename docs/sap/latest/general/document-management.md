@@ -12,7 +12,7 @@ We shall discuss on the available options for your data archiving and document m
 
 Many customers migrating to RISE with SAP choose to keep their SAP Content Server on AWS until they transition to [SAP BTP Document Management System](https://help.sap.com/docs/document-management-service?locale=en-US "https://help.sap.com/docs/document-management-service?locale=en-US") or [OpenText Archiving solution](https://www.sap.com/documents/2015/08/5217be37-427c-0010-82c7-eda71af511fa.html "https://www.sap.com/documents/2015/08/5217be37-427c-0010-82c7-eda71af511fa.html"). [SAP Content Server](https://help.sap.com/docs/document-management-service/sap-document-management-service/content-server "https://help.sap.com/docs/document-management-service/sap-document-management-service/content-server") is a standalone component designed to store large volumes of electronic documents in various formats. These documents can be securely saved in one or more SAP MaxDB instances or within the file system. Common examples of documents stored in SAP Content Server include sales invoices, purchase orders, salary slips, emails, agreements, and others. This approach ensures seamless document management integrated into SAP business processes while maintaining accessibility and compliance.
 
-![SAP Content Server running on MaxDB.scaledwidth=100%](images/rise-content-server-maxdb.png)
+![SAP Content Server running on MaxDB](images/rise-content-server-maxdb.png)
 Architecture Description
 
 1. RISE with SAP VPC is connected to an AWS account which you managed via AWS Transit Gateway.

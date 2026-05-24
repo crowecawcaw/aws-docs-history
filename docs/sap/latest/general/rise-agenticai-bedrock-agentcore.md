@@ -14,5 +14,5 @@ Bedrock AgentCore is a suite of services that enables developers to build, deplo
 - **Meta**: The Llama family of models.
 - **Mistral AI**: A range of Mistral models.
 - **Amazon**: Amazon’s own models, including the Titan and Nova families.
-- **OpenAI**: Selected open-weight models from OpenAI.
+- **OpenAI**: Selected models from OpenAI.
 - **Other providers**: AI21 Labs, Cohere, DeepSeek, Stability AI, and others.

@@ -14,7 +14,7 @@ Here are the steps to integrate Athena with SAP Datasphere:
 
 1. Prepare source with non-SAP and third party data
 2. Configure Athena
-3. onfigure necessary IAM user and authorizations
+3. Configure necessary IAM user and authorizations
 4. Setup SAP Datasphere Connection to Athena
 5. Build models in SAP Datasphere
    This enables live data federation without replicating data, thus reduces cost, provides fast insights, and enterprise-grade security. For detailed step by step, visit [Federating Queries from SAP Datasphere to Amazon S3 via Amazon Athena](https://github.com/SAP-samples/sap-bdc-explore-hyperscaler-data/blob/main/AWS/athena-integration.md "https://github.com/SAP-samples/sap-bdc-explore-hyperscaler-data/blob/main/AWS/athena-integration.md").

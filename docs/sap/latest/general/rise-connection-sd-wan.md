@@ -2,7 +2,7 @@
 
 **What is SD-WAN**
 
-[Software-Defined Wide Area Networking (SD-WAN)](https://en.wikipedia.org/wiki/SD-WAN "https://en.wikipedia.org/wiki/SD-WAN") is a networking technology that uses software to manage and route traffic across different networks such as Multi-Path Label Switching (MPLS), public internet, or the AWS backbone focusing on improving connectivity and application performance. SD-WAN primarily operates at layer 3 (Network Layer) of the network OSI model offering centralized control, routing, path selection, IP-based policies, and the ability to prioritize specific mission critical applications, such as SAP, making it well-suited for cloud-based RISE with SAP environments.
+[Software-Defined Wide Area Networking (SD-WAN)](https://en.wikipedia.org/wiki/SD-WAN "https://en.wikipedia.org/wiki/SD-WAN") is a networking technology that uses software to manage and route traffic across different networks such as Multi-Protocol Label Switching (MPLS), public internet, or the AWS backbone focusing on improving connectivity and application performance. SD-WAN primarily operates at layer 3 (Network Layer) of the network OSI model offering centralized control, routing, path selection, IP-based policies, and the ability to prioritize specific mission critical applications, such as SAP, making it well-suited for cloud-based RISE with SAP environments.
 
 Although SD-WAN primarily operates at Layer 3, using an overlay network such as broadband internet, it can utilize Layer 2 (Data Link) technologies such as [AWS Direct Connect](https://aws.amazon.com/directconnect/ "https://aws.amazon.com/directconnect/") as the underlay network for transport, and Layer 3 (Network) technologies such as [AWS Site-to-Site VPN](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md").
 
@@ -76,7 +76,7 @@ Outbound from RISE with SAP:
 
 **Pattern B-2: SD-WAN appliances in AWS integrated with AWS Site-to-Site VPN**
 
-![SD-WAN appliances iintegrated with Site-to-Site VPN](images/rise-pattern-b-2-sd-wan-s2svpn.png)
+![SD-WAN appliances integrated with Site-to-Site VPN](images/rise-pattern-b-2-sd-wan-s2svpn.png)
 The diagram above illustrates a pattern of integrating your SD-WAN network with Transit Gateway using an AWS Site-Site VPN connection and placing (third party) virtual appliances of the SD-WAN network in an Appliance VPC within AWS. You may use this option when your third-party virtual appliance does not support GRE. It’s common to have SD-WAN edge appliances deployed at branch locations, and on-premises data center to create a full mesh topology.
 
 Outbound from RISE with SAP:
