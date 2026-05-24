@@ -196,8 +196,12 @@ data:
 
 ## HTTPS considerations
 
+###### Note
+
+The domain name must be allowlisted by the RTB Fabric team for your account before you can create your responder gateway. Contact customer support for allowlisting process.
+
 RTB Fabric can terminate the TLS connection from the requester on your behalf and send your hosts HTTP traffic. However, if you require HTTPS from RTB Fabric managed endpoints to your bidder hosts, additional configuration is required:
 
 - **TLS certificates** – Each host must serve up a TLS certificate.
 - **Certificate Authority chain** – You must provide RTB Fabric with the Certificate Authority (CA) certificate chain so that RTB Fabric hosts can trust the TLS certificate from each bidder host.
-- **DNS name allowlisting** – You must provide RTB Fabric with a DNS name that matches the SAN of the TLS certificate from each bidder host. The DNS name must be allowlisted by the RTB Fabric team for your account before you can create your RTB application.
+- **Domain name allowlisting** – You must provide RTB Fabric with a domain name that matches the SAN of the TLS certificate from each bidder host.

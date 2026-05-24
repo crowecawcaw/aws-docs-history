@@ -7,6 +7,9 @@ Responder gateways are RTB Fabric infrastructure components that serve as connec
 - [Creating a responder gateway](#creating-responder-gateway "#creating-responder-gateway")
 - [Creating an external responder gateway](#creating-external-responder-gateway "#creating-external-responder-gateway")
 - [Searching for responder gateways](#searching-responder-gateways "#searching-responder-gateways")
+- [Updating an existing responder gateway](#updating-responder-gateway "#updating-responder-gateway")
+- [Getting a responder gateway](#getting-responder-gateway "#getting-responder-gateway")
+- [Listing responder gateways](#listing-responder-gateways "#listing-responder-gateways")
 - [Viewing associated links](#viewing-responder-associated-links "#viewing-responder-associated-links")
 - [Deleting responder gateways](#deleting-responder-gateways "#deleting-responder-gateways")
 
@@ -62,9 +65,68 @@ You are responsible for the data you process through RTB Fabric, including ensur
 
 After creating your gateway, you can view its details, monitor performance metrics, and make configuration changes as needed.
 
-### Updating gateway description
+Use the following command to create a responder gateway using the AWS Command Line Interface (AWS CLI).
 
-You can update the gateway description using the RTB Fabric API. For more information, see the [AWS RTB Fabric API Reference](../api.md "../api.md").
+**Create a responder gateway with domain name and trust store configuration**
+
+```
+`$` `aws rtbfabric create-responder-gateway \
+--description `"My RTB responder gateway"` \
+--vpc-id `vpc-01f345ad6524a6d7` \
+--subnet-ids `subnet-abc12345 subnet-def67890` \
+--security-group-ids `sg-12345678` \
+--domain-name `responder.example.com` \
+--port `443` \
+--protocol `HTTPS` \
+--trust-store-configuration `certificateAuthorityCertificates="-----BEGIN CERTIFICATE-----..."` \
+--tags `Environment=Production Team=RTB` \
+--endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
+--region `us-east-1``
+```
+
+**Create with EKS managed endpoint configuration**
+
+```
+`$` `aws rtbfabric create-responder-gateway \
+--description `"My EKS responder gateway"` \
+--vpc-id `vpc-0abc1234def567890` \
+--subnet-ids `subnet-0abc1234def567890 subnet-0def5678abc901234` \
+--security-group-ids `sg-0abc1234def567890` \
+--port `443` \
+--protocol `HTTPS` \
+--domain-name `bidder.example.com` \
+--managed-endpoint-configuration `'{"eksEndpoints":{"endpointsResourceName":"my-bidder-service","endpointsResourceNamespace":"bidding-ns","clusterApiServerEndpointUri":"https://ABCDEF1234567890.gr7.us-east-1.eks.amazonaws.com","clusterApiServerCaCertificateChain":"LS0tLS1CRUdJTi...base64-encoded-CA-cert...LS0tLS1FTkQ=","clusterName":"my-eks-cluster","roleArn":"arn:aws:iam::123456789012:role/RtbFabricManagedEndpointRole"}}'` \
+--endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
+--region `us-east-1``
+```
+
+**Create with ASG managed endpoint configuration**
+
+```
+`$` `aws rtbfabric create-responder-gateway \
+--description `"My ASG responder gateway"` \
+--vpc-id `vpc-0abc1234def567890` \
+--subnet-ids `subnet-0abc1234def567890 subnet-0def5678abc901234` \
+--security-group-ids `sg-0abc1234def567890` \
+--port `8080` \
+--protocol `HTTP` \
+--managed-endpoint-configuration `'{"autoScalingGroups":{"autoScalingGroupNames":["my-asg-name"],"roleArn":"arn:aws:iam::123456789012:role/RtbFabricManagedEndpointRole"}}'` \
+--endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
+--region `us-east-1``
+```
+
+### Logging
+
+When logging is configured, default sampling behavior applies. Service logs capture all error logs (`error_log` sampling rate of 1) and no filter logs (`filter_log` sampling rate of 0). To modify sampling rates after creation, see [UpdateLink](../api.md "../api.md") in the _AWS RTB Fabric API Reference_.
+
+## Creating an external responder gateway
+
+Create an external responder gateway in RTB Fabric if you do not already have one. Inbound external links with custom domains require an external gateway — a gateway type designed for receiving traffic from endpoints outside RTB Fabric. Standard (internal) responder gateways do not support inbound external links with custom domains features such as certificate association and routing rules.
+
+###### To create an external responder gateway
+
+1. Follow the same steps as [Creating a responder gateway](#creating-responder-gateway "#creating-responder-gateway"), but on the creation page, select the **External gateway** tile instead of the default gateway type.
+2. Complete the remaining configuration fields as described in the standard gateway creation procedure.
 
 ### Listener configuration
 
@@ -81,138 +143,68 @@ Multi-protocol support is useful when you need to support partners that send tra
 
 If you enable both HTTP and HTTPS, TLS certificate association and SNI-based certificate resolution apply only to HTTPS connections. HTTP connections bypass TLS termination entirely.
 
-Use the following command to create a responder gateway using the AWS Command Line Interface (AWS CLI).
+Use the following command to create an external responder gateway using the AWS Command Line Interface (AWS CLI).
 
-**Create a responder gateway with required parameters**
+**Create an external responder gateway with HTTP and ASG managed endpoint**
 
 ```
 `$` `aws rtbfabric create-responder-gateway \
---description `"My RTB responder gateway"` \
---vpc-id `vpc-01f345ad6524a6d7` \
---subnet-ids `subnet-abc12345 subnet-def67890` \
---security-group-ids `sg-12345678` \
---port `443` \
---protocol `HTTPS` \
---client-token `"unique-client-token-123"` \
+--description `"External gateway for inbound external links with custom domains"` \
+--vpc-id `vpc-0abc123def456` \
+--subnet-ids `subnet-0abc123 subnet-0def456` \
+--security-group-ids `sg-0abc123` \
+--port `80` \
+--protocol `HTTP` \
+--managed-endpoint-configuration `'{"autoScalingGroups":{"autoScalingGroupNames":["my-asg-name"],"roleArn":"arn:aws:iam::123456789012:role/RtbFabricManagedEndpointRole"}}'` \
+--gateway-type `EXTERNAL` \
 --endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
 --region `us-east-1``
 ```
 
-**Create with optional domain name and trust store configuration**
+**Create an external responder gateway with multi-protocol listener configuration (HTTP and HTTPS)**
 
 ```
 `$` `aws rtbfabric create-responder-gateway \
---description `"My RTB responder gateway"` \
---vpc-id `vpc-01f345ad6524a6d7` \
---subnet-ids `subnet-abc12345 subnet-def67890` \
---security-group-ids `sg-12345678` \
---domain-name `responder.example.com` \
---port `443` \
---protocol `HTTPS` \
---client-token `"unique-client-token-123"` \
---trust-store-configuration `certificateAuthorityCertificates="-----BEGIN CERTIFICATE-----..."` \
---tags `Environment=Production Team=RTB` \
---endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
---region `us-east-1``
-```
-
-**Create with multi-protocol listener configuration (HTTP and HTTPS)**
-
-```
-`$` `aws rtbfabric create-responder-gateway \
---description `"My RTB responder gateway"` \
---vpc-id `vpc-01f345ad6524a6d7` \
---subnet-ids `subnet-abc12345 subnet-def67890` \
---security-group-ids `sg-12345678` \
+--description `"External gateway for inbound external links with custom domains"` \
+--vpc-id `vpc-0abc123def456` \
+--subnet-ids `subnet-0abc123 subnet-0def456` \
+--security-group-ids `sg-0abc123` \
 --port `443` \
 --protocol `HTTPS` \
 --listener-config `'{"protocols":["HTTP","HTTPS"]}'` \
---client-token `"unique-client-token-123"` \
+--domain-name `bidder.example.com` \
+--managed-endpoint-configuration `'{"autoScalingGroups":{"autoScalingGroupNames":["my-asg-name"],"roleArn":"arn:aws:iam::123456789012:role/RtbFabricManagedEndpointRole"}}'` \
 --gateway-type `EXTERNAL` \
---managed-endpoint-configuration `'{"autoScalingGroups":{"autoScalingGroupNames":["my-asg-name"],"roleArn":"arn:aws:iam::123456789012:role/MyASGRole"}}'` \
 --endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
 --region `us-east-1``
 ```
 
-**Create with EKS managed endpoint configuration**
+**Create an external responder gateway with HTTPS and EKS managed endpoint**
 
 ```
 `$` `aws rtbfabric create-responder-gateway \
---description `"My EKS responder gateway"` \
---vpc-id `vpc-0abc1234def567890` \
---subnet-ids `subnet-0abc1234def567890 subnet-0def5678abc901234` \
---security-group-ids `sg-0abc1234def567890` \
+--description `"External gateway with EKS endpoint discovery"` \
+--vpc-id `vpc-0abc123def456` \
+--subnet-ids `subnet-0abc123 subnet-0def456` \
+--security-group-ids `sg-0abc123` \
 --port `443` \
 --protocol `HTTPS` \
+--domain-name `bidder.example.com` \
+--managed-endpoint-configuration `'{"eksEndpoints":{"endpointsResourceName":"my-bidder-service","endpointsResourceNamespace":"bidding-ns","clusterApiServerEndpointUri":"https://ABCDEF1234567890.gr7.us-east-1.eks.amazonaws.com","clusterApiServerCaCertificateChain":"LS0tLS1CRUdJTi...base64-encoded-CA-cert...LS0tLS1FTkQ=","clusterName":"my-eks-cluster","roleArn":"arn:aws:iam::123456789012:role/RtbFabricManagedEndpointRole"}}'` \
 --gateway-type `EXTERNAL` \
---managed-endpoint-configuration `'{"eksEndpoints":{"endpointsResourceName":"my-bidder-service","endpointsResourceNamespace":"bidding-ns","clusterApiServerEndpointUri":"https://ABCDEF1234567890.gr7.us-east-1.eks.amazonaws.com","clusterApiServerCaCertificateChain":"LS0tLS1CRUdJTi...base64-encoded-CA-cert...LS0tLS1FTkQ=","clusterName":"my-eks-cluster","roleArn":"arn:aws:iam::123456789012:role/MyEksEndpointDiscoveryRole"}}'` \
---client-token `"550e8400-e29b-41d4-a716-446655440000"` \
 --endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
 --region `us-east-1``
-```
-
-### Logging
-
-When logging is configured, default sampling behavior applies. Service logs capture all error logs (`error_log` sampling rate of 1) and no filter logs (`filter_log` sampling rate of 0). To modify sampling rates after creation, see [UpdateLink](../api.md "../api.md") in the _AWS RTB Fabric API Reference_.
-
-## Creating an external responder gateway
-
-Create an external responder gateway in RTB Fabric if you do not already have one. Inbound external links with custom domains require an external gateway — a gateway type designed for receiving traffic from endpoints outside RTB Fabric. Standard (internal) responder gateways do not support inbound external links with custom domains features such as certificate association and routing rules.
-
-Use the following command to create an external responder gateway using the AWS Command Line Interface (AWS CLI).
-
-**Create an external responder gateway with HTTP**
-
-```
-`$` `aws rtbfabric create-responder-gateway \
- --description `"External gateway for inbound external links with custom domains"` \
- --vpc-id `vpc-0abc123def456` \
- --subnet-ids `subnet-0abc123 subnet-0def456` \
- --security-group-ids `sg-0abc123` \
- --port `80` \
- --protocol `HTTP` \
- --managed-endpoint-configuration `'{"autoScalingGroups":{"autoScalingGroupNames":["my-asg-name"],"roleArn":"arn:aws:iam::123456789012:role/MyASGRole"}}'` \
- --gateway-type `EXTERNAL` \
- --endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
- --region `us-east-1``
-```
-
-**Create an external responder gateway with HTTPS**
-
-```
-`$` `aws rtbfabric create-responder-gateway \
- --description `"External gateway for inbound external links with custom domains"` \
- --vpc-id `vpc-0abc123def456` \
- --subnet-ids `subnet-0abc123 subnet-0def456` \
- --security-group-ids `sg-0abc123` \
- --port `443` \
- --protocol `HTTPS` \
- --managed-endpoint-configuration `'{"autoScalingGroups":{"autoScalingGroupNames":["my-asg-name"],"roleArn":"arn:aws:iam::123456789012:role/MyASGRole"}}'` \
- --gateway-type `EXTERNAL` \
- --endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
- --region `us-east-1``
-```
-
-**Create an external responder gateway with EKS managed endpoints**
-
-```
-`$` `aws rtbfabric create-responder-gateway \
- --description `"External gateway with EKS endpoint discovery"` \
- --vpc-id `vpc-0abc123def456` \
- --subnet-ids `subnet-0abc123 subnet-0def456` \
- --security-group-ids `sg-0abc123` \
- --port `443` \
- --protocol `HTTPS` \
- --managed-endpoint-configuration `'{"eksEndpoints":{"endpointsResourceName":"my-bidder-service","endpointsResourceNamespace":"bidding-ns","clusterApiServerEndpointUri":"https://ABCDEF1234567890.gr7.us-east-1.eks.amazonaws.com","clusterApiServerCaCertificateChain":"LS0tLS1CRUdJTi...base64-encoded-CA-cert...LS0tLS1FTkQ=","clusterName":"my-eks-cluster","roleArn":"arn:aws:iam::123456789012:role/MyEksEndpointDiscoveryRole"}}'` \
- --gateway-type `EXTERNAL` \
- --endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
- --region `us-east-1``
 ```
 
 **Key parameters:**
 
 - `--gateway-type EXTERNAL` — Required. Creates an external gateway that supports inbound external links with custom domains, certificate association, and routing rules.
-- `--managed-endpoint-configuration` — Required for external gateways. Specifies the backend that receives traffic. Provide either an `autoScalingGroups` configuration (with ASG names and a role ARN) or an `eksEndpoints` configuration (with EKS cluster details).
+- `--managed-endpoint-configuration` — Required for external gateways. Specifies the backend that receives traffic. Provide either an `autoScalingGroups` configuration (with ASG names and a role ARN) or an `eksEndpoints` configuration (with EKS cluster details). For more information, see [Managed endpoints](managed-endpoints.md "managed-endpoints.md").
+
+###### Important
+
+When using `--protocol HTTPS` with `--managed-endpoint-configuration`, the `--domain-name` parameter is required. The domain name must be allowlisted by the RTB Fabric team for your account before you can create your gateway. Contact AWS Support to request domain name allowlisting. The role used for managed endpoint must have **RTBFabricManagedEndpoint=true** tag.
+
 - `--protocol` — `HTTP` or `HTTPS`. Choose based on whether you want TLS termination at the gateway.
 - `--port` — The port the gateway listens on (for example, `80` for HTTP or `443` for HTTPS).
 
@@ -230,6 +222,46 @@ Use the search functionality in the console to locate specific gateways in your 
 4. The table automatically filters to show matching gateways as you type.
 5. If no gateways exist, the console displays **No responder gateways** with an option to create your first gateway.
 
+## Updating an existing responder gateway
+
+You can update the gateway description and Auto Scaling group managed endpoint configuration. Other fields cannot be updated after gateway creation.
+
+###### To update a responder gateway
+
+1. On the **Responder gateways** page, select the radio button next to the responder gateway you want to update.
+2. Choose **View details**.
+3. Choose **Edit** to modify the gateway configuration.
+
+###### Note
+
+The **Edit** button is only available for responder gateways that have Auto Scaling group managed endpoints configured. 4. Update the **Gateway description** or **Auto Scaling group** managed endpoint configuration as needed. 5. Choose **Save changes**.
+
+Use the following commands to update a responder gateway using the AWS Command Line Interface (AWS CLI).
+
+**Update gateway description**
+
+```
+`$` `aws rtbfabric update-responder-gateway \
+--gateway-id `"rtb-gw-kasoi29asfdhn"` \
+--description `"Updated responder gateway description"` \
+--endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
+--region `us-east-1``
+```
+
+**Update Auto Scaling group managed endpoint configuration**
+
+```
+`$` `aws rtbfabric update-responder-gateway \
+--gateway-id `"rtb-gw-kasoi29asfdhn"` \
+--managed-endpoint-configuration `'{"autoScalingGroups":{"autoScalingGroupNames":["my-new-asg-name","my-second-asg"],"roleArn":"arn:aws:iam::123456789012:role/RtbFabricManagedEndpointRole"}}'` \
+--endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
+--region `us-east-1``
+```
+
+## Getting a responder gateway
+
+Retrieve detailed information about a specific responder gateway, including its configuration, status, VPC settings, and endpoint configuration.
+
 Use the following command to get details for a specific responder gateway using the AWS Command Line Interface (AWS CLI).
 
 **Get details for a specific responder gateway**
@@ -237,6 +269,20 @@ Use the following command to get details for a specific responder gateway using 
 ```
 `$` `aws rtbfabric get-responder-gateway \
 --gateway-id `"rtb-gw-kasoi29asfdhn"` \
+--endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
+--region `us-east-1``
+```
+
+## Listing responder gateways
+
+List all responder gateways in your account.
+
+Use the following commands to list responder gateways using the AWS Command Line Interface (AWS CLI).
+
+**List all responder gateways**
+
+```
+`$` `aws rtbfabric list-responder-gateways \
 --endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
 --region `us-east-1``
 ```
@@ -282,6 +328,10 @@ We recommend deleting unused responder gateways to optimize resource usage and c
 ###### Warning
 
 Deleting a responder gateway is permanent and cannot be undone. Check your gateway metrics to verify there is no active traffic before proceeding with deletion.
+
+###### Important
+
+You must delete all associated links before you can delete a responder gateway. If the gateway has any associated links, the deletion will fail.
 
 ###### To delete a responder gateway
 
