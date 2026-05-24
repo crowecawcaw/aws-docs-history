@@ -20,6 +20,7 @@ key_mgmt_util command line tool, the PKCS #11 SDK, the JCE SDK, or the OpenSSL S
 - [Issue: Signing operations with prehashed data do not properly clear session tokens in interactive mode](#ki-all-13 "#ki-all-13")
 - [Issue: CloudHSM client library's default client certificate expires on Jan 31, 2026](#ki-all-14 "#ki-all-14")
 - [Issue: Client SDK 5 connection fails due to weak CA certificate key](#ki-all-15 "#ki-all-15")
+- [Issue: Cryptographic operations fail with "Sequence number is outside of window" errors under high concurrency](#ki-all-16 "#ki-all-16")
 
 ## Issue: AES key wrapping uses PKCS #5 padding instead of providing a standards-compliant implementation of key wrap with zero padding
 
@@ -191,4 +192,18 @@ Certificate verification error with error code 67 and depth 1: CA certificate ke
 
 - **Impact:** Clusters that were initialized with a CA certificate using an RSA key weaker than 2048 bits will fail to connect on Client SDK 5 versions 5.17.0 and 5.17.1.
 - **Workaround:** Downgrade to a Client SDK 5 version earlier than 5.17.0 to restore connectivity to your cluster.
-- **Resolution status:** We are currently working on a fix.
+- **Resolution status:** This issue has been resolved in [Client SDK 5.17.2](latest-releases.md#client-version-5-17-2 "latest-releases.md#client-version-5-17-2"). Upgrade to version 5.17.2 or later to benefit from the fix.
+
+## Issue: Cryptographic operations fail with "Sequence number is outside of window" errors under high concurrency
+
+- **Impact:** Under high-concurrency workloads, Client SDK 5 can
+  occasionally return transient operation failures. Client SDK 5 increases the volume
+  of parallel operations to the HSM as part of its improved security posture. Under heavy
+  load, thread scheduling delays can cause transient failures that are recoverable on retry.
+- **Workaround:** Implement application-level retry logic for transient
+  errors. Refer to our [best practices guide](bp-application-integration.md "bp-application-integration.md").
+  You may also reduce load on the client by limiting the number of parallel cryptographic
+  operations or upgrading to an instance type with more CPU cores.
+- **Resolution status:** We have added retries in
+  [Client SDK 5.17.2](latest-releases.md#client-version-5-17-2 "latest-releases.md#client-version-5-17-2"). You must upgrade
+  to this client version or later to benefit from the updates.
