@@ -46,4 +46,4 @@ The following shows the communication path if you are using the dataflow endpoin
 
 The following shows the communication path if you are using the AWS Ground Station Agent configuration.
 
-![Communication flow between AWS Ground Station antenna and customer destination region components.](/images/ground-station/latest/ug/images/digif-data-delivery-overview.png)
+![Communication flow between AWS Ground Station antenna and customer destination region components.](images/digif-data-delivery-overview.png)
