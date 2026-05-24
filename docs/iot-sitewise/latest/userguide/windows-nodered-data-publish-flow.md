@@ -283,7 +283,7 @@ the flow and verify that data is being transmitted correctly to AWS IoT SiteWise
 
 1. Connect the three nodes as shown in the data publish flow.
 
-![Data publish flow diagram showing input from turbine simulator to AWS IoT SiteWise to MQTT broker.](images/gateway-open-source-nodered-publish-flow.png) 2. Choose **Deploy** to apply all node connection
+![](images/gateway-open-source-nodered-publish-flow.png) 2. Choose **Deploy** to apply all node connection
 changes. 3. Navigate to the [AWS IoT SiteWise console](https://console.aws.amazon.com/iotsitewise/ "https://console.aws.amazon.com/iotsitewise/") and choose **Data
 streams**. 4. Ensure **Alias prefix** is selected in the dropdown menu. Then,
 search for the `/Renton/WindFarm/Turbine/WindSpeed` alias.

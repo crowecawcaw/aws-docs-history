@@ -66,9 +66,6 @@ partnership with Domatica in the context of AWS IoT Greengrass V2.
   direct those messages to AWS IoT SiteWise.If you have devices connected to AWS IoT Core sending [MQTT](../../../iot/latest/developerguide/mqtt.md "../../../iot/latest/developerguide/mqtt.md") messages,
   use the AWS IoT Core rules engine to route those messages to AWS IoT SiteWise. For more information, see
   [Ingest data to AWS IoT SiteWise using AWS IoT Core rules](iot-rules.md "iot-rules.md").
-- **Event-triggered data ingestion:** Use _AWS IoT Events
-  actions_ to configure the IoT SiteWise action in AWS IoT Events to send data to
-  AWS IoT SiteWise when events occur. For more information, see [Ingest data to AWS IoT SiteWise from AWS IoT Events](iot-events.md "iot-events.md").
 - **AWS IoT SiteWise API:** Your applications at the Edge or in the
   cloud can directly send data to AWS IoT SiteWise. For more information, see [Ingest data with AWS IoT SiteWise APIs](ingest-api.md "ingest-api.md").
 
