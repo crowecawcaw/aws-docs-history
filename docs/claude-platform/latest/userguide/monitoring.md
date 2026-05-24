@@ -1,6 +1,6 @@
 # Monitoring and logging
 
-AWS CloudTrail can capture all requests to Claude Platform on AWS. Workspace and vault operations are logged as Management events by default. Inference, batch, file, skill, model, user profile, and Claude Managed Agents operations (other than vaults) are classified as Data events and require explicit data event logging configuration, which incurs additional CloudTrail charges. See [IAM actions](iam-actions.md "iam-actions.md") for the full event type classification and the [AWS CloudTrail documentation](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md") for configuration details.
+AWS CloudTrail can capture all requests to Claude Platform on AWS. Workspace and vault operations are logged as Management events by default. All other operations (inference, batch, file, skill, model, user profile, and Claude Managed Agents except vaults) are Data events. Logging them requires explicit configuration and incurs additional CloudTrail charges. See [IAM actions](iam-actions.md "iam-actions.md") for the full event type classification and the [AWS CloudTrail documentation](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md") for configuration details.
 
 When configuring CloudTrail data event logging, select the resource type `AWS::AWSExternalAnthropic::Workspace`. This is the CloudTrail resource type for Claude Platform on AWS workspaces and is required to capture data plane events (inference, batch, file, and other per-workspace operations). Scope data event selectors to specific workspace ARNs if you want to log activity for a subset of workspaces rather than the whole account.
 
@@ -160,7 +160,7 @@ AWS CloudTrail is configured within your AWS account. Enabling logging does not 
 
 Claude Platform on AWS does not publish per-workspace usage metrics to Amazon CloudWatch. Token counts, request volume, and per-model usage are instead available through Anthropic’s usage surfaces:
 
-- **Claude Console usage views** — when a principal federates into the Claude Console with `aws-external-anthropic:AssumeConsole` (see [IAM policies](iam-policies.md "iam-policies.md")), the usage dashboards show request volume, token counts, and per-model breakdowns for the workspaces the principal has access to. Account-wide usage views require admin console capability.
+- **Claude Console usage views** — when a principal federates into the Claude Console with `aws-external-anthropic:AssumeConsole` (see [IAM policies](iam-policies.md "iam-policies.md")), the usage dashboards show request volume, token counts, and per-model breakdowns for accessible workspaces. Account-wide usage views require admin console capability.
 - **Anthropic Usage and Cost API** — for programmatic access to usage and cost data, including per-workspace and per-model aggregation, see [Usage and Cost API](https://platform.claude.com/docs/en/manage-claude/usage-cost-api "https://platform.claude.com/docs/en/manage-claude/usage-cost-api") in the Anthropic documentation.
 
 For operational monitoring (error rates, latency, rate limit headers), use the response headers returned on every request (see [Rate limits and quotas](rate-limits.md "rate-limits.md")) along with the AWS request IDs captured in CloudTrail.
@@ -173,4 +173,4 @@ Claude Platform on AWS charges appear on your AWS bill under the **Claude Platfo
 2. In the AWS Billing console, activate each tag key as a **cost allocation tag**. After activation, usage incurred on or after the activation date is split by tag in the CUR.
 3. In CUR or AWS Cost Explorer, group by the `resourceTags/user:<tag-key>` column to break down spend by workspace tag.
 
-Workspace tags flow through to CUR line items for all Claude Platform on AWS usage, so the same tag keys can drive both IAM-based access control and cost allocation without additional configuration. See [Cost allocation tags](../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md "../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md") in the AWS Billing documentation for setup steps and activation delays.
+Workspace tags flow through to CUR line items for all Claude Platform on AWS usage. The same tag keys drive both IAM-based access control and cost allocation. See [Cost allocation tags](../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md "../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md") in the AWS Billing documentation for setup steps and activation delays.

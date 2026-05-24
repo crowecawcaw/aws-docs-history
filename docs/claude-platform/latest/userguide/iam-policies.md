@@ -201,7 +201,7 @@ Control which capability a principal can request with the `aws-external-anthropi
 
 ## Calling with bearer tokens
 
-`aws-external-anthropic:CallWithBearerToken` authorizes the SigV4-free request path used when an API key is presented as a bearer token. Any principal that will authenticate with an API key — whether through the Anthropic SDK’s `ANTHROPIC_AWS_API_KEY` environment variable or by setting the `Authorization: Bearer` header directly — needs this action on the target workspace.
+`aws-external-anthropic:CallWithBearerToken` authorizes the SigV4-free request path used when an API key is presented as a bearer token. Any principal that authenticates with an API key needs this action on the target workspace. This applies whether you use `ANTHROPIC_AWS_API_KEY` or set the `Authorization: Bearer` header directly.
 
 This is required for API key callers in addition to the inference actions (`CreateInference`, `CreateBatchInference`, etc.). Without `CallWithBearerToken`, API key requests are rejected before reaching the inference authorization check. SigV4 callers do not need this action.
 

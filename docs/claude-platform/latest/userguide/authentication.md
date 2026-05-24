@@ -32,7 +32,7 @@ Only API keys created in the AWS Console under **Claude Platform on AWS** work w
 
 ## Short-term API keys
 
-For cases where you want API key authentication but without the lifetime of a long-lived key, Anthropic publishes token-generator libraries that mint short-term API keys from your AWS IAM credentials. Tokens default to a 12-hour lifetime and can be scoped to a specific workspace and to the `aws-external-anthropic:CallWithBearerToken` action. Install the generator that matches your language, then exchange IAM credentials for an API key and pass the result to the Anthropic SDK the same way you would a long-lived key.
+For cases where you want API key authentication but without the lifetime of a long-lived key, Anthropic publishes token-generator libraries that mint short-term API keys from your AWS IAM credentials. Tokens default to a 12-hour lifetime and can be scoped to a specific workspace and to the `aws-external-anthropic:CallWithBearerToken` action. Install the generator for your language, exchange IAM credentials for an API key, and pass the key to the Anthropic SDK.
 
 - **Python:**
   [aws/token-generator-for-aws-external-anthropic-python](https://github.com/aws/token-generator-for-aws-external-anthropic-python "https://github.com/aws/token-generator-for-aws-external-anthropic-python")
@@ -45,7 +45,7 @@ Short-term API keys still require the caller’s IAM principal to hold `aws-exte
 
 ## Credential precedence and region resolution
 
-The Anthropic SDK’s Claude Platform on AWS client resolves credentials and region using a defined precedence order. Argument names vary by language convention (TypeScript and PHP use camelCase; Python and Ruby use snake_case; Go uses Pascal case with capitalized acronyms; C# and Java use the language’s property or builder idioms).
+The Anthropic SDK’s Claude Platform on AWS client resolves credentials and region using a defined precedence order. Argument names follow each language’s conventions: camelCase for TypeScript and PHP, snake_case for Python and Ruby, PascalCase for Go, and property or builder patterns for C# and Java.
 
 For the authoritative precedence order, supported environment variables, and constructor arguments for each SDK, see [Claude on AWS setup](https://platform.claude.com/docs/en/api/claude-on-aws "https://platform.claude.com/docs/en/api/claude-on-aws") in the Anthropic documentation. In general, explicit constructor arguments take precedence over environment variables, and `ANTHROPIC_AWS_API_KEY` takes precedence over the default AWS credential provider chain. Region is required; unlike `AnthropicBedrock` (which falls back to `us-east-1`), the Claude on AWS client throws if no region is supplied by the constructor or by `AWS_REGION` / `AWS_DEFAULT_REGION`.
 

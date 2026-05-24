@@ -1,6 +1,6 @@
 # Set up your account
 
-Setting up Claude Platform on AWS happens in four phases: sign up on the AWS Console service page, complete your Anthropic organization setup, note your workspace ID, and sign in to the Claude Console.
+Setting up Claude Platform on AWS has four phases: sign up in the AWS Console, set up your Anthropic organization, note your workspace ID, and sign in to the Claude Console.
 
 ###### Note
 
@@ -30,7 +30,7 @@ After sign-up completes, you’re redirected to `platform.claude.com/partner-sig
 2. Check that email inbox for a setup link and follow it. If your browser shows a **Signed in as a different account** page, choose **Log out and continue**.
 3. Complete the organization details form (organization name, entity type, country, intended use) and choose **Complete setup**.
 
-Completing setup creates your Anthropic organization. Use of Claude Platform on AWS is governed by the [AWS Service Terms](https://aws.amazon.com/service-terms/ "https://aws.amazon.com/service-terms/") and is subject to Anthropic’s Commercial Terms of Service, Data Processing Addendum, Usage Policy, and other agreements with Anthropic governing your use of their services. The AWS Console service page now shows a left navigation with **Home**, **API keys**, **Quickstart**, and **Workspaces**.
+Completing setup creates your Anthropic organization. The [AWS Service Terms](https://aws.amazon.com/service-terms/ "https://aws.amazon.com/service-terms/") govern Claude Platform on AWS. Anthropic’s Commercial Terms of Service, Data Processing Addendum, and Usage Policy also apply. The AWS Console service page now shows a left navigation with **Home**, **API keys**, **Quickstart**, and **Workspaces**.
 
 ## Step 3: Note your workspace ID
 
@@ -46,7 +46,7 @@ Access to the Claude Console is federated through AWS IAM:
 2. From the **Claude Platform on AWS** service page, choose **Sign in**. The AWS Console issues a JWT and redirects you to `platform.claude.com`.
 3. On first sign-in, you’re prompted for an email address. Enter your work email. The platform provisions your Claude Console user just-in-time.
 
-When you’re signed in through the AWS Console, the Claude Console scopes to your Claude Platform on AWS organization. An **Account managed by AWS** indicator appears in the bottom-left of the Claude Console sidebar.
+When you’re signed in through the AWS Console, the Claude Console scopes to your Claude Platform on AWS organization. An **Account managed by AWS** indicator appears in the Claude Console sidebar.
 
 ## Troubleshooting account setup
 

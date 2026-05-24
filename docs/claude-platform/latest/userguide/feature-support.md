@@ -1,6 +1,6 @@
 # Feature support
 
-Claude Platform on AWS uses the Anthropic Messages API directly, which means you get full Messages API feature parity with the first-party Claude API (except where noted in [Features not currently available](#features-not-currently-available "#features-not-currently-available")):
+Claude Platform on AWS uses the Anthropic Messages API directly. You get full feature parity with the first-party Claude API, except where noted in [Features not currently available](#features-not-currently-available "#features-not-currently-available"):
 
 - **Beta features:** Pass the standard `anthropic-beta` header to access beta features, just as you would with the Claude API.
 - **Agent Skills:** Use pre-built and custom [Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview") with the same `container.skills` parameter and beta headers as the Claude API. All pre-built Skills (PowerPoint, Excel, Word, PDF) work out of the box.
@@ -15,7 +15,7 @@ Claude Platform on AWS uses the Anthropic Messages API directly, which means you
 
 ## Claude Managed Agents
 
-Claude Managed Agents are available on Claude Platform on AWS. Agents, sessions, environments (cloud container configurations), credential vaults, and memory stores are first-class IAM resources; see [IAM actions](iam-actions.md "iam-actions.md") for the action reference and [Using the Claude Console](console.md "console.md") for the corresponding Claude Console pages. The Anthropic Agent SDK works against Claude Platform on AWS without a separate integration step — point it at the Claude Platform on AWS base URL and authenticate with SigV4 or an API key.
+Claude Managed Agents are available on Claude Platform on AWS. Agents, sessions, environments, credential vaults, and memory stores are first-class IAM resources. See [IAM actions](iam-actions.md "iam-actions.md") for the action reference and [Using the Claude Console](console.md "console.md") for the corresponding pages. The Anthropic Agent SDK works with Claude Platform on AWS without additional integration. Point it at the Claude Platform on AWS base URL and authenticate with SigV4 or an API key.
 
 Autonomous sessions on Claude Platform on AWS require re-authentication every 6 hours. Long-running agent runs must refresh their SigV4 credentials or API key within that window, or the session ends.
 
@@ -29,13 +29,13 @@ The following Claude Managed Agents capabilities are not currently available on 
 
 ###### Important
 
-This service is a third-party offering provided by Anthropic and is not included within the scope of standard AWS compliance programs, certifications, or audit reports (such as SOC, ISO, or HIPAA eligibility). Customers are solely responsible for performing their own due diligence to ensure that this third-party offering meets their regulatory, legal, and compliance requirements. Before processing sensitive or regulated data, you should review Anthropic’s official compliance documentation via the [Anthropic Trust Center](https://trust.anthropic.com/ "https://trust.anthropic.com/"). See the [AWS Service Terms](https://aws.amazon.com/service-terms/ "https://aws.amazon.com/service-terms/") for more information.
+Anthropic provides this service as a third-party offering. It is not covered by standard AWS compliance programs, certifications, or audit reports (such as SOC, ISO, or HIPAA eligibility). Customers are solely responsible for performing their own due diligence to ensure that this third-party offering meets their regulatory, legal, and compliance requirements. Before processing sensitive or regulated data, you should review Anthropic’s official compliance documentation via the [Anthropic Trust Center](https://trust.anthropic.com/ "https://trust.anthropic.com/"). See the [AWS Service Terms](https://aws.amazon.com/service-terms/ "https://aws.amazon.com/service-terms/") for more information.
 
 ## How workspace membership is modeled
 
 On the first-party Claude API, access is governed by users-to-workspaces membership — a user is added to a workspace and inherits the workspace’s access rights. Claude Platform on AWS replaces that model with IAM authorization: there is no per-workspace user list. Instead, IAM principals (users or roles) hold policies that grant `aws-external-anthropic` actions against specific workspace ARNs. The IAM policy evaluation determines what each principal can do in each workspace.
 
-This means workspace access is granted and revoked by modifying IAM policies — through AWS Organizations SCPs, permission boundaries, identity-attached policies, or resource-level conditions — not by managing per-workspace membership in a Claude Console UI. See [IAM policies](iam-policies.md "iam-policies.md") for examples.
+Grant and revoke workspace access by modifying IAM policies (SCPs, permission boundaries, identity-attached policies, or resource-level conditions) rather than managing per-workspace membership in the Claude Console. See [IAM policies](iam-policies.md "iam-policies.md") for examples.
 
 ## Features not currently available
 

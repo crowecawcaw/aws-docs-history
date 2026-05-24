@@ -44,5 +44,5 @@ If you currently use Claude on Bedrock, migrating to Claude Platform on AWS requ
 
 ## Commercial considerations
 
-- **Terms of service:** Use of Claude Platform on AWS is governed by the [AWS Service Terms](https://aws.amazon.com/service-terms/ "https://aws.amazon.com/service-terms/") and is subject to Anthropic’s Commercial Terms of Service, Data Processing Addendum, Usage Policy, and other agreements with Anthropic governing your use of their services.
+- **Terms of service:** The [AWS Service Terms](https://aws.amazon.com/service-terms/ "https://aws.amazon.com/service-terms/") govern Claude Platform on AWS. Anthropic’s Commercial Terms of Service, Data Processing Addendum, and Usage Policy also apply.
 - **Discounts and private offers:** Negotiated discounts and AWS Marketplace private offers don’t transfer automatically between Bedrock and Claude Platform on AWS. Work with your Anthropic account representative to set up commercial terms for Claude Platform on AWS.

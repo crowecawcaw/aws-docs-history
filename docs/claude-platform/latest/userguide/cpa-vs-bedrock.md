@@ -20,6 +20,6 @@ If you need AWS-operated Claude with the Bedrock API, see [Amazon Bedrock](../..
 
 ###### Important
 
-Claude Platform on AWS is a third-party offering provided by Anthropic and is not included within the scope of standard AWS compliance programs, certifications, or audit reports (such as SOC, ISO, or HIPAA eligibility). Customers are solely responsible for performing their own due diligence to ensure that this third-party offering meets their regulatory, legal, and compliance requirements.
+Anthropic provides Claude Platform on AWS as a third-party offering. It is not covered by standard AWS compliance programs, certifications, or audit reports (such as SOC, ISO, or HIPAA eligibility). Customers are solely responsible for performing their own due diligence to ensure that this third-party offering meets their regulatory, legal, and compliance requirements.
 
-**When to choose Bedrock:** Choose Amazon Bedrock if your organization requires AWS to operate the inference stack, requires AWS to be the sole data processor, or requires coverage under AWS compliance programs, certifications, or audit reports (including FedRAMP High, IL4, IL5, SOC, ISO, and HIPAA eligibility). Bedrock runs entirely on AWS-controlled infrastructure with AWS as the operating party.
+**When to choose Bedrock:** Choose Amazon Bedrock if your organization requires AWS-operated inference, AWS as the sole data processor, or coverage under AWS compliance programs (including FedRAMP High, IL4, IL5, SOC, ISO, and HIPAA eligibility). Bedrock runs entirely on AWS-controlled infrastructure with AWS as the operating party.

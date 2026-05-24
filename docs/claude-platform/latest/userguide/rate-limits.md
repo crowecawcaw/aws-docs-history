@@ -4,9 +4,9 @@ Claude Platform on AWS assigns Tier 1 rate limits when you subscribe. Anthropic 
 
 ## Default limits
 
-Claude Platform on AWS uses Anthropic’s standard tier schedule, identical to the first-party Claude API. Tier 1 limits apply per workspace. Limits are pooled by model family (for example, one combined limit covers Claude Opus 4.7, 4.6, 4.5, and earlier Opus models; Sonnet models share a separate combined limit; Haiku models share another).
+Claude Platform on AWS uses Anthropic’s standard tier schedule, identical to the first-party Claude API. Tier 1 limits apply per workspace. Limits are pooled by model family. For example, all Opus models share one combined limit, all Sonnet models share another, and all Haiku models share a third.
 
-For the current Tier 1 values — requests per minute (RPM), input tokens per minute (ITPM), output tokens per minute (OTPM) — and for higher-tier thresholds, see [Rate limits](https://platform.claude.com/docs/en/api/rate-limits "https://platform.claude.com/docs/en/api/rate-limits") on the Anthropic documentation website. The Anthropic page is the source of truth and is updated when limits change.
+For current Tier 1 values (RPM, ITPM, OTPM) and higher-tier thresholds, see [Rate limits](https://platform.claude.com/docs/en/api/rate-limits "https://platform.claude.com/docs/en/api/rate-limits") on the Anthropic documentation website. The Anthropic page is the source of truth and is updated when limits change.
 
 ## Rate limit headers
 

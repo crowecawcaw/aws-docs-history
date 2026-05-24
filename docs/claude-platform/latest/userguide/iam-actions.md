@@ -180,7 +180,7 @@ A default workspace is provisioned at sign-up; see [Workspaces](workspaces.md "w
 | --------------- | ----------------- |
 | `AssumeConsole` | (none)            |
 
-`AssumeConsole` authorizes a principal to open the Claude Console for a Claude Platform on AWS workspace through the AWS Console federation flow. It does not map to a route. Grant it to principals who should be able to click **Open Claude Console** on the Claude Platform on AWS service page in the AWS Console. The console capability (developer or admin) is controlled by the `aws-external-anthropic:Capability` condition key on the `AssumeConsole` action; see [IAM policies](iam-policies.md "iam-policies.md") for details on the capability model and [Using the Claude Console](console.md "console.md") for the sign-in flow.
+`AssumeConsole` authorizes a principal to open the Claude Console for a Claude Platform on AWS workspace through the AWS Console federation flow. It does not map to a route. Grant it to principals who should be able to click **Open Claude Console** on the Claude Platform on AWS service page in the AWS Console. The `aws-external-anthropic:Capability` condition key on the `AssumeConsole` action controls which console capability (developer or admin) a principal can request. See [IAM policies](iam-policies.md "iam-policies.md") for details and [Using the Claude Console](console.md "console.md") for the sign-in flow.
 
 ###### Warning
 
