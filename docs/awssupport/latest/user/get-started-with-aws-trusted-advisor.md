@@ -222,7 +222,7 @@ basis.
 You can also refresh specific checks in the following ways:
 
 - Choose the refresh icon (
-  ![Circular arrow icon representing a refresh or reload action.](images/refresh.png)
+  ![](images/refresh.png)
   ) for an individual check.
 - Use the [RefreshTrustedAdvisorCheck](../APIReference/API_RefreshTrustedAdvisorCheck.md "../APIReference/API_RefreshTrustedAdvisorCheck.md") API operation.
 
@@ -232,7 +232,7 @@ You can also refresh specific checks in the following ways:
   **AWS Well-Architected high risk issues for reliability**
   check. It might take a few hours for changes to appear in your account. For these
   automatically refreshed checks, you can't choose the refresh icon (
-  ![Circular arrow icon representing a refresh or reload action.](images/refresh.png)
+  ![](images/refresh.png)
   ) to manually refresh your results.
 - If you enabled AWS Security Hub CSPM for your account, you can't use the Trusted Advisor console to refresh
   Security Hub CSPM controls. For more information, see [Refresh your Security Hub CSPM findings](security-hub-controls-with-trusted-advisor.md#refreshing-security-hub-findings "security-hub-controls-with-trusted-advisor.md#refreshing-security-hub-findings").
@@ -249,7 +249,7 @@ download results for all checks or a specific check.
      check category page, choose **Download all checks**.
    - To download a check result for a specific check, choose the check name, and then choose
      the download icon (
-     ![Icon representing the action to upload or share content, showing an arrow pointing upwards.](images/download.png)
+     ![](images/download.png)
      ).
 
 2. Save or open the .xls file. The file contains the same summary information from the

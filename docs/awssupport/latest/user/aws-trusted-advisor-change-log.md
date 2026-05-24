@@ -579,7 +579,7 @@ Trusted Advisor updated the following checks on March 29, 2022.
   `2022-03-30T01:02:27.000Z`.
 - Resources that don't have any detected problems will now appear in the check
   table. These resources will have a check mark icon (
-  ![Green checkmark icon indicating success or approval.](images/green.png)
+  ![](images/green.png)
   ) next to them.
 
 Previously, only resources that Trusted Advisor recommended that you investigate

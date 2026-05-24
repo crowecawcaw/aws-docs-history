@@ -8,7 +8,7 @@ Use this method regardless of whether you use proactive monitoring or not, or wh
 
 1. For **Case type**, choose **Technical**.
 2. For **Service**, choose the affected AWS service.
-3. For **Category**, choose **Active Incident**.
+3. For **Category**, choose the option that best matches your issue.
 4. For **Severity**, choose **Business-critical system down**.
 5. In the **Description**, include the following information
    1. Technical information
