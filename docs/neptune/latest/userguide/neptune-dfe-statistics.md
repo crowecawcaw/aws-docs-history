@@ -48,9 +48,6 @@ is being deprecated in favor of the `rdf` endpoint. It is still supported
 for backward compatibility but may be
 removed in future releases.
 
-In the examples below, `$STATISTICS_ENDPOINT` stands for any of these
-endpoint URLs.
-
 ###### Note
 
 If a DFE statistics endpoint is on a reader instance, the only requests that it
@@ -69,11 +66,69 @@ These limits may change.
 
 ## Current status of DFE statistics
 
-You can check the current status of DFE statistics using the following
-`curl` request:
+You can check the current status of DFE statistics as follows:
+
+###### Note
+
+The following examples use the property graph endpoint and commands. For RDF data,
+use `get-sparql-statistics` for the AWS CLI, and `/rdf/statistics`
+for REST endpoints.
+
+AWS CLI
 
 ```
-curl -G "$STATISTICS_ENDPOINT"
+aws neptunedata get-propertygraph-statistics \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --region `us-east-1`
+```
+
+###### Note
+
+Replace `us-east-1` with the Region of your
+Neptune cluster. You can omit `--region` if you have configured a
+default Region.
+
+For more information, see [get-propertygraph-statistics](../../../cli/latest/reference/neptunedata/get-propertygraph-statistics.md "../../../cli/latest/reference/neptunedata/get-propertygraph-statistics.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+import json
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.get_propertygraph_statistics()
+
+print(json.dumps(response['payload'], indent=2, default=str))
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/propertygraph/statistics \
+  --region `us-east-1` \
+  --service neptune-db
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+For more information about using **awscurl** with IAM authentication, see
+[Using awscurl with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl "iam-auth-connect-command-line.md#iam-auth-connect-awscurl").
+
+curl
+
+```
+curl -G https://`your-neptune-endpoint`:`port`/propertygraph/statistics
 ```
 
 The response to a status request contains the following fields:
@@ -167,8 +222,63 @@ By default, auto-generation of DFE statistics is enabled when you enable DFE.
 
 You can disable auto-generation as follows:
 
+###### Note
+
+The following examples use the property graph endpoint and commands. For RDF data,
+use `manage-sparql-statistics` for the AWS CLI, and `/rdf/statistics`
+for REST endpoints.
+
+AWS CLI
+
 ```
-curl -X POST "$STATISTICS_ENDPOINT" -d '{ "mode" : "disableAutoCompute" }'
+aws neptunedata manage-propertygraph-statistics \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --mode disableAutoCompute
+```
+
+For more information, see [manage-propertygraph-statistics](../../../cli/latest/reference/neptunedata/manage-propertygraph-statistics.md "../../../cli/latest/reference/neptunedata/manage-propertygraph-statistics.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.manage_propertygraph_statistics(mode='disableAutoCompute')
+
+print(response['status'])
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/propertygraph/statistics \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{"mode":"disableAutoCompute"}'
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+For more information about using **awscurl** with IAM authentication, see
+[Using awscurl with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl "iam-auth-connect-command-line.md#iam-auth-connect-awscurl").
+
+curl
+
+```
+curl -X POST -d '{ "mode" : "disableAutoCompute" }' https://`your-neptune-endpoint`:`port`/propertygraph/statistics
 ```
 
 If the request is successful, the HTTP response code is `200` and the response is:
@@ -205,8 +315,63 @@ for a list of other common errors.
 By default, auto-generation of DFE statistics is already enabled when you enable DFE.
 If you disable auto-generation, you can re-enable it later as follows:
 
+###### Note
+
+The following examples use the property graph endpoint and commands. For RDF data,
+use `manage-sparql-statistics` for the AWS CLI, and `/rdf/statistics`
+for REST endpoints.
+
+AWS CLI
+
 ```
-curl -X POST "$STATISTICS_ENDPOINT" -d '{ "mode" : "enableAutoCompute" }'
+aws neptunedata manage-propertygraph-statistics \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --mode enableAutoCompute
+```
+
+For more information, see [manage-propertygraph-statistics](../../../cli/latest/reference/neptunedata/manage-propertygraph-statistics.md "../../../cli/latest/reference/neptunedata/manage-propertygraph-statistics.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.manage_propertygraph_statistics(mode='enableAutoCompute')
+
+print(response['status'])
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/propertygraph/statistics \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{"mode":"enableAutoCompute"}'
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+For more information about using **awscurl** with IAM authentication, see
+[Using awscurl with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl "iam-auth-connect-command-line.md#iam-auth-connect-awscurl").
+
+curl
+
+```
+curl -X POST -d '{ "mode" : "enableAutoCompute" }' https://`your-neptune-endpoint`:`port`/propertygraph/statistics
 ```
 
 If the request is successful, the HTTP response code is `200` and the response is:
@@ -224,8 +389,64 @@ the `autoCompute` field in the response is set to `true`.
 
 You can initiate DFE statistics generation manually as follows:
 
+###### Note
+
+The following examples use the property graph endpoint and commands. For RDF data,
+use `manage-sparql-statistics` for the AWS CLI, and `/rdf/statistics`
+for REST endpoints.
+
+AWS CLI
+
 ```
-curl -X POST "$STATISTICS_ENDPOINT" -d '{ "mode" : "refresh" }'
+aws neptunedata manage-propertygraph-statistics \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --mode refresh
+```
+
+For more information, see [manage-propertygraph-statistics](../../../cli/latest/reference/neptunedata/manage-propertygraph-statistics.md "../../../cli/latest/reference/neptunedata/manage-propertygraph-statistics.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+import json
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.manage_propertygraph_statistics(mode='refresh')
+
+print(json.dumps(response['payload'], indent=2, default=str))
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/propertygraph/statistics \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{"mode":"refresh"}'
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+For more information about using **awscurl** with IAM authentication, see
+[Using awscurl with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl "iam-auth-connect-command-line.md#iam-auth-connect-awscurl").
+
+curl
+
+```
+curl -X POST -d '{ "mode" : "refresh" }' https://`your-neptune-endpoint`:`port`/propertygraph/statistics
 ```
 
 If the request succeeds, the output is as follows, with an HTTP return code of 200:
@@ -278,38 +499,194 @@ about how to use CloudWatch.
 ## Using AWS Identity and Access Management (IAM) authentication with DFE statistics endpoints
 
 You can access DFE statistics endpoints securely with IAM authentication by using
-[awscurl](https://github.com/okigan/awscurl "https://github.com/okigan/awscurl") or any other tool
-that works with HTTPS and IAM. See [Using awscurl with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl "iam-auth-connect-command-line.md#iam-auth-connect-awscurl") to see how to set up the proper
-credentials. Once you have done that, you can then make a status request like this:
+the AWS CLI, [awscurl](https://github.com/okigan/awscurl "https://github.com/okigan/awscurl"), or any other tool
+that works with HTTPS and IAM. For information about setting up the proper
+credentials, see [Using awscurl with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl "iam-auth-connect-command-line.md#iam-auth-connect-awscurl").
+
+The following examples show how to make an authenticated status request:
+
+###### Note
+
+The following examples use the property graph endpoint and commands. For RDF data,
+use the equivalent SPARQL commands (`get-sparql-statistics`,
+`manage-sparql-statistics`) for the AWS CLI, and `/rdf/statistics`
+for REST endpoints.
+
+AWS CLI
 
 ```
-awscurl "$STATISTICS_ENDPOINT" \
-    --region `(your region)` \
-    --service neptune-db
+aws neptunedata get-propertygraph-statistics \
+  --endpoint-url https://`your-neptune-endpoint`:`port`
 ```
 
-Or, for example, you can create a JSON file named `request.json` that contains:
+The AWS CLI handles IAM authentication automatically using your configured
+credentials.
+
+SDK
+
+```
+import boto3
+import json
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.get_propertygraph_statistics()
+
+print(json.dumps(response['payload'], indent=2, default=str))
+```
+
+The SDK handles IAM authentication automatically using your configured
+credentials.
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/propertygraph/statistics \
+  --region `us-east-1` \
+  --service neptune-db
+```
+
+###### Note
+
+Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+curl
+
+```
+curl -G https://`your-neptune-endpoint`:`port`/propertygraph/statistics
+```
+
+###### Note
+
+This example does not include IAM authentication. To use IAM authentication
+with **curl**, you must manually sign the request. Consider using the AWS CLI,
+SDK, or **awscurl** instead.
+
+The following examples manually initiate statistics generation with authentication:
+
+AWS CLI
+
+```
+aws neptunedata manage-propertygraph-statistics \
+  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --mode refresh
+```
+
+SDK
+
+```
+import boto3
+import json
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.manage_propertygraph_statistics(mode='refresh')
+
+print(json.dumps(response['payload'], indent=2, default=str))
+```
+
+awscurl
+Create a JSON file named `request.json` that contains:
 
 ```
 { "mode" : "refresh" }
 ```
 
-You can then manually initiate statistics generation like this:
+Then run:
 
 ```
-awscurl "$STATISTICS_ENDPOINT" \
-    --region `(your region)` \
-    --service neptune-db \
-    -X POST -d @request.json
+awscurl https://`your-neptune-endpoint`:`port`/propertygraph/statistics \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d @request.json
 ```
+
+curl
+
+```
+curl -X POST https://`your-neptune-endpoint`:`port`/propertygraph/statistics \
+  -H 'Content-Type: application/json' \
+  -d '{ "mode" : "refresh" }'
+```
+
+###### Note
+
+This example does not include IAM authentication. To use IAM authentication
+with **curl**, you must manually sign the request. Consider using the AWS CLI,
+SDK, or **awscurl** instead.
 
 ## Deleting DFE statistics
 
-You can delete all statistics in the database by making an HTTP DELETE request to
-the statistics endpoint:
+You can delete all statistics in the database as follows:
+
+###### Note
+
+The following examples use the property graph endpoint and commands. For RDF data,
+use `delete-sparql-statistics` for the AWS CLI, and `/rdf/statistics`
+for REST endpoints.
+
+AWS CLI
 
 ```
-curl -X "DELETE" "$STATISTICS_ENDPOINT"
+aws neptunedata delete-propertygraph-statistics \
+  --endpoint-url https://`your-neptune-endpoint`:`port`
+```
+
+For more information, see [delete-propertygraph-statistics](../../../cli/latest/reference/neptunedata/delete-propertygraph-statistics.md "../../../cli/latest/reference/neptunedata/delete-propertygraph-statistics.md") in the AWS CLI Command Reference.
+
+SDK
+
+```
+import boto3
+import json
+from botocore.config import Config
+
+client = boto3.client(
+    'neptunedata',
+    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+)
+
+response = client.delete_propertygraph_statistics()
+
+print(json.dumps(response['payload'], indent=2, default=str))
+```
+
+awscurl
+
+```
+awscurl https://`your-neptune-endpoint`:`port`/propertygraph/statistics \
+  --region `us-east-1` \
+  --service neptune-db \
+  -X DELETE
+```
+
+###### Note
+
+This example assumes that your AWS credentials are configured in your
+environment. Replace `us-east-1` with the Region of your
+Neptune cluster.
+
+For more information about using **awscurl** with IAM authentication, see
+[Using awscurl with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl "iam-auth-connect-command-line.md#iam-auth-connect-awscurl").
+
+curl
+
+```
+curl -X DELETE https://`your-neptune-endpoint`:`port`/propertygraph/statistics
 ```
 
 Valid HTTP return codes are:

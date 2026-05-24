@@ -361,8 +361,7 @@ For more information, see [SPARQL Default Graph and Named Graphs](feature-sparql
 
 - **`updateSingleCardinalityProperties`**   –   This
   is an optional parameter that controls how the bulk loader treats a new
-  value for single-cardinality vertex or edge properties. This is not supported for
-  loading openCypher data (see [Loading openCypher data](#load-api-reference-load-parameters-opencypher "#load-api-reference-load-parameters-opencypher")).
+  value for single-cardinality vertex or edge properties.
 
 _Allowed values_: `"TRUE"`, `"FALSE"`.
 
@@ -465,11 +464,10 @@ keys (access key ID and secret access key)](../../../general/latest/gr/aws-sec-c
 
 - When loading openCypher data in CSV format, the format parameter must
   be set to `opencypher`.
-- The `updateSingleCardinalityProperties` parameter is not
-  supported for openCypher loads because all openCypher properties have single
-  cardinality. The openCypher load format does not support arrays, and if an ID
-  value appears more than once, it is treated as a duplicate or an insertion error
-  (see below).
+- The `updateSingleCardinalityProperties` parameter is
+  supported for openCypher loads. All openCypher properties have single
+  cardinality, and if an ID value appears more than once, it is treated as
+  a duplicate or an insertion error (see below).
 - The Neptune loader handles duplicates that it encounters in openCypher
   data as follows:
   - If the loader encounters multiple rows with the same node
@@ -481,11 +479,12 @@ keys (access key ID and secret access key)](../../../general/latest/gr/aws-sec-c
   - If the loader encounters multiple rows with the same
     relationship ID, only one of them is loaded. The selection of the one
     to load is non-deterministric.
-  - The loader never updates property values of an existing node
+  - By default, the loader does not update property values of an existing node
     or relationship in the database if it encounters load data having the ID
     of the existing node or relationship. However, it does load node labels
     and properties that are not present in the existing node or
-    relationship.
+    relationship. To update existing property values, set
+    `updateSingleCardinalityProperties` to `"TRUE"`.
 
 - Although you don't have to assign IDs to relationships, it is
   usually a good idea (see the `userProvidedEdgeIds` parameter

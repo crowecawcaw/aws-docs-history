@@ -35,7 +35,7 @@ snapshot identifier.
 ## Sharing an Encrypted DB Cluster Snapshot
 
 You can share DB cluster snapshots that have been encrypted "at rest" using the AES-256
-encryption algorithm. For more information, see [Encrypting data at rest in your Amazon Neptune database](encrypt.md "encrypt.md"). To do this, you must take the following steps:
+encryption algorithm. For more information, see [Encrypting Neptune resources at rest](encrypt.md "encrypt.md"). To do this, you must take the following steps:
 
 1. Share the AWS Key Management Service (AWS KMS) encryption key that was used to encrypt the snapshot with
    any accounts that you want to be able to access the snapshot.

@@ -78,3 +78,10 @@ maximizing performance.
   - [Querying All Named Graphs by Default](best-practices-sparql-query.md "best-practices-sparql-query.md")
   - [Specifying a Named Graph for Load](best-practices-sparql-graph.md "best-practices-sparql-graph.md")
   - [Choosing Between FILTER, FILTER...IN, and VALUES in Your Queries](best-practices-sparql-batch.md "best-practices-sparql-batch.md")
+
+- [Best practices for using Neptune with Amazon ECS and Amazon EKS](best-practices-ecs-eks.md "best-practices-ecs-eks.md")
+  - [Manage connection pools and lifecycle in containerized environments](best-practices-ecs-eks-connections.md "best-practices-ecs-eks-connections.md")
+  - [Handle host replacement and connection stalling](best-practices-ecs-eks-host-replacement.md "best-practices-ecs-eks-host-replacement.md")
+  - [Configure networking, security groups, and IAM authentication](best-practices-ecs-eks-networking-iam.md "best-practices-ecs-eks-networking-iam.md")
+
+- [Best practices for using the AWS CLI and SDKs with Neptune](best-practices-cli-sdk.md "best-practices-cli-sdk.md")

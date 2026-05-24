@@ -260,6 +260,7 @@ native Neptune engine operations. Instead, they are executed by the Gremlin serv
 
 - [choose( )](http://tinkerpop.apache.org/docs/current/reference/#choose-step "http://tinkerpop.apache.org/docs/current/reference/#choose-step")
 - [coin( )](http://tinkerpop.apache.org/docs/current/reference/#coin-step "http://tinkerpop.apache.org/docs/current/reference/#coin-step")
+- [fail( )](http://tinkerpop.apache.org/docs/current/reference/#fail-step "http://tinkerpop.apache.org/docs/current/reference/#fail-step")
 - [inject( )](http://tinkerpop.apache.org/docs/current/reference/#inject-step "http://tinkerpop.apache.org/docs/current/reference/#inject-step")
 - [match( )](http://tinkerpop.apache.org/docs/current/reference/#match-step "http://tinkerpop.apache.org/docs/current/reference/#match-step")
 - [math( )](http://tinkerpop.apache.org/docs/current/reference/#math-step "http://tinkerpop.apache.org/docs/current/reference/#math-step")

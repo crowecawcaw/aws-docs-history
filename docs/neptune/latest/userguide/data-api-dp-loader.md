@@ -244,7 +244,7 @@ multiple edge files.
 
 `updateSingleCardinalityProperties` is an optional parameter
 that controls how the bulk loader treats a new value for single-cardinality vertex
-or edge properties. This is not supported for loading openCypher data.
+or edge properties.
 
 _Allowed values_: `"TRUE"`, `"FALSE"`.
 

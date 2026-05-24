@@ -10,4 +10,5 @@ overview of this feature, see [Capturing graph changes in real time using Neptun
 - [Disabling Neptune Streams](streams-using-disabling.md "streams-using-disabling.md")
 - [Calling the Neptune Streams REST API](streams-using-api-call.md "streams-using-api-call.md")
 - [Neptune Streams API Response Format](streams-using-api-reponse.md "streams-using-api-reponse.md")
+- [Reading Neptune stream data](streams-using-reading.md "streams-using-reading.md")
 - [Neptune Streams API Exceptions](streams-using-api-exceptions.md "streams-using-api-exceptions.md")

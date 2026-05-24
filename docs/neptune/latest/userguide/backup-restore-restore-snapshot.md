@@ -71,6 +71,10 @@ shared and encrypted.
 
 Instead, make an unshared copy of the snapshot and restore from the copy.
 
+For more information about handling encryption when copying a snapshot, see
+[Handling Encryption When Copying Snapshots](backup-restore-copy-snapshot.md#backup-restore-copy-snapshot-encryption "backup-restore-copy-snapshot.md#backup-restore-copy-snapshot-encryption"). For more information about
+sharing encrypted snapshots, see [Sharing an Encrypted DB Cluster Snapshot](backup-restore-share-snapshot.md#backup-restore-share-snapshot-encrypted "backup-restore-share-snapshot.md#backup-restore-share-snapshot-encrypted").
+
 ### A restored DB cluster uses as much storage as before
 
 When you restore a DB cluster from a DB cluster snapshot, the amount of storage
