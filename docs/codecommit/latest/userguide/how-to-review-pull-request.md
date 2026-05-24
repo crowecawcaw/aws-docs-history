@@ -39,7 +39,7 @@ or reopen it. 5. In the pull request, choose **Changes**. 6. Do one of the follo
 
 
 
-    ![A general comment on the changes in a pull request.](/images/codecommit/latest/userguide/images/codecommit-commenting-changecomment.png)
+    ![A general comment on the changes in a pull request.](images/codecommit-commenting-changecomment.png)
     * To add a comment to a file in the commit, in
      **Changes**, find the name of the file. Choose the
      comment icon

@@ -70,10 +70,10 @@ from the list of users, choose your IAM user.
 ###### Note
 
 You can directly view and manage your CodeCommit credentials in **My Security Credentials**.
-For more information, see [View and manage your credentials](setting-up.md#setting-up-view-credentials "setting-up.md#setting-up-view-credentials"). 3. On the user details page, choose the **Security Credentials** tab,
-and in **HTTPS Git credentials for AWS CodeCommit**, choose **Generate**.
+For more information, see [View and manage your credentials](setting-up.md#setting-up-view-credentials "setting-up.md#setting-up-view-credentials"). 3. On the user details page, choose the **Security Credentials** tab.
+In the **API keys** section, choose **Generate API Key**. Select **AWS CodeCommit** as the service.
 
-![Generating Git credentials in the IAM console](images/codecommit-iam-gc1.png)
+![Generating Git credentials in the IAM console](images/codecommit-iam-gc1-api-keys.png)
 
 ###### Note
 

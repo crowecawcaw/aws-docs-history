@@ -74,7 +74,7 @@ The page for that commit is displayed, along with any comments. 4. To add a comm
     ![Adding a comment on a file in a commit.](images/codecommit-commenting-addfilecomment.png)
     * To add a comment to a changed line in the commit, go to the line where the
      change appears. Choose the comment bubble
-    ![The comment bubble icon that that indicates that you can leave a comment on that line of code.](/images/codecommit/latest/userguide/images/codecommit-commentbubble.png)
+    ![The comment bubble icon that that indicates that you can leave a comment on that line of code.](images/codecommit-commentbubble.png)
     , enter your comment, and then choose **Save**.
 
 
@@ -111,7 +111,7 @@ commit specifiers. Use the drop-down lists or paste in commit IDs. Choose **Comp
 ![A sample result when comparing a commit ID to a branch](images/codecommit-compare-4.png) 5. Do one or more of the following:
 
     * To add comments to files or lines, choose the comment bubble
-    ![The comment bubble icon that that indicates that you can leave a comment on that line of code.](/images/codecommit/latest/userguide/images/codecommit-commentbubble.png)
+    ![The comment bubble icon that that indicates that you can leave a comment on that line of code.](images/codecommit-commentbubble.png)
     .
     * To add general comments on the compared changes, go to **Comments on changes**.
 

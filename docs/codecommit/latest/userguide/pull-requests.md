@@ -41,7 +41,7 @@ latest commit on the destination branch when the pull request is created, so use
 and comment on the changes. You can update the pull request in response to comments by
 committing and pushing changes to the source branch.
 
-![Adding a comment on a line in a pull request.](/images/codecommit/latest/userguide/images/codecommit-pull-request-comment.png)
+![Adding a comment on a line in a pull request.](images/codecommit-pull-request-comment.png)
 When your code has been reviewed, and the approval rule requirements (if any) have been
 satisfied, you can close the pull request in one of several ways:
 
