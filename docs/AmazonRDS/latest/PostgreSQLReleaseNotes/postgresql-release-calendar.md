@@ -1,5 +1,23 @@
 # Release calendars for Amazon RDS for PostgreSQL
 
+## Version currency timelines
+
+RDS for PostgreSQL tracks community database engine releases on a defined cadence. These
+version currency timelines are published to give you transparency into that cadence. You
+can use these timelines to:
+
+- Plan major version upgrades and estimate when a new RDS for PostgreSQL major
+  version will be available.
+- Schedule minor version upgrades during your maintenance windows
+
+The following table lists the version currency timelines for
+RDS for PostgreSQL.
+
+| Release type   | Timelines                                                                                     |
+| -------------- | --------------------------------------------------------------------------------------------- |
+| Major versions | Within 30 days of the community release for first minor of the<br>new major version <major>.1 |
+| Minor versions | Within 7 days of the community release                                                        |
+
 ## Release calendar for Amazon RDS for PostgreSQL major versions
 
 RDS for PostgreSQL major versions are available under standard support at least until
