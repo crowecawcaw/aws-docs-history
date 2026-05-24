@@ -14,7 +14,7 @@ HTTPS is required for all websites on this TLD. For the
 domain to work properly in browsers, you must configure HTTPS
 for your website. For more information about configuring HTTPS
 with AWS, including resources to obtain an SSL certificate,
-see [What Is AWS Certificate Manager?](latest/userguide/acm-overview.md "latest/userguide/acm-overview.md").
+see [What Is AWS Certificate Manager?](../../../acm/latest/userguide/acm-overview.md "../../../acm/latest/userguide/acm-overview.md").
 
 **Privacy protection (applies to all contact types: person, company,
 association, and public body)**

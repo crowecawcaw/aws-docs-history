@@ -22,33 +22,6 @@ choose **Rule
 groups**. 3. On the navigation bar, choose the Region for the rule group. 4. Choose **Add rule group**, then follow the wizard
 guidance to specify your rule group and rule settings.
 
-When you add rules to a rule group, first select the rule type:
-**Foundation** or
-**Advanced**.
-
-    * **Foundation** – Select a rule
-     protection to create rules with your own custom domain lists or
-     AWS essential managed domain lists.
-
-
-    For more information about custom domain lists, see [Managing your own domain lists](resolver-dns-firewall-user-managed-domain-lists.md "resolver-dns-firewall-user-managed-domain-lists.md").
-
-
-    For more information about managed domain lists, see [Managed Domain Lists](resolver-dns-firewall-managed-domain-lists.md "resolver-dns-firewall-managed-domain-lists.md").
-    * **Advanced** – Select one or more
-     advanced managed domain lists (threat and content categories) or
-     an advanced protection (Domain Generation Algorithms, Dictionary
-     DGA, or DNS tunneling).
-
-
-    For more information about advanced managed domain lists, see
-     [Advanced Managed Domain Lists](firewall-advanced-managed-domain-lists.md "firewall-advanced-managed-domain-lists.md").
-
-
-    For more information about advanced protections, see [Advanced DNS Protections](firewall-advanced-protections.md "firewall-advanced-protections.md").
-
-5. With each rule, you can select one or more rule settings.
-
 For information about the values for rule groups, see [Rule group settings in DNS Firewall](resolver-dns-firewall-rule-group-settings.md "resolver-dns-firewall-rule-group-settings.md").
 
 For information about the values for rules, see [Rule settings in DNS Firewall](resolver-dns-firewall-rule-settings.md "resolver-dns-firewall-rule-settings.md").

@@ -28,26 +28,45 @@ action setting as needed.
 
 ###### Available AWS Managed Domain Lists
 
-This section describes the Managed Domain Lists that are currently available
-for DNS Firewall Foundational rules. When you're in a Region where these lists
-are supported, you see them on the console when you manage domain lists and
-when you specify the domain list for a rule. In the logs, the domain list is
-logged within the `firewall_domain_list_id` field.
+This section describes the Managed Domain Lists that are currently available.
+When you're in a Region where these lists are supported, you see them on the
+console when you manage domain lists and when you specify the domain list for a
+rule. In the logs, the domain list is logged within the `firewall_domain_list_id
+ field`.
 
-AWS provides the following Managed Domain Lists under the Foundational rule
-type, in the Regions they are available, for all users of Resolver DNS Firewall.
+AWS provides the following Managed Domain Lists, in the Regions they are
+available, for all users of Resolver DNS Firewall.
 
-| Threat Type                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Malware                      | Domains associated with sending malware, hosting malware, or<br>distributing malware.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Botnet/Command and Control   | Domains associated with controlling networks of computers that<br>are infected with spamming malware.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Aggregate Threat List        | Domains associated with multiple DNS threat categories including<br>malware, ransomware, botnet, spyware, and DNS tunneling to help<br>block multiple types of threats. Aggregate Threat List includes all<br>the domains in the other AWS Managed Domain Lists listed here.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Amazon GuardDuty Threat List | Domains associated with Amazon GuardDuty DNS security findings. The<br>domains are sourced from the GuardDuty's threat intelligence systems<br>only, and do not contain domains sourced from external third-party<br>sources. More specifically, currently this list will only block<br>domains that are internally generated and used for following<br>detections in GuardDuty:<br>Impact:EC2/AbusedDomainRequest.Reputation,<br>Impact:EC2/BitcoinDomainRequest.Reputation,<br>Impact:EC2/MaliciousDomainRequest.Reputation,<br>Impact:Runtime/AbusedDomainRequest.Reputation,<br>Impact:Runtime/BitcoinDomainRequest.Reputation, and<br>Impact:Runtime/MaliciousDomainRequest.Reputation. For more<br>information see [Finding types](../../../guardduty/latest/ug/guardduty_finding-types-active.md "../../../guardduty/latest/ug/guardduty_finding-types-active.md") in the _Amazon GuardDuty User<br>Guide_. |
+- `AWSManagedDomainsMalwareDomainList` – – Domains
+  associated with sending malware, hosting malware, or distributing malware.
+- `AWSManagedDomainsBotnetCommandandControl` – Domains
+  associated with controlling networks of computers that are infected with
+  spamming malware.
+- `AWSManagedDomainsAggregateThreatList` – Domains
+  associated with multiple DNS threat categories including malware,
+  ransomware, botnet, spyware, and DNS tunneling to help block multiple types
+  of threats. `AWSManagedDomainsAggregateThreatList` includes all
+  the domains in the other AWS Managed Domain Lists listed here.
+- `AWSManagedDomainsAmazonGuardDutyThreatList` – Domains
+  associated with Amazon GuardDuty DNS security findings. The domains are sourced
+  from the GuardDuty's threat intelligence systems only, and do not contain
+  domains sourced from external third-party sources. More specifically,
+  currently this list will only block domains that are internally generated
+  and used for following detections in GuardDuty:
+  Impact:EC2/AbusedDomainRequest.Reputation,
+  Impact:EC2/BitcoinDomainRequest.Reputation,
+  Impact:EC2/MaliciousDomainRequest.Reputation,
+  Impact:Runtime/AbusedDomainRequest.Reputation,
+  Impact:Runtime/BitcoinDomainRequest.Reputation, and
+  Impact:Runtime/MaliciousDomainRequest.Reputation.
 
+For more information see [Finding
+types](../../../guardduty/latest/ug/guardduty_finding-types-active.md "../../../guardduty/latest/ug/guardduty_finding-types-active.md") in the _Amazon GuardDuty User Guide_.
 AWS Managed Domain Lists cannot be downloaded or browsed. To protect intellectual property, you
-can't view or edit the individual domain specifications within an AWS Managed Domain Lists. This
-restriction also helps to prevent malicious users from designing threats that
-specifically circumvent published lists.
+can't view
+or edit the individual domain specifications within an AWS Managed Domain Lists. This restriction
+also helps to prevent malicious users from designing threats that specifically
+circumvent published lists.
 
 ###### To test the Managed Domain lists
 

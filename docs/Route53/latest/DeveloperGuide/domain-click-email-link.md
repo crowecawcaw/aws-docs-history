@@ -83,8 +83,9 @@ where to look for the confirmation email when we send you another one.
 
 ###### Note
 
-The emails might contain a link to www.verify-whois.com. This link is safe
-to use. 3. Use the Amazon Route 53 console to resend the confirmation email:
+The emails might contain links to www.amazon.registrar or www.verify-whois.com. These links are safe to use.
+
+For some TLDs, the verification email might not include the domain name in the subject or body of the email. 3. Use the Amazon Route 53 console to resend the confirmation email:
 
     1. Sign in to the AWS Management Console and open the Route 53 console at
      [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
@@ -136,8 +137,9 @@ where to look for the authorization email when we send you another one.
 
 ###### Note
 
-The emails might contain a link to www.verify-whois.com. This link is safe
-to use. 4. If the transfer is no longer in process (if we already canceled it because too
+The emails might contain links to www.amazon.registrar or www.verify-whois.com. These links are safe to use.
+
+For some TLDs, the verification email might not include the domain name in the subject or body of the email. 4. If the transfer is no longer in process (if we already canceled it because too
 much time has passed), request the transfer again, and we'll send you another
 authorization email.
 
@@ -180,8 +182,9 @@ where to look for the authorization email when we send you another one.
 
 ###### Note
 
-The emails might contain a link to www.verify-whois.com. This link is safe
-to use. 3. Cancel the change or deletion. You have two options:
+The emails might contain links to www.amazon.registrar or www.verify-whois.com. These links are safe to use.
+
+For some TLDs, the verification email might not include the domain name in the subject or body of the email. 3. Cancel the change or deletion. You have two options:
 
     * You can wait for the 3 to 15 day waiting period to pass, after which
      we automatically cancel the requested operation.

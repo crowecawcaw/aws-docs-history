@@ -188,6 +188,12 @@ We send a verification email from one of the following email addresses:
 The registrant contact must follow the instructions in the email to verify that the email was received, or
 we must suspend the domain as required by ICANN. When a domain is suspended, it's not accessible on the internet.
 
+###### Note
+
+The verification emails might contain links to www.amazon.registrar or www.verify-whois.com. These links are safe to use.
+
+For some TLDs, the verification email might not include the domain name in the subject or body of the email.
+
     1. When you receive the verification email, choose the link in the email that verifies that the email address is valid.
      If you don't receive the email immediately, check your junk email folder.
     2. Return to the **Requests** page. If the status doesn't automatically update
