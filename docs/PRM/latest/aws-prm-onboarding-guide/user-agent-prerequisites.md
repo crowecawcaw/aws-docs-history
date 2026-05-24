@@ -2,7 +2,7 @@
 
 In addition to the general [prerequisites](resource-tagging-prerequisites.md "resource-tagging-prerequisites.md"), ensure you meet the following requirements for User Agent string implementation:
 
-- Product listing on AWS Marketplace (Public). See the
+- Product listing on AWS Marketplace. See the
   [AWS Marketplace Seller Guide](../../../marketplace/latest/userguide/user-guide-for-sellers.md "../../../marketplace/latest/userguide/user-guide-for-sellers.md")
   for general information. For product-specific listing guide instructions:
 

@@ -5,7 +5,7 @@ In addition to the general [prerequisites](resource-tagging-prerequisites.md "re
 - Linked AWS Partner Central and AWS account ID. Refer to the
   [AWS Partner Central and AWS account linking - How to Get Started guide](https://partnercentral.awspartner.com/partnercentral2/s/article?category=Introductory_resources&article=AWS-Partner-Central-and-AWS-account-linking-How-to-Get-Started "https://partnercentral.awspartner.com/partnercentral2/s/article?category=Introductory_resources&article=AWS-Partner-Central-and-AWS-account-linking-How-to-Get-Started")
   (Requires AWS Partner Central login)
-- Product listing on AWS Marketplace (Public). See the
+- Product listing on AWS Marketplace. See the
   [AWS Marketplace Seller Guide](../../../marketplace/latest/userguide/user-guide-for-sellers.md "../../../marketplace/latest/userguide/user-guide-for-sellers.md")
   for general information. For product-specific listing guide instructions:
 

@@ -36,7 +36,7 @@ Complete these three steps:
     2. [Migrate](https://partnercentral.awspartner.com/partnercentral2/s/article?category=Introductory_resources&article=AWS-Partner-Central-and-AWS-account-linking-How-to-Get-Started "https://partnercentral.awspartner.com/partnercentral2/s/article?category=Introductory_resources&article=AWS-Partner-Central-and-AWS-account-linking-How-to-Get-Started") to the new Partner Central experience (Partner Central login required)
     3. Link all AWS Marketplace accounts to your primary AWS account through [Subsidiary Account Connections](../../../partner-central/latest/getting-started/manage-subsidiary.md "../../../partner-central/latest/getting-started/manage-subsidiary.md") (Partner Central login required)
 
-2. **Product listing on AWS Marketplace (Public)**
+2. **Product listing on AWS Marketplace**
 
 See the [AWS Marketplace Seller Guide](../../../marketplace/latest/userguide/user-guide-for-sellers.md "../../../marketplace/latest/userguide/user-guide-for-sellers.md") for general information. For product-specific listing guide instructions:
 
