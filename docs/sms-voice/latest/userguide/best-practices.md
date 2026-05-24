@@ -720,7 +720,7 @@ advice.
 
 Only send messages during normal daytime business hours in each recipient's time zone.
 If you send messages at dinner time or in the middle of the night, there's a good chance
-that your customers will unsubscribe from your lists in order to avoid being disturbed
+that your customers will unsubscribe from your lists to avoid being disturbed
 again in the future. Additionally, many countries and regions restrict the days and
 times at which people can receive automated messages. Although regulations vary by
 country, it's a good idea to not send messages before 9 AM or after 8 PM. Many countries

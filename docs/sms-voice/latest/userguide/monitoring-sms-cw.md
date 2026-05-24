@@ -43,7 +43,7 @@ Amazon CloudWatch Alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatS
    1. Enter a name for your alarm. for example, **High Text Message Volume**
    2. Optionally, add a description
 
-9. Preview the alarm settings in the **Preview and create** section, then click **Create
+9. Preview the alarm settings in the **Preview and create** section, then choose **Create
    alarm**.
    The alarm is now created and will trigger based on the conditions you specified.
 

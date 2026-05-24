@@ -76,6 +76,6 @@ If we're able to provide you with a Sender ID, we send you an estimate of the am
 of time that's required to provision it. In many countries, we can provide you with a
 Sender ID within 2–4 weeks. However, in some countries, it can take several weeks to obtain a Sender ID.
 
-In order to prevent our systems from being used to send unsolicited or malicious
+To prevent our systems from being used to send unsolicited or malicious
 content, we have to consider each request carefully. We might not be able to grant your
 request if your use case doesn't align with our policies.

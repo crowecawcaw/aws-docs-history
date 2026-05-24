@@ -44,7 +44,7 @@ with a single campaign, you can't use the same phone number across multiple 10DL
 For each 10DLC campaign that you create, you must have at least one unique phone number.
 Throughput for 10DLC phone numbers is based on the company and campaign registration
 information that you provide. Each 10DLC number associated to a
-campaign supports 1 message part per second (MPS). In order to get the eligible throughput
+campaign supports 1 message part per second (MPS). To get the eligible throughput
 from your campaign applied to the associated 10DLC numbers, you need to submit a request to
 increase SMS sending rates.
 
@@ -74,7 +74,7 @@ your 10DLC campaign. For more information about using 10DLC with existing long c
 
 **Important:** Brand registration and external brand vetting
 alone does not automatically increase the default of 1 MPS limit per number
-associated to an approved 10DLC campaign. In order to get the eligible throughput
+associated to an approved 10DLC campaign. To get the eligible throughput
 from your campaign applied to the associated 10DLC numbers, you need to submit a
 request to increase SMS sending rates.
 

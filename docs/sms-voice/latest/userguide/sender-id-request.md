@@ -15,7 +15,7 @@ Some countries require you to register your sender ID or open a support case to 
 - **Request a Sender
   ID from Support** Senders are required to use a pre-registered alphabetic sender ID. To request a Sender
   ID from Support, [How to request a sender ID through Support](sender-id-awssupport-open.md "sender-id-awssupport-open.md"). Some countries require senders to meet specific
-  requirements or abide by certain restrictions in order to obtain approval. In these cases,
+  requirements or abide by certain restrictions to obtain approval. In these cases,
   Support might contact you for additional information after you submit your sender ID request.
   For a list of countries that require a support ticket to request a sender ID, see the Supports
   Sender IDs column in [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").

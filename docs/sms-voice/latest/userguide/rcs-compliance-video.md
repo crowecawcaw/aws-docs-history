@@ -11,7 +11,9 @@ Your launch video must demonstrate the complete end-user experience:
 1. **A sample message exchange**
    — Show at least one example of the messages your agent sends to
    users. The message content must match your declared use case
-   (transactional, promotional, or multi-use).
+   (transactional, promotional, or multi-use). If your agent is declared
+   as multi-use, show at least one transactional and one promotional
+   message.
 2. **HELP keyword response**
    — Show a user sending the word "HELP" and receiving your
    configured HELP response message. The HELP response must include valid

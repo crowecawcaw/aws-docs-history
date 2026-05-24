@@ -81,4 +81,4 @@ there.
 
 ###### Important
 
-In order to prevent our systems from being used to send unsolicited or malicious content, we consider each request carefully. We might not be able to grant your request if your use case doesn't align with our policies.
+To prevent our systems from being used to send unsolicited or malicious content, we consider each request carefully. We might not be able to grant your request if your use case doesn't align with our policies.

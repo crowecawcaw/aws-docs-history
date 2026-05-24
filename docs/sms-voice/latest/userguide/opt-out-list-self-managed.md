@@ -25,6 +25,6 @@ processes in place for capturing and managing opt-out requests.
 ###### Note
 
 To enable self-managed opt-outs for a pool or phone number, you must first enable two-way
-SMS messaging. Self-managed opt-outs are not supported when using Connect Customer for two-way SMS. For
+SMS messaging. Self-managed opt-outs are supported when using Connect Customer for two-way SMS. For
 more information on using Connect Customer with two-way SMS messaging, see [Set up SMS
 messaging](../../../connect/latest/adminguide/setup-sms-messaging.md "../../../connect/latest/adminguide/setup-sms-messaging.md") in the _Connect Customer administrator guide_.

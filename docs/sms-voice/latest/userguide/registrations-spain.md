@@ -6,6 +6,14 @@ Unregistered alphanumeric sender IDs are blocked by Spanish mobile operators and
 
 Dedicated phone numbers (local long codes or short codes, international toll-free numbers) are not affected by this regulation and do not require registration.
 
+###### Important
+
+New Spain short code provisioning is temporarily on hold. If you need a dedicated number for Spain, request a long code instead. For more information, see [Dedicated phone numbers for Spain](dedicated-number-spain.md "dedicated-number-spain.md").
+
+###### Important
+
+We are currently processing new information about how customers can register their Sender IDs in the CNMC Portal as part of the Spain Sender ID registration process. We will update our public documentation as soon as we have concrete details.
+
 ###### CNMC portal access and digital certificate requirements
 
 The CNMC registration portal requires authentication with a valid digital certificate. The following certificate types are accepted:
@@ -22,7 +30,7 @@ You must appoint a representative in Spain or a qualifying EU country who holds 
 
 **Option B: Switch to dedicated phone numbers for Spain**
 
-Dedicated phone numbers (local long codes or short codes, international toll-free numbers) are not affected by this regulation and do not require CNMC registration. You can request a dedicated phone number for Spain through the [AWS End User Messaging console](https://console.aws.amazon.com/sms-voice/home "https://console.aws.amazon.com/sms-voice/home"). For more information, see [Dedicated phone numbers for Spain](dedicated-number-spain.md "dedicated-number-spain.md"). For registration processing timelines, see [Registration processing times](registration-eta.md "registration-eta.md").
+Dedicated phone numbers (local long codes, international toll-free numbers) are not affected by this regulation and do not require CNMC registration. Note that new short code provisioning for Spain is temporarily on hold; request a long code instead. You can request a dedicated phone number for Spain through the [AWS End User Messaging console](https://console.aws.amazon.com/sms-voice/home "https://console.aws.amazon.com/sms-voice/home"). For more information, see [Dedicated phone numbers for Spain](dedicated-number-spain.md "dedicated-number-spain.md"). For registration processing timelines, see [Registration processing times](registration-eta.md "registration-eta.md").
 
 ###### CNMC verification process
 

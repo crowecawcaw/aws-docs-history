@@ -92,7 +92,7 @@ The following is an example of a digital opt-in. Replace the bracketed placehold
 with your own values.
 
 ```
-☐ By entering my phone number and clicking "Send Code," I consent to
+☐ By entering my phone number and choosing "Send Code," I consent to
 receive an automated one-time verification code from [YOUR_BRAND] at
 the number provided. Messages are powered by AWS Notify. Message and
 data rates may apply. Message frequency varies. Reply HELP for help,

@@ -112,7 +112,7 @@ the Support Center Console.
 Support acknowledges your request within 24 hours of receipt. If we're able to provide
 you with a short code, we provide you with a short code registration form as an
 attachment to your Support case. Complete the registration form in its entirety. The
-information in this form is required in order to set up a short code with the mobile
+information in this form is required to set up a short code with the mobile
 carriers. For more information about completing this form, see [Obtaining a short code for sending text messages to US recipients](https://aws.amazon.com/blogs/messaging-and-targeting/obtaining-a-short-code-for-sending-text-messages-to-us-recipients-part-1/ "https://aws.amazon.com/blogs/messaging-and-targeting/obtaining-a-short-code-for-sending-text-messages-to-us-recipients-part-1/") on the
 AWS Messaging and Targeting Blog. This blog post covers the process of applying for US
 short codes, but the information it provides is also useful when applying for short
@@ -133,7 +133,7 @@ application.
 
 The fees associated with using short codes begin immediately after we initiate your
 short code request with carriers. You're responsible for paying these charges, even if
-the short code hasn't been completely provisioned yet. In order to prevent our systems
+the short code hasn't been completely provisioned yet. To prevent our systems
 from being used to send unsolicited or malicious content, we must consider each
 request carefully. We might not be able to grant your request if your use case doesn't
 align with our policies.

@@ -134,7 +134,7 @@ registration form. 3. In the **Company info** section, enter the following:
          messages.
         + **Website Posting (Support)**: Where is the number advertised and where does the customer find the number to text in.
         + **Keyword or QR Code Opt-in**: Where does the
-         customer find the keyword or QR code in order to opt-in to these messages.
+         customer find the keyword or QR code to opt-in to these messages.
         + **2FA/OTP**: Mockup or screenshot of opt-in if
          applicable, if verbal, provide a mockup or screenshot of the verbal opt-in
          script.

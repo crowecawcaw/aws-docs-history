@@ -29,9 +29,13 @@ required to create multiple chains to ensure your SMS will be delivered.
 
 ###### Note
 
-As of 2/6/2025, ACL MOBILE PRIVATE LIMITED telemarketer ID is no longer
-required and is managed through the Sinch Cloud Communication Services India
-Private Limited telemarketer.
+To complete your India sender ID registration in AWS End User Messaging SMS, only the
+**Karix Mobile Pvt Ltd** and
+**Sinch Cloud Communication Services India Private
+Limited** chain approvals are required. We recommend submitting
+chain requests for all telemarketers listed above, but you can proceed with
+your AWS End User Messaging SMS registration while awaiting approval from the remaining
+telemarketers.
 
 To create a chain of TMs:
 
@@ -55,8 +59,11 @@ To create a chain of TMs:
      TM chain.
     5. Once approved by the TM, the request will go back to you as the PE.
      You will need to login once again into your DLT platform and approve the
-     PE to TM chain. The chain will be completed at that time.
+     PE to TM chain. The chain will be completed at that time.###### Tip
 
+DLT platforms typically return template IDs before chain approval is
+complete. You can use these template IDs to begin your AWS End User Messaging SMS registration
+in parallel while your chain requests are being processed.
 If you are new to the India DLT process, ensure you are also meeting the requirements
 to register your Sender IDs (“Headers”), content templates, and message consent. Each
 DLT provider is slightly different. Reach out to the respective DLT support teams if you

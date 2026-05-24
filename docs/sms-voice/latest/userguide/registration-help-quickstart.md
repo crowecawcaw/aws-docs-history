@@ -40,9 +40,6 @@ sending messages.
   receive
 - Consent is specific to SMS/MMS messaging (not buried in general
   terms)
-- **[10DLC]** Promotional or marketing
-  messages obtain express **written** consent (not
-  just express consent)
 
 ## Disclosure language
 

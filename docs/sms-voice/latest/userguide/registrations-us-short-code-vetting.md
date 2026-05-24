@@ -31,7 +31,7 @@ The vetting process includes the following steps:
    company's published URL, and then triggers an authentication process.
 2. **Email verification** – A verification
    PIN is sent to the brand's point of contact email address from
-   `verify@usshortcodes.com`. The brand contact must click the
+   `verify@usshortcodes.com`. The brand contact must choose the
    verification link in the email and enter the PIN to complete the process.
 3. **Completion** – Once verification is
    complete, the brand is approved and the short code can be provisioned.

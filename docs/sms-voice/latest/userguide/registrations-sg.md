@@ -4,7 +4,7 @@ AWS End User Messaging SMS customers are able to send SMS traffic in Singapore u
 registered through the Singapore SMS Sender ID Registry (SSIR). SSIR was launched in March of
 2022 through the Singapore Network Information Centre (SGNIC) which is owned by
 Info-communications Media Development Authority (IMDA) of Singapore, and enables organizations
-to register their Sender ID when sending SMS to mobile phones in Singapore. In order to use a
+to register their Sender ID when sending SMS to mobile phones in Singapore. To use a
 registered Singapore Sender ID you must obtain a Unique Entity Number (UEN), then submit a
 request to AWS End User Messaging SMS to allow-list your account for usage of your Sender ID and finally complete the
 registration process through SSIR.

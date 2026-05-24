@@ -119,3 +119,24 @@ Choose **Next**. 9. In **Message samples**, do the following:
      SMS message body that will be sent.
 
 Choose **Next**. 10. On the **Review and submit** page verify the information you are about to submit is correct. To make updates choose **Edit** next to the section. 11. Choose **Submit registration**.
+
+## Confirming your ACMA registration status
+
+After you submit your registration, it is shared with the relevant reviewers for
+processing. When ACMA approves your sender ID registration, there are two indicators
+of approval:
+
+- **Email from ACMA** – ACMA sends a
+  confirmation email directly to the authorized representative email address that
+  you provided during registration. This confirms that ACMA has approved your
+  sender ID.
+- **Console status** – The registration
+  status changes to **Complete** on the
+  **Registrations** page in the AWS End User Messaging SMS console. Your sender ID
+  becomes active for sending when this status updates.
+
+The ACMA confirmation email and the console status update may not arrive at exactly
+the same time. Your sender ID is ready to use once the registration status shows
+**Complete** in the console — this is when messages sent with
+your sender ID will no longer be labeled as "Unverified" by Australian
+carriers.

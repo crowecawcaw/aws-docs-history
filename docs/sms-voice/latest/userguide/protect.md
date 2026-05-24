@@ -36,7 +36,7 @@ to:
   engagement with [message feedback API](message-feedback.md "message-feedback.md"). For
   example, use trackable links to confirm message receipt or monitor usage of one-time
   passwords (OTPs).
-- Enable monitoring and alerting – Utilize
+- Enable monitoring and alerting – Use
   protect [metrics and
   dashboards](filter-and-monitor-messages-monitor.md "filter-and-monitor-messages-monitor.md"), event destinations, and CloudWatch to oversee message AIT risk and
   deliveries.

@@ -30,7 +30,7 @@ Follow these directions to register your short code in Germany.
 
 5.  In the **Service information and use case** section, enter the following:
 
-In order to give approval, mobile carriers need to know how you plan to use your short code, and how you will interact with end users.
+To give approval, mobile carriers need to know how you plan to use your short code, and how you will interact with end users.
 
     * For **Service name**, enter the name of your SMS service or feature.
     * For **Use case category**, select the category which most closely aligns with your use case.

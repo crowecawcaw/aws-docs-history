@@ -7,7 +7,7 @@ Use this pattern for **embedded widgets** (modals, pop-ups, chatbots) provided b
 ## What makes this compliant
 
 - **All disclosures within the widget** — Brand name, message purpose, frequency, data rates, STOP/HELP, Privacy Policy, and Terms are all visible inside the modal without navigating away.
-- **No checkbox needed** — Submitting the phone number and clicking Send is the consent action (same as transactional optional phone pattern).
+- **No checkbox needed** — Submitting the phone number and choosing Send is the consent action (same as transactional optional phone pattern).
 - **'Powered by' identifies the ISV** — The footer identifies the platform provider. This allows the ISV to use their own SMS terms and privacy policy.
 - **Brand name in disclosure text** — The end brand is named in the consent disclosure so the user knows who will send messages.
 - **Privacy and Terms link to ISV policies** — The ISV controls the messaging flow, so their policies govern the SMS program.

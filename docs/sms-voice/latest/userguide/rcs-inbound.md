@@ -7,7 +7,7 @@ configure, and you process them using Lambda functions or other SNS subscribers.
 
 ###### Important
 
-In order to consume inbound RCS messages, you must set up a two-way
+To consume inbound RCS messages, you must set up a two-way
 messaging SNS topic on your AWS RCS Agent. Two-way messaging is disabled by
 default when you create an agent. After you enable it and configure an SNS
 topic, inbound messages are delivered to that topic. Customers are charged

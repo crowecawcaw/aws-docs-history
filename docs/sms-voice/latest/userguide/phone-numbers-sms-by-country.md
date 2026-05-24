@@ -288,19 +288,19 @@ channel. However, if you purchase a long code that is based in the United States
 
 1. Senders are required to use a pre-registered alphabetic Sender ID. To request a
    Sender ID from Support, [How to request a sender ID through Support](sender-id-awssupport-open.md "sender-id-awssupport-open.md"). Some countries require senders to meet
-   specific requirements or abide by certain restrictions in order to obtain approval.
+   specific requirements or abide by certain restrictions to obtain approval.
    In these cases, Support might contact you for additional information after you submit
    your Sender ID request.
 2. Senders are required to use a pre-registered template for each type of message
    that they plan to send. If a sender doesn’t meet this requirement, their messages
    will be blocked. To register a template, [China SMS template registration form](phone-numbers-sms-template-registration.md "phone-numbers-sms-template-registration.md"). Some countries require
    senders to meet additional, specific requirements or abide by certain restrictions
-   in order to obtain approval. In these cases, Support might ask you for additional
+   to obtain approval. In these cases, Support might ask you for additional
    information.
 
 ###### Note
 
-In order to send messages to China, you must first register your templates
+To send messages to China, you must first register your templates
 through Support for approval. 3. Senders are required to use a pre-registered alphabetic Sender ID. Additional
 registration steps are required. For more information, see [India sender ID registration process in AWS End User Messaging SMS](registrations-sms-senderid-india.md "registrations-sms-senderid-india.md"). 4. Long codes in these countries only support inbound messaging. In other words, you
 can't use these long codes to send messages _to_ your recipients,

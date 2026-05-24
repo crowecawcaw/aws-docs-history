@@ -1,6 +1,6 @@
 # United States Short Code registration form
 
-In order to create and use a short code for your SMS campaign, you need to complete the registration form and
+To create and use a short code for your SMS campaign, you need to complete the registration form and
 submit it for approval.
 
 ###### Complete a short code registration
@@ -29,7 +29,7 @@ Choose **Next**. 4. In the **Company info** section, enter the following:
     * For **Stock symbol**, enter the stock market symbol of your company. If you are a public profit company it is required to provide this information.
     * For **Stock exchange**, enter the stock exchange your company appears on. If you are a public profit company it is required to provide this information.
     * For **Company overview**, provide a short description of the products/services your company provides to its customers.
-    * For **Are you an ISV or company managing this Short Code on behalf of another company ("End-company")?**, select **Yes** if you are managing this service on behalf of another company (for example, if you're an ISV). Click the info button for additional information.
+    * For **Are you an ISV or company managing this Short Code on behalf of another company ("End-company")?**, select **Yes** if you are managing this service on behalf of another company (for example, if you're an ISV). Choose the info button for additional information.
     * For **Content provider company name (ISV only)** enter the legal name of content provider company.
     * For **Content provider company identification number (ISV only)**, enter the legal identification number of the content provider company (such as EIN or VAT).
     * For **Content provider company website (ISV only)** enter the full URL of the content provider company's website.

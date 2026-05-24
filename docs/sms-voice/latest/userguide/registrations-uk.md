@@ -10,7 +10,7 @@ optional friendly name field that can be updated using the tags on the registrat
 page. For more information on how to add a **Name** tag, see [Change a registration's name in AWS End User Messaging SMS](registrations-friendly-name.md "registrations-friendly-name.md").
 
 The United Kingdom's (UK) Mobile Ecosystem Forum (MEF) SMS Sender ID Protection Registry
-was established to facilitate the identification and blocking of fraudulent SMS messages,
+was established to help the identification and blocking of fraudulent SMS messages,
 protecting consumers as well as legitimate businesses and organizations. The registry
 enables organizations to register the Sender IDs used when sending SMS to customers in the
 UK, limiting the ability of fraudsters to impersonate a brand.

@@ -1,13 +1,21 @@
 # Data protection in AWS End User Messaging SMS
 
-The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/")
-applies to data protection in AWS End User Messaging SMS. As described in this model, AWS is
+The AWS
+[shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/")
+
+applies to data protection in AWS End User Messaging SMS.
+
+As described in this model, AWS is
 responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are
 responsible for maintaining control over your content that is hosted on this infrastructure.
 You are also responsible for the security configuration and management tasks for the AWS services
-that you use. For more information about data privacy, see the [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/ "https://aws.amazon.com/compliance/data-privacy-faq/"). For information about data protection in Europe, see the [AWS Shared
-Responsibility Model and GDPR](https://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/ "https://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/") blog post on the _AWS Security
-Blog_.
+that you use.
+
+For more information about data privacy, see
+[Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/ "https://aws.amazon.com/compliance/data-privacy-faq/").
+
+For information about data protection in Europe, see the
+[General Data Protection Regulation (GDPR) Center](https://aws.amazon.com/compliance/gdpr-center/ "https://aws.amazon.com/compliance/gdpr-center/").
 
 For data protection purposes, we recommend that you protect AWS account
 credentials and set up individual users with AWS IAM Identity Center or AWS Identity and Access Management (IAM). That way, each user is given only the permissions necessary to fulfill their job duties. We also recommend that you secure your data in the following ways:
@@ -63,7 +71,7 @@ case. For more information about the limitations of SMS and security best practi
 AWS End User Messaging SMS processes and stores SMS messages within the AWS region
 selected by the customer. However, the final stages of SMS message delivery operate on
 international mobile networks beyond AWS control. As is typical in SMS message delivery,
-the SMS service providers that AWS uses may themselves utilize downstream service providers
+the SMS service providers that AWS uses may themselves use downstream service providers
 to route the SMS messages globally. These downstream service providers may route the SMS
 messages through endpoints or networks in different regions from the customer's selected
 AWS region, even if the end user recipient of an SMS message is in the same region.

@@ -119,6 +119,6 @@ required to provision the long code. In many countries, we can provide you with 
 dedicated long code within 24 hours. However, in some countries and regions, it can take
 several weeks to obtain a dedicated long code for the SMS channel.
 
-In order to prevent our systems from being used to send unsolicited or malicious
+To prevent our systems from being used to send unsolicited or malicious
 content, we must consider each request carefully. We might not be able to grant your
 request if your use case doesn't align with our policies.

@@ -14,7 +14,7 @@ to received after one hour it is then set as failed but this doesn't update the 
 number of messages sent, messages delivered, and message expecting feedback.
 
 For example, you send a customer a message with a link and
-the link is monitored for click events. When the customer click the link and generates the
+the link is monitored for click events. When the customer chooses the link and generates the
 event you know the customer has received your message.
 
 For example, you can use message feedback to monitor your One time password (OTP)

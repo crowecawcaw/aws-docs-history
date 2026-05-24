@@ -99,7 +99,7 @@ following steps:
       **Static**.
     - For **Whenever (**TextMessageMonthlySpend**, **MediaMessageMonthlySpend**, or **VoiceMessageMonthlySpend**) is**, specify
       whether you want the metric to be greater than, greater than or equal
-      to, or equal to the threshold in order to trigger the alarm. Then, under
+      to, or equal to the threshold to trigger the alarm. Then, under
       **than**, enter the threshold value, which is the
       dollar amount (in US Dollars) that you want to trigger the alarm.
 
