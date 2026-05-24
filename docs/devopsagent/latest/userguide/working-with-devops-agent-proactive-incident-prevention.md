@@ -48,6 +48,38 @@ AWS DevOps Agent provides recommendations in the Improvements page where you can
 - **Automatic removal** – Recommendations that have not been marked as Keep or Implemented may be removed after approximately 6 weeks if no new incidents would have been prevented by implementing the recommendation. This ensures the Improvements page focuses on the most relevant improvements for your operational challenges.
 - **Recommendation updates** – Existing recommendations are updated when newer incidents are found that would have been prevented by the recommendation. Updates may change the recommendation’s priority or refine the recommendation based on new insights.
 
+## Recommendation prioritization
+
+AWS DevOps Agent automatically ranks your recommendations by priority to help you focus on the most impactful improvements first. The ranking considers your team’s specific context, operational patterns, and the severity of issues each recommendation addresses.
+
+### How prioritization works
+
+Each evaluation cycle, the agent ranks your active recommendations (those in a proposed or kept state) using a combination of:
+
+- **AI-powered ranking** – The agent assesses the relative importance of your top recommendations based on category relevance, incident severity, and operational impact.
+- **Deterministic scoring** – For larger backlogs, the agent applies a priority score based on incident frequency, severity patterns, and recency to ensure consistent ordering beyond the top-ranked items.
+
+The ranked list appears in the Improvements page with a numeric rank position (1 being highest priority). Recommendations that have been discarded or implemented are not ranked.
+
+### Customizing priorities
+
+You can influence how the agent ranks recommendations by communicating your team’s priorities through the chat interface:
+
+- **Setting category preferences** – Tell the agent which recommendation categories matter most to your team (for example, "We prioritize observability improvements over infrastructure changes"). The agent stores these preferences and uses them in future ranking evaluations.
+- **Providing context** – Share information about upcoming projects, compliance requirements, or team focus areas. The agent incorporates this context when determining which recommendations should be prioritized.
+
+To update your preferences, use the chat interface and describe your team’s priorities in natural language. The agent will confirm it has understood and will apply your preferences in the next evaluation cycle.
+
+### Rank stability
+
+Recommendation ranks may change between evaluation cycles when:
+
+- New recommendations are added that have higher priority than existing ones
+- Your team’s stated preferences change
+- New incident data strengthens or weakens the case for a recommendation
+
+Recommendations that you have already marked as Keep retain their position in your backlog regardless of rank changes, ensuring your workflow is not disrupted.
+
 ## Agent-ready specifications
 
 For recommendations that involve code or configuration changes, AWS DevOps Agent can generate an agent-ready specification. This specification provides a structured document that can be handed directly to a coding agent for implementation.

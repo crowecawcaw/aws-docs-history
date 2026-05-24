@@ -13,20 +13,20 @@ The first step is to create in ServiceNow an OAuth application client that AWS D
    2. Choose New
    3. Add the name as `glide.oauth.inbound.client.credential.grant_type.enabled` and the value to true with type as true | false
 
-![](images/09ed6d5ff911.png)
+![System Property form showing OAuth inbound client credential grant type enabled.](images/09ed6d5ff911.png)
 
 1. Navigate to System OAuth > Application Registry from the filter search box
 2. Choose “New” > “New Inbound Integration Experience” > “New Integration” > “OAuth - Client Credentials Grant”
 3. Pick a name and set the OAuth application user to “Problem Administrator”, click “Save“
 
-![](images/aeff4c127f7c.png)
+![New record form for OAuth client credentials with fields for name, client ID, and secret.](images/aeff4c127f7c.png)
 
 ### Connect your ServiceNow OAuth client to AWS DevOps Agent
 
 1. You can start this process in two places. First, by navigating to the **Capability Providers** page and finding **ServiceNow** under **Communication**, then clicking **Register**. Alternatively you can select any DevOps Agent Space you may have created and navigate to Capabilities → Communications → Add → ServiceNow and click Register.
 2. Next, authorize DevOps Agent to access your ServiceNow instance using the OAuth application client you just created.
 
-![](images/3db5a9aafc5f.png)
+![ServiceNow registration form with fields for Client Name, Client ID, and Instance URL.](images/3db5a9aafc5f.png)
 
 - Follow the next steps, and save the resulting information about the webhook
 
@@ -34,7 +34,7 @@ The first step is to create in ServiceNow an OAuth application client that AWS D
 
 You will not see this information again
 
-![](images/80d0a319f87e.png)
+![Webhook Configuration panel showing connected status and webhook URL.](images/80d0a319f87e.png)
 
 ### Configure your ServiceNow Business Rule
 
@@ -43,7 +43,7 @@ Once you have established connectivity, you’ll need to configure a business ru
 1. Navigate to Activity Subscriptions → Administration → Business Rules, and click New.
 2. Set the “Table” field to “Incident [incident]”, check the “Advanced” box, and set the rule to run after Insert, Update, and Delete.
 
-![](images/6f2a7370e2c0.png)
+![Business Rule form for CloudSmith Integration on Incident table.](images/6f2a7370e2c0.png)
 
 1. Navigate to the “Advanced” tab and add the following webhook script, inserting your webhook secret and URL where indicated, and click Submit.
 
@@ -184,7 +184,7 @@ Once you have established connectivity, you’ll need to configure a business ru
 
 If you chose to register your ServiceNow connection from the **Capability Providers** page, you now need to navigate to the DevOps Agent Space you want to investigate ServiceNow incident tickets, select Capabilities → Communications and then register the ServiceNow instance you registered on the Capability Providers page. Now, everything should be set up, and all incidents where the caller is set to “Problem Administrator” (to mimic the permissions you gave the AWS DevOps OAuth client) will trigger a incident response investigation in the configured DevOps Agent Space. You can test this by creating a new incident in ServiceNow and setting the Caller field of the incident as “Problem Administrator.”
 
-![](images/4c7d24a85f88.png)
+![ServiceNow incident form showing number INC0010001 with Problem Administrator caller.](images/4c7d24a85f88.png)
 
 ### ServiceNow ticket updates
 
@@ -196,7 +196,7 @@ During all triggered incident response Investigations, your DevOps Agent will pr
 
 This is a simple scenario but needs some configuration in ServiceNow to create a field in ServiceNow to track incident source. For the purpose of this example, create a new Source (u_source) field using the SNOW form builder. This will enable tracking the incident source and use it to route requests from a particular source to a DevOps Agent Space. Routing is accomplished by creating a Service Now Business Rule and in the When to run tab setting “When” triggers and “Filter Conditions.” In this example the filter conditions are set as follows:
 
-![](images/fac7a186beee.png)
+![When to run tab with before trigger and filter for Source contains Dynatrace.](images/fac7a186beee.png)
 
 ### Scenario: Routing incidents across multiple DevOps Agent Spaces
 
@@ -206,10 +206,10 @@ This scenario can be accomplished in two ways. The webhook script itself can be 
 
 - Create a Business Rule in ServiceNow for DevOps Agent Space A and create a condition using the condition builder to only send the events based on our specified condition.
 
-![](images/bca2f3928bf0.png)
+![Business rule configuration form with filter conditions for Urgency and Category.](images/bca2f3928bf0.png)
 
 - Next, create another Business Rule in ServiceNow for AgentSpace B for which the business rule will only trigger when Service is AWS and source is Dynatrace.
 
-![](images/bc29e4db1a76.png)
+![Business rule configuration form for sending events to Agent Space B.](images/bc29e4db1a76.png)
 
 Now, when you create a new Incident that matches the condition specified, it will either trigger an investigation on DevOps Agent Space A or DevOps Agent Space B, providing you with fine grained control over incident routing.

@@ -39,7 +39,7 @@ If your organization has [service control policies (SCPs)](../../../organization
 
 The following diagram shows the network path for a private connection.
 
-![](images/7cd6182e6b8d.png)
+![Network architecture showing AWS DevOps Agent connecting through VPC Lattice.](images/7cd6182e6b8d.png)
 
 In this architecture:
 
@@ -152,7 +152,7 @@ When registering a capability provider, AWS DevOps Agent validates that the endp
 
 In the AWS DevOps Agent console, private connections can be linked to a capability during registration by selecting the "Connect to endpoint using a private connection" option.
 
-![](images/a2a7ffb70ffe.png)
+![Connect to endpoint using a private connection checkbox selected.](images/a2a7ffb70ffe.png)
 
 1. Open the AWS DevOps Agent console and navigate to your Agent Space.
 2. In the **Capability Providers** section, choose **Registration**.

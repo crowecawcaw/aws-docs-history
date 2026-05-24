@@ -27,17 +27,18 @@ AWS DevOps Agent sends the following events to EventBridge. All events use the s
 
 ### Supported investigation events
 
-| detail-type                      | Description                                                        |
-| -------------------------------- | ------------------------------------------------------------------ |
-| `Investigation Created`          | An investigation was created in the agent space.                   |
-| `Investigation Priority Updated` | The priority of an investigation was changed.                      |
-| `Investigation In Progress`      | An investigation started active analysis.                          |
-| `Investigation Completed`        | An investigation finished successfully with findings.              |
-| `Investigation Failed`           | An investigation encountered an error and could not complete.      |
-| `Investigation Timed Out`        | An investigation exceeded the maximum allowed duration.            |
-| `Investigation Cancelled`        | An investigation was canceled before completion.                   |
-| `Investigation Pending Triage`   | An investigation is awaiting triage before active analysis begins. |
-| `Investigation Linked`           | An investigation was linked to a related incident or ticket.       |
+| detail-type                      | Description                                                                       |
+| -------------------------------- | --------------------------------------------------------------------------------- |
+| `Investigation Created`          | An investigation was created in the agent space.                                  |
+| `Investigation Priority Updated` | The priority of an investigation was changed.                                     |
+| `Investigation In Progress`      | An investigation started active analysis.                                         |
+| `Investigation Completed`        | An investigation finished successfully with findings.                             |
+| `Investigation Failed`           | An investigation encountered an error and could not complete.                     |
+| `Investigation Timed Out`        | An investigation exceeded the maximum allowed duration.                           |
+| `Investigation Cancelled`        | An investigation was canceled before completion.                                  |
+| `Investigation Pending Triage`   | An investigation is awaiting triage before active analysis begins.                |
+| `Investigation Linked`           | An investigation was linked to a related incident or ticket.                      |
+| `Investigation Skipped`          | An investigation was skipped because it matched skip criteria defined in a skill. |
 
 ### Supported mitigation events
 

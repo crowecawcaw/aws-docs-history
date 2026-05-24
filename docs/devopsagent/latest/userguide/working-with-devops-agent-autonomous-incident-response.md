@@ -26,18 +26,23 @@ The triage phase is the first stage of AWS DevOps Agent's incident response syst
 
 The primary function of the triage stage is incident correlation — identifying related incidents and consolidating them into a single investigation to avoid duplicate work and resource waste. When a new incident arrives, AWS DevOps Agent analyzes it alongside active investigations within a look-back window (typically 20 minutes). Using AI-powered analysis, it examines factors like component similarities, geographic region, and timing patterns to determine relationships between incidents.
 
-AWS DevOps Agent makes one of two decisions:
+AWS DevOps Agent makes one of three decisions:
 
 - **Linked** – Correlates the incident to an existing investigation and sends a steering message to that investigation with context about the new incident.
+- **Skipped** – The incident matches skip criteria defined in a skill and is automatically dismissed without investigation. For more information, see [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills.md "about-aws-devops-agent-devops-agent-skills.md").
 - **Proceed** – Schedules a new independent investigation for the incident.
 
 ### Viewing triage decisions
 
 When incidents are linked, the primary investigation receives a steering message containing the linked incident's details and correlation reasoning. On your AWS DevOps Agent Space web app, you'll see a status of **LINKED** along with correlation reasoning explaining why incidents were linked. The primary investigation displays a list of all linked incidents, allowing you to see the full scope of related issues being investigated together. Your external ticket system (ServiceNow, PagerDuty, etc.) and communication channel (Slack) will receive a notification that the incident was linked along with correlation reasoning.
 
-### Unlinking incidents and custom correlation rules
+When incidents are skipped, the AWS DevOps Agent Space web app displays a status of **SKIPPED** along with the reason explaining why the incident was filtered. Your external ticket system and communication channel also receive a notification that the incident was skipped along with the skip reason.
 
-If AWS DevOps Agent incorrectly correlates incidents, you can manually unlink them through the AWS DevOps Agent Space web app. This will reschedule the unlinked incident as an independent investigation. You can also provide custom correlation rules to guide AWS DevOps Agent by creating an AWS DevOps Agent Skill containing your correlation logic and associating it with the triage stage.
+### Correcting triage decisions
+
+If AWS DevOps Agent incorrectly links an incident, you can manually unlink it through the AWS DevOps Agent Space web app. This reschedules the unlinked incident as an independent investigation. You can also provide custom correlation rules by creating an AWS DevOps Agent Skill containing your correlation logic and associating it with the triage stage.
+
+If AWS DevOps Agent incorrectly skips an incident, you can manually unskip it through the AWS DevOps Agent Space web app. This reschedules the incident for investigation. To adjust which incidents are skipped, modify or deactivate the skill that defines the skip criteria.
 
 ## Ask for human support
 

@@ -15,6 +15,7 @@ The following `detail-type` values identify investigation events:
 - `Investigation Cancelled`
 - `Investigation Pending Triage`
 - `Investigation Linked`
+- `Investigation Skipped`
 
 The `source` and `detail-type` fields are included below because they contain specific values for AWS DevOps Agent events. For definitions of the other metadata fields that are included in all events, see [Event structure](../../../eventbridge/latest/ref/overiew-event-structure.md "../../../eventbridge/latest/ref/overiew-event-structure.md") in the _Amazon EventBridge Events Reference_.
 
@@ -57,7 +58,7 @@ The following is the JSON structure for investigation events.
 - `metadata.execution_id` (string) – The unique identifier of the execution run. Present when an execution has been assigned to the investigation.
 - `data.task_type` (string) – The type of task. Value: `INVESTIGATION`.
 - `data.priority` (string) – The priority level. Values: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `MINIMAL`.
-- `data.status` (string) – The current status. Values: `PENDING_START`, `IN_PROGRESS`, `COMPLETED`, `FAILED`, `TIMED_OUT`, `CANCELLED`, `PENDING_TRIAGE`, `LINKED`.
+- `data.status` (string) – The current status. Values: `PENDING_START`, `IN_PROGRESS`, `COMPLETED`, `FAILED`, `TIMED_OUT`, `CANCELLED`, `PENDING_TRIAGE`, `LINKED`, `SKIPPED`.
 - `data.created_at` (string) – ISO 8601 timestamp when the task was created.
 - `data.updated_at` (string) – ISO 8601 timestamp when the task was last updated.
 - `data.summary_record_id` (string) – The identifier of the summary record containing investigation findings. Included when a summary is generated for the completed investigation. You can retrieve the summary content through the AWS DevOps Agent API by using this identifier to look up the journal record with a record type of `investigation_summary_md`.

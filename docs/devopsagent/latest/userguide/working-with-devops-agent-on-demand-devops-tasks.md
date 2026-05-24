@@ -18,6 +18,8 @@ AWS DevOps Agent On Demand Tasks provides comprehensive capabilities to help you
 
 **Chat artifacts** – Generate structured reports and documents, such as operational health summaries, error reports, and incident analyses. Artifacts appear in a dedicated panel and support versioned editing within the conversation.
 
+**File attachments** – Attach images, documents, and code files to your messages so Chat can analyze them in context. For example, attach a screenshot of an alarm dashboard, a YAML configuration file, or a runbook PDF, and ask Chat what to do next. See [Sending file attachments](#sending-file-attachments "#sending-file-attachments") for details.
+
 **Recommendation filtering** – Query incident prevention recommendations with specific criteria, such as recommendations related to particular services or operational concerns. Chat explains the impact and implementation considerations for each recommendation. For example, "Show me recommendations that will prevent incidents involving DynamoDB" or "Which recommendations would help me detect request latency issues quicker?"
 
 ## Accessing Chat
@@ -75,6 +77,53 @@ When you ask Chat to create or update content, Chat generates an artifact — ty
 **Review** – The artifact appears in a dedicated panel alongside the conversation. You can review the full content while continuing to interact with Chat.
 
 **Edit** – Request changes to the artifact through Chat. For example, ask "Add a section on Lambda cold starts" or "Update the report to include last month's data". Chat creates a new version of the artifact with your requested changes.
+
+## Sending file attachments
+
+You can attach files to your chat messages so Chat can read them along with your question. Use attachments to share what you are looking at — a screenshot of a dashboard or alarm, a configuration file, source code, an operational runbook — and ask the agent to reason about it directly.
+
+Files are scoped to your Agent Space – they are not visible from other Agent Spaces, and access is bounded by the same IAM permissions that gate the rest of Chat. Files upload to managed Agent Space storage as soon as you attach them.
+
+### How to attach files
+
+You can add files to a message in three ways:
+
+- Choose the upload icon in the chat input toolbar and select one or more files from your device.
+- Drag and drop one or more files onto the chat input area.
+- Paste an image directly from your clipboard, for example after taking a screenshot.
+
+Each file you attach appears as a chip in the chat input with an upload progress indicator. To preview a file, choose its chip. To remove a file, choose the X on the chip. The Send button stays disabled while any attached file is still uploading.
+
+### Supported file types
+
+Chat accepts the following three categories of files:
+
+- **Images** – `png`, `jpeg`, `jpg`, `gif`, `webp`
+- **Documents** – `pdf`, `csv`, `doc`, `docx`, `xls`, `xlsx`, `html`, `txt`, `md`
+- **Text and code files** – `json`, `yaml`, `yml`, `xml`, `js`, `ts`, `py`, `java`, `rb`, `go`, `rs`, `sh`, `bash`, `log`, `cfg`, `ini`, `toml`
+
+Files outside these categories are rejected before upload.
+
+### Limits
+
+The following limits apply to each message:
+
+| Limit                                                  | Value   |
+| ------------------------------------------------------ | ------- |
+| Maximum file size                                      | 3.75 MB |
+| Attachments per message (any mix of types)             | 20      |
+| Of those, binary documents (PDF, DOC, DOCX, XLS, XLSX) | up to 5 |
+
+In addition, your message text and attachment content together must fit within the model's per-message context window. If a message and its attachments are too large, Chat rejects the message and asks you to reduce the size or number of attachments before sending.
+
+### Use cases
+
+Common ways to use file attachments with the DevOps Agent:
+
+- Attach a screenshot of an alarm or error dashboard and ask Chat to interpret what is failing and where to look next.
+- Attach service source code and ask Chat to review the change, suggest fixes, or explain its behavior.
+- Attach a configuration file (for example, a YAML, JSON, or TOML config) and ask Chat to troubleshoot why a deployment, alarm, or integration is misbehaving.
+- Attach an operational runbook or post-incident report PDF and ask Chat to convert it into a skill — the agent extracts the procedure and saves it to your Agent Space so future investigations can apply it automatically.
 
 ## Sample queries
 
