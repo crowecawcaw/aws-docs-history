@@ -3,7 +3,8 @@
 ###### Tip
 
 If you use CloudTrail data events, you can learn advanced monitoring techniques through the
-[Cloud Operations Enablement workshop and event series](https://aws-experience.com/amer/smb/events/series/Cloud-Operations-Enablement "https://aws-experience.com/amer/smb/events/series/Cloud-Operations-Enablement").
+[Cloud Operations Enablement workshop and event series](https://aws-experience.com/amer/smb/events/series/Cloud-Operations-Enablement "https://aws-experience.com/amer/smb/events/series/Cloud-Operations-Enablement"), and
+[Using CloudTrail for Security and AI Best Practices](https://aws-samples.github.io/cloud-operations-best-practices/docs/recipes/AWS%20CloudTrail/ "https://aws-samples.github.io/cloud-operations-best-practices/docs/recipes/AWS%20CloudTrail/").
 
 AWS CloudTrail is an AWS service that helps you enable operational and risk auditing,
 governance, and compliance of your AWS account. Actions taken by a user, role, or an AWS

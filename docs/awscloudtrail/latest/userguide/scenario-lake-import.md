@@ -127,7 +127,7 @@ information about how you can use tags in AWS, see [Tagging
 your AWS resources](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md") in the
 _Tagging AWS Resources User Guide_. 11. Choose **Next** to configure the event data store. 12. On the **Choose events** page, leave the default selections for **Event type**.
 
-![Choose event type for the event data store](images/lake-event-type.png) 13. For **CloudTrail events**, we'll leave **Management events** selected and choose **Copy trail events**. In this example, we're not concerned about the event types because we are only using the event data store to analyze past events and are not ingesting future events.
+![Choose event type for the event data store](/images/awscloudtrail/latest/userguide/images/lake-event-type.png) 13. For **CloudTrail events**, we'll leave **Management events** selected and choose **Copy trail events**. In this example, we're not concerned about the event types because we are only using the event data store to analyze past events and are not ingesting future events.
 
 If you're creating an event
 data store to replace an existing trail, choose the same event selectors as your trail to ensure the event data store has the same event coverage.

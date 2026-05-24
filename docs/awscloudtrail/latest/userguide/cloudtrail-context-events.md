@@ -48,6 +48,9 @@ field, including the following:
   more information, see [Resource tag updates in CloudTrail for enriched events](#resrouce-tags-updates "#resrouce-tags-updates").
 - If you modify or delete the AWSServiceRoleForCloudTrailEventContext service-linked role used for enriched events,
   CloudTrail will not populate any resource tags into `eventContext` .
+- For events involving more than 100 resources, the `eventContext` field
+  will only include resource tag information for the first 100 resources, sorted
+  alphabetically by ARN.
 
 ###### Note
 
