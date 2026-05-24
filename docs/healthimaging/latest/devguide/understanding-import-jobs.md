@@ -29,6 +29,11 @@ During import, binary values in private tags (with VR types OB, OD, OF, OL, OV, 
 separately from the metadata. When retrieving metadata for these instances using `GetDICOMInstanceMetadata` or `GetDICOMSeriesMetadata`,
 these large binary values are replaced with BulkDataURIs, and the actual binary data can be retrieved using the `GetDICOMBulkdata` API.
 
+HealthImaging attempts to import all your medical imaging data. If data non-conformances or
+unrecognized data elements are encountered during imports, HealthImaging adds warnings to the
+`warning.ndjson` file for DICOM instances that could still be imported. For a
+complete list of warning codes, see [HealthImaging Warning Codes](reference-warning-codes.md "reference-warning-codes.md").
+
 Keep the following points in mind when importing your medical imaging files from Amazon S3 into an
 HealthImaging data store:
 

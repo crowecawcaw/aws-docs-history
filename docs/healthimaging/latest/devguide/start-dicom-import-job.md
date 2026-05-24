@@ -2,9 +2,10 @@
 
 Use the `StartDICOMImportJob` action to start a [pixel data verification check](pixel-data-verification.md "pixel-data-verification.md") and bulk data
 import into an AWS HealthImaging [data store](getting-started-concepts.md#concept-data-store "getting-started-concepts.md#concept-data-store"). The import
-job imports DICOM P10 files located in the Amazon S3 input bucket specified by the
-`inputS3Uri` parameter. The import job processing results are stored in the
-Amazon S3 output bucket specified by the `outputS3Uri` parameter.
+job imports DICOM P10 files or enhances existing DICOM files with JSON metadata. The
+`inputS3Uri` parameter specifies the Amazon S3 input bucket containing the source
+files. The import job processing results are stored in the Amazon S3 output bucket specified by
+the `outputS3Uri` parameter.
 
 ###### Note
 
@@ -20,6 +21,11 @@ Keep the following points in mind before starting an import job:
   job. For more information, see [Cross-account import for AWS HealthImaging](cross-account-imports.md "cross-account-imports.md").
 - HealthImaging applies length constraints to specific DICOM elements during import. For
   more information, see [DICOM element constraints](dicom-element-constraints.md "dicom-element-constraints.md").
+- To import DICOM files with JSON metadata overrides, provide the
+  `importConfiguration` parameter with a
+  `DicomMetadataMapping` that maps DICOM files to their
+  corresponding JSON metadata files. For more information, see [`StartDICOMImportJob`](../APIReference/API_StartDICOMImportJob.md "../APIReference/API_StartDICOMImportJob.md") in the _AWS HealthImaging API
+  Reference_.
   The following menus provide a procedure for the AWS Management Console and code examples for the AWS CLI
   and AWS SDKs. For more information, see [`StartDICOMImportJob`](../APIReference/API_StartDICOMImportJob.md "../APIReference/API_StartDICOMImportJob.md") in the _AWS HealthImaging API
   Reference_.
