@@ -178,9 +178,10 @@ policies.
 ### Block access to Amazon EC2 metadata
 
 When you run your tasks on Amazon EC2 instances, we strongly recommend that you
-block access to Amazon EC2 metadata to prevent your containers from inheriting the
-role assigned to those instances. If your applications have to call an AWS API
-action, use IAM roles for tasks instead.
+block container access to the Amazon EC2 Instance Metadata Service (IMDS) to prevent
+your containers from accessing sensitive instance-level data, including the
+instance profile credentials of the instance. If your applications have to call
+an AWS API action, use IAM roles for tasks instead.
 
 To prevent tasks running in **bridge** mode from
 accessing Amazon EC2 metadata, run the following command or update the instance's

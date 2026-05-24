@@ -18,6 +18,10 @@ Identifies and removes EC2 instances that have no running tasks, eliminating unn
 
 Analyzes task distribution across instances to identify opportunities for better resource allocation. When tasks are running sub-optimally across multiple instances, Amazon ECS Managed Instances consolidates workloads onto fewer, more efficiently utilized instances, reducing overall costs while maintaining performance. The optimization process marks underutilized container instances as DRAINING, which triggers task replacement to move workloads to existing or new, more efficient instances. Once all tasks are safely migrated, the instance transitions to DEREGISTERING state and is cleaned up. This optimization applies to instances running service tasks and ensures safe consolidation by respecting your service's minimum and maximum task limits, honoring start-before-stop deployment behavior, and maintaining any task protection settings throughout the draining process. Instances running standalone tasks are not considered for optimization since ECS Managed instances does not replace standalone tasks.
 
+###### Important
+
+Underutilized instance detection is currently not supported for Spot instances. If you use Spot instances with Amazon ECS Managed Instances, the infrastructure optimization feature will detect and remove idle instances (instances with no running tasks), but will not consolidate workloads from underutilized Spot instances.
+
 These optimizations work together to ensure your infrastructure continuously adapts to actual workload demands, automatically eliminating waste and improving resource utilization without impacting application availability. Both mechanisms use event-driven monitoring that responds to task and instance lifecycle events to identify optimization opportunities in real-time. Amazon ECS Managed Instances detects when the last task stops on a container instance, indicating a potential idle condition for cost optimization. For underutilized instances, any task stop or new instance launch triggers analysis to identify opportunities for workload consolidation and improved resource efficiency.
 
 ## ScaleInAfter

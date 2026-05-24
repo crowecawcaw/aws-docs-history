@@ -28,7 +28,7 @@ For managed traffic shifting, configure one of the following:
 - Optionally, configure additional parameters such as:
   - Bake time for the new deployment
   - CloudWatch alarms for automatic rollback
-  - Deployment lifecycle hooks for testing (these are Lambda functions that run at specified deployment stages)
+  - Deployment lifecycle hooks (Lambda functions or pause hooks that run at specified deployment stages)
 
 ## Best practices
 

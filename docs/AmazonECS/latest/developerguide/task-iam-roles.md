@@ -36,13 +36,16 @@ The following are the benefits of using task roles:
 Containers are not a security boundary and the use of task IAM roles does not change
 this. Each task running on Fargate has its own isolation boundary and does not share
 the underlying kernel, CPU resources, memory resources, or elastic network interface
-with another task. For EC2 and External Container Instances on ECS, there is no task
-isolation (unlike with Fargate) and containers can potentially access credentials for
-other tasks on the same container instance. They can also access permissions assigned to
-the [ECS container instance
-role](instance_IAM_role.md "instance_IAM_role.md").
-Follow the recommendations in [Roles recommendations](security-iam-roles.md#security-iam-roles-recommendations "security-iam-roles.md#security-iam-roles-recommendations") to block access to the Amazon EC2 Instance Metadata
-Service for containers (For more information, see [Use the
+with another task. For workloads with strict isolation requirements, use
+Fargate. For EC2, ECS Managed Instances, and ECS Anywhere container instances,
+there is no task isolation and containers can potentially access
+credentials for other tasks on the same container instance. They can also access
+permissions assigned to the [ECS container instance
+role](instance_IAM_role.md "instance_IAM_role.md") and other sensitive data such as instance metadata and IAM role
+credentials accessible through the Amazon EC2 Instance Metadata Service (IMDS), as well
+as data from co-located tasks.
+Follow the recommendations in [Roles recommendations](security-iam-roles.md#security-iam-roles-recommendations "security-iam-roles.md#security-iam-roles-recommendations") to prevent containers from accessing the Amazon EC2
+Instance Metadata Service on your container instances (For more information, see [Use the
 Instance Metadata Service to access instance metadata](../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-service.md "../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-service.md") in the _Amazon EC2 User Guide_).
 
 Note that when you specify an IAM role for a task, the AWS CLI or other SDKs in

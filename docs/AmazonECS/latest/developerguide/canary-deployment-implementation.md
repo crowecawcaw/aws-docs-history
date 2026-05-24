@@ -24,7 +24,7 @@ following features:
   - The duration to wait during the canary phase before shifting the remaining
     traffic to the new service revision.
   - CloudWatch alarms for automatic rollback
-  - Deployment lifecycle hooks (these are Lambda functions that run at
+  - Deployment lifecycle hooks (Lambda functions or pause hooks that run at
     specified deployment stages)
 
 ## Best practices

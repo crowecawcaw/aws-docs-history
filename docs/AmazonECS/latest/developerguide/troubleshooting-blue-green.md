@@ -243,3 +243,81 @@ Example of a valid Lambda response:
   "reason": "Validation passed"
 }
 ```
+
+Invalid targetType for lifecycle hook
+
+_Error message_: `Invalid targetType. Valid values are:
+ AWS_LAMBDA, PAUSE`
+
+_Solution_: Check the `targetType` field in your
+lifecycle hook configuration. Valid values are `AWS_LAMBDA` and
+`PAUSE`.
+
+Invalid lifecycle stage for pause hook
+
+_Error message_: `Invalid lifecycle stage provided for
+ Pause Hook`
+
+_Solution_: Pause hooks can only be configured at
+`PRE_SCALE_UP`, `POST_SCALE_UP`,
+`POST_TEST_TRAFFIC_SHIFT`, `PRE_PRODUCTION_TRAFFIC_SHIFT`, or
+`POST_PRODUCTION_TRAFFIC_SHIFT`. You cannot use
+`TEST_TRAFFIC_SHIFT` or `PRODUCTION_TRAFFIC_SHIFT` for pause
+hooks.
+
+Pause hook timed out
+
+_Error message_: `Service deployment rolled back because
+ POST_TEST_TRAFFIC_SHIFT pause hook timed out.`
+
+_Solution_: The pause hook timed out before a
+`ContinueServiceDeployment` call was received. Verify that your automation
+or approval workflow is calling `ContinueServiceDeployment` before the
+configured timeout expires. Check the `expiresAt` field in
+`DescribeServiceDeployments` to see when the hook was set to expire. If
+you need more time, increase the `timeoutInMinutes` value in the pause
+hook configuration (maximum 20,160 minutes / 14 days). If you want the deployment to
+continue automatically on timeout instead of rolling back, set the
+`timeoutConfiguration.action` to `CONTINUE`.
+
+Invalid hookId format
+
+_Error message_: `Invalid hookId: hookId must follow the
+ format: ecs-{hookType}-{id}`
+
+_Solution_: The `hookId` provided to
+`ContinueServiceDeployment` does not match the expected format. Retrieve
+the correct `hookId` by calling `DescribeServiceDeployments`
+and checking the `lifecycleHookDetails` array. Do not construct hookIds
+manually.
+
+hookId not found or expired
+
+_Error message_: `Provided hookId is either completed,
+ unavailable, or not associated with the given Resource ARN`
+
+_Solution_: The `hookId` is no longer valid. This
+can happen if the hook already timed out, was already continued or rolled back, a new
+deployment was triggered (invalidating previous hookIds), or the hookId belongs to a
+different service deployment ARN. Retrieve the current `hookId` by calling
+`DescribeServiceDeployments` on the active deployment.
+
+Deployment in terminal state
+
+_Error message_: `Continuing a service deployment is not
+ allowed for service deployment in terminal states.`
+
+_Solution_: The deployment has already completed, rolled back,
+or stopped. You can only call `ContinueServiceDeployment` on a deployment
+that is `IN_PROGRESS` with a pause hook in `AWAITING_ACTION`
+status. Use `DescribeServiceDeployments` to check the current deployment
+status.
+
+Service deployment not found
+
+_Error message_: `The service deployment does not
+ exist.`
+
+_Solution_: The `serviceDeploymentArn` provided
+does not match any existing service deployment. Use
+`ListServiceDeployments` to find the correct ARN.

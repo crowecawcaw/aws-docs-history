@@ -26,7 +26,20 @@ You are responsible for managing the following resources:
 - Container images. For more information, see [Amazon ECS task and container security best practices](security-tasks-containers.md "security-tasks-containers.md").
 - IAM permissions for the applications by using the task role. For more information, see [Amazon ECS task IAM role](task-iam-roles.md "task-iam-roles.md").
 - Application-level configuration and monitoring
+- Security monitoring of your containers
 - Task and service definitions
-- Security considerations for workloads sharing underlying instance resources
+- Security considerations for co-located workloads. Unlike Fargate, there is
+  no task isolation on Amazon ECS Managed Instances. Containers can potentially access
+  credentials, environment variables, and temporary files from other tasks on the
+  same instance, including data left behind by previously running tasks.
 - Privileged container configurations and enhanced Linux capabilities (CAP_NET_ADMIN, CAP_BPF, etc.) when enabled
 - Management operations through Amazon ECS API (direct instance access via SSH or SSM is not available)
+
+For information about AWS and customer responsibilities for Amazon ECS Managed Instances
+security, see [Security considerations for Amazon ECS Managed Instances](managed-instances-security.md "managed-instances-security.md").
+
+The following diagram illustrates the shared responsibility model for
+Amazon ECS Managed Instances, showing which security responsibilities are managed by AWS and
+which are yours.
+
+![Diagram showing the shared responsibility model for Amazon ECS Managed Instances on Amazon ECS.](images/managed-instances-shared-responsibility.png)

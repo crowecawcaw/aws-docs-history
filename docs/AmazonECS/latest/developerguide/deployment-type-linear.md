@@ -17,7 +17,13 @@ The following are resources involved in Amazon ECS linear deployments:
 - Step bake time - The duration to wait between each traffic shift increment during a linear deployment. Valid values are from 0 - 1440 minutes.
 - Deployment bake time - The time, in minutes, Amazon ECS waits after shifting all production traffic to the new service revision, before it terminates the old service revision. This is the duration when both blue and green service revisions are running simultaneously after the production traffic has shifted.
 - Lifecycle stages - A series of events in the deployment operation, such as "after production traffic shift".
-- Lifecycle hook - A Lambda function that runs at a specific lifecycle stage. You can create a function that verifies the deployment. Lambda functions or lifecycle hooks configured for PRODUCTION_TRAFFIC_SHIFT will be invoked at every production traffic shift step.
+- Lifecycle hook - A Lambda function or pause point at a specific lifecycle stage.
+  Lambda hooks invoke Lambda functions that you have defined to run custom code.
+  Pause hooks pause the deployment and wait for you to call
+  `ContinueServiceDeployment` to proceed. Hooks configured for
+  `PRODUCTION_TRAFFIC_SHIFT` or
+  `PRE_PRODUCTION_TRAFFIC_SHIFT` are invoked at every production
+  traffic shift step.
 - Target group - An Elastic Load Balancing resource used to route requests to one or more registered targets (for example, EC2 instances). When you create a listener, you specify a target group for its default action. Traffic is forwarded to the target group specified in the listener rule.
 - Listener - A Elastic Load Balancing resource that checks for connection requests using the
   protocol and port that you configure. The rules that you define for a listener
@@ -55,7 +61,7 @@ The linear traffic shift phase follows these steps:
   - And so on until 100% reaches green
 
 - Step bake time - Between each traffic shift increment, the deployment waits for a configurable duration (step bake time) to allow monitoring and validation of the new revision's performance with the increased traffic load. Note, that last step bake time is skipped once traffic is shifted 100.0%.
-- Lifecycle hooks - Optional Lambda functions can be executed at various lifecycle stages during the deployment to perform automated validation, monitoring, or custom logic. Lambda functions or lifecycle hooks configured for PRODUCTION_TRAFFIC_SHIFT will be invoked at every production traffic shift step.
+- Lifecycle hooks - Optional Lambda functions or pause hooks can be configured at various lifecycle stages during the deployment to perform automated validation, monitoring, or custom logic. Hooks configured for `PRODUCTION_TRAFFIC_SHIFT` or `PRE_PRODUCTION_TRAFFIC_SHIFT` are invoked at every production traffic shift step.
 
 ## Deployment lifecycle stages
 
@@ -65,15 +71,19 @@ Each lifecycle stage can last up to 24 hours and in addition each traffic shift 
 
 CloudFormation deployments have additional timeout restrictions. While the 24-hour stage limit remains in effect, CloudFormation enforces a 36-hour limit on the entire deployment. CloudFormation fails the deployment, and then initiates a rollback if the process doesn't complete within 36 hours.
 
+For pause hooks, the timeout can be configured up to 20,160 minutes (14 days). The
+overall deployment timeout is 30 days.
+
 | Lifecycle stages              | Description                                                                                                                                                                                  | Lifecycle hook support |
 | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
 | RECONCILE_SERVICE             | This stage only happens when you start a new service deployment with more than 1 service revision in an ACTIVE state.                                                                        | Yes                    |
 | PRE_SCALE_UP                  | The green service revision has not started. The blue service revision is handling 100% of the production traffic. There is no test traffic.                                                  | Yes                    |
 | SCALE_UP                      | The time when the green service revision scales up to 100% and launches new tasks. The green service revision is not serving any traffic at this point.                                      | No                     |
 | POST_SCALE_UP                 | The green service revision has started. The blue service revision is handling 100% of the production traffic. There is no test traffic.                                                      | Yes                    |
-| TEST_TRAFFIC_SHIFT            | The blue and green service revisions are running. The blue service revision handles 100% of the production traffic. The green service revision is migrating from 0% to 100% of test traffic. | Yes                    |
+| TEST_TRAFFIC_SHIFT            | The blue and green service revisions are running. The blue service revision handles 100% of the production traffic. The green service revision is migrating from 0% to 100% of test traffic. | Yes (Lambda only)      |
 | POST_TEST_TRAFFIC_SHIFT       | The test traffic shift is complete. The green service revision handles 100% of the test traffic.                                                                                             | Yes                    |
-| PRODUCTION_TRAFFIC_SHIFT      | Traffic is gradually shifted from blue to green in equal percentage increments until green receives 100% of traffic. Each traffic shift invokes lifecycle hook with 24 hours timeout.        |
+| PRE_PRODUCTION_TRAFFIC_SHIFT  | Occurs before each production traffic shift increment. Lifecycle<br>hooks configured for this stage are invoked at every traffic shift<br>step.                                              | Yes                    |
+| PRODUCTION_TRAFFIC_SHIFT      | Traffic is gradually shifted from blue to green in equal percentage increments until green receives 100% of traffic. Each traffic shift invokes lifecycle hook with 24 hours timeout.        | Yes (Lambda only)      |
 | POST_PRODUCTION_TRAFFIC_SHIFT | The production traffic shift is complete.                                                                                                                                                    | Yes                    |
 | BAKE_TIME                     | The duration when both blue and green service revisions are running simultaneously.                                                                                                          | No                     |
 | CLEAN_UP                      | The blue service revision has completely scaled down to 0 running tasks. The green service revision is now the production service revision after this stage.                                 | No                     |

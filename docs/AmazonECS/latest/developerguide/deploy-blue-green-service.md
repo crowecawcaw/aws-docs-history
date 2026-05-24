@@ -85,20 +85,31 @@ The **Create service** page displays. 3. Under **Service details**, do the follo
        both the blue and green service revisions will run simultaneously before
        the blue revision is terminated. This allows time for verification and
        testing.
-    2. (Optional) Run Lambda functions to run at specific stages
-       of the deployment. Under **Deployment lifecycle
-       hooks**, select the stages to run the lifecycle
-       hooks.
+    2. (Optional) Configure lifecycle hooks to run at specific stages of
+       the deployment. Under **Deployment lifecycle
+       hooks**, choose **Add**.
 
-    To add a lifecycle hook:
+    For Lambda hooks:
 
-        1. Choose **Add**.
-        2. For **Lambda function**, enter the function
-         name or ARN.
-        3. For **Role**, select the IAM role that has
-         permission to invoke the Lambda function.
-        4. For **Lifecycle stages**, select the stages
-         when the Lambda function should run.
+        * For **Target type**, choose
+         **Lambda**.
+        * For **Lambda function**, enter the
+         function name or ARN.
+        * For **Role**, select the IAM role
+         that has permission to invoke the Lambda
+         function.
+        * For **Lifecycle stages**, select the
+         stages when the Lambda function should
+         run.
+
+    For pause hooks:
+
+        * For **Target type**, choose
+         **Pause**.
+        * For **Lifecycle stages**, select the
+         stages where the deployment should pause.
+        * (Optional) For **Timeout**,
+         configure the timeout duration and action.
 
 8.  To configure how Amazon ECS detects and handles deployment failures, expand
     **Deployment failure detection**, and then choose

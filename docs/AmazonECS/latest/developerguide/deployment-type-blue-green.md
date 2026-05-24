@@ -23,9 +23,10 @@ The following are Amazon ECS blue/green deployment terms:
 - Blue deployment - The current production service revision that you want to replace.
 - Green deployment - The new service revision that you want to deploy.
 - Lifecycle stages - A series of events in the deployment operation, such as "after production traffic shift".
-- Lifecycle hook - A Lambda function that verifies the deployment at a specific
-  lifecycle stage. You can pass custom data to your hook using
-  `hookDetails`.
+- Lifecycle hook - A Lambda function or pause point at a specific lifecycle stage.
+  Lambda hooks invoke Lambda functions that you have defined to run custom code.
+  Pause hooks pause the deployment and wait for you to call
+  `ContinueServiceDeployment` to proceed.
 - Listener - A Elastic Load Balancing resource that checks for connection requests using the
   protocol and port that you configure. The rules that you define for a listener
   determine how Amazon ECS routes requests to its registered targets.

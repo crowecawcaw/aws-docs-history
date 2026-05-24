@@ -40,11 +40,22 @@ you run tasks on EC2 instances you are responsible for maintaining your EC2 inst
 addition to the following resources:
 
 - The Amazon ECS agent.
-- • The EC2 instance AMI, including patching and hardening.
+- The EC2 instance AMI, including patching and hardening.
 - Network configuration including VPC, NACLs, security groups, and route
   tables.
 - Client and service storage encryption. For more information, see [Storage options for Amazon ECS tasks](using_data_volumes.md "using_data_volumes.md").
 - Container images. For more information, see [Amazon ECS task and container security best practices](security-tasks-containers.md "security-tasks-containers.md").
 - IAM permissions for the applications by using the task role. For more information, see [Amazon ECS task IAM role](task-iam-roles.md "task-iam-roles.md").
+- Configuring container instances to block container access to the Amazon EC2 Instance
+  Metadata Service (IMDS). For more information, see [Roles recommendations](security-iam-roles.md#security-iam-roles-recommendations "security-iam-roles.md#security-iam-roles-recommendations").
+- Security considerations for co-located workloads. Unlike Fargate, there is no
+  task isolation on EC2 container instances. Containers can potentially access
+  credentials, environment variables, and temporary files from other tasks on the
+  same instance, including data left behind by previously running tasks. For
+  sensitive applications, configure your environment so that each application runs on
+  dedicated instances.
+
+The following diagram illustrates the shared responsibility model for EC2, showing which
+security responsibilities are managed by AWS and which are yours.
 
 ![Diagram showing the shared responsibility model for EC2 on Amazon ECS.](images/ec2-shared-responsibility.png)

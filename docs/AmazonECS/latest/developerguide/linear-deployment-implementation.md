@@ -22,8 +22,8 @@ one of the following features:
   - The percentage of traffic to shift in each increment.
   - The duration in minutes to wait between each traffic shift increment.
   - CloudWatch alarms for automatic rollback
-  - Deployment lifecycle hooks (these are Lambda functions that run at
-    specified deployment stages such as BEFORE_INSTALL, PRODUCTION_TRAFFIC_SHIFT, or POST_PRODUCTION_TRAFFIC_SHIFT)
+  - Deployment lifecycle hooks (Lambda functions or pause hooks that run at
+    specified deployment stages)
 
 ## Best practices
 
