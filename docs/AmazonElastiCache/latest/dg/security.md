@@ -24,7 +24,7 @@ responsibility model](https://aws.amazon.com/compliance/shared-responsibility-mo
 ###### Topics
 
 - [Data protection in Amazon ElastiCache](data-protection.md "data-protection.md")
-- [Internetwork traffic privacy](Security.md "Security.md")
+- [Internetwork traffic privacy](internetwork-traffic-privacy.md "internetwork-traffic-privacy.md")
 - [Identity and Access Management for Amazon ElastiCache](IAM.md "IAM.md")
 - [Compliance validation for Amazon ElastiCache](elasticache-compliance.md "elasticache-compliance.md")
 - [Resilience in Amazon ElastiCache](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")

@@ -56,7 +56,7 @@ New parameter group families for Valkey 9.0:
 
 | New customer-visible parameter in Valkey 9.0 | Parameter                                                                    | Description | Values | Default              | Modifiable |
 | -------------------------------------------- | ---------------------------------------------------------------------------- | ----------- | ------ | -------------------- | ---------- |
-| `cluster-databases`                          | Number of databases available in cluster mode. Set at cluster creation time. | 0 to 15     | 0      | No (set at creation) |
+| `cluster-databases`                          | Number of databases available in cluster mode. Set at cluster creation time. | 1 to 10,000 | 0      | No (set at creation) |
 
 ### Valkey 8.2 parameter changes
 
