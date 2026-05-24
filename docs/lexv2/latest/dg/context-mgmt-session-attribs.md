@@ -86,3 +86,17 @@ map, and then send it as part of the
 If you are sending binary or structured data in a session
 attribute, you must first transform the data to a simple string. For
 more information, see [Setting complex attributes in your Lex V2 bot](context-mgmt-complex-attributes.md "context-mgmt-complex-attributes.md").
+
+## Predefined session attributes
+
+Amazon Lex provides predefined session attributes. These attributes manage how Amazon Lex processes information sent to your bot.
+The attributes persist for the entire session. All predefined attributes are in the
+`x-amz-lex:` namespace.
+
+## Increasing code hook Lambda timeout
+
+To increase the code hook Lambda timeout value in your bot, which is 30 seconds by default, use the
+`x-amz-lex:codehook-timeout-ms` session attribute.
+Set the session attribute value in milliseconds. The maximum timeout is 120 seconds.
+
+For example, if a user sets "x-amz-lex:codehook-timeout-ms": "90000", the code hook Lambda timeout will be 90 seconds.
