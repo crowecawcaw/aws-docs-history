@@ -6,7 +6,7 @@ By combining an Amazon Kendra GenAI index with Amazon Bedrock Knowledge Bases, y
 
 - Reuse your indexed content across multiple Amazon Bedrock applications without rebuilding
   indexes or re-ingesting data.
-- Leverage the advanced GenAI capabilities of Amazon Bedrock while benefiting from the
+- Use the advanced GenAI capabilities of Amazon Bedrock while benefiting from the
   high-accuracy information retrieval of Amazon Kendra.
 - Customize your digital assistant's behavior using the tools of Amazon Bedrock while
   maintaining the semantic accuracy of an Amazon Kendra GenAI index.

@@ -3,7 +3,7 @@
 You are charged for running inference with custom models that you import into Amazon Bedrock. Use the following information to estimate
 the cost of running a custom model.
 
-A Custom Model Unit (CMU) is an abstract view of the hardware utilization that Amazon Bedrock
+A Custom Model Unit (CMU) is an abstract view of the hardware use that Amazon Bedrock
 needs to host a a single copy of your custom model. A model copy represents a single
 instance of your imported model that is ready to serve inference requests. Amazon Bedrock
 determines the number of custom model units that a model copy needs when you import the

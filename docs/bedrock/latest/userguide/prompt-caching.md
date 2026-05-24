@@ -2,7 +2,7 @@
 
 Prompt caching is an optional feature that you can use with supported models on Amazon Bedrock to
 reduce inference response latency and input token costs. By adding portions of your context
-to a cache, the model can leverage the cache to skip recomputation of inputs, allowing Bedrock
+to a cache, the model can use the cache to skip recomputation of inputs, allowing Bedrock
 to share in the compute savings and lower your response latencies.
 
 Prompt caching can help when you have workloads with long and repeated contexts that are
@@ -135,7 +135,7 @@ The 1-hour cache is best used in the following scenarios:
 - When you have prompts that are likely used less frequently than 5 minutes, but more frequently than every hour. For example, when an agentic side-agent will
   take longer than 5 minutes, or when storing a long chat conversation with a user and you generally expect that user may not respond in the next 5 minutes.
 - When latency is important and your follow-up prompts may be sent beyond 5 minutes.
-- When you want to improve your rate limit utilization, since cache hits are not deducted against your rate limit.
+- When you want to improve your rate limit use, since cache hits are not deducted against your rate limit.
 
 You can use both 1-hour and 5-minute cache controls in the same request, but with an important constraint: Cache entries with longer TTL must appear before
 shorter TTLs (i.e., a 1-hour cache entry must appear before any 5-minute cache entries).
@@ -266,10 +266,10 @@ toolConfig={
 ```
 
 The model response from the Converse API includes three new fields that are specific to prompt
-caching. The `CacheReadInputTokens` and
-`CacheWriteInputTokens` values tell you how many tokens were
+caching. The `cacheReadInputTokens` and
+`cacheWriteInputTokens` values tell you how many tokens were
 read from the cache and how many tokens were written to the cache because of
-your previous request. The `CacheDetails` values tell you the ttl
+your previous request. The `cacheDetails` values tell you the ttl
 used for the number of token written to cache. These are values that you're charged for by Amazon Bedrock,
 at a rate that's lower than the cost of full model inference.
 

@@ -1,6 +1,6 @@
 # Build a knowledge base by connecting to a data source
 
-Amazon Bedrock Knowledge Bases supports a variety of file types stored in data sources. In order to interpret the data from a data source,
+Amazon Bedrock Knowledge Bases supports a variety of file types stored in data sources. To interpret the data from a data source,
 Amazon Bedrock Knowledge Bases requires the conversion of the data into vector embeddings, a numerical representation of the data. These embeddings can be compared to
 the vector representations of a query to assess similarity and determine which sources to return during data retrieval.
 

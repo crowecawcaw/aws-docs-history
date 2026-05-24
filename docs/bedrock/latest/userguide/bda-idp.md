@@ -30,7 +30,7 @@ To create a blueprint using the Prompt:
 
 1. Navigate to the **Blueprints** section in the BDA
    console.
-2. Click on **Create Blueprint** and select **Use Blueprint
+2. Choose **Create Blueprint** and select **Use Blueprint
    Prompt**.
 3. Choose the data type (document, image, audio, or video) for your Blueprint.
 4. Describe the fields and data you want to extract in natural language.
@@ -65,7 +65,7 @@ editing directly. You can also adjust your prompt for other outcomes.
 For more advanced users or those requiring fine-grained control, you can create Blueprints manually:
 
 1. Navigate to the **Blueprints** section in the BDA console.
-2. Click on **Create Blueprint** and select **Create Manually.**
+2. Choose **Create Blueprint** and select **Create Manually.**
 3. Choose the data type (document, image, audio, or video) for your Blueprint.
 4. Define the fields you want to extract, specifying data types, formats,
    and any validation rules.
@@ -86,7 +86,7 @@ To add a Blueprint to a Project:
 
 1. Navigate to the **Projects** section in the BDA console.
 2. Select the Project you want to add the Blueprint to.
-3. Click on **Add Blueprint** or **Manage Blueprints**.
+3. Choose **Add Blueprint** or **Manage Blueprints**.
 4. Choose the Blueprint you want to add from the list of available
    Blueprints.
 5. Configure any project-specific settings for the Blueprint.

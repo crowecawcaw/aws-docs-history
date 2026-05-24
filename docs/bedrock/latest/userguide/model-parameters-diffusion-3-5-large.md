@@ -7,7 +7,7 @@ The request body is passed in the `body` field of a request to
 
 **Model invocation request body field**
 
-When you make an InvokeModel call using a Stable Diffusion 3.5 Large model, fill the body field with a JSON object that looks like the below.
+When you make an InvokeModel call using a Stable Diffusion 3.5 Large model, fill the body field with a JSON object that looks like the following.
 
 - **prompt** – (string)
   Text description of the desired output image. Maximum 10,000 characters.
@@ -18,7 +18,7 @@ When you make an InvokeModel call using a Stable Diffusion 3.5 Large model, fill
 
 **Model invocation responses body field**
 
-When you make an `InvokeModel` call using a Stable Diffusion 3.5 Large model, the response looks like the below
+When you make an `InvokeModel` call using a Stable Diffusion 3.5 Large model, the response looks like the following
 
 ```
 {
@@ -28,7 +28,7 @@ When you make an `InvokeModel` call using a Stable Diffusion 3.5 Large model, th
 }
 ```
 
-A response with a finish reason that is not `null`, will look like the below:
+A response with a finish reason that is not `null`, will look like the following:
 
 ```
 {

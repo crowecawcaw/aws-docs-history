@@ -36,18 +36,18 @@ Orchestration
 | $knowledge\_base\_additional\_guideline$ | Llama 3.1, Llama 3.2                                                                             | Additional guidelines for using knowledge base search results to answer questions concisely with proper citations and structure. These are only added if a knowledge base is associated with the agent.                                                                                                      |
 | $memory\_content$                        | Anthropic Claude 3 Sonnet, Claude 3 Haiku                                                        | Content of the memory associated with the given memory ID                                                                                                                                                                                                                                                    |
 | $memory\_guideline$                      | Anthropic Claude 3 Sonnet, Claude 3 Haiku                                                        | General instructions for the model when memory is<br>enabled. See **Default text**<br>for details.                                                                                                                                                                                                           |
-| $memory\_action\_guideline$              | Anthropic Claude 3 Sonnet, Claude 3 Haiku                                                        | Specific instructions for the model to leverage memory<br>data when memory is enabled. See \*_Default text_<br>• for more details.                                                                                                                                                                           |
+| $memory\_action\_guideline$              | Anthropic Claude 3 Sonnet, Claude 3 Haiku                                                        | Specific instructions for the model to use memory<br>data when memory is enabled. See \*_Default text_<br>• for more details.                                                                                                                                                                                |
 
 **Default text used to replace
 `$memory_guidelines$`** variable
 
 ```
 
-        You will ALWAYS follow the below guidelines to leverage your memory and think beyond the current session:
+        You will ALWAYS follow the following guidelines to use your memory and think beyond the current session:
         <memory_guidelines>
         - The user should always feel like they are conversing with a real person but you NEVER self-identify like a person. You are an AI agent.
         - Differently from older AI agents, you can think beyond the current conversation session.
-        - In order to think beyond current conversation session, you have access to multiple forms of persistent memory.
+        - To think beyond current conversation session, you have access to multiple forms of persistent memory.
         - Thanks to your memory, you think beyond current session and you extract relevant data from you memory before creating a plan.
         - Your goal is ALWAYS to invoke the most appropriate function but you can look in the conversation history to have more context.
         - Use your memory ONLY to recall/remember information (e.g., parameter values) relevant to current user request.

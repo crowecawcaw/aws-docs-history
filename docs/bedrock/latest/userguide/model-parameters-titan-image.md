@@ -107,7 +107,7 @@ same as the input size.
 The `inPaintingParams` fields are described below. The _mask_ defines the part of the image that you want to modify.
 
 - **image** (Required) – The JPEG or PNG image to modify, formatted as a string that specifies a sequence of pixels, each defined in RGB values and encoded in base64. For examples of how to encode an image into base64 and decode a base64-encoded string and transform it into an image, see the [code examples](#model-parameters-titan-image-code-examples "#model-parameters-titan-image-code-examples").
-- You must define one of the following fields (but not both) in order to define.
+- You must define one of the following fields (but not both) to define.
   - **maskPrompt** – A text prompt that defines the mask.
   - **maskImage** – A string that defines the mask by specifying a sequence of pixels that is the same size as the `image`. Each pixel is turned into an RGB value of (0 0 0) (a pixel inside the mask) or (255 255 255) (a pixel outside the mask). For examples of how to encode an image into base64 and decode a base64-encoded string and transform it into an image, see the [code examples](#model-parameters-titan-image-code-examples "#model-parameters-titan-image-code-examples").
 
@@ -151,7 +151,7 @@ same as the input size.
 The `outPaintingParams` fields are defined below. The _mask_ defines the Region in the image whose that you don't want to modify. The generation seamlessly extends the Region you define.
 
 - **image** (Required) – The JPEG or PNG image to modify, formatted as a string that specifies a sequence of pixels, each defined in RGB values and encoded in base64. For examples of how to encode an image into base64 and decode a base64-encoded string and transform it into an image, see the [code examples](#model-parameters-titan-image-code-examples "#model-parameters-titan-image-code-examples").
-- You must define one of the following fields (but not both) in order to define.
+- You must define one of the following fields (but not both) to define.
   - **maskPrompt** – A text prompt that defines the mask.
   - **maskImage** – A string that defines the mask by specifying a sequence of pixels that is the same size as the `image`. Each pixel is turned into an RGB value of (0 0 0) (a pixel inside the mask) or (255 255 255) (a pixel outside the mask). For examples of how to encode an image into base64 and decode a base64-encoded string and transform it into an image, see the [code examples](#model-parameters-titan-image-code-examples "#model-parameters-titan-image-code-examples").
 
@@ -163,7 +163,7 @@ The `outPaintingParams` fields are defined below. The _mask_ defines the Region 
 Don't use negative words in the `negativeText` prompt. For example, if you don't want to include mirrors in an image, enter `mirrors` in the `negativeText` prompt. Don't enter `no mirrors`.
 
 - **outPaintingMode** – Specifies whether to allow modification of the pixels inside the mask or not. The following values are possible.
-  - DEFAULT – Use this option to allow modification of the image inside the mask in order to keep it consistent with the reconstructed background.
+  - DEFAULT – Use this option to allow modification of the image inside the mask to keep it consistent with the reconstructed background.
   - PRECISE – Use this option to prevent modification of the image inside the mask.
 
 - **returnMask** (Optional) – If set to `true`, the response includes the mask image used for the outpainting operation as a base64-encoded string. This is useful for debugging or verifying which area of the image was preserved. Default is `false`.

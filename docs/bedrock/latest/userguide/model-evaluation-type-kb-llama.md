@@ -135,7 +135,7 @@ Helpfulness evaluates if a reponse was helpful. Responses are scored using a 7-p
 
 ```
 
-You are given a task and a candidate completion. Provide a holistic evaluation of how helpful the completion is taking the below factors into consideration.
+You are given a task and a candidate completion. Provide a holistic evaluation of how helpful the completion is taking the following factors into consideration.
 
 Helpfulness can be seen as 'eager and thoughtful cooperation': an completion is helpful when it satisfied explicit and implicit expectations in the user's request. Often this will mean that the completion helps the user achieve the task.
 When the request is not clearly a task, like a random text continuation, or an answer directly to the model, consider what the user's general motifs are for making the request.

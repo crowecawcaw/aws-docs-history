@@ -143,7 +143,7 @@ AWS SDK.
 
 ###### Note
 
-To best utilize intelligent prompt routing, you should regularly review
+To best use intelligent prompt routing, you should regularly review
 performance to take advantage of new models. To optimize your usage, monitor the
 available performance and cost metrics.
 

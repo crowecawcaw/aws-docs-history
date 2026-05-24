@@ -2,7 +2,7 @@
 
 Multi-agent collaboration enables multiple Amazon Bedrock Agents to collaboratively plan and solve complex tasks. With multi-agent
 collaboration, you can quickly assemble a team of agents that can break down tasks, assign specific tasks to domain specialist
-sub-agents, work in parallel, and leverage each other's strengths, which leads to more efficient problem-solving. Multi-agent
+sub-agents, work in parallel, and use each other's strengths, which leads to more efficient problem-solving. Multi-agent
 provides a centralized mechanism for planning, orchestration , and user interaction for your generative AI applications.
 
 With multi-agent approach, you can quickly designate an Amazon Bedrock Agent as the supervisor and then associate one or more

@@ -1,4 +1,4 @@
-# Creating a retrieve-only RAG evaluation job;
+# Creating a retrieve-only RAG evaluation job
 
 You can create a RAG evaluation job using the AWS Management Console, AWS CLI, or a supported AWS SDK.
 

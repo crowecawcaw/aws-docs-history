@@ -422,7 +422,7 @@ incorrect
 
 ```
 
-You are given a task and a candidate completion. Provide a holistic evaluation of how helpful the completion is taking the below factors into consideration.
+You are given a task and a candidate completion. Provide a holistic evaluation of how helpful the completion is taking the following factors into consideration.
 
 Helpfulness can be seen as 'eager and thoughtful cooperation': an completion is helpful when it satisfied explicit and implicit expectations in the user's request. Often this will mean that the completion helps the user achieve the task.
 When the request is not clearly a task, like a random text continuation, or an answer directly to the model, consider what the user's general motifs are for making the request.
@@ -493,7 +493,7 @@ Please rate the professional style and tone of the response based on the followi
 - not generally: The response has some elements that would fit a professional setting, but most of it does not.
 - neutral/mixed: The response is a roughly even mix of professional and unprofessional elements.
 - generally yes: The response almost entirely fits a professional setting.
-- completely yes: The response absolutely fits a professional setting. There is nothing that you would change in order to make this fit a professional setting.
+- completely yes: The response absolutely fits a professional setting. There is nothing that you would change to make this fit a professional setting.
 
 Here is the actual task:
 Question: {{prompt}}
@@ -536,7 +536,7 @@ Please rate the readability of the response based on the following scale:
 
 - unreadable: The response contains gibberish or could not be comprehended by any normal audience.
 - poor readability: The response is comprehensible, but it is full of poor readability factors that make comprehension very challenging.
-- fair readability: The response is comprehensible, but there is a mix of poor readability and good readability factors, so the average reader would need to spend some time processing the text in order to understand it.
+- fair readability: The response is comprehensible, but there is a mix of poor readability and good readability factors, so the average reader would need to spend some time processing the text to understand it.
 - good readability: Very few poor readability factors. Mostly clear, well-structured sentences. Standard vocabulary with clear context for any challenging words. Clear organization with topic sentences and supporting details. The average reader could comprehend by reading through quickly one time.
 - excellent readability: No poor readability factors. Consistently clear, concise, and varied sentence structures. Simple, widely understood vocabulary. Logical organization with smooth transitions between ideas. The average reader may be able to skim the text and understand all necessary points.
 

@@ -32,4 +32,4 @@ The [CreateResourceShare](../../../ram/latest/APIReference/API_CreateResourceSha
 
 The account receiving a model can check whether a model has been shared by sending a [ListCustomModels](../APIReference/API_ListCustomModels.md "../APIReference/API_ListCustomModels.md") request with an [Amazon Bedrock control plane endpoint](../../../general/latest/gr/bedrock.md#br-cp "../../../general/latest/gr/bedrock.md#br-cp"). Models that have been shared will show up with a `shared` status of `true`.
 
-After sharing the model, the recipient of the model must copy it into a Region in order to use it. For more information, see [Copy a customized or shared model to use in a Region](copy-model.md "copy-model.md").
+After sharing the model, the recipient of the model must copy it into a Region to use it. For more information, see [Copy a customized or shared model to use in a Region](copy-model.md "copy-model.md").

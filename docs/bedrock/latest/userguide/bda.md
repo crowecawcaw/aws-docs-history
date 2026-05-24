@@ -4,7 +4,7 @@
 
 Bedrock Data Automation (BDA) is a cloud-based service that simplifies the process of
 extracting valuable insights from unstructured content—such as documents, images,
-video, and audio. BDA leverages generative AI to automate the transformation of
+video, and audio. BDA uses generative AI to automate the transformation of
 multi-modal data into structured formats, enabling developers to build applications and
 automate complex workflows with greater speed and accuracy.
 
@@ -20,7 +20,7 @@ Here are some example use cases:
 - **Media analysis:** Add meaningful insights to
   unstructured video. Create summaries of each scene, help identify unsafe or
   explicit content, extract text that appears in the video, and classify content
-  based on advertisements or brands. You can then leverage these insights to
+  based on advertisements or brands. You can then use these insights to
   enable intelligent video search, improve contextual advertising placement, and
   help with brand safety and compliance.
 - **Generative AI assistants:** Enhance the

@@ -19,7 +19,7 @@ Automated abuse detection includes:
   automated and does not involve human review of user inputs or model outputs.
 - **Identify patterns** — We use classifier
   metrics to identify potential violations and recurring behavior. We may compile and
-  share anonymized classifier metrics with third-party model providers. Amazon Bedrock
+  share classifier metrics with third-party model providers. Amazon Bedrock
   does not store user input or model output and does not share these with third-party
   model providers.
 - **Detecting and blocking child sexual abuse material (CSAM)** —

@@ -9,7 +9,7 @@ The following types of prompt attack are supported:
 
 - **Jailbreaks** — User prompts designed
   to bypass the native safety and moderation capabilities of the foundation
-  model in order to generate harmful or dangerous content. Examples of such
+  model to generate harmful or dangerous content. Examples of such
   prompts include but are not restricted to “Do Anything Now (DAN)” prompts
   that can trick the model to generate content it was trained to avoid.
 - **Prompt Injection** — User prompts

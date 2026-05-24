@@ -76,7 +76,7 @@ Amazon Bedrock offers flexible capacity options to match your workload requireme
 - Use 1-month commitment initially
 - Reserved tier can work alongside any on-demand tier
 
-**Leverage Batch for**
+**Use Batch for**
 
 - Training data generation
 - Content moderation backlogs
@@ -95,7 +95,7 @@ Amazon Bedrock offers flexible capacity options to match your workload requireme
 
 - Compare tier costs: Flex < Standard < Priority
 - Track tokens per request (optimize prompts)
-- Use CloudWatch metrics for utilization and throttling
+- Use CloudWatch metrics for use and throttling
 - Set billing alarms for unexpected spikes
-- Review reserved tier utilization monthly
+- Review reserved tier use monthly
 - Evaluate tier upgrades only when throttling occurs

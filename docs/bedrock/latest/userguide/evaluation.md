@@ -4,10 +4,10 @@ Use Amazon Bedrock evaluations to evaluate the performance and effectiveness of 
 knowledge bases, as well as models and Retrieval Augmented Generation (RAG) sources outside of Amazon Bedrock.
 Amazon Bedrock can compute performance metrics such as the semantic robustness of a
 model and the correctness of a knowledge base in retrieving information and generating
-responses. For model evaluations, you can also leverage a team of human workers to rate and
+responses. For model evaluations, you can also use a team of human workers to rate and
 provide their input for the evaluation.
 
-Automatic evaluations, including evaluations that leverage Large Language Models (LLMs),
+Automatic evaluations, including evaluations that use Large Language Models (LLMs),
 produce computed scores and metrics that help you assess the effectiveness of a model and
 knowledge base. Human-based evaluations use a team of people who provide their ratings and
 preferences in relation to certain metrics.

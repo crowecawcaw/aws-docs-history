@@ -444,37 +444,52 @@ When you specify a Lambda function in the `tools` parameter, the API will attemp
 
 **Using AWS provided tools in Responses API**
 
-There are two AWS provided tools that are available in Bedrock: Note-taking functionality (notes tool) and Task management (tasks tool). Let us go over them both in details.
+There are two AWS provided tools built into the `openai.gpt-oss-20b` and `openai.gpt-oss-120b` models: Note-taking functionality (notes tool) and Task management (tasks tool). These tools are automatically available — you do not need to define them in the `tools` parameter.
 
 **Notes Tool Overview**
 
-The `notes` tool allows you to store and retrieve key-value pairs within the same conversation session. This provides a simple memory mechanism for maintaining context across multiple interactions. Keys are case-sensitive strings and there is no limit on key length or naming conventions. The system overwrites previous values for the same key. Values are stored as strings (JSON, URLs etc.) and no size limits enforced at tool level. Values are persisted through the entire conversation session. Memory is scoped to the current conversation only.
+The `notes` tool allows the model to store notes within the same conversation session. This provides a simple memory mechanism for maintaining context across multiple interactions. Memory is scoped to the current conversation only.
 
-**Parameters**
+When the model uses the notes tool, it emits an `mcp_call` output with `name` set to `"notes"`. The model determines the appropriate arguments based on your request.
 
-| Parameter   | Type   | Required    | Description                                                |
-| ----------- | ------ | ----------- | ---------------------------------------------------------- |
-| `operation` | string | Yes         | The operation to perform: `"store"` or `"recall"`          |
-| `key`       | string | Yes         | The key identifier for the memory item                     |
-| `value`     | string | Conditional | The value to store (required only for `"store"` operation) |
-
-**Valid Operations**
-
-- **`store`**: Save a key-value pair to memory
-- **`recall`**: Retrieve a value by its key
-  You can use either natural language (e.g. "Remember that my favorite color is blue", "What did I tell you about my favorite color?", "Store the fact that I prefer morning meetings", "Recall what I said about meeting preferences") or you can use direct tools calls in your prompt ("Use the notes tool to store my email as john@example.com", "Check the notes for my email address").
+You can use either natural language (e.g. "Remember that my favorite color is blue", "What did I tell you about my favorite color?", "Store the fact that I prefer morning meetings", "Recall what I said about meeting preferences") or you can use direct tool calls in your prompt ("Use the notes tool to store my email as john@example.com", "Check the notes for my email address").
 
 **Tasks Tool Overview**
 
-The `tasks` tool provides a Last-In-First-Out (LIFO) stack for managing tasks within a conversation session. This allows you to push tasks onto a stack and pop them off in reverse order, making it perfect for managing nested workflows, temporary reminders, or hierarchical task management. Tasks persist throughout the entire conversation session. Stack state is maintained across multiple interactions. Memory is scoped to the current conversation only.
+The `tasks` tool provides a stack for managing tasks within a conversation session. You can push tasks onto the stack and pop them off, making it useful for managing workflows, reminders, or hierarchical task management. Tasks persist throughout the entire conversation session. Memory is scoped to the current conversation only.
 
-| Parameter     | Type   | Required    | Description                                                             |
-| ------------- | ------ | ----------- | ----------------------------------------------------------------------- |
-| `operation`   | string | Yes         | The operation to perform: `"push"` or `"pop"`                           |
-| `description` | string | Conditional | The description of the task item (required only for `"push"` operation) |
-| `summary`     | string | No          | Optional summary about the task item (only for `"push"` operation)      |
+When the model uses the tasks tool, it emits an `mcp_call` output with `name` set to `"tasks"`. The model determines the appropriate arguments (such as `method`, `task.title`, and `task.description`) based on your request.
 
-You can call the Tasks tool by either using natural languages (e.g. "Add a task to review the budget", "Push a reminder to call the client", "What's the next task I need to do?", "Pop the most recent task", "Get the latest task from my stack") or you can call the tool directly in your prompt ("Use the tasks tool to push 'finish presentation'", "Pop a task from the stack", "Add 'schedule meeting' to my task list").
+You can call the Tasks tool by either using natural language (e.g. "Add a task to review the budget", "Push a reminder to call the client", "What's the next task I need to do?", "Pop the most recent task", "Get the latest task from my stack") or you can call the tool directly in your prompt ("Use the tasks tool to push 'finish presentation'", "Pop a task from the stack", "Add 'schedule meeting' to my task list").
+
+**Code example: Using the notes and tasks tools**
+
+The notes and tasks tools are built into the `openai.gpt-oss-20b` and `openai.gpt-oss-120b` models. You do not need to define them explicitly in the `tools` parameter — simply reference them in your prompt:
+
+```
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://bedrock-mantle.us-east-1.api.aws/v1"
+)
+
+# The notes tool is built-in — just ask the model to use it
+resp = client.responses.create(
+    model="openai.gpt-oss-120b",
+    input="Use the notes tool to store that my preferred language is Python.",
+)
+
+print(resp.output)
+# The model automatically calls the notes tool via mcp_call
+
+# Use the tasks tool to push a task
+resp = client.responses.create(
+    model="openai.gpt-oss-120b",
+    input="Use the tasks tool to push a task: review the API documentation",
+)
+
+print(resp.output)
+```
 
 ## Server-side tool-use integration with AgentCore Gateway
 

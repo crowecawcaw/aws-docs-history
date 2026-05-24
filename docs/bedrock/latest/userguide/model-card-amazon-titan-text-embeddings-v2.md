@@ -14,11 +14,11 @@ Titan Text Embeddings V2 is Amazon's second-generation text embeddings model wit
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
-| No Audio             | Yes Embedding         | No `Responses`                          | Yes `bedrock-runtime`                                  |
-| No Image             | No Image              | No `Chat Completions`                   | No `bedrock-mantle`                                    |
-| No Speech            | No Speech             | Yes `Invoke`                            |                                                        |
-| Yes Text             | No Text               | No `Converse`                           |                                                        |
-| No Video             | No Video              |                                         |                                                        |
+| Audio                | Embedding             | `Responses`                             | `bedrock-runtime`                                      |
+| Image                | Image                 | `Chat Completions`                      | `bedrock-mantle`                                       |
+| Speech               | Speech                | `Invoke`                                |                                                        |
+| Text                 | Text                  | `Converse`                              |                                                        |
+| Video                | Video                 |                                         |                                                        |
 
 ## Pricing
 
@@ -40,7 +40,7 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 | **Standard** | **Priority** | **Flex** | **Reserved** |
 | ------------ | ------------ | -------- | ------------ |
-| Yes          | No           | No       | No           |
+|              |              |          |              |
 
 ## Regional Availability
 
@@ -50,27 +50,27 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 
 | **Region**                 | **In-Region** | **Geo** | **Global** |
 | -------------------------- | ------------- | ------- | ---------- |
-| `us-east-1` (N. Virginia)  | Yes           | No      | No         |
-| `us-east-2` (Ohio)         | Yes           | No      | No         |
-| `us-west-2` (Oregon)       | Yes           | No      | No         |
-| `us-gov-east-1` (GovCloud) | Yes           | No      | No         |
-| `us-gov-west-1` (GovCloud) | Yes           | No      | No         |
-| `ca-central-1` (Canada)    | Yes           | No      | No         |
-| `eu-central-1` (Frankfurt) | Yes           | No      | No         |
-| `eu-central-2` (Zurich)    | Yes           | No      | No         |
-| `eu-north-1` (Stockholm)   | Yes           | No      | No         |
-| `eu-south-1` (Milan)       | Yes           | No      | No         |
-| `eu-south-2` (Spain)       | Yes           | No      | No         |
-| `eu-west-1` (Ireland)      | Yes           | No      | No         |
-| `eu-west-2` (London)       | Yes           | No      | No         |
-| `eu-west-3` (Paris)        | Yes           | No      | No         |
-| `ap-northeast-1` (Tokyo)   | Yes           | No      | No         |
-| `ap-northeast-2` (Seoul)   | Yes           | No      | No         |
-| `ap-northeast-3` (Osaka)   | Yes           | No      | No         |
-| `ap-south-1` (Mumbai)      | Yes           | No      | No         |
-| `ap-south-2` (Hyderabad)   | Yes           | No      | No         |
-| `ap-southeast-2` (Sydney)  | Yes           | No      | No         |
-| `sa-east-1` (São Paulo)    | Yes           | No      | No         |
+| `us-east-1` (N. Virginia)  |               |         |            |
+| `us-east-2` (Ohio)         |               |         |            |
+| `us-west-2` (Oregon)       |               |         |            |
+| `us-gov-east-1` (GovCloud) |               |         |            |
+| `us-gov-west-1` (GovCloud) |               |         |            |
+| `ca-central-1` (Canada)    |               |         |            |
+| `eu-central-1` (Frankfurt) |               |         |            |
+| `eu-central-2` (Zurich)    |               |         |            |
+| `eu-north-1` (Stockholm)   |               |         |            |
+| `eu-south-1` (Milan)       |               |         |            |
+| `eu-south-2` (Spain)       |               |         |            |
+| `eu-west-1` (Ireland)      |               |         |            |
+| `eu-west-2` (London)       |               |         |            |
+| `eu-west-3` (Paris)        |               |         |            |
+| `ap-northeast-1` (Tokyo)   |               |         |            |
+| `ap-northeast-2` (Seoul)   |               |         |            |
+| `ap-northeast-3` (Osaka)   |               |         |            |
+| `ap-south-1` (Mumbai)      |               |         |            |
+| `ap-south-2` (Hyderabad)   |               |         |            |
+| `ap-southeast-2` (Sydney)  |               |         |            |
+| `sa-east-1` (São Paulo)    |               |         |            |
 
 ## Quotas and Limits
 

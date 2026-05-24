@@ -76,7 +76,7 @@ converts content to text.
 ###### Note
 
 If you select BDA parser without configuring a multimodal
-storage bucket, only text parsing will be available. To leverage
+storage bucket, only text parsing will be available. To use
 multimodal parsing capabilities with BDA (processing images,
 audio, and video), you must configure a multimodal storage
 destination.

@@ -32,7 +32,7 @@ Select a topic to learn more about advanced prompts.
 
 The following terminology is helpful in understanding how advanced prompts work.
 
-- **Session** – A group of [InvokeAgent](../APIReference/API_agent-runtime_InvokeAgent.md "../APIReference/API_agent-runtime_InvokeAgent.md") requests made to the same agent with the same session ID. When you make an `InvokeAgent` request, you can reuse a `sessionId` that was returned from the response of a previous call in order to continue the same session with an agent. As long as the `idleSessionTTLInSeconds` time in the [Agent](../APIReference/API_agent_Agent.md "../APIReference/API_agent_Agent.md") configuration hasn't expired, you maintain the same session with the agent.
+- **Session** – A group of [InvokeAgent](../APIReference/API_agent-runtime_InvokeAgent.md "../APIReference/API_agent-runtime_InvokeAgent.md") requests made to the same agent with the same session ID. When you make an `InvokeAgent` request, you can reuse a `sessionId` that was returned from the response of a previous call to continue the same session with an agent. As long as the `idleSessionTTLInSeconds` time in the [Agent](../APIReference/API_agent_Agent.md "../APIReference/API_agent_Agent.md") configuration hasn't expired, you maintain the same session with the agent.
 - **Turn** – A single `InvokeAgent` call. A session consists of one or more turns.
 - **Iteration** – A sequence of the following actions:
 

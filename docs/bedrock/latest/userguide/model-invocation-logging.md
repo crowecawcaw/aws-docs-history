@@ -94,7 +94,7 @@ JSON
 
 ```
 
-3. (Optional) If configuring SSE-KMS on the bucket, add the below policy on the KMS key:
+3. (Optional) If configuring SSE-KMS on the bucket, add the following policy on the KMS key:
 
 ```
 {
@@ -250,6 +250,10 @@ Each invocation log entry is a JSON object with the following structure. The for
     "requestId": "abcd1234-5678-efgh-ijkl-mnopqrstuvwx",
     "operation": "Converse",
     "modelId": "anthropic.claude-sonnet-4-20250514-v1:0",
+    "requestMetadata": {
+        "team": "orchestrator",
+        "environment": "production"
+    },
     "input": {
         "inputContentType": "application/json",
         "inputBodyJson": { },
@@ -265,20 +269,21 @@ Each invocation log entry is a JSON object with the following structure. The for
 
 The following table describes the fields in a log entry:
 
-| Field                     | Description                                                                                                   |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `schemaType`              | The type of log record. Always `ModelInvocationLog`.                                                          |
-| `schemaVersion`           | The version of the log schema.                                                                                |
-| `timestamp`               | The time the invocation was made, in ISO 8601 format.                                                         |
-| `accountId`               | The AWS account ID that made the invocation.                                                                  |
-| `region`                  | The AWS Region where the invocation was made.                                                                 |
-| `requestId`               | The unique identifier for the request.                                                                        |
-| `operation`               | The API operation called (for example, `Converse`, `InvokeModel`).                                            |
-| `modelId`                 | The model ID or inference profile ID used for the invocation.                                                 |
-| `input.inputBodyJson`     | The request body sent to the model (up to 100 KB). Larger bodies are stored as separate objects in Amazon S3. |
-| `input.inputTokenCount`   | The number of input tokens in the request.                                                                    |
-| `output.outputBodyJson`   | The response body from the model (up to 100 KB). Larger bodies are stored as separate objects in Amazon S3.   |
-| `output.outputTokenCount` | The number of output tokens in the response.                                                                  |
+| Field                     | Description                                                                                                                                                                                                                               |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `schemaType`              | The type of log record. Always `ModelInvocationLog`.                                                                                                                                                                                      |
+| `schemaVersion`           | The version of the log schema.                                                                                                                                                                                                            |
+| `timestamp`               | The time the invocation was made, in ISO 8601 format.                                                                                                                                                                                     |
+| `accountId`               | The AWS account ID that made the invocation.                                                                                                                                                                                              |
+| `region`                  | The AWS Region where the invocation was made.                                                                                                                                                                                             |
+| `requestId`               | The unique identifier for the request.                                                                                                                                                                                                    |
+| `operation`               | The API operation called (for example, `Converse`, `InvokeModel`).                                                                                                                                                                        |
+| `modelId`                 | The model ID or inference profile ID used for the invocation.                                                                                                                                                                             |
+| `requestMetadata`         | An optional JSON object of key-value tags supplied by the caller. Present only when the caller provides request metadata. For details, see [Per-request metadata tagging](cost-mgmt-request-metadata.md "cost-mgmt-request-metadata.md"). |
+| `input.inputBodyJson`     | The request body sent to the model (up to 100 KB). Larger bodies are stored as separate objects in Amazon S3.                                                                                                                             |
+| `input.inputTokenCount`   | The number of input tokens in the request.                                                                                                                                                                                                |
+| `output.outputBodyJson`   | The response body from the model (up to 100 KB). Larger bodies are stored as separate objects in Amazon S3.                                                                                                                               |
+| `output.outputTokenCount` | The number of output tokens in the response.                                                                                                                                                                                              |
 
 ###### Note
 

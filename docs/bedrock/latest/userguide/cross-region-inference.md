@@ -11,7 +11,7 @@ throughput.
 Both types of cross-Region inference work through [inference profiles](inference-profiles.md "inference-profiles.md"), which define a foundation model (FM) and the AWS Regions
 to which requests can be routed. When running model inference in on-demand mode, your
 requests might be restricted by service quotas or during peak usage times. Cross-Region
-inference enables you to seamlessly manage unplanned traffic bursts by utilizing compute
+inference enables you to seamlessly manage unplanned traffic bursts by using compute
 across different AWS Regions.
 
 You can also increase throughput for a model by purchasing [Provisioned Throughput](prov-throughput.md "prov-throughput.md"). Inference profiles currently don't support Provisioned Throughput.

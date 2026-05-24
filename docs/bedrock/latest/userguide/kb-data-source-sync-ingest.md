@@ -78,7 +78,7 @@ Console
 2. From the left navigation pane, select **Knowledge base** and choose your knowledge base.
 3. In the **Data source** section, select **Sync** to begin data ingestion or syncing
    your latest data. To stop a data source currently syncing, select **Stop**. A data source must be
-   currently syncing in order to stop syncing the data source. You can select **Sync** again to ingest the
+   currently syncing to stop syncing the data source. You can select **Sync** again to ingest the
    rest of your data.
 4. When data ingestion completes, a green success banner appears if it is successful.
 

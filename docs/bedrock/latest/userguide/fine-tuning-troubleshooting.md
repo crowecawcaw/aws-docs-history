@@ -21,7 +21,7 @@ Could not validate GetObject permissions to access Amazon S3 bucket: `training-d
 Could not validate GetObject permissions to access Amazon S3 bucket: `validation-data-bucket` at key `validation.jsonl`
 ```
 
-If you encounter one of the above errors, check that the IAM role passed to
+If you encounter one of the preceding errors, check that the IAM role passed to
 the service has `s3:GetObject` and `s3:ListBucket` permissions
 for the training and validation dataset Amazon S3 URIs.
 
@@ -31,7 +31,7 @@ The following message indicates issues with permissions to write the output data
 Amazon S3 perms missing (PutObject): Could not validate PutObject permissions to access S3 bucket: `bedrock-output-bucket` at key `output/.write_access_check_file.tmp`
 ```
 
-If you encounter the above error, check that the IAM role passed to the service has `s3:PutObject` permissions for the output data Amazon S3 URI.
+If you encounter the preceding error, check that the IAM role passed to the service has `s3:PutObject` permissions for the output data Amazon S3 URI.
 
 ## Data issues
 
@@ -43,7 +43,7 @@ The following errors are related to issues with the training, validation, or out
 Unable to parse Amazon S3 file: `fileName.jsonl`. Data files must conform to JSONL format.
 ```
 
-If you encounter the above error, check that the following are true:
+If you encounter the preceding error, check that the following are true:
 
 1. Each line is in JSON.
 2. Each JSON has two keys, an `input` and an
@@ -90,7 +90,7 @@ The following errors are related to third-party's license terms and their polici
 Automated tests flagged this fine-tuning job as including materials that are potentially inconsistent with Anthropic's third-party license terms. Please contact support.
 ```
 
-If you encounter the above error, ensure your training dataset does not contain content that is inconsistent with Anthropic's usage policies. If the issue persists, contact Support.
+If you encounter the preceding error, ensure your training dataset does not contain content that is inconsistent with Anthropic's usage policies. If the issue persists, contact Support.
 
 ## Internal error
 
@@ -98,5 +98,5 @@ If you encounter the above error, ensure your training dataset does not contain 
 Encountered an unexpected error when processing the request, please try again
 ```
 
-If you encounter the above error, there might be an issue with the service.
+If you encounter the preceding error, there might be an issue with the service.
 Try the job again. If the issue persists, contact Support.

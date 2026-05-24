@@ -6,7 +6,7 @@ The request body is passed in the `body` field of a request to
 **Model invocation request body field**
 
 When you make an InvokeModel call using a Stable Image Ultra model, fill the
-body field with a JSON object that looks like the below.
+body field with a JSON object that looks like the following.
 
 - **prompt** – (string)
   What you wish to see in the output image. A strong, descriptive prompt
@@ -19,7 +19,7 @@ body field with a JSON object that looks like the below.
 
 **Model invocation responses body field**
 
-When you make an `InvokeModel` call using a Stable Image Ultra model, the response looks like the below
+When you make an `InvokeModel` call using a Stable Image Ultra model, the response looks like the following
 
 ```
 {
@@ -29,7 +29,7 @@ When you make an `InvokeModel` call using a Stable Image Ultra model, the respon
      }
 ```
 
-A response with a finish reason that is not `null`, will look like the below:
+A response with a finish reason that is not `null`, will look like the following:
 
 ```
 {

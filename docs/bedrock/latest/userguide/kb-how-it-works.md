@@ -12,7 +12,7 @@ received from querying a knowledge base. It enables a faster time to market by
 abstracting from the heavy lifting of building pipelines and providing you an
 out-of-the-box RAG solution to reduce the build time for your application. Adding a
 knowledge base also increases cost-effectiveness by removing the need to continually
-train your model to be able to leverage your private data.
+train your model to be able to use your private data.
 
 The following diagrams illustrate schematically how RAG is carried out. Knowledge base
 simplifies the setup and implementation of RAG by automating several steps in this

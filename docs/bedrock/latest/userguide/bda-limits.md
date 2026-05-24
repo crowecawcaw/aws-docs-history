@@ -1,6 +1,6 @@
 # Prerequisites for using Bedrock Data Automation
 
-Files for BDA need to meet certain requirements in order to be processed. The following tables show what those
+Files for BDA need to meet certain requirements to be processed. The following tables show what those
 requirements are for different file types.
 
 Async

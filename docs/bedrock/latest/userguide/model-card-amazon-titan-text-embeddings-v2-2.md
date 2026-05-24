@@ -13,11 +13,11 @@ Model description coming soon.
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
-| No Audio             | Yes Embedding         | No `Responses`                          | Yes `bedrock-runtime`                                  |
-| No Image             | No Image              | No `Chat Completions`                   | No `bedrock-mantle`                                    |
-| No Speech            | No Speech             | No `Invoke`                             |                                                        |
-| Yes Text             | No Text               | No `Converse`                           |                                                        |
-| No Video             | No Video              |                                         |                                                        |
+| Audio                | Embedding             | `Responses`                             | `bedrock-runtime`                                      |
+| Image                | Image                 | `Chat Completions`                      | `bedrock-mantle`                                       |
+| Speech               | Speech                | `Invoke`                                |                                                        |
+| Text                 | Text                  | `Converse`                              |                                                        |
+| Video                | Video                 |                                         |                                                        |
 
 ## Pricing
 
@@ -41,8 +41,8 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 
 | **Region**                | **In-Region** | **Geo** | **Global** |
 | ------------------------- | ------------- | ------- | ---------- |
-| `us-east-1` (N. Virginia) | Yes           | No      | No         |
-| `us-west-2` (Oregon)      | Yes           | No      | No         |
+| `us-east-1` (N. Virginia) |               |         |            |
+| `us-west-2` (Oregon)      |               |         |            |
 
 ## Quotas and Limits
 

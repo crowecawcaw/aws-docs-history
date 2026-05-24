@@ -17,11 +17,11 @@ Nova Premier is Amazon's multimodal model for complex reasoning, agentic workflo
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
-| No Audio             | No Embedding          | No `Responses`                          | Yes `bedrock-runtime`                                  |
-| Yes Image            | No Image              | No `Chat Completions`                   | No `bedrock-mantle`                                    |
-| No Speech            | No Speech             | Yes `Invoke`                            |                                                        |
-| Yes Text             | Yes Text              | Yes `Converse`                          |                                                        |
-| Yes Video            | No Video              |                                         |                                                        |
+| Audio                | Embedding             | `Responses`                             | `bedrock-runtime`                                      |
+| Image                | Image                 | `Chat Completions`                      | `bedrock-mantle`                                       |
+| Speech               | Speech                | `Invoke`                                |                                                        |
+| Text                 | Text                  | `Converse`                              |                                                        |
+| Video                | Video                 |                                         |                                                        |
 
 ## Capabilities and Features
 
@@ -29,9 +29,9 @@ Nova Premier is Amazon's multimodal model for complex reasoning, agentic workflo
 
 **Features supported using `bedrock-runtime` endpoint**
 
-| **Supported**                                                                                                                                                                                                                                                               | **Not Supported**                                                        |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| • Yes [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• Yes [Guardrails](guardrails.md "guardrails.md")<br>• Yes [Client-side tool calling](tool-use.md "tool-use.md") | • No [Structured outputs](structured-outputs.md "structured-outputs.md") |
+| **Supported**                                                                                                                                                                                                                                                   | **Not Supported**                                                     |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| • [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• [Guardrails](guardrails.md "guardrails.md")<br>• [Client-side tool calling](tool-use.md "tool-use.md") | • [Structured outputs](structured-outputs.md "structured-outputs.md") |
 
 **Prompt caching using `bedrock-runtime` endpoint**
 
@@ -63,7 +63,7 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 | **Standard** | **Priority** | **Flex** | **Reserved** |
 | ------------ | ------------ | -------- | ------------ |
-| Yes          | Yes          | Yes      | No           |
+|              |              |          |              |
 
 ## Regional Availability
 
@@ -73,9 +73,9 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 
 | **Region**                | **In-Region** | **Geo** | **Global** |
 | ------------------------- | ------------- | ------- | ---------- |
-| `us-east-1` (N. Virginia) | No            | Yes     | No         |
-| `us-east-2` (Ohio)        | No            | Yes     | No         |
-| `us-west-2` (Oregon)      | No            | Yes     | No         |
+| `us-east-1` (N. Virginia) |               |         |            |
+| `us-east-2` (Ohio)        |               |         |            |
+| `us-west-2` (Oregon)      |               |         |            |
 
 **Geo inference details**
 

@@ -1,10 +1,10 @@
 # Customize your model to improve its performance for your use case
 
-Model customization is the process of providing training data to a model in order to improve its performance for specific use-cases. You can customize Amazon Bedrock foundation models in order to improve their performance and create a better customer experience. Amazon Bedrock currently provides the following customization methods.
+Model customization is the process of providing training data to a model to improve its performance for specific use-cases. You can customize Amazon Bedrock foundation models to improve their performance and create a better customer experience. Amazon Bedrock currently provides the following customization methods.
 
 - **Supervised fine-tuning**
 
-Provide _labeled_ data in order to train a model to improve performance on specific tasks. By providing a training dataset of labeled examples, the model learns to associate what types of outputs should be generated for certain types of inputs. The model parameters are adjusted in the process and the model's performance is improved for the tasks represented by the training dataset.
+Provide _labeled_ data to train a model to improve performance on specific tasks. By providing a training dataset of labeled examples, the model learns to associate what types of outputs should be generated for certain types of inputs. The model parameters are adjusted in the process and the model's performance is improved for the tasks represented by the training dataset.
 
 For more information about using supervised fine-tuning, see [Customize a model with fine-tuning in Amazon Bedrock](custom-model-fine-tuning.md "custom-model-fine-tuning.md").
 

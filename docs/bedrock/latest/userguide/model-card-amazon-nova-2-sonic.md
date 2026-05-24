@@ -13,13 +13,13 @@ Nova 2 Sonic is Amazon's speech-to-speech foundation model for building natural,
 - **Context window:** 1M tokens
 - **Max output tokens:** 64K
 
-| **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")**  | **[Endpoints supported](endpoints.md "endpoints.md")** |
-| -------------------- | --------------------- | ---------------------------------------- | ------------------------------------------------------ |
-| No Audio             | No Embedding          | No `Responses`                           | Yes `bedrock-runtime`                                  |
-| No Image             | No Image              | No `Chat Completions`                    | No `bedrock-mantle`                                    |
-| Yes Speech           | Yes Speech            | No `Invoke`                              |                                                        |
-| No Text              | Yes Text              | No `Converse`                            |                                                        |
-| No Video             | No Video              | Yes `InvokeModelWithBidirectionalStream` |                                                        |
+| **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
+| -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
+| Audio                | Embedding             | `Responses`                             | `bedrock-runtime`                                      |
+| Image                | Image                 | `Chat Completions`                      | `bedrock-mantle`                                       |
+| Speech               | Speech                | `Invoke`                                |                                                        |
+| Text                 | Text                  | `Converse`                              |                                                        |
+| Video                | Video                 | `InvokeModelWithBidirectionalStream`    |                                                        |
 
 ## Capabilities and Features
 
@@ -27,9 +27,9 @@ Nova 2 Sonic is Amazon's speech-to-speech foundation model for building natural,
 
 **Features supported using `bedrock-runtime` endpoint**
 
-| **Supported**                                                                                                                                           | **Not Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| • Yes [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md") | • No [Intelligent prompt routing](prompt-routing.md "prompt-routing.md")<br>• No [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• No [Guardrails](guardrails.md "guardrails.md")<br>• No [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• No [Count tokens](count-tokens.md "count-tokens.md")<br>• No [Knowledge base](knowledge-base.md "knowledge-base.md")<br>• No [Model evaluation](evaluation.md "evaluation.md")<br>• No [Prompt management](prompt-management.md "prompt-management.md")<br>• No [Flows](flows.md "flows.md")<br>• No [Agents](agents.md "agents.md") |
+| **Supported**                                                                                                                                       | **Not Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| • [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md") | • [Intelligent prompt routing](prompt-routing.md "prompt-routing.md")<br>• [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• [Guardrails](guardrails.md "guardrails.md")<br>• [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• [Count tokens](count-tokens.md "count-tokens.md")<br>• [Knowledge base](knowledge-base.md "knowledge-base.md")<br>• [Model evaluation](evaluation.md "evaluation.md")<br>• [Prompt management](prompt-management.md "prompt-management.md")<br>• [Flows](flows.md "flows.md")<br>• [Agents](agents.md "agents.md") |
 
 ## Pricing
 
@@ -51,7 +51,7 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 | **Standard** | **Priority** | **Flex** | **Reserved** |
 | ------------ | ------------ | -------- | ------------ |
-| Yes          | No           | No       | No           |
+|              |              |          |              |
 
 ## Regional Availability
 
@@ -61,10 +61,10 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 
 | **Region**                | **In-Region** | **Geo** | **Global** |
 | ------------------------- | ------------- | ------- | ---------- |
-| `us-east-1` (N. Virginia) | Yes           | No      | No         |
-| `us-west-2` (Oregon)      | Yes           | No      | No         |
-| `eu-north-1` (Stockholm)  | Yes           | No      | No         |
-| `ap-northeast-1` (Tokyo)  | Yes           | No      | No         |
+| `us-east-1` (N. Virginia) |               |         |            |
+| `us-west-2` (Oregon)      |               |         |            |
+| `eu-north-1` (Stockholm)  |               |         |            |
+| `ap-northeast-1` (Tokyo)  |               |         |            |
 
 ## Quotas and Limits
 

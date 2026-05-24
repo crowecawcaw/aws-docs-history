@@ -14,11 +14,11 @@ Marengo Embed v2.7 is TwelveLabs' video embedding model for multimodal video und
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
-| No Audio             | Yes Embedding         | No `Responses`                          | Yes `bedrock-runtime`                                  |
-| Yes Image            | No Image              | No `Chat Completions`                   | No `bedrock-mantle`                                    |
-| Yes Speech           | No Speech             | No `Invoke`                             |                                                        |
-| Yes Text             | No Text               | No `Converse`                           |                                                        |
-| Yes Video            | No Video              | Yes `StartAsyncInvoke`                  |                                                        |
+| Audio                | Embedding             | `Responses`                             | `bedrock-runtime`                                      |
+| Image                | Image                 | `Chat Completions`                      | `bedrock-mantle`                                       |
+| Speech               | Speech                | `Invoke`                                |                                                        |
+| Text                 | Text                  | `Converse`                              |                                                        |
+| Video                | Video                 | `StartAsyncInvoke`                      |                                                        |
 
 ## Pricing
 
@@ -40,7 +40,7 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 | **Standard** | **Priority** | **Flex** | **Reserved** |
 | ------------ | ------------ | -------- | ------------ |
-| Yes          | No           | No       | No           |
+|              |              |          |              |
 
 ## Regional Availability
 
@@ -50,8 +50,8 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 
 | **Region**                | **In-Region** | **Geo** | **Global** |
 | ------------------------- | ------------- | ------- | ---------- |
-| `us-east-1` (N. Virginia) | No            | Yes     | No         |
-| `eu-west-1` (Ireland)     | No            | Yes     | No         |
+| `us-east-1` (N. Virginia) |               |         |            |
+| `eu-west-1` (Ireland)     |               |         |            |
 
 **Geo inference details**
 

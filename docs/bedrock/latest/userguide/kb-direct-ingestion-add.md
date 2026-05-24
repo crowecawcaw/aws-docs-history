@@ -2,10 +2,10 @@
 
 This topic describes how to ingest documents directly into a knowledge base. Restrictions apply for the types of documents that you can directly ingest depending on your data source. Refer to the following table for restrictions on the methods that you can use to specify the documents to ingest:
 
-| Data source type | Document defined in-line                                                     | Document in Amazon S3 location                                   |
-| ---------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| Amazon S3        | Red circular icon with an X symbol, indicating cancellation or denial.<br>No | Green circular icon with a white checkmark symbol inside.<br>Yes |
-| Custom           | Green circular icon with a white checkmark symbol inside.<br>Yes             | Green circular icon with a white checkmark symbol inside.<br>Yes |
+| Data source type | Document defined in-line | Document in Amazon S3 location |
+| ---------------- | ------------------------ | ------------------------------ |
+| Amazon S3        | No                       | Yes                            |
+| Custom           | Yes                      | Yes                            |
 
 Expand the section that corresponds your use case:
 

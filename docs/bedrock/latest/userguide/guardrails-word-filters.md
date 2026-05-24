@@ -154,7 +154,7 @@ Console
           editor and paste it into this editor.
         - A red X icon appears next to items
           containing errors and a list of errors appears at
-          the below the editor.
+          the following the editor.
 
    4. Choose **Next** to configure other
       policies as needed or **Skip to Review and

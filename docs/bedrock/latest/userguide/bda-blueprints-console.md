@@ -21,11 +21,11 @@ Create a project by:
 
 ## Creating Blueprints in the BDA Console
 
-Alternatively, you can select "Data Automation" from the sidebar menu and navigate directly to Custom output setup. In the BDA dashboard, locate and click on the "Custom output setup" tab. This will take you to the Blueprints management page.
+Alternatively, you can select "Data Automation" from the sidebar menu and navigate directly to Custom output setup. In the BDA dashboard, locate and choose the "Custom output setup" tab. This will take you to the Blueprints management page.
 
 ## Initiating Blueprint Creation
 
-1. Click on the "Create Blueprint" button to start the process of creating a new Blueprint.
+1. Choose the "Create Blueprint" button to start the process of creating a new Blueprint.
 2. Select either "Upload from computer" or "Import from S3", and provide a file that's representative of the files you want to process.
 3. Enter a Blueprint prompt for blueprint generation. When entering a prompt, you can specify any fields you would expect to find in your uploaded document. You can also specify data normalizations or validations.
 4. Select "Generate blueprint".

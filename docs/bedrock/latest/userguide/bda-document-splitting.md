@@ -78,6 +78,6 @@ Follow the following best practices to get the most out of your blueprints:
   Information from the document itself and the blueprint is used to process documents, and
   including multiple blueprints of the same type in a project will lead to worse performance.
 
-By leveraging document splitting and multiple blueprint matching, BDA can more flexibly
+By using document splitting and multiple blueprint matching, BDA can more flexibly
 handle varied document sets while applying the most appropriate extraction logic to each
 document.

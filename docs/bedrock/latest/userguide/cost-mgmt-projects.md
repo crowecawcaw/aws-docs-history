@@ -2,7 +2,7 @@
 
 Amazon Bedrock [Projects](projects.md "projects.md") provide cost attribution at the application and workload level for the [Responses API](bedrock-mantle.md "bedrock-mantle.md") and [Chat Completions API](bedrock-mantle.md "bedrock-mantle.md") on the `bedrock-mantle` endpoint. When you tag a project, those tags flow to AWS Cost Explorer and AWS Cost and Usage Reports (CUR 2.0), so you can filter and group Amazon Bedrock spend by application, team, environment, cost center, or any other dimension.
 
-For cost attribution using Amazon Bedrock runtime APIs ([InvokeModel API](inference-invoke.md "inference-invoke.md") / [Converse API](conversation-inference.md "conversation-inference.md") / [Chat Completions API](inference-chat-completions.md "inference-chat-completions.md")), see [Application inference profiles](cost-mgmt-application-inference-profiles.md "cost-mgmt-application-inference-profiles.md").
+For cost attribution using Amazon Bedrock runtime APIs ([InvokeModel API](inference-api.md "inference-api.md") / [Converse API](conversation-inference.md "conversation-inference.md") / [Chat Completions API](inference-chat-completions.md "inference-chat-completions.md")), see [Application inference profiles](cost-mgmt-application-inference-profiles.md "cost-mgmt-application-inference-profiles.md").
 
 ## How cost attribution works
 

@@ -67,6 +67,8 @@ You can use structured outputs across the following Amazon Bedrock features:
 
 **Batch inference** – Use structured outputs within batch inference without any additional setup.
 
+**Anthropic Messages API on the `bedrock-mantle` endpoint** – Structured outputs is _not_ supported on the Anthropic-style Messages API path (`https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages`). The `output_config.format` parameter is rejected with a 400 error. To use structured outputs with Anthropic Claude models, send the request through the Converse API or the InvokeModel API on the `bedrock-runtime` endpoint.
+
 ###### Note
 
 Structured outputs is incompatible with citations for Anthropic models. If you enable citations while using structured outputs, the model will return a 400 error.

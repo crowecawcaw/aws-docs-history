@@ -22,7 +22,7 @@ After an agent is created, you can add action groups to it by doing the followin
 4. In the **Action groups** section, choose **Add**.
 5. (Optional) In the **Action group details** section, change the automatically generated **Name** and provide an optional **Description** for your action group.
 6. In the **Action group type** section, select one of the following methods for defining the parameters that the agent can elicit from users to help carry out actions:
-   1. **Define with function details** – Define parameters for your agent to elicit from the user in order to carry out the actions. For more information on adding functions, see [Define function details for your agent's action groups in Amazon Bedrock](agents-action-function.md "agents-action-function.md").
+   1. **Define with function details** – Define parameters for your agent to elicit from the user to carry out the actions. For more information on adding functions, see [Define function details for your agent's action groups in Amazon Bedrock](agents-action-function.md "agents-action-function.md").
    2. **Define with API schemas** – Define the API operations that the agent can invoke and the parameters . Use an OpenAPI schema that you created or use the console text editor to create the schema. For more information on setting up an OpenAPI schema, see [Define OpenAPI schemas for your agent's action groups in Amazon Bedrock](agents-api-schema.md "agents-api-schema.md")
 
 7. In the **Action group invocation** section, you set up what the agent does after it predicts the API or function that it should invoke and receives the parameters that it needs.

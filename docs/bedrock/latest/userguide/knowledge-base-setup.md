@@ -172,7 +172,7 @@ Note the following considerations while setting up your domain:
     7. Leave all other settings to their default values and choose
      **Create** to create your domain.
 
-2. Once the domain is created, click it to take note of the
+2. Once the domain is created, choose it to take note of the
    **Domain ARN** and **Domain
    endpoint** for when you create the knowledge base.
 3. After you've created the domain, you can create a vector index by running the
@@ -551,7 +551,7 @@ Note the following considerations while creating the graph:
     5. Leave all other settings to their default and create the
      graph.
 
-2. Once the graph is created, click it to take note of the
+2. Once the graph is created, choose it to take note of the
    **Resource ARN** and **Vector
    dimensions** for when you create the knowledge base.
    When choosing the embeddings model in Amazon Bedrock, make sure that you choose
@@ -573,7 +573,7 @@ Pinecone
 ###### Note
 
 If you use Pinecone, you agree to authorize AWS to access the
-designated third-party source on your behalf in order to provide vector
+designated third-party source on your behalf to provide vector
 store services to you. You're responsible for complying with any third-party
 terms applicable to use and and transfer of data from the third-party
 service.
@@ -624,7 +624,7 @@ Redis Enterprise Cloud
 ###### Note
 
 If you use Redis Enterprise Cloud, you agree to authorize AWS to access the designated
-third-party source on your behalf in order to provide vector store services
+third-party source on your behalf to provide vector store services
 to you. You're responsible for complying with any third-party terms
 applicable to use and transfer of data from the third-party service.
 
@@ -696,7 +696,7 @@ MongoDB Atlas
 ###### Note
 
 If you use MongoDB Atlas, you agree to authorize AWS to access the designated
-third-party source on your behalf in order to provide vector store services
+third-party source on your behalf to provide vector store services
 to you. You're responsible for complying with any third-party terms
 applicable to use and and transfer of data from the third-party
 service.

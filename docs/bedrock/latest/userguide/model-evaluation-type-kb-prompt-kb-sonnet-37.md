@@ -105,7 +105,7 @@ all important information is present in the context
 Helpfulness evaluates if a reponse was helpful. Responses are scored using a 7-point likert scale, with 1 being not helpful at all and 7 being very helpful.
 
 ```
-You are given a task and a candidate completion. Provide a holistic evaluation of how helpful the completion is taking the below factors into consideration.
+You are given a task and a candidate completion. Provide a holistic evaluation of how helpful the completion is taking the following factors into consideration.
 
 
 Helpfulness can be seen as 'eager and thoughtful cooperation': an completion is helpful when it satisfied explicit and implicit expectations in the user's request. Often this will mean that the completion helps the user achieve the task.

@@ -18,12 +18,10 @@ When you make inference calls with Anthropic Claude models, you include a promp
 about creating prompts for the models that Amazon Bedrock supports, see [Prompt engineering concepts](prompt-engineering-guidelines.md "prompt-engineering-guidelines.md").
 For Anthropic Claude specific prompt information, see the [Anthropic Claude prompt engineering guide](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview").
 
-You can use Amazon Bedrock to send [Anthropic Claude Text Completions API](model-parameters-anthropic-claude-text-completion.md "model-parameters-anthropic-claude-text-completion.md") or [Anthropic Claude Messages API](model-parameters-anthropic-claude-messages.md "model-parameters-anthropic-claude-messages.md") inference requests.
+You can use Amazon Bedrock to send [Anthropic Claude Messages API](model-parameters-anthropic-claude-messages.md "model-parameters-anthropic-claude-messages.md") inference requests.
 
 You use the messages API to create conversational applications, such as a virtual
-assistant or a coaching application. Use the text completion API for single-turn text
-generation applications. For example, generating text for a blog post or summarizing
-text that a user supplies.
+assistant or a coaching application.
 
 Anthropic Claude models support the use of XML tags to structure and delineate your prompts. For example, you can surround examples in your prompt with an `<examples>` tag. Use descriptive tag names for optimal results. For more information, see [Use XML tags](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/use-xml-tags "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/use-xml-tags") in the [Anthropic user guide](https://docs.anthropic.com/en/docs/welcome "https://docs.anthropic.com/en/docs/welcome").
 
@@ -41,11 +39,9 @@ To avoid timeouts with Anthropic Claude version 2.1, we recommend limiting the i
 `prompt` field to 180K. We expect to address this timeout issue soon.
 
 In the inference call, fill the
-`body` field with a JSON object that conforms
-the type call you want to make, [Anthropic Claude Text Completions API](model-parameters-anthropic-claude-text-completion.md "model-parameters-anthropic-claude-text-completion.md") or
-[Anthropic Claude Messages API](model-parameters-anthropic-claude-messages.md "model-parameters-anthropic-claude-messages.md").
+`body` field with a JSON object that conforms to a
+[Anthropic Claude Messages API](model-parameters-anthropic-claude-messages.md "model-parameters-anthropic-claude-messages.md") request.
 
 ###### Topics
 
-- [Anthropic Claude Text Completions API](model-parameters-anthropic-claude-text-completion.md "model-parameters-anthropic-claude-text-completion.md")
 - [Anthropic Claude Messages API](model-parameters-anthropic-claude-messages.md "model-parameters-anthropic-claude-messages.md")

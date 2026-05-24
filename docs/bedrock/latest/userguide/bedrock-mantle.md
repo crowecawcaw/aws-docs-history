@@ -119,6 +119,32 @@ Responses documentation](https://developers.openai.com/api/reference/resources/r
 
 Not all models support the Responses API. To see which models support the Responses API, see [API compatibility](models-api-compatibility.md "models-api-compatibility.md").
 
+### How the Responses API stores conversation state
+
+The Responses API can use stored state to enable multi-turn conversations and let
+you reference previous turns through the `previous_response_id`
+parameter. Storage is enabled by default but can be disabled per request through the
+`store` parameter. Stored responses are scoped by Project. A response
+from one Project cannot be used as the previous response or read in a second
+Project. For more information about Projects, see [Projects (OpenAI-compatible)](projects.md "projects.md").
+
+- When `store` is `true` (the default), Amazon Bedrock retains
+  the response, including the input and output, for 30 days in the source
+  region of the request. During this window you can chain follow-up requests
+  by passing `previous_response_id` and retrieve the response with
+  `GET /v1/responses/{id}`. After 30 days, the response is
+  automatically deleted and is no longer retrievable.
+- When `store` is `false`, Amazon Bedrock does not retain any
+  data from the request or response. The `previous_response_id`
+  parameter cannot be used to continue the conversation.
+
+The default value is `true` to match the OpenAI Responses API
+specification. Customers who do not want Amazon Bedrock to retain conversation data should
+explicitly set `store` to `false` on every request. Stored
+data is kept in the source region of the request, encrypted at rest, and scoped to
+the calling AWS account's Project resource. The data is stored solely to service
+your requests and is not used or retained for any other purpose.
+
 ### Basic request
 
 To create a response, choose the tab for your preferred method, and then follow the steps:

@@ -59,7 +59,7 @@ Conversational builder: The travel agent with the purpose of booking flights and
 3. In the Agent builder, choose **Assistant**
 4. In the Agent builder pane, enter the purpose of your agent. See the example interaction to get started interacting with the conversational builder assistant.
 5. When conversational builder has completed configuring your agent, select one of the following options:
-   - To stay in the **Agent builder**, choose **Save**. You can then **Prepare** the agent in order to test it with your updated configurations in the test window. To learn how to test your agent, see [Test and troubleshoot agent behavior](agents-test.md "agents-test.md").
+   - To stay in the **Agent builder**, choose **Save**. You can then **Prepare** the agent to test it with your updated configurations in the test window. To learn how to test your agent, see [Test and troubleshoot agent behavior](agents-test.md "agents-test.md").
    - To return to the **Agent Details** page, choose **Save and exit**.
 
 ## Add the following permissions to use conversational builder in the Amazon Bedrock console

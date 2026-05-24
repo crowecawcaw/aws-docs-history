@@ -16,11 +16,11 @@ Nova Pro is Amazon's balanced multimodal model offering strong accuracy, speed, 
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
-| No Audio             | No Embedding          | No `Responses`                          | Yes `bedrock-runtime`                                  |
-| Yes Image            | No Image              | No `Chat Completions`                   | No `bedrock-mantle`                                    |
-| No Speech            | No Speech             | Yes `Invoke`                            |                                                        |
-| Yes Text             | Yes Text              | Yes `Converse`                          |                                                        |
-| Yes Video            | No Video              |                                         |                                                        |
+| Audio                | Embedding             | `Responses`                             | `bedrock-runtime`                                      |
+| Image                | Image                 | `Chat Completions`                      | `bedrock-mantle`                                       |
+| Speech               | Speech                | `Invoke`                                |                                                        |
+| Text                 | Text                  | `Converse`                              |                                                        |
+| Video                | Video                 |                                         |                                                        |
 
 ## Capabilities and Features
 
@@ -28,9 +28,9 @@ Nova Pro is Amazon's balanced multimodal model offering strong accuracy, speed, 
 
 **Features supported using `bedrock-runtime` endpoint**
 
-| **Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | **Not Supported**                                                                                                                                                                                                                                                                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| • Yes [Intelligent prompt routing](prompt-routing.md "prompt-routing.md")<br>• Yes [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• Yes [Guardrails](guardrails.md "guardrails.md")<br>• Yes [Model evaluation](evaluation.md "evaluation.md")<br>• Yes [Prompt management](prompt-management.md "prompt-management.md")<br>• Yes [Flows](flows.md "flows.md")<br>• Yes [Agents](agents.md "agents.md")<br>• Yes [Prompt caching](prompt-caching.md "prompt-caching.md") | • No [Structured outputs](structured-outputs.md "structured-outputs.md")<br>• No [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• No [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• No [Count tokens](count-tokens.md "count-tokens.md")<br>• No [Knowledge base](knowledge-base.md "knowledge-base.md") |
+| **Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | **Not Supported**                                                                                                                                                                                                                                                                                                                                   |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| • [Intelligent prompt routing](prompt-routing.md "prompt-routing.md")<br>• [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• [Guardrails](guardrails.md "guardrails.md")<br>• [Model evaluation](evaluation.md "evaluation.md")<br>• [Prompt management](prompt-management.md "prompt-management.md")<br>• [Flows](flows.md "flows.md")<br>• [Agents](agents.md "agents.md")<br>• [Prompt caching](prompt-caching.md "prompt-caching.md") | • [Structured outputs](structured-outputs.md "structured-outputs.md")<br>• [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• [Count tokens](count-tokens.md "count-tokens.md")<br>• [Knowledge base](knowledge-base.md "knowledge-base.md") |
 
 **Prompt caching using `bedrock-runtime` endpoint**
 
@@ -62,7 +62,7 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 | **Standard** | **Priority** | **Flex** | **Reserved** |
 | ------------ | ------------ | -------- | ------------ |
-| Yes          | Yes          | Yes      | No           |
+|              |              |          |              |
 
 ## Regional Availability
 
@@ -72,22 +72,22 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 
 | **Region**                  | **In-Region** | **Geo** | **Global** |
 | --------------------------- | ------------- | ------- | ---------- |
-| `us-east-1` (N. Virginia)   | Yes           | Yes     | No         |
-| `us-east-2` (Ohio)          | No            | Yes     | No         |
-| `us-west-1` (N. California) | No            | Yes     | No         |
-| `us-west-2` (Oregon)        | No            | Yes     | No         |
-| `us-gov-west-1` (GovCloud)  | Yes           | No      | No         |
-| `eu-central-1` (Frankfurt)  | No            | Yes     | No         |
-| `eu-north-1` (Stockholm)    | No            | Yes     | No         |
-| `eu-south-1` (Milan)        | No            | Yes     | No         |
-| `eu-south-2` (Spain)        | No            | Yes     | No         |
-| `eu-west-1` (Ireland)       | No            | Yes     | No         |
-| `eu-west-2` (London)        | Yes           | No      | No         |
-| `eu-west-3` (Paris)         | No            | Yes     | No         |
-| `ap-southeast-2` (Sydney)   | Yes           | No      | No         |
-| `ap-southeast-3` (Jakarta)  | Yes           | No      | No         |
-| `il-central-1` (Tel Aviv)   | No            | Yes     | No         |
-| `me-central-1` (UAE)        | Yes           | No      | No         |
+| `us-east-1` (N. Virginia)   |               |         |            |
+| `us-east-2` (Ohio)          |               |         |            |
+| `us-west-1` (N. California) |               |         |            |
+| `us-west-2` (Oregon)        |               |         |            |
+| `us-gov-west-1` (GovCloud)  |               |         |            |
+| `eu-central-1` (Frankfurt)  |               |         |            |
+| `eu-north-1` (Stockholm)    |               |         |            |
+| `eu-south-1` (Milan)        |               |         |            |
+| `eu-south-2` (Spain)        |               |         |            |
+| `eu-west-1` (Ireland)       |               |         |            |
+| `eu-west-2` (London)        |               |         |            |
+| `eu-west-3` (Paris)         |               |         |            |
+| `ap-southeast-2` (Sydney)   |               |         |            |
+| `ap-southeast-3` (Jakarta)  |               |         |            |
+| `il-central-1` (Tel Aviv)   |               |         |            |
+| `me-central-1` (UAE)        |               |         |            |
 
 **Geo inference details**
 

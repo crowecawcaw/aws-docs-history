@@ -15,7 +15,7 @@ Features of the `ApplyGuardrail` API include:
 - **Flexible deployment** – You can integrate the
   `ApplyGuardrail` API anywhere in your application flow to validate
   data before processing or serving results to the user. For example, if you are using
-  a RAG application, you can now evaluate the user input prior to performing the
+  a RAG application, you can now evaluate the user input before performing the
   retrieval, instead of waiting until the final response generation.
 - **Decoupled from foundation models** –
   `ApplyGuardrail` API is decoupled from foundational models. You can

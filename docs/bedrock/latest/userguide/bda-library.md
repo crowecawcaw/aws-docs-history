@@ -12,7 +12,7 @@ AWS Bedrock Data Automation Library enables you to enhance BDA's understanding o
 
 ## How Data Automation Library Works
 
-You can create a Data Automation Library and populate it with domain-specific entities, which enables BDA to apply your custom knowledge during content processing and improve extraction accuracy across your use cases. You can associate a library with a BDA project, which enables all jobs processed through that project to automatically leverage the library's entities without additional configuration per job.
+You can create a Data Automation Library and populate it with domain-specific entities, which enables BDA to apply your custom knowledge during content processing and improve extraction accuracy across your use cases. You can associate a library with a BDA project, which enables all jobs processed through that project to automatically use the library's entities without additional configuration per job.
 
 When ingestion is completed, a folder with the name of the job ID is created in the S3 URI provided in the ingestion API request. Both the input manifest and final ingestion results are uploaded in that folder. For example if the output bucket provided in the request is `s3://my-bucket/outputs/` and the jobId is `328c43e7-d226-41c9-9acb-e71a37022b99` then the input manifest and the final ingestion results are uploaded in `s3://my-bucket/outputs/328c43e7-d226-41c9-9acb-e71a37022b99`
 

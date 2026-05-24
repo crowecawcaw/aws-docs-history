@@ -69,7 +69,7 @@ between consecutive parent chunks and consecutive child chunks.
 Semantic chunking is a natural language processing technique that divides text
 into meaningful chunks to enhance understanding and information retrieval. It aims to improve
 retrieval accuracy by focusing on the semantic content rather than just syntactic structure.
-By doing so, it may facilitate more precise extraction and manipulation of relevant information.
+By doing so, it may help more precise extraction and manipulation of relevant information.
 
 When configuring semantic chunking, you have the option to specify the following
 hyper parameters.
@@ -84,7 +84,7 @@ hyper parameters.
   while a smaller buffer size might miss important context but ensures more precise chunking.
 - Breakpoint percentile threshold: The percentile threshold of sentence distance/dissimilarity
   to draw breakpoints between sentences. A higher threshold requires sentences to be more
-  distinguishable in order to be split into different chunks. A higher threshold results in fewer
+  distinguishable to be split into different chunks. A higher threshold results in fewer
   chunks and typically larger average chunk size.
 
 ###### Note

@@ -16,11 +16,11 @@ Nova Micro is Amazon's fastest text-only model, optimized for speed and low cost
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
-| No Audio             | No Embedding          | No `Responses`                          | Yes `bedrock-runtime`                                  |
-| No Image             | No Image              | No `Chat Completions`                   | No `bedrock-mantle`                                    |
-| No Speech            | No Speech             | Yes `Invoke`                            |                                                        |
-| Yes Text             | Yes Text              | Yes `Converse`                          |                                                        |
-| No Video             | No Video              |                                         |                                                        |
+| Audio                | Embedding             | `Responses`                             | `bedrock-runtime`                                      |
+| Image                | Image                 | `Chat Completions`                      | `bedrock-mantle`                                       |
+| Speech               | Speech                | `Invoke`                                |                                                        |
+| Text                 | Text                  | `Converse`                              |                                                        |
+| Video                | Video                 |                                         |                                                        |
 
 ## Capabilities and Features
 
@@ -28,9 +28,9 @@ Nova Micro is Amazon's fastest text-only model, optimized for speed and low cost
 
 **Features supported using `bedrock-runtime` endpoint**
 
-| **Supported**                                                                                                                                                                                                                                                               | **Not Supported**                                                        |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| • Yes [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• Yes [Guardrails](guardrails.md "guardrails.md")<br>• Yes [Client-side tool calling](tool-use.md "tool-use.md") | • No [Structured outputs](structured-outputs.md "structured-outputs.md") |
+| **Supported**                                                                                                                                                                                                                                                   | **Not Supported**                                                     |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| • [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• [Guardrails](guardrails.md "guardrails.md")<br>• [Client-side tool calling](tool-use.md "tool-use.md") | • [Structured outputs](structured-outputs.md "structured-outputs.md") |
 
 **Prompt caching using `bedrock-runtime` endpoint**
 
@@ -62,7 +62,7 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 | **Standard** | **Priority** | **Flex** | **Reserved** |
 | ------------ | ------------ | -------- | ------------ |
-| Yes          | No           | No       | No           |
+|              |              |          |              |
 
 ## Regional Availability
 
@@ -72,19 +72,19 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 
 | **Region**                 | **In-Region** | **Geo** | **Global** |
 | -------------------------- | ------------- | ------- | ---------- |
-| `us-east-1` (N. Virginia)  | Yes           | Yes     | No         |
-| `us-east-2` (Ohio)         | No            | Yes     | No         |
-| `us-west-2` (Oregon)       | No            | Yes     | No         |
-| `us-gov-west-1` (GovCloud) | Yes           | No      | No         |
-| `eu-central-1` (Frankfurt) | No            | Yes     | No         |
-| `eu-north-1` (Stockholm)   | No            | Yes     | No         |
-| `eu-south-1` (Milan)       | No            | Yes     | No         |
-| `eu-south-2` (Spain)       | No            | Yes     | No         |
-| `eu-west-1` (Ireland)      | No            | Yes     | No         |
-| `eu-west-2` (London)       | Yes           | No      | No         |
-| `eu-west-3` (Paris)        | No            | Yes     | No         |
-| `ap-southeast-2` (Sydney)  | Yes           | No      | No         |
-| `il-central-1` (Tel Aviv)  | No            | Yes     | No         |
+| `us-east-1` (N. Virginia)  |               |         |            |
+| `us-east-2` (Ohio)         |               |         |            |
+| `us-west-2` (Oregon)       |               |         |            |
+| `us-gov-west-1` (GovCloud) |               |         |            |
+| `eu-central-1` (Frankfurt) |               |         |            |
+| `eu-north-1` (Stockholm)   |               |         |            |
+| `eu-south-1` (Milan)       |               |         |            |
+| `eu-south-2` (Spain)       |               |         |            |
+| `eu-west-1` (Ireland)      |               |         |            |
+| `eu-west-2` (London)       |               |         |            |
+| `eu-west-3` (Paris)        |               |         |            |
+| `ap-southeast-2` (Sydney)  |               |         |            |
+| `il-central-1` (Tel Aviv)  |               |         |            |
 
 **Geo inference details**
 

@@ -34,7 +34,7 @@ When compaction is enabled, Claude automatically summarizes your conversation wh
 3. Creates a `compaction` block containing the summary.
 4. Continues the response with the compacted context.
 
-On subsequent requests, append the response to your messages. The API automatically drops all message blocks prior to the `compaction` block, continuing the conversation from the summary.
+On subsequent requests, append the response to your messages. The API automatically drops all message blocks before the `compaction` block, continuing the conversation from the summary.
 
 ## Basic usage
 
@@ -299,7 +299,7 @@ print(response_body["content"][-1]["text"])
 
 When compaction is triggered, the API returns a `compaction` block at the start of the assistant response.
 
-A long-running conversation may result in multiple compactions. The last compaction block reflects the final state of the prompt, replacing content prior to it with the generated summary.
+A long-running conversation may result in multiple compactions. The last compaction block reflects the final state of the prompt, replacing content before it with the generated summary.
 
 ```
 {

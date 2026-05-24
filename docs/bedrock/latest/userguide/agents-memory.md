@@ -12,7 +12,7 @@ After you enable memory for your agent, the current session gets associated with
 - You invoke the agent with the same `sessionId` as the current session and with `endSession` set to `true`.
 - The `idleSessionTimeout` configured for the agent has elapsed.
   This memory context is given a unique memory identifier. Your agent
-  uses the memory context to access and utilize the stored conversation history and conversation summaries to generate responses.
+  uses the memory context to access and use the stored conversation history and conversation summaries to generate responses.
 
 If you have multiple users, make sure to provide the same memory identifier (memoryId) for the same user. The agent stores the memory for each user against
 that memoryId and the next time you invoke the agent with the same memoryId, the summary of each session stored in the memory gets loaded to the current session.

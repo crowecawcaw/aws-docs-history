@@ -242,7 +242,7 @@ Here are the tools available:
     </tool_description>
 </tools>
 
-You will ALWAYS follow the below guidelines when you are answering a question:
+You will ALWAYS follow the following guidelines when you are answering a question:
 <guidelines>
 - Think through the user's question, extract all data from the question and the previous conversations before creating a plan.
 - Never assume any parameter values while invoking a tool.

@@ -89,7 +89,7 @@ Console
 6. In the **Orchestration strategy** section, you can choose **Edit** to customize your agent's orchestration. For more information about the orchestration strategy you can use for your agent, see [Customize agent orchestration strategy](orch-strategy.md "orch-strategy.md").
 7. In the **Multi-agent collaboration** section, you can choose **Edit** to create a multi-agent collaboration team. For more information about multi-agent collaboration, see [Use multi-agent collaboration with Amazon Bedrock Agents](agents-multi-agent-collaboration.md "agents-multi-agent-collaboration.md").
 8. When you finish configuring your agent, select one of the following options:
-   - To stay in the **Agent builder**, choose **Save**. You can then **Prepare** the agent in order to test it with your updated configurations in the test window. To learn how to test your agent, see [Test and troubleshoot agent behavior](agents-test.md "agents-test.md").
+   - To stay in the **Agent builder**, choose **Save**. You can then **Prepare** the agent to test it with your updated configurations in the test window. To learn how to test your agent, see [Test and troubleshoot agent behavior](agents-test.md "agents-test.md").
    - To return to the **Agent Details** page, choose **Save and exit**.
 
 API

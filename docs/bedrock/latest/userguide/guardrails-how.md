@@ -50,7 +50,7 @@ Pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock
 - If a guardrail blocks the model response, you're charged for guardrail's
   evaluation of the input prompt and the model response. In this case, you're
   charged for the foundation model inference calls, in addition to the model
-  response that was generated prior to the guardrail's evaluation.
+  response that was generated before the guardrail's evaluation.
 - If a guardrail doesn't block the input prompt and the model response,
   you're charged for guardrail's evaluation of the prompt and the model
   response, in addition to the foundation model inference.

@@ -5,7 +5,7 @@ with Amazon Bedrock Knowledge Bases that combines graph modeling with generative
 This feature combines vector search with the ability to quickly analyze large amounts of graph data from Amazon
 Neptune in RAG applications.
 
-GraphRAG automatically identifies and leverages relationships between entities and structural
+GraphRAG automatically identifies and uses relationships between entities and structural
 elements within documents ingested into Knowledge Bases. This enables more comprehensive and contextually
 relevant responses from the foundation models, particularly when the information needs to be
 connected through multiple logical steps. This means that generative AI applications can deliver
@@ -30,7 +30,7 @@ GraphRAG is available in the following AWS Regions:
 
 Amazon Bedrock Knowledge Bases with GraphRAG offers the following benefits:
 
-- More relevant and comprehensive responses by automatically identifying and leveraging
+- More relevant and comprehensive responses by automatically identifying and using
   relationships between entities and structural elements (such as section titles) across multiple
   document sources that are ingested into Amazon Bedrock Knowledge Bases.
 - Enhanced ability to perform exhaustive searches that connect different pieces of content

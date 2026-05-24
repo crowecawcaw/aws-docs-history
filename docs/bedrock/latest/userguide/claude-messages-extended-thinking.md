@@ -680,7 +680,7 @@ This behavior is consistent whether using regular thinking or interleaved thinki
 
 ## Max tokens and context window size with extended thinking
 
-In older Claude models (prior to Claude 3.7 Sonnet), if the sum of prompt tokens
+In older Claude models (before Claude 3.7 Sonnet), if the sum of prompt tokens
 and max_tokens exceeded the model’s context window, the system would automatically
 adjust max_tokens to fit within the context limit. This meant you could set a large
 max_tokens value and the system would silently reduce it as needed. With Claude

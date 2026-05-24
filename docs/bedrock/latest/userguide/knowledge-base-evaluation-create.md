@@ -77,7 +77,7 @@ This example policy gives permissions for all Amazon Bedrock foundation models. 
 
 ###### Topics
 
-- [Creating a retrieve-only RAG evaluation job;](knowledge-base-evaluation-create-ro.md "knowledge-base-evaluation-create-ro.md")
+- [Creating a retrieve-only RAG evaluation job](knowledge-base-evaluation-create-ro.md "knowledge-base-evaluation-create-ro.md")
 - [Creating a retrieve-only RAG evaluation job using custom metrics](knowledge-base-evaluation-create-ro-custom.md "knowledge-base-evaluation-create-ro-custom.md")
 - [Creating a retrieve-and-generate RAG evaluation job](knowledge-base-evaluation-create-randg.md "knowledge-base-evaluation-create-randg.md")
 - [Creating a retrieve-and-generate RAG evaluation job using custom metrics](knowledge-base-evaluation-create-randg-custom.md "knowledge-base-evaluation-create-randg-custom.md")

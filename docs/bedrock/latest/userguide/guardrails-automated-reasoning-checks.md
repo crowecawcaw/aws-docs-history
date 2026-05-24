@@ -172,7 +172,7 @@ VALID, INVALID, TRANSLATION_AMBIGUOUS). To optimize costs:
 
 ## Cross-region inference for policy operations
 
-Automated Reasoning utilizes cross-region inference to optimize the performance and
+Automated Reasoning uses cross-region inference to optimize the performance and
 availability of policy creation and testing operations. Specific API operations automatically
 distribute processing across AWS Regions within your geographic boundary to ensure reliable
 service delivery.

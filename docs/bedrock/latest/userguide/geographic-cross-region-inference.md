@@ -121,12 +121,12 @@ inference in the following ways:
   inference requests originating from your source Region. Use of cross-Region
   inference increases throughput and performance by dynamically routing model
   invocation requests across the Regions defined in inference profile. Routing
-  factors in user traffic, demand and utilization of resources. For more
+  factors in user traffic, demand and use of resources. For more
   information, see [Making inference requests](inference.md "inference.md")
 - **Batch inference** – Submit requests
   asynchronously with batch inference by specifying the ID of the inference
   profile as the `modelId` when sending a [CreateModelInvocationJob](../APIReference/API_CreateModelInvocationJob.md "../APIReference/API_CreateModelInvocationJob.md") request.
-  Using an inference profile lets you utilize compute across multiple
+  Using an inference profile lets you use compute across multiple
   AWS Regions and achieve faster processing times for your batch jobs. After
   the job is complete, you can retrieve the output files from the Amazon S3 bucket
   in the source Region.

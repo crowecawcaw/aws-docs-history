@@ -34,7 +34,7 @@ Output settings determine the way your downloaded results will be structured. Th
 
 - JSON – The default output structure for document analysis. Provides a JSON output file with the information from your configuration settings.
   - Async [InvokeDataAutomationAsync](../APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md "../APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md") API: JSON output for Async API is S3 only.
-  - Sync [InvokeDataAutomation](../APIReference/API_data-automation-runtime_InvokeDataAutomation.md "../APIReference/API_data-automation-runtime_InvokeDataAutomation.md") API: JSON output can be set to S3 or inline by leveraging `outputconfiguration`. If S3 is selected, then output JSON goes to S3 only (not inline). If S3 not provided, Sync API output supports JSON inline only.
+  - Sync [InvokeDataAutomation](../APIReference/API_data-automation-runtime_InvokeDataAutomation.md "../APIReference/API_data-automation-runtime_InvokeDataAutomation.md") API: JSON output can be set to S3 or inline by using `outputconfiguration`. If S3 is selected, then output JSON goes to S3 only (not inline). If S3 not provided, Sync API output supports JSON inline only.
 
 - JSON+files – Only available for Async [InvokeDataAutomationAsync](../APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md "../APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md") API. Using this setting generates both a JSON output and files that correspond with different outputs. For example, this setting gives you a text file for the overall text extraction, a markdown file for the text with structural markdown, and CSV files for each table that's found in the text. Figures located inside a document will be saved as well as figure crops and rectified images. Also, if you are processing a DOCX file and have this option selected the converted PDF of your DOCX file will be in the output folder. These outputs are located in `standard_output/`logical_doc_id`/assets/` in your output folder.
 
@@ -63,7 +63,7 @@ text format.
 
 For Documents, there are two response options that change their output based on the selected granularity.
 These are Bounding Boxes, and Generative Fields. Selecting Bounding Boxes will provide a visual outline of the element
-or word you click on in the console response dropdown. This lets you track down particular elements of your response more easily.
+or word you choose in the console response dropdown. This lets you track down particular elements of your response more easily.
 Bounding Boxes are returned in your JSON as the coordinates of the four corners of the box.
 
 When you select Generative Fields, you are generated a summary of the document, both a 10 word and 250 word

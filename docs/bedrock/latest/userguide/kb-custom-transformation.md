@@ -30,7 +30,7 @@ chunk-level metadata take precedence and overwrite file-level metadata, in case 
 For an example of using a Python Lambda function for custom chunking, see
 [Custom chunking using Lambda function](https://github.com/aws-samples/amazon-bedrock-samples/blob/main/rag/knowledge-bases/features-examples/03-optimizing-accuracy-retrieved-results/advanced_chunking_options.ipynb "https://github.com/aws-samples/amazon-bedrock-samples/blob/main/rag/knowledge-bases/features-examples/03-optimizing-accuracy-retrieved-results/advanced_chunking_options.ipynb").
 
-For API and file contracts, refer the the below structures:
+For API and file contracts, refer the the following structures:
 
 **API contract when adding a custom transformation using Lambda function**
 

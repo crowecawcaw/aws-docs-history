@@ -337,7 +337,7 @@ found in. For more information, see [Configure access to Amazon S3 buckets](s3-b
 cachePoint
 You can add cache checkpoints as a block in a message
 alongside an accompanying prompt by using
-`cachePoint` fields to utilize prompt caching.
+`cachePoint` fields to use prompt caching.
 Prompt caching is a feature that lets you begin caching the
 context of conversations to achieve cost and latency savings.
 For more information, see [Prompt caching for faster model inference](prompt-caching.md "prompt-caching.md").
@@ -621,9 +621,15 @@ The API returns the additional fields that you request in the
 
 #### requestMetadata
 
-This field maps to a JSON object. You can specify metadata keys and values
-that they map to within this object. You can use request metadata to help
-you filter model invocation logs.
+The `requestMetadata` field maps to a JSON object of key-value
+tags that are recorded with the request in your model invocation logs. You
+can use request metadata to filter and aggregate logs by team, application,
+environment, or any other dimension that varies per call.
+
+The same capability is available on [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") and [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")
+through the `X-Amzn-Bedrock-Request-Metadata` HTTP header. For
+details on supported APIs, limits, and how request metadata appears in
+invocation logs, see [Per-request metadata tagging](cost-mgmt-request-metadata.md "cost-mgmt-request-metadata.md").
 
 #### serviceTier
 
@@ -657,8 +663,8 @@ generates. The message content is in the `content` ([ContentBlock](../APIReferen
 `role` field.
 
 If you used [prompt caching](prompt-caching.md "prompt-caching.md"), then in the
-usage field, `cacheReadInputTokensCount` and
-`cacheWriteInputTokensCount` tell you how many total tokens were
+usage field, `cacheReadInputTokens` and
+`cacheWriteInputTokens` tell you how many total tokens were
 read from the cache and written to the cache, respectively.
 
 If you used [service tiers](#inference-service-tiers "#inference-service-tiers"), then in the

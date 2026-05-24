@@ -13,11 +13,11 @@ Titan Image Generator G1 v2 is Amazon's image generation model that creates and 
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
-| No Audio             | No Embedding          | No `Responses`                          | Yes `bedrock-runtime`                                  |
-| Yes Image            | Yes Image             | No `Chat Completions`                   | No `bedrock-mantle`                                    |
-| No Speech            | No Speech             | Yes `Invoke`                            |                                                        |
-| Yes Text             | No Text               | No `Converse`                           |                                                        |
-| No Video             | No Video              |                                         |                                                        |
+| Audio                | Embedding             | `Responses`                             | `bedrock-runtime`                                      |
+| Image                | Image                 | `Chat Completions`                      | `bedrock-mantle`                                       |
+| Speech               | Speech                | `Invoke`                                |                                                        |
+| Text                 | Text                  | `Converse`                              |                                                        |
+| Video                | Video                 |                                         |                                                        |
 
 ## Pricing
 
@@ -39,7 +39,7 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 | **Standard** | **Priority** | **Flex** | **Reserved** |
 | ------------ | ------------ | -------- | ------------ |
-| Yes          | No           | No       | No           |
+|              |              |          |              |
 
 ## Regional Availability
 
@@ -49,8 +49,8 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 
 | **Region**                | **In-Region** | **Geo** | **Global** |
 | ------------------------- | ------------- | ------- | ---------- |
-| `us-east-1` (N. Virginia) | Yes           | No      | No         |
-| `us-west-2` (Oregon)      | Yes           | No      | No         |
+| `us-east-1` (N. Virginia) |               |         |            |
+| `us-west-2` (Oregon)      |               |         |            |
 
 ## Quotas and Limits
 

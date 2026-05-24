@@ -28,7 +28,7 @@ advantages over traditional geographic cross-Region inference profiles:
   from improved resilience with even lower costs. This pricing model makes
   global cross-Region inference a cost-effective solution for organizations
   looking to optimize their generative AI deployments. By improving resource
-  utilization and enabling higher throughput without additional costs, it
+  use and enabling higher throughput without additional costs, it
   helps organizations maximize the value of their investment in Amazon Bedrock.
 - **Streamlined monitoring** – When using
   global cross-Region inference, CloudWatch and CloudTrail continue to record log entries

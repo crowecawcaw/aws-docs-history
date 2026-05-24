@@ -11,13 +11,13 @@ Nova Sonic is Amazon's speech-to-speech model that enables natural, real-time vo
 - **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
 - **Model lifecycle:** Legacy
 
-| **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")**  | **[Endpoints supported](endpoints.md "endpoints.md")** |
-| -------------------- | --------------------- | ---------------------------------------- | ------------------------------------------------------ |
-| No Audio             | No Embedding          | No `Responses`                           | Yes `bedrock-runtime`                                  |
-| No Image             | No Image              | No `Chat Completions`                    | No `bedrock-mantle`                                    |
-| Yes Speech           | Yes Speech            | Yes `Invoke`                             |                                                        |
-| No Text              | Yes Text              | No `Converse`                            |                                                        |
-| No Video             | No Video              | Yes `InvokeModelWithBidirectionalStream` |                                                        |
+| **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
+| -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
+| Audio                | Embedding             | `Responses`                             | `bedrock-runtime`                                      |
+| Image                | Image                 | `Chat Completions`                      | `bedrock-mantle`                                       |
+| Speech               | Speech                | `Invoke`                                |                                                        |
+| Text                 | Text                  | `Converse`                              |                                                        |
+| Video                | Video                 | `InvokeModelWithBidirectionalStream`    |                                                        |
 
 ## Pricing
 
@@ -39,7 +39,7 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 | **Standard** | **Priority** | **Flex** | **Reserved** |
 | ------------ | ------------ | -------- | ------------ |
-| Yes          | No           | No       | No           |
+|              |              |          |              |
 
 ## Regional Availability
 
@@ -49,9 +49,9 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 
 | **Region**                | **In-Region** | **Geo** | **Global** |
 | ------------------------- | ------------- | ------- | ---------- |
-| `us-east-1` (N. Virginia) | Yes           | No      | No         |
-| `eu-north-1` (Stockholm)  | Yes           | No      | No         |
-| `ap-northeast-1` (Tokyo)  | Yes           | No      | No         |
+| `us-east-1` (N. Virginia) |               |         |            |
+| `eu-north-1` (Stockholm)  |               |         |            |
+| `ap-northeast-1` (Tokyo)  |               |         |            |
 
 ## Quotas and Limits
 

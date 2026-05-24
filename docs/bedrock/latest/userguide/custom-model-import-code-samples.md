@@ -267,7 +267,7 @@ following command to check the status of the import job.
 
 The following fields are optional:
 
-- To add a VPC configuration, add the following argument to the above command to specify the security group and subnets:
+- To add a VPC configuration, add the following argument to the preceding command to specify the security group and subnets:
 
 ```
 
@@ -275,7 +275,7 @@ The following fields are optional:
 
 ```
 
-- To encrypt your model with a KMS key, add the following argument to the above command, replacing the values to specify the key with which you want to encrypt your model.
+- To encrypt your model with a KMS key, add the following argument to the preceding command, replacing the values to specify the key with which you want to encrypt your model.
 
 ```
 
@@ -283,7 +283,7 @@ The following fields are optional:
 
 ```
 
-- To add tags, add the following argument to the above command, replacing the keys and values with
+- To add tags, add the following argument to the preceding command, replacing the keys and values with
   the tags you want to attach to the job and/or output model and making sure to separate key/value pairs with a space:
 
 ```
@@ -397,7 +397,7 @@ job_arn = create_job_response.get("jobArn")
 
 The following fields are optional.
 
-- To add a VPC configuration, add the following argument to the above command to specify the security group and subnets:
+- To add a VPC configuration, add the following argument to the preceding command to specify the security group and subnets:
 
 ```
 
@@ -405,7 +405,7 @@ The following fields are optional.
 
 ```
 
-- To encrypt your model with a KMS key, add the following argument to the above command, replacing the values to specify the key with which you want to encrypt your model.
+- To encrypt your model with a KMS key, add the following argument to the preceding command, replacing the values to specify the key with which you want to encrypt your model.
 
 ```
 
@@ -413,7 +413,7 @@ The following fields are optional.
 
 ```
 
-- To add tags, add the following argument to the above command, replacing the keys and values with
+- To add tags, add the following argument to the preceding command, replacing the keys and values with
   the tags you want to attach to the job and/or output model and making sure to separate key/value pairs with a space:
 
 ```

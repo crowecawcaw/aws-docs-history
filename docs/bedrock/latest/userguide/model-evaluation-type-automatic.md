@@ -1,4 +1,4 @@
-# Required steps prior to creating your first automatic model evaluation job
+# Required steps before creating your first automatic model evaluation job
 
 Automatic model evaluation jobs require access to the following service level resources.
 Use the linked topics to learn more about getting setting up.

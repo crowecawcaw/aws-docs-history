@@ -2,7 +2,7 @@
 
 Amazon Titan Image Generator G1 is an image generation model that enables users to generate and edit images in versatile ways. Users can create images that match their text-based descriptions by simply inputting natural language prompts. Furthermore, they can upload and edit existing images, including applying text-based prompts without the need for a mask, or editing specific parts of an image using an image mask. The model also supports outpainting, which extends the boundaries of an image, and inpainting, which fills in missing areas. It offers the ability to generate variations of an image based on an optional text prompt, as well as instant customization options that allow users to transfer styles using reference images or combine styles from multiple references, all without requiring any fine-tuning.
 
-Amazon Titan Image Generator G1 v2 adds several advanced capabilities. It allows users to leverage reference images to guide image generation, where the output image aligns with the layout and composition of the reference image while still following the textual prompt. It also includes an automatic background removal feature, which can remove backgrounds from images containing multiple objects without any user input. The model provides precise control over the color palette of generated images, allowing users to preserve a brand's visual identity without the requirement for additional fine-tuning. Additionally, the subject consistency feature enables users to fine-tune the model with reference images to preserve the chosen subject (e.g., pet, shoe or handbag) in generated images. This comprehensive suite of features empowers users to unleash their creative potential and bring their imaginative visions to life.
+Amazon Titan Image Generator G1 v2 adds several advanced capabilities. It allows users to use reference images to guide image generation, where the output image aligns with the layout and composition of the reference image while still following the textual prompt. It also includes an automatic background removal feature, which can remove backgrounds from images containing multiple objects without any user input. The model provides precise control over the color palette of generated images, allowing users to preserve a brand's visual identity without the requirement for additional fine-tuning. Additionally, the subject consistency feature enables users to fine-tune the model with reference images to preserve the chosen subject (e.g., pet, shoe or handbag) in generated images. This comprehensive suite of features empowers users to unleash their creative potential and bring their imaginative visions to life.
 
 For more information on Amazon Titan Image Generator G1 model prompt engineering guidelines, see [Amazon Titan Image Generator Prompt Engineering Best Practices](https://d2eo22ngex1n9g.cloudfront.net/Documentation/User+Guides/Titan/Amazon+Titan+Image+Generator+Prompt+Engineering+Guidelines.pdf "https://d2eo22ngex1n9g.cloudfront.net/Documentation/User+Guides/Titan/Amazon+Titan+Image+Generator+Prompt+Engineering+Guidelines.pdf").
 
@@ -121,7 +121,7 @@ Because watermark detection APIs aren't available in the latest SDKs, we recomme
 from the virtual environment before installing the version with the watermark detection APIs.
 
 You can upload your image to detect if a watermark from Titan Image Generator G1 or Amazon Nova Canvas is present on the image. Use the console to detect a watermark
-by following the below steps.
+by following the following steps.
 
 ###### To detect a watermark:
 

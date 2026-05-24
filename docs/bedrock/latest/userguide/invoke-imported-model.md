@@ -222,7 +222,7 @@ A: It is critical that you include the correct `generation_config.json` file whe
 
 ## Handling ModelNotReadyException
 
-Amazon Bedrock Custom Model Import optimizes the hardware utilization by removing the models that are not active. If you try to invoke
+Amazon Bedrock Custom Model Import optimizes the hardware use by removing the models that are not active. If you try to invoke
 a model that has been removed, you'll get a `ModelNotReadyException`. After the model is removed and you invoke the model for the first time, Custom Model Import
 starts to restore the model. The restoration time depends on the on-demand fleet size and the model size.
 

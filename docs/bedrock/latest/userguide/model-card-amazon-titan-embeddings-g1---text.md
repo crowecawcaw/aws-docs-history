@@ -14,11 +14,11 @@ Titan Text Embeddings G1 is Amazon's text embeddings model that converts text in
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
-| No Audio             | Yes Embedding         | No `Responses`                          | Yes `bedrock-runtime`                                  |
-| No Image             | No Image              | No `Chat Completions`                   | No `bedrock-mantle`                                    |
-| No Speech            | No Speech             | Yes `Invoke`                            |                                                        |
-| Yes Text             | No Text               | No `Converse`                           |                                                        |
-| No Video             | No Video              |                                         |                                                        |
+| Audio                | Embedding             | `Responses`                             | `bedrock-runtime`                                      |
+| Image                | Image                 | `Chat Completions`                      | `bedrock-mantle`                                       |
+| Speech               | Speech                | `Invoke`                                |                                                        |
+| Text                 | Text                  | `Converse`                              |                                                        |
+| Video                | Video                 |                                         |                                                        |
 
 ## Pricing
 
@@ -40,7 +40,7 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 | **Standard** | **Priority** | **Flex** | **Reserved** |
 | ------------ | ------------ | -------- | ------------ |
-| Yes          | No           | No       | No           |
+|              |              |          |              |
 
 ## Regional Availability
 
@@ -50,10 +50,10 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 
 | **Region**                 | **In-Region** | **Geo** | **Global** |
 | -------------------------- | ------------- | ------- | ---------- |
-| `us-east-1` (N. Virginia)  | Yes           | No      | No         |
-| `us-west-2` (Oregon)       | Yes           | No      | No         |
-| `eu-central-1` (Frankfurt) | Yes           | No      | No         |
-| `ap-northeast-1` (Tokyo)   | Yes           | No      | No         |
+| `us-east-1` (N. Virginia)  |               |         |            |
+| `us-west-2` (Oregon)       |               |         |            |
+| `eu-central-1` (Frankfurt) |               |         |            |
+| `ap-northeast-1` (Tokyo)   |               |         |            |
 
 ## Quotas and Limits
 

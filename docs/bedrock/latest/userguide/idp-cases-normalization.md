@@ -11,7 +11,7 @@ For example, the "Social Security Number" field could appear as "SSN," "Tax ID,"
 other similar variations. To address this challenge, BDA offers Key Normalization, which
 enables you to provide instructions on the variations within your field definitions.
 
-By leveraging key normalization, you can guide BDA to recognize and map different representations
+By using key normalization, you can guide BDA to recognize and map different representations
 of the same field to a standardized key. This feature ensures that data is consistently extracted and organized,
 regardless of the variations present in the source documents.
 

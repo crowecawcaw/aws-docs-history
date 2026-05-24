@@ -169,7 +169,7 @@ if __name__ == "__main__":
 ## Configuring the image filter to work with ApplyGuardrail API
 
 You can use content filters for both image and text content using the `ApplyGuardrail` API. This option allows you to use the
-content filter settings without invoking the Amazon Bedrock model. You can update the request payload in the below script for
+content filter settings without invoking the Amazon Bedrock model. You can update the request payload in the following script for
 various models by following the inference parameters documentation for each bedrock foundation model that is supported by Amazon Bedrock Guardrails.
 
 You can update the request payload in below script for various models by following the inference
@@ -232,7 +232,7 @@ if __name__ == "__main__":
 You can also use Amazon Bedrock Guardrails image filters with Image generation models like Titan Image
 Generator and Stability Image or Diffusion models. These models are currently supported
 through the `InvokeModel` API which can be invoked with a guardrail. You can update the
-request payload in the below script for various models by following the inference
+request payload in the following script for various models by following the inference
 parameters documentation for various Amazon Bedrock foundation models that are supported by
 guardrails.
 

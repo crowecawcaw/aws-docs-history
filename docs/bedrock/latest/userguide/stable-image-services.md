@@ -9,7 +9,7 @@ This section also provides code examples in Python and examples of images before
 Stability AI Image Services are available in the following categories:
 
 - **Edit** ‐ AI-based image editing services, including inpainting with masks (generative fill), or with words. Includes tools for product placement and advertising, as well as basic tools such as background removal.
-- **Control** ‐ May take prompts, maps and other guides. These services leverage ControlNets and similar technologies built on Stable Diffusion models.
+- **Control** ‐ May take prompts, maps and other guides. These services use ControlNets and similar technologies built on Stable Diffusion models.
 
 ###### Note
 
@@ -30,7 +30,7 @@ The request body is passed in the `body` field of a request to
 **Model invocation request body field**
 
 When you make an InvokeModel call using Stability AI Image Services, fill the
-body field with a JSON object that looks like the below.
+body field with a JSON object that looks like the following.
 
 ```
 {
@@ -40,7 +40,7 @@ body field with a JSON object that looks like the below.
 
 **Model invocation responses body field**
 
-When you make an InvokeModel call using Stability AI Image Services, the response looks like the below
+When you make an InvokeModel call using Stability AI Image Services, the response looks like the following
 
 ```
 {
@@ -1079,7 +1079,7 @@ The following table shows the input and output images of a Remove Background ope
 The following section describes the control Stability AI Image Services.
 
 Upgrade rough hand-drawn sketches to refined outputs with precise control.
-For non-sketch images, Control Sketch allows detailed manipulation of the final appearance by leveraging the contour lines and edges within the image.
+For non-sketch images, Control Sketch allows detailed manipulation of the final appearance by using the contour lines and edges within the image.
 
 Control Sketch has the following required parameters:
 

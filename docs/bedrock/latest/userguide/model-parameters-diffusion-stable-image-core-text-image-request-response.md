@@ -6,7 +6,7 @@ The request body is passed in the `body` field of a request to
 **Model invocation request body field**
 
 When you make an InvokeModel call using a Stability AI Stable Diffusion Stable Image Core model, fill the
-body field with a JSON object that looks like the below.
+body field with a JSON object that looks like the following.
 
 ```
 {
@@ -16,7 +16,7 @@ body field with a JSON object that looks like the below.
 
 **Model invocation responses body field**
 
-When you make an InvokeModel call using a Stability AI Stable Diffusion Stable Image Core model, the response looks like the below
+When you make an InvokeModel call using a Stability AI Stable Diffusion Stable Image Core model, the response looks like the following
 
 ```
 {

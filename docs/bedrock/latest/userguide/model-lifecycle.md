@@ -104,5 +104,5 @@ prolonged inactivity.
 
 Because Legacy models are scheduled for retirement, customers are strongly encouraged
 to begin transitioning workloads and customized deployments to an Active model as soon
-as the Legacy announcement is made, and complete migration prior to the model's
+as the Legacy announcement is made, and complete migration before the model's
 End-of-Life (EOL) date.

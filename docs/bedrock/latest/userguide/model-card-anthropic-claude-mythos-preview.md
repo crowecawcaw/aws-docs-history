@@ -19,11 +19,11 @@ Available only as a gated research preview with access prioritized for defensive
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
-| No Audio             | No Embedding          | No `Responses`                          | No `bedrock-runtime`                                   |
-| Yes Image            | No Image              | No `Chat Completions`                   | Yes `bedrock-mantle`                                   |
-| No Speech            | No Speech             | No `Invoke`                             |                                                        |
-| Yes Text             | Yes Text              | No `Converse`                           |                                                        |
-| No Video             | No Video              | Yes `Messages`                          |                                                        |
+| Audio                | Embedding             | `Responses`                             | `bedrock-runtime`                                      |
+| Image                | Image                 | `Chat Completions`                      | `bedrock-mantle`                                       |
+| Speech               | Speech                | `Invoke`                                |                                                        |
+| Text                 | Text                  | `Converse`                              |                                                        |
+| Video                | Video                 | `Messages`                              |                                                        |
 
 ## Capabilities and Features
 
@@ -31,9 +31,9 @@ Available only as a gated research preview with access prioritized for defensive
 
 **Features supported using `bedrock-mantle` endpoint**
 
-| **Supported**                                                                                                                                                                                                                                                                          | **Not Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| • Yes [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• Yes [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• Yes [Count tokens](count-tokens.md "count-tokens.md") | • No [Guardrails](guardrails.md "guardrails.md")<br>• No [Intelligent prompt routing](prompt-routing.md "prompt-routing.md")<br>• No [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• No [Knowledge base](knowledge-base.md "knowledge-base.md")<br>• No [Model evaluation](evaluation.md "evaluation.md")<br>• No [Prompt management](prompt-management.md "prompt-management.md")<br>• No [Flows](flows.md "flows.md")<br>• No [Agents](agents.md "agents.md") |
+| **Supported**                                                                                                                                                                                                                                                              | **Not Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| • [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• [Count tokens](count-tokens.md "count-tokens.md") | • [Guardrails](guardrails.md "guardrails.md")<br>• [Intelligent prompt routing](prompt-routing.md "prompt-routing.md")<br>• [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• [Knowledge base](knowledge-base.md "knowledge-base.md")<br>• [Model evaluation](evaluation.md "evaluation.md")<br>• [Prompt management](prompt-management.md "prompt-management.md")<br>• [Flows](flows.md "flows.md")<br>• [Agents](agents.md "agents.md") |
 
 **Prompt caching using `bedrock-runtime` endpoint**
 
@@ -63,7 +63,7 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 | **Standard** | **Priority** | **Flex** | **Reserved** |
 | ------------ | ------------ | -------- | ------------ |
-| Yes          | No           | No       | No           |
+|              |              |          |              |
 
 ## Regional Availability
 
@@ -73,7 +73,7 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 
 | **Region**                | **In-Region** | **Geo** | **Global** |
 | ------------------------- | ------------- | ------- | ---------- |
-| `us-east-1` (N. Virginia) | Yes           | No      | No         |
+| `us-east-1` (N. Virginia) |               |         |            |
 
 ## Sample Code
 

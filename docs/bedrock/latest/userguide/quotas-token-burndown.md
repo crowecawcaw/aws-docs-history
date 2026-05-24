@@ -76,7 +76,7 @@ Assume the following parameters:
 
 - **Initial deduction when request is made:** 36,000 (= 3,000 + 1,000 + 32,000)
 - **Final adjusted deduction after response is generated:** 9,000 (= 3,000 + 1,000 + 1,000 x 5)
-  In this scenario, fewer concurrent requests could be made because the `max_tokens` parameter was set too high. This reduces the request concurrency, throughput, and quota utilization, because the TPM quota capacity would be reached quickly.
+  In this scenario, fewer concurrent requests could be made because the `max_tokens` parameter was set too high. This reduces the request concurrency, throughput, and quota use, because the TPM quota capacity would be reached quickly.
 
 Assume the following parameters:
 
@@ -89,11 +89,11 @@ Assume the following parameters:
 
 - **Initial deduction when request is made:** 5,250 (= 3,000 + 1,000 + 1,250)
 - **Final adjusted deduction after response is generated:** 9,000 (= 3,000 + 1,000 + 1,000 x 5)
-  In this scenario, the `max_tokens` parameter was optimized, because the initial deduction is only slightly higher than the final adjusted deduction. This helped increase the request concurrency, throughput, and quota utilization.
+  In this scenario, the `max_tokens` parameter was optimized, because the initial deduction is only slightly higher than the final adjusted deduction. This helped increase the request concurrency, throughput, and quota use.
 
 ## Optimizing the max_tokens parameter
 
-By optimizing the `max_tokens` parameter, you can efficiently utilize your allocated quota capacity. To help inform your decision about this parameter, you can use Amazon CloudWatch, which automatically collects metrics from AWS services, including token usage data in Amazon Bedrock.
+By optimizing the `max_tokens` parameter, you can efficiently use your allocated quota capacity. To help inform your decision about this parameter, you can use Amazon CloudWatch, which automatically collects metrics from AWS services, including token usage data in Amazon Bedrock.
 
 Tokens are recorded in the `InputTokenCount` and `OutputTokenCount` runtime metrics (for more metrics, see [Amazon Bedrock runtime metrics](monitoring.md#runtime-cloudwatch-metrics "monitoring.md#runtime-cloudwatch-metrics").
 

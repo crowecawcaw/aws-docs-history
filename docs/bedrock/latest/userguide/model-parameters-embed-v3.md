@@ -24,9 +24,8 @@ inference parameters.
 The following are required parameters.
 
 - **texts** – An array
-  of strings for the model to embed. For
-  optimal performance, we recommend reducing the length of each text to less than
-  512 tokens. 1 token is about 4 characters.
+  of strings for the model to embed. Each text has a maximum length of
+  512 tokens (approximately 2,048 characters). 1 token is about 4 characters.
 
 The following are text per call and character limits.
 

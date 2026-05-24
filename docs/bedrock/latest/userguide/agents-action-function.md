@@ -3,7 +3,7 @@
 When you create an action group in Amazon Bedrock, you can define function details to specify the parameters that the agent needs to invoke from the user. Function details consist of a list of parameters, defined by their name, data type (for a list of supported data types, see [ParameterDetail](../APIReference/API_agent_ParameterDetail.md "../APIReference/API_agent_ParameterDetail.md")), and whether they are required. The agent uses these configurations to determine what information it needs to elicit from the user.
 
 For example, you might define a function called **BookHotel**
-that contains parameters that the agent needs to invoke from the user in order to book a
+that contains parameters that the agent needs to invoke from the user to book a
 hotel for the user. You might define the following parameters for the function:
 
 | Parameter            | Description                                                | Type    | Required |
