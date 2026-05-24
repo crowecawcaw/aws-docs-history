@@ -57,11 +57,12 @@ The following metrics are available from Direct Connect virtual interfaces.
 
 You can filter the Direct Connect data using the following dimensions.
 
-| Dimension            | Description                                                                                                                                                                                |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `ConnectionId`       | This dimension is available on the metrics for Direct Connect<br>connection, and virtual interface. This dimension filters the<br>data by the connection.                                  |
-| `OpticalLaneNumber`  | This dimension filters the `ConnectionLightLevelTx`<br>data and the `ConnectionLightLevelRx` data, and filters<br>the data by the optical lane number of the Direct Connect<br>connection. |
-| `VirtualInterfaceId` | This dimension is available on the metrics for Direct Connect virtual<br>interface, and filters the data by the virtual interface.                                                         |
+| Dimension            | Description                                                                                                                                                                                                                                                                                               |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ConnectionId`       | This dimension is available on the metrics for Direct Connect<br>connection, and virtual interface. This dimension filters the<br>data by the connection.                                                                                                                                                 |
+| `OpticalLaneNumber`  | This dimension filters the `ConnectionLightLevelTx`<br>data and the `ConnectionLightLevelRx` data, and filters<br>the data by the optical lane number of the Direct Connect<br>connection.                                                                                                                |
+| `VirtualInterfaceId` | This dimension is available on the metrics for Direct Connect virtual<br>interface, and filters the data by the virtual interface.                                                                                                                                                                        |
+| `IpAddressFamily`    | This dimension is available on the BGP metrics for Direct Connect<br>virtual interfaces<br>(`VirtualInterfaceBgpStatus`, `VirtualInterfaceBgpPrefixesAccepted`,<br>`VirtualInterfaceBgpPrefixesAdvertised`). This dimension<br>filters the data by IP address family. Valid values are `ipv4` and `ipv6`. |
 
 ###### Topics
 
