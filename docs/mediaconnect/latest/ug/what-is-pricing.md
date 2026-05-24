@@ -1,17 +1,43 @@
 # Pricing for MediaConnect
 
 As with other AWS products, there are no contracts or minimum commitments for using
-MediaConnect.
+MediaConnect. Pricing varies by resource type.
 
-For transport stream flows, you are charged a per hour fee when the flow is running,
-and a per GB fee for output delivered to the internet. You are also charged a per GB fee
-for input or output data within the same Region. In general, higher bitrate flows accrue
-higher charges per hour.
+MediaConnect router
 
-For CDI flows, you are charged a per hour fee when the flow is running, and a per hour
-fee for each output delivered to any destination. Running flow rates and per output
-rates change according to the size of the video. SD outputs are less expensive than HD
-outputs, which are less expensive than UHD outputs.
+You are charged an hourly rate for each active input and output, based
+on maximum bitrate capacity. Base rates include uptime and same-Region
+transfers. Outputs that receive content from a different Region or that
+egress to the internet incur additional hourly charges. You are not
+charged for inputs and outputs that are stopped or idle.
 
-For more information on both types of flows, see [AWS Elemental MediaConnect
+Transport stream flows
+
+You are charged an hourly rate for each running flow, plus per-GB data
+transfer charges or reserved outbound bandwidth pricing for internet
+delivery. Standby flows don't incur active resource costs. Reserved
+outbound bandwidth requires a 12-month commitment.
+
+NDI® flows
+
+You are charged an hourly rate for each running flow. NDI outputs are
+included with no data transfer charges within a VPC. If you add transport
+stream outputs, transport stream output data transfer charges
+apply.
+
+AWS CDI and JPEG XS flows
+
+You are charged an hourly rate for each running flow, plus an hourly
+rate per output. Rates depend on the maximum video size that you define
+when you create the flow. Reserved outbound bandwidth is not available
+for these flow types.
+
+AWS Elemental MediaConnect Gateway
+
+The gateway software is available at no cost. You supply your own
+hardware and use Amazon Elastic Container Service Anywhere to run a container in on-premises
+infrastructure. Amazon ECS Anywhere pricing and MediaConnect transport stream
+flow and data transfer charges apply.
+
+For more information, see [AWS Elemental MediaConnect
 Pricing](https://aws.amazon.com/mediaconnect/pricing/ "https://aws.amazon.com/mediaconnect/pricing/").

@@ -4,8 +4,7 @@ You can update outputs on a flow, even when the flow is active.
 
 ###### Important
 
-For NDI**®** outputs, you can update the machine name, program
-name, and discovery server address. However, it's important to avoid changing the
+For NDI**®** outputs, avoid changing the
 machine name or program name for an active NDI output, as your downstream receivers
 rely on these details to maintain their connections. When you change the machine or
 program name, your downstream receivers must re-establish connections with the new

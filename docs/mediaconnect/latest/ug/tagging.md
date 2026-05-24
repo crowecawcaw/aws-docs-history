@@ -9,7 +9,7 @@ A _tag_ is a custom attribute label that you assign or that AWS assigns to an AW
   Tags help you do the following:
 
 - Identify and organize your AWS resources. Many AWS services support tagging, so you can assign the same tag to resources from different
-  services to indicate that the resources are related. For example, you could assign the same tag to an AWS Elemental MediaConnect flow that you
+  services to indicate that the resources are related. For example, you can assign the same tag to an AWS Elemental MediaConnect flow that you
   assign to an AWS Elemental MediaLive channel
   output.
 - Track your AWS costs. You activate these tags on the AWS Billing and Cost Management dashboard. AWS uses the tags to categorize your costs and deliver a monthly

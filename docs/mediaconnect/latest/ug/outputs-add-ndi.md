@@ -144,7 +144,12 @@ video and audio streams appear to other devices in your VPC network.
 Some kinds of content (such as high-motion sports) will benefit from a higher quality setting.
 However, keep in mind that using higher quality settings limits
 the total number of outputs that a flow can generate (up to 2.5
-Gbps). 11. (Optional) Enter an **NDI program name**.
+Gbps). 11. For **NDI timecode source**,
+choose how MediaConnect generates timecodes for the NDI output.
+The default is **Embedded Timecode**, which preserves timecodes from the
+source transport stream. Choose **UTC System Time** to use the system clock instead.
+For more information, see [Considerations
+and limitations](outputs-using-ndi.md#using-ndi-outputs-considerations "outputs-using-ndi.md#using-ndi-outputs-considerations"). 12. (Optional) Enter an **NDI program name**.
 
     * This name is used as a suffix to help you identify the NDI
      sources that your flow creates. For example, if you enter
@@ -165,7 +170,7 @@ Gbps). 11. (Optional) Enter an **NDI program name**.
      identify different video feeds from the same
      machine.
 
-12. Choose **Add output**.
+13. Choose **Add output**.
 
 ## Next steps
 

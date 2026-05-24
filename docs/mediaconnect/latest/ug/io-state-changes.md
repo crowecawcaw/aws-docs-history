@@ -8,13 +8,13 @@ categories:
   **Stopping** states manage the activation of an I/O
 - Settings updates: The **Updating** state handles modifications to
   an I/O’s configuration
-- Route updates: The **Migrating** state handles modifications to an
-  I/O’s route assignment
+- Maintenance: The **Migrating** state indicates
+  that the I/O is undergoing a maintenance operation
   The following illustration shows the I/O lifecycle and the transitions between I/O
   states. Note that depending on the type of I/O, it may begin its lifecycle directly in the
   **Standby** state, bypassing the **Creating** state.
 
-![State diagram showing MediaConnect router I/O lifecycle. Main states are Creating, Standby, and Active, with transition states (Starting/Stopping) between them. Updating and Migrating states branch from both Standby and Active, returning to their origin state. The lifecycle ends with Deleting state. Black arrows show transitions, blue arrows indicate returns.](images/router-io-state-diagram.png)
+![State diagram showing MediaConnect router I/O lifecycle. Main states are Creating, Standby, and Active, with transition states (Starting/Stopping) between them. The Updating state branches from both Standby and Active, returning to its origin state. The Migrating state branches from Active only, returning to Active after maintenance completes. The lifecycle ends with Deleting state. Black arrows show transitions, blue arrows indicate returns.](images/router-io-state-diagram.png)
 
 ## State definitions
 
@@ -54,11 +54,10 @@ existing connections and routing assignments.
 
 **Migrating**
 
-This is a configuration change state where the router I/O is being reassigned to
-a different route. This happens when you update a route (such as when an output
-takes a new input as part of normal broadcast switching operations). This state
-indicates that the I/O is in the process of migrating from one routing assignment to
-another.
+MediaConnect is in the process of performing a maintenance operation
+on the router I/O. This state occurs during scheduled maintenance windows
+or manual restart operations. The I/O
+returns to its previous state after the maintenance operation completes.
 
 **Stopping**
 
