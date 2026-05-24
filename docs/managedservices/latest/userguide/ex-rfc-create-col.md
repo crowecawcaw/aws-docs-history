@@ -3,11 +3,11 @@
 The following is the first page of the RFC Create process in the AMS console, with
 **Quick cards** open and **Browse change types** active:
 
-![Quick create section with options for common AWS stack operations and access management.](images/quickCreate1.png)
+![](images/quickCreate1.png)
 The following is the first page of the RFC Create process in the AMS console,
 with **Select by category** active:
 
-![Create RFC page with change type categorization options for managed services environment.](images/guiRfcCreate1-2.png)
+![](images/guiRfcCreate1-2.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

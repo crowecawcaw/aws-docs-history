@@ -2,9 +2,11 @@
 
 ###### Available reports
 
--
+- [Instance details summary for AMS patching](#instance-details-summary-po "#instance-details-summary-po")
 - [Patch details](#patch-details "#patch-details")
 - [Instances that missed patches](#instances-that-missed-patches "#instances-that-missed-patches")
+
+## Instance details summary for AMS patching
 
 This is an informational report that helps identify all
 the instances onboarded to Patch Orchestrator (PO), account status, instance details,
