@@ -18,6 +18,7 @@ limits. API requests are subject to the request limits whether they originate fr
 - [Resource token limits](#throttling-limits-cost-based "#throttling-limits-cost-based")
 - [Monitor API throttling](#throttling-monitor "#throttling-monitor")
 - [Retries and exponential backoff](#api-backoff "#api-backoff")
+- [View your current API limits](#throttling-view-limits "#throttling-view-limits")
 - [Request a limit increase](#throttling-increase "#throttling-increase")
 
 ## How throttling is applied
@@ -310,6 +311,64 @@ and backoff with jitter](https://aws.amazon.com/builders-library/timeouts-retrie
 
 Each AWS SDK implements automatic retry logic. For more information, see [Retry behavior](../../../sdkref/latest/guide/feature-retry-behavior.md "../../../sdkref/latest/guide/feature-retry-behavior.md")
 in the _AWS SDKs and Tools Reference Guide_.
+
+## View your current API limits
+
+You can view your current and default limits for every [Amazon EC2 API action](../../../AWSEC2/latest/APIReference/API_Operations.md "../../../AWSEC2/latest/APIReference/API_Operations.md") for your
+AWS account using the [Service Quotas console](../../../servicequotas/latest/userguide/intro.md "../../../servicequotas/latest/userguide/intro.md").
+
+### How quotas relate to your throttle limit
+
+Each API throttle limit is composed of two quotas that work together to define
+the burst and sustained request rate:
+
+- **Bucket maximum capacity** —
+  determines the maximum number of requests you can make in a burst. This
+  is your burst rate.
+- **Bucket refill rate** — determines
+  the number of tokens added to the bucket per second. This is your sustained
+  rate.
+
+**Example: View RunInstances throttle limit**
+
+To view the `RunInstances` throttle limit, search for
+`RunInstances`. The console displays:
+
+- `RunInstances` request bucket maximum capacity —
+  for example 5 (burst)
+- `RunInstances` request bucket refill rate — for
+  example 2 per second (sustained)
+
+These two quotas together define the complete `RunInstances` throttle
+limit.
+
+### Understanding the quota values
+
+- The **Applied account-level quota** value
+  indicates any quota override applied to your account. This is your current
+  effective quota.
+- The **AWS default quota** value indicates
+  the default API throttling quota.
+
+###### Note
+
+Allow up to 24 hours for any quota adjustments to be reflected in the
+Service Quotas console.
+
+###### To view your current quotas
+
+1. Open the Service Quotas console at [https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/ "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/").
+2. Search for the API action name (for example, `RunInstances`)
+   and the quota name pattern to find the corresponding quota entries.
+
+The following table describes the quota name patterns.
+
+| Quota name pattern                                      | Description                                                                               |
+| ------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `{API_NAME}` request bucket maximum capacity            | Burst rate — the maximum number of tokens available                                       |
+| `{API_NAME}` request bucket refill rate                 | Sustained rate — tokens added per second                                                  |
+| `{API_NAME}` unfiltered request bucket maximum capacity | Burst rate — the maximum number of tokens available for unfiltered (unpaginated) requests |
+| `{API_NAME}` unfiltered request bucket refill rate      | Sustained rate — tokens added per second for unfiltered (unpaginated) requests            |
 
 ## Request a limit increase
 

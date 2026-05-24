@@ -16,7 +16,7 @@ interface. For information about using the Amazon EC2 console, see the [Amazon E
 - [AWS Command Line Interface (AWS CLI)](ec2-aws-cli.md "ec2-aws-cli.md")
 - [AWS CloudFormation](ec2-cloudformation.md "ec2-cloudformation.md")
 - [AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md")
-- [Low-level API](ec2-low-level-api.md "ec2-low-level-api.md")
+- [Using the API](ec2-low-level-api.md "ec2-low-level-api.md")
 
 ###### Getting started
 

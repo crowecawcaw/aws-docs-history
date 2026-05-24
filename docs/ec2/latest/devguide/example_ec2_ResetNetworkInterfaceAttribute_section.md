@@ -13,7 +13,7 @@ The following `reset-network-interface-attribute` example resets the value of th
 ```
 `aws ec2 reset-network-interface-attribute \
  --network-interface-id `eni-686ea200` \
- --source-dest-check`
+ --source-dest-check `sourceDestCheck``
 
 ```
 
