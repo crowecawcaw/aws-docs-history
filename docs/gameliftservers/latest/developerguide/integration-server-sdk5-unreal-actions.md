@@ -126,11 +126,11 @@ parameter is 4.x, which is not compatible. To resolve this issue, create a new b
 ```
 //Define the server parameters
 FServerParameters serverParameters;
-parameters.m_authToken = "`1111aaaa-22bb-33cc-44dd-5555eeee66ff`";
-parameters.m_fleetId = "`arn:aws:gamelift:us-west-1:111122223333:fleet/fleet-9999ffff-88ee-77dd-66cc-5555bbbb44aa`";
-parameters.m_hostId = "`HardwareAnywhere`";
-parameters.m_processId = "`PID1234`";
-parameters.m_webSocketUrl = "`wss://us-west-1.api.amazongamelift.com`";
+serverParameters.m_authToken = "`1111aaaa-22bb-33cc-44dd-5555eeee66ff`";
+serverParameters.m_fleetId = "`arn:aws:gamelift:us-west-1:111122223333:fleet/fleet-9999ffff-88ee-77dd-66cc-5555bbbb44aa`";
+serverParameters.m_hostId = "`HardwareAnywhere`";
+serverParameters.m_processId = "`PID1234`";
+serverParameters.m_webSocketUrl = "`wss://us-west-1.api.amazongamelift.com`";
 
 //Call InitSDK to establish a local connection with the Amazon GameLift Servers Agent to enable further communication.
 FGameLiftGenericOutcome initSdkOutcome = GameLiftSdkModule->InitSDK(serverParameters);

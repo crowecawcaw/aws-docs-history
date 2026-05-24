@@ -35,74 +35,181 @@ wrong, and take automatic actions when appropriate:
 
 ## Metrics comparison across monitoring sources
 
-Amazon GameLift Servers provides metrics through three primary sources: the Amazon GameLift Servers console Fleet Activity metrics, server telemetry metrics, and Amazon CloudWatch Amazon GameLift Servers metrics. Understanding the overlap and unique capabilities of each source helps you choose the right monitoring approach for your needs.
+Amazon GameLift Servers provides metrics through three primary sources: the Amazon GameLift Servers console Fleet Activity metrics, server telemetry metrics, and Amazon CloudWatch Amazon GameLift Servers metrics. Each source has unique capabilities. Server telemetry provides the deepest server-side and OS-level visibility, CloudWatch provides the broadest set of GameLift-side fleet, queue, and matchmaking metrics for alarming and automation, and the console surfaces fleet activity at a glance. The tables below show which metrics each source provides, organized by metric category.
 
 ### Metrics availability by source
 
-The following tables show which metrics are available across different monitoring sources, organized by metric category.
+In the tables below:
+
+- **Console** indicates the metric is displayed natively in the Amazon GameLift Servers console (for example, on a fleet's Activity, Scaling, or Locations tab, or in the fleets table).
+- **CloudWatch** indicates the metric is published to the `AWS/GameLift` namespace and can be graphed, alarmed on, or queried through CloudWatch.
+- **Telemetry** indicates the metric is collected by the Amazon GameLift Servers OpenTelemetry Collector and is available in management portal and the prebuilt dashboards. A **✓\*** means the metric is not emitted directly but can be derived through a custom PromQL query against the collected telemetry.
 
 #### Instance metrics
 
-Instance-level metrics for fleet capacity and health monitoring:
+Instance-level capacity and lifecycle metrics:
 
 | Instance metrics availability | Metric | Console | CloudWatch | Telemetry |
 | ----------------------------- | ------ | ------- | ---------- | --------- |
-| Active instances              | ✓      | ✓       | ✓          |
+| Active instances              | ✓      | ✓       | ✓\*        |
 | Idle instances                | ✓      | ✓       | ✓\*        |
 | Percent idle instances        | ✓      | ✓       | ✓\*        |
 | Desired instances             | ✓      | ✓       |            |
-| Max instances                 | ✓      | ✓       |            |
 | Min instances                 | ✓      | ✓       |            |
-| CPU utilization               |        | ✓       | ✓          |
-| Network in/out                |        | ✓       | ✓          |
-| Disk/Storage read/write       |        | ✓       | ✓          |
-| Instance interruptions        | ✓      | ✓       |            |
-| Recycled instances            | ✓      | ✓       |            |
-| Unhealthy instances replaced  |        | ✓       |            |
+| Max instances                 | ✓      | ✓       |            |
+| Pending instances             | ✓      | ✓       |            |
+| Terminating instances         | ✓      | ✓       |            |
+| Instance Spot interruptions   | ✓      | ✓       |            |
+| Recycled instances (Spot)     | ✓      | ✓       |            |
+| Unhealthy instances replaced  | ✓      | ✓       |            |
 
-**\*** Available through custom Prometheus queries using telemetry data.
+#### Instance system and OS metrics
 
-#### Game server metrics
+Operating-system-level instance metrics. Server telemetry collects a much richer set of host metrics than CloudWatch, including detailed memory, filesystem, and network breakdowns. EC2 fleets emit a different set of host metrics than container fleets – container fleet metrics are listed under _Container fleet metrics_ below.
 
-Server process and game session metrics:
+| Instance system and OS metrics availability (managed EC2 fleets) | Metric | Console | CloudWatch | Telemetry |
+| ---------------------------------------------------------------- | ------ | ------- | ---------- | --------- |
+| CPU utilization                                                  | ✓      | ✓       | ✓          |
+| CPU time by state (user, system, idle, iowait)                   |        |         | ✓          |
+| CPU load average (1m, 5m, 15m)                                   |        |         | ✓          |
+| Memory usage and utilization                                     |        |         | ✓          |
+| Filesystem usage and utilization                                 |        |         | ✓          |
+| Network in/out (bytes)                                           | ✓      | ✓       | ✓          |
+| Network packets, errors, dropped                                 |        |         | ✓          |
+| Active network connections                                       |        |         | ✓          |
+| Disk read/write bytes                                            | ✓      | ✓       | ✓          |
+| Disk read/write operations                                       | ✓      | ✓       | ✓          |
+| Disk operation time and I/O time                                 |        |         | ✓          |
+| Pending disk operations                                          |        |         | ✓          |
+| Per-process CPU time                                             |        |         | ✓          |
+| Per-process memory usage (resident, virtual)                     |        |         | ✓          |
 
-| Game server metrics availability     | Metric | Console | CloudWatch | Telemetry |
-| ------------------------------------ | ------ | ------- | ---------- | --------- |
-| Active game sessions                 | ✓      | ✓       | ✓\*        |
-| Activating game sessions             | ✓      | ✓       |            |
-| Available game sessions              | ✓      | ✓       |            |
-| Percent available game sessions      | ✓      | ✓       |            |
-| Concurrent activatable game sessions | ✓      | ✓       |            |
-| Game session interruptions           | ✓      | ✓       |            |
-| Active server processes              |        |         | ✓          |
-| Healthy game servers                 |        |         | ✓          |
-| Crashed game sessions                |        |         | ✓          |
+#### Game session and server process metrics
 
-**\*** Available through custom Prometheus queries using telemetry data.
+Game session counts and server process lifecycle metrics:
 
-#### Player usage metrics
+| Game session and server process metrics availability | Metric | Console | CloudWatch | Telemetry |
+| ---------------------------------------------------- | ------ | ------- | ---------- | --------- |
+| Active game sessions                                 | ✓      | ✓       | ✓\*        |
+| Activating game sessions                             | ✓      | ✓       |            |
+| Available game sessions (Game Capacity)              | ✓      | ✓       | ✓          |
+| Percent available game sessions (Capacity Usage)     | ✓      | ✓       | ✓          |
+| Concurrent activatable game sessions                 | ✓      | ✓       |            |
+| Game session Spot interruptions                      | ✓      | ✓       |            |
+| Active server processes                              | ✓      | ✓       | ✓          |
+| Healthy server processes                             | ✓      | ✓       | ✓          |
+| Percent healthy server processes                     | ✓      | ✓       | ✓          |
+| Server process activations                           | ✓      | ✓       |            |
+| Server process terminations                          | ✓      | ✓       |            |
+| Server process abnormal terminations                 | ✓      | ✓       |            |
+| Crashed game sessions                                |        |         | ✓          |
+
+#### Server performance metrics
+
+In-game server performance metrics emitted directly from the game server through the Amazon GameLift Servers SDKs and plugins. These are exclusive to server telemetry and are not available in the console or in CloudWatch.
+
+| Server performance metrics availability    | Metric | Console | CloudWatch | Telemetry |
+| ------------------------------------------ | ------ | ------- | ---------- | --------- |
+| Server delta time (and p50, p90, p95)      |        |         | ✓          |
+| Server tick time (and p50, p90, p95)       |        |         | ✓          |
+| Server tick rate                           |        |         | ✓          |
+| Server world tick time (and p50, p90, p95) |        |         | ✓          |
+| Server up status                           |        |         | ✓          |
+| Server connections                         |        |         | ✓          |
+| Server bytes in/out                        |        |         | ✓          |
+| Server packets in/out                      |        |         | ✓          |
+| Server packets lost in/out                 |        |         | ✓          |
+
+#### Player metrics
 
 Player session and concurrent user metrics:
 
-| Player usage metrics availability | Metric | Console | CloudWatch | Telemetry |
-| --------------------------------- | ------ | ------- | ---------- | --------- |
-| Current player sessions           | ✓      |         |            |
-| Player session activations        | ✓      |         |            |
-| Global concurrent users (CCU)     |        |         | ✓          |
-| Location concurrent users (CCU)   |        |         | ✓          |
-| Location capacity                 |        |         | ✓          |
+| Player metrics availability                     | Metric | Console | CloudWatch | Telemetry |
+| ----------------------------------------------- | ------ | ------- | ---------- | --------- |
+| Current player sessions                         | ✓      | ✓       |            |
+| Available player sessions (max)                 | ✓      | ✓       |            |
+| Player session activations                      | ✓      | ✓       |            |
+| Concurrent users (CCU), global and per location |        |         | ✓          |
 
 #### Container fleet metrics
 
-Container-specific metrics (available only in CloudWatch for container fleets):
+Metrics specific to managed container fleets. Server telemetry collects a richer set of network and storage breakdowns than CloudWatch, while CloudWatch tracks container group lifecycle counts that are not exposed by telemetry.
 
-| Container fleet metrics availability | Metric | Console | CloudWatch | Telemetry |
-| ------------------------------------ | ------ | ------- | ---------- | --------- |
-| Active container groups              |        | ✓       | ✓          |
-| Idle container groups                |        | ✓       | ✓          |
-| Container CPU/Memory utilization     |        | ✓       | ✓          |
-| Container network traffic            |        | ✓       | ✓          |
-| Container storage operations         |        | ✓       | ✓          |
+| Container fleet metrics availability               | Metric | Console | CloudWatch | Telemetry |
+| -------------------------------------------------- | ------ | ------- | ---------- | --------- |
+| Active game server container groups                | ✓      | ✓       |            |
+| Idle game server container groups                  | ✓      | ✓       |            |
+| Pending game server container groups               | ✓      | ✓       |            |
+| Terminating game server container groups           | ✓      | ✓       |            |
+| Unhealthy game server container groups replaced    | ✓      | ✓       |            |
+| Container CPU utilization                          | ✓      | ✓       | ✓          |
+| Container CPU usage by mode (kernel, user, system) |        |         | ✓          |
+| Container CPU reservation                          | ✓      | ✓       |            |
+| Container memory utilization                       | ✓      | ✓       | ✓          |
+| Container memory reservation                       | ✓      | ✓       | ✓          |
+| Container memory limit and max usage               |        |         | ✓          |
+| Container network in/out (rate)                    | ✓      | ✓       | ✓          |
+| Container network packets in/out                   |        |         | ✓          |
+| Container network errors and dropped packets       |        |         | ✓          |
+| Container storage read/write bytes                 | ✓      | ✓       | ✓          |
+| ECS task CPU usage (total, system)                 |        |         | ✓          |
+| ECS task memory utilized and reserved              |        |         | ✓          |
+| ECS task network rate (rx, tx)                     |        |         | ✓          |
+| ECS task storage read/write bytes                  |        |         | ✓          |
+
+#### Player gateway metrics
+
+Player gateway traffic and throttling metrics, available for managed container fleets that use a player gateway. Player gateway metrics are exclusive to CloudWatch (and visible in the console as CloudWatch widgets).
+
+| Player gateway metrics availability | Metric | Console | CloudWatch | Telemetry |
+| ----------------------------------- | ------ | ------- | ---------- | --------- |
+| Player gateway packets in/out       | ✓      | ✓       |            |
+| Player gateway bytes in/out         | ✓      | ✓       |            |
+| Player gateway packets throttled    | ✓      | ✓       |            |
+| Player gateway bytes throttled      | ✓      | ✓       |            |
+| Player gateway player sessions      | ✓      | ✓       |            |
+
+#### Game session queue metrics
+
+Metrics for game session placement queues. Queue metrics are exclusive to CloudWatch (and visible in the console as CloudWatch widgets on the queue's Metrics tab).
+
+| Queue metrics availability   | Metric | Console | CloudWatch | Telemetry |
+| ---------------------------- | ------ | ------- | ---------- | --------- |
+| Average wait time            | ✓      | ✓       |            |
+| Queue depth                  | ✓      | ✓       |            |
+| Game sessions placed         | ✓      | ✓       |            |
+| First choice not viable      | ✓      | ✓       |            |
+| First choice out of capacity | ✓      | ✓       |            |
+| Lowest latency placement     |        | ✓       |            |
+| Lowest price placement       |        | ✓       |            |
+| Placements started           | ✓      | ✓       |            |
+| Placements succeeded         | ✓      | ✓       |            |
+| Placements canceled          | ✓      | ✓       |            |
+| Placements failed            | ✓      | ✓       |            |
+| Placements timed out         | ✓      | ✓       |            |
+
+#### FlexMatch matchmaking metrics
+
+Metrics for FlexMatch matchmaking configurations and rule sets. Matchmaking metrics are exclusive to CloudWatch (and visible in the console as CloudWatch widgets on the matchmaking configuration's Metrics tab).
+
+| Matchmaking metrics availability | Metric | Console | CloudWatch | Telemetry |
+| -------------------------------- | ------ | ------- | ---------- | --------- |
+| Current tickets                  | ✓      | ✓       |            |
+| Tickets started                  | ✓      | ✓       |            |
+| Tickets failed                   | ✓      | ✓       |            |
+| Tickets timed out                | ✓      | ✓       |            |
+| Players started                  | ✓      | ✓       |            |
+| Matches created                  | ✓      | ✓       |            |
+| Matches accepted                 | ✓      | ✓       |            |
+| Matches rejected                 | ✓      | ✓       |            |
+| Matches placed                   | ✓      | ✓       |            |
+| Match acceptances timed out      | ✓      | ✓       |            |
+| Matchmaking search time          | ✓      | ✓       |            |
+| Time to match                    | ✓      | ✓       |            |
+| Time to ticket cancel            | ✓      | ✓       |            |
+| Time to ticket success           | ✓      | ✓       |            |
+| Rule evaluations passed          |        | ✓       |            |
+| Rule evaluations failed          |        | ✓       |            |
 
 #### Choosing the right monitoring source
 

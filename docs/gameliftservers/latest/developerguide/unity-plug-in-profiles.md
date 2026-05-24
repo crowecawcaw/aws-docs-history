@@ -36,6 +36,12 @@ your account user.
      [Set up an AWS user account](setting-up-aws-login.md "setting-up-aws-login.md")
      for instructions on setting up an AWS Identity and Access Management (IAM) user with Amazon GameLift Servers permissions
      and programmatic access with long-term credentials.
+
+   ###### Note
+
+   The "Set up an IAM service role" step is optional for plugin users.
+   You only need an IAM service role if your game server accesses other
+   AWS resources, such as Amazon S3 or DynamoDB.
    - Credentials for your AWS user. These credentials
      consist of an AWS access key ID and AWS secret key.
      See [Get your access keys](../../../cli/latest/userguide/cli-authentication-user.md#cli-authentication-user-get "../../../cli/latest/userguide/cli-authentication-user.md#cli-authentication-user-get") for more details.

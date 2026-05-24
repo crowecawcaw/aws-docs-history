@@ -39,7 +39,7 @@ The AWS account that is being used to manage Amazon GameLift Servers.
 
 time
 
-Event timestamp.
+Event timestamp in ISO 8601 format.
 
 region
 
@@ -89,11 +89,11 @@ Non-TLS-enabled fleets: `ec2-<unique
 
 startTime
 
-Time stamp indicating when this request was placed in the queue.
+Time stamp indicating when this request was placed in the queue, in ISO 8601 format.
 
 endTime
 
-Time stamp indicating when this request was fulfilled.
+Time stamp indicating when this request was fulfilled, in ISO 8601 format.
 
 gameSessionRegion
 
@@ -174,11 +174,11 @@ A unique identifier assigned to the game session placement request.
 
 startTime
 
-Time stamp indicating when this request was placed in the queue.
+Time stamp indicating when this request was placed in the queue, in ISO 8601 format.
 
 endTime
 
-Time stamp indicating when this request was cancelled.
+Time stamp indicating when this request was cancelled, in ISO 8601 format.
 
 ### Example
 
@@ -217,11 +217,11 @@ A unique identifier assigned to the game session placement request.
 
 startTime
 
-Time stamp indicating when this request was placed in the queue.
+Time stamp indicating when this request was placed in the queue, in ISO 8601 format.
 
 endTime
 
-Time stamp indicating when this request was cancelled.
+Time stamp indicating when this request was cancelled, in ISO 8601 format.
 
 ### Example
 
@@ -260,11 +260,11 @@ A unique identifier assigned to the game session placement request.
 
 startTime
 
-Time stamp indicating when this request was placed in the queue.
+Time stamp indicating when this request was placed in the queue, in ISO 8601 format.
 
 endTime
 
-Time stamp indicating when this request failed.
+Time stamp indicating when this request failed, in ISO 8601 format.
 
 ### Example
 

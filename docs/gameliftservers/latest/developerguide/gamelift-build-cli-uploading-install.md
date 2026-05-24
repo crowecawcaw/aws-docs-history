@@ -5,7 +5,11 @@ Create an install script for the operating system (OS) of your game build:
 - Windows: Create a batch file named `install.bat`.
 - Linux: Create a shell script file named
   `install.sh`.
-  When creating an install script, keep in mind the following:
+  Amazon GameLift Servers runs the install script during fleet creation to establish an
+  Amazon Machine Image (AMI) that is used on all future fleet instances. The script
+  is not run at the start of each new instance.
+
+When creating an install script, keep in mind the following:
 
 - The script can't take any user input.
 - Amazon GameLift Servers installs the build and recreates the file directories in your build
@@ -27,6 +31,9 @@ Create an install script for the operating system (OS) of your game build:
 - The install script can't rely on a VPC peering connection. A VPC peering
   connection isn't available until after Amazon GameLift Servers installs the build on fleet
   instances.
+- The install script might run more than once as part of fleet creation.
+  As a best practice, make sure the script is idempotent and robust to
+  being run multiple times.
 
 ###### Example Windows install bash file
 

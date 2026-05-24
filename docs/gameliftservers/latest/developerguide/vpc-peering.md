@@ -252,3 +252,12 @@ servers, consider these common root causes:
   If the new fleet failed to progress to **Active**
   status, there is no VPC to peer with, so the peering connection cannot
   succeed.
+- A VPC peering connection is not found while the API call throws no
+  exception. Check the fleet events under the fleet being used to create the
+  VPC peering connection for any `FLEET_VPC_PEERING_FAILED`
+  events.
+- A VPC peering connection creation fails with fleet event
+  `FLEET_VPC_PEERING_FAILED` and a message indicating the role
+  is not authorized to access a VPC. Verify that the IAM role or user used
+  to create the VPC peering authorization contains the required EC2
+  permissions listed in [Actions, resources, and condition keys for Amazon GameLift Servers](../../../service-authorization/latest/reference/list_amazongameliftservers.md "../../../service-authorization/latest/reference/list_amazongameliftservers.md").

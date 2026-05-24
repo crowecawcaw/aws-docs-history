@@ -463,17 +463,18 @@ The startup map has the following characteristics:
    might need to search for the file, which is located in `... >
 Unreal Projects/[project-name]/Plugins/Amazon GameLift Servers Plugin
 Content/Maps`.
-3. For **Game Default Map**, select the same "StartupMap" from the dropdown
-   list.
-4. For **Server Default Map**, select "Lv1_ThirdPerson" for Unreal Engine 5.6
-   or later, or "ThirdPersonMap" for earlier versions. This is a default map
-   included in your game project. This map is designed for two players
-   in the game.
-5. Open the details panel for the server default map. Set **GameMode Override**
-   to "None".
-6. Expand the **Default Modes** section, and set **Global Default Server
-   Game Mode** to the game mode you updated for your
-   server integration.
+
+###### Note
+
+To find the sample startup map, select the settings icon and choose
+**Show Plugin Content**. 3. For **Game Default Map**, select the same "StartupMap" from the dropdown
+list. 4. For **Server Default Map**, select "Lv1_ThirdPerson" for Unreal Engine 5.6
+or later, or "ThirdPersonMap" for earlier versions. This is a default map
+included in your game project. This map is designed for two players
+in the game. 5. Open the details panel for the server default map. Set **GameMode Override**
+to "None". 6. Expand the **Default Modes** section, and set **Global Default Server
+Game Mode** to the game mode you updated for your
+server integration.
 
 After you've made these changes to your project, you're ready to build your game components.
 
@@ -483,7 +484,7 @@ For Unreal Engine 5.6 or later, if you cannot move the character after connectin
 server, update the BP_ThirdPersonCharacter blueprint to add input mapping context for
 `IMC_Default` and `IMC_MouseLook` as shown below:
 
-![](images/unreal-enhanced-input-blueprint.png)
+![Blueprint nodes showing Event BeginPlay connected to Cast To PlayerController and Add Mapping Context nodes for IMC_Default and IMC_MouseLook.](images/unreal-enhanced-input-blueprint.png)
 
 ## Package your game components
 

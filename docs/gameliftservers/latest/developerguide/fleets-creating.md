@@ -149,7 +149,11 @@ types supported by Amazon GameLift Servers, see the API reference for [EC2Instan
 
 Graviton Arm instances require a server build for a Linux AMI.
 Server SDK 5.1.1 or newer is required for C++ and C#. Server SDK 5.0 or newer is required for Go.
-These instances do not provide out-of-the-box support for Mono installation on Amazon Linux 2023 (AL2023) or Amazon Linux 2 (AL2). 3. Choose **Next** to continue the
+These instances do not provide out-of-the-box support for Mono installation on Amazon Linux 2023 (AL2023) or Amazon Linux 2 (AL2).
+
+###### Note
+
+If you select an ARM architecture instance, make sure the build you selected runs on ARM architecture. Otherwise the fleet deployment will fail. 3. Choose **Next** to continue the
 workflow.
 
 **Step 4 Configure runtime**

@@ -89,6 +89,12 @@ limits you set for each container group). It filters the complete list of availa
 instance types base on resource requirements and the locations you entered. You can
 add additional filters as needed.
 
+###### Note
+
+For Graviton ARM instances, make sure the container images in your
+container group definitions are built for ARM architecture. Otherwise the
+fleet deployment will fail.
+
 For more information about choosing an instance type, see [Configure a container fleet](containers-design-fleet.md#containers-design-fleet-config "containers-design-fleet.md#containers-design-fleet-config"). The size of the instance type you
 choose will impact how game server container groups are packed onto each fleet
 instance. Depending on your choice, consider reviewing your setting for desired

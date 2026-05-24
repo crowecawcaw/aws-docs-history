@@ -12,8 +12,10 @@ processes.
 
 When setting up target-based auto scaling, specify the size of the buffer that you want
 the fleet to maintain. Because `PercentAvailableGameSessions` measures the
-percentage of available resources, the actual buffer size is a percentage of the total fleet
-capacity. Amazon GameLift Servers adds or removes instances to maintain the target buffer size. With a large
+percentage of available resources, the actual buffer size is a percentage of the fleet location's
+capacity. A scaling policy is applied at the fleet level and propagated to each location,
+where each location scales independently based on its own metrics. Amazon GameLift Servers adds or removes
+instances in each location to maintain the target buffer size. With a large
 buffer, you minimize wait time, but you also pay for extra resources that you may not use.
 If your players are more tolerant of wait times, you can lower costs by setting a small
 buffer.
