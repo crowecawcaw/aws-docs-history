@@ -39,7 +39,7 @@ create at least one user with access to the `"appfabric:CreateAppClient"` IAM
 policy listed below, which allows the user to register your application with AppFabric. For
 more information about granting permissions for the AppFabric for productivity features, see [AppFabric for productivity IAM policy examples](security_iam_id-based-policy-examples.md#appfabric-for-productivity-policy-examples "security_iam_id-based-policy-examples.md#appfabric-for-productivity-policy-examples"). While having an
 administrative user is beneficial, it's not mandatory for initial setup. For more
-information, see [Create a user with administrative access](prerequisites.md#create-an-admin "prerequisites.md#create-an-admin").
+information, see .
 
 AppFabric for productivity is only in US East (N. Virginia) during preview. Ensure you’re in this region
 before you start the steps below.
