@@ -23,14 +23,14 @@ Add a layer to your Lambda function using the following layer ARN. For more info
 on Lambda layers, see [AWS Lambda Layers](../../../lambda/latest/dg/configuration-layers.md#configuration-layers-using "../../../lambda/latest/dg/configuration-layers.md#configuration-layers-using").
 
 ```
-arn:aws:lambda:`LAMBDA-FUNCTION-REGION-CODE`:157417159150:layer:AWSCodeGuruProfilerJavaAgentLayer:11
+arn:aws:lambda:`LAMBDA-FUNCTION-REGION-CODE`:157417159150:layer:AWSCodeGuruProfilerJavaAgentLayer:12
 ```
 
 For example, if your Lambda function is in Region `us-east-1`, then the ARN
 would be the following.
 
 ```
-arn:aws:lambda:us-east-1:157417159150:layer:AWSCodeGuruProfilerJavaAgentLayer:11
+arn:aws:lambda:us-east-1:157417159150:layer:AWSCodeGuruProfilerJavaAgentLayer:12
 ```
 
 The CodeGuru Profiler heap summary is an optional feature that shows your application's heap usage

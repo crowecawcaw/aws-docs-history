@@ -140,7 +140,7 @@ To enable heap summary data collection from the command line, refer to the follo
 example.
 
 ```
--javaagent:/path/to/codeguru-profiler-java-agent-standalone-1.2.4.jar="profilingGroupName:myProfilingGroup,heapSummaryEnabled:true"
+-javaagent:/path/to/codeguru-profiler-java-agent-standalone-1.2.6.jar="profilingGroupName:myProfilingGroup,heapSummaryEnabled:true"
 ```
 
 To enable heap summary data collection using environment variables, set

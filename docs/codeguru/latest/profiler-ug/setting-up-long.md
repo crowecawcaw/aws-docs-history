@@ -114,7 +114,7 @@ with Python](integrating-with-python.md "integrating-with-python.md").
 The CodeGuru Profiler heap summary shows your application's heap usage over time. This feature is
 available for JVM applications. For more information on the heap summary, see [Understanding the heap summary](working-with-visualizations-heap-summary.md "working-with-visualizations-heap-summary.md").
 
-Heap summary collection requires Java agent version 1.2.4 or
+Heap summary collection requires Java agent version 1.2.6 or
 greater. Opt in to heap summary data collection by completing the onboarding method used
 to enable the agent. The following are the onboarding methods from which you can
 choose.
@@ -125,7 +125,7 @@ Add `heapSummaryEnabled:true`. The following example shows how to enable
 heap summary collection.
 
 ```
--javaagent:/path/to/codeguru-profiler-java-agent-standalone-1.2.4.jar="profilingGroupName:myProfilingGroup,heapSummaryEnabled:true"
+-javaagent:/path/to/codeguru-profiler-java-agent-standalone-1.2.6.jar="profilingGroupName:myProfilingGroup,heapSummaryEnabled:true"
 ```
 
 #### Update your code

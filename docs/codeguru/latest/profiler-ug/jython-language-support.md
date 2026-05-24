@@ -5,7 +5,7 @@ following lines into your startup or `main` function.
 
 ```
 import sys
-sys.path.append("/path/to/codeguru-profiler-java-agent-1.2.4.jar")
+sys.path.append("/path/to/codeguru-profiler-java-agent-1.2.6.jar")
 from software.amazon.codeguruprofilerjavaagent import Profiler
 
 Profiler.builder()

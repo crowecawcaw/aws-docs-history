@@ -143,7 +143,7 @@ export AWS_CODEGURU_PROFILER_GROUP_NAME=DemoApplication-WithoutIssues
 4. Run the demo.
 
 ```
-java -javaagent:codeguru-profiler-java-agent-standalone-1.2.4.jar \
+java -javaagent:codeguru-profiler-java-agent-standalone-1.2.6.jar \
   -jar target/DemoApplication-1.0-jar-with-dependencies.jar with-issues
 ```
 

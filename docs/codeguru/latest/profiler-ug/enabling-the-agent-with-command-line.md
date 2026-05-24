@@ -7,7 +7,7 @@ and you’re ready to go.
 
 ## Installation
 
-Download the [Amazon CodeGuru Profiler agent .jar file](https://d1osg35nybn3tt.cloudfront.net/com/amazonaws/codeguru-profiler-java-agent-standalone/1.2.4/codeguru-profiler-java-agent-standalone-1.2.4.jar "https://d1osg35nybn3tt.cloudfront.net/com/amazonaws/codeguru-profiler-java-agent-standalone/1.2.4/codeguru-profiler-java-agent-standalone-1.2.4.jar").
+Download the [Amazon CodeGuru Profiler agent .jar file](https://d1osg35nybn3tt.cloudfront.net/com/amazonaws/codeguru-profiler-java-agent-standalone/1.2.6/codeguru-profiler-java-agent-standalone-1.2.6.jar "https://d1osg35nybn3tt.cloudfront.net/com/amazonaws/codeguru-profiler-java-agent-standalone/1.2.6/codeguru-profiler-java-agent-standalone-1.2.6.jar").
 
 Save this to a location that is accessible from your JVM-based application.
 
@@ -28,7 +28,7 @@ Opt in to heap summary data collection by adding `heapSummaryEnabled:true`.
 The following example shows how to enable heap summary collection.
 
 ```
--javaagent:/path/to/codeguru-profiler-java-agent-standalone-1.2.4.jar="profilingGroupName:myProfilingGroup,heapSummaryEnabled:true"
+-javaagent:/path/to/codeguru-profiler-java-agent-standalone-1.2.6.jar="profilingGroupName:myProfilingGroup,heapSummaryEnabled:true"
 ```
 
 You can specify these options as an environment variable or as a command line
@@ -49,14 +49,14 @@ Your startup script using environment variables might look like the following.
 export AWS_CODEGURU_PROFILER_GROUP_NAME=MyProfilingGroup
 export AWS_CODEGURU_PROFILER_TARGET_REGION=us-west-2
 
-java -javaagent:/path/to/codeguru-profiler-java-agent-standalone-1.2.4.jar -jar MyApplication.jar
+java -javaagent:/path/to/codeguru-profiler-java-agent-standalone-1.2.6.jar -jar MyApplication.jar
 ```
 
 Alternatively, you can specify the configuration options by using the command line
 directly, as follows.
 
 ```
-java -javaagent:/path/to/codeguru-profiler-java-agent-standalone-1.2.4.jar=profilingGroupName:MyProfilingGroup,region:us-west-2 -jar MyApplication.jar
+java -javaagent:/path/to/codeguru-profiler-java-agent-standalone-1.2.6.jar=profilingGroupName:MyProfilingGroup,region:us-west-2 -jar MyApplication.jar
 ```
 
 The argument string can contain multiple parameters. Separate parameters with a comma
@@ -104,7 +104,7 @@ CodeGuru Profiler agent in your application by adding the following `-javaagent`
 line option.
 
 ```
-java -javaagent:/path/to/codeguru-profiler-java-agent-standalone-1.2.4.jar -jar MyApplication.jar
+java -javaagent:/path/to/codeguru-profiler-java-agent-standalone-1.2.6.jar -jar MyApplication.jar
 ```
 
 ### Scala
@@ -114,7 +114,7 @@ CodeGuru Profiler agent in your application by adding the following `-J-javaagen
 line option.
 
 ```
-scala -J-javaagent:/path/to/codeguru-profiler-java-agent-standalone-1.2.4.jar -jar MyScalaApplication.jar
+scala -J-javaagent:/path/to/codeguru-profiler-java-agent-standalone-1.2.6.jar -jar MyScalaApplication.jar
 ```
 
 ### Jython
@@ -124,7 +124,7 @@ the CodeGuru Profiler agent in your application by adding the following `-J-java
 command line option.
 
 ```
-jython -J-javaagent:/path/to/codeguru-profiler-java-agent-standalone-1.2.4.jar -jar MyJythonApplication.jar
+jython -J-javaagent:/path/to/codeguru-profiler-java-agent-standalone-1.2.6.jar -jar MyJythonApplication.jar
 ```
 
 ### ColdFusion
@@ -139,7 +139,7 @@ option to the JVM parameters in the administrator console.
    `-javaagent` argument.
 
 ```
--javaagent:/path/to/codeguru-profiler-java-agent-standalone-1.2.4.jar
+-javaagent:/path/to/codeguru-profiler-java-agent-standalone-1.2.6.jar
 ```
 
 5. Choose **Submit changes**, then restart your ColdFusion
@@ -152,7 +152,7 @@ Add the CodeGuru Profiler agent to the Geronimo startup options by adding the
 variable before starting your Geronimo instance.
 
 ```
-export JAVA_OPTS="$JAVA_OPTS -javaagent:/path/to/codeguru-profiler-java-agent-standalone-1.2.4.jar"
+export JAVA_OPTS="$JAVA_OPTS -javaagent:/path/to/codeguru-profiler-java-agent-standalone-1.2.6.jar"
 geronimo run
 ```
 
@@ -164,7 +164,7 @@ variable in your SOLR startup configuration script,
 adjusting them to your environment.
 
 ```
-SOLR_OPTS="$SOLR_OPTS -javaagent:/path/to/codeguru-profiler-java-agent-standalone-1.2.4.jar"
+SOLR_OPTS="$SOLR_OPTS -javaagent:/path/to/codeguru-profiler-java-agent-standalone-1.2.6.jar"
 ```
 
 ### Tomcat
@@ -174,13 +174,13 @@ environment variable in Tomcat’s startup script,
 `/path/to/tomcat/bin/catalina.sh`.
 
 ```
-JAVA_OPTS="$JAVA_OPTS -javaagent:/path/to/codeguru-profiler-java-agent-standalone-1.2.4.jar"
+JAVA_OPTS="$JAVA_OPTS -javaagent:/path/to/codeguru-profiler-java-agent-standalone-1.2.6.jar"
 ```
 
 ### Glassfish
 
 1. Add
-   `<jvm-options>-javaagent:~/codeguru-profiler-java-agent-standalone-1.2.4.jar</jvm-options>`
+   `<jvm-options>-javaagent:~/codeguru-profiler-java-agent-standalone-1.2.6.jar</jvm-options>`
    below the `java-config` tag.
 2. Start your domain, `./bin/asadmin start-domain domain1`.
 
@@ -197,7 +197,7 @@ sun.security.ssl.Handshaker.receiveChangeCipherSpec()
 1. Add the following to `/appName/build.groovy`.
 
 ```
-tasks.withType(JavaExec) { jvmArgs "-javaagent:/path/to/codeguru-profiler-java-agent-standalone-1.2.4.jar" }
+tasks.withType(JavaExec) { jvmArgs "-javaagent:/path/to/codeguru-profiler-java-agent-standalone-1.2.6.jar" }
 ```
 
 2. Start the **grails run-app** application.
@@ -205,7 +205,7 @@ tasks.withType(JavaExec) { jvmArgs "-javaagent:/path/to/codeguru-profiler-java-a
 ### Jetty
 
 - Append
-  `-javaagent:~/codeguru-profiler-java-agent-standalone-1.2.4.jar`
+  `-javaagent:~/codeguru-profiler-java-agent-standalone-1.2.6.jar`
   to the startup script.
 
 ### Play
@@ -213,7 +213,7 @@ tasks.withType(JavaExec) { jvmArgs "-javaagent:/path/to/codeguru-profiler-java-a
 - Append the following to your startup script, and then run the following.
 
 ```
-./sbt -J-javaagent:~/codeguru-profiler-java-agent-standalone-1.2.4.jar "run 8080"
+./sbt -J-javaagent:~/codeguru-profiler-java-agent-standalone-1.2.6.jar "run 8080"
 ```
 
 ### Resin
@@ -221,7 +221,7 @@ tasks.withType(JavaExec) { jvmArgs "-javaagent:/path/to/codeguru-profiler-java-a
 - Add the following to your configuration file.
 
 ```
-<server-default><jvm-arg>-javaagent:~/codeguru-profiler-java-agent-standalone-1.2.4.jar</jvm-arg>
+<server-default><jvm-arg>-javaagent:~/codeguru-profiler-java-agent-standalone-1.2.6.jar</jvm-arg>
 ```
 
 ### Spring Boot
@@ -229,7 +229,7 @@ tasks.withType(JavaExec) { jvmArgs "-javaagent:/path/to/codeguru-profiler-java-a
 - Run the server with the `javaagent`.
 
 ```
-java -javaagent:~/codeguru-profiler-java-agent-standalone-1.2.4.jar -jar demo-0.0.1-SNAPSHOT.jar
+java -javaagent:~/codeguru-profiler-java-agent-standalone-1.2.6.jar -jar demo-0.0.1-SNAPSHOT.jar
 ```
 
 ### Tanuki Wrapper
@@ -237,7 +237,7 @@ java -javaagent:~/codeguru-profiler-java-agent-standalone-1.2.4.jar -jar demo-0.
 - Add the following code to `wrapper.conf`.
 
 ```
-<NON_DUPLICATE_NUMBER_IN_ADDITIONAL_PARAM_LIST>=-javaagent:~/codeguru-profiler-java-agent-standalone-1.2.4.jar
+<NON_DUPLICATE_NUMBER_IN_ADDITIONAL_PARAM_LIST>=-javaagent:~/codeguru-profiler-java-agent-standalone-1.2.6.jar
 ```
 
 ### Websphere Liberty Profile
@@ -245,7 +245,7 @@ java -javaagent:~/codeguru-profiler-java-agent-standalone-1.2.4.jar -jar demo-0.
 - Append the following path to `jvm.options`.
 
 ```
--javaagent:~/codeguru-profiler-java-agent-standalone-1.2.4.jar
+-javaagent:~/codeguru-profiler-java-agent-standalone-1.2.6.jar
 ```
 
 ### Spark

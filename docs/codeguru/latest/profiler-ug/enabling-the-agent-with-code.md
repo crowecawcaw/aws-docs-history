@@ -36,7 +36,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>codeguru-profiler-java-agent</artifactId>
-            <version>1.2.4</version>
+            <version>1.2.6</version>
         </dependency>
     </dependencies>
 ...
@@ -59,7 +59,7 @@ repositories {
     }
 }
 dependencies {
-    implementation("com.amazonaws:codeguru-profiler-java-agent:1.2.4")
+    implementation("com.amazonaws:codeguru-profiler-java-agent:1.2.6")
 }
 ```
 
