@@ -487,26 +487,26 @@ operation. This file is saved in the
 `/drs_failback_automation_client/Results/Failback`
 directory.
 
-![Text input field for entering a custom prefix for failback operation results output.](images/drsfa31.png)
+![](images/drsfa31.png)
 
 If failback replication has already been started for some of the
 recovery instances, the console prompts you to decide if you want to
 skip the instances that are already in failback or restart replication
 for those instances.
 
-![Console prompt asking whether to restart machines, with options to skip or restart all instances.](images/drsfa22.png)
+![](images/drsfa22.png)
 
 The Client will identify the recovery instances that will be failed
 back to their original VMs and list them. The client will then prompt
 you whether you would like to continue. Choose **Y** to continue.
 
-![Command prompt showing Recovery instances to be failed back and a confirmation prompt.](images/drsfa23.png)
+![](images/drsfa23.png)
 
 The Client will initiate failback. You can see the failback progress
 on the **Recovery instances** page in the
 AWS DRS Console.
 
-![Console output showing server replication progress over time in the eu-west-1 region.](images/drsfa24.png)
+![](images/drsfa24.png)
 
 Once the failback has been completed, the DRSFA client displays the
 results of the failback, including the number of servers for which
@@ -526,13 +526,13 @@ The JSON file displays:
 - The vCenter VM UUID
 - The vCenter UUID of the original source server
 
-![JSON output showing replication status as "succeeded" with progress message for two items.](images/drsfa53.png)
+![](images/drsfa53.png)
 
 If failback failed for any of your machines, you can troubleshoot the failure by looking
 at
 the machine configuration `failback_hosts_settings.json` file in the same folder.
 
-![JSON configuration file showing network settings with static IP and automatic device mapping.](images/drsfa54.png)
+![](images/drsfa54.png)
 
 Here, you can see the exact configurations of the failed machines. You can then fix any
 problems and use the custom failback flow explained below to fail back these specific
