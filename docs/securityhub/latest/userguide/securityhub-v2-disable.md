@@ -5,6 +5,8 @@
 If your account is not part of an organization, you can disable Security Hub in the Security Hub console at any time or use [DisableSecurityHubV2 API](../../1.0/APIReference/API_DisableSecurityHubV2.md "../../1.0/APIReference/API_DisableSecurityHubV2.md").
 When you disable Security Hub, it stops ingesting findings from detection engines, you also lose access to existing findings, integrations and configurations.
 
+When you disable Security Hub for your account in all Regions, Security Hub also deletes the service-linked IAM Access Analyzer that was created when you enabled the service. If automatic deletion fails, you can delete the analyzer by calling the IAM Access Analyzer `DeleteServiceLinkedAnalyzer` API operation. This operation succeeds only after Security Hub is fully disabled for your account. If you disable Security Hub in a single Region but remain enabled in other Regions, the unused access analyzer continues to run and findings continue to be replicated to your remaining enabled Regions.
+
 ###### To disable Security Hub
 
 1. Sign in to your AWS account with your credentials, and open the Security Hub console at [https://console.aws.amazon.com/securityhub/v2/home](https://console.aws.amazon.com/securityhub/v2/home "https://console.aws.amazon.com/securityhub/v2/home").

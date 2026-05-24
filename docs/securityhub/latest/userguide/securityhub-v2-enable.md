@@ -63,17 +63,16 @@ After the AWS Organization management account designates a delegated administrat
 5. Choose **Enable Security Hub** to finish enabling Security Hub.
 6. (Recommended) from the popup choose **Configure my organization** and proceed to Step 3.
 
-After you enable Security Hub, a service-linked role called [AWSServiceRoleForSecurityHubV2](security-iam-awsmanpol.md#security-iam-awsmanpol-awssecurityhubv2servicerolepolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-awssecurityhubv2servicerolepolicy") and a service-linked recorder are created in your account.
-The service-linked recorder is a type of AWS Config recorder managed by an AWS service that can record configuration data on service-specific resources.
-With a service-linked recorder, Security Hub enables an event-driven approach for obtaining resource configuration items required for exposure analysis coverage and reporting resource inventory.
-A service-linked recorder is configured per AWS account and AWS Region.
-For global resource types, an additional service-linked recorder is automatically created in the home region to record configuration changes for global resources, as AWS Config only records global resource types in their designated home region.
-For more information, see [Considerations for service-linked configuration recorders](../../../config/latest/developerguide/stop-start-recorder.md#stop-start-recorder-considerations-service-linked "../../../config/latest/developerguide/stop-start-recorder.md#stop-start-recorder-considerations-service-linked") and [Recording regional and global resources](../../../config/latest/developerguide/select-resources.md#select-resources-all "../../../config/latest/developerguide/select-resources.md#select-resources-all").
-
 ### Step 3. Create a policy that enables Security Hub in all member accounts
 
 After enbling Security Hub in the delegated administrator account for an organization you need to create a policy that defines which services and capabilities are enabled in the organization member accounts.
 For more information, see [Enabling a configuration with a type of policy](securityhub-v2-da-policy.md#securityhub-v2-configuration-enable-policy "securityhub-v2-da-policy.md#securityhub-v2-configuration-enable-policy").
+
+After you enable Security Hub the following resources are created in your account:
+
+- A service-linked role called [AWSServiceRoleForSecurityHubV2](security-iam-awsmanpol.md#security-iam-awsmanpol-awssecurityhubv2servicerolepolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-awssecurityhubv2servicerolepolicy").
+- Service-linked configuration recorders. See [Service-linked recorder](securityhub-v2-concepts.md#concept-slcr "securityhub-v2-concepts.md#concept-slcr") in the Security Hub concepts documentation for more details.
+- A Service-linked analyzer. See [Service-linked analyzer](securityhub-v2-concepts.md#concept-sla "securityhub-v2-concepts.md#concept-sla") in the Security Hub concepts documentation for more details.
 
 ## Enable Security Hub in a standalone account
 
@@ -98,9 +97,8 @@ A standalone account is an AWS account that has not enabled AWS organizations.
 5. (Optional) For **Resource tags**, add tags as key-value pairs to help you easily identify the configuration.
 6. Choose **Enable Security Hub**.
 
-After you enable Security Hub, a service-linked role called [AWSServiceRoleForSecurityHubV2](security-iam-awsmanpol.md#security-iam-awsmanpol-awssecurityhubv2servicerolepolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-awssecurityhubv2servicerolepolicy") and a service-linked recorder are created in your account.
-The service-linked recorder is a type of AWS Config recorder managed by an AWS service that can record configuration data on service-specific resources.
-With a service-linked recorder, Security Hub enables an event-driven approach for obtaining resource configuration items required for exposure analysis coverage and reporting resource inventory.
-A service-linked recorder is configured per AWS account and AWS Region.
-For global resource types, an additional service-linked recorder is automatically created in the home region to record configuration changes for global resources, as AWS Config only records global resource types in their designated home region.
-For more information, see [Considerations for service-linked configuration recorders](../../../config/latest/developerguide/stop-start-recorder.md#stop-start-recorder-considerations-service-linked "../../../config/latest/developerguide/stop-start-recorder.md#stop-start-recorder-considerations-service-linked") and [Recording regional and global resources](../../../config/latest/developerguide/select-resources.md#select-resources-all "../../../config/latest/developerguide/select-resources.md#select-resources-all").
+After you enable Security Hub the following resources are created in in each account where you enabled the service:
+
+- A service-linked role called [AWSServiceRoleForSecurityHubV2](security-iam-awsmanpol.md#security-iam-awsmanpol-awssecurityhubv2servicerolepolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-awssecurityhubv2servicerolepolicy").
+- Service-linked configuration recorders. See [Service-linked recorder](securityhub-v2-concepts.md#concept-slcr "securityhub-v2-concepts.md#concept-slcr") in the Security Hub concepts documentation for more details.
+- A Service-linked analyzer. See [Service-linked analyzer](securityhub-v2-concepts.md#concept-sla "securityhub-v2-concepts.md#concept-sla") in the Security Hub concepts documentation for more details.

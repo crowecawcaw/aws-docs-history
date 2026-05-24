@@ -33,6 +33,16 @@ Each exposure finding includes:
 - **Resource configuration details**: Configuration of the resource at the time the finding was created as well as current configuration of the resource in the Security Hub resource inventory dashboard.
 - **Contextual traits providing additional security context**: Contextual traits are additional security markers that were identified by Security Hub but were not used to create an exposure finding.
 
+Unused access information from IAM Access Analyzer can appear as contextual traits in exposure findings. When an IAM role attached to a resource has unused permissions, Security Hub includes this information as a contextual trait in the exposure detail view. For example, if an Amazon EC2 instance has a software vulnerability and its attached IAM role has 47 unused permissions across 5 services, the exposure finding shows the unused permissions as supplementary context. This helps you understand the potential blast radius — a vulnerable resource with an over-privileged IAM role presents a higher risk than one with least-privilege permissions, because a compromised resource could use those unused permissions to escalate access.
+
+The following resource types can display unused access contextual traits in their exposure findings:
+
+- Amazon Elastic Compute Cloud instances
+- AWS Lambda functions
+- Amazon Elastic Container Service services
+- Amazon Elastic Kubernetes Service clusters
+- IAM users (directly)
+
 ## Severity classification
 
 Exposure findings are classified based on:

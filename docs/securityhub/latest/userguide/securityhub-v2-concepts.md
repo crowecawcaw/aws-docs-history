@@ -147,6 +147,25 @@ A finding that contributes to an exposure finding.
 A signal can be referred to as a _contributing finding_.
 A signal can originate in Security Hub CSPM, AWS Config, or other AWS services, such as Amazon Inspector.
 
+**Service-linked configuration recorder**
+
+A type of AWS Config recorder that is used to record configuration data on service-specific resources.
+Security Hub uses these recorders in an event-driven approach to obtain resource configuration items for exposure analysis coverage, resource inventory reporting, and posture management control evaluations.
+This capability is provided to all Security Hub customers as part of the Essential plan pricing.
+After you enable Security Hub, the following service-linked configuration recorders are created in your account:
+
+- In each AWS account and AWS Region, a service-linked configuration recorder named `AWSConfigurationRecorderForSecurityHubAssets` is created.
+- For global resource types, an additional service-linked configuration recorder named `AWSConfigurationRecorderForSecurityHubAssetsGlobal` is created in the us-east-1 AWS Region.
+
+**Service-linked analyzer**
+
+An IAM Access Analyzer that Security Hub creates and manages on your behalf.
+When you enable Security Hub, it automatically creates a service-linked unused access analyzer to identify IAM roles, users, access keys, and permissions that have not been used within a 90-day lookback period.
+The analyzer runs in US East (N. Virginia) because IAM is a global service. Security Hub replicates unused access findings to all Regions where you have enabled Security Hub.
+You do not need to separately enable IAM Access Analyzer or take any additional action. This capability is provided to all Security Hub customers as part of the Essential plan pricing.
+You can view the service-linked analyzer in the IAM Access Analyzer console, but you cannot modify or delete it while Security Hub is enabled. Security Hub deletes the analyzer when you disable the service in all regions of an AWS account.
+For more information, see [Understanding unused access findings in Security Hub](unused-access-findings.md "unused-access-findings.md").
+
 **Trait**
 
 A security deviation that results in an exposure finding.
@@ -154,3 +173,7 @@ Trait types include **Assumability**, **Misconfiguration**, **Reachability**, **
 A trait is associated with one signal, and a signal can contain multiple traits.
 For example, a Security Hub CSPM control indicates a customer-managed policy allows administrative access control.
 This signal contains a misconfiguration trait.
+
+**Unused access finding**
+
+A finding that identifies an IAM role, user, access key, or set of permissions that has not been used within a 90-day lookback period. Security Hub generates unused access findings using a service-linked IAM Access Analyzer. There are four types of unused access findings: unused IAM roles, unused IAM user access keys, unused IAM user passwords, and unused permissions.

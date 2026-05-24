@@ -24,6 +24,12 @@ Streamline response times with automated workflows and an integrated ticketing s
 
 Security Hub correlates findings from Security Hub CSPM control checks, Amazon Inspector, and other AWS services to detect exposures associated with AWS resources.
 
+###### Unused access analysis
+
+Security Hub automatically identifies IAM roles, users, access keys, and permissions that have not been used within a 90-day lookback period. When you enable Security Hub, the service creates a service-linked IAM Access Analyzer in your account.
+Unused access findings help you implement least-privilege access by highlighting over-provisioned IAM principals.
+For unused permissions findings, Security Hub can generate least-privilege policy recommendations that show you a scoped-down replacement policy.
+
 ###### Findings are formatted in the Open Cybersecurity Schema Framework (OCSF)
 
 Security Hub generates findings in OCSF and receives findings in OCSF from Security Hub CSPM and other AWS services:
@@ -49,6 +55,7 @@ Security Hub receives findings from the following AWS services.
 - Amazon GuardDuty
 - Amazon Inspector
 - Amazon Macie
+- IAM Access Analyzer
 
 ## Accessibility
 
