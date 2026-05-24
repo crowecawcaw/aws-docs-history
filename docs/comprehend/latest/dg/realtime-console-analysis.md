@@ -81,7 +81,7 @@ The **Labels** analysis mode checks for the presence of PII
 in your text document and returns the labels of identified PII entity types. For
 more information, see [Labeling PII entities](how-pii-labels.md "how-pii-labels.md").
 
-![Console display of the PII labels analysis mode.](images/gs-console-pii-labels.png)
+![Console display of the PII labels analysis mode.](/images/comprehend/latest/dg/images/gs-console-pii-labels.png)
 
 ## Sentiment
 
