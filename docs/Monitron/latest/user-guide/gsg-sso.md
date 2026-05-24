@@ -44,7 +44,7 @@ users.
       to the user with password setup
       instructions**.
 
-   ![User details form with fields for username, email, name, and password setup option.](images/gs-project-sso-user-details.png) 3. Choose **Next: Groups**. 4. Choose **Add user**. IAM Identity Center sends the user an
+   ![](images/gs-project-sso-user-details.png) 3. Choose **Next: Groups**. 4. Choose **Add user**. IAM Identity Center sends the user an
    email that contains a link to activate the IAM Identity Center user. The link
    is valid for up to seven days. Each user must open the email and
    accept the invitation before accessing your project in the Amazon Monitron

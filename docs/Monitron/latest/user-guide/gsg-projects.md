@@ -29,7 +29,7 @@ tag**.
 For more information about tags, see [Tags in
 Amazon Monitron](tagging.md "tagging.md"). 7. Choose **Next** to create the project.
 
-![Project details form with project name field and data encryption information.](images/gs-project-monitron-project-details.png)
+![](images/gs-project-monitron-project-details.png)
 When you create your first project, the owner of the AWS account will get an
 email from _AWS Organizations_. No action needs to be taken
 based on this email.

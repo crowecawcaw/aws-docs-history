@@ -17,7 +17,7 @@ Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/main
 1. Open the [Amazon S3 console](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. Choose **Create bucket**.
 
-![Amazon S3 console interface showing Buckets section with Create bucket button highlighted.](images/gdpr-create-bucket.png) 3. Name your bucket and select an appropriate region. Then, at the bottom
+![](images/gdpr-create-bucket.png) 3. Name your bucket and select an appropriate region. Then, at the bottom
 of the page, choose **Create bucket**.
 
 ###### Important
@@ -33,7 +33,7 @@ regions.
 It must also be the same region in which you are using the Amazon Monitron
 service.
 
-![Create bucket interface showing bucket name "monitron-export-example" and AWS Region "US East (N. Virginia)".](images/gdpr-create-bucket-2.png) 4. Review the rest of the options on the page, and make the appropriate
+![](images/gdpr-create-bucket-2.png) 4. Review the rest of the options on the page, and make the appropriate
 choices, depending on your security needs and policies.
 
 ###### Important
@@ -43,10 +43,10 @@ your data. We strongly recommend using server-side encryption and
 blocking public access to your bucket. 5. Using the search box, find the bucket you just created, and then
 choose it.
 
-![AWS S3 console showing a newly created bucket named "monitron-export-example" in the bucket list.](images/gdpr-choose-s3-bucket.png) 6. From the **Properties** tab, make a note of the name,
+![](images/gdpr-choose-s3-bucket.png) 6. From the **Properties** tab, make a note of the name,
 ARN, and region of the bucket.
 
-![S3 bucket properties showing name, region, ARN, and creation date for monitron-export-example.](images/gdpr-s3-properties-tab.png)
+![](images/gdpr-s3-properties-tab.png)
 
 ## Step 2: Give Amazon Monitron permission to access Amazon S3
 
@@ -151,7 +151,7 @@ following:
 
 ![IAM role details page showing Trust relationships tab and Edit trust policy button.](images/s3-export-20.png) 3. Choose **Edit trust relationship**.
 
-![Trust relationships tab with Edit trust relationship button highlighted.](images/gdpr-edit-trust-relationship.png) 4. Erase the default JSON text so that the form is empty. 5. Paste in the policy that allows Amazon Monitron to assume the role.
+![](images/gdpr-edit-trust-relationship.png) 4. Erase the default JSON text so that the form is empty. 5. Paste in the policy that allows Amazon Monitron to assume the role.
 
 JSON
 
@@ -177,7 +177,7 @@ JSON
    right corner of any page, then choose **Support
    Center**.
 
-![AWS console interface showing IAM dashboard with Support Center dropdown menu highlighted.](images/gdpr-support-question-mark.png) 2. On the next page, choose **Create case**.
+![](images/gdpr-support-question-mark.png) 2. On the next page, choose **Create case**.
 
 ![Support Center interface with Quick solutions, Active cases, and Create case button.](images/s3-export-4.png) 3. On the **How can we help?** page, do the
 following:
