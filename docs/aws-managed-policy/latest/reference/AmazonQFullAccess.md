@@ -12,13 +12,13 @@ You can attach `AmazonQFullAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: November 28, 2023, 16:00 UTC
-- **Edited time:** February 12, 2026, 18:00 UTC
+- **Edited time:** May 20, 2026, 22:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonQFullAccess`
 
 ## Policy version
 
-**Policy version:** v11 (default)
+**Policy version:** v12 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -58,6 +58,17 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "q:ListTagsForResource",
         "q:UntagResource",
         "q:TagResource"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowQArtifactsAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "q:CreateArtifact",
+        "q:GetArtifact",
+        "q:GetArtifactActionResult",
+        "q:PerformArtifactAction"
       ],
       "Resource" : "*"
     },

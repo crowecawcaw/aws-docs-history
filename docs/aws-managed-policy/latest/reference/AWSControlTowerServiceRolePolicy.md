@@ -12,13 +12,13 @@ You can attach `AWSControlTowerServiceRolePolicy` to your users, groups, and rol
 
 - **Type**: Service role policy
 - **Creation time**: May 03, 2019, 18:19 UTC
-- **Edited time:** March 23, 2026, 18:42 UTC
+- **Edited time:** May 20, 2026, 20:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AWSControlTowerServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v20 (default)
+**Policy version:** v21 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -219,10 +219,15 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "cloudformation:SetTypeConfiguration",
         "cloudformation:DeactivateType",
-        "cloudformation:ActivateType",
-        "cloudformation:BatchDescribeTypeConfigurations"
+        "cloudformation:ActivateType"
       ],
       "Resource" : "arn:aws:cloudformation:*:*:type/hook/AWS-ControlTower*"
+    },
+    {
+      "Sid" : "AllowBatchDescribeTypeConfigurationsForHookConfigFetch",
+      "Effect" : "Allow",
+      "Action" : "cloudformation:BatchDescribeTypeConfigurations",
+      "Resource" : "*"
     },
     {
       "Sid" : "AllowActionsForCloudFormationStackSetOrganizationsTrustedAccess",

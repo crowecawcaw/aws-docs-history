@@ -12,13 +12,13 @@ You can attach `SecurityAudit` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: February 06, 2015, 18:41 UTC
-- **Edited time:** May 07, 2026, 16:12 UTC
+- **Edited time:** May 18, 2026, 15:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SecurityAudit`
 
 ## Policy version
 
-**Policy version:** v87 (default)
+**Policy version:** v88 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -750,6 +750,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "s3tables:ListNamespaces",
         "s3tables:ListTableBuckets",
         "s3tables:ListTables",
+        "s3vectors:GetIndex",
+        "s3vectors:GetVectorBucket",
+        "s3vectors:GetVectorBucketPolicy",
+        "s3vectors:GetVectors",
+        "s3vectors:ListIndexes",
+        "s3vectors:ListVectorBuckets",
+        "s3vectors:ListVectors",
         "sagemaker:Describe*",
         "sagemaker:List*",
         "schemas:DescribeCodeBinding",

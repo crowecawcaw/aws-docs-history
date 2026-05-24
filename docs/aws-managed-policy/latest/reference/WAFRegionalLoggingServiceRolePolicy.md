@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: August 24, 2018, 18:40 UTC
-- **Edited time:** August 24, 2018, 18:40 UTC
+- **Edited time:** May 20, 2026, 18:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/WAFRegionalLoggingServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -39,6 +39,20 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : [
         "arn:aws:firehose:*:*:deliverystream/aws-waf-logs-*"
       ]
+    },
+    {
+      "Sid" : "KMSForFirehoseSSECMK",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:GenerateDataKey",
+        "kms:Decrypt"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringLike" : {
+          "kms:ViaService" : "firehose.*.amazonaws.com"
+        }
+      }
     }
   ]
 }

@@ -12,13 +12,13 @@ You can attach `AWSElasticBeanstalkReadOnly` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: January 22, 2021, 19:02 UTC
-- **Edited time:** January 22, 2021, 19:02 UTC
+- **Edited time:** May 19, 2026, 13:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSElasticBeanstalkReadOnly`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -109,6 +109,23 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "s3:ListBucket"
       ],
       "Resource" : "arn:aws:s3:::elasticbeanstalk-*"
+    },
+    {
+      "Sid" : "AllowCloudWatchLogsListAndDescribe",
+      "Effect" : "Allow",
+      "Action" : [
+        "logs:DescribeLogGroups",
+        "logs:DescribeLogStreams"
+      ],
+      "Resource" : "arn:aws:logs:*:*:log-group:/aws/elasticbeanstalk/*"
+    },
+    {
+      "Sid" : "AllowCloudWatchLogsRead",
+      "Effect" : "Allow",
+      "Action" : [
+        "logs:GetLogEvents"
+      ],
+      "Resource" : "arn:aws:logs:*:*:log-group:/aws/elasticbeanstalk/*:log-stream:*"
     }
   ]
 }

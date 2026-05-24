@@ -12,13 +12,13 @@ You can attach `AmazonEKSComputePolicy` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: November 01, 2024, 21:46 UTC
-- **Edited time:** April 17, 2026, 21:27 UTC
+- **Edited time:** May 18, 2026, 21:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonEKSComputePolicy`
 
 ## Policy version
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -127,6 +127,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "iam:AWSServiceName" : "spot.amazonaws.com"
         }
       }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : "ec2:DescribeCapacityReservations",
+      "Resource" : "*"
     }
   ]
 }

@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: September 07, 2018, 00:21 UTC
-- **Edited time:** February 12, 2026, 17:59 UTC
+- **Edited time:** May 18, 2026, 21:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonConnectServiceLinkedRolePolicy`
 
 ## Policy version
 
-**Policy version:** v53 (default)
+**Policy version:** v54 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -252,79 +252,21 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "AllowWisdomForConnectEnabledTaggedResources",
       "Effect" : "Allow",
       "Action" : [
-        "wisdom:CreateContent",
-        "wisdom:DeleteContent",
-        "wisdom:CreateKnowledgeBase",
-        "wisdom:GetAssistant",
-        "wisdom:GetKnowledgeBase",
-        "wisdom:GetContent",
-        "wisdom:GetRecommendations",
-        "wisdom:GetSession",
-        "wisdom:NotifyRecommendationsReceived",
-        "wisdom:QueryAssistant",
-        "wisdom:StartContentUpload",
-        "wisdom:UpdateContent",
-        "wisdom:UntagResource",
-        "wisdom:TagResource",
-        "wisdom:CreateSession",
-        "wisdom:CreateQuickResponse",
-        "wisdom:GetQuickResponse",
-        "wisdom:SearchQuickResponses",
-        "wisdom:StartImportJob",
-        "wisdom:GetImportJob",
-        "wisdom:ListImportJobs",
-        "wisdom:ListQuickResponses",
-        "wisdom:UpdateQuickResponse",
-        "wisdom:DeleteQuickResponse",
-        "wisdom:PutFeedback",
-        "wisdom:ListContentAssociations",
-        "wisdom:CreateMessageTemplate",
-        "wisdom:UpdateMessageTemplate",
-        "wisdom:UpdateMessageTemplateMetadata",
-        "wisdom:GetMessageTemplate",
-        "wisdom:DeleteMessageTemplate",
-        "wisdom:ListMessageTemplates",
-        "wisdom:SearchMessageTemplates",
-        "wisdom:ActivateMessageTemplate",
-        "wisdom:DeactivateMessageTemplate",
-        "wisdom:CreateMessageTemplateVersion",
-        "wisdom:ListMessageTemplateVersions",
-        "wisdom:CreateMessageTemplateAttachment",
-        "wisdom:DeleteMessageTemplateAttachment",
-        "wisdom:RenderMessageTemplate",
-        "wisdom:CreateAIAgent",
-        "wisdom:CreateAIAgentVersion",
-        "wisdom:DeleteAIAgent",
-        "wisdom:DeleteAIAgentVersion",
-        "wisdom:UpdateAIAgent",
-        "wisdom:UpdateAssistantAIAgent",
-        "wisdom:RemoveAssistantAIAgent",
-        "wisdom:GetAIAgent",
-        "wisdom:ListAIAgents",
-        "wisdom:ListAIAgentVersions",
-        "wisdom:CreateAIPrompt",
-        "wisdom:CreateAIPromptVersion",
-        "wisdom:DeleteAIPrompt",
-        "wisdom:DeleteAIPromptVersion",
-        "wisdom:UpdateAIPrompt",
-        "wisdom:GetAIPrompt",
-        "wisdom:ListAIPrompts",
-        "wisdom:ListAIPromptVersions",
-        "wisdom:CreateAIGuardrail",
-        "wisdom:CreateAIGuardrailVersion",
-        "wisdom:DeleteAIGuardrail",
-        "wisdom:DeleteAIGuardrailVersion",
-        "wisdom:UpdateAIGuardrail",
-        "wisdom:GetAIGuardrail",
-        "wisdom:ListAIGuardrails",
-        "wisdom:ListAIGuardrailVersions",
-        "wisdom:CreateAssistant",
-        "wisdom:ListTagsForResource",
-        "wisdom:SendMessage",
-        "wisdom:GetNextMessage",
-        "wisdom:ListMessages",
-        "wisdom:Retrieve",
-        "wisdom:ListAssistantAssociations"
+        "wisdom:*"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/AmazonConnectEnabled" : "True"
+        }
+      }
+    },
+    {
+      "Sid" : "DenyWisdomForConnectEnabledTaggedResources",
+      "Effect" : "Deny",
+      "Action" : [
+        "wisdom:DeleteAssistant",
+        "wisdom:DeleteKnowledgeBase"
       ],
       "Resource" : "*",
       "Condition" : {
@@ -428,8 +370,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:chime:*:*:vc/*",
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceTag/AmazonConnectEnabled" : "True",
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "aws:ResourceTag/AmazonConnectEnabled" : "True"
         }
       }
     },
@@ -513,8 +455,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:social-messaging:*:*:phone-number-id/*",
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceTag/AmazonConnectEnabled" : "True",
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "aws:ResourceTag/AmazonConnectEnabled" : "True"
         }
       }
     },
@@ -541,8 +483,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:social-messaging:*:*:waba/*",
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceTag/AmazonConnectEnabled" : "True",
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "aws:ResourceTag/AmazonConnectEnabled" : "True"
         }
       }
     },

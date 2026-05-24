@@ -12,13 +12,13 @@ You can attach `ReadOnlyAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: February 06, 2015, 18:39 UTC
-- **Edited time:** May 07, 2026, 16:12 UTC
+- **Edited time:** May 18, 2026, 15:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/ReadOnlyAccess`
 
 ## Policy version
 
-**Policy version:** v184 (default)
+**Policy version:** v185 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -67,6 +67,32 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "acm:List*",
         "acm:SearchCertificates",
         "action-recommendations:ListRecommendedActions",
+        "aidevops:DescribePrivateConnection",
+        "aidevops:DescribeServices",
+        "aidevops:GetAccountUsage",
+        "aidevops:GetAgentSpace",
+        "aidevops:GetAssociation",
+        "aidevops:GetBacklogTask",
+        "aidevops:GetKnowledgeItem",
+        "aidevops:GetOperatorApp",
+        "aidevops:GetRecommendation",
+        "aidevops:GetService",
+        "aidevops:ListAgentSpaces",
+        "aidevops:ListAssociations",
+        "aidevops:ListBacklogTasks",
+        "aidevops:ListChats",
+        "aidevops:ListExecutions",
+        "aidevops:ListGoals",
+        "aidevops:ListJournalRecords",
+        "aidevops:ListKnowledgeItems",
+        "aidevops:ListKnowledgeItemVersions",
+        "aidevops:ListPendingMessages",
+        "aidevops:ListPrivateConnections",
+        "aidevops:ListRecommendations",
+        "aidevops:ListServices",
+        "aidevops:ListTagsForResource",
+        "aidevops:ListWebhooks",
+        "aidevops:SearchServiceAccessibleResource",
         "aiops:GetEphemeralInvestigationResults",
         "aiops:GetFact",
         "aiops:GetFactVersions",

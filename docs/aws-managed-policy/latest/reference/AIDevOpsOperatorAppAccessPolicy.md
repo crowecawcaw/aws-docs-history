@@ -12,13 +12,13 @@ You can attach `AIDevOpsOperatorAppAccessPolicy` to your users, groups, and role
 
 - **Type**: AWS managed policy
 - **Creation time**: March 26, 2026, 03:42 UTC
-- **Edited time:** May 07, 2026, 00:42 UTC
+- **Edited time:** May 22, 2026, 00:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AIDevOpsOperatorAppAccessPolicy`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -91,6 +91,20 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "support:DescribeServices",
         "support:InitiateChatForCase",
         "support:DescribeSupportLevel"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AllowSecretsManagerOperatorActions",
+      "Effect" : "Allow",
+      "Action" : [
+        "secretsmanager:CreateSecret",
+        "secretsmanager:ListSecrets"
       ],
       "Resource" : "*",
       "Condition" : {

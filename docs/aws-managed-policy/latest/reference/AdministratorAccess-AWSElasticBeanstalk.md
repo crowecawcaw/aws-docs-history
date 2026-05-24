@@ -12,13 +12,13 @@ You can attach `AdministratorAccess-AWSElasticBeanstalk` to your users, groups, 
 
 - **Type**: AWS managed policy
 - **Creation time**: January 22, 2021, 19:36 UTC
-- **Edited time:** February 12, 2026, 18:00 UTC
+- **Edited time:** May 19, 2026, 20:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AdministratorAccess-AWSElasticBeanstalk`
 
 ## Policy version
 
-**Policy version:** v9 (default)
+**Policy version:** v10 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -264,11 +264,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "iam:CreateServiceLinkedRole"
       ],
       "Resource" : [
-        "arn:aws:iam::*:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling*",
-        "arn:aws:iam::*:role/aws-service-role/elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk*",
-        "arn:aws:iam::*:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing*",
-        "arn:aws:iam::*:role/aws-service-role/managedupdates.elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk*",
-        "arn:aws:iam::*:role/aws-service-role/maintenance.elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk*"
+        "arn:aws:iam::*:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling",
+        "arn:aws:iam::*:role/aws-service-role/elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk",
+        "arn:aws:iam::*:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing",
+        "arn:aws:iam::*:role/aws-service-role/managedupdates.elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk",
+        "arn:aws:iam::*:role/aws-service-role/maintenance.elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk"
       ],
       "Condition" : {
         "StringLike" : {
@@ -290,6 +290,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "logs:PutRetentionPolicy"
       ],
       "Resource" : "arn:aws:logs:*:*:log-group:/aws/elasticbeanstalk/*"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "logs:GetLogEvents"
+      ],
+      "Resource" : "arn:aws:logs:*:*:log-group:/aws/elasticbeanstalk/*:log-stream:*"
     },
     {
       "Effect" : "Allow",

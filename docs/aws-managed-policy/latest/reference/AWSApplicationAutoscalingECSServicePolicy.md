@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: October 25, 2017, 23:53 UTC
-- **Edited time:** October 24, 2024, 20:05 UTC
+- **Edited time:** May 20, 2026, 21:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSApplicationAutoscalingECSServicePolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -34,6 +34,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "ecs:DescribeServices",
+        "ecs:DescribeServiceRevisions",
         "ecs:UpdateService",
         "cloudwatch:PutMetricAlarm",
         "cloudwatch:DescribeAlarms",

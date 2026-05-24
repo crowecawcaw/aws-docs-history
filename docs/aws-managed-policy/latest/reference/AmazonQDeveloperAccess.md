@@ -12,13 +12,13 @@ You can attach `AmazonQDeveloperAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: July 09, 2024, 08:35 UTC
-- **Edited time:** February 12, 2026, 18:00 UTC
+- **Edited time:** May 20, 2026, 23:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonQDeveloperAccess`
 
 ## Policy version
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -66,6 +66,17 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "sts:SetContext"
       ],
       "Resource" : "arn:aws:sts::*:self"
+    },
+    {
+      "Sid" : "AllowQArtifactsAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "q:CreateArtifact",
+        "q:GetArtifact",
+        "q:GetArtifactActionResult",
+        "q:PerformArtifactAction"
+      ],
+      "Resource" : "*"
     }
   ]
 }
