@@ -6,9 +6,39 @@ Previous platform versions remain accessible to accounts with active or terminat
 See the [Supported platforms](platforms-supported.md "platforms-supported.md") page for information on the latest version of each platform
 supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](../relnotes.md "../relnotes.md").
 
-## April 22, 2026 – present
+## May 19, 2026 – present
 
-The following Elastic Beanstalk platform versions for .NET on Windows Server have been current since April 22, 2026:
+The following Elastic Beanstalk platform versions for .NET on Windows Server have been current since May 19, 2026:
+
+### Configuration basics
+
+| Platform Version                                          | Solution Stack Name                                       | Framework                                                                               | Proxy Server |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------------------------------------- | ------------ |
+| **Windows Server 2025 with IIS 10.0 version 2.23.1**      | _64bit Windows Server 2025 v2.23.1 running IIS 10.0_      | .NET 10.0.8, supports 10.0.8, 9.0.16, 8.0.27<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
+| **Windows Server Core 2025 with IIS 10.0 version 2.23.1** | _64bit Windows Server Core 2025 v2.23.1 running IIS 10.0_ | .NET 10.0.8, supports 10.0.8, 9.0.16, 8.0.27<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
+| **Windows Server 2022 with IIS 10.0 version 2.23.1**      | _64bit Windows Server 2022 v2.23.1 running IIS 10.0_      | .NET 10.0.8, supports 10.0.8, 9.0.16, 8.0.27<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
+| **Windows Server Core 2022 with IIS 10.0 version 2.23.1** | _64bit Windows Server Core 2022 v2.23.1 running IIS 10.0_ | .NET 10.0.8, supports 10.0.8, 9.0.16, 8.0.27<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
+| **Windows Server 2019 with IIS 10.0 version 2.23.1**      | _64bit Windows Server 2019 v2.23.1 running IIS 10.0_      | .NET 10.0.8, supports 10.0.8, 9.0.16, 8.0.27<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.23.1** | _64bit Windows Server Core 2019 v2.23.1 running IIS 10.0_ | .NET 10.0.8, supports 10.0.8, 9.0.16, 8.0.27<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.23.1**      | _64bit Windows Server 2016 v2.23.1 running IIS 10.0_      | .NET 10.0.8, supports 10.0.8, 9.0.16, 8.0.27<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.23.1** | _64bit Windows Server Core 2016 v2.23.1 running IIS 10.0_ | .NET 10.0.8, supports 10.0.8, 9.0.16, 8.0.27<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
+
+### More details
+
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent  | Web Deploy | AWS X-Ray |
+| --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
+| **Windows Server 2025 with IIS 10.0 version 2.23.1**      | 2026.05.13  | 3.7.1251.1       | 2.5.0     | 3.3.4268.0 | 4.0        | 3.6.3     |
+| **Windows Server Core 2025 with IIS 10.0 version 2.23.1** | 2026.05.13  | 3.7.1251.1       | 2.5.0     | 3.3.4268.0 | 4.0        | 3.6.3     |
+| **Windows Server 2022 with IIS 10.0 version 2.23.1**      | 2026.05.13  | 3.7.1251.1       | 2.5.0     | 3.3.4268.0 | 4.0        | 3.6.3     |
+| **Windows Server Core 2022 with IIS 10.0 version 2.23.1** | 2026.05.13  | 3.7.1251.1       | 2.5.0     | 3.3.4268.0 | 4.0        | 3.6.3     |
+| **Windows Server 2019 with IIS 10.0 version 2.23.1**      | 2026.05.13  | 3.7.1251.1       | 2.5.0     | 3.3.4268.0 | 4.0        | 3.6.3     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.23.1** | 2026.05.13  | 3.7.1251.1       | 2.5.0     | 3.3.4268.0 | 4.0        | 3.6.3     |
+| **Windows Server 2016 with IIS 10.0 version 2.23.1**      | 2026.05.13  | 3.7.1251.1       | 2.5.0     | 3.3.4268.0 | 4.0        | 3.6.3     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.23.1** | 2026.05.13  | 3.7.1251.1       | 2.5.0     | 3.3.4268.0 | 4.0        | 3.6.3     |
+
+## April 22, 2026 – May 18, 2026
+
+The following Elastic Beanstalk platform versions for .NET on Windows Server were current between April 22, 2026 and May 18, 2026:
 
 ### Configuration basics
 

@@ -6,9 +6,21 @@ Previous platform versions remain accessible to accounts with active or terminat
 See the [Supported platforms](platforms-supported.md "platforms-supported.md") page for information on the latest version of each platform
 supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](../relnotes.md "../relnotes.md").
 
-## May 7, 2026 – present
+## May 19, 2026 – present
 
-The following Elastic Beanstalk platform versions for Python have been current since May 7, 2026:
+The following Elastic Beanstalk platform versions for Python have been current since May 19, 2026:
+
+| Platform Version and _Solution Stack Name_                                                     | AMI              | Language       | Package Manager             | AWS X-Ray | Proxy Server                          |
+| ---------------------------------------------------------------------------------------------- | ---------------- | -------------- | --------------------------- | --------- | ------------------------------------- |
+| **Python 3.14 AL2023 version 4.13.0**<br>_64bit Amazon Linux 2023 v4.13.0 running Python 3.14_ | 2023.11.20260514 | Python 3.14.5  | pip 26.1.1, pipenv 2026.6.1 | 3.6.2     | nginx 1.30.0 (default), Apache 2.4.66 |
+| **Python 3.13 AL2023 version 4.13.0**<br>_64bit Amazon Linux 2023 v4.13.0 running Python 3.13_ | 2023.11.20260514 | Python 3.13.13 | pip 26.1.1, pipenv 2026.6.1 | 3.6.2     | nginx 1.30.0 (default), Apache 2.4.66 |
+| **Python 3.12 AL2023 version 4.13.0**<br>_64bit Amazon Linux 2023 v4.13.0 running Python 3.12_ | 2023.11.20260514 | Python 3.12.13 | pip 26.1.1, pipenv 2026.6.1 | 3.6.2     | nginx 1.30.0 (default), Apache 2.4.66 |
+| **Python 3.11 AL2023 version 4.13.0**<br>_64bit Amazon Linux 2023 v4.13.0 running Python 3.11_ | 2023.11.20260514 | Python 3.11.15 | pip 26.1.1, pipenv 2026.6.1 | 3.6.2     | nginx 1.30.0 (default), Apache 2.4.66 |
+| **Python 3.9 AL2023 version 4.13.0**<br>_64bit Amazon Linux 2023 v4.13.0 running Python 3.9_   | 2023.11.20260514 | Python 3.9.25  | pip 26.0.1, pipenv 2025.0.4 | 3.6.2     | nginx 1.30.0 (default), Apache 2.4.66 |
+
+## May 7, 2026 – May 18, 2026
+
+The following Elastic Beanstalk platform versions for Python were current between May 7, 2026 and May 18, 2026:
 
 | Platform Version and _Solution Stack Name_                                                     | AMI              | Language       | Package Manager             | AWS X-Ray | Proxy Server                          |
 | ---------------------------------------------------------------------------------------------- | ---------------- | -------------- | --------------------------- | --------- | ------------------------------------- |
