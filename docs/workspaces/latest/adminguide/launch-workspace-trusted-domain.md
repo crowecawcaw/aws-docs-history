@@ -39,6 +39,7 @@ or AD Connector cannot launch WorkSpaces for users from a trusted domain.
 
 - Red Hat Enterprise Linux, Rocky Linux, and Ubuntu WorkSpaces use System Security Services
   Daemon (SSSD) for Active Directory integration, and SSSD does not support forest trust.
-  Configure external trust instead. Two-way trust is recommended for Amazon Linux, Ubuntu, Rocky Linux,
-  and Red Hat Enterprise Linux WorkSpaces.
-- You cannot use a web browser (Web Access) to connect to Linux WorkSpaces.
+  Configure external trust instead. Two-way external trust is recommended for Linux
+  WorkSpaces.
+- Web Access is supported for Windows and Linux WorkSpaces. For information
+  about Web Access limitations on Amazon Linux 2 WorkSpaces, see [Manage your Amazon Linux 2 WorkSpaces in WorkSpaces Personal](manage_linux_workspace.md "manage_linux_workspace.md").

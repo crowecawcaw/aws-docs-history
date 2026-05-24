@@ -1,13 +1,23 @@
 # Manage your Amazon Linux 2 WorkSpaces in WorkSpaces Personal
 
-For workloads that require RPM Package Manager (RPM), we recommend using [Red
-Hat Enterprise Linux](manage_rhel_workspace.md "manage_rhel_workspace.md") or [Rocky Linux](manage_rockylinux_workspace.md "manage_rockylinux_workspace.md").
-Amazon Linux 2 may not provide the latest versions of some applications and libraries, such as
-Firefox and glibc, that you may need.
+###### Important
 
-Because Linux instances do not adhere to Group Policy, we recommend that you use a
-configuration management solution to distribute and enforce policy. For example, you can use
-[Ansible](https://www.ansible.com/ "https://www.ansible.com/").
+**Amazon Linux 2 reaches end-of-life on June 30, 2026.** No new
+Amazon Linux 2 WorkSpaces can be created. Existing Amazon Linux 2 WorkSpaces should be migrated to Ubuntu, Red Hat
+Enterprise Linux, or Rocky Linux before this date. For migration instructions, see
+[Migrate a Linux WorkSpace to a different operating system](migrate-linux-workspaces.md "migrate-linux-workspaces.md").
+
+Amazon Linux 2 WorkSpaces use a legacy technology stack that differs from current Linux WorkSpaces:
+
+- **Active Directory integration:** Winbind
+  (modern Linux WorkSpaces use SSSD)
+- **Streaming protocol:** PCoIP or DCV
+  (modern Linux WorkSpaces use DCV exclusively)
+- **Desktop environment:** MATE (GNOME 2)
+  (modern Linux WorkSpaces use GNOME 3.x)
+  Because Linux instances do not adhere to Group Policy, we recommend that you use a
+  configuration management solution to distribute and enforce policy. For example, you can use
+  [Ansible](https://www.ansible.com/ "https://www.ansible.com/").
 
 ###### Note
 
@@ -24,8 +34,7 @@ solution that supports Amazon Linux. Any changes take effect when the agent star
 
 - If you make incorrect or unsupported changes to the `wsp.conf` file,
   policy changes may not be applied to the newly established connections on your WorkSpace.
-- Amazon Linux WorkSpaces on DCV bundles currently have the following limitations:
-  - Currently only available in the AWS GovCloud (US-West) and AWS GovCloud (US-East).
+- Amazon Linux WorkSpaces on DCV bundles have the following limitations:
   - Video-in is not supported.
   - Disconnect session on screen lock is not supported.
 
@@ -429,14 +438,15 @@ If you are using the Amazon Linux repository, your Amazon Linux WorkSpaces must 
  repository and to the main Amazon Linux repository. For more information, see [Provide internet access for WorkSpaces Personal](amazon-workspaces-internet-access.md "amazon-workspaces-internet-access.md").
 
 
-## Use smart cards for authentication on Linux WorkSpaces
+## Use smart cards for authentication on Amazon Linux 2 WorkSpaces
 
 
-Linux WorkSpaces on DCV bundles allow the use of
+Amazon Linux 2 WorkSpaces on DCV bundles allow the use of
  [Common Access Card (CAC)](https://www.cac.mil/Common-Access-Card "https://www.cac.mil/Common-Access-Card")
  and [Personal Identity Verification (PIV)](https://piv.idmanagement.gov/ "https://piv.idmanagement.gov/")
- smart cards for authentication. For more information, see
- [Use smart cards for authentication in WorkSpaces Personal](smart-cards.md "smart-cards.md").
+ smart cards for authentication. The Amazon Linux 2 smart card implementation uses a different
+ configuration than modern Linux WorkSpaces. For more information, see
+ [Enable smart cards for Amazon Linux 2 WorkSpaces (deprecated)](smart-cards.md#smart-cards-amazon-linux-workspaces "smart-cards.md#smart-cards-amazon-linux-workspaces").
 
 
 ## Configure device proxy server settings for internet access

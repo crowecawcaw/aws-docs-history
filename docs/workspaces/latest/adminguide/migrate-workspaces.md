@@ -38,6 +38,8 @@ user volume. The following are example scenarios:
 - You can migrate any Windows Server powered WorkSpace bundle to Windows Server 2025.
   Once migrated, you will be using DCV streaming protocol to enable high-performance remote desktop streaming, even with graphics-intensive applications, over varying network conditions, even with less powerful client devices.
 - You can migrate any Windows Server license-included BYOP WorkSpace bundle to BYOP Windows Server 2025.
+- You can migrate Linux WorkSpaces between operating systems, including Amazon Linux 2, Ubuntu,
+  Red Hat Enterprise Linux, and Rocky Linux. For more information, see [Migrate a Linux WorkSpace to a different operating system](migrate-linux-workspaces.md "migrate-linux-workspaces.md").
   For more information about Amazon WorkSpaces bundles, see [Bundles and images for WorkSpaces Personal](amazon-workspaces-bundles.md "amazon-workspaces-bundles.md").
 
 The migration process recreates the WorkSpace by using a new root volume from the target
@@ -73,7 +75,7 @@ new WorkSpace is terminated.
   bundle.
 - DCV Protocol supports Graphics G6 bundles, Graphics.g4dn, and GraphicsPro.g4dn on Windows. On Ubuntu, only Graphics.g4dn and GraphicsPro.g4dn are available.
 - PCoIP Protocol supports Graphics.g4dn and GraphicsPro.g4dn bundles on Windows only.
-- Migrating Linux WorkSpaces is not currently supported.
+- For information about migrating Linux WorkSpaces, see [Migrate a Linux WorkSpace to a different operating system](migrate-linux-workspaces.md "migrate-linux-workspaces.md").
 - In AWS Regions that support more than one language, you can migrate WorkSpaces
   between language bundles.
 - The source and target bundles must be different. (However, in Regions that

@@ -17,10 +17,8 @@ To perform directory administration tasks, see [Set up Active Directory Administ
 ###### Contents
 
 - [Manage your Windows WorkSpaces in WorkSpaces Personal](group_policy.md "group_policy.md")
+- [Manage your Linux WorkSpaces in WorkSpaces Personal](manage-linux-workspaces.md "manage-linux-workspaces.md")
 - [Manage your Amazon Linux 2 WorkSpaces in WorkSpaces Personal](manage_linux_workspace.md "manage_linux_workspace.md")
-- [Manage your Ubuntu WorkSpaces in WorkSpaces Personal](manage_ubuntu_workspace.md "manage_ubuntu_workspace.md")
-- [Manage your Rocky Linux WorkSpaces](manage_rockylinux_workspace.md "manage_rockylinux_workspace.md")
-- [Manage your Red Hat Enterprise Linux WorkSpaces](manage_rhel_workspace.md "manage_rhel_workspace.md")
 - [Optimize WorkSpaces for real-time communication in WorkSpaces Personal](communication-optimization.md "communication-optimization.md")
 - [Manage the running mode in WorkSpaces Personal](running-mode.md "running-mode.md")
 - [Manage applications in WorkSpaces Personal](manage-applications.md "manage-applications.md")
@@ -35,4 +33,5 @@ To perform directory administration tasks, see [Set up Active Directory Administ
 - [Microsoft 365 Bring Your Own License (BYOL) in WorkSpaces Personal](byol-microsoft365-licenses.md "byol-microsoft365-licenses.md")
 - [Upgrade Windows BYOL WorkSpaces in WorkSpaces Personal](upgrade-windows-10-byol-workspaces.md "upgrade-windows-10-byol-workspaces.md")
 - [Migrate a WorkSpace in WorkSpaces Personal](migrate-workspaces.md "migrate-workspaces.md")
+- [Migrate a Linux WorkSpace to a different operating system](migrate-linux-workspaces.md "migrate-linux-workspaces.md")
 - [Delete a WorkSpace in WorkSpaces Personal](delete-workspaces.md "delete-workspaces.md")

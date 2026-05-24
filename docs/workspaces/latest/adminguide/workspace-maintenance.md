@@ -27,8 +27,8 @@ zone of the WorkSpace is updated to the time zone of the Region that you connect
 from.
 
 You can [disable time zone redirection for Windows
-WorkSpaces](group_policy.md#gp_time_zone "group_policy.md#gp_time_zone") using Group Policy. You can [disable time
-zone redirection for Linux WorkSpaces](manage_linux_workspace.md#linux_time_zone "manage_linux_workspace.md#linux_time_zone") by using the PCoIP Agent conf.
+WorkSpaces](group_policy.md#gp_time_zone "group_policy.md#gp_time_zone") using Group Policy. You can [disable time zone redirection for Linux
+WorkSpaces](manage-linux-workspaces.md#linux_dcv_time_zone "manage-linux-workspaces.md#linux_dcv_time_zone") by using the DCV configuration file.
 
 For Windows WorkSpaces, you can configure the maintenance window using Group Policy; see
 [Configure Group Policy Settings for Automatic Updates](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates "https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates"). You cannot configure
@@ -41,6 +41,11 @@ updates. Beginning on the third Monday of the month, and for up to two weeks, th
 maintenance window is open each day from about 00h00 to 05h00, in the time zone of the
 AWS Region for the WorkSpace. The WorkSpace can be maintained on any one day in the
 maintenance window. During this window, only WorkSpaces older than 7 days are maintained.
+
+Create, Rebuild, and Migration operations create new WorkSpaces instances or recreate
+existing ones. Because these operations produce WorkSpaces that are less than 7 days old,
+the resulting WorkSpaces are not maintained during the maintenance window. Restore operations
+do not create new WorkSpaces, so they are not subject to the 7-day age requirement.
 
 During the time period when the WorkSpace is undergoing maintenance, the state of the
 WorkSpace is set to `MAINTENANCE`.

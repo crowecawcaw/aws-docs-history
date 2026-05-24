@@ -1,7 +1,7 @@
 # What is Amazon WorkSpaces?
 
 Amazon WorkSpaces enables you to provision virtual, cloud-based desktops known as _WorkSpaces_ for your users.
-These desktops can run Microsoft Windows, Amazon Linux 2, Ubuntu Linux, Rocky Linux, or Red Hat Enterprise Linux. WorkSpaces eliminates the need
+These desktops can run Microsoft Windows, Ubuntu Linux, Rocky Linux, or Red Hat Enterprise Linux. WorkSpaces eliminates the need
 to procure and deploy hardware or install complex software. You can quickly add or remove
 users as your needs change. Users can access their virtual desktops from multiple devices or
 web browsers.

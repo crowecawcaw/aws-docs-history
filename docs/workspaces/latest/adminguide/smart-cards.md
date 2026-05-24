@@ -23,8 +23,8 @@ Linux WorkSpace, they can use smart cards to authenticate themselves when runnin
 - [Limitations](#smart-cards-limitations "#smart-cards-limitations")
 - [Directory configuration](#smart-cards-directory-config "#smart-cards-directory-config")
 - [Enable smart cards for Windows WorkSpaces](#smart-cards-windows-workspaces "#smart-cards-windows-workspaces")
-- [Enable smart cards for Ubuntu, Rocky Linux, and Red Hat Enterprise Linux WorkSpaces](#smart-cards-linux-workspaces "#smart-cards-linux-workspaces")
-- [Enable smart cards for Amazon Linux 2 WorkSpaces](#smart-cards-amazon-linux-workspaces "#smart-cards-amazon-linux-workspaces")
+- [Enable smart cards for Linux WorkSpaces](#smart-cards-linux-workspaces "#smart-cards-linux-workspaces")
+- [Enable smart cards for Amazon Linux 2 WorkSpaces (deprecated)](#smart-cards-amazon-linux-workspaces "#smart-cards-amazon-linux-workspaces")
 
 ## Requirements
 
@@ -221,9 +221,12 @@ The tools for managing the certificates and keys on the smart card (such as remo
 and keys) might be manufacturer-specific. For more information, see the documentation provided by the manufacturer
 of your smart cards.
 
-## Enable smart cards for Ubuntu, Rocky Linux, and Red Hat Enterprise Linux WorkSpaces
+## Enable smart cards for Linux WorkSpaces
 
-To enable the use of smart cards on Ubuntu, Rocky Linux, and Red Hat Enterprise Linux WorkSpaces, you need to include the root and all intermediate CA certificates in the WorkSpace image
+All Linux WorkSpaces use SSSD for Active Directory integration and share the same smart
+card authentication implementation based on PKINIT and OpenSC.
+
+To enable the use of smart cards on Linux WorkSpaces, you need to include the root and all intermediate CA certificates in the WorkSpace image
 for all CAs issuing smart cards, and for all CAs issuing domain controller certificates.
 
 **To obtain your CA certificate:** You can obtain your CA certificate in several ways:
@@ -374,7 +377,12 @@ and keys) might be manufacturer-specific. Additional tools that you can use to w
 
 - Add `debug_level = `LEVEL``line in`/etc/sssd/sssd.conf`for each individual section, where`LEVEL`is the desired verbosity level, from 1 to 10. The logs for each corresponding section can then be found in`/var/log/sssd/` directory. See SSSD documentation [here](https://docs.pagure.org/sssd.sssd/users/troubleshooting.html#sssd-debug-logs "https://docs.pagure.org/sssd.sssd/users/troubleshooting.html#sssd-debug-logs") and [here](https://sssd.io/troubleshooting/basics.html#sssd-debug-logs "https://sssd.io/troubleshooting/basics.html#sssd-debug-logs") for more details.
 
-## Enable smart cards for Amazon Linux 2 WorkSpaces
+## Enable smart cards for Amazon Linux 2 WorkSpaces (deprecated)
+
+###### Important
+
+Amazon Linux 2 reaches end-of-life on June 30, 2026. This section applies only to legacy
+Amazon Linux 2 WorkSpaces. For current Linux WorkSpaces, see [Enable smart cards for Linux WorkSpaces](#smart-cards-linux-workspaces "#smart-cards-linux-workspaces").
 
 ###### Note
 

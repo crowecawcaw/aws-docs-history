@@ -8,8 +8,8 @@ that are part of your Windows WorkSpaces directory.
 - If you use Microsoft Entra ID or Custom WorkSpaces directory, you can manage
   users and groups with Microsoft Entra ID or your Identity Providers. For more inforamtion,
   see [Create a dedicated Microsoft Entra ID directory with WorkSpaces Personal](launch-entra-id.md "launch-entra-id.md").
-- Linux instances do not adhere to Group Policy. For information about managing Amazon Linux
-  WorkSpaces, see [Manage your Amazon Linux 2 WorkSpaces in WorkSpaces Personal](manage_linux_workspace.md "manage_linux_workspace.md").
+- Linux instances do not adhere to Group Policy. For information about managing
+  Linux WorkSpaces, see [Manage your Linux WorkSpaces in WorkSpaces Personal](manage-linux-workspaces.md "manage-linux-workspaces.md").
   Amazon recommends that you create an organizational unit for your WorkSpaces Computer Objects and an
   organizational unit for your WorkSpaces User Objects.
 
