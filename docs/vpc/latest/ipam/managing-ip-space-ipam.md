@@ -28,6 +28,8 @@ Follow the steps in this section to manage your IP address space in IPAM.
 - [Provision CIDRs to a pool](prov-cidr-ipam.md "prov-cidr-ipam.md")
 - [Move VPC CIDRs between scopes](move-resource-ipam.md "move-resource-ipam.md")
 - [Define public IPv4 allocation strategy with IPAM policies](define-public-ipv4-allocation-strategy-with-ipam-policies.md "define-public-ipv4-allocation-strategy-with-ipam-policies.md")
+- [View IPAM pool allocations](view-alloc-ipam.md "view-alloc-ipam.md")
+- [Modify an IPAM pool allocation](modify-alloc-ipam.md "modify-alloc-ipam.md")
 - [Release an allocation](release-alloc-ipam.md "release-alloc-ipam.md")
 - [Share an IPAM pool using AWS RAM](share-pool-ipam.md "share-pool-ipam.md")
 - [Work with resource discoveries](res-disc-work-with.md "res-disc-work-with.md")

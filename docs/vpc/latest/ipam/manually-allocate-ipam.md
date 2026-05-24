@@ -20,8 +20,9 @@ AWS Management Console
    `10.0.0.0/24` for IPv4 or `2001:db8::/52` for IPv6) or add a
    CIDR by size by choosing the netmask length only (for example, `/24` for
    IPv4 or `/52` for IPv6).
-7. Choose **Allocate**.
-8. You can view the allocation in IPAM by choosing **Pools**
+7. (Optional) To tag the allocation, expand the **Tags** section and enter the key and value for each tag you want to add.
+8. Choose **Allocate**.
+9. You can view the allocation in IPAM by choosing **Pools**
    in the navigation pane, choosing a pool, and viewing the **Allocations** tab for the pool.
 
 Command line
@@ -32,7 +33,12 @@ run the commands.
 Use the following AWS CLI commands to manually allocate a CIDR to a pool:
 
 1. Get the ID of the IPAM pool that you want to create the allocation in: [describe-ipam-pools](../../../cli/latest/reference/ec2/describe-ipam-pools.md "../../../cli/latest/reference/ec2/describe-ipam-pools.md").
-2. Create the allocation: [allocate-ipam-pool-cidr](../../../cli/latest/reference/ec2/allocate-ipam-pool-cidr.md "../../../cli/latest/reference/ec2/allocate-ipam-pool-cidr.md").
+2. Create the allocation: [allocate-ipam-pool-cidr](../../../cli/latest/reference/ec2/allocate-ipam-pool-cidr.md "../../../cli/latest/reference/ec2/allocate-ipam-pool-cidr.md"). (Optional) To tag the allocation at creation, include the `--tag-specifications` parameter. For example:
+
+```
+aws ec2 allocate-ipam-pool-cidr --ipam-pool-id `ipam-pool-0533048da7eba92f6` --netmask-length `24` --tag-specifications 'ResourceType=ipam-pool-allocation,Tags=[{Key=`Environment`,Value=`Production`}]'
+```
+
 3. View the allocation: [get-ipam-pool-allocations](../../../cli/latest/reference/ec2/get-ipam-pool-allocations.md "../../../cli/latest/reference/ec2/get-ipam-pool-allocations.md").
 
 To release a manually allocated CIDR, see [Release an allocation](release-alloc-ipam.md "release-alloc-ipam.md").

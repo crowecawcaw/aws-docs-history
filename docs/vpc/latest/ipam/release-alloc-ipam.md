@@ -32,6 +32,10 @@ for the CIDR to become available for future allocations. If you are using IPAM i
 Tier, it will take up to 48 hours for the CIDR to become available for future allocations.
 For more information about pools and allocations, see [How IPAM works](how-it-works-ipam.md "how-it-works-ipam.md").
 
+###### Warning
+
+When you release an allocation, all tags associated with the allocation are permanently deleted. You can't recover deleted tags.
+
 AWS Management Console
 
 ###### To release a pool allocation
