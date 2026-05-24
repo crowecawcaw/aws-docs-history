@@ -59,6 +59,8 @@ To complete this tutorial, you need the following resources:
 If you are using the AWS Command Line Interface, you also need to attach the following policy to your
 IAM user to grant it the basic permissions required to complete this tutorial.
 
+###### (AWS CLI only) IAM permissions policy
+
 JSON
 
 ```
