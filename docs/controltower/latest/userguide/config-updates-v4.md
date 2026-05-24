@@ -104,3 +104,14 @@ want to deploy AWS Config resources. Until you complete this process, your AWS C
 receive data from recorders. Each account continues to record and store data. After you finish
 updating the `ConfigBaseline`, the recorded data automatically backfills
 into the aggregator.
+
+We recommend that you re-register your OUs or enable the `ConfigBaseline` as
+soon as possible after enabling the AWS Config integration. The landing zone update removes AWS Config
+delivery permissions from the previous S3 bucket policy, but delivery channels are
+redirected to the new bucket only after you complete re-registration. Until then,
+configuration snapshots and configuration history are not delivered to S3.
+
+If re-registration is delayed, some of this data may not be delivered to S3 after
+re-registration completes. You can retrieve all data recorded within
+your configured retention period using the `config:GetResourceConfigHistory`
+API.

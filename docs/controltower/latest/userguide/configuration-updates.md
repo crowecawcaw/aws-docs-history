@@ -50,7 +50,7 @@ If an update fails, AWS Control Tower does not roll back to a previous landing z
 your landing zone in an indeterminate state. If so, contact AWS support. For more information
 about troubleshooting a failure to update, see [Unable to Update Landing Zone](troubleshooting.md#unable-to-update-landing-zone "troubleshooting.md#unable-to-update-landing-zone").
 
-You have the opportunity to clear unused AWS Identity center (formerly called AWS SSO)
+You have the opportunity to clear unused AWS Identity Center (formerly called AWS SSO)
 mappings when you update your landing zone. For more information, see [Field Notes: Clear Unused IAM Identity Center Mappings Automatically During AWS Control Tower
 Upgrades](https://aws.amazon.com//blogs/architecture/field-notes-clear-unused-aws-sso-mappings-automatically-during-aws-control-tower-upgrades/ "https://aws.amazon.com//blogs/architecture/field-notes-clear-unused-aws-sso-mappings-automatically-during-aws-control-tower-upgrades/").
 
@@ -60,7 +60,7 @@ Before you update or reset your landing zone, be sure that the Amazon S3 logging
 Archive account does not have the **Requester Pays** feature enabled. You
 must turn off that feature before you begin the **Update** or
 **Reset** process. When AWS Control Tower sets up your logging bucket, this feature
-is not enabled. Therefore, only the customers who have subesquently activated the Requester
+is not enabled. Therefore, only the customers who have subsequently activated the Requester
 Pays feature must turn it off. For more information, see [Amazon S3
 bucket policy for CloudTrail](../../../awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.md "../../../awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.md") and [Using Requester Pays
 buckets](../../../AmazonS3/latest/userguide/RequesterPaysBuckets.md "../../../AmazonS3/latest/userguide/RequesterPaysBuckets.md").

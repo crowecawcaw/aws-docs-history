@@ -85,7 +85,7 @@ To see a full landing zone schema example, see [Landing zone schemas](landing-zo
    }
 ```
 
-**accessManagement** – Choose whthether to enable access management
+**accessManagement** – Choose whether to enable access management
 
 - **Type:** Object
 - **Required:** No

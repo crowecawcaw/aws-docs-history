@@ -129,3 +129,12 @@ module "aft" {
 ```
 
 Refer to [Default VPC and default subnets](../../../vpc/latest/userguide/default-vpc.md "../../../vpc/latest/userguide/default-vpc.md") to learn more about default VPCs.
+
+###### Note
+
+Default VPC deletion is best-effort per AWS Region. If a Region's endpoint is
+temporarily unreachable, AFT skips
+that Region and continues deleting default VPCs in the remaining Regions. Skipped
+Regions are retried on the next customization pipeline run. To check whether any
+Regions were skipped, search the `aft-delete-default-vpc` Lambda function
+logs for the message `Skipping default VPC deletion in region`.

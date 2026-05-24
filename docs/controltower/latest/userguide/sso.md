@@ -5,7 +5,7 @@ multiple AWS accounts and business applications. By default, AWS Control Tower u
 set up and manage access to the accounts created through Account Factory, unless you have
 selected the option to self-manage your identity and access control.
 
-For more information about selecting an identity provder, see [IAM Identity Center guidance](sso-guidance.md "sso-guidance.md").
+For more information about selecting an identity provider, see [IAM Identity Center guidance](sso-guidance.md "sso-guidance.md").
 
 For a brief tutorial about how to set up your IAM Identity Center users and permissions in AWS Control Tower,
 you can view this video (6:23). For better viewing, select the icon at the lower right
