@@ -11,17 +11,17 @@ plugin.
 
 ## Kiro Power
 
-The AWS Transform Kiro Power provides full access to AWS Transform agents from the
+The [AWS Transform Kiro Power](https://kiro.dev/launch/powers/aws-transform "https://kiro.dev/launch/powers/aws-transform") provides full access to AWS Transform agents from the
 Kiro IDE.
 
 ###### To install the AWS Transform Kiro Power
 
-1. Open the Kiro marketplace.
-2. Search for "AWS Transform" in the marketplace.
-3. Choose **Install** to add the power to your Kiro environment.
+1. Open Kiro IDE and navigate to the Powers panel.
+2. Find **AWS Transform** in the list and install it.
+3. Open Kiro Chat, click on the Power, and select **Try power**.
 
-The Kiro Power follows the standard Kiro power installation process and provides access
-to all AWS Transform agents.
+Alternatively, in the Powers panel choose **Add Custom Power** > **Import power from GitHub** and paste:
+`https://github.com/kirodotdev/powers/tree/main/aws-transform`
 
 ## Agent plugin
 
@@ -47,6 +47,16 @@ Run the following commands:
 
 Follow the instructions in the agent-plugins repository README.
 
+## IDE plugin
+
+The AWS Transform IDE plugin is available on VS Code and Open VSX compatible editors. It
+exposes AWS Transform custom features, including creating and running transformation definitions.
+
+- **VS Code:** Install from the
+  [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-transform-plugin "https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-transform-plugin").
+- **Open VSX:** Install from the
+  [Open VSX registry](https://open-vsx.org/extension/amazonwebservices/aws-transform-plugin "https://open-vsx.org/extension/amazonwebservices/aws-transform-plugin").
+
 ## MCP server
 
 Use the MCP server to integrate AWS Transform programmatically with any MCP-compatible
@@ -61,8 +71,25 @@ and resource browsing.
 
 ###### Installation
 
+**Claude Code**
+
 ```
-uvx awslabs.aws-transform-mcp-server@latest
+claude mcp add awslabs.aws-transform-mcp-server -- uvx awslabs.aws-transform-mcp-server@latest
+```
+
+**Kiro**
+
+Add to `~/.kiro/settings/mcp.json`:
+
+```
+{
+  "mcpServers": {
+    "awslabs.aws-transform-mcp-server": {
+      "command": "uvx",
+      "args": ["awslabs.aws-transform-mcp-server@latest"]
+    }
+  }
+}
 ```
 
 For configuration details for your specific MCP client, see
@@ -89,14 +116,16 @@ For information about setting up authentication for AWS Transform, see
 
 ## Build custom agents for AWS Transform
 
-The agent builder toolkit enables AWS Partners and customers to build agents tailored to
+The [agent builder toolkit](https://kiro.dev/launch/powers/aws-transform-agent-toolkit "https://kiro.dev/launch/powers/aws-transform-agent-toolkit") enables AWS Partners and customers to build agents tailored to
 their specific modernization needs that work within AWS Transform.
 
 ###### To install the agent builder toolkit
 
-1. Open the Kiro marketplace.
-2. Search for "Build an agent for AWS Transform" in the marketplace.
-3. Choose **Install** to add the power to your Kiro environment.
+1. Open Kiro IDE and navigate to the Powers panel.
+2. Find **AWS Transform Agent Toolkit** in the list and install it.
+
+Alternatively, in the Powers panel choose **Add Custom Power** > **Import power from GitHub** and paste:
+`https://github.com/kirodotdev/powers/tree/main/aws-transform-agent-toolkit`
 
 The agent builder toolkit enables Migration and Modernization Competency Partners, ISVs,
 or customers to create transformation solutions for specific use cases. You can integrate specialized

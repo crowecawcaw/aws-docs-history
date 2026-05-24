@@ -36,7 +36,7 @@ Each log file has a 5MB limit before it rolls over. There may be multiple debug 
 
 **Installation issues:**
 
-If installation fails, ensure you have Node.js 20 or later installed:
+If installation fails, ensure you have Node.js 22 or later installed:
 
 ```
 node --version

@@ -20,7 +20,7 @@ Windows native execution is not supported. AWS Transform custom will detect nati
 
 ### Required Software
 
-- **Node.js 20 or later** - Download from https://nodejs.org/en/download
+- **Node.js 22 or later** - Download from https://nodejs.org/en/download
 - **Git** - Must be installed and the working directory needs to be a valid Git repo to execute a transformation. Run `git init; git add .; git commit -m "Initial commit"` to initialize a Git repo in your working directory.
 
 ### Network Requirements

@@ -318,7 +318,7 @@ For database (SQL Server) collection, a Windows account (local or domain) belong
 
 ### Set up SSH
 
-- Port 22 must be open between the discovery tool and target servers.
+- The default port is 22. Custom ports are supported. The configured port must be open between the discovery tool and target servers.
 - For SSH network collection to work properly, provide a user configured for passwordless sudo.
 - Ensure that the following commands are available on target Linux servers (installed by default on most distributions): `ss` or `netstat` for network collection, and `lsblk`, `iostat`, `dmidecode`, `smartctl`, `top`, `ps`, `free`, `ip`, and `df` for OS metrics collection.
 
@@ -344,7 +344,7 @@ Both authentication methods support auto-connect. Credentials are stored encrypt
 
 ### Set up SNMP
 
-- Port 161/UDP must be open between the discovery tool and target servers
+- The default port is 161/UDP. Custom ports are supported. The configured port must be open between the discovery tool and target servers.
 - For SNMP v2: Provide a read-only community string that can access TCP connection OIDs.
 - For SNMP v3: Provide username/password and auth/privacy details with read-only permission that can access TCP connection OIDs
 

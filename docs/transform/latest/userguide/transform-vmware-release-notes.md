@@ -7,6 +7,10 @@ connector setup page](transform-vmware-connect-target-account.md#transform-vmwar
 
 ## May 2026
 
+- AWS Transform now detects existing VPCs in your target account during network migration review.
+  You can see existing VPCs alongside your mapped VPCs, identify CIDR conflicts, and resolve
+  them before deployment. [Learn
+  more about existing VPC detection](transform-vmware-migrate-network.md#transform-vmware-brownfield-network "transform-vmware-migrate-network.md#transform-vmware-brownfield-network").
 - AWS Transform supports replatforming source code repositories to containers during migration
   to AWS. [Learn more about
   containerization](transform-containers.md "transform-containers.md").

@@ -181,6 +181,16 @@ The IP address assignment strategy is set at the wave level. You can assign diff
 
 After AWS Transform generates your target network configuration, you can review the on-premises network segments converged to AWS infrastructure. Use the visual interface to review your network, and the chat interface to make changes and receive guided recommendations. AWS Transform performs cascading impact analysis and implements the required changes to maintain network consistency and compliance with best practices. You can also ask AWS Transform to analyze your network and suggest optimizations — see [Guided recommendations](#transform-vmware-guided-recommendations "#transform-vmware-guided-recommendations").
 
+### Existing VPCs in your target account
+
+If your target account already contains VPCs — from previous migration phases or parallel infrastructure projects — AWS Transform automatically detects them and displays them alongside your mapped VPCs during the review process. For multi-account migrations, AWS Transform detects existing VPCs across all accounts in your AWS Organization.
+
+This visibility helps you understand how your planned network relates to your existing infrastructure, identify potential CIDR conflicts, and make informed decisions before deployment.
+
+###### Note
+
+AWS Transform detects existing VPCs only (not subnets or other resources). Detection is read-only — AWS Transform does not modify your existing VPCs.
+
 ### Optimize your network
 
 ###### Note
@@ -249,6 +259,7 @@ AWS Transform analyzes your mapped network and provides prioritized recommendati
 
 AWS Transform might recommend the following optimizations:
 
+- **CIDR conflict resolution:** Flags overlapping CIDR ranges between your mapped VPCs and existing VPCs across all accounts in your AWS Organization. Conflicting VPCs are shown first. You can resolve conflicts by re-addressing the mapped VPC, excluding or deleting it, or acknowledging the conflict and resolving it yourself after deployment.
 - **Naming standardization:** Flags VPC names that don't follow a consistent pattern (for example, names containing hardware references). AWS Transform asks for your cloud naming convention before proposing replacements.
 - **Scope review:** Identifies network segments that may not need to migrate to AWS, such as legacy systems or constructs pending decommission. AWS Transform asks for your confirmation before excluding any construct.
 - **VPC capacity right-sizing:** Surfaces VPCs where the CIDR appears oversized or undersized for the subnets it contains. AWS Transform presents the current capacity data and lets you decide whether to resize.

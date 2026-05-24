@@ -36,7 +36,7 @@ The following are the prerequisites for using the AWS Transform discovery tool:
 hostname_or_ip,credential_name
 ```
 
-- Servers must be reachable from the discovery tool VM on the appropriate ports (SSH port 22 for Linux, WinRM port 5985/5986 for Windows).
+- Servers must be reachable from the discovery tool VM. Default ports: SSH port 22 for Linux, WinRM port 5985/5986 for Windows. Custom ports are supported.
 
 **Linux installer prerequisites**
 
@@ -44,4 +44,4 @@ hostname_or_ip,credential_name
 - Minimum 4 vCPU, 16 GB RAM, 35 GB available disk space.
 - Port 5000 must be available (not in use by another service).
 - systemd is required for service management.
-- Network access to your target infrastructure (vCenter on port 443, Hyper-V hosts on port 5985/5986, servers on port 22).
+- The discovery tool VM must have network access to your target infrastructure. Default ports: vCenter on port 443, Hyper-V hosts on port 5985/5986, servers on port 22. Custom ports are supported for SSH, WinRM, and SNMP.
