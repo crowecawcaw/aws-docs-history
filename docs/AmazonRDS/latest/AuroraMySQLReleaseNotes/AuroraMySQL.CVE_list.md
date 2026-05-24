@@ -11,16 +11,18 @@ We recommend that you always upgrade to the latest Aurora release to be protecte
 can use this page to verify whether a particular version of Aurora MySQL has a fix for a specific security vulnerability.
 If your cluster doesn't have the security fix, you can see which Aurora MySQL version you should upgrade to for that fix.
 
-CVEs fixed in Aurora MySQL version 1, 2 and 3 are also listed in the release notes for that version:
+CVEs fixed in Aurora MySQL version 1, 2, 3 and 8.4 are also listed in the release notes for that version:
 
+- [Database engine updates for Amazon Aurora MySQL version 8.4](AuroraMySQL.Updates.84Updates.md "AuroraMySQL.Updates.84Updates.md")
 - [Database engine updates for Amazon Aurora MySQL version 3](AuroraMySQL.Updates.30Updates.md "AuroraMySQL.Updates.30Updates.md")
 - [Database engine updates for Amazon Aurora MySQL version 2](AuroraMySQL.Updates.20Updates.md "AuroraMySQL.Updates.20Updates.md")
 - [Database engine updates for Amazon Aurora MySQL version 1 (Deprecated)](AuroraMySQL.Updates.11Updates.md "AuroraMySQL.Updates.11Updates.md")
 
 ###### Note
 
-The initial release of Aurora MySQL version 3 includes all CVEs fixed up to community MySQL 8.0.23. For future CVEs that are
-fixed, look for them listed here and in the Aurora MySQL version 3 release notes.
+The initial release of Aurora MySQL version 3 includes all CVEs fixed up to community MySQL 8.0.23. The initial release of
+Aurora MySQL version 8.4 includes all CVEs fixed up to community MySQL 8.4.7. For future CVEs that are
+fixed, look for them listed here and in the Aurora MySQL version 3 and version 8.4 release notes.
 
 ###### CVEs and minimum fixed Aurora MySQL versions
 
