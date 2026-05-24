@@ -101,7 +101,7 @@ The VPC for the directory. Create the Aurora MySQL DB cluster in this same VPC.
 Subnets for the directory servers. The two subnets must be in different Availability Zones. 7. Review the directory information and make any necessary changes. When the information is correct, choose **Create
 directory**.
 
-![Directory details page during creation](/images/AmazonRDS/latest/AuroraUserGuide/images/WinAuth2.png)
+![Directory details page during creation](images/WinAuth2.png)
 
 It takes several minutes to create the directory. When it has been successfully created,
 the **Status** value changes to **Active**.
@@ -134,7 +134,7 @@ If you use an on-premises Microsoft Active Directory:
 Make sure that your on-premises Microsoft Active Directory domain name includes a DNS suffix routing that corresponds to
 the newly created trust relationship. The following screenshot shows an example.
 
-![DNS routing corresponds to the created trust](/images/AmazonRDS/latest/AuroraUserGuide/images/kerberos-auth-trust.png)
+![DNS routing corresponds to the created trust](images/kerberos-auth-trust.png)
 
 ## Step 3: Create an IAM role for use by Amazon Aurora
 

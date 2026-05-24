@@ -1,6 +1,7 @@
-# Precheck descriptions reference for Aurora MySQL
+# Precheck descriptions for upgrading Aurora MySQL version 2 to version 3
 
-The upgrade prechecks for Aurora MySQL are described here in detail.
+The following prechecks run when you upgrade an Aurora MySQL DB cluster from version 2 (compatible with MySQL 5.7) to version 3 (compatible with MySQL
+8.0). For prechecks that run during upgrades from Aurora MySQL version 3 to version 8.4, see [Precheck descriptions for upgrading Aurora MySQL version 3 to version 8.4](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md").
 
 ###### Contents
 
@@ -1316,6 +1317,8 @@ The following prechecks are specific to Aurora MySQL:
 - [auroraUpgradeCheckForInstanceLimit](#auroraUpgradeCheckForInstanceLimit "#auroraUpgradeCheckForInstanceLimit")
 - [auroraUpgradeCheckForInternalUsers](#auroraUpgradeCheckForInternalUsers "#auroraUpgradeCheckForInternalUsers")
 - [auroraUpgradeCheckForInvalidUtf8mb3CharacterStringInViews](#auroraUpgradeCheckForInvalidUtf8mb3CharacterStringInViews "#auroraUpgradeCheckForInvalidUtf8mb3CharacterStringInViews")
+- [auroraUnsupportedComponentsCheck](#auroraUnsupportedComponentsCheck "#auroraUnsupportedComponentsCheck")
+- [auroraUnsupportedPluginsCheck](#auroraUnsupportedPluginsCheck "#auroraUnsupportedPluginsCheck")
 - [auroraUpgradeCheckForInvalidUtf8mb3ColumnComments](#auroraUpgradeCheckForInvalidUtf8mb3ColumnComments "#auroraUpgradeCheckForInvalidUtf8mb3ColumnComments")
 - [auroraUpgradeCheckForInvalidUtf8mb3IndexComments](#auroraUpgradeCheckForInvalidUtf8mb3IndexComments "#auroraUpgradeCheckForInvalidUtf8mb3IndexComments")
 - [auroraUpgradeCheckForInvalidUtf8mb3TableComments](#auroraUpgradeCheckForInvalidUtf8mb3TableComments "#auroraUpgradeCheckForInvalidUtf8mb3TableComments")
@@ -2382,6 +2385,99 @@ If you encounter any errors with this precheck, open a case with [AWS Support](h
 to request that the metadata inconsistency be resolved. Alternatively, you can retry the upgrade by performing a logical dump, then
 restoring to a new Aurora MySQL version 3 DB cluster.
 
+**auroraUnsupportedComponentsCheck**
+
+**Precheck level: Error**
+
+**Check for unsupported components installed in the database**
+
+This precheck identifies components that are installed in the database but are not supported in the target
+Aurora MySQL version. These components must be uninstalled before the upgrade can proceed.
+
+**Example output:**
+
+```
+{
+  "id": "auroraUnsupportedComponentsCheck",
+  "title": "Check for unsupported components",
+  "status": "OK",
+  "description": "Checks for unsupported components installed in the database",
+  "documentationLink": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraMySQLReleaseNotes/",
+  "detectedProblems": [
+      {
+        "level": "Error",
+        "dbObject": "all",
+        "description": "Component file://component_log_sink_json loaded in the engine. To proceed with the upgrade, uninstall this component."
+      }
+  ]
+}
+```
+
+To resolve this issue:
+
+1. Identify the unsupported components listed in the error message.
+2. Uninstall each unsupported component:
+
+```
+UNINSTALL COMPONENT 'file://`component_name`';
+```
+
+3. Verify removal by checking the component list:
+
+```
+SELECT * FROM mysql.component;
+```
+
+4. Re-run the precheck to confirm resolution.
+
+**auroraUnsupportedPluginsCheck**
+
+**Precheck level: Error**
+
+**Check for unsupported plugin usage**
+
+This precheck identifies plugins that are not supported in the target Aurora MySQL version and
+must be removed before upgrading.
+
+If you encounter errors with this precheck, uninstall the unsupported plugins listed in the error message
+before proceeding with the upgrade.
+
+**Example output:**
+
+```
+{
+    "id": "auroraUnsupportedPluginsCheck",
+    "title": "Check for unsupported plugins",
+    "status": "OK",
+    "description": "Checks for unsupported plugins installed in the database",
+    "documentationLink": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraMySQLReleaseNotes/",
+    "detectedProblems": [
+        {
+            "level": "Error",
+            "dbObject": "all",
+            "description": "Plugin simple_parser loaded in the engine. To proceed with the upgrade, remove this plugin."
+        }
+    ]
+}
+```
+
+To resolve this issue:
+
+1. Identify the unsupported plugins listed in the error message.
+2. Uninstall each unsupported plugin:
+
+```
+UNINSTALL PLUGIN `plugin_name`;
+```
+
+3. Verify removal by checking the plugin list:
+
+```
+SHOW PLUGINS;
+```
+
+4. Re-run the precheck to confirm resolution.
+
 ## Warnings
 
 The following prechecks generate warnings when the precheck fails, but the upgrade can proceed.
@@ -2401,6 +2497,7 @@ The following prechecks are from Community MySQL:
 - [reservedKeywordsCheck](#reservedKeywordsCheck "#reservedKeywordsCheck")
 - [utf8mb3Check](#utf8mb3Check "#utf8mb3Check")
 - [zeroDatesCheck](#zeroDatesCheck "#zeroDatesCheck")
+- [deprecatedDefaultAuth](#deprecatedDefaultAuth "#deprecatedDefaultAuth")
 
 **defaultAuthenticationPlugin**
 
@@ -2704,12 +2801,45 @@ planning to take action.
 }
 ```
 
+**deprecatedDefaultAuth**
+
+**Precheck level: Warning**
+
+**Check for deprecated default authentication method in system variables**
+
+This precheck validates that the default authentication plugin configured in system variables is compatible
+with the target Aurora MySQL version. For Aurora MySQL, `mysql_native_password` generates a
+warning rather than an error, as Aurora MySQL continues to support this authentication method.
+
+**Example output:**
+
+```
+{
+  "id": "deprecatedDefaultAuth",
+  "title": "Check for deprecated or invalid default authentication methods in system variables",
+  "status": "OK",
+  "description": "mysql_native_password authentication method is deprecated and it should be considered to correct this before upgrading to 8.4.0 release.",
+  "detectedProblems": [
+      {
+        "level": "Warning",
+        "dbObject": "default_authentication_plugin",
+        "description": "System variable default_authentication_plugin is set to mysql_native_password which is deprecated."
+      }
+  ]
+}
+```
+
+On your target cluster parameter group, it is recommended to set the
+`authentication_policy` parameter value to `*:caching_sha2_password` to use
+`caching_sha2_password` as the default password-based authentication method.
+
 ### Aurora MySQL prechecks that report warnings
 
 The following prechecks are specific to Aurora MySQL:
 
 - [auroraUpgradeCheckForRollbackSegmentHistoryLength](#auroraUpgradeCheckForRollbackSegmentHistoryLength "#auroraUpgradeCheckForRollbackSegmentHistoryLength")
 - [auroraUpgradeCheckForUncommittedRowModifications](#auroraUpgradeCheckForUncommittedRowModifications "#auroraUpgradeCheckForUncommittedRowModifications")
+- [auroraValidatePasswordPluginCheck](#auroraValidatePasswordPluginCheck "#auroraValidatePasswordPluginCheck")
 
 **auroraUpgradeCheckForRollbackSegmentHistoryLength**
 
@@ -2841,6 +2971,45 @@ transaction size.
 For more information on optimizing InnoDB transaction management, and the potential impact of running and rolling back large
 transactions on MySQL database instances, see [Optimizing InnoDB transaction
 management](https://dev.mysql.com/doc/refman/5.7/en/optimizing-innodb-transaction-management.html "https://dev.mysql.com/doc/refman/5.7/en/optimizing-innodb-transaction-management.html") in the MySQL documentation.
+
+**auroraValidatePasswordPluginCheck**
+
+**Precheck level: Warning**
+
+**Check for deprecated validate_password plugin usage**
+
+The `validate_password` plugin is deprecated in Aurora MySQL version 8.4 and will be removed in a
+future release. This warning does not block the upgrade but indicates that you should plan to transition to the
+`validate_password` component.
+
+**Example output:**
+
+```
+{
+  "id": "auroraValidatePasswordPluginCheck",
+  "title": "Check for deprecated validate_password plugin",
+  "status": "OK",
+  "description": "The validate_password plugin is deprecated and will be removed in a future release. It is recommended to transition to the validate_password component.",
+  "detectedProblems": [
+      {
+        "level": "Warning",
+        "dbObject": "validate_password",
+        "description": "The validate_password plugin is installed. Consider transitioning to the validate_password component."
+      }
+  ]
+}
+```
+
+To resolve this warning:
+
+1. Ensure the `aurora_enable_validate_password_component` parameter is enabled in your target
+   cluster parameter group to enable the component in your target cluster. Customize other component
+   parameters as needed.
+2. After upgrade, run the following command to remove the `validate_password` plugin:
+
+```
+UNINSTALL PLUGIN validate_password;
+```
 
 ## Notices
 

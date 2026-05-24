@@ -11,7 +11,7 @@ requiring changes to most of your existing applications.
 Aurora includes a high-performance storage subsystem. Its MySQL- and PostgreSQL-compatible
 database engines are customized to take advantage of that fast distributed storage. The
 underlying storage grows automatically as needed. An Aurora cluster volume can grow to a maximum
-size of 128 tebibytes (TiB). Aurora also automates and standardizes database clustering and
+size of 256 tebibytes (TiB). Aurora also automates and standardizes database clustering and
 replication, which are typically among the most challenging aspects of database configuration
 and administration.
 

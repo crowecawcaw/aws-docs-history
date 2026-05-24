@@ -41,13 +41,27 @@ And the `aurora_version` function returns the Aurora version:
 mysql> select aurora_version(), @@aurora_version;
 ```
 
-Output example:
+For Aurora MySQL version 2 and version 3, the output uses a
+``major`.`minor`.`patch``
+format:
 
 ```
 +------------------+------------------+
 | aurora_version() | @@aurora_version |
 +------------------+------------------+
 | 3.05.2           | 3.05.2           |
++------------------+------------------+
+```
+
+For Aurora MySQL version 8.4 and higher, the output uses a simplified
+``major`.`minor``
+format where the major version represents MySQL compatibility:
+
+```
++------------------+------------------+
+| aurora_version() | @@aurora_version |
++------------------+------------------+
+| 8.4.7            | 8.4.7            |
 +------------------+------------------+
 ```
 

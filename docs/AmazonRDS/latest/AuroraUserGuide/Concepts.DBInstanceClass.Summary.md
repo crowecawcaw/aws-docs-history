@@ -182,7 +182,7 @@ storage**
 | -------------- | ---- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
 | db.r5.24xlarge | 96   | 347 | 768          | EBS-optimized only     | 19,000                    | 25                       |
 | db.r5.16xlarge | 64   | 264 | 512          | EBS-optimized only     | 13,600                    | 20                       |
-| db.r5.12xlarge | 48   | 173 | 384          | EBS-optimized only     | 9,500                     | 12                       |
+| db.r5.12xlarge | 48   | 173 | 384          | EBS-optimized only     | 9,500                     | 10                       |
 | db.r5.8xlarge  | 32   | 132 | 256          | EBS-optimized only     | 6,800                     | 10                       |
 | db.r5.4xlarge  | 16   | 71  | 128          | EBS-optimized only     | 4,750                     | Up to 10                 |
 | db.r5.2xlarge  | 8    | 38  | 64           | EBS-optimized only     | Up to 4,750               | Up to 10                 |

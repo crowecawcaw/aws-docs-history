@@ -3,6 +3,7 @@
 You can find the following information in the _Release notes for Amazon
 Aurora MySQL-Compatible Edition_:
 
+- [Database engine updates for Amazon Aurora MySQL version 8.4](../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.84Updates.md "../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.84Updates.md")
 - [Database engine updates for Amazon Aurora MySQL version 3](../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.30Updates.md "../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.30Updates.md")
 - [Database engine updates for Amazon Aurora MySQL version 2](../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.20Updates.md "../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.20Updates.md")
 - [Database engine updates for Amazon Aurora MySQL version 1

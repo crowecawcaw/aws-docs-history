@@ -12,5 +12,5 @@ data into an Aurora DB cluster.
 - [Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")
 - [Migrating data to an Amazon Aurora DB cluster](Aurora.Migrate.md "Aurora.Migrate.md")
 - [Creating an Amazon ElastiCache cache using Aurora DB cluster settings](creating-elasticache-cluster-with-RDS-settings.md "creating-elasticache-cluster-with-RDS-settings.md")
-- [Auto migrating EC2 databases to Amazon Aurora using AWS Database Migration Service](USER_DMS_migration.md "USER_DMS_migration.md")
+- [Auto migrating databases to Amazon Aurora using AWS Database Migration Service](USER_DMS_migration.md "USER_DMS_migration.md")
 - [Tutorial: Creating a MySQL DB cluster with a custom parameter group](tutorial-creating-custom-OPG.md "tutorial-creating-custom-OPG.md")

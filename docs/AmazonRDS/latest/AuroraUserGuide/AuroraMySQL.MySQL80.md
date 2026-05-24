@@ -6,6 +6,12 @@ upgrade your clusters and applications to Aurora MySQL version 3.
 
 Some Aurora features, such as Aurora Serverless v2, require Aurora MySQL version 3.
 
+###### Tip
+
+Newer Aurora MySQL major versions are now available, starting with Aurora MySQL version 8.4 (compatible with MySQL 8.4).
+You can upgrade from Aurora MySQL version 3 to a newer major version.
+For more information about version numbering, see [Checking Aurora MySQL version numbers](AuroraMySQL.Updates.Versions.md "AuroraMySQL.Updates.Versions.md").
+
 ###### Topics
 
 - [Features from MySQL 8.0 Community Edition](#AuroraMySQL.8.0-features-community "#AuroraMySQL.8.0-features-community")
@@ -32,7 +38,7 @@ features, including the following:
   Manual_.
 - Optimized `ADD COLUMN` and `RENAME COLUMN` clauses for the `ALTER TABLE` statement. These optimizations are
   called "instant DDL." Aurora MySQL version 3 is compatible with the community MySQL instant DDL feature. The former Aurora fast DDL
-  feature isn't used. For usage information for instant DDL, see [Instant DDL (Aurora MySQL version 3)](AuroraMySQL.Managing.FastDDL.md#AuroraMySQL.mysql80-instant-ddl "AuroraMySQL.Managing.FastDDL.md#AuroraMySQL.mysql80-instant-ddl").
+  feature isn't used. For usage information for instant DDL, see [Instant DDL (Aurora MySQL version 3 and version 8.4)](AuroraMySQL.Managing.FastDDL.md#AuroraMySQL.mysql80-instant-ddl "AuroraMySQL.Managing.FastDDL.md#AuroraMySQL.mysql80-instant-ddl").
 - Descending, functional, and invisible indexes. For usage information, see [Invisible Indexes](https://dev.mysql.com/doc/refman/8.0/en/invisible-indexes.html "https://dev.mysql.com/doc/refman/8.0/en/invisible-indexes.html"), [Descending Indexes](https://dev.mysql.com/doc/refman/8.0/en/descending-indexes.html "https://dev.mysql.com/doc/refman/8.0/en/descending-indexes.html"), and [CREATE INDEX Statement](https://dev.mysql.com/doc/refman/8.0/en/create-index.html#create-index-functional-key-parts "https://dev.mysql.com/doc/refman/8.0/en/create-index.html#create-index-functional-key-parts") in the
   _MySQL Reference Manual_.
 - Role-based privileges controlled through SQL statements. For more information on changes to the privilege model, see [Role-based privilege model](AuroraMySQL.Compare-80-v3.md#AuroraMySQL.privilege-model "AuroraMySQL.Compare-80-v3.md#AuroraMySQL.privilege-model").

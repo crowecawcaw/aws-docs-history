@@ -2,6 +2,10 @@
 
 With Amazon Aurora MySQL-Compatible Edition, you can backtrack a DB cluster to a specific time, without restoring data from a backup.
 
+###### Important
+
+Backtracking is supported in Aurora MySQL version 2, version 3, and version 8.4.
+
 ###### Contents
 
 - [Overview of backtracking](AuroraMySQL.Managing.Backtrack.md#AuroraMySQL.Managing.Backtrack.Overview "AuroraMySQL.Managing.Backtrack.md#AuroraMySQL.Managing.Backtrack.Overview")
@@ -119,7 +123,7 @@ The following limitations apply to backtracking:
   complete.
 - You can't restore a cross-Region snapshot of a backtrack-enabled cluster in an AWS Region that doesn't
   support backtracking.
-- If you perform an in-place upgrade for a backtrack-enabled cluster from Aurora MySQL version 2 to version 3, you
+- If you perform an in-place upgrade for a backtrack-enabled cluster from Aurora MySQL version 2 to version 3, or from version 3 to version 8.4, you
   can't backtrack to a point in time before the upgrade happened.
 
 ## Region and version availability
@@ -128,50 +132,50 @@ Backtrack is not available for Aurora PostgreSQL.
 
 Following are the supported engines and Region availability for Backtrack with Aurora MySQL.
 
-| Region                     | Aurora MySQL version 3 | Aurora MySQL version 2    |
-| -------------------------- | ---------------------- | ------------------------- |
-| US East (N. Virginia)      | All versions           | All versions              |
-| US East (Ohio)             | All versions           | All versions              |
-| US West (N. California)    | All versions           | All versions              |
-| US West (Oregon)           | All versions           | All versions              |
-| Africa (Cape Town)         | –                      | –                         |
-| Asia Pacific (Hong Kong)   | –                      | –                         |
-| Asia Pacific (Jakarta)     | –                      | –                         |
-| Asia Pacific (Malaysia)    | –                      | –                         |
-| Asia Pacific (Melbourne)   | –                      | –                         |
-| Asia Pacific (Mumbai)      | All versions           | All versions              |
-| Asia Pacific (New Zealand) | –                      | –                         |
-| Asia Pacific (Osaka)       | All versions           | Version 2.07.3 and higher |
-| Asia Pacific (Seoul)       | All versions           | All versions              |
-| Asia Pacific (Singapore)   | All versions           | All versions              |
-| Asia Pacific (Sydney)      | All versions           | All versions              |
-| Asia Pacific (Taipei)      | –                      | –                         |
-| Asia Pacific (Thailand)    | –                      | –                         |
-| Asia Pacific (Tokyo)       | All versions           | All versions              |
-| Canada (Central)           | All versions           | All versions              |
-| Canada West (Calgary)      | –                      | –                         |
-| China (Beijing)            | –                      | –                         |
-| China (Ningxia)            | –                      | –                         |
-| Europe (Frankfurt)         | All versions           | All versions              |
-| Europe (Ireland)           | All versions           | All versions              |
-| Europe (London)            | All versions           | All versions              |
-| Europe (Milan)             | –                      | –                         |
-| Europe (Paris)             | All versions           | All versions              |
-| Europe (Spain)             | –                      | –                         |
-| Europe (Stockholm)         | –                      | –                         |
-| Europe (Zurich)            | –                      | –                         |
-| Israel (Tel Aviv)          | –                      | –                         |
-| Mexico (Central)           | –                      | –                         |
-| Middle East (Bahrain)      | –                      | –                         |
-| Middle East (UAE)          | –                      | –                         |
-| South America (São Paulo)  | –                      | –                         |
-| AWS GovCloud (US-East)     | –                      | –                         |
-| AWS GovCloud (US-West)     | –                      | –                         |
+| Region                     | Aurora MySQL version 8.4 | Aurora MySQL version 3 | Aurora MySQL version 2    |
+| -------------------------- | ------------------------ | ---------------------- | ------------------------- |
+| US East (N. Virginia)      | All versions             | All versions           | All versions              |
+| US East (Ohio)             | All versions             | All versions           | All versions              |
+| US West (N. California)    | All versions             | All versions           | All versions              |
+| US West (Oregon)           | All versions             | All versions           | All versions              |
+| Africa (Cape Town)         | –                        | –                      | –                         |
+| Asia Pacific (Hong Kong)   | –                        | –                      | –                         |
+| Asia Pacific (Jakarta)     | –                        | –                      | –                         |
+| Asia Pacific (Malaysia)    | –                        | –                      | –                         |
+| Asia Pacific (Melbourne)   | –                        | –                      | –                         |
+| Asia Pacific (Mumbai)      | All versions             | All versions           | All versions              |
+| Asia Pacific (New Zealand) | –                        | –                      | –                         |
+| Asia Pacific (Osaka)       | All versions             | All versions           | Version 2.07.3 and higher |
+| Asia Pacific (Seoul)       | All versions             | All versions           | All versions              |
+| Asia Pacific (Singapore)   | All versions             | All versions           | All versions              |
+| Asia Pacific (Sydney)      | All versions             | All versions           | All versions              |
+| Asia Pacific (Taipei)      | –                        | –                      | –                         |
+| Asia Pacific (Thailand)    | –                        | –                      | –                         |
+| Asia Pacific (Tokyo)       | All versions             | All versions           | All versions              |
+| Canada (Central)           | All versions             | All versions           | All versions              |
+| Canada West (Calgary)      | –                        | –                      | –                         |
+| China (Beijing)            | –                        | –                      | –                         |
+| China (Ningxia)            | –                        | –                      | –                         |
+| Europe (Frankfurt)         | All versions             | All versions           | All versions              |
+| Europe (Ireland)           | All versions             | All versions           | All versions              |
+| Europe (London)            | All versions             | All versions           | All versions              |
+| Europe (Milan)             | –                        | –                      | –                         |
+| Europe (Paris)             | All versions             | All versions           | All versions              |
+| Europe (Spain)             | –                        | –                      | –                         |
+| Europe (Stockholm)         | –                        | –                      | –                         |
+| Europe (Zurich)            | –                        | –                      | –                         |
+| Israel (Tel Aviv)          | –                        | –                      | –                         |
+| Mexico (Central)           | –                        | –                      | –                         |
+| Middle East (Bahrain)      | –                        | –                      | –                         |
+| Middle East (UAE)          | –                        | –                      | –                         |
+| South America (São Paulo)  | –                        | –                      | –                         |
+| AWS GovCloud (US-East)     | –                        | –                      | –                         |
+| AWS GovCloud (US-West)     | –                        | –                      | –                         |
 
 ## Upgrade considerations for backtrack-enabled clusters
 
-You can upgrade a backtrack-enabled DB cluster from Aurora MySQL version 2 to version 3, because all minor versions of
-Aurora MySQL version 3 are supported for Backtrack.
+You can upgrade a backtrack-enabled DB cluster from Aurora MySQL version 2 to version 3, or from version 3 to version 8.4, because all minor versions of
+Aurora MySQL version 3 and version 8.4 are supported for Backtrack.
 
 ## Subscribing to a backtrack event with the console
 

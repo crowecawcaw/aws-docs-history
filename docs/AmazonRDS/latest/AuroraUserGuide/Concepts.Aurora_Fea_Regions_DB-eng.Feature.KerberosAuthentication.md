@@ -17,45 +17,45 @@ feature of Directory Service. For more information, see [Kerberos authentication
 The following Regions and engine versions are available for Kerberos
 Authentication with Aurora MySQL.
 
-| Region                     | Aurora MySQL version 3    |
-| -------------------------- | ------------------------- |
-| US East (N. Virginia)      | Version 3.03.0 and higher |
-| US East (Ohio)             | Version 3.03.0 and higher |
-| US West (N. California)    | Version 3.03.0 and higher |
-| US West (Oregon)           | Version 3.03.0 and higher |
-| Africa (Cape Town)         | Not available             |
-| Asia Pacific (Hong Kong)   | Not available             |
-| Asia Pacific (Jakarta)     | Not available             |
-| Asia Pacific (Malaysia)    | Not available             |
-| Asia Pacific (Melbourne)   | Not available             |
-| Asia Pacific (Mumbai)      | Version 3.03.0 and higher |
-| Asia Pacific (New Zealand) | Not available             |
-| Asia Pacific (Osaka)       | Not available             |
-| Asia Pacific (Seoul)       | Version 3.03.0 and higher |
-| Asia Pacific (Singapore)   | Version 3.03.0 and higher |
-| Asia Pacific (Sydney)      | Version 3.03.0 and higher |
-| Asia Pacific (Taipei)      | Not available             |
-| Asia Pacific (Thailand)    | Not available             |
-| Asia Pacific (Tokyo)       | Version 3.03.0 and higher |
-| Canada (Central)           | Version 3.03.0 and higher |
-| Canada West (Calgary)      | Not available             |
-| China (Beijing)            | Version 3.03.0 and higher |
-| China (Ningxia)            | Version 3.03.0 and higher |
-| Europe (Frankfurt)         | Version 3.03.0 and higher |
-| Europe (Ireland)           | Version 3.03.0 and higher |
-| Europe (London)            | Version 3.03.0 and higher |
-| Europe (Milan)             | Not available             |
-| Europe (Paris)             | Version 3.03.0 and higher |
-| Europe (Spain)             | Not available             |
-| Europe (Stockholm)         | Version 3.03.0 and higher |
-| Europe (Zurich)            | Not available             |
-| Israel (Tel Aviv)          | Not available             |
-| Mexico (Central)           | Not available             |
-| Middle East (Bahrain)      | Not available             |
-| Middle East (UAE)          | Not available             |
-| South America (São Paulo)  | Version 3.03.0 and higher |
-| AWS GovCloud (US-East)     | Version 3.03.0 and higher |
-| AWS GovCloud (US-West)     | Version 3.03.0 and higher |
+| Region                     | Aurora MySQL version 3    | Aurora MySQL version 8.4 |
+| -------------------------- | ------------------------- | ------------------------ |
+| US East (N. Virginia)      | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| US East (Ohio)             | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| US West (N. California)    | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| US West (Oregon)           | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| Africa (Cape Town)         | Not available             | Not available            |
+| Asia Pacific (Hong Kong)   | Not available             | Not available            |
+| Asia Pacific (Jakarta)     | Not available             | Not available            |
+| Asia Pacific (Malaysia)    | Not available             | Not available            |
+| Asia Pacific (Melbourne)   | Not available             | Not available            |
+| Asia Pacific (Mumbai)      | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| Asia Pacific (New Zealand) | Not available             | Not available            |
+| Asia Pacific (Osaka)       | Not available             | Not available            |
+| Asia Pacific (Seoul)       | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| Asia Pacific (Singapore)   | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| Asia Pacific (Sydney)      | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| Asia Pacific (Taipei)      | Not available             | Not available            |
+| Asia Pacific (Thailand)    | Not available             | Not available            |
+| Asia Pacific (Tokyo)       | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| Canada (Central)           | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| Canada West (Calgary)      | Not available             | Not available            |
+| China (Beijing)            | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| China (Ningxia)            | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| Europe (Frankfurt)         | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| Europe (Ireland)           | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| Europe (London)            | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| Europe (Milan)             | Not available             | Not available            |
+| Europe (Paris)             | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| Europe (Spain)             | Not available             | Not available            |
+| Europe (Stockholm)         | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| Europe (Zurich)            | Not available             | Not available            |
+| Israel (Tel Aviv)          | Not available             | Not available            |
+| Mexico (Central)           | Not available             | Not available            |
+| Middle East (Bahrain)      | Not available             | Not available            |
+| Middle East (UAE)          | Not available             | Not available            |
+| South America (São Paulo)  | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| AWS GovCloud (US-East)     | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| AWS GovCloud (US-West)     | Version 3.03.0 and higher | Version 8.4.7 and higher |
 
 ## Kerberos authentication with Aurora PostgreSQL
 

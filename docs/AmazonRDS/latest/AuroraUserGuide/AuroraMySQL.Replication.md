@@ -114,7 +114,7 @@ parameter. This parameter is on by default. Because this optimization is intende
 setting only during diagnosis or troubleshooting for issues related to replication. For example, you can do so to match the
 behavior of an older Aurora MySQL cluster where this feature was not available.
 
-Binlog filtering is always enabled in Aurora MySQL version 3.
+Binlog filtering is always enabled in Aurora MySQL version 3 and version 8.4.
 
 ## Monitoring Amazon Aurora MySQL replication
 

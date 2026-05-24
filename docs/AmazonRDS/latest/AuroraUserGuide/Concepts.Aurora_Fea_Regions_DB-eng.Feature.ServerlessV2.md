@@ -17,46 +17,46 @@ cluster. For more information, see [Using Aurora serverless](aurora-serverless-v
 The following Regions and engine versions are available for Aurora serverless
 with Aurora MySQL.
 
-| Region                     | Aurora MySQL version 3                              |
-| -------------------------- | --------------------------------------------------- |
-| US East (N. Virginia)      | Version 3.02.0 and higher                           |
-| US East (Ohio)             | Version 3.02.0 and higher                           |
-| US West (N. California)    | Version 3.02.0 and higher                           |
-| US West (Oregon)           | Version 3.02.0 and higher                           |
-| Africa (Cape Town)         | Version 3.02.0 and higher                           |
-| Asia Pacific (Hong Kong)   | Version 3.02.0 and higher                           |
-| Asia Pacific (Hyderabad)   | Version 3.02.3 and higher                           |
-| Asia Pacific (Jakarta)     | Version 3.02.0 and higher                           |
-| Asia Pacific (Malaysia)    | Versions 3.04.3, 3.05.2, 3.06.1, 3.07.1, and higher |
-| Asia Pacific (Melbourne)   | Version 3.02.3 and higher                           |
-| Asia Pacific (Mumbai)      | Version 3.02.0 and higher                           |
-| Asia Pacific (New Zealand) | Versions 3.04.3 and higher, 3.08.0 and higher       |
-| Asia Pacific (Osaka)       | Version 3.02.0 and higher                           |
-| Asia Pacific (Seoul)       | Version 3.02.0 and higher                           |
-| Asia Pacific (Singapore)   | Version 3.02.0 and higher                           |
-| Asia Pacific (Sydney)      | Version 3.02.0 and higher                           |
-| Asia Pacific (Taipei)      | Versions 3.04.3 and higher, 3.08.1 and higher       |
-| Asia Pacific (Thailand)    | Versions 3.04.3 and higher, 3.08.0 and higher       |
-| Asia Pacific (Tokyo)       | Version 3.02.0 and higher                           |
-| Canada (Central)           | Version 3.02.0 and higher                           |
-| Canada West (Calgary)      | Version 3.04.0 and higher                           |
-| China (Beijing)            | Version 3.02.2 and higher                           |
-| China (Ningxia)            | Version 3.02.2 and higher                           |
-| Europe (Frankfurt)         | Version 3.02.0 and higher                           |
-| Europe (Ireland)           | Version 3.02.0 and higher                           |
-| Europe (London)            | Version 3.02.0 and higher                           |
-| Europe (Milan)             | Version 3.02.0 and higher                           |
-| Europe (Paris)             | Version 3.02.0 and higher                           |
-| Europe (Spain)             | Version 3.02.3 and higher                           |
-| Europe (Stockholm)         | Version 3.02.0 and higher                           |
-| Europe (Zurich)            | Version 3.02.3 and higher                           |
-| Israel (Tel Aviv)          | Versions 3.02.3 and higher, 3.03.1 and higher       |
-| Mexico (Central)           | Versions 3.04.3 and higher, 3.08.0 and higher       |
-| Middle East (Bahrain)      | Version 3.02.0 and higher                           |
-| Middle East (UAE)          | Version 3.02.3 and higher                           |
-| South America (São Paulo)  | Version 3.02.0 and higher                           |
-| AWS GovCloud (US-East)     | Version 3.02.2 and higher                           |
-| AWS GovCloud (US-West)     | Version 3.02.2 and higher                           |
+| Region                     | Aurora MySQL version 3                              | Aurora MySQL version 8.4                            |
+| -------------------------- | --------------------------------------------------- | --------------------------------------------------- |
+| US East (N. Virginia)      | Version 3.02.0 and higher                           | All available versions                              |
+| US East (Ohio)             | Version 3.02.0 and higher                           | All available versions                              |
+| US West (N. California)    | Version 3.02.0 and higher                           | All available versions                              |
+| US West (Oregon)           | Version 3.02.0 and higher                           | All available versions                              |
+| Africa (Cape Town)         | Version 3.02.0 and higher                           | All available versions                              |
+| Asia Pacific (Hong Kong)   | Version 3.02.0 and higher                           | All available versions                              |
+| Asia Pacific (Hyderabad)   | Version 3.02.3 and higher                           | All available versions                              |
+| Asia Pacific (Jakarta)     | Version 3.02.0 and higher                           | All available versions                              |
+| Asia Pacific (Malaysia)    | Versions 3.04.3, 3.05.2, 3.06.1, 3.07.1, and higher | Versions 3.04.3, 3.05.2, 3.06.1, 3.07.1, and higher |
+| Asia Pacific (Melbourne)   | Version 3.02.3 and higher                           | All available versions                              |
+| Asia Pacific (Mumbai)      | Version 3.02.0 and higher                           | All available versions                              |
+| Asia Pacific (New Zealand) | Versions 3.04.3 and higher, 3.08.0 and higher       | Versions 3.04.3 and higher, 3.08.0 and higher       |
+| Asia Pacific (Osaka)       | Version 3.02.0 and higher                           | All available versions                              |
+| Asia Pacific (Seoul)       | Version 3.02.0 and higher                           | All available versions                              |
+| Asia Pacific (Singapore)   | Version 3.02.0 and higher                           | All available versions                              |
+| Asia Pacific (Sydney)      | Version 3.02.0 and higher                           | All available versions                              |
+| Asia Pacific (Taipei)      | Versions 3.04.3 and higher, 3.08.1 and higher       | Versions 3.04.3 and higher, 3.08.1 and higher       |
+| Asia Pacific (Thailand)    | Versions 3.04.3 and higher, 3.08.0 and higher       | Versions 3.04.3 and higher, 3.08.0 and higher       |
+| Asia Pacific (Tokyo)       | Version 3.02.0 and higher                           | All available versions                              |
+| Canada (Central)           | Version 3.02.0 and higher                           | All available versions                              |
+| Canada West (Calgary)      | Version 3.04.0 and higher                           | All available versions                              |
+| China (Beijing)            | Version 3.02.2 and higher                           | All available versions                              |
+| China (Ningxia)            | Version 3.02.2 and higher                           | All available versions                              |
+| Europe (Frankfurt)         | Version 3.02.0 and higher                           | All available versions                              |
+| Europe (Ireland)           | Version 3.02.0 and higher                           | All available versions                              |
+| Europe (London)            | Version 3.02.0 and higher                           | All available versions                              |
+| Europe (Milan)             | Version 3.02.0 and higher                           | All available versions                              |
+| Europe (Paris)             | Version 3.02.0 and higher                           | All available versions                              |
+| Europe (Spain)             | Version 3.02.3 and higher                           | All available versions                              |
+| Europe (Stockholm)         | Version 3.02.0 and higher                           | All available versions                              |
+| Europe (Zurich)            | Version 3.02.3 and higher                           | All available versions                              |
+| Israel (Tel Aviv)          | Versions 3.02.3 and higher, 3.03.1 and higher       | Versions 3.02.3 and higher, 3.03.1 and higher       |
+| Mexico (Central)           | Versions 3.04.3 and higher, 3.08.0 and higher       | Versions 3.04.3 and higher, 3.08.0 and higher       |
+| Middle East (Bahrain)      | Version 3.02.0 and higher                           | All available versions                              |
+| Middle East (UAE)          | Version 3.02.3 and higher                           | All available versions                              |
+| South America (São Paulo)  | Version 3.02.0 and higher                           | All available versions                              |
+| AWS GovCloud (US-East)     | Version 3.02.2 and higher                           | All available versions                              |
+| AWS GovCloud (US-West)     | Version 3.02.2 and higher                           | All available versions                              |
 
 The upper and lower ACU limits for Aurora serverless capacity might vary
 depending on your engine version. For details, see [Aurora serverless capacity](aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity "aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity").

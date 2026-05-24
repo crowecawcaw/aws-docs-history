@@ -11,12 +11,12 @@ implementation called Fast DDL.
 
 ###### Topics
 
-- [Instant DDL (Aurora MySQL version 3)](#AuroraMySQL.mysql80-instant-ddl "#AuroraMySQL.mysql80-instant-ddl")
+- [Instant DDL (Aurora MySQL version 3 and version 8.4)](#AuroraMySQL.mysql80-instant-ddl "#AuroraMySQL.mysql80-instant-ddl")
 - [Fast DDL (Aurora MySQL version 2)](#AuroraMySQL.Managing.FastDDL-v2 "#AuroraMySQL.Managing.FastDDL-v2")
 
-## Instant DDL (Aurora MySQL version 3)
+## Instant DDL (Aurora MySQL version 3 and version 8.4)
 
-The optimization performed by Aurora MySQL version 3 to improve the efficiency of
+The optimization performed by Aurora MySQL version 3 and version 8.4 to improve the efficiency of
 some DDL operations is called instant DDL.
 
 Aurora MySQL version 3 is compatible with the instant DDL from community MySQL 8.0. You perform an

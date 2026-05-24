@@ -6,6 +6,7 @@ The following sections provide an overview of Amazon Aurora MySQL.
 
 - [Amazon Aurora MySQL performance enhancements](#Aurora.AuroraMySQL.Performance "#Aurora.AuroraMySQL.Performance")
 - [Amazon Aurora MySQL and spatial data](#Aurora.AuroraMySQL.Spatial "#Aurora.AuroraMySQL.Spatial")
+- [Aurora MySQL version 8.4 compatible with MySQL 8.4](AuroraMySQL.MySQL84.md "AuroraMySQL.MySQL84.md")
 - [Aurora MySQL version 3 compatible with MySQL 8.0](AuroraMySQL.MySQL80.md "AuroraMySQL.MySQL80.md")
 - [Aurora MySQL version 2 compatible with MySQL 5.7](AuroraMySQL.CompareMySQL57.md "AuroraMySQL.CompareMySQL57.md")
 
@@ -13,49 +14,6 @@ The following sections provide an overview of Amazon Aurora MySQL.
 
 Amazon Aurora includes performance enhancements to support the diverse needs of
 high-end commercial databases.
-
-### Fast insert
-
-Fast insert accelerates parallel inserts sorted by primary key and applies
-specifically to `LOAD DATA` and `INSERT INTO ... SELECT
- ...` statements. Fast insert caches the position of a cursor in an
-index traversal while executing the statement. This avoids unnecessarily
-traversing the index again.
-
-Fast insert is enabled only for regular InnoDB tables in Aurora MySQL version 3.03.2 and higher. This optimization
-doesn’t work for InnoDB temporary tables. It's disabled in Aurora MySQL version 2 for all 2.11 and 2.12 versions. Fast
-insert optimization works only if Adaptive Hash Index optimization is disabled.
-
-You can monitor the following metrics to determine the effectiveness of fast
-insert for your DB cluster:
-
-- `aurora_fast_insert_cache_hits`: A counter that is
-  incremented when the cached cursor is successfully retrieved and
-  verified.
-- `aurora_fast_insert_cache_misses`: A counter that is
-  incremented when the cached cursor is no longer valid and Aurora
-  performs a normal index traversal.
-
-You can retrieve the current value of the fast insert metrics using the
-following command:
-
-```
-
-`mysql>` show global status like 'Aurora_fast_insert%';
-```
-
-You will get output similar to the following:
-
-```
-
-+---------------------------------+-----------+
-| Variable_name                   | Value     |
-+---------------------------------+-----------+
-| Aurora_fast_insert_cache_hits   | 3598300   |
-| Aurora_fast_insert_cache_misses | 436401336 |
-+---------------------------------+-----------+
-
-```
 
 ## Amazon Aurora MySQL and spatial data
 
@@ -68,6 +26,9 @@ MySQL:
 - Aurora MySQL version 3 supports the same spatial data types and spatial relation functions as MySQL 8.0. For more
   information about these data types and functions, see [Spatial Data Types](https://dev.mysql.com/doc/refman/8.0/en/spatial-types.html "https://dev.mysql.com/doc/refman/8.0/en/spatial-types.html") and [Spatial Relation
   Functions](https://dev.mysql.com/doc/refman/8.0/en/spatial-relation-functions-object-shapes.html "https://dev.mysql.com/doc/refman/8.0/en/spatial-relation-functions-object-shapes.html") in the MySQL 8.0 documentation.
+- Aurora MySQL version 8.4 supports the same spatial data types and spatial relation functions as MySQL 8.4. For more
+  information about these data types and functions, see [Spatial Data Types](https://dev.mysql.com/doc/refman/8.4/en/spatial-types.html "https://dev.mysql.com/doc/refman/8.4/en/spatial-types.html") and [Spatial Relation
+  Functions](https://dev.mysql.com/doc/refman/8.4/en/spatial-relation-functions-object-shapes.html "https://dev.mysql.com/doc/refman/8.4/en/spatial-relation-functions-object-shapes.html") in the MySQL 8.4 documentation.
 - Aurora MySQL supports spatial indexing on InnoDB tables. Spatial indexing improves query performance on large datasets for
   queries on spatial data. In MySQL, spatial indexing for InnoDB tables is available in MySQL 5.7 and 8.0.
 

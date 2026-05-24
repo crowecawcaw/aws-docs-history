@@ -30,6 +30,7 @@ Managing master user passwords with Secrets Manager isn't supported for the foll
 - Aurora Serverless v1 DB clusters
 - Cross-Region read replicas
 - Binary log external replication
+- Managed master user passwords with the `validate_password` plugin or component enabled on Aurora MySQL
 
 ## Overview of managing master user passwords with AWS Secrets Manager
 

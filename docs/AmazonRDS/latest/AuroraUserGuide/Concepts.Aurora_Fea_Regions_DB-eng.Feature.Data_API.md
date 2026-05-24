@@ -62,8 +62,8 @@ Aurora PostgreSQL Aurora serverless and provisioned DB clusters.
 The following Regions and engine versions are available for Data API with
 Aurora MySQL Aurora serverless and provisioned DB clusters.
 
-| Region                     | Aurora MySQL version 3  |
-| -------------------------- | ----------------------- |
+| Region                     | Aurora MySQL version 3  | Aurora MySQL version 8.4 |
+| -------------------------- | ----------------------- | ------------------------ |
 | US East (Ohio)             | Version 3.07 and higher |
 | US East (N. Virginia)      | Version 3.07 and higher |
 | US West (N. California)    | Version 3.07 and higher |
@@ -72,15 +72,15 @@ Aurora MySQL Aurora serverless and provisioned DB clusters.
 | Asia Pacific (Hong Kong)   | Version 3.07 and higher |
 | Asia Pacific (Hyderabad)   | Not available           |
 | Asia Pacific (Jakarta)     | Version 3.07 and higher |
-| Asia Pacific (Malaysia)    | Version 3.07 and higher |
+| Asia Pacific (Malaysia)    | Version 3.07 and higher | Version 3.07 and higher  |
 | Asia Pacific (Melbourne)   | Not available           |
 | Asia Pacific (Mumbai)      | Version 3.07 and higher |
-| Asia Pacific (New Zealand) | Not available           |
+| Asia Pacific (New Zealand) | Not available           | Not available            |
 | Asia Pacific (Osaka)       | Version 3.07 and higher |
 | Asia Pacific (Seoul)       | Version 3.07 and higher |
 | Asia Pacific (Singapore)   | Version 3.07 and higher |
 | Asia Pacific (Sydney)      | Version 3.07 and higher |
-| Asia Pacific (Taipei)      | Not available           |
+| Asia Pacific (Taipei)      | Not available           | Not available            |
 | Asia Pacific (Thailand)    | Version 3.07 and higher |
 | Asia Pacific (Tokyo)       | Version 3.07 and higher |
 | Canada (Central)           | Version 3.07 and higher |
@@ -96,7 +96,7 @@ Aurora MySQL Aurora serverless and provisioned DB clusters.
 | Europe (Stockholm)         | Version 3.07 and higher |
 | Europe (Zurich)            | Not available           |
 | Israel (Tel Aviv)          | Not available           |
-| Mexico (Central)           | Not available           |
+| Mexico (Central)           | Not available           | Not available            |
 | Middle East (Bahrain)      | Version 3.07 and higher |
 | Middle East (UAE)          | Version 3.07 and higher |
 | South America (São Paulo)  | Version 3.07 and higher |

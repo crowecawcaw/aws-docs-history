@@ -47,7 +47,7 @@ in Aurora MySQL for MySQL 8.0:
 - Lab mode doesn't apply to Aurora MySQL version 3. There aren't any lab mode features in Aurora MySQL version
 
 3.  Instant DDL supersedes the fast online DDL feature that was formerly available in lab mode. For an example, see
-    [Instant DDL (Aurora MySQL version 3)](AuroraMySQL.Managing.FastDDL.md#AuroraMySQL.mysql80-instant-ddl "AuroraMySQL.Managing.FastDDL.md#AuroraMySQL.mysql80-instant-ddl").
+    [Instant DDL (Aurora MySQL version 3 and version 8.4)](AuroraMySQL.Managing.FastDDL.md#AuroraMySQL.mysql80-instant-ddl "AuroraMySQL.Managing.FastDDL.md#AuroraMySQL.mysql80-instant-ddl").
 
 - The query cache is removed from community MySQL 8.0 and also from Aurora MySQL version 3.
 - Aurora MySQL version 3 is compatible with the community MySQL hash join feature. The Aurora-specific implementation

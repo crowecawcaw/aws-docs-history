@@ -18,44 +18,44 @@ Database activity streams aren't supported for the following features:
 The following Regions and engine versions are available for database activity
 streams with Aurora MySQL.
 
-| Region                     | Aurora MySQL version 3 | Aurora MySQL version 2         |
-| -------------------------- | ---------------------- | ------------------------------ |
-| US East (N. Virginia)      | All available versions | Aurora version 2.11 and higher |
-| US East (Ohio)             | All available versions | Aurora version 2.11 and higher |
-| US West (N. California)    | All available versions | Aurora version 2.11 and higher |
-| US West (Oregon)           | All available versions | Aurora version 2.11 and higher |
-| Africa (Cape Town)         | All available versions | Aurora version 2.11 and higher |
-| Asia Pacific (Hong Kong)   | All available versions | Aurora version 2.11 and higher |
-| Asia Pacific (Hyderabad)   | All available versions | Aurora version 2.11 and higher |
-| Asia Pacific (Jakarta)     | All available versions | Aurora version 2.11 and higher |
-| Asia Pacific (Malaysia)    | Not available          | Not available                  |
-| Asia Pacific (Melbourne)   | Not available          | Not available                  |
-| Asia Pacific (Mumbai)      | All available versions | Aurora version 2.11 and higher |
-| Asia Pacific (New Zealand) | Not available          | Not available                  |
-| Asia Pacific (Osaka)       | All available versions | Aurora version 2.11 and higher |
-| Asia Pacific (Seoul)       | All available versions | Aurora version 2.11 and higher |
-| Asia Pacific (Singapore)   | All available versions | Aurora version 2.11 and higher |
-| Asia Pacific (Sydney)      | All available versions | Aurora version 2.11 and higher |
-| Asia Pacific (Taipei)      | Not available          | Not available                  |
-| Asia Pacific (Thailand)    | Not available          | Not available                  |
-| Asia Pacific (Tokyo)       | All available versions | Aurora version 2.11 and higher |
-| Canada (Central)           | All available versions | Aurora version 2.11 and higher |
-| Canada West (Calgary)      | Not available          | Not available                  |
-| China (Beijing)            | Not available          | Not available                  |
-| China (Ningxia)            | Not available          | Not available                  |
-| Europe (Frankfurt)         | All available versions | Aurora version 2.11 and higher |
-| Europe (Ireland)           | All available versions | Aurora version 2.11 and higher |
-| Europe (London)            | All available versions | Aurora version 2.11 and higher |
-| Europe (Milan)             | All available versions | Aurora version 2.11 and higher |
-| Europe (Paris)             | All available versions | Aurora version 2.11 and higher |
-| Europe (Spain)             | All available versions | Aurora version 2.11 and higher |
-| Europe (Stockholm)         | All available versions | Aurora version 2.11 and higher |
-| Europe (Zurich)            | Not available          | Not available                  |
-| Israel (Tel Aviv)          | Not available          | Not available                  |
-| Middle East (Bahrain)      | All available versions | Aurora version 2.11 and higher |
-| Mexico (Central)           | Not available          | Not available                  |
-| Middle East (UAE)          | All available versions | Aurora version 2.11 and higher |
-| South America (São Paulo)  | All available versions | Aurora version 2.11 and higher |
+| Region                     | Aurora MySQL version 3 | Aurora MySQL version 8.4 | Aurora MySQL version 2         |
+| -------------------------- | ---------------------- | ------------------------ | ------------------------------ |
+| US East (N. Virginia)      | All available versions | All available versions   | Aurora version 2.11 and higher |
+| US East (Ohio)             | All available versions | All available versions   | Aurora version 2.11 and higher |
+| US West (N. California)    | All available versions | All available versions   | Aurora version 2.11 and higher |
+| US West (Oregon)           | All available versions | All available versions   | Aurora version 2.11 and higher |
+| Africa (Cape Town)         | All available versions | All available versions   | Aurora version 2.11 and higher |
+| Asia Pacific (Hong Kong)   | All available versions | All available versions   | Aurora version 2.11 and higher |
+| Asia Pacific (Hyderabad)   | All available versions | All available versions   | Aurora version 2.11 and higher |
+| Asia Pacific (Jakarta)     | All available versions | All available versions   | Aurora version 2.11 and higher |
+| Asia Pacific (Malaysia)    | Not available          | Not available            | Not available                  |
+| Asia Pacific (Melbourne)   | Not available          | Not available            | Not available                  |
+| Asia Pacific (Mumbai)      | All available versions | All available versions   | Aurora version 2.11 and higher |
+| Asia Pacific (New Zealand) | Not available          | Not available            | Not available                  |
+| Asia Pacific (Osaka)       | All available versions | All available versions   | Aurora version 2.11 and higher |
+| Asia Pacific (Seoul)       | All available versions | All available versions   | Aurora version 2.11 and higher |
+| Asia Pacific (Singapore)   | All available versions | All available versions   | Aurora version 2.11 and higher |
+| Asia Pacific (Sydney)      | All available versions | All available versions   | Aurora version 2.11 and higher |
+| Asia Pacific (Taipei)      | Not available          | Not available            | Not available                  |
+| Asia Pacific (Thailand)    | Not available          | Not available            | Not available                  |
+| Asia Pacific (Tokyo)       | All available versions | All available versions   | Aurora version 2.11 and higher |
+| Canada (Central)           | All available versions | All available versions   | Aurora version 2.11 and higher |
+| Canada West (Calgary)      | Not available          | Not available            | Not available                  |
+| China (Beijing)            | Not available          | Not available            | Not available                  |
+| China (Ningxia)            | Not available          | Not available            | Not available                  |
+| Europe (Frankfurt)         | All available versions | All available versions   | Aurora version 2.11 and higher |
+| Europe (Ireland)           | All available versions | All available versions   | Aurora version 2.11 and higher |
+| Europe (London)            | All available versions | All available versions   | Aurora version 2.11 and higher |
+| Europe (Milan)             | All available versions | All available versions   | Aurora version 2.11 and higher |
+| Europe (Paris)             | All available versions | All available versions   | Aurora version 2.11 and higher |
+| Europe (Spain)             | All available versions | All available versions   | Aurora version 2.11 and higher |
+| Europe (Stockholm)         | All available versions | All available versions   | Aurora version 2.11 and higher |
+| Europe (Zurich)            | Not available          | Not available            | Not available                  |
+| Israel (Tel Aviv)          | Not available          | Not available            | Not available                  |
+| Middle East (Bahrain)      | All available versions | All available versions   | Aurora version 2.11 and higher |
+| Mexico (Central)           | Not available          | Not available            | Not available                  |
+| Middle East (UAE)          | All available versions | All available versions   | Aurora version 2.11 and higher |
+| South America (São Paulo)  | All available versions | All available versions   | Aurora version 2.11 and higher |
 
 ## Database activity streams with Aurora PostgreSQL
 

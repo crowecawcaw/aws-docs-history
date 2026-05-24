@@ -14,7 +14,7 @@ specific table in your database.
 ###### Contents
 
 - [Working with native functions to invoke a Lambda function](AuroraMySQL.Integrating.NativeLambda.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions "AuroraMySQL.Integrating.NativeLambda.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions")
-  - [Granting the role in Aurora MySQL version 3](AuroraMySQL.Integrating.NativeLambda.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.v3 "AuroraMySQL.Integrating.NativeLambda.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.v3")
+  - [Granting the role in Aurora MySQL version 3 and version 8.4](AuroraMySQL.Integrating.NativeLambda.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.v3 "AuroraMySQL.Integrating.NativeLambda.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.v3")
   - [Granting the privilege in Aurora MySQL version 2](AuroraMySQL.Integrating.NativeLambda.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.v2 "AuroraMySQL.Integrating.NativeLambda.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.v2")
   - [Syntax for the lambda_sync function](AuroraMySQL.Integrating.NativeLambda.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Sync.Syntax "AuroraMySQL.Integrating.NativeLambda.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Sync.Syntax")
   - [Parameters for the lambda_sync function](AuroraMySQL.Integrating.NativeLambda.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Sync.Parameters "AuroraMySQL.Integrating.NativeLambda.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Sync.Parameters")
@@ -31,9 +31,9 @@ function synchronously or asynchronously. When you must know the result of the L
 action, use the synchronous function `lambda_sync`. When you don't need to know the result of the Lambda
 function before moving on to another action, use the asynchronous function `lambda_async`.
 
-### Granting the role in Aurora MySQL version 3
+### Granting the role in Aurora MySQL version 3 and version 8.4
 
-In Aurora MySQL version 3, the user invoking a native function must be granted the `AWS_LAMBDA_ACCESS` role.
+In Aurora MySQL version 3 and version 8.4, the user invoking a native function must be granted the `AWS_LAMBDA_ACCESS` role.
 To grant this role to a user, connect to the DB instance as the administrative user, and run the following
 statement.
 

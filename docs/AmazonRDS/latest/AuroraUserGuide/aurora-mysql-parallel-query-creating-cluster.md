@@ -39,7 +39,7 @@ You can create a new parallel query cluster with the console as described follow
 ###### To verify that a new cluster can use parallel query
 
 1. Create a cluster using the preceding technique.
-2. (For Aurora MySQL version 2 or 3) Check that the `aurora_parallel_query` configuration setting is true.
+2. (For Aurora MySQL version 2, version 3, or version 8.4) Check that the `aurora_parallel_query` configuration setting is true.
 
 ```
 `mysql>` select @@aurora_parallel_query;

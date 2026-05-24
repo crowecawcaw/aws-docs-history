@@ -64,7 +64,7 @@ To view the status of an Aurora MySQL-based global database, query the [informat
 
 The `information_schema.aurora_global_db_status` and
 `information_schema.aurora_global_db_instance_status` tables are only
-available with Aurora MySQL version 3.04.0 and higher global databases.
+available with Aurora MySQL version 3.04.0 and higher, and version 8.4 and higher, global databases.
 
 ###### To monitor an Aurora MySQL-based global database
 

@@ -13,11 +13,11 @@ If you're performing a minor upgrade on an Aurora Global Database, upgrade all o
 
 ###### Note
 
-To perform a minor version upgrade to Aurora MySQL version 3.04.\* or higher, or version 2.12.\*, use the following process:
+To perform a minor version upgrade to Aurora MySQL version 8.4, version 3.04.\* or higher, or version 2.12.\*, use the following process:
 
 1. Remove all secondary Regions from the global cluster. Follow the steps in
    [Removing a cluster from an Amazon Aurora global database](aurora-global-database-detaching.md "aurora-global-database-detaching.md").
-2. Upgrade the engine version of the primary Region to version 3.04.\* or higher, or version 2.12.\*, as applicable. Follow the steps in [To modify the engine version of a DB cluster](#modify-db-cluster-engine-version "#modify-db-cluster-engine-version").
+2. Upgrade the engine version of the primary Region to version 8.4, version 3.04.\* or higher, or version 2.12.\*, as applicable. Follow the steps in [To modify the engine version of a DB cluster](#modify-db-cluster-engine-version "#modify-db-cluster-engine-version").
 3. Add secondary Regions to the global cluster. Follow the
    steps in [Adding an AWS Region to an Amazon Aurora global database](aurora-global-database-attaching.md "aurora-global-database-attaching.md").
 

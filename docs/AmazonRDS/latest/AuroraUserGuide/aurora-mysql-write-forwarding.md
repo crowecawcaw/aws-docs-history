@@ -20,7 +20,7 @@ Local write forwarding is different from global write forwarding, which forwards
 DB cluster to the primary DB cluster in an Aurora global database. You can use local write forwarding in a DB cluster that is part of an Aurora global
 database. For more information, see [Using write forwarding in an Amazon Aurora global database](aurora-global-database-write-forwarding.md "aurora-global-database-write-forwarding.md").
 
-Local write forwarding requires Aurora MySQL version 3.04 or higher.
+Local write forwarding requires Aurora MySQL version 3.04 or higher, including version 8.4.
 
 ###### Topics
 

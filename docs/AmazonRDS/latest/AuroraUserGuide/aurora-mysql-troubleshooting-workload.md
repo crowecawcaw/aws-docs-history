@@ -36,6 +36,17 @@ status variables and options added, deprecated, or removed in MySQL 8.0](https:/
   - [Example 3: Freeable memory drops continuously and isn't reclaimed](ams-workload-memory.md#ams-workload-memory.example3 "ams-workload-memory.md#ams-workload-memory.example3")
 
 - [Troubleshooting out-of-memory issues for Aurora MySQL databases](AuroraMySQLOOM.md "AuroraMySQLOOM.md")
+  - [OOM response actions](AuroraMySQLOOM.md#AuroraMySQLOOM.actions "AuroraMySQLOOM.md#AuroraMySQLOOM.actions")
+    - [kill_connect version-specific behavior](AuroraMySQLOOM.md#AuroraMySQLOOM.actions.kill_connect "AuroraMySQLOOM.md#AuroraMySQLOOM.actions.kill_connect")
+
+  - [Default values by version](AuroraMySQLOOM.md#AuroraMySQLOOM.defaults "AuroraMySQLOOM.md#AuroraMySQLOOM.defaults")
+  - [Aurora Serverless v2](AuroraMySQLOOM.md#AuroraMySQLOOM.serverless "AuroraMySQLOOM.md#AuroraMySQLOOM.serverless")
+  - [Monitoring](AuroraMySQLOOM.md#AuroraMySQLOOM.monitoring "AuroraMySQLOOM.md#AuroraMySQLOOM.monitoring")
+    - [Error log](AuroraMySQLOOM.md#AuroraMySQLOOM.monitoring.errorlog "AuroraMySQLOOM.md#AuroraMySQLOOM.monitoring.errorlog")
+    - [Amazon CloudWatch metrics](AuroraMySQLOOM.md#AuroraMySQLOOM.monitoring.cloudwatch "AuroraMySQLOOM.md#AuroraMySQLOOM.monitoring.cloudwatch")
+    - [Global status variables](AuroraMySQLOOM.md#AuroraMySQLOOM.monitoring.statusvars "AuroraMySQLOOM.md#AuroraMySQLOOM.monitoring.statusvars")
+    - [Performance Insights](AuroraMySQLOOM.md#AuroraMySQLOOM.monitoring.pi "AuroraMySQLOOM.md#AuroraMySQLOOM.monitoring.pi")
+    - [Performance Schema](AuroraMySQLOOM.md#AuroraMySQLOOM.monitoring.perfschema "AuroraMySQLOOM.md#AuroraMySQLOOM.monitoring.perfschema")
 
 ## Instance host metrics
 

@@ -3,7 +3,7 @@
 Amazon Aurora MySQL-Compatible Edition version 1 (with MySQL 5.6 compatibility) is planned to reach end of life
 on February 28, 2023. Amazon advises that you upgrade all clusters (provisioned and Aurora Serverless) running Aurora MySQL version 1
 to Aurora MySQL version 2 (with MySQL 5.7 compatibility) or Aurora MySQL version 3 (with MySQL 8.0
-compatibility). Do this before Aurora MySQL version 1 reaches the end of its support
+compatibility) or higher. Do this before Aurora MySQL version 1 reaches the end of its support
 period.
 
 For Aurora provisioned DB clusters, you can complete upgrades from Aurora MySQL version 1 to Aurora MySQL version 2 by several methods.

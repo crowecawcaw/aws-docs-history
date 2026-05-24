@@ -95,13 +95,20 @@ instead of `ModifyDBCluster`. For more information, see [In-place major upgrades
 
 ## How in-place upgrades affect the parameter groups for a cluster
 
-Aurora parameter groups have different sets of configuration settings for clusters that are compatible with MySQL 5.7 or 8.0. When
+Aurora parameter groups have different sets of configuration settings for clusters that are compatible with different MySQL versions. When
 you perform an in-place upgrade, the upgraded cluster and all its instances must use the corresponding cluster and instance
-parameter groups:
+parameter groups that are compatible with the new major version.
 
-Your cluster and instances might use the default 5.7-compatible parameter groups. If so, the upgraded cluster and instance
-start with the default 8.0-compatible parameter groups. If your cluster and instances use any custom parameter groups, make sure
-to create corresponding or 8.0-compatible parameter groups. Also make sure to specify those during the upgrade process.
+If your cluster and instances use the default parameter groups for the source version, the upgraded cluster and instances
+automatically start with the default parameter groups for the target version. If your cluster and instances use any custom parameter groups, make sure
+to create corresponding parameter groups that are compatible with the target version. Also make sure to specify those during the upgrade process.
+
+The following table shows the default parameter group mapping for each upgrade path:
+
+| Upgrade path                          | Source default parameter group | Target default parameter group |
+| ------------------------------------- | ------------------------------ | ------------------------------ |
+| Aurora MySQL version 2 to version 3   | `default.aurora-mysql5.7`      | `default.aurora-mysql8.0`      |
+| Aurora MySQL version 3 to version 8.4 | `default.aurora-mysql8.0`      | `default.aurora-mysql8.4`      |
 
 ###### Note
 
@@ -116,20 +123,21 @@ change to the `lower_case_table_names` parameter has no effect after the cluster
 is created.
 
 We recommend that you use the same setting for `lower_case_table_names` when
-you upgrade from Aurora MySQL version 2 to version 3.
+you perform a major version upgrade.
 
-With an Aurora global database based on Aurora MySQL, you can perform an in-place upgrade from Aurora MySQL version
-2 to version 3 only if you set the `lower_case_table_names` parameter to default and reboot your global
+With an Aurora global database based on Aurora MySQL, you can perform an in-place major version upgrade only if you set the
+`lower_case_table_names` parameter to default and reboot your global
 database. For more information on the methods that you can use, see [Major version upgrades](aurora-global-database-upgrade.md#aurora-global-database-upgrade.major "aurora-global-database-upgrade.md#aurora-global-database-upgrade.major").
 
 ## Changes to cluster properties between Aurora MySQL versions
 
-When you upgrade from Aurora MySQL version 2 to version 3, make sure to check any applications or scripts that you use to set up or
+When you perform a major version upgrade, make sure to check any applications or scripts that you use to set up or
 manage Aurora MySQL clusters and DB instances.
 
 Also, change your code that manipulates parameter groups to account for the fact that the default parameter group names are
-different for 5.7- and 8.0-compatible clusters. The default parameter group names for Aurora MySQL version 2 and 3 clusters are
-`default.aurora-mysql5.7` and `default.aurora-mysql8.0`, respectively.
+different for each major version.
+
+**Aurora MySQL version 2 to version 3**
 
 For example, you might have code like the following that applies to your cluster before an upgrade.
 
@@ -143,6 +151,20 @@ After upgrading the major version of the cluster, modify that code as follows.
 ```
 # Check the default parameter values for MySQL 8.0–compatible clusters.
 aws rds describe-db-parameters `--db-parameter-group-name default.aurora-mysql8.0` --region us-east-1
+```
+
+**Aurora MySQL version 3 to version 8.4**
+
+Similarly, if you have code referencing the version 3 default parameter group, update it after the upgrade.
+
+```
+# Before upgrade: Check the default parameter values for MySQL 8.0–compatible clusters.
+aws rds describe-db-parameters `--db-parameter-group-name default.aurora-mysql8.0` --region us-east-1
+```
+
+```
+# After upgrade: Check the default parameter values for MySQL 8.4–compatible clusters.
+aws rds describe-db-parameters `--db-parameter-group-name default.aurora-mysql8.4` --region us-east-1
 ```
 
 ## In-place major upgrades for global databases

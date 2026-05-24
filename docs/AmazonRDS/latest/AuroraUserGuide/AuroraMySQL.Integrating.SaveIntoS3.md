@@ -51,7 +51,7 @@ For instructions, see [Creating an IAM role to allow Amazon Aurora to access AWS
 IAM role isn't specified for `aurora_select_into_s3_role`, Aurora uses the IAM role specified in
 `aws_default_s3_role`.
 
-For Aurora MySQL version 3, use `aws_default_s3_role`.
+For Aurora MySQL version 3 and version 8.4, use `aws_default_s3_role`.
 
 If the cluster is part of an Aurora global database,
 set this parameter for each Aurora cluster in the global database.
@@ -70,11 +70,11 @@ For an Aurora global database, enable outbound connections for each Aurora clust
 ## Granting privileges to save data in Aurora MySQL
 
 The database user that issues the `SELECT INTO OUTFILE S3` statement must have a specific role or privilege. In
-Aurora MySQL version 3, you grant the `AWS_SELECT_S3_ACCESS` role. In Aurora MySQL version 2, you grant the `SELECT
+Aurora MySQL version 3 and version 8.4, you grant the `AWS_SELECT_S3_ACCESS` role. In Aurora MySQL version 2, you grant the `SELECT
  INTO S3` privilege. The administrative user for a DB cluster is granted the appropriate role or privilege by default.
 You can grant the privilege to another user by using one of the following statements.
 
-Use the following statement for Aurora MySQL version 3:
+Use the following statement for Aurora MySQL version 3 and version 8.4:
 
 ```
 GRANT AWS_SELECT_S3_ACCESS TO '`user`'@'`domain-or-ip-address`'

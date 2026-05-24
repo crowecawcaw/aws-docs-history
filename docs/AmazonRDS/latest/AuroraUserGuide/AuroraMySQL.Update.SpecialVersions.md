@@ -59,7 +59,7 @@ An Aurora MySQL beta release is an early, security fix–only release in a limit
 later deployed more broadly across all Regions with the next patch release.
 
 The numbering for a beta release is similar to an Aurora MySQL minor version, but with an extra fourth digit, for example
-2.12.0.1 or 3.05.0.1.
+2.12.0.1 or 3.05.0.1. For Aurora MySQL version 8.4 and higher, a beta release adds an extra digit to the minor version, for example 8.4.7.1.
 
 For more information, see [Database engine updates for Amazon Aurora MySQL
 version 2](../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.20Updates.md "../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.20Updates.md") and [Database engine updates for Amazon Aurora MySQL

@@ -35,7 +35,7 @@ formats](https://dev.mysql.com/doc/refman/8.0/en/innodb-row-format.html "https:/
 and page compression](https://dev.mysql.com/doc/refman/8.0/en/innodb-compression.html "https://dev.mysql.com/doc/refman/8.0/en/innodb-compression.html")in the MySQL documentation.
 
 You can use the following SQL script on your existing MySQL DB instance to list the tables in your database that
-are MyISAM tables or compressed tables.
+are MyISAM tables, compressed tables, or tables with compressed pages.
 
 ```
 -- This script examines a MySQL database for conditions that block
@@ -90,6 +90,12 @@ where
   (
     -- Compressed tables
        ROW_FORMAT = 'Compressed'
+  )
+  or
+  (
+    -- Tables with compressed pages
+       LOWER(CREATE_OPTIONS) like '%compression="zlib"%'
+       or LOWER(CREATE_OPTIONS) like '%compression="lz4"%'
   );
 ```
 

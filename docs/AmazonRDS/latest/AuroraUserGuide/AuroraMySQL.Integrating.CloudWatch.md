@@ -25,10 +25,7 @@ more information about enabling Aurora MySQL audit logs, see [Enabling Advanced 
 
 If you use this alternative method, you must have an IAM role to access
 CloudWatch Logs and set the `aws_default_logs_role` cluster-level parameter to
-the ARN for this role. For information about creating the role, see [Setting up IAM roles to access AWS services](AuroraMySQL.Integrating.Authorizing.IAM.md "AuroraMySQL.Integrating.Authorizing.IAM.md"). However, if you have
-the `AWSServiceRoleForRDS` service-linked role, it provides access to
-CloudWatch Logs and overrides any custom-defined roles. For information about
-service-linked roles for Amazon RDS, see [Using service-linked roles for Amazon Aurora](UsingWithRDS.IAM.ServiceLinkedRoles.md "UsingWithRDS.IAM.ServiceLinkedRoles.md").
+the ARN for this role. For information about creating the role, see [Setting up IAM roles to access AWS services](AuroraMySQL.Integrating.Authorizing.IAM.md "AuroraMySQL.Integrating.Authorizing.IAM.md").
 
 - If you don't want to export audit logs to CloudWatch Logs, make sure that all methods of exporting audit logs are disabled. These methods are the
   AWS Management Console, the AWS CLI, the RDS API, and the `server_audit_logs_upload` parameter.

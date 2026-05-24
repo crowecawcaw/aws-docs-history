@@ -111,7 +111,6 @@ calls or use the `BatchExecuteStatement` API for batch processing.
 
 ## Schema parameter isn't supported
 
-Aurora Serverless v1 silently ignores the schema parameter. However, Aurora
 Aurora serverless and provisioned clusters explicitly reject API calls that include the
 schema parameter.
 

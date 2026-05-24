@@ -84,7 +84,7 @@ All data definition language (DDL) statements are replicated as statements, rega
 
 The following limitations apply to replication filtering for Aurora MySQL:
 
-- Replication filters are supported only for Aurora MySQL version 3.
+- Replication filters are supported only for Aurora MySQL version 3 and version 8.4.
 - Each replication filtering parameter has a 2,000-character limit.
 - Commas aren't supported in replication filters.
 - Replication filtering doesn't support XA transactions.

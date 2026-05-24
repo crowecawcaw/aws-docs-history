@@ -12,6 +12,10 @@ In Aurora MySQL version 3, you can use all the hints that are available in MySQL
 these hints, see [Optimizer Hints](https://dev.mysql.com/doc/refman/8.0/en/optimizer-hints.html "https://dev.mysql.com/doc/refman/8.0/en/optimizer-hints.html") in the
 _MySQL Reference Manual_.
 
+In Aurora MySQL version 8.4, you can use all the hints that are available in MySQL Community Edition 8.4. For more information about
+these hints, see [Optimizer Hints](https://dev.mysql.com/doc/refman/8.4/en/optimizer-hints.html "https://dev.mysql.com/doc/refman/8.4/en/optimizer-hints.html") in the
+_MySQL Reference Manual_.
+
 The following hints are available in Aurora MySQL version 2. These hints apply to queries that use the hash join feature in Aurora MySQL
 version 2, especially queries that use parallel query optimization.
 

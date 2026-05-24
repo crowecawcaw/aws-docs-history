@@ -6,8 +6,8 @@ operations while you reboot the writer instance. You can reboot the reader insta
 for you. For example, in a production cluster you might reboot the reader instances one at a time, starting only after the
 reboot of the primary instance is finished. For each DB instance that you reboot, follow the procedure in [Rebooting a DB instance within an Aurora cluster](aurora-reboot-db-instance.md "aurora-reboot-db-instance.md").
 
-The read availability feature for primary DB clusters is available in Aurora MySQL version 2.10 and higher. Read availability for
-secondary DB clusters is available in Aurora MySQL version 3.06 and higher.
+The read availability feature for primary DB clusters is available in Aurora MySQL version 2.10 and higher, including version 8.4. Read availability for
+secondary DB clusters is available in Aurora MySQL version 3.06 and higher, including version 8.4.
 
 For Aurora PostgreSQL this feature is available by default in the following versions:
 

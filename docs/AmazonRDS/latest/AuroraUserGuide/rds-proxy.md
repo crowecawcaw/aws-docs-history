@@ -123,6 +123,12 @@ _IAM User Guide_.
   Deleting or modifying the `rdsproxyadmin` user
   or its permissions can result in complete unavailability of the proxy to your application.
 
+Starting in Aurora MySQL version 8.4.7, the database engine
+enforces this protection. Attempts to `CREATE`, `DROP`,
+`RENAME`, `GRANT`, `REVOKE`, or
+`SET PASSWORD` for `rdsproxyadmin` return an error. For
+details, see [Reserved users in Aurora MySQL](AuroraMySQL.Security.md#AuroraMySQL.Security.ReservedUsers "AuroraMySQL.Security.md#AuroraMySQL.Security.ReservedUsers").
+
 For additional limitations for each DB engine, see the following sections:
 
 - [Additional limitations for Aurora MySQL](#rds-proxy.limitations-my "#rds-proxy.limitations-my")

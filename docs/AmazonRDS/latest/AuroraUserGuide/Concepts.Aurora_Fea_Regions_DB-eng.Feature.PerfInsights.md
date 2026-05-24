@@ -51,92 +51,92 @@ see [Parallel query for Amazon Aurora MySQL](aurora-mysql-parallel-query.md "aur
 The following Regions and engine versions are available for Performance
 Insights with Aurora MySQL and parallel query turned off.
 
-| Region                     | Aurora MySQL version 3 | Aurora MySQL version 2 |
-| -------------------------- | ---------------------- | ---------------------- |
-| US East (N. Virginia)      | All versions           | All versions           |
-| US East (Ohio)             | All versions           | All versions           |
-| US West (N. California)    | All versions           | All versions           |
-| US West (Oregon)           | All versions           | All versions           |
-| Africa (Cape Town)         | All versions           | All versions           |
-| Asia Pacific (Hong Kong)   | All versions           | All versions           |
-| Asia Pacific (Hyderabad)   | All versions           | All versions           |
-| Asia Pacific (Jakarta)     | All versions           | All versions           |
-| Asia Pacific (Malaysia)    | All versions           | All versions           |
-| Asia Pacific (Melbourne)   | All versions           | All versions           |
-| Asia Pacific (Mumbai)      | All versions           | All versions           |
-| Asia Pacific (New Zealand) | All versions           | All versions           |
-| Asia Pacific (Osaka)       | All versions           | All versions           |
-| Asia Pacific (Seoul)       | All versions           | All versions           |
-| Asia Pacific (Singapore)   | All versions           | All versions           |
-| Asia Pacific (Sydney)      | All versions           | All versions           |
-| Asia Pacific (Taipei)      | All versions           | All versions           |
-| Asia Pacific (Thailand)    | All versions           | All versions           |
-| Asia Pacific (Tokyo)       | All versions           | All versions           |
-| Canada (Central)           | All versions           | All versions           |
-| Canada West (Calgary)      | All versions           | All versions           |
-| China (Beijing)            | All versions           | All versions           |
-| China (Ningxia)            | All versions           | All versions           |
-| Europe (Frankfurt)         | All versions           | All versions           |
-| Europe (Ireland)           | All versions           | All versions           |
-| Europe (London)            | All versions           | All versions           |
-| Europe (Milan)             | All versions           | All versions           |
-| Europe (Paris)             | All versions           | All versions           |
-| Europe (Spain)             | All versions           | All versions           |
-| Europe (Stockholm)         | All versions           | All versions           |
-| Europe (Zurich)            | All versions           | All versions           |
-| Israel (Tel Aviv)          | All versions           | All versions           |
-| Mexico (Central)           | All versions           | All versions           |
-| Middle East (Bahrain)      | All versions           | All versions           |
-| Middle East (UAE)          | All versions           | All versions           |
-| South America (São Paulo)  | All versions           | All versions           |
-| AWS GovCloud (US-East)     | All versions           | All versions           |
-| AWS GovCloud (US-West)     | All versions           | All versions           |
+| Region                     | Aurora MySQL version 3 | Aurora MySQL version 8.4 | Aurora MySQL version 2 |
+| -------------------------- | ---------------------- | ------------------------ | ---------------------- |
+| US East (N. Virginia)      | All versions           | All versions             | All versions           |
+| US East (Ohio)             | All versions           | All versions             | All versions           |
+| US West (N. California)    | All versions           | All versions             | All versions           |
+| US West (Oregon)           | All versions           | All versions             | All versions           |
+| Africa (Cape Town)         | All versions           | All versions             | All versions           |
+| Asia Pacific (Hong Kong)   | All versions           | All versions             | All versions           |
+| Asia Pacific (Hyderabad)   | All versions           | All versions             | All versions           |
+| Asia Pacific (Jakarta)     | All versions           | All versions             | All versions           |
+| Asia Pacific (Malaysia)    | All versions           | All versions             | All versions           |
+| Asia Pacific (Melbourne)   | All versions           | All versions             | All versions           |
+| Asia Pacific (Mumbai)      | All versions           | All versions             | All versions           |
+| Asia Pacific (New Zealand) | All versions           | All versions             | All versions           |
+| Asia Pacific (Osaka)       | All versions           | All versions             | All versions           |
+| Asia Pacific (Seoul)       | All versions           | All versions             | All versions           |
+| Asia Pacific (Singapore)   | All versions           | All versions             | All versions           |
+| Asia Pacific (Sydney)      | All versions           | All versions             | All versions           |
+| Asia Pacific (Taipei)      | All versions           | All versions             | All versions           |
+| Asia Pacific (Thailand)    | All versions           | All versions             | All versions           |
+| Asia Pacific (Tokyo)       | All versions           | All versions             | All versions           |
+| Canada (Central)           | All versions           | All versions             | All versions           |
+| Canada West (Calgary)      | All versions           | All versions             | All versions           |
+| China (Beijing)            | All versions           | All versions             | All versions           |
+| China (Ningxia)            | All versions           | All versions             | All versions           |
+| Europe (Frankfurt)         | All versions           | All versions             | All versions           |
+| Europe (Ireland)           | All versions           | All versions             | All versions           |
+| Europe (London)            | All versions           | All versions             | All versions           |
+| Europe (Milan)             | All versions           | All versions             | All versions           |
+| Europe (Paris)             | All versions           | All versions             | All versions           |
+| Europe (Spain)             | All versions           | All versions             | All versions           |
+| Europe (Stockholm)         | All versions           | All versions             | All versions           |
+| Europe (Zurich)            | All versions           | All versions             | All versions           |
+| Israel (Tel Aviv)          | All versions           | All versions             | All versions           |
+| Mexico (Central)           | All versions           | All versions             | All versions           |
+| Middle East (Bahrain)      | All versions           | All versions             | All versions           |
+| Middle East (UAE)          | All versions           | All versions             | All versions           |
+| South America (São Paulo)  | All versions           | All versions             | All versions           |
+| AWS GovCloud (US-East)     | All versions           | All versions             | All versions           |
+| AWS GovCloud (US-West)     | All versions           | All versions             | All versions           |
 
 ### Performance Insights with Aurora MySQL and parallel query turned on
 
 The following Regions and engine versions are available for Performance
 Insights with Aurora MySQL and parallel query turned on.
 
-| Region                     | Aurora MySQL version 3 | Aurora MySQL version 2    |
-| -------------------------- | ---------------------- | ------------------------- |
-| US East (N. Virginia)      | Not available          | Version 2.09.0 and higher |
-| US East (Ohio)             | Not available          | Version 2.09.0 and higher |
-| US West (N. California)    | Not available          | Version 2.09.0 and higher |
-| US West (Oregon)           | Not available          | Version 2.09.0 and higher |
-| Africa (Cape Town)         | Not available          | Version 2.09.0 and higher |
-| Asia Pacific (Hong Kong)   | Not available          | Version 2.09.0 and higher |
-| Asia Pacific (Hyderabad)   | Not available          | All versions              |
-| Asia Pacific (Jakarta)     | Not available          | Version 2.09.0 and higher |
-| Asia Pacific (Malaysia)    | Not available          | Version 2.09.0 and higher |
-| Asia Pacific (Melbourne)   | Not available          | Version 2.09.0 and higher |
-| Asia Pacific (Mumbai)      | Not available          | Version 2.09.0 and higher |
-| Asia Pacific (New Zealand) | Not available          | Version 2.09.0 and higher |
-| Asia Pacific (Osaka)       | Not available          | Version 2.09.0 and higher |
-| Asia Pacific (Seoul)       | Not available          | Version 2.09.0 and higher |
-| Asia Pacific (Singapore)   | Not available          | Version 2.09.0 and higher |
-| Asia Pacific (Sydney)      | Not available          | Version 2.09.0 and higher |
-| Asia Pacific (Taipei)      | Not available          | Version 2.09.0 and higher |
-| Asia Pacific (Thailand)    | Not available          | Version 2.09.0 and higher |
-| Asia Pacific (Tokyo)       | Not available          | Version 2.09.0 and higher |
-| Canada (Central)           | Not available          | Version 2.09.0 and higher |
-| Canada West (Calgary)      | Not available          | Version 2.09.0 and higher |
-| China (Beijing)            | Not available          | Version 2.09.0 and higher |
-| China (Ningxia)            | Not available          | Version 2.09.0 and higher |
-| Europe (Frankfurt)         | Not available          | Version 2.09.0 and higher |
-| Europe (Ireland)           | Not available          | Version 2.09.0 and higher |
-| Europe (London)            | Not available          | Version 2.09.0 and higher |
-| Europe (Milan)             | Not available          | Version 2.09.0 and higher |
-| Europe (Paris)             | Not available          | Version 2.09.0 and higher |
-| Europe (Spain)             | Not available          | Version 2.09.0 and higher |
-| Europe (Stockholm)         | Not available          | Version 2.09.0 and higher |
-| Europe (Zurich)            | Not available          | Version 2.09.0 and higher |
-| Israel (Tel Aviv)          | Not available          | Version 2.09.0 and higher |
-| Mexico (Central)           | Not available          | Version 2.09.0 and higher |
-| Middle East (Bahrain)      | Not available          | Version 2.09.0 and higher |
-| Middle East (UAE)          | Not available          | Version 2.09.0 and higher |
-| South America (São Paulo)  | Not available          | Version 2.09.0 and higher |
-| AWS GovCloud (US-East)     | Not available          | Version 2.09.0 and higher |
-| AWS GovCloud (US-West)     | Not available          | Version 2.09.0 and higher |
+| Region                     | Aurora MySQL version 3 | Aurora MySQL version 8.4 | Aurora MySQL version 2    |
+| -------------------------- | ---------------------- | ------------------------ | ------------------------- |
+| US East (N. Virginia)      | Not available          | Not available            | Version 2.09.0 and higher |
+| US East (Ohio)             | Not available          | Not available            | Version 2.09.0 and higher |
+| US West (N. California)    | Not available          | Not available            | Version 2.09.0 and higher |
+| US West (Oregon)           | Not available          | Not available            | Version 2.09.0 and higher |
+| Africa (Cape Town)         | Not available          | Not available            | Version 2.09.0 and higher |
+| Asia Pacific (Hong Kong)   | Not available          | Not available            | Version 2.09.0 and higher |
+| Asia Pacific (Hyderabad)   | Not available          | Not available            | All versions              |
+| Asia Pacific (Jakarta)     | Not available          | Not available            | Version 2.09.0 and higher |
+| Asia Pacific (Malaysia)    | Not available          | Not available            | Version 2.09.0 and higher |
+| Asia Pacific (Melbourne)   | Not available          | Not available            | Version 2.09.0 and higher |
+| Asia Pacific (Mumbai)      | Not available          | Not available            | Version 2.09.0 and higher |
+| Asia Pacific (New Zealand) | Not available          | Not available            | Version 2.09.0 and higher |
+| Asia Pacific (Osaka)       | Not available          | Not available            | Version 2.09.0 and higher |
+| Asia Pacific (Seoul)       | Not available          | Not available            | Version 2.09.0 and higher |
+| Asia Pacific (Singapore)   | Not available          | Not available            | Version 2.09.0 and higher |
+| Asia Pacific (Sydney)      | Not available          | Not available            | Version 2.09.0 and higher |
+| Asia Pacific (Taipei)      | Not available          | Not available            | Version 2.09.0 and higher |
+| Asia Pacific (Thailand)    | Not available          | Not available            | Version 2.09.0 and higher |
+| Asia Pacific (Tokyo)       | Not available          | Not available            | Version 2.09.0 and higher |
+| Canada (Central)           | Not available          | Not available            | Version 2.09.0 and higher |
+| Canada West (Calgary)      | Not available          | Not available            | Version 2.09.0 and higher |
+| China (Beijing)            | Not available          | Not available            | Version 2.09.0 and higher |
+| China (Ningxia)            | Not available          | Not available            | Version 2.09.0 and higher |
+| Europe (Frankfurt)         | Not available          | Not available            | Version 2.09.0 and higher |
+| Europe (Ireland)           | Not available          | Not available            | Version 2.09.0 and higher |
+| Europe (London)            | Not available          | Not available            | Version 2.09.0 and higher |
+| Europe (Milan)             | Not available          | Not available            | Version 2.09.0 and higher |
+| Europe (Paris)             | Not available          | Not available            | Version 2.09.0 and higher |
+| Europe (Spain)             | Not available          | Not available            | Version 2.09.0 and higher |
+| Europe (Stockholm)         | Not available          | Not available            | Version 2.09.0 and higher |
+| Europe (Zurich)            | Not available          | Not available            | Version 2.09.0 and higher |
+| Israel (Tel Aviv)          | Not available          | Not available            | Version 2.09.0 and higher |
+| Mexico (Central)           | Not available          | Not available            | Version 2.09.0 and higher |
+| Middle East (Bahrain)      | Not available          | Not available            | Version 2.09.0 and higher |
+| Middle East (UAE)          | Not available          | Not available            | Version 2.09.0 and higher |
+| South America (São Paulo)  | Not available          | Not available            | Version 2.09.0 and higher |
+| AWS GovCloud (US-East)     | Not available          | Not available            | Version 2.09.0 and higher |
+| AWS GovCloud (US-West)     | Not available          | Not available            | Version 2.09.0 and higher |
 
 ## Performance Insights with Aurora PostgreSQL
 

@@ -15,6 +15,7 @@ cluster. Instead, you use an authentication token. For more information, see [IA
 IAM database authentication with Aurora MySQL is available in all Regions for the
 following versions:
 
+- Aurora MySQL 8.4 – All available versions
 - Aurora MySQL 3 – All available versions
 - Aurora MySQL 2 – All available versions
 

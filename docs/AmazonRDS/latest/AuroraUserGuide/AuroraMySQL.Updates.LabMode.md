@@ -3,7 +3,7 @@
 ###### Important
 
 Lab mode was introduced in Aurora MySQL version 2 to enable the [Fast DDL](AuroraMySQL.Managing.FastDDL.md "AuroraMySQL.Managing.FastDDL.md") optimization, which improved
-the efficiency of certain DDL operations. In Aurora MySQL version 3, lab mode has been
+the efficiency of certain DDL operations. In Aurora MySQL version 3 and version 8.4, lab mode has been
 removed, and Fast DDL has been replaced by the MySQL 8.0 feature called [Instant DDL](https://dev.mysql.com/doc/refman/8.4/en/innodb-online-ddl-operations.html "https://dev.mysql.com/doc/refman/8.4/en/innodb-online-ddl-operations.html").
 
 Aurora lab mode is used to enable Aurora features that are available in the current

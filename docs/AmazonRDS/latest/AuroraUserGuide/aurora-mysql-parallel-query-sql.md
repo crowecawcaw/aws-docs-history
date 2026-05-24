@@ -203,7 +203,7 @@ operations are pending. In Aurora MySQL version 3, you can use parallel query on
 operation.
 
 Instant DDL in Aurora MySQL version 3 replaces the fast DDL feature in Aurora MySQL version 2. For information about instant
-DDL, see [Instant DDL (Aurora MySQL version 3)](AuroraMySQL.Managing.FastDDL.md#AuroraMySQL.mysql80-instant-ddl "AuroraMySQL.Managing.FastDDL.md#AuroraMySQL.mysql80-instant-ddl").
+DDL, see [Instant DDL (Aurora MySQL version 3 and version 8.4)](AuroraMySQL.Managing.FastDDL.md#AuroraMySQL.mysql80-instant-ddl "AuroraMySQL.Managing.FastDDL.md#AuroraMySQL.mysql80-instant-ddl").
 
 ## Column data types
 
