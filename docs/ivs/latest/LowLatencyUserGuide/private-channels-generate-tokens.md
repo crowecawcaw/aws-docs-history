@@ -94,6 +94,10 @@ All JWTs have three fields: header, payload, and signature.
   - `ads-player-params` is an optional field that allows you to pass parameters to Elemental MediaTailor
     as if they were player parameters. Keys that you put in this list are always namespaced as `player_params` template
     parameters. The total payload size for all keys and values combined is limited to 1000 bytes.
+  - `ads-playback-config-name` is an optional field that allows you to select which MediaTailor playback configuration is used for a viewing session.
+    The value must match the name of one of the MediaTailor playback configurations specified in the channel's ad configuration. If omitted, the first configuration
+    in the list is used. See [Server-Side Ad Insertion](server-side-ad-insertion.md "server-side-ad-insertion.md") for
+    more information.
   - `exp` is a Unix UTC timestamp for when the token
     expires. This does not indicate the length of time that the stream
     can be viewed. The token is validated when the viewer initializes

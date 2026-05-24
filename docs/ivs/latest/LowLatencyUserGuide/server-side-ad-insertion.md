@@ -60,7 +60,8 @@ configuration created in any IVS home region with an ad configuration in any oth
 `us-west-2`, `us-east-1`, `eu-west-1`, `eu-central-1`, `ap-northeast-1`,
 `ap-northeast-2`, and `ap-south-1`.
 
-You can reuse a single ad configuration across multiple channels.
+You can reuse a single ad configuration across multiple channels. An ad configuration supports up to 3 MediaTailor playback configurations. The first configuration in the list is used by default.
+To select a different one per viewing session, specify the `aws:ads-playback-config-name` claim in a [playback authorization token](private-channels-generate-tokens.md "private-channels-generate-tokens.md").
 
 To create an ad configuration (AWS CLI):
 
