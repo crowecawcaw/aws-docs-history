@@ -45,14 +45,14 @@ well.
 ###### To transpose columns to rows and rows to columns
 
 - Choose the transpose icon (
-  ![](images/transpose-icon.png)
+  ![Icon showing arrows pointing outward from center, indicating expand or resize functionality.](images/transpose-icon.png)
   ) near the top right of the visual. It has two arrows at a
   90 degree angle.
 
 ###### To vertically align columns
 
 1. On your visual, choose the **Format visual** icon (
-   ![](images/format-visual-icon.png)
+   ![Icon showing a house with an upward arrow and a menu button.](images/format-visual-icon.png)
    ) near the top right of the visual.
 2. In the **Properties** pane, choose **Table
    options**, and choose your table's vertical alignment.

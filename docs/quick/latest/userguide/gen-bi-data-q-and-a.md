@@ -93,7 +93,7 @@ single visual.
 
 
 
-      ![](images/top-customers.png)
+      ![Dashboard showing EMEA region sales data with bar chart, bubble chart, and order details table.](images/top-customers.png)
 
   Other tips
 

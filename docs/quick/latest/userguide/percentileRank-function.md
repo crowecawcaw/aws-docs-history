@@ -86,4 +86,4 @@ percentileRank(
 The following screenshot shows the results of the example, along with the total
 `Billed Amount` so you can see how each region compares.
 
-![](images/percentileRank.png)
+![Table showing Billed Amount and Percentile by Customer Region for APAC, EMEA, and US.](images/percentileRank.png)

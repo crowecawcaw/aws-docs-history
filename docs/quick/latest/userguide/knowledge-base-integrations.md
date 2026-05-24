@@ -78,6 +78,20 @@ Knowledge bases share common configuration patterns across different data source
 
 While these configuration options are available across most integrations, specific settings and available options may vary depending on your chosen data source integration.
 
+### Service principal for knowledge base operations
+
+If you use a customer-managed key (CMK) as your default CMK and Q data key (see
+[Encrypting your Amazon Quick data with AWS Key Management Service customer-managed keys](customer-managed-keys.md "customer-managed-keys.md")), Amazon Quick accesses your AWS KMS key
+using the `qbusiness.amazonaws.com` and
+`quicksight.amazonaws.com` service principals during knowledge base sync
+operations.
+
+###### Note
+
+Ensure that any policies governing access to your CMK permit both the
+`qbusiness.amazonaws.com` and
+`quicksight.amazonaws.com` service principals.
+
 ### File size and content limits
 
 Configure file size limits to optimize processing performance and manage storage costs. The specific limits vary by content type and are displayed in the console when you configure your knowledge base.
@@ -140,3 +154,16 @@ content from the source
 Protect your indexed content from accidental mass deletion by setting a maximum deletion percentage threshold. If a sync job would delete more documents than your threshold allows, the deletion phase is skipped, preserving your existing indexed content.
 
 This safeguard protects against temporary network issues, permission changes, or source system problems that might make content temporarily unavailable.
+
+#### Maximum sync duration
+
+Each sync run has a maximum runtime of 14 days. If a sync run is still in
+progress after 14 days, Amazon Quick ends the run with a status of
+**FAILED** and the following error
+message:
+
+If your sync run reaches this limit, edit your knowledge base to narrow the
+sync scope. For example, apply include or exclude filters, restrict the file
+types or folders being crawled, or split the content across multiple knowledge
+bases. For web crawler data sources, consider using the Web Search feature
+instead when your goal is to chat with large public websites.

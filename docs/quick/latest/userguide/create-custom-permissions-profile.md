@@ -45,6 +45,7 @@ restricted as individual features.
 | Parent capability | Functionality                                 |
 | ----------------- | --------------------------------------------- |
 | Analyses          | Restricts all Analysis-related features       |
+| Apps              | Restricts all Apps-related features           |
 | Dashboards        | Restricts all Dashboards-related features     |
 | Actions           | Restricts all Actions-related features        |
 | Automate          | Restricts all Automation-related features     |
@@ -100,6 +101,10 @@ restricted as individual features.
 | Create Executive Summary                                         | • Restricts the ability to create AI-generated executive<br>summaries from dashboards                                                                                                                                                                                                                                         | Dashboards              |
 | Creating or updating all knowledge bases                         | • Restricts the ability to create or update knowledge bases                                                                                                                                                                                                                                                                   | Knowledge Base          |
 | Share all knowledge bases                                        | • Restricts the ability to share knowledge bases                                                                                                                                                                                                                                                                              | Knowledge Base          |
+| Create and update apps                                           | • Restricts the ability to create or update apps                                                                                                                                                                                                                                                                              | Apps                    |
+| Share apps                                                       | • Restricts the ability to share apps with other users                                                                                                                                                                                                                                                                        | Apps                    |
+| Invoke apps AI inference                                         | • Restricts the ability to add and invoke AI inference in new and existing apps                                                                                                                                                                                                                                               | Apps                    |
+| Access apps native data store                                    | • Restricts the ability to access the native data store for new and existing apps                                                                                                                                                                                                                                             | Apps                    |
 
 ## Action connector features
 

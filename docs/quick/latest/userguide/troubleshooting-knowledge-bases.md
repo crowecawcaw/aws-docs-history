@@ -119,3 +119,22 @@ knowledge base connector is missing the required ACL permissions.
 2. Confirm that admin consent has been granted for all required
    permissions.
 3. Re-run a full sync after fixing permissions.
+
+## Sync run exceeds maximum runtime
+
+If a sync run takes longer than 14 days, Amazon Quick ends the run with a status of
+**FAILED** and the message _Maximum sync time
+exceeded_. This typically happens when a knowledge base is configured to
+crawl more content than can be processed in a single run.
+
+**To resolve:**
+
+1. Edit your knowledge base to reduce the volume of content per sync. Apply
+   include or exclude filters, restrict the file types or folders being crawled,
+   or split the content across multiple knowledge bases.
+2. For web crawler data sources, consider using the Web Search feature instead if
+   your goal is to chat with large public websites such as
+   `wikipedia.org`.
+3. Run the sync again after narrowing the scope.
+
+For more information about this limit, see [Maximum sync duration](knowledge-base-integrations.md#maximum-sync-duration "knowledge-base-integrations.md#maximum-sync-duration").

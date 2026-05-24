@@ -33,7 +33,7 @@ the sales amount if `Segment` is equal to `SMB`.
 sumIf(Sales, Segment=’SMB’)
 ```
 
-![](images/sumIfCalc.png)
+![Table showing Sum of Sales and SumIf by Segment with Field wells configuration panel above.](images/sumIfCalc.png)
 
 The following example uses a calculated field with `sumIf` to display
 the sales amount if `Segment` is equal to `SMB` and

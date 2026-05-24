@@ -65,4 +65,4 @@ one for each region. The total billed amount for this service line is divided in
 three percentages, which total 100 percent. Percentages are rounded and might not
 always add up to exactly 100 percent.
 
-![](images/percentOfTotal.png)
+![Table showing Billing service line data grouped by customer region with percentOfTotal and Billed Amount values.](images/percentOfTotal.png)

@@ -95,7 +95,7 @@ A new, blank visual is created and receives focus. 5. Use one of the following o
 
 
 
-    	![](images/visual-types.png)
+    	![Grid of chart and graph icons including bar charts, line graphs, pie charts, and data visualization types.](images/visual-types.png)
 
     	The field wells display the fields that are visualized.
 

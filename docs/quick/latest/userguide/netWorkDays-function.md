@@ -105,4 +105,4 @@ is_start_date_work_day = netWorkDays(employment_start_date)
         is_end_date_work_day = netWorkDays(employment_end_date)
 ```
 
-![](images/netWorkDays-function-example.png)
+![Table showing employee salary data grouped by employee_id with columns for dates, salary paid, days worked, and salary per day.](images/netWorkDays-function-example.png)

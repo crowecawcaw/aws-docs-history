@@ -62,7 +62,7 @@ These chart actions help you analyze and filter your data dynamically based on n
 Choose either **Focus only on null** or **Exclude null**
 to appropriately filter the results.
 
-![](images/focus-on-null.png)
+![Data visualization showing 6 unique contact names each associated with 3 segments, displayed in bar chart and table format.](images/focus-on-null.png)
 
 ## Refine query interpretations for null value handling
 
@@ -73,7 +73,7 @@ values are handled.
 2. Select the field you wish to modify.
 3. From the dropdown menu, choose **Null Options** to adjust null value handling.
 
-![](images/interpreted-as.png)
+![Analytics dashboard showing total Energy sector sales of 298,474.41 with breakdown by segment.](images/interpreted-as.png)
 
 For categorical fields, empty values are not the same as null values. To convert empty values
 into nulls:

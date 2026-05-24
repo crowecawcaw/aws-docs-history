@@ -7,7 +7,7 @@ reference line isn't part of the data that's used to build a chart. Instead,
 it's based on a value that you enter or a field that you identify in the dataset
 used by a chart.
 
-![](images/formatting-reference-lines-example.png)
+![Stacked bar chart showing costs for Marketing, HR, and Billing with revenue goal and average cost reference lines.](images/formatting-reference-lines-example.png)
 Quick supports reference lines in the following:
 
 - Bar charts
