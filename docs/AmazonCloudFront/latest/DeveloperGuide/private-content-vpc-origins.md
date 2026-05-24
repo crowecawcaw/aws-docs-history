@@ -73,6 +73,7 @@ VPC origins do not support the following:
 
 - gRPC traffic
 - Origin request and origin response triggers with Lambda@Edge
+- Network Access Control Lists (NACLs): Subnet-level allow and deny rules are not evaluated for this traffic.
 
 ## Create a VPC origin (new distribution)
 
