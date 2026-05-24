@@ -45,7 +45,7 @@ Choose a country from the **Country for
 Holidays** drop-down during the **Train
 Predictor** stage.
 
-![Toggle switch to activate holidays and dropdown menu to select a country for forecast accuracy.](images/holidays-dropdown-2.png)
+![](images/holidays-dropdown-2.png)
 
 ## Country Codes
 
