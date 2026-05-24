@@ -23,7 +23,7 @@ Do this from each Elemental node.
 1. Insert the DVD or USB thumb drive into the hardware unit.
 2. Boot up or reboot the system. The installer automatically starta.
 
-![Main menu interface for system configuration with options for hostname, disk layout, and OS installation.](images/install-installer-shared-png.png) 3. Use the arrow keys to select each option and do the following:
+![](images/install-installer-shared-png.png) 3. Use the arrow keys to select each option and do the following:
 
 | Menu Option                                   | Instructions                                                                                                                                                                     |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
