@@ -25,7 +25,7 @@ Get more familiar with Dashboard using the live, interactive demo
 dashboard following this
 [link](https://cid.workshops.aws.dev/demo?dashboard=aws-budgets "https://cid.workshops.aws.dev/demo?dashboard=aws-budgets")
 
-![Budget View](images/budgets_view.png)
+![Budget View](/images/guidance/latest/cloud-intelligence-dashboards/images/budgets_view.png)
 
 ![Budget Levels](images/budgets_view_levels.png)
 

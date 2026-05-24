@@ -78,7 +78,7 @@ We provide an example of Amazon Guardrails stack, but if your company is
 already using Guardrails you can skip this Step and continue to
 installation of the Plugin Stack (Step 4).
 
-[![Launch Stack button](/images/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/plugins/support-case-summarization/guardrail/guardrail.yaml&stackName=CidSupportCaseBedrockGuardrailStack "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/plugins/support-case-summarization/guardrail/guardrail.yaml&stackName=CidSupportCaseBedrockGuardrailStack")
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/plugins/support-case-summarization/guardrail/guardrail.yaml&stackName=CidSupportCaseBedrockGuardrailStack "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/plugins/support-case-summarization/guardrail/guardrail.yaml&stackName=CidSupportCaseBedrockGuardrailStack")
 
 This plugin comes with the following reasonable defaults that can be
 overridden through the parameters exposed by the CloudFormation
@@ -111,7 +111,7 @@ template:
 In this step we will deploy the summarization Plugin stack via cloud
 formation.
 
-[![Launch Stack button](/images/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/case-summarization/case-summarization.yaml&stackName=CidSupportCaseSummarizationStack "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/case-summarization/case-summarization.yaml&stackName=CidSupportCaseSummarizationStack")
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/case-summarization/case-summarization.yaml&stackName=CidSupportCaseSummarizationStack "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/case-summarization/case-summarization.yaml&stackName=CidSupportCaseSummarizationStack")
 
 This plugin comes with the following reasonable defaults that can be
 overridden through the parameters exposed by the CloudFormation
