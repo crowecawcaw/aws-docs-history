@@ -55,13 +55,13 @@ The following diagram shows an example of steps that you can take to create a _t
 ![Number 1 icon.](images/label-one.png)
 Identify [input parameters](parameters.md "parameters.md").
 
-![Number 2 icon.](/images/proton/latest/userguide/images/label-two.png)
+![Number 2 icon.](images/label-two.png)
 Create a [schema file](ag-schema.md "ag-schema.md") to define your input parameters.
 
 ![Number 3 icon.](images/label-three.png)
 Create [IaC files](ag-infrastructure-tmp-files.md "ag-infrastructure-tmp-files.md") that reference your input parameters. You can reference
 environment IaC file _outputs_ as _inputs_ for your service IaC files.
 
-![Number 4 icon.](/images/proton/latest/userguide/images/label-four.png)
+![Number 4 icon.](images/label-four.png)
 
 [Register a template version](template-create.md "template-create.md") with AWS Proton and upload your template bundle.
