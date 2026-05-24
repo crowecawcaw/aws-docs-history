@@ -93,7 +93,7 @@ its accuracy.
 When an **Alarm** or a **Warning** is triggered, Amazon Monitron
 sends a notification to the mobile app that is displayed as an icon in the upper right of your
 screen (
-![Red warning icon with exclamation mark inside a white triangle.](images/notification.png)
+![](images/notification.png)
 ).
 
 Choosing the notification icon opens the **Notifications** page, which
@@ -122,11 +122,11 @@ thresholds or machine learning models. This information can be used by technicia
 investigate and fix the issue. After an abnormality has been acknowledged and repaired, resolve
 the issue in the mobile app.
 
-![Pump monitoring interface showing vibration and temperature alarms with graphical data.](images/mobile-understand-sensor-measurement.png)
+![](images/mobile-understand-sensor-measurement.png)
 
 The status of the asset changes to:
 
-![Blue button labeled "Maintenance" indicating a system or service status.](images/maintenance-badge.png)
+![](images/maintenance-badge.png)
 
 After the alarm has been acknowledged, the abnormality can be examined and fixed as
 appropriate.
