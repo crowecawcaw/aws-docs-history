@@ -118,6 +118,18 @@ aws logs put-resource-policy \
  }'
 ```
 
+## Unable to update partnership due to duplicated capability type
+
+If you receive the error `Unable to update partnership due to duplicated
+ capability type` when adding trading capabilities to a partnership, this means
+you are attempting to associate two capabilities that share the same EDI transaction set
+and version combination (for example, two X12 850 version 4010 capabilities).
+
+Each partnership can only have one capability per transaction set and version
+combination, regardless of input or output directory configuration. To process the same
+document type with different directory configurations, create a separate partnership
+for each input/output path.
+
 ## Getting additional support
 
 If you're unable to resolve an issue using the troubleshooting information in this
