@@ -2,8 +2,9 @@
 
 The following table describes the documentation releases for Amazon WorkSpaces Core.
 
-| Change               | Description                                                        | Date               |
-| -------------------- | ------------------------------------------------------------------ | ------------------ |
-| Added new topic      | Added Security section                                             | June 23, 2025      |
-| New and updated link | Added link to Citrix Daas and updated Workspot link                | April 1, 2024      |
-| Initial release      | Initial release of the Amazon WorkSpaces Core Administration Guide | September 20, 2023 |
+| Change                             | Description                                                                                                                                                                                                                                            | Date               |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
+| Updated service-linked role policy | Updated the AWSServiceRolePolicyForWorkspacesInstances policy to add<br>`ec2:CreateTags` and `ec2:DescribeTags` permissions. For more<br>information, see [Using service-linked roles](using-service-linked-roles.md "using-service-linked-roles.md"). | March 25, 2026     |
+| Added new topic                    | Added Security section                                                                                                                                                                                                                                 | June 23, 2025      |
+| New and updated link               | Added link to Citrix Daas and updated Workspot link                                                                                                                                                                                                    | April 1, 2024      |
+| Initial release                    | Initial release of the Amazon WorkSpaces Core Administration Guide                                                                                                                                                                                     | September 20, 2023 |

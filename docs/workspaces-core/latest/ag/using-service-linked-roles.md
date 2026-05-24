@@ -70,10 +70,10 @@ The role permissions policy named AWSServiceRolePolicyForWorkspacesInstances all
 following actions on the specified resources:
 
 - For monitoring your resources: `ec2:DescribeInstances`, `ec2:DescribeInstanceStatus`,
-  and `ec2:DescribeVolumes`.
+  `ec2:DescribeVolumes`, and `ec2:DescribeTags`.
 - For managing the ec2 instances which workspaces-instances.amazonaws.com operate:
   `ec2:TerminateInstances`, `ec2:DeleteVolume`, `ec2:StopInstances`,
-  and `ec2:StartInstances`.
+  `ec2:StartInstances`, and `ec2:CreateTags`.
 
 You must configure permissions to allow your users, groups, or roles to create, edit, or
 delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
