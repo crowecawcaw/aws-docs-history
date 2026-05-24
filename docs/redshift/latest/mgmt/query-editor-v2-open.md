@@ -55,7 +55,7 @@ tables, and functions.
   **Load data** action to load
   data from Amazon S3 or from a local file into your database.
 - A
-  ![The floppy disk icon used in the AWS Console.](images/qev2-floppy-disk.png)
+  ![The floppy disk icon used in the AWS Console.](/images/redshift/latest/mgmt/images/qev2-floppy-disk.png)
 
 **Save** icon to save your query.
 
