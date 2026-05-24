@@ -27,7 +27,7 @@ to your bucket](../../../AmazonS3/latest/userguide/uploading-an-object-bucket.md
 Select **Create job**. 2. Complete the fields on the **Specify job details**
 page.
 
-![Amazon Transcribe console screenshot: the 'specify job details' page.](/images/transcribe/latest/dg/images/console-batch-job-details-1.png)
+![Amazon Transcribe console screenshot: the 'specify job details' page.](images/console-batch-job-details-1.png)
 
 The input location _must_ be an object within an Amazon S3 bucket. For
 output location, you can choose a secure Amazon S3 service-managed bucket or you can specify
