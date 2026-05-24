@@ -21,4 +21,5 @@ in the _Amazon Elastic Compute Cloud User Guide_.
 ###### Topics
 
 - [Using ODCRs with AWS PCS](capacity-reservations-odcr.md "capacity-reservations-odcr.md")
+- [Using I-ODCRs with AWS PCS](capacity-reservations-iodcr.md "capacity-reservations-iodcr.md")
 - [Using Amazon EC2 Capacity Blocks for ML with AWS PCS](capacity-blocks.md "capacity-blocks.md")

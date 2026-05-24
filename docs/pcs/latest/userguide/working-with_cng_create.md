@@ -85,19 +85,23 @@ AWS Management Console
    scaling requests in the node group. All instance types must have the same processor
    architecture (x86_64 or arm64) and number of vCPUs. If the instances have
    GPUs, all instance types must have the same number of GPUs. 7. **Scaling configuration** – Specify the minimum and maximum
-   number of instances for the node group. You can define either a static configuration,
-   where there is a fixed number of nodes running, or a dynamic configuration, where up to
-   the maximum count of nodes can run. For a static configuration, set minimum and maximum to
-   the same, greater than zero number. For a dynamic configuration, set minimum instances to
-   zero and maximum instances to a number greater than zero. AWS PCS doesn't support
-   compute node groups with a mix of static and dynamic instances.
+   number of instances for the node group. Set the minimum (min) equal to the maximum (max)
+   for static capacity (for example, 5 min, 5 max). Set the minimum to 0 for fully dynamic
+   scaling (for example, 0 min, 10 max). With Slurm 24.05 or later, you can
+   set the minimum greater than 0 and less than the maximum for mixed capacity. This
+   maintains a baseline number of instances and scales up as needed (for example, 2 min,
+   10 max).
 
 5. (Optional) Under **Additional settings**, specify the
    following:
    1. **Purchase option** – select On-Demand Instances,
-      Spot Instances, or an existing Capacity Block. Also choose **On-Demand**
+      Spot Instances, an Interruptible Capacity Reservation, or an existing Capacity Block.
+      Choose **On-Demand**
       if you plan to use an On-Demand Capacity Reservation (ODCR). For more information,
       see [Using ODCRs with AWS PCS](capacity-reservations-odcr.md "capacity-reservations-odcr.md").
+      Choose **Interruptible Capacity Reservation** to use a shared
+      interruptible ODCR (I-ODCR). For more information, see
+      [Using I-ODCRs with AWS PCS](capacity-reservations-iodcr.md "capacity-reservations-iodcr.md").
       Choose **Capacity Block** to use an existing Amazon EC2 Capacity Blocks for ML
       reservation. For more information, see [Using Amazon EC2 Capacity Blocks for ML with AWS PCS](capacity-blocks.md "capacity-blocks.md").
    2. **Allocation strategy** – if you have selected the Spot
@@ -147,12 +151,12 @@ select these when you create or update a compute node group, or the node group w
 correctly. 6. Replace `launch-template-version` with a specific launch template version.
 AWS PCS associates your node group with that specific version of the launch template. 7. Replace `arn:InstanceProfile`with the ARN of your IAM instance
 profile. If you don't have one prepared, see [Using Amazon EC2 launch templates with AWS PCS](working-with_launch-templates.md "working-with_launch-templates.md") for guidance. 8. Replace `min-instances` and
-`max-instances` with integer values. You can define either a
-static configuration, where there is a fixed number of nodes running, or a dynamic
-configuration, where up to the maximum count of nodes can run. For a static configuration,
-set minimum and maximum to the same, greater than zero number. For a dynamic configuration,
-set minimum instances to zero and maximum instances to a number greater than zero.
-AWS PCS doesn't support compute node groups with a mix of static and dynamic instances. 9. Replace `t3.large` with another instance type. You can add
+`max-instances` with integer values. Set the minimum (min) equal
+to the maximum (max) for static capacity (for example, 5 min, 5 max). Set the minimum to 0
+for fully dynamic scaling (for example, 0 min, 10 max). With Slurm 24.05 or
+later, you can set the minimum greater than 0 and less than the maximum for mixed capacity.
+This maintains a baseline number of instances and scales up as needed (for example, 2 min,
+10 max). 9. Replace `t3.large` with another instance type. You can add
 more instance types by specifying a list of `instanceType` settings. For example,
 `--instance-configs instanceType=c6i.16xlarge instanceType=c6a.16xlarge`.
 All instance types must have the same processor architecture (x86_64 or arm64) and
@@ -206,6 +210,9 @@ There are several optional configuration settings you can add to the
     Guide_.
   - `CAPACITY_BLOCK` – Use an existing Amazon EC2 Capacity Blocks for ML
     reservation. For more information, see [Using Amazon EC2 Capacity Blocks for ML with AWS PCS](capacity-blocks.md "capacity-blocks.md").
+  - `INTERRUPTIBLE_CAPACITY_RESERVATION` – Use a shared interruptible
+    ODCR (I-ODCR). For more information, see
+    [Using I-ODCRs with AWS PCS](capacity-reservations-iodcr.md "capacity-reservations-iodcr.md").
 
 - It is possible to provide Slurm configuration options for the nodes in
   the node group using `--slurm-configuration`. You can set the weight (scheduling
