@@ -30,20 +30,28 @@ cloud:
 - [Data protection in Amazon Q Developer in chat applications](#per-service-security "#per-service-security")
 - [Identity and Access Management for Amazon Q Developer in chat applications](security-iam.md "security-iam.md")
 - [Connecting to Amazon Q Developer in chat applications with interface VPC endpoints](vpc.md "vpc.md")
-- [Compliance validation for Amazon Q Developer in chat applications](chatbot-compliance.md "chatbot-compliance.md")
+- [Compliance validation for Amazon Q Developer in chat applications](compliance-validation.md "compliance-validation.md")
 - [Resilience in Amazon Q Developer in chat applications](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Amazon Q Developer in chat applications](infrastructure-security.md "infrastructure-security.md")
 
 ## Data protection in Amazon Q Developer in chat applications
 
-The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/")
-applies to data protection in Amazon Q Developer in chat applications. As described in this model, AWS is
+The AWS
+[shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/")
+
+applies to data protection in Amazon Q Developer in chat applications.
+
+As described in this model, AWS is
 responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are
 responsible for maintaining control over your content that is hosted on this infrastructure.
 You are also responsible for the security configuration and management tasks for the AWS services
-that you use. For more information about data privacy, see the [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/ "https://aws.amazon.com/compliance/data-privacy-faq/"). For information about data protection in Europe, see the [AWS Shared
-Responsibility Model and GDPR](https://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/ "https://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/") blog post on the _AWS Security
-Blog_.
+that you use.
+
+For more information about data privacy, see
+[Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/ "https://aws.amazon.com/compliance/data-privacy-faq/").
+
+For information about data protection in Europe, see the
+[General Data Protection Regulation (GDPR) Center](https://aws.amazon.com/compliance/gdpr-center/ "https://aws.amazon.com/compliance/gdpr-center/").
 
 For data protection purposes, we recommend that you protect AWS account
 credentials and set up individual users with AWS IAM Identity Center or AWS Identity and Access Management (IAM). That way, each user is given only the permissions necessary to fulfill their job duties. We also recommend that you secure your data in the following ways:
