@@ -171,6 +171,20 @@ JSON
  "s3:x-amz-copy-source": "*/tag-policy-compliance-reports/*"
  }
  }
+ },
+ {
+ "Sid": "PutObjectCreateMultipartUpload",
+ "Effect": "Allow",
+ "Action": "s3:PutObject",
+ "Resource": "arn:aws:s3:::`bucket_name`/AwsTagPolicies/`organization_id`/*",
+ "Condition": {
+ "StringEquals": {
+ "aws:CalledViaLast": "tagpolicies.tag.amazonaws.com"
+ },
+ "Null": {
+ "s3:x-amz-copy-source": "true"
+ }
+ }
  }
  ]
 }`
