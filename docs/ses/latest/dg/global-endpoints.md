@@ -8,7 +8,7 @@ improved disaster recovery capabilities for your email workloads.
 ## What are Global endpoints?
 
 Global endpoints are resources that allow you to distribute your SES outbound workloads across
-two AWS Regions. Once configured, SES automatically splits your sending traffic
+two AWS Regions. Once configured, SES automatically divides your sending traffic
 between the selected primary and secondary regions. If either region experiences an
 impairment, SES will automatically shift traffic away from the affected region to
 maintain continuity of your sending operations.
@@ -364,13 +364,25 @@ availability and reliability of email sending capabilities.
   verified identities) between regions to maintain sending integrity.
 - Monitor the Cross-region metrics to ensure balanced traffic distribution and
   identify any potential issues.
-- Be aware that while Global endpoints provide improved availability, they do not change
-  the physical state of regional availability for SES Outbound.
-- Note that at launch, Global endpoints do not support SMTP or VPC endpoint access.
-- Consider potential egress charges if using an AWS address translation
-  gateway.
 - Be aware that there may be fractional increases in API latency when making
   calls to MREP-enabled distant regions.
+- To ensure balanced traffic distribution, adopt an active-active architecture
+  that mirrors the regions of your Global endpoint. Alternatively, choose two regions that
+  are approximately equally distant from your client application.
+- Configure your client application to detect routing changes quickly. Global endpoints
+  publish current routing weights through DNS. Set the positive DNS cache TTL to
+  approximately 60 seconds and the negative DNS cache TTL to approximately 10
+  seconds in your runtime and resolver configuration. On the JVM, these are
+  controlled by the `networkaddress.cache.ttl` and
+  `networkaddress.cache.negative.ttl` security properties.
+- Set HTTP connection lifetime limits in your client. Long-lived keep-alive
+  connections continue to reach the originally resolved IP address even after DNS
+  refreshes. Set a short [Connection TTL](../../../sdk-for-java/latest/developer-guide/client-configuration.md#client-configuration-http "../../../sdk-for-java/latest/developer-guide/client-configuration.md#client-configuration-http") of approximately 60 seconds on your HTTP
+  client so that pooled connections are replaced regularly. Most AWS SDKs
+  expose this setting.
+- Global endpoints do not support SMTP or VPC endpoint access.
+- Consider potential egress charges if routing traffic through a NAT
+  Gateway.
 
 ## Pricing
 

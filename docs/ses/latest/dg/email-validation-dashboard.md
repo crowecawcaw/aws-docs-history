@@ -16,4 +16,4 @@ To view the Email Validation Dashboard:
    identify trends and make data-driven decisions about list hygiene and sending
    practices.
 
-![](images/email_validation_api_dashboard.png)
+![Email validation dashboard showing counts of 8,026 low, 8,322 medium, and 8,757 high confidence results with trend graph over 7 days.](images/email_validation_api_dashboard.png)
