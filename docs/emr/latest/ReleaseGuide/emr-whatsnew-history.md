@@ -1435,7 +1435,7 @@ Updated release date: March 21, 2022
 
 ###### Changes, Enhancements, and Resolved Issues
 
-- Amazon EMR 6.5 release version now supports Apache Iceberg 0.12.0, and provides runtime improvements with Amazon EMR Runtime for Apache Spark, Amazon EMR Runtime for Presto, and Amazon EMR Runtime for Apache Hive.
+- Amazon EMR 6.5 release version now supports Apache Iceberg 0.12.0, and provides runtime improvements with Amazon EMR runtime for Apache Spark, Amazon EMR Runtime for Presto, and Amazon EMR Runtime for Apache Hive.
 - [Apache Iceberg](https://iceberg.apache.org/ "https://iceberg.apache.org/") is an open table format for large data sets in Amazon S3 and provides fast query performance over large tables, atomic commits, concurrent writes, and SQL-compatible table evolution. With EMR 6.5, you can use Apache Spark 3.1.2 with the Iceberg table format.
 - Apache Hudi 0.9 adds Spark SQL DDL and DML support. This allows you to create, upsert Hudi tables using just SQL statements. Apache Hudi 0.9 also includes query side and writer side performance improvements.
 - Amazon EMR Runtime for Apache Hive improves Apache Hive performance on Amazon S3 by removing rename operations during staging operations, and improves performance for metastore check (MSCK) commands used for repairing tables.
