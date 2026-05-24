@@ -11,7 +11,7 @@ multi-account environment; and you can enable and manage these controls directly
 search from the console, go to the Control Catalog and search for controls with the
 **Implementation** filter AWS Config. (Example: `Implementation = AWS Config`)
 
-The AWS Control Tower console and AWS Config console each display the same metqdata for these controls.
+The AWS Control Tower console and AWS Config console each display the same metadata for these controls.
 
 You can enable and disable the AWS Config controls through the AWS Control Tower console or the [`EnableControl`](../APIReference/API_EnableControl.md "../APIReference/API_EnableControl.md") and [`DisableControl`](../APIReference/API_DisableControl.md "../APIReference/API_DisableControl.md") APIs. Control details are viewable programmatically by
 calling the Control Catalog

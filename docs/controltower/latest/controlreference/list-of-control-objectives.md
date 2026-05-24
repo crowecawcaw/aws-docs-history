@@ -4,7 +4,7 @@
 
 This page will be removed in a future release.
 
-These control objectives were the original objectives for AWS Control Tower controls. As AWS Control Tower has expanded to include more indistry frameworks, we have expanded the list of objectives. This list is available as historical guidance, to help you make the transition to newer controls and API implementations.
+These control objectives were the original objectives for AWS Control Tower controls. As AWS Control Tower has expanded to include more industry frameworks, we have expanded the list of objectives. This list is available as historical guidance, to help you make the transition to newer controls and API implementations.
 
 Sometimes controls must be applied
 in a group so that the control objective is enforced. Information about related
