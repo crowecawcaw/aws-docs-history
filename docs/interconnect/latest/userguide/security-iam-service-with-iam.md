@@ -34,7 +34,7 @@ You can specify multiple actions using wildcards (\*). For example, to specify a
 "Action": "interconnect:Create*"
 ```
 
-To see a list of AWS Interconnect actions, see [Actions Defined by AWS Interconnect](https://alpha.www.docs.aws.a2z.com/service-authorization/latest/reference/list_awsinterconnect.html#awsinterconnect-actions-as-permissions "https://alpha.www.docs.aws.a2z.com/service-authorization/latest/reference/list_awsinterconnect.html#awsinterconnect-actions-as-permissions") in the _IAM User Guide_.
+To see a list of AWS Interconnect actions, see [Actions Defined by AWS Interconnect](../../../service-authorization/latest/reference/list_awsinterconnect.md#awsinterconnect-actions-as-permissions "../../../service-authorization/latest/reference/list_awsinterconnect.md#awsinterconnect-actions-as-permissions") in the _IAM User Guide_.
 
 ### Resources
 
@@ -66,7 +66,7 @@ Some AWS Interconnect actions, such as those for creating resources, cannot be p
 "Resource": "*"
 ```
 
-To see a list of AWS Interconnect resource types and their ARNs, see [Resources Defined by AWS Interconnect](https://alpha.www.docs.aws.a2z.com/service-authorization/latest/reference/list_awsinterconnect.html#awsinterconnect-resources-for-iam-policies "https://alpha.www.docs.aws.a2z.com/service-authorization/latest/reference/list_awsinterconnect.html#awsinterconnect-resources-for-iam-policies") in the _IAM User Guide_. To learn with which actions you can specify the ARN of each resource, see [Actions Defined by AWS Interconnect](https://alpha.www.docs.aws.a2z.com/service-authorization/latest/reference/list_awsinterconnect.html#awsinterconnect-actions-as-permissions "https://alpha.www.docs.aws.a2z.com/service-authorization/latest/reference/list_awsinterconnect.html#awsinterconnect-actions-as-permissions").
+To see a list of AWS Interconnect resource types and their ARNs, see [Resources Defined by AWS Interconnect](../../../service-authorization/latest/reference/list_awsinterconnect.md#awsinterconnect-resources-for-iam-policies "../../../service-authorization/latest/reference/list_awsinterconnect.md#awsinterconnect-resources-for-iam-policies") in the _IAM User Guide_. To learn with which actions you can specify the ARN of each resource, see [Actions Defined by AWS Interconnect](../../../service-authorization/latest/reference/list_awsinterconnect.md#awsinterconnect-actions-as-permissions "../../../service-authorization/latest/reference/list_awsinterconnect.md#awsinterconnect-actions-as-permissions").
 
 ### Condition keys
 
@@ -81,7 +81,7 @@ AWS Interconnect defines its own set of condition keys and also supports using s
 
 All Amazon EC2 actions support the `aws:RequestedRegion` and `ec2:Region` condition keys. For more information, see [Example: Restricting access to a specific region](../../../AWSEC2/latest/UserGuide/ExamplePolicies_EC2.md#iam-example-region "../../../AWSEC2/latest/UserGuide/ExamplePolicies_EC2.md#iam-example-region").
 
-To see a list of AWS Interconnect condition keys, see [Condition Keys for AWS Interconnect](https://alpha.www.docs.aws.a2z.com/service-authorization/latest/reference/list_awsinterconnect.html#awsinterconnect-policy-keys "https://alpha.www.docs.aws.a2z.com/service-authorization/latest/reference/list_awsinterconnect.html#awsinterconnect-policy-keys") in the _IAM User Guide_. To learn with which actions and resources you can use a condition key, see [Actions defined by AWS Interconnect](https://alpha.www.docs.aws.a2z.com/service-authorization/latest/reference/list_awsinterconnect.html#awsinterconnect-actions-as-permissions "https://alpha.www.docs.aws.a2z.com/service-authorization/latest/reference/list_awsinterconnect.html#awsinterconnect-actions-as-permissions").
+To see a list of AWS Interconnect condition keys, see [Condition Keys for AWS Interconnect](../../../service-authorization/latest/reference/list_awsinterconnect.md#awsinterconnect-policy-keys "../../../service-authorization/latest/reference/list_awsinterconnect.md#awsinterconnect-policy-keys") in the _IAM User Guide_. To learn with which actions and resources you can use a condition key, see [Actions defined by AWS Interconnect](../../../service-authorization/latest/reference/list_awsinterconnect.md#awsinterconnect-actions-as-permissions "../../../service-authorization/latest/reference/list_awsinterconnect.md#awsinterconnect-actions-as-permissions").
 
 ### Examples
 
