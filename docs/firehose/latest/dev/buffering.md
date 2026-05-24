@@ -37,6 +37,6 @@ and removed from the active partitions count.
 Firehose delivers each buffer data as a single object once the buffer size or interval
 are met for each partition separately. Once the number of active partitions reaches a
 limit of 500 per Firehose stream, the rest of the records in the Firehose stream are delivered to
-the specified S3 error bucket prefix (activePartitionExceeded). You can use the [Amazon Data Firehose Limits form](https://support.console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=kinesis-firehose-limits "https://support.console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=kinesis-firehose-limits") to request an increase of this quota up to 5000
+the specified S3 error bucket prefix (activePartitionExceeded). You can use the [Amazon Data Firehose Limits form](https://support.console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=kinesis-firehose-limits "https://support.console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=kinesis-firehose-limits") to request an increase of this quota up to 2500
 active partitions per given Firehose stream. If you need more partitions, you can create more
 Firehose streams and distribute the active partitions across them.
