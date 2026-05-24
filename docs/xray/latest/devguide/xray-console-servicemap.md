@@ -40,7 +40,7 @@ On the **Metrics** tab, select a range within each graph to drill down to view m
 **Errors** options to filter traces. On the **Response time distribution** tab,
 select a range within the graph to filter traces by response time.
 
-![Dashboard showing latency, requests, and faults metrics for an ElasticBeanstalk environment.](images/console-cw-servicemap-node-detail.png) 4. View traces by choosing
+![](images/console-cw-servicemap-node-detail.png) 4. View traces by choosing
 **View traces**, or if a filter has been applied, choose **View filtered traces**. 5. Choose **View logs** to see CloudWatch logs associated with the selected node. Not all trace map nodes support viewing logs.
 See [troubleshooting CloudWatch logs](xray-troubleshooting.md#xray-troubleshooting-Nologs "xray-troubleshooting.md#xray-troubleshooting-Nologs") for more information.
 
@@ -65,7 +65,7 @@ traveled that connection. 3. Use the response distribution [histogram](xray-cons
 status codes for which you want to view traces. Then choose **View traces** to open the trace
 list with the filter expression applied.
 
-![Response distribution graph showing latency peaks and service details for Scorekeep AWS ECS container.](images/console-servicemap-nodedetail-xray.png)
+![](images/console-servicemap-nodedetail-xray.png)
 
 The service map indicates the health of each node by coloring it based on the ratio of successful calls to
 errors and faults:
@@ -91,12 +91,12 @@ Use the following steps to then display that specific group in the trace map.
 CloudWatch console
 Choose a group name from the group filter on the top-left of the trace map.
 
-![Search bar for filtering by X-Ray group, with "TestGroup" displayed as an option.](images/console-servicemap-groups-cw.png)
+![](images/console-servicemap-groups-cw.png)
 
 X-Ray console
 Choose a group name from the drop-down menu to the left of the search bar.
 
-![Drop-down menu showing Default, TestGroup, Create group, and Learn more options.](images/group-select-console.png)
+![](images/group-select-console.png)
 
 The service map will now be filtered to display traces that match the filter expression of the selected group.
 

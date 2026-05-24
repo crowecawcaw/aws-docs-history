@@ -181,4 +181,4 @@ If you've configured your application correctly, you should see the complete cal
 from the controller down through the service calls,
 as shown in the following screen shot of the console.
 
-![Timeline showing API call duration and breakdown of server operations for metering service.](images/aop-spring-console.png)
+![](images/aop-spring-console.png)

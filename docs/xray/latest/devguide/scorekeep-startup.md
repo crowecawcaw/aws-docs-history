@@ -14,7 +14,7 @@ need to create segments manually to instrument it. Scorekeep shows the instrumen
 startup code in its `WebConfig` files. Scorekeep calls an SQL database and Amazon SNS
 during startup.
 
-![Diagram showing client requests to Scorekeeper-init, which connects to SQL database and SNS.](images/scorekeep-servicemap-init.png)
+![](images/scorekeep-servicemap-init.png)
 The default `WebConfig` class creates an Amazon SNS subscription for notifications. To
 provide a segment for the X-Ray SDK to write to when the Amazon SNS client is used, Scorekeep calls
 `beginSegment` and `endSegment` on the global recorder.

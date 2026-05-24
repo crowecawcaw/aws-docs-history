@@ -28,7 +28,7 @@ your application.
 - Elastic Beanstalk – `ElasticBeanstalkPlugin` adds the environment name, version label, and deployment ID.
 - Amazon ECS – `ECSPlugin` adds the container ID.
 
-![Segment - Scorekeep details showing Elastic Beanstalk, EC2, and Xray configuration information.](images/scorekeep-PUTrules-segment-resources-go.png)
+![](images/scorekeep-PUTrules-segment-resources-go.png)
 
 To use a plugin, import one of the following packages.
 

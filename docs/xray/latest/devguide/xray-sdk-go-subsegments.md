@@ -32,4 +32,4 @@ func criticalSection(ctx context.Context) {
 The following screenshot shows an example of how the `saveGame` subsegment might
 appear in traces for the application `Scorekeep`.
 
-![Trace timeline showing Scorekeep application segments, including DynamoDB operations and GameModel saveGame subsegment.](images/scorekeep-PUTrules-timeline-subsegments.png)
+![](images/scorekeep-PUTrules-timeline-subsegments.png)

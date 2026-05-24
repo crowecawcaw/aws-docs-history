@@ -49,7 +49,7 @@ range and works backward. If there are a large number of traces, but few results
 splits the time range into chunks and scans them in parallel. The progress bar shows the parts
 of the time range that have been scanned.
 
-![Progress bar showing 52% of time range scanned, with 49 matching traces found.](images/console-tracescan-parallel.png)
+![](images/console-tracescan-parallel.png)
 
 ## Using filter expressions with groups
 

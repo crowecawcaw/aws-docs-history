@@ -34,7 +34,7 @@ resulted in an error. For more information, see [AWS X-Ray and Step Functions](.
 3. Choose **Enable X-Ray tracing**.
 4. (Optional) Auto-generate a new role for your state machine to include X-Ray permissions by choosing **Create new role** from the Permissions window.
 
-![Permissions section with options to create a new role, choose existing, or enter ARN.](images/stepfunctions-permissions.png) 5. Choose **Save**.
+![](images/stepfunctions-permissions.png) 5. Choose **Save**.
 
 ###### Note
 
