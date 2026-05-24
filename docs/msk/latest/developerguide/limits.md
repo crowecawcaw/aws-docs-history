@@ -103,12 +103,9 @@ For information about the best practices to consider while assigning partitions 
 ## MSK Replicator quotas
 
 - A maximum of 15 MSK Replicators per account.
-- MSK Replicator only replicates up to 750 topics in sorted order. If you need to replicate more topics, we recommend that you create a separate Replicator. Go to the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/kafka/quotas "https://console.aws.amazon.com/servicequotas/home/services/kafka/quotas"), if you need support for more than 750 topics per Replicator. You can monitor the number of topics being replicated using the "TopicCount" metric.
-- A maximum ingress throughput of 1GB per second per MSK Replicator. Request
-  a higher quota by going through the
-  [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/kafka/quotas "https://console.aws.amazon.com/servicequotas/home/services/kafka/quotas").
-- MSK Replicator Record Size - A maximum of 10MB record size (message.max.bytes). Request a higher quota by going through the
-  [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/kafka/quotas "https://console.aws.amazon.com/servicequotas/home/services/kafka/quotas").
+- MSK Replicator only replicates up to 750 topics in sorted order. If you need to replicate more topics, we recommend that you create a separate Replicator. To request support for more than 750 topics per Replicator, contact AWS Support. You can monitor the number of topics being replicated using the `TopicCount` metric.
+- A maximum ingress throughput of 1 GB per second per MSK Replicator. To request a higher quota, contact AWS Support.
+- MSK Replicator record size — A maximum record size of 10 MB for cross-region replication and 20 MB for same-region replication (`message.max.bytes`). To request a higher quota, contact AWS Support.
 
 ## MSK Serverless quota
 

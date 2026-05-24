@@ -2,7 +2,7 @@
 
 ## Create an IAM execution role
 
-Create an IAM role with a trust policy for `kafka.amazonaws.com`. Attach the `AWSMSKReplicatorExecutionRole` and `AWSSecretsManagerClientReadOnlyAccess` managed policies.
+Create an IAM role with a trust policy for `kafka.amazonaws.com`. Attach the `AWSMSKReplicatorExecutionRole` managed policy. The managed policy grants the cluster-, topic-, and consumer-group-level Kafka permissions the Replicator needs, but it does _not_ include AWS Secrets Manager or AWS KMS permissions, which are required for SASL/SCRAM authentication and CMK-encrypted credentials. For the inline policy snippets to add, see [Additional SER permissions for SASL/SCRAM and customer managed keys](msk-replicator-ser-additional-perms.md "msk-replicator-ser-additional-perms.md").
 
 Example trust policy:
 

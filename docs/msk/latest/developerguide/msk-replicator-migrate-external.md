@@ -23,7 +23,7 @@ Create an MSK Provisioned cluster with Express brokers with IAM authentication e
 
 ###### Step 2: Create an IAM execution role
 
-Attach `AWSMSKReplicatorExecutionRole` and `AWSSecretsManagerClientReadOnlyAccess` managed policies. Configure trust policy for `kafka.amazonaws.com`. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](msk-replicator-external-prereqs.md "msk-replicator-external-prereqs.md").
+Attach the `AWSMSKReplicatorExecutionRole` managed policy and configure the trust policy for `kafka.amazonaws.com`. Add inline permissions for AWS Secrets Manager (and AWS KMS if your secrets are CMK-encrypted) per [Additional SER permissions for SASL/SCRAM and customer managed keys](msk-replicator-ser-additional-perms.md "msk-replicator-ser-additional-perms.md"). See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](msk-replicator-external-prereqs.md "msk-replicator-external-prereqs.md").
 
 ###### Step 3: Configure SASL/SCRAM and SSL on self-managed cluster
 
@@ -35,7 +35,7 @@ Create secret with `username`, `password`, and `certificate` key-value pairs. Se
 
 ###### Step 5: Create the Replicator
 
-Use `CreateReplicator` API with `EARLIEST` starting position, Identical topic name replication, and `synchroniseConsumerGroupOffsets` set to `true`. If you plan to set up bidirectional replication for rollback capability (Step 6), also set `consumerGroupOffsetSyncMode` to `ENHANCED` on both the forward and reverse Replicators. Allow approximately 30 minutes for the Replicator to reach RUNNING status. See [CreateReplicator API examples for self-managed Kafka clusters](msk-replicator-external-api-examples.md "msk-replicator-external-api-examples.md").
+Use `CreateReplicator` API with `EARLIEST` starting position, Identical topic name replication, and `synchroniseConsumerGroupOffsets` set to `true`. The IAM principal that calls `CreateReplicator` must have the API caller permissions described in [IAM permissions required to create an MSK Replicator](msk-replicator-create-iam-perms.md "msk-replicator-create-iam-perms.md"). If you plan to set up bidirectional replication for rollback capability (Step 6), also set `consumerGroupOffsetSyncMode` to `ENHANCED` on both the forward and reverse Replicators. Allow approximately 30 minutes for the Replicator to reach RUNNING status. See [CreateReplicator API examples for self-managed Kafka clusters](msk-replicator-external-api-examples.md "msk-replicator-external-api-examples.md").
 
 ###### Step 6: (Optional) Set up bidirectional replication
 
