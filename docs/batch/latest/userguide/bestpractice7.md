@@ -24,7 +24,7 @@ getting stuck in `RUNNABLE` status, see [Jobs stuck in a RUNNABLE status](job_st
   every Availability Zone with a CIDR of `10.x.y.0/17`. In this example, _x_ is between 1-4 and _y_ is either 0
   or 128. This configuration provides 36,000 IP addresses in every subnet.
 
-![VPC diagram showing 6 private subnets with different CIDR ranges across 3 Availability Zones.](images/batch-best-practices-VPC_larges_scale-1.png)
+![](images/batch-best-practices-VPC_larges_scale-1.png)
 
 - Verify that instances are registered with Amazon EC2 – If you see your
   instances in the Amazon EC2 console, but no Amazon Elastic Container Service container instances in your Amazon ECS cluster, the Amazon ECS agent might
