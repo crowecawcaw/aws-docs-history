@@ -27,10 +27,10 @@ Take care to go to the correct screen! Do not confuse the Node Configuration scr
 
 This example shows the Node Configuration screen for a Conductor node. The screen for a worker node is nearly identical.
 
-![Node Configuration screen for AWS Elemental Conductor, showing Network Settings with a warning message.](images/ready-node-shared-png.png)
+![](images/ready-node-shared-png.png)
 
 ###### Conductor Configuration Screen
 
 This example shows the Conductor configuration screen.
 
-![Conductor configuration screen showing cluster sequencer settings and server node details.](images/ready-cond-shared-png.png)
+![](images/ready-cond-shared-png.png)

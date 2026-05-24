@@ -9,7 +9,7 @@ latest version. For prior versions, see the _Archive_ section of
 
 In the following example, the system creates backups every 24 hours and five consecutive backup files are saved. When the system creates the sixth backup, the it deletes the oldest file before saving the most recent backup.
 
-![Management database backup settings with minutes between backups, number to keep, and storage path.](images/bkup-mgmt-shared-png.png)
+![](images/bkup-mgmt-shared-png.png)
 Backup files are named in this format: `<yyyy-mm-dd_hh-mm-ss.tar.bz2>`
 
 ###### Important
