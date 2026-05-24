@@ -53,7 +53,7 @@ all source accounts and in the monitoring account are selected by
 default.
 
 ```
-SOURCE logGroups(accountIdentifiers:['111122223333'])
+SOURCE logGroups(accountIdentifier:['111122223333'])
 ```
 
 The next example selects log groups based on name prefixes.
@@ -76,7 +76,7 @@ The class is not mentioned in the command because Standard is the default
 log class value.
 
 ```
-SOURCE logGroups(accountIdentifiers:['111122223333'], namePrefix: ['namePrefix1', 'namePrefix2']
+SOURCE logGroups(accountIdentifier:['111122223333'], namePrefix: ['namePrefix1', 'namePrefix2'])
 ```
 
 The final example displays how to use the `SOURCE` command with

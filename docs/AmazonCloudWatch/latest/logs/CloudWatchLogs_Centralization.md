@@ -226,7 +226,7 @@ data from source accounts to your destination account.
           selection criteria. You can provide the
           selection criteria in two modes:
 
-              + **Builder**: A click-based
+              + **Builder**: A choose-based
                experience to generate the selection
                criteria
               + **Editor**: A free-form text box

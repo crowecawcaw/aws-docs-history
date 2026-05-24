@@ -44,15 +44,22 @@ This policy has one statement that grants permissions to create log groups and l
 streams, to upload log events to log streams, and to list details about log
 streams.
 
-The wildcard character (\*) at the end of the `Resource` value means that
-the statement allows permission for the `logs:CreateLogGroup`,
-`logs:CreateLogStream`, `logs:PutLogEvents`, and
-`logs:DescribeLogStreams` actions on any log group. To limit this
-permission to a specific log group, replace the wildcard character (\*) in the resource
-ARN with the specific log group ARN. For more information about the sections within an
-IAM policy statement, see [IAM Policy
-Elements Reference](../../../IAM/latest/UserGuide/AccessPolicyLanguage_ElementDescriptions.md "../../../IAM/latest/UserGuide/AccessPolicyLanguage_ElementDescriptions.md") in _IAM User Guide_. For a list
-showing all of the CloudWatch Logs actions, see [CloudWatch Logs permissions reference](permissions-reference-cwl.md "permissions-reference-cwl.md").
+The wildcard character (\*) in the `Resource` value grants permission for
+the listed actions on any CloudWatch Logs resource.
+
+- **To limit permissions to specific log group actions**
+  (e.g., `CreateLogGroup`, `DescribeLogStreams`), replace the
+  wildcard with the log group
+  ARN—`arn:aws:logs:`us-west-2`:`123456789012`:log-group:`MyLogGroup``
+- **To limit permissions to specific log stream actions**
+  (e.g., `CreateLogStream`, `PutLogEvents`), replace the
+  wildcard with the log stream
+  ARN—`arn:aws:logs:`us-west-2`:`123456789012`:log-group:`MyLogGroup`:*`
+  (matches all streams) or
+  `arn:aws:logs:`us-west-2`:`123456789012`:log-group:`MyLogGroup`:log-stream:`MyStream``
+  (specific stream)
+  See the [service
+  authorization reference](../../../service-authorization/latest/reference/list_amazoncloudwatchlogs.md "../../../service-authorization/latest/reference/list_amazoncloudwatchlogs.md") for which resource type each API requires.
 
 ## Permissions required to use the CloudWatch console
 
@@ -265,9 +272,9 @@ AWS SDKs, or the AWS CLI.
 
 ###### Examples
 
-- [Example 1: Allow full access to CloudWatch Logs](#w2aac61c15c15c23c19b9 "#w2aac61c15c15c23c19b9")
-- [Example 2: Allow read-only access to CloudWatch Logs](#w2aac61c15c15c23c19c11 "#w2aac61c15c15c23c19c11")
-- [Example 3: Allow access to one log group](#w2aac61c15c15c23c19c13 "#w2aac61c15c15c23c19c13")
+- [Example 1: Allow full access to CloudWatch Logs](#w2aac61c15c15c27c19b9 "#w2aac61c15c15c27c19b9")
+- [Example 2: Allow read-only access to CloudWatch Logs](#w2aac61c15c15c27c19c11 "#w2aac61c15c15c27c19c11")
+- [Example 3: Allow access to one log group / log stream](#w2aac61c15c15c27c19c13 "#w2aac61c15c15c27c19c13")
 
 #### Example 1: Allow full access to CloudWatch Logs
 
@@ -324,37 +331,93 @@ JSON
 
 ```
 
-#### Example 3: Allow access to one log group
+#### Example 3: Allow access to one log group / log stream
 
-The following policy allows a user to read and write log events in one
-specified log group.
+CloudWatch Logs has two resource types with different ARN formats:
 
-###### Important
+- **Log group**:
+  `arn:aws:logs:`region`:`account`:log-group:`LogGroupName``
+- **Log stream**:
+  `arn:aws:logs:`region`:`account`:log-group:`LogGroupName`:log-stream:`StreamName``
 
-The `:*` at the end of the log group name in the
-`Resource` line is required to indicate that the policy
-applies to all log streams in this log group. If you omit
-`:*`, the policy will not be enforced.
+When writing IAM policies, the ARN format you use must match the resource
+type the API authorizes on. See the [service authorization reference](../../../service-authorization/latest/reference/list_amazoncloudwatchlogs.md "../../../service-authorization/latest/reference/list_amazoncloudwatchlogs.md") for which resource type each
+API requires.
 
-JSON
+##### Example 3a: Allow access to log-group-level actions on a specific log group
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement":[
- {
- "Action": [
- "logs:CreateLogStream",
- "logs:DescribeLogStreams",
- "logs:PutLogEvents",
- "logs:GetLogEvents"
- ],
- "Effect": "Allow",
- "Resource": "arn:aws:logs:us-west-2:123456789012:log-group:SampleLogGroupName:*"
- }
- ]
-}`
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+      "Action": [
+        "logs:DeleteLogGroup",
+        "logs:PutRetentionPolicy",
+        "logs:PutSubscriptionFilter",
+        "logs:DescribeLogStreams"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:logs:us-west-2:123456789012:log-group:SampleLogGroupName"
+      }
+   ]
+}
+```
 
+These actions authorize on the `log-group` resource type. The
+standard ARN format (without `:*`) is supported.
+
+##### Example 3b: Allow access to log-stream-level actions on a specific log group
+
+```
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+      "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents",
+        "logs:GetLogEvents"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:logs:us-west-2:123456789012:log-group:SampleLogGroupName:*"
+      }
+   ]
+}
+```
+
+These actions authorize on the `log-stream` resource type. The
+`:*` suffix is required to match all log streams within the log
+group, or specify a specific stream with
+`:log-stream:`StreamName``.
+
+##### Example 3c: Combined policy for both log-group and log-stream actions
+
+```
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+        "Action": [
+          "logs:DeleteLogGroup",
+          "logs:PutRetentionPolicy",
+          "logs:DescribeLogStreams",
+          "logs:FilterLogEvents"
+        ],
+        "Effect": "Allow",
+        "Resource": "arn:aws:logs:us-west-2:123456789012:log-group:SampleLogGroupName"
+      },
+      {
+        "Action": [
+          "logs:CreateLogStream",
+          "logs:PutLogEvents",
+          "logs:GetLogEvents"
+        ],
+        "Effect": "Allow",
+        "Resource": "arn:aws:logs:us-west-2:123456789012:log-group:SampleLogGroupName:*"
+      }
+   ]
+}
 ```
 
 ### Use tagging and IAM policies for control at the log group level

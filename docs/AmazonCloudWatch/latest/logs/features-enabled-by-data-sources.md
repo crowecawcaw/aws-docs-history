@@ -8,7 +8,7 @@ discovery and consistent data structures.
   automatically creates facets for data source name and type, and you can create
   facet policies on discovered fields to accelerate troubleshooting. Facets
   display value distributions and counts in CloudWatch Logs Insights, making it easy to
-  identify patterns through point-and-click exploration.
+  identify patterns through point-and-choose exploration.
 - **Pipelines**: Create transformation pipelines
   that apply to all logs from a specific data source name and type. This allows
   you to define consistent processing rules for logs from the same source.

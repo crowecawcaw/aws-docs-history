@@ -79,6 +79,8 @@ commands.
 - [pattern](CWL_QuerySyntax-Pattern.md "CWL_QuerySyntax-Pattern.md")
 - [diff](CWL_QuerySyntax-Diff.md "CWL_QuerySyntax-Diff.md")
 - [parse](CWL_QuerySyntax-Parse.md "CWL_QuerySyntax-Parse.md")
+- [relevantfields](CWL_QuerySyntax-RelevantFields.md "CWL_QuerySyntax-RelevantFields.md")
+- [expand](CWL_QuerySyntax-Expand.md "CWL_QuerySyntax-Expand.md")
 - [sort](CWL_QuerySyntax-Sort.md "CWL_QuerySyntax-Sort.md")
 - [stats](CWL_QuerySyntax-Stats.md "CWL_QuerySyntax-Stats.md")
 - [limit](CWL_QuerySyntax-Limit.md "CWL_QuerySyntax-Limit.md")

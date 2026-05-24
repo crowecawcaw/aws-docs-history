@@ -145,14 +145,16 @@ stats count(*) by queryType
 
 ## Use multiple stats commands in a single query
 
-You can use as many as two `stats` commands in a single
-query. This enables you to perform an additional aggregation on the
-output of the first aggregation.
+You can use multiple `stats` commands in a single
+query. This enables you to perform additional aggregations on the
+output of the first aggregation. The maximum number of
+`stats` commands allowed in a query depends on
+the log class of the log group.
 
 **Example: Query with two `stats`
 commands**
 
-For example, the following query first find the total traffic volume
+For example, the following query first finds the total traffic volume
 in 5-minute bins, then calculates the highest, lowest, and average
 traffic volume among those 5-minute bins.
 
@@ -168,7 +170,7 @@ FIELDS strlen(@message) AS message_length
 other functions such as `filter`, `fields`,
 `bin`**
 
-You can combine two `stats` commands with other commands
+You can combine multiple `stats` commands with other commands
 such as `filter` and `fields` in a single query.
 For example, the following query finds the number of distinct IP
 addresses in sessions and finds the number of sessions by client
@@ -200,19 +202,26 @@ FIELDS strlen(@message) AS message_length
 
 **Notes and limitations**
 
-A query can have a maximum of two `stats` commands. This
-quota can't be changed.
+The maximum number of `stats` commands in a query
+depends on the log class:
+
+- Standard log class: maximum of 10 `stats` commands per
+  query
+- Infrequent Access log class: maximum of 2 `stats` commands per
+  query
+
+These quotas can't be changed.
 
 If you use a `sort` or `limit` command, it must
-appear after the second `stats` command. If it is before the
-second `stats` command, the query is not valid.
+appear after the last `stats` command. If it is before the
+last `stats` command, the query is not valid.
 
-When a query has two `stats` commands, the partial results
+When a query has multiple `stats` commands, the partial results
 from the query do not begin displaying until the first
 `stats` aggregation is complete.
 
-In the second `stats` command in a single query, you can
-refer only to fields that are defined in the first `stats`
+In subsequent `stats` commands in a single query, you can
+refer only to fields that are defined in the preceding `stats`
 command. For example, the following query is not valid because the
 `@message` field won't be available after the first
 `stats` aggregation.
@@ -224,8 +233,8 @@ FIELDS @message
 | STATS MAX(strlen(@message)) AS MaxMessageSize # Invalid reference to @message
 ```
 
-Any fields that you reference after the first `stats`
-command must be defined in that first `stats` command.
+Any fields that you reference after a `stats`
+command must be defined in that `stats` command.
 
 ```
 STATS sum(x) as sum_x by y, z
@@ -237,8 +246,8 @@ STATS sum(x) as sum_x by y, z
 
 The `bin` function always implicitly uses the
 `@timestamp` field. This means that you can't use
-`bin` in the second `stats` command
-without using the first `stats` command to propagate the
+`bin` in a subsequent `stats` command
+without using the preceding `stats` command to propagate the
 `timestamp` field. For example, the following query
 is not valid.
 
@@ -248,9 +257,9 @@ FIELDS strlen(@message) AS message_length
  | STATS avg(ingested_bytes) BY bin(5m) # Invalid reference to @timestamp field
 ```
 
-Instead, define the `@timestamp` field in the first
+Instead, define the `@timestamp` field in the preceding
 `stats` command, and then you can use it with
-`dateceil` in the second `stats` command
+`dateceil` in a subsequent `stats` command
 as in the following example.
 
 ```

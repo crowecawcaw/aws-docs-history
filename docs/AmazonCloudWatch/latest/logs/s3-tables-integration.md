@@ -278,7 +278,7 @@ Before you can use the data you have to do the following 3 steps:
 
 1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. In the left navigation pane, choose **Table buckets**.
-3. Click the **Enable integration** on the top.
+3. Choose the **Enable integration** on the top.
 4. The first time that you integrate table buckets in any Region, Amazon Amazon S3 creates a new IAM service role on your behalf. This role allows Lake Formation to access all table buckets in your account and federate access to your tables in AWS Glue Data Catalog.
 
 ### Configure Lake Formation Permissions

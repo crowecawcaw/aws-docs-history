@@ -167,7 +167,7 @@ Matching log events begin appearing in the window. The following information is 
      the percentage of matching events that are displayed on screen is shown
      in **% displayed**.
 
-8. To pause the flow of events to investigate what is currently displayed, click anywhere
+8. To pause the flow of events to investigate what is currently displayed, choose anywhere
    in the events window.
 9. During the session, you can use the following to see more details about each log event.
    - To display the entire text for a log event in the main window,
