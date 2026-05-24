@@ -15,7 +15,7 @@ right time.
    `query`
    `listTodos`, expand the `getTodo` operation:
 
-![Expanded getTodo operation showing fields id, description, name, when, and where.](images/explorer-example-4.png) 5. In the code editor, you should see the operation code:
+![](images/explorer-example-4.png) 5. In the code editor, you should see the operation code:
 
 ```
 query listTodos {

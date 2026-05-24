@@ -23,7 +23,7 @@ modes, including API keys, Amazon Cognito user pools, IAM, and Lambda.
 The following sequence diagram and steps show the real-time subscriptions workflow
 between the WebSocket client, HTTP client, and AWS AppSync.
 
-![Sequence diagram showing WebSocket client, AppSync endpoints, and HTTP client interactions for real-time subscriptions.](images/realtime-client-flow.png)
+![](images/realtime-client-flow.png)
 
 1. The client establishes a WebSocket connection with the AWS AppSync real-time
    endpoint. If there is a network error, the client should do a jittered

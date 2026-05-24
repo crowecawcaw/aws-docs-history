@@ -7,7 +7,7 @@ These sections are a reference for more advanced AWS AppSync topics. We recommen
 In the console tab, if you choose the name of your API, the **Integration**
 page appears:
 
-![AWS AppSync sidebar menu with APIs, Todo API highlighted, and other options listed.](images/explorer-example-6.png)
+![](images/explorer-example-6.png)
 
 It summarizes the steps for setting up your API and outlines the next steps for building a client
 application. The **Integrate with your app** section provides details for using

@@ -76,7 +76,7 @@ execution flow when the resolver is invoked:
 7. Function 2: Function response handler
 8. Pipeline resolver response handler
 
-![GraphQL request flow diagram showing interactions between request, data sources, and response components.](images/appsync-js-resolver-logic.png)
+![](images/appsync-js-resolver-logic.png)
 
 ### Useful `APPSYNC_JS` runtime built-in utilities
 

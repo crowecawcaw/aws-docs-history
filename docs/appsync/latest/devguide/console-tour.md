@@ -4,7 +4,7 @@ Before we add data to our DynamoDB table, we should review the basic features of
 experience. The AWS AppSync console tab on the left-hand side of the page allows users to easily navigate to any
 of the major components or configuration options that AWS AppSync provides:
 
-![AWS AppSync console navigation menu showing APIs, Todo API options, and Documentation link.](images/explorer-example-5.jpg)
+![](images/explorer-example-5.jpg)
 
 ## Schema designer
 

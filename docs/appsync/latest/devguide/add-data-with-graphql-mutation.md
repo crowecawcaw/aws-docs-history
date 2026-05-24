@@ -13,7 +13,7 @@ data source. In terms of REST APIs, these are very similar to operations like `P
 4. In the **Explorer** tab to the left of the table, you might see several
    mutations and queries already defined in the query editor:
 
-![Explorer tab showing a dropdown menu with mutation and query options like createTodo and deleteTodo.](images/explorer-example-1.png)
+![](images/explorer-example-1.png)
 
 ###### Note
 
@@ -35,7 +35,7 @@ AWS AppSync automatically generated these from the model we defined earlier. Thi
 table. 5. Choose the `createTodo` operation by expanding it under the `createTodo`
 mutation:
 
-![Expanded createTodo mutation showing input fields like description, id, name, when, and where.](images/explorer-example-2.png)
+![](images/explorer-example-2.png)
 
 Enable the checkboxes for all of the fields like the picture above.
 
@@ -169,7 +169,7 @@ this case, we wanted to create some `Todo` items as reminders:
 If you navigate to the DynamoDB service, you'll now see an entry in your data source with this
 information:
 
-![TodoAPITable interface showing a completed scan with 1 item returned in a table format.](images/explorer-example-3.png)
+![](images/explorer-example-3.png)
 To summarize the operation, the GraphQL engine parsed the record, and a resolver inserted it into your
 Amazon DynamoDB table. Again, you can verify this in the DynamoDB console. Notice that you don’t need to pass in an
 `id` value. An `id` is generated and returned in the results. This is because the

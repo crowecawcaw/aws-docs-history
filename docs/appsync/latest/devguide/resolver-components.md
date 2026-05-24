@@ -9,7 +9,7 @@ commonly used to implement the state-changing operations for your query, mutatio
 operations. The resolver will process a client's request, then return the result, which can be a group of
 output types like objects or scalars:
 
-![GraphQL schema with resolvers connecting to various AWS data sources for a single endpoint.](images/aws-flow-infographic.png)
+![](images/aws-flow-infographic.png)
 
 ## Resolver runtime
 
