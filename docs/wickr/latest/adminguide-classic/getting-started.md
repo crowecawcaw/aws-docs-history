@@ -141,7 +141,7 @@ Non-SSO
 2. On the **Networks** page, choose the **Admin** link,
    to navigate to Wickr Admin Console for that network.
 
-![Networks page showing a single network with an "Admin" link to access the Wickr Admin Console.](images/wickr-networks-page.png)
+![](images/wickr-networks-page.png)
 
 You're redirected to the Wickr Admin Console for a specific network. On the
 Wickr Admin Console, you can add users, add security groups, configure SSO, configure data

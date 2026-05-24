@@ -83,11 +83,11 @@ has been added to your AWS account.**
 3. On the AWS Wickr page, choose **Manage network** to access your
    Wickr network list.
 
-![Admin console interface with "Manage network" button for accessing network settings.](images/manage-network-button.png) 4. On the **Networks** page, under the **Wickr admin
+![](images/manage-network-button.png) 4. On the **Networks** page, under the **Wickr admin
 console** column, select the Admin link to the right of the desired Network
 name.
 
-![Networks page showing a single network named TestNetwork with Premium plan and Admin link.](images/admin-console-link.png) 5. The transfer is now complete! You will see your Wickr network dashboard.
+![](images/admin-console-link.png) 5. The transfer is now complete! You will see your Wickr network dashboard.
 
 Billing for your network will now be transferred to your AWS account. Allow up to 3
 business days for support to reach out with a confirmation. After receiving your confirmation,
