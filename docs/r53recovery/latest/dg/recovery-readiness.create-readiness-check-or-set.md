@@ -67,7 +67,7 @@ recovery readiness API operations with Amazon Application Recovery Controller (A
 
 ## To create a resource set
 
-1. Open the Route 53 console at [https://console.aws.amazon.com/route53/home](https://console.aws.amazon.com/route53/home "https://console.aws.amazon.com/route53/home").
+1. Open the Route 53 console at [https://console.aws.amazon.com/route53recovery/home](https://console.aws.amazon.com/route53recovery/home "https://console.aws.amazon.com/route53recovery/home").
 2. Under **Application Recovery Controller**, choose **Resource sets**.
 3. Choose **Create**.
 4. Enter a name for the resource set, and then choose the type of resource to include in the set.

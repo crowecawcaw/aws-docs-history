@@ -18,7 +18,7 @@ To view and update routing controls in the console, follow the steps in the foll
 
 # To update one or multiple routing control states
 
-1. Open the Amazon Route 53 console at [https://console.aws.amazon.com/route53/home](https://console.aws.amazon.com/route53/home "https://console.aws.amazon.com/route53/home").
+1. Open the Amazon Route 53 console at [https://console.aws.amazon.com/route53recovery/home](https://console.aws.amazon.com/route53recovery/home "https://console.aws.amazon.com/route53recovery/home").
 2. Under **Application Recovery Controller**, choose **Routing control**.
 3. Choose **Action**, and then choose **Change traffic routing**.
 4. Update the states of one or more routing controls to be `Off` or `On`, depending on where you want
