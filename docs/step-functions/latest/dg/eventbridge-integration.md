@@ -147,10 +147,10 @@ reference](../../../eventbridge/latest/ref/overiew-event-structure.md "../../../
 {
   . . .,
   "detail-type": "Step Functions Execution Status Change",
-  "source"": "aws.states",
+  "source": "aws.states",
   . . .,
-  "detail"": {
-    "executionArn"" : "string",
+  "detail": {
+    "executionArn" : "string",
     "input" : "string",
     "inputDetails" : {
       "included" : "boolean"
@@ -163,7 +163,15 @@ reference](../../../eventbridge/latest/ref/overiew-event-structure.md "../../../
     "startDate" : "integer",
     "stateMachineArn" : "string",
     "stopDate" : "integer",
-    "status" : "RUNNING | SUCCEEDED | FAILED | TIMED_OUT | ABORTED | PENDING_REDRIVE"
+    "status" : "RUNNING" | "SUCCEEDED" | "FAILED" | "TIMED_OUT" | "ABORTED" | "PENDING_REDRIVE",
+    "stateMachineVersionArn" : "string",
+    "stateMachineAliasArn" : "string",
+    "redriveCount" : "integer",
+    "redriveDate" : "string",
+    "redriveStatus" : "NOT_REDRIVABLE" | "REDRIVABLE" | "REDRIVE_IN_PROGRESS",
+    "redriveStatusReason" : "string",
+    "error" : "string",
+    "cause" : "string"
   }
 }
 ```
@@ -217,7 +225,15 @@ the full input/output, you can:
              "included": true
         },
         "output": null,
-        "outputDetails": null
+        "outputDetails": null,
+        "stateMachineVersionArn": null,
+        "stateMachineAliasArn": null,
+        "redriveCount": 0,
+        "redriveDate": null,
+        "redriveStatus": "NOT_REDRIVABLE",
+        "redriveStatusReason": "Execution is RUNNING and cannot be redriven",
+        "error": null,
+        "cause": null
     }
 }
 ```
@@ -250,7 +266,15 @@ the full input/output, you can:
         "output": "\"Hello World!\"",
         "outputDetails": {
              "included": true
-        }
+        },
+        "stateMachineVersionArn": null,
+        "stateMachineAliasArn": null,
+        "redriveCount": 0,
+        "redriveDate": null,
+        "redriveStatus": "NOT_REDRIVABLE",
+        "redriveStatusReason": "Execution is SUCCEEDED and cannot be redriven",
+        "error": null,
+        "cause": null
     }
 }
 ```
@@ -281,7 +305,15 @@ the full input/output, you can:
              "included": true
         },
         "output": null,
-        "outputDetails": null
+        "outputDetails": null,
+        "stateMachineVersionArn": null,
+        "stateMachineAliasArn": null,
+        "redriveCount": 0,
+        "redriveDate": null,
+        "redriveStatus": "REDRIVABLE",
+        "redriveStatusReason": "Execution is FAILED and is redrivable",
+        "error": "ErrorCode",
+        "cause": "An error occurred."
     }
 }
 ```
@@ -312,8 +344,17 @@ the full input/output, you can:
              "included": true
         },
         "output": null,
-        "outputDetails": null
-
+        "outputDetails": null,
+        "stateMachineVersionArn": null,
+        "stateMachineAliasArn": null,
+        "redriveCount": 0,
+        "redriveDate": null,
+        "redriveStatus": "REDRIVABLE",
+        "redriveStatusReason": "Execution is TIMED_OUT and is redrivable",
+        "error": "States.Timeout",
+        "cause": "An error occurred."
+    }
+}
 ```
 
 ###### Example Execution Status Change: aborted
@@ -342,7 +383,15 @@ the full input/output, you can:
              "included": true
         },
         "output": null,
-        "outputDetails": null
+        "outputDetails": null,
+        "stateMachineVersionArn": null,
+        "stateMachineAliasArn": null,
+        "redriveCount": 0,
+        "redriveDate": null,
+        "redriveStatus": "NOT_REDRIVABLE",
+        "redriveStatusReason": "Execution is ABORTED and cannot be redriven",
+        "error": null,
+        "cause": null
     }
 }
 ```

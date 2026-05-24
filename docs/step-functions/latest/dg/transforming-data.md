@@ -389,6 +389,183 @@ You can filter your data with JSONata [Path operators](https://docs.jsonata.org/
 
 ![Example output for JSONata expressions under test.](images/test-state-jsonata.png)
 
+### Example: Using previous state output in a Map state
+
+This example shows how to use the output of a previous state as input for a Map state with JSONata. The following workflow uses a Pass state to simulate a task that returns an order with a list of items, and then a Map state selects the items array from that output and iterates over it.
+
+**State machine definition**
+
+```
+{
+  "Comment": "Example: Using previous state output in a Map state with JSONata",
+  "QueryLanguage": "JSONata",
+  "StartAt": "GetOrder",
+  "States": {
+    "GetOrder": {
+      "Type": "Pass",
+      "Output": {
+        "orderId": "{% $states.input.orderId %}",
+        "items": "{% $states.input.items %}"
+      },
+      "Next": "ProcessItems"
+    },
+    "ProcessItems": {
+      "Type": "Map",
+      "Items": "{% $states.input.items %}",
+      "ItemProcessor": {
+        "ProcessorConfig": {
+          "Mode": "INLINE"
+        },
+        "StartAt": "CalculateItemTotal",
+        "States": {
+          "CalculateItemTotal": {
+            "Type": "Pass",
+            "Output": {
+              "name": "{% $states.input.name %}",
+              "total": "{% $states.input.price * $states.input.quantity %}"
+            },
+            "End": true
+          }
+        }
+      },
+      "End": true
+    }
+  }
+}
+
+```
+
+In this definition, the `GetOrder` state outputs the order data unchanged. The `ProcessItems` Map state uses `"Items": "{% $states.input.items %}"` to select the `items` array from the output of `GetOrder`. Each iteration receives one item from the array and calculates the item total by multiplying price by quantity.
+
+**Sample input**
+
+```
+{
+  "orderId": "ORD-1234",
+  "items": [
+    {
+      "name": "Widget",
+      "price": 4.99,
+      "quantity": 3
+    },
+    {
+      "name": "Gadget",
+      "price": 12.50,
+      "quantity": 2
+    },
+    {
+      "name": "Bolt",
+      "price": 0.75,
+      "quantity": 10
+    }
+  ]
+}
+
+```
+
+**Expected output**
+
+```
+[
+  {
+    "name": "Widget",
+    "total": 14.97
+  },
+  {
+    "name": "Gadget",
+    "total": 25
+  },
+  {
+    "name": "Bolt",
+    "total": 7.5
+  }
+]
+
+```
+
+### Example: Flattening Parallel state output
+
+When you use a Parallel state, it returns an array where each element is the output of one branch. With JSONata, you can use the `Output` field on the Parallel state to flatten or merge these results into a single object. This approach replaces the JSONPath `ResultSelector` field.
+
+The following example uses a Parallel state with two branches. Each branch simulates a DynamoDB GetItem call by using a Pass state. The Parallel state uses `$merge($states.result)` in its `Output` field to merge the branch results into a single object.
+
+**State machine definition**
+
+```
+{
+  "Comment": "Example: Flattening Parallel state output with JSONata",
+  "QueryLanguage": "JSONata",
+  "StartAt": "GetOrderAndCustomer",
+  "States": {
+    "GetOrderAndCustomer": {
+      "Type": "Parallel",
+      "Output": "{% $merge($states.result) %}",
+      "Branches": [
+        {
+          "StartAt": "Get Order",
+          "States": {
+            "Get Order": {
+              "Type": "Pass",
+              "Output": {
+                "orderId": "{% $states.input.orderId %}",
+                "orderDate": "2024-11-20",
+                "total": 35.99
+              },
+              "End": true
+            }
+          }
+        },
+        {
+          "StartAt": "Get Customer",
+          "States": {
+            "Get Customer": {
+              "Type": "Pass",
+              "Output": {
+                "customerId": "{% $states.input.customerId %}",
+                "customerName": "Martha Rivera",
+                "email": "martha@example.com"
+              },
+              "End": true
+            }
+          }
+        }
+      ],
+      "Next": "Done"
+    },
+    "Done": {
+      "Type": "Succeed"
+    }
+  }
+}
+
+```
+
+**Sample input**
+
+```
+{
+  "orderId": "12345",
+  "customerId": "C-100"
+}
+
+```
+
+**Expected output**
+
+```
+{
+  "orderId": "12345",
+  "orderDate": "2024-11-20",
+  "total": 35.99,
+  "customerId": "C-100",
+  "customerName": "Martha Rivera",
+  "email": "martha@example.com"
+}
+
+```
+
+The `$merge()` function combines an array of objects into a single object. If branches return objects with overlapping keys, later array elements take precedence. Branch results are ordered consistently — they correspond to the order of the `Branches` array in the state machine definition.
+
 ## JSONata functions provided by Step Functions
 
 JSONata contains function libraries for String, Numeric, Aggregation, Boolean, Array, Object, Date/Time, and High Order functions. Step Functions provides additional JSONata functions that you can use in your JSONata expressions. These built-in functions serve as replacements for Step Functions intrinsic functions. Intrinsic functions are only available in states that use the JSONPath query language.

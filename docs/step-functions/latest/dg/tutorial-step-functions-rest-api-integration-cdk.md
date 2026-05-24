@@ -11,7 +11,7 @@ method.
 
 With AWS CDK is an Infrastructure as Code (IAC) framework, you define AWS infrastructure
 using a programming language. You define an app in one of the CDK's supported
-languages, synthesize the code into an CloudFormation template, and then deploy the infrastructure to
+languages, synthesize the code into a CloudFormation template, and then deploy the infrastructure to
 your AWS account.
 
 You will use CloudFormation to define an API Gateway REST API, which is integrated with Synchronous

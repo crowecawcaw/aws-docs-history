@@ -38,16 +38,16 @@ arn:aws:lambda:`region`:123456789012:function:`HelloFunction`
    page.
 
 ```
-export const handler = async(event, context, callback) => {
-    callback(null, "Hello from " + event.who + "!");
+export const handler = async (event) => {
+    return "Hello from " + event.who + "!";
 };
 ```
 
 This code assembles a greeting using the `who` field of the
 input data, which is provided by the `event` object passed into
 your function. You add input data for this function later, when you [start a new
-execution](#start-lambda-function "#start-lambda-function"). The `callback` method returns the assembled
-greeting from your function. 7. Choose **Deploy**.
+execution](#start-lambda-function "#start-lambda-function"). The function returns the assembled
+greeting as its output. 7. Choose **Deploy**.
 
 ## Step 2: Test the Lambda function
 

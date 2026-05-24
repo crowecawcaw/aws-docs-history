@@ -41,7 +41,7 @@ For more information, see [States.DataLimitExceeded](#error-data-limit-exceed "#
 
 **`States.DataLimitExceeded`**
 
-A terminal error which cannot be caught by the `States.ALL` error type.
+A terminal error which cannot be caught by the `States.ALL` error type. However, you can catch or retry `States.DataLimitExceeded` by explicitly specifying it in the `ErrorEquals` field of a `Catch` or `Retry` block.
 
 Reported due to the following conditions:
 
@@ -135,7 +135,7 @@ this array, it implements the retry policy described in this retrier.
 **`IntervalSeconds` (Optional)**
 
 A positive integer that represents the number of seconds before the first retry
-attempt (`1` by default). `IntervalSeconds` has a maximum value of 99999999.
+attempt (`1` by default). `IntervalSeconds` has a maximum value of 99,999,999.
 
 **`MaxAttempts` (Optional)**
 
@@ -144,7 +144,7 @@ A positive integer that represents the maximum number of retry attempts
 specified, retries cease and normal error handling resumes. A value of
 `0` specifies that the
 error
-is never retried. `MaxAttempts` has a maximum value of 99999999.
+is never retried. `MaxAttempts` has a maximum value of 99,999,999.
 
 **`BackoffRate` (Optional)**
 

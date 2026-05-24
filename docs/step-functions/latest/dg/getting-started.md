@@ -256,6 +256,10 @@ Step Functions state machines can call over 220 AWS services using [AWS SDK inte
 
 In this step, you will integrate an Amazon Comprehend task for **sentiment analysis** to process your state machine input.
 
+###### Important
+
+The Amazon Comprehend `DetectSentiment` API that is used in this tutorial is not available in all AWS Regions. To complete this tutorial, use a Region where Amazon Comprehend is available, such as US East (N. Virginia) `us-east-1`. For a complete list of supported Regions, see [Amazon Comprehend endpoints and quotas](../../../general/latest/gr/comprehend.md "../../../general/latest/gr/comprehend.md") in the .
+
 Service integrations use one of three _service integration patterns_:
 
 1. **Request a Response** (default) - wait for HTTP response, then _immediately_ proceed to the next state.

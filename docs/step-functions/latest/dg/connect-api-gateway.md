@@ -133,8 +133,8 @@ ID>`.execute-api.`region`.amazonaws.com`.
 For security considerations, the following HTTP header keys are not currently
 permitted:
 
-- Anything prefixed with `X-Forwarded`, `X-Amz` or
-  `X-Amzn`.
+- Anything prefixed with `X-Forwarded`, `X-Amz`, or
+  `X-Amzn` (case-insensitive).
 - `Authorization`
 - `Connection`
 - `Content-md5`

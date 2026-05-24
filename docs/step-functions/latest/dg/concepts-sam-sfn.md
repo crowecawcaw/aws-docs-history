@@ -209,6 +209,96 @@ The following code is the state machine definition in the file `stock_trader.asl
 }
 ```
 
+The following example shows the JSONata version of the same state machine definition. When you use JSONata as the query language, the state machine uses `Arguments` instead of `Parameters`, and `Output` instead of `OutputPath` and `ResultPath`. `DefinitionSubstitutions` work the same way with JSONata. You still use the `${...}` notation for substitution placeholders.
+
+```
+{
+    "Comment": "A state machine that does mock stock trading.",
+    "QueryLanguage": "JSONata",
+    "StartAt": "Check Stock Value",
+    "States": {
+        "Check Stock Value": {
+            "Type": "Task",
+            "Resource": "arn:aws:states:::lambda:invoke",
+            "Arguments": {
+                "Payload": "{% $states.input %}",
+                "FunctionName": "${StockCheckerFunctionArn}"
+            },
+            "Output": "{% $states.result.Payload %}",
+            "Next": "Buy or Sell?"
+        },
+        "Buy or Sell?": {
+            "Type": "Choice",
+            "Choices": [
+                {
+                    "Condition": "{% $states.input.stock_price <= 50 %}",
+                    "Next": "Buy Stock"
+                }
+            ],
+            "Default": "Sell Stock"
+        },
+        "Buy Stock": {
+            "Type": "Task",
+            "Resource": "arn:aws:states:::lambda:invoke",
+            "Arguments": {
+                "Payload": "{% $states.input %}",
+                "FunctionName": "${StockBuyerFunctionArn}"
+            },
+            "Output": "{% $states.result.Payload %}",
+            "Retry": [
+                {
+                    "ErrorEquals": [
+                        "Lambda.ServiceException",
+                        "Lambda.AWSLambdaException",
+                        "Lambda.SdkClientException",
+                        "Lambda.TooManyRequestsException"
+                    ],
+                    "IntervalSeconds": 1,
+                    "MaxAttempts": 3,
+                    "BackoffRate": 2
+                }
+            ],
+            "Next": "Record Transaction"
+        },
+        "Sell Stock": {
+            "Type": "Task",
+            "Resource": "arn:aws:states:::lambda:invoke",
+            "Arguments": {
+                "Payload": "{% $states.input %}",
+                "FunctionName": "${StockSellerFunctionArn}"
+            },
+            "Output": "{% $states.result.Payload %}",
+            "Next": "Record Transaction"
+        },
+        "Record Transaction": {
+            "Type": "Task",
+            "Resource": "arn:aws:states:::dynamodb:putItem",
+            "Arguments": {
+                "TableName": "${DDBTable}",
+                "Item": {
+                    "Id": {
+                        "S": "{% $states.input.id %}"
+                    },
+                    "Type": {
+                        "S": "{% $states.input.type %}"
+                    },
+                    "Price": {
+                        "N": "{% $string($states.input.price) %}"
+                    },
+                    "Quantity": {
+                        "N": "{% $string($states.input.qty) %}"
+                    },
+                    "Timestamp": {
+                        "S": "{% $states.input.timestamp %}"
+                    }
+                }
+            },
+            "End": true
+        }
+    }
+}
+```
+
 ## Next steps
 
 You can learn more about using Step Functions with AWS SAM with the following resources:

@@ -26,7 +26,7 @@ result in the assign field.
   "Next": "Check Price",
   "Arguments": {
     "Payload": {
-    "product": "{% $states.context.Execution.Input.product %}"
+      "product": "{% $states.context.Execution.Input.product %}"
     },
     "FunctionName": "arn:aws:lambda:<region>:`account-id`:function:priceWatcher:$LATEST"
   },
@@ -265,7 +265,7 @@ exhausted or isn't defined. For more information, see [Fallback States](concepts
 
 **`TimeoutSeconds` (Optional)**
 
-Specifies the maximum time an activity or a task can run before it times out with the [States.Timeout](concepts-error-handling.md#statestimeout "concepts-error-handling.md#statestimeout") error and fails. The timeout value must be positive, non-zero integer. The default value is `99999999`.
+Specifies the maximum time an activity or a task can run before it times out with the [States.Timeout](concepts-error-handling.md#statestimeout "concepts-error-handling.md#statestimeout") error and fails. The timeout value must be positive, non-zero integer. The default value is 99,999,999.
 
 The timeout count begins when the start event is executed, such as when
 `TaskStarted`, `ActivityStarted`, or
@@ -295,7 +295,7 @@ and `TimeoutSecondsPath`. HTTP task timeout has a maximum of 60 seconds, even if
 
 Determines the frequency of heartbeat signals an activity worker sends during the execution of a task. Heartbeats indicate that a task is still running and it needs more time to complete. Heartbeats prevent an activity or task from timing out within the `TimeoutSeconds` duration.
 
-`HeartbeatSeconds` must be a positive, non-zero integer value less than the `TimeoutSeconds` field value. The default value is `99999999`. If more time than the specified seconds elapses between heartbeats from the task, the Task state fails with a [States.Timeout](concepts-error-handling.md#statestimeout "concepts-error-handling.md#statestimeout") error.
+`HeartbeatSeconds` must be a positive, non-zero integer value less than the `TimeoutSeconds` field value. The default value is 99,999,999. If more time than the specified seconds elapses between heartbeats from the task, the Task state fails with a [States.Timeout](concepts-error-handling.md#statestimeout "concepts-error-handling.md#statestimeout") error.
 
 For Activities, the count begins when `GetActivityTask` receives a token and `ActivityStarted` is logged in the execution event history.
 

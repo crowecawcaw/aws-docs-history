@@ -44,7 +44,7 @@ terraform init
 
 4. Save the exported ASL definition within your project directory.
 
-You pass the exported ASL definition as an input parameter to the [`aws_sfn_state_machine`](https://registry.terraform.io/modules/terraform-aws-modules/step-functions/aws/latest "https://registry.terraform.io/modules/terraform-aws-modules/step-functions/aws/latest") Terraform resource that uses the [`templatefile`](https://developer.hashicorp.com/terraform/language/functions/templatefile "https://developer.hashicorp.com/terraform/language/functions/templatefile") function. This function is used inside the definition field that passes the exported ASL definition and any variable substitutions.
+To pass the exported ASL definition to the [aws_sfn_state_machine](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sfn_state_machine "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sfn_state_machine") Terraform resource, use the [jsonencode()](https://developer.hashicorp.com/terraform/language/functions/jsonencode "https://developer.hashicorp.com/terraform/language/functions/jsonencode") function in the `definition` field. This approach properly handles all Terraform types, including lists and maps, making it suitable for definitions that include dynamic values such as resource ARNs or security group IDs. Alternatively, you can use `templatefile` for static definitions that require only simple string substitutions. However, `templatefile` cannot handle complex types like lists.
 
 ###### Tip
 

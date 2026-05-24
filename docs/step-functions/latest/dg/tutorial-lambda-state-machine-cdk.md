@@ -6,7 +6,7 @@ function.
 
 You will define AWS infrastructure using one of the CDK's
 supported languages. After you define your infrastructure, you will synthesize your app to
-an CloudFormation template and deploy it to your AWS account.
+a CloudFormation template and deploy it to your AWS account.
 
 You will use this method to define a Step Functions state machine containing a Lambda function, and
 then run the state machine from the use the Step Functions AWS Management Console.

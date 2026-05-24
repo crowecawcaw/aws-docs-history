@@ -9,7 +9,8 @@ To learn about integrating with AWS services in Step Functions, see [Integrating
 - The `Payload` field of the response is parsed from escaped Json to
   Json.
 - If an exception is raised within the Lambda function, the Task will fail. For a
-  practical example, see [Handling error conditions in a Step Functions state machine](tutorial-handling-error-conditions.md "tutorial-handling-error-conditions.md").
+  practical example, see [Handling error conditions in a Step Functions state machine](tutorial-handling-error-conditions.md "tutorial-handling-error-conditions.md"). To
+  handle transient Lambda service exceptions, see [Handle transient Lambda service exceptions](sfn-best-practices.md#bp-lambda-serviceexception "sfn-best-practices.md#bp-lambda-serviceexception").
 
 ## Optimized Lambda APIs
 
@@ -134,7 +135,7 @@ Alternatively, you can invoke a Lambda function by specifying a function ARN dir
 }
 ```
 
-With this form of integration, the function could succeed yet send a response that contains a `FunctionError` field. In that scenario, the workflow Task will fail.
+With this form of integration, the function could succeed yet send a response that contains a `FunctionError` field. In that scenario, the workflow Task will fail. For details on how Lambda errors propagate to Step Functions, see [Handling errors in Step Functions workflows](concepts-error-handling.md "concepts-error-handling.md").
 
 You can invoke a specific Lambda function version or alias by specifying those options
 in the ARN in the `Resource` field. See the following in the Lambda
@@ -168,3 +169,17 @@ In the following example, a state machine with two AWS Lambda task states which 
 }`
 
 ```
+
+###### Note
+
+If you use the `Qualifier` parameter or specify a function version or alias
+in `FunctionName`, you must include the qualifier in the IAM policy resource
+ARN. Use `:*` to allow any version or alias:
+
+```
+"arn:aws:lambda:`us-east-1`:`123456789012`:function:`myFn1`:*"
+```
+
+An unqualified ARN (without the `:*` suffix) does not grant permission to
+invoke a specific version or alias, and the invocation will fail with an Access Denied
+error.

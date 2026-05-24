@@ -43,6 +43,12 @@ JSONata:
   evaluates to true/false.
 - **`Next` field** – a value that
   must match a state name in the state machine.
+- **`Assign` field** (Optional) –
+  assigns variables when this specific choice rule matches. Each choice rule can
+  have its own `Assign` block, allowing you to set different variables
+  depending on which path is taken. You can also specify an `Assign`
+  block at the state level, which applies regardless of which choice rule
+  matches.
 
 The following example checks whether the numerical value is equal to
 `1`.
@@ -82,6 +88,82 @@ The following example checks whether the string is not null.
  "Next": "NotNullAnd42"
 }
 ```
+
+The following example shows a `Choice` state with per-rule
+`Assign` blocks that set different variables based on the matched
+condition:
+
+```
+{
+  "Type": "Choice",
+  "Choices": [
+    {
+      "Condition": "{% $states.input.category = 'premium' %}",
+      "Next": "PremiumPath",
+      "Assign": {
+        "discount": 20
+      }
+    },
+    {
+      "Condition": "{% $states.input.category = 'standard' %}",
+      "Next": "StandardPath",
+      "Assign": {
+        "discount": 5
+      }
+    }
+  ],
+  "Default": "DefaultPath",
+  "Assign": {
+    "discount": 0
+  }
+}
+```
+
+## Using Assign with Choice states
+
+You can use the `Assign` field at two levels in a Choice state:
+
+- **Top level** – Defined directly in the
+  Choice state, outside of any Choice Rule.
+- **Inside a Choice Rule** – Defined within
+  an individual rule in the `Choices` array.
+
+These two placements are mutually exclusive at runtime. If a Choice Rule matches,
+Step Functions evaluates only that rule's `Assign` field and does not evaluate the
+top-level `Assign` field. Step Functions evaluates the top-level
+`Assign` only when no Choice Rule matches and the workflow transitions to the
+`Default` state.
+
+The following example shows both placements.
+
+```
+{
+  "Type": "Choice",
+  "Assign": {
+    "outputValue": "{% 'default path taken' %}"
+  },
+  "Choices": [
+    {
+      "Condition": "{% $score > 90 %}",
+      "Assign": {
+        "outputValue": "{% 'high score' %}"
+      },
+      "Next": "HighScoreState"
+    },
+    {
+      "Condition": "{% $score > 50 %}",
+      "Next": "MediumScoreState"
+    }
+  ],
+  "Default": "LowScoreState"
+}
+```
+
+In this example, if `$score` is greater than 90, Step Functions assigns
+`outputValue` to `"high score"` and transitions to
+`HighScoreState`. The top-level `Assign` is not evaluated. If no
+rule matches, Step Functions evaluates the top-level `Assign` and transitions to
+`LowScoreState`.
 
 ## Choice Rules (JSONPath)
 

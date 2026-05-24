@@ -13,7 +13,7 @@ fields](statemachine-structure.md#amazon-states-language-common-fields "statemac
 
 **`Seconds`**
 
-A time, in seconds, to wait before beginning the state specified in the `Next` field. You must specify time as an integer value from 0 to 99999999. In JSONata states, you can alternatively specify a JSONata expression which must evaluate to an integer in the stated range.
+A time, in seconds, to wait before beginning the state specified in the `Next` field. You must specify time as an integer value from 0 to 99,999,999. In JSONata states, you can alternatively specify a JSONata expression which must evaluate to an integer in the stated range.
 
 **`Timestamp`**
 
