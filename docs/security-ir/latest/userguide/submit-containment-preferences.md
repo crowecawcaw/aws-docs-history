@@ -4,10 +4,9 @@ To configure containment preferences for your account or organization, create an
 
 In your support case, specify the following information:
 
-When configured, AWS Security Incident Response executes executes the authorized containment actions during active security incidents to help protect your environment.
-
 - Your AWS Organizations ID or specific account IDs where containment actions should be authorized.
 - Your preferred containment option.
+  When configured, AWS Security Incident Response executes the authorized containment actions during active security incidents to help protect your environment.
 
 ###### Note
 
