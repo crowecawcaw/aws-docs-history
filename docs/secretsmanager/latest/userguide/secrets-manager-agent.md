@@ -15,6 +15,9 @@ The Secrets Manager Agent retrieves and caches secrets in memory, allowing your 
 secrets from localhost instead of making direct calls to Secrets Manager. The Secrets Manager Agent can only
 read secrets—it can't modify them.
 
+The Secrets Manager Agent is open source. The source code, installation instructions, and latest
+release information are available on [GitHub](https://github.com/aws/aws-secretsmanager-agent "https://github.com/aws/aws-secretsmanager-agent").
+
 ###### Important
 
 The Secrets Manager Agent uses the AWS credentials from your environment to call Secrets Manager. It
@@ -44,6 +47,8 @@ The Secrets Manager Agent returns secret values in the same format as the respon
 - [Install the Secrets Manager Agent](#secrets-manager-agent-install "#secrets-manager-agent-install")
 - [Retrieve secrets with the Secrets Manager Agent](#secrets-manager-agent-call "#secrets-manager-agent-call")
 - [Understanding the refreshNow parameter](#secrets-manager-agent-refresh "#secrets-manager-agent-refresh")
+- [Retrieve secrets across accounts with role chaining](#secrets-manager-agent-role-chaining "#secrets-manager-agent-role-chaining")
+- [Pre-fetch secrets at startup](#secrets-manager-agent-prefetch "#secrets-manager-agent-prefetch")
 - [Configure the Secrets Manager Agent](#secrets-manager-agent-config "#secrets-manager-agent-config")
 - [Optional features](#secrets-manager-agent-features "#secrets-manager-agent-features")
 - [Logging](#secrets-manager-agent-log "#secrets-manager-agent-log")
@@ -485,10 +490,9 @@ Secrets Manager Agent. The example relies on the SSRF being present in a file,
 which is where it is stored by the install script.
 
 ```
-curl -v -H \\
-    "X-Aws-Parameters-Secrets-Token: $(</var/run/awssmatoken)" \\
-    'http://localhost:2773/secretsmanager/get?secretId=`YOUR_SECRET_ID`' \\
-    echo
+curl -v -H \
+    "X-Aws-Parameters-Secrets-Token: $(</var/run/awssmatoken)" \
+    'http://localhost:2773/secretsmanager/get?secretId=`YOUR_SECRET_ID`'
 ```
 
 Python
@@ -577,10 +581,9 @@ refresh the secret. The example relies on the SSRF being present in
 a file, which is where it is stored by the install script.
 
 ```
-curl -v -H \\
-"X-Aws-Parameters-Secrets-Token: $(</var/run/awssmatoken)" \\
-'http://localhost:2773/secretsmanager/get?secretId=`YOUR_SECRET_ID`&refreshNow=true' \\
-echo
+curl -v -H \
+"X-Aws-Parameters-Secrets-Token: $(</var/run/awssmatoken)" \
+'http://localhost:2773/secretsmanager/get?secretId=`YOUR_SECRET_ID`&refreshNow=true'
 ```
 
 Python
@@ -623,6 +626,185 @@ def get_secret():
     except Exception as e:
         # Handle network errors
         raise Exception(f"Error: {e}")
+```
+
+## Retrieve secrets across accounts with role chaining
+
+Role chaining enables the Secrets Manager Agent to retrieve secrets from other AWS accounts by
+assuming IAM roles using AWS STS `AssumeRole`. The Secrets Manager Agent creates and caches
+a separate caching client for each unique role ARN. Each role client maintains its own
+independent cache, so the same secret fetched with different roles has separate cache
+entries.
+
+### Required permissions
+
+To use role chaining, you need the following:
+
+- The Secrets Manager Agent's environment credentials must have
+  `sts:AssumeRole` permission on the target role ARN.
+- The target role must have `secretsmanager:GetSecretValue` and
+  `secretsmanager:DescribeSecret` permissions for the secrets you
+  want to access.
+- The target role's trust policy must allow the Secrets Manager Agent's identity to
+  assume it.
+
+### Retrieve cross-account secrets
+
+Include the `roleArn` query parameter in your request to
+the Secrets Manager Agent to specify which role to assume for the secret retrieval.
+
+curl
+
+###### Example – Cross-account secret using curl
+
+```
+curl -v -H \
+    "X-Aws-Parameters-Secrets-Token: $(</var/run/awssmatoken)" \
+    'http://localhost:2773/secretsmanager/get?secretId=`YOUR_SECRET_ID`&roleArn=arn:aws:iam::`ACCOUNT_ID`:role/`ROLE_NAME`'
+```
+
+Python
+
+###### Example – Cross-account secret using Python
+
+```
+import requests
+
+def get_secret_cross_account():
+    secret_id = "`YOUR_SECRET_ID`"
+    role_arn = "arn:aws:iam::`ACCOUNT_ID`:role/`ROLE_NAME`"
+    url = f"http://localhost:2773/secretsmanager/get?secretId={secret_id}&roleArn={role_arn}"
+
+    with open('/var/run/awssmatoken') as fp:
+        token = fp.read()
+
+    headers = {
+        "X-Aws-Parameters-Secrets-Token": token.strip()
+    }
+
+    try:
+        response = requests.get(url, headers=headers)
+
+        if response.status_code == 200:
+            return response.text
+        else:
+            raise Exception(f"Status code {response.status_code} - {response.text}")
+
+    except Exception as e:
+        raise Exception(f"Error: {e}")
+```
+
+### Role chaining configuration and limits
+
+Configure role chaining with the `max_roles` option in your TOML
+configuration file. This sets the maximum number of simultaneous assumed roles, in
+the range 1 to 20. The default is 20.
+
+###### Important
+
+Assumed roles are not evicted from the Secrets Manager Agent's role cache. Once the maximum
+number of roles has been reached, requests with new role ARNs are rejected with
+a `400` error until the Secrets Manager Agent is restarted.
+
+###### Error responses for role chaining
+
+**`400`**
+
+The `roleArn` format is invalid or the maximum
+number of assumed roles has been reached.
+
+**`403`**
+
+The AWS STS `AssumeRole` call failed. Verify that the
+target role's trust policy allows the Secrets Manager Agent's identity to assume
+it.
+
+## Pre-fetch secrets at startup
+
+By default, the Secrets Manager Agent fetches secrets on demand when your application requests them.
+With pre-fetching, the Secrets Manager Agent loads specified secrets into the cache when it starts up,
+so your application can access them immediately without waiting for the first API
+call. Pre-fetching runs as a background task—the Secrets Manager Agent begins accepting
+requests immediately and does not block on pre-fetch completion.
+
+You can specify secrets to pre-fetch in two ways:
+
+- **Explicit secrets** – List specific
+  secret IDs or ARNs.
+- **Tag-based discovery** – Discover
+  secrets by tag key. The Secrets Manager Agent fetches all secrets that have the specified
+  tag.
+
+### Required permissions
+
+In addition to the standard permissions for retrieving secrets, pre-fetching
+requires the following:
+
+- `secretsmanager:BatchGetSecretValue` – Required for all
+  pre-fetch operations.
+- `secretsmanager:ListSecrets` – Required only when using
+  tag-based discovery.
+
+### Configure pre-fetching
+
+Add a `[prefetch]` section to your TOML configuration file. The
+following options are available:
+
+**`cache_buffer_ratio`**
+
+The maximum fraction of the cache to fill per client during
+pre-fetch, in the range 0.1 to 1.0. The default is 0.8. When the
+buffer limit is reached, the Secrets Manager Agent stops pre-fetching remaining
+secrets—it does not evict existing cache entries. Secrets not
+loaded during pre-fetch are still available on demand.
+
+**`max_jitter_seconds`**
+
+A random delay in seconds before pre-fetching begins, in the range 0
+to 10. The default is 0. Use this to prevent synchronized fleet-wide
+API calls when multiple agents start at the same time.
+
+###### Example Pre-fetch configuration with explicit secrets
+
+```
+[prefetch]
+cache_buffer_ratio = 0.6
+max_jitter_seconds = 5
+secrets = [
+    { secret_id = "arn:aws:secretsmanager:us-west-2:123456789012:secret:MySecret-AbCdEf" },
+    { secret_id = "MyOtherSecret" },
+]
+```
+
+###### Example Pre-fetch configuration with tag-based discovery
+
+```
+[prefetch]
+cache_buffer_ratio = 0.8
+filter_tags = [
+    { key = "Environment" },
+    { key = "Team" },
+]
+```
+
+You can also combine explicit secrets and tag-based discovery in the same
+configuration. For cross-account pre-fetching, add the `role_arn`
+field. For more information, see [Retrieve secrets across accounts with role chaining](#secrets-manager-agent-role-chaining "#secrets-manager-agent-role-chaining").
+
+###### Example Pre-fetch configuration with cross-account access
+
+```
+[prefetch]
+cache_buffer_ratio = 0.6
+max_jitter_seconds = 5
+secrets = [
+    { secret_id = "arn:aws:secretsmanager:us-west-2:123456789012:secret:MySecret-AbCdEf" },
+    { secret_id = "cross-account-secret", role_arn = "arn:aws:iam::987654321098:role/SecretAccessRole" },
+]
+filter_tags = [
+    { key = "Environment" },
+    { key = "Team", role_arn = "arn:aws:iam::987654321098:role/SecretAccessRole" },
+]
 ```
 
 ## Configure the Secrets Manager Agent
@@ -685,6 +867,11 @@ The default is "/v1/".
 
 The maximum number of connections from HTTP clients that the Secrets Manager Agent
 allows, in the range 1 to 1000. The default is 800.
+
+**`max_roles`**
+
+The maximum number of simultaneous IAM roles for cross-account access,
+in the range 1 to 20. The default is 20. For more information, see [Retrieve secrets across accounts with role chaining](#secrets-manager-agent-role-chaining "#secrets-manager-agent-role-chaining").
 
 ## Optional features
 
