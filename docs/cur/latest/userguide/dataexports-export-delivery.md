@@ -58,6 +58,8 @@ Manifest files contain the following information:
 - A list of the export files and their file path. We recommend identifying which
   files to ingest by programmatically reading this list.
 - The time period covered by the export.
+- A section called `additionalOutputFiles` that lists the additional
+  files that are delivered if you have Athena or Amazon Redshift integration.
 
 The `Manifest.json` is only delivered once all of the export data files
 have been delivered to S3.
@@ -140,6 +142,134 @@ Exports are named as follows for the Parquet format:
 
 Chunk numbers always have five digits. Chunk numbers are enumerated starting at
 `00001`.
+
+###### Note
+
+If you chose Athena or Redshift Report Integration option while creating CUR 2.0, the below section regarding Redshift and Athena integrations might be relevant to you.
+
+## Amazon Redshift Integration
+
+If you chose the option for Amazon Redshift integration, AWS also creates and delivers a
+file with the SQL commands that you need to upload your report into Amazon Redshift. To
+upload a data export to Amazon Redshift, complete the following steps.
+
+###### To upload a data export to Amazon Redshift
+
+1. Create an Amazon Redshift cluster. For more information, see [Creating a Cluster](../../../redshift/latest/mgmt/managing-clusters-console.md#create-cluster "../../../redshift/latest/mgmt/managing-clusters-console.md#create-cluster") in the _Amazon Redshift
+   Management Guide_.
+2. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+3. Navigate to the Amazon S3 location where you store your AWS Data Export.
+4. Download the `RedshiftCommands.sql` file that is stored alongside your
+   manifest file in S3, and the Redshift helper file at:
+
+`<bucket>/<prefix>/<export-name>/metadata/<partition>/<export-name>-RedshiftCommands.sql` 5. In the `copy` command, replace `<AWS_ROLE>` with the ARN
+of an IAM role that has permissions to access the Amazon S3 bucket where you store your
+AWS Data Export. 6. Replace `<S3_BUCKET_REGION>` with the Region your Amazon S3 bucket
+is in. For example, `us-east-1`. 7. Use a SQL client to connect to the cluster. For more information, see [Accessing Amazon
+Redshift Clusters and Databases](../../../redshift/latest/mgmt/using-rs-tools.md "../../../redshift/latest/mgmt/using-rs-tools.md") in the _Amazon Redshift Management
+Guide_. 8. Copy the SQL commands from the `RedshiftCommands.sql` file to your SQL
+client in the following order:
+
+    1. **create table** — Creates an Amazon Redshift table
+     with a schema customized to match your report.
+    2. **copy** — Uses the provided IAM role to upload the
+     AWS Data Export files from S3 to Amazon Redshift.
+    3. **create tag table** — Creates a table that allows
+     you to map AWS-defined tags to your user-defined tags.
+    4. **insert** — Inserts the user-defined tags into the
+     tag table.
+
+9. After you have copied all of the data from your AWS Data Export into Amazon
+   Redshift, you can query the data using SQL. For more information, see [Amazon Redshift
+   SQL](../../../redshift/latest/dg/c_redshift-sql.md "../../../redshift/latest/dg/c_redshift-sql.md") in the _Amazon Redshift Database Developer Guide_.
+
+## Amazon Athena Integration
+
+If you chose the option for Amazon Athena integration, AWS also creates and delivers
+multiple files to help set up all of the resources that you need. AWS delivers a
+CloudFormation template, a SQL file to create your Athena table manually, and a status
+folder to check your export refresh status. These files use the following naming
+conventions.
+
+CloudFormation template for setting up Athena resources:
+
+`<prefix>/<export-name>/crawler-cfn.yml`
+
+SQL file to create your Athena table manually:
+
+`<prefix>/<export-name>/metadata/<partition>/<export-name>-create-table.sql`
+
+Export refresh status folder:
+
+`<prefix>/<export-name>/execution_status/`
+
+### Setting up Athena using CloudFormation templates
+
+###### To use the Athena CloudFormation template
+
+1. Navigate to the `crawler-cfn.yml` file in your S3 bucket and select
+   the **Copy** button next to the Object URL.
+2. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation/](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+3. If you have never used CloudFormation before, choose **Create New
+   Stack**. Otherwise, choose **Create Stack**.
+4. Under **Prepare template**, select **Choose an existing
+   template**.
+5. Under **Specify template**, for **Template
+   source**, choose **Amazon S3 URL**.
+6. Paste the S3 Object URL into the **Amazon S3 URL** box.
+7. Choose **Next**.
+8. For **Stack name**, enter a name for your template and choose
+   **Next**.
+9. At the bottom of the page, select **I acknowledge that AWS CloudFormation
+   might create IAM resources.**
+10. Choose **Next**, then choose **Submit**.
+
+###### To update the existing Athena CloudFormation template
+
+1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. From the list of buckets, choose the bucket where you chose to receive your AWS
+   Data Export.
+3. Choose your report path prefix (`your-report-path-prefix/`), then
+   choose your report name (`your-report-name/`).
+4. Choose the `.yml` template file and select the
+   **Copy** button next to the Object URL.
+5. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation/](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+6. Select the stack that was previously created, then choose **Update
+   stack** > **Make a direct update**.
+7. Under **Prepare template**, choose **Replace existing
+   template**.
+8. Under **Template source**, choose **Amazon S3
+   URL**.
+9. Paste the S3 Object URL into the **Amazon S3 URL** box.
+10. Choose **Next**.
+11. On the **Specify stack details** page, modify any details, then
+    choose **Next**.
+12. At the bottom of the page, select **I acknowledge that AWS CloudFormation
+    might create IAM resources.**
+13. Choose **Next**, then choose **Submit**.
+
+### Setting up Athena manually
+
+If you don't want to use the CloudFormation template, you can create your Athena table
+manually using the provided SQL file.
+
+###### To create an Athena table manually
+
+1. The `create-table.sql` file for your export is located at:
+
+`<bucket>/<prefix>/<export-name>/metadata/BILLING_PERIOD=YYYY-MM/<export-name>-create-table.sql` 2. In the **New query 1** query pane, paste the SQL from the file.
+For `<database name>.<table name>`, use the database and table name
+from the first line of the SQL. 3. Run the following to create the database:
+
+`CREATE DATABASE <database name>`
+
+To load a new report partition, run the following SQL:
+
+`ALTER TABLE `<database name>`.<table name>
+ ADD PARTITION (billing_period='YYYY-MM')
+ LOCATION 's3://<bucket>/<prefix>/<export-name>/data/BILLING_PERIOD=YYYY-MM/';` where YYYY-MM is the billing period expressed as 4-digit year and 2-digit month. For example 2026-05.
+
+For more information, see [Querying Cost and Usage Reports using Amazon Athena](cur-query-athena.md "cur-query-athena.md").
 
 ## Summary
 

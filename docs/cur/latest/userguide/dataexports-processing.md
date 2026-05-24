@@ -5,25 +5,6 @@ exports.
 
 ## Configuring Amazon Athena
 
-Unlike Cost and Usage Reports (CUR), Data Exports doesn't offer an SQL file for setting up Athena to query
-your exports. You'll need to either use a CloudFormation template for Data Exports (see option 1) or
-manually configure Athena (see option 2).
-
-**(Option 1) Use a CloudFormation template:** To locate the
-CloudFormation template and instructions for setting up Athena with Data Exports, refer to [Data Exports in the Cloud Intelligence
-Dashboards Framework](https://catalog.workshops.aws/awscid/en-US/data-exports "https://catalog.workshops.aws/awscid/en-US/data-exports").
-
-**(Option 2) Use an AWS Glue crawler to build your table and
-partitions for Athena:** When creating CUR or carbon emissions data exports for
-Athena, we suggest using the Apache Parquet file format; it offers better compression and
-column-oriented storage which contributes to smaller and less expensive Athena queries. The
-overwrite delivery preference is required so that each monthly partition always contains only
-one copy of each file and no duplicate line items appear when you execute queries with Amazon
-Athena.
-
-We also recommend using AWS Glue with a Glue crawler to load your data into
-Athena.
-
 ###### To build a table and partitions for Athena using an AWS Glue crawler
 
 1. Create an export of CUR 2.0 or Carbon emissions with the following data export
@@ -44,11 +25,6 @@ Athena.
 Amazon Redshift is a cloud data warehouse that can be accessed either in a provisioned
 capacity or serverless model. Amazon Redshift offers fast query performance for processing
 your data from Data Exports.
-
-Currently, Data Exports doesn't provide the SQL file for setting up Redshift to query your exports
-like Cost and Usage Reports (CUR) does. However, you can still manually set up Redshift to
-query your exports. We recommend that you use the gzip/csv compression and file format for
-Redshift.
 
 For information on setting up Redshift, see the _[Amazon Redshift
 Getting Started Guide](../../../redshift/latest/gsg/new-user-serverless.md "../../../redshift/latest/gsg/new-user-serverless.md")_.
