@@ -33,7 +33,7 @@ navigation bar.
 ###### To create a change request for a SaaS product
 
 1. Open the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and sign in to your seller account.
-2. From the **Products** tab, select **SaaS**
+2. From the **Build** tab, select **SaaS**
    from the dropdown list.
 3. After the request is submitted, it begins processing. The change request goes
    through the following statuses: **Under review**,
@@ -105,7 +105,7 @@ For list of hosting patterns that AWS considers deployed on AWS, see [Guidelines
 ###### To update architecture details
 
 1. Sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management").
-2. On the **Products** menu, choose **SaaS**.
+2. On the **Build** menu, choose **SaaS**.
 3. In the **SaaS products** table, choose your product.
 4. For **Request changes**, choose **Update architecture details**.
 5. Choose a hosting pattern. If you select a hosting pattern that AWS Marketplace considers deployed on AWS, complete the following two additional steps. For more information about patterns considered deployed on AWS, see [Guidelines](saas-guidelines.md#march-saas-guidelines "saas-guidelines.md#march-saas-guidelines"), previously in this guide.

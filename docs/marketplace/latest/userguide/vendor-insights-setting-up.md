@@ -25,7 +25,7 @@ _AWS General Reference_.
 ###### To create a security profile
 
 1. Sign in using an IAM user or role with access to the AWS Marketplace seller account.
-2. Choose **Products** and select **SaaS** to navigate
+2. Choose **Build** and select **SaaS** to navigate
    to the **SaaS products** page.
 3. Choose a **product**.
 4. Choose the **Vendor Insights** tab, and then choose **Contact

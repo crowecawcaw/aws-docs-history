@@ -7,7 +7,7 @@ Container-based AI agents and tools running on Amazon Bedrock AgentCore Runtime 
 ## Start the listing wizard
 
 1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/homepage/ "https://aws.amazon.com/marketplace/management/homepage/") with your AWS seller account.
-2. Select **Products** and then select **AI Agents and Tools** in the navigation bar.
+2. Select **Build** and then select **AI Agents and Tools** in the navigation bar.
 3. Select the **Create AI Agents and Tools product**
    menu, then choose **Container-based AI agents &
    tools**.

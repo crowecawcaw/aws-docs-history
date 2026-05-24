@@ -6,8 +6,8 @@ price structure, or more complicated, with AWS CloudFormation templates,
 and complex pricing options and payment schedules. You define your product offering and submit
 it through the AWS Marketplace Management Portal in one of two ways:
 
-- Using the **Products** tab – For products that are less complex,
-  you use the **Products** tab to completely define and submit your
+- Using the **Build** tab – For products that are less complex,
+  you use the **Build** tab to completely define and submit your
   request.
 - Using the **Assets** tab – For products that are more complex
   and require more definition, you download a product load form (PLF), add product details,
@@ -19,33 +19,33 @@ Data product providers must use the AWS Data Exchange console to publish product
 information, see [Publishing a new
 product](../../../data-exchange/latest/userguide/publishing-products.md "../../../data-exchange/latest/userguide/publishing-products.md") in the _AWS Data Exchange User Guide_.
 
-We recommend that you start by using the **Products** tab to determine
+We recommend that you start by using the **Build** tab to determine
 which approach to use. The following table lists configurations and the approach you use to
 submit your request. The first column is the pricing model for your product, and the other three
 columns describe how the product is deployed to the customer.
 
 | Pricing model                                 | Products launched using single-node AMI | Products launched with CloudFormation | Products launched as software as a service (SaaS) |
 | --------------------------------------------- | --------------------------------------- | ------------------------------------- | ------------------------------------------------- |
-| Bring Your Own License (BYOL)                 | \*_Products_<br>• tab                   | \*_Assets_<br>• tab                   |                                                   |
-| Free                                          | \*_Products_<br>• tab                   | \*_Assets_<br>• tab                   |                                                   |
-| Paid Hourly                                   | \*_Products_<br>• tab                   | \*_Assets_<br>• tab                   |                                                   |
-| Paid Hourly with Annual                       | \*_Products_<br>• tab                   | \*_Assets_<br>• tab                   |                                                   |
-| Paid Monthly                                  | \*_Products_<br>• tab                   | \*_Assets_<br>• tab                   |                                                   |
+| Bring Your Own License (BYOL)                 | \*_Build_<br>• tab                      | \*_Assets_<br>• tab                   |                                                   |
+| Free                                          | \*_Build_<br>• tab                      | \*_Assets_<br>• tab                   |                                                   |
+| Paid Hourly                                   | \*_Build_<br>• tab                      | \*_Assets_<br>• tab                   |                                                   |
+| Paid Hourly with Annual                       | \*_Build_<br>• tab                      | \*_Assets_<br>• tab                   |                                                   |
+| Paid Monthly                                  | \*_Build_<br>• tab                      | \*_Assets_<br>• tab                   |                                                   |
 | Hourly with Monthly                           | \*_Assets_<br>• tab                     | \*_Assets_<br>• tab                   |                                                   |
-| Paid Usage (AWS Marketplace Metering Service) | \*_Products_<br>• tab                   | \*_Assets_<br>• tab                   |                                                   |
-| Contract Pricing                              | \*_Products_<br>• tab                   |                                       |                                                   |
-| SaaS Subscription                             |                                         |                                       | \*_Products_<br>• tab                             |
-| SaaS Contract                                 |                                         |                                       | \*_Products_<br>• tab                             |
+| Paid Usage (AWS Marketplace Metering Service) | \*_Build_<br>• tab                      | \*_Assets_<br>• tab                   |                                                   |
+| Contract Pricing                              | \*_Build_<br>• tab                      |                                       |                                                   |
+| SaaS Subscription                             |                                         |                                       | \*_Build_<br>• tab                                |
+| SaaS Contract                                 |                                         |                                       | \*_Build_<br>• tab                                |
 | SaaS Legacy                                   |                                         |                                       | \*_Assets_<br>• tab                               |
 
 You can submit products individually or, if you use a product load form, you can submit
-multiple products or product updates at the same time. You cannot use the **Products** tab to submit multiple products.
-If you are unclear about which products to submit and how to submit them, start by using the **Products** tab. If you
+multiple products or product updates at the same time. You cannot use the **Build** tab to submit multiple products.
+If you are unclear about which products to submit and how to submit them, start by using the **Build** tab. If you
 have any problems making your submissions, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/ "https://aws.amazon.com/marketplace/management/contact-us/") team.
 
 ###### Topics
 
-- [Using the Products tab](#using-the-products-tab "#using-the-products-tab")
+- [Using the Build tab](#using-the-products-tab "#using-the-products-tab")
 - [Company and product logo requirements](#seller-and-product-logos "#seller-and-product-logos")
 - [Requirements for submitting paid repackaged software](#paid-repackaged-software "#paid-repackaged-software")
 - [Requirements for products with a hardware component](#product-requirements-hardware "#product-requirements-hardware")
@@ -55,10 +55,10 @@ have any problems making your submissions, contact the [AWS Marketplace Seller O
 - [Submitting AMIs to AWS Marketplace](#submitting-amis-to-aws-marketplace "#submitting-amis-to-aws-marketplace")
 - [Final checklist](#final-checklist "#final-checklist")
 
-## Using the Products tab
+## Using the Build tab
 
-To access the **Products** tab, log in to the AWS Marketplace Management Portal. From the
-**Products** tab, choose either **Server**,
+To access the **Build** tab, log in to the AWS Marketplace Management Portal. From the
+**Build** tab, choose either **Server**,
 **SaaS**, or **Machine learning**, depending on the type
 of product that you manage.
 
@@ -340,7 +340,7 @@ must complete.
 For products that you created by using the product load form (PLF), you also use the
 PLF to make changes to those products. You can make changes to the original PLF you
 completed or, if it's not available, you can start with a new PLF. Just like using the
-**Products** tab, you can add a new version, remove existing versions,
+**Build** tab, you can add a new version, remove existing versions,
 and update pricing, instance types, Region availability, and metadata. To make an update,
 you prepare any updated product the same way you prepare a new product. After the product
 update is prepared, follow these steps:

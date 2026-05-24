@@ -25,7 +25,7 @@ You can update prices and metadata through the AWS Marketplace Management Portal
 ###### To change prices
 
 1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
-2. In the **Products** tab, a list of current products that you created
+2. In the **Build** tab, a list of current products that you created
    is available. Edit your product listing or request changes here.
 
 ###### Note

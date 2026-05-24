@@ -34,7 +34,7 @@ The following procedure describes how to add any needed repositories in AWS Mark
 ###### To add repositories
 
 1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
-2. Select **Server** from the **Products**
+2. Select **Server** from the **Build**
    menu.
 3. On the **Server products** tab, select the product you want to
    modify, and then choose **Add repositories** from the **Request
@@ -74,7 +74,7 @@ repositories you have created.
 ###### To upload container images and artifacts to repositories
 
 1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
-2. From the **Products** menu, choose
+2. From the **Build** menu, choose
    **Server**.
 3. On the **Server products** tab, select the product you want to
    modify.
@@ -153,7 +153,7 @@ Reference_.
 ###### To add a new version to your container product
 
 1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
-2. Choose **Server** from the **Products**
+2. Choose **Server** from the **Build**
    menu.
 3. On the **Server products** tab, select the product you want to add
    a version to. Then choose **Add new version** from the
@@ -313,7 +313,7 @@ update the version information from the AWS Marketplace Management Portal.
 ###### To update version information
 
 1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
-2. Select **Server** from the **Products** menu.
+2. Select **Server** from the **Build** menu.
 3. On the **Server products** tab, select the product that you want to
    modify.
 4. From the **Request changes** dropdown, choose **Update

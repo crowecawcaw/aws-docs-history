@@ -78,7 +78,7 @@ To verify your commercial registration status:
 1. Sign in to the AWS Marketplace Management Portal at [https://aws.amazon.com/marketplace/management/](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/")
 2. Navigate to **Settings** > **Seller profile**
 3. Confirm your profile status shows **Active**
-4. Navigate to **Products** and verify at least one product is listed
+4. Navigate to **Build** and verify at least one product is listed
 5. Navigate to **Settings** > **Payment information** and verify bank account is configured
 
 **Important Notes**
@@ -384,7 +384,7 @@ The ESC registration process involves:
 1. Sign in to the **AWS Marketplace Management Portal** at [https://aws.amazon.com/marketplace/management/](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/") using your **commercial AWS seller account** credentials
 2. Navigate to one of the following locations:
    - **Settings** tab → **Catalog Registration** section, OR
-   - **Products** tab → **Multi-Catalog** section
+   - **Build** tab → **Multi-Catalog** section
 
 3. Look for the **Catalog Registration** or **Register for Additional Catalog** option
 4. Select **Register for ESC Catalog** or choose **AWS Marketplace - European Sovereign Cloud (aws-eusc)** from available catalog options
@@ -558,7 +558,7 @@ The selected catalog context determines where your products are created and publ
 
 **Step 2: Create Product Listing**
 
-- Navigate to the **Products** tab.
+- Navigate to the **Build** tab.
 - Choose **Create new product** and select your product type:
 - SaaS products (SaaS subscriptions, contracts, or contracts with consumption)
 - AMI-based products

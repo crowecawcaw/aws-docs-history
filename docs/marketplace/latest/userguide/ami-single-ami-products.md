@@ -96,7 +96,7 @@ more information, see [Understand the self-service experience](#understand-ami-s
 
 1. Open the AWS Marketplace Management Portal at [https://aws.amazon.com/marketplace/management/tour/](https://aws.amazon.com/marketplace/management/tour/ "https://aws.amazon.com/marketplace/management/tour/"), and then
    sign in to your seller account.
-2. From the **Products** menu, choose
+2. From the **Build** menu, choose
    **Server**. Or, you can go directly to the [**Server Products**](https://aws.amazon.com/marketplace/management/products/server "https://aws.amazon.com/marketplace/management/products/server") page.
 3. From the **Server products** tab, select **Create
    server product**, select **Amazon Machine Image

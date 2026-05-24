@@ -230,7 +230,7 @@ The buttons only appear on the product detail pages in your private offers after
 
 ###### To enable buttons for existing products
 
-1. In the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), on the **Products** tab, select the product that you want to change.
+1. In the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), on the **Build** tab, select the product that you want to change.
 2. Open the **Request changes** list and choose **Update product information**.
 3. Choose any combination of **Enable guided demo requests for buyers** and **Enable private offer requests for buyers**.
 

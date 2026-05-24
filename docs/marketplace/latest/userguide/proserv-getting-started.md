@@ -53,7 +53,7 @@ the AWS Marketplace Management Portal.
 ###### To create a professional services product
 
 1. Open a web browser and sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
-2. From the **Products** menu, select **Professional
+2. From the **Build** menu, select **Professional
    services**. This page shows you all professional services products
    that you have already created, as well as any requests you have made for
    creating or modifying these products.
@@ -62,7 +62,7 @@ the AWS Marketplace Management Portal.
 4. On the **Create product** page, provide the information for
    your product, and select **Submit**. For more information about
    the details that you must provide, see [Providing details for a professional services product in AWS Marketplace](proserv-product-details.md "proserv-product-details.md").
-5. (Optional) From the **Products** menu of AWS Marketplace Management Portal, select
+5. (Optional) From the **Build** menu of AWS Marketplace Management Portal, select
    **Professional services**, then choose the
    **Requests** tab. Verify that you see your product request
    with the correct **Product title**, and that the
@@ -164,7 +164,7 @@ professional services product in the AWS Marketplace Management Portal.
 ###### To edit product information
 
 1. Open a web browser and sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
-2. From the **Products** menu, select **Professional
+2. From the **Build** menu, select **Professional
    services**. This page shows you all professional services products
    that you have already created, as well as any requests you have outstanding for
    creating or modifying these products.
@@ -176,7 +176,7 @@ professional services product in the AWS Marketplace Management Portal.
 5. Select **Submit** to create the request.
 6. (Optional) If you are not already on the **Requests** tab of
    the **Professional services** page, then from the
-   **Products** menu of AWS Marketplace Management Portal, select
+   **Build** menu of AWS Marketplace Management Portal, select
    **Professional services**, then choose the
    **Requests** tab. Verify that you see your request with the
    correct **Product title**, and that the **Request
@@ -193,7 +193,7 @@ professional services product in the AWS Marketplace Management Portal.
 ###### To edit product pricing
 
 1. Open a web browser and sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
-2. From the **Products** menu, select **Professional
+2. From the **Build** menu, select **Professional
    services**. This page shows you all professional services products
    that you have already created, as well as any requests you have made for
    creating or modifying these products.
@@ -208,7 +208,7 @@ or remove previously created dimensions, contact the [AWS Marketplace
 Seller Operations team](https://aws.amazon.com/marketplace/management/contact-us/ "https://aws.amazon.com/marketplace/management/contact-us/") with your request. In your request,
 include the product ID and details about what dimensions you want to change
 or remove. 4. Add any new pricing dimensions that you want. For more information about the
-pricing fields, see [Providing details for a professional services product in AWS Marketplace](proserv-product-details.md "proserv-product-details.md"). 5. Select **Submit** to create the request. 6. (Optional) From the **Products** menu of AWS Marketplace Management Portal, select
+pricing fields, see [Providing details for a professional services product in AWS Marketplace](proserv-product-details.md "proserv-product-details.md"). 5. Select **Submit** to create the request. 6. (Optional) From the **Build** menu of AWS Marketplace Management Portal, select
 **Professional services**, then choose the
 **Requests** tab. Verify that you see your request with the
 correct **Product title**, and that the **Request
@@ -235,7 +235,7 @@ allowlist.
 ###### To edit product visibility
 
 1. Open a web browser and sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
-2. From the **Products** menu, select **Professional
+2. From the **Build** menu, select **Professional
    services**. This page shows you all professional services products
    that you have already created.
 3. Select an existing product that you would like to edit or update the
@@ -266,7 +266,7 @@ offers.
 ###### To remove a product
 
 1. Open a web browser and sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
-2. From the **Products** menu, select **Professional
+2. From the **Build** menu, select **Professional
    services**. This page shows you all professional services products
    that you have already created.
 3. Select an existing product that you would like to remove. Then, from the

@@ -34,7 +34,7 @@ All SaaS API-based AI agents and tools can be managed through the unified **AI a
 ## Start the listing wizard
 
 1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
-2. In the navigation bar, select **Products**, then
+2. In the navigation bar, select **Build**, then
    choose **AI agents and tools**.
 3. From the **Create AI Agents & Tools product** menu,
    choose **API-based AI agents & tools**.

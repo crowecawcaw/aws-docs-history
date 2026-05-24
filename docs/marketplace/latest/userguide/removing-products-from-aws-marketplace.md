@@ -36,7 +36,7 @@ from AWS Marketplace with the following conditions:
 
 1. Open the AWS Marketplace Management Portal at [https://aws.amazon.com/marketplace/management/tour/](https://aws.amazon.com/marketplace/management/tour/ "https://aws.amazon.com/marketplace/management/tour/"), and then sign
    in to your seller account.
-2. Choose the **Products** tab, and then choose
+2. Choose the **Build** tab, and then choose
    **Server**.
 3. On your product page, under **Server products**, locate the
    product that you want to remove. From the **Request changes**

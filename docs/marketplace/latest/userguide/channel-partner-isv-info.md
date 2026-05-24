@@ -21,7 +21,7 @@ Ensure that you are signed out from another AWS account before signing in with y
 
     ###### Note
 
-    The information you enter in **Selling authorization name** will be visible to channel partners in their seller reports.
+    The information you enter in **Selling authorization name** will be visible to Channel Partners in their seller reports.
     * For **Reseller**, choose the AWS Marketplace Channel Partner (reseller) that you want to authorize from the dropdown list. You can select resellers by name or account ID.
     * For **Product type**, select the type of product, and then select one of your **Products** for which you want to create selling authorization.
     * Choose **Continue to authorization details**.
@@ -31,7 +31,7 @@ Ensure that you are signed out from another AWS account before signing in with y
 
     ###### Note
 
-    The information you enter in **Selling authorization description** will be visible to channel partners in their seller reports.
+    The information you enter in **Selling authorization description** will be visible to Channel Partners in their seller reports.
     - For **Renewal**, indicate whether this authorization is intended to renew an existing paid subscription with an existing customer for the same product.
     - (Optional) Set one or more **Buyer account IDs** to specify that the selling authorization is only for those buyers.
     - You can choose **Save and exit** or choose **Next**. Choosing **Save and exit** at any step in the process will save your selling authorization as draft. Choosing **Next** takes you to the **Select duration and pricing** page.
@@ -46,11 +46,11 @@ Ensure that you are signed out from another AWS account before signing in with y
 
     ###### Important
 
-    Non-USD currencies are available for contract, contract with consumption, and pay-as-you-go pricing offers. Channel partners must create offers in the same currency as the resale authorization.
+    Non-USD currencies are available for contract, contract with consumption, and pay-as-you-go pricing offers. Channel Partners must create offers in the same currency as the resale authorization.
 
         + **Channel Partner Private Offers (CPPOs):** ISVs and channel partners will receive disbursements in the same currency, as agreed upon during CPPO creation.
-        + **Currency restrictions:** CPPOs can only be created in the currency set in the resale authorization. If a channel partner wants to extend a CPPO in a different currency, they need to reach out to the ISV to ensure a resale authorization is issued in the new currency.
-        + **Agreement Based Offers (ABO):** ABO will support changing the currency of the offer, as long as the seller and channel partner have configured the currency in their disbursement preferences.
+        + **Currency restrictions:** CPPOs can only be created in the currency set in the resale authorization. If a Channel Partner wants to extend a CPPO in a different currency, they need to reach out to the ISV to ensure a resale authorization is issued in the new currency.
+        + **Agreement Based Offers (ABO):** ABO will support changing the currency of the offer, as long as the seller and Channel Partner have configured the currency in their disbursement preferences.
 
     - For **Duration**, select the duration of the selling authorization.
 
