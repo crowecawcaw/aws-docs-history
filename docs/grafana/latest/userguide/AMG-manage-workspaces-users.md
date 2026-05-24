@@ -28,4 +28,5 @@ Amazon Managed Grafana.
 - [Encryption at rest](AMG-encryption-at-rest.md "AMG-encryption-at-rest.md")
 - [Connect to data sources or notification channels in Amazon VPC from Amazon Managed Grafana](AMG-configure-vpc.md "AMG-configure-vpc.md")
 - [Configure a Amazon Managed Grafana workspace](AMG-configure-workspace.md "AMG-configure-workspace.md")
+- [Troubleshoot degraded workspaces in Amazon Managed Grafana](AMG-workspace-degraded-reasons.md "AMG-workspace-degraded-reasons.md")
 - [Delete a Amazon Managed Grafana workspace](AMG-edit-delete-workspace.md "AMG-edit-delete-workspace.md")
