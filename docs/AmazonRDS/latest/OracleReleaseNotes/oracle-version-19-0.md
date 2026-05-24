@@ -2,9 +2,10 @@
 
 Amazon RDS for Oracle Database 19c (19.0.0.0) releases new minor engine versions quarterly. A Release
 Update (RU) engine version incorporates bug fixes from Oracle by including the RU patches
-for the specified quarter. A Spatial Patch Bundle (SPB) engine version contains the RU
-patches plus patches specific to Oracle Spatial. SPBs are supported only for Oracle Database
-19c .
+for the specified quarter. A Supplemental Patch Bundle (SPB) is an engine version that contains
+the RU patches plus additional database patches recommended by Oracle for specific use cases,
+such as Oracle Spatial, Oracle Data Pump, and Oracle GoldenGate.
+SPBs are supported only for Oracle Database 19c.
 
 The naming format for an RU is as follows:
 ``release`.ru-`date`.rur-`date`.r`rnumber``.
@@ -20,7 +21,7 @@ minor version upgrade mechanism.
 The naming format for an SPB is as follows:
 ``release`.ru-`date`.spb-`snumber`.r`rnumber``.
 For example, the RDS for Oracle SPB for January 2025 is named
-`19.0.0.0.ru-2025-01.spb-1.r1`. This SPB includes all patches in`19.0.0.0.ru-2025-01.rur-2025-01.r1` plus Spatial patches.
+`19.0.0.0.ru-2025-01.spb-1.r1`. This SPB includes all patches in`19.0.0.0.ru-2025-01.rur-2025-01.r1` plus Spatial, Data Pump, and GoldenGate patches recommended by Oracle.
 
 The naming format has the following components:
 
