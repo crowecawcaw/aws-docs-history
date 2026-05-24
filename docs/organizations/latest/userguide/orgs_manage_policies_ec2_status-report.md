@@ -12,27 +12,25 @@ state of an attribute is _uniform across accounts_ (through the
 value_, which is the configuration value that is most frequently observed for
 the attribute.
 
-The choice to attach a EC2 policy for enforcing a baseline configuration depends
+Whether to attach an EC2 policy for enforcing a baseline configuration depends
 on your specific use case.
 
 For more information and an illustrative example, see [Account status report for EC2 policies](orgs_manage_policies_ec2.md#orgs_manage_policies_ec2-account-status-report "orgs_manage_policies_ec2.md#orgs_manage_policies_ec2-account-status-report").
 
 ## Prerequisites
 
-Before you can generate an account status report, you must perform the following
-steps
+Before you can generate an account status report, complete the following
+steps:
 
-1. The `StartDeclarativePoliciesReport` API can only be called by the
+1. The `StartDeclarativePoliciesReport` operation can only be called by the
    management account or delegated administrators for an organization.
 2. To run reports from a delegated administrator account, the account must be
    registered as a delegated administrator for the EC2 service.
-3. You must have an S3 bucket before generating the report (create a new one or
-   use an existing one), it must be in the same Region in which the request is
-   made, and it must have an appropriate S3 bucket policy. For a sample S3 policy,
+3. You must have an S3 bucket before you generate the report. Create a new bucket or use an existing one. The bucket must be in the same Region where you make the request. The bucket must have an appropriate bucket policy. For a sample S3 policy,
    see _Sample Amazon S3 policy_ under [Examples](../../../AWSEC2/latest/APIReference/API_StartDeclarativePoliciesReport.md#API_StartDeclarativePoliciesReport_Examples "../../../AWSEC2/latest/APIReference/API_StartDeclarativePoliciesReport.md#API_StartDeclarativePoliciesReport_Examples") in the _Amazon EC2 API Reference_
 4. You must enable trusted access for Amazon EC2. This creates a read-only service-linked
-   role that is used to generate the account status report of what the existing
-   configuration is for accounts across your organization.
+   role that generates the account status report of the existing
+   configuration for accounts across your organization.
 
 **Using the console**
 
@@ -41,18 +39,17 @@ EC2 policies.
 
 **Using the AWS CLI**
 
-For the AWS CLI, use the [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md") API.
+For the AWS CLI, use the [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md") operation.
 
-For more information on how to enable trusted access for a specific service
-with the AWS CLI see, [AWS services that you can use with AWS Organizations](orgs_integrate_services_list.md "orgs_integrate_services_list.md"). 5. Only one report per organization can be generated at a time. Attempting to
-generate a report while another is in progress will result in an error.
+For more information about how to enable trusted access for a specific service
+with the AWS CLI, see [AWS services that you can use with AWS Organizations](orgs_integrate_services_list.md "orgs_integrate_services_list.md"). 5. Only one report per organization can be generated at a time. If you generate a report while another is in progress, the operation returns an error.
 
-## Access the compliance status report
+## Generating the compliance status report
 
 ###### Minimum permissions
 
 To generate a compliance status report, you need permission to run the following
-actions:
+operations:
 
 - `ec2:StartDeclarativePoliciesReport`
 - `ec2:DescribeDeclarativePoliciesReports`
@@ -115,12 +112,14 @@ on its status, and view the report:
   [CancelDeclarativePoliciesReport](../../../AWSEC2/latest/APIReference/API_CancelDeclarativePoliciesReport.md "../../../AWSEC2/latest/APIReference/API_CancelDeclarativePoliciesReport.md") in the _Amazon EC2
   API Reference_.
 
-Before generating a report, grant the EC2 policies principal
+Before you generate a report, grant the EC2 policies principal
 access to the Amazon S3 bucket where the report will be stored. To do this,
 attach the following policy to the bucket. Replace
 `amzn-s3-demo-bucket` with your actual Amazon S3 bucket name, and
 `identity_ARN` with the IAM identity used to call the
-`StartDeclarativePoliciesReport` API.
+`StartDeclarativePoliciesReport` operation.
+
+The following JSON policy grants access to deliver the report to your bucket:
 
 JSONJSON
 

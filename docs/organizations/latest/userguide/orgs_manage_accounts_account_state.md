@@ -50,7 +50,7 @@ AWS Management Console
    **State** column next to the member account you
    want to examine. If the account that you want to see is a child of
    an OU, you might have to choose the triangle icon
-   ![](images/console-expand.png)
+   ![Right-pointing triangle icon.](images/console-expand.png)
    next to an OU to expand it and see its children.
    Repeat until you find the account.
 
