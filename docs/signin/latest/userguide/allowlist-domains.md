@@ -24,8 +24,16 @@ filtering solution such as next-generation firewalls (NGFW) or Secure Web Gatewa
 (SWG), you must add the following domains or URL endpoints to your web-content filtering
 solution allowlists. Doing so enables you to access your AWS access portal.
 
+The following lists provide the IPv4 and dual-stack domains and URL endpoints to add
+to your web-content filtering solution allowlists. For more information about
+dual-stack endpoints, see [Update firewalls and gateways to allow access to the AWS access portal](../../../singlesignon/latest/userguide/enable-identity-center-portal-access.md "../../../singlesignon/latest/userguide/enable-identity-center-portal-access.md") in
+the _IAM Identity Center User Guide_.
+
+###### IPv4 allow list
+
 - ``[Directory ID or
 alias]`.awsapps.com`
+- ``[IAM Identity Center instance ID]`.`[Region]`.portal.amazonaws.com`
 - `*.aws.dev`
 - `*.awsstatic.com`
 - `*.console.aws.a2z.com`
@@ -34,6 +42,23 @@ alias]`.awsapps.com`
 - `*.sso.`[Region]`.amazonaws.com`
 - `*.sso-portal.`[Region]`.amazonaws.com`
 
+###### Dual-stack allow list
+
+- ``[IAM Identity Center instance ID]`.portal.`[Region]`.app.aws`
+- `*.aws.dev`
+- `*.awsstatic.com`
+- `*.console.aws.a2z.com`
+- `oidc.`[Region]`.api.aws`
+- `sso.`[Region]`.api.aws`
+- `portal.sso.`[Region]`.api.aws`
+- ``[Region]`.sso.signin.aws`
+- ``[Region]`.signin.aws.amazon.com`
+- `signin.aws.amazon.com`
+- `*.cloudfront.net`
+- `cdn.us-east-1.threat-mitigation.aws.amazon.com`
+- `us-east-1.threat-mitigation.aws.amazon.com`
+- `amcs-captcha-prod-us-east-1.s3.dualstack.us-east-1.amazonaws.com`
+
 ## AWS Builder ID domains to allowlist
 
 If you or your organization implement IP or domain filtering, you may need to
@@ -41,13 +66,17 @@ allowlist domains to create and use an AWS Builder ID. The following domains mus
 accessible on the network from which you are trying to access AWS Builder ID.
 
 - `view.awsapps.com/start`
+- `*.portal.*.app.aws`
 - `*.aws.dev`
+- `*.api.aws`
 - `*.uis.awsstatic.com`
 - `*.console.aws.a2z.com`
 - `oidc.*.amazonaws.com`
+- `oidc.*.api.aws`
 - `*.sso.amazonaws.com`
 - `*.sso.*.amazonaws.com`
 - `*.sso-portal.*.amazonaws.com`
+- `sso.*.api.aws`
 - `*.signin.aws`
 - `*.cloudfront.net`
 - `opfcaptcha-prod.s3.amazonaws.com`

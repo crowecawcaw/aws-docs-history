@@ -22,7 +22,9 @@ to sign in again after 8 hours.
 
 1. In your browser window, paste in the sign-in URL that you were provided
    through email, such as
-   `https://`your_subdomain`.awsapps.com/start`.
+   `https://`your_subdomain`.awsapps.com/start`
+   or the dual-stack URL format
+   `https://`[IAM Identity Center instance ID]`.portal.`[Region]`.app.aws`.
    Then, press **Enter**.
 2. Sign in using your corporate credentials (like a user name and password).
 
@@ -72,5 +74,7 @@ resources.
 - For step-by-step directions on how to reset your IAM Identity Center user
   password, see [I forgot my IAM Identity Center password for my AWS account](troubleshooting-sign-in-issues.md#troubleshoot-forgot-iam-identity-center-password "troubleshooting-sign-in-issues.md#troubleshoot-forgot-iam-identity-center-password").
 - If you or your organization implement IP or domain filtering, you may need
-  to allowlist domains to create and use your AWS access portal. For details
-  about allowlisting domains, see [Domains to add to your allow list](allowlist-domains.md "allowlist-domains.md").
+  to allowlist domains to create and use your AWS access portal. IAM Identity Center supports
+  both IPv4 and dual-stack endpoints. If your network uses IPv6, use the
+  dual-stack endpoint domains. For details about allowlisting domains, see
+  [Domains to add to your allow list](allowlist-domains.md "allowlist-domains.md").
