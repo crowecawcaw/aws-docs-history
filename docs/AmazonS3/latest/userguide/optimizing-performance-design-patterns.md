@@ -20,7 +20,7 @@ To optimize performance, you can use the following design patterns.
 
 Many applications that store data in Amazon S3 serve a "working set" of data that is
 repeatedly requested by users. If a workload is sending repeated GET requests for a common
-set of objects, you can use a cache such as [Amazon CloudFront](../../../cloudfront/index.md "../../../cloudfront/index.md"), [Amazon ElastiCache](../../../elasticache/index.md "../../../elasticache/index.md"), or [AWS Elemental MediaStore](../../../mediastore/index.md "../../../mediastore/index.md") to optimize performance.
+set of objects, you can use a cache such as [Amazon CloudFront](../../../cloudfront/index.md "../../../cloudfront/index.md") or [Amazon ElastiCache](../../../elasticache/index.md "../../../elasticache/index.md") to optimize performance.
 Successful cache adoption can result in low latency and high data transfer rates.
 Applications that use caching also send fewer direct requests to Amazon S3, which can help reduce
 request costs.
@@ -37,11 +37,6 @@ latency and substantial increases in download throughput. To use ElastiCache, yo
 application logic to both populate the cache with hot objects and check the cache for hot
 objects before requesting them from Amazon S3. For examples of using ElastiCache to improve Amazon S3 GET
 performance, see the blog post [Turbocharge Amazon S3 with Amazon ElastiCache for Redis](https://aws.amazon.com/blogs/storage/turbocharge-amazon-s3-with-amazon-elasticache-for-redis/ "https://aws.amazon.com/blogs/storage/turbocharge-amazon-s3-with-amazon-elasticache-for-redis/").
-
-AWS Elemental MediaStore is a caching and content distribution system specifically built for video
-workflows and media delivery from Amazon S3. MediaStore provides end-to-end storage APIs specifically
-for video, and is recommended for performance-sensitive video workloads. For information
-about MediaStore, see the [AWS Elemental MediaStore User Guide](../../../mediastore/latest/ug.md "../../../mediastore/latest/ug.md").
 
 ## Timeouts and retries for latency-sensitive applications
 

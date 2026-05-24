@@ -16,9 +16,6 @@ This page describes the limitations and quotas when using S3 Files.
   objects in your bucket, regardless of who uploaded the objects to your bucket. For
   more information, see [Managing access with
   ACLs](acls.md "acls.md").
-- **Custom S3 object metadata** – Custom
-  user-defined metadata on S3 objects is not preserved after changes are made
-  through the file system.
 
 ## File system limitations
 
@@ -77,8 +74,8 @@ There are also quotas specific to individual file systems.
 | Maximum file name length                | 255 bytes                                 |
 | Maximum symlink target length           | 4,080 bytes                               |
 | Maximum S3 object key length            | 1,024 bytes                               |
-| Maximum open files per client           | 32,768                                    |
-| Maximum active user accounts per client | 128                                       |
+| Maximum open files per client           | 65,536                                    |
+| Maximum active user accounts per client | 65,536                                    |
 | Maximum locks per file                  | 512 across all connected instances        |
 | Maximum locks per mount                 | 8,192 across up to 256 file-process pairs |
 | File system policy size limit           | 20,000 characters                         |
@@ -95,6 +92,10 @@ S3 Files supports NFSv4.1 and NFSv4.2, with the following exceptions:
 - Kerberos-based security
 - NFSv4.1 data retention
 - SetUID on directories
-- Block devices, character devices, attribute directories, named
-  attributes, and extended attributes
+- Block devices, character devices, attribute directories, and named
+  attributes
+- Optional features introduced in NFSv4.2 (such as server-side copy,
+  sparse file operations, space reservation, application I/O advise, application
+  data blocks, labeled NFS, and custom user-defined extended attributes)
+- Persistent reply cache
 - The `nconnect` mount option

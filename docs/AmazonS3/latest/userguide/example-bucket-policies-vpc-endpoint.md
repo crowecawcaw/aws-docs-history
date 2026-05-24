@@ -71,8 +71,8 @@ in the _AWS Support Knowledge Center_.
 
 The following is an example of an Amazon S3 bucket policy that restricts access to a
 specific bucket,
-`awsexamplebucket1`,
-only from the VPC endpoint with the ID `vpce-1a2b3c4d`.
+`amzn-s3-demo-bucket`,
+only from the VPC endpoint with the ID `vpce-0abcdef1234567890`.
 If the specified
 endpoint is not used,
 the
@@ -126,8 +126,8 @@ You can create a bucket policy that restricts access to a specific VPC by using 
 `aws:SourceVpc` condition. This is useful if you have multiple VPC
 endpoints configured in the same VPC, and you want to manage access to your Amazon S3 buckets
 for all of your endpoints. The following is an example of a policy that denies access to
-`awsexamplebucket1` and its objects from anyone outside VPC
-`vpc-111bbb22`.
+`amzn-s3-demo-bucket` and its objects from anyone outside VPC
+`vpc-1a2b3c4d`.
 If the specified
 VPC isn't used,
 the
@@ -141,7 +141,7 @@ you
 must
 add a separate
 `Allow`
-statement. The `vpc-111bbb22` condition key doesn't
+statement. The `vpc-1a2b3c4d` condition key doesn't
 require
 an ARN for the VPC resource, only the VPC ID.
 
@@ -196,7 +196,7 @@ The following example policy denies all Amazon S3 (`s3:`) actions on the `amzn-s
                     "arn:aws:s3:::``amzn-s3-demo-bucket``/*"],
        "Condition": {
          "StringNotEquals": {
-           "aws:SourceVpc": "`vpc-0a1b2c3d4e5f6g4h2`"
+           "aws:SourceVpce": "`vpce-0a1b2c3d4e5f6g`"
          },
         "NotIpAddress": {
           "aws:VpcSourceIp": "2001:db8::/32"

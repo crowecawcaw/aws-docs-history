@@ -37,7 +37,7 @@ As with Multi-Region Access Point ARNs, the ARNs for objects that are accessed t
 an AWS Region. Here are some examples.
 
 - `arn:aws:s3::123456789012:accesspoint/mfzwi23gnjvgw.mrap//-01`
-  represents the `-01`, which is accessed through the Multi-Region Access Point with the
+  represents the object with key `-01`, which is accessed through the Multi-Region Access Point with the
   alias `mfzwi23gnjvgw.mrap`, which is owned by account
   `123456789012`.
 - `arn:aws:s3::123456789012:accesspoint/mfzwi23gnjvgw.mrap//*`

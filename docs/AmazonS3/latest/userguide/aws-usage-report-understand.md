@@ -10,6 +10,12 @@ and `region2` with abbreviations from [AWS Region billing
 codes](../../../global-infrastructure/latest/regions/aws-region-billing-codes.md "../../../global-infrastructure/latest/regions/aws-region-billing-codes.md") in the _AWS Regions and Availability Zones User
 Guide_.
 
+###### Note
+
+For the US East (N. Virginia) Region, the region prefix is omitted from usage type
+codes. For example, it will show `TimedStorage-ByteHrs` instead of
+`USE1-TimedStorage-ByteHrs`.
+
 For S3 Multi-Region Access Points usage types in the table that follows, replace
 `regiongroup1` and
 `regiongroup2` with abbreviations from

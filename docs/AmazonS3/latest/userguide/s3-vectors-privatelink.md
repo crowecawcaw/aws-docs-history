@@ -69,8 +69,8 @@ vector indexes and vector buckets over IPv6 in your VPC:
 - The client you use to access vectors and your S3 Vectors client must both
   have dual-stack enabled.
 - If your VPC security group doesn't have IPv6 set up, you'll need to configure a rule to allow IPv6 traffic. For more information, see [Step 3: Update your security group rules](../../../vpc/latest/userguide/vpc-migrate-ipv6-add.md#vpc-migrate-ipv6-sg-rules "../../../vpc/latest/userguide/vpc-migrate-ipv6-add.md#vpc-migrate-ipv6-sg-rules") in the _VPC User Guide_
-  and [Configure security group rules](../../../ec2/latest/userguide/working-with-security-groups.md#adding-security-group-rule "../../../ec2/latest/userguide/working-with-security-groups.md#adding-security-group-rule") in the
-  _Amazon EC2 User Guide_.
+  and [Configure security group rules](../../../vpc/latest/userguide/working-with-security-group-rules.md "../../../vpc/latest/userguide/working-with-security-group-rules.md") in the
+  _VPC User Guide_.
 - If your VPC doesn't have IPv6 CIDRs assigned, you will need to manually add
   an IPv6 CIDR block to your VPC. For more information, see [Add
   IPv6 support for your VPC](../../../vpc/latest/privatelink/vpc-endpoints-access.md#vpc-endpoint-ipv6 "../../../vpc/latest/privatelink/vpc-endpoints-access.md#vpc-endpoint-ipv6") in the

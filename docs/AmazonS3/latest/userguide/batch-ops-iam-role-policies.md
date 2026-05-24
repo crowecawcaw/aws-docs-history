@@ -573,7 +573,6 @@ used by your IAM principal, see [Update object encryption](batch-ops-update-encr
             "Action": [
                 "s3:GetObject",
                 "s3:GetObjectVersion",
-                "s3:PutObject",
                 "s3:UpdateObjectEncryption"
             ],
             "Resource": [

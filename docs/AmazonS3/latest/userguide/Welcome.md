@@ -523,12 +523,6 @@ following are the services that you might use most frequently:
   analysts, and developers easily and cost-effectively process vast amounts of
   data. Amazon EMR uses a hosted Hadoop framework running on the web-scale
   infrastructure of Amazon EC2 and Amazon S3.
-- [AWS Snow
-  Family](https://aws.amazon.com/snow/ "https://aws.amazon.com/snow/") – Helps customers that need to run
-  operations in austere, non-data center environments, and in locations where
-  there's a lack of consistent network connectivity. You can use AWS Snow Family
-  devices to locally and cost-effectively access the storage and compute power of
-  the AWS Cloud in places where an internet connection might not be an option.
 - [AWS Transfer Family](https://aws.amazon.com/aws-transfer-family/ "https://aws.amazon.com/aws-transfer-family/") – Provides fully managed support for
   file transfers directly into and out of Amazon S3 or Amazon Elastic File System (Amazon EFS) using Secure
   Shell (SSH) File Transfer Protocol (SFTP), File Transfer Protocol over SSL

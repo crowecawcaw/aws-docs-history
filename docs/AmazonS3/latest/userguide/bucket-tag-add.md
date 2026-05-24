@@ -1,6 +1,6 @@
 # Adding a tag to a bucket
 
-You can add tags to Amazon S3 buckets and modify these tags. There is no additional charge for using tags on buckets beyond the standard S3 API request rates. For more information, see [Amazon S3 pricing](../../../s3/pricing.md "../../../s3/pricing.md"). For more information about tagging buckets, see [Using tags with S3 general purpose buckets](buckets-tagging.md "buckets-tagging.md").
+You can add tags to Amazon S3 buckets and modify these tags. There is no additional charge for using tags on buckets beyond the standard S3 API request rates. For more information, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/"). For more information about tagging buckets, see [Using tags with S3 general purpose buckets](buckets-tagging.md "buckets-tagging.md").
 
 ## Permissions
 

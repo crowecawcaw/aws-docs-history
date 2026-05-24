@@ -48,6 +48,16 @@ JSON
 
 Server-side encryption encrypts only the object data, not the object metadata.
 
+###### Note
+
+The `s3:x-amz-server-side-encryption` condition key used in bucket
+policies is an IAM condition key namespace and differs from the
+`x-amz-server-side-encryption` HTTP header shown in CloudTrail logs. Both
+refer to the same encryption setting, but use different formats. Additionally,
+this Deny policy might block writes from (such as Elastic
+Load Balancing access logs or Amazon CloudFront logs) that deliver objects to your bucket
+without specifying the encryption header.
+
 ## API support for server-side encryption
 
 All Amazon S3 buckets have encryption configured by default, and all new objects that are uploaded

@@ -1,6 +1,6 @@
 # Creating table buckets with tags
 
-You can tag Amazon S3 table buckets when you create them. There is no additional charge for using tags on table buckets beyond the standard S3 API request rates. For more information, see [Amazon S3 pricing](../../../s3/pricing.md "../../../s3/pricing.md"). For more information about tagging table buckets, see [Using tags with S3 table buckets](table-bucket-tagging.md "table-bucket-tagging.md").
+You can tag Amazon S3 table buckets when you create them. There is no additional charge for using tags on table buckets beyond the standard S3 API request rates. For more information, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/"). For more information about tagging table buckets, see [Using tags with S3 table buckets](table-bucket-tagging.md "table-bucket-tagging.md").
 
 ## Permissions
 

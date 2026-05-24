@@ -88,7 +88,6 @@ bucket where you want to store your completion report.
             "Action": [
                 "s3:GetObject",
                 "s3:GetObjectVersion",
-                "s3:PutObject",
                 "s3:UpdateObjectEncryption"
             ],
             "Resource": [

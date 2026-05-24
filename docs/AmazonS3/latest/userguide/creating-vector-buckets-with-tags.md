@@ -2,7 +2,7 @@
 
 You can tag Amazon S3 vector buckets when you create them. There is no additional charge for
 using tags on vector buckets beyond the standard S3 API request rates. For more information,
-see [Amazon S3 pricing](../../../s3/pricing.md "../../../s3/pricing.md"). For more information
+see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/"). For more information
 about tagging vector buckets, see [Using tags with S3 vector buckets](s3-vectors-tags.md "s3-vectors-tags.md").
 
 ## Permissions

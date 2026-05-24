@@ -1,5 +1,26 @@
 # Working with Amazon S3 Files
 
+###### Topics
+
+- [What is S3 Files?](#s3-files-what-is "#s3-files-what-is")
+- [How does S3 Files work?](#s3-files-how-it-works "#s3-files-how-it-works")
+- [Are you a first-time user of S3 Files?](#s3-files-first-time "#s3-files-first-time")
+- [Key concepts](#s3-files-key-concepts "#s3-files-key-concepts")
+- [Features](#s3-files-performance-storage "#s3-files-performance-storage")
+- [How are you billed for S3 Files?](#s3-files-billing "#s3-files-billing")
+- [Prerequisites for S3 Files](s3-files-prereq-policies.md "s3-files-prereq-policies.md")
+- [Tutorial: Getting started with S3 Files](s3-files-getting-started.md "s3-files-getting-started.md")
+- [Mounting your S3 buckets on compute resources](s3-files-attach-compute.md "s3-files-attach-compute.md")
+- [Creating and managing S3 Files resources](s3-files-resources.md "s3-files-resources.md")
+- [Understanding how synchronization works](s3-files-synchronization.md "s3-files-synchronization.md")
+- [Monitoring and auditing S3 Files](s3-files-monitoring-logging.md "s3-files-monitoring-logging.md")
+- [Performance specifications](s3-files-performance.md "s3-files-performance.md")
+- [Security for S3 Files](s3-files-security.md "s3-files-security.md")
+- [How S3 Files is metered](s3-files-metering.md "s3-files-metering.md")
+- [S3 Files best practices](s3-files-best-practices.md "s3-files-best-practices.md")
+- [Unsupported features, limits, and quotas](s3-files-quotas.md "s3-files-quotas.md")
+- [Troubleshooting S3 Files](s3-files-troubleshooting.md "s3-files-troubleshooting.md")
+
 ## What is S3 Files?
 
 S3 Files is a shared file system that connects any AWS compute resource directly
@@ -159,18 +180,3 @@ access charge. The file system access charges apply to synchronization operation
 importing data onto the file system incurs write charges, and exporting changes back to
 S3 incurs read charges. For more information, see [How S3 Files is metered](s3-files-metering.md "s3-files-metering.md"). For current pricing, see the [S3 Files pricing
 page](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
-
-###### Topics
-
-- [Prerequisites for S3 Files](s3-files-prereq-policies.md "s3-files-prereq-policies.md")
-- [Tutorial: Getting started with S3 Files](s3-files-getting-started.md "s3-files-getting-started.md")
-- [Mounting your S3 buckets on compute resources](s3-files-attach-compute.md "s3-files-attach-compute.md")
-- [Creating and managing S3 Files resources](s3-files-resources.md "s3-files-resources.md")
-- [Understanding how synchronization works](s3-files-synchronization.md "s3-files-synchronization.md")
-- [Monitoring and auditing S3 Files](s3-files-monitoring-logging.md "s3-files-monitoring-logging.md")
-- [Performance specifications](s3-files-performance.md "s3-files-performance.md")
-- [Security for S3 Files](s3-files-security.md "s3-files-security.md")
-- [How S3 Files is metered](s3-files-metering.md "s3-files-metering.md")
-- [S3 Files best practices](s3-files-best-practices.md "s3-files-best-practices.md")
-- [Unsupported features, limits, and quotas](s3-files-quotas.md "s3-files-quotas.md")
-- [Troubleshooting S3 Files](s3-files-troubleshooting.md "s3-files-troubleshooting.md")
