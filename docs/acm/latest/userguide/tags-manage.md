@@ -59,7 +59,7 @@ console.
 1. Sign into the AWS Management Console and open the AWS Certificate Manager console at [https://console.aws.amazon.com/acm/home](https://console.aws.amazon.com/acm/home "https://console.aws.amazon.com/acm/home").
 2. Choose the tags that you want to display as columns by choosing the
    gear icon
-   ![Gear or settings icon, represented by a simple cog wheel symbol.](images/acm-gear-icon-console.png)
+   ![](images/acm-gear-icon-console.png)
    in the upper right corner of the console.
 3. Select the check box beside the tag that you want to display in a
    column.
