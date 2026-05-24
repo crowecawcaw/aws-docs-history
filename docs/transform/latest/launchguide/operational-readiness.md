@@ -74,7 +74,7 @@ Ensuring the security and compliance of your AWS environment is paramount.
   audit, and evaluate the configurations of your AWS resources. To learn how to set it up,
   see [Getting Started with AWS Config](../../../config/latest/developerguide/getting-started.md "../../../config/latest/developerguide/getting-started.md") in the AWS Config Developer Guide.
 
-Video: [Back to Basics: Using AWS Config; and Conformance Packs to Optimize Your AWS Resources](https://www.youtube.com/watch?v=tT8LXTztKjE "https://www.youtube.com/watch?v=tT8LXTztKjE")
+Video: [Back to Basics: Using AWS Config; and Conformance Packs to Optimize Your AWS Resources](https://www.youtube.com/watch?v=yRchvd1h3Qc "https://www.youtube.com/watch?v=yRchvd1h3Qc")
 
 ## Backup
 

@@ -30,6 +30,7 @@ access.
 - [Enforcing tagging on resource creation](../../../organizations/latest/userguide/orgs_manage_policies_scps_examples_tagging.md "../../../organizations/latest/userguide/orgs_manage_policies_scps_examples_tagging.md")
 - [Tag Policies user guide](../../../organizations/latest/userguide/orgs_manage_policies_tag-policies.md "../../../organizations/latest/userguide/orgs_manage_policies_tag-policies.md")
 - [Restricting allowed tag key/values](https://aws.amazon.com/blogs/aws/new-use-tag-policies-to-manage-tags-across-multiple-aws-accounts/ "https://aws.amazon.com/blogs/aws/new-use-tag-policies-to-manage-tags-across-multiple-aws-accounts/")
+- [Amazon Bedrock MAP Tagging using the AWS CLI](https://s3.us-west-2.amazonaws.com/map-2.0-customer-documentation/html/AWSMapDocs/bedrock-map-tagging.html "https://s3.us-west-2.amazonaws.com/map-2.0-customer-documentation/html/AWSMapDocs/bedrock-map-tagging.html")
 - [User guide for MAP 2.0 customer facing dashboard](https://s3.us-west-2.amazonaws.com/map-2.0-customer-documentation/forms/MAP_Dashboard_Guide.pdf "https://s3.us-west-2.amazonaws.com/map-2.0-customer-documentation/forms/MAP_Dashboard_Guide.pdf")
 
 ## Delivering a migration program
@@ -48,10 +49,10 @@ access.
   about the Mobilize phase](https://www.youtube.com/watch?v=5WbInJf8HRI "https://www.youtube.com/watch?v=5WbInJf8HRI")
 - [AWS Migration Hub
   Journeys](https://migrationhub.aws "https://migrationhub.aws")
-- [How to
-  migrate, modernize, and grow using the AWS MAP](https://www.youtube.com/watch?v=yXCjuAaXACo "https://www.youtube.com/watch?v=yXCjuAaXACo")
-- [Video
-  about the importance of establishing a CCoE](https://www.youtube.com/watch?v=VN1vj0d3Z1Y "https://www.youtube.com/watch?v=VN1vj0d3Z1Y")
+- [MAP Overview | Amazon Web
+  Services (video)](https://www.youtube.com/watch?v=Zv_q7_S2op0 "https://www.youtube.com/watch?v=Zv_q7_S2op0")
+- [Build a cloud center of
+  excellence | AWS Events (video)](https://www.youtube.com/watch?v=G7SZqJMVYlo "https://www.youtube.com/watch?v=G7SZqJMVYlo")
 - [AWS Competency Partner Program](https://aws.amazon.com/partners/offerings/?pp=mig&pg=ps "https://aws.amazon.com/partners/offerings/?pp=mig&pg=ps")
 - [Managed Service
   Providers (MSP)](https://aws.amazon.com/partners/msp/ "https://aws.amazon.com/partners/msp/")
@@ -68,25 +69,32 @@ access.
 - [AWS Incident Detection and Response](https://aws.amazon.com/premiumsupport/aws-incident-detection-response/ "https://aws.amazon.com/premiumsupport/aws-incident-detection-response/")
 - [AWS Migration Hub](https://aws.amazon.com/migration-hub/ "https://aws.amazon.com/migration-hub/")
 - [Third-party migration tooling ecosystem](https://aws.amazon.com/migration/partner-solutions/?blog-posts-cards.sort-by=item.additionalFields.createdDate&blog-posts-cards.sort-order=desc&partner-case-studies-cards.sort-by=item.additionalFields.sortDate&partner-case-studies-cards.sort-order=desc "https://aws.amazon.com/migration/partner-solutions/?blog-posts-cards.sort-by=item.additionalFields.createdDate&blog-posts-cards.sort-order=desc&partner-case-studies-cards.sort-by=item.additionalFields.sortDate&partner-case-studies-cards.sort-order=desc")
-- [Completing a large-scale migration and modernization with AWS (video)](https://www.youtube.com/watch?v=iL5FJ_1vKik "https://www.youtube.com/watch?v=iL5FJ_1vKik")
+- [Reimagining large-scale
+  migration planning with agentic AI (video)](https://www.youtube.com/watch?v=8PBNaDa0TUw "https://www.youtube.com/watch?v=8PBNaDa0TUw")
 - [AWS Application Migration Service (Application Migration Service)](https://aws.amazon.com/application-migration-service/ "https://aws.amazon.com/application-migration-service/")
-- [Video
-  about AWS Application Migration Service](https://www.youtube.com/watch?v=ao8geVzmmRo "https://www.youtube.com/watch?v=ao8geVzmmRo")
-- [Migration Foundations - Knowledge Badge](https://explore.skillbuilder.aws/learn/lp/1993/migration-foundations-knowledge-badge-readiness-path-amazon "https://explore.skillbuilder.aws/learn/lp/1993/migration-foundations-knowledge-badge-readiness-path-amazon")
+- [Video about
+  AWS Application Migration Service](https://www.youtube.com/watch?v=75gyWJn0_rI "https://www.youtube.com/watch?v=75gyWJn0_rI")
+- [Migration Foundations - Knowledge Badge](https://skillbuilder.aws/learning-plan/RR62QXUA2T/migration-foundations-knowledge-badge-readiness-path-includes-labs/TJRN67M4E4 "https://skillbuilder.aws/learning-plan/RR62QXUA2T/migration-foundations-knowledge-badge-readiness-path-includes-labs/TJRN67M4E4")
 - [AWS Database Migration Service (AWS DMS)](https://aws.amazon.com/dms/ "https://aws.amazon.com/dms/")
-- [Video
-  about AWS Database Migration Service](https://www.youtube.com/watch?v=ObasPbj6e-c "https://www.youtube.com/watch?v=ObasPbj6e-c")
+- [Mastering AWS
+  Database Migration Service (video)](https://aws.amazon.com/de/video/watch/e6bce0f993a/ "https://aws.amazon.com/de/video/watch/e6bce0f993a/")
 - [AWS
   Prescriptive Guidance Publications](https://aws.amazon.com/prescriptive-guidance/ "https://aws.amazon.com/prescriptive-guidance/")
-- [AWS customer case studies](https://aws.amazon.com/cloud-migration/customers/?nc=sn&loc=5&cloud-migration-customers-cards.sort-by=item.additionalFields.sortOrder&cloud-migration-customers-cards.sort-order=desc&awsf.industry=*all&awsf.migration-type=*all&awsf.region=*all&awsf.content-type=*all&awsf.year=*all "https://aws.amazon.com/cloud-migration/customers/?nc=sn&loc=5&cloud-migration-customers-cards.sort-by=item.additionalFields.sortOrder&cloud-migration-customers-cards.sort-order=desc&awsf.industry=*all&awsf.migration-type=*all&awsf.region=*all&awsf.content-type=*all&awsf.year=*all")
-- [AWS whitepapers](https://aws.amazon.com/cloud-migration/resources/?nc=sn&loc=6&cloud-migration-cards.sort-by=item.additionalFields.sortDate&cloud-migration-cards.sort-order=desc&awsf.industry=*all&awsf.product=*all&awsf.use-case=*all&awsf.content-type=*all "https://aws.amazon.com/cloud-migration/resources/?nc=sn&loc=6&cloud-migration-cards.sort-by=item.additionalFields.sortDate&cloud-migration-cards.sort-order=desc&awsf.industry=*all&awsf.product=*all&awsf.use-case=*all&awsf.content-type=*all")
+- [Migration and
+  Modernization customer stories](https://aws.amazon.com/migration-and-modernization/ "https://aws.amazon.com/migration-and-modernization/")
+- [AWS whitepaper
+  homepage](https://aws.amazon.com/whitepapers/ "https://aws.amazon.com/whitepapers/")
 - [AWS Prescriptive Guidance portal](https://aws.amazon.com/prescriptive-guidance/?apg-all-cards.sort-by=item.additionalFields.sortDate&apg-all-cards.sort-order=desc&awsf.apg-new-filter=*all&awsf.apg-content-type-filter=*all&awsf.apg-code-filter=*all&awsf.apg-category-filter=*all&awsf.apg-rtype-filter=*all&awsf.apg-isv-filter=*all&awsf.apg-product-filter=*all&awsf.apg-env-filter=*all "https://aws.amazon.com/prescriptive-guidance/?apg-all-cards.sort-by=item.additionalFields.sortDate&apg-all-cards.sort-order=desc&awsf.apg-new-filter=*all&awsf.apg-content-type-filter=*all&awsf.apg-code-filter=*all&awsf.apg-category-filter=*all&awsf.apg-rtype-filter=*all&awsf.apg-isv-filter=*all&awsf.apg-product-filter=*all&awsf.apg-env-filter=*all")
 - [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/ "https://aws.amazon.com/architecture/well-architected/")
 - [Well-Architected
   Labs](https://www.wellarchitectedlabs.com/ "https://www.wellarchitectedlabs.com/")
-- [Audiobook
-  of the whitepaper of AWS Well-Architected Framework](https://www.youtube.com/watch?v=WO0CT-HmQl4 "https://www.youtube.com/watch?v=WO0CT-HmQl4")
+- [Migration Lens - AWS Well-Architected Framework](../../../wellarchitected/latest/migration-lens/migration-lens.md "../../../wellarchitected/latest/migration-lens/migration-lens.md")
 - [AWS Application Migration Service workshop repository](https://awsstash.com/ "https://awsstash.com/")
+- [AWS Transform](https://aws.amazon.com/transform/ "https://aws.amazon.com/transform/")
+- [AWS Transform
+  assessments](https://aws.amazon.com/transform/assessment/ "https://aws.amazon.com/transform/assessment/")
+- [Video about the pillars
+  of the AWS Well-Architected Framework](https://aws.amazon.com/video/watch/883325fcd08/ "https://aws.amazon.com/video/watch/883325fcd08/")
 
 ## Organizational readiness
 
@@ -98,14 +106,14 @@ access.
 - [CCoE capabilities](../../../whitepapers/latest/establishing-your-cloud-foundation-on-aws/capabilities.md "../../../whitepapers/latest/establishing-your-cloud-foundation-on-aws/capabilities.md")
 - [People Perspective](../../../whitepapers/latest/overview-aws-cloud-adoption-framework/people-perspective.md "../../../whitepapers/latest/overview-aws-cloud-adoption-framework/people-perspective.md")
 - [Role of CCoE in Mobilize Phase](../../../prescriptive-guidance/latest/strategy-migration/people-skills-culture-change-and-leadership.md "../../../prescriptive-guidance/latest/strategy-migration/people-skills-culture-change-and-leadership.md")
-- [Short
-  video on Organizational Change Management](https://www.youtube.com/watch?v=2WmDQG3vp0c "https://www.youtube.com/watch?v=2WmDQG3vp0c")
+- [The human side of cloud
+  transformation | Amazon Web Services (video)](https://www.youtube.com/watch?v=g0dG18NnodE "https://www.youtube.com/watch?v=g0dG18NnodE")
 - [Cloud Business Office (CBO)](https://aws.amazon.com/blogs/enterprise-strategy/creating-the-cloud-business-office/ "https://aws.amazon.com/blogs/enterprise-strategy/creating-the-cloud-business-office/")
 - [Cloud Operating Models](https://d1.awsstatic.com/whitepapers/building-a-cloud-operating-model.pdf "https://d1.awsstatic.com/whitepapers/building-a-cloud-operating-model.pdf")
 - [How to organize teams to operate a containers
   platform](../../../prescriptive-guidance/latest/container-platform-management/structure-teams.md "../../../prescriptive-guidance/latest/container-platform-management/structure-teams.md")
-- [Cloud
-  Operations concepts video](https://www.youtube.com/watch?v=ksJ5_UdYIag "https://www.youtube.com/watch?v=ksJ5_UdYIag")
+- [AWS re:Invent 2024 -
+  Building the future of cloud operations at any scale (video)](https://www.youtube.com/watch?v=iT3er0h06Dk "https://www.youtube.com/watch?v=iT3er0h06Dk")
 - [CAF Operations perspective](../../../whitepapers/latest/aws-caf-operations-perspective/aws-caf-operations-perspective.md "../../../whitepapers/latest/aws-caf-operations-perspective/aws-caf-operations-perspective.md")
 - [Well-Architected Framework - Operational Excellence
   Pillar](../../../wellarchitected/latest/operational-excellence-pillar/operating-model-2-by-2-representations.md "../../../wellarchitected/latest/operational-excellence-pillar/operating-model-2-by-2-representations.md")
@@ -128,10 +136,13 @@ access.
 - [Cloud Financial Management capability](../../../whitepapers/latest/aws-caf-governance-perspective/cloud-financial-management.md "../../../whitepapers/latest/aws-caf-governance-perspective/cloud-financial-management.md")
 - [Cloud Value
   Framework](https://aws.amazon.com/economics/ "https://aws.amazon.com/economics/")
-- [Cloud FinOps: Making dollars and
-  sense out of FinOps (video)](<javascript:void(0)> "javascript:void(0)")
-- [Customer case study on how Cvent has developed their Cloud Financial
-  Management capability](https://aws.amazon.com/blogs/aws-cloud-financial-management/how-cvent-saved-over-3m-in-less-than-two-years-by-creating-a-cost-aware-culture/ "https://aws.amazon.com/blogs/aws-cloud-financial-management/how-cvent-saved-over-3m-in-less-than-two-years-by-creating-a-cost-aware-culture/")
+- [FinOps 3.0: Cost
+  Intelligence for the AI Era (video)](https://www.youtube.com/watch?v=2SP0eOXqOqc "https://www.youtube.com/watch?v=2SP0eOXqOqc")
+- [Key 2025 re:Invent Launches for CFM](https://aws.amazon.com/blogs/aws-cloud-financial-management/aws-cloud-financial-management-key-reinvent-2025-launches-to-transform-your-finops-practice/ "https://aws.amazon.com/blogs/aws-cloud-financial-management/aws-cloud-financial-management-key-reinvent-2025-launches-to-transform-your-finops-practice/")
+- [Example CCoE structure](../../../prescriptive-guidance/latest/cloud-center-of-excellence/example-ccoe-structure.md "../../../prescriptive-guidance/latest/cloud-center-of-excellence/example-ccoe-structure.md")
+- [Prescriptive guidance on building CCoEs](../../../prescriptive-guidance/latest/cloud-center-of-excellence/ccoe-phases.md "../../../prescriptive-guidance/latest/cloud-center-of-excellence/ccoe-phases.md")
+- [Petabyte-Scale Cost Optimization: How a Video Hosting platform Saved 70% on
+  S3](https://aws.amazon.com/blogs/aws-cloud-financial-management/petabyte-scale-cost-optimization-how-a-video-hosting-platform-saved-70-on-s3/ "https://aws.amazon.com/blogs/aws-cloud-financial-management/petabyte-scale-cost-optimization-how-a-video-hosting-platform-saved-70-on-s3/")
 
 ## Operational readiness
 
@@ -188,5 +199,9 @@ access.
   about Accelerating Learning with AWS Workshops](https://www.youtube.com/watch?v=lv6TFouf4lQ "https://www.youtube.com/watch?v=lv6TFouf4lQ")
 - [Blog - Level up your Cloud Transformation with Experience-Based
   Acceleration (EBA)](https://aws.amazon.com/blogs/mt/level-up-your-cloud-transformation-with-experience-based-acceleration-eba/ "https://aws.amazon.com/blogs/mt/level-up-your-cloud-transformation-with-experience-based-acceleration-eba/")
-- [Video
-  introducing EBA](https://www.youtube.com/watch?v=A44dFFI_U9Y "https://www.youtube.com/watch?v=A44dFFI_U9Y")
+- [AWS re:Invent 2024 -
+  Lockheed Martin's path to digital transformation through innovation
+  (video)](https://www.youtube.com/watch?v=h3ZeeJJYpz4 "https://www.youtube.com/watch?v=h3ZeeJJYpz4")
+- [From Marine Science
+  to Cloud Engineering: How AWS Certification Transformed a Career | AWS Success
+  Story (video)](https://aws.amazon.com/uk/video/watch/7388777f661/ "https://aws.amazon.com/uk/video/watch/7388777f661/")

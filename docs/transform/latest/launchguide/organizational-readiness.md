@@ -32,21 +32,22 @@ organization can operate your workloads in the cloud securely and reliably.
 
 ## Cloud Center of Excellence (CCoE)
 
-The Cloud Center of Excellence (CCoE), also known as [Cloud Enablement Engine (CEE)](https://d1.awsstatic.com/whitepapers/cloud-enablement-engine-practical-guide.pdf "https://d1.awsstatic.com/whitepapers/cloud-enablement-engine-practical-guide.pdf") is a multi-disciplinary team in
+The Cloud Center of Excellence (CCoE), also known as Cloud Enablement Engine (CEE), is a multi-disciplinary team in
 charge of implementing the governance, best practices, training, and architecture needed for
 cloud adoption in a manner that provides repeatable patterns for the larger enterprise to
-follow. The CCoE team is made up of the [Cloud Business Office (CBO)](https://aws.amazon.com/blogs/enterprise-strategy/creating-the-cloud-business-office/ "https://aws.amazon.com/blogs/enterprise-strategy/creating-the-cloud-business-office/") and the Cloud Platform Engineering
+follow. The CCoE team is made up of the Cloud Business Office (CBO) and the Cloud Platform Engineering
 (CPE), and is governed by the Cloud executive team. The team can be global, local, or
 federated (though some [capabilities](../../../whitepapers/latest/establishing-your-cloud-foundation-on-aws/capabilities.md "../../../whitepapers/latest/establishing-your-cloud-foundation-on-aws/capabilities.md") may be local and others global). In a migration
-context, the CCoE is typically started in the [Mobilize Phase](../../../prescriptive-guidance/latest/strategy-migration/people-skills-culture-change-and-leadership.md "../../../prescriptive-guidance/latest/strategy-migration/people-skills-culture-change-and-leadership.md") . For more resources, see [Accelerating cloud adoption through culture, change, and leadership](../../../prescriptive-guidance/latest/migration-ocm/welcome.md "../../../prescriptive-guidance/latest/migration-ocm/welcome.md") . You can also watch the video [How to Manage
-Organizational Change and Cultural Impact During a Cloud Transformation](https://www.youtube.com/watch?v=2WmDQG3vp0c "https://www.youtube.com/watch?v=2WmDQG3vp0c") .
+context, the CCoE is typically started in the [Mobilize Phase](../../../prescriptive-guidance/latest/strategy-migration/people-skills-culture-change-and-leadership.md "../../../prescriptive-guidance/latest/strategy-migration/people-skills-culture-change-and-leadership.md") . For more resources, see [Accelerating cloud adoption through culture, change, and leadership](../../../prescriptive-guidance/latest/migration-ocm/welcome.md "../../../prescriptive-guidance/latest/migration-ocm/welcome.md") . You can also watch the video, [The human side of cloud transformation |
+Amazon Web Services](https://www.youtube.com/watch?v=g0dG18NnodE "https://www.youtube.com/watch?v=g0dG18NnodE"). See here
+for [example CCoE structure](../../../prescriptive-guidance/latest/cloud-center-of-excellence/example-ccoe-structure.md "../../../prescriptive-guidance/latest/cloud-center-of-excellence/example-ccoe-structure.md") and [prescriptive guidance on building CCoEs](../../../prescriptive-guidance/latest/cloud-center-of-excellence/ccoe-phases.md "../../../prescriptive-guidance/latest/cloud-center-of-excellence/ccoe-phases.md").
 
 ## AWS Cloud Adoption Framework (CAF)
 
 The [AWS
 Cloud Adoption Framework (AWS CAF)](https://aws.amazon.com/cloud-adoption-framework/ "https://aws.amazon.com/cloud-adoption-framework/") leverages AWS experience and best practices to
 help you digitally transform and accelerate your business outcomes through innovative use of
-AWS. AWAWSS CAF identifies specific organizational capabilities that underpin successful cloud
+AWS. AWS CAF identifies specific organizational capabilities that underpin successful cloud
 transformations. These capabilities provide best-practice guidance that helps you improve your
 cloud readiness. AWS CAF groups its capabilities in six perspectives: Business, People,
 Governance, Platform, Security, and Operations. Each perspective comprises a set of
@@ -71,8 +72,7 @@ underpin an organization's ability to leverage the cloud to digitally transform 
 It is an assessment led by AWS with the inputs from your organization to identify risks and
 create an engagement and risk mitigation plan in support of achieving customer goals. The
 results are tracked over time, and can be benchmarked, and thus used as an important input for
-decision making. Reach out to your AWS account team, or book a [meeting with a migration expert](https://studio.us-east-1.prod.workshops.aws/preview/362af3d7-2088-478c-80b7-1c14eb7e2095/builds/49e49224-f95c-4971-ad3d-1f0d7b2d3e84/en-US/7-meet-a-migration-expert "https://studio.us-east-1.prod.workshops.aws/preview/362af3d7-2088-478c-80b7-1c14eb7e2095/builds/49e49224-f95c-4971-ad3d-1f0d7b2d3e84/en-US/7-meet-a-migration-expert") directly to walk you through the
-CMA assessment process.
+decision making.
 
 ## Cloud Operations
 
@@ -81,8 +81,8 @@ Operating your applications in the cloud is different from operating them on-pre
 organization will gradually pivot towards a Cloud Operating Model. The [Well-Architected Framework - Operational Excellence Pillar](../../../wellarchitected/latest/operational-excellence-pillar/operating-model-2-by-2-representations.md "../../../wellarchitected/latest/operational-excellence-pillar/operating-model-2-by-2-representations.md") can
 be very useful when designing your cloud operating model based on your Application Engineering
 and Operations (AEO) and Infrastructure Engineering Operations (AEO) teams. To learn more
-about Cloud Operating Models, watch the [Cloud Operating Models
-for Accelerated Transformation](https://www.youtube.com/watch?v=ksJ5_UdYIag "https://www.youtube.com/watch?v=ksJ5_UdYIag") video.
+about Cloud Operating Models, watch [AWS re:Invent 2024 - Building the
+future of cloud operations at any scale](https://www.youtube.com/watch?v=iT3er0h06Dk "https://www.youtube.com/watch?v=iT3er0h06Dk").
 
 For additional guidance around capabilities
 needed to operate in the cloud, see [AWS Cloud Adoption Framework: Operations Perspective](../../../whitepapers/latest/aws-caf-operations-perspective/aws-caf-operations-perspective.md "../../../whitepapers/latest/aws-caf-operations-perspective/aws-caf-operations-perspective.md") .
@@ -100,11 +100,9 @@ You can assess and improve the maturity of your cloud operations with the help o
 application against the best practices of the Operational Excellence and Security pillars of
 the AWS Well-Architected Framework.
 
-Cloud Operations can be improved with [AWS GameDays](https://aws.amazon.com/gameday/ "https://aws.amazon.com/gameday/") , [AWS Workshops](https://workshops.aws/ "https://workshops.aws/") , [Table Top simulations](../../../whitepapers/latest/aws-security-incident-response-guide/types-of-simulations.md "../../../whitepapers/latest/aws-security-incident-response-guide/types-of-simulations.md") and [Well-Architected Labs](https://www.wellarchitectedlabs.com/ "https://www.wellarchitectedlabs.com/") . For more details, explore the [Education and Enablement](https://studio.us-east-1.prod.workshops.aws/preview/362af3d7-2088-478c-80b7-1c14eb7e2095/builds/49e49224-f95c-4971-ad3d-1f0d7b2d3e84/en-US/5-education-and-enablement/ "https://studio.us-east-1.prod.workshops.aws/preview/362af3d7-2088-478c-80b7-1c14eb7e2095/builds/49e49224-f95c-4971-ad3d-1f0d7b2d3e84/en-US/5-education-and-enablement/") topic.
+Cloud Operations can be improved with [AWS GameDays](https://aws.amazon.com/gameday/ "https://aws.amazon.com/gameday/") , [AWS Workshops](https://workshops.aws/ "https://workshops.aws/") , [Table Top simulations](../../../whitepapers/latest/aws-security-incident-response-guide/types-of-simulations.md "../../../whitepapers/latest/aws-security-incident-response-guide/types-of-simulations.md") and [Well-Architected Labs](https://www.wellarchitectedlabs.com/ "https://www.wellarchitectedlabs.com/") .
 
 ### Additional resources
-
-Watch the following video from AWS re:Invent 2022: [Transforming with AWS Cloud Operations: From vision to reality](https://www.youtube.com/watch?v=ZaTcfNNEXcY&list=PL2yQDdvlhXf8Bl_iXQBYsuZdqgwZNFDCp "https://www.youtube.com/watch?v=ZaTcfNNEXcY&list=PL2yQDdvlhXf8Bl_iXQBYsuZdqgwZNFDCp")
 
 The following two-part blog provides the foundational tooling that will help you
 centralize and automate operations, and improve governance and visibility through AWS Cloud
@@ -118,8 +116,10 @@ one of the critical capabilities that need to be developed during your migration
 Management](https://aws.amazon.com/aws-cost-management/ "https://aws.amazon.com/aws-cost-management/") can help you find initial resources and guidance on how to start and
 evolve your [Cloud Financial Management capability](../../../whitepapers/latest/aws-caf-governance-perspective/cloud-financial-management.md "../../../whitepapers/latest/aws-caf-governance-perspective/cloud-financial-management.md") and FinOps. To dive
 deeper into this topic, watch the following AWS re:Invent video that discusses the practice:
-[Making dollars and sense out of
-FinOps](https://youtu.be/hI9Jg6n_Ku0 "https://youtu.be/hI9Jg6n_Ku0").
+[FinOps 3.0: Cost Intelligence
+for the AI Era](https://www.youtube.com/watch?v=2SP0eOXqOqc "https://www.youtube.com/watch?v=2SP0eOXqOqc").
 
-For a customer case study, see [How Cvent saved over $3M in less than two years by creating a cost-aware
-culture](https://aws.amazon.com/blogs/aws-cloud-financial-management/how-cvent-saved-over-3m-in-less-than-two-years-by-creating-a-cost-aware-culture/ "https://aws.amazon.com/blogs/aws-cloud-financial-management/how-cvent-saved-over-3m-in-less-than-two-years-by-creating-a-cost-aware-culture/")
+See key 2025 re:Invent Launches for CFM [here](https://aws.amazon.com/blogs/aws-cloud-financial-management/aws-cloud-financial-management-key-reinvent-2025-launches-to-transform-your-finops-practice/ "https://aws.amazon.com/blogs/aws-cloud-financial-management/aws-cloud-financial-management-key-reinvent-2025-launches-to-transform-your-finops-practice/").
+
+For a customer case study, see [Petabyte-Scale Cost Optimization: How a Video Hosting platform Saved 70% on
+S3](https://aws.amazon.com/blogs/aws-cloud-financial-management/petabyte-scale-cost-optimization-how-a-video-hosting-platform-saved-70-on-s3/ "https://aws.amazon.com/blogs/aws-cloud-financial-management/petabyte-scale-cost-optimization-how-a-video-hosting-platform-saved-70-on-s3/")

@@ -21,10 +21,11 @@ Explore the 3 phases of migration defined in the AWS migration process:
 1. _Assess:_ At the start of your migration journey, you assess your
    organization’s current readiness for operating in the cloud. Most importantly, you
    identify the desired business outcomes and develop the business case for migration. To
-   help you with this goal, AWS provides Migration Evaluator, a free service that helps you
-   create a directional business case for AWS cloud planning and migration. To learn more,
-   watch the following video from AWS re:Invent 2020: [Assess and accelerate your
-   migration plans](https://www.youtube.com/watch?v=KShofI4fjis&t=420s "https://www.youtube.com/watch?v=KShofI4fjis&t=420s"). For more information, see [Migration Evaluator](https://aws.amazon.com/migration-evaluator/ "https://aws.amazon.com/migration-evaluator/").
+   help you with this goal, AWS provides [AWS Transform
+   assessments](https://aws.amazon.com/transform/assessment/ "https://aws.amazon.com/transform/assessment/"), an Agentic AI migration assessment to simplify and optimize your
+   cloud migration. Discover cost optimization and performance opportunities while getting
+   detailed financial modeling to help you confidently plan your migration and maximize
+   potential savings.
 2. _Mobilize_: As part of the mobilize phase, you create
    a migration plan and refine your business case. You address gaps that were identified in
    the assess phase to better prepare your organization with a focus on building your
@@ -33,19 +34,21 @@ Explore the 3 phases of migration defined in the AWS migration process:
    mobilize for accelerated cloud migration - AWS Virtual Workshop](https://www.youtube.com/watch?v=5WbInJf8HRI "https://www.youtube.com/watch?v=5WbInJf8HRI") .
 3. _Migrate & Modernize_: The goal of the
    migrate-and-modernize phase is to design, migrate, and validate each application. To learn
-   more, watch the following video from AWS re:Invent 2022: [How to migrate,
-   modernize, and grow using the AWS MAP](https://www.youtube.com/watch?v=yXCjuAaXACo "https://www.youtube.com/watch?v=yXCjuAaXACo").
+   more, watch the following video from 2024: [MAP Overview | Amazon Web
+   Services](https://www.youtube.com/watch?v=Zv_q7_S2op0 "https://www.youtube.com/watch?v=Zv_q7_S2op0").
 
-## AWS Migration Hub Journeys
+## AWS Transform
 
-Use [AWS Migration Hub Journeys](https://migrationhub.aws "https://migrationhub.aws") to streamline the planning, execution, and tracking of migrations. A core concept in
-Migration Hub Journeys is the migration journey, which gives you a pipeline of tasks, guidance
-in the form of tools and best practices, and the ability to track progress. You can also
-invite internal and external individuals and teams to your migration journey so that they can
-perform tasks and collaborate with you on the migration. To create a migration journey, you
-can use one of our templates, which represent common migration scenarios and follow best
-practices. You can also create your own custom migration journey from scratch. To learn more,
-see the [AWS Migration Hub Journeys User Guide](../../../mhj/latest/userguide/what-is-mhj.md "../../../mhj/latest/userguide/what-is-mhj.md") .
+[AWS Transform](https://aws.amazon.com/transform/ "https://aws.amazon.com/transform/") for migrations
+accelerates enterprise cloud migrations with purpose-built AI agents that automate the entire
+lifecycle—from discovery and wave planning through network conversion and cutover. By
+unifying teams, tools, and workflows in a single collaborative workbench, migrations that
+once took years now complete in months. It offers purpose-built transformations for mainframe,
+VMware, and Windows workloads, and automates code modernization at scale, from version and
+framework upgrades to fully custom, organization-specific transformations. By automating
+complex tasks like assessments, code analysis, refactoring, dependency mapping, and
+transformation planning, AWS Transform dramatically reduces project timelines and
+costs.
 
 ## Staffing the migration
 
@@ -62,8 +65,9 @@ as relevant to an organization working alone or with a partner. You can choose t
 the creation and maturity of your CCoE with the help of a partner or through AWS
 Professional Services.
 
-To learn about the importance of establishing a CCoE, watch the following video from AWS
-re:Invent 2020: [Transform your organization’s culture with a Cloud Center of Excellence](https://www.youtube.com/watch?v=VN1vj0d3Z1Y "https://www.youtube.com/watch?v=VN1vj0d3Z1Y") .
+To learn about the importance of establishing a CCoE, watch the following video from
+2024 AWS Tech Talks - [Build a
+cloud center of excellence | AWS Events](https://www.youtube.com/watch?v=G7SZqJMVYlo "https://www.youtube.com/watch?v=G7SZqJMVYlo").
 
 To learn about the role of the CCoE in your organizational readiness, see the [Organizational readiness](organizational-readiness.md "organizational-readiness.md") topic in this launch
 guide.
@@ -121,29 +125,31 @@ and cost optimization.
 
 ## Migration tooling
 
-Our comprehensive portfolio of [AWS migration services](https://aws.amazon.com/migration-hub/ "https://aws.amazon.com/migration-hub/"), migration competency partners, and our
-mature [third-party migration tooling ecosystem](https://aws.amazon.com/migration/partner-solutions/?blog-posts-cards.sort-by=item.additionalFields.createdDate&blog-posts-cards.sort-order=desc&partner-case-studies-cards.sort-by=item.additionalFields.sortDate&partner-case-studies-cards.sort-order=desc "https://aws.amazon.com/migration/partner-solutions/?blog-posts-cards.sort-by=item.additionalFields.createdDate&blog-posts-cards.sort-order=desc&partner-case-studies-cards.sort-by=item.additionalFields.sortDate&partner-case-studies-cards.sort-order=desc") provide automation and
+Our comprehensive portfolio of [agentic migration services](https://aws.amazon.com/migration-hub/ "https://aws.amazon.com/migration-hub/"), [migration competency partners](https://aws.amazon.com/migration/partner-solutions/?blog-posts-cards.sort-by=item.additionalFields.createdDate&blog-posts-cards.sort-order=desc&partner-case-studies-cards.sort-by=item.additionalFields.sortDate&partner-case-studies-cards.sort-order=desc "https://aws.amazon.com/migration/partner-solutions/?blog-posts-cards.sort-by=item.additionalFields.createdDate&blog-posts-cards.sort-order=desc&partner-case-studies-cards.sort-by=item.additionalFields.sortDate&partner-case-studies-cards.sort-order=desc"), and our
+mature third-party migration tooling ecosystem provide automation and
 intelligent recommendations based on AWS machine learning to simplify and accelerate each
 step of the three-phase migration process.
 
-The following video from re:Invent 2023 describes how to complete a large-scale migration
-and modernization with the help of AWS tools: [Completing a large-scale migration and modernization with AWS](https://youtu.be/iL5FJ_1vKik "https://youtu.be/iL5FJ_1vKik")
+The following video from re:Invent 2025 describes how to complete a large-scale migration
+and modernization with the help of agentic AI: [Reimagining large-scale migration
+planning with agentic AI](https://www.youtube.com/watch?v=8PBNaDa0TUw "https://www.youtube.com/watch?v=8PBNaDa0TUw")
 
 See [Education and Enablement](education.md "education.md") for a recommended free
-course on [Skill Builder](https://studio.us-east-1.prod.workshops.aws/preview/362af3d7-2088-478c-80b7-1c14eb7e2095/builds/49e49224-f95c-4971-ad3d-1f0d7b2d3e84/en-US/4-education-and-enablement#aws-skill-builder "https://studio.us-east-1.prod.workshops.aws/preview/362af3d7-2088-478c-80b7-1c14eb7e2095/builds/49e49224-f95c-4971-ad3d-1f0d7b2d3e84/en-US/4-education-and-enablement#aws-skill-builder") that covers the migration tooling.
+course on [Skill Builder](https://skillbuilder.aws/learning-plan/RR62QXUA2T/migration-foundations-knowledge-badge-readiness-path-includes-labs/TJRN67M4E4 "https://skillbuilder.aws/learning-plan/RR62QXUA2T/migration-foundations-knowledge-badge-readiness-path-includes-labs/TJRN67M4E4") that covers the migration process and tooling.
 
 [AWS Application Migration Service (Application Migration Service)](https://aws.amazon.com/application-migration-service/ "https://aws.amazon.com/application-migration-service/") provides a solution to migrate business applications from
 on-premise or other cloud providers easily to AWS.
 
-To learn about the architecture of AWS Application Migration Service, watch the following video: [Application Migration Service](https://youtu.be/ao8geVzmmRo "https://youtu.be/ao8geVzmmRo")
+To learn about the architecture of AWS Application Migration Service, watch the following video: [Application Migration Service](https://www.youtube.com/watch?v=75gyWJn0_rI "https://www.youtube.com/watch?v=75gyWJn0_rI")
 
 [AWS Database Migration Service (AWS DMS)](https://aws.amazon.com/dms/ "https://aws.amazon.com/dms/") is
 a managed migration and replication service that helps move your database and analytics
 workloads to AWS quickly, securely, and with minimal downtime and zero data loss. AWS DMS
 supports migration between more than 20 database and analytics engines.
 
-The following video from AWS re:Invent 2021 describes AWS DMS: [Dive deep into migration services AWS DMS and AWS
-SCT](https://youtu.be/ObasPbj6e-c "https://youtu.be/ObasPbj6e-c")
+The following video from AWS re:Invent 2023 describes AWS DMS: [Mastering AWS Database Migration
+Service: Deep Dive into Migration Options, Serverless Capabilities, and Performance
+Optimization](https://aws.amazon.com/de/video/watch/e6bce0f993a/ "https://aws.amazon.com/de/video/watch/e6bce0f993a/")
 
 ## Case studies
 
@@ -153,13 +159,13 @@ cloud and free-up resources by lowering IT costs while improving productivity, o
 resiliency, and business agility.
 
 To explore migration case studies across different industries, workload types, and
-geographies see the [Cloud migration customers](https://aws.amazon.com/cloud-migration/customers/ "https://aws.amazon.com/cloud-migration/customers/") portal.
+geographies see the Migration and Modernization [customer stories](https://aws.amazon.com/migration-and-modernization/ "https://aws.amazon.com/migration-and-modernization/") at the
+bottom of the page.
 
 ## Whitepapers and AWS prescriptive guidance
 
 AWS regularly publishes whitepapers that describe various business cases for migrating
-to AWS together with AWS best practices. To find these whitepapers, see [Cloud Migration
-Resources](https://aws.amazon.com/cloud-migration/resources/ "https://aws.amazon.com/cloud-migration/resources/") .
+to AWS together with AWS best practices. To find these whitepapers, see the [whitepaper homepage](https://aws.amazon.com/whitepapers/ "https://aws.amazon.com/whitepapers/").
 
 [AWS
 Prescriptive Guidance](https://aws.amazon.com/prescriptive-guidance "https://aws.amazon.com/prescriptive-guidance") provides time-tested strategies, guides, and patterns to help
@@ -171,26 +177,14 @@ and [Export Amazon RDS for SQL Server tables to an S3 bucket by using AWS DMS](.
 
 ## AWS Well-Architected Labs
 
-The AWS Well-Architected Framework describes key concepts, design principles, and
-architectural best practices for designing and running workloads in the cloud. To learn about
-the framework and its six pillars, see [AWS
-Well-Architected](https://aws.amazon.com/architecture/well-architected "https://aws.amazon.com/architecture/well-architected") . The [AWS Well-Architected Labs](https://www.wellarchitectedlabs.com/ "https://www.wellarchitectedlabs.com/") site contains a collection of
-workshops and hands-on labs to help you learn, measure, and build using architectural best
-practices. The following labs are structured around the six pillars of the AWS
-Well-Architected Framework:
-
-1. [Operational Excellence](https://www.wellarchitectedlabs.com/operational-excellence/ "https://www.wellarchitectedlabs.com/operational-excellence/")
-2. [Security](https://www.wellarchitectedlabs.com/security/ "https://www.wellarchitectedlabs.com/security/")
-3. [Reliability](https://www.wellarchitectedlabs.com/reliability/ "https://www.wellarchitectedlabs.com/reliability/")
-4. [Performance Efficiency](https://www.wellarchitectedlabs.com/performance-efficiency/ "https://www.wellarchitectedlabs.com/performance-efficiency/")
-5. [Cost Optimization](https://www.wellarchitectedlabs.com/cost-optimization/ "https://www.wellarchitectedlabs.com/cost-optimization/")
-6. [Sustainability](https://www.wellarchitectedlabs.com/sustainability/ "https://www.wellarchitectedlabs.com/sustainability/")
+The [AWS Well-Architected
+Framework](https://www.wellarchitectedlabs.com/ "https://www.wellarchitectedlabs.com/") describes key concepts, design principles, and architectural best
+practices for designing and running workloads in the cloud.
 
 These labs help you build and assess AWS infrastructure following AWS architectural
 and operational best practices.
 
 Watch a [video
-about the pillars of the AWS Well-Architected Framework](https://www.youtube.com/watch?v=KvEDbPmha6o "https://www.youtube.com/watch?v=KvEDbPmha6o").
+about the pillars of the AWS Well-Architected Framework](https://aws.amazon.com/video/watch/883325fcd08/ "https://aws.amazon.com/video/watch/883325fcd08/").
 
-You can also listen to the following audiobook: [AWS Well-Architected
-Framework](https://www.youtube.com/watch?v=WO0CT-HmQl4 "https://www.youtube.com/watch?v=WO0CT-HmQl4").
+You can also refer to [Migration Lens - AWS Well-Architected Framework](../../../wellarchitected/latest/migration-lens/migration-lens.md "../../../wellarchitected/latest/migration-lens/migration-lens.md").

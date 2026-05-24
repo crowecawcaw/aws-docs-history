@@ -40,7 +40,7 @@ Watch a [video
 about AWS Skill Builder](https://www.youtube.com/watch?v=kDShz8PfPuc "https://www.youtube.com/watch?v=kDShz8PfPuc") .
 
 A recommended starting point for preparing your organization technically to migrate to AWS
-is the [Migration Foundations](https://explore.skillbuilder.aws/learn/lp/1993/migration-foundations-knowledge-badge-readiness-path-amazon "https://explore.skillbuilder.aws/learn/lp/1993/migration-foundations-knowledge-badge-readiness-path-amazon") learning path. It comes with learning
+is the [Migration Foundations](https://skillbuilder.aws/learning-plan/RR62QXUA2T/migration-foundations-knowledge-badge-readiness-path-includes-labs/TJRN67M4E4 "https://skillbuilder.aws/learning-plan/RR62QXUA2T/migration-foundations-knowledge-badge-readiness-path-includes-labs/TJRN67M4E4") learning path. It comes with learning
 plans, ramp-up guides, assessment, and the following digital badge that you can include in
 your résumé or share with your employer or on social media after you pass the
 assessment.
@@ -51,15 +51,16 @@ assessment.
 
 GameDay is a collaborative learning exercise that tests skills in implementing AWS
 solutions to solve real-world problems in a gamified, risk-free environment. This is a
-completely hands-on opportunity for technical professionals to explore AAWSWS services,
+completely hands-on opportunity for technical professionals to explore AWS services,
 architecture patterns, best practices, and group cooperation.
 
 Browse the [AWS GameDay](https://aws.amazon.com/gameday/ "https://aws.amazon.com/gameday/") website for upcoming public GameDays. It is a hands-on technical training delivered
 in a gamified and competitive way. It can be used to safely try out new services and fosters
 collaborative problem-solving.
 
-Watch [AWS
-Training and Certification – Building AWS Cloud Skills and Confidence](https://www.youtube.com/watch?v=X4hWZDjFAZU "https://www.youtube.com/watch?v=X4hWZDjFAZU") .
+Watch the video [From
+Marine Science to Cloud Engineering: How AWS Certification Transformed a Career | AWS
+Success Story](https://aws.amazon.com/uk/video/watch/7388777f661/ "https://aws.amazon.com/uk/video/watch/7388777f661/").
 
 ## AWS Workshops
 
@@ -76,7 +77,7 @@ specific cloud objectives. We use this in workshops called ‘EBA Parties’, ai
 friction points and blockers to an organization’s cloud journey. In these parties, customer
 and partner's builders develop new ways of working and collaboration. Together they solve
 problems while learning best practices in an interactive and immersive setting. Reach out to
-your AWS account team, or book a [meeting with a migration expert](https://studio.us-east-1.prod.workshops.aws/preview/362af3d7-2088-478c-80b7-1c14eb7e2095/builds/49e49224-f95c-4971-ad3d-1f0d7b2d3e84/en-US/7-meet-a-migration-expert "https://studio.us-east-1.prod.workshops.aws/preview/362af3d7-2088-478c-80b7-1c14eb7e2095/builds/49e49224-f95c-4971-ad3d-1f0d7b2d3e84/en-US/7-meet-a-migration-expert") directly to discuss your EBA
-options.
+your AWS account team to discuss your EBA options.
 
-For an introduction to EBA, watch the following video: [Get to Know EBA](https://www.youtube.com/watch?v=A44dFFI_U9Y "https://www.youtube.com/watch?v=A44dFFI_U9Y") .
+For an introduction to EBA, watch the following video: [AWS re:Invent 2024 - Lockheed
+Martin's path to digital transformation through innovation](https://www.youtube.com/watch?v=h3ZeeJJYpz4 "https://www.youtube.com/watch?v=h3ZeeJJYpz4").
