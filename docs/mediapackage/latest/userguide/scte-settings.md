@@ -46,6 +46,20 @@ ads:
 - Provider overlay placement opportunity
 - Distributor overlay placement opportunity
 - Program
+- Chapter
+- Unscheduled event
+- Alternate content opportunity
+- Network
+- Provider promo
+- Distributor promo
+- Provider ad block
+- Distributor ad block
+
+The default filter includes the first nine values in the preceding list.
+The remaining values (Chapter, Unscheduled event, Alternate content
+opportunity, Network, Provider promo, Distributor promo, Provider ad block,
+and Distributor ad block) require explicit opt-in through the SCTE filtering
+configuration.
 
 \***\*Ad markers\*\***
 
@@ -79,13 +93,52 @@ Choose from the following options:
 
 - **None** – SCTE-35 messages are not included in segment output. This is the default setting.
 - **All** – All SCTE-35 messages are embedded in the segment data, allowing downstream players and ad insertion systems to access the messages directly from segments without parsing manifest files.
+- **Matches filter** – Only SCTE-35 messages from events whose type matches the configured SCTE filtering are embedded in the segment data. This option allows you to limit which SCTE-35 messages are included in segments based on your filter configuration.
 
 When you enable SCTE in segments:
 
 - For TS segments, SCTE-35 messages are embedded directly in the transport stream.
 - For CMAF segments, SCTE-35 messages are embedded in the segment data.
-- For DASH manifests, MediaPackage adds an `InbandEventStream` element with `schemeIdUri="urn:scte:scte35:2013:bin"` to signal the presence of SCTE-35 messages in the segment data.
+- For DASH manifests, when you set SCTE in segments to **All** or **Matches filter**, MediaPackage adds an `InbandEventStream` element with `schemeIdUri="urn:scte:scte35:2013:bin"` to signal the presence of SCTE-35 messages in the segment data.
 
 ###### Important
 
 Your downstream components or players must be implemented to consume SCTE-35 messages from segments to take advantage of this feature. If your players cannot handle SCTE-35 messages in segments, playback may fail when this setting is enabled.
+
+\***\*Custom ad types\*\***
+
+This setting is available on TS and CMAF origin endpoints, in the Segment
+settings parameters group.
+
+**Custom ad types** allows you to designate additional
+SCTE-35 event types as advertisements. By default, MediaPackage treats only splice
+insert and time signal placement opportunity events as ads. Use this setting
+to expand the set of event types that MediaPackage treats as ads.
+
+Choose from the following values:
+
+- `PROGRAM`
+- `CHAPTER`
+- `UNSCHEDULED_EVENT`
+- `ALTERNATE_CONTENT_OPPORTUNITY`
+- `NETWORK`
+
+\***\*SCTE in manifests\*\***
+
+This setting is available for HLS, LL-HLS, and DASH manifests, in the
+SCTE configuration section of the Manifest definitions parameters
+group.
+
+**SCTE in manifests** controls which SCTE-35 events
+appear in the output manifests. Choose from the following options:
+
+- **All** – All SCTE-35 events appear in the
+  manifest. This is the default setting.
+- **Matches filter** – Only SCTE-35 events whose
+  type matches the configured SCTE filtering appear in the manifest.
+  You must have SCTE support enabled with at least one SCTE filter
+  value configured to use this option.
+
+###### Note
+
+This setting is not available for MSS manifests.

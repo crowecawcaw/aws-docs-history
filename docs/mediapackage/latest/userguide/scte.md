@@ -17,6 +17,14 @@ markers for the following message types in the source content:
 - Provider overlay placement opportunity
 - Distributor overlay placement opportunity
 - Program
+- Chapter
+- Unscheduled event
+- Alternate content opportunity
+- Network
+- Provider promo
+- Distributor promo
+- Provider ad block
+- Distributor ad block
   When these commands are present, MediaPackage inserts corresponding ad markers in the output
   manifests:
 

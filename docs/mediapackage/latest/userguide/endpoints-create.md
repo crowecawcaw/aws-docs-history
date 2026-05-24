@@ -96,7 +96,17 @@ exposed DVR window in the manifest.
 Triggering such forced 404 responses is an optional behavior that
 should be used only if you want to implement CDN-driven failover between
 multiple MediaPackage origins. For more information on this types of workflow,
-see [Cross-Region failover](cross-region-failover.md "cross-region-failover.md").
+see [Cross-Region failover](cross-region-failover.md "cross-region-failover.md"). 6. For **URI separator**, choose the separator
+character that MediaPackage uses in generated child manifest and segment URIs.
+Choose from the following options:
+
+    * **Underscore** – Uses an underscore
+     (`_`) character as the separator in URIs. This is the
+     default setting.
+    * **Hyphen** – Uses a hyphen (`-`)
+     character as the separator in URIs.
+
+This setting applies to all manifest types on the endpoint.
 
 ## Segment settings fields
 
@@ -143,6 +153,14 @@ The segment settings fields hold general information about the segment.
    - Provider overlay placement opportunity
    - Distributor overlay placement opportunity
    - Program
+   - Chapter
+   - Unscheduled event
+   - Alternate content opportunity
+   - Network
+   - Provider promo
+   - Distributor promo
+   - Provider ad block
+   - Distributor ad block
 
 8. For **SCTE in segments**, choose whether to include
    SCTE-35 messages in the segment files. Choose from the following
@@ -153,6 +171,22 @@ The segment settings fields hold general information about the segment.
      the segment data. For DASH manifests, an
      `InbandEventStream` tag is added to signal the
      presence of SCTE messages.
+   - **Matches filter** – Only SCTE-35 messages from
+     events whose type matches the configured SCTE filtering are included
+     in the segment data. For DASH manifests, an
+     `InbandEventStream` tag is added to signal the
+     presence of SCTE messages.
+
+9. For **Custom ad types**, choose additional
+   SCTE-35 event types that you want MediaPackage to treat as advertisements. By
+   default, MediaPackage treats only splice insert and time signal placement
+   opportunity events as ads. Use this setting to designate other event types
+   as ads. Choose from the following values:
+   - `PROGRAM`
+   - `CHAPTER`
+   - `UNSCHEDULED_EVENT`
+   - `ALTERNATE_CONTENT_OPPORTUNITY`
+   - `NETWORK`
 
 ## Encryption fields
 
@@ -388,10 +422,29 @@ based on your specified offset settings.
      program transition events, providing the same SCTE-35 information as DATERANGE
      tags but in a format compatible with legacy ad insertion systems.
 
-8. Select **Enable filter configuration** if you
-   want to optionally add filters and settings to modify manifests.
-   These filters apply to all manifests that originate from this
-   endpoint.
+8. For **SCTE in manifests**, choose
+   which SCTE-35 events appear in the output manifests. Choose from the
+   following options:
+   - **All** – All SCTE-35 events appear in
+     the manifest. This is the default setting.
+   - **Matches filter** – Only SCTE-35 events
+     whose type matches the configured SCTE filtering appear in
+     the manifest. You must have SCTE support enabled with at
+     least one SCTE filter value configured to use this
+     option.
+
+9. For **URI path type**, choose how
+   MediaPackage generates child manifest and segment URIs. Choose from the
+   following options:
+   - **Leaf** – URIs are relative paths
+     (leaf). This is the default setting.
+   - **Root** – URIs are absolute paths rooted
+     at the endpoint base egress URI.
+
+10. Select **Enable filter configuration** if you
+    want to optionally add filters and settings to modify manifests.
+    These filters apply to all manifests that originate from this
+    endpoint.
 
 To automatically fill these values from an existing query string,
 choose **Import from query string**.
@@ -722,7 +775,26 @@ options:
     * **XML** – The SCTE marker is
      expressed fully in XML.
 
-17. Select **Enable filter configuration** if you
+17. For **SCTE in manifests**, choose
+    which SCTE-35 events appear in the output manifests. Choose from the
+    following options:
+    - **All** – All SCTE-35 events appear in
+      the manifest. This is the default setting.
+    - **Matches filter** – Only SCTE-35 events
+      whose type matches the configured SCTE filtering appear in
+      the manifest. You must have SCTE support enabled with at
+      least one SCTE filter value configured to use this
+      option.
+
+18. For **URI path type**, choose how
+    MediaPackage generates child manifest and segment URIs. Choose from the
+    following options:
+    - **Leaf** – URIs are relative paths
+      (leaf). This is the default setting.
+    - **Root** – URIs are absolute paths rooted
+      at the endpoint base egress URI.
+
+19. Select **Enable filter configuration** if you
     want to optionally add filters and settings to modify manifests.
     These filters apply to all manifests that originate from this
     endpoint.
