@@ -31,6 +31,19 @@ Before you see traces, [enable Transaction Search in CloudWatch](../../../Amazon
 
 Learn more: [Observability overview](observability.md "observability.md") · [metrics](observability-runtime-metrics.md "observability-runtime-metrics.md") · [telemetry](observability-telemetry.md "observability-telemetry.md")
 
+## CloudTrail
+
+Harness operations are logged to AWS CloudTrail as management events (control plane) and data events (data plane). In CloudTrail, harness resources appear under the `AWS::BedrockAgentCore::Runtime` resource type rather than a harness-specific type. Harness is a managed abstraction over AgentCore Runtime, and CloudTrail events reflect the underlying runtime resource for consistency.
+
+All harness CloudTrail events use `resources.type` = `AWS::BedrockAgentCore::Runtime`. The event names are:
+
+- `CreateHarness`, `UpdateHarness`, `DeleteHarness`, `GetHarness`, `ListHarnesses` (management events)
+- `InvokeAgentRuntime`, `InvokeAgentRuntimeCommand` (data events)
+
+###### Note
+
+Data plane operations appear as `InvokeAgentRuntime` and `InvokeAgentRuntimeCommand` in CloudTrail, matching the underlying Runtime API. The `resources.ARN` field contains the harness ARN for control plane events and the runtime ARN for data plane events.
+
 ## Control cost with limits
 
 Set hard caps so a runaway agent can’t burn through resources:
@@ -41,7 +54,7 @@ Set hard caps so a runaway agent can’t burn through resources:
 - **`idleRuntimeSessionTimeout`** - how long an idle microVM stays warm. Default 900.
 - **`maxLifetime`** - maximum lifetime of a microVM session. Default 28800.
 
-All limits are optional; omit them to use service defaults.
+All limits are optional; omit them to use service defaults. Because harness is backed by AgentCore Runtime, harness invocations are also subject to Runtime service quotas. For more information, see [AgentCore harness Service Quotas](bedrock-agentcore-limits.md#harness-service-limits "bedrock-agentcore-limits.md#harness-service-limits") and [AgentCore Runtime Service Quotas](bedrock-agentcore-limits.md#runtime-service-limits "bedrock-agentcore-limits.md#runtime-service-limits").
 
 ###### Example
 

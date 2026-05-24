@@ -34,6 +34,12 @@ Both runners require:
 
 ###### Topics
 
+- [Prerequisites](datasets-prereqs.md "datasets-prereqs.md")
+- [Getting started](datasets-getting-started.md "datasets-getting-started.md")
 - [Dataset schema](dataset-evaluations-schema.md "dataset-evaluations-schema.md")
+- [Manage datasets](datasets-manage.md "datasets-manage.md")
+- [Manage dataset examples](datasets-examples.md "datasets-examples.md")
+- [Manage dataset versions](datasets-versions.md "datasets-versions.md")
+- [Dataset encryption](datasets-encryption.md "datasets-encryption.md")
 - [On-demand dataset runner](dataset-evaluations-on-demand.md "dataset-evaluations-on-demand.md")
 - [Batch dataset runner](dataset-evaluations-batch.md "dataset-evaluations-batch.md")

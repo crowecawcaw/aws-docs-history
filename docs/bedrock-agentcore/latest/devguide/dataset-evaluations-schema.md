@@ -77,19 +77,20 @@ Multi-turn scenarios have multiple turns per scenario. Turns execute sequentiall
 
 ### Scenario fields
 
-| Field                 | Required | Description                                                                                                                                                                |
-| --------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `scenario_id`         | Yes      | Unique identifier for the scenario.                                                                                                                                        |
-| `turns`               | Yes      | List of turns in the conversation. Each turn has `input` (required) and `expected_response` (optional).                                                                    |
-| `expected_trajectory` | No       | Expected sequence of tool names. Used by trajectory evaluators (`Builtin.TrajectoryExactOrderMatch`, `Builtin.TrajectoryInOrderMatch`, `Builtin.TrajectoryAnyOrderMatch`). |
-| `assertions`          | No       | Natural language assertions about expected behavior. Used by `Builtin.GoalSuccessRate`.                                                                                    |
+| Field                 | Required | Type            | Constraints    | Description                                                                                                                                                                |
+| --------------------- | -------- | --------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `scenario_id`         | Yes      | String          | Non-empty      | Unique identifier for the scenario.                                                                                                                                        |
+| `turns`               | Yes      | List of objects | Non-empty list | List of turns in the conversation. Each turn has `input` (required) and `expected_response` (optional).                                                                    |
+| `expected_trajectory` | No       | List of strings |                | Expected sequence of tool names. Used by trajectory evaluators (`Builtin.TrajectoryExactOrderMatch`, `Builtin.TrajectoryInOrderMatch`, `Builtin.TrajectoryAnyOrderMatch`). |
+| `assertions`          | No       | List of strings |                | Natural language assertions about expected behavior. Used by `Builtin.GoalSuccessRate`.                                                                                    |
+| `metadata`            | No       | Object          |                | Arbitrary key-value metadata for the scenario.                                                                                                                             |
 
 ### Turn fields
 
-| Field               | Required | Description                                                                                                                                                                       |
-| ------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `input`             | Yes      | The prompt sent to the agent for this turn. Can be a string or a dict.                                                                                                            |
-| `expected_response` | No       | The expected agent response for this turn. Used by `Builtin.Correctness`. Mapped positionally to the trace produced by this turn; turn 0 maps to trace 0, turn 1 maps to trace 1. |
+| Field               | Required | Type             | Constraints | Description                                                                                                                                                                                          |
+| ------------------- | -------- | ---------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `input`             | Yes      | String or Object | Non-empty   | The prompt sent to the agent for this turn. Can be a plain string (for example, `"What is my balance?"`) or a structured object (for example, `{"role": "user", "content": "What is my balance?"}`). |
+| `expected_response` | No       | String           |             | The expected agent response for this turn. Used by `Builtin.Correctness`. Mapped positionally to the trace produced by this turn; turn 0 maps to trace 0, turn 1 maps to trace 1.                    |
 
 ## Simulated scenarios
 
@@ -119,14 +120,15 @@ A simulated scenario defines an actor profile and an initial input. The actor ge
 
 ### Scenario fields
 
-| Field                  | Required | Description                                                                                                                                                                      |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `scenario_id`          | Yes      | Unique identifier for the scenario.                                                                                                                                              |
-| `actor_profile`        | Yes      | The actor’s identity and objective, containing `context` (required), `goal` (required), and `traits` (optional). See [User simulation](user-simulation.md "user-simulation.md"). |
-| `input`                | Yes      | The first message sent to your agent to start the conversation.                                                                                                                  |
-| `scenario_description` | No       | Optional metadata describing the scenario. Useful for organizing and identifying scenarios in results.                                                                           |
-| `max_turns`            | No       | Maximum number of turns before the conversation stops. Default: 10.                                                                                                              |
-| `assertions`           | No       | Natural language assertions about expected behavior. Used by `Builtin.GoalSuccessRate`.                                                                                          |
+| Field                  | Required | Type             | Constraints                       | Description                                                                                                                                                                      |
+| ---------------------- | -------- | ---------------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `scenario_id`          | Yes      | String           | Non-empty                         | Unique identifier for the scenario.                                                                                                                                              |
+| `actor_profile`        | Yes      | Object           | Must contain `context` and `goal` | The actor’s identity and objective, containing `context` (required), `goal` (required), and `traits` (optional). See [User simulation](user-simulation.md "user-simulation.md"). |
+| `input`                | Yes      | String or Object | Non-empty                         | The first message sent to your agent to start the conversation. Typically a plain string, but can also be a structured object.                                                   |
+| `scenario_description` | No       | String           |                                   | Optional metadata describing the scenario. Useful for organizing and identifying scenarios in results.                                                                           |
+| `max_turns`            | No       | Integer          | Must be ≥ 1                       | Maximum number of turns before the conversation stops. Default: 10.                                                                                                              |
+| `assertions`           | No       | List of strings  |                                   | Natural language assertions about expected behavior. Used by `Builtin.GoalSuccessRate`.                                                                                          |
+| `metadata`             | No       | Object           |                                   | Arbitrary key-value metadata for the scenario.                                                                                                                                   |
 
 ###### Note
 

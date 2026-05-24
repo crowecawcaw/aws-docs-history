@@ -1,6 +1,8 @@
 # Types of interceptors
 
-There are two types of interceptors that can be configured on your gateway:
+There are two types of interceptors that you can configure on your gateway: REQUEST interceptors and RESPONSE interceptors. The interceptor payload structure depends on the target type configured on your gateway.
+
+This topic covers the interceptor contracts for both MCP targets and HTTP targets (such as Amazon Bedrock AgentCore Runtime).
 
 ## Request interceptors
 
@@ -272,3 +274,91 @@ What the interceptor can override depends on whether it is the first or a subseq
 | First event               | `headers`, `statusCode`, `body` | N/A                                              |
 | Subsequent events         | `body` only                     | `headers`, `statusCode` (already sent to client) |
 | Non-streaming (unchanged) | `headers`, `statusCode`, `body` | N/A                                              |
+
+## Interceptors for HTTP targets
+
+HTTP targets use a different interceptor payload structure than MCP targets. For example, Amazon Bedrock AgentCore Runtime targets use this structure. The payload uses an `http` key instead of an `mcp` key. Request bodies are base64-encoded strings rather than parsed JSON objects.
+
+HTTP targets currently support only REQUEST interceptors. Support for response interceptors with HTTP targets is coming soon.
+
+The following list summarizes the key differences for HTTP target interceptors:
+
+- The `httpMethod` field is read-only.
+- The same override behavior applies: if `transformedGatewayResponse` is present in the output, the gateway returns that response immediately without calling the target.
+
+### Request interceptor input payload example
+
+The following JSON example shows the structure of the input payload that your request interceptor Lambda function receives when processing an HTTP target request:
+
+```
+{
+  "interceptorInputVersion": "1.0",
+  "http": {
+    "gatewayRequest": {
+      "path": "/my-target-name/invocations",
+      "httpMethod": "POST",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "<bearer_token>"
+      },
+      "body": "<base64_encoded_body>"
+    }
+  }
+}
+```
+
+###### Note
+
+Note the following about the input payload:
+
+- The `headers` field is included only if `passRequestHeaders` is set to `true` in the interceptor configuration.
+- The `body` field is a base64-encoded string that represents the raw HTTP request body.
+- The `httpMethod` field is included for informational purposes but is read-only. The interceptor cannot change it.
+
+### Request interceptor output payload example
+
+The following JSON example shows the structure of the output payload that your request interceptor Lambda function must return when transforming an HTTP target request:
+
+```
+{
+  "interceptorOutputVersion": "1.0",
+  "http": {
+    "transformedGatewayRequest": {
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Custom-Header": "custom-value"
+      },
+      "body": "<base64_encoded_body>"
+    },
+    "transformedGatewayResponse": {
+      "contentType": "application/json",
+      "statusCode": 200,
+      "headers": {
+        "X-Custom-Header": "custom-value"
+      },
+      "body": "<base64_encoded_body>"
+    }
+  }
+}
+```
+
+###### Important
+
+Important notes about HTTP request interceptor output:
+
+- The `interceptorOutputVersion` must be set to `"1.0"`.
+- If the output contains a `transformedGatewayResponse`, the gateway returns that response immediately without calling the target.
+- The `body` field must be a base64-encoded string.
+- The `httpMethod` is not included in the output because it cannot be modified.
+
+### Key differences between MCP and HTTP interceptor payloads
+
+The following table summarizes the differences between MCP and HTTP target interceptor payloads.
+
+| Field                | MCP target                        | HTTP target                                                   |
+| -------------------- | --------------------------------- | ------------------------------------------------------------- |
+| Body format          | Map<String, Object> (parsed JSON) | String (base64-encoded)                                       |
+| Path                 | Always "/mcp"                     | Actual HTTP path (for example, "/my-target-name/invocations") |
+| httpMethod           | Immutable                         | Immutable                                                     |
+| rawGatewayRequest    | Included                          | Not included                                                  |
+| Response interceptor | Supported                         | Not supported                                                 |

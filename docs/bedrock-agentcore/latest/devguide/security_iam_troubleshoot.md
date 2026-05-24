@@ -6,6 +6,7 @@ Use the following information to help you diagnose and fix common issues that yo
 
 - [I am not authorized to perform an action in AgentCore](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
 - [I am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
+- [I am not authorized to perform iam:CreateRole in the console](#security_iam_troubleshoot-createrole "#security_iam_troubleshoot-createrole")
 - [I want to allow people outside of my AWS account to access my AgentCore resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
 
 ## I am not authorized to perform an action in AgentCore
@@ -37,6 +38,50 @@ User: arn:aws:iam::123456789012:user/marymajor is not authorized to perform: iam
 In this case, Mary’s policies must be updated to allow her to perform the `iam:PassRole` action.
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
+
+## I am not authorized to perform iam:CreateRole in the console
+
+If you receive an error that you’re not authorized to perform the `iam:CreateRole` action when creating an AgentCore resource in the AWS Management Console, you need to add additional permissions to your IAM user or role.
+
+The following example error occurs when you create a harness and the console attempts to auto-create the execution role on your behalf:
+
+```
+User: arn:aws:iam::123456789012:assumed-role/MyConsoleRole/user is not authorized to perform: iam:CreateRole on resource: arn:aws:iam::123456789012:role/service-role/AmazonBedrockAgentCoreHarnessDefaultServiceRole-abc12 because no identity-based policy allows the iam:CreateRole action
+```
+
+To resolve this issue, do one of the following:
+
+- **Add an inline policy:** Add a policy to your IAM user or role that grants the necessary permissions for the console to create execution roles on your behalf:
+
+```
+{
+"Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "iam:CreateRole",
+      "Resource": "arn:aws:iam::123456789012:role/service-role/AmazonBedrockAgentCore*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "iam:CreatePolicy",
+      "Resource": "arn:aws:iam::123456789012:policy/service-role/AmazonBedrockAgentCore*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "iam:AttachRolePolicy",
+      "Resource": "arn:aws:iam::123456789012:role/service-role/AmazonBedrockAgentCore*",
+      "Condition": {
+        "ArnLike": {
+          "iam:PolicyARN": "arn:aws:iam::123456789012:policy/service-role/AmazonBedrockAgentCore*"
+        }
+      }
+    }
+  ]
+}
+```
+
+- **Create the execution role manually:** Create the role before creating the resource in the console, and then select the existing role instead of allowing the console to auto-create one. For the required trust policy and permissions, see [Execution role for running an agent in AgentCore Runtime](runtime-permissions.md#runtime-permissions-execution "runtime-permissions.md#runtime-permissions-execution").
 
 ## I want to allow people outside of my AWS account to access my AgentCore resources
 

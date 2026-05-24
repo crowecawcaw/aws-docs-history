@@ -68,8 +68,13 @@ from bedrock_agentcore.evaluation import (
     CloudWatchAgentSpanCollector,
 )
 
-# Load dataset (see Dataset schema for format)
+# Load dataset from a local file (see Dataset schema for format)
 dataset = FileDatasetProvider("dataset.json").get_dataset()
+
+# Or load from the Dataset Management service
+from bedrock_agentcore.evaluation import DatasetClient, DatasetManagementServiceProvider
+ds_client = DatasetClient(region_name=REGION)
+dataset = DatasetManagementServiceProvider(dataset_id="my-dataset-id", client=ds_client).get_dataset()
 
 # Create span collector
 span_collector = CloudWatchAgentSpanCollector(

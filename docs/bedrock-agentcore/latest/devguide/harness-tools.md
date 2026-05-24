@@ -9,7 +9,9 @@ Tools are declarative. You list what the agent can call; AgentCore handles invoc
 - **Inline functions:** Tool schemas that execute on the client side, not on the harness VM. The harness pauses when the tool is called and returns the call to your code, which decides what to do and sends a result back. This is the pattern for human-in-the-loop approvals and custom integrations.
   Default tools `shell` and `file_operations` are available in every session unless you restrict them with `allowedTools`. `shell` executes bash commands; `file_operations` supports viewing, creating, and editing files.
 
-The `allowedTools` parameter controls which tools the agent can use. If omitted, all tools are allowed. Supported patterns:
+The `allowedTools` parameter controls which tools the agent can use. If omitted, all tools are allowed.
+
+Supported patterns:
 
 | Pattern         | Example             | Matches                        |
 | --------------- | ------------------- | ------------------------------ |
@@ -22,6 +24,10 @@ The `allowedTools` parameter controls which tools the agent can use. If omitted,
 | `@server/tool`  | `"@git/git_status"` | Specific MCP tool              |
 | `@server/glob`  | `"@git/read_*"`     | Glob within a server           |
 | `@*/tool`       | `"@*-mcp/status"`   | Glob across servers            |
+
+###### Note
+
+`allowedTools` scopes LLM tool selection during `InvokeHarness` only. It does not affect [InvokeAgentRuntimeCommand](runtime-execute-command.md "runtime-execute-command.md"), which is a separate API with its own IAM action (`bedrock-agentcore:InvokeAgentRuntimeCommand`) that executes commands directly without passing through the LLM. To prevent direct command execution, do not grant `bedrock-agentcore:InvokeAgentRuntimeCommand` in your IAM policies.
 
 ## Add tools
 
@@ -95,7 +101,7 @@ tools = [
         }},
     },
     # MCP server with API key stored in AgentCore Identity Token Vault.
-    # Use ${arn:...} to reference a credential provider — the ARN is resolved
+    # Use ${arn:...} to reference a credential provider - the ARN is resolved
     # to the actual API key at invocation time.
     {
         "type": "remote_mcp",
@@ -218,30 +224,48 @@ response = client.invoke_harness(
     messages=[{"role": "user", "content": [{"text": "What's the weather in Seattle?"}]}],
 )
 
-# 2. The agent calls the tool - capture the toolUseId from the stream
+# 2. The agent calls the tool - capture the toolUseId and input from the stream
 tool_use_id = None
+tool_name = None
+tool_input = None
 for event in response["stream"]:
     if "contentBlockStart" in event:
         start = event["contentBlockStart"].get("start", {})
-        if "toolUse" in start and start["toolUse"].get("type") == "inline_function":
+        if "toolUse" in start and start["toolUse"].get("name") == "get_weather":
             tool_use_id = start["toolUse"]["toolUseId"]
+            tool_name = start["toolUse"]["name"]
+    if "contentBlockDelta" in event:
+        delta = event["contentBlockDelta"].get("delta", {})
+        if "toolUse" in delta:
+            tool_input = (tool_input or "") + delta["toolUse"].get("input", "")
 
 # 3. Execute the tool yourself and send the result back
+# Include the assistant's toolUse message followed by your toolResult
 client.invoke_harness(
     harnessArn=HARNESS_ARN,
     runtimeSessionId=SESSION_ID,
-    messages=[{
-        "role": "user",
-        "content": [{
-            "toolResult": {
-                "toolUseId": tool_use_id,
-                "content": [{"text": "72°F, partly cloudy"}],
-                "status": "success",
-            }
-        }],
-    }],
+    messages=[
+        {
+            "role": "assistant",
+            "content": [{"toolUse": {"toolUseId": tool_use_id, "name": tool_name, "input": json.loads(tool_input)}}],
+        },
+        {
+            "role": "user",
+            "content": [{
+                "toolResult": {
+                    "toolUseId": tool_use_id,
+                    "content": [{"text": "72°F, partly cloudy"}],
+                    "status": "success",
+                }
+            }],
+        },
+    ],
 )
 ```
+
+###### Note
+
+You must include both the assistant `toolUse` message and your `toolResult` in step 3. The harness intentionally does not persist the inline function turn to the session - if the client never returns a result, persisting a partial turn (assistant `toolUse` without a matching `toolResult`) would leave the session in a corrupted state. By requiring the client to send both messages, the session remains clean regardless of whether the client completes the tool call.
 
 The agent resumes reasoning with the tool result and streams the final response.
 

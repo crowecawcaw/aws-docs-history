@@ -15,6 +15,7 @@ This topic consolidates security best practices for Amazon Bedrock AgentCore Run
 - [Auditing and monitoring](#security-bp-auditing "#security-bp-auditing")
 - [Shared responsibility model](#security-bp-shared-responsibility "#security-bp-shared-responsibility")
 - [Command execution security](#security-bp-command-execution "#security-bp-command-execution")
+- [VM platform server](#security-bp-platform-server "#security-bp-platform-server")
 
 ## Session isolation and data protection
 
@@ -231,3 +232,17 @@ When using `InvokeAgentRuntimeCommand`, apply these security practices:
 - **Set appropriate timeouts** — Configure command timeouts based on expected execution duration to prevent resource waste from runaway processes.
 
 For complete details, see [Execute commands in runtime sessions](runtime-execute-command.md "runtime-execute-command.md").
+
+## VM platform server
+
+Each AgentCore Runtime microVM includes a platform server running on localhost. This server manages VM session lifecycle, storage operations, and provides shell access to support runtime operations. The platform server runs entirely within the agent’s microVM, which is the isolation boundary — it contains no service-critical infrastructure code and has no access to other sessions or customers' workloads.
+
+###### Important
+
+Everything running within the microVM, including interactions with the platform server, is your responsibility under the shared responsibility model. If agent code or tools interact with the platform server, the impact is limited to the current VM session — it cannot affect other sessions or cross isolation boundaries. However, unauthorized access can disrupt the session’s VM lifecycle or provide shell access within that session.
+
+Follow these practices to limit unnecessary access to the platform server:
+
+- **Restrict localhost access in agent code** — Configure your agent and any networking tools to prevent unrestricted access to localhost. Agent code should not make arbitrary HTTP calls to localhost unless required for a specific integration.
+- **Allowlist only required ports for sidecar setups** — If your architecture uses a container-in-container or sidecar pattern on localhost, explicitly allowlist only the specific ports your sidecar services use. Do not open broad localhost access.
+- **Audit network tools for localhost reach** — Review any tools you provide to your agent (such as HTTP request tools or general networking utilities) to ensure they cannot make unintended requests to localhost endpoints. Apply URL filtering or allowlisting at the tool level.

@@ -44,10 +44,19 @@ The following types of the authorization strategy are supported.
 - No authorization – The gateway invokes the MCP server without preconfigured authorization. This approach is not recommended.
 - OAuth – The gateway supports both two-legged OAuth (Client Credentials grant type) and three-legged OAuth (Authorization Code grant type). You configure the authorization provider in Amazon Bedrock AgentCore Identity in the same account and Region for the gateway to make calls to the MCP server.
 - IAM ( [AWS Signature Version 4 (Sig V4)](../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md "../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md") ) – The gateway signs requests to the MCP server using SigV4 with the gateway service role credentials. You configure an `IamCredentialProvider` with a required service name for SigV4 signing and an optional Region (defaults to the gateway Region).
+- API key – The gateway uses an API key credential provider to authenticate with the MCP server. You configure the API key provider in Amazon Bedrock AgentCore Identity in the same account and Region as the gateway.
 
 ###### Important
 
-IAM (SigV4) outbound authorization requires that the MCP server is hosted behind an AWS service that natively supports IAM authentication. The gateway signs outbound requests with SigV4 but does not modify the authentication configuration on the target. The target service must be able to verify SigV4 signatures. The following AWS services natively support IAM authentication and are compatible with IAM outbound authorization for MCP server targets: \* Amazon Bedrock AgentCore Gateway \* Amazon Bedrock AgentCore Runtime (see [Deploy MCP servers in AgentCore Runtime](runtime-mcp.md "runtime-mcp.md") ) \* Amazon API Gateway \* Lambda Function URLs Services that do not natively verify SigV4 signatures, such as Application Load Balancer or direct Amazon EC2 endpoints, are not compatible with IAM outbound authorization. If your MCP server is hosted behind one of these services, use OAuth or API key authorization instead.
+IAM (SigV4) outbound authorization requires that the MCP server is hosted behind an AWS service that natively supports IAM authentication. The gateway signs outbound requests with SigV4 but does not modify the authentication configuration on the target. The target service must be able to verify SigV4 signatures.
+
+The following AWS services natively support IAM authentication and are compatible with IAM outbound authorization for MCP server targets:
+
+- Amazon Bedrock AgentCore Gateway
+- Amazon Bedrock AgentCore Runtime (see [Deploy MCP servers in AgentCore Runtime](runtime-mcp.md "runtime-mcp.md"))
+- Amazon API Gateway
+- Lambda Function URLs
+  Services that do not natively verify SigV4 signatures, such as Application Load Balancer or direct Amazon EC2 endpoints, are not compatible with IAM outbound authorization. If your MCP server is hosted behind one of these services, use OAuth or API key authorization instead.
 
 **Configuration considerations for MCP server targets**
 
@@ -118,6 +127,7 @@ The IAM role which you use to create, update or synchronize MCP servers targets 
                 "bedrock-agentcore:GetWorkloadAccessToken",
                 "bedrock-agentcore:GetWorkloadAccessTokenForUserId",
                 "bedrock-agentcore:GetResourceOauth2Token",
+                "bedrock-agentcore:GetResourceApiKey",
                 "bedrock-agentcore:CompleteResourceTokenAuth",
                 "secretsmanager:GetSecretValue"
             ],

@@ -54,6 +54,10 @@ for event in response["stream"]:
 
 See [InvokeAgentRuntimeCommand API](../APIReference/API_InvokeAgentRuntimeCommand.md "../APIReference/API_InvokeAgentRuntimeCommand.md") for details.
 
+###### Note
+
+Commands run as root (uid 0) within the microVM. This is analogous to root on your own EC2 instance - the IAM permission is the access gate, not the in-VM privilege level. If your Dockerfile includes a `USER` directive, it applies to the agent process only (the container’s main entrypoint). `InvokeAgentRuntimeCommand` runs at a higher privilege level for operational purposes, similar to how `docker exec` defaults to root even when the container runs as a non-root user. See [Execute shell commands in AgentCore Runtime sessions](runtime-execute-command.md "runtime-execute-command.md") for full details on security, error handling, and best practices.
+
 ## Custom environment (container images)
 
 The base environment includes Python and bash, enough for most tasks. When you need more, package your source code, dependencies, runtimes, and tools into a container image, push it to ECR, and reference it on the harness. Your agent runs in that exact environment. Pair custom images with `InvokeAgentRuntimeCommand` for session-specific setup that varies per invocation.

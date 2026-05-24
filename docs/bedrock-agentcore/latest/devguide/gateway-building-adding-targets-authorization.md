@@ -24,16 +24,16 @@ The `iamCredentialProvider` configuration is not needed because the target servi
 }
 ```
 
-**For MCP server targets**
+**For MCP server and OpenAPI targets**
 
-For MCP server targets, you must also provide an `iamCredentialProvider` with the service name used for [AWS Signature Version 4 (Sig V4)](../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md "../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md") signing. The `service` field is required. The `region` field is optional and defaults to the gateway’s Region.
+For MCP server and OpenAPI targets, you must also provide an `iamCredentialProvider` with the service name used for [AWS Signature Version 4 (Sig V4)](../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md "../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md") signing. The `service` field is required. The `region` field is optional and defaults to the gateway’s Region.
 
 ```
 {
     "credentialProviderType": "GATEWAY_IAM_ROLE",
     "credentialProvider": {
         "iamCredentialProvider": {
-            "service": "bedrock-agentcore",
+            "service": "execute-api",
             "region": "us-west-2"
         }
     }
@@ -42,10 +42,10 @@ For MCP server targets, you must also provide an `iamCredentialProvider` with th
 
 The following table describes the fields in the `iamCredentialProvider` object:
 
-| Field     | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `service` | Yes      | The AWS service name used for SigV4 signing. This value must match the service name that the target expects when verifying the SigV4 signature. The following are common values: `bedrock-agentcore` – For MCP servers hosted on Amazon Bedrock AgentCore, such as the runtime (see [Deploy MCP servers in AgentCore Runtime](runtime-mcp.md "runtime-mcp.md") ) or another gateway. `execute-api` – For MCP servers behind Amazon API Gateway. `lambda` – For MCP servers behind Lambda Function URLs. |
-| `region`  | No       | The AWS Region for SigV4 signing. If omitted, defaults to the gateway’s Region.                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Field     | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `service` | Yes      | The AWS service name used for SigV4 signing. This value must match the service name that the target expects when verifying the SigV4 signature. The following are common values:<br>• `bedrock-agentcore` – For MCP servers hosted on Amazon Bedrock AgentCore, such as the runtime (see [Deploy MCP servers in AgentCore Runtime](runtime-mcp.md "runtime-mcp.md")) or another gateway.<br>• `execute-api` – For MCP servers or OpenAPI targets behind Amazon API Gateway.<br>• `lambda` – For MCP servers behind Lambda Function URLs. |
+| `region`  | No       | The AWS Region for SigV4 signing. If omitted, defaults to the gateway’s Region.                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
 ## OAuth authorization
 

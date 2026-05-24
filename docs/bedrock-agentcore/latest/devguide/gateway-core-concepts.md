@@ -18,7 +18,7 @@ Each gateway must have an inbound authorization configuration to control client 
 
 **AgentCore Credential Provider**
 
-When Gateway makes calls to your APIs or Lambda function it must use some credentials to access those functionalities. When you create a Smithy or Lambda target, Gateway uses the attached execution role to make calls to those targets. When you create an OpenAPI target, you must attach an AgentCore credential provider which stores the API Key or OAuth credentials that Gateway will use to access the OpenAPI target.
+When Gateway makes calls to your APIs or Lambda function it must use some credentials to access those functionalities. When you create a Smithy or Lambda target, Gateway uses the attached execution role to make calls to those targets. When you create an OpenAPI or MCP server target, you can attach an AgentCore credential provider which stores the API Key or OAuth credentials, configure IAM-based authorization with SigV4 signing, or use no authorization for publicly accessible endpoints.
 
 ## Target types
 

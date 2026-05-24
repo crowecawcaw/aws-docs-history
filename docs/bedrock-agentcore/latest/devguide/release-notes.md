@@ -20,9 +20,9 @@ Three new capabilities close the observe-evaluate-optimize-deploy loop, enabling
 
 Enterprise-grade agentic AI capabilities are now available for workloads with elevated compliance needs. With AgentCore, organizations can accelerate agents from prototype to production using any framework and any model, while maintaining the security and compliance controls required for government and regulated workloads. For details about AgentCore in AWS GovCloud (US), visit the [GovCloud Documentation](../../../govcloud-us/latest/UserGuide/govcloud-bedrock-agentcore.md "../../../govcloud-us/latest/UserGuide/govcloud-bedrock-agentcore.md").
 
-### AWS AgentCore payments
+### Amazon Bedrock AgentCore payments is now in Preview
 
-Added documentation for AWS AgentCore payments. See [Amazon Bedrock AgentCore payments: Enable secure microtransaction payments for AI agents](payments.md "payments.md").
+Teams can now enable AI agents to autonomously access and pay for APIs, MCP servers, web content, and other agents. Built in partnership with Coinbase and Stripe, AgentCore payments is the first managed payment capabilities purpose-built for autonomous agents, handling the full payment lifecycle from wallet authentication through transaction execution to spending governance and observability. As AI agents become more capable and services shift to pay-per-use models built for machine consumption, developers need infrastructure that lets their agents transact without building bespoke billing integrations, credential management, orchestration logic, budgeting, and observability from scratch. See [documentation](payments.md "payments.md").
 
 ### Runtime: Custom Header Passthrough
 

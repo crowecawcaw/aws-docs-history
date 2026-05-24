@@ -261,7 +261,7 @@ For production workloads, scope `Resource` values down to the specific ARNs your
 
 ### Additional permissions for optional features
 
-Below are sample policies you can append to your execution role based on the features your harness uses. Follow the principle of least privilege — grant your harness agent only the specific tools and credentials it needs for inference. See [Placeholder reference](#harness-optional-placeholders "#harness-optional-placeholders") for placeholder definitions.
+Below are sample policies you can append to your execution role based on the features your harness uses. Follow the principle of least privilege - grant your harness agent only the specific tools and credentials it needs for inference. See [Placeholder reference](#harness-optional-placeholders "#harness-optional-placeholders") for placeholder definitions.
 
 #### Private ECR access (custom container images)
 

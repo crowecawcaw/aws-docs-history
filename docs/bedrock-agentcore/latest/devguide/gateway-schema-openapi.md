@@ -9,6 +9,7 @@ Review the key considerations and limitations, including feature support, to hel
 ###### Topics
 
 - [Key considerations and limitations](#gateway-schema-openapi-considerations "#gateway-schema-openapi-considerations")
+- [Authorization strategy](#gateway-openapi-auth-strategy "#gateway-openapi-auth-strategy")
 - [OpenAPI schema specification](#gateway-openapi-schema "#gateway-openapi-schema")
 
 ## Key considerations and limitations
@@ -108,6 +109,28 @@ The following table outlines the OpenAPI features that are supported and unsuppo
 | \*_Path Parameters_<br>• Simple path parameter definitions (Example: /users/ { userId})                                                                                                      | \*_Parameter Serialization_<br>• Complex path parameter serializers (Example: `/users { ;id\*} { ?metadata}`) Query parameter arrays with complex serialization Header parameter serializers Cookie parameter serializers |
 | \*_Query Parameters_<br>• Basic query parameter definitions Simple string, number, and boolean types                                                                                         | \*_Callbacks and Webhooks_<br>• Callback operations Webhook definitions                                                                                                                                                   |
 | \*_Request/Response Bodies_<br>• JSON request and response bodies XML request and response bodies Standard HTTP status codes (200, 201, 400, 404, 500, etc.)                                 | \*_Links_<br>• Links between operations                                                                                                                                                                                   |
+
+## Authorization strategy
+
+The following types of outbound authorization are supported for OpenAPI targets:
+
+- No authorization – The gateway invokes the OpenAPI target without preconfigured authorization. This approach is not recommended.
+- OAuth – The gateway supports both two-legged OAuth (Client Credentials grant type) and three-legged OAuth (Authorization Code grant type). You configure the authorization provider in Amazon Bedrock AgentCore Identity in the same account and Region as the gateway.
+- API key – The gateway uses an API key credential provider to authenticate with the OpenAPI target. You configure the API key provider in Amazon Bedrock AgentCore Identity in the same account and Region as the gateway.
+- IAM ( [AWS Signature Version 4 (Sig V4)](../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md "../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md") ) – The gateway signs requests to the OpenAPI target using SigV4 with the gateway service role credentials. You configure an `IamCredentialProvider` with a required service name for SigV4 signing and an optional Region (defaults to the gateway Region).
+
+###### Important
+
+IAM (SigV4) outbound authorization requires that the OpenAPI target is hosted behind an AWS service that natively supports IAM authentication. The gateway signs outbound requests with SigV4 but does not modify the authentication configuration on the target. The target service must be able to verify SigV4 signatures.
+
+The following AWS services natively support IAM authentication and are compatible with IAM outbound authorization for OpenAPI targets:
+
+- Amazon API Gateway
+- Lambda Function URLs
+- Amazon Bedrock AgentCore Gateway
+  Services that do not natively verify SigV4 signatures, such as Application Load Balancer or direct Amazon EC2 endpoints, are not compatible with IAM outbound authorization. If your OpenAPI target is hosted behind one of these services, use OAuth or API key authorization instead.
+
+For more information about setting up outbound authorization, see [Set up outbound authorization for your gateway](gateway-outbound-auth.md "gateway-outbound-auth.md").
 
 ## OpenAPI schema specification
 

@@ -2,7 +2,7 @@
 
 ###### Note
 
-Customer managed key encryption is currently supported for custom evaluators. All other AgentCore Evaluations resources in public preview are encrypted with the AWS owned key, with plans for customer managed key support at GA.
+This page covers customer managed key encryption for custom evaluators. For dataset encryption, see [Dataset encryption](datasets-encryption.md "datasets-encryption.md").
 
 ## Encryption options
 
@@ -218,3 +218,7 @@ If you disable or delete your customer managed KMS key, or if the key policy no 
 Use `includedData=METADATA_ONLY` on GetEvaluator to retrieve evaluator metadata (name, level, model configuration, status) without requiring KMS permissions. This is useful for monitoring and inventory workflows when the key is unavailable.
 
 To restore access, re-enable the key or update the key policy to grant the required permissions.
+
+###### Note
+
+For information about customer managed key encryption for datasets, see [Dataset encryption](datasets-encryption.md "datasets-encryption.md").

@@ -46,22 +46,24 @@ AgentCore supports VPC connectivity in specific Availability Zones within each s
 
 The following table shows the supported Availability Zone IDs for each region:
 
-| Region                   | Region Code    | Supported Availability Zones  |
-| ------------------------ | -------------- | ----------------------------- |
-| US East (N. Virginia)    | us-east-1      | use1-az1 use1-az2 use1-az4    |
-| US East (Ohio)           | us-east-2      | use2-az1 use2-az2 use2-az3    |
-| US West (Oregon)         | us-west-2      | usw2-az1 usw2-az2 usw2-az3    |
-| Asia Pacific (Sydney)    | ap-southeast-2 | apse2-az1 apse2-az2 apse2-az3 |
-| Asia Pacific (Mumbai)    | ap-south-1     | aps1-az1 aps1-az2 aps1-az3    |
-| Asia Pacific (Singapore) | ap-southeast-1 | apse1-az1 apse1-az2 apse1-az3 |
-| Asia Pacific (Tokyo)     | ap-northeast-1 | apne1-az1 apne1-az2 apne1-az4 |
-| Europe (Ireland)         | eu-west-1      | euw1-az1 euw1-az2 euw1-az3    |
-| Europe (Frankfurt)       | eu-central-1   | euc1-az1 euc1-az2 euc1-az3    |
-| Europe (Stockholm)       | eu-north-1     | eun1-az1 eun1-az2 eun1-az3    |
-| Europe (Paris)           | eu-west-3      | euw3-az1 euw3-az2 euw3-az3    |
-| Asia Pacific (Seoul)     | ap-northeast-2 | apne2-az1 apne2-az2 apne2-az3 |
-| Europe (London)          | eu-west-2      | euw2-az1 euw2-az2 euw2-az3    |
-| Canada (Central)         | ca-central-1   | cac1-az1 cac1-az2 cac1-az4    |
+| Region                    | Region Code    | Supported Availability Zones  |
+| ------------------------- | -------------- | ----------------------------- |
+| US East (N. Virginia)     | us-east-1      | use1-az1 use1-az2 use1-az4    |
+| US East (Ohio)            | us-east-2      | use2-az1 use2-az2 use2-az3    |
+| US West (Oregon)          | us-west-2      | usw2-az1 usw2-az2 usw2-az3    |
+| Asia Pacific (Sydney)     | ap-southeast-2 | apse2-az1 apse2-az2 apse2-az3 |
+| Asia Pacific (Mumbai)     | ap-south-1     | aps1-az1 aps1-az2 aps1-az3    |
+| Asia Pacific (Singapore)  | ap-southeast-1 | apse1-az1 apse1-az2 apse1-az3 |
+| Asia Pacific (Tokyo)      | ap-northeast-1 | apne1-az1 apne1-az2 apne1-az4 |
+| Europe (Ireland)          | eu-west-1      | euw1-az1 euw1-az2 euw1-az3    |
+| Europe (Frankfurt)        | eu-central-1   | euc1-az1 euc1-az2 euc1-az3    |
+| Europe (Stockholm)        | eu-north-1     | eun1-az1 eun1-az2 eun1-az3    |
+| Europe (Paris)            | eu-west-3      | euw3-az1 euw3-az2 euw3-az3    |
+| Asia Pacific (Seoul)      | ap-northeast-2 | apne2-az1 apne2-az2 apne2-az3 |
+| Europe (London)           | eu-west-2      | euw2-az1 euw2-az2 euw2-az3    |
+| Canada (Central)          | ca-central-1   | cac1-az1 cac1-az2 cac1-az4    |
+| South America (São Paulo) | sa-east-1      | sae1-az1 sae1-az2 sae1-az3    |
+| AWS GovCloud (US-West)    | us-gov-west-1  | usgw1-az1 usgw1-az2 usgw1-az3 |
 
 ###### Important
 

@@ -44,6 +44,13 @@ This policy includes the following permissions:
 - `ecr` (Amazon Elastic Container Registry) – Allows principals to describe repositories, list images, and describe images.
 - `bedrock` (Amazon Bedrock) – Allows principals to invoke foundation models and inference profiles for evaluation purposes.
 
+### Considerations
+
+Note the following limitations of this policy:
+
+- **`iam:CreateRole` is not included.** When you create certain AgentCore resources (for example, harness or runtime) in the console, you can elect for the console to auto-create the resource’s execution role on your behalf. This requires `iam:CreateRole` permissions, which are not included in this managed policy. For more information, see [Troubleshooting iam:CreateRole authorization in the console](security_iam_troubleshoot.md#security_iam_troubleshoot-createrole "security_iam_troubleshoot.md#security_iam_troubleshoot-createrole").
+- **`iam:PassRole` is scoped by role name.** When you create certain AgentCore resources (for example, harness or runtime), you must have `iam:PassRole` permissions on the resource’s execution role. This managed policy only includes `iam:PassRole` permissions for roles with names matching `*BedrockAgentCore*`. For more information, see [Troubleshooting iam:PassRole authorization](security_iam_troubleshoot.md#security_iam_troubleshoot-passrole "security_iam_troubleshoot.md#security_iam_troubleshoot-passrole").
+
 ## AWS managed policy: BedrockAgentCoreNetworkServiceRolePolicy
 
 This policy is attached to a service-linked role that allows the service to perform actions on your behalf. You cannot attach this policy to your users, groups, or roles.

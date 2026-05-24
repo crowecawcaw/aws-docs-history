@@ -20,8 +20,8 @@ AgentCore Gateway supports the following types of outbound authorization:
 | ------------------------ | ---------------- | -------------------- | ---------------------- | -------------------------- | -------------------------- | ---------------------- | ----------------- | ------- |
 | API Gateway stage        | Yes              | Yes                  | No                     | No                         | No                         | No                     | No                | Yes     |
 | Lambda function          | No               | Yes                  | No                     | No                         | No                         | No                     | No                | No      |
-| MCP server               | Yes              | Yes                  | No                     | Yes                        | Yes                        | Yes                    | No                | No      |
-| OpenAPI schema           | No               | No                   | No                     | Yes                        | Yes                        | Yes                    | No                | Yes     |
+| MCP server               | Yes              | Yes                  | No                     | Yes                        | Yes                        | Yes                    | No                | Yes     |
+| OpenAPI schema           | Yes              | Yes                  | No                     | Yes                        | Yes                        | Yes                    | No                | Yes     |
 | Smithy schema            | No               | Yes                  | No                     | Yes                        | No                         | No                     | No                | No      |
 | AgentCore Runtime (HTTP) | No               | Yes                  | Yes                    | Yes                        | No                         | No                     | Yes               | No      |
 
@@ -49,9 +49,9 @@ IAM-based outbound authorization lets you use the gateway service role’s IAM c
 
 If you use this option, verify that the gateway service role has `bedrock-agentcore:InvokeGateway` permissions. The gateway uses the service role credentials for authentication during invocation.
 
-**Additional configuration for MCP server targets**
+**Additional configuration for MCP server and OpenAPI targets**
 
-When you use IAM-based outbound authorization with an MCP server target, you must provide additional configuration for SigV4 signing. In the `credentialProviderConfigurations` , include an `iamCredentialProvider` with the following fields:
+When you use IAM-based outbound authorization with an MCP server or OpenAPI target, you must provide additional configuration for SigV4 signing. In the `credentialProviderConfigurations` , include an `iamCredentialProvider` with the following fields:
 
 - **service** (required) – The AWS service name used for SigV4 signing. For example, `bedrock-agentcore` for MCP servers hosted on Amazon Bedrock AgentCore.
 - **region** (optional) – The AWS Region for SigV4 signing. If you don’t specify a Region, the gateway uses its own Region.

@@ -6,6 +6,7 @@ To request a quota increase, contact AWS support.
 
 ###### Topics
 
+- [AgentCore harness Service Quotas](#harness-service-limits "#harness-service-limits")
 - [AgentCore Runtime Service Quotas](#runtime-service-limits "#runtime-service-limits")
 - [AgentCore Memory Service Quotas](#memory-limits "#memory-limits")
 - [AgentCore Identity Service Quotas](#identity-service-limits "#identity-service-limits")
@@ -16,6 +17,12 @@ To request a quota increase, contact AWS support.
 - [AgentCore Policy Service Quotas](#policy-service-limits "#policy-service-limits")
 - [AgentCore Resource Based Policies](#resource-based-policies-quotas "#resource-based-policies-quotas")
 - [AWS Agent Registry Service Quotas](#registry-limits "#registry-limits")
+
+## AgentCore harness Service Quotas
+
+AgentCore harness is a logical resource. Each harness you create is backed by a managed AgentCore Runtime that AgentCore provisions and operates on your behalf. Therefore, harness invocations are bound by the same service quotas that apply to AgentCore Runtime. These quotas include resource allocation, invocation, throttling, lifecycle, and session storage limits. For all applicable quotas, see [AgentCore Runtime Service Quotas](#runtime-service-limits "#runtime-service-limits").
+
+For configurable per-invocation controls (such as iteration, timeout, and token caps), see [Control cost with limits](harness-operations.md#harness-limits "harness-operations.md#harness-limits").
 
 ## AgentCore Runtime Service Quotas
 

@@ -652,3 +652,73 @@ target = agentcore_client.create_gateway_target(
     ]
 )
 ````
+
+**MCP server with API key authorization**
+
+The following example creates an MCP server target with API key authorization.
+
+Select one of the following methods:
+
+###### Example
+
+AWS CLI
+
+1. ```
+   aws bedrock-agentcore-control create-gateway-target \
+       --gateway-identifier "your-gateway-id" \
+       --name "MyMCPTarget" \
+       --target-configuration '{
+           "mcp": {
+               "mcpServer": {
+                   "endpoint": "https://my-mcp-server.example.com"
+               }
+           }
+       }' \
+       --credential-provider-configurations '[{
+           "credentialProviderType": "API_KEY",
+           "credentialProvider": {
+               "apiKeyCredentialProvider": {
+                   "providerArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:token-vault/default/apikeycredentialprovider/my-api-key",
+                   "credentialLocation": "HEADER",
+                   "credentialParameterName": "x-api-key",
+                   "credentialPrefix": ""
+               }
+           }
+       }]'
+   ```
+
+````
+
+
+Boto3
+
+1. ```
+import boto3
+
+agentcore_client = boto3.client('bedrock-agentcore-control')
+
+target = agentcore_client.create_gateway_target(
+    gatewayIdentifier="your-gateway-id",
+    name="MyMCPTarget",
+    targetConfiguration={
+        "mcp": {
+            "mcpServer": {
+                "endpoint": "https://my-mcp-server.example.com"
+            }
+        }
+    },
+    credentialProviderConfigurations=[
+        {
+            "credentialProviderType": "API_KEY",
+            "credentialProvider": {
+                "apiKeyCredentialProvider": {
+                    "providerArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:token-vault/default/apikeycredentialprovider/my-api-key",
+                    "credentialLocation": "HEADER",
+                    "credentialParameterName": "x-api-key",
+                    "credentialPrefix": ""
+                }
+            }
+        }
+    ]
+)
+````

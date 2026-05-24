@@ -26,6 +26,7 @@ This troubleshooting topic helps you identify and resolve common issues when wor
 - [My S3 Files or EFS mount fails with "ResourceNotFound"](#troubleshoot-byo-storage-resource-not-found "#troubleshoot-byo-storage-resource-not-found")
 - [My S3 Files or EFS mount times out](#troubleshoot-byo-storage-mount-timeout "#troubleshoot-byo-storage-mount-timeout")
 - [I get "Permission Denied" when writing to my mounted filesystem](#troubleshoot-byo-storage-write-permission-denied "#troubleshoot-byo-storage-write-permission-denied")
+- [My container fails to start with HTTP 424 error on high-layer images](#troubleshoot-runtime-overlay-mount-failure "#troubleshoot-runtime-overlay-mount-failure")
 - [Best practices](#best-practices "#best-practices")
 
 ## My agent invocations fail with 504 Gateway Timeout errors
@@ -110,7 +111,15 @@ For information, see [Handle asynchronous and long running agents with Amazon Be
 
 **When this occurs:** During long-running agent operations or complex workflows
 
-**Why this happens:** Amazon Bedrock AgentCore automatically terminates sessions after 15 minutes of inactivity
+**Why this happens:** Amazon Bedrock AgentCore automatically terminates sessions after 15 minutes of inactivity. The platform determines activity based on both the `status` field **and** the `time_of_last_update` field in the `/ping` response. If `time_of_last_update` is missing, the idle timeout fires regardless of the status value.
+
+**Solution:** Ensure your `/ping` endpoint returns both required fields:
+
+```
+{"status": "HealthyBusy", "time_of_last_update": 1715000000}
+```
+
+Where `time_of_last_update` is a Unix timestamp (seconds) that updates whenever the status changes. If you are using the Bedrock AgentCore SDK, this is handled automatically. For custom implementations, ensure your ping handler includes both fields.
 
 **Example solution:** Implement ping handlers with HEALTHY_BUSY status for async tasks:
 
@@ -493,6 +502,23 @@ Omit `s3files:ClientWrite` or `elasticfilesystem:ClientWrite` if your agent only
 - **Check POSIX permissions:** If the directory is owned by a different user than your container process, writes will be denied. Either:
   - Set your access point’s posixUser to match the uid/gid your container runs as, so all operations are performed as that user.
   - Set directory permissions to 777 to allow all users to write.
+
+## My container fails to start with HTTP 424 error on high-layer images
+
+**When this occurs:** Your `InvokeAgentRuntime` calls return HTTP 424 (Failed Dependency) and your agent logs show `Failed to mount overlay: No such file or directory`. This occurs when your container image has more than 53 layers AND uses a non-numeric USER directive (e.g., `USER myuser` instead of `USER 1000`).
+
+**Why this happens:** Container images with many layers combined with non-numeric USER directives can cause initialization failures.
+
+**Solution:** Use one of these workarounds:
+
+- **Use a numeric USER directive:** In your Dockerfile, replace `USER myuser` with the numeric UID (e.g., `USER 1000`). You can find your user’s UID by running `id myuser` inside the container. This avoids the filesystem mount entirely.
+- **Reduce image layers:** Use multi-stage Docker builds to reduce your image to fewer than 53 layers. You can check your image’s layer count with:
+
+```
+docker inspect <image> | jq '.[0].RootFS.Layers | length'
+```
+
+- **Squash layers:** Use `docker build --squash` or a tool like `docker-squash` to flatten your image layers.
 
 ## Best practices
 

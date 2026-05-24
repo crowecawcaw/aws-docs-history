@@ -177,7 +177,7 @@ agentcore
 ```
 
 
-![AgentCore agent inspector with chat prompt](/images/bedrock-agentcore/latest/devguide/images/agent-inspector/chat-prompt.png)
+![AgentCore agent inspector with chat prompt](images/agent-inspector/chat-prompt.png)
 
 
 
@@ -326,7 +326,7 @@ agentcore
 ```
 
 
-![Invoke TUI screen showing chat interface](/images/bedrock-agentcore/latest/devguide/images/tui/common-invoke-chat.png)
+![Invoke TUI screen showing chat interface](images/tui/common-invoke-chat.png)
 
 
 

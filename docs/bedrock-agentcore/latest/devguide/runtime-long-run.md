@@ -15,7 +15,18 @@ The Amazon Bedrock AgentCore SDK supports both synchronous and asynchronous proc
 
 ### Runtime session lifecycle management
 
-Agent code communicates its processing status using the "/ping" endpoint health status. 200 HTTP Status response with payload `{"status": "HealthyBusy"}` indicates the agent is busy processing background tasks. `{"status": "Healthy"}` indicates it is idle (waiting for requests). A session in idle state for 15 minutes gets automatically terminated.
+Agent code communicates its processing status using the "/ping" endpoint health status. The `/ping` endpoint must return an HTTP 200 response with the following JSON payload:
+
+```
+{"status": "Healthy", "time_of_last_update": 1715000000}
+```
+
+The response contains two required fields:
+
+- `status` — either `"Healthy"` (idle, waiting for requests) or `"HealthyBusy"` (processing background tasks)
+- `time_of_last_update` — Unix timestamp in seconds indicating when the status was last updated. The platform uses this field to determine whether the session is still active. Without it, the idle timeout fires even when the status is `HealthyBusy`.
+
+A session in idle state (`"Healthy"`) for 15 minutes gets automatically terminated. A session returning `"HealthyBusy"` with a recent `time_of_last_update` value remains alive beyond the idle timeout.
 
 ## Implementing asynchronous tasks
 
