@@ -15,7 +15,7 @@ output values can be used in various ways:
 - Cross-account and cross-Region references
   – You can reference output values from stacks in other AWS accounts or
   Regions using the `Fn::GetStackOutput` function, without requiring
-  explicit export declarations. For more information, see [Fn::GetStackOutput](../TemplateReference/intrinsic-function-reference-getstackoutput.md "../TemplateReference/intrinsic-function-reference-getstackoutput.md") in the .
+  explicit export declarations. For more information, see [Fn::GetStackOutput](../TemplateReference/intrinsic-function-reference-getstackoutput.md "../TemplateReference/intrinsic-function-reference-getstackoutput.md") in the _CloudFormation Template Reference Guide_.
 
 ###### Important
 

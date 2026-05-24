@@ -175,4 +175,4 @@ When to use each approach:
   output is deleted, the consuming stack is not notified, and subsequent operations that
   re-resolve the reference will fail.
 
-For more information, see [Fn::GetStackOutput](../TemplateReference/intrinsic-function-reference-getstackoutput.md "../TemplateReference/intrinsic-function-reference-getstackoutput.md") in the .
+For more information, see [Fn::GetStackOutput](../TemplateReference/intrinsic-function-reference-getstackoutput.md "../TemplateReference/intrinsic-function-reference-getstackoutput.md") in the _CloudFormation Template Reference Guide_.
