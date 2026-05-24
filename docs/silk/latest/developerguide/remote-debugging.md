@@ -10,7 +10,7 @@ From the Silk browser, tap the menu icon. If you see this menu, you have the lat
 of Silk. Use the following procedure for remote debugging. If your menu looks different, you may
 have an older version of Silk. Follow the procedure in [Remote Debugging for Older Versions of Silk](#remote-debugging-2 "#remote-debugging-2").
 
-![Amazon Silk browser menu options including Private Browsing, Bookmarks, History, Downloads, Settings, and Help & Support.](images/Silk_shared-menu.png)
+![Amazon Silk browser menu options including Private Browsing, Bookmarks, History, Downloads, Settings, and Help & Support.](/images/silk/latest/developerguide/images/Silk_shared-menu.png)
 
 ###### To remote debug your device
 
@@ -123,7 +123,7 @@ to debug.
 
 3. Pages that are open in Silk tabs are listed at the remote debugging address.
 
-![List of website titles including The New York Times, I Can Has Cheezburger, and BBC News.](images/remote-debugging-inspectable-pages.png)
+![](images/remote-debugging-inspectable-pages.png)
 
 Open inspectable pages and interact with them using the developer tools. To learn more
 about inspecting pages with the developer tools, see [Chrome DevTools](https://developer.chrome.com/devtools/index "https://developer.chrome.com/devtools/index").
