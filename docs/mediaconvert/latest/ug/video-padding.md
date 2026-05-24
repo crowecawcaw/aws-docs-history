@@ -18,7 +18,7 @@ video.
 In the following horizontal bar graph, black frames fill in the beginning and end of the
 video to match the length of the audio.
 
-![Video and audio tracks with black padding shown on a timeline from 0 to 6 seconds.](images/pad-video-example-2.png)
+![](images/pad-video-example-2.png)
 
 ## Pad video FAQ
 

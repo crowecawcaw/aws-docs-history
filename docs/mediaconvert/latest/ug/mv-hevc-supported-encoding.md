@@ -2,7 +2,7 @@
 
 MV-HEVC outputs support the same H.265 encoding settings as standard H.265 outputs,
 including all resolutions, frame rates, rate control modes, and codec profiles. For
-details about H.265 encoding settings, see .
+details about H.265 encoding settings, see [HEVC (H.265)](supported-containers-codecs-details.md#codec-hevc "supported-containers-codecs-details.md#codec-hevc").
 
 MV-HEVC outputs support accelerated transcoding. For more information, see [Accelerated transcoding](accelerated-transcoding.md "accelerated-transcoding.md").
 
