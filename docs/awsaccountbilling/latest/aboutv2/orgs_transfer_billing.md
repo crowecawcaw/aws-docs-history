@@ -97,6 +97,12 @@ Recommended actions:
 
 - Reconfigure CUR preferences after transfer
 
+**AWS Cost Anomaly Detection (CAD)**
+
+CAD is not supported for bill-source accounts. As a bill-source account, existing monitors and newly created monitors won't generate alerts.
+
+Bill-transfer accounts also do not have access to CAD for bill-source account usage, but they can continue to use CAD for their own account (applicable only to two-level transfers).
+
 **Pro forma billing limitations specific to Billing Transfer**
 
 Pro forma billing data might not match your final invoice from the billing entity because some pricing elements aren't yet supported. The following items don't appear in pro forma billing data: Support plan charges, AWS credits, AWS Free Tier usage (exclusively credits based free tier).

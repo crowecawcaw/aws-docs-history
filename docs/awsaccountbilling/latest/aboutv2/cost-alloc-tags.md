@@ -35,7 +35,7 @@ charges for resources. For example, if you tag resources with an application nam
 track the total cost of a single application that runs on those resources. The following
 screenshot shows a partial report with columns for each tag.
 
-![Partial cost allocation report showing your tag names, which are also called keys, as columns.](images/CostAllocationPartExampleReport.png)
+![Partial cost allocation report showing your tag names, which are also called keys, as columns.](/images/awsaccountbilling/latest/aboutv2/images/CostAllocationPartExampleReport.png)
 At the end of the billing cycle, the total charges (tagged and untagged) on the billing
 report with cost allocation tags reconciles with the total charges on your [**Bills**](https://console.aws.amazon.com/billing/home#/bill "https://console.aws.amazon.com/billing/home#/bill") page total and other billing
 reports for the same period.
