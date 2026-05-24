@@ -183,7 +183,7 @@ For more information, see [Triggers](chap-oracle-aurora-mysql.tables.triggers.md
 
 ## Sequences
 
-![One star automation level](/images/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-1.png)
+![One star automation level](images/pb-automation-1.png)
 
 Although the syntax for Oracle `IDENTITY` and Aurora MySQL
 `AUTO_INCREMENT` auto-enumeration columns differs significantly, AWS SCT can automatically convert it. Some limitations imposed by Aurora MySQL require manual conversion such as explicit `SEED` and `INCREMENT` auto-enumeration columns that aren’t part of the primary key and the table-independent `SEQUENCE` objects.
