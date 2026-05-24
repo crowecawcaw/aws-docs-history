@@ -26,7 +26,7 @@ The query for the panel demonstrates the flexibility of Timestream for LiveAnaly
 perform complex analytical tasks with common table expressions, window
 functions, joins, and so on.
 
-![Table showing CPU utilization data for microservices across different regions.](images/sched_query_ex3_img1.png)
+![](images/sched_query_ex3_img1.png)
 
 _Query_:
 
@@ -88,9 +88,9 @@ corresponding query which is used to plot the dashboard. This plot itself
 identifies a specific deployment having higher percentage of hosts with high
 CPU.
 
-![Dropdown menu showing "microservice", "demeter", "topk", and "2" options.](images/sched_query_ex3_img2.png)
+![](images/sched_query_ex3_img2.png)
 
-![Graph showing deployments with high CPU utilization over time, with multiple flat lines.](images/sched_query_ex3_img3.png)
+![](images/sched_query_ex3_img3.png)
 
 _Query_:
 
@@ -280,7 +280,7 @@ for the panels. For instance, this panels provides region-level information, so
 it reports aggregates grouped by region and microservice, without filtering any
 region or microservice.
 
-![Table showing microservice utilization stats across regions, with high and low host percentages.](images/sched_query_ex3_img4.png)
+![](images/sched_query_ex3_img4.png)
 
 ```
 WITH per_deployment_hosts AS (
@@ -321,7 +321,7 @@ but now applies a filter for a specific microservice (demeter in this example,
 since it reported high utilization hosts in the aggregate dashboard). This panel
 tracks the percentage of high CPU utilization hosts over time.
 
-![Graph showing consistent high CPU utilization percentages for multiple deployments over 24 hours.](images/sched_query_ex3_img5.png)
+![](images/sched_query_ex3_img5.png)
 
 ```
 WITH high_utilization_percent AS (

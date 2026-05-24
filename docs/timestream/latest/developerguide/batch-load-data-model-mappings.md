@@ -182,7 +182,7 @@ can specify a new one. `MeasureValueType` is one of `DOUBLE`,
 }
 ```
 
-![Visual builder interface showing column mappings for timestream data attributes and types.](images/column-mapping.jpg)
+![](images/column-mapping.jpg)
 
 ## Data model mappings with `MixedMeasureMappings` example
 

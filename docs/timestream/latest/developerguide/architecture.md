@@ -17,7 +17,7 @@ Each of these factors becomes more important as the system scales.
 - [Query architecture](#architecture.queries "#architecture.queries")
 - [Cellular architecture](#cells "#cells")
 
-![Timestream architecture diagram showing ingestion, storage, and query layers with AWS SDK interactions.](images/ts-architecture.png)
+![](images/ts-architecture.png)
 
 ## Write architecture
 
@@ -116,7 +116,7 @@ a given region. While Timestream for Live Analytics is designed to support multi
 region, consider the following fictitious scenario, in which there are 2 cells in a
 region.
 
-![Timestream architecture diagram showing ingestion, storage, and query layers for two cellular endpoints.](images/ts-cellular-architecture.png)
+![](images/ts-cellular-architecture.png)
 
 In the scenario depicted above, the data ingestion and query requests are first
 processed by the discovery endpoint for data ingestion and query, respectively.

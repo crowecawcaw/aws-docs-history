@@ -35,7 +35,7 @@ In this example, you are tracking the number of metrics emitted by the servers
 within a given region in every minute. The graph below is an example plotting
 this time series for the region us-east-1.
 
-![Time series graph showing fluctuating number of metrics emitted by servers in us-east-1 region.](images/schedquery_aggrfromsourcetable.png)
+![](images/schedquery_aggrfromsourcetable.png)
 
 Below is an example query to compute this aggregate from the raw data. It
 filters the rows for the region us-east-1 and then computes the per minute sum
@@ -219,7 +219,7 @@ GROUP BY bin(time, 1m)
 ORDER BY 1 desc
 ```
 
-![Graph showing data points fluctuating between 0 and 6 million over time from 23:00 to 10:00.](images/schedquery_aggrfromderived.png)
+![](images/schedquery_aggrfromderived.png)
 
 The previous figure plots the aggregate computed from the aggregate table.
 Comparing this panel with the panel computed from the raw source data, you will
@@ -297,7 +297,7 @@ the dashboard looks almost identical to the view computed from the derived
 table, except for that it will have the most up-to-date aggregate at the
 rightmost tip.
 
-![Time-series graph showing fluctuating data points over 11 hours, with peaks around 6 million.](images/schedquery_aggrcombsourceandderived.png)
+![](images/schedquery_aggrcombsourceandderived.png)
 
 ## Aggregate from frequently refreshed scheduled computation
 
@@ -369,7 +369,7 @@ Since the derived table has more recent aggregates, you can now directly query
 the derived table per_minute_aggs_pt1m to get fresher aggregates, as can be seen
 from the previous query and the dashboard snapshot below.
 
-![Graph showing fluctuating data points over time, with peaks reaching 6 million and valleys near 1 million.](images/schedquery_aggregatefromrequently.png)
+![](images/schedquery_aggregatefromrequently.png)
 
 Note that refreshing the scheduled computation at a faster schedule (say 1
 minute compared to 5 minutes) will increase the maintenance costs for the

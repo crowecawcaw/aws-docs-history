@@ -70,4 +70,4 @@ A **database** contains 0 or more **tables**. Each
 described using its meta-data or **dimensions**, its data or
 **measures**, and its **timestamps**.
 
-![Database structure showing tables, time series, and records with sample CPU measure values.](images/concepts_simple.png)
+![](images/concepts_simple.png)

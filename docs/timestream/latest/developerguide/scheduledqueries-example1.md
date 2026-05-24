@@ -12,7 +12,7 @@ Computing these aggregates, where you are computing distinct instance names over
 hundreds of gigabytes of data can result in query latency of tens of seconds, in
 addition to the cost of scanning the data.
 
-![Instance counts for microservices: apollo and zeus 150k, hercules 100k, athena and demeter 50k each.](images/sched_query_ex1_img1.png)
+![](images/sched_query_ex1_img1.png)
 **Original dashboard query**
 
 The aggregate shown in the dasboard panel is computed, from raw data, using the
@@ -129,7 +129,7 @@ the structure of the query is very similar to the query that was used in the
 dashboard on raw data, except that is it using the derived table which already
 computes the distinct counts which this query is aggregating.
 
-![Instance count by microservice showing values for apollo, athena, demeter, hercules, and zeus.](images/sched_query_ex1_img2.png)
+![](images/sched_query_ex1_img2.png)
 
 ```
 SELECT CASE WHEN microservice_name = 'apollo' THEN num_instances ELSE NULL END AS apollo,

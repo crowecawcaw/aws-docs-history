@@ -23,9 +23,9 @@ parts of your fleet, this dashboard uses variables such as region, cell, silo,
 microservice, and availability_zone. It then shows some aggregate statistics for
 that deployment.
 
-![Dashboard showing deployment statistics with filters for region, cell, silo, and other parameters.](images/sched_query_ex2_img1.png)
+![](images/sched_query_ex2_img1.png)
 
-![CPU distribution graph showing consistent patterns for avg, p90, p95, and p99 values over 24 hours.](images/sched_query_ex2_img2.png)
+![](images/sched_query_ex2_img2.png)
 In the query below, you can see that the values chosen in the drop down of the
 variables are used as predicates in the `WHERE` clause of the query,
 which allows you to only focus on the data for the deployment. And then the panel
@@ -93,9 +93,9 @@ deployment, you can pick individual instances from the list to further visualize
 metrics from that instance. You can pick the different instances from the drop down
 of the instance names as seen from the snapshot below.
 
-![List of Amazon Web Services (AWS) resource identifiers for Demeter instances in eu-west-1 region.](images/sched_query_ex2_img3.png)
+![](images/sched_query_ex2_img3.png)
 
-![Dashboard showing CPU utilization, memory usage, GC pause events, and disk I/O metrics for an AWS instance.](images/sched_query_ex2_img4.png)
+![](images/sched_query_ex2_img4.png)
 Preceding panels show the statistics for the instance that is selected and below
 are the queries used to fetch these statistics.
 

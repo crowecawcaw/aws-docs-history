@@ -87,7 +87,7 @@ channels.
 
 Exported data partitioned by Channel column
 
-![Folder structure showing channels: Direct, Organic search, Other, Referral, and Social media.](images/unload-results.png)
+![](images/unload-results.png)
 
 FORMAT
 
