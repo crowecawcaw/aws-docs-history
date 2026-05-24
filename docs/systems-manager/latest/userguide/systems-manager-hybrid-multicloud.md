@@ -85,4 +85,3 @@ For more information, see [Configuring instance tiers](fleet-manager-configure-i
 - [Create a hybrid activation to register nodes with Systems Manager](hybrid-activation-managed-nodes.md "hybrid-activation-managed-nodes.md")
 - [Install SSM Agent on hybrid Linux nodes](hybrid-multicloud-ssm-agent-install-linux.md "hybrid-multicloud-ssm-agent-install-linux.md")
 - [Install SSM Agent on hybrid Windows Server nodes](hybrid-multicloud-ssm-agent-install-windows.md "hybrid-multicloud-ssm-agent-install-windows.md")
-- [Set up Systems Manager for Microsoft Azure virtual machines](hybrid-multicloud-ssm-agent-install-azure.md "hybrid-multicloud-ssm-agent-install-azure.md")

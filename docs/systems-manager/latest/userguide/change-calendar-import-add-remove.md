@@ -15,7 +15,10 @@ calendar will be updated to reflect the contents of the newer file.
 3. In the navigation pane, choose **Change Calendar**.
 4. From the list of calendars, choose the calendar name from the
    list.
-5. Choose **Choose file**, and then navigate to and
-   select the replacement `.ics` file.
-6. In response to the notification about overwriting the existing file,
-   choose **Confirm**.
+5. On the **Actions** menu, choose
+   **Edit**.
+6. In the **Import calendar** section, choose
+   **Choose file**.
+7. Navigate to and select the replacement `.ics`
+   file.
+8. Choose **Save**.

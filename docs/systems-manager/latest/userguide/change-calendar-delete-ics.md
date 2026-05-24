@@ -10,7 +10,9 @@ provider included in your calendar, you can delete the imported iCalendar
 2. In the navigation pane, choose **Change Calendar**.
 3. From the list of calendars, choose the calendar name from the
    list.
-4. In the **Import calendar** area, under **My
-   imported calendars**, locate the name of the imported
-   calendar, and then choose the **X** in its card.
-5. Choose **Save**.
+4. On the **Actions** menu, choose
+   **Edit**.
+5. In the **Import calendar** section, under
+   **My imported calendars**, choose the X next to
+   the name of the calendar.
+6. Choose **Save**.
