@@ -52,7 +52,7 @@ If you'd like to notify your procurement team when agreements are expiring, you 
 
 In order to verify the email address, make sure that a user with access to the AWS console is part of the distribution list. From there, you may add and remove emails to the list without having to verify again.
 
-![](images/UNO-Agreement-Ending-example.png)
+![Pattern builder section showing AWS Marketplace Agreement Service selected with Purchase Agreement Ending - Acceptor event type and US East N. Virginia region.](images/UNO-Agreement-Ending-example.png)
 
 ###### Learn More
 

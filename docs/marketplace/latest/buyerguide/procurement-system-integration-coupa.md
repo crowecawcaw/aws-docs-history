@@ -75,3 +75,8 @@ the following links that guide you through configuring your Coupa procurement sy
 ###### Note
 
 For information about UNSPSC codes used by AWS Marketplace, see [UNSPSC codes used by AWS Marketplace](procurement-system-integration.md#procurement-integration-setup-unspsc-codes "procurement-system-integration.md#procurement-integration-setup-unspsc-codes") .
+
+###### Note
+
+For information about CloudTrail events for invoicing actions used with procurement system
+integrations, see [Logging procurement system API calls with AWS CloudTrail](buyer-cloudtrail-logging.md "buyer-cloudtrail-logging.md").

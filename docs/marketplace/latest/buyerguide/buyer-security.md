@@ -30,3 +30,9 @@ Otherwise, we generally do not share customer information with sellers, and any
 information shared is not personally identifiable, unless you have given us permission to
 share such information, or we believe that providing the information to sellers is necessary
 to comply with laws or regulations.
+
+## Logging API calls with AWS CloudTrail
+
+AWS Marketplace is integrated with AWS CloudTrail for logging API calls. For information about CloudTrail
+events for invoicing actions used with procurement system integrations, see
+[Logging procurement system API calls with AWS CloudTrail](buyer-cloudtrail-logging.md "buyer-cloudtrail-logging.md").
