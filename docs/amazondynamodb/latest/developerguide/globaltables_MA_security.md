@@ -265,7 +265,7 @@ JSON
 
 ```
 
-- Finally, the administrator of Account C create a replica with the following policy allowing replication permissions between all members. The policy doesn't allow any further replicas to be added.
+- Finally, the administrator of Account C creates a replica with the following policy allowing replication permissions between all members. The policy doesn't allow any further replicas to be added.
 
 JSON
 
