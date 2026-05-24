@@ -37,11 +37,11 @@ use it.
 3. Choose the **Get started** button that appears in the
    following image.
 
-![AWS Application Migration Service page with "Start migrating" box and "Get started" button.](images/mgn-get-started.png) 4. If this is your first time using AWS MGN in the Region you chose, you will
+![](images/mgn-get-started.png) 4. If this is your first time using AWS MGN in the Region you chose, you will
 see the following screen. Choose the **Set up service**
 button.
 
-![Application Migration Service setup page with service initialization information and setup options.](images/set-up-mgn.png)
+![](images/set-up-mgn.png)
 
 For more information, see [Initializing AWS MGN via the
 console](../../../mgn/latest/ug/mandatory-setup.md "../../../mgn/latest/ug/mandatory-setup.md").
@@ -71,11 +71,11 @@ post-launch action will need to assume.
 12. When you see a success message like the one in the following image, choose
     **View role**.
 
-![IAM Roles page showing success message for role creation with "View role" option.](images/role-created.png) 13. Choose **Add permissions**, then choose **Create
+![](images/role-created.png) 13. Choose **Add permissions**, then choose **Create
 inline policy**. 14. Choose the **JSON** button that appears in the following
 image.
 
-![Policy editor interface showing service selection and JSON toggle button highlighted.](images/json-policy.png) 15. Replace the JSON in the policy editor with the first block of JSON in the
+![](images/json-policy.png) 15. Replace the JSON in the policy editor with the first block of JSON in the
 following section: [Extra required permissions for Refactor Spaces](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSMigrationHubRefactorSpacesFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSMigrationHubRefactorSpacesFullAccess"). 16. Choose **Next**. 17. For the policy name, enter
 `RefactorSpacesExtraRequiredPermissions`. 18. Choose **Create policy**. 19. Copy the ARN that you see in the summary section of the role and save it
 because you need it to configure the post-launch action.
@@ -103,11 +103,11 @@ Refactor Spaces post-launch action.
    template**.
 2. Choose the edit button that appears in the following image.
 
-![Post-launch template interface showing settings for configuring actions after server launch in AWS.](images/enable-post-launch-actions.png) 3. Turn on **Install the Systems Manager agent and allow executing
+![](images/enable-post-launch-actions.png) 3. Turn on **Install the Systems Manager agent and allow executing
 actions on launched servers**, as shown in the following
 image.
 
-![Post-launch template configuration page with options for Systems Manager agent installation and deployment.](images/install-ssm.png) 4. Choose **Save template**.
+![](images/install-ssm.png) 4. Choose **Save template**.
 
 ###### Configure the Refactor Spaces post-launch action
 
@@ -119,7 +119,7 @@ image.
    **Edit** button that appears in the following
    image.
 
-![Actions section with Edit button highlighted among other options.](images/edit-post-launch-actions.png) 4. Specify the following values in the form:
+![](images/edit-post-launch-actions.png) 4. Specify the following values in the form:
 
 | Name of field or option          | Value to use                                                                                                                                                                                                                                                                                                                                                                        |
 | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
