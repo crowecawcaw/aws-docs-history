@@ -62,7 +62,7 @@ Familiarity with AWS Identity and Access Management (IAM) is assumed. For inform
 This user has the minimum set of permissions to query the data lake.
 
 1. Open the IAM console at [https://console.aws.amazon.com/iam](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam"). Sign in as
-   the administrator user that you created in [Create a user with administrative access](getting-started-setup.md#create-an-admin "getting-started-setup.md#create-an-admin") or as a user with the
+   the administrator user that you created in or as a user with the
    `AdministratorAccess` AWS managed policy.
 2. Create a user named `datalake_user` with the following settings:
    - Enable AWS Management Console access.
@@ -132,7 +132,7 @@ JSON
 Create the Amazon S3 bucket that is to be the root location of your data lake.
 
 1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/") and sign in as the administrator user that
-   you created in [Create a user with administrative access](getting-started-setup.md#create-an-admin "getting-started-setup.md#create-an-admin").
+   you created in .
 2. Choose **Create bucket**, and go through the wizard to create a bucket
    named ``<yourName>`-datalake-cloudtrail`, where
 `<yourName>`is your first initial and last name. For example:`jdoe-datalake-cloudtrail`.

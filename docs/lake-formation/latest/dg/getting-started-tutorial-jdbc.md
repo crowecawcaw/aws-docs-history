@@ -62,7 +62,7 @@ lake in AWS Lake Formation.
 This user has the minimum set of permissions to query the data lake.
 
 1. Open the IAM console at [https://console.aws.amazon.com/iam](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam"). Sign in as
-   the administrator user that you created in [Create a user with administrative access](getting-started-setup.md#create-an-admin "getting-started-setup.md#create-an-admin") or as a user with the
+   the administrator user that you created in or as a user with the
    `AdministratorAccess` AWS managed policy.
 2. Create a user named `datalake_user` with the following settings:
    - Enable AWS Management Console access.
@@ -110,7 +110,7 @@ console.
 ###### To create a connection
 
 1. Open the AWS Glue the console at [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/"), and
-   sign in as the administrator user that you created in [Create a user with administrative access](getting-started-setup.md#create-an-admin "getting-started-setup.md#create-an-admin").
+   sign in as the administrator user that you created in .
 2. In the navigation pane, under **Data catalog**, choose
    **Connections**.
 3. On the **Connectors** page, choose **Create
@@ -128,7 +128,7 @@ In this step, you create the Amazon Simple Storage Service (Amazon S3) bucket th
 your data lake.
 
 1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/") and sign in as the administrator user
-   that you created in [Create a user with administrative access](getting-started-setup.md#create-an-admin "getting-started-setup.md#create-an-admin").
+   that you created in .
 2. Choose **Create bucket**, and go through the wizard to create a
    bucket named ``<yourName>`-datalake-tutorial`, where
 `<yourName>`is your first initial and last name. For example:`jdoe-datalake-tutorial`.
@@ -376,7 +376,7 @@ _Amazon Redshift Database Developer Guide_.
 ###### To set up permissions to run Amazon Redshift queries
 
 1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). Sign in as the administrator user
-   that you created in [Create a user with administrative access](getting-started-setup.md#create-an-admin "getting-started-setup.md#create-an-admin") (user name `Administrator`) or as a user with the
+   that you created in (user name `Administrator`) or as a user with the
    `AdministratorAccess` AWS managed policy.
 2. In the navigation pane, choose **Policies**.
 
