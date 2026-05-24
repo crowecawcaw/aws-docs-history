@@ -1523,6 +1523,17 @@ JSON
 AWS recommends to use `aws:SourceVpcArn` instead of `aws:SourceVpc` if `aws:SourceVpcArn` is supported by the service you are
 targeting. Please refer to [aws:SourceVpcArn](#condition-keys-sourcevpcarn "#condition-keys-sourcevpcarn") for the list of supported services.
 
+###### Note
+
+When AWS services make calls to other AWS services on your behalf
+(service-to-service calls), certain network-specific authorization context is
+redacted. If your policy uses this condition key with `Deny`
+statements, AWS service principals might be unintentionally blocked. To allow
+AWS services to work properly while maintaining your security requirements,
+exclude service principals from your `Deny` statements by adding the
+`aws:PrincipalIsAWSService` condition key with a value of
+`false`.
+
 ### aws:SourceVpcArn
 
 Use this key to verify the ARN of the VPC through which a request was made via a VPC endpoint. This key returns the ARN of the VPC to which the VPC endpoint is attached.
@@ -1596,6 +1607,17 @@ The following is an example of a bucket policy that denies access to `amzn-s3-de
 }
 ```
 
+###### Note
+
+When AWS services make calls to other AWS services on your behalf
+(service-to-service calls), certain network-specific authorization context is
+redacted. If your policy uses this condition key with `Deny`
+statements, AWS service principals might be unintentionally blocked. To allow
+AWS services to work properly while maintaining your security requirements,
+exclude service principals from your `Deny` statements by adding the
+`aws:PrincipalIsAWSService` condition key with a value of
+`false`.
+
 ### aws:SourceVpce
 
 Use this key to compare the VPC endpoint identifier of the request with the
@@ -1614,6 +1636,17 @@ you must use [aws:ViaAWSService](#condition-keys-viaawsservice "#condition-keys-
 allow requests made by AWS services using [forward access
 sessions (FAS)](access_forward_access_sessions.md "access_forward_access_sessions.md"). This is because the source VPC endpoint of the initial
 request is not preserved.
+
+###### Note
+
+When AWS services make calls to other AWS services on your behalf
+(service-to-service calls), certain network-specific authorization context is
+redacted. If your policy uses this condition key with `Deny`
+statements, AWS service principals might be unintentionally blocked. To allow
+AWS services to work properly while maintaining your security requirements,
+exclude service principals from your `Deny` statements by adding the
+`aws:PrincipalIsAWSService` condition key with a value of
+`false`.
 
 ### aws:VpceAccount
 
@@ -1832,6 +1865,17 @@ This condition key is currently supported for a select set of AWS services.
 Using this key with unsupported services can lead to unintended authorization
 results. Always scope the condition key to supported services in your
 policies.
+
+###### Note
+
+When AWS services make calls to other AWS services on your behalf
+(service-to-service calls), certain network-specific authorization context is
+redacted. If your policy uses this condition key with `Deny`
+statements, AWS service principals might be unintentionally blocked. To allow
+AWS services to work properly while maintaining your security requirements,
+exclude service principals from your `Deny` statements by adding the
+`aws:PrincipalIsAWSService` condition key with a value of
+`false`.
 
 ### aws:VpceOrgPaths
 
