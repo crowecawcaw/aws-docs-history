@@ -9,8 +9,9 @@ into cluster operations.
 ###### Note
 
 Continuous provisioning is available as an optional configuration for
-HyperPod clusters created with EKS orchestration. Clusters created with Slurm
-orchestration use a different scaling model.
+HyperPod clusters created with EKS orchestration. HyperPod clusters
+created with Slurm orchestration also support continuous provisioning. For details, see
+[Continuous provisioning for enhanced cluster operations with Slurm](sagemaker-hyperpod-scaling-slurm.md "sagemaker-hyperpod-scaling-slurm.md").
 
 ## How it works
 

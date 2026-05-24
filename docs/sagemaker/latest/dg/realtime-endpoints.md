@@ -10,6 +10,7 @@ containers on your endpoints with enhanced metrics (see [Amazon SageMaker AI enh
 
 - [Deploy models for real-time inference](realtime-endpoints-deploy-models.md "realtime-endpoints-deploy-models.md")
 - [Invoke models for real-time inference](realtime-endpoints-test-endpoints.md "realtime-endpoints-test-endpoints.md")
+- [Invoke endpoints with OpenAI-compatible APIs](realtime-endpoints-openai-compatible.md "realtime-endpoints-openai-compatible.md")
 - [Endpoints](realtime-endpoints-manage.md "realtime-endpoints-manage.md")
 - [Hosting options](realtime-endpoints-options.md "realtime-endpoints-options.md")
 - [Automatic scaling of Amazon SageMaker AI models](endpoint-auto-scaling.md "endpoint-auto-scaling.md")

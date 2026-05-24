@@ -47,5 +47,5 @@ To install SageMaker Notebook Jobs, complete the following steps:
 jupyter-server`.
 8. Start JupyterLab with the command: `jupyter lab`.
 9. Verify that the Notebook Jobs widget (
-   ![Blue icon of a calendar with a checkmark, representing a scheduled task or event.](images/icons/notebook-schedule.png)
+   ![](images/icons/notebook-schedule.png)
    ) appears in your Jupyter notebook taskbar.

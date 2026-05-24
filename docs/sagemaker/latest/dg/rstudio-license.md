@@ -51,7 +51,7 @@ PBC.
 3. Select `I grant AWS License Manager the required permissions` and select
    **Grant Permissions**.
 4. Navigate to **Granted Licenses** on the left panel.
-5. Select the license grant with `RSW-SageMaker` as the `Product name` and select **View**.
+5. Select the license grant with `RStudio` as the `Product name` and select **View**.
 6. From the license detail page, select **Accept & activate license**.
 
 **RStudio administrative dashboard**

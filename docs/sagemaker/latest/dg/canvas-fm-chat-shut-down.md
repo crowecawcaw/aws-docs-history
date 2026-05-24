@@ -15,5 +15,5 @@ model, you can do the following:
    The model begins shutting down. If your chat compares two or more models, you can shut
    down an individual model from the chat page by choosing the model’s **More
    options** icon (
-   ![Vertical ellipsis icon representing a menu or more options.](images/studio/canvas/more-options-icon.png)
+   ![](images/studio/canvas/more-options-icon.png)
    ) and then choosing **Shut down model**.

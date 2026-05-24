@@ -12,7 +12,7 @@ To run Autopilot from SageMaker Studio Classic, open the candidate definition no
 these steps:
 
 1. Choose the **Home** icon
-   ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png)
+   ![](images/studio/icons/house.png)
    from the left navigation pane to view the top-level
    **Amazon SageMaker Studio Classic** navigation menu.
 2. Select the **AutoML** card from the main working area. This opens a

@@ -302,7 +302,7 @@ instructions for using Feature Store through the console depends on if you have 
     feature group.
 11. Open the Studio Classic console by following the instructions in [Launch Amazon SageMaker Studio Classic](studio-launch.md "studio-launch.md").
 12. Choose the **Home** icon (
-    ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png)
+    ![](images/studio/icons/house.png)
     ) in the left navigation pane.
 13. Choose **Data**.
 14. From the dropdown list, choose **Feature Store**.
@@ -365,7 +365,7 @@ for using Feature Store through the console depends on if you have enabled [Amaz
 11. To confirm your changes, choose **Confirm**.
 12. Open the Studio Classic console by following the instructions in [Launch Amazon SageMaker Studio Classic](studio-launch.md "studio-launch.md").
 13. Choose the **Home** icon (
-    ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png)
+    ![](images/studio/icons/house.png)
     ) in the left navigation pane.
 14. Choose **Data**.
 15. From the dropdown list, choose **Feature Store**.
@@ -413,7 +413,7 @@ default experience.
    view the execution owner, status, date, and duration.
 9. Open the Studio Classic console by following the instructions in [Launch Amazon SageMaker Studio Classic](studio-launch.md "studio-launch.md").
 10. Choose the **Home** icon (
-    ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png)
+    ![](images/studio/icons/house.png)
     ) in the left navigation pane.
 11. Choose **Data**.
 12. From the dropdown list, choose **Feature Store**.
@@ -457,7 +457,7 @@ default experience.
     upstream lineage** or **Query downstream lineage**.
 11. Open Studio Classic by following the instructions in [Launch Amazon SageMaker Studio Classic](studio-launch.md "studio-launch.md").
 12. Choose the **Home** icon (
-    ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png)
+    ![](images/studio/icons/house.png)
     ) in the left navigation pane.
 13. Choose **Data**.
 14. From the dropdown list, choose **Feature Store**.

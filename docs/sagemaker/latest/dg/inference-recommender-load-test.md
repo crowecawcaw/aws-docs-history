@@ -371,7 +371,7 @@ Amazon SageMaker Studio Classic
 Create a load test with Studio Classic.
 
 1. In your Studio Classic application, choose the home icon (
-   ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png)
+   ![](images/studio/icons/house.png)
    ).
 2. In the left sidebar of Studio Classic, choose
    **Deployments**.

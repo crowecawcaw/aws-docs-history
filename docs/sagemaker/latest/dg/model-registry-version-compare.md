@@ -19,7 +19,7 @@ steps:
 1. Sign in to Studio Classic. For more information, see [Amazon SageMaker AI domain overview](gs-studio-onboard.md "gs-studio-onboard.md").
 2. In the left navigation pane, choose the **Home** icon
    (
-   ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png)
+   ![](images/studio/icons/house.png)
    ).
 3. Choose **Models**, and then **Model
    registry**.

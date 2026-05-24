@@ -7,7 +7,7 @@ model by completing the following steps.
 
 1. Choose the **Evaluate** tab.
 2. Choose the **Gear** (
-   ![Black square icon representing a placeholder or empty image.](images/icons/Settings_squid.png)
+   ![](images/icons/Settings_squid.png)
    ) icon under the **Train**
    tab.
 3. (Optional) To find your evaluation job from the list, enter a search

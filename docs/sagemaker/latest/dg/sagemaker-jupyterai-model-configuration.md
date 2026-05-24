@@ -81,7 +81,7 @@ However, you must configure at least one **Language model**.
        documents.
      - Insert your models' API keys.
      - Choose **Save Changes** and navigate to the left arrow icon (
-       ![Left-pointing arrow icon, typically used for navigation or returning to a previous page.](images/studio/icons/jupyterai/jupyterai-return-to-chat.png)
+       ![](images/studio/icons/jupyterai/jupyterai-return-to-chat.png)
        ) in the top left corner of the left pane. This opens the
        Jupyter AI chat UI. You can start interacting with your model.
 

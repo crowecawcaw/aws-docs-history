@@ -71,7 +71,7 @@ template to build, train, and deploy models.
 
 1. Sign in to Studio. For more information, see [Amazon SageMaker AI domain overview](gs-studio-onboard.md "gs-studio-onboard.md").
 2. In the Studio sidebar, choose the **Home** icon (
-   ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png)
+   ![](images/studio/icons/house.png)
    ).
 3. Select **Deployments** from the menu, and then
    select **Projects**.
@@ -140,7 +140,7 @@ initiate a deployment of the model version to a SageMaker AI endpoint.
 ###### To approve the model version
 
 1. In the Studio Classic sidebar, choose the **Home** icon (
-   ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png)
+   ![](images/studio/icons/house.png)
    ).
 2. Select **Deployments** from the menu, and then
    select **Projects**.
@@ -199,7 +199,7 @@ in Studio Classic. If you are not an administrator, ask your administrator to
 complete those steps.
 
 1. In the Studio Classic sidebar, choose the **Home** icon (
-   ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png)
+   ![](images/studio/icons/house.png)
    ).
 2. Select **Deployments** from the menu, and then
    select **Projects**.

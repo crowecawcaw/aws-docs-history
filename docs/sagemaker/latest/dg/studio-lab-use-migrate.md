@@ -87,7 +87,7 @@ One option is to save the environment onto your local machine. To do this, use t
 following procedure.
 
 1. In Studio Lab, choose the **File Browser** icon (
-   ![Black square icon representing a placeholder or empty image.](images/studio/icons/folder.png)
+   ![](images/studio/icons/folder.png)
    ) on the left menu, so that the **File
    Browser** panel shows on the left.
 2. Navigate to your user directory by choosing the file icon beneath the file

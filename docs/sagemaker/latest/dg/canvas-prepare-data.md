@@ -385,7 +385,7 @@ You can rename a column in your dataset by double-clicking on the column name in
 **Enter** key submits the change, and clicking anywhere outside
 the input cancels the change. You can also rename a column by clicking the **More
 options** icon (
-![Vertical ellipsis icon representing a menu or more options.](images/studio/canvas/more-options-icon.png)
+![](images/studio/canvas/more-options-icon.png)
 ), located at the end of the row in list view or at the end of the header
 cell in grid view, and choosing **Rename**.
 

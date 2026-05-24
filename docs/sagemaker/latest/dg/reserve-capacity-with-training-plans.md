@@ -1,21 +1,21 @@
-# Reserve training plans for your training jobs or HyperPod clusters
+# Reserve Flexible Training Plans for ML workloads
 
 Amazon SageMaker training plans is a capability that allows you to reserve and help maximize the use of
-GPU capacity for large-scale AI model training workloads. This feature provides access to highly
-sought-after instance types that cover a range of GPU-accelerated computing options, including
-the latest NVIDIA GPU technologies and AWS trainium chips. With SageMaker training plans, you can
-secure predictable access to these high-demand, high-performance computational resources within
-your specified timelines and budgets, without the need to manage underlying infrastructure. This
-flexibility is particularly valuable for organizations dealing with the challenges of acquiring
-and scheduling these oversubscribed compute instances for their mission-critical AI
-workloads.
+GPU capacity for ML workloads. This feature provides access to highly sought-after instance types
+that cover a range of GPU-accelerated computing options, including the latest NVIDIA GPU
+technologies and AWS Trainium chips. With SageMaker training plans, you can secure predictable access
+to these high-demand, high-performance computational resources within your specified timelines
+and budgets, without the need to manage underlying infrastructure. This flexibility is
+particularly valuable for organizations dealing with the challenges of acquiring and scheduling
+these oversubscribed compute instances for their mission-critical AI workloads.
 
 ## What are SageMaker training plans
 
 SageMaker training plans allow you to reserve compute capacity tailored to your target resource
-needs, such as SageMaker training jobs or SageMaker HyperPod clusters. The service automatically handles
-the reservation, provisioning of accelerated compute resources, infrastructure setup, workload
-execution, and recovery from infrastructure failures.
+needs, such as SageMaker training jobs, SageMaker HyperPod clusters, SageMaker Inference endpoints, or SageMaker
+Studio apps. The service automatically handles the reservation, provisioning of accelerated
+compute resources, infrastructure setup, workload execution, and recovery from infrastructure
+failures.
 
 SageMaker training plans consist of one or more Reserved Capacity blocks, each defined by the
 following parameters:
@@ -29,8 +29,8 @@ following parameters:
 ###### Note
 
 - Training
-  plans are specific to their target resource (either SageMaker Training Job or SageMaker HyperPod)
-  and cannot be interchanged.
+  plans are specific to their target resource (SageMaker Training Job, SageMaker HyperPod, SageMaker
+  Inference endpoints, or SageMaker Studio apps) and cannot be interchanged.
 - Multiple Reserved Capacity blocks in a single training plan may be discontinuous.
   This means there can be gaps between the Reserved Capacity blocks.
 
@@ -40,14 +40,15 @@ SageMaker training plans offer the following benefits:
 
 - **Predictable Access**: Reserve GPU capacity for your
   machine learning workloads within specified time frames.
-- **Cost Management**: Plan and budget for large-scale
-  training requirements in advance.
+- **Cost Management**: Plan and budget for your ML
+  workload requirements in advance.
 - **Automated Resource Management**: SageMaker training plans
   handle the provisioning and management of infrastructure.
 - **Flexibility**: Create training plans for various
-  resources, including SageMaker training jobs and SageMaker HyperPod clusters.
+  resources, including SageMaker training jobs, SageMaker HyperPod clusters, SageMaker Inference endpoints,
+  and SageMaker Studio apps.
 - **Fault Tolerance**: Benefit from automatic recovery
-  from infrastructure failures and workload migration across Availability Zones for SageMaker AI
+  from infrastructure failures and workload migration across Availability Zones for SageMaker
   training jobs.
 
 ## SageMaker training plans advance reservation and flexible start times
@@ -72,65 +73,16 @@ PM, you can make a last-minute search as late as 1:30 PM and complete your purch
   SageMaker training plans allow you to reserve instances with specific duration and quantity
   options. For available instance types in a given AWS Region, duration, and quantity
   options, see [Supported instance types, AWS Regions, and pricing](#training-plans-supported-instances-and-regions "#training-plans-supported-instances-and-regions").
-  - **UltraServers**: Reach out to your account manager
-    to request UltraServers.
-  - Add **P5.4xl, P4de, B300, G6**: Reach out to your
-    account manager to request these instance types.
-
 - **End time**: Training Plans always end at 11:30 AM UTC
   on the final day of the reservation.
-- **Training plan termination**: If you're using training jobs as a target resource and
-  30 minutes remain in a Reserved Capacity, SageMaker training plans initiates the process of terminating any running
+- **Training plan termination**: If you're using Training
+  Jobs, Inference endpoints, and Studio apps as a target resource and 30 minutes remain in a
+  Reserved Capacity, SageMaker training plans initiates the process of terminating any running
   instances within that block until the next Reserved Capacity becomes active. You retain
   full access to your training plan until 30 minutes before the final Reserved Capacity
   block's end time.
 
 If your target resource is a SageMaker HyperPod cluster, this time limit is one hour.
-
-## SageMaker training plans user workflow
-
-SageMaker training plans work through the following steps:
-
-Admin steps:
-
-1. **Search and review**: Find available plan offerings that
-   match your compute requirements, such as instance type, count, start time, and
-   duration.
-2. **Create a plan**: Reserve a training plan that meets
-   your needs using the ID of your chosen plan offering.
-3. **Payment and scheduling**: Upon successful upfront
-   payment, the plan status becomes `Scheduled`.
-
-Steps for plan users / ML engineers:
-
-1. **Resource allocation**: Use your plan to queue SageMaker AI
-   training jobs or allocate to a SageMaker HyperPod cluster instance group.
-2. **Activation**: When the plan start date arrives, it
-   becomes `Active`. Based on available reserved capacity, SageMaker training plans
-   automatically launch training jobs or provision instance groups.
-
-###### Note
-
-The status of the training plan transitions from `Scheduled` to
-`Active` when a Reserved Capacity period begins, and then back to
-`Scheduled` when waiting for the next Reserved Capacity period to start.
-
-The following diagrams provide a comprehensive overview of how SageMaker training plans interact
-with different [target resources](#training-plans-target-resources "#training-plans-target-resources"),
-illustrating a plan's lifecycle and its role in resource allocation for both SageMaker training
-jobs and SageMaker HyperPod clusters.
-
-- **Training plans for SageMaker Training
-  Job**: The first diagram illustrates the end-to-end workflow of the interaction
-  between a training plan and SageMaker Training Job.
-
-![Billing, Capacity reservation with training plans, and SageMaker Training Job. Illustration of the training plan lifecycle, and training job states managed by Administrators and ML Engineers.](images/training-plans/tp-training-plan-for-training-jobs.png)
-
-- **Training plans for SageMaker HyperPod
-  clusters**: The second diagram illustrates the end-to-end workflow of the
-  interaction between a training plan and a SageMaker HyperPod instance group.
-
-![Billing, Capacity reservation with training plans, and instance group management workflow. Illustration of the training plan lifecycle and instance group states managed by Administrators and ML Engineers.](images/training-plans/tp-training-plan-for-hyperpod.png)
 
 ## Supported instance types, AWS Regions, and pricing
 
@@ -138,15 +90,21 @@ Training plans support reservations for the following specific
 high-performance instance types, each available in select AWS Regions:
 
 - **ml.p4d.24xlarge**
+- **ml.p5.4xlarge**
 - **ml.p5.48xlarge**
 - **ml.p5e.48xlarge**
 - **ml.p5en.48xlarge**
 - **ml.trn1.32xlarge**
 - **ml.trn2.48xlarge**
 - **ml.p6-b200.48xlarge**
-- **ml.c6i-32xlargesc**
+- **ml.p6-b300.48xlarge**
+- **ml.g6.xlarge** (reach out to your account
+  manager)
+- **ml.g6.4xlarge** (reach out to your account
+  manager)
 
-**UltraServers**
+**UltraServers** (Currently cannot be purchased in a
+self-serve manner; reach out to your account manager.)
 
 - **ml.p6e-gb200.36xlarge**
 - **ml.p6e-gb200.72xlarge**
@@ -249,7 +207,9 @@ continuous 48-hour block, and two blocks with uneven duration.
 
 ###### Important
 
-- Training plans cannot be modified once purchased.
+- Training plan purchases are final and cannot be cancelled.
+- Training plans cannot be modified to add or remove instances; they can only be
+  extended to a new end date.
 - Training plans cannot be shared across AWS accounts or within your AWS
   Organization.
 
@@ -281,3 +241,50 @@ continuous 48-hour block, and two blocks with uneven duration.
   split allocation meets their workload requirements. This may require adjusting job
   scheduling or workload distribution to accommodate the non-continuous nature of the
   reservation.
+
+## SageMaker training plans user workflow
+
+SageMaker training plans work through the following steps:
+
+Admin steps:
+
+1. **Search and review**: Find available plan offerings that
+   match your compute requirements, such as instance type, count, start time, and
+   duration.
+2. **Create a plan**: Reserve a training plan that meets
+   your needs using the ID of your chosen plan offering.
+3. **Payment and scheduling**: Upon successful upfront
+   payment, the plan status becomes `Scheduled`.
+
+Steps for plan users / ML engineers:
+
+1. **Resource allocation**: Use your plan to allocate to
+   SageMaker AI training jobs, SageMaker HyperPod cluster instance groups, SageMaker Inference endpoints, or
+   spaces in SageMaker Studio apps.
+2. **Activation**: When the plan start date arrives, it
+   becomes `Active`. Based on available reserved capacity, SageMaker training plans
+   automatically provision training jobs, instance groups, inference endpoints, or Studio
+   applications.
+
+###### Note
+
+The status of the training plan transitions from `Scheduled` to
+`Active` when a Reserved Capacity period begins, and then back to
+`Scheduled` when waiting for the next Reserved Capacity period to start.
+
+The following diagrams provide a comprehensive overview of how SageMaker training plans interact
+with different [target resources](#training-plans-target-resources "#training-plans-target-resources"),
+illustrating a plan's lifecycle and its role in resource allocation for both SageMaker training
+jobs and SageMaker HyperPod clusters.
+
+- **Training plans for SageMaker Training
+  Job**: The first diagram illustrates the end-to-end workflow of the interaction
+  between a training plan and SageMaker Training Job.
+
+![Billing, Capacity reservation with training plans, and SageMaker Training Job. Illustration of the training plan lifecycle, and training job states managed by Administrators and ML Engineers.](images/training-plans/tp-training-plan-for-training-jobs.png)
+
+- **Training plans for SageMaker HyperPod
+  clusters**: The second diagram illustrates the end-to-end workflow of the
+  interaction between a training plan and a SageMaker HyperPod instance group.
+
+![Billing, Capacity reservation with training plans, and instance group management workflow. Illustration of the training plan lifecycle and instance group states managed by Administrators and ML Engineers.](images/training-plans/tp-training-plan-for-hyperpod.png)

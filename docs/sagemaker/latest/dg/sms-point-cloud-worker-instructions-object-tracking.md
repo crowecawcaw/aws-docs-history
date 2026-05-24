@@ -186,7 +186,7 @@ interpolated cuboids with the same label ID.
   keyboard.
 - To delete an individual cuboid from a single frame, select the cuboid
   and either select the trashcan icon (
-  ![Trash can icon representing deletion or removal functionality.](images/pointcloud/icons/label-icons/delete.png)
+  ![](images/pointcloud/icons/label-icons/delete.png)
   ) next to that label ID in the **Label
   ID** sidebar on the right or use the Delete key on your
   keyboard to delete that cuboid.

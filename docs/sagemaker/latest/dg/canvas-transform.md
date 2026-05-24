@@ -109,7 +109,7 @@ sources into your data flow.
 
 1. Select the **More options**
    icon (
-   ![Vertical ellipsis icon representing a menu or more options.](images/studio/canvas/more-options-icon.png)
+   ![](images/studio/canvas/more-options-icon.png)
    ) next to the left node that you want to concatenate. The first node you select
    is always the left table in your concatenate operation.
 2. Hover over **Combine data**, and then choose **Concatenate**.

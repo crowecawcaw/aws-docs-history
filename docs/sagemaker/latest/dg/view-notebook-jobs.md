@@ -10,7 +10,7 @@ need to supply additional tags when you create the notebook job step. For detail
 The following topic gives information about the **Notebook Jobs** tab
 and how to view the details of a single notebook job. The **Notebook Jobs**
 tab (which you access by choosing the **Create a notebook job** icon (
-![Blue icon of a calendar with a checkmark, representing a scheduled task or event.](images/icons/notebook-schedule.png)
+![](images/icons/notebook-schedule.png)
 ) in the Studio toolbar) shows a history of your on-demand jobs and
 all the jobs that run from the job definitions you created. This tab opens after you create
 an on-demand job, or you can just view this tab yourself to see a history of past and

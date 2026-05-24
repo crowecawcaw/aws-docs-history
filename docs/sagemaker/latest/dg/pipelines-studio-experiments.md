@@ -35,10 +35,10 @@ experiment.
 **To view the runs list from the experiments list**
 
 1. In the left sidebar of Studio Classic, choose the **Home** icon (
-   ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png)
+   ![](images/studio/icons/house.png)
    ).
 2. Select **Experiments** from the menu.
 3. Use search bar or **Filter** icon (
-   ![Funnel or filter icon representing data filtering or narrowing down options.](images/jumpstart/jumpstart-filter-icon.png)
+   ![](images/jumpstart/jumpstart-filter-icon.png)
    ) to filter the list to experiments created by a pipeline.
 4. Open an experiment name and view a list of runs created by the pipeline.

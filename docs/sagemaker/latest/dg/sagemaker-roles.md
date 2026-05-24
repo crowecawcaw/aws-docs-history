@@ -1233,7 +1233,8 @@ the following permissions:
 {
     "Effect": "Allow",
     "Action": [
-    "kms:Encrypt"
+    "kms:Encrypt",
+    "kms:GenerateDataKey"
     ]
 }
 ```
@@ -1419,7 +1420,8 @@ following permissions:
 {
     "Effect": "Allow",
     "Action": [
-    "kms:Encrypt"
+    "kms:Encrypt",
+    "kms:GenerateDataKey"
     ]
 }
 ```

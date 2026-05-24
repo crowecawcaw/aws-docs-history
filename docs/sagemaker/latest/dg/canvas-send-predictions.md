@@ -83,7 +83,7 @@ Use the following procedure to send your predictions to Quick:
 The **Send to Quick** button doesn’t activate unless you select one or more datasets.
 
 Alternatively, you can preview your predictions by choosing the **More options** icon (
-![Vertical ellipsis icon representing a menu or more options.](images/studio/canvas/more-options-icon.png)
+![](images/studio/canvas/more-options-icon.png)
 ) and then **View prediction results**.
 From the dataset preview, you can choose **Send to Quick**. The following screenshot
 shows you the **Send to Quick** button in a dataset preview.

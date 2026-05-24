@@ -62,7 +62,7 @@ following:
 After the prediction job finishes running, on the **Run predictions**
 page, you see an output dataset listed under **Predictions**. This dataset
 contains your results, and if you select the **More options** icon (
-![Vertical ellipsis icon representing a menu or more options.](images/studio/canvas/more-options-icon.png)
+![](images/studio/canvas/more-options-icon.png)
 ), you can choose **View prediction results** to preview
 the output data. Then, you can choose **Download prediction** and download the
 results as a CSV or a ZIP file.

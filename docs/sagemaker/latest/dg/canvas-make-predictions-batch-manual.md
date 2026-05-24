@@ -51,7 +51,7 @@ After the prediction job finishes running, on the **Run predictions**
 page, you see an output dataset listed under **Predictions**. This
 dataset contains your results, and if you select the **More options**
 icon (
-![Vertical ellipsis icon representing a menu or more options.](images/studio/canvas/more-options-icon.png)
+![](images/studio/canvas/more-options-icon.png)
 ), you can choose **View prediction results** to
 see the output data. You can see the images along with their predicted labels and
 confidence scores. Then, you can choose **Download prediction** to
@@ -79,7 +79,7 @@ After the prediction job finishes running, on the **Run predictions**
 page, you see an output dataset listed under **Predictions**. This
 dataset contains your results, and if you select the **More options**
 icon (
-![Vertical ellipsis icon representing a menu or more options.](images/studio/canvas/more-options-icon.png)
+![](images/studio/canvas/more-options-icon.png)
 ), you can choose **Preview** to see the output
 data. You can see the images along with their predicted labels and confidence scores.
 Then, you can choose **Download prediction** to download the results.

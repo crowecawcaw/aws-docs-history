@@ -30,7 +30,7 @@ following:
 After the prediction job finishes running, on the **Run predictions** page, you
 see an output dataset listed under **Predictions**. This dataset contains your results, and
 if you select the **More options** icon (
-![Vertical ellipsis icon representing a menu or more options.](images/studio/canvas/more-options-icon.png)
+![](images/studio/canvas/more-options-icon.png)
 ), you can choose
 **Preview** to preview the output data. You can see the input
 data matched to the prediction and the probability that the prediction is

@@ -25,7 +25,7 @@ tabs:
 
   If you choose the **More options**
   icon (
-  ![Vertical ellipsis icon representing a menu or more options.](images/studio/canvas/more-options-icon.png)
+  ![](images/studio/canvas/more-options-icon.png)
   ), you can choose **View
   details**, **Preview prediction**,
   **Download prediction**, or **Send to Quick**. If you
@@ -44,6 +44,6 @@ tabs:
   scheduled**, which is the time when the next automatic
   prediction job is scheduled to start. If you choose the **More
   options** icon (
-  ![Vertical ellipsis icon representing a menu or more options.](images/studio/canvas/more-options-icon.png)
+  ![](images/studio/canvas/more-options-icon.png)
   ), you can choose **View all jobs** to
   see the job history and in progress jobs for the configuration.

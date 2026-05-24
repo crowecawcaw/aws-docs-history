@@ -21,4 +21,4 @@ Checkpointless training is enabled via three optimization tracks that run in con
 - **Data loading optimizations** - Reduce the time required to serve the first batch of data during restart operations (orange boxes below).
 - **Program restart overhead reduction** - Minimize restart costs and enable checkpointless replenishment through process recovery on healthy nodes (blue and green boxes below).
 
-![](images/hyperpod/hyperpod-checkpointless-optimization-tracks.png)
+![Two GPUs running model training steps in parallel, with data feeding each step and checkpoints saved periodically.](images/hyperpod/hyperpod-checkpointless-optimization-tracks.png)

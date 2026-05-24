@@ -66,7 +66,7 @@ The following procedure shows how to clone the AWS MLU Jupyter notebooks to your
 
 1. Start and open the Studio Lab project runtime environment by following [Start your project runtime](studio-lab-manage-runtime.md#studio-lab-manage-runtime-start "studio-lab-manage-runtime.md#studio-lab-manage-runtime-start").
 2. Once Studio Lab is open, choose the Git tab (
-   ![Black square icon representing a placeholder or empty image.](images/studio/icons/git.png)
+   ![](images/studio/icons/git.png)
    ) on the left sidebar.
 3. Choose **Clone a Repository**.
 
@@ -74,7 +74,7 @@ If you do not see the **Clone a Repository** option, this may be
 because you are currently in a Git repository. Instead, use the following substeps.
 
     1. Choose the Folder tab (
-    ![Black square icon representing a placeholder or empty image.](images/studio/icons/folder.png)
+    ![](images/studio/icons/folder.png)
     ) on the left sidebar.
     2. Beneath the file search bar, choose the folder icon to the left of the currently
      selected repository. When you hover over the folder icon, you will see the user

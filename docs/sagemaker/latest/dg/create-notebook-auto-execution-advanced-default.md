@@ -106,6 +106,6 @@ new default values, and reset your default values for your notebook jobs.
      Defaults** panel. 3. To restore your current default settings copy the content from the
      **System Defaults** panel to the **User
      Preferences** panel. 4. Choose the **Save User Settings** icon (
-     ![Icon of a cloud with an arrow pointing upward, representing cloud upload functionality.](images/icons/Notebook_save.png)
+     ![](images/icons/Notebook_save.png)
      ) in the top right corner. Closing the editor does not
      save the changes.

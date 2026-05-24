@@ -56,7 +56,7 @@ leaderboard**.
 
 If you’d like to set the **Default model** to a different candidate,
 you can choose the **More options** icon (
-![Vertical ellipsis icon representing a menu or more options.](images/studio/canvas/more-options-icon.png)
+![](images/studio/canvas/more-options-icon.png)
 ) and choose **Change to default model**. Changing
 the default model for a model trained using HPO mode might take several minutes.
 

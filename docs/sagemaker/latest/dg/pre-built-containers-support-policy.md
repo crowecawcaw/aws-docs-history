@@ -37,18 +37,14 @@ the underlying MXNet framework for the container has reached end-of-maintenance.
 ## AWS Deep Learning Containers (DLC) support policy
 
 AWS Deep Learning Containers are a set of Docker images for training and serving deep
-learning models. To view available images, see [Available Deep Learning Containers Images](https://github.com/aws/deep-learning-containers/blob/master/available_images.md "https://github.com/aws/deep-learning-containers/blob/master/available_images.md") in the Deep Learning Containers
-GitHub repository.
+learning models. To view available images, see [Available Deep Learning Containers Images](https://aws.github.io/deep-learning-containers/reference/available_images/ "https://aws.github.io/deep-learning-containers/reference/available_images/").
 
 DLCs hit their end of patch date 365 days after their GitHub release date. Patch
 updates for DLCs are not “in-place” updates. You must delete the existing image on your
 instance and pull the latest container image without terminating your instance. For more
-information, see [Framework Support
-Policy](../../../deep-learning-containers/latest/devguide/support-policy.md "../../../deep-learning-containers/latest/devguide/support-policy.md") in the _AWS Deep Learning Containers
-Developer Guide_.
+information, see [Framework Support Policy](https://aws.github.io/deep-learning-containers/reference/support_policy/ "https://aws.github.io/deep-learning-containers/reference/support_policy/").
 
-Reference the [AWS
-Deep Learning Containers Framework Support Policy table](https://aws.amazon.com/releasenotes/dlc-support-policy/ "https://aws.amazon.com/releasenotes/dlc-support-policy/") to check which
+Reference the [AWS Deep Learning Containers Framework Support Policy table](https://aws.github.io/deep-learning-containers/reference/support_policy/ "https://aws.github.io/deep-learning-containers/reference/support_policy/") to check which
 frameworks and versions are actively supported for AWS DLCs. You can reference the
 framework associated with a DLC in the support policy table for any images that are not
 explicitly listed. For example, you can reference **PyTorch** in the
@@ -69,7 +65,7 @@ serving machine learning workloads with environments optimized for common framew
 such as XGBoost and Scikit Learn. To view available SageMaker AI ML Framework Containers,
 see [Docker Registry Paths and Example Code](../dg-ecr-paths/sagemaker-algo-docker-registry-paths.md "../dg-ecr-paths/sagemaker-algo-docker-registry-paths.md"). Navigate to the AWS Region of your
 choice, and browse images with the **(algorithm)** tag.
-SageMaker AI ML Framework Containers also adhere to the [AWS Deep Learning Containers framework support policy](../../../deep-learning-containers/latest/devguide/support-policy.md "../../../deep-learning-containers/latest/devguide/support-policy.md").
+SageMaker AI ML Framework Containers also adhere to the [AWS Deep Learning Containers framework support policy](https://aws.github.io/deep-learning-containers/reference/support_policy/ "https://aws.github.io/deep-learning-containers/reference/support_policy/").
 
 To retrieve the latest image version for XGBoost 1.7-1 in framework mode, use the
 following SageMaker Python SDK commands:

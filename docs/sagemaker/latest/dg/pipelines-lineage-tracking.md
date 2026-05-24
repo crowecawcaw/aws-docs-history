@@ -68,7 +68,7 @@ Studio Classic
 ). 3. In the menu, select **Pipelines**. 4. Use the **Search** box to filter the pipelines list. 5. Choose the `AbalonePipeline` pipeline to view the execution list and
 other details about the pipeline. 6. Choose the **Property Inspector**
 icon (
-![Black square icon representing a placeholder or empty image.](images/studio/icons/gears.png)
+![Black square icon representing a placeholder or empty image.](/images/sagemaker/latest/dg/images/studio/icons/gears.png)
 ) in the right sidebar to open the **TABLE PROPERTIES** pane,
 where you can choose which properties to view. 7. Choose the **Settings** tab and then choose **Download
 pipeline definition file**. You can view the file to see how the pipeline graph

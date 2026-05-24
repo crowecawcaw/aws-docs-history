@@ -62,6 +62,7 @@ groups that require them.
 - [AWS managed policies for Amazon SageMaker geospatial](security-iam-awsmanpol-geospatial.md "security-iam-awsmanpol-geospatial.md")
 - [AWS Managed Policies for Amazon SageMaker Ground Truth](security-iam-awsmanpol-ground-truth.md "security-iam-awsmanpol-ground-truth.md")
 - [AWS managed policies for Amazon SageMaker HyperPod](security-iam-awsmanpol-hyperpod.md "security-iam-awsmanpol-hyperpod.md")
+- [AWS managed policies for Amazon SageMaker AI model customization](security-iam-awsmanpol-model-customization.md "security-iam-awsmanpol-model-customization.md")
 - [AWS Managed Policies for SageMaker AI Model Governance](security-iam-awsmanpol-governance.md "security-iam-awsmanpol-governance.md")
 - [AWS Managed Policies for Model Registry](security-iam-awsmanpol-model-registry.md "security-iam-awsmanpol-model-registry.md")
 - [AWS Managed Policies for SageMaker Notebooks](security-iam-awsmanpol-notebooks.md "security-iam-awsmanpol-notebooks.md")

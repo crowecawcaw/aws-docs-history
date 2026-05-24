@@ -8,9 +8,8 @@ into cluster operations.
 
 ###### Note
 
-Continuous provisioning is available as an optional configuration for new
-HyperPod clusters created with Slurm orchestration. Existing clusters using the
-previous scaling model cannot be migrated to continuous provisioning at this time.
+Continuous provisioning is available as an optional configuration for
+HyperPod clusters created with Slurm orchestration.
 
 ## How it works
 
@@ -94,7 +93,7 @@ continuous provisioning.
 ###### Note
 
 The following features are not currently supported with continuous provisioning on
-Slurm clusters: migration of existing clusters, multi-head node configuration via
+Slurm clusters: multi-head node configuration via
 API-based Slurm topology, and `SlurmConfigStrategy`. Continuous
 provisioning operates exclusively in merge mode for `slurm.conf`
 management.
@@ -242,3 +241,126 @@ The `SlurmConfigStrategy` parameter (`Managed`,
 `Merge`, `Overwrite`) is not supported with continuous
 provisioning. Passing any `SlurmConfigStrategy` value results in an
 API error.
+
+## Minimum capacity requirements (MinCount)
+
+The MinCount feature allows you to specify the minimum number of instances that must be successfully provisioned before an instance group transitions to the `InService` status. This feature provides better control over scaling operations and helps prevent scenarios where partially provisioned instance groups cannot be used effectively for training workloads.
+
+###### Important
+
+MinCount is not a permanent guarantee of minimum capacity. It only ensures that the specified minimum number of instances are available when the instance group first becomes `InService`. Brief dips below MinCount may occur during normal operations such as unhealthy instance replacements or maintenance activities.
+
+### How MinCount works
+
+When you create or update an instance group with MinCount enabled, the following behavior occurs:
+
+- **New instance groups**: The instance group remains in `Creating` status until at least MinCount instances are successfully provisioned and ready. Once this threshold is met, the instance group transitions to `InService`.
+- **Existing instance groups**: When updating MinCount on an existing instance group, the status changes to `Updating` until the new MinCount requirement is satisfied.
+- **Continuous scaling**: If TargetCount is greater than MinCount, the continuous scaling system continues attempting to launch additional instances until TargetCount is reached.
+- **Timeout and rollback**: If MinCount cannot be satisfied within 3 hours, the system automatically rolls back the instance group to its last known good state. For more information about rollback behavior, see [Automatic rollback behavior](#sagemaker-hyperpod-scaling-slurm-mincount-rollback "#sagemaker-hyperpod-scaling-slurm-mincount-rollback").
+
+### Instance group status during MinCount operations
+
+Instance groups with MinCount configured exhibit the following status behavior:
+
+Creating
+
+For new instance groups when CurrentCount < MinCount. The instance group remains in this status until the minimum capacity requirement is met.
+
+Updating
+
+For existing instance groups when MinCount is modified and CurrentCount < MinCount. The instance group remains in this status until the new minimum capacity requirement is satisfied.
+
+InService
+
+When MinCount ≤ CurrentCount ≤ TargetCount. The instance group is ready for use and all mutating operations are unblocked.
+
+During `Creating` or `Updating` status, the following restrictions apply:
+
+- Mutating operations such as `BatchAddClusterNodes`, `BatchDeleteClusterNodes`, or `UpdateClusterSoftware` are blocked
+- You can still modify MinCount and TargetCount values to correct configuration errors
+- Cluster and Instance group deletion is always permitted
+
+### Automatic rollback behavior
+
+If an instance group cannot reach its MinCount within 3 hours, the system automatically initiates a rollback to prevent indefinite waiting:
+
+- **New instance groups**: MinCount and TargetCount are reset to (0, 0)
+- **Existing instance groups**: MinCount and TargetCount are restored to their values from the last `InService` state
+- **Instance selection for termination**: If instances need to be terminated during rollback, the system selects the unhealthy instances first, then those that were most recently provisioned.
+- **Status transition**: The instance group immediately transitions to `InService` status after rollback initiation, allowing the continuous scaling system to manage capacity according to the rollback settings
+
+The 3-hour timeout resets each time MinCount is updated. For example, if you update MinCount multiple times, the timeout period starts fresh from the most recent update.
+
+### MinCount events
+
+The system emits specific events to help you track MinCount operations:
+
+- **Minimum capacity reached**: Emitted when an instance group successfully reaches its MinCount and transitions to `InService`
+- **Rollback initiated**: Emitted when the 3-hour timeout expires and automatic rollback begins
+
+You can monitor these events using [ListClusterEvents](../APIReference/API_ListClusterEvents.md "../APIReference/API_ListClusterEvents.md") to track the progress of your MinCount operations.
+
+### API usage
+
+MinCount is specified using the `MinInstanceCount` parameter in instance group configurations:
+
+```
+aws sagemaker create-cluster \
+--cluster-name $HP_CLUSTER_NAME \
+--instance-groups '[
+    {
+      "InstanceGroupName": "controller-machine",
+      "InstanceType": "ml.c5.xlarge",
+      "InstanceCount": 1,
+      "SlurmConfig": {"NodeType": "Controller"},
+      "LifeCycleConfig": {
+        "SourceS3Uri": "s3://'$BUCKET_NAME'",
+        "OnCreate": "on_create.sh"
+      },
+      "ExecutionRole": "'$EXECUTION_ROLE'",
+      "ThreadsPerCore": 2
+    },
+    {
+      "InstanceGroupName": "my-login-group",
+      "InstanceType": "ml.c5.xlarge",
+      "InstanceCount": 1,
+      "SlurmConfig": {"NodeType": "Login"},
+      "LifeCycleConfig": {
+        "SourceS3Uri": "s3://'$BUCKET_NAME'",
+        "OnCreate": "on_create.sh"
+      },
+      "ExecutionRole": "'$EXECUTION_ROLE'",
+      "ThreadsPerCore": 1
+    },
+    {
+      "InstanceGroupName": "worker-group-1",
+      "InstanceType": "ml.c5.xlarge",
+      "MinInstanceCount": 1,
+      "InstanceCount": 2,
+      "SlurmConfig": {
+        "NodeType": "Compute",
+        "PartitionNames": ["p1"]
+      },
+      "LifeCycleConfig": {
+        "SourceS3Uri": "s3://'$BUCKET_NAME'",
+        "OnCreate": "on_create.sh"
+      },
+      "ExecutionRole": "'$EXECUTION_ROLE'",
+      "ThreadsPerCore": 1
+    }
+  ]' \
+  --vpc-config '{
+    "SecurityGroupIds": ["'$SECURITY_GROUP'"],
+    "Subnets": ["'$SUBNET'"]
+  }' \
+  --node-provisioning-mode Continuous
+```
+
+Key considerations for MinCount usage:
+
+- `MinInstanceCount` must be between 0 and `InstanceCount` (inclusive) value of the instance group specified in [CreateCluster](../APIReference/API_CreateCluster.md "../APIReference/API_CreateCluster.md") or [UpdateCluster](../APIReference/API_UpdateCluster.md "../APIReference/API_UpdateCluster.md") request
+- Setting `MinInstanceCount` to 0 (default) preserves standard continuous scaling behavior
+- Default `MinInstanceCount` for Controller and Login InstanceGroup is set to 1 during cluster creation
+- Setting `MinInstanceCount` equal to `InstanceCount` provides all-or-nothing scaling behavior
+- MinCount is only available for clusters with `NodeProvisioningMode` set to `Continuous`

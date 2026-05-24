@@ -17,7 +17,7 @@ To edit your auto update configuration, do the following:
    **Configuration** tab.
 3. Find your configuration and choose the **More
    options** icon (
-   ![Vertical ellipsis icon representing a menu or more options.](images/studio/canvas/more-options-icon.png)
+   ![](images/studio/canvas/more-options-icon.png)
    ).
 4. From the dropdown menu, choose **Update
    configuration**.

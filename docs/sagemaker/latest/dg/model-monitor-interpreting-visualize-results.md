@@ -32,7 +32,7 @@ period.
 1. Sign in to Studio. For more information, see [Amazon SageMaker AI domain overview](gs-studio-onboard.md "gs-studio-onboard.md").
 2. In the left navigation pane, choose the **Components and
    registries** icon (
-   ![Orange paper airplane icon representing email or message sending functionality.](images/icons/Components_registries.png)
+   ![](images/icons/Components_registries.png)
    ).
 3. Choose **Endpoints** in the drop-down menu.
 

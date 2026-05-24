@@ -27,7 +27,7 @@ dataset updates and automatic batch predictions. On the **Automations** tab, you
   **Auto update** toggle to pause or resume
   automatic updates. If you choose the **More
   options** icon (
-  ![Vertical ellipsis icon representing a menu or more options.](images/studio/canvas/more-options-icon.png)
+  ![](images/studio/canvas/more-options-icon.png)
   ) for a specific configuration, you
   can choose to **View all jobs** for the
   configuration, **Update configuration**, or

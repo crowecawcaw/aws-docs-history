@@ -37,7 +37,7 @@ you need to add details related to your evaluation job manually.
 
 1. Choose the **Evaluate** tab.
 2. Choose the **Gear** (
-   ![Black square icon representing a placeholder or empty image.](images/icons/Settings_squid.png)
+   ![](images/icons/Settings_squid.png)
    ) icon under the **Train**
    tab.
 3. In the dialog box, choose **Add**.

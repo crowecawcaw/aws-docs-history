@@ -29,7 +29,7 @@ To schedule a notebook job, complete the following steps.
 
 In local JupyterLab environments, choose the **Create a notebook
 job** icon (
-![Blue icon of a calendar with a checkmark, representing a scheduled task or event.](images/icons/notebook-schedule.png)
+![](images/icons/notebook-schedule.png)
 ) in the taskbar. If you don't see the icon, follow the instructions
 in [Installation guide](scheduled-notebook-installation.md "scheduled-notebook-installation.md") to install it.
 
@@ -48,7 +48,7 @@ In Studio, open the form in one of two ways:
 
     	+ Inside the Studio notebook you want to run as a scheduled job, choose
     	 the **Create a notebook job** icon (
-    	![Blue icon of a calendar with a checkmark, representing a scheduled task or event.](images/icons/notebook-schedule.png)
+    	![](images/icons/notebook-schedule.png)
     	) in the Studio toolbar.
 
 2. Complete the popup form. The form displays the following fields:
