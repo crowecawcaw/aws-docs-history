@@ -121,7 +121,7 @@ Modification of these resources outside of the Amazon EVS console and API could 
 
 ###### Important
 
-Your Amazon EVS environment must have a minimum of 4 hosts and no more than 16 hosts. Amazon EVS only support environments with 4-16 hosts.
+Your Amazon EVS environment must have a minimum of 4 hosts and no more than 32 hosts. Amazon EVS only support environments with 4-32 hosts.
 
 - Amazon EVS VLAN subnets that connect your VPC to VCF appliances.
   For more information, see [Amazon EVS VLAN subnet](concepts.md#concepts-evs-network "concepts.md#concepts-evs-network").

@@ -14,3 +14,4 @@ This chapter includes the following topics to help you manage your environment.
 - [Create an Amazon EVS entitlement](evs-env-create-entitlement.md "evs-env-create-entitlement.md") - Describes how to create an Amazon EVS entitlement to enable AWS offered Windows licensing coverage for VMs.
 - [Delete an Amazon EVS entitlement](evs-env-delete-entitlement.md "evs-env-delete-entitlement.md") - Describes how to delete an Amazon EVS entitlement to remove AWS offered Windows licensing coverage from VMs.
 - [Configure Windows Server Activation](evs-activate-windows-server.md "evs-activate-windows-server.md") - Describes how to configure Windows Server activation on VMs that have Windows Server entitlements.
+- [Access the Amazon EVS Custom Addon depot](addon-depot.md "addon-depot.md") - Describes how to access the Amazon EVS Custom Addon depot and configure it as a download source in vLCM.

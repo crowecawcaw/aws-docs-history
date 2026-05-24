@@ -48,7 +48,7 @@ If you are still unable to resolve the issue after following this guidance, we r
 This check verifies that your environment has a minimum of four hosts, which is a requirement for VCF 5.2.x.
 
 If this check fails, you will need to add hosts so that your environment meets this minimum requirement.
-Amazon EVS only supports environments with 4 to 16 hosts.
+Amazon EVS only supports environments with 4 to 32 hosts.
 
 ### Key re-use check failed
 
