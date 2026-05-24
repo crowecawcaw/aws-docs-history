@@ -24,7 +24,7 @@ Then, add a new pipeline to the project based on the _ASP.NET Core (.NET
 Framework)_ template, which will produce a Web Deploy archive for deployment.
 To follow the screenshots shown, use the classic editor (that is, without YAML).
 
-![New build pipeline using classic editor](images/use-classic-editor.png)
+![New build pipeline using classic editor](/images/vsts/latest/userguide/images/use-classic-editor.png)
 
 ![New build pipeline based on ASP.NET Core (.NET Framework) template](images/choose-template.png)
 
