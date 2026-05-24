@@ -174,10 +174,16 @@ can be up to 500 characters.
 | spark.shuffle.file.buffer                      | Sets the size of the in-memory buffer for each shuffle file output stream, in<br>KiB unless otherwise specified. These buffers reduce the number of disk seeks<br>and system calls made in creating intermediate shuffle files.                                                                                              | 32k                              |
 | spark.reducer.maxSizeInFlight                  | Sets the maximum size of map outputs to fetch simultaneously from each reduce<br>task, in MiB unless otherwise specified. Since each output requires a buffer to<br>receive it, this represents a fixed memory overhead per reduce task, so keep it<br>small unless you have a large amount of memory.                       | 48m                              |
 
-9. Choose **Run**.
+9. (Optional) For **Compute payer**, select the collaboration member
+   who pays for job compute costs.
+
+###### Note
+
+If there is only one payer candidate for job compute in the collaboration, it
+defaults to that payer. 10. Choose **Run**.
 
 ###### Note
 
 You can't run the job if the member who can receive results hasn’t configured the
-job results settings. 10. Continue to adjust parameters and run your job again, or choose the
+job results settings. 11. Continue to adjust parameters and run your job again, or choose the
 **+** button to start a new job in a new tab.

@@ -52,7 +52,13 @@ Enter the following information:
      environment variables necessary to access the inference job
      container image.
 
-7. Choose **Start inference job**.
+7. (Optional) For **Model inference payer**, select the
+   collaboration member who pays for model inference costs.
+
+###### Note
+
+If there is only one payer candidate for model inference in
+the collaboration, it defaults to that payer. 8. Choose **Start inference job**.
 
 The results are exported to the following path in the Amazon S3
 location that was specified in the ML configuration:

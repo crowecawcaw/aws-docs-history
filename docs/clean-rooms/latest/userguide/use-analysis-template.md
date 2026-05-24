@@ -152,10 +152,16 @@ can be up to 500 characters.
 | spark.io.compression.codec           | Sets the codec used to compress internal data such as RDD partitions, event log,<br>broadcast variables, and shuffle outputs. Supported values: lz4, snappy, zstd, gzip.                                                                                                                                                     | snappy                              |
 | spark.sql.session.timeZone           | Defines the session time zone for handling timestamps in string literals<br>and Java object conversion. Accepts:<br>• Region-based IDs in area/city format (such as<br>America/Los_Angeles)<br>• Zone offsets in (+/-)HH, (+/-)HH:mm, or (+/-)HH:mm:ss format (such as<br>-08 or +01:00)<br>• UTC or Z as aliases for +00:00 | UTC                                 |
 
-9. Choose **Run**.
+9. (Optional) For **Compute payer**, select the collaboration member
+   who pays for query compute costs.
+
+###### Note
+
+If there is only one payer candidate for query compute in the collaboration, it
+defaults to that payer. 10. Choose **Run**.
 
 ###### Note
 
 You can't run the query if the member who can receive results hasn’t configured
-the query results settings. 10. Continue to adjust parameters and run your query again, or choose the
+the query results settings. 11. Continue to adjust parameters and run your query again, or choose the
 **+** button to start a new query in a new tab.

@@ -117,7 +117,13 @@ Console
     3. For **Volume size in GB**, enter the ML
        storage volume size.
 
-14. Choose **Create trained model**.
+14. (Optional) For **Model training payer**, select the
+    collaboration member who pays for model training costs.
+
+###### Note
+
+If there is only one payer candidate for model training in
+the collaboration, it defaults to that payer. 15. Choose **Create trained model**.
 
 API
 To create a trained model (API)

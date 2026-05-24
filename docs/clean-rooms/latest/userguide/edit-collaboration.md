@@ -196,7 +196,7 @@ For more information, see [Add a new member to a collaboration](change-requests.
 
 ## Edit existing member abilities
 
-For more information, see [Update existing member abilities](change-requests.md#update-member-abilities-change-request "change-requests.md#update-member-abilities-change-request").
+For more information, see [Update member abilities](change-requests.md#update-member-abilities-change-request "change-requests.md#update-member-abilities-change-request").
 
 ## Edit collaboration auto-approval settings
 

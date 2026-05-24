@@ -216,7 +216,18 @@ Console
    secret with a custom KMS key** to specify your own
    KMS key and related information. Otherwise, Clean Rooms ML will manage
    the encryption.
-10. Choose **Create ML input channel**.
+10. (Optional) For **Compute payer**, select the
+    collaboration member who pays for query compute costs.
+
+###### Note
+
+If there is only one payer candidate for query compute in
+the collaboration, it defaults to that payer. 11. (Optional) For **Synthetic data generation payer**, select the
+collaboration member who pays for synthetic data generation costs.
+
+###### Note
+
+This option appears when the ML input channel uses an analysis template configured for synthetic data output. If there is only one payer candidate for synthetic data generation in the collaboration, it defaults to that payer. 12. Choose **Create ML input channel**.
 
 It will take a few minutes to create the ML input channel. You can
 see a list of ML input channels on the **ML

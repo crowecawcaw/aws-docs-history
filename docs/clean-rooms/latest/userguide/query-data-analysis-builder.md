@@ -102,12 +102,18 @@ If you want to see all of the aggregation metrics, skip to step 9.
    3. To edit the SQL code, choose **Edit in SQL code
       editor**.
 
-7. Choose **Run**.
+7. (Optional) For **Compute payer**, select the collaboration member
+   who pays for query compute costs.
+
+###### Note
+
+If there is only one payer candidate for query compute in the collaboration, it
+defaults to that payer. 8. Choose **Run**.
 
 ###### Note
 
 You can't run the query if the member who can receive results hasn’t configured
-the query results settings. 8. Continue to adjust parameters and run your query again, or choose the
+the query results settings. 9. Continue to adjust parameters and run your query again, or choose the
 **+** button to start a new query in a new tab.
 
 ###### Note
@@ -167,12 +173,18 @@ analysis rule.
    3. To edit the SQL code, choose **Edit in SQL code
       editor**.
 
-7. Choose **Run**.
+7. (Optional) For **Compute payer**, select the collaboration member
+   who pays for query compute costs.
+
+###### Note
+
+If there is only one payer candidate for query compute in the collaboration, it
+defaults to that payer. 8. Choose **Run**.
 
 ###### Note
 
 You can't run the query if the member who can receive results hasn’t configured
-the query results settings 8. Continue to adjust parameters and run your query again, or choose the
+the query results settings 9. Continue to adjust parameters and run your query again, or choose the
 **+** button to start a new query in a new tab.
 
 ###### Note
