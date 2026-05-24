@@ -36,6 +36,7 @@ For examples of CloudTrail log entries of requests to AWS KMS from attested plat
 - [GenerateDataKeyWithoutPlaintext](ct-generatedatakeyplaintext.md "ct-generatedatakeyplaintext.md")
 - [GenerateMac](ct-generatemac.md "ct-generatemac.md")
 - [GenerateRandom](ct-generaterandom.md "ct-generaterandom.md")
+- [GetKeyLastUsage](ct-getkeylastusage.md "ct-getkeylastusage.md")
 - [GetKeyPolicy](ct-getkeypolicy.md "ct-getkeypolicy.md")
 - [GetKeyRotationStatus](ct-getkeyrotationstatus.md "ct-getkeyrotationstatus.md")
 - [GetParametersForImport](ct-getparametersforimport.md "ct-getparametersforimport.md")

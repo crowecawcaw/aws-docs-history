@@ -7,7 +7,7 @@ the same effect as changing the key material in an existing KMS key. The process
 replacing one KMS key with another is known as _manual key
 rotation_.
 
-![Diagram showing manual key rotation process with application, old key, and new key.](images/key-rotation-manual.png)
+![Application with key rotated manually from one key ID to a different key ID.](images/key-rotation-manual.png)
 Manual rotation is a good choice when you want to rotate KMS keys that are not
 eligible for automatic or on-demand key rotation, such as asymmetric KMS keys, HMAC
 KMS keys, and KMS keys in [custom key

@@ -45,7 +45,7 @@ the name of the one of the aliases. Choosing the alias summary takes you
 directly to the **Aliases** tab on the key details
 page.
 
-![](images/console-key-detail-view-symmetric-sym.png)
+![KMS key details page showing general configuration and cryptographic settings.](images/console-key-detail-view-symmetric-sym.png)
 The following list describes the fields in the detailed display, including field
 in the tabs. Some of these fields are also available as columns in the table
 display.

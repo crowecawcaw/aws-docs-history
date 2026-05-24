@@ -3,10 +3,16 @@
 AWS KMS recommends the following best practices when creating, using, and managing
 grants.
 
-- Limit the permissions in the grant to those that the grantee principal requires. Use
-  the principle of [least privileged access](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege").
-- Use a specific grantee principal, such as an IAM role, and give the grantee principal
-  permission to use only the API operations that they require.
+- Limit the permissions in the grant to those that the grantee requires. Use the
+  principle of [least
+  privileged access](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege"). Be as specific as possible in all grant parameters:
+  - Specify only the [grant operations](grants.md#terms-grant-operations "grants.md#terms-grant-operations")
+    that the grantee needs.
+  - Use a specific [grantee principal](grants.md#terms-grantee-principal "grants.md#terms-grantee-principal"),
+    such as an IAM role, or a specific [grantee service principal](grants.md#terms-grantee-service-principal "grants.md#terms-grantee-service-principal").
+  - Use [grant constraints](grants.md#terms-grant-constraint "grants.md#terms-grant-constraint") to further
+    restrict the grant.
+
 - Use the encryption context [grant
   constraints](grants.md#terms-grant-constraint "grants.md#terms-grant-constraint") to ensure that callers are using the KMS key for the intended
   purpose. For details about how to use the encryption context in a request to secure your
@@ -17,28 +23,22 @@ grants.
 ###### Tip
 
 Use the [EncryptionContextEqual](create-grant-overview.md#grant-constraints "create-grant-overview.md#grant-constraints") grant
-constraint whenever possible. The [EncryptionContextSubset](create-grant-overview.md#grant-constraints "create-grant-overview.md#grant-constraints") grant constraint is more difficult to use correctly.
-If you need to use it, read the documentation carefully and test the grant constraint to
-make sure it works as intended.
+constraint whenever possible. The [EncryptionContextSubset](create-grant-overview.md#grant-constraints "create-grant-overview.md#grant-constraints")
+grant constraint is more difficult to use correctly. If you need to use it, read the documentation
+carefully and test the grant constraint to make sure it works as intended.
 
-- Delete duplicate grants. Duplicate grants have the same key ARN, API actions, grantee
-  principal, encryption context, and name. If you retire or revoke the original grant but
-  leave the duplicates, the leftover duplicate grants constitute unintended escalations of
-  privilege. To avoid duplicating grants when retrying a `CreateGrant` request,
-  use the [Name parameter](create-grant-overview.md#grant-create "create-grant-overview.md#grant-create"). To detect
-  duplicate grants, use the [ListGrants](../APIReference/API_ListGrants.md "../APIReference/API_ListGrants.md")
-  operation. If you accidentally create a duplicate grant, retire or revoke it as soon as
-  possible.
+- When creating grants for supported AWS services, use the [SourceArn grant constraint](create-grant-overview.md#terms-source-arn-constraint "create-grant-overview.md#terms-source-arn-constraint") to restrict the grant
+  to a specific resource.
+- Be aware of duplicate grants. Duplicate grants have the same parameters except for
+  the grant name. Needless duplication can cause you to reach the [Grants per KMS key quota](resource-limits.md#grants-per-key "resource-limits.md#grants-per-key"). To avoid duplicating grants when retrying a
+  `CreateGrant` request, use the [Name
+  parameter](create-grant-overview.md#grant-create "create-grant-overview.md#grant-create"). To detect duplicate grants, use the [ListGrants](../APIReference/API_ListGrants.md "../APIReference/API_ListGrants.md") operation.
 
 ###### Note
 
-Grants for [AWS managed keys](concepts.md#aws-managed-key "concepts.md#aws-managed-key") might look like
-duplicates but have different grantee principals.
-
-The `GranteePrincipal` field in the `ListGrants` response usually
-contains the grantee principal of the grant. However, when the grantee principal in the
-grant is an AWS service, the `GranteePrincipal` field contains the [service
-principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services"), which might represent several different grantee principals.
+Some AWS services create grants for different resources that might appear to be
+duplicates. These grants have lifecycles tied to the different resources. Deleting
+grants created by an AWS service can be disruptive and requires extra precaution.
 
 - Remember that grants do not automatically expire. [Retire
   or revoke the grant](grant-delete.md "grant-delete.md") as soon as the permission is no longer needed. Grants that

@@ -8,7 +8,12 @@ useful for specific use cases. For more information, see [Grants in AWS KMS](gra
 
 To get a list of grants for a KMS key, use the AWS KMS [ListGrants](../APIReference/API_ListGrants.md "../APIReference/API_ListGrants.md") operation. You can examine the
 grants for a KMS key to determine who or what currently has access to use the KMS key via those
-grants. For example, the following is a JSON representation of a grant that was obtained from
+grants. For grants created with `GranteePrincipal`, look for the
+`"GranteePrincipal"` field in `ListGrants` response. For grants created with
+`GranteeServicePrincipal`, look for the `"GranteeServicePrincipal"`
+field in `ListGrants` response.
+
+For example, the following is a JSON representation of a grant that was obtained from
 the [list-grants](../../../cli/latest/reference/kms/list-grants.md "../../../cli/latest/reference/kms/list-grants.md") command in the
 AWS CLI.
 
@@ -47,5 +52,26 @@ AWS CLI. In the following example, the grantee principal is another AWS account.
   "GrantId": "f271e8328717f8bde5d03f4981f06a6b3fc18bcae2da12ac38bd9186e7925d11",
   "IssuingAccount": "arn:aws:iam::111122223333:root",
   "CreationDate": 1.444151269E9
+}]}
+```
+
+The following example shows a grant created with `GranteeServicePrincipal`.
+Notice that the response includes a `GranteeServicePrincipal` field instead of
+`GranteePrincipal`, and the `Constraints` field contains a
+`SourceArn` value that restricts the grant to a specific AWS resource.
+
+```
+{"Grants": [{
+  "Operations": ["Encrypt", "Decrypt", "GenerateDataKey", "DescribeKey"],
+  "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+  "Name": "",
+  **"GranteeServicePrincipal": "`service-name`.amazonaws.com",**
+  "GrantId": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
+  "IssuingAccount": "arn:aws:iam::111122223333:root",
+  "RetiringServicePrincipal": "`service-name`.amazonaws.com",
+  **"Constraints": {
+ "SourceArn": "arn:aws:dynamodb:us-east-1:111122223333:table/ExampleTable"
+ },**
+  "CreationDate": 1.718567315E9
 }]}
 ```

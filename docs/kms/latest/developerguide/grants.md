@@ -1,7 +1,7 @@
 # Grants in AWS KMS
 
-A _grant_ is a policy instrument that allows [AWS principals](../../../IAM/latest/UserGuide/intro-structure.md#intro-structure-principal "../../../IAM/latest/UserGuide/intro-structure.md#intro-structure-principal") to
-use KMS keys in cryptographic operations. It also can let them view a KMS key
+A _grant_ is a policy instrument that allows [AWS principals](../../../IAM/latest/UserGuide/intro-structure.md#intro-structure-principal "../../../IAM/latest/UserGuide/intro-structure.md#intro-structure-principal")
+or AWS [service principals](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services") to use KMS keys in cryptographic operations. It also can let them view a KMS key
 (`DescribeKey`) and create and manage grants. When authorizing access to a
 KMS key, grants are considered along with [key policies](key-policies.md "key-policies.md") and
 [IAM policies](iam-policies.md "iam-policies.md"). Grants are often used for temporary
@@ -21,9 +21,10 @@ the KMS key provided that all conditions specified in the grant are met.
 - Each grant allows access to exactly one KMS key. You can create a grant for a
   KMS key in a different AWS account.
 - A grant can allow access to a KMS key, but not deny access.
-- Each grant has one [grantee principal](#terms-grantee-principal "#terms-grantee-principal"). The
-  grantee principal can represent one or more identities in the same AWS account as the
-  KMS key or in a different account.
+- Each grant has one grantee, which can be either a [grantee principal](#terms-grantee-principal "#terms-grantee-principal") (an AWS IAM identity) or a
+  [grantee service principal](#terms-grantee-service-principal "#terms-grantee-service-principal") (an AWS
+  service principal). You must specify either `GranteePrincipal` or
+  `GranteeServicePrincipal`, but not both.
 - A grant can only allow [grant operations](#terms-grant-operations "#terms-grant-operations").
   The grant operations must be supported by the KMS key in the grant. If you specify an
   unsupported operation, the [CreateGrant](../APIReference/API_CreateGrant.md "../APIReference/API_CreateGrant.md") request fails with a `ValidationError` exception.
@@ -49,7 +50,7 @@ the KMS key provided that all conditions specified in the grant are met.
   principals to view the KMS key, use it in cryptographic operations, and create and retire
   grants. For details, see [Grant operations](#terms-grant-operations "#terms-grant-operations"). You
   can also use [grant constraints](create-grant-overview.md#grant-constraints "create-grant-overview.md#grant-constraints") to limit the
-  permissions in a grant for a symmetric encryption key.
+  permissions in a grant.
 - Principals can get permission to create grants from a key policy or IAM policy.
   Principals who get `kms:CreateGrant` permission from a policy can create grants
   for any [grant operation](#terms-grant-operations "#terms-grant-operations") on the KMS key.
@@ -66,9 +67,19 @@ uses.
 
 **Grant constraint**
 
-A condition that limits the permissions in the grant. Currently, AWS KMS supports
-grant constraints based on the [encryption context](encrypt_context.md "encrypt_context.md")
-in the request for a cryptographic operation. For details, see [Using grant constraints](create-grant-overview.md#grant-constraints "create-grant-overview.md#grant-constraints").
+A condition that limits the permissions in a grant. AWS KMS supports two types of
+grant constraints:
+
+- **Encryption context constraint** — Restricts
+  permissions based on the [encryption context](encrypt_context.md "encrypt_context.md")
+  included in the request for a cryptographic operation. This constraint works only with
+  symmetric encryption KMS keys.
+- **SourceArn constraint** — Restricts
+  grant permissions to requests made on behalf of a specific AWS resource. This is
+  effectively putting an [aws:SourceArn](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn") global condition key into the grant. This constraint
+  works with _all types_ of KMS keys.
+
+For details, see [Using grant constraints](create-grant-overview.md#grant-constraints "create-grant-overview.md#grant-constraints").
 
 **Grant ID**
 
@@ -170,8 +181,7 @@ For details, see [Using a grant token](using-grant-token.md "using-grant-token.m
 
 **Grantee principal**
 
-The identities that get the permissions specified in the grant. Each grant has one
-grantee principal, but the grantee principal can represent multiple identities.
+An AWS principal (IAM identity) that gets the permissions specified in the grant.
 
 The grantee principal can be any AWS principal, including an AWS account (root),
 an [IAM user](../../../IAM/latest/UserGuide/id_users.md "../../../IAM/latest/UserGuide/id_users.md"), an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md"), a [federated role or user](../../../IAM/latest/UserGuide/id_roles_providers.md "../../../IAM/latest/UserGuide/id_roles_providers.md"), or an
@@ -179,11 +189,36 @@ assumed role user. The grantee principal can be in the same account as the KMS k
 a different account. However, the grantee principal cannot be a [service principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services"), an [IAM
 group](../../../IAM/latest/UserGuide/id_groups.md "../../../IAM/latest/UserGuide/id_groups.md"), or an [AWS organization](../../../organizations/latest/userguide.md "../../../organizations/latest/userguide.md").
 
+To specify the grantee principal, use the `GranteePrincipal` parameter
+in the [CreateGrant](../APIReference/API_CreateGrant.md "../APIReference/API_CreateGrant.md") request.
+
 ###### Note
 
 IAM best practices discourage the use of IAM users with long-term credentials. Whenever
 possible, use IAM roles, which provide temporary credentials. For details,
 see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
+
+**Grantee service principal**
+
+An AWS [service principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services") that gets the permissions specified in the grant. To
+specify the grantee service principal, use the `GranteeServicePrincipal`
+parameter in the [CreateGrant](../APIReference/API_CreateGrant.md "../APIReference/API_CreateGrant.md")
+request.
+
+When you create a grant with a `GranteeServicePrincipal`, you must also
+include a [SourceArn grant
+constraint](create-grant-overview.md#terms-source-arn-constraint "create-grant-overview.md#terms-source-arn-constraint"). The `SourceArn` constraint ensures that the service
+principal can use the KMS key only when the request is made on behalf of the specified
+AWS resource.
+
+When you specify a `GranteeServicePrincipal`, you must also specify
+either a [RetiringPrincipal](#terms-retiring-principal "#terms-retiring-principal") or
+a [RetiringServicePrincipal](#terms-retiring-service-principal "#terms-retiring-service-principal").
+
+###### Note
+
+You must specify either [GranteePrincipal](#terms-grantee-principal "#terms-grantee-principal") or [GranteeServicePrincipal](#terms-grantee-service-principal "#terms-grantee-service-principal"),
+but not both.
 
 **Retire (a grant)**
 
@@ -201,17 +236,26 @@ principal can be any AWS principal, including AWS accounts, IAM users, IAM
 roles, federated users, and assumed role users. The retiring principal can be in the
 same account as the KMS key or a different account.
 
+To specify the retiring principal, use the `RetiringPrincipal` parameter
+in the [CreateGrant](../APIReference/API_CreateGrant.md "../APIReference/API_CreateGrant.md") request.
+
 ###### Note
 
 IAM best practices discourage the use of IAM users with long-term credentials. Whenever
 possible, use IAM roles, which provide temporary credentials. For details,
 see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-In addition to retiring principal specified in the grant, a grant can be retired by
-the AWS account in which the grant was created. If the grant allows the
-`RetireGrant` operation, the [grantee principal](#terms-grantee-principal "#terms-grantee-principal") can retire the grant. Also, the AWS account or an
-AWS account that is the retiring principal can delegate the permission to retire a
-grant to an IAM principal in the same AWS account. For details, see [Retiring and revoking grants](grant-delete.md "grant-delete.md").
+**Retiring service principal**
+
+An AWS [service principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services") that has permission to [retire a grant](#terms-retire-grant "#terms-retire-grant"). To specify the retiring service
+principal, use the `RetiringServicePrincipal` parameter in the [CreateGrant](../APIReference/API_CreateGrant.md "../APIReference/API_CreateGrant.md") request.
+
+###### Note
+
+You can specify either [RetiringPrincipal](#terms-retiring-principal "#terms-retiring-principal") or [RetiringServicePrincipal](#terms-retiring-service-principal "#terms-retiring-service-principal"),
+but not both.
+
+For more information about who can retire a grant, see [Retiring and revoking grants](grant-delete.md "grant-delete.md").
 
 **Revoke (a grant)**
 

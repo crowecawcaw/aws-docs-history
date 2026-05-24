@@ -112,6 +112,9 @@ set operators, see [Using multiple keys and values](../../../IAM/latest/UserGuid
 - [kms:ResourceAliases](#conditions-kms-resource-aliases "#conditions-kms-resource-aliases")
 - [kms:ReplicaRegion](#conditions-kms-replica-region "#conditions-kms-replica-region")
 - [kms:RetiringPrincipal](#conditions-kms-retiring-principal "#conditions-kms-retiring-principal")
+- [kms:GrantConstraintSourceArn](#conditions-kms-grant-constraint-source-arn "#conditions-kms-grant-constraint-source-arn")
+- [kms:GranteeServicePrincipal](#conditions-kms-grantee-service-principal "#conditions-kms-grantee-service-principal")
+- [kms:RetiringServicePrincipal](#conditions-kms-retiring-service-principal "#conditions-kms-retiring-service-principal")
 - [kms:RotationPeriodInDays](#conditions-kms-rotation-period-in-days "#conditions-kms-rotation-period-in-days")
 - [kms:ScheduleKeyDeletionPendingWindowInDays](#conditions-kms-schedule-key-deletion-pending-window-in-days "#conditions-kms-schedule-key-deletion-pending-window-in-days")
 - [kms:SigningAlgorithm](#conditions-kms-signing-algorithm "#conditions-kms-signing-algorithm")
@@ -1084,6 +1087,13 @@ operations that the grant permit only when a particular [encryption context](enc
 `EncryptionContextEquals` or `EncryptionContextSubset`. You can use
 this condition key to check that the request contains one type or the other.
 
+###### Note
+
+The `kms:GrantConstraintType` condition key only evaluates encryption
+context grant constraints (`EncryptionContextEquals` and `EncryptionContextSubset`).
+To control access based on the `SourceArn`
+grant constraint, use the [kms:GrantConstraintSourceArn](#conditions-kms-grant-constraint-source-arn "#conditions-kms-grant-constraint-source-arn") condition key.
+
 ###### Important
 
 Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.
@@ -1113,10 +1123,13 @@ statement in a key policy.
 
 - [kms:EncryptionContext:context-key](#conditions-kms-encryption-context "#conditions-kms-encryption-context")
 - [kms:EncryptionContextKeys](#conditions-kms-encryption-context-keys "#conditions-kms-encryption-context-keys")
+- [kms:GrantConstraintSourceArn](#conditions-kms-grant-constraint-source-arn "#conditions-kms-grant-constraint-source-arn")
+- [kms:GranteePrincipal](#conditions-kms-grantee-principal "#conditions-kms-grantee-principal")
+- [kms:GranteeServicePrincipal](#conditions-kms-grantee-service-principal "#conditions-kms-grantee-service-principal")
 - [kms:GrantIsForAWSResource](#conditions-kms-grant-is-for-aws-resource "#conditions-kms-grant-is-for-aws-resource")
 - [kms:GrantOperations](#conditions-kms-grant-operations "#conditions-kms-grant-operations")
-- [kms:GranteePrincipal](#conditions-kms-grantee-principal "#conditions-kms-grantee-principal")
 - [kms:RetiringPrincipal](#conditions-kms-retiring-principal "#conditions-kms-retiring-principal")
+- [kms:RetiringServicePrincipal](#conditions-kms-retiring-service-principal "#conditions-kms-retiring-service-principal")
 
 ## kms:GrantIsForAWSResource
 
@@ -1153,10 +1166,13 @@ specified principal.
 
 **See also**
 
+- [kms:GrantConstraintSourceArn](#conditions-kms-grant-constraint-source-arn "#conditions-kms-grant-constraint-source-arn")
 - [kms:GrantConstraintType](#conditions-kms-grant-constraint-type "#conditions-kms-grant-constraint-type")
-- [kms:GrantOperations](#conditions-kms-grant-operations "#conditions-kms-grant-operations")
 - [kms:GranteePrincipal](#conditions-kms-grantee-principal "#conditions-kms-grantee-principal")
+- [kms:GranteeServicePrincipal](#conditions-kms-grantee-service-principal "#conditions-kms-grantee-service-principal")
+- [kms:GrantOperations](#conditions-kms-grant-operations "#conditions-kms-grant-operations")
 - [kms:RetiringPrincipal](#conditions-kms-retiring-principal "#conditions-kms-retiring-principal")
+- [kms:RetiringServicePrincipal](#conditions-kms-retiring-service-principal "#conditions-kms-retiring-service-principal")
 
 ## kms:GrantOperations
 
@@ -1218,10 +1234,13 @@ operations, such as `Decrypt` or `ReEncryptFrom`.
 
 **See also**
 
+- [kms:GrantConstraintSourceArn](#conditions-kms-grant-constraint-source-arn "#conditions-kms-grant-constraint-source-arn")
 - [kms:GrantConstraintType](#conditions-kms-grant-constraint-type "#conditions-kms-grant-constraint-type")
 - [kms:GrantIsForAWSResource](#conditions-kms-grant-is-for-aws-resource "#conditions-kms-grant-is-for-aws-resource")
 - [kms:GranteePrincipal](#conditions-kms-grantee-principal "#conditions-kms-grantee-principal")
+- [kms:GranteeServicePrincipal](#conditions-kms-grantee-service-principal "#conditions-kms-grantee-service-principal")
 - [kms:RetiringPrincipal](#conditions-kms-retiring-principal "#conditions-kms-retiring-principal")
+- [kms:RetiringServicePrincipal](#conditions-kms-retiring-service-principal "#conditions-kms-retiring-service-principal")
 
 ## kms:GranteePrincipal
 
@@ -1261,10 +1280,13 @@ grant is the `LimitedAdminRole`.
 
 **See also**
 
+- [kms:GrantConstraintSourceArn](#conditions-kms-grant-constraint-source-arn "#conditions-kms-grant-constraint-source-arn")
 - [kms:GrantConstraintType](#conditions-kms-grant-constraint-type "#conditions-kms-grant-constraint-type")
 - [kms:GrantIsForAWSResource](#conditions-kms-grant-is-for-aws-resource "#conditions-kms-grant-is-for-aws-resource")
 - [kms:GrantOperations](#conditions-kms-grant-operations "#conditions-kms-grant-operations")
+- [kms:GranteeServicePrincipal](#conditions-kms-grantee-service-principal "#conditions-kms-grantee-service-principal")
 - [kms:RetiringPrincipal](#conditions-kms-retiring-principal "#conditions-kms-retiring-principal")
+- [kms:RetiringServicePrincipal](#conditions-kms-retiring-service-principal "#conditions-kms-retiring-service-principal")
 
 ## kms:KeyAgreementAlgorithm
 
@@ -2035,10 +2057,138 @@ KMS key. The `kms:RetiringPrincipal` condition key restricts the permission to
 
 **See also**
 
+- [kms:GrantConstraintSourceArn](#conditions-kms-grant-constraint-source-arn "#conditions-kms-grant-constraint-source-arn")
 - [kms:GrantConstraintType](#conditions-kms-grant-constraint-type "#conditions-kms-grant-constraint-type")
+- [kms:GranteePrincipal](#conditions-kms-grantee-principal "#conditions-kms-grantee-principal")
+- [kms:GranteeServicePrincipal](#conditions-kms-grantee-service-principal "#conditions-kms-grantee-service-principal")
 - [kms:GrantIsForAWSResource](#conditions-kms-grant-is-for-aws-resource "#conditions-kms-grant-is-for-aws-resource")
 - [kms:GrantOperations](#conditions-kms-grant-operations "#conditions-kms-grant-operations")
+- [kms:RetiringServicePrincipal](#conditions-kms-retiring-service-principal "#conditions-kms-retiring-service-principal")
+
+## kms:GrantConstraintSourceArn
+
+| AWS KMS condition keys         | Condition type | Value type    | API operations | Policy type                   |
+| ------------------------------ | -------------- | ------------- | -------------- | ----------------------------- |
+| `kms:GrantConstraintSourceArn` | ARN            | Single-valued | `CreateGrant`  | Key policies and IAM policies |
+
+You can use this condition key to control access to the [CreateGrant](../APIReference/API_CreateGrant.md "../APIReference/API_CreateGrant.md") operation based on the
+`SourceArn` value in the [Constraints](../APIReference/API_CreateGrant.md#KMS-CreateGrant-request-Constraints "../APIReference/API_CreateGrant.md#KMS-CreateGrant-request-Constraints") parameter of the request. The `SourceArn` grant
+constraint is effectively putting an [aws:SourceArn](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn") global condition key into the grant.
+
+The following example key policy statement uses the
+`kms:GrantConstraintSourceArn` condition key to allow creating grants for a
+KMS key only when the `SourceArn` constraint in the grant matches a specific
+DynamoDB table ARN pattern.
+
+```
+{
+  "Effect": "Allow",
+  "Principal": {
+    "AWS": "arn:aws:iam::111122223333:role/ExampleRole"
+  },
+  "Action": "kms:CreateGrant",
+  "Resource": "*",
+  "Condition": {
+    "ArnLike": {
+      **"kms:GrantConstraintSourceArn": "arn:aws:dynamodb:us-east-1:111122223333:table/ExampleTable\*"**
+    }
+  }
+}
+```
+
+**See also**
+
+- [kms:GrantConstraintType](#conditions-kms-grant-constraint-type "#conditions-kms-grant-constraint-type")
 - [kms:GranteePrincipal](#conditions-kms-grantee-principal "#conditions-kms-grantee-principal")
+- [kms:GranteeServicePrincipal](#conditions-kms-grantee-service-principal "#conditions-kms-grantee-service-principal")
+- [kms:GrantIsForAWSResource](#conditions-kms-grant-is-for-aws-resource "#conditions-kms-grant-is-for-aws-resource")
+- [kms:GrantOperations](#conditions-kms-grant-operations "#conditions-kms-grant-operations")
+- [kms:RetiringPrincipal](#conditions-kms-retiring-principal "#conditions-kms-retiring-principal")
+- [kms:RetiringServicePrincipal](#conditions-kms-retiring-service-principal "#conditions-kms-retiring-service-principal")
+
+## kms:GranteeServicePrincipal
+
+| AWS KMS condition keys        | Condition type | Value type    | API operations | Policy type                   |
+| ----------------------------- | -------------- | ------------- | -------------- | ----------------------------- |
+| `kms:GranteeServicePrincipal` | String         | Single-valued | `CreateGrant`  | Key policies and IAM policies |
+
+You can use this condition key to control access to the [CreateGrant](../APIReference/API_CreateGrant.md "../APIReference/API_CreateGrant.md") operation based on the value
+of the [GranteeServicePrincipal](../APIReference/API_CreateGrant.md#KMS-CreateGrant-request-GranteeServicePrincipal "../APIReference/API_CreateGrant.md#KMS-CreateGrant-request-GranteeServicePrincipal") parameter in the request. The value is the AWS [service
+principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services") specified as the grantee of the grant (for example,
+`service-name.amazonaws.com`).
+
+The following example key policy statement uses the
+`kms:GranteeServicePrincipal` condition key to allow creating grants for a
+KMS key only when the grantee service principal in the grant is
+``service-name`.amazonaws.com`.
+
+```
+{
+  "Effect": "Allow",
+  "Principal": {
+    "AWS": "arn:aws:iam::111122223333:role/ExampleRole"
+  },
+  "Action": "kms:CreateGrant",
+  "Resource": "*",
+  "Condition": {
+    "StringEquals": {
+      **"kms:GranteeServicePrincipal": "`service-name`.amazonaws.com"**
+    }
+  }
+}
+```
+
+**See also**
+
+- [kms:GrantConstraintSourceArn](#conditions-kms-grant-constraint-source-arn "#conditions-kms-grant-constraint-source-arn")
+- [kms:GrantConstraintType](#conditions-kms-grant-constraint-type "#conditions-kms-grant-constraint-type")
+- [kms:GranteePrincipal](#conditions-kms-grantee-principal "#conditions-kms-grantee-principal")
+- [kms:GrantIsForAWSResource](#conditions-kms-grant-is-for-aws-resource "#conditions-kms-grant-is-for-aws-resource")
+- [kms:GrantOperations](#conditions-kms-grant-operations "#conditions-kms-grant-operations")
+- [kms:RetiringPrincipal](#conditions-kms-retiring-principal "#conditions-kms-retiring-principal")
+- [kms:RetiringServicePrincipal](#conditions-kms-retiring-service-principal "#conditions-kms-retiring-service-principal")
+
+## kms:RetiringServicePrincipal
+
+| AWS KMS condition keys         | Condition type | Value type    | API operations | Policy type                   |
+| ------------------------------ | -------------- | ------------- | -------------- | ----------------------------- |
+| `kms:RetiringServicePrincipal` | String         | Single-valued | `CreateGrant`  | Key policies and IAM policies |
+
+You can use this condition key to control access to the [CreateGrant](../APIReference/API_CreateGrant.md "../APIReference/API_CreateGrant.md") operation based on the value
+of the [RetiringServicePrincipal](../APIReference/API_CreateGrant.md#KMS-CreateGrant-request-RetiringServicePrincipal "../APIReference/API_CreateGrant.md#KMS-CreateGrant-request-RetiringServicePrincipal") parameter in the request. The value is the AWS [service
+principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services") specified as the retiring principal of the grant (for example,
+`service-name.amazonaws.com`).
+
+The following example key policy statement uses the
+`kms:RetiringServicePrincipal` condition key to allow creating grants for a
+KMS key only when the retiring service principal in the grant is
+``service-name`.amazonaws.com`.
+
+```
+{
+  "Effect": "Allow",
+  "Principal": {
+    "AWS": "arn:aws:iam::111122223333:role/ExampleRole"
+  },
+  "Action": "kms:CreateGrant",
+  "Resource": "*",
+  "Condition": {
+    "StringEquals": {
+      **"kms:RetiringServicePrincipal": "`service-name`.amazonaws.com"**
+    }
+  }
+}
+```
+
+**See also**
+
+- [kms:GrantConstraintSourceArn](#conditions-kms-grant-constraint-source-arn "#conditions-kms-grant-constraint-source-arn")
+- [kms:GrantConstraintType](#conditions-kms-grant-constraint-type "#conditions-kms-grant-constraint-type")
+- [kms:GranteePrincipal](#conditions-kms-grantee-principal "#conditions-kms-grantee-principal")
+- [kms:GranteeServicePrincipal](#conditions-kms-grantee-service-principal "#conditions-kms-grantee-service-principal")
+- [kms:GrantIsForAWSResource](#conditions-kms-grant-is-for-aws-resource "#conditions-kms-grant-is-for-aws-resource")
+- [kms:GrantOperations](#conditions-kms-grant-operations "#conditions-kms-grant-operations")
+- [kms:RetiringPrincipal](#conditions-kms-retiring-principal "#conditions-kms-retiring-principal")
 
 ## kms:RotationPeriodInDays
 

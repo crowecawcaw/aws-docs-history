@@ -59,12 +59,10 @@ the following actions:
 
 ## KMS key grants
 
-In addition to IAM and key policies, AWS KMS supports [grants](grants.md "grants.md"). Grants provide a flexible and powerful way to delegate permissions. You can
-use grants to issue time-bound KMS key access to IAM principals in your AWS account, or
-in other AWS accounts. We recommend issuing time-bound access if you don't know the names of
-the principals at the time that the policies are created, or if the principals that require
-access frequently change. The [grantee principal](grants.md#terms-grantee-principal "grants.md#terms-grantee-principal")
-can be in the same account as the KMS key or a different account. If the principal and
-KMS key are in different accounts, then you must specify an IAM policy in addition to the
-grant. Grants require additional management because you must call an API to create the grant
-and to retire or revoke the grant when it is no longer needed.
+In addition to IAM and key policies, AWS KMS supports [grants](grants.md "grants.md"). Grants provide a flexible and powerful way to manage which IAM principals
+or AWS service principals can access a key without modifying a key policy. This can include
+use cases where permissions are only necessary for the duration of some other job
+or resource. You call an API to create the grant and to retire or revoke the grant when it
+is no longer needed.
+
+For more information, see [Grants in AWS KMS](grants.md "grants.md").

@@ -98,7 +98,7 @@ For more information about these encryption context condition keys, see [Conditi
 ## Encryption context in grants
 
 When you [create a grant](grants.md "grants.md"), you can include [grant constraints](../APIReference/API_GrantConstraints.md "../APIReference/API_GrantConstraints.md") that
-establish conditions for the grant permissions. AWS KMS supports two grant constraints,
+establish conditions for the grant permissions. AWS KMS supports two encryption context grant constraints,
 `EncryptionContextEquals` and `EncryptionContextSubset`, both
 of which involve the [encryption context](encrypt_context.md "encrypt_context.md") in a
 request for a cryptographic operation. When you use these grant constraints, the

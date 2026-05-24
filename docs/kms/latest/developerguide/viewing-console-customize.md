@@ -35,7 +35,7 @@ downward. You can sort by only one column at a time.
 For example, you can sort KMS keys in ascending order by key ID, instead of
 aliases, which is the default.
 
-![AWS managed keys interface showing sortable columns for Aliases and Key ID.](images/console-sort.png)
+![Aliases column header with filter icon and Key ID column header with sort icon highlighted.](images/console-sort.png)
 
 When you sort KMS keys on the **Customer managed keys** page in
 ascending order by **Key type**, all asymmetric keys are displayed
@@ -68,7 +68,7 @@ For example, to display KMS keys with an alias name that contains
 `aws/e`, and then press `Enter` or `Return` to add
 the filter.
 
-![Search box for AWS managed keys with Aliases filter and example entries.](images/filter-alias.png)
+![Filter box showing aws/e search with dropdown displaying matching aliases such as aws/elasticfilesystem.](images/filter-alias.png)
 
 ### Suggested KMS key table filters
 

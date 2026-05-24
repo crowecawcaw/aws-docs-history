@@ -20,10 +20,15 @@ The grant determines who can retire it. This design allows you to control the
 lifecycle of a grant without changing key policies or IAM policies. Typically, you
 retire a grant when you are done using its permissions.
 
-A grant can be retired by an optional [retiring principal](grants.md#terms-retiring-principal "grants.md#terms-retiring-principal") specified in the grant. The [grantee principal](grants.md#terms-grantee-principal "grants.md#terms-grantee-principal") can also retire the grant,
-but only if they are also a retiring principal or the grant includes the
-`RetireGrant` operation. As a backup, the AWS account in which the grant
-was created can retire the grant.
+A grant can be retired by any of the following:
+
+- The [retiring principal](grants.md#terms-retiring-principal "grants.md#terms-retiring-principal") or
+  [retiring service principal](grants.md#terms-retiring-service-principal "grants.md#terms-retiring-service-principal")
+  specified in the grant.
+- The [grantee principal](grants.md#terms-grantee-principal "grants.md#terms-grantee-principal") or
+  [grantee service principal](grants.md#terms-grantee-service-principal "grants.md#terms-grantee-service-principal"),
+  if the grant includes the `RetireGrant` operation.
+- The AWS account in which the grant was created.
 
 There is a `kms:RetireGrant` permission that can be used in IAM
 policies, but it has limited utility. Principals specified in the grant can retire a

@@ -14,7 +14,7 @@ in the AWS KMS console or by using the [CreateKey](../APIReference/API_CreateKey
 begins with `mrk-`. You can use the `mrk-` prefix to identify MRKs
 programmatically.
 
-![Multi-Region primary key icon with red key symbol and sample key ID format.](images/multi-region-primary-key.png)
+![Key icon with multi-Region primary key label and example key ID starting with mrk- prefix.](images/multi-region-primary-key.png)
 If you choose, you can [replicate](multi-region-keys-overview.md#replicate "multi-region-keys-overview.md#replicate") the multi-Region
 primary key into one or more different AWS Regions in the same [AWS partition](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md"), such as
 Europe (Ireland). When you do, AWS KMS creates a [replica
@@ -25,7 +25,7 @@ and a replica key — that can be used interchangeably.
 You can [create a multi-Region replica
 key](multi-region-keys-replicate.md "multi-region-keys-replicate.md") in the AWS KMS console or by using the [ReplicateKey](../APIReference/API_ReplicateKey.md "../APIReference/API_ReplicateKey.md") API.
 
-![Diagram showing multi-Region primary and replica keys in US East and EU regions with key IDs.](images/multi-region-replica-key.png)
+![Multi-Region primary key in US East and replica key in EU West with KMS ARNs displayed.](images/multi-region-replica-key.png)
 The resulting [multi-Region replica key](multi-region-keys-overview.md#mrk-replica-key "multi-region-keys-overview.md#mrk-replica-key") is a
 fully-functional KMS key with the same [shared
 properties](multi-region-keys-overview.md#mrk-sync-properties "multi-region-keys-overview.md#mrk-sync-properties") as the primary key. In all other respects, it is an independent

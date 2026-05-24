@@ -22,11 +22,11 @@ If the Key ID column doesn't appear in your table, use the procedure
 described in [Customize your console view](viewing-console-customize.md "viewing-console-customize.md") to restore it. You
 can also view the key ID of a KMS key on its details page.
 
-![Customer managed keys table showing Key ID for a single key-test alias.](images/find-key-id-new.png) 5. To find the Amazon Resource Name (ARN) of the KMS key, choose the key ID
+![Customer managed keys table with Key ID column showing alphanumeric key identifier.](images/find-key-id-new.png) 5. To find the Amazon Resource Name (ARN) of the KMS key, choose the key ID
 or alias. The [key ARN](concepts.md#key-id-key-ARN "concepts.md#key-id-key-ARN") appears in the
 **General Configuration** section.
 
-![General configuration section showing key alias, status, and ARN details.](images/find-key-arn.png)
+![General configuration section showing key details with ARN field highlighted.](images/find-key-arn.png)
 To find the [key ID](concepts.md#key-id-key-id "concepts.md#key-id-key-id") and [key ARN](concepts.md#key-id-key-ARN "concepts.md#key-id-key-ARN") of an AWS KMS key, use the [ListKeys](../APIReference/API_ListKeys.md "../APIReference/API_ListKeys.md") operation.
 
 The `ListKeys` operation returns the key ID and Amazon Resource Name
