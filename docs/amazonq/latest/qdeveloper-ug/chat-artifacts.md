@@ -9,6 +9,22 @@ and can expand to full screen. A new prompt library helps you discover useful ex
 To get started, ensure you have the required permissions, and then review the example prompts to get the most out of Amazon Q artifacts.
 For more information, see [Prerequisites](#chat-artifacts-prereqs "#chat-artifacts-prereqs") and [Example prompts](#chat-artifacts-example-prompts "#chat-artifacts-example-prompts").
 
+## What you can do
+
+With Amazon Q artifacts, you can:
+
+- **Generate visualizations for your AWS resources:** When you ask a question
+  about your resources, Amazon Q creates visualizations like tables and charts so you can quickly understand
+  the state of your account resources.
+- **Complete cross-service jobs (preview):** Amazon Q artifacts are available
+  for jobs for most common AWS services such as EC2, RDS, Lambda, and others, to guide you through the
+  steps for provisioning infrastructure, connecting services,
+  and securing applications. For example, when you enter "Connect EC2 instance to an S3 bucket", the
+  retrieved Q artifact enables you to grant permissions to an S3 bucket in your EC2 instance profile
+  and make appropriate bucket policy changes. The permissions needed to use Amazon Q artifacts are described
+  in the example IAM policy [Allow users to use
+  Q artifacts in Amazon Q](id-based-policy-examples-users.md#id-based-policy-examples-allow-artifacts "id-based-policy-examples-users.md#id-based-policy-examples-allow-artifacts").
+
 ## Prerequisites
 
 To view visualizations with Amazon Q see [Allow users to chat with Amazon Q](id-based-policy-examples-users.md#id-based-policy-examples-allow-chat "id-based-policy-examples-users.md#id-based-policy-examples-allow-chat") and [Chatting about your costs](chat-costs.md#cost-chat-getting-started "chat-costs.md#cost-chat-getting-started").

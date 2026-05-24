@@ -296,6 +296,72 @@ JSON
 
 ```
 
+## Allow users to use Q artifacts in Amazon Q (preview)
+
+The following example policy grants permission to use Amazon Q artifacts, which enables you to
+complete multi-service jobs in Amazon Q. This policy includes permissions
+for Amazon Q, IAM, and CloudFormation.
+
+In addition to these permissions, you must have access to the resources you ask about. Amazon Q
+will never access resources that your IAM identity doesn't have access to.
+
+###### Important
+
+This example policy includes IAM actions (`iam:CreateRole`,
+`iam:CreatePolicy`, `iam:AttachRolePolicy`, and
+`iam:PutRolePolicy`) with unrestricted resources. Some Amazon Q workflows
+include steps that create or configure IAM roles as part of connecting AWS services
+(for example, creating a role that grants an EC2 instance access to S3). These
+permissions are required for those steps to execute successfully.
+If your identity already has administrator access, these permissions are already granted.
+For non-administrator identities, only grant this policy to trusted users in your account.
+If you do not need workflows that create or modify IAM roles, you can remove the IAM actions
+from this policy — steps that require IAM permissions will display a permissions error.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowAmazonQPassRequest",
+            "Effect": "Allow",
+            "Action": [
+                "q:StartConversation",
+                "q:SendMessage",
+                "q:GetConversation",
+                "q:ListConversations",
+                "q:UpdateConversation",
+                "q:DeleteConversation",
+                "q:PassRequest"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AllowQArtifactsAccess",
+            "Effect": "Allow",
+            "Action": [
+                "q:GetArtifact",
+                "q:CreateArtifact",
+                "q:GetArtifactActionResult",
+                "q:PerformArtifactAction",
+                "iam:CreateRole",
+                "iam:CreatePolicy",
+                "iam:AttachRolePolicy",
+                "iam:PutRolePolicy",
+                "cloudformation:GetResource",
+                "cloudformation:ListResources",
+                "cloudformation:CancelResourceRequest",
+                "cloudformation:CreateResource",
+                "cloudformation:GetResourceRequestStatus",
+                "cloudformation:ListResourceRequests",
+                "cloudformation:UpdateResource"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
 ## Allow Amazon Q to access cost data and provide cost optimization recommendations
 
 The following example policy grants permission to chat with Amazon Q about your costs and allows Amazon Q to access your cost data and provide cost analysis and optimization recommendations. This policy includes permissions for AWS Cost Explorer, AWS Cost Optimization Hub, AWS Compute Optimizer, AWS Budgets, AWS Free Tier, AWS Pricing, and Savings Plans and reservation recommendations.
