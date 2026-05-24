@@ -123,6 +123,23 @@ If a finding displays the Unknown "This finding is not validated by AWS Security
    - Request and response examples
    - Specific parameters or conditions that trigger the issue
 
+7. The Verification Script section provides an executable way to reproduce the finding. Expand this section (when available) to view:
+   - **Instructions** – How to set up and run the verification script
+   - **Environment variables** – Lists the required variables you must configure before running the script. Sensitive values are redacted for security.
+   - **Download Script** – Choose to download the executable verification script
+
+   ###### Note
+
+   Verification scripts are available only for confirmed vulnerabilities. The agent must have successfully generated and validated an executable reproduction script.
+
+   ###### Note
+
+   Verification scripts are generated using generative AI. Review the script before execution and run it only against systems you are authorized to test. For guidance on testing AI-generated scripts responsibly, see the [AWS Responsible AI Policy](https://aws.amazon.com/ai/responsible-ai/policy/ "https://aws.amazon.com/ai/responsible-ai/policy/").
+
+   ###### Tip
+
+   The verification script provides an executable way to reproduce the finding independently. Set the required environment variables with your own credentials, then run the script against your target system to confirm the vulnerability exists.
+
 ###### Tip
 
 Use the "Trace actions & logs" link to access the complete evidence package, including HTTP requests, responses, and exploitation attempts that demonstrate the vulnerability.
@@ -187,6 +204,7 @@ Maintain a remediation log that maps each finding to its resolution, including t
 After reviewing your penetration test findings:
 
 - Prioritize critical and high-severity findings with high confidence for immediate remediation
+- Download, review, and run verification scripts in your test environment to test the scripts and identify vulnerabilities
 - Create tracking tickets in your issue management system with links to finding details and evidence
 - Implement fixes and security controls to address identified vulnerabilities
 - Monitor the penetration test run progress indicator for newly discovered vulnerabilities

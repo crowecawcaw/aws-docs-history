@@ -27,6 +27,45 @@ You grant AWS Security Agent general access to a VPC from the AWS Management Con
 
 You can add up to 5 VPCs.
 
+## Required agent space service role permissions
+
+In order to run a penetration test with a VPC, your agent space service role must include the following permissions:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:CreateNetworkInterface",
+        "ec2:DescribeDhcpOptions",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribeNetworkInterfaceAttribute",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeVpcs",
+        "ec2:ModifyNetworkInterfaceAttribute",
+        "ec2:DeleteNetworkInterface"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "ec2:CreateNetworkInterfacePermission",
+      "Resource": "arn:aws:ec2:{{region}}:{{accountId}}:network-interface/*",
+      "Condition": {
+        "ArnEquals": {
+          "ec2:Subnet": [
+            "arn:aws:ec2:{{region}}:{{accountId}}:subnet/[[subnetIds]]"
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
 ## To select a specific VPC configuration for a penetration test in the Security Agent web app
 
 1. Navigate to the Penetration Tests overview page
