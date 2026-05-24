@@ -125,17 +125,18 @@ ACME-enabled client that interacts with Let's Encrypt.
 ###### To install Certbot on your Lightsail instance
 
 1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/").
-2. In the left navigation pane, choose the SSH quick connect icon for the instance that
-   you want to connect to.
+2. On the Instances home page, choose the SSH quick connect icon for the instance that
+   you want to connect to. For example, with a WordPress instance named
+   _Example_:
 
-![SSH quick connect on the Lightsail home page.](images/amazon-lightsail-wordpress-ssh-quick-connect.png) 3. After your Lightsail browser-based SSH session is connected, enter the following
+![SSH quick connect on the Lightsail home page.](/images/lightsail/latest/userguide/images/instances/resource_cards/ssh_quick_connect.png) 3. After your Lightsail browser-based SSH session is connected, enter the following
 command to update the packages on your instance:
 
 ```
 sudo apt-get update
 ```
 
-![Update the packages on your instance.](images/amazon-lightsail-wordpress-ssh-lets-encrypt-update-packages.png) 4. Enter the following command to install the software properties package. Certbot’s
+![Update the packages on your instance.](images/amazon-lightsail-wordpress-ssh-lets-encrypt-update-packages.png) 4. Enter the following command to install the software properties package. Certbot's
 developers use a Personal Package Archive (PPA) to distribute Certbot. The software
 properties package makes it more efficient to work with PPAs.
 
@@ -148,7 +149,7 @@ sudo apt-get install software-properties-common
 If you encounter a `Could not get lock` error when running the `sudo
  apt-get install` command, please wait approximately 15 minutes and try again.
 This error may be caused by a cron job that is using the Apt package management tool to
-install unattended upgrades. 5. Enter the following commands to install the GPG package, and add Certbot to the local
+install [unattended-upgrades](https://wiki.debian.org/PeriodicUpdates "https://wiki.debian.org/PeriodicUpdates"). 5. Enter the following commands to install the GPG package, and add Certbot to the local
 apt repository:
 
 ###### Note
@@ -287,12 +288,12 @@ section](amazon-lightsail-using-lets-encrypt-certificates-with-lamp.md#confirm-t
 ## Step 5: Confirm that the TXT records have propagated
 
 Use the MxToolbox utility to confirm that the TXT records have propagated to the
-Internet’s DNS. DNS record propagation might take a while depending on your DNS hosting
+internet's DNS. DNS record propagation might take a while depending on your DNS hosting
 provider, and the configured time to live (TTL) for your DNS records. It is important that you
 complete this step, and confirm that your TXT records have propagated, before continuing your
 Certbot certificate request. Otherwise, your certificate request fails.
 
-###### To confirm the TXT records have propagated to the Internet’s DNS
+###### To confirm the TXT records have propagated to the internet's DNS
 
 1. Open a new browser window and go to [https://mxtoolbox.com/TXTLookup.aspx](https://mxtoolbox.com/TXTLookup.aspx "https://mxtoolbox.com/TXTLookup.aspx").
 2. Enter the following text into the text box. Be sure to replace
@@ -305,23 +306,22 @@ _acme-challenge.`domain`
 Example:
 
 ```
-_acme-challenge.`example.com`
+_acme-challenge.example.com
 ```
 
 ![MXToolbox TXT record lookup.](images/instances/lets-encrypt/mxtoolbox-text-record-lookup.png) 3. Choose **TXT Lookup** to run the check. 4. One of the following responses occurs:
 
-    * If your TXT records have propagated to the Internet’s DNS, you see a response
+    * If your TXT records have propagated to the internet's DNS, you see a response
      similar to the one shown in the following screenshot. Close the browser window and
-     continue to the [next
-     section](#complete-the-lets-encrypt-certificate-request-wordpress "#complete-the-lets-encrypt-certificate-request-wordpress") of this tutorial.
+     continue to the next section of this tutorial.
 
 
 
     ![Confirmation that TXT records propagated.](images/instances/lets-encrypt/mxtoolbox-propagated-text-record-lookup.png)
-    * If your TXT records have not propagated to the Internet’s DNS, you see a
+    * If your TXT records have not propagated to the internet's DNS, you see a
      **DNS Record not found** response. Confirm that you added the
-     correct DNS records to your domains’ DNS zone. If you added the correct records, wait
-     a while longer to let your domain’s DNS records propagate, and run the TXT lookup
+     correct DNS records to your domains' DNS zone. If you added the correct records, wait
+     a while longer to let your domain's DNS records propagate, and run the TXT lookup
      again.
 
 ## Step 6: Complete the Let’s Encrypt SSL certificate request
@@ -364,30 +364,7 @@ sudo /opt/bitnami/ctlscript.sh stop
 
 You should see a response similar to the following:
 
-![Instance services stopped.](images/amazon-lightsail-ssh-stop-services.png) 2. Enter the following command to set an environment variable for your domain. You can
-more efficiently copy and paste commands to link the certificate files. Be sure to replace
-`domain` with the name of your registered domain
-name.
-
-```
-DOMAIN=`domain`
-```
-
-Example:
-
-```
-DOMAIN=`example.com`
-```
-
-3. Enter the following command to confirm the variables return the correct values:
-
-```
-echo $DOMAIN
-```
-
-You should see a result similar to the following:
-
-![Confirm the domain environment variable.](images/instances/lets-encrypt/bitnami-confirm-domain-variable.png) 4. Enter the following commands individually to rename your existing certificate files as
+![Instance services stopped.](images/amazon-lightsail-ssh-stop-services.png) 2. Enter the following commands individually to rename your existing certificate files as
 backups. Refer to the **Important** block at the beginning of
 this tutorial for information about the different distributions and file
 structures.
@@ -438,42 +415,58 @@ structures.
     sudo mv /opt/bitnami/apache/conf/bitnami/certs/server.csr /opt/bitnami/apache/conf/bitnami/certs/server.csr.old
     ```
 
-5. Enter the following commands individually to create links to your Let’s Encrypt
+3. Enter the following commands individually to create links to your Let’s Encrypt
    certificate files in the Apache directory. Refer to the **Important** block at the beginning of this tutorial for information about the
    different distributions and file structures.
-   - For Debian Linux distributions
 
-   Approach A (Bitnami installations using system packages):
+###### Note
 
-   ```
-   sudo ln -sf /etc/letsencrypt/live/$DOMAIN/privkey.pem /opt/bitnami/apache2/conf/bitnami/certs/server.key
-   ```
+If you closed your browser-based SSH terminal window since setting the `DOMAIN`
+variable in Step 3, run `DOMAIN=`example.com``again,
+ replacing`example.com` with your domain.
 
-   ```
-   sudo ln -sf /etc/letsencrypt/live/$DOMAIN/fullchain.pem /opt/bitnami/apache2/conf/bitnami/certs/server.crt
-   ```
+    * For Debian Linux distributions
 
-   Approach B (Self-contained Bitnami installations):
 
-   ```
-   sudo ln -sf /etc/letsencrypt/live/$DOMAIN/privkey.pem /opt/bitnami/apache2/conf/server.key
-   ```
+    Approach A (Bitnami installations using system packages):
 
-   ```
-   sudo ln -sf /etc/letsencrypt/live/$DOMAIN/fullchain.pem /opt/bitnami/apache2/conf/server.crt
-   ```
 
-   - For older instances that use the Ubuntu Linux distribution:
 
-   ```
-   sudo ln -s /etc/letsencrypt/live/$DOMAIN/privkey.pem /opt/bitnami/apache/conf/bitnami/certs/server.key
-   ```
+    ```
+    sudo ln -sf /etc/letsencrypt/live/$DOMAIN/privkey.pem /opt/bitnami/apache2/conf/bitnami/certs/server.key
+    ```
 
-   ```
-   sudo ln -s /etc/letsencrypt/live/$DOMAIN/fullchain.pem /opt/bitnami/apache/conf/bitnami/certs/server.crt
-   ```
 
-6. Enter the following command to start the underlying services that you had stopped
+    ```
+    sudo ln -sf /etc/letsencrypt/live/$DOMAIN/fullchain.pem /opt/bitnami/apache2/conf/bitnami/certs/server.crt
+    ```
+
+    Approach B (Self-contained Bitnami installations):
+
+
+
+    ```
+    sudo ln -sf /etc/letsencrypt/live/$DOMAIN/privkey.pem /opt/bitnami/apache2/conf/server.key
+    ```
+
+
+    ```
+    sudo ln -sf /etc/letsencrypt/live/$DOMAIN/fullchain.pem /opt/bitnami/apache2/conf/server.crt
+    ```
+    * For older instances that use the Ubuntu Linux distribution:
+
+
+
+    ```
+    sudo ln -s /etc/letsencrypt/live/$DOMAIN/privkey.pem /opt/bitnami/apache/conf/bitnami/certs/server.key
+    ```
+
+
+    ```
+    sudo ln -s /etc/letsencrypt/live/$DOMAIN/fullchain.pem /opt/bitnami/apache/conf/bitnami/certs/server.crt
+    ```
+
+4. Enter the following command to start the underlying services that you had stopped
    earlier:
 
 ```
@@ -485,7 +478,7 @@ You should see a result similar to the following:
 ![Instance services started.](images/amazon-lightsail-ssh-start-services.png)
 
 The SSL certificate files for your WordPress instance are now in the correct
-directory. 7. Continue to the [next section](#integrate-certificates-with-wordpress-using-really-simple-ssl-plugin "#integrate-certificates-with-wordpress-using-really-simple-ssl-plugin") of this tutorial.
+directory. 5. Continue to the [next section](#integrate-certificates-with-wordpress-using-really-simple-ssl-plugin "#integrate-certificates-with-wordpress-using-really-simple-ssl-plugin") of this tutorial.
 
 ## Step 8: Integrate the SSL certificate with your WordPress site using the Really Simple SSL plug-in
 

@@ -1,4 +1,22 @@
-# Connect a Lightsail LAMP instance to an Aurora database
+# Connect instances that use LAMP packaged by Bitnami to an Aurora database
+
+###### This blueprint packaged by Bitnami is being deprecated
+
+Blueprints packaged by Bitnami will no longer receive updates after May 19, 2026.
+Starting November 19, 2026, you will no longer be able to create new instances with
+this blueprint. When creating new instances, we recommend using the equivalent
+Lightsail blueprint if available. Existing instances using blueprints packaged by
+Bitnami will continue to run without any disruption.
+[Learn more](amazon-lightsail-faq-bitnami-blueprints.md "amazon-lightsail-faq-bitnami-blueprints.md")
+
+If you have an existing instance that uses a blueprint packaged by Bitnami and want to
+migrate to a Lightsail-packaged blueprint, see
+[Migrate to Lightsail blueprints](migrate-from-bitnami-to-lightsail-blueprints.md "migrate-from-bitnami-to-lightsail-blueprints.md").
+
+###### This tutorial applies to instances that use LAMP packaged by Bitnami only
+
+If your instance uses the LAMP blueprint packaged by Lightsail, see
+[LAMP](amazon-lightsail-lamp-lightsail.md "amazon-lightsail-lamp-lightsail.md") instead.
 
 Application data for posts, pages, and users is stored on a MariaDB database that is running
 on your LAMP instance in Amazon Lightsail. If your instance fails, your data may become
@@ -34,8 +52,8 @@ in Lightsail to an Aurora managed database in Amazon RDS.
 Complete the following prerequisites before you begin:
 
 1. Create a LAMP instance in Lightsail, and configure your application on it. The
-   instance should be in a running state before you continue. For more information, see [Tutorial: Launch and
-   configure a LAMP instance in Lightsail](amazon-lightsail-tutorial-launching-and-configuring-lamp.md "amazon-lightsail-tutorial-launching-and-configuring-lamp.md").
+   instance should be in a running state before you continue. For more information, see [Launch and
+   configure a LAMP instance in Lightsail](amazon-lightsail-quick-start-guide-lamp-bitnami.md "amazon-lightsail-quick-start-guide-lamp-bitnami.md").
 2. Turn on VPC peering in your Lightsail account. For more information, see [Set up Amazon VPC
    peering to work with AWS resources outside of Lightsail](lightsail-how-to-set-up-vpc-peering-with-aws-resources.md "lightsail-how-to-set-up-vpc-peering-with-aws-resources.md").
 3. Create an Aurora managed database in Amazon RDS. The database should be located in the same

@@ -410,7 +410,7 @@ for each bundled component.
 
 This blueprint is compatible with a Lightsail IPv6-only instance plan.
 
-[Deploy and manage a LAMP stack on Lightsail](amazon-lightsail-quick-start-guide-lamp.md "amazon-lightsail-quick-start-guide-lamp.md")
+[Launch and configure a LAMP packaged by Bitnami instance](amazon-lightsail-quick-start-guide-lamp-bitnami.md "amazon-lightsail-quick-start-guide-lamp-bitnami.md")
 
 Learn more about the [Bitnami LAMP
 stack](https://bitnami.com/stack/lamp "https://bitnami.com/stack/lamp") at the _Bitnami_ website.
@@ -423,7 +423,7 @@ This blueprint also includes phpMyAdmin, PHP core modules, and Composer.
 Lightsail instances launched from LAMP will have Instance Metadata Service Version 2
 (IMDSv2) enforced by default. For more information, see [How Instance Metadata Service Version 2 works](amazon-lightsail-configuring-instance-metadata-service.md "amazon-lightsail-configuring-instance-metadata-service.md").
 
-[Deploy and manage a LAMP stack on Lightsail](amazon-lightsail-quick-start-guide-lamp.md "amazon-lightsail-quick-start-guide-lamp.md")
+[Launch and configure a LAMP instance](amazon-lightsail-launch-and-configure-lamp.md "amazon-lightsail-launch-and-configure-lamp.md")
 
 \***\*Django packaged by Bitnami\*\***
 

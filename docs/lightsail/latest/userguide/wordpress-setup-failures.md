@@ -17,7 +17,9 @@ match the error message from the logs with one of the following errors.
 
 Lightsail
 
-## Certbot.errors.AuthorizationError: Some challenges have failed
+###### Certbot.errors.AuthorizationError:
+
+Some challenges have failed
 
 **Reason**
 
@@ -44,7 +46,9 @@ _MxToolbox_.
 Allow time for any DNS record changes to propagate through the
 internet's DNS, which may take several hours.
 
-## Certbot failed to authenticate some domains
+###### Certbot failed to authenticate some
+
+domains
 
 **Reason**
 
@@ -87,7 +91,10 @@ Verify that the Apache service is stopped:
 
 5. Restart WordPress setup.
 
-## The repository http://cdn-aws.deb.debian.org/debian buster-backports no longer has a Release file
+###### The repository
+
+http://cdn-aws.deb.debian.org/debian buster-backports no longer has a Release
+file
 
 **Reason**
 
@@ -128,7 +135,10 @@ For example, `http://`deb`.debian.org/debian
 `http://`archive`.debian.org/debian
  buster-backports main contrib non-free`. 5. Save and close the file. 6. Restart WordPress setup.
 
-## The repository http://ppa.launchpad.net/certbot/certbot/ubuntu lunar Release does not have a Release file
+###### The repository
+
+http://ppa.launchpad.net/certbot/certbot/ubuntu lunar Release does not have a
+Release file
 
 **Reason**
 
@@ -168,7 +178,9 @@ version that shows up in the error message. For example,
 5. Save and close the file.
 6. Restart WordPress setup.
 
-## Too many certificates (5) already issued for this exact set of domains in the last 168 hours
+###### Too many certificates (5) already issued for
+
+this exact set of domains in the last 168 hours
 
 **Reason**
 
@@ -183,7 +195,7 @@ website_.
 Wait one week (168 hours), and then restart the guided workflow for
 this domain.
 
-## Too many failed authorizations
+###### Too many failed authorizations
 
 **Reason**
 
@@ -198,7 +210,9 @@ validation errors have been fixed before you restart setup.
 
 Bitnami
 
-## Certbot.errors.AuthorizationError: Some challenges have failed
+###### Certbot.errors.AuthorizationError:
+
+Some challenges have failed
 
 **Reason**
 
@@ -225,7 +239,9 @@ _MxToolbox_.
 Allow time for any DNS record changes to propagate through the
 internet's DNS, which may take several hours.
 
-## Certbot failed to authenticate some domains
+###### Certbot failed to authenticate some
+
+domains
 
 **Reason**
 
@@ -268,7 +284,10 @@ Verify that the Bitnami process is stopped:
 
 5. Restart WordPress setup.
 
-## The repository http://cdn-aws.deb.debian.org/debian buster-backports no longer has a Release file
+###### The repository
+
+http://cdn-aws.deb.debian.org/debian buster-backports no longer has a Release
+file
 
 **Reason**
 
@@ -309,7 +328,10 @@ For example, `http://`deb`.debian.org/debian
 `http://`archive`.debian.org/debian
  buster-backports main contrib non-free`. 5. Save and close the file. 6. Restart WordPress setup.
 
-## The repository http://ppa.launchpad.net/certbot/certbot/ubuntu lunar Release does not have a Release file
+###### The repository
+
+http://ppa.launchpad.net/certbot/certbot/ubuntu lunar Release does not have a
+Release file
 
 **Reason**
 
@@ -349,7 +371,9 @@ version that shows up in the error message. For example,
 5. Save and close the file.
 6. Restart WordPress setup.
 
-## Too many certificates (5) already issued for this exact set of domains in the last 168 hours
+###### Too many certificates (5) already issued for
+
+this exact set of domains in the last 168 hours
 
 **Reason**
 
@@ -364,7 +388,7 @@ website_.
 Wait one week (168 hours), and then restart the guided workflow for
 this domain.
 
-## Too many failed authorizations
+###### Too many failed authorizations
 
 **Reason**
 

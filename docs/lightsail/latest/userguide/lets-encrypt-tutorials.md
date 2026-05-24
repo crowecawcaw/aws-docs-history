@@ -14,7 +14,7 @@ Before getting started, ensure you have completed the following prerequisites:
 
 ###### Topics
 
-- [Secure your Lightsail LAMP instance with Let's Encrypt SSL certificates](amazon-lightsail-using-lets-encrypt-certificates-with-lamp.md "amazon-lightsail-using-lets-encrypt-certificates-with-lamp.md")
+- [Enable HTTPS on instances that use LAMP packaged by Bitnami with Let's Encrypt and Certbot](amazon-lightsail-using-lets-encrypt-certificates-with-lamp.md "amazon-lightsail-using-lets-encrypt-certificates-with-lamp.md")
 - [Secure your Lightsail NGINX website with Let's Encrypt SSL/TLS](amazon-lightsail-using-lets-encrypt-certificates-with-nginx.md "amazon-lightsail-using-lets-encrypt-certificates-with-nginx.md")
 - [Secure your Lightsail WordPress instance with free Let's Encrypt SSL certificates and certbot](amazon-lightsail-using-lets-encrypt-certificates-with-wordpress.md "amazon-lightsail-using-lets-encrypt-certificates-with-wordpress.md")
   Follow the step-by-step instructions for your specific instance type. Each topic

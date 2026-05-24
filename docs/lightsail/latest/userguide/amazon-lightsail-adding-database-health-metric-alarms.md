@@ -67,10 +67,9 @@ Default alarm settings are prepopulated when you add a new alarm in the Lightsai
 console. That is the recommended alarm configuration for the metric you selected. However, you
 should confirm that the default alarm configuration is appropriate for your resource. For
 example, the default alarm threshold for the free storage space
-(`FreeStorageSpace`) metric is **less than** 5 Bytes for 1 time
-within the last 5 minutes. However, that free storage space threshold might be too low for
-your database. You might want to modify the alarm threshold to be **less
-than** 4 GB for 1 time within the last 5 minutes.
+(`FreeStorageSpace`) metric is **less than** 10 GB for 1 time
+within the last 5 minutes. You might want to adjust this threshold based on your database's
+storage capacity.
 
 ## Create database metric alarms using the Lightsail console
 

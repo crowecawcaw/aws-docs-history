@@ -156,5 +156,4 @@ Here are some next steps:
 - [Configure automatic snapshots for your new Lightsail instance](amazon-lightsail-configuring-automatic-snapshots.md "amazon-lightsail-configuring-automatic-snapshots.md")
 - Customize your new blog's appearance and/or install some WordPress plugins
 - [Enable HTTPS on your WordPress instance using Quick Setup](amazon-lightsail-enabling-https-on-wordpress.md "amazon-lightsail-enabling-https-on-wordpress.md")
-- [Delete your old Bitnami instance](delete-an-amazon-lightsail-instance.md "delete-an-amazon-lightsail-instance.md") to save on future charges
 - [Delete any old snapshots](amazon-lightsail-deleting-snapshots.md "amazon-lightsail-deleting-snapshots.md") associated with your old instance to save on future charges

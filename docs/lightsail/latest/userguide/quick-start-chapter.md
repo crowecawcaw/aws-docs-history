@@ -14,7 +14,6 @@ Node.js
 - [Deploy a Ghost website on Lightsail](amazon-lightsail-quick-start-guide-ghost.md "amazon-lightsail-quick-start-guide-ghost.md")
 - [Set up and configure a GitLab CE instance on Lightsail](amazon-lightsail-quick-start-guide-gitlab.md "amazon-lightsail-quick-start-guide-gitlab.md")
 - [Get started with Joomla! on Lightsail](amazon-lightsail-quick-start-guide-joomla.md "amazon-lightsail-quick-start-guide-joomla.md")
-- [Deploy and manage a LAMP stack on Lightsail](amazon-lightsail-quick-start-guide-lamp.md "amazon-lightsail-quick-start-guide-lamp.md")
 - [Set up and configure Magento on Lightsail](amazon-lightsail-quick-start-guide-magento.md "amazon-lightsail-quick-start-guide-magento.md")
 - [Deploy and manage an Nginx web server on Lightsail](amazon-lightsail-quick-start-guide-nginx.md "amazon-lightsail-quick-start-guide-nginx.md")
 - [Deploy and manage a Node.js stack on Lightsail](amazon-lightsail-quick-start-guide-nodejs.md "amazon-lightsail-quick-start-guide-nodejs.md")

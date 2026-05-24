@@ -109,10 +109,11 @@ Cookies are blocked or not supported" error when trying to sign in to the WordPr
 administration dashboard of their blog sites.
 
 1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/").
-2. On the Lightsail home page, choose the SSH quick connect icon for your WordPress
-   Multisite instance.
+2. On the Instances home page, choose the SSH quick connect icon for the instance that
+   you want to connect to. For example, with a WordPress instance named
+   _Example_:
 
-![SSH quick connect on the Lightsail console.](images/wp-multisite-ssh-quick-connect.png) 3. After your Lightsail browser-based SSH session is connected, enter the following
+![SSH quick connect on the Lightsail home page.](/images/lightsail/latest/userguide/images/instances/resource_cards/ssh_quick_connect.png) 3. After your Lightsail browser-based SSH session is connected, enter the following
 command to open and edit the `wp-config.php` file of your instance using
 Vim:
 

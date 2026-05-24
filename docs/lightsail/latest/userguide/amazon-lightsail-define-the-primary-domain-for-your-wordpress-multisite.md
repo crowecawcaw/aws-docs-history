@@ -29,10 +29,11 @@ Complete these steps to ensure that your domain, such as `example.com`,
 redirects to the main blog of your WordPress Multisite instance.
 
 1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/").
-2. In the left navigation pane, choose the SSH quick connect icon for your WordPress
-   Multisite instance.
+2. On the Instances home page, choose the SSH quick connect icon for the instance that
+   you want to connect to. For example, with a WordPress instance named
+   _Example_:
 
-![SSH quick connect on the Lightsail console.](images/wp-multisite-ssh-quick-connect.png) 3. Enter the following command to define the primary domain name for your WordPress
+![SSH quick connect on the Lightsail home page.](/images/lightsail/latest/userguide/images/instances/resource_cards/ssh_quick_connect.png) 3. Enter the following command to define the primary domain name for your WordPress
 Multisite instance. Be sure to replace
 `<domain>` with the correct domain name for
 your WordPress Multisite.

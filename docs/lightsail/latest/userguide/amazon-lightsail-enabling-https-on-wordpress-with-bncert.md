@@ -128,12 +128,11 @@ Complete the following steps to connect to your instance using the browser-based
 client in the Lightsail console.
 
 1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/").
-2. In the left navigation pane, choose the SSH quick connect icon for your WordPress
-   instance.
+2. On the Instances home page, choose the SSH quick connect icon for the instance that
+   you want to connect to. For example, with a WordPress instance named
+   _Example_:
 
-![SSH quick connect on the Lightsail home page.](images/amazon-lightsail-wordpress-ssh-quick-connect.png)
-
-The browser-based SSH client terminal window opens. You are successfully connected to
+![SSH quick connect on the Lightsail home page.](/images/lightsail/latest/userguide/images/instances/resource_cards/ssh_quick_connect.png) 3. The browser-based SSH client terminal window opens. You are successfully connected to
 your instance via SSH if you see the Bitnami logo as shown in the following
 example.
 
