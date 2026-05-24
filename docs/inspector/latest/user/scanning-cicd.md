@@ -53,7 +53,6 @@ solution:
 
 - [GitHub actions](cicd-inspector-github-actions.md "cicd-inspector-github-actions.md")
 - [Jenkins plugin](cicd-jenkins.md "cicd-jenkins.md")
-- [TeamCity plugin](cicd-teamcity.md "cicd-teamcity.md")
 
 ## Custom integration
 

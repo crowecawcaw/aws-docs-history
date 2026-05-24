@@ -26,6 +26,7 @@ The naming convention for Amazon Inspector endpoints is `inspector2.`Region`.ama
 | Asia Pacific (Seoul)      | ap-northeast-2 | inspector2.ap-northeast-2.amazonaws.com                                               | HTTPS          |
 | Asia Pacific (Singapore)  | ap-southeast-1 | inspector2.ap-southeast-1.amazonaws.com                                               | HTTPS          |
 | Asia Pacific (Sydney)     | ap-southeast-2 | inspector2.ap-southeast-2.amazonaws.com                                               | HTTPS          |
+| Asia Pacific (Taipei)     | ap-east-2      | inspector2.ap-east-2.amazonaws.com                                                    | HTTPS          |
 | Asia Pacific (Thailand)   | ap-southeast-7 | inspector2.ap-southeast-7.amazonaws.com                                               | HTTPS          |
 | Asia Pacific (Tokyo)      | ap-northeast-1 | inspector2.ap-northeast-1.amazonaws.com                                               | HTTPS          |
 | Canada (Central)          | ca-central-1   | inspector2.ca-central-1.amazonaws.com                                                 | HTTPS          |
@@ -71,6 +72,7 @@ For example, if you are authenticated in `us-west-2`, you would use the endpoint
 | Asia Pacific (Seoul)      | ap-northeast-2 | inspector-scan.ap-northeast-2.amazonaws.com                                                   | HTTPS          |
 | Asia Pacific (Singapore)  | ap-southeast-1 | inspector-scan.ap-southeast-1.amazonaws.com                                                   | HTTPS          |
 | Asia Pacific (Sydney)     | ap-southeast-2 | inspector-scan.ap-southeast-2.amazonaws.com                                                   | HTTPS          |
+| Asia Pacific (Taipei)     | ap-east-2      | inspector-scan.ap-east-2.amazonaws.com                                                        | HTTPS          |
 | Asia Pacific (Thailand)   | ap-southeast-7 | inspector-scan.ap-southeast-7.amazonaws.com                                                   | HTTPS          |
 | Asia Pacific (Tokyo)      | ap-northeast-1 | inspector-scan.ap-northeast-1.amazonaws.com                                                   | HTTPS          |
 | Canada (Central)          | ca-central-1   | inspector-scan.ca-central-1.amazonaws.com                                                     | HTTPS          |
