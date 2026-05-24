@@ -138,7 +138,7 @@ following:
    **Month to date**, the current day is not
    included in the report. **Yesterday** specifies
    the previous calendar day while **Last 24
-   hours** specifies the 24 hours prior to the current
+   hours** specifies the 24 hours before the current
    time.
 
 6. (Optional) On the **Groupings** tab, choose up to

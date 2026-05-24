@@ -145,7 +145,7 @@ Email threading ensures that outgoing emails and incoming responses related to a
 customer inquiry are associated with each other in a chronological and organized
 fashion.
 
-In order to maintain the whole email conversation, Connect Customer links the email contacts
+To maintain the whole email conversation, Connect Customer links the email contacts
 together using a few fields on the email contact such as the relatedContactId and a
 list of email headers that follow conventional email client standards (RFC 5256).
 

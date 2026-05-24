@@ -1,6 +1,6 @@
 # Assign new Customer Profiles permissions in case of error
 
-1. In order to update permissions in case of a 403 forbidden call error for
+1. To update permissions in case of a 403 forbidden call error for
    any of the backend APIs, navigate to the domain section of the Connect Customer Customer Profiles console and choose **View details**.
 
 ![The domain section of the Connect Customer Customer Profiles console.](images/security-profile-customer-profile-issues-403-1.png) 2. Choose **Update Permissions** in the view domain details

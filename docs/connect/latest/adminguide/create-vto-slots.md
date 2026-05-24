@@ -15,5 +15,5 @@
 5. Select the number of required voluntary time off slots.
 6. Provide the reason for requesting voluntary time off in the
    **Reason** text box. Agents will be able to view the
-   reason prior to accepting or declining the overtime request.
+   reason before accepting or declining the overtime request.
 7. Choose **Request**

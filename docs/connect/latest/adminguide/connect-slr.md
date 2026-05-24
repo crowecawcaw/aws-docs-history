@@ -116,88 +116,11 @@ separate Connect Customer instances to logically partition your data or use Cust
 domain names within the same instance that do not start with the
 `amazon-connect-` prefix, thereby preventing cross-domain access.
 
-- Action: Connect AI agents
-
-      + `wisdom:CreateContent`
-      + `wisdom:DeleteContent`
-      + `wisdom:CreateKnowledgeBase`
-      + `wisdom:GetAssistant`
-      + `wisdom:GetKnowledgeBase`
-      + `wisdom:GetContent`
-      + `wisdom:GetRecommendations`
-      + `wisdom:GetSession`
-      + `wisdom:NotifyRecommendationsReceived`
-      + `wisdom:QueryAssistant`
-      + `wisdom:StartContentUpload`
-      + `wisdom:UntagResource`
-      + `wisdom:TagResource`
-      + `wisdom:CreateSession`
-      + `wisdom:CreateQuickResponse`
-      + `wisdom:GetQuickResponse`
-      + `wisdom:SearchQuickResponses`
-      + `wisdom:StartImportJob`
-      + `wisdom:GetImportJob`
-      + `wisdom:ListImportJobs`
-      + `wisdom:ListQuickResponses`
-      + `wisdom:UpdateQuickResponse`
-      + `wisdom:DeleteQuickResponse`
-      + `wisdom:PutFeedback`
-      + `wisdom:ListContentAssociations`
-      + `wisdom:CreateMessageTemplate`
-      + `wisdom:UpdateMessageTemplate`
-      + `wisdom:UpdateMessageTemplateMetadata`
-      + `wisdom:GetMessageTemplate`
-      + `wisdom:DeleteMessageTemplate`
-      + `wisdom:ListMessageTemplates`
-      + `wisdom:SearchMessageTemplates`
-      + `wisdom:ActivateMessageTemplate`
-      + `wisdom:DeactivateMessageTemplate`
-      + `wisdom:CreateMessageTemplateVersion`
-      + `wisdom:ListMessageTemplateVersions`
-      + `wisdom:CreateMessageTemplateAttachment`
-      + `wisdom:DeleteMessageTemplateAttachment`
-      + `wisdom:RenderMessageTemplate`
-      + `wisdom:CreateAIAgent`
-      + `wisdom:CreateAIAgentVersion`
-      + `wisdom:DeleteAIAgent`
-      + `wisdom:DeleteAIAgentVersion`
-      + `wisdom:UpdateAIAgent`
-      + `wisdom:UpdateAssistantAIAgent`
-      + `wisdom:RemoveAssistantAIAgent`
-      + `wisdom:GetAIAgent`
-      + `wisdom:ListAIAgents`
-      + `wisdom:ListAIAgentVersions`
-      + `wisdom:CreateAIPrompt`
-      + `wisdom:CreateAIPromptVersion`
-      + `wisdom:DeleteAIPrompt`
-      + `wisdom:DeleteAIPromptVersion`
-      + `wisdom:UpdateAIPrompt`
-      + `wisdom:GetAIPrompt`
-      + `wisdom:ListAIPrompts`
-      + `wisdom:ListAIPromptVersions`
-      + `wisdom:CreateAIGuardrail`
-      + `wisdom:CreateAIGuardrailVersion`
-      + `wisdom:DeleteAIGuardrail`
-      + `wisdom:DeleteAIGuardrailVersion`
-      + `wisdom:UpdateAIGuardrail`
-      + `wisdom:GetAIGuardrail`
-      + `wisdom:ListAIGuardrails`
-      + `wisdom:ListAIGuardrailVersions`
-      + `wisdom:CreateAssistant`
-      + `wisdom:ListTagsForResource`
-      + `wisdom:SendMessage`
-      + `wisdom:GetNextMessage`
-      + `wisdom:ListMessages`
-      + `wisdom:Retrieve`
-      + `wisdom:ListAssistantAssociations`
-
-  with resource tag `'AmazonConnectEnabled':'True'` on all Connect Customer Connect AI agents
-  resources associated with your Connect Customer instance.
-
-      + `wisdom:ListAssistants`
-      + `wisdom:KnowledgeBases`
-
-  on all Connect AI agents resources.
+- Action: Connect AI agents `wisdom:*` on all Connect Customer Connect AI agents
+  resources with resource tag `'AmazonConnectEnabled':'True'` associated with
+  your Connect Customer instance, except for the following actions which are explicitly denied:
+  - `wisdom:DeleteAssistant`
+  - `wisdom:DeleteKnowledgeBase`
 
 - Action: Amazon CloudWatch Metrics `cloudwatch:PutMetricData` to publish Connect Customer usage
   metrics for an instance to your account.

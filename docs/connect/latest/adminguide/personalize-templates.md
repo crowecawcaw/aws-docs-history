@@ -68,7 +68,7 @@ configured the messages that use the template.
    variable. For email templates, you can add variables to the message subject
    or the body. For SMS templates, you can add variables to the body.
 4. Place your cursor where you want the attribute to be in your message.
-   Click or tap on the **Attribute finder**, and then scroll
+   Choose or tap on the **Attribute finder**, and then scroll
    to the type of attribute that you want to add a message variable for.
 
 ![The Attribute finder on the Message templates page.](images/message-template-attribute-finder.png)
@@ -119,7 +119,7 @@ You can choose from the following types of attributes:
     	For more information about configuring recommendations in
     	 campaigns, see [Create an outbound campaign using event triggers](how-to-create-campaigns-using-event-triggers.md "how-to-create-campaigns-using-event-triggers.md").
 
-5. When you click an attribute in the Attribute finder, it is automatically
+5. When you choose an attribute in the Attribute finder, it is automatically
    placed in your message. You can copy and paste the attribute to another
    location.
 

@@ -45,7 +45,7 @@ steps in [Use an allowlist for integrated applications in Connect Customer](app-
   verify this by checking CloudTrail logs.
 - The `SignInConfig` distribution in your default traffic distribution group
   only determines which AWS Region is used to
-  facilitate sign-in. Regardless of how your `SignInConfig`
+  help sign-in. Regardless of how your `SignInConfig`
   distribution is configured, Connect Customer always attempts to sign in agents
   to both Regions of your Connect Customer instance.
 - After replicating an Connect Customer instance, only one SAML sign-in

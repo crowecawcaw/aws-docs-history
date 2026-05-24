@@ -22,6 +22,8 @@ Using one phone number that is shared for both voice and SMS isn't supported.
   messages](#test-sms "#test-sms")
 - [Step 5: Prerequisites for going into
   production](#verify-sms-config "#verify-sms-config")
+- [Step 6: (Optional) Self-managed
+  opt-out](#sms-self-managed-opt-out "#sms-self-managed-opt-out")
 - [Customers not receiving SMS
   messages?](#ts-sms-config "#ts-sms-config")
 - [Next steps](#sms-nextsteps "#sms-nextsteps")
@@ -238,6 +240,138 @@ prerequisites for AWS End User Messaging SMS.
 3. [Confirm
    that your spend quota matches your usage requirements](../../../sms-voice/latest/userguide/awssupport-spend-threshold.md "../../../sms-voice/latest/userguide/awssupport-spend-threshold.md")
 4. [Check your opt-out lists](../../../sms-voice/latest/userguide/opt-out-list.md "../../../sms-voice/latest/userguide/opt-out-list.md")
+
+## Step 6: (Optional) Set up self-managed opt-out message processing
+
+Optionally, you can enable self-managed opt-out for your SMS number. For details
+about this feature, see [Self-managed
+opt-outs](../../../sms-voice/latest/userguide/opt-out-list-self-managed.md "../../../sms-voice/latest/userguide/opt-out-list-self-managed.md"). For setup instructions, see [Managing opt-out
+lists](../../../sms-voice/latest/userguide/opt-out-list-managed.md "../../../sms-voice/latest/userguide/opt-out-list-managed.md").
+
+After enabling self-managed opt-out, you should set up Lambda functions and flow
+blocks to process SMS opt-out requests from customers and block agents from messaging
+customers who have opted out.
+
+###### Important
+
+If you enable this feature, you're responsible for responding to HELP and STOP
+requests. You're also responsible for tracking and honoring opt-out requests.
+Many countries, regions, and jurisdictions impose severe penalties for sending
+unwanted SMS messages. If you enable this feature, make sure you have systems
+and processes in place for capturing and managing opt-out requests.
+
+### Two-way communication with agents
+
+Use this setup when the phone number with self-managed opt-out enabled is used
+for two-way communication with agents.
+
+Before proceeding, your Connect Customer instance should have the following settings and
+resources configured:
+
+- An SMS phone number in your instance.
+- You can send and receive messages on that phone number.
+- When a customer sends a message to this phone number, they are routed
+  to live agents.
+- Customer Profiles is enabled and working correctly.
+
+1. **Create an opt-out message processing Lambda
+   function for the initial chat message.**
+   1. Go to the AWS console for Lambda, and choose
+      **Create function** with all the default
+      settings.
+   2. After the function is created, under the
+      **Code** tab, add code for handling customer
+      opt-out into the `index.mjs` file.
+   3. Create an IAM policy to give the Lambda function sufficient
+      access to invoke the APIs in the code. Create a policy with the
+      required permissions and attach it to your Lambda execution
+      role:
+      - The policy should contain permissions to invoke all
+        APIs required to process customer opt-out
+        requests.
+      - Permissions for `kms:GenerateDataKey` and
+        `kms:Decrypt` are required if Customer
+        Profiles is used.
+      - The Lambda execution role name can be found by choosing
+        the **Configuration** tab, then going
+        to **Permissions**.
+
+2. **Create an opt-out message processing Lambda
+   function for all other messages in the contact.**
+   1. Go to the AWS console for Lambda, and choose
+      **Create function** with all the default
+      settings.
+   2. After the function is created, under the
+      **Code** tab, add code for handling customer
+      opt-out into the `index.mjs` file.
+   3. Attach the same policy you created in step 1 to your Lambda
+      execution role.
+
+3. **Import both Lambda functions into your Connect Customer
+   instance.**
+   1. Import the Lambda function created in step 1 by following the
+      instructions in [Grant Connect Customer access to your AWS Lambda functions](connect-lambda-functions.md "connect-lambda-functions.md").
+   2. Run the following CLI command with your AWS account
+      credentials to integrate the Lambda function created in step 2
+      with the Message Processing flow block:
+
+   ```
+   aws connect create-integration-association \
+       --instance-id `your-connect-instance-id` \
+       --integration-type MESSAGE_PROCESSOR \
+       --integration-arn arn:aws:lambda:`region`:`account-id`:function:`function-name` \
+       --region `aws-region`
+   ```
+
+4. **Create or update the contact
+   flow.**
+
+Create a contact flow with the necessary flow blocks at the beginning,
+or add them to the existing contact flow that is associated with the
+phone number that you've enabled self-managed opt-out for.
+
+    * The flow blocks required are: Set Recording and Analytics
+     Behavior, Set Contact Attributes, Invoke AWS Lambda function,
+     and Check Contact Attributes.
+    * For details on each flow block, see [Flow block definitions in the flow designer in Connect Customer](contact-block-definitions.md "contact-block-definitions.md").
+    * For details on using the Set Recording and Analytics Behavior
+     block for message processing, see [Enable in-flight sensitive data redaction and message processing](redaction-message-processing.md "redaction-message-processing.md").
+
+### No two-way communication with agents
+
+Use this simpler setup when the phone number with self-managed opt-out enabled
+is NOT used for two-way communication with agents (meaning when a customer sends
+a message to that phone number, they will NOT be routed to live agents).
+
+1. **Set up an Amazon Lex bot to process customer opt-out
+   requests.**
+   1. Create an Amazon Lex bot and use it in a Connect Customer flow by following
+      the instructions in [Add an Amazon Lex bot to Connect Customer](amazon-lex.md "amazon-lex.md").
+   2. When you get to the step for creating bot intents, create a
+      bot with the following two intents:
+      - **Intent 1:
+        CustomerOptOutIntent** – This intent is
+        triggered when a customer sends an opt-out keyword like
+        "STOP" to the phone number. Configure it to reply with
+        a message of your choice.
+      - **Intent 2:
+        FallbackIntent** – This intent is
+        triggered when a customer sends any other message to the
+        phone number. Configure it to reply with a different
+        message of your choice.###### Note
+
+If you want to perform other checks and update an opt-out list of
+your choice, you need to implement a Lambda function with all the
+custom logic and link it to the bot. 2. **Create or update the contact
+flow.**
+
+Create a contact flow with the necessary flow blocks at the beginning,
+or add them to the existing contact flow that is associated with the
+phone number that you've enabled self-managed opt-out for.
+
+    * The flow block required is Get Customer Input (you will link
+     your Amazon Lex bot to this flow block).
+    * For details on each flow block, see [Flow block definitions in the flow designer in Connect Customer](contact-block-definitions.md "contact-block-definitions.md").
 
 ## Customers not receiving SMS messages?
 

@@ -10,7 +10,7 @@ points to the toggle that you use to hide or show the mini-map.
 
 ![A flow with the mini-map.](images/flow-minimap.png)
 The following GIF shows an example of how you can use the mini-map to navigate a large
-flow. Click or tap the mini-map to move the view to the desired location on the flow
+flow. Choose or tap the mini-map to move the view to the desired location on the flow
 designer.
 
 ![A flow that shows the mini-map.](images/flow-minimapgif.gif)

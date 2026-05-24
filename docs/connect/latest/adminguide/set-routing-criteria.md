@@ -88,8 +88,8 @@ The main downside of routing criteria is that it impacts queue metrics
 (SLA, queue time, and more). If a contact in QueueA is waiting specifically
 for Agent12, then it won't get picked up by other agents that are available.
 It may breach your defined SLAs. The way you'd see this occurring is by
-looking at the real-time metrics report; see [Use one-click
-drill-downs](one-click-drill-downs.md "one-click-drill-downs.md").
+looking at the real-time metrics report; see [Use one-choose
+drill-downs](one-choose-drill-downs.md "one-choose-drill-downs.md").
 
 ###### Note
 

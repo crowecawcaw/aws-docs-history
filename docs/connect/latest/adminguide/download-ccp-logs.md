@@ -33,7 +33,7 @@ resolve where possible.
 recorded during the agent session.
 
 Normally log entries are collapsed but most log entries contain more
-information. To see the original log object in JSON format, click the + to
+information. To see the original log object in JSON format, choose the + to
 expand or collapse the log lines with more information.
 
 ###### Note
@@ -42,7 +42,7 @@ CCP logs do not persist through browser refreshes.
 
 ![The CCP Log Parser displaying parsed agent log entries with expandable details.](images/log-parser-agent-txt.png) 4. On the left side of log entry, you can choose Snapshots. CCP periodically
 retrieves an AgentSnapshot from Connect Customer. The Snapshot displays the agent
-status that was captured during these retrieval periods. Clicking on one
+status that was captured during these retrieval periods. Choosing on one
 Snapshot highlights the section from that snapshot until the subsequent
 snapshot.
 

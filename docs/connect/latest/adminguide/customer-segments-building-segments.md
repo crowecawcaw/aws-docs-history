@@ -55,7 +55,7 @@ An audience group consists of these components:
   multiple groups of filters which are connected by OR relationships.
 - **Filters**: Filters reduce the audience
   number that belong to the segment. You can add as many filters as you
-  want in order to tailor the segment to your needs.
+  want to tailor the segment to your needs.
 
 A customer segment has to have at least one audience group, but you can
 optionally create a second audience group, and then create a relationship
@@ -78,7 +78,7 @@ The following steps describe creating and configuring a customer segment:
 1. To create a segment, ensure that you have created security
    profiles permissions as a prerequisite. For more information,
    see [Assign security profile permissions to manage customer segments](security-profile-customer-profile-segmentation.md "security-profile-customer-profile-segmentation.md"). In addition, to best visualize the membership of your segment,
-   we recommend data ingestion prior to segment creation. To ingest
+   we recommend data ingestion before segment creation. To ingest
    profiles through S3 or external applications, see [Create and ingest customer data into Customer Profiles](customer-profiles-object-type-mappings.md "customer-profiles-object-type-mappings.md")
    or [Integrate external applications with Connect Customer Customer Profiles](integrate-external-apps-customer-profiles.md "integrate-external-apps-customer-profiles.md").
 2. Choose **Create a segment** in the Customer
@@ -164,7 +164,7 @@ following call sequence:
 
 3. Once you choose a starting audience, the **Estimated audience** section updates to display the
    eligible profiles. Once you edit the audience groups, you can
-   click **Refresh** button in the
+   choose **Refresh** button in the
    Estimated audience section to re-fetch the estimate.
 
 ![An Estimated audience section.](images/step-3-choose-the-starting-audiences-to-include-in-audience-group-2.png)
@@ -427,11 +427,11 @@ segment, address the feedback it provided to help it create an accurate
 segment. Once it has generated a segment, Customer Profiles will
 automatically create a segment estimate for you.
 
-If you want to make edits, you can provide a new prompt by clicking “New
+If you want to make edits, you can provide a new prompt by choosing “New
 conversation” or create/edit SQL in the query editor.
 
 If you are not using the Segment AI assistant, you can validate the query
-and create the estimate by clicking on the “Validate and estimate query”
+and create the estimate by choosing on the “Validate and estimate query”
 button below the query editor.
 
 ###### Note

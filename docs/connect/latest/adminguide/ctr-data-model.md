@@ -761,7 +761,7 @@ Amazon Connect failure.
   termination by a disconnect/hang up block within the contact
   flow.
 - `OTHER` – Indicates disconnection reasons not covered
-  by the above codes, such as disconnections that API calls
+  by the preceding codes, such as disconnections that API calls
   initiate.
 
 Outbound campaign voice contacts can have the following disconnect
@@ -810,7 +810,7 @@ Chats can have the following disconnect reasons:
   session to end abnormally.
 
 The disconnect reason will be recorded as 'null' for contacts that end for
-reasons outside of the list above.
+reasons outside of the preceding list.
 
 Tasks can have the following disconnect reasons:
 

@@ -81,7 +81,7 @@ name`.my.connect.aws/. Use an admin account, or an account with
      for self-service. It uses the **Self-service answer
      generation** and **Self-service
      pre-processing** types of AI prompt.
-   - **Email response**: An AI agent that facilitates
+   - **Email response**: An AI agent that helps
      sending an email response of a conversation script to the end
      customer.
    - **Email overview**: An AI agent that provides an

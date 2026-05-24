@@ -63,9 +63,8 @@ allowance balance:
 - If the approved time off period overlaps with one or more staff
   shifts, then:
   - The system derives the deductible time off hours by taking the
-    total number of overlapped hours and subtracting the duration of
-    shift activities which have the setting **Deduct from
-    time off balance** as
+    total number of overlapped hours for shift activities that have
+    the setting **Deduct from time off balance** as
     **Yes**.
 
 - If the approved time off period does not have staff shifts that

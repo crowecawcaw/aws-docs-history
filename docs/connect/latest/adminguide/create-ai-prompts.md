@@ -32,7 +32,7 @@ instructions.
 - [Optimize your AI
   prompts](#guidelines-optimize-prompt "#guidelines-optimize-prompt")
 - [Prompt latency
-  optimization by utilizing prompt caching](#latency-optimization-prompt-caching "#latency-optimization-prompt-caching")
+  optimization by using prompt caching](#latency-optimization-prompt-caching "#latency-optimization-prompt-caching")
 - [Supported models for system/custom
   prompts](#cli-create-aiprompt "#cli-create-aiprompt")
 - [Amazon Nova Pro model for
@@ -68,7 +68,7 @@ following types of prompts:
      conversation and selects the corresponding tool to generate a response.
     * **Self-service answer generation**: Generates a
      solution to a query by making use of knowledge base excerpts.
-    * **Email response**: Facilitates
+    * **Email response**: Helps
      sending an email response of a conversation script to the end
      customer.
     * **Email overview**: Provides an
@@ -105,6 +105,39 @@ The following image shows **us.amazon.nova-pro-v1:0 (Cross Region)(System
 Default)** as the model for this AI prompt.
 
 ![A list of AI prompt models, based on your AWS Region.](images/ai-prompt-model.png)
+
+### Remove the assistant message prefill for specific models
+
+The default AI prompt template includes an assistant message prefill at the
+end of the `messages` section. This prefill reinforces the response
+formatting of wrapping text in `<message>` tags that Connect Customer
+expects.
+
+###### Important
+
+If you choose one of the following models, you must remove the assistant
+message prefill from the template before you save the AI prompt.
+
+- `us.anthropic.claude-sonnet-4-6`
+- `eu.anthropic.claude-sonnet-4-6`
+- `jp.anthropic.claude-sonnet-4-6`
+- `au.anthropic.claude-sonnet-4-6`
+- `global.anthropic.claude-sonnet-4-6`
+- `openai.gpt-oss-20b-1:0`
+- `openai.gpt-oss-120b-1:0`
+
+To remove the assistant message prefill, delete the following two lines from
+the `messages` section at the end of the template:
+
+```
+  - role: assistant
+    content: <message>
+```
+
+The rest of the `messages` section, including the
+`conversationHistory` entry, remains unchanged.
+
+For all other supported models, leave the template unchanged.
 
 ## Edit the AI prompt template
 
@@ -158,7 +191,7 @@ know.
   required and optional in the AI prompt.
 - If you delete a field that is required by one of the formats, or enter
   text that isn't supported, an informative error message is displayed when
-  you click **Save** so you can correct the issue.
+  you choose **Save** so you can correct the issue.
 
 The following sections describe the required and optional fields in the MESSAGES
 and TEXT_COMPLETIONS formats.
@@ -504,7 +537,7 @@ Follow these guidelines to optimize the performance of your AI prompts:
 - When using multiple variables, create a separate prefix with at least
   1,000 tokens to optimize each variable.
 
-## Prompt latency optimization by utilizing prompt caching
+## Prompt latency optimization by using prompt caching
 
 Prompt caching is enabled by default for all customers. However to maximize
 performance please adhere to the following guidelines:

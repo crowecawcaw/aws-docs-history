@@ -45,7 +45,7 @@ following:
      time** must have a one-hour duration and set as
      multiples of 15 minutes. If they do not meet these criteria, the
      validation will fail when you attempt to upload your .csv file.
-     The example below shows the error message that you might
+     The following example shows the error message that you might
      encounter:
 
 

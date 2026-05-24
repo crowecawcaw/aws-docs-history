@@ -27,11 +27,11 @@ To forward an email contact to an external address:
    - The original email message and thread
    - Your additional message (if provided)
 
-7. Click **Send** to forward the email.
+7. Choose **Send** to forward the email.
 
 ![The email forward interface in the CCP.](images/email-forward-interface.png)
 
-The forwarded email is sent to the external recipients. The email contact remains active in your CCP until you end it either by responding to it or clicking **Done** to close it.
+The forwarded email is sent to the external recipients. The email contact remains active in your CCP until you end it either by responding to it or choosing **Done** to close it.
 
 ## Forwarding to distribution lists
 

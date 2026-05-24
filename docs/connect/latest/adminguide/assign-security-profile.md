@@ -22,5 +22,5 @@ permissions.
 5. For **Security Profiles**, add or remove security
    profiles as needed. To add a security profile, put your cursor in the field
    and select the security profile from the list. To remove a security profile,
-   click the **x** next to its name.
+   choose the **x** next to its name.
 6. Choose **Save**.

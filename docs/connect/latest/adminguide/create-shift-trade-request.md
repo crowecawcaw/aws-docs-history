@@ -18,7 +18,7 @@ Agents can exchange shifts when:
 ###### To initiate a shift trade request
 
 1. Navigate to your schedule and choose the shift that you want to trade.
-   The **Request shift trade** option appears. Click or
+   The **Request shift trade** option appears. Choose or
    tap on it.
 
 The following image shows a **Work** shift and the
@@ -73,7 +73,7 @@ shift details on the left side of the screen.
     ![The Offer shift to trade pool dialog box, the Confirm button.](images/shiftexchange-offerpool.png)
 
 3. After you offer a trade, your calendar shows a pending trade request.
-   You can click on that item to get the details on the right side of the
+   You can choose on that item to get the details on the right side of the
    pane, as shown in the following image. The image shows you have offered
    a shift to trade but you haven't received any offers from other
    agents.

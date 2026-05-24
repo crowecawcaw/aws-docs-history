@@ -12,7 +12,7 @@ or Guided Campaign Builder to create a single-channel with step-by-step guidance
 4. To connect with a journey, first create a **journey flow** that supports multi-step
    experiences triggered by events or audience segments, then select the flow you want to connect
    to this journey.
-5. If you haven’t created a journey flow yet, you can click “create journey flow” and
+5. If you haven’t created a journey flow yet, you can choose “create journey flow” and
    will take you to the flow canvas. Please refer to **Journey flow blocks definition** for details.
 6. If the selected journey flow has voice channel, you will use the
    **Voice setup** option to define the details.
@@ -198,7 +198,7 @@ and an entry interval of 3 hours:
 
 ### Review and publish
 
-Take a moment to review your journey prior to publishing. The Review page displays a
+Take a moment to review your journey before publishing. The Review page displays a
 summary of all journey settings, including the schedule and refresh configuration.
 
 ###### Important

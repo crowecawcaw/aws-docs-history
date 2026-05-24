@@ -50,7 +50,7 @@ page.
   workspace](agent-user-guide.md "agent-user-guide.md"). If you are using [StreamsJS](https://github.com/amazon-connect/amazon-connect-streams "https://github.com/amazon-connect/amazon-connect-streams") to customize or embed the CCP, upgrade to version
   2.4.2 or later.
 - For instances that do not have a service-linked role, you must create one
-  in order to enable the feature. For more information on how to enable
+  to enable the feature. For more information on how to enable
   service-linked roles, see [Use service-linked
   roles for Connect Customer](connect-slr.md "connect-slr.md").
 

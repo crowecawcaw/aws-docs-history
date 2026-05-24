@@ -94,7 +94,7 @@ numbers, and manage and configure it through Connect Customer.
 ## Agent workstation
 
 The agent workstation layer is not managed by AWS. It consists of any physical
-equipment and third-party technologies, services, and endpoints that facilitate your
+equipment and third-party technologies, services, and endpoints that help your
 agent’s voice, data, and access the Connect Customer interface layer. Components in the agent
 workstation layer include:
 

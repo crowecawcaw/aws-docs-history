@@ -34,8 +34,8 @@ The following sections describe the two primary connectivity options for using t
   Paths](detailed-network-paths.md "detailed-network-paths.md")
 - [Use Connect Customer in a VDI environment](using-ccp-vdi.md "using-ccp-vdi.md")
 - [How call center agents connect to the Contact Control Panel (CCP)](ccp-connectivity.md "ccp-connectivity.md")
-- [How CCP leverages
-  WebRTC](ccp-leverages-webrtc.md "ccp-leverages-webrtc.md")
+- [How CCP uses
+  WebRTC](ccp-uses-webrtc.md "ccp-uses-webrtc.md")
 - [Use an allowlist for integrated applications in Connect Customer](app-integration.md "app-integration.md")
 - [Update your
   domain](update-your-connect-domain.md "update-your-connect-domain.md")

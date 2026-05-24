@@ -1,6 +1,6 @@
 # Apply hierarchy-based access control to dashboards and reports in Connect Customer
 
-You can leverage agent hierarchies to control who has access to view specific agents
+You can use agent hierarchies to control who has access to view specific agents
 and their performance related metrics in dashboards and reports.
 
 Hierarchy-based access control enables you to configure granular access to users based
@@ -114,7 +114,7 @@ reports and dashboards:
     access control effectively. This could allow users to access more
     data than intended in certain scenarios. In such cases, we recommend
     not granting access to Real-time and Historical reports for users
-    with this type of access control setup, or just leverage
+    with this type of access control setup, or just use
     hierarchy-based or tag-based controls to restrict users
     access.
   - If you have hierarchy-based access controls enabled in your

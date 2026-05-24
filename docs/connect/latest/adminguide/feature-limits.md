@@ -217,6 +217,7 @@ Rules.
 | Conditions in a rule                                                                 | 20                    |
 | Rules with Natural Language condition for `OnPostCallAnalysisAvailable` event source | 100                   |
 | Rules with Natural Language condition for `OnPostChatAnalysisAvailable` event source | 100                   |
+| Rules with Natural Language condition for `OnEmailAnalysisAvailable` event source    | 15                    |
 | Rules for `OnPostCallAnalysisAvailable` event<br>source                              | 500                   |
 | Rules for `OnPostChatAnalysisAvailable` event<br>source                              | 500                   |
 | Rules for `OnRealTimeCallAnalysisAvailable` event<br>source                          | 500                   |

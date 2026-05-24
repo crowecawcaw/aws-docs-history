@@ -367,7 +367,7 @@ URL:
   error is displayed:
 
 `Invalid or missing parameter data`
-`One or more parameters are invalid or missing. Click on the block
+`One or more parameters are invalid or missing. Choose on the block
  header to edit the block and fix the problematic parameters before
  publishing.`
 

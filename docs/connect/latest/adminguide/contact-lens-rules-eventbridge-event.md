@@ -35,7 +35,7 @@ specific action name, such as NOTIFY_CUSTOMER_RETENTION.
 ![The take these actions section, the assign contact category section, the Generate an EventBridge event section.](images/contact-lens-rules-add-eb-action.png) 3. Choose **Next**. Review and then
 **Save**. 4. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Amazon Connect conversational analytics analyzes conversations.
 
-You cannot apply rules to past, stored conversations. 5. To leverage the EventBridge data, subscribe to the EventBridge event type. See the
+You cannot apply rules to past, stored conversations. 5. To use the EventBridge data, subscribe to the EventBridge event type. See the
 next procedure.
 
 ## Subscribe to EventBridge event types

@@ -10,14 +10,14 @@ raw data and information into a more accurate profile by combining data from fir
 and third-party sources. Customer Profiles also improves the quality of the datasets through the
 addition of new data. You can use the improved datasets for additional use cases, such
 as to formulate more informed and targeted marketing, sales, and customer service
-strategies. For example, you may want to leverage the unified customer profile to:
+strategies. For example, you may want to use the unified customer profile to:
 
 - Audit the customer data you have in the entirety of a domain.
 - Perform in-house analytics, for example, for sales and marketing
   reports.
 - Export the data into your own tools or third-party products, to personalize
   ads and target customers.
-  To leverage the unified customer profile data for additional use cases, you can bulk
+  To use the unified customer profile data for additional use cases, you can bulk
   export it to Amazon S3. This topic explains how to do that.
 
 ###### Contents

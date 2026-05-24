@@ -93,7 +93,7 @@ following GIF.
 
 ## Sequentially step through all items
 
-After clicking on the canvas, use the **Page Up** and **Page
+After choosing on the canvas, use the **Page Up** and **Page
 Down** keys to step through items sequentially, following a row-wise
 order.
 

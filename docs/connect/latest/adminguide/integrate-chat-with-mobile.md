@@ -28,7 +28,7 @@ seamless and comprehensive chat interface. It is ideal for teams looking for a
 quick, out-of-the-box solution to integrate chat functionality without extensive
 customizations.
 
-This approach ensures secure communication and leverages the web-based Connect Customer chat
+This approach ensures secure communication and uses the web-based Connect Customer chat
 interface. However, you will need to configure your app to handle cookies and
 JavaScript properly.
 
@@ -65,7 +65,7 @@ deep customization and a seamless user experience.
 Connect Customer Chat React Native integration offers a cross-platform solution.
 It enables teams to build chat functionality for both Android and iOS with a
 shared codebase. This method balances customization and development efficiency
-while leveraging React Native's capabilities for creating robust mobile
+while using React Native's capabilities for creating robust mobile
 applications.
 
 This integration uses native bridges to access advanced features and ensures
@@ -122,7 +122,7 @@ Refer to our
 sample [iOS](https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/mobileChatExamples/iOSChatExample "https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/mobileChatExamples/iOSChatExample") and [Android](https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/mobileChatExamples/androidChatExample "https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/mobileChatExamples/androidChatExample") chat examples that showcase how to power a chat application
 using the Connect Customer Chat SDK for iOS/Android. 3. Check out the [Connect Customer Chat SDK for iOS](https://github.com/amazon-connect/amazon-connect-chat-ios "https://github.com/amazon-connect/amazon-connect-chat-ios") and [Connect Customer Chat SDK for Android](https://github.com/amazon-connect/amazon-connect-chat-android "https://github.com/amazon-connect/amazon-connect-chat-android") GitHub pages. The GitHub page
 contains API documentation and an implementation guide that explains
-any prerequisites and installation steps. 4. Set up React Native integration: Leverage the [React Native](https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/mobileChatExamples/connectReactNativeChat "https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/mobileChatExamples/connectReactNativeChat") example for guidance on implementing react native
+any prerequisites and installation steps. 4. Set up React Native integration: Use the [React Native](https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/mobileChatExamples/connectReactNativeChat "https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/mobileChatExamples/connectReactNativeChat") example for guidance on implementing react native
 based solution. 5. If there are any questions or issues regarding the set up or use of the
 Connect Customer Chat SDK on your mobile applications, you can file an
 issue on either the [Connect Customer Chat SDK for iOS Issues](https://github.com/amazon-connect/amazon-connect-chat-ios/issues "https://github.com/amazon-connect/amazon-connect-chat-ios/issues") page or the [Connect Customer Chat SDK for Android Issues](https://github.com/amazon-connect/amazon-connect-chat-android/issues "https://github.com/amazon-connect/amazon-connect-chat-android/issues") page. If there

@@ -49,7 +49,7 @@ function shouldRenderVideoUI() {
 }
 ```
 
-4. In order to join a video session, call
+4. To join a video session, call
    `getVideoConnectionInfo`:
 
 ```

@@ -122,7 +122,7 @@ the following steps:
 
   ###### Note
 
-  The above list may change at any time.
+  The preceding list may change at any time.
 
 - Any number used to call Chinese telephone numbers must be able to
   called back. You must also implement a call back message that

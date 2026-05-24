@@ -32,7 +32,7 @@ shift activities** page.
      Additional information on the activity
     * **Schedule color**: Choose the color
      you want this activity to appear in supervisor and agent view of
-     schedules. By default Light blue is the first option. Click inside
+     schedules. By default Light blue is the first option. Choose inside
      the box to see other options.
 
 

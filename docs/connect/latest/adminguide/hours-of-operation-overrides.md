@@ -71,7 +71,7 @@ In this example, operations are only open every other day and for partial hours:
 If you choose **Copy from another Hours of Operations**:
 
 1. Find the parent resource and select it.
-2. Next, click to **Save link**.
+2. Next, choose to **Save link**.
 
 ![Dialog to copy overrides from a different hours of operation.](images/copy-hours-of-operation-overrides.png)
 After copying a list, the override records are _distinct from their source_. They are unaffected by changes made to that original list (for example, if Labor Day changes from closed to a half day).

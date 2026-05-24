@@ -21,7 +21,7 @@ if ( ( MessageVisibility == CUSTOMER || MessageVisibility == ALL)  && Participan
 if ( ( MessageVisibility == AGENT || MessageVisibility == ALL)  && ParticipantRole != AGENT )
 ```
 
-You can also leverage the filtering capability in Amazon SNS by building custom [subscription filtering policies](../../../sns/latest/dg/sns-subscription-filter-policies.md "../../../sns/latest/dg/sns-subscription-filter-policies.md"). This offloads the message filtering logic
+You can also use the filtering capability in Amazon SNS by building custom [subscription filtering policies](../../../sns/latest/dg/sns-subscription-filter-policies.md "../../../sns/latest/dg/sns-subscription-filter-policies.md"). This offloads the message filtering logic
 from the SNS topic subscriber to the SNS service itself.
 
 ## Message attributes in the payload

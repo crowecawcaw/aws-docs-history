@@ -140,7 +140,7 @@ another temporary scheduled report.
    reports**.
 3. On the **View reports** page, choose the
    **Historical metrics** tab.
-4. Click or tap on the saved report that has been scheduled.
+4. Choose or tap on the saved report that has been scheduled.
 5. Choose the down arrow next to **Save** in the
    top-right corner of the page and choose
    **Schedule**.

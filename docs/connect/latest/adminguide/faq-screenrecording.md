@@ -219,6 +219,6 @@ We recommend 500kbps per concurrent contact with screen recording enabled.
   machine?**
 
 Screen recording in general is a CPU intensive application and hence CPU
-utilization increase is expected. We recommend ensuring you provide
+use increase is expected. We recommend ensuring you provide
 sufficient resources as documented in [System requirements](sr-system-req.md#sr-requirements "sr-system-req.md#sr-requirements") to avoid any resource contention
 issues.

@@ -41,7 +41,7 @@ For more information, see [Assign security profile permissions for performance e
    contacts where the evaluation score is less than 70%:
 
 ![The Contact Search page with an evaluation score filter applied.](images/contact-search-evaluation-score-filter.png) 4. Open a contact that has been evaluated, and view the evaluations on the
-right pane. 5. Open an evaluation and click **Coach on this
+right pane. 5. Open an evaluation and choose **Coach on this
 evaluation**.
 
 ![The Coach on this evaluation button on an evaluation.](images/coaching-coach-on-this-evaluation-button.png) 6. You can add the entire evaluation, a specific section and/or question to a
@@ -62,12 +62,12 @@ topics.
 
 ###### Note
 
-**Session due date** is mandatory. 11. Click **Submit** to save the coaching session as a draft. 12. When the coaching session is ready, click **Share** to make the coaching
+**Session due date** is mandatory. 11. Choose **Submit** to save the coaching session as a draft. 12. When the coaching session is ready, choose **Share** to make the coaching
 session visible to the agent. If the agent has an email configured within Connect Customer (or has a secondary
 email for a SAML instance), they will receive an email notification with a link
 to view the coaching session. 13. At the time of coaching, you can access the coaching session on
 **Analytics and Optimization** > **Coaching
-sessions**. This page displays all past and upcoming coaching sessions. 14. After the coaching session is finished, click **Mark as Complete** and optionally add a note. 15. Agents can acknowledge the coaching along with their own coaching notes.
+sessions**. This page displays all past and upcoming coaching sessions. 14. After the coaching session is finished, choose **Mark as Complete** and optionally add a note. 15. Agents can acknowledge the coaching along with their own coaching notes.
 
 ## Search for coaching sessions
 

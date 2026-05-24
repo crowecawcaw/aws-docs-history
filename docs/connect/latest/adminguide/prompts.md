@@ -68,7 +68,7 @@ who can access this prompt. For more information, see [Add tags to resources in 
 Use the filters on the **Prompts** page to filter the list of prompts
 by **Name**, **Description**, and
 **Tags**. To copy the full Amazon Resource Name (ARN) of a prompt
-with just one click, choose the **Copy** icon. When you [set up dynamic prompts in a flow](dynamically-select-prompts.md "dynamically-select-prompts.md"), you'll
+with just one choose, choose the **Copy** icon. When you [set up dynamic prompts in a flow](dynamically-select-prompts.md "dynamically-select-prompts.md"), you'll
 need to enter the full ARN of the prompt.
 
 ![The prompts page, the filter options, the copy ARN option.](images/prompts-filter.png)

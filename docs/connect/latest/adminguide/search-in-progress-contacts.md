@@ -83,7 +83,7 @@ Contact Work state.
 
 ## View in progress contacts
 
-You can click on a Contact ID within the **Contact search**
+You can choose on a Contact ID within the **Contact search**
 results to view details of an in-progress contact.
 
 ![View an in-progress contact.](images/contact-search-in-progress-view.png)

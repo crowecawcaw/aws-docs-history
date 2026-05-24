@@ -1,6 +1,6 @@
 # Troubleshoot call disconnects by using DisconnectDetails in the contact record
 
-This topic explains how to leverage the Connect Customer [DisconnectDetails](ctr-data-model.md#ctr-disconnectdetails "ctr-data-model.md#ctr-disconnectdetails") in the contact record to troubleshoot call disconnect
+This topic explains how to use the Connect Customer [DisconnectDetails](ctr-data-model.md#ctr-disconnectdetails "ctr-data-model.md#ctr-disconnectdetails") in the contact record to troubleshoot call disconnect
 issues.
 
 ## Step 1: Observe the issue

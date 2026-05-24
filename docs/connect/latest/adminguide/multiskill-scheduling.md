@@ -15,7 +15,7 @@ For more information, see [Multi skill forecasting](multiskill-forecasting.md "m
 
 ## Assigning agents to demand groups
 
-- Amazon Connect forecasting capacity planning and scheduling utilizes staffing groups to organize agents into teams. Each staffing group accommodates up to 250 agents under the supervision of one or more supervisors. For details please refer to
+- Amazon Connect forecasting capacity planning and scheduling uses staffing groups to organize agents into teams. Each staffing group accommodates up to 250 agents under the supervision of one or more supervisors. For details please refer to
   [Create staffing
   groups and rules](scheduling-create-staffing-groups.md "scheduling-create-staffing-groups.md"). After you create the staffing group, you can link it to the "forecast group", and then to the corresponding demand groups. You can set priority levels
   (high/ medium/ low) for each demand group. Higher priority means those agents get scheduled first for that demand group.

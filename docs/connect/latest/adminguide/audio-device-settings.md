@@ -50,9 +50,9 @@ Following are the top tips for resolving issues with audio devices.
   settings. Following are instructions for a Windows computer:
   1.  Press **Windows** + **I** to
       open **Settings**.
-  2.  Click **System**, and then click
+  2.  Choose **System**, and then choose
       **Sound** on the left navigation pane.
-  3.  Scroll down the page and click **Microphone privacy
+  3.  Scroll down the page and choose **Microphone privacy
       settings**.
   4.  Under **Allow apps to access your microphone**,
       set the toggle to **On**.

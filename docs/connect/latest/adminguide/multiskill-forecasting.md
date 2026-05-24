@@ -21,7 +21,7 @@ permissions](required-optimization-permissions.md "required-optimization-permiss
 For more information, see [Create forecast
 groups](create-forecast-groups.md "create-forecast-groups.md")
 
-- Click on Activate demand groups.
+- Choose on Activate demand groups.
 
 ![Image to activate demand groups.](images/wfm-forecasting-activatedemandgroups.png)
 

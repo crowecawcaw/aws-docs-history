@@ -11,7 +11,7 @@ provide tag information in the condition element of an IAM policy. For example, 
 control access to your Voice ID domain based on the tags you've assigned to it, use
 the `aws:ResourceTag/key-name` condition key, along with a specific
 operator like `StringEquals` to specify which tag
-_key:value_ pair must be attached to the domain, in order to
+_key:value_ pair must be attached to the domain, to
 allow given actions for it.
 
 For more detailed information on tag-based access control, see [Controlling
@@ -21,7 +21,7 @@ Guide_.
 ## Apply tag-based access control using the Connect Customer admin website
 
 A _resource_ tag is a custom metadata label that you can add to
-a resource in order to make it easier to identify, organize, and find in a search.
+a resource to make it easier to identify, organize, and find in a search.
 You can apply tags programmatically using the Connect Customer SDK/APIs, and for certain
 resources you can apply tags from within the Connect Customer console. To learn more about
 resource tags, see [Add tags to resources in Connect Customer](tagging.md "tagging.md").
@@ -67,7 +67,7 @@ do not contain tags. If multiple security profiles are present with overlapping
 resource permissions, the security profile without tag-based access controls will be
 enforced over the one with tag-based access controls.
 
-Service linked roles are required in order to configure [resource
+Service linked roles are required to configure [resource
 tags](tagging.md "tagging.md") or [access control
 tags](tag-based-access-control.md "tag-based-access-control.md"). If your instance was created after October 2018, this will be
 available by default with your Connect Customer instance. However if you have an older

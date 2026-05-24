@@ -56,11 +56,11 @@ This module shows how to check call back number from customers and allows them t
 
 Following is an image of the customer call back module that invokes the sub module for setting the call back number:
 
-![](images/module-nested-call-back-number-example.png)
+![Flow diagram showing contact attribute check, set contact attributes, get customer input with multiple branches, invoke module, and return steps.](images/module-nested-call-back-number-example.png)
 
 Following is an image of the set call back number sub module::
 
-![](images/module-nested-call-back-number-sub-example.png)
+![Call flow diagram showing customer input validation, callback confirmation, and caller ID validation steps.](images/module-nested-call-back-number-sub-example.png)
 
 ## Security profile permissions for modules
 
@@ -138,7 +138,7 @@ You can view specific versions or aliases of your modules in read-only mode.
 
 ![Viewing module aliases in the console.](images/module-version-view2.png)
 
-Click on the specific version or alias to view the modules in read-only mode:
+Choose on the specific version or alias to view the modules in read-only mode:
 
 ![Read-only view of a specific module version.](images/module-readonly-view.png)
 

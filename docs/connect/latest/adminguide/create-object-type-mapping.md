@@ -145,7 +145,7 @@ information on the `LOOKUP_ONLY` standard identifier, see
 [Standard identifiers for setting attributes on the key in Customer Profiles](standard-identifiers.md "standard-identifiers.md").
 
 - **Unique identifier**: You must have a unique
-  identifier for your data in order to avoid an error when it is
+  identifier for your data to avoid an error when it is
   ingested. This identifier is also known as the unique key. Customer Profiles uses
   it to distinguish this data from other data source objects, and to
   index for search and update data.
@@ -153,7 +153,7 @@ information on the `LOOKUP_ONLY` standard identifier, see
 There can be only one unique identifier.
 
 - **Customer identifier**: You must have at least
-  one customer identifier for your data in order to avoid an error
+  one customer identifier for your data to avoid an error
   when it is ingested. The identifier is also known as the profile
   key.
 
@@ -170,7 +170,7 @@ Workspace to find the profile that belongs to customer on the
 interaction.
 
 - **Product identifier**: You must have at least
-  one product identifier for your data in order to avoid an error when
+  one product identifier for your data to avoid an error when
   it is ingested. The identifier is also known as the asset
   key.
 
@@ -182,7 +182,7 @@ searching other profiles for this identifier.
 You can have multiple product identifiers.
 
 - **Case identifier**: You must have at least one
-  case identifier for your data in order to avoid an error when it is
+  case identifier for your data to avoid an error when it is
   ingested. The identifier is also known as the case key.
 
 Customer Profiles uses it to distinguish this data from other customer case
@@ -193,7 +193,7 @@ other profiles for this identifier.
 You can have multiple case identifiers.
 
 - **Order identifier**: You must have at least one
-  order identifier for your data in order to avoid an error when it is
+  order identifier for your data to avoid an error when it is
   ingested. The identifier is also known as the order key.
 
 Customer Profiles uses it to distinguish this data from other customer order

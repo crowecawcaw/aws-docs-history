@@ -34,7 +34,7 @@ example:
   **Offline** and their CCP window is closed.
 
 These issues are usually because users are not actually logged out. They aren't
-clicking the **Logout** button. For example, they may be changing their
+choosing the **Logout** button. For example, they may be changing their
 status to **Offline** and then closing their CCP window.
 
 To log out, in the CCP or the agent workspace, they need to choose

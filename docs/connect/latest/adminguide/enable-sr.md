@@ -76,5 +76,5 @@ Connect Customer Client Application for your operating system.
   percentage](distribute-by-percentage.md "distribute-by-percentage.md") block before
   **Set recording and analytics behavior**. This enables
   you to use screen recording for some but not all contacts.
-- You may want to leverage the [SuspendContactRecording](../APIReference/API_SuspendContactRecording.md "../APIReference/API_SuspendContactRecording.md") and [ResumeContactRecording](../APIReference/API_ResumeContactRecording.md "../APIReference/API_ResumeContactRecording.md") APIs to prevent sensitive information
+- You may want to use the [SuspendContactRecording](../APIReference/API_SuspendContactRecording.md "../APIReference/API_SuspendContactRecording.md") and [ResumeContactRecording](../APIReference/API_ResumeContactRecording.md "../APIReference/API_ResumeContactRecording.md") APIs to prevent sensitive information
   from being captured in the screen recording.

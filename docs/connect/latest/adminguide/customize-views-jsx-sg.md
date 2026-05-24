@@ -1,9 +1,9 @@
 # Customize views for the Connect Customer agent workspace by using HTML and JSX
 
 You can customize the look and feel of the layouts of View resources. You do this
-by leveraging HTML or JSX when you pass in input parameters to the [Show view](show-view-block.md "show-view-block.md") block.
+by using HTML or JSX when you pass in input parameters to the [Show view](show-view-block.md "show-view-block.md") block.
 
-Complete the following steps for a simple example of how you can leverage HTML or
+Complete the following steps for a simple example of how you can use HTML or
 JSX with a [Show view](show-view-block.md "show-view-block.md")
 block.
 

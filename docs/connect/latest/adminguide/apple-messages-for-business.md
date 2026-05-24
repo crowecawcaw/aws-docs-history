@@ -15,7 +15,7 @@ Chat](web-and-mobile-chat.md "web-and-mobile-chat.md").
 
 ## Prerequisites: Determine if Apple Messages for Business is the right channel for your use case
 
-In order to qualify as a business, make sure you meet the criteria listed in the
+To qualify as a business, make sure you meet the criteria listed in the
 [Apple Messages for Business documentation](https://register.apple.com/resources/messages/messaging-documentation/#qualifying-as-a-business "https://register.apple.com/resources/messages/messaging-documentation/#qualifying-as-a-business").
 
 If you determine that Apple Messages for Business is the right channel for your business, fill in the

@@ -28,9 +28,9 @@ on the Contact Details page.
 ###### Important Notes
 
 - Once you enable tag based access control on evaluations, the users will lose
-  access to any evaluations prior to tagging the evaluation form. If you are already
+  access to any evaluations before tagging the evaluation form. If you are already
   using performance evaluations, we recommend to first tag evaluation forms and
-  accumulate evaluations over several months, prior to enabling tag based access to
+  accumulate evaluations over several months, before enabling tag based access to
   evaluations.
 - It is recommended to use a single tag on an evaluation form (e.g. "Department: New customer")
   while configuring tag-based access. While assigning and permitting access on multiple tags is
@@ -68,7 +68,7 @@ Below are the steps to add tags to an evaluation form.
 
 1. Open the evaluation form with a security profile that has the permission
    **Evaluation forms - manage form definitions** - **Edit**.
-2. Click on the edit icon next to the Tags.
+2. Choose on the edit icon next to the Tags.
 
 ![The edit tags icon in the evaluation form.](images/evaluationforms-tags-edit-form-tags.png) 3. Update the tags.
 
@@ -99,7 +99,7 @@ updating tags on evaluation forms will not change evaluations on historically co
    **Security Profiles - View** and **Edit** permissions.
 2. Go to the **Users > Security Profiles** page within security profiles,
    and select a security profile that you want to modify.
-3. Click **Show advanced options**.
+3. Choose **Show advanced options**.
 4. Select **Allow: Tag-based access control**.
 5. Under resources, select **Evaluation forms** and
    **Contact Evaluations**.

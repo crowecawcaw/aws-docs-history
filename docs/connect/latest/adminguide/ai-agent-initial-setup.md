@@ -1,6 +1,6 @@
 # Initial set-up for AI agents
 
-In order to start using Connect AI agents, you first need to create a domain.
+To start using Connect AI agents, you first need to create a domain.
 As part of this process you can also optionally:
 
 - Create an encryption key to encrypt the excerpts that are provided
@@ -810,7 +810,7 @@ behavior](set-recording-behavior.md "set-recording-behavior.md") block.
 
 ## What if I have multiple knowledge bases?
 
-You can configure your orchestration agent to utilize multiple knowledge bases by [configuring multiple retrieve tools.](multiple-knowledge-base-setup-and-content-segmentation.md "multiple-knowledge-base-setup-and-content-segmentation.md")
+You can configure your orchestration agent to use multiple knowledge bases by [configuring multiple retrieve tools.](multiple-knowledge-base-setup-and-content-segmentation.md "multiple-knowledge-base-setup-and-content-segmentation.md")
 
 ## When was your knowledge base last updated?
 

@@ -57,7 +57,7 @@ Agents can then begin accepting chats through the Contact Control Panel.
 
 You can see real-time and historical metrics for the chat messaging channel (for
 example, arrival time, handle time) as part of their overall Chat channel metrics in
-the same reporting experience used for calls/chats/tasks in order to assess agent
+the same reporting experience used for calls/chats/tasks to assess agent
 performance and productivity.
 
 Connect Customer provides several resources to help you add chat to your website. For more

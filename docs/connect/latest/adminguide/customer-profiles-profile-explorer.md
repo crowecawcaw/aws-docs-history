@@ -16,7 +16,7 @@ engage with their customers through this intuitive interface.
 - **Access complete customer context** including
   demographic data, communication history, behavioral interactions, and segment
   membership with interactive visualizations and data displays.
-- **Leverage AI-powered insights** with customer
+- **Use AI-powered insights** with customer
   summaries highlighting key patterns, and personalized behavioral inferences.
 
 ![The Profile explorer dashboard.](images/customer-profiles-profile-explorer-1.png)

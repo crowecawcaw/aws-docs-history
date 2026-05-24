@@ -123,7 +123,7 @@ interaction count**.
 The following GIF shows an example of choosing the entry point and the metrics
 displaying.
 
-![Metrics for blocks on the flow designer.](images/metrics-click-badge.gif)
+![Metrics for blocks on the flow designer.](/images/connect/latest/adminguide/images/metrics-choose-badge.gif)
 
 ## Block Metrics table
 

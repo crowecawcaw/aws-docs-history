@@ -250,7 +250,7 @@ your contact center:
 
 By default, users in your Connect Customer instance remain signed in until the maximum
 session duration of 12 hours elapses, with no automatic logout for inactivity. However,
-organizations with stricter security and compliance requirements can leverage
+organizations with stricter security and compliance requirements can use
 authentication profiles to enable automatic sign-out when users become inactive. Once
 enabled, this feature monitors user activity patterns and automatically ends
 sessions after the configured session inactivity duration has passed.
@@ -282,7 +282,7 @@ inactivity.
 
 ###### Note
 
-Customers who leverage AmazonConnectStreams or the AmazonConnectSDK to integrate their
+Customers who use AmazonConnectStreams or the AmazonConnectSDK to integrate their
 existing web applications with Connect Customer must implement activity handling as part
 of their integration before enabling automatic log-out on user inactivity. See the
 AmazonConnectStreams or AmazonConnectSDK documentation for more information.

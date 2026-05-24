@@ -47,7 +47,7 @@ Use this configuration when you want the agent to search all knowledge bases sim
 
 1. Fill in the tool instructions by copying over the instructions and examples from the default Retrieve tool.
 
-![Retrieve tool instructions](images/ai-agents-retrieve-tool-instructions.png) 2. Click the Add button to create the new Retrieve tool. Your tool list should now have the new Retrieve tool.
+![Retrieve tool instructions](images/ai-agents-retrieve-tool-instructions.png) 2. Choose the Add button to create the new Retrieve tool. Your tool list should now have the new Retrieve tool.
 
 ![Tool list containing multiple retrieve tools](images/ai-agents-multiple-retrieve-tools-list.png)
 
@@ -59,7 +59,7 @@ You now have a second Retrieve tool. To use all Retrieve tools together, you mus
 
 Create a new prompt by copying the default orchestration prompt that matches your use case. In this example, we copy from the AgentAssistanceOrchestration prompt.
 
-![Creating new AI Prompt screen](images/ai-agents-creating-new-prompt.png) 2. Click the **Create button** and you will be taken to a page where you can modify the prompt. 3. Modify your prompt based on your orchestration type:
+![Creating new AI Prompt screen](images/ai-agents-creating-new-prompt.png) 2. Choose the **Create button** and you will be taken to a page where you can modify the prompt. 3. Modify your prompt based on your orchestration type:
 
     * ###### For Agent Assistance orchestration prompts:
 
@@ -94,7 +94,7 @@ Unlike parallel invocation, each Retrieve tool needs distinct instructions that 
 
 1. For each Retrieve tool, including the default, write specific instructions that describe the content of its associated knowledge base and when to use it.
 
-![Retrieve tool instructions](images/ai-agents-retrieve-tool-instructions.png) 2. Click the Add button to create the new Retrieve tool. Your tool list should now have the new Retrieve tool.
+![Retrieve tool instructions](images/ai-agents-retrieve-tool-instructions.png) 2. Choose the Add button to create the new Retrieve tool. Your tool list should now have the new Retrieve tool.
 
 ![Tool list containing multiple retrieve tools](images/ai-agents-multiple-retrieve-tools-list.png)
 
@@ -106,7 +106,7 @@ You now have a second Retrieve tool. To have the agent select the appropriate to
 
 Create a new prompt by copying the default orchestration prompt that matches your use case. In this example, we copy from the AgentAssistanceOrchestration prompt.
 
-![Creating new AI Prompt screen](images/ai-agents-creating-new-prompt.png) 2. Click the **Create button** and you will be taken to a page where you can modify the prompt. 3. Modify your prompt based on your orchestration type:
+![Creating new AI Prompt screen](images/ai-agents-creating-new-prompt.png) 2. Choose the **Create button** and you will be taken to a page where you can modify the prompt. 3. Modify your prompt based on your orchestration type:
 
     * ###### For Agent Assistance orchestration prompts:
 

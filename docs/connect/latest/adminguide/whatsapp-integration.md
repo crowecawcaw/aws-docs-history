@@ -25,7 +25,7 @@ Before you can integrate WhatsApp with Connect Customer, you must have the follo
 
 - A WhatsApp Business Account.
 - A WhatsApp phone number. The number must be able to receive a voice call or an SMS text
-  message in order to complete Meta's phone number verification process for WhatsApp Business
+  message to complete Meta's phone number verification process for WhatsApp Business
   messaging. You can use an Connect Customer voice number or an AWS End User Messaging SMS number for the WhatsApp phone
   number. You can also use a phone number that you own outside of AWS.
 
@@ -172,8 +172,8 @@ customer entry points.
 - Entry points: [5 ways to direct leads and customers to business messaging conversations](https://business.whatsapp.com/blog/messaging-app-entry-points "https://business.whatsapp.com/blog/messaging-app-entry-points") (WhatsApp
   blog post)
 - QR codes: [Manage your WhatsApp Business Platform QR code](https://business.facebook.com/business/help/890732351439459 "https://business.facebook.com/business/help/890732351439459") (Meta help article)
-- Click-to-WhatsApp ads: [Create
-  Ads that Click to WhatsApp in Ads Manager](https://business.facebook.com/business/help/447934475640650?id=371525583593535 "https://business.facebook.com/business/help/447934475640650?id=371525583593535") (Meta help article)
+- Choose-to-WhatsApp ads: [Create
+  Ads that Choose to WhatsApp in Ads Manager](https://business.facebook.com/business/help/447934475640650?id=371525583593535 "https://business.facebook.com/business/help/447934475640650?id=371525583593535") (Meta help article)
 
 ### Add a display name to your phone number
 

@@ -3,7 +3,7 @@
 The following steps allow you to provide your users with the ability to create guided
 experiences, and allow agents to interact with the experiences.
 
-1. **Enable admins to create visual flow**
+1. **Enable admins to create step-by-step guides**
 
 Assign managers and business analysts to the **Channels and flows -
 Views** security profile permission, as shown in the following

@@ -22,7 +22,7 @@ Connect Customer provides managers with a random sample of their agents’ conta
     * **Interaction Duration**: You can choose contacts with a minimum and maximum agent-customer interaction
     * **Evaluation Status**: Only select contacts that have not yet been evaluated
 
-![Add additional filters](images/evaluationforms-randomsampling-search-filters.png) 5. Specify the sampling criteria, such as 5 contacts per agent and click **apply** to generate a sample.
+![Add additional filters](images/evaluationforms-randomsampling-search-filters.png) 5. Specify the sampling criteria, such as 5 contacts per agent and choose **apply** to generate a sample.
 
 ![Sampling criteria](images/evaluationforms-randomsampling-criteria.png) 6. You can save the set of filters and sampling criteria within saved search.
 
@@ -55,7 +55,7 @@ To retrieve the contact sample in the future, go to Contact Search and apply the
 
 ## Auditing sampling criteria
 
-If you open an evaluation, it will indicate if contact sampling was used to create the evaluation. You can click **Yes** to audit the filter criteria used to generate the contact sample, ensuring that filters did not introduce any bias (e.g., negative customer sentiment) during the contact selection process.
+If you open an evaluation, it will indicate if contact sampling was used to create the evaluation. You can choose **Yes** to audit the filter criteria used to generate the contact sample, ensuring that filters did not introduce any bias (e.g., negative customer sentiment) during the contact selection process.
 
 ![Create draft evaluations - contact details](images/evaluationforms-randomsampling-evals-list.png)
 

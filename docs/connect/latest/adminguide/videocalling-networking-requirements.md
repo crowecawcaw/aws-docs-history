@@ -2,7 +2,7 @@
 
 The Connect Customer in-app, web, and video calling capabilities enable your
 customers to contact you without ever leaving your web or mobile application. The video
-calling capabilities leverage the Amazon Chime SDK communication primitives for
+calling capabilities use the Amazon Chime SDK communication primitives for
 the video stream. The voice experience is handled through Connect Customer.
 
 ###### Important

@@ -228,7 +228,7 @@ metrics and real-time data from Connect Customer, you can:
 - Use Amazon Kinesis video stream (KVS) and AWS Lambda to transcribe call recordings
   or voice contacts in real-time using Amazon Transcribe and send the resulting text
   to Amazon Comprehend for sentiment analysis.
-- Leverage the [Connect Customer Agent Event
+- Use the [Connect Customer Agent Event
   Kinesis Stream](agent-event-streams.md "agent-event-streams.md") for real-time agent CTI and schedule adherence
   data.
 

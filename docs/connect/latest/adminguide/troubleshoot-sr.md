@@ -32,7 +32,7 @@ Open your CCP. It must be open so you can view the
    shared worker named **ClientAppInterface**.
 3. Choose **inspect** to open a DevTools
    instance.
-4. Choose the **Console** tab, right-click the log
+4. Choose the **Console** tab, open the context menu for the log
    dump, and then select **Save as...** to store the
    log dump to a local file.
 
@@ -43,7 +43,7 @@ Open your CCP. It must be open so you can view the
 2. In the **Shared workers** section, choose
    **Inspect** for
    **/connect/ccp-naws/static/client-app-interface.js**.
-3. Right-click the **Console** tab and select
+3. Open the context menu for the **Console** tab and select
    **Save all Messages to File** to store the log
    dump to a local file.
 
@@ -55,6 +55,6 @@ Open your CCP. It must be open so you can view the
    shared worker named **ClientAppInterface**.
 3. Choose **inspect** to open a DevTools
    instance.
-4. Choose the **Console** tab, right-click the log
+4. Choose the **Console** tab, open the context menu for the log
    dump, and then select **Save as...** to store the
    log dump to a local file.

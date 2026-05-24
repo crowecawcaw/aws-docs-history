@@ -11,7 +11,7 @@ of business, using tags can help you better organize and apply tag-based access 
 AWS resources. They consist of key-value pairs that help you
 categorize resources based on criteria like purpose, owner, or environment. This enables
 you to identify and manage your resources. Connect Customer, allows you to add tags to
-your instances directly from the AWS console, or by utilizing public
+your instances directly from the AWS console, or by using public
 APIs.
 
 ## Tagging Connect Customer instances at creation

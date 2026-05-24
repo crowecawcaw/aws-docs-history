@@ -25,7 +25,7 @@ monitoring](monitor-conversations.md "monitor-conversations.md").
 ## Important things to know about hosting multi-party calls
 
 - If the primary agent leaves the call, you must have at least three
-  participants on the call in order to add more participants.
+  participants on the call to add more participants.
 - When you have multiple agents on the call, such as three agents and a
   caller, all agents on the call can view all parties and have the option
   to put any participant or another agent on hold, mute, and disconnect

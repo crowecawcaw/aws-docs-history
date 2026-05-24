@@ -24,7 +24,7 @@ and anticipated notification volumes.
 
 ## Before you begin
 
-You need a few things in order to use outbound campaigns:
+You need a few things to use outbound campaigns:
 
 - Make sure your Connect Customer instance is [enabled for
   outbound calling](enable-outbound-calls.md "enable-outbound-calls.md").
@@ -89,7 +89,7 @@ If you choose **Create an AWS KMS key**:
 
     ![The Review and edit key policy page.](images/customer-profiles-create-kms-key-note-key.png)
     * Return to the tab in your browser for the Connect Customer console, **Enable outbound
-     campaigns** page. Click or tap in the **AWS KMS key** for the
+     campaigns** page. Choose or tap in the **AWS KMS key** for the
      key you created to appear in a dropdown list. Choose the key you created.
 
 [Show moreShow less](# "#") 6. Choose **Enable outbound campaigns**. 7. It takes a few minutes for outbound campaigns to be enabled. When it's successfully enabled, you

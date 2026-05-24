@@ -2,7 +2,7 @@
 
 In real-time metrics reports, for **Routing profiles** and
 **Queues** tables, you can open pre-filtered tables that
-display the associated queues, routing profiles, or agents. These one-click filters
+display the associated queues, routing profiles, or agents. These one-choose filters
 provide a way for you to drill into the performance data.
 
 ## Example 1: Queues table -> Routing profiles table -> Agents table
@@ -40,4 +40,4 @@ Steps**. Below the **Queues** table, a
 routing steps that are being used on active contacts in that queue, as shown in
 the following image.
 
-![The queues table, view steps option, the steps table.](images/one-click-drill-downs-example3.png)
+![The queues table, view steps option, the steps table.](/images/connect/latest/adminguide/images/one-choose-drill-downs-example3.png)

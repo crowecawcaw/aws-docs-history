@@ -48,7 +48,7 @@ the following options:
 
 ## Set number of loops
 
-![](images/set number of loops highlight.png)
+![Loop configuration dialog with Select an action dropdown set to Set number of loops and Set loop name section highlighted.](images/set number of loops highlight.png)
 
 When select an action is set to “Set number of loops”, note the following properties:
 
@@ -59,7 +59,7 @@ When select an action is set to “Set number of loops”, note the following pr
 
 ## Set array for looping
 
-![](images/set array for looping.png)
+![Loop configuration panel showing action selection, array for looping options, and loop name settings.](images/set array for looping.png)
 
 When select an action is set to “Set array for looping”, note the following
 properties :

@@ -14,7 +14,7 @@ used to verify the signature of the certificate used within the flow.
 
 ###### Note
 
-You can have up to two encryption keys active at one time to facilitate rotation.
+You can have up to two encryption keys active at one time to help rotation.
 
 To decrypt the data in the **Stored customer input** attribute, use the
 AWS Encryption SDK. For more information, see the [AWS Encryption SDK Developer Guide](../../../encryption-sdk/latest/developer-guide.md "../../../encryption-sdk/latest/developer-guide.md").

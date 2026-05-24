@@ -268,7 +268,7 @@ and Connect Customer. For more information, see the [Set up your network to use 
 
 By using Amazon WorkSpaces, a Virtual Desktop Infrastructure (VDI) environment, you
 have the capability to create a customized Contact Control Panel (CCP) by
-leveraging the Connect Customer Real-Time Communications (RTC) JavaScript library. This
+using the Connect Customer Real-Time Communications (RTC) JavaScript library. This
 library seamlessly integrates with the Amazon WorkSpaces SDK, enabling automatic media
 redirection from your local desktop to Connect Customer. This eliminates the need to
 develop and manage a separate agent application, such as dual-CCPs, specifically
@@ -283,7 +283,7 @@ The Omnissa Virtual Desktop Infrastructure (VDI) solution enables a
 streamlined integration with Connect Customer through the implementation of a custom
 Contact Control Panel (CCP).
 
-By leveraging the Connect Customer RTC JavaScript library in conjunction with Omnissa's
+By using the Connect Customer RTC JavaScript library in conjunction with Omnissa's
 Horizon WebRTC SDK, audio processing is optimized by redirecting media streams
 directly from the agent's local endpoint to Connect Customer. This architecture eliminates
 the traditional challenges of audio routing through virtual desktops, providing

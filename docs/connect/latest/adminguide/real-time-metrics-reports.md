@@ -22,8 +22,8 @@ by teams of agents.
   Connect Customer](rtm-refresh.md "rtm-refresh.md")
 - [Create alerts on real-time
   metrics](rule-real-time-metrics.md "rule-real-time-metrics.md")
-- [Use one-click
-  drill-downs](one-click-drill-downs.md "one-click-drill-downs.md")
+- [Use one-choose
+  drill-downs](one-choose-drill-downs.md "one-choose-drill-downs.md")
 - [Visualize: Queue
   dashboard](visualize-queue-dashboard.md "visualize-queue-dashboard.md")
 - [View contacts in

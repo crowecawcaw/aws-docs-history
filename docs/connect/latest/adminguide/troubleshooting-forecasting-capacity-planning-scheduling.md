@@ -169,7 +169,7 @@ Forecasts can only be deleted if they are not being used for a
 capacity plan (long-term forecast) or schedule (short-term forecast).
 Check if the forecast has been published and that it is used for
 scheduling or capacity planning. You must delete the schedule or
-capacity plans in order to delete the forecast.
+capacity plans to delete the forecast.
 
 - **Why do the long-term and short-term forecasts
   show different values for the same time period?**
@@ -228,7 +228,7 @@ match the actual forecast group names in forecasting module.
 - **The system does not generate schedules for some
   or all of my agents. What should I check?**
 
-This can occur due to the fact that the last date an agent can be
+This can occur because the last date an agent can be
 scheduled is before the time of the schedule and/or the agent's maximum
 working hours don’t allow them to work in that shift profile. Review the
 following steps to address this issue.

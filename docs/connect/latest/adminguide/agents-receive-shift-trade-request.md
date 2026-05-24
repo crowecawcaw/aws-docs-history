@@ -1,6 +1,6 @@
 # How agents receive and approve shift trade requests
 
-To view trade offers, agents go to their schedule calendar, and click or tap
+To view trade offers, agents go to their schedule calendar, and choose or tap
 on the request drawer, as shown in the following image.
 
 ![The agent's calendar, the request drawer with an offer.](images/shiftexchange-twooffers.png)
@@ -8,7 +8,7 @@ Then choose the **Shift trades** tab, as shown in the
 following image.
 
 ![The Requests pane, the Shift trades tab.](images/shiftexchange-shifttrades-requests-pane.png)
-You can click on the received trade section to review the incoming trade
+You can choose on the received trade section to review the incoming trade
 offers from other agents. You can then select that offer and take one of the
 following actions.
 

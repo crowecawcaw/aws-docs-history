@@ -38,7 +38,7 @@ focus.
 
 When you're monitoring a conversation, the status in your CCP changes to
 **Monitoring**. 5. To monitor chat conversations: For each agent you'll see the number of live
-chat conversations they're in. Click on the number. Then choose the conversation
+chat conversations they're in. Choose on the number. Then choose the conversation
 you want to start monitoring.
 
 When you're monitoring a conversation, the status in your CCP changes to

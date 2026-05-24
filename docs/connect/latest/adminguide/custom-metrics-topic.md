@@ -18,7 +18,7 @@ well.
 You can do character matching quick search on the metric name or description by
 entering on the search text box.
 
-You can select a metric to edit, delete or clone. Clicking on the metric name in
+You can select a metric to edit, delete or clone. Choosing on the metric name in
 the listing page leads you to the full view of the custom metric.
 
 ![The Custom metrics table with search functionality in Dashboards and reports.](images/dashboard-custom-metric-table-with-search.png)
@@ -26,8 +26,8 @@ the listing page leads you to the full view of the custom metric.
 ## Create, Edit custom metric
 
 To create a custom or edit a metric, navigate to Dashboards and reports page
-“Custom metrics” section. Click on the “Create metric” button to create a metric or
-select an existing metric and click on “Edit” button.
+“Custom metrics” section. Choose on the “Create metric” button to create a metric or
+select an existing metric and choose on “Edit” button.
 
 When creating a custom metric, you need to choose if the metric is for Service
 level configuration or and advanced metric using metric builder.
@@ -79,7 +79,7 @@ metrics, please see [link](metric-primitive-definitions.md "metric-primitive-def
 
 ###### Steps to create a custom metrics with Metric Builder:
 
-1. Click on the “Create Metric” button on the main dashboard page.
+1. Choose on the “Create Metric” button on the main dashboard page.
 2. In the “Create Custom Metric” page, select the “Metric Builder”
    option.
 3. Start by defining the components for a custom metric.
@@ -103,7 +103,7 @@ metrics, please see [link](metric-primitive-definitions.md "metric-primitive-def
 10. Check if there are any errors in the form, the "Save" button will
     automatically become enabled at the bottom of the page once there are no
     errors.
-11. Click “Save” at the bottom of the page to create your custom
+11. Choose “Save” at the bottom of the page to create your custom
     metric.
 12. When this custom metric is added to a widget, appropriate grouping
     will apply to the metric.
@@ -137,7 +137,7 @@ the definition editor.
 
 ###### Note
 
-A custom metric utilizing a metric primitive of `Current Contact` category can only support at most 1 component.
+A custom metric using a metric primitive of `Current Contact` category can only support at most 1 component.
 
 **Definition:**
 
@@ -199,7 +199,7 @@ Description of the custom metric
 - Optional
   Typical callouts when using the editor
 
-- In order to access metric builder your Connect instance should
+- To access metric builder your Connect instance should
   have Ultimate AI enabled.
 - Metrics created using metric builder will not be accessible
   for editing once Ultimate AI is disabled.
@@ -208,7 +208,7 @@ Description of the custom metric
 
 ## View Custom metric
 
-To view a custom metric, navigate to Dashboards and reports, and click on the name
+To view a custom metric, navigate to Dashboards and reports, and choose on the name
 of a custom metric in the "Custom metrics" section under Dashboards tab that list
 all the custom metrics in your instance. When you view a custom metric, you'll see
 the following information:
@@ -256,8 +256,8 @@ Cloning a custom metric, allows you to copy over an existing custom metric
 calculation, make any changes and save as a new custom metric. Clone can be
 performed on the Dashboards and reports, by selecting a custom metric in the "Custom
 metrics" section under Dashboards tab that list all the custom metrics in your
-instance and clicking on the clone button. It can also be performed by navigating to
-the custom metrics view page and clicking on the clone button.
+instance and choosing on the clone button. It can also be performed by navigating to
+the custom metrics view page and choosing on the clone button.
 
 ## Delete Custom metric
 
@@ -270,12 +270,12 @@ prevent accidental deletions.
 1. Navigate to **Dashboards and reports**, and locate the
    custom metric you want to delete in the "Custom metrics" section under the
    Dashboards tab.
-2. Click the **Delete** button for the metric you wish to
-   remove (or open the metric and click **Delete** from the
+2. Choose the **Delete** button for the metric you wish to
+   remove (or open the metric and choose **Delete** from the
    view page).
 3. A confirmation dialog will appear requiring you to type "confirm" to
    prevent accidental deletions.
-4. Click Delete to permanently remove the metric, or Cancel to abort the
+4. Choose Delete to permanently remove the metric, or Cancel to abort the
    deletion process.
 
 ###### Important
@@ -310,15 +310,15 @@ icon and then choose **Edit**.
          by name
       2. Scroll through the **Custom metrics**
          section to browse available options
-      3. Click on the custom metric you want to add from the
+      3. Choose on the custom metric you want to add from the
          list
 
-3. Click **Add metric** to include your selection in the
+3. Choose **Add metric** to include your selection in the
    widget.
 
 ###### Note
 
 Widgets have a limit on the number of metrics that can be added. The
 interface will display how many more metrics you can add (e.g., "You can
-add up to 1 more"). 4. Click **Save** to apply your changes to the widget, or
+add up to 1 more"). 4. Choose **Save** to apply your changes to the widget, or
 **Cancel** to discard your changes.

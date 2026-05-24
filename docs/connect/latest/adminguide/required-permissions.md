@@ -6,4 +6,4 @@ and simulation permissions are granted by default. Admin can grant permissions t
 onboard other user profiles with the new testing and simulation security
 profile.
 
-![](images/test-security-profile.png)
+![Test Management section showing Test Cases row with View, Edit, Create, Remove, Execute, and Publish permissions checked.](images/test-security-profile.png)

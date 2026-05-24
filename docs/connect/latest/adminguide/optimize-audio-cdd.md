@@ -7,7 +7,7 @@ environments.
 Connect Customer supports [audio optimization for
 Amazon WorkSpaces](using-ccp-vdi-workspaces.md "using-ccp-vdi-workspaces.md"), [Citrix](using-ccp-vdi-citrix-step-by-step.md "using-ccp-vdi-citrix-step-by-step.md"), and [Omnissa](using-ccp-vdi-omnissa-step-by-step.md "using-ccp-vdi-omnissa-step-by-step.md") cloud desktops. This optimization redirects media from an
 agent's local desktop to Connect Customer. It streamlines the agent experience and improves
-audio quality by reducing network hops. Your agents can leverage these audio
+audio quality by reducing network hops. Your agents can use these audio
 optimizations in the agent workspace.
 
 ## Important things to know
@@ -65,7 +65,7 @@ environment.
 
 3. Copy and paste the URL into the agent's browser.
 4. We recommend bookmarking this URL for all the agents. This makes
-   it easy for agents access it in future by just clicking the
+   it easy for agents access it in future by just choosing the
    bookmarked link.
 
 ### Use with SSO based login
@@ -81,7 +81,7 @@ environment.
       `%2Fagent-app-v2` is the destination.
    3. Add the `VDIPlatform` parameter with the
       appropriate value to this relay state. Using the example
-      from the above link, the complete relay state URL for the
+      from the preceding link, the complete relay state URL for the
       Connect Customer agent workspace would look like the following:
       1. In Citrix Desktop
 

@@ -3,7 +3,7 @@
 Connect Customer Customer Profiles supports generative AI-powered segmentation, enabling non-technical
 business users to build audiences using natural language queries ([segment AI assistant](#generating-a-segment-by-prompt "#generating-a-segment-by-prompt")), and to
 receive recommendations based on trends in the customer data ([inspiration cards for segment
-creation](#inspiration-cards-for-segment-creation "#inspiration-cards-for-segment-creation")). These capabilities leverage advanced AI algorithms from [Amazon Bedrock](https://aws.amazon.com/bedrock/ "https://aws.amazon.com/bedrock/") that help you improve
+creation](#inspiration-cards-for-segment-creation "#inspiration-cards-for-segment-creation")). These capabilities use advanced AI algorithms from [Amazon Bedrock](https://aws.amazon.com/bedrock/ "https://aws.amazon.com/bedrock/") that help you improve
 customer satisfaction and drive revenue through proactive and personalized
 outreach. For example, you can create a segment of customers who reached out to
 customer support frequently last week with personalized service offers. You can also
@@ -63,7 +63,7 @@ attributes.
   - **Support**: Highlight customer
     groups that may need specialized attention for customer service.
 
-- **Insight-based recommendations**: Leverage
+- **Insight-based recommendations**: Use
   historical trends, data insights and generative AI to create meaningful,
   actionable insights.
 
@@ -158,7 +158,7 @@ The feedback process consists of two stages:
 
 1. **Initial reaction**: In the bottom right
    corner of the alert section, you'll find thumbs up and thumbs down
-   icons. Click on either of these to indicate your general satisfaction
+   icons. Choose on either of these to indicate your general satisfaction
    with the generated segment.
 2. **Additional feedback**: After selecting
    either the thumbs up or thumbs down icon, you are presented with an
@@ -242,12 +242,12 @@ suggestions.
 
 **Data processing and quality impact:** Segment AI
 assistant evolves through two main phases: initial data ingestion and
-post-processing. During initial ingestion, the system may not fully utilize
+post-processing. During initial ingestion, the system may not fully use
 actual attribute values, relying more on prompt interpretation. For example, a
 prompt for _VIP customers_ might suggest a
 _VIP_ segment instead of using the existing
 _Gold_ tier from your data. After complete processing,
-the system leverages actual attribute values, resulting in more accurate segment
+the system uses actual attribute values, resulting in more accurate segment
 creation, reduces reliance on prompt interpretation and improves overall
 segmentation quality.
 

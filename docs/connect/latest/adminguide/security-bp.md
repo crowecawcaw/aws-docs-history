@@ -249,7 +249,7 @@ following diagram:
 
 1. **Agent workstation**. The agent workstation
    layer is not managed by AWS and consists of any physical equipment and
-   third-party technologies, services, and endpoints that facilitate your
+   third-party technologies, services, and endpoints that help your
    agent’s voice, data, and access the Connect Customer interface layer.
 
 Follow your security best practices for this layer with special attention

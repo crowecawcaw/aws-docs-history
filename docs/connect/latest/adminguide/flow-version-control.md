@@ -48,7 +48,7 @@ blocks and how they are configured. 4. Next, you can do one of the following:
 
 ###### Note
 
-To see a consolidated view of all changes across all flows, click the
+To see a consolidated view of all changes across all flows, choose the
 **View historical changes** link at the bottom of
 the **Flows** page. You can filter to a specific flow
 by date or user name. 3. Choose **Publish** to push that version into production.

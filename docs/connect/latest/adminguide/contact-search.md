@@ -67,7 +67,7 @@ contacts using the Connect Customer admin website. For the APIs used to search f
      "Initiated" by default. Before the Timestamp type selection was
      introduced, the Timestamp type used by the Time Range filter was
      "Disconnected".
-    + Saved searches on Contact search created prior to the launch of
+    + Saved searches on Contact search created before the launch of
      the ability to search for in-progress contacts (launched September
      2023) have been updated with the filters Contact status =
      "Completed" and Timestamp type = "Disconnected". These selections

@@ -91,7 +91,7 @@ and correctly evaluate their adherence.
 In addition to Day view, supervisors can display a Week view of agent
 schedules in both draft and published calendars.
 
-- You can toggle between Day view and Week view by clicking on the
+- You can toggle between Day view and Week view by choosing on the
   respective option at the top of the calendar. As you toggle between Day
   and Week views, any filters and sort options you have applied are
   preserved. It also preserves your scroll position.

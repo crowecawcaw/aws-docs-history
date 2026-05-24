@@ -29,9 +29,9 @@ test chat:
 
 ![The dashboard icon on the Connect Customer navigation menu.](images/tutorial1-dashboard-menu.png) 2. Choose **Test chat**.
 
-If you don't see the option to test chat, click [here](https://github.com/amazon-connect/amazon-connect-chat-ui-examples#enabling-chat-in-an-existing-amazon-connect-contact-center "https://github.com/amazon-connect/amazon-connect-chat-ui-examples#enabling-chat-in-an-existing-amazon-connect-contact-center"). 3. On the **Test Chat** page, choose **Test
+If you don't see the option to test chat, choose [here](https://github.com/amazon-connect/amazon-connect-chat-ui-examples#enabling-chat-in-an-existing-amazon-connect-contact-center "https://github.com/amazon-connect/amazon-connect-chat-ui-examples#enabling-chat-in-an-existing-amazon-connect-contact-center"). 3. On the **Test Chat** page, choose **Test
 Settings**. 4. Under **System Settings**, choose the flow you want to test
-with chat, and then click **Apply**. By default, it runs the
+with chat, and then choose **Apply**. By default, it runs the
 [Sample inbound flow](sample-inbound-flow.md "sample-inbound-flow.md").
 
 ###### Tip
@@ -40,7 +40,7 @@ If you want to test a chat and use contact attributes, note that the key
 and value pair must be enclosed in quotes, as shown in the following
 image:
 
-![The test settings section, with a name in Contact attributes surrounded by quotes and brackets.](images/test-chat-contact-attributes.png) 5. In the chat window, click the icon as shown in the following image.
+![The test settings section, with a name in Contact attributes surrounded by quotes and brackets.](images/test-chat-contact-attributes.png) 5. In the chat window, choose the icon as shown in the following image.
 
 ![The Connect Customer chat icon on the test page.](images/test-chat-icon.png) 6. Type a message similar to what one of your customers might type. In the agent
 window, type a reply. 7. To see what it's like for an agent to handle multiple chat conversations, copy

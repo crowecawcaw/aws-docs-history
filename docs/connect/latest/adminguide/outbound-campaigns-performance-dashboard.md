@@ -248,7 +248,7 @@ Metrics include:
   attempted for delivery, out of total number of recipients targeted.
 - Recipients interacted: The approximate count of outbound campaign
   recipients who interacted with the engagement after a successful delivery
-  attempt. Example interactions include: Open, Click, Complaint
+  attempt. Example interactions include: Open, Choose, Complaint
 
 ###### Note
 
@@ -344,7 +344,7 @@ dashboard:
 - Data for this dashboard is available starting from June 25, 2024 0:00:00
   GMT for the Telephony delivery mode and November 6, 2024 0:00:00 GMT for the
   Email and SMS delivery modes. This may impact dashboard functionalities such
-  as monthly benchmarks where data won't be available prior to June 25, 2024
+  as monthly benchmarks where data won't be available before June 25, 2024
   0:00:00 GMT or November 6, 2024 0:00:00 GMT for comparison.
 - Saved reports before November 6, 2024 0:00:00 GMT could contain stale data
   due to newly added feature enhancements. To ensure you have accurate data

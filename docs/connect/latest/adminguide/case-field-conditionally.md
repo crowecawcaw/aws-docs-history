@@ -66,7 +66,7 @@ The condition is configured as follows:
      specify in [Step 2](#step2-add-casefieldcondition-template "#step2-add-casefieldcondition-template") will be required when this condition is
      met.
 
-6. You can add up to 5 field conditions and choose whether they are fulfilled by AND or OR conditions, by clicking the Add Condition button.
+6. You can add up to 5 field conditions and choose whether they are fulfilled by AND or OR conditions, by choosing the Add Condition button.
 
 ![A conditionally required field with 3 conditions configured.](images/conditionally-required-with-3-conditions.png) 7. For **Fallback condition**, if the condition is not met,
 choose this field to set the default experience.

@@ -2,7 +2,7 @@
 
 ###### Tip
 
-For an online workshop that leverages a case study and includes hands-on labs, see
+For an online workshop that uses a case study and includes hands-on labs, see
 [Introduction to Connect Customer](https://catalog.workshops.aws/amazon-connect-introduction/en-US/introduction "https://catalog.workshops.aws/amazon-connect-introduction/en-US/introduction") by AWS Workshop Studio.
 
 Use these steps to set up your contact center.

@@ -98,7 +98,7 @@ opened.
 
 The following example shows changes you would need to make in the widget
 configure `auto-launch`, which opens the widget without waiting for
-the user to click. You can deploy to a page that hosted by your website to
+the user to choose. You can deploy to a page that hosted by your website to
 create a shareable hyperlink.
 
 ```

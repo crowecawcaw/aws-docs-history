@@ -57,7 +57,7 @@ optimization**, **Contact search**. 3. Search for the contact you want to review
 If you've added a custom attribute to your flows to indicate when
 screen recording is enabled, you can [search by the custom
 attribute](search-custom-attributes.md "search-custom-attributes.md") to locate contact records with screen recordings.
-For more information, see [Configuration tips](enable-sr.md#tips-sr "enable-sr.md#tips-sr"). 4. Click or tap the contact ID to view the **Contact
+For more information, see [Configuration tips](enable-sr.md#tips-sr "enable-sr.md#tips-sr"). 4. Choose or tap the contact ID to view the **Contact
 details** page. 5. The **Recording** section contains a video player that
 displays the screen recording, as shown in the following image.
 

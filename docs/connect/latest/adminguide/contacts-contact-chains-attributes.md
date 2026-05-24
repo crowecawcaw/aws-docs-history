@@ -51,7 +51,7 @@ attributes.
 
 Connect Customer defines attribute names (such as channel), and manages attribute values
 (such as voice and chat). You can create personalized customer experiences in your
-contact center by leveraging these system-defined contact attributes.
+contact center by using these system-defined contact attributes.
 
 For example, you can customize welcome messages based on the customer's
 communication channel, for example, whether they're connecting through phone or

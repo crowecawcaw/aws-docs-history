@@ -88,7 +88,7 @@ AI-powered evaluations.
 You can pre-configure on an evaluation form whether a question will be
 automatically answered using generative AI. Then, if you start an evaluation using
 the evaluation form on the Connect Customer UI, answers to these questions will get
-automatically filled using generative AI (without requiring you to click Ask AI).
+automatically filled using generative AI (without requiring you to choose Ask AI).
 You can also use generative AI to automatically fill and submit evaluations. For
 automatically submitted evaluations, you can use generative AI to answer up to 10
 questions per contact (see [Contact Lens service quotas](amazon-connect-service-limits.md#contactlens-quotas "amazon-connect-service-limits.md#contactlens-quotas")). Note that this limit does not apply to

@@ -60,7 +60,7 @@ settings.
 
 - **Use case 1**: I want to get all the flows
   dropped in the last 2 hours and compare that to the flows dropped in the
-  last 2 hours prior to the 2 hours selected time range.
+  last 2 hours before the 2 hours selected time range.
 
 Configure the dashboard as follows:
 

@@ -33,7 +33,7 @@ forecast, as shown in the following image.
 
 ![A long-term forecast for the BasicQueue, Voice and Chat channels.](images/forecasts-edit1.png)
 
-For example, the above image shows a long-term forecast selected with
+For example, the preceding image shows a long-term forecast selected with
 **BasicQueue** and the **Voice**
 and **Chat** channels. The **Edit
 forecast** pane is automatically populated with these

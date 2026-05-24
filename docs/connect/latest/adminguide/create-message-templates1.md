@@ -113,7 +113,7 @@ For email templates:
 
     	![The Attribute finder on the Message templates page.](images/message-template-attribute-finder.png)
     2. Under **Headers - *optional***, you can
-     add two static headers to the email message. For example, to add a one-click
+     add two static headers to the email message. For example, to add a one-choose
      unsubscribe link, to a promotional email, add the following two headers:
 
 
@@ -123,7 +123,7 @@ For email templates:
     	 unsubscribe link. The link must support HTTP POST requests to process
     	 the recipients unsubscribe request.
     	* **List-Unsubscribe-Post**: Set to
-    	 `List-Unsubscribe=One-Click`.
+    	 `List-Unsubscribe=One-Choose`.
     Including an unsubscribe link in your email is a best practice, and in some
      countries it's a legal requirement. If your template includes a link with this
      attribute, you must have in place a system for handling opt-out requests.

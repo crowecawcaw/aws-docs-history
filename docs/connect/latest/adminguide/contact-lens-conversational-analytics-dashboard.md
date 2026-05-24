@@ -76,8 +76,8 @@ This chart shows the following information:
 ## Contact categories
 
 The contact categories chart shows you Contact Category information. To see all
-data, click on the pop-out icon in the top right of the chart. To deep dive further
-into the contacts, click on the Contact Category and it will take you to Contact
+data, choose on the pop-out icon in the top right of the chart. To deep dive further
+into the contacts, choose on the Contact Category and it will take you to Contact
 Search pre-filtered for that category along with the dashboard filters.
 
 1. Contacts %: the count of contacts analyzed by Contact Lens
@@ -142,7 +142,7 @@ filters.
 The top contact categories average handle time displays the prior AHT (using the
 "compare to" benchmark time range) to the current time range AHT for each of your
 top 10 categories (sorted by count of contacts with a category from left to right).
-To see all data, click on the pop-out icon in the top right of the chart.
+To see all data, choose on the pop-out icon in the top right of the chart.
 
 ![The Top contact categories average handle time chart.](images/conversational-analytics-dashboards-top-contact-categories.png)
 

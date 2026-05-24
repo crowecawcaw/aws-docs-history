@@ -6,7 +6,7 @@ If you want to use the audio streaming feature, you need to retain the streams
 that are created by Connect Customer. Don't delete them, unless you're going to stop using the
 streaming feature.
 
-You can send all audio to and from the customer to Kinesis Video Streams. Media streaming leverages
+You can send all audio to and from the customer to Kinesis Video Streams. Media streaming uses
 Kinesis Video Streams multi-track support so that what the customer says is on a separate track from
 what the customer hears.
 

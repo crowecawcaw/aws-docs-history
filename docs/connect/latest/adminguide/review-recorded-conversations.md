@@ -70,7 +70,7 @@ to navigate the recording, as shown in the following image.
 
 ![The contact record page, additional controls to listen to the recording.](images/recording-pause-rewind-fastforward.png)
 
-    1. Click or tap to the time you want to investigate.
+    1. Choose or tap to the time you want to investigate.
     2. Adjust the playing speed.
     3. Play, pause, skip backwards or forwards in 10 second
      increments.
@@ -137,7 +137,7 @@ navigate the recording, as shown in the following image.
 
 ![The contact record page, additional controls to listen to the recording.](images/recording-pause-rewind-fastforward.png)
 
-    1. Click or tap to the time you want to investigate.
+    1. Choose or tap to the time you want to investigate.
     2. Adjust the playing speed.
     3. Play, pause, skip backwards or forwards in 10 second
      increments.

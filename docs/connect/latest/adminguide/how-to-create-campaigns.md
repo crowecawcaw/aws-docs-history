@@ -569,7 +569,7 @@ and an entry interval of 3 hours:
 
 ## Review and publish
 
-Take a moment to review your campaign prior to publishing. The Review page displays a
+Take a moment to review your campaign before publishing. The Review page displays a
 summary of all campaign settings, including the schedule and refresh configuration.
 
 ###### Important

@@ -17,7 +17,7 @@ To create a new workspace:
 
 1. Open the Connect Customer admin website.
 2. Navigate to **UI Management** > **Workspaces**.
-3. Click **Add new workspace**.
+3. Choose **Add new workspace**.
 4. Provide a name and description for your workspace.
 5. Identify the pages that are provided in this workspace.
    1. Use existing Connect page — choose from the list of eligible Connect pages, which will grow as more UIs are supported by Views.

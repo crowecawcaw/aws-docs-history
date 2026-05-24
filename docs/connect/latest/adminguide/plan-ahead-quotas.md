@@ -30,7 +30,7 @@ correctly size the quotas you require.
 
 ## Ongoing operations management
 
-Monitor your contact center's quota utilization by using Amazon CloudWatch. For detailed
+Monitor your contact center's quota use by using Amazon CloudWatch. For detailed
 metrics, see [Connect Customer metrics sent to CloudWatch](monitoring-cloudwatch.md#connect-metrics-cloudwatch "monitoring-cloudwatch.md#connect-metrics-cloudwatch").
 
 **Best practice**: Set CloudWatch alarms to monitor service

@@ -34,7 +34,7 @@ Case**, as shown in the following image.
 ## Customer name
 
 Each case that is created is connected to a customer profile from your Connect Customer
-instance. While viewing the case details page, an agent can click or tap the
+instance. While viewing the case details page, an agent can choose or tap the
 customer's name to open the associated Customer Profile in a different tab. Or,
 the agent can choose **More (...)** to copy the customer name
 or profile ID to the clipboard. On new case templates, the customer name appears

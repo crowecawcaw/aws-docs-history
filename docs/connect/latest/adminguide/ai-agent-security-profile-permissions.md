@@ -98,7 +98,7 @@ For administrators who will configure AI Agents:
 
 ### Step 4: Save Changes
 
-- Click **Save** to apply the security profile changes
+- Choose **Save** to apply the security profile changes
 
 ## Reference Documentation
 

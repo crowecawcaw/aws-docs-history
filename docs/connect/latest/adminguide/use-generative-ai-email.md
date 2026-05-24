@@ -145,7 +145,7 @@ practices:
 
 - Train your agents to review all AI-generated content before sending to
   customers or using in comments or notes.
-- Leverage email templates to ensure consistent formatting. For more
+- Use email templates to ensure consistent formatting. For more
   information, see [Create message templates](create-message-templates1.md "create-message-templates1.md").
 - Maintain up-to-date knowledge base content to improve response quality.
   For more information, see [Step 3: Create an integration (knowledge base)](ai-agent-initial-setup.md#enable-ai-agents-step-3 "ai-agent-initial-setup.md#enable-ai-agents-step-3").

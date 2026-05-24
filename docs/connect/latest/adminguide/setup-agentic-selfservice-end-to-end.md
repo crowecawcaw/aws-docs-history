@@ -75,8 +75,8 @@ The Connect Customer Communications Widget is an embeddable chat interface that 
 ### Step 1: Navigate to Communications Widget
 
 1. In the Connect Customer console, navigate to your instance
-2. Click **Channels** in the left navigation menu
-3. Click **Communications widget**
+2. Choose **Channels** in the left navigation menu
+3. Choose **Communications widget**
 4. You'll see the Communications Widget management page
 
 ###### Note
@@ -85,14 +85,14 @@ The Connect Customer Communications Widget is an embeddable chat interface that 
 
 ### Step 2: Create a New Widget
 
-1. Click **Add widget** to create a new Communications Widget
+1. Choose **Add widget** to create a new Communications Widget
 2. Enter the following details:
    - **Name**: `AI-Streaming-Demo-Widget`
    - **Description**: `Widget for testing AI Message Streaming`
 
 3. Under **Communication options** ensure **Add chat** is selected
 4. Select **Self Service Test Flow** as your Chat contact flow
-5. Click **Save and continue** to proceed to the configuration page
+5. Choose **Save and continue** to proceed to the configuration page
 
 ###### Contact Flow Selection
 
@@ -112,7 +112,7 @@ Customize the look and feel of your chat widget to match your brand and select *
 The Communications Widget only loads on websites that are explicitly allowed. This security feature prevents unauthorized use of your widget.
 
 1. Scroll down to **Allowed domains**
-2. Click **Add domain** and add the following domain for localhost testing:
+2. Choose **Add domain** and add the following domain for localhost testing:
    - `http://localhost`
 
 3. Select **No** under security
@@ -120,7 +120,7 @@ The Communications Widget only loads on websites that are explicitly allowed. Th
 
 ### Step 5: Save and Get Widget Code
 
-1. Click **Save and continue** to save your widget configuration
+1. Choose **Save and continue** to save your widget configuration
 2. After creation, you'll see the **Widget details** page with your embed code
 3. **Important**: Copy and save the following values from the embed code snippet:
    - **Client URI** - The URL to the widget JavaScript file
@@ -211,7 +211,7 @@ npx http-server -p 8001
 ###### Option C: VS Code Live Server Extension
 
 - Install the "Live Server" extension in VS Code
-- Right-click on `index.html` and select "Open with Live Server"
+- Open the context menu for on `index.html` and select "Open with Live Server"
 
 After starting the server, open your browser and navigate to: `http://localhost:8001`
 

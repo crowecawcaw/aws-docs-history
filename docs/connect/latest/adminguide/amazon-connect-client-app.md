@@ -72,7 +72,7 @@ msiexec /i Amazon.Connect.Client.Service.Setup.msi ALLOWED_CONNECT_DOMAINS="conn
 
 - Download the latest version of the
   **Amazon.Connect.Client.Service.Setup.msi** file.
-- Double-click the installer file.
+- Choose the installer file.
 - Enter the Connect Customer domains allowlist when prompted. The following
   image shows an example of how to specify a domain in the allowlist
   on the **Configure Installation Settings** dialog

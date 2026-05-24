@@ -46,7 +46,7 @@ custom status) and **On contact**, for example.
 After a conversation between an agent and customer ends, the contact is moved into
 the ACW state.
 
-When the agent finishes doing ACW for the contact, they click
+When the agent finishes doing ACW for the contact, they choose
 **Clear** to clear that slot so another contact can be routed
 to them.
 

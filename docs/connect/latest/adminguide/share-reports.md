@@ -24,7 +24,7 @@ the report.
 
 ![The Share report dialog box, the Copy link address link.](images/copy-link-address.png)
 
-You don't need to publish the report to your organization in order to share
+You don't need to publish the report to your organization to share
 the link with specific people.
 
 ###### Important

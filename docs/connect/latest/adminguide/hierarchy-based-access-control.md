@@ -40,7 +40,7 @@ need to provide the hierarchy's information in the condition element of an IAM
 policy. For example, to control access to a user belonging to a specific hierarchy,
 use the `connect:HierarchyGroupL3Id/hierarchyGroupId` condition key,
 along with a specific operator like `StringEquals` to specify which
-hierarchy group the user must belong to, in order to allow given actions for it.
+hierarchy group the user must belong to, to allow given actions for it.
 
 Following are the supported condition keys:
 
@@ -96,7 +96,7 @@ profiles are present with overlapping resource permissions, the security profile
 without hierarchy-based access control is enforced over the one with hierarchy-based
 access control.
 
-Service linked roles are required in order to configure hierarchy-based access
+Service linked roles are required to configure hierarchy-based access
 control. If your instance was created after October 2018, this is available by
 default with your Connect Customer instance. However, if you have an older instance, refer to
 [Use service-linked roles for Connect Customer](connect-slr.md "connect-slr.md") for

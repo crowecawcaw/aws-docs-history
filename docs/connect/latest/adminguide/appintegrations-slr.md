@@ -169,7 +169,7 @@ operation again.
 
 ###### To delete data integrations used by the AWSServiceRoleForAppIntegrations using the AWS CLI
 
-1. List your data integrations in order to view the names of your existing integrations.
+1. List your data integrations to view the names of your existing integrations.
 
 `aws appintegrations list-data-integrations` 2. Delete each integration using the data integration name.
 
@@ -184,7 +184,7 @@ operation again.
 
 ###### To delete event integrations used by the AWSServiceRoleForAppIntegrations using the AWS CLI
 
-1. List your event integrations in order to view the names of your existing integrations.
+1. List your event integrations to view the names of your existing integrations.
 
 `aws appintegrations list-event-integrations` 2. Delete each integration using the data integration name.
 

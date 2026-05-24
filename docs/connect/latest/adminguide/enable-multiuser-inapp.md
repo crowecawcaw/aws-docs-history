@@ -9,7 +9,7 @@ first user, and four other participants (users or agents).
 
 1. To enable multi user calling, you need to enable [enhanced multi-party contact
    monitoring](monitor-conversations.md "monitor-conversations.md") from the Connect Customer console.
-2. After this is complete, you can leverage the existing Connect Customer
+2. After this is complete, you can use the existing Connect Customer
    [StartWebRTCContact](../APIReference/API_StartWebRTCContact.md "../APIReference/API_StartWebRTCContact.md") API to create a contact, and route this
    contact to an agent.
 3. To add an additional participant, first create a participant passing in
@@ -49,7 +49,7 @@ call to [CreateParticipant](../APIReference/API_CreateParticipant.md "../APIRefe
 rejoin the call. 7. For every additional user connection, Connect Customer creates a new
 contact and [contact record](ctr-data-model.md "ctr-data-model.md"). All
 additional contacts have PreviousContactId set to the InitialContactId (that
-is, the one that was created by the [StartWebRTCContact](../APIReference/API_StartWebRTCContact.md "../APIReference/API_StartWebRTCContact.md") API) in order to trace it to original
+is, the one that was created by the [StartWebRTCContact](../APIReference/API_StartWebRTCContact.md "../APIReference/API_StartWebRTCContact.md") API) to trace it to original
 contact. Each contact record:
 
     * Has an **"InitiationMethod":

@@ -87,7 +87,7 @@ A slot is considered active when it contains a contact that is:
 This metric helps organizations:
 
 - Monitor concurrent contact handling capacity.
-- Track real-time channel utilization.
+- Track real-time channel use.
 - Plan capacity management.
 
 **Metric type**: COUNT
@@ -807,7 +807,7 @@ considered "on contact" when they are handling a contact that is either:
 - Paused
 - In outbound ring state
 
-This metric helps organizations track agent utilization and workload distribution in
+This metric helps organizations track agent use and workload distribution in
 real-time. Note that this metric accounts for concurrent contacts, that is, an agent who
 handles multiple contacts simultaneously is still counted as one "on contact"
 agent.
@@ -1352,10 +1352,10 @@ Value is between 0-1, where 1 indicates optimal selection.
 - This metric is updated every 24 hours.
 - This metric is available as part of Connect Customer.
 
-## AI Tool Utilization Accuracy
+## AI Tool Use Accuracy
 
-This metric measures the rate of correct tool utilization by [AI Agents](create-ai-agents.md "create-ai-agents.md"),
-including proper parameters and selection. Value is between 0-1, where 1 indicates perfect utilization.
+This metric measures the rate of correct tool use by [AI Agents](create-ai-agents.md "create-ai-agents.md"),
+including proper parameters and selection. Value is between 0-1, where 1 indicates perfect use.
 
 **Metric type**: Double
 
@@ -1369,7 +1369,7 @@ including proper parameters and selection. Value is between 0-1, where 1 indicat
 **How to access using the Connect Customer admin website**:
 
 - Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md "ai-agent-performance-dashboard.md"), AI
-  Tool Utilization Accuracy
+  Tool Use Accuracy
 
 **Calculation logic**:
 
@@ -4758,7 +4758,7 @@ As long as the agent was connected to the contact, it increments **Contacts
 handled**.
 
 This metric provides a measure of the workload handled by agents. You can use it to
-understand agent utilization and capacity planning. Contacts handled is particularly
+understand agent use and capacity planning. Contacts handled is particularly
 useful for contact centers that need to track the volume of customer interactions
 handled by their agents.
 
@@ -6117,7 +6117,7 @@ for that entire duration.
 **Notes**:
 
 - This metric uses AVG statistic for aggregation.
-- It measures agent utilization percentage.
+- It measures agent use percentage.
 - It does not account for concurrency.
 - It is used in occupancy calculations.
 - It returns null if occupancy data is not present.

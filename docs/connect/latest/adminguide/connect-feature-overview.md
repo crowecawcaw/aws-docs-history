@@ -6,7 +6,7 @@ customer experience Amazon uses to orchestrate their customer care.
 
 ###### Tip
 
-For an online workshop that leverages a case study and includes hands-on labs, see
+For an online workshop that uses a case study and includes hands-on labs, see
 [Introduction to Connect Customer](https://catalog.workshops.aws/amazon-connect-introduction/en-US/introduction "https://catalog.workshops.aws/amazon-connect-introduction/en-US/introduction") by AWS Workshop Studio.
 
 ## Customers: Omnichannel customer experience
@@ -366,7 +366,7 @@ You can use Connect Customer data lake as a central location to query various
 types of data from Connect Customer. This data includes contact records,
 Contact Lens conversational analytics, Contact Lens
 performance evaluations, and more. You can use data lake to create
-custom reports, run SQL queries, or leverage the BI tools of your choice to
+custom reports, run SQL queries, or use the BI tools of your choice to
 analyze the information that matters most to improving customer experience and
 operational efficiency.
 

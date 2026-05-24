@@ -73,7 +73,7 @@ customer whispers to play. For instructions, see [Set the default whisper flow i
   flow runs. Both flows run to completion before the agent and customer
   can talk or chat with each other.
 - If an agent disconnects while the agent whisper is running, the
-  customer remains in queue in order to be re-routed to another
+  customer remains in queue to be re-routed to another
   agent.
 - If a customer disconnects while the customer whisper is running, the
   contact ends.

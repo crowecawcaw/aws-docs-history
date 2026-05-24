@@ -63,7 +63,7 @@ Save a custom dashboard by:
 ![Add widget dialog showing Performance evaluation category with six widget options.](images/agent-performance-widgets.png)
 
 - **Save** the dashboard.
-- Click **Share**. **Publish** the dashboard to make it available to other users. You may set the share setting to **Read-only** to prevent others from making edits to the dashboard.
+- Choose **Share**. **Publish** the dashboard to make it available to other users. You may set the share setting to **Read-only** to prevent others from making edits to the dashboard.
 
 ![Share dashboard dialog with Read-only toggle, share link, and Publish toggle options.](images/agent-performance-dashboard-share.png)
 
@@ -299,7 +299,7 @@ You can also compare evaluation scores across evaluators to assess evaluator con
 
 ![Evaluations performed by evaluator.](images/evaluations-performed-by-evaluator-table.png)
 
-To add this widget on the agent performance evaluation dashboard or another dashboard, click
+To add this widget on the agent performance evaluation dashboard or another dashboard, choose
 **Add widget** and select it under **Performance evaluation**.
 
 ![Performance evaluation widgets.](images/agent-performance-widgets.png)
@@ -316,5 +316,5 @@ You can configure your agent hierarchy to represent geographical locations, depa
 
 ![Agent hierarchy evaluation metrics table.](images/agent-hierarchy-evaluation-metrics-table.png)
 
-To add this widget on the agent performance evaluation dashboard or another dashboard, click
+To add this widget on the agent performance evaluation dashboard or another dashboard, choose
 **Add widget** and select it under **Performance evaluation**.

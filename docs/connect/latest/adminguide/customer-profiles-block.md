@@ -433,7 +433,7 @@ have experienced more than 10 minutes delay in the past.
 
 In these scenarios, the IVR needs to fetch the relevant information about the
 customer. This is achieved through the Customer Profiles block. Secondly, the IVR
-needs to leverage this customer data in other Flow blocks in order to personalize
+needs to use this customer data in other Flow blocks to personalize
 the experience and proactively service the customer.
 
 1. Use **Play Prompt** to personalize the experience by

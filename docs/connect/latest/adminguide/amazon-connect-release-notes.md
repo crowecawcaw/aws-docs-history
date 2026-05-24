@@ -1,9 +1,29 @@
 # Release notes for Connect Customer
 
 We recommend subscribing to the RSS feed so updates to these notes are delivered to your
-Inbox. Click the **RSS** link (under the topic title **Release
+Inbox. Choose the **RSS** link (under the topic title **Release
 notes**), and then copy the URL (it ends with `doc-history.xml.rss`) into
 your RSS reader. For example, you can subscribe to an RSS feed in Outlook.
+
+## May 2026 Updates
+
+### Default Step-by-Step Guides now available for After Contact Work
+
+Connect Customer now supports default Step-by-Step Guides for After Contact Work (ACW), enabling administrators to automatically launch a guide when an agent enters the ACW state. This eliminates the need for agents to manually navigate to the correct application during wrap-up, standardizing post-contact workflows such as logging disposition codes, updating cases, and completing follow-up actions. Organizations can improve consistency, reduce errors, and accelerate agent productivity across contact center operations.
+
+This feature is available in the following AWS Regions: US East (N. Virginia), US West (Oregon), Canada (Central), Africa (Cape Town), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Frankfurt), Europe (London), and . For more information, see [Enable smart default guides for ACW](enable-smart-default-guides-acw.md "enable-smart-default-guides-acw.md").
+
+### Outbound Campaigns now supports multi-contact time zone detection
+
+Connect Customer Outbound Campaigns now detects customer time zones using all phone numbers and addresses on a customer profile, not just the primary contact fields. When a profile’s contact information spans multiple time zones, the system delivers messages only during hours that fall within the configured window across every detected time zone, and skips profiles when no overlap exists. For example, if a customer has a mobile number in Eastern time and a business number in Pacific time with a 9 AM–5 PM delivery window, messages are sent only between 12–5 PM ET when both time zones overlap.
+
+This capability is available in all AWS Regions where Connect Customer Outbound Campaigns is offered at no additional cost.
+
+### Cases now supports customer profile identity resolution
+
+Connect Customer Cases now automatically reassociates cases when duplicate customer profiles are merged through Identity Resolution in Customer Profiles. When the same customer has multiple profiles—such as when they reach out through different channels or provide different contact details—Identity Resolution detects and merges those duplicates, and Cases brings all associated cases together under the unified profile. Agents see a complete case history for each customer without searching across profiles or piecing together history manually.
+
+This feature is available in the following AWS Regions: US East (N. Virginia), US West (Oregon), Canada (Central), Europe (Frankfurt), Europe (London), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), and Africa (Cape Town).
 
 ## April 2026 Updates
 
@@ -21,7 +41,7 @@ This feature is available in all AWS commercial and AWS GovCloud (US) regions wh
 
 ### Eight new metrics to measure and improve AI agent performance
 
-Connect Customer now provides eight new metrics to measure and improve AI agent performance, including goal success rate, faithfulness score, and tool selection accuracy. These metrics offer visibility into the quality of AI-driven customer interactions, enabling measurement and continuous improvement of AI agent outcomes. With this launch, you can monitor whether AI agents successfully resolved customer requests, assess faithfulness and detect contextual hallucinations, evaluate tool selection and utilization accuracy, and capture customer feedback through thumbs up/down ratings when enabled.
+Connect Customer now provides eight new metrics to measure and improve AI agent performance, including goal success rate, faithfulness score, and tool selection accuracy. These metrics offer visibility into the quality of AI-driven customer interactions, enabling measurement and continuous improvement of AI agent outcomes. With this launch, you can monitor whether AI agents successfully resolved customer requests, assess faithfulness and detect contextual hallucinations, evaluate tool selection and use accuracy, and capture customer feedback through thumbs up/down ratings when enabled.
 
 You can access these new metrics through Connect Customer’s AI Agent Performance dashboard, or through the GetMetricDataV2 API and zero-ETL data lake for custom reporting.
 
@@ -47,7 +67,7 @@ This feature is available in all AWS Regions where Connect Customer is available
 
 ### Flow modules now work across all flow types and within other modules
 
-Connect Customer now supports the use of flow modules across all Connect flows, allowing you to reuse common logic and functionality beyond inbound customer experiences. For example, you can now use a module to share information about a customer’s recent transactions in an agent whisper flow, preparing the agent with relevant details and leveraging functionality that was previously only available as part of inbound flows.
+Connect Customer now supports the use of flow modules across all Connect flows, allowing you to reuse common logic and functionality beyond inbound customer experiences. For example, you can now use a module to share information about a customer’s recent transactions in an agent whisper flow, preparing the agent with relevant details and using functionality that was previously only available as part of inbound flows.
 
 Additionally, you can now use flow modules within other modules, enabling you to build complex logic by stitching together pre-built intermediary steps under a single module. For example, a credit card eligibility module can invoke other modules that check credit scores, verify income, and review payment history before making a final determination.
 
@@ -115,7 +135,7 @@ Public preview for AI-powered predictive insights enhancements is available in E
 
 ### Amazon Connect Cases now supports AWS Service Quotas
 
-Amazon Connect Cases now supports AWS Service Quotas, giving administrators a centralized way to view applied limits, monitor utilization, and scale case workloads without hitting unexpected service constraints. You can request quota increases directly from the Service Quotas console, and eligible requests are automatically approved without manual intervention.
+Amazon Connect Cases now supports AWS Service Quotas, giving administrators a centralized way to view applied limits, monitor use, and scale case workloads without hitting unexpected service constraints. You can request quota increases directly from the Service Quotas console, and eligible requests are automatically approved without manual intervention.
 
 ### Connect Customer Cases now supports larger, multi-line text fields
 
@@ -154,7 +174,7 @@ For more information, see [CSV upload for dependent field options](case-field-de
 Connect Customer Now users in the Amazon Connect admin website can be provided notifications in their header,
 so urgent updates and follow-on actions can be seen from any page within the Amazon Connect admin website.
 APIs allow services and customers to publish brief messages (including URLs) to a specified audience,
-and a new header icon will indicate when unread messages are available. On click, the user can read the message,
+and a new header icon will indicate when unread messages are available. On choose, the user can read the message,
 mark as unread if necessary, and follow links to reports or other UIs if follow-on actions are advised.
 
 For more information, see In-app notifications keep users informed of urgent updates and actions.
@@ -166,7 +186,7 @@ For more information, see In-app notifications keep users informed of urgent upd
 Connect Customer now delivers improved estimated wait time metrics for queues and enqueued contacts, empowering
 organizations to enhance customer satisfaction. This allows contact centers to set accurate customer expectations,
 provide convenient options such as callbacks when hold times are extended, and balance workloads effectively
-across multiple queues. By leveraging the estimated wait time metric, contact centers can make strategic routing
+across multiple queues. By using the estimated wait time metric, contact centers can make strategic routing
 choices across queues while gaining enhanced visibility for better resource planning. For example, a customer
 calling about billing during peak hours with a 15-minute wait is seamlessly transferred to a cross-trained
 team with 2-minute availability, getting help faster without repeating their issue. The metric works seamlessly
@@ -368,11 +388,11 @@ For more information, see [How Connect Customer email works](email-capabilities.
 
 ### AI agent assistance and summarization for Agentforce Service
 
-Connect Customer launches real-time AI agent assistance and contact summarization for Salesforce Contact Center with Amazon Connect (SCC-AC). It enables Connect AI agents to automatically leverage customer information and knowledge base articles from Salesforce CRM for accelerated issue resolution and consistent outcomes across voice and chat interactions.When human intervention is required, the seamless integration within SCC-AC connects customers to agents who have a unified view of customer data, issue context, and interaction history within Agentforce Service and Agentforce Sales. Agents receive real-time voice transcripts and contextual recommendations, while supervisors gain enhanced call monitoring capabilities directly in Salesforce. Upon resolution, automated post-contact summarization enables agents to easily update Salesforce cases, streamlining administrative tasks. Administrators can deploy and configure this integrated contact center solution in minutes, leveraging Amazon Connect's voice, digital channels, and intelligent routing capabilities.
+Connect Customer launches real-time AI agent assistance and contact summarization for Salesforce Contact Center with Amazon Connect (SCC-AC). It enables Connect AI agents to automatically use customer information and knowledge base articles from Salesforce CRM for accelerated issue resolution and consistent outcomes across voice and chat interactions.When human intervention is required, the seamless integration within SCC-AC connects customers to agents who have a unified view of customer data, issue context, and interaction history within Agentforce Service and Agentforce Sales. Agents receive real-time voice transcripts and contextual recommendations, while supervisors gain enhanced call monitoring capabilities directly in Salesforce. Upon resolution, automated post-contact summarization enables agents to easily update Salesforce cases, streamlining administrative tasks. Administrators can deploy and configure this integrated contact center solution in minutes, using Amazon Connect's voice, digital channels, and intelligent routing capabilities.
 
 ### Support for multiple knowledge bases and integrates with your Amazon Bedrock Knowledge Bases
 
-Connect Customer now allows you to bring your own Amazon Bedrock Knowledge Bases and supports multiple knowledge bases per AI agent, giving you greater flexibility in how you organize and access knowledge content for your AI agents. You can now connect your existing Bedrock Knowledge Bases directly to Amazon Connect AI agents in just a few clicks, with no additional setup or data duplication required. This allows you to leverage your current data sources and the Amazon Bedrock Knowledge Base connectors, including Adobe Experience Manager, Confluence, SharePoint, and OneDrive, giving you flexibility to use existing content repositories.With support for multiple knowledge bases per AI agent, you can configure AI agents to query multiple sources in parallel for more comprehensive responses. For example, a financial services company can easily connect separate knowledge bases for compliance documentation, product information, and internal policies, enabling AI agents to provide complete guidance across all relevant content during customer interactions.This feature is available in all AWS Regions where Amazon Connect AI agents and Amazon Bedrock Knowledge Bases are offered.
+Connect Customer now allows you to bring your own Amazon Bedrock Knowledge Bases and supports multiple knowledge bases per AI agent, giving you greater flexibility in how you organize and access knowledge content for your AI agents. You can now connect your existing Bedrock Knowledge Bases directly to Amazon Connect AI agents in just a few clicks, with no additional setup or data duplication required. This allows you to use your current data sources and the Amazon Bedrock Knowledge Base connectors, including Adobe Experience Manager, Confluence, SharePoint, and OneDrive, giving you flexibility to use existing content repositories.With support for multiple knowledge bases per AI agent, you can configure AI agents to query multiple sources in parallel for more comprehensive responses. For example, a financial services company can easily connect separate knowledge bases for compliance documentation, product information, and internal policies, enabling AI agents to provide complete guidance across all relevant content during customer interactions.This feature is available in all AWS Regions where Amazon Connect AI agents and Amazon Bedrock Knowledge Bases are offered.
 
 For more information, see [Amazon Bedrock Knowledge Base configuration](../../../bedrock/latest/userguide/agents-kb-add.md "../../../bedrock/latest/userguide/agents-kb-add.md").
 
@@ -396,7 +416,7 @@ For more information, see [Customize the Connect Customer agent workspace](agent
 
 ### AI-powered case summaries
 
-Connect Customer now provides AI-powered case summaries that give agents complete context into customer issues, reduce manual wrap-up work, and help resolve cases faster. With a single click, agents can generate a concise case summary even when the case spans multiple interactions, follow-up tasks, and teams, capturing key details such as issue background, actions taken, and next steps. Administrators can configure custom prompts and guardrails to ensure that summaries align with organizational style and preferences.
+Connect Customer now provides AI-powered case summaries that give agents complete context into customer issues, reduce manual wrap-up work, and help resolve cases faster. With a single choose, agents can generate a concise case summary even when the case spans multiple interactions, follow-up tasks, and teams, capturing key details such as issue background, actions taken, and next steps. Administrators can configure custom prompts and guardrails to ensure that summaries align with organizational style and preferences.
 
 For more information, see [Connect Customer Cases](cases.md "cases.md").
 
@@ -456,7 +476,7 @@ For more information, see [Lex documentation](../../../lexv2/latest/dg/wait-and-
 
 ### Multi skill agent scheduling
 
-Connect Customer now enables you to optimize scheduling based on agent’s multiple specialized skills. You can now maximize agent utilization across multiple dimensions such as departments, languages, and customer tiers by intelligently matching agents with multiple skills to forecasted demand. You can now also preserve multi-skilled agents for high-value interactions when needed most. For example, bilingual agents can now be strategically scheduled to cover peak periods for high-value French language queues that frequently experience staffing shortages, while handling general inquiries during off-peak times.
+Connect Customer now enables you to optimize scheduling based on agent’s multiple specialized skills. You can now maximize agent use across multiple dimensions such as departments, languages, and customer tiers by intelligently matching agents with multiple skills to forecasted demand. You can now also preserve multi-skilled agents for high-value interactions when needed most. For example, bilingual agents can now be strategically scheduled to cover peak periods for high-value French language queues that frequently experience staffing shortages, while handling general inquiries during off-peak times.
 
 For more information, see [Scheduling in Connect Customer](scheduling.md "scheduling.md").
 
@@ -994,7 +1014,7 @@ disconnect flow** block.
 The flow designer includes shortcuts and buttons to help locate blocks with issues more
 efficiently.
 
-When publishing, if a block contains errors, you can click the associated error message
+When publishing, if a block contains errors, you can choose the associated error message
 button to navigate directly to the problematic block.
 
 - Additionally, use **Ctrl + ;** and **Ctrl + '** to cycle
@@ -1076,12 +1096,12 @@ dynamic fields](no-code-ui-builder-properties-dynamic-fields.md "no-code-ui-buil
 
 Connect Customer Customer Profiles allows you to create customer segments from imported CSV files. This feature
 enables you to upload predefined customer lists, streamline targeted segment creation, and
-utilize them for multichannel outbound campaigns.
+use them for multichannel outbound campaigns.
 
 - Map CSV data to standard profile attributes using AI-powered analysis
 - Create custom attributes as needed
 - Configure profile expiry settings up to 90 days
-- Utilize unique identifiers to match and update existing profiles
+- Use unique identifiers to match and update existing profiles
 
 For more information, see [Create segments from imported files in Connect Customer](customer-segments-imported-files.md "customer-segments-imported-files.md").
 
@@ -1423,7 +1443,7 @@ eliminates the need to build and maintain complex data pipelines. You can create
 using Connect Customer data or seamlessly combine it with third-party data using [zero-ETL](https://aws.amazon.com/what-is/zero-etl/ "https://aws.amazon.com/what-is/zero-etl/")
 integration.
 
-The data lake enables contact center managers to leverage BI tools of their choice,
+The data lake enables contact center managers to use BI tools of their choice,
 such as QuickSight, to analyze the information that matters most to improving customer
 experience and operational efficiency.
 
@@ -1814,7 +1834,7 @@ effective staffing, all available within the Connect Customer Contact Lens dashb
 intraday forecasts, you receive updates every 15 minutes with predictions for rest-of-day
 contact volumes, average queue answer time, average handle time, and, now, effective staffing.
 These forecasts allow you to take proactive actions to improve customer wait time and service
-level. For example, contact center managers can now track agent utilization at the queue level,
+level. For example, contact center managers can now track agent use at the queue level,
 enabling them to identify potential imbalances or staffing shortages and take action before
 wait times are impacted.
 
@@ -2211,7 +2231,7 @@ enabling multi-party calling, see [Update telephony and chat options](update-ins
 #### Connect Customer supports multiple features in Apple Messages for Business
 
 As part of the Apple Messages for Business integration, Connect Customer supports the ability to send Attachments, use
-Apple Forms, leverage Apple Pay, access iMessage Apps, and provide authentication support. For
+Apple Forms, use Apple Pay, access iMessage Apps, and provide authentication support. For
 more information on how to enable Apple Messages for Business, see [Enable Apple Messages for Business with Connect Customer](apple-messages-for-business.md "apple-messages-for-business.md").
 
 #### Set the forecast time zone
@@ -2431,7 +2451,7 @@ Connect Customer console and integrate the Amazon Q in Connect JavaScript librar
 #### High-quality voice experiences for agents using Citrix Virtual Desktop Infrastructure (VDI) environments.
 
 Connect Customer allows you to deliver high-quality voice experiences when your agents use Citrix
-Virtual Desktop Infrastructure (VDI) environments. Your agents can leverage the Citrix remote
+Virtual Desktop Infrastructure (VDI) environments. Your agents can use the Citrix remote
 desktop application to offload audio processing to the agent’s local device and to
 automatically redirect audio to Connect Customer, resulting in a simpler agent experience and improved
 audio quality over challenging networks. For more information, see [Citrix VDI with Connect Customer audio optimization](scenario-deployment-approaches.md#vdi-citrix "scenario-deployment-approaches.md#vdi-citrix").
@@ -2503,7 +2523,7 @@ and [ResumeContact](../APIReference/API_ResumeContact.md "../APIReference/API_Re
 
 you can create rules to automatically create a task, update a case, or send email alerts
 to a manager whenever a case is created or updated. In addition, you can create rules
-leveraging Connect Customer Contact Lens to automatically create a case for post-conversation
+using Connect Customer Contact Lens to automatically create a case for post-conversation
 follow-up, such as when negative customer sentiment or specific key words are detected in a
 conversation.
 
@@ -2705,7 +2725,7 @@ The prompts configuration user interface has been updated to make it more effici
 you to manage prompts. In addition, when you add, update or delete a prompt from the Connect Customer admin website, a
 record of that activity is available in AWS CloudTrail for visibility, reporting, and compliance. For
 example, you may notice a discrepancy in the IVR prompt that customers hear when they call your
-support line. To investigate, you can leverage AWS CloudTrail to answer questions such as, "who saved
+support line. To investigate, you can use AWS CloudTrail to answer questions such as, "who saved
 this recording?" and "when was this prompt changed?" For more information about the new prompts
 page, see [Create prompts in Connect Customer](prompts.md "prompts.md").
 
@@ -3162,7 +3182,7 @@ audio device settings](audio-device-settings.md "audio-device-settings.md").
 
 Connect Customer Chat supports new interactive message types: quick replies and
 carousels. With quick replies, customers are presented with a list of response options (for
-example, **Yes**, **No**) that they can easily click to
+example, **Yes**, **No**) that they can easily choose to
 reply. Carousels present a set of interactive messages in a horizontally-scrolling format. Your
 customers can scroll through them and select the best option. For more information, see [Add Amazon Lex interactive messages for customers in chat](interactive-messages.md "interactive-messages.md").
 
@@ -3707,7 +3727,7 @@ options:
 
 ![The search option to filter blocks.](images/FilterBlock.gif)
 
-- Multi-line block metadata allows you to click and expand to see block
+- Multi-line block metadata allows you to choose and expand to see block
   configurations.
 
 ![Multi-line block metadata option to see block configurations.](images/Metadata.gif)
@@ -4787,8 +4807,8 @@ The following updates were released in October 2020:
       + [Average agent incoming connecting time](metrics-definitions.md#average-agent-incoming-connecting-time "metrics-definitions.md#average-agent-incoming-connecting-time")
       + [Average agent outbound connecting time](metrics-definitions.md#average-agent-outbound-connecting-time "metrics-definitions.md#average-agent-outbound-connecting-time")
 
-- In real-time metrics reports, added one-click drill-downs. These allow you to drill down
-  into queue and routing profile data in one click. For more information, see [Use pre-filtered tables for Routing profiles and Queues tables in Connect Customer](one-click-drill-downs.md "one-click-drill-downs.md").
+- In real-time metrics reports, added one-choose drill-downs. These allow you to drill down
+  into queue and routing profile data in one choose. For more information, see [Use pre-filtered tables for Routing profiles and Queues tables in Connect Customer](one-choose-drill-downs.md "one-choose-drill-downs.md").
 - Added the **Restrict contact access** permission which enables you to
   manage a user's access to results on the **Contact search** page based on
   their agent hierarchy group. For more information, see [Search for completed and in-progress contacts in Connect Customer](contact-search.md "contact-search.md").
@@ -5070,7 +5090,7 @@ The following updates were released in January 2020:
 
 The following updates were made to the updated Contact Control Panel (ccp-v2):
 
-- Agents can now transfer a contact by double-clicking a quick connect. For more
+- Agents can now transfer a contact by double-choosing a quick connect. For more
   information, see [Transfer calls to a quick connect or external phone number using the Contact Control Panel (CCP)](transfers.md "transfers.md").
 - The number pad now retains the previously selected country flag so agents don't need to
   select it every time.

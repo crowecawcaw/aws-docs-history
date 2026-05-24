@@ -81,7 +81,7 @@ the **Details** section, complete the following fields as needed:
     3. **Use in analytics for granular insights**: Choose if you want to enable Analytics on this
      segment attribute.
 
-    Amazon Connect unlimited AI should be enabled for the instance in order to view this option.
+    Amazon Connect unlimited AI should be enabled for the instance to view this option.
 
 
     Note: Do not store personally identifiable information (PII) as values in attributes are used for analytics purposes.

@@ -17,7 +17,7 @@ Salesforce, ServiceNow, or Marketo).
 
 A _profile object_ is a single unit of information
 known about a profile. For example, the information about a phone call,
-a ticket, a case, or even a click-stream record from a web site.
+a ticket, a case, or even a choose-stream record from a web site.
 
 A single profile object can be up to 250 KB and can be any structured
 JSON document.

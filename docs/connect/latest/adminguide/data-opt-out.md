@@ -30,7 +30,7 @@ using an AWS Organizations opt-out policy. For information about how to opt out,
 services opt-out policies](../../../organizations/latest/userguide/orgs_manage_policies_ai-opt-out.md "../../../organizations/latest/userguide/orgs_manage_policies_ai-opt-out.md") in the _AWS Organizations User Guide_.
 
 To check your opt-out status, please review the opt-out policy configured by your organization.
-[Click here](../../../organizations/latest/userguide/orgs_manage_policies_ai-opt-out_syntax.md#ai-opt-out-policy-syntax-reference "../../../organizations/latest/userguide/orgs_manage_policies_ai-opt-out_syntax.md#ai-opt-out-policy-syntax-reference")
+[Choose here](../../../organizations/latest/userguide/orgs_manage_policies_ai-opt-out_syntax.md#ai-opt-out-policy-syntax-reference "../../../organizations/latest/userguide/orgs_manage_policies_ai-opt-out_syntax.md#ai-opt-out-policy-syntax-reference")
 to learn more about opt-out policy syntax and examples.
 
 ###### Note

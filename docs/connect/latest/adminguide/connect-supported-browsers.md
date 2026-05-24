@@ -67,7 +67,7 @@ opt-in mechanism for users to disable them.
 **For businesses that embed the Contact Control Panel
 (CCP) into a custom workspace**: If your agents use Google's opt-in
 mechanism to disable third-party cookies, it will cause authentication issues
-when they use the CCP. Connect Customer relies on third-party cookies to facilitate
+when they use the CCP. Connect Customer relies on third-party cookies to help
 authentication. Ensure that third-party cookies are enabled in your agents'
 browser settings to avoid any authentication issues while using the CCP.
 

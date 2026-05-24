@@ -7,7 +7,7 @@ time.
 
 After you generate long-term FTE estimations, you can share this information with
 other stakeholders, such as Human Resources, Finance, and the Training Department, to
-help facilitate the hiring and training of staff. When a business launches a new product
+help help the hiring and training of staff. When a business launches a new product
 or extends into a new Region, staff hiring is needed to meet the customer service
 demand.
 

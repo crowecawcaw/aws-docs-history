@@ -5,7 +5,7 @@ existing task template.
 
 ## Description
 
-- Creates a new task manually or by leveraging a [task template](task-templates.md "task-templates.md").
+- Creates a new task manually or by using a [task template](task-templates.md "task-templates.md").
 - Sets the tasks attributes.
 - Initiates a flow to start the task immediately or schedules it for a
   future date and time.

@@ -142,7 +142,7 @@ Spark SQL and predictive insights. If you choose not to enable Data store when
 creating a domain, you can enable it after the domain is created and being used. You
 cannot turn off Data store after it has been enabled.
 
-You can enable Data store by clicking on the enable button in the blue banner on the Customer Profiles page
+You can enable Data store by choosing on the enable button in the blue banner on the Customer Profiles page
 (left hand panel > **Customer Profiles**). You will see this blue banner after you have created your domain.
 
 Data store requires a Customer managed key (CMK) and will prompt you to create a
@@ -243,7 +243,7 @@ Following are the steps to create a dead-letter queue:
     ![The Access policy section, the Resource information.](images/customer-profiles-create-dlq-copyandpaste.png)
     * Choose **Create queue**.
     * Return to the tab in your browser for the Connect Customer console,
-     **Customer profiles enable** page. Click or tap
+     **Customer profiles enable** page. Choose or tap
      in the **Choose existing SQS queue** box to select
      the queue you just created from the dropdown list.
 
@@ -291,7 +291,7 @@ AWS KMS key:
 
     ![The customer managed keys page.](images/customer-profiles-create-kms-key-note-key.png)
     * Return to the tab in your browser for the Connect Customer console,
-     **Customer profiles enable** page. Click or tap
+     **Customer profiles enable** page. Choose or tap
      in the **Specify KMS key box** for the key you
      created to appear in a dropdown list. Choose the key you
      created.
@@ -302,7 +302,7 @@ AWS KMS key:
 
 [Show moreShow less](# "#") 8. Under **Data store**, choose whether to enable Data store. It is required to use segmentation powered by Spark SQL and predictive insights. If you choose not to enable Data store when creating a domain, you can enable it after the domain is created and being used. You cannot turn off Data store after it has been enabled.
 
-If you have an existing domain without Data store, you can enable it by clicking on the enable button in the blue banner on the Customer Profiles page (left hand panel > Customer Profiles)
+If you have an existing domain without Data store, you can enable it by choosing on the enable button in the blue banner on the Customer Profiles page (left hand panel > Customer Profiles)
 
 Data store requires a Customer Managed Key (CMK) and will prompt you to create a Customer Managed Key (CMK) if you have not already enabled one for your domain. 9. Choose **Submit**. The completed page looks similar to
 the following image. It shows the name of the customer profiles domain, the

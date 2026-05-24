@@ -154,9 +154,9 @@ The count of AI suggestions rated as helpful with a thumbs-up.
 
 The count of AI suggestions rated as unhelpful with a thumbs-down.
 
-- **Tool utilization accuracy**:
+- **Tool use accuracy**:
 
-The rate of correct tool utilization by the AI agent. Value is between 0-1, where 1 indicates perfect utilization.
+The rate of correct tool use by the AI agent. Value is between 0-1, where 1 indicates perfect use.
 
 - **Tool selection accuracy**:
 
@@ -196,7 +196,7 @@ The following image shows an example **Knowledge base usage** table.
 
 ## AI agent performance trend
 
-The AI agent performance trend is a time-series chart that displays the AI agent invocation success rate (blue bars), Faithfulness score (red line), and Tool utilization accuracy (green line) over a given time period broken down by intervals (15min, daily, weekly, monthly). You can configure different time range intervals by using the "Interval" button directly in the widget. The intervals that you may select depend on the page-level time range filter.
+The AI agent performance trend is a time-series chart that displays the AI agent invocation success rate (blue bars), Faithfulness score (red line), and Tool use accuracy (green line) over a given time period broken down by intervals (15min, daily, weekly, monthly). You can configure different time range intervals by using the "Interval" button directly in the widget. The intervals that you may select depend on the page-level time range filter.
 
 For example:
 
@@ -211,7 +211,7 @@ The following image shows an example **AI agent performance trend** chart.
 
 ## AI tools usage
 
-This table compares tool implementations (e.g., MCP - Model Context Protocol, Return-to-Control) on invocations, average latency and invocation success rate, and tool utilization accuracy.
+This table compares tool implementations (e.g., MCP - Model Context Protocol, Return-to-Control) on invocations, average latency and invocation success rate, and tool use accuracy.
 
 For example, you can select an AI agent type (such as Orchestration or Answer Recommendation) and view how different tools and their versions are performing within that agent type. You can identify which tool versions need optimization by sorting columns using **AI tool invocation count**, **AI tool invocation success rate**, or **Avg. AI tool invocation latency**.
 
@@ -245,9 +245,9 @@ Average invocation latency in milliseconds for the tool version.
 
 Percentage of AI tool invocations that executed successfully.
 
-- **Tool utilization accuracy**:
+- **Tool use accuracy**:
 
-The rate of correct tool utilization by the AI agent. Value is between 0-1, where 1 indicates perfect utilization.
+The rate of correct tool use by the AI agent. Value is between 0-1, where 1 indicates perfect use.
 
 - **Tool selection accuracy**:
 

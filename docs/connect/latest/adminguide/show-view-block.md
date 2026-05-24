@@ -188,7 +188,7 @@ The schema has the following sections where you can add information:
 **Edit**, **ErrorText**, and
 more. 3. The following image shows the **AttributeBar**
 parameter, and the **Set using JSON** option. To view
-all of the JSON you pasted in, click the corner of the box and pull
+all of the JSON you pasted in, choose the corner of the box and pull
 down.
 
 ![The input parameters.](images/show-view-block-json.png)

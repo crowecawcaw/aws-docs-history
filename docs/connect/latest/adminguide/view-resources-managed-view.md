@@ -698,7 +698,7 @@ reservation.
               },
               "Detail": {
                 "Heading": "Lost luggage claim",
-                "Description": "Use this flow for customers that have lost their luggage and need to fill a claim in order to get reimbursement. This workflow usually takes 5-8 minutes",
+                "Description": "Use this flow for customers that have lost their luggage and need to fill a claim to get reimbursement. This workflow usually takes 5-8 minutes",
                 "Sections": {
                   "TemplateString": "<TextContent>Steps:<ol><li>Customer provides incident information</li><li>Customer provides receipts and agrees with amount</li><li>Customer receives reimbursement</li></ol></TextContent>"
                 },

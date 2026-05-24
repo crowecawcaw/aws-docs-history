@@ -94,7 +94,7 @@ quotas](../../../general/latest/gr/connect_region.md "../../../general/latest/gr
 
 - Regular monitoring of workstations that show processes running, and the
   current resource usage of each process.
-- Workstation performance/utilization in these areas:
+- Workstation performance/use in these areas:
   - Processor (CPU)
   - Disk / drive
   - RAM / memory

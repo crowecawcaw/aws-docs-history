@@ -46,7 +46,7 @@ Select the **Check hours of operation** flow block to view its properties and de
    2. **Out of hours**
    3. **Error**
 
-5. Click on the flow block to optionally specify an hours of operation for this flow.
+5. Choose on the flow block to optionally specify an hours of operation for this flow.
    1. If not specified, Connect Customer will use the hours associated with a contact's queue.
 
 6. If you wish to set up special branching for certain dates, find the **Optional branches** section.

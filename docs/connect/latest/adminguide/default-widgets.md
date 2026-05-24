@@ -45,7 +45,7 @@ scannable format.
 
 ### Overview
 
-This widget utilizes the key value pair component to display customer
+This widget uses the key value pair component to display customer
 attributes in a structured layout.
 
 - First name
@@ -76,13 +76,13 @@ specific needs.
 ## Calculated attribute
 
 The Calculated Attribute widget enables you to display a key metrics
-component utilizing data from your customer profiles' calculated
+component using data from your customer profiles' calculated
 attributes.
 
 ### Overview
 
 The Calculated Attribute widget enables you to display a key metrics
-component utilizing data from your customer profiles' calculated
+component using data from your customer profiles' calculated
 attributes.
 
 ### Component Features

@@ -42,7 +42,7 @@ within the system.
 
 This process ensures efficient handling of contact events, promoting
 auto-association with existing profiles and enabling the creation of inferred
-profiles when necessary. By leveraging these mechanisms, organizations can
+profiles when necessary. By using these mechanisms, organizations can
 maintain a comprehensive record of customer interactions and effectively manage
 their contact event data within the system.
 
@@ -78,7 +78,7 @@ creation of inferred profiles when no match is found. It ensures that profiles
 are only created manually, providing organizations with a higher level of
 control and accuracy in profile management.
 
-By utilizing the CTR-AutoAssociateOnly template, organizations can leverage
+By using the CTR-AutoAssociateOnly template, organizations can use
 auto-association while adhering to specific rules regarding profile creation.
 This approach allows for streamlined contact event handling and precise control
 over the profile ecosystem, ensuring accurate data representation and
@@ -102,7 +102,7 @@ numerous inferred profiles. This abundance of inferred profiles may lead to the
 issue of duplicate profiles within the system.
 
 To address this concern and promote better profile management practices, we
-highly recommend utilizing the CTR-NoInferred template as the default option. By
+highly recommend using the CTR-NoInferred template as the default option. By
 using the CTR-NoInferred template, the system eliminates the creation of
 inferred profiles, thereby reducing the occurrence of duplicate profiles. This
 template allows for a more streamlined and efficient handling of contact events,

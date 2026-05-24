@@ -283,7 +283,7 @@ number.
 ## Code snippets
 
 The following example code snippets—in SQL, Java script, and Python—demonstrate how to
-identify conference, transfer and consultative calls by leveraging the logic described in the previous section.
+identify conference, transfer and consultative calls by using the logic described in the previous section.
 These snippets are provided as an example, and not
 intended for production.
 

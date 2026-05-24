@@ -71,7 +71,7 @@ conditions:
 
 
     To see the list of contact segment attributes to add to a rule, you need **Predefined attributes - View** permissions.
-    * **Disconnect reason**: Build rules that check for why a contact disconnected. For example, if the agent disconnected prior to the customer, or if the contact was transferred.
+    * **Disconnect reason**: Build rules that check for why a contact disconnected. For example, if the agent disconnected before the customer, or if the contact was transferred.
     * **Highest loudness score**: Build rules that check for the peak loudness score (in decibels) during the conversation for the agent or the customer. Higher loudness (for example, over 70Db) may be associated with excitement or anger, while speech below a certain loudness score (for example, 30Db or lower) might be hard to understand.
     * **Hold time**: Build rules to identify contacts that had unusual hold times to identify opportunities to handle contacts more efficiently. You can set rules using longest hold time, total hold time, and number of holds. You can also check for hold time as a percentage of the total time the customer was connected with the agent (customer hold time divided by agent interaction duration and customer hold time).
     * **Initiation method**: Build rules that check whether a contact was inbound, outbound, transferred, etc.

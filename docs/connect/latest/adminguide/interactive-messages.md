@@ -173,7 +173,7 @@ picker/panel](https://github.com/amazon-connect/amazon-connect-chat-interface/bl
 ###### Note
 
 If you are using the `targetForLinks` field and Connect Customer
-communications widget, in order to open links in the same browser tab, you must
+communications widget, to open links in the same browser tab, you must
 add the following attribute to the widget code snippet to allow the current
 iframe to open and navigate links within the same tab:
 

@@ -1,7 +1,7 @@
 # Enable auto-accept for agents
 
 When auto-accept is enabled for an available agent, the agent will be automatically connected to contacts
-from that channel, and won’t need to manually click accept or reject.
+from that channel, and won’t need to manually choose accept or reject.
 
 Auto-accept can be enabled for calls, callbacks, chats, tasks, and emails. Auto-accept for customer-first
 callbacks, inbound calls, and Outbound Campaigns calls are covered under the Voice auto-accept settings.

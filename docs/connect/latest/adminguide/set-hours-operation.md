@@ -21,7 +21,7 @@ contact to the appropriate queue.
 - [Add lunch and other breaks](#add-lunch-breaks "#add-lunch-breaks")
 - [Daylight saving
   time](#daylight-savings-time "#daylight-savings-time")
-- [How flows leverage hours of operation](#use-check-hours-of-operation-block "#use-check-hours-of-operation-block")
+- [How flows use hours of operation](#use-check-hours-of-operation-block "#use-check-hours-of-operation-block")
 - [Set overrides for extended, reduced, and holiday hours](hours-of-operation-overrides.md "hours-of-operation-overrides.md")
 - [View calendar that illustrates effective hours of operation](view-hours-of-operation-calendar.md "view-hours-of-operation-calendar.md")
 
@@ -140,7 +140,7 @@ it.
    - If the current time in timezone B is 7 AM then the call or
      chat is not queued.
 
-## How flows leverage hours of operation
+## How flows use hours of operation
 
 Flows can be configured to check whether a contact is within or outside the
 hours of operation defined by the block. The flow can then branch to follow a

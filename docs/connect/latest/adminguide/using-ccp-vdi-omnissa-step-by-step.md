@@ -2,7 +2,7 @@
 
 Connect Customer makes it easier to deliver high-quality voice experiences when your agents
 are using Omnissa Virtual Desktop Infrastructure (VDI) environments. Your agents can
-leverage their Omnissa remote desktop applications, such as Omnissa Horizon Client,
+use their Omnissa remote desktop applications, such as Omnissa Horizon Client,
 to offload audio processing to the agent's local device and to automatically
 redirect audio to Connect Customer, resulting in improved audio quality over challenging
 networks.

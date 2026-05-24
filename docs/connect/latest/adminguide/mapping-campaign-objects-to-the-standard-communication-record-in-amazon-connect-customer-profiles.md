@@ -40,8 +40,8 @@ Campaign-Email object to the standard communication record.
 | campaign_event_type                   | Events.{{campaign\_event\_type}}.EventType        |
 | email.bounce.bounceType               | Events.Bounce.Attributes.BounceType               |
 | email.bounce.bounceSubType            | Events.Bounce.Attributes.BounceSubType            |
-| email.click.link                      | Events.Click.Attributes.Link                      |
-| email.click.ipAddress                 | Events.Click.Attributes.IpAddress                 |
+| email.choose.link                     | Events.Choose.Attributes.Link                     |
+| email.choose.ipAddress                | Events.Choose.Attributes.IpAddress                |
 | email.open.ipAddress                  | Events.Open.Attributes.IpAddress                  |
 | email.reject.reason                   | Events.Reject.Attributes.Reason                   |
 | email.renderingFailure.templateName   | Events.RenderingFailure.Attributes.TemplateName   |

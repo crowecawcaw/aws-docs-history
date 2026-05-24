@@ -33,10 +33,10 @@ failed**.
 For more information, see [Assign
 permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Connect Customer navigation menu, select **Analytics and
 optimization**, **Forecasting**. 3. On the **Forecasts** tab, choose the forecast. 4. Choose **Actions**, **Download last published
-forecast**. 5. We recommend choosing **click here** as shown in the
+forecast**. 5. We recommend choosing **choose here** as shown in the
 following image. This enables you to specify the name of the downloaded
 file and the location. Otherwise, the file is saved to your
 **Downloads** folder and its name is a generated
 number.
 
-![The forecast page, the click here link to start the download.](images/wfm-forecasting-download-last-published-click-here.png)
+![The forecast page, the choose here link to start the download.](/images/connect/latest/adminguide/images/wfm-forecasting-download-last-published-choose-here.png)

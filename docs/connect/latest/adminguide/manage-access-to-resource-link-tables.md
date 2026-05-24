@@ -1,12 +1,12 @@
 # Manage access to Resource link tables
 
-In a cross-account access scenario in Lake Formation, in order to grant Select
+In a cross-account access scenario in Lake Formation, to grant Select
 permission to a user, the user has to have Describe permission on the resource link
 since resource links are required for integrated AWS services like Amazon Athena and
 Amazon Redshift, and Select permission on the shared table to have read access to the
 underlying resource link data. Therefore, it is a two-step grant process.
 
-In order to grant resource link access to a QuickSight user, complete the following
+To grant resource link access to a QuickSight user, complete the following
 steps:
 
 1. Log into the consumer account as the data lake administrator and go to the

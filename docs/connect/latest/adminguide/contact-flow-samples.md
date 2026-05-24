@@ -12,7 +12,7 @@ flow.
    **Phone numbers**, **Claim a number**.
 2. Choose the **DID** tab, then choose a number.
 3. In **Flow / IVR** use the drop down to choose the sample flow you
-   want to try. Click **Save**.
+   want to try. Choose **Save**.
 4. Call the number. The sample flow that you selected starts.
 
 We recommend opening the sample flow in the flow designer and following along to

@@ -202,7 +202,7 @@ threshold-specific information:
 
 - Visual indicators for agents operating within thresholds
 - Remaining threshold time available
-- Threshold utilization percentage
+- Threshold use percentage
 - Option to toggle between strict and threshold-based adherence
   views
 
@@ -210,7 +210,7 @@ Historical reports can display:
 
 - Adherence percentage with and without thresholds
 - Time spent within configured thresholds
-- Threshold utilization patterns
+- Threshold use patterns
 
 ## Monitor adherence with thresholds
 

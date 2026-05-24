@@ -30,7 +30,7 @@ Consider a scenario where a contact enters a queue **General Inbound
 Queue** and two agents, Agent1 and Agent2, are available. A customer who
 speaks French is seeking assistance regarding AWS DynamoDB. This is their second time
 calling regarding the same issue and you would prefer to match them with an expert in
-AWS DynamoDB. In order to preserve the customer experience, you want to implement the
+AWS DynamoDB. To preserve the customer experience, you want to implement the
 following routing requirements:
 
 - First look for an agent who is highly proficient in **French
@@ -124,7 +124,7 @@ Agent1.
      3, AWS DynamoDB 4) is proficient in French and highly proficient in AWS
      DynamoDB. Therefore, the contact is matched with Agent1.
 
-There is a [one-click drill-down](one-click-drill-downs.md "one-click-drill-downs.md") in the
+There is a [one-choose drill-down](one-choose-drill-downs.md "one-choose-drill-downs.md") in the
 real-time metrics for queues table which shows you a list of the routing steps in use
 for active contacts on the queue. You can find the definitions for the routing step
 specific metrics under [Metric definitions in Connect Customer](metrics-definitions.md "metrics-definitions.md").

@@ -132,7 +132,7 @@ they must choose one of the templates: **Billing Dispute** or
 ![The create task button on the CCP, the two templates the agents can select.](images/task-templates-agent-experience.png)
 
 Let's assume the agent chooses **Customer Email Template**. The
-following image shows the fields the agent must complete in order to create a task.
+following image shows the fields the agent must complete to create a task.
 Notice that there is no option for the agent to assign the task to others; this
 template has **Task assignment** set to a default value. However,
 the agent can opt to assign the task to themselves.

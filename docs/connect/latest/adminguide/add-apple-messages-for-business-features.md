@@ -39,7 +39,7 @@ The Messages for Business button must contain the following, at minimum:
 ## Authentication
 
 Authentication allows customers to sign in to your Identity Provider(s) of choice
-during a chat conversation. The authentication feature leverages the OAuth2 and OIDC
+during a chat conversation. The authentication feature uses the OAuth2 and OIDC
 framework to verify the identity of the customer upon successful sign in. for more
 information, see [Enable authentication for Apple Messages for Business](enabling-authentication-for-apple-messages-for-business.md "enabling-authentication-for-apple-messages-for-business.md").
 
@@ -49,7 +49,7 @@ You can give your customers the ability to start a conversation with you from yo
 website or an email message.
 
 For example, customers may start a chat using a URL that you provide. When they
-click the URL, the system redirects them to Messages so they can send your business
+choose the URL, the system redirects them to Messages so they can send your business
 a text message.
 
 You decide how and where to provide the URL. You can include it as a link in an

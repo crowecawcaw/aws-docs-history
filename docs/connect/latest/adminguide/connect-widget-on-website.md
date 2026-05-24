@@ -18,7 +18,7 @@ for contacts created through your widget.
 
 1.  Log in to the Connect Customer admin website at [https://instance name.my.connect.aws/](https://instance name.my.connect.aws/ "https://instance name.my.connect.aws/"). Under the
     **Routing** tab, select **Flows**.
-2.  At the top left, click **Views**.
+2.  At the top left, choose **Views**.
 3.  Select **Create View**.
 4.  Here you can configure a contact form for your customers using the [no-code builder](no-code-ui-builder.md "no-code-ui-builder.md"). Some important
     tips:
@@ -82,7 +82,7 @@ The Name must be unique for each communications widget created in an
 Connect Customer instance. 4. In the **Communications options** section, select
 **Add Contact Form**. 5. Select the View you configured in the previous step. If the Connect Action
 component in the View does not have a contact flow set, you will need to set one
-here. 6. Click **Save and Continue**.
+here. 6. Choose **Save and Continue**.
 
 On the **Create communication widget** page, choose the widget button styles, and display
 names and styles. As you choose these options, the widget preview updates automatically

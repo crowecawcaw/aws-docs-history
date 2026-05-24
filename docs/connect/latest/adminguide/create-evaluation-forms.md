@@ -327,10 +327,10 @@ contacts](rules.md "rules.md").
 - Multiple selection questions can be used to capture answer reasoning for a
   single select question. It can also be used to trigger conditional questions, by
   checking for customer scenarios, such as call reasons. The following example shows
-  how you can leverage rules that capture customer call reasons to automatically fill
+  how you can use rules that capture customer call reasons to automatically fill
   answers to a multiple selection question. Unlike single select questions, all of the
   conditions are executed sequentially to answer a multiple selection question. In the
-  below example, if the categories **StatusCheck** and **ChangeExistingRequest** are both present on the contact, then the answer
+  following example, if the categories **StatusCheck** and **ChangeExistingRequest** are both present on the contact, then the answer
   would be both “Checking status of existing service request” and “Changing a service
   request”.
 

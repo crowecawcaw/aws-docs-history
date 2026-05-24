@@ -105,7 +105,7 @@ limits.
 
 ![Warning banner showing total communications limits permission issues.](images/error-state-and-troubleshooting-4.png)
 
-In order to enable total limits permissions, you can navigate to the Connect Customer admin website and under
+To enable total limits permissions, you can navigate to the Connect Customer admin website and under
 **Outbound campaigns**, choose **Upgrade
 permission**.
 

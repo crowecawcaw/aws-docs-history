@@ -27,7 +27,7 @@ instances in the traffic distribution group.
   `SignInConfig` distribution. See the
   `IsDefault` parameter in the [TrafficDistributionGroup](../APIReference/API_TrafficDistributionGroup.md "../APIReference/API_TrafficDistributionGroup.md") data type. You use
   `SignInConfig` to choose which backend sign-in servers
-  are used to facilitate the agent signing in to their Connect Customer instance. For
+  are used to help the agent signing in to their Connect Customer instance. For
   example, if you call `UpdateTrafficDistribution` with a
   modified `SignInConfig` and a non-default
   `TrafficDistributionGroup`, an

@@ -36,7 +36,7 @@ You can define custom criteria to evaluate self-service interactions. These
 criteria can measure self-service resolution, customer experience or bot/AI agent
 behaviors. To evaluate self-service interactions, set **Contact interaction type** as automated interaction under additional settings:
 
-![](images/self-service-eval-form-configuration.png)
+![Additional settings tab showing Form language dropdown and Contact interaction type with Automated interaction selected.](images/self-service-eval-form-configuration.png)
 
 An example evaluation form is as follows:
 
@@ -80,7 +80,7 @@ analyzes the self-service interaction transcript to fill one of the answer optio
 Use @ to enter keywords that generative AI can understand - the words system, AI agent and bot currently
 refer to any non-human participant that is interacting with the customer. You can use these words interchangeably.
 
-![](images/self-service-question-gen-ai-automation.png)
+![Automation tab showing Option 3: Generative AI selected for evaluating AI agent behavior.](images/self-service-question-gen-ai-automation.png)
 
 ### Automation using rules
 

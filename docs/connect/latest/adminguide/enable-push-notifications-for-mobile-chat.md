@@ -9,7 +9,7 @@ The following steps and resources will help you get started with integrating Con
 
 ## Step 1: Obtain credentials from Apple's APNs and Google's FCM console
 
-In order to set up Connect Customer so that it can send push notifications to your
+To set up Connect Customer so that it can send push notifications to your
 apps, you first have to obtain credentials from Apple's APNs and Google's FCM console
 that will enable [AWS End User
 Messaging](../../../sms-voice/latest/userguide/what-is-service.md "../../../sms-voice/latest/userguide/what-is-service.md") to send notifications to your mobile applications. The credentials

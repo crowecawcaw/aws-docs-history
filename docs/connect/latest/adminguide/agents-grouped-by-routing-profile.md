@@ -6,7 +6,7 @@ your Connect Customer contact center.
 1. Go to **Analytics and optimization**, **Real-time
    metrics**, **Queues**.
 2. Choose **New table**, **Agents**.
-3. Click **Settings**, as shown in the following
+3. Choose **Settings**, as shown in the following
    image.
 
 ![The settings icon for the queues table.](images/rtm-settings.png) 4. On the **Filters** tab, choose **Routing

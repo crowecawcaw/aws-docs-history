@@ -84,7 +84,7 @@ Information Privacy Act](https://en.wikipedia.org/wiki/Biometric_Information_Pri
    URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box
    around the instance alias.
 
-![The Connect Customer virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **Voice ID**. Read the
+![The Connect Customer virtual contact center instances page, the instance alias.](/images/connect/latest/adminguide/images/instance.png) 3. In the navigation pane, choose **Voice ID**. Read the
 BIPA Consent Acknowledgement, and accept if you agree.
 
 ![The Enable Voice ID page showing the BIPA (Biometric Information Privacy Act) Consent Acknowledgement button that users must read and accept before enabling Voice ID.](images/voiceid-bipa.png)
@@ -131,7 +131,7 @@ Following are the steps to create your KMS key key:
     6. On the **Review and edit key policy**
      page, choose **Finish**.
     7. Return to the tab in your browser for the Connect Customer
-     console, **Voice ID** page. Click or
+     console, **Voice ID** page. Choose or
      tap in the **AWS KMS key** for the
      key you created to appear in a dropdown list. Choose the
      key you created.

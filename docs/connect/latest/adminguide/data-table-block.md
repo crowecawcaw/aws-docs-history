@@ -2,7 +2,7 @@
 
 ## Description
 
-The Data Table block in Connect Customer enables you to evaluate, list, or write data from data tables within your contact flows. This block facilitates dynamic decision-making, personalized customer experiences, and data management by interacting with structured data stored in your Connect Customer data tables.
+The Data Table block in Connect Customer enables you to evaluate, list, or write data from data tables within your contact flows. This block helps dynamic decision-making, personalized customer experiences, and data management by interacting with structured data stored in your Connect Customer data tables.
 
 ## Use cases
 
@@ -176,7 +176,7 @@ The following image shows the **Properties** page of the **Data Table** block co
      - **Group Name (Required)** – Provide a descriptive name for the primary value group. This name will be used to reference the write operation in subsequent flow blocks. Important: Group names must be unique throughout the entire flow, not just within this specific block.
      - **Primary Attributes** – When you manually select a data table, the UI automatically populates the list of primary attributes from that table's schema. All primary attribute fields are required - you must provide values for each primary attribute displayed. These attributes function as the key fields that determine which record will be created or updated. If a record with matching primary attribute values exists, it will be updated; otherwise, a new record will be created.
      - **Configure Attributes to Write**
-       - **Attribute Name (Required)** – When you manually select a data table, the dropdown is automatically populated with all available attributes from that table. Select the attribute you want to write or update. You can add multiple attributes by clicking **Add attribute to write**.
+       - **Attribute Name (Required)** – When you manually select a data table, the dropdown is automatically populated with all available attributes from that table. Select the attribute you want to write or update. You can add multiple attributes by choosing **Add attribute to write**.
        - **Attribute Value Configuration** – For each attribute, choose one of the following options:
          - Set attribute value (selected by default) – Specify the value to write to the attribute. This field is required when this option is selected. Values can be static text, contact attributes, or system variables.
          - Use default value – Uses the default value defined in the data table schema. No additional value input is required when this option is selected.

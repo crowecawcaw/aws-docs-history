@@ -55,7 +55,7 @@ traffic distribution group ARN.
 
 The `UpdateTrafficDistribution` API includes a distribution
 called `SignInConfig`. It allows you to choose which backend
-sign-in servers are used to facilitate the agent signing in to their
+sign-in servers are used to help the agent signing in to their
 instance group. Regardless of the `SignInConfig` set in your
 traffic distribution group, agents will be signed in to both instances in
 the traffic distribution group.
@@ -115,7 +115,7 @@ aws connect update-traffic-distribution \
 ```
 
 This distribution controls only which Region of the sign-in server is used
-to facilitate logging in the agent to both instances in their instance
+to help logging in the agent to both instances in their instance
 group. It doesn't affect the distribution of agents controlled by the
 `AgentConfig` part of the
 `UpdateTrafficDistribution` API.

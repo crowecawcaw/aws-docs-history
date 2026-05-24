@@ -1,7 +1,7 @@
 # Optimize Connect Customer audio for Amazon WorkSpaces cloud desktops
 
 Connect Customer simplifies delivery of high-quality voice experiences for agents operating
-within Amazon WorkSpaces Virtual Desktop Infrastructure (VDI) environments. By leveraging
+within Amazon WorkSpaces Virtual Desktop Infrastructure (VDI) environments. By using
 Amazon WorkSpaces with the WebRTC redirection feature, agents can redirect Connect Customer audio
 processing to their local devices. This approach results in enhanced audio quality,
 even over challenging network conditions. To take advantage of this feature, you

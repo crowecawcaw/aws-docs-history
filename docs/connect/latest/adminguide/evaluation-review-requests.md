@@ -8,9 +8,9 @@ Connect Customer enables you to specify which evaluation forms support review re
 
 1. Log in to Connect Customer with a user account that has the following security profile permission: **Analytics and Optimization** - **Evaluation forms - manage form definitions** - **Create**
 2. Choose **Analytics and optimization**, then choose **Evaluation forms**.
-3. Open an existing form by clicking on the hyperlink for the Last version or create a new evaluation form.
-4. Click on the **Additional settings** tab
-5. Click **Allow review requests**
+3. Open an existing form by choosing on the hyperlink for the Last version or create a new evaluation form.
+4. Choose on the **Additional settings** tab
+5. Choose **Allow review requests**
 6. You can specify the time window till when a review can be requested on an evaluation. The time window is measured from the time of the original submission of an evaluation.
 7. You can also choose one or more recipients who will be notified via email when a review is requested. The email has a link to the contact with the evaluation for which a review is requested. Note that in order for the users to receive emails on a SAML authenticated instance, the secondary email needs to be provided within the user's profile in Connect.
 8. Once you **Activate** the form, subsequent evaluations performed using the form will support review requests.
@@ -31,7 +31,7 @@ Users with the permission **Evaluation forms - review evaluations - Create and V
 
 1. On the **Contact details** page, open a completed evaluation for which you want to request a review
 2. Select **request a review** at the bottom of the evaluation
-3. Explain why you are requesting a review (you cannot leave this blank). Click **confirm**
+3. Explain why you are requesting a review (you cannot leave this blank). Choose **confirm**
 4. The evaluation will show under **Review requested** on the evaluations pane
 5. You can cancel a request if the review is yet to be started
 
@@ -56,10 +56,10 @@ As mentioned above, you can configure in the evaluation form, who would be autom
 ## Starting and completing reviews
 
 1. Open the evaluations pane on the **Contact details** page.
-2. Click on an evaluation listed under **Review requested**.
-3. Click **Start review**.
-4. The original evaluation is listed below **Under review** and can be viewed by clicking on it.
-5. The in-progress review is listed under **Evaluation reviews**. Users with the **Evaluation forms - review evaluations - Create** permissions can make edits to the evaluation such as changing answers, amending the notes. You can **Save** your review at anytime and click **Resolve review** to finalize the review.
+2. Choose on an evaluation listed under **Review requested**.
+3. Choose **Start review**.
+4. The original evaluation is listed below **Under review** and can be viewed by choosing on it.
+5. The in-progress review is listed under **Evaluation reviews**. Users with the **Evaluation forms - review evaluations - Create** permissions can make edits to the evaluation such as changing answers, amending the notes. You can **Save** your review at anytime and choose **Resolve review** to finalize the review.
 6. This will send an automated email notification to the user who had requested the review.
 
 ![Evaluation review in progress](images/evaluationforms-review-view.png)

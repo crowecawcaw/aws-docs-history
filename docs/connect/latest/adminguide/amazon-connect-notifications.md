@@ -15,7 +15,7 @@ Notifications support the following use cases:
 
 ## How Notifications Appear
 
-Notifications display in the Connect header with an icon indicating an unread message(s). Users click the icon to view messages.
+Notifications display in the Connect header with an icon indicating an unread message(s). Users choose the icon to view messages.
 
 ![The notifications widget showing a user's notifications.](images/notifications-widget.png)
 
@@ -23,7 +23,7 @@ The notification panel shows:
 
 - **Priority indicator**: Urgent messages are emphasized
 - **Message content**: Up to 500 characters per localized string, with support for embedded links
-- **Mark as read**: Users can mark as read or unread by clicking on the actions menu on the right of each message
+- **Mark as read**: Users can mark as read or unread by choosing on the actions menu on the right of each message
 
 Unread notifications appear in bold with a dot indicator, sequenced newest to oldest. Read notifications have reduced visual emphasis. Users that do not have time to react to a message they have opened can mark it as unread as a visual reminder.
 
@@ -35,7 +35,7 @@ Any user can _receive_ notifications without additional permissions, but special
 
 ###### Important
 
-To compose and send a notification requires API permissions. For more information about leveraging notification APIs see the [API guide](../APIReference/actions-by-resource.md "../APIReference/actions-by-resource.md").
+To compose and send a notification requires API permissions. For more information about using notification APIs see the [API guide](../APIReference/actions-by-resource.md "../APIReference/actions-by-resource.md").
 
 Granular access controls are enforced for users with permission to manage notifications:
 

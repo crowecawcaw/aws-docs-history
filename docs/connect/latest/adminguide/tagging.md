@@ -87,7 +87,7 @@ To use tags to control access to resources within your AWS accounts, you need to
 provide tag information in the condition element of an IAM policy. For example, to
 control access to your Voice ID domain based on the tags you've assigned to it, use the
 `aws:ResourceTag/key-name` condition key to specify which tag key:value
-pair must be attached to the domain, in order to allow given actions for it.
+pair must be attached to the domain, to allow given actions for it.
 
 For more detailed information on tag-based access control in the Connect Customer console, see
 [Apply tag-based access control in Connect Customer](tag-based-access-control.md "tag-based-access-control.md").

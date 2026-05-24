@@ -1,4 +1,4 @@
-# How Contact Control Panel (CCP) leverages WebRTC
+# How Contact Control Panel (CCP) uses WebRTC
 
 This advanced topic is for IT admins who may be interested in how Contact Control
 Panel (CCP) delivers voice calls. It also provides some networking details.
@@ -10,7 +10,7 @@ outbound calls and video conferences directly from their web browser.
 ###### Topics
 
 - [What is WebRTC?](#whatis-webrtc "#whatis-webrtc")
-- [Terminology](#ccp-leverages-webrtc-terminology "#ccp-leverages-webrtc-terminology")
+- [Terminology](#ccp-uses-webrtc-terminology "#ccp-uses-webrtc-terminology")
 - [How WebRTC works](#how-webrtc-works "#how-webrtc-works")
 - [How STUN, TURN and ICE work together](#how-stun-turn-ice-works "#how-stun-turn-ice-works")
 - [Best practices](#webrtc-ccp-bp "#webrtc-ccp-bp")
@@ -67,7 +67,7 @@ peers can understand each other once the data is transferring.
 SDP Offer
 
 An SDP message sent by an agent which generates a session description
-in order to create or modify a session. It describes the aspects of
+to create or modify a session. It describes the aspects of
 desired media communication.
 
 SDP Answer
@@ -148,7 +148,7 @@ WebRTC.
   recommended to ensure that media traffic between agent workstation and AWS
   is exchanged directly and does not traverse through VPNs or other network
   accelerator hops.
-- To ensure your business is able to successfully facilitate WebRTC
+- To ensure your business is able to successfully help WebRTC
   connections and mitigate error behaviors, ensure you have allow-listed
   incoming UDP traffic on port 3478 (SEND/RECEIVE). For more information, see
   [Option 1 (recommended): Replace Amazon EC2 and CloudFront IP range requirements with a domain allowlist](ccp-networking.md#option1 "ccp-networking.md#option1"). In the table, see the

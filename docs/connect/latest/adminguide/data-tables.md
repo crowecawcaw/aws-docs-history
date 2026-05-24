@@ -130,7 +130,7 @@ It's also possible to query for the exact message by adding a third dimension fo
 
 Flows can read and write values from data tables. For more information, see [Flow block in Connect Customer: Data Table](data-table-block.md "data-table-block.md").
 
-###### Leverage Data tables to build custom user interfaces
+###### Use Data tables to build custom user interfaces
 
 Data tables can empower business users to make routine contact center operational adjustments without requiring direct access to underlying Connect Customer systems. Custom interfaces can be created from Data tables using the Views no-code UI builder, then assigned to workspaces. Operations teams can then use the custom UIs to respond quickly to changing conditions, without requiring IT intervention and working within approved governance and security frameworks. Data tables can combine multiple resources, so business users do not need permission to each (e.g. flows, prompts, queues).
 
