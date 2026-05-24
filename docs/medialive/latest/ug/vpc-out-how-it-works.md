@@ -17,7 +17,7 @@ only one output group, with a destination in EC2 in your VPC. This output
 group might be an HLS output group being sent to an HTTP server on your EC2
 instance.
 
-![MediaLive channel diagram showing two pipelines with endpoints connecting to output destinations in a VPC.](/images/medialive/latest/ug/images\vpc-delivery-overview.png)
+![](/images/medialive/latest/ug/images\vpc-delivery-overview.png)
 The following diagram illustrates a channel with three output groups:
 
 - The destination for one output group is on
@@ -31,7 +31,7 @@ The following diagram illustrates a channel with three output groups:
   internet. The output leaves the pipeline, then leaves AWS and enters the
   public internet.
 
-![MediaLive channel diagram showing pipelines, endpoints, and destinations for EC2, MediaPackage, and public internet.](/images/medialive/latest/ug/images\vpc-delivery-overview-multi-outputs.png)
+![](/images/medialive/latest/ug/images\vpc-delivery-overview-multi-outputs.png)
 You set up for delivery to your VPC as follows:
 
 - Identify subnets and security groups in your VPC for the channel

@@ -19,4 +19,4 @@ pushing before then.
 At runtime of the channel, MediaLive reacts to the content that is being pushed and
 ingests it.
 
-![Upstream system diagram showing IP addresses and RTMP inputs for MediaLive streaming.](/images/medialive/latest/ug/images\rtmp-push-uss-input.png)
+![](/images/medialive/latest/ug/images\rtmp-push-uss-input.png)

@@ -11,4 +11,4 @@ To perform this setup, you must work with an operator of the AWS Elemental Link 
 - [Create an Elemental Link input](setup-uss-input-link.md "setup-uss-input-link.md")
 - [Result of this procedure](setup-link-result.md "setup-link-result.md")
 
-![Diagram showing AWS Elemental Link device connecting to Link input in MediaLive.](/images/medialive/latest/ug/images\link-uss-input.png)
+![](/images/medialive/latest/ug/images\link-uss-input.png)

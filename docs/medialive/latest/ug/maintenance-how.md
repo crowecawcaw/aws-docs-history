@@ -23,4 +23,4 @@ Setting up with standard channels is an effective way to mitigate the impact of
 maintenance events. You might want to consider this mitigation for your most important 24x7
 channels.
 
-![Timeline showing a long bar spanning multiple days and shorter bars on specific dates.](images/maintenance.png)
+![](images/maintenance.png)

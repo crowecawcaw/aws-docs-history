@@ -35,4 +35,4 @@ be pushing before then.
 At runtime of the channel, MediaLive reacts to the content that is being pushed and
 ingests it.
 
-![Diagram showing VPC subnets, security groups, and upstream systems connecting to CDI input in MediaLive.](/images/medialive/latest/ug/images\cdi-vpc-uss-input.png)
+![](/images/medialive/latest/ug/images\cdi-vpc-uss-input.png)

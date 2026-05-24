@@ -32,4 +32,4 @@ be pushing before then.
 At runtime of the channel, MediaLive reacts to the content that is being pushed and
 ingests it.
 
-![Diagram showing RTMP input in MediaLive with upstream systems connecting to VPC subnets.](/images/medialive/latest/ug/images\rtmp-vpc-uss-input.png)
+![](/images/medialive/latest/ug/images\rtmp-vpc-uss-input.png)
