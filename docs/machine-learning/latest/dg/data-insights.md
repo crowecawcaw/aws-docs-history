@@ -129,7 +129,7 @@ values as well as the percentage of invalid values for each attribute. The
 **Preview** column provides a link to a graphical distribution for each
 attribute.
 
-![Table showing binary variables with correlations, percentages, and invalid values for campaign data.](images/image43.png)
+![](images/image43.png)
 
 Summary statistics for the Categorical data type show all Categorical attributes with
 the number of unique values, most frequent value, and least frequent value. The
@@ -143,7 +143,7 @@ of missing values, invalid values, range of values, mean, and median. The
 **Preview** column provides a link to a graphical distribution for each
 attribute.
 
-![Table showing numeric variable "duration" with correlations, missing values, range, mean, and median.](images/image42.png)
+![](images/image42.png)
 
 Summary statistics for the Text data type show all of the Text attributes, the total number
 of words in that attribute, the number of unique words in that attribute, the range of words

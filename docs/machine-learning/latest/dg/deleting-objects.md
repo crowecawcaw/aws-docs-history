@@ -14,7 +14,7 @@ the API.
 
 When you delete Amazon ML objects, the effect is immediate, permanent, and irreversible.
 
-![Objects table showing five completed items with names, types, IDs, status, and timestamps.](/images/machine-learning/latest/dg/images/image58b.png)
+![Objects table showing five completed items with names, types, IDs, status, and timestamps.](images/image58b.png)
 
 ## Deleting Objects (Console)
 
