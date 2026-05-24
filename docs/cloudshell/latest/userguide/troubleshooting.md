@@ -70,7 +70,7 @@ access AWS CloudShell lacks the necessary IAM permissions.
 **Solution:** Request your IAM administrator to
 provide you with the necessary permissions. They can do this either through adding an
 attached AWS managed policy (AWSCloudShellFullAccess) or an embedded inline policy. For
-more information, see [Managing AWS CloudShell access and usage with IAM policies](sec-auth-with-identities.md#sec-auth-with-identities.title "sec-auth-with-identities.md#sec-auth-with-identities.title").
+more information, see [Managing AWS CloudShell access and usage with IAM policies](sec-auth-with-identities.md "sec-auth-with-identities.md").
 
 ([back to top](troubleshooting.md "troubleshooting.md"))
 

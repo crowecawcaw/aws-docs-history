@@ -35,6 +35,8 @@ but private subnets configured with Network Address Translation (NAT) have acces
 to public internet. VPC environments created in such private subnets will have
 access to public internet.
 
+- Your AWS CloudShell environment will not be configured by default to use the local DNS
+  zone in your VPC.
 - To provide a managed CloudShell environment for your account, AWS might provision
   network access to the following services for the underlying compute host:
 

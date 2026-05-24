@@ -12,9 +12,6 @@ You can customize the following aspects of your AWS CloudShell experience:
   requires you to verify multiline text before it's pasted.
 - [Tmux to session restore](#tmux_to_session_restore "#tmux_to_session_restore"): Using tmux
   restores your session until the session becomes inactive.
-- [Amazon Q CLI](#enable-disable-q-cli-preference "#enable-disable-q-cli-preference"):
-  Using
-  Amazon Q CLI allows you to use the Amazon Q CLI features.
   You can also extend your shell environment by [installing your own software](vm-specs.md#installing-software "vm-specs.md#installing-software") and
   [modifying your shell with
   scripts](vm-specs.md#modifying-shell-scripts "vm-specs.md#modifying-shell-scripts").
@@ -85,10 +82,3 @@ Paste**.
 AWS CloudShell uses tmux to restore the sessions across single or multiple browser tabs. If
 you refresh the browser tabs, it resumes your session until the session becomes inactive.
 For more information, see [Session restore](welcome.md#session-restore "welcome.md#session-restore").
-
-## Using Amazon Q CLI
-
-You can enable or disable Amazon Q CLI by choosing **Preferences**,
-**Enable Amazon Q CLI** and **Disable Amazon Q CLI**. For
-more information, see [Enable/disable Amazon Q
-CLI](../userguide.md#enable-disable-q-cli "../userguide.md#enable-disable-q-cli").

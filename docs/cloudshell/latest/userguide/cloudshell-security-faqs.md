@@ -11,6 +11,7 @@ CloudShell.
 - [Where is my $HOME directory actually stored in the AWS Cloud?](#home-storage-faq "#home-storage-faq")
 - [Is it possible to encrypt my $HOME directory?](#encrypt-home-faq "#encrypt-home-faq")
 - [Can I run a virus scan on my $HOME directory?](#virus-scan-faq "#virus-scan-faq")
+- [Can I restrict a CloudShell user from root access within the container?](#restrict-root-access-faq "#restrict-root-access-faq")
 
 ## What AWS processes and technologies are used when you launch CloudShell and start a shell session?
 
@@ -80,5 +81,20 @@ The `$HOME` directory of a VPC environment is deleted when your VPC
 environment times out (after 20-30 minutes of inactivity), or when you delete or restart your
 environment. In the **Actions** menu, the upload and download options are not
 available for VPC environments.
+
+[Back to list of security FAQs](cloudshell-security-faqs.md "cloudshell-security-faqs.md")
+
+## Can I restrict a CloudShell user from root access within the container?
+
+No. AWS CloudShell provides root access within the compute container by design. Containers in
+CloudShell serve as a code packaging and operational convenience. They are not security
+boundaries.
+
+CloudShell manages access control through AWS Identity and Access Management (IAM). Each CloudShell session
+receives temporary, regularly-rotated IAM credentials scoped to the user's permissions.
+These credentials are the security boundary, not the container itself.
+
+Because the container and the underlying instance share the same IAM credential scope,
+access beyond the container boundary provides no additional AWS permissions.
 
 [Back to list of security FAQs](cloudshell-security-faqs.md "cloudshell-security-faqs.md")
