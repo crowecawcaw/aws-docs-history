@@ -5,7 +5,7 @@ replication. The database source can be a self-managed engine running on an Ama
 or an on-premises database. Or it can be a data source on an AWS service such as Amazon RDS or
 Amazon S3.
 
-For a comprehensive list of valid sources, see [Sources for AWS DMS](CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.title "CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.title").
+For a comprehensive list of valid sources, see [Sources for AWS DMS](CHAP_Introduction.Sources.md "CHAP_Introduction.Sources.md").
 
 ###### Topics
 

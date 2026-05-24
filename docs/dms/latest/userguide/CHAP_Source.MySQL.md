@@ -22,6 +22,7 @@ following sections.
 - [Using any MySQL-compatible database as a source for AWS DMS](#CHAP_Source.MySQL.Prerequisites "#CHAP_Source.MySQL.Prerequisites")
 - [Using a self-managed MySQL-compatible database as a source for AWS DMS](#CHAP_Source.MySQL.CustomerManaged "#CHAP_Source.MySQL.CustomerManaged")
 - [Using an AWS-managed MySQL-compatible database as a source for AWS DMS](#CHAP_Source.MySQL.AmazonManaged "#CHAP_Source.MySQL.AmazonManaged")
+- [Considerations for Aurora MySQL 8.4 sources](#CHAP_Source.MySQL.AuroraMySQL84 "#CHAP_Source.MySQL.AuroraMySQL84")
 - [Limitations on using a MySQL database as a source for AWS DMS](#CHAP_Source.MySQL.Limitations "#CHAP_Source.MySQL.Limitations")
 - [Support for XA transactions](#CHAP_Source.MySQL.XA "#CHAP_Source.MySQL.XA")
 - [Endpoint settings when using MySQL as a source for AWS DMS](#CHAP_Source.MySQL.ConnectionAttrib "#CHAP_Source.MySQL.ConnectionAttrib")
@@ -212,6 +213,81 @@ that AWS DMS can properly capture those changes.
 - If you are using an Amazon RDS MySQL or Amazon RDS MariaDB read replica as a source,
   enable backups on the read replica, and ensure the `log_slave_updates` parameter is set to
   `TRUE`.
+
+For more information about Aurora MySQL 8.4 security changes, see
+[Security with Amazon Aurora MySQL](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Security.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Security.md") and
+[Password management with Amazon Aurora and Secrets Manager](../../../AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.md "../../../AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.md")
+in the _Amazon Aurora User Guide_.
+
+## Considerations for Aurora MySQL 8.4 sources
+
+Aurora MySQL 8.4 introduces security changes that may affect AWS DMS source
+endpoint connectivity. Review the following before upgrading your Aurora MySQL
+source to version 8.4.
+
+**TLS enforcement**
+
+Aurora MySQL 8.4 sets `require_secure_transport` to
+`ON` by default, meaning all connections must use TLS. If your
+AWS DMS source endpoint connects to Aurora MySQL 8.4 and the SSL mode is set
+to **none**, connections will be rejected. If your endpoint SSL mode is set to
+**none**, you will receive the following error:
+`MySQL Error 3159 (HY000): Connections using insecure transport are
+ prohibited while --require_secure_transport=ON`. Set the endpoint
+SSL mode to **verify-ca** or
+**verify-full**. Both modes require a CA certificate.
+Alternatively, set `require_secure_transport` to `OFF`
+in your Aurora cluster parameter group to allow unencrypted connections.
+
+###### Note
+
+Aurora MySQL 8.4 only supports GCM cipher suites for TLS 1.2. All
+CBC-mode ciphers have been removed. AWS DMS uses TLS 1.2 for MySQL and
+Aurora MySQL endpoints and will auto-negotiate a supported GCM cipher.
+If you have custom cipher configurations, verify they include one of the
+following supported ciphers: ECDHE-RSA-AES128-GCM-SHA256,
+ECDHE-RSA-AES256-GCM-SHA384, ECDHE-ECDSA-AES128-GCM-SHA256, or
+ECDHE-ECDSA-AES256-GCM-SHA384.
+
+###### Note
+
+AWS DMS does not support TLS 1.3 for MySQL endpoints. This does not
+affect connectivity to Aurora MySQL 8.4, as Aurora MySQL 8.4 continues
+to support TLS 1.2.
+
+**Authentication (Aurora MySQL and RDS for MySQL 8.4)**
+
+Aurora MySQL 8.4 replaces the
+`default_authentication_plugin` parameter with
+`authentication_policy`, which defaults to
+`*:caching_sha2_password`. Existing database users retain their
+current authentication plugin after the upgrade. If you create new AWS DMS
+endpoint users after upgrading, they will use
+`caching_sha2_password` by default unless you set
+`authentication_policy` to
+`*:mysql_native_password` in your cluster parameter group.
+
+**Master user password reset**
+
+After upgrading to Aurora MySQL 8.4, resetting the master user password
+via the AWS Management Console, CLI, or through Secrets Manager rotation sets the master
+user’s authentication plugin to the default defined by the
+`authentication_policy` parameter. If
+`authentication_policy` is set to its default value
+(`*:caching_sha2_password`), the master user’s authentication
+plugin changes from `mysql_native_password` to
+`caching_sha2_password` upon the next password reset.
+
+If your AWS DMS source endpoint uses the master user account, verify
+connectivity after any password reset. To avoid authentication plugin
+changes, either:
+
+- Set `authentication_policy` to
+  `*:mysql_native_password` in your cluster parameter group
+  before resetting the password, or
+- Create a dedicated AWS DMS endpoint user with an explicitly
+  specified authentication plugin (recommended). For example:
+  `CREATE USER 'dms_user'@'%' IDENTIFIED WITH mysql_native_password BY 'password';`
 
 ## Limitations on using a MySQL database as a source for AWS DMS
 

@@ -11,6 +11,48 @@ endpoint already uses an SSL connection and does not require an SSL connection
 set up by AWS DMS. An Oracle endpoint requires additional steps; for more information, see
 [SSL support for an Oracle endpoint](CHAP_Source.Oracle.md#CHAP_Security.SSL.Oracle "CHAP_Source.Oracle.md#CHAP_Security.SSL.Oracle").
 
+###### Important
+
+**Aurora MySQL 8.4 and higher TLS requirement**
+
+Starting with Aurora MySQL version 8.4, the
+`require_secure_transport` parameter is set to `ON` by
+default, requiring all connections to use TLS. If your AWS DMS endpoint SSL mode
+is set to **none**, connections to Aurora MySQL 8.4 will be
+rejected. If your endpoint SSL mode is set to
+**none**, you will receive the following error:
+`MySQL Error 3159 (HY000): Connections using insecure transport are
+ prohibited while --require_secure_transport=ON`.
+
+Before upgrading your Aurora MySQL cluster to version 8.4, update your AWS DMS
+endpoint SSL mode to one of the following:
+
+- **verify-ca**
+- **verify-full**
+  Alternatively, you can set `require_secure_transport` to
+  `OFF` in your Aurora cluster parameter group to continue allowing
+  unencrypted connections.
+
+###### Note
+
+Aurora MySQL 8.4 only supports GCM cipher suites for TLS 1.2. All
+CBC-mode ciphers have been removed. AWS DMS uses TLS 1.2 for MySQL and
+Aurora MySQL endpoints and will auto-negotiate a supported GCM cipher.
+If you have custom cipher configurations, verify they include one of the
+following supported ciphers: ECDHE-RSA-AES128-GCM-SHA256,
+ECDHE-RSA-AES256-GCM-SHA384, ECDHE-ECDSA-AES128-GCM-SHA256, or
+ECDHE-ECDSA-AES256-GCM-SHA384.
+
+###### Note
+
+AWS DMS does not support TLS 1.3 for MySQL endpoints. This does not
+affect connectivity to Aurora MySQL 8.4, as Aurora MySQL 8.4 continues
+to support TLS 1.2.
+
+For more information about Aurora MySQL 8.4 security changes, see
+[Security with Amazon Aurora MySQL](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Security.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Security.md") in the
+_Amazon Aurora User Guide_.
+
 ###### Topics
 
 - [Limitations on using SSL with AWS DMS](#CHAP_Security.SSL.Limitations "#CHAP_Security.SSL.Limitations")
