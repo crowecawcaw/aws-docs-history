@@ -212,6 +212,51 @@ Asia Pacific (Tokyo)
 
 For more information on the pricing identifier, see [https://aws.amazon.com/codebuild/pricing/](https://aws.amazon.com/codebuild/pricing/ "https://aws.amazon.com/codebuild/pricing/").
 
+Asia Pacific (Malaysia)
+
+| Environment type | vCPUs | Memory | Machine type | Compute instance type       |
+| ---------------- | ----- | ------ | ------------ | --------------------------- |
+| ARM              | 2     | 4 GiB  | `GENERAL`    | `reserved:arm.g1.small`     |
+| ARM              | 4     | 8 GiB  | `GENERAL`    | `reserved:arm.g1.medium`    |
+| ARM              | 8     | 16 GiB | `GENERAL`    | `reserved:arm.g1.large`     |
+| ARM              | 32    | 64 GiB | `GENERAL`    | `reserved:arm.g1.xlarge`    |
+| ARM              | 48    | 96 GiB | `GENERAL`    | `reserved:arm.g1.2xlarge`   |
+| Linux            | 2     | 4 GiB  | `GENERAL`    | `reserved:x86-64.g1.small`  |
+| Linux            | 4     | 8 GiB  | `GENERAL`    | `reserved:x86-64.g1.medium` |
+| Linux            | 8     | 16 GiB | `GENERAL`    | `reserved:x86-64.g1.large`  |
+
+For more information on the pricing identifier, see [https://aws.amazon.com/codebuild/pricing/](https://aws.amazon.com/codebuild/pricing/ "https://aws.amazon.com/codebuild/pricing/").
+
+Asia Pacific (New Zealand)
+
+| Environment type | vCPUs | Memory | Machine type | Compute instance type       |
+| ---------------- | ----- | ------ | ------------ | --------------------------- |
+| ARM              | 2     | 4 GiB  | `GENERAL`    | `reserved:arm.g1.small`     |
+| ARM              | 4     | 8 GiB  | `GENERAL`    | `reserved:arm.g1.medium`    |
+| ARM              | 8     | 16 GiB | `GENERAL`    | `reserved:arm.g1.large`     |
+| ARM              | 32    | 64 GiB | `GENERAL`    | `reserved:arm.g1.xlarge`    |
+| ARM              | 48    | 96 GiB | `GENERAL`    | `reserved:arm.g1.2xlarge`   |
+| Linux            | 2     | 4 GiB  | `GENERAL`    | `reserved:x86-64.g1.small`  |
+| Linux            | 4     | 8 GiB  | `GENERAL`    | `reserved:x86-64.g1.medium` |
+| Linux            | 8     | 16 GiB | `GENERAL`    | `reserved:x86-64.g1.large`  |
+
+For more information on the pricing identifier, see [https://aws.amazon.com/codebuild/pricing/](https://aws.amazon.com/codebuild/pricing/ "https://aws.amazon.com/codebuild/pricing/").
+
+Asia Pacific (Thailand)
+
+| Environment type | vCPUs | Memory | Machine type | Compute instance type       |
+| ---------------- | ----- | ------ | ------------ | --------------------------- |
+| ARM              | 2     | 4 GiB  | `GENERAL`    | `reserved:arm.g1.small`     |
+| ARM              | 4     | 8 GiB  | `GENERAL`    | `reserved:arm.g1.medium`    |
+| ARM              | 8     | 16 GiB | `GENERAL`    | `reserved:arm.g1.large`     |
+| ARM              | 32    | 64 GiB | `GENERAL`    | `reserved:arm.g1.xlarge`    |
+| ARM              | 48    | 96 GiB | `GENERAL`    | `reserved:arm.g1.2xlarge`   |
+| Linux            | 2     | 4 GiB  | `GENERAL`    | `reserved:x86-64.g1.small`  |
+| Linux            | 4     | 8 GiB  | `GENERAL`    | `reserved:x86-64.g1.medium` |
+| Linux            | 8     | 16 GiB | `GENERAL`    | `reserved:x86-64.g1.large`  |
+
+For more information on the pricing identifier, see [https://aws.amazon.com/codebuild/pricing/](https://aws.amazon.com/codebuild/pricing/ "https://aws.amazon.com/codebuild/pricing/").
+
 Asia Pacific (Mumbai)
 
 | Environment type | vCPUs | Memory  | Disk space   | Machine type | Compute instance type               |
@@ -652,11 +697,14 @@ Some environment and compute types have Region availability limitations:
   - Asia Pacific (Hong Kong)
   - Asia Pacific (Jakarta)
   - Asia Pacific (Hyderabad)
+  - Asia Pacific (Malaysia)
   - Asia Pacific (Mumbai)
+  - Asia Pacific (New Zealand)
   - Asia Pacific (Osaka)
   - Asia Pacific (Seoul)
   - Asia Pacific (Singapore)
   - Asia Pacific (Sydney)
+  - Asia Pacific (Thailand)
   - Asia Pacific (Tokyo)
   - Canada (Central)
   - China (Beijing)
@@ -695,13 +743,15 @@ Some environment and compute types have Region availability limitations:
   - Asia Pacific (Hong Kong)
   - Asia Pacific (Jakarta)
   - Asia Pacific (Melbourne)
-  - Europe (Zurich)
   - Asia Pacific (Hyderabad)
+  - Asia Pacific (Malaysia)
   - Asia Pacific (Mumbai)
+  - Asia Pacific (New Zealand)
   - Asia Pacific (Osaka)
   - Asia Pacific (Seoul)
   - Asia Pacific (Singapore)
   - Asia Pacific (Sydney)
+  - Asia Pacific (Thailand)
   - Asia Pacific (Tokyo)
   - Canada (Central)
   - China (Beijing)
@@ -713,6 +763,7 @@ Some environment and compute types have Region availability limitations:
   - Europe (Paris)
   - Europe (Spain)
   - Europe (Stockholm)
+  - Europe (Zurich)
   - Israel (Tel Aviv)
   - Middle East (Bahrain)
   - Middle East (UAE)
@@ -729,11 +780,13 @@ Some environment and compute types have Region availability limitations:
   - US West (Oregon)
   - Asia Pacific (Hong Kong)
   - Asia Pacific (Jakarta)
-  - Europe (Zurich)
   - Asia Pacific (Hyderabad)
+  - Asia Pacific (Malaysia)
   - Asia Pacific (Mumbai)
+  - Asia Pacific (New Zealand)
   - Asia Pacific (Osaka)
   - Asia Pacific (Seoul)
+  - Asia Pacific (Thailand)
   - Asia Pacific (Singapore)
   - Asia Pacific (Sydney)
   - Asia Pacific (Tokyo)
@@ -747,6 +800,7 @@ Some environment and compute types have Region availability limitations:
   - Europe (Paris)
   - Europe (Spain)
   - Europe (Stockholm)
+  - Europe (Zurich)
   - Israel (Tel Aviv)
   - Middle East (Bahrain)
   - South America (São Paulo)

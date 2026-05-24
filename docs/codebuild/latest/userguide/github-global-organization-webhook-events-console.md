@@ -66,7 +66,7 @@ about global and organization GitHub webhooks, see [GitHub global and organizati
        `REPOSITORY_NAME` as a filter to only trigger
        builds on webhook events from specific repositories.
 
-     ![A filter that only triggers builds on webhook events from specific repositories.](images/github-organization-webhook-filter-groups.png)
+     ![A filter that only triggers builds on webhook events from specific repositories.](/images/codebuild/latest/userguide/images/github-organization-webhook-filter-groups.png)
 
      You can also set the event type to
      `WORKFLOW_JOB_QUEUED` to set up self-hosted

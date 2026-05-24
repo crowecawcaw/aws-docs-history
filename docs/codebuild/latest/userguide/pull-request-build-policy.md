@@ -77,7 +77,7 @@ Valid values for GitHub projects (the values are mapped to the GitHub roles):
 - `GITHUB_WRITE` - User with write permissions
 - `GITHUB_TRIAGE` - User with triage permissions
 - `GITHUB_READ` - User with read permissions
-- Default: `["GITHUB_ADMIN", "GITHUB_MAINTAINER", "GITHUB_WRITE"]`
+- Default: `["GITHUB_ADMIN", "GITHUB_MAINTAIN", "GITHUB_WRITE"]`
 
 Valid values for GitLab projects (the values are mapped to the GitLab roles):
 
@@ -95,6 +95,31 @@ Valid values for Bitbucket projects (the values are mapped to the Bitbucket role
 - `BITBUCKET_WRITE` - User with write permissions
 - `BITBUCKET_READ` - User with read permissions
 - Default: `["BITBUCKET_ADMIN", "BITBUCKET_WRITE"]`
+
+**Custom GitHub Enterprise roles**
+
+CodeBuild maps custom GitHub Enterprise (GHE) repository roles to standard
+`GITHUB_*` values based on the highest permission level granted to
+the custom role. CodeBuild evaluates permissions from highest to lowest privilege,
+and the first enabled permission determines the mapped role.
+
+- `admin` → `GITHUB_ADMIN`
+- `maintain` → `GITHUB_MAINTAIN`
+- `push` (write) → `GITHUB_WRITE`
+- `triage` → `GITHUB_TRIAGE`
+- `pull` (read) → `GITHUB_READ`
+
+For example, a custom role that grants both `push` and
+`triage` permissions maps to `GITHUB_WRITE` because
+`push` has higher privilege than `triage`.
+
+If a custom role has none of the recognized permissions (admin, maintain,
+push, triage, pull all disabled), the user does not match any approver role and
+is treated as an untrusted contributor.
+
+Standard GitHub roles (Admin, Maintain, Write, Triage, Read) map directly
+to their corresponding `GITHUB_*` values without permission-based
+resolution.
 
 ## Examples
 
@@ -118,7 +143,7 @@ Users with GitHub roles Admin, Maintain, will be treated as trusted contributors
 ```
 "pullRequestBuildPolicy": {
     "requiresCommentApproval": "FORK_PULL_REQUESTS",
-    "approverRoles": ["GITHUB_ADMIN", "GITHUB_MAINTAINER"]
+    "approverRoles": ["GITHUB_ADMIN", "GITHUB_MAINTAIN"]
 }
 ```
 
