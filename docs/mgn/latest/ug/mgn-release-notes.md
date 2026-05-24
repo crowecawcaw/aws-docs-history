@@ -11,6 +11,13 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
   information, see [Communication between
   the staging area subnet and S3](preparing-environments.md#Communication-Staging-S3 "preparing-environments.md#Communication-Staging-S3").
 - Added support for CentOS Stream 9.
+- Added support for additional EC2 launch template storage parameters:
+  **Delete on termination**,
+  **Volume initialization rate**,
+  **KMS key**, and
+  **EBS card index**.
+  For more information, see
+  [Full launch template setting review](detailed-considerations.md "detailed-considerations.md").
 
 ## April 2026
 

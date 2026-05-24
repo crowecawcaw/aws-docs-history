@@ -68,12 +68,9 @@ Each disk is composed of the following fields:
     AWS Application Migration Service automatically provisions the maximum IOPS possible for the volume, based on
      the above ratio. This is to minimize the impact of the [performance penalty](../../../AWSEC2/latest/UserGuide/EBSPerformance.md#initialize "../../../AWSEC2/latest/UserGuide/EBSPerformance.md#initialize")
      when working with EBS volumes created from snapshots.
-    + **Delete on termination** – Do **not** change or edit this field. This should not be included in the launch
-     template.
-    + **Encrypted** – **Do not**
-     change or edit this field. This should not be included in the launch template.
-    + **Key** – **Do not** change
-     or edit this field. This should not be included in the launch template.
+    + **Throughput** – Set the throughput in MiB/s for the
+     volume. This setting applies only to gp3 volumes. Refer to the [EBS volume types](../../../AWSEC2/latest/UserGuide/ebs-volume-types.md "../../../AWSEC2/latest/UserGuide/ebs-volume-types.md")
+     documentation for supported values.
     + **Add volume** – **Do not**
      use this functionality. You cannot add volumes to the source server through the launch
      template.
@@ -81,6 +78,41 @@ Each disk is composed of the following fields:
      not** use this functionality. You cannot remove volumes from the source server
      through the launch template. If you do, AWS MGN automatically creates a volume using
      the default volume settings.
+    + ###### Important
+
+    The following storage parameters: **Volume initialization
+     rate**, **EBS card index**, **Delete on termination**, and **KMS key** can
+     only be configured per individual source server. Bulk editing of these parameters is not
+     currently supported. To edit these parameters through the EC2 launch template console, see
+     [Selecting the default template](ec2-selecting.md "ec2-selecting.md").
+
+
+    **Volume initialization rate** – Controls how fast a
+     volume created from a snapshot is initialized, at a provisioned rate of 100–300 MiB/s.
+     Use this for latency-sensitive workloads where you need the volume fully initialized
+     quickly after launch. This setting is not supported on Outposts, Local Zones, or
+     Wavelength Zones. AWS charges apply for provisioned initialization rate. If not set,
+     no provisioned initialization is used and the volume initializes at default speed.
+    + **EBS card index** – Assigns a volume to a specific EBS
+     card on instance types with multiple EBS controllers. Use this to spread I/O across cards
+     for higher aggregate throughput. This setting only has an effect on multi-card instance
+     types (for example, `i4i.metal`, `r5b.24xlarge`). If not set,
+     AWS automatically distributes volumes across available EBS cards.
+    + **Delete on termination** – Specifies whether an Amazon EBS
+     volume is automatically deleted when the attached Amazon EC2 instance is terminated.
+     Set this to **No** iif you want the volumes to persist after
+     instance termination, for example to preserve data for rollback or to reattach the volume to
+     another instance. Set this to **Yes** for data volumes when you
+     want to avoid orphaned volumes that continue incurring storage costs.This setting takes effect
+     only after cutover is finalized and the instance is under your ownership. If not explicitly
+     configured, the default behavior is **Yes** for root volumes and **No** for additional volumes.
+    + **Encrypted** – Set this to **Yes** if you are specifying a KMS key for the volume. If you are not using a
+     per-volume KMS key, encryption is controlled through the [EBS Encryption](replication-server-settings.md#ebs-encryption "replication-server-settings.md#ebs-encryption") section of the replication settings.
+    + **KMS key** – You can specify a customer-managed KMS key
+     to use for encrypting target volumes. If set, this key takes precedence over the key used
+     during replication. If not set, the replication snapshot's KMS key is used. Ensure that
+     your MGN launch role has `kms:CreateGrant`, `kms:Decrypt`, and
+     `kms:GenerateDataKey` permissions on the specified key.
 
 - **Resource tags** – You can add up to 50 tags. These are transferred to your test and cutover instances. Note that these tags may interfere with
   other tags that have already been added to the source server. Launch template tags always

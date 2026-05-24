@@ -31,6 +31,10 @@ These are universal requirements for both Linux and Windows source servers:
 - Verify that your source server has at least 300 MB of free RAM to run the AWS
   Replication Agent.
 - Application Migration Service only supports operating systems built for the x86 system architecture.
+- Application Migration Service supports replication of volumes up to a maximum size of 16 TB.
+  Application Migration Service does not currently support migration of servers that have larger volume sizes.
+  Agent installation will fail with an appropriate error message if the installer detects
+  a volume that is larger than this limit.
 
 ## Linux installation requirements
 

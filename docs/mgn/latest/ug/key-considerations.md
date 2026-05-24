@@ -66,5 +66,6 @@ values.
 
 ###### Note
 
-If you wish to set a KMS key, you should do so through the [EBS Encryption](replication-server-settings.md#ebs-encryption "replication-server-settings.md#ebs-encryption") section of the replication settings within
-the AWS Application Migration Service console.
+You can set a per-volume KMS key directly in the EC2 launch template's storage
+section. If set, the launch template KMS key takes precedence over the replication
+snapshot's key. Alternatively, you can configure encryption through the [EBS Encryption](replication-server-settings.md#ebs-encryption "replication-server-settings.md#ebs-encryption") section of the replication settings.
