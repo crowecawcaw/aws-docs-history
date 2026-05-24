@@ -115,8 +115,7 @@ To create the urn:
 1. Select the users you want to assign application access.
 1. Choose **Assign users**.
 1. From the Research and Engineering Studio environment, under **Environment management**,
-   open **General settings**.
-1. Open the **Identity provider** tab.
+   open **Identity Management**.
 1. Under **Single Sign-On**, choose **Edit**
    (next to **Status**).
 1. Complete the form with the following information:
