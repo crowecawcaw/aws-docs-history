@@ -1,5 +1,12 @@
 # Getting started with High Performance Networking
 
+## Supported offerings
+
+Oracle Database@AWS High Performance Networking is supported with the following Oracle Database@AWS offerings:
+
+- Oracle Exadata Database Service on Dedicated Infrastructure
+- Autonomous Database on Dedicated Exadata Infrastructure
+
 ###### To set up High Performance Networking
 
 1. **Step 1: Create an Oracle Database@AWS Network**
@@ -57,7 +64,7 @@ You can also specify the placement group when launching instances through the AW
 
 Amazon EC2 On-Demand capacity is subject to availability. To ensure high availability of capacity for your latency-sensitive workloads, we recommend using **Amazon EC2 On-Demand Capacity Reservations (ODCR)** with the Oracle Database@AWS placement group.
 
-## Permissions required for Oracle Database@AWS placement groups
+## Additional permissions required for creating and deleting ODB networks
 
 Oracle Database@AWS requires the following additional permissions for creating and deleting ODB networks with placement groups:
 
@@ -100,10 +107,10 @@ aws ec2 modify-instance-placement \
 
 Oracle Database@AWS High Performance Networking is not available in the following Availability Zones:
 
-| Region                   | Availability Zone(s)      |
-| ------------------------ | ------------------------- |
-| US East (N. Virginia)    | `use1-az4` and `use1-az6` |
-| US West (Oregon)         | `usw2-az3` and `usw2-az4` |
-| Europe (Frankfurt)       | `euc1-az2`                |
-| Asia Pacific (Seoul)     | `apne2-az1`               |
-| Asia Pacific (Melbourne) | `apse4-az1`               |
+| Region name              | Region code      | Availability Zones     |
+| ------------------------ | ---------------- | ---------------------- |
+| US East (N. Virginia)    | `us-east-1`      | `use1-az4`, `use1-az6` |
+| US West (Oregon)         | `us-west-2`      | `usw2-az3`, `usw2-az4` |
+| Europe (Frankfurt)       | `eu-central-1`   | `euc1-az2`             |
+| Asia Pacific (Seoul)     | `ap-northeast-2` | `apne2-az1`            |
+| Asia Pacific (Melbourne) | `ap-southeast-4` | `apse4-az1`            |

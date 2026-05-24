@@ -147,7 +147,7 @@ aws ec2 create-route \
 ```
 
 The ODB network route tables are automatically updated with the VPC CIDRs. To allow access to the
-ODB network for only specific subnet CIDRs rather than all CIDRs in the VPC, you can specify peer network CIDRs when creating an ODB peering connection or update an existing ODB peering connection to add or remove peered CIDR ranges. For more information, see [Creating an ODB peering connection in Oracle Database@AWS](#network-peering "#network-peering") and [Updating an ODB peering connection](#updating-peering "#updating-peering").
+ODB network for only specific subnet CIDRs rather than all CIDRs in the VPC, you can specify peer network CIDRs when creating an ODB peering connection or update an existing ODB peering connection to add or remove peered CIDR ranges.
 
 For more information about VPC route tables, see [Subnet route tables](../../../vpc/latest/userguide/subnet-route-tables.md "../../../vpc/latest/userguide/subnet-route-tables.md") in the
 _Amazon Virtual Private Cloud User Guide_ and [ec2
@@ -414,9 +414,6 @@ see [AWS Transit Gateway pricing](https://aws.amazon.com/transit-gateway/pricing
 
 Make sure your Oracle Database@AWS environment meets the following requirements:
 
-- The VPC that is peered to your ODB network must be in the same AWS account. If the peered VPC
-  is in a different account from the ODB network, transit gateway attachments fail regardless of the
-  sharing configurations.
 - The VPC that is peered to your ODB network must have a transit gateway attachment.
 
 ###### Note
@@ -444,29 +441,26 @@ Note the following limitations of Amazon VPC Transit Gateways for Oracle Databas
 You create and configure a transit gateway by using the Amazon VPC console or `aws
  ec2` commands. The following procedure assumes that you don't have an ODB network peered to a
 VPC in your AWS account. If an ODB network and VPC are already peered in your account, skip steps
-1–3.
+1–2.
 
 ###### Note
 
 If you attach or reattach the attachments on your VPC, make sure you re-enter the CIDR
-ranges to the ODB ODB network.
+ranges for the corresponding ODB peering connection.
 
 ###### To set up and configure a transit gateway for Oracle Database@AWS
 
 1. Create an ODB network. For more information, see [Step 1: Create an ODB network in Oracle Database@AWS](getting-started.md#getting-started-odb "getting-started.md#getting-started-odb").
-2. Create a VPC, using the same account that contains the ODB network. For more information, see
-   [Create a VPC](../../../vpc/latest/userguide/create-vpc.md "../../../vpc/latest/userguide/create-vpc.md") in
-   the Amazon VPC User Guide.
-3. Create an ODB peering connection between your ODB network and your VPC. For more information, see
+2. Create an ODB peering connection between your ODB network and your VPC. For more information, see
    [Configuring ODB peering to an Amazon VPC in Oracle Database@AWS](configuring.md "configuring.md").
-4. Set up a transit gateway by following the steps in [Get started with using Amazon VPC Transit Gateways](../../../vpc/latest/tgw/tgw-getting-started.md "../../../vpc/latest/tgw/tgw-getting-started.md").
+3. Set up a transit gateway by following the steps in [Get started with using Amazon VPC Transit Gateways](../../../vpc/latest/tgw/tgw-getting-started.md "../../../vpc/latest/tgw/tgw-getting-started.md").
    The gateway must be either in the same AWS account as the ODB network and VPC, or shared by
    another account.
 
 ###### Important
 
-Create the transit gateway attachment in the same AZ as the ODB network. 5. Add CIDR ranges to your ODB network for the VPCs and on-premises networks that you plan to
-attach to your core network. For more information, see [Updating an ODB network in Oracle Database@AWS](managing.md#managing.updating "managing.md#managing.updating").
+Create the transit gateway attachment in the same AZ as the ODB network. 4. Add CIDR ranges to your ODB network for the VPCs and on-premises networks that you plan to
+attach to your core network. For more information, see [Updating an ODB peering connection](#updating-peering "#updating-peering").
 
 If you're using the CLI, run the command `update-odb-network` with
 `--peered-cidrs-to-be-added` and `--peered-cidrs-to-be-removed`. For
@@ -519,9 +513,9 @@ For detailed pricing information, see [AWS Cloud WAN pricing](https://aws.amazon
 ###### To configure a core network for Oracle Database@AWS
 
 1. Add CIDR ranges to your ODB network for the VPCs and on-premises networks that you plan to
-   attach to your core network. For more information, see [Updating an ODB network in Oracle Database@AWS](managing.md#managing.updating "managing.md#managing.updating").
+   attach to your core network. For more information, see [Updating an ODB peering connection](#updating-peering "#updating-peering").
 
 ###### Note
 
 If you attach or reattach the attachments on your VPC, make sure you re-enter the CIDR
-ranges to the ODB ODB network. 2. Follow the steps in [Create an AWS Cloud WAN global network and core network](../../../network-manager/latest/cloudwan/cloudwan-getting-started.md "../../../network-manager/latest/cloudwan/cloudwan-getting-started.md").
+ranges for the corresponding ODB peering connection. 2. Follow the steps in [Create an AWS Cloud WAN global network and core network](../../../network-manager/latest/cloudwan/cloudwan-getting-started.md "../../../network-manager/latest/cloudwan/cloudwan-getting-started.md").

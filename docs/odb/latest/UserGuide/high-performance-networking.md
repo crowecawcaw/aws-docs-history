@@ -14,5 +14,5 @@ Key characteristics:
 
 - **Automatic placement group provisioning** – A placement group is automatically created and associated with every new ODB network.
 - **Consistent latency** – Consistent sub-millisecond network roundtrip latency between Amazon EC2 instances and Oracle Database@AWS databases.
-- **Compatible with existing Amazon EC2 workflows** – Works with standard Amazon EC2 APIs, the AWS Management Console, and supports Amazon EC2 On-Demand Capacity Reservations (ODCR), Savings Plans, and Reserved Instances.
+- **Compatible with existing Amazon EC2 workflows** – Works with standard Amazon EC2 APIs, the AWS Management Console, and supports Amazon EC2 On-Demand Capacity Reservations (ODCR), Savings Plans, and Reserved Instances. Also compatible with Amazon Elastic Container Service (Amazon ECS) and Amazon Elastic Kubernetes Service (Amazon EKS) when using launch templates with Auto Scaling groups.
 - **No additional cost** – High performance networking is available at no extra charge. Standard Amazon EC2 usage charges apply for launched instances.

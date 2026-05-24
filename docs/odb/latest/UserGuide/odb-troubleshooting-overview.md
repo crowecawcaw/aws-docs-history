@@ -74,9 +74,6 @@ are common causes:
 - **Checking security group rules** – In the Amazon
   EC2 console, locate the security groups for resources in your VPC. Review the inbound and
   outbound rules, updating them as needed to permit the necessary traffic.
-- **Confirming Availability Zones** – In the Amazon
-  VPC console, identify the Availability Zone (AZ) of your subnet. Verify that the ODB network is
-  also deployed in the same AZ as your subnet.
 - **Avoiding multiple ODB network peering connections** –
   Check your VPC peering connections in the Oracle Database@AWS Console. Make sure you have only one
   active connection to an ODB network. If you see more than one ODB network peering, remove the extra

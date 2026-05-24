@@ -55,6 +55,7 @@ You can use Oracle Database@AWS in the following AWS Regions:
 | Europe (Frankfurt) | `eu-central-1` | `euc1-az1`, `euc1-az2` |
 | Europe (Zurich)    | `eu-central-2` | `euc2-az1`, `euc2-az3` |
 | Europe (Milan)     | `eu-south-1`   | `eus1-az3`             |
+| Europe (Spain)     | `eu-south-2`   | `eus2-az3`             |
 | Europe (Ireland)   | `eu-west-1`    | `euw1-az1`, `euw1-az3` |
 | Europe (London)    | `eu-west-2`    | `euw2-az1`, `euw2-az3` |
 | Europe (Paris)     | `eu-west-3`    | `euw3-az2`             |
@@ -71,6 +72,12 @@ You can use Oracle Database@AWS in the following AWS Regions:
 | Asia Pacific (Singapore) | `ap-southeast-1` | `apse1-az1`              |
 | Asia Pacific (Sydney)    | `ap-southeast-2` | `apse2-az1`, `apse2-az2` |
 | Asia Pacific (Melbourne) | `ap-southeast-4` | `apse4-az1`              |
+
+**South America**
+
+| Region name               | Region code | Availability Zones |
+| ------------------------- | ----------- | ------------------ |
+| South America (São Paulo) | `sa-east-1` | `sae1-az1`         |
 
 To find the logical AZ names in your account that map to the preceding physical AZ IDs, run
 the following command.
