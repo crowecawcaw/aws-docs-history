@@ -22,6 +22,7 @@ and how to use these options to override Apache Airflow configuration settings o
   - [Webserver configurations](configuring-env-variables.md#configuring-env-variables-webserver "configuring-env-variables.md#configuring-env-variables-webserver")
   - [Triggerer configurations](configuring-env-variables.md#configuring-env-variables-webserver "configuring-env-variables.md#configuring-env-variables-webserver")
 
+- [Unsupported configurations](configuring-env-variables.md#configuring-env-variables-unsupported "configuring-env-variables.md#configuring-env-variables-unsupported")
 - [Examples and sample code](configuring-env-variables.md#configuring-env-variables-code "configuring-env-variables.md#configuring-env-variables-code")
   - [Example DAG](configuring-env-variables.md#configuring-env-variables-dag "configuring-env-variables.md#configuring-env-variables-dag")
   - [Example email notification settings](configuring-env-variables.md#configuring-env-variables-email "configuring-env-variables.md#configuring-env-variables-email")
@@ -147,6 +148,15 @@ configurations available on Amazon MWAA for Apache Airflow v2 and v3.
 | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
 | mwaa.triggerer_enabled                                           | Used for activating and deactivating the triggerer on Amazon MWAA. By default, this value is set to `True`. If set to `False`,<br>Amazon MWAA will not start any triggerer processes on schedulers.                                                                                                                                                   | True          |
 | triggerer.default_capacity (in v2)<br>triggerer.capacity (in v3) | Defines the number triggers each triggerer can run in parallel. On Amazon MWAA, this capacity is set per each triggerer and per each scheduler as both components run alongside each other.<br>The default per scheduler is set to `60`, `125`, `250`, `500`, and `1000`<br>for small, medium and large, xlarge, and 2xlarge instances, respectively. | 125           |
+
+## Unsupported configurations
+
+The following Apache Airflow configuration options are not available in Amazon MWAA. You cannot set or override these options using the Amazon MWAA console or API.
+
+| Airflow configuration option | Apache Airflow version | Default value | Reason                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ---------------------------- | ---------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| core.multi_team              | 3.2                    | False         | Amazon MWAA does not currently support<br>[multi-team mode](https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#multi-team "https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#multi-team").<br>Enabling this feature is incompatible with Amazon MWAA authentication, the CeleryExecutor,<br>and environment-level secrets management.                                         |
+| triggerer.queues_enabled     | 3.2                    | False         | Amazon MWAA does not support<br>[triggerer queue assignment](https://airflow.apache.org/docs/apache-airflow/stable/authoring-and-scheduling/deferring.html#controlling-triggerer-host-assignment-per-trigger "https://airflow.apache.org/docs/apache-airflow/stable/authoring-and-scheduling/deferring.html#controlling-triggerer-host-assignment-per-trigger").<br>Enabling this option causes deferred tasks to hang indefinitely. |
 
 ## Examples and sample code
 
