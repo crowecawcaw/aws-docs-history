@@ -146,6 +146,7 @@ Resource type identifiers always take the following form:
 - [AWS Systems Manager Incident Manager Contacts](AWS_SSMContacts.md "AWS_SSMContacts.md")
 - [Amazon Inspector classic](AWS_Inspector.md "AWS_Inspector.md")
 - [Amazon Inspector](AWS_InspectorV2.md "AWS_InspectorV2.md")
+- [AWS Interconnect](AWS_Interconnect.md "AWS_Interconnect.md")
 - [AWS Invoicing](AWS_Invoicing.md "AWS_Invoicing.md")
 - [AWS IoT](AWS_IoT.md "AWS_IoT.md")
 - [AWS IoT Core Device Advisor](AWS_IoTCoreDeviceAdvisor.md "AWS_IoTCoreDeviceAdvisor.md")
