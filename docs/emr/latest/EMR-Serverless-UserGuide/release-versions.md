@@ -10,6 +10,7 @@ the following supported releases.
 
 ###### Topics
 
+- [AWS runtime for Apache Spark (emr-spark-8.0.0)](release-version-emr-spark-8.0.0.md "release-version-emr-spark-8.0.0.md")
 - [AWS runtime for Apache Spark (emr-spark-8.0-preview)](release-version-emr-spark-8.0-preview.md "release-version-emr-spark-8.0-preview.md")
 - [EMR Serverless 7.13.0](release-version-7130.md "release-version-7130.md")
 - [EMR Serverless 7.12.0](release-version-7120.md "release-version-7120.md")
