@@ -21,7 +21,7 @@ Generates a report identifying Log4j2 occurrences on the specified EC2 instances
 
 The following shows this change type in the AMS console.
 
-![Information panel for Gather Log4j Information task, showing ID, execution mode, and description.](images/guiEc2GatherLog4jInfo-2CT.png)
+![](images/guiEc2GatherLog4jInfo-2CT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

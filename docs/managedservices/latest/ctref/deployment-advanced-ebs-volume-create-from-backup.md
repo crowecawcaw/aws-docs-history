@@ -21,7 +21,7 @@ Create an AWS Elastic Block Store (EBS) stack from backup.
 
 Screenshot of this change type, in the AMS console:
 
-![Description and details of an EBS volume creation change type for EC2 instances.](images/guiEbsCreateFromBackupCT.png)
+![](images/guiEbsCreateFromBackupCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

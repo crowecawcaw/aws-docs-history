@@ -21,7 +21,7 @@ Use to create a Elastic File System (EFS) stack
 
 The following shows this change type in the AMS console.
 
-![AWS console interface showing details for creating an EFS stack from backup.](images/guiEfsCreateFromBackupCT.png)
+![](images/guiEfsCreateFromBackupCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

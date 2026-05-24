@@ -21,7 +21,7 @@ Deregister one or multiple Amazon Machine Images (AMI)s and optionally delete al
 
 The following shows this change type in the AMS console.
 
-![Deregister AMIs interface showing ID, execution mode, version, and description details.](images/guiAmiDeregisterCT.png)
+![](images/guiAmiDeregisterCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

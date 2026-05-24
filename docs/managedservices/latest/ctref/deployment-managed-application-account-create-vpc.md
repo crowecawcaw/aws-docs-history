@@ -21,7 +21,7 @@ Create a VPC with up to 10 private subnets and up to 5 optional public subnets p
 
 Screenshot of this change type in the AMS console:
 
-![VPC creation details with ID, version, and description of subnet configuration options.](images/guiMalzAppAcctCreateVpcCT.png)
+![](images/guiMalzAppAcctCreateVpcCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
