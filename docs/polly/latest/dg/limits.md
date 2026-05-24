@@ -66,6 +66,7 @@ for the adjustable quotas when needed.
 | `DescribeVoices`                                                  | 80 tps with a burst limit of 100 tps                                                                                                                                                       |
 | `SynthesizeSpeech`                                                | Generative voice: 8 tps<br>Long-form voice: 8 tps with a burst limit of 10 tps<br>Neural voice: 8 tps with a burst limit of 10 tps<br>Standard voice: 80 tps with a burst limit of 100 tps |
 | `StartSpeechSynthesisTask`                                        | Generative voice: 1 tps<br>Long-form voice: 1 tps<br>Neural voice: 10 tps<br>Standard voice: 10 tps with a burst limit of 12 tps                                                           |
+| `StartSpeechSynthesisStream`                                      | Generative voice: 8 tps                                                                                                                                                                    |
 | `GetSynthesizeSpeechTask` and<br>`ListSynthesizeSpeechTask`       | Maximum allowed 10 tps combined                                                                                                                                                            |
 
 ### Concurrent requests
@@ -80,6 +81,9 @@ for up to 18 concurrent requests.
 Amazon Polly also supports limits for concurrent requests.
 For **standard voice**,
 Amazon Polly supports 80 tps for up to 80 concurrent requests.
+
+For **StartSpeechSynthesisStream**,
+Amazon Polly supports up to 8 concurrent requests.
 
 ### Best practices to mitigate throttling
 
