@@ -15,7 +15,7 @@ image belows shows the **Train model** button,
 notice that the Amazon Resource Name (ARN) for your project is in the
 **Choose project** edit box.
 
-![Train model page with project ARN input field and Train model button.](/images/rekognition/latest/customlabels-dg/images/tutorial-train-model-page-train-model.jpg) 3. In the **Do you want to train your model?** dialog box, shown in the
+![Train model page with project ARN input field and Train model button.](images/tutorial-train-model-page-train-model.jpg) 3. In the **Do you want to train your model?** dialog box, shown in the
 following image, choose **Train model**.
 
 ![Dialog box to start model training with Cancel and Train model buttons.](images/tutorial-dialog-train-model.jpg) 4. After training completes, choose the model name. Training is finished when the model status is
@@ -29,7 +29,7 @@ as F1 score, precision, and recall for each label along with number of test
 images. Overall metrics like average, precision, and recall are also
 displayed.
 
-![Model evaluation results showing performance metrics across 10 labels.](images/get-started-training-results.jpg) 7. After viewing the test results, choose the model name to return to the model page. The
+![Model evaluation results showing performance metrics across 10 labels.](/images/rekognition/latest/customlabels-dg/images/get-started-training-results.jpg) 7. After viewing the test results, choose the model name to return to the model page. The
 following screenshot of the performance dashboard where you can click to the
 return to the model page.
 
