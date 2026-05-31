@@ -35,3 +35,9 @@ can set up flexible time windows for delivery, define retry limits, and set the 
 retention time for failed API invocations.
 
 ![EventBridge provides multiple ways to process and deliver events: buses, pipes, and schedules.](images/service_eventbridge_conceptual.svg)
+
+## Sign up for an AWS account
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
