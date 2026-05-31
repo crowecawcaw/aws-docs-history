@@ -89,3 +89,10 @@ or eventually when they complete. When the association is deleted, the following
 If the queue associated with the limit has an associated fleet with a fleet capability
 that matches the amount requirement name of the limit, that fleet will continue to process
 jobs with the specified limit.
+
+###### Important
+
+Do not add the limit's amount requirement name as a `customAmounts` entry
+in your fleet's capabilities. If a fleet declares the amount as a capability, the fleet
+treats it as a per-worker resource and the queue-level limit is bypassed. The queue-limit
+association alone provides scheduling compatibility for jobs that require the limit.
