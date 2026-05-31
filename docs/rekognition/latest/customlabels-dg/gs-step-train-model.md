@@ -29,7 +29,7 @@ as F1 score, precision, and recall for each label along with number of test
 images. Overall metrics like average, precision, and recall are also
 displayed.
 
-![Model evaluation results showing performance metrics across 10 labels.](/images/rekognition/latest/customlabels-dg/images/get-started-training-results.jpg) 7. After viewing the test results, choose the model name to return to the model page. The
+![Model evaluation results showing performance metrics across 10 labels.](images/get-started-training-results.jpg) 7. After viewing the test results, choose the model name to return to the model page. The
 following screenshot of the performance dashboard where you can click to the
 return to the model page.
 
