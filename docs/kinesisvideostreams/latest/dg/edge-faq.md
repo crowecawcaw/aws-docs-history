@@ -29,13 +29,13 @@ Yes.
 
 ## How can I run multiple streams within the AWS IoT thing or device?
 
-Send another [StartEdgeConfigurationUpdate](API_StartEdgeConfigurationUpdate.md "API_StartEdgeConfigurationUpdate.md") to the same
+Send another [StartEdgeConfigurationUpdate](../APIReference/API_StartEdgeConfigurationUpdate.md "../APIReference/API_StartEdgeConfigurationUpdate.md") to the same
 `HubDeviceArn`, but different
 Amazon Kinesis Video Streams/AWS Secrets Manager ARNs.
 
 ## How can I edit a `StartEdgeConfigurationUpdate` after it has been sent?
 
-Send an updated [StartEdgeConfigurationUpdate](API_StartEdgeConfigurationUpdate.md "API_StartEdgeConfigurationUpdate.md")to the same
+Send an updated [StartEdgeConfigurationUpdate](../APIReference/API_StartEdgeConfigurationUpdate.md "../APIReference/API_StartEdgeConfigurationUpdate.md")to the same
 `HubDeviceArn` with the same Amazon Kinesis Video Streams ARN. When the application
 receives the message from Amazon Kinesis Video Streams, it overrides the previous configuration for
 that stream. Changes will take place then.
@@ -63,8 +63,8 @@ For more examples, see the [Quartz documentation](https://www.quartz-scheduler.o
 ## Is there a maximum stream limit?
 
 The Amazon Kinesis Video Streams Edge Agent currently has a hard limit of 16 streams per device. Use the
-[DeleteEdgeConfiguration](API_DeleteEdgeConfiguration.md "API_DeleteEdgeConfiguration.md") API to delete streams from a
-device. Updating a configuration for the same stream using the [StartEdgeConfigurationUpdate](API_StartEdgeConfigurationUpdate.md "API_StartEdgeConfigurationUpdate.md") does not increase the device’s
+[DeleteEdgeConfiguration](../APIReference/API_DeleteEdgeConfiguration.md "../APIReference/API_DeleteEdgeConfiguration.md") API to delete streams from a
+device. Updating a configuration for the same stream using the [StartEdgeConfigurationUpdate](../APIReference/API_StartEdgeConfigurationUpdate.md "../APIReference/API_StartEdgeConfigurationUpdate.md") does not increase the device’s
 stream count.
 
 ## How do I restart a job that has errored out?
@@ -75,7 +75,7 @@ the job.
 
 To determine which jobs need to be restarted manually, see the **FatalError** metric in [Monitor the Amazon Kinesis Video Streams Edge Agent with CloudWatch](monitoring-edge-cloudwatch.md "monitoring-edge-cloudwatch.md").
 
-Resend the [StartEdgeConfigurationUpdate](API_StartEdgeConfigurationUpdate.md "API_StartEdgeConfigurationUpdate.md") to restart the job
+Resend the [StartEdgeConfigurationUpdate](../APIReference/API_StartEdgeConfigurationUpdate.md "../APIReference/API_StartEdgeConfigurationUpdate.md") to restart the job
 for the stream.
 
 ## How do I monitor the health of my Amazon Kinesis Video Streams Edge Agent?

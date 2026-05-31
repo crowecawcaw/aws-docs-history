@@ -20,7 +20,7 @@ media data to a stream, as follows:
   API to write media data to a Kinesis video stream. In a `PutMedia` request, the producer sends a stream of
   media fragments. A _fragment_ is a self-contained sequence of frames. The frames
   belonging to a fragment should have no dependency on any frames from other fragments. For more information,
-  see [PutMedia](API_dataplane_PutMedia.md "API_dataplane_PutMedia.md").
+  see [PutMedia](../APIReference/API_dataplane_PutMedia.md "../APIReference/API_dataplane_PutMedia.md").
 
 As fragments arrive, Kinesis Video Streams assigns a unique fragment number, in increasing order. It also
 stores producer-side and server-side timestamps for each fragment, as Kinesis Video Streams-specific metadata.
@@ -31,7 +31,7 @@ stores producer-side and server-side timestamps for each fragment, as Kinesis Vi
     identify the starting fragment. The API then returns fragments in
     the order in which they were added to the stream (in increasing
     order by fragment number). The media data in the fragments is packed
-    into a structured format such as [Matroska (MKV)](https://www.matroska.org/technical/specs/index.html "https://www.matroska.org/technical/specs/index.html"). For more information, see [GetMedia](API_dataplane_GetMedia.md "API_dataplane_GetMedia.md").
+    into a structured format such as [Matroska (MKV)](https://www.matroska.org/technical/specs/index.html "https://www.matroska.org/technical/specs/index.html"). For more information, see [GetMedia](../APIReference/API_dataplane_GetMedia.md "../APIReference/API_dataplane_GetMedia.md").
 
   ###### Note
 
@@ -121,10 +121,10 @@ described below:
 1. The endpoint discovery pattern starts with a call to one of the
    `GetEndpoints` actions. These actions belong to the Control
    Plane.
-   1. If you are retrieving the endpoints for the [Amazon Kinesis Video Streams Media](API_Operations_Amazon_Kinesis_Video_Streams_Media.md "API_Operations_Amazon_Kinesis_Video_Streams_Media.md") or [Amazon Kinesis Video Streams Archived Media](API_Operations_Amazon_Kinesis_Video_Streams_Archived_Media.md "API_Operations_Amazon_Kinesis_Video_Streams_Archived_Media.md") services, use
-      [GetDataEndpoint](API_GetDataEndpoint.md "API_GetDataEndpoint.md").
-   2. If you are retrieving the endpoints for [Amazon Kinesis Video Signaling Channels](API_Operations_Amazon_Kinesis_Video_Signaling_Channels.md "API_Operations_Amazon_Kinesis_Video_Signaling_Channels.md"), [Amazon Kinesis Video WebRTC Storage](API_Operations_Amazon_Kinesis_Video_WebRTC_Storage.md "API_Operations_Amazon_Kinesis_Video_WebRTC_Storage.md"), or [Kinesis Video Signaling](../../../kinesisvideostreams-webrtc-dg/latest/devguide/kvswebrtc-websocket-apis.md "../../../kinesisvideostreams-webrtc-dg/latest/devguide/kvswebrtc-websocket-apis.md"), use
-      [GetSignalingChannelEndpoint](API_GetSignalingChannelEndpoint.md "API_GetSignalingChannelEndpoint.md").
+   1. If you are retrieving the endpoints for the [Amazon Kinesis Video Streams Media API](../APIReference/API_Operations_Amazon_Kinesis_Video_Streams_Media.md "../APIReference/API_Operations_Amazon_Kinesis_Video_Streams_Media.md") or [Amazon Kinesis Video Streams Archived Media API](../APIReference/API_Operations_Amazon_Kinesis_Video_Streams_Archived_Media.md "../APIReference/API_Operations_Amazon_Kinesis_Video_Streams_Archived_Media.md") services, use
+      [GetDataEndpoint](../APIReference/API_GetDataEndpoint.md "../APIReference/API_GetDataEndpoint.md").
+   2. If you are retrieving the endpoints for [Amazon Kinesis Video Signaling Channels API](../APIReference/API_Operations_Amazon_Kinesis_Video_Signaling_Channels.md "../APIReference/API_Operations_Amazon_Kinesis_Video_Signaling_Channels.md"), [Amazon Kinesis Video WebRTC Storage API](../APIReference/API_Operations_Amazon_Kinesis_Video_WebRTC_Storage.md "../APIReference/API_Operations_Amazon_Kinesis_Video_WebRTC_Storage.md"), or [Kinesis Video Signaling](../../../kinesisvideostreams-webrtc-dg/latest/devguide/kvswebrtc-websocket-apis.md "../../../kinesisvideostreams-webrtc-dg/latest/devguide/kvswebrtc-websocket-apis.md"), use
+      [GetSignalingChannelEndpoint](../APIReference/API_GetSignalingChannelEndpoint.md "../APIReference/API_GetSignalingChannelEndpoint.md").
 
 2. Cache and reuse the endpoint.
 3. If the cached endpoint no longer works, make a new call to `GetEndpoints` to

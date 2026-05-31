@@ -3,7 +3,7 @@
 You can use the Amazon Kinesis Video Streams producer SDK to embed metadata at the individual fragment level in a Kinesis video stream.
 Metadata in Kinesis Video Streams is a mutable key-value pair. You can use it to describe the content of the fragment, embed
 associated sensor readings that must be transferred along with the actual fragment, or meet other custom needs. The
-metadata is made available as part of the [GetMedia](API_dataplane_GetMedia.md "API_dataplane_GetMedia.md") or [GetMediaForFragmentList](API_reader_GetMediaForFragmentList.md "API_reader_GetMediaForFragmentList.md") API operations. It's stored along with the fragments for the entire
+metadata is made available as part of the [GetMedia](../APIReference/API_dataplane_GetMedia.md "../APIReference/API_dataplane_GetMedia.md") or [GetMediaForFragmentList](../APIReference/API_reader_GetMediaForFragmentList.md "../APIReference/API_reader_GetMediaForFragmentList.md") API operations. It's stored along with the fragments for the entire
 duration of the stream's retention period. Your consuming applications can read, process, and react based on the
 metadata using the [Watch output from cameras using parser library](parser-library.md "parser-library.md").
 
@@ -36,7 +36,7 @@ metadata item remains, and is applied to each consecutive fragment, until it's c
 ###### Note
 
 The metadata items added using the [Upload to Kinesis Video Streams](producer-sdk.md "producer-sdk.md") are distinct from the stream-level tagging
-APIs implemented with [TagStream](API_TagStream.md "API_TagStream.md"), [UntagStream](API_UntagStream.md "API_UntagStream.md"), and [ListTagsForStream](API_ListTagsForStream.md "API_ListTagsForStream.md").
+APIs implemented with [TagStream](../APIReference/API_TagStream.md "../APIReference/API_TagStream.md"), [UntagStream](../APIReference/API_UntagStream.md "../APIReference/API_UntagStream.md"), and [ListTagsForStream](../APIReference/API_ListTagsForStream.md "../APIReference/API_ListTagsForStream.md").
 
 ### Streaming metadata API
 

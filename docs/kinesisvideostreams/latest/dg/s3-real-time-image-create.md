@@ -4,7 +4,7 @@ Amazon Kinesis Video Streams offers the capability to transcode and deliver imag
 in real-time, and delivers the images to your specified Amazon S3 bucket. Implementing real-time, automated image extraction involves the following steps:
 
 - Creating an S3 bucket to receive the generated images.
-- Configuring the [ImageGenerationConfiguration](API_ImageGenerationConfiguration.md "API_ImageGenerationConfiguration.md") stream property which tells Kinesis Video Streams
+- Configuring the [ImageGenerationConfiguration](../APIReference/API_ImageGenerationConfiguration.md "../APIReference/API_ImageGenerationConfiguration.md") stream property which tells Kinesis Video Streams
   how to create the images and where to send them.
 - Add image generation tags – Kinesis Video Streams only generates images using fragments that have the image generation tag. These tags are added when uploading video
   using the Kinesis Video Streams Producer SDK along with the `putKinesisVideoEventMetadata` method.
@@ -28,7 +28,7 @@ Follow the [Amazon S3 User Guide](../../../AmazonS3/latest/userguide/create-buck
 Note the bucket's URI, which you'll need in the next step when updating the stream's image generation configuration. 2. Verify that you have the AWS CLI installed and configured. For more information, see the
 [AWS Command Line Interface User Guide for Version 2](cli/latest/userguide/cli-chap-welcome.md "cli/latest/userguide/cli-chap-welcome.md"). 3. Create a new file called `update-image-generation-input.json` with the following content as input. Update the placeholder
 values with the values that you want to use. For the maximum and minimum supported values, see the
-[UpdateImageGenerationConfiguration](API_UpdateImageGenerationConfiguration.md "API_UpdateImageGenerationConfiguration.md") API.
+[UpdateImageGenerationConfiguration](../APIReference/API_UpdateImageGenerationConfiguration.md "../APIReference/API_UpdateImageGenerationConfiguration.md") API.
 
 ```
 {
@@ -51,7 +51,7 @@ values with the values that you want to use. For the maximum and minimum support
 }
 ```
 
-4. Update the stream's image generation configuration using the [UpdateImageGenerationConfiguration](API_UpdateImageGenerationConfiguration.md "API_UpdateImageGenerationConfiguration.md") API and attaching the
+4. Update the stream's image generation configuration using the [UpdateImageGenerationConfiguration](../APIReference/API_UpdateImageGenerationConfiguration.md "../APIReference/API_UpdateImageGenerationConfiguration.md") API and attaching the
    JSON file as the input, as shown in the following command. Note that the file path points to the file in the current directory.
 
 ```
@@ -64,7 +64,7 @@ aws kinesisvideo update-image-generation-configuration \
 ###### Note
 
 It takes at least 1 minute to initiate the image generation workflow after updating the image generation configuration.
-Wait at least 1 minute before uploading video to your stream. 6. Verify the configuration settings. Use the AWS CLI to call the [DescribeImageGenerationConfiguration](API_DescribeImageGenerationConfiguration.md "API_DescribeImageGenerationConfiguration.md") API for your stream.
+Wait at least 1 minute before uploading video to your stream. 6. Verify the configuration settings. Use the AWS CLI to call the [DescribeImageGenerationConfiguration](../APIReference/API_DescribeImageGenerationConfiguration.md "../APIReference/API_DescribeImageGenerationConfiguration.md") API for your stream.
 
 ```
 aws kinesisvideo describe-image-generation-configuration \

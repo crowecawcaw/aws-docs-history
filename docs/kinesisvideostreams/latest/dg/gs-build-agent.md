@@ -120,7 +120,7 @@ Run the java command above from the same directory as
      the recorded media daily from 7:00:00 PM to 9:59:59 PM.
 
 
-    For more information, see [StartEdgeConfigurationUpdate](API_StartEdgeConfigurationUpdate.md "API_StartEdgeConfigurationUpdate.md").
+    For more information, see [StartEdgeConfigurationUpdate](../APIReference/API_StartEdgeConfigurationUpdate.md "../APIReference/API_StartEdgeConfigurationUpdate.md").
 
 
 

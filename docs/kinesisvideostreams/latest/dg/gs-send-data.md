@@ -291,4 +291,4 @@ If the acknowledgement’s `EventType` is `PERSISTED`, it
 means Kinesis Video Streams has durably stored and encrypted this chunk of media for retrieval,
 analysis, and long-term storage.
 
-For more information about acknowledgements, see [PutMedia](API_dataplane_PutMedia.md "API_dataplane_PutMedia.md").
+For more information about acknowledgements, see [PutMedia](../APIReference/API_dataplane_PutMedia.md "../APIReference/API_dataplane_PutMedia.md").

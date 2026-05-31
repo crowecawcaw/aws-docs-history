@@ -19,7 +19,7 @@ or a standalone application to display the stream.
 
 ###### Important
 
-Not all media sent to Kinesis Video Streams can be played back through HLS. See [GetHLSStreamingSessionURL](API_reader_GetHLSStreamingSessionURL.md "API_reader_GetHLSStreamingSessionURL.md") for specific uploading requirements.
+Not all media sent to Kinesis Video Streams can be played back through HLS. See [GetHLSStreamingSessionURL](../APIReference/API_reader_GetHLSStreamingSessionURL.md "../APIReference/API_reader_GetHLSStreamingSessionURL.md") for specific uploading requirements.
 
 ###### Topics
 
@@ -150,7 +150,7 @@ aws kinesis-video-archived-media get-hls-streaming-session-url \
 ###### Note
 
 The timestamps must be within 24-hours of each other, as
-mentioned in the [HLSTimestampRange](API_reader_HLSTimestampRange.md "API_reader_HLSTimestampRange.md")
+mentioned in the [HLSTimestampRange](../APIReference/API_reader_HLSTimestampRange.md "../APIReference/API_reader_HLSTimestampRange.md")
 documentation.
 
 You'll receive a response that looks like this:
@@ -237,7 +237,7 @@ The application retrieves the necessary values from input boxes on the HTML page
 
 ### Retrieve the endpoint for HLS playback
 
-Use the Kinesis Video Streams client to invoke the [GetDataEndpoint](API_GetDataEndpoint.md "API_GetDataEndpoint.md") API to retrieve the
+Use the Kinesis Video Streams client to invoke the [GetDataEndpoint](../APIReference/API_GetDataEndpoint.md "../APIReference/API_GetDataEndpoint.md") API to retrieve the
 endpoint.
 
 ```
@@ -270,7 +270,7 @@ const kinesisVideoArchivedMediaClient = new AWS.KinesisVideoArchivedMedia(archiv
 
 ### Retrieve the HLS streaming session URL
 
-Use the Kinesis Video Streams archived media client to invoke the [GetHLSStreamingSessionURL](API_reader_GetHLSStreamingSessionURL.md "API_reader_GetHLSStreamingSessionURL.md") API to retrieve the HLS playback URL.
+Use the Kinesis Video Streams archived media client to invoke the [GetHLSStreamingSessionURL](../APIReference/API_reader_GetHLSStreamingSessionURL.md "../APIReference/API_reader_GetHLSStreamingSessionURL.md") API to retrieve the HLS playback URL.
 
 ```
 const getHLSStreamingSessionURLOptions = {

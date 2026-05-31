@@ -21,7 +21,3 @@ get familiar with the concept:
 
 - [AWS PrivateLink background](../../../vpc/latest/privatelink/what-is-privatelink.md "../../../vpc/latest/privatelink/what-is-privatelink.md")
 - [VPC getting started guide](../../../vpc/latest/privatelink/getting-started.md "../../../vpc/latest/privatelink/getting-started.md")
-
-## Additional information
-
-Once you've been added to the beta, we will email you a link to additional information about this feature.

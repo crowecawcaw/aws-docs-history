@@ -24,7 +24,7 @@ We offer the following installations for the Amazon Kinesis Video Streams Edge A
 - **On AWS Snowball Edge:** You can run the
   Amazon Kinesis Video Streams Edge Agent on Snowball Edge devices. To learn more, see the [AWS Snowball Edge Edge Developer Guide](../../../snowball/latest/developer-guide.md "../../../snowball/latest/developer-guide.md").
 - **On a native AWS IoT deployment:** You can install the
-  Amazon Kinesis Video Streams Edge Agent natively on any compute instance. Edge SDK uses [AWS IoT Core](../../../iot/latest/developerguide/iot-gs.md "../../../iot/latest/developerguide/iot-gs.md") for managing edge through the [Amazon Kinesis Video Streams](API_Operations_Amazon_Kinesis_Video_Streams.md "API_Operations_Amazon_Kinesis_Video_Streams.md").
+  Amazon Kinesis Video Streams Edge Agent natively on any compute instance. Edge SDK uses [AWS IoT Core](../../../iot/latest/developerguide/iot-gs.md "../../../iot/latest/developerguide/iot-gs.md") for managing edge through the [Amazon Kinesis Video Streams API Operations](../APIReference/API_Operations_Amazon_Kinesis_Video_Streams.md "../APIReference/API_Operations_Amazon_Kinesis_Video_Streams.md").
   To get started with Amazon Kinesis Video Streams Edge Agent, continue with the appropriate procedures
   below.
 
@@ -40,10 +40,10 @@ We offer the following installations for the Amazon Kinesis Video Streams Edge A
 
 Use the following API operations to configure the Amazon Kinesis Video Streams Edge Agent:
 
-- [StartEdgeConfigurationUpdate](API_StartEdgeConfigurationUpdate.md "API_StartEdgeConfigurationUpdate.md")
-- [DescribeEdgeConfiguration](API_DescribeEdgeConfiguration.md "API_DescribeEdgeConfiguration.md")
-- [DeleteEdgeConfiguration](API_DeleteEdgeConfiguration.md "API_DeleteEdgeConfiguration.md")
-- [ListEdgeAgentConfigurations](API_ListEdgeAgentConfigurations.md "API_ListEdgeAgentConfigurations.md")
+- [StartEdgeConfigurationUpdate](../APIReference/API_StartEdgeConfigurationUpdate.md "../APIReference/API_StartEdgeConfigurationUpdate.md")
+- [DescribeEdgeConfiguration](../APIReference/API_DescribeEdgeConfiguration.md "../APIReference/API_DescribeEdgeConfiguration.md")
+- [DeleteEdgeConfiguration](../APIReference/API_DeleteEdgeConfiguration.md "../APIReference/API_DeleteEdgeConfiguration.md")
+- [ListEdgeAgentConfigurations](../APIReference/API_ListEdgeAgentConfigurations.md "../APIReference/API_ListEdgeAgentConfigurations.md")
 
 ## Monitoring Amazon Kinesis Video Streams Edge Agent
 
