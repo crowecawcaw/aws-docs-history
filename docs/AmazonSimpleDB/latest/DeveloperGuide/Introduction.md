@@ -3,6 +3,7 @@
 ###### Topics
 
 - [Features](#Features "#Features")
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [How Amazon Charges for Amazon SimpleDB](#HowAmazonChargesForSDB "#HowAmazonChargesForSDB")
 - [Viewing Your Bill](#ViewingYourBill "#ViewingYourBill")
   This introduction to Amazon SimpleDB is intended to give you a detailed summary of this web service.
@@ -78,6 +79,12 @@ or hosted. This frees you from many of the complexities of capacity planning,
 transforms large capital expenditures into much smaller operating costs, and
 eliminates the need to over-buy "safety net" capacity to handle periodic traffic
 spikes.
+
+## Sign up for an AWS account
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
 
 ## How Amazon Charges for Amazon SimpleDB
 

@@ -37,7 +37,7 @@ and allowed for each API, see the authentication topic for the particular API.
 Following is the series of tasks required to authenticate requests to AWS using an
 HMAC-SHA request signature. It is assumed you have already
 created an AWS account and received an Access Key ID and Secret Access Key. For more information
-about those, see [Creating an AWS Account](AboutAWSAccounts.md "AboutAWSAccounts.md").
+about those, see .
 
 You perform the first three tasks.
 
