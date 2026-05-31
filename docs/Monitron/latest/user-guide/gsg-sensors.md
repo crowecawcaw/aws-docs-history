@@ -48,7 +48,7 @@ pick up vibration and temperature measurements across the entire base of the
 sensor, but it's important to have the asset target area centered as much as
 possible on the sensor as shown in the following image.
 
-![Sensor showing target contact area centered on base with minimum contact area of 30 x 25 mm.](images/sensor_mounting.png)
+![Sensor showing target contact area centered on base with minimum contact area of 30 x 25 mm.](/images/Monitron/latest/user-guide/images/sensor_mounting.png)
 
 Attach the sensor with an industrial adhesive. We recommend a
 cyanoacrylate-type epoxy. For additional information about attaching the sensor

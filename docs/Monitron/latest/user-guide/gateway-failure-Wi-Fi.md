@@ -9,7 +9,7 @@ When you add a gateway to your project or site, as soon as you choose
 it. If the mobile app can't find the gateway, try the following troubleshooting
 tips.
 
-![Mobile phone connecting via Bluetooth to AWS gateway.](/images/Monitron/latest/user-guide/images/gs-gateway-bluetooth.png)
+![Mobile phone connecting via Bluetooth to AWS gateway.](images/gs-gateway-bluetooth.png)
 
 - **Make sure that the gateway is turned on.**
   Check the LED lights—the two small orange and blue lights next to the

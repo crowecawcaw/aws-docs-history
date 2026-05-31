@@ -51,7 +51,7 @@ list** page.
 1. Sign in to your web app and select the project you want to add an asset
    to.
 
-![Projects page with Add project button highlighted in the upper right corner.](/images/Monitron/latest/user-guide/images/add-asset-1.png) 2. From the left navigation menu, choose **Sites**, and then
+![Projects page with Add project button highlighted in the upper right corner.](images/add-asset-1.png) 2. From the left navigation menu, choose **Sites**, and then
 select the site you want to the asset to.
 
 ![Sites page with Site 1 selected in the sites list.](images/add-asset-2.png)
