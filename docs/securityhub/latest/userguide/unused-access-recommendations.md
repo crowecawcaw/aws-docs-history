@@ -44,7 +44,7 @@ The API operations return errors in the following situations:
 
 In the Security Hub console, you can generate a policy recommendation by viewing an unused permissions finding and choosing the **Remediation** tab.
 The console displays a loading spinner while the recommendation is being created.
-When the recommendation is ready, you can click **Preview** to see a side-by-side comparison of your current policy and the recommended least-privilege replacement.
+When the recommendation is ready, you can choose **Preview** to see a side-by-side comparison of your current policy and the recommended least-privilege replacement.
 You can copy the recommended policy in JSON format.
 
 ## API reference
