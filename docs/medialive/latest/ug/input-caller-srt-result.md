@@ -9,4 +9,4 @@ upstream system (the listener). MediaLive will connect to two URLs (for a standa
 channel) or one URL (for a single-pipeline channel), and pull the source content
 into the channel.
 
-![](/images/medialive/latest/ug/images\srt-pull-uss-input.png)
+![Diagram showing upstream systems sending data packets to two SRT caller input URLs in MediaLive.](/images/medialive/latest/ug/images\srt-pull-uss-input.png)

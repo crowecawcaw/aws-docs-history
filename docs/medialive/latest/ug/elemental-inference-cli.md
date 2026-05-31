@@ -6,8 +6,8 @@ We assume that you have read the sections about setting up individual Elemental 
 using the MediaLive console.
 
 - [Event clipping](elemental-inference-event-clip.md "elemental-inference-event-clip.md")
-
 - [Smart crop](elemental-inference-smart-crop.md "elemental-inference-smart-crop.md")
+- [Smart Subtitles](elemental-inference-automatic-subtitling.md "elemental-inference-automatic-subtitling.md")
 
 ###### Topics
 

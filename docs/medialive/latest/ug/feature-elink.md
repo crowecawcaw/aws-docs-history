@@ -27,7 +27,7 @@ After the Link input device exists, you create an _Elemental
 Link input_ that uses that Link input device. You can then use the input as
 you would use any input—you attach the input to a channel.
 
-![](/images/medialive/latest/ug/images\link-parts.png)
+![Flow diagram showing AWS Elemental Link hardware device connecting to Link input device, then to Elemental Link input within MediaLive.](/images/medialive/latest/ug/images\link-parts.png)
 To clarify the terminology:
 
 - AWS Elemental Link (AWS Elemental Link) is a _physical hardware device_.

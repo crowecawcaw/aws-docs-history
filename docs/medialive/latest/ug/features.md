@@ -45,6 +45,7 @@ schedule. The procedures expand on the limited information provided in [Creating
 - [SCTE 35](scte-35-message-processing.md "scte-35-message-processing.md")
 - [Sharing and cloning encodes](feature-share-encode.md "feature-share-encode.md")
 - [Smart crop](elemental-inference-smart-crop.md "elemental-inference-smart-crop.md")
+- [Smart Subtitles](elemental-inference-automatic-subtitling.md "elemental-inference-automatic-subtitling.md")
 - [SMPTE 2038 metadata](smpte-2038.md "smpte-2038.md")
 - [Amazon S3 access control lists (ACLs)](s3-canned-acl.md "s3-canned-acl.md")
 - [Tagging resources](tagging.md "tagging.md")

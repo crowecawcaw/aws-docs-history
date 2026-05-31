@@ -7,6 +7,8 @@ classification, and insights generation.
 
 MediaLive implements the following features of AWS Elemental Inference:
 
+- Automatic subtitling, which generates TTML or WebVTT subtitles from the audio in your
+  source media using automatic speech recognition. For more information, see [Smart Subtitles using Elemental Inference](elemental-inference-automatic-subtitling.md "elemental-inference-automatic-subtitling.md").
 - Smart crop, which lets you produce channel video outputs that are a different
   aspect ratio and/or orientation from the video source. For more information, see
   [Smart cropping video using Elemental Inference](elemental-inference-smart-crop.md "elemental-inference-smart-crop.md").

@@ -8,4 +8,4 @@ At runtime of the channel, the input will connect to two URLs (for a standard
 channel) or one URL (for a single-pipeline channel), and pull the source content
 identified by the application name and instance name into MediaLive.
 
-![](/images/medialive/latest/ug/images\rtmp-pull-uss-input.png)
+![Diagram showing upstream systems sending GET requests to two input URLs with different IP addresses.](/images/medialive/latest/ug/images\rtmp-pull-uss-input.png)

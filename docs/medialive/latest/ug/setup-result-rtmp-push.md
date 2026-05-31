@@ -19,4 +19,4 @@ pushing before then.
 At runtime of the channel, MediaLive reacts to the content that is being pushed and
 ingests it.
 
-![](/images/medialive/latest/ug/images\rtmp-push-uss-input.png)
+![Upstream system with public IP addresses routing to MediaLive RTMP inputs and Input Security Group.](/images/medialive/latest/ug/images\rtmp-push-uss-input.png)

@@ -13,7 +13,7 @@ use case applies if the MediaLive channel includes inputs that use the VPC:
   output groups. Assume that the destinations of both the output groups are on
   EC2 on your VPC.
 
-![](/images/medialive/latest/ug/images\vpc-delivery-2.png)
+![MediaLive input flows through two pipelines to endpoints, each connecting to HLS and Microsoft Smooth destinations.](/images/medialive/latest/ug/images\vpc-delivery-2.png)
 **Single-pipeline channels**
 
 You must identify subnets for the following locations:

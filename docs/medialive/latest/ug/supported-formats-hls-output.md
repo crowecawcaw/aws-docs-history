@@ -7,6 +7,12 @@ and captions type, and produce these outputs:
 - HLS output
 - MediaPackage output with an HLS container
 
+###### Note
+
+You can also produce subtitles without a caption source in your input by
+enabling the Smart Subtitles feature, which uses AWS Elemental Inference to generate
+subtitles from the audio. For more information, see [Smart Subtitles using Elemental Inference](elemental-inference-automatic-subtitling.md "elemental-inference-automatic-subtitling.md").
+
 | Source caption container                                                        | Source caption input  | Supported output captions |
 | ------------------------------------------------------------------------------- | --------------------- | ------------------------- |
 | CDI container                                                                   | ARIB                  | None                      |
