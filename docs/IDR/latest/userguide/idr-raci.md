@@ -22,7 +22,7 @@ review, account configuration, incident management, and post-incident review.
 | **Account configuration**                                                |
 | Create IAM role in customer account                                      | Responsible  | Informed                            |
 | Install managed EventBridge rule using created role                      | Informed     | Responsible                         |
-| Test CloudWatch alarms                                                   | Responsible  | Accountable                         |
+| Test onboarded alarms (CloudWatch or APM)                                | Accountable  | Informed                            |
 | Verify that customer alarms engage the incident detection and response   | Informed     | Responsible                         |
 | Update alarms                                                            | Responsible  | Consulted                           |
 | Update runbooks                                                          | Consulted    | Responsible                         |

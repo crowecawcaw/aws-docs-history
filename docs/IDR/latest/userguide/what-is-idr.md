@@ -18,7 +18,14 @@ Incident Detection and Response offers the following key features:
 
 ###### Topics
 
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Terms of use](idr-prod-terms.md "idr-prod-terms.md")
 - [Architecture](idr-arch.md "idr-arch.md")
 - [Roles and responsibilities](idr-raci.md "idr-raci.md")
 - [Region availability](idr-availability.md "idr-availability.md")
+
+## Sign up for an AWS account
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.

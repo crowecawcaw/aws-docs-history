@@ -15,8 +15,7 @@ The following steps need to be completed for alarm ingestion:
 - [Alarm ingestion using the IDR CLI](https://github.com/awslabs/CLI-for-AWS-Incident-Detection-and-Response "https://github.com/awslabs/CLI-for-AWS-Incident-Detection-and-Response")
 - [Alarm review and feedback](idr-gs-alarm-review.md "idr-gs-alarm-review.md")
 - [Provision access for alarm ingestion to Incident Detection and Response](idr-gs-access-prov.md "idr-gs-access-prov.md")
-- [Alarm testing (Gameday)](idr-workloads-testing-getting-started.md "idr-workloads-testing-getting-started.md")
-- Alarms are enabled for active monitoring by AWS Incident Detection and Response after the preceding steps are complete.
+- [Alarms go live](idr-gs-alarms-go-live.md "idr-gs-alarms-go-live.md")
 
 ## Alternative options for ingesting alarms
 

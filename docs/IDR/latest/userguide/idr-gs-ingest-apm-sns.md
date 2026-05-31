@@ -35,7 +35,7 @@ AWS Incident Detection and Response from your APM with Amazon SNS integration.
 **Prerequisites for deploying this CloudFormation
 template:**
 
-- An Amazon Simple Notification Service topic must be created to receive alarm events
+- A **Standard** Amazon Simple Notification Service topic must be created to receive alarm events
   from your APM. [Create an SNS topic in the Amazon Simple Notification Service
   console](../../../sns/latest/dg/sns-create-topic.md#create-topic-aws-console "../../../sns/latest/dg/sns-create-topic.md#create-topic-aws-console").
 - The `TransformLambdaFunction` in the template
@@ -46,7 +46,7 @@ template:**
 **Prerequisite completion:**
 
 1. Open the Amazon SNS Console, then select Topics. Copy the ARN
-   of the SNS Topic created to receive alarm events from your
+   of the **Standard** Amazon SNS topic created to receive alarm events from your
    APM.
    - Example:
      `arn:aws:sns:eu-west-1:012345678912:<your-apm-name>-sns`
@@ -159,9 +159,9 @@ AWS Incident Detection and Response**
 
 ![Diagram showing an example of integration using Amazon SNS.](images/example-int-sns.png)
 
-1.  Open Amazon SNS Console and [Create an SNS topic in the Amazon Simple Notification Service console](../../../sns/latest/dg/sns-create-topic.md#create-topic-aws-console "../../../sns/latest/dg/sns-create-topic.md#create-topic-aws-console")
-    named `[apm_name]-sns` to receive alarms events
-    from your APM. Note the ARN of the SNS Topic created.
+1.  Open the Amazon SNS Console and create a **Standard** Amazon SNS topic
+    named `[apm_name]-sns` to receive alarm events
+    from your APM. Ensure you select **Standard** (not FIFO) as the topic type. Note the ARN of the Amazon SNS topic created.
 2.  Perform one of the following:
 
         * (Recommended) Create an EventBridge custom event

@@ -1,45 +1,127 @@
 # Test onboarded workloads in Incident Detection and Response
 
+After [Alarm Ingestion](idr-gs-alarm-ingestion.md "idr-gs-alarm-ingestion.md") completes, AWS Incident Detection and Response enables monitoring for your workload and sends a Go-Live confirmation. Your workload is actively monitored from this point forward.
+
+Alarm testing validates that your onboarded alarms engage AWS Incident Detection and Response as expected, trigger the appropriate runbooks, and any other desired actions, such as auto case creation if you selected it during alarm ingestion.
+
+Testing is optional but strongly recommended. You're responsible for validating your response arrangements before a real incident occurs.
+
+## Testing options
+
+AWS Incident Detection and Response offers two testing options.
+
+### Option 1: Scheduled GameDay (recommended)
+
+A scheduled GameDay is a live end-to-end simulation of what might happen during a real incident. AWS Incident Detection and Response follows your prescribed [runbook](idr-workloads-dev-runbook.md "idr-workloads-dev-runbook.md") steps to give you insight into how a real incident might unfold. The GameDay is an opportunity for you to ask questions or refine instructions to improve the engagement.
+
+###### To schedule a GameDay, complete the following steps:
+
+1. [Notify AWS Incident Detection and Response](idr-workloads-change-request.md "idr-workloads-change-request.md") with a preferred date and a 1-hour time window, including time zone. Provide at least 48 hours of lead time.
+2. Plan resources for the GameDay, including your SRE/Ops team and escalation contacts.
+
+**GameDay schedule:**
+
+1. You and AWS Incident Detection and Response join the call.
+2. You disable alarm actions, if applicable.
+3. You manually set your alarms to the **ALARM** state using the instructions in [How to test your alarms](#idr-workloads-testing-how-to "#idr-workloads-testing-how-to").
+4. AWS Incident Detection and Response confirms receipt of the alarm notification.
+5. AWS Incident Detection and Response responds to the alarm and joins the bridge prescribed in your runbook.
+6. You and AWS Incident Detection and Response confirm the GameDay outcome.
+
+### Option 2: Offline alarm testing
+
+You can test your alarms independently at any time without scheduling a call. Triggering an alarm engages AWS Incident Detection and Response according to your runbook, just as it would during a real incident.
+
+###### To perform offline alarm testing, complete the following steps:
+
+1. To prevent unintended actions, disable any Amazon CloudWatch alarm actions.
+2. Trigger your alarms using the instructions in [How to test your alarms](#idr-workloads-testing-how-to "#idr-workloads-testing-how-to").
+3. Within 5 minutes, a support case is created on your behalf and AWS Incident Detection and Response engages you as specified in your runbook.
+4. Notify the Incident Manager that you are conducting offline alarm testing.
+5. The Incident Manager confirms which alarm state changes were received and validates the response arrangements.
+
+If a support case isn't created within 5 minutes, submit an [incident request](inbound-incident-idr.md "inbound-incident-idr.md") to manually engage AWS Incident Detection and Response for troubleshooting.
+
+## How to test your alarms
+
+### Amazon CloudWatch alarms
+
 ###### Note
 
 The AWS Identity and Access Management user or role that you use for alarm testing must have `cloudwatch:SetAlarmState` permission.
 
-The last step in the onboarding process is to perform a gameday for your new workload. After alarm ingestion completes, AWS Incident Detection and Response confirms a date and time of your choosing to start your gameday.
+Use the AWS Command Line Interface or [AWS CloudShell](../../../cloudshell/latest/userguide/welcome.md "../../../cloudshell/latest/userguide/welcome.md") to manually set your alarm to the **ALARM** state. These commands change the alarm state without impacting your workload.
 
-Your gameday serves two main purposes:
+To prevent unintended actions, for example Amazon EC2 instance restarts, disable any CloudWatch alarm actions before you change the alarm state. You can re-enable CloudWatch alarm actions after testing completes. To learn more about disabling or enabling alarm actions, see [DisableAlarmActions](../../../AmazonCloudWatch/latest/APIReference/API_DisableAlarmActions.md "../../../AmazonCloudWatch/latest/APIReference/API_DisableAlarmActions.md") and [EnableAlarmActions](../../../AmazonCloudWatch/latest/APIReference/API_EnableAlarmActions.md "../../../AmazonCloudWatch/latest/APIReference/API_EnableAlarmActions.md") in the _Amazon CloudWatch API Reference_.
 
-- **Functional Validation:** Confirms that AWS Incident Detection and Response can correctly receive your alarm events. And, functional validation confirms that your alarm events trigger the appropriate runbooks and any other desired actions, such as auto case creation if you selected it during alarm ingestion.
-- **Simulation:** The gameday is an end to end simulation of what might happen during a real incident. AWS Incident Detection and Response follows your prescribed runbook steps to give you insight into how a real incident might unfold. The gameday is an opportunity for you to ask questions or refine instructions to improve the engagement.
-  During the alarm test, AWS Incident Detection and Response works with you to remediate any issues identified.
+**Disable alarm actions:**
 
-## CloudWatch alarms
+```
+aws cloudwatch disable-alarm-actions --alarm-names "`ExampleAlarm`" --region `us-east-1`
+```
 
-AWS Incident Detection and Response tests your Amazon CloudWatch alarms by monitoring the state change of your alarm. To do this, manually change the alarm to the **Alarm** state using the AWS Command Line Interface. You can also access the AWS CLI from AWS CloudShell. AWS Incident Detection and Response provides you with a list of AWS CLI commands for you to use during testing.
-
-To prevent unwanted actions, for example Amazon EC2 instance restarts, disable any CloudWatch alarm actions before you change the alarm state. You can re-enable CloudWatch alarm actions after the testing completes. To learn more about disabling or enabling alarm actions, see [DisableAlarmActions](../../../AmazonCloudWatch/latest/APIReference/API_DisableAlarmActions.md "../../../AmazonCloudWatch/latest/APIReference/API_DisableAlarmActions.md") and [EnableAlarmActions](../../../AmazonCloudWatch/latest/APIReference/API_EnableAlarmActions.md "../../../AmazonCloudWatch/latest/APIReference/API_EnableAlarmActions.md") in the _Amazon CloudWatch API Reference_.
-
-Example AWS CLI command to set an alarm state:
+**Set alarm state to ALARM:**
 
 ```
 aws cloudwatch set-alarm-state --alarm-name "`ExampleAlarm`" --state-value ALARM --state-reason "`Testing AWS Incident Detection and Response`" --region `us-east-1`
 ```
 
-To learn more about manually changing the state of CloudWatch alarms, see
-[SetAlarmState](../../../AmazonCloudWatch/latest/APIReference/API_SetAlarmState.md "../../../AmazonCloudWatch/latest/APIReference/API_SetAlarmState.md").
+**Re-enable alarm actions after testing:**
+
+```
+aws cloudwatch enable-alarm-actions --alarm-names "`ExampleAlarm`" --region `us-east-1`
+```
+
+The alarm state reverts to **OK** automatically within a few seconds.
+
+**Composite alarms**
+
+The `set-alarm-state` command doesn't guarantee that composite alarms revert to the **OK** state. As a best practice, verify the state of composite alarms after testing. To manually reset a composite alarm, use the following command:
+
+```
+aws cloudwatch set-alarm-state --alarm-name "`ExampleCompositeAlarm`" --state-value OK --state-reason "`Testing AWS Incident Detection and Response`" --region `us-east-1`
+```
+
+To learn more about manually changing the state of CloudWatch alarms, see [SetAlarmState](../../../AmazonCloudWatch/latest/APIReference/API_SetAlarmState.md "../../../AmazonCloudWatch/latest/APIReference/API_SetAlarmState.md") in the _Amazon CloudWatch API Reference_.
 
 To learn more about the permissions required for CloudWatch API operations, see [Amazon CloudWatch permissions reference](../../../AmazonCloudWatch/latest/monitoring/permissions-reference-cw.md "../../../AmazonCloudWatch/latest/monitoring/permissions-reference-cw.md").
 
-## Third party APM alarms
+### Third-party APM alarms
 
-Workloads that utilize a third party Application Performance Monitoring (APM) tool, such as Datadog, Splunk, New Relic, or Dynatrace, require different instructions to simulate an alarm. At the start of the gameday, AWS Incident Detection and Response requests that you temporarily change your alarm thresholds or comparison operators to force the alarm into the **ALARM** status. This status triggers a payload to AWS Incident Detection and Response.
+Workloads that use a third-party Application Performance Monitoring (APM) tool, such as Datadog, Splunk, New Relic, or Dynatrace, require different instructions to simulate an alarm.
 
-## Key outputs
+1. Disable alarm actions in your APM to prevent unintended actions.
+2. Modify your alarm threshold or comparison operator to force the alarm into the **ALARM** status. This triggers a payload to AWS Incident Detection and Response.
+3. After testing completes, roll back the threshold or comparison operator changes to restore the alarm to **OK** status.
 
-Key outputs:
+## Key outcomes
 
-- Alarm ingestion is successful and your alarm configuration is correct.
-- Alarms are successfully created and received by AWS Incident Detection and Response.
-- A support case is created for your engagement and your prescribed contacts are notified.
-- AWS Incident Detection and Response can engage with you by your prescribed conference means.
-- All alarms and support cases generated as part of the gameday are resolved.
-- A Go-Live email is sent confirming your workload is now being monitored by AWS Incident Detection and Response.
+After successful testing:
+
+- Alarm ingestion is confirmed and your alarm configuration is correct.
+- Alarms are received by AWS Incident Detection and Response.
+- A support case is created and your prescribed contacts are notified.
+- AWS Incident Detection and Response engages you by your prescribed conference means.
+- All alarms and support cases generated during testing are resolved.
+
+## Frequently asked questions
+
+**Is alarm testing mandatory?**
+
+No. Testing is optional but strongly recommended to validate your end-to-end response arrangements before a real incident occurs.
+
+**Will my workload be impacted?**
+
+No. However, during testing any alarm actions configured on your alarms are triggered unless you disable them. Disable alarm actions before testing to prevent unintended impacts.
+
+**Who is notified during testing?**
+
+During a scheduled GameDay, all contacts and escalation paths in your runbook are contacted for verification. During offline alarm testing, only the initial contact specified during alarm onboarding is notified.
+
+**Can I reply via email to case updates?**
+
+No. Email copies of Support case correspondences are sent from a no-reply address. To update a case, use the [AWS Support Center Console](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
+
+**How do I request a GameDay after go-live?**
+
+Reply to your existing onboarding support case, if it exists, or create a [Request changes to an onboarded workload in Incident Detection and Response](idr-workloads-change-request.md "idr-workloads-change-request.md").
