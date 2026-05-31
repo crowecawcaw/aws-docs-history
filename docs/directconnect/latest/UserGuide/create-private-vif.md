@@ -70,7 +70,11 @@ console and find **Jumbo Frame Capable** on the
 
     [IPv6] To configure an IPv6 BGP peer, choose **IPv6**. The peer IPv6 addresses are automatically
     assigned from Amazon's pool of IPv6 addresses. You cannot specify custom IPv6 addresses. 2. To change the maximum transmission unit (MTU) from 1500 (default) to 8500
-    (jumbo frames), select **Jumbo MTU (MTU size 8500)**. 3. (Optional) Under **Enable SiteLink**, choose **Enabled** to enable direct connectivity between Direct Connect points of presence. 4. (Optional) Add or remove a tag.
+    (jumbo frames), select **Jumbo MTU (MTU size 8500)**. 3. (Optional) Under **Enable SiteLink**, choose **Enabled** to enable direct connectivity between Direct Connect points of presence. 4. (Optional) For **Bandwidth**, select a bandwidth
+    value to apply a Rate Limiter to this virtual interface. The Rate Limiter
+    sets a maximum bandwidth that the VIF can use, helping prevent this VIF from
+    congesting other VIFs on the same connection. This option is only available
+    on Dedicated connections. For more information, see [Virtual interface Rate Limiters](vif-rate-limiters.md "vif-rate-limiters.md"). 5. (Optional) Add or remove a tag.
 
     [Add a tag] Choose **Add tag** and do the following:
 

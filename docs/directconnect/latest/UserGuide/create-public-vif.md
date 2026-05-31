@@ -63,7 +63,11 @@ review and approve your request.
     contacting [AWS
     support](https://aws.amazon.com/support/createCase "https://aws.amazon.com/support/createCase"). In your support case, provide a list of
     additional CIDR prefixes you want to add to the public VIF and
-    advertise. 4. (Optional) Add or remove a tag.
+    advertise. 4. (Optional) For **Bandwidth**, select a bandwidth
+    value to apply a Rate Limiter to this virtual interface. The Rate Limiter
+    sets a maximum bandwidth that the VIF can use, helping prevent this VIF from
+    congesting other VIFs on the same connection. This option is only available
+    on Dedicated connections. For more information, see [Virtual interface Rate Limiters](vif-rate-limiters.md "vif-rate-limiters.md"). 5. (Optional) Add or remove a tag.
 
     [Add a tag] Choose **Add tag** and do the
     following:
