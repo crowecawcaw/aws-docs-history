@@ -17,9 +17,9 @@ Follow these steps to manage team member communication settings:
    1. Select the checkboxes for communications you want to receive
    2. Clear the checkboxes for communications you do not want to receive
 
-![](images/CommPref.png) 4. Save your changes
+![Communications preferences panel with checkboxes for case, membership, and administrator notifications.](images/CommPref.png) 4. Save your changes
 
-![](images/CommPreferencesDashboard.png)
+![Incident Response Team page showing two teammates and communications preferences table.](images/CommPreferencesDashboard.png)
 
 ###### Default Communication Settings
 
