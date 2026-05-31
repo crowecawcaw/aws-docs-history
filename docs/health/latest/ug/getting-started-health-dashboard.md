@@ -25,17 +25,12 @@ resources.
 
 ###### Topics
 
-- [Setting up your AWS account](#awshealth-before-you-begin "#awshealth-before-you-begin")
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Viewing your account events in the AWS Health Dashboard](aws-health-account-views.md "aws-health-account-views.md")
 - [Configuring Amazon EventBridge](cloud-watch-events-integration.md "cloud-watch-events-integration.md")
 - [Manage AWS Health notifications in AWS User Notifications](manage-user-notifications.md "manage-user-notifications.md")
 
-## Setting up your AWS account
-
-Before you can enable AWS Health, you must have an AWS account. If you do not have
-an AWS account, complete the following steps to create one.
-
-### Sign up for an AWS account
+## Sign up for an AWS account
 
 To get started with AWS, you need an AWS account. For information about creating an AWS account, see
 [Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
