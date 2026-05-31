@@ -4,14 +4,19 @@ Opportunities can be added individually, by [bulk import](bulk-actions.md "bulk-
 
 Opportunities can be classified as requiring AWS support or partners can choose to manage their opportunities independently. Opportunities progress through defined stages from Prospect to Launched/Closed and include data attributes such as revenue estimates, customer details and customer use case.
 
+Partners can also create opportunities through a short conversation with the AWS Partner Central agent. Describe the deal or upload a supporting document, and the agent extracts the fields, enriches customer details, and creates the opportunity after you approve. For details, see [Agents for opportunity management](partner-cosell-agent.md "partner-cosell-agent.md").
+
 Partners can share opportunities with AWS sellers, which are routed through an internal validation process. Once an opportunity has been submitted, it undergoes validation to ensure it meets AWS criteria for deal size, solution alignment, and customer engagement status.
 
-Partners can now use deal sizing when creating opportunities to receive AI-powered Monthly Recurring Revenue (MRR) forecasts and AWS product recommendations based on opportunity details. Partners can also import AWS Pricing Calculator URLs to automatically populate service selections and receive enhanced insights including Migration Acceleration Program (MAP) eligibility indicators and optimization recommendations.
+Partners can now use deal sizing when creating opportunities to receive AI-powered Monthly Recurring Revenue (MRR) forecasts and AWS product recommendations based on opportunity details. Partners can also import AWS Pricing Calculator URLs to automatically populate service selections and receive enhanced insights including Migration Acceleration Program (MAP) eligibility indicators and optimization recommendations. Partners who transact in total contract value (TCV) can submit TCV and contract duration, and deal sizing converts both to a forecasted MRR.
 
 ## Create an opportunity
 
 1. Navigate to **Sell**, **Opportunities** in the left-side navigation.
-2. Choose **Create opportunity**.
+2. Choose **Create opportunity**, then select one of the following options from the dropdown:
+   - **Create using wizard** – Continue with the multi-step form described in the steps below.
+   - **Create using agent** – Create the opportunity through a short conversation with the AWS Partner Central agent. Describe the deal or upload a supporting document, review the fields the agent extracts, and approve to submit. For details, see [Agents for opportunity management](partner-cosell-agent.md "partner-cosell-agent.md").
+
 3. Enter customer details and choose **Next**.
    - All fields are required except for **Customer DUNS**. Information such as the customer website and zip code are necessary to align the opportunity with internal stakeholders.
    - If you enter **Government** for **Industry Vertical**, make sure you select a **Classified National Security Information** option.
@@ -41,8 +46,37 @@ Deal sizing provides AI-powered insights to help you estimate opportunity value 
 
 Choose your MRR calculation method:
 
+    * **Forecast MRR from TCV** – Enter your total contract value (TCV) and contract duration in months, and deal sizing converts both to a forecasted MRR. This method serves partners who estimate deals in TCV, such as multi-year SaaS contracts or software licensing.
     * **Manual entry with AI insights** – View AI-forecasted MRR estimates and AWS product recommendations based on your opportunity details, then enter your own MRR estimate. This method allows you to review AI forecasts while maintaining control over the final estimate.
     * **Pricing Calculator URL** – Import an AWS Pricing Calculator URL to automatically populate MRR and product selections. This method provides enhanced insights including MAP eligibility indicators, optimization recommendations, and potential cost savings analysis.
+
+**Using Forecast MRR from TCV**
+
+When you select Forecast MRR from TCV, you submit the total contract value of the deal and the model returns a forecasted MRR.
+
+    1. Enter TCV and contract duration:
+
+
+
+
+    	* Enter the **Total contract value** in USD or EUR. The value must be greater than zero.
+    	* Enter the **Contract duration** in months. Supported range is 1 to 144 months.
+    	* Both fields are required. The system returns a validation error if you submit one without the other.
+    2. Review the forecasted MRR:
+
+
+
+
+    	* The model converts TCV and contract duration to a forecasted MRR within 10 seconds and populates the MRR field.
+    	* The forecasted MRR is read-only on this method. To enter your own MRR, switch the calculation method to Manual entry with AI insights or Pricing Calculator URL. Switching methods clears the TCV and contract duration values.
+    	* The forecasted MRR carries the disclaimer: "Forecasted MRR is an estimate for planning purposes only and does not represent actual revenue, quota retirement, or any financial commitment."
+    3. Modify your estimate:
+
+
+
+
+    	* To update the forecasted MRR, change the TCV value or contract duration. The model recalculates and updates the MRR field.
+    	* Forecast MRR from TCV and Pricing Calculator URL are mutually exclusive on the same opportunity. To switch, change the calculation method.
 
 **Using Manual entry with AI insights**
 
