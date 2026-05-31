@@ -62,7 +62,7 @@ The following lists support for parsing options:
       + Nova vision models
       + LLama 4 vision models
 
-  Foundation model parsing is available in AWS Regions where these models are directly available (not through cross-region inference). For current model availability by Region, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md").
+  For current model availability by Region, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md").
 
 ## Supported models and Regions for reranking results during query
 

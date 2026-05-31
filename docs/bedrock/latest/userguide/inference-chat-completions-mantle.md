@@ -4,12 +4,14 @@ The OpenAI Chat Completions API generates conversational responses using Amazon 
 You can use the Chat Completions API on both the `bedrock-mantle` and
 `bedrock-runtime` endpoints. We recommend using the `bedrock-mantle`
 endpoint whenever possible. For complete API details, see the [OpenAI Chat
-Completions documentation](https://platform.openai.com/docs/api-reference/chat/create "https://platform.openai.com/docs/api-reference/chat/create").
+Completions documentation](https://developers.openai.com/api/reference/chat-completions/overview "https://developers.openai.com/api/reference/chat-completions/overview").
 
 | **Endpoint**                   | **Base URL**                                                         | **Authentication**                                |
 | ------------------------------ | -------------------------------------------------------------------- | ------------------------------------------------- |
 | `bedrock-mantle` (recommended) | `https://bedrock-mantle.{region}.api.aws/v1/chat/completions`        | Amazon Bedrock API key or AWS credentials         |
 | `bedrock-runtime`              | `https://bedrock-runtime.{region}.amazonaws.com/v1/chat/completions` | AWS credentials (SigV4) or Amazon Bedrock API key |
+
+Each endpoint has its own per-model token quotas. For details on the quotas applied to traffic on each endpoint, see [Quotas for the bedrock-mantle endpoint](quotas-mantle.md "quotas-mantle.md") and [Quotas for the bedrock-runtime endpoint](quotas-runtime.md "quotas-runtime.md").
 
 ## Chat Completions with the bedrock-mantle endpoint
 

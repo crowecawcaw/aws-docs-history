@@ -41,6 +41,93 @@ The following quotas apply to the input:
 If you define audio or video inline by using base64-encoding, make sure that the request body payload
 doesn't exceed the Amazon Bedrock 25 MB model invocation quota.
 
+## Migrate from TwelveLabs Marengo Embed 2.7 to TwelveLabs Marengo Embed 3.0
+
+###### Important
+
+TwelveLabs Marengo Embed 2.7 will be deprecated. Embeddings that you created with TwelveLabs Marengo Embed 2.7 are NOT compatible
+with TwelveLabs Marengo Embed 3.0. You must regenerate all embeddings with TwelveLabs Marengo Embed 3.0.
+
+To migrate from TwelveLabs Marengo Embed 2.7 to TwelveLabs Marengo Embed 3.0, complete the following steps.
+
+1. Update your code to use the new nested input structure and parameter changes described in the
+   following section.
+2. Update the model ID to `twelvelabs.marengo-embed-3-0-v1:0`.
+3. Test your integration with the new version.
+
+The following are the key changes between TwelveLabs Marengo Embed 2.7 and TwelveLabs Marengo Embed 3.0.
+
+- **Nested input structure** – Input parameters are now organized
+  inside objects based on the `inputType` value. For example, if `inputType` is
+  `text`, nest `inputText` within a `text` object.
+- **Combined text and image inputs** – A new
+  `text_image` input type allows you to combine text and image in a single request. This
+  input type is not supported in TwelveLabs Marengo Embed 2.7.
+- **Parameter changes** – The `embeddingOption`
+  parameter values changed:
+  - TwelveLabs Marengo Embed 2.7: `visual-text`, `visual-image`,
+    `audio`
+  - TwelveLabs Marengo Embed 3.0: `visual`, `audio`,
+    `transcription`
+
+The following examples show the structural changes for text input.
+
+**TwelveLabs Marengo Embed 2.7 (flat structure)**
+
+```
+{
+    "inputType": "text",
+    "inputText": "`your-text`",
+    "embeddingOption": "visual-text"
+}
+```
+
+**TwelveLabs Marengo Embed 3.0 (nested structure)**
+
+```
+{
+    "inputType": "text",
+    "text": {
+        "inputText": "`your-text`"
+    },
+    "embeddingOption": "visual"
+}
+```
+
+The following examples show the structural changes for media inputs (image, video, or audio).
+
+**TwelveLabs Marengo Embed 2.7 (flat structure)**
+
+```
+{
+    "inputType": "`image|video|audio`",
+    "mediaSource": {
+        "s3Location": {
+            "bucketName": "`your-bucket`",
+            "objectKey": "`your-key`"
+        }
+    },
+    "embeddingOption": "`visual-image|audio`"
+}
+```
+
+**TwelveLabs Marengo Embed 3.0 (nested structure)**
+
+```
+{
+    "inputType": "`image|video|audio`",
+    "`image|video|audio`": {
+        "mediaSource": {
+            "s3Location": {
+                "bucketName": "`your-bucket`",
+                "objectKey": "`your-key`"
+            }
+        }
+    },
+    "embeddingOption": "`visual|audio|transcription`"
+}
+```
+
 ###### Topics
 
 - [TwelveLabs Marengo Embed 3.0 request parameters](#model-parameters-marengo-3-async-request "#model-parameters-marengo-3-async-request")

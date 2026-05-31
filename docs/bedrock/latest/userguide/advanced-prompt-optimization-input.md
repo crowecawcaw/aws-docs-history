@@ -61,7 +61,7 @@ In this prompt dataset, you will also choose the evaluation method to steer the 
 | 12  | `evaluationSamples[].referenceResponse`                               | string          | No                                                             | Optional ground-truth reference response. Recommended for best optimization results.                                                                    |
 | 13  | `evaluationSamples[].inputVariablesMultimodal`                        | list of objects | Yes (if not using `inputVariables`)                            | Multimodal file inputs. At least one of `inputVariables` or `inputVariablesMultimodal` must be present per sample.                                      |
 | 14  | `evaluationSamples[].inputVariablesMultimodal[].Arbitrary_Name`       | object          | Yes (if multimodal present)                                    | Name your multimodal variable. This is an arbitrary user-chosen name.                                                                                   |
-| 15  | `evaluationSamples[].inputVariablesMultimodal[].Arbitrary_Name.type`  | string          | Yes (if multimodal present)                                    | "IMAGE" or "PDF". IMAGE accepts png and jpg.                                                                                                            |
+| 15  | `evaluationSamples[].inputVariablesMultimodal[].Arbitrary_Name.type`  | string          | Yes (if multimodal present)                                    | "IMAGE" or "PDF". IMAGE accepts png and jpeg.                                                                                                           |
 | 16  | `evaluationSamples[].inputVariablesMultimodal[].Arbitrary_Name.s3Uri` | string          | Yes (if multimodal present)                                    | S3 URI path to the multimodal file.                                                                                                                     |
 
 ## Required fields
@@ -107,11 +107,21 @@ For the full list of quotas, see [Supported Regions, models, and quotas](advance
 
 **Supported file types:** IMAGE (png, jpg) and PDF.
 
+###### Tip
+
+To use GIF or WebP images and include all frames in the optimization, break the images down into individual frames, convert them to png or jpeg, and include them in sequential order in your evaluation samples.
+
 **How to include:** Use the `inputVariablesMultimodal` array with `Arbitrary_Name` objects containing `type` and `s3Uri`.
 
 **Limits:** Maximum 2 multimodal files per evaluation sample. You can mix and match so that you have up to 20 text variables and also 2 multimodal files per evaluation sample record.
 
 **Mixing text and multimodal:** You can have both `inputVariables` (text) and `inputVariablesMultimodal` in the same sample. Double curly bracket `{{placeholders}}` are reserved for plaintext only. You cannot reference multimodal files via placeholders. Placeholder variables should not be used to point to an S3 location of a multimodal file. If you have multimodal files, they will be sent to the model in the payload along with the text prompt.
+
+## Dataset tips
+
+- **Mix easy and hard examples** — match what you see in the real world. All-easy data won't push the prompt to improve; all-hard data leaves nothing to learn from.
+- **Cover the cases you care about** — the system generalizes beyond what it sees, but a representative data distribution helps it generalize better to real-world inputs.
+- **After prompt optimization, test on data the optimizer hasn't seen with a held-out dataset** — confirms the gains are real and not just memorized.
 
 ## Examples
 
@@ -221,7 +231,7 @@ This is an acceptable input even with no `{{variables}}` because there is a mult
         "customLLMJModelId": "anthropic.claude-sonnet-4-5-20250929-v1:0"
     },
     "evaluationSamples": [
-        {"inputVariablesMultimodal": [{"dogimage": {"type": "IMAGE", "s3Uri": "s3://my-bucket/images/dog-photo.jpg"}}], "referenceResponse": "Yes"},
+        {"inputVariablesMultimodal": [{"dogimage": {"type": "IMAGE", "s3Uri": "s3://my-bucket/images/dog-photo.jpeg"}}], "referenceResponse": "Yes"},
         {"inputVariablesMultimodal": [{"catimage": {"type": "IMAGE", "s3Uri": "s3://my-bucket/images/cat-photo.png"}}], "referenceResponse": "No"}
     ]
 }

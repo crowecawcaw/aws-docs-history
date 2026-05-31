@@ -1,6 +1,6 @@
 # Pegasus v1.2
 
-## TwelveLabs — Pegasus v1.2
+## Icon showing branching arrows representing a merge or split workflow pattern. TwelveLabs — Pegasus v1.2
 
 ## Model Details
 
@@ -12,13 +12,13 @@ Pegasus v1.2 is TwelveLabs' video-to-text generation model that produces detaile
 - **Model lifecycle:** Active
 - **Marketplace product ID:** `prod-635pcy5x5pc2a`
 
-| **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
-| -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
-| Audio                | Embedding             | `Responses`                             | `bedrock-runtime`                                      |
-| Image                | Image                 | `Chat Completions`                      | `bedrock-mantle`                                       |
-| Speech               | Speech                | `Invoke`                                |                                                        |
-| Text                 | Text                  | `Converse`                              |                                                        |
-| Video                | Video                 |                                         |                                                        |
+| **Input Modalities**                                                           | **Output Modalities**                                                             | **[APIs supported](apis.md "apis.md")**                                                    | **[Endpoints supported](endpoints.md "endpoints.md")**                                   |
+| ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| Red circle with white X icon indicating error, cancel, or close action. Audio  | Red circle with white X icon indicating error, cancel, or close action. Embedding | Red circle with white X icon indicating error, cancel, or close action. `Responses`        | Green circle with white checkmark icon. `bedrock-runtime`                                |
+| Red circle with white X icon indicating error, cancel, or close action. Image  | Red circle with white X icon indicating error, cancel, or close action. Image     | Red circle with white X icon indicating error, cancel, or close action. `Chat Completions` | Red circle with white X icon indicating error, cancel, or close action. `bedrock-mantle` |
+| Red circle with white X icon indicating error, cancel, or close action. Speech | Red circle with white X icon indicating error, cancel, or close action. Speech    | Green circle with white checkmark icon. `Invoke`                                           |                                                                                          |
+| Green circle with white checkmark icon. Text                                   | Green circle with white checkmark icon. Text                                      | Red circle with white X icon indicating error, cancel, or close action. `Converse`         |                                                                                          |
+| Green circle with white checkmark icon. Video                                  | Red circle with white X icon indicating error, cancel, or close action. Video     |                                                                                            |                                                                                          |
 
 ## Capabilities and Features
 
@@ -26,9 +26,9 @@ Pegasus v1.2 is TwelveLabs' video-to-text generation model that produces detaile
 
 **Features supported using `bedrock-runtime` endpoint**
 
-| **Supported**                                                                                                                                                                                        | **Not Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| • [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• [Guardrails](guardrails.md "guardrails.md") | • [Intelligent prompt routing](prompt-routing.md "prompt-routing.md")<br>• [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• [Count tokens](count-tokens.md "count-tokens.md")<br>• [Knowledge base](knowledge-base.md "knowledge-base.md")<br>• [Model evaluation](evaluation.md "evaluation.md")<br>• [Prompt management](prompt-management.md "prompt-management.md")<br>• [Flows](flows.md "flows.md")<br>• [Agents](agents.md "agents.md") |
+| **Supported**                                                                                                                                                                                                                                                                        | **Not Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| • Green circle with white checkmark icon. [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• Green circle with white checkmark icon. [Guardrails](guardrails.md "guardrails.md") | • Red circle with white X icon indicating error, cancel, or close action. [Intelligent prompt routing](prompt-routing.md "prompt-routing.md")<br>• Red circle with white X icon indicating error, cancel, or close action. [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• Red circle with white X icon indicating error, cancel, or close action. [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• Red circle with white X icon indicating error, cancel, or close action. [Count tokens](count-tokens.md "count-tokens.md")<br>• Red circle with white X icon indicating error, cancel, or close action. [Knowledge base](knowledge-base.md "knowledge-base.md")<br>• Red circle with white X icon indicating error, cancel, or close action. [Model evaluation](evaluation.md "evaluation.md")<br>• Red circle with white X icon indicating error, cancel, or close action. [Prompt management](prompt-management.md "prompt-management.md")<br>• Red circle with white X icon indicating error, cancel, or close action. [Flows](flows.md "flows.md")<br>• Red circle with white X icon indicating error, cancel, or close action. [Agents](agents.md "agents.md") |
 
 ## Pricing
 
@@ -48,9 +48,9 @@ _For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime end
 
 Amazon Bedrock offers multiple service tiers to match your workload requirements. **Standard** provides pay-per-token access with no commitment. **Priority** offers higher throughput with a time-based commitment. **Flex** provides lower-cost access for flexible, non-time-sensitive workloads. **Reserved** provides dedicated throughput with a term commitment for predictable workloads. For more information, see [service tiers](service-tiers-inference.md "service-tiers-inference.md").
 
-| **Standard** | **Priority** | **Flex** | **Reserved** |
-| ------------ | ------------ | -------- | ------------ |
-|              |              |          |              |
+| **Standard**                            | **Priority**                                                            | **Flex**                                                                | **Reserved**                                                            |
+| --------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
 
 ## Regional Availability
 
@@ -58,40 +58,40 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 Bedrock offers three inference options: **In-Region** keeps requests within a single Region for strict compliance, **Geo Cross-Region** routes across Regions within a geography (US, EU, etc.) for higher throughput while respecting data residency, and **Global Cross-Region** routes anywhere worldwide for maximum throughput when there are no residency constraints. Refer to the [Regional availability](models-region-compatibility.md "models-region-compatibility.md") page for more details.
 
-| **Region**                   | **In-Region** | **Geo** | **Global** |
-| ---------------------------- | ------------- | ------- | ---------- |
-| `us-east-1` (N. Virginia)    |               |         |            |
-| `us-east-2` (Ohio)           |               |         |            |
-| `us-west-1` (N. California)  |               |         |            |
-| `us-west-2` (Oregon)         |               |         |            |
-| `ca-central-1` (Canada)      |               |         |            |
-| `ca-west-1` (Calgary)        |               |         |            |
-| `eu-central-1` (Frankfurt)   |               |         |            |
-| `eu-central-2` (Zurich)      |               |         |            |
-| `eu-north-1` (Stockholm)     |               |         |            |
-| `eu-south-1` (Milan)         |               |         |            |
-| `eu-south-2` (Spain)         |               |         |            |
-| `eu-west-1` (Ireland)        |               |         |            |
-| `eu-west-2` (London)         |               |         |            |
-| `eu-west-3` (Paris)          |               |         |            |
-| `ap-east-2` (Taipei)         |               |         |            |
-| `ap-northeast-1` (Tokyo)     |               |         |            |
-| `ap-northeast-2` (Seoul)     |               |         |            |
-| `ap-northeast-3` (Osaka)     |               |         |            |
-| `ap-south-1` (Mumbai)        |               |         |            |
-| `ap-south-2` (Hyderabad)     |               |         |            |
-| `ap-southeast-1` (Singapore) |               |         |            |
-| `ap-southeast-2` (Sydney)    |               |         |            |
-| `ap-southeast-3` (Jakarta)   |               |         |            |
-| `ap-southeast-4` (Melbourne) |               |         |            |
-| `ap-southeast-5` (Malaysia)  |               |         |            |
-| `ap-southeast-7` (Thailand)  |               |         |            |
-| `il-central-1` (Tel Aviv)    |               |         |            |
-| `me-central-1` (UAE)         |               |         |            |
-| `me-south-1` (Bahrain)       |               |         |            |
-| `af-south-1` (Cape Town)     |               |         |            |
-| `sa-east-1` (São Paulo)      |               |         |            |
-| `mx-central-1` (Mexico)      |               |         |            |
+| **Region**                   | **In-Region**                                                           | **Geo**                                                                 | **Global**                              |
+| ---------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | --------------------------------------- |
+| `us-east-1` (N. Virginia)    | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
+| `us-east-2` (Ohio)           | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
+| `us-west-1` (N. California)  | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
+| `us-west-2` (Oregon)         | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
+| `ca-central-1` (Canada)      | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `ca-west-1` (Calgary)        | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `eu-central-1` (Frankfurt)   | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
+| `eu-central-2` (Zurich)      | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
+| `eu-north-1` (Stockholm)     | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
+| `eu-south-1` (Milan)         | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
+| `eu-south-2` (Spain)         | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
+| `eu-west-1` (Ireland)        | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
+| `eu-west-2` (London)         | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
+| `eu-west-3` (Paris)          | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
+| `ap-east-2` (Taipei)         | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `ap-northeast-1` (Tokyo)     | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `ap-northeast-2` (Seoul)     | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `ap-northeast-3` (Osaka)     | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `ap-south-1` (Mumbai)        | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `ap-south-2` (Hyderabad)     | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `ap-southeast-1` (Singapore) | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `ap-southeast-2` (Sydney)    | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `ap-southeast-3` (Jakarta)   | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `ap-southeast-4` (Melbourne) | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `ap-southeast-5` (Malaysia)  | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `ap-southeast-7` (Thailand)  | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `il-central-1` (Tel Aviv)    | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `me-central-1` (UAE)         | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `me-south-1` (Bahrain)       | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `af-south-1` (Cape Town)     | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `sa-east-1` (São Paulo)      | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `mx-central-1` (Mexico)      | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
 
 **Geo inference details**
 

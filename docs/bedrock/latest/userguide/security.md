@@ -25,4 +25,4 @@ _of_ the cloud and security _in_ the cloud:
 - [Security](security-overview.md "security-overview.md")
 - [Detect and filter harmful content by using Amazon Bedrock Guardrails](guardrails.md "guardrails.md")
 - [Observability](observability.md "observability.md")
-- [Provisioning & Orchestration](provisioning-orchestration.md "provisioning-orchestration.md")
+- [Create Amazon Bedrock resources with AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md")

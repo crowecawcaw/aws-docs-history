@@ -15,13 +15,13 @@ Claude 3 Haiku is Anthropic's fastest and most compact Claude 3 model, optimized
 - **Knowledge cutoff:** Aug 2023
 - **Marketplace product ID:** `prod-ozonys2hmmpeu`
 
-| **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
-| -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
-| Audio                | Embedding             | `Responses`                             | `bedrock-runtime`                                      |
-| Image                | Image                 | `Chat Completions`                      | `bedrock-mantle`                                       |
-| Speech               | Speech                | `Invoke`                                |                                                        |
-| Text                 | Text                  | `Converse`                              |                                                        |
-| Video                | Video                 |                                         |                                                        |
+| **Input Modalities**                                                           | **Output Modalities**                                                             | **[APIs supported](apis.md "apis.md")**                                                    | **[Endpoints supported](endpoints.md "endpoints.md")**                                   |
+| ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| Red circle with white X icon indicating error, cancel, or close action. Audio  | Red circle with white X icon indicating error, cancel, or close action. Embedding | Red circle with white X icon indicating error, cancel, or close action. `Responses`        | Green circle with white checkmark icon. `bedrock-runtime`                                |
+| Green circle with white checkmark icon. Image                                  | Red circle with white X icon indicating error, cancel, or close action. Image     | Red circle with white X icon indicating error, cancel, or close action. `Chat Completions` | Red circle with white X icon indicating error, cancel, or close action. `bedrock-mantle` |
+| Red circle with white X icon indicating error, cancel, or close action. Speech | Red circle with white X icon indicating error, cancel, or close action. Speech    | Green circle with white checkmark icon. `Invoke`                                           |                                                                                          |
+| Green circle with white checkmark icon. Text                                   | Green circle with white checkmark icon. Text                                      | Green circle with white checkmark icon. `Converse`                                         |                                                                                          |
+| Red circle with white X icon indicating error, cancel, or close action. Video  | Red circle with white X icon indicating error, cancel, or close action. Video     |                                                                                            |                                                                                          |
 
 ## Pricing
 
@@ -41,9 +41,9 @@ _For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime end
 
 Amazon Bedrock offers multiple service tiers to match your workload requirements. **Standard** provides pay-per-token access with no commitment. **Priority** offers higher throughput with a time-based commitment. **Flex** provides lower-cost access for flexible, non-time-sensitive workloads. **Reserved** provides dedicated throughput with a term commitment for predictable workloads. For more information, see [service tiers](service-tiers-inference.md "service-tiers-inference.md").
 
-| **Standard** | **Priority** | **Flex** | **Reserved** |
-| ------------ | ------------ | -------- | ------------ |
-|              |              |          |              |
+| **Standard**                            | **Priority**                                                            | **Flex**                                                                | **Reserved**                                                            |
+| --------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
 
 ## Regional Availability
 
@@ -51,25 +51,25 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 Bedrock offers three inference options: **In-Region** keeps requests within a single Region for strict compliance, **Geo Cross-Region** routes across Regions within a geography (US, EU, etc.) for higher throughput while respecting data residency, and **Global Cross-Region** routes anywhere worldwide for maximum throughput when there are no residency constraints. Refer to the [Regional availability](models-region-compatibility.md "models-region-compatibility.md") page for more details.
 
-| **Region**                   | **In-Region** | **Geo** | **Global** |
-| ---------------------------- | ------------- | ------- | ---------- |
-| `us-east-1` (N. Virginia)    |               |         |            |
-| `us-east-2` (Ohio)           |               |         |            |
-| `us-west-2` (Oregon)         |               |         |            |
-| `us-gov-east-1` (GovCloud)   |               |         |            |
-| `us-gov-west-1` (GovCloud)   |               |         |            |
-| `ca-central-1` (Canada)      |               |         |            |
-| `eu-central-1` (Frankfurt)   |               |         |            |
-| `eu-central-2` (Zurich)      |               |         |            |
-| `eu-west-1` (Ireland)        |               |         |            |
-| `eu-west-2` (London)         |               |         |            |
-| `eu-west-3` (Paris)          |               |         |            |
-| `ap-northeast-1` (Tokyo)     |               |         |            |
-| `ap-northeast-2` (Seoul)     |               |         |            |
-| `ap-south-1` (Mumbai)        |               |         |            |
-| `ap-southeast-1` (Singapore) |               |         |            |
-| `ap-southeast-2` (Sydney)    |               |         |            |
-| `sa-east-1` (São Paulo)      |               |         |            |
+| **Region**                   | **In-Region**                                                           | **Geo**                                                                 | **Global**                                                              |
+| ---------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `us-east-1` (N. Virginia)    | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. |
+| `us-east-2` (Ohio)           | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. |
+| `us-west-2` (Oregon)         | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. |
+| `us-gov-east-1` (GovCloud)   | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. |
+| `us-gov-west-1` (GovCloud)   | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
+| `ca-central-1` (Canada)      | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
+| `eu-central-1` (Frankfurt)   | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. |
+| `eu-central-2` (Zurich)      | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
+| `eu-west-1` (Ireland)        | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. |
+| `eu-west-2` (London)         | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
+| `eu-west-3` (Paris)          | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. |
+| `ap-northeast-1` (Tokyo)     | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
+| `ap-northeast-2` (Seoul)     | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
+| `ap-south-1` (Mumbai)        | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
+| `ap-southeast-1` (Singapore) | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
+| `ap-southeast-2` (Sydney)    | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
+| `sa-east-1` (São Paulo)      | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
 
 **Geo inference details**
 

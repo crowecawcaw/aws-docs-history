@@ -6,13 +6,8 @@ Claude Messages API.
 ###### Topics
 
 - [Anthropic Claude Messages API overview](#model-parameters-anthropic-claude-messages-overview "#model-parameters-anthropic-claude-messages-overview")
-- [Tool use](model-parameters-anthropic-claude-messages-tool-use.md "model-parameters-anthropic-claude-messages-tool-use.md")
-- [Extended thinking](claude-messages-extended-thinking.md "claude-messages-extended-thinking.md")
-- [Adaptive thinking](claude-messages-adaptive-thinking.md "claude-messages-adaptive-thinking.md")
 - [Thinking encryption](claude-messages-thinking-encryption.md "claude-messages-thinking-encryption.md")
 - [Differences in thinking across model versions](claude-messages-thinking-differences.md "claude-messages-thinking-differences.md")
-- [Compaction](claude-messages-compaction.md "claude-messages-compaction.md")
-- [Get validated JSON results from models](claude-messages-structured-outputs.md "claude-messages-structured-outputs.md")
 - [Request and Response](model-parameters-anthropic-claude-messages-request-response.md "model-parameters-anthropic-claude-messages-request-response.md")
 - [Code examples](api-inference-examples-claude-messages-code-examples.md "api-inference-examples-claude-messages-code-examples.md")
 - [Supported models](claude-messages-supported-models.md "claude-messages-supported-models.md")

@@ -2,4 +2,4 @@
 
 ###### Important
 
-This page has moved. [Click here to read more about the Messages API](inference-messages-api.md "inference-messages-api.md").
+This page has moved. For more information, see [Messages API](inference-messages-api.md "inference-messages-api.md").

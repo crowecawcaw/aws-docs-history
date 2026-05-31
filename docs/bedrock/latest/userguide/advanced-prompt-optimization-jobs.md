@@ -2,11 +2,20 @@
 
 ## Create a job (console)
 
+###### To create a job using the console
+
 1. Give your advanced prompt optimization job a name.
-2. Select your target models (up to 5 per job). If you are using this tool to help you migrate to a new model, best practice is to select your current model as a baseline and up to 4 other models you are interested in migrating to. If you are not changing models, just select your current model.
-3. Upload your JSONL input file from S3 or from your computer. Make sure you follow the [Prepare your input dataset](advanced-prompt-optimization-input.md "advanced-prompt-optimization-input.md").
-4. For each prompt template, select your evaluation method. You can choose between steering criteria, LLM-as-a-judge, Lambda function, or leave blank for the system default.
-5. Select your output location in S3 for your raw results to be saved after the job.
+2. Select your target models (up to 5 per job). If you are migrating to a new
+   model, select your current model as a baseline. Then select up to 4 other models
+   you want to migrate to. If you are not changing models, just select your current
+   model.
+3. Upload your JSONL input file from Amazon S3 or from your computer. Make sure you
+   follow the [Prepare your input dataset](advanced-prompt-optimization-input.md "advanced-prompt-optimization-input.md").
+4. For each prompt template, select your evaluation method. You can choose
+   between steering criteria, LLM-as-a-judge, Lambda function, or leave blank for
+   the system default.
+5. Select your output location in S3 for your raw results to be saved after the
+   job.
 6. (Optional) Add a job description or a custom KMS key for encryption.
 7. Create the optimization.
 
@@ -16,7 +25,8 @@ If you move the results files away from the output S3 location after the job is 
 
 ## Create a job (Python SDK)
 
-Replace the region, S3 bucket location, model ID, and other fields as necessary for your use case.
+Replace the Region, S3 bucket location, model ID, and other fields as necessary for
+your use case.
 
 ```
 import boto3
@@ -43,7 +53,8 @@ print(f'Job created: {job_arn}')
 
 ## Create a job (AWS CLI)
 
-Replace the region, S3 bucket location, model ID, and other fields as necessary for your use case.
+Replace the Region, S3 bucket location, model ID, and other fields as necessary for
+your use case.
 
 ```
 JOB_ARN=$(aws bedrock create-advanced-prompt-optimization-job \

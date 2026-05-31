@@ -50,6 +50,7 @@ We will now look at the list of APIs supported by each model.
 | **[Claude Opus 4.5](model-card-anthropic-claude-opus-4-5.md "model-card-anthropic-claude-opus-4-5.md")\***                 |        |          |                  |           |          |
 | **[Claude Opus 4.6](model-card-anthropic-claude-opus-4-6.md "model-card-anthropic-claude-opus-4-6.md")\***                 |        |          |                  |           |          |
 | **[Claude Opus 4.7](model-card-anthropic-claude-opus-4-7.md "model-card-anthropic-claude-opus-4-7.md")\***                 |        |          |                  |           |          |
+| **[Claude Opus 4.8](model-card-anthropic-claude-opus-4-8.md "model-card-anthropic-claude-opus-4-8.md")\***                 |        |          |                  |           |          |
 | **[Claude Sonnet 4](model-card-anthropic-claude-sonnet-4.md "model-card-anthropic-claude-sonnet-4.md")\***                 |        |          |                  |           |          |
 | **[Claude Sonnet 4.5](model-card-anthropic-claude-sonnet-4-5.md "model-card-anthropic-claude-sonnet-4-5.md")\***           |        |          |                  |           |          |
 | **[Claude Sonnet 4.6](model-card-anthropic-claude-sonnet-4-6.md "model-card-anthropic-claude-sonnet-4-6.md")\***           |        |          |                  |           |          |

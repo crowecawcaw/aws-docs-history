@@ -22,14 +22,20 @@ Tags help you to do the following:
 
 ###### Topics
 
-- [Use the console](#tagging-console "#tagging-console")
-- [Use the API](#tagging-api "#tagging-api")
+- [Tag resources on the bedrock-runtime endpoint](#tagging-runtime "#tagging-runtime")
+- [Tag resources on the bedrock-mantle endpoint](#tagging-mantle "#tagging-mantle")
 
-## Use the console
+## Tag resources on the `bedrock-runtime` endpoint
+
+Resources created through the `bedrock-runtime` control plane (such as
+agents, knowledge bases, custom models, provisioned throughput, and flows) are tagged
+using dedicated tagging API operations.
+
+### Use the console
 
 You can add, modify, and remove tags at any time while creating or editing a supported resource.
 
-## Use the API
+### Use the API
 
 To carry out tagging operations, you need the Amazon Resource Name (ARN) of the resource on which you want to carry out a tagging operation. There are two sets of tagging operations, depending on the resource for which you are adding or managing tags.
 
@@ -107,4 +113,67 @@ List the tags for the agent.
 
 ```
 bedrock.list_tags_for_resource(resourceArn='arn:aws:bedrock:us-east-1:123456789012:agent/AGENT12345')
+```
+
+## Tag resources on the `bedrock-mantle` endpoint
+
+The `bedrock-mantle` endpoint supports tagging projects, customized models,
+and reservations. Unlike the `bedrock-runtime` control plane,
+`bedrock-mantle` does not expose dedicated `TagResource`,
+`UntagResource`, or `ListTagsForResource` API operations. Instead,
+you set and read tags inline through the resource APIs.
+
+### Setting tags
+
+| Action                                    | API call                                      | Tag fields                            |
+| ----------------------------------------- | --------------------------------------------- | ------------------------------------- |
+| Create a project with tags                | `POST /v1/organization/projects`              | `tags`                                |
+| Add or remove tags on an existing project | `POST /v1/organization/projects/{project_id}` | `add_tags`, `remove_tag_keys`, `tags` |
+| Create a customized model with tags       | Customized-model create endpoint              | `tags`                                |
+| Update tags on a customized model         | Customized-model update endpoint              | `add_tags`, `remove_tag_keys`         |
+| Create a reservation with tags            | Reservation create endpoint                   | `tags`                                |
+| Update tags on a reservation              | Reservation update endpoint                   | `add_tags`, `remove_tag_keys`         |
+
+Tags are returned inline on Get and List responses for these resources.
+
+### IAM actions
+
+Although there are no dedicated tagging endpoints, the following IAM actions are
+evaluated when you set, change, or read tags on `bedrock-mantle`
+resources. You can write IAM policies using these action names and the
+`aws:RequestTag`, `aws:TagKeys`, and
+`aws:ResourceTag` condition keys to control tag-based access.
+
+- `bedrock-mantle:TagResource`
+- `bedrock-mantle:UntagResource`
+- `bedrock-mantle:ListTagsForResource`
+
+### Example
+
+The following example creates a project with two tags using `curl`:
+
+```
+curl -X POST https://bedrock-mantle.us-east-1.api.aws/v1/organization/projects \
+    -H "Authorization: Bearer $BEDROCK_API_KEY" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "name": "billing-experiments",
+      "tags": {
+        "department": "billing",
+        "facing": "internal"
+      }
+    }'
+```
+
+The following example adds one tag and removes another from an existing
+project:
+
+```
+curl -X POST https://bedrock-mantle.us-east-1.api.aws/v1/organization/projects/proj_abc123 \
+    -H "Authorization: Bearer $BEDROCK_API_KEY" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "add_tags": { "owner": "alice" },
+      "remove_tag_keys": ["facing"]
+    }'
 ```

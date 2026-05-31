@@ -1,6 +1,6 @@
 # Claude 3.5 Haiku
 
-## Anthropic — Claude 3.5 Haiku
+## Orange rounded square icon with white radial loading or progress indicator symbol. Anthropic — Claude 3.5 Haiku
 
 ## Model Details
 
@@ -15,13 +15,13 @@ Claude 3.5 Haiku is Anthropic's next-generation fast model with improved coding 
 - **Knowledge cutoff:** Jul 2024
 - **Marketplace product ID:** `prod-5oba7y7jpji56`
 
-| **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
-| -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
-| Audio                | Embedding             | `Responses`                             | `bedrock-runtime`                                      |
-| Image                | Image                 | `Chat Completions`                      | `bedrock-mantle`                                       |
-| Speech               | Speech                | `Invoke`                                |                                                        |
-| Text                 | Text                  | `Converse`                              |                                                        |
-| Video                | Video                 |                                         |                                                        |
+| **Input Modalities**                                                           | **Output Modalities**                                                             | **[APIs supported](apis.md "apis.md")**                                                    | **[Endpoints supported](endpoints.md "endpoints.md")**                                   |
+| ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| Red circle with white X icon indicating error, cancel, or close action. Audio  | Red circle with white X icon indicating error, cancel, or close action. Embedding | Red circle with white X icon indicating error, cancel, or close action. `Responses`        | Green circle with white checkmark icon. `bedrock-runtime`                                |
+| Red circle with white X icon indicating error, cancel, or close action. Image  | Red circle with white X icon indicating error, cancel, or close action. Image     | Red circle with white X icon indicating error, cancel, or close action. `Chat Completions` | Red circle with white X icon indicating error, cancel, or close action. `bedrock-mantle` |
+| Red circle with white X icon indicating error, cancel, or close action. Speech | Red circle with white X icon indicating error, cancel, or close action. Speech    | Green circle with white checkmark icon. `Invoke`                                           |                                                                                          |
+| Green circle with white checkmark icon. Text                                   | Green circle with white checkmark icon. Text                                      | Green circle with white checkmark icon. `Converse`                                         |                                                                                          |
+| Red circle with white X icon indicating error, cancel, or close action. Video  | Red circle with white X icon indicating error, cancel, or close action. Video     |                                                                                            |                                                                                          |
 
 **Prompt caching using `bedrock-runtime` endpoint**
 
@@ -49,9 +49,9 @@ _For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime end
 
 Amazon Bedrock offers multiple service tiers to match your workload requirements. **Standard** provides pay-per-token access with no commitment. **Priority** offers higher throughput with a time-based commitment. **Flex** provides lower-cost access for flexible, non-time-sensitive workloads. **Reserved** provides dedicated throughput with a term commitment for predictable workloads. For more information, see [service tiers](service-tiers-inference.md "service-tiers-inference.md").
 
-| **Standard** | **Priority** | **Flex** | **Reserved** |
-| ------------ | ------------ | -------- | ------------ |
-|              |              |          |              |
+| **Standard**                            | **Priority**                                                            | **Flex**                                                                | **Reserved**                                                            |
+| --------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
 
 ## Regional Availability
 
@@ -59,11 +59,11 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 Bedrock offers three inference options: **In-Region** keeps requests within a single Region for strict compliance, **Geo Cross-Region** routes across Regions within a geography (US, EU, etc.) for higher throughput while respecting data residency, and **Global Cross-Region** routes anywhere worldwide for maximum throughput when there are no residency constraints. Refer to the [Regional availability](models-region-compatibility.md "models-region-compatibility.md") page for more details.
 
-| **Region**                | **In-Region** | **Geo** | **Global** |
-| ------------------------- | ------------- | ------- | ---------- |
-| `us-east-1` (N. Virginia) |               |         |            |
-| `us-east-2` (Ohio)        |               |         |            |
-| `us-west-2` (Oregon)      |               |         |            |
+| **Region**                | **In-Region**                                                           | **Geo**                                 | **Global**                                                              |
+| ------------------------- | ----------------------------------------------------------------------- | --------------------------------------- | ----------------------------------------------------------------------- |
+| `us-east-1` (N. Virginia) | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. |
+| `us-east-2` (Ohio)        | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. |
+| `us-west-2` (Oregon)      | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. |
 
 **Geo inference details**
 

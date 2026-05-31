@@ -8,7 +8,7 @@ Advanced Prompt Optimization is available in the following AWS Regions:
 - US East (Ohio) (us-east-2)
 - US West (Oregon) (us-west-2)
 - Canada (Central) (ca-central-1)
-- South America (Sao Paulo) (sa-east-1)
+- South America (São Paulo) (sa-east-1)
 - Europe (Ireland) (eu-west-1)
 - Europe (London) (eu-west-2)
 - Europe (Frankfurt) (eu-central-1)

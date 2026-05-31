@@ -4,7 +4,8 @@
 
 When you submit an Advanced Prompt Optimization job, Amazon Bedrock accesses resources in your
 account on your behalf using the permissions of your calling identity. The IAM user or
-role that you use to call the API or access AWS console must have permissions to:
+role that you use to call the API or access AWS console must have permissions
+to:
 
 - Manage Advanced Prompt Optimization jobs
 - Invoke the target foundation models
@@ -16,7 +17,8 @@ role that you use to call the API or access AWS console must have permissions to
 
 ### API permissions
 
-Each Advanced Prompt Optimization API requires a specific IAM action on the job resource:
+Each Advanced Prompt Optimization API requires a specific IAM action on the job
+resource:
 
 | API Operation                              | IAM Action                                          | Resource                                                                   | Access Level |
 | ------------------------------------------ | --------------------------------------------------- | -------------------------------------------------------------------------- | ------------ |
@@ -29,8 +31,8 @@ Each Advanced Prompt Optimization API requires a specific IAM action on the job 
 ### Model invocation permissions
 
 When you create a job, Advanced Prompt Optimization invokes the target model(s) on
-your behalf using your caller credentials (Forward Access Session). Your IAM identity
-must have permission to invoke the specified models:
+your behalf using your caller credentials (Forward Access Session). Your IAM
+identity must have permission to invoke the specified models:
 
 | Inference Path                 | IAM Action Required                     | Resource ARN                                                    |
 | ------------------------------ | --------------------------------------- | --------------------------------------------------------------- |
@@ -40,11 +42,11 @@ must have permission to invoke the specified models:
 
 ###### Important
 
-If model access is not enabled for a model in your account, the job will fail
-with: "No inference API is accessible for model. Verify that the role has
-permission to invoke the model."
+If model access is not enabled for a model in your account, the job fails. The
+error message is: "No inference API is accessible for model. Verify that the
+role has permission to invoke the model."
 
-### S3 bucket permissions
+### Amazon S3 bucket permissions
 
 Your calling identity must have read access to the input dataset and write access
 to the output location. The S3 bucket must be in the same Region as the job.
@@ -72,11 +74,13 @@ If your S3 bucket uses CMK encryption, see the Encryption with AWS KMS section f
 You can use AWS KMS customer-managed keys (CMKs) with Advanced Prompt Optimization in two ways:
 
 - **Job output encryption** – Encrypt optimization results with your CMK by specifying the `encryptionConfig` parameter when you create a job.
-- **S3 bucket encryption** – If your S3 bucket uses server-side encryption with a KMS key (SSE-KMS), your identity needs KMS permissions to read input from and write results to that bucket.
+- **S3 bucket encryption** – If your S3 bucket uses
+  server-side encryption with a KMS key (SSE-KMS), your identity needs AWS KMS
+  permissions to read input from and write results to that bucket.
 
 You can use the same KMS key for both, or use separate keys.
 
-The required KMS actions depend on how you use KMS:
+The required AWS KMS actions depend on how you use AWS KMS:
 
 | Use case                                | Required actions                                        |
 | --------------------------------------- | ------------------------------------------------------- |
@@ -103,7 +107,8 @@ If you use the same key for both output encryption and S3 bucket encryption:
 
 #### Separate KMS keys for S3 input and job output encryption
 
-If your S3 input bucket uses one KMS key and you want to encrypt job output with a different KMS key:
+If your S3 input bucket uses one KMS key and you want to encrypt job output
+with a different KMS key:
 
 ```
 {
@@ -142,7 +147,8 @@ If you use a custom Lambda function to evaluate prompt quality, your calling ide
 
 ### Identity-based policy: Allow AdvPO job management and model invocation
 
-Attach this policy to the IAM user or role that will create and manage AdvPO jobs.
+Attach this policy to the IAM user or role that will create and manage AdvPO
+jobs.
 
 ```
 {

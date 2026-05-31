@@ -89,9 +89,9 @@ response = client.invoke_model(
 
 Bedrock supports [100+ foundation models](models.md "models.md") from industry-leading providers, including Amazon, Anthropic, DeepSeek, Moonshot AI, MiniMax, and OpenAI.
 
-|                 |                                                                                    |              |          |             |            |
-| --------------- | ---------------------------------------------------------------------------------- | ------------ | -------- | ----------- | ---------- |
-| **Amazon Nova** | Orange rounded square icon with white radial loading spinner design.<br>**Claude** | **DeepSeek** | **Kimi** | **MiniMax** | **OpenAI** |
+|                                                                               |                                                                                    |              |                                                                                    |                                                                        |            |
+| ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------ | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------- |
+| Amazon logo with curved arrow from A to Z forming a smile.<br>**Amazon Nova** | Orange rounded square icon with white radial loading spinner design.<br>**Claude** | **DeepSeek** | Spherical icon with horizontal stripes or segments across its surface.<br>**Kimi** | Red waveform icon representing audio or voice activity.<br>**MiniMax** | **OpenAI** |
 
 ## What's new?
 

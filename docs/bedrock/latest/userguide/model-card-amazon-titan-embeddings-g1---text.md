@@ -1,6 +1,6 @@
 # Titan Embeddings G1 - Text
 
-## Amazon — Titan Embeddings G1 - Text
+## Amazon logo with curved arrow from A to Z forming a smile. Amazon — Titan Embeddings G1 - Text
 
 ## Model Details
 
@@ -12,13 +12,13 @@ Titan Text Embeddings G1 is Amazon's text embeddings model that converts text in
 - **Model lifecycle:** Active
 - **Context window:** 8K tokens
 
-| **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
-| -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
-| Audio                | Embedding             | `Responses`                             | `bedrock-runtime`                                      |
-| Image                | Image                 | `Chat Completions`                      | `bedrock-mantle`                                       |
-| Speech               | Speech                | `Invoke`                                |                                                        |
-| Text                 | Text                  | `Converse`                              |                                                        |
-| Video                | Video                 |                                         |                                                        |
+| **Input Modalities**                                                           | **Output Modalities**                                                          | **[APIs supported](apis.md "apis.md")**                                                    | **[Endpoints supported](endpoints.md "endpoints.md")**                                   |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| Red circle with white X icon indicating error, cancel, or close action. Audio  | Green circle with white checkmark icon. Embedding                              | Red circle with white X icon indicating error, cancel, or close action. `Responses`        | Green circle with white checkmark icon. `bedrock-runtime`                                |
+| Red circle with white X icon indicating error, cancel, or close action. Image  | Red circle with white X icon indicating error, cancel, or close action. Image  | Red circle with white X icon indicating error, cancel, or close action. `Chat Completions` | Red circle with white X icon indicating error, cancel, or close action. `bedrock-mantle` |
+| Red circle with white X icon indicating error, cancel, or close action. Speech | Red circle with white X icon indicating error, cancel, or close action. Speech | Green circle with white checkmark icon. `Invoke`                                           |                                                                                          |
+| Green circle with white checkmark icon. Text                                   | Red circle with white X icon indicating error, cancel, or close action. Text   | Red circle with white X icon indicating error, cancel, or close action. `Converse`         |                                                                                          |
+| Red circle with white X icon indicating error, cancel, or close action. Video  | Red circle with white X icon indicating error, cancel, or close action. Video  |                                                                                            |                                                                                          |
 
 ## Pricing
 
@@ -38,9 +38,9 @@ _For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime end
 
 Amazon Bedrock offers multiple service tiers to match your workload requirements. **Standard** provides pay-per-token access with no commitment. **Priority** offers higher throughput with a time-based commitment. **Flex** provides lower-cost access for flexible, non-time-sensitive workloads. **Reserved** provides dedicated throughput with a term commitment for predictable workloads. For more information, see [service tiers](service-tiers-inference.md "service-tiers-inference.md").
 
-| **Standard** | **Priority** | **Flex** | **Reserved** |
-| ------------ | ------------ | -------- | ------------ |
-|              |              |          |              |
+| **Standard**                            | **Priority**                                                            | **Flex**                                                                | **Reserved**                                                            |
+| --------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
 
 ## Regional Availability
 
@@ -48,12 +48,12 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 Bedrock offers three inference options: **In-Region** keeps requests within a single Region for strict compliance, **Geo Cross-Region** routes across Regions within a geography (US, EU, etc.) for higher throughput while respecting data residency, and **Global Cross-Region** routes anywhere worldwide for maximum throughput when there are no residency constraints. Refer to the [Regional availability](models-region-compatibility.md "models-region-compatibility.md") page for more details.
 
-| **Region**                 | **In-Region** | **Geo** | **Global** |
-| -------------------------- | ------------- | ------- | ---------- |
-| `us-east-1` (N. Virginia)  |               |         |            |
-| `us-west-2` (Oregon)       |               |         |            |
-| `eu-central-1` (Frankfurt) |               |         |            |
-| `ap-northeast-1` (Tokyo)   |               |         |            |
+| **Region**                 | **In-Region**                           | **Geo**                                                                 | **Global**                                                              |
+| -------------------------- | --------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `us-east-1` (N. Virginia)  | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
+| `us-west-2` (Oregon)       | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
+| `eu-central-1` (Frankfurt) | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
+| `ap-northeast-1` (Tokyo)   | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
 
 ## Quotas and Limits
 

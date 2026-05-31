@@ -134,6 +134,9 @@ JSON
  ],
  "Resource": "arn:aws:bedrock:us-east-1:`111122223333`:guardrail/guardrail-id",
  "Condition": {
+ "StringEquals": {
+ "aws:PrincipalOrgID": "org-id"
+ },
  "ForAnyValue:StringLike": {
  "aws:PrincipalOrgPaths": [
  "org-id/*/org-unit-id/*"
@@ -160,6 +163,9 @@ JSON
  ],
  "Resource": "arn:aws:bedrock:us-east-1:`111122223333`:guardrail-profile/profile-id",
  "Condition": {
+ "StringEquals": {
+ "aws:PrincipalOrgID": "org-id"
+ },
  "ForAnyValue:StringLike": {
  "aws:PrincipalOrgPaths": [
  "org-id/*/org-unit-id/*"

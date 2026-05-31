@@ -33,7 +33,7 @@ The OpenAI models support the following features:
 
 ## OpenAI request body
 
-For information about the parameters in the request body and their descriptions, see [Create chat completion](https://platform.openai.com/docs/api-reference/chat/create "https://platform.openai.com/docs/api-reference/chat/create") in the OpenAI documentation.
+For information about the parameters in the request body and their descriptions, see [Create chat completion](https://developers.openai.com/api/reference/chat-completions/overview "https://developers.openai.com/api/reference/chat-completions/overview") in the OpenAI documentation.
 
 Use the request body fields in the following ways:
 
@@ -501,7 +501,7 @@ System.out.println(chatCompletion);
 
 [Batch inference](batch-inference.md "batch-inference.md") lets you run model inference asynchronously with multiple prompts. To run batch inference with an OpenAI model, you do the following:
 
-1. Create a JSONL file and populate it with at least the minimum number of JSON objects, each separated by a new line. Each `modelInput` object must conform to the format of the [OpenAI create chat completion](https://platform.openai.com/docs/api-reference/chat/create "https://platform.openai.com/docs/api-reference/chat/create") request body. The following shows an example of the first two lines of a JSONL file containing request bodies for OpenAI.
+1. Create a JSONL file and populate it with at least the minimum number of JSON objects, each separated by a new line. Each `modelInput` object must conform to the format of the [OpenAI create chat completion](https://developers.openai.com/api/reference/chat-completions/overview "https://developers.openai.com/api/reference/chat-completions/overview") request body. The following shows an example of the first two lines of a JSONL file containing request bodies for OpenAI.
 
 ```
 {

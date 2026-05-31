@@ -1,6 +1,7 @@
 # API keys reference
 
-You can easily make calls to the Amazon Bedrock API by generating an Amazon Bedrock API key and using it to authenticate your identity when making requests to the Amazon Bedrock API.
+Generate an Amazon Bedrock API key to call the Amazon Bedrock API. The key authenticates your identity when
+you make requests.
 
 ###### Note
 
@@ -27,7 +28,12 @@ Short term keys have the following properties:
     + Inherit the permissions attached to the principal used to generate the key.
     + Can be used only in the AWS Region from which you generated it.
 
-- **Long-term** – Create an Amazon Bedrock API key with permissions to make basic API requests in Amazon Bedrock. This easy one-click option lets you quickly begin exploring the Amazon Bedrock API without needing to understand the underlying security infrastructure or manually configuring AWS Identity and Access Management permissions. If you're trying out Amazon Bedrock for the first time, you can try out the example at [Get started with Amazon Bedrock API keys: Generate a 30-day key and make your first API call](getting-started-api-keys.md "getting-started-api-keys.md") for an easy tutorial to create a long-term key and get started using Amazon Bedrock.
+- **Long-term** – Create an Amazon Bedrock API key with
+  permissions to make basic API requests in Amazon Bedrock. This easy one-click option lets you
+  quickly begin exploring the Amazon Bedrock API without needing to understand the underlying
+  security infrastructure or manually configuring AWS Identity and Access Management permissions. If you're
+  trying out Amazon Bedrock for the first time, see [Get started with Amazon Bedrock API keys: Generate a 30-day key and make your first API call](getting-started-api-keys.md "getting-started-api-keys.md"). This tutorial walks you through
+  creating a long-term key and get started using Amazon Bedrock.
 
 ###### Warning
 

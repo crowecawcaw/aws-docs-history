@@ -30,6 +30,7 @@ Key benefits include:
   streaming and non-streaming responses
 - **Easy migration** – Compatible with existing
   OpenAI SDK codebases
+  Inference traffic to the `bedrock-mantle` endpoint is governed by a separate set of quotas from the `bedrock-runtime` endpoint. For details on input and output token quotas and how to request increases, see [Quotas for the bedrock-mantle endpoint](quotas-mantle.md "quotas-mantle.md").
 
 ## Supported Regions and Endpoints
 

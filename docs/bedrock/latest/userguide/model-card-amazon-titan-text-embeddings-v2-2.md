@@ -1,6 +1,6 @@
 # Titan Embeddings G1 - Text v2
 
-## Amazon — Titan Embeddings G1 - Text v2
+## Amazon logo with curved arrow from A to Z forming a smile. Amazon — Titan Embeddings G1 - Text v2
 
 ## Model Details
 
@@ -11,13 +11,13 @@ Model description coming soon.
 - **Model lifecycle:** Active
 - **Context window:** 8K tokens
 
-| **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
-| -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
-| Audio                | Embedding             | `Responses`                             | `bedrock-runtime`                                      |
-| Image                | Image                 | `Chat Completions`                      | `bedrock-mantle`                                       |
-| Speech               | Speech                | `Invoke`                                |                                                        |
-| Text                 | Text                  | `Converse`                              |                                                        |
-| Video                | Video                 |                                         |                                                        |
+| **Input Modalities**                                                           | **Output Modalities**                                                          | **[APIs supported](apis.md "apis.md")**                                                    | **[Endpoints supported](endpoints.md "endpoints.md")**                                   |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| Red circle with white X icon indicating error, cancel, or close action. Audio  | Embedding                                                                      | Red circle with white X icon indicating error, cancel, or close action. `Responses`        | `bedrock-runtime`                                                                        |
+| Red circle with white X icon indicating error, cancel, or close action. Image  | Red circle with white X icon indicating error, cancel, or close action. Image  | Red circle with white X icon indicating error, cancel, or close action. `Chat Completions` | Red circle with white X icon indicating error, cancel, or close action. `bedrock-mantle` |
+| Red circle with white X icon indicating error, cancel, or close action. Speech | Red circle with white X icon indicating error, cancel, or close action. Speech | Red circle with white X icon indicating error, cancel, or close action. `Invoke`           |                                                                                          |
+| Text                                                                           | Red circle with white X icon indicating error, cancel, or close action. Text   | Red circle with white X icon indicating error, cancel, or close action. `Converse`         |                                                                                          |
+| Red circle with white X icon indicating error, cancel, or close action. Video  | Red circle with white X icon indicating error, cancel, or close action. Video  |                                                                                            |                                                                                          |
 
 ## Pricing
 
@@ -39,10 +39,10 @@ _For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime end
 
 Bedrock offers three inference options: **In-Region** keeps requests within a single Region for strict compliance, **Geo Cross-Region** routes across Regions within a geography (US, EU, etc.) for higher throughput while respecting data residency, and **Global Cross-Region** routes anywhere worldwide for maximum throughput when there are no residency constraints. Refer to the [Regional availability](models-region-compatibility.md "models-region-compatibility.md") page for more details.
 
-| **Region**                | **In-Region** | **Geo** | **Global** |
-| ------------------------- | ------------- | ------- | ---------- |
-| `us-east-1` (N. Virginia) |               |         |            |
-| `us-west-2` (Oregon)      |               |         |            |
+| **Region**                | **In-Region** | **Geo**                                                                 | **Global**                                                              |
+| ------------------------- | ------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `us-east-1` (N. Virginia) |               | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
+| `us-west-2` (Oregon)      |               | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
 
 ## Quotas and Limits
 

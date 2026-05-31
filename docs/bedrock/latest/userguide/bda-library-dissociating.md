@@ -17,4 +17,4 @@ aws bedrock-data-automation update-data-automation-project \
 3. Choose the desired project
 4. Choose "Dissociate project"
 
-![](images/bda/library-dissociate-console.png)
+![Associated projects table showing one project named custom-vocab-project with its ID, ARN, and modification date.](images/bda/library-dissociate-console.png)

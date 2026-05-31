@@ -75,7 +75,7 @@ result = json.loads(response["body"].read())
 print(result["content"][0]["text"])
 ```
 
-bedrock-runtime (curl)
+bedrock-runtime (AWS CLI)
 Use the AWS CLI to invoke the model:
 
 ```
@@ -91,6 +91,34 @@ aws bedrock-runtime invoke-model \
   --cli-binary-format raw-in-base64-out \
   output.json
 ```
+
+bedrock-runtime (curl)
+You can call `bedrock-runtime` directly with curl by signing
+the request with AWS SigV4. The example below uses curl's built-in
+`--aws-sigv4` flag (available in curl 7.75.0 and later):
+
+```
+curl -X POST \
+  "https://bedrock-runtime.us-east-1.amazonaws.com/model/anthropic.claude-sonnet-4-6-v1/invoke" \
+  -H "Content-Type: application/json" \
+  --aws-sigv4 "aws:amz:us-east-1:bedrock" \
+  --user "$AWS_ACCESS_KEY_ID:$AWS_SECRET_ACCESS_KEY" \
+  -d '{
+    "anthropic_version": "bedrock-2023-05-31",
+    "max_tokens": 1024,
+    "messages": [
+        {"role": "user", "content": "Explain quantum computing in one sentence."}
+    ]
+  }'
+```
+
+###### Note
+
+If you are using temporary credentials from AWS STS (for example,
+an assumed role), also pass the session token by adding
+`-H "X-Amz-Security-Token: $AWS_SESSION_TOKEN"` to the
+request. For most use cases we recommend the AWS SDKs or CLI, which
+handle request signing and credential refresh automatically.
 
 ## Stream responses
 
@@ -140,14 +168,22 @@ for event in response["body"]:
 
 ## Supported features
 
-The Messages API supports the following advanced features with Claude models:
+In addition to the [Extended
+thinking](claude-messages-extended-thinking.md "claude-messages-extended-thinking.md"), [Adaptive
+thinking](claude-messages-adaptive-thinking.md "claude-messages-adaptive-thinking.md"), [Structured
+outputs](claude-messages-structured-outputs.md "claude-messages-structured-outputs.md"), [Compaction](claude-messages-compaction.md "claude-messages-compaction.md"), and
+[Mid-conversation system
+messages](claude-messages-mid-conversation-system.md "claude-messages-mid-conversation-system.md") sections above, the Messages API supports the following features with
+Claude models:
 
 - **System prompts** – Set model behavior with a `system` parameter.
 - **Multi-turn conversations** – Pass alternating `user` and `assistant` messages.
 - **Tool use** – Define tools the model can call. See [Use a tool to complete an Amazon Bedrock model response](tool-use.md "tool-use.md").
 - **Vision** – Send images in the `content` array alongside text.
-- **Extended thinking** – Enable chain-of-thought reasoning. See [Enhance model responses with model reasoning](inference-reasoning.md "inference-reasoning.md").
 - **Prompt caching** – Cache frequently used context to reduce latency and cost.
 
-For the full Messages API request and response format, including all parameters and
-features, see [Anthropic Claude Messages API](model-parameters-anthropic-claude-messages.md "model-parameters-anthropic-claude-messages.md").
+For the full Messages API request and response field reference, see [Request and Response](model-parameters-anthropic-claude-messages-request-response.md "model-parameters-anthropic-claude-messages-request-response.md").
+
+## Count tokens
+
+To count the number of input tokens that a request would consume before sending it for inference, use the Anthropic `count_tokens` path on the `bedrock-mantle` endpoint. This is the only token-counting path supported for Claude models that are not available on `bedrock-runtime` with a Region-specific endpoint, including Claude models that launch with cross-Region inference (CRIS) only. For details and an example, see [Count tokens using the bedrock-mantle endpoint](count-tokens.md#count-tokens-mantle "count-tokens.md#count-tokens-mantle").

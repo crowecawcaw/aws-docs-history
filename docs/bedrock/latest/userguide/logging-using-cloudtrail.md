@@ -6,6 +6,13 @@ Amazon Bedrock as events. The calls captured include calls from the Amazon Bedro
 code calls to the Amazon Bedrock API operations. If you create a trail, you can enable
 continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Amazon Bedrock.
 
+###### Note
+
+This page describes CloudTrail logging for the
+`bedrock-runtime.`region`.amazonaws.com` endpoint. If your
+application calls the `bedrock-mantle.`region`.api.aws`
+endpoint, see [Monitor bedrock-mantle API calls using CloudTrail](logging-cloudtrail-mantle.md "logging-cloudtrail-mantle.md") instead.
+
 If you don't configure a trail, you can still view the most recent events in the CloudTrail console
 in **Event history**.
 

@@ -33,7 +33,7 @@ aws bedrock-data-automation create-data-automation-project \
 5. Choose "Associate a library" button
 6. Choose a library by selecting the radio button next to it and choose the "Associate library" button
 
-![](images/bda/library-associate-from-project-console.png)
+![Create library dialog with fields for library name, description, KMS key, and tags.](images/bda/library-associate-from-project-console.png)
 
 ## Option 2: Update Existing Project with library:
 
@@ -52,4 +52,4 @@ aws bedrock-data-automation update-data-automation-project \
 3. Choose "Associate projects"
 4. Choose the projects to associate and choose "Associate project"
 
-![](images/bda/library-associate-from-library-console.png)
+![Associated projects table showing no projects with Associate projects button available.](images/bda/library-associate-from-library-console.png)

@@ -1,10 +1,17 @@
 # Extended thinking
 
-Extended thinking gives Claude enhanced reasoning capabilities for complex tasks,
-while providing varying levels of transparency into its step-by-step thought process
-before it delivers its final answer. Whenever you enable Claude’s thinking mode, you
-will need to set a budget for the maximum number of tokens that Claude can use for its
-internal reasoning process.
+###### See also
+
+- [Thinking encryption](claude-messages-thinking-encryption.md "claude-messages-thinking-encryption.md") –
+  encrypted-thinking and redaction behavior specific to Claude 3.7 Sonnet.
+- [Differences in thinking across model versions](claude-messages-thinking-differences.md "claude-messages-thinking-differences.md") –
+  differences in how Claude 3.7 Sonnet and Claude 4 models return
+  thinking output.
+  Extended thinking gives Claude enhanced reasoning capabilities for complex tasks,
+  while providing varying levels of transparency into its step-by-step thought process
+  before it delivers its final answer. Whenever you enable Claude’s thinking mode, you
+  will need to set a budget for the maximum number of tokens that Claude can use for its
+  internal reasoning process.
 
 The supported models are as follows:
 
@@ -236,7 +243,7 @@ which can result in this delivery pattern.
 
 ## Extended thinking with tool use
 
-Extended thinking can be used alongside [Tool use](model-parameters-anthropic-claude-messages-tool-use.md "model-parameters-anthropic-claude-messages-tool-use.md") allowing Claude to reason
+Extended thinking can be used alongside [Anthropic Claude tool use](model-parameters-anthropic-claude-messages-tool-use.md "model-parameters-anthropic-claude-messages-tool-use.md") allowing Claude to reason
 through tool selection and results processing. When using extended thinking with
 tool use, be aware of the following limitations:
 

@@ -608,16 +608,41 @@ a response. For more information, see [Use a tool to complete an Amazon Bedrock 
 
 #### additionalModelResponseFieldPaths
 
-You can specify the paths for additional model parameters in the
-`additionalModelResponseFieldPaths` field, as shown in the
-following example.
+Each model that Amazon Bedrock supports has its own native response shape with
+provider-specific fields (for example, Anthropic Claude returns a
+`stop_sequence` field; Cohere returns `is_finished`;
+and so on). To give you a uniform response across models, [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") and
+[ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md") drop most model-native fields by default and return a
+normalized envelope with `output`, `stopReason`,
+`usage`, and `metrics`.
+
+If your application needs one or more of those model-native fields, list
+their JSON Pointer paths in `additionalModelResponseFieldPaths`.
+[Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") and [ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md") then include those fields in the
+`additionalModelResponseFields` field of the response.
+
+The following example asks [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") to also return Anthropic
+Claude's `stop_sequence` field, which contains the value of
+the stop sequence that ended generation:
 
 ```
 [ "/stop_sequence" ]
 ```
 
-The API returns the additional fields that you request in the
-`additionalModelResponseFields` field.
+Each path is a JSON Pointer ([RFC 6901](https://datatracker.ietf.org/doc/html/rfc6901 "https://datatracker.ietf.org/doc/html/rfc6901"))
+into the model's native response. Empty pointers and malformed pointers
+return a `400` error. If a pointer is valid but the requested
+path doesn't exist in the model's response, it is silently ignored.
+
+###### Note
+
+This field controls which model-native _response
+fields_ are surfaced through [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md"). It does not control
+text-output formatting. Some models — particularly reasoning
+models such as DeepSeek-R1, Claude 3.7 Sonnet with extended thinking,
+and Amazon Nova reasoning models — can include reasoning content or
+model-specific tokens in their text output. For how to work with
+reasoning content, see [Enhance model responses with model reasoning](inference-reasoning.md "inference-reasoning.md").
 
 #### requestMetadata
 

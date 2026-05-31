@@ -1,4 +1,4 @@
-# Tool use
+# Anthropic Claude tool use
 
 ###### Warning
 
@@ -223,138 +223,59 @@ reached.
 
 ## Computer use (Beta)
 
-Computer use is an Anthropic Claude model capability (in beta) available with
-Claude 3.5 Sonnet v2, Claude Sonnet 4.5, Claude Haiku 4.5, Claude 3.7 Sonnet,
-Claude Sonnet 4, and Claude Opus 4. With computer use, Claude can help you automate
-tasks through basic GUI actions.
+Computer use is an Anthropic Claude tool family (in beta) for automating
+graphical user interface (GUI) tasks. For an overview, the Amazon Bedrock-specific request
+shape, and an end-to-end example, see [Use computer use tools to automate GUI tasks with Amazon Bedrock models](computer-use.md "computer-use.md"). To find which models support computer use on each
+endpoint, see the _Capabilities and Features_ table in each .
 
-###### Warning
+To enable computer use on a request, set `anthropic_beta` to a
+computer-use version and include a tool entry whose `type` matches that
+version. The valid pairings are:
 
-Computer use feature is made available to you as a ‘Beta Service’ as defined in
-the AWS Service Terms. It is subject to your Agreement with AWS and the AWS
-Service Terms, and the applicable model EULA. Please be aware that the Computer Use
-API poses unique risks that are distinct from standard API features or chat
-interfaces. These risks are heightened when using the Computer Use API to interact
-with the Internet. To minimize risks, consider taking precautions such as:
+| Beta header               | Computer tool type  |
+| ------------------------- | ------------------- |
+| `computer-use-2025-11-24` | `computer_20251124` |
+| `computer-use-2025-01-24` | `computer_20250124` |
+| `computer-use-2024-10-22` | `computer_20241022` |
 
-- Operate computer use functionality in a dedicated Virtual Machine or
-  container with minimal privileges to prevent direct system attacks or
-  accidents.
-- To prevent information theft, avoid giving the Computer Use API access to
-  sensitive accounts or data.
-- Limiting the computer use APIs internet access to required domains to
-  reduce exposure to malicious content.
-- To ensure proper oversight, keep a human in the loop for sensitive tasks
-  (such as making decisions that could have meaningful real-world
-  consequences) and for anything requiring affirmative consent (such as
-  accepting cookies, executing financial transactions, or agreeing to terms of
-  service).
-  Any content that you enable Claude to see or access can potentially override
-  instructions or cause Claude to make mistakes or perform unintended actions.
-  Taking proper precautions, such as isolating Claude from sensitive surfaces, is
-  essential — including to avoid risks related to prompt injection. Before enabling or
-  requesting permissions necessary to enable computer use features in your own
-  products, please inform end users of any relevant risks, and obtain their consent as
-  appropriate.
+Each tool type works only with a specific subset of models. Submitting a tool type
+that a model does not support returns a `400 invalid_request_error` with a
+message such as `'claude-opus-4-7' does not support tool types:
+ computer_20241022`. Confirm support in the model's _Capabilities
+and Features_ table before sending requests.
 
-The computer use API offers several pre-defined computer use tools for you to use. You
-can then create a prompt with your request, such as “send an email to Ben with the notes
-from my last meeting” and a screenshot (when required). The response contains a list of
-`tool_use` actions in JSON format (for example, scroll_down,
-left_button_press, screenshot). Your code runs the computer actions and provides
-Claude with screenshot showcasing outputs (when requested).
-
-Since the release of Claude 3.5 v2, the tools parameter has been updated to accept
-polymorphic tool types; a `tool.type` property was added to distinguish them.
-`type` is optional; if omitted, the tool is assumed to be a custom tool
-(previously the only tool type supported). To access computer use, you must use the
-`anthropic_beta` parameter, with a corresponding enum, whose value
-depends on the model version in use. See the following table for more
-information.
-
-Only requests made with this parameter and enum can use the computer use tools. It can
-be specified as follows: `"anthropic_beta":
- ["computer-use-2025-01-24"]`.
-
-| Model                                                                                                                                | Beta header             |
-| ------------------------------------------------------------------------------------------------------------------------------------ | ----------------------- |
-| Claude Opus 4.5<br>Claude Opus 4.1<br>Claude Opus 4<br>Claude Sonnet 4.5<br>Claude Haiku 4.5<br>Claude Sonnet 4<br>Claude 3.7 Sonnet | computer-use-2025-01-24 |
-| Claude 3.5 Sonnet v2                                                                                                                 | computer-use-2024-10-22 |
-
-For more information, see [Computer use
-(beta)](https://docs.anthropic.com/en/docs/build-with-claude/computer-use "https://docs.anthropic.com/en/docs/build-with-claude/computer-use") in the Anthropic documentation.
-
-The following is an example response that assumes the request contained a screenshot
-of your desktop with a Firefox icon.
-
-```
-{
-    "id": "msg_123",
-    "type": "message",
-    "role": "assistant",
-    "model": "anthropic.claude-3-5-sonnet-20241022-v2:0",
-    "content": [
-        {
-            "type": "text",
-            "text": "I see the Firefox icon. Let me click on it and then navigate to a weather website."
-        },
-        {
-            "type": "tool_use",
-            "id": "toolu_123",
-            "name": "computer",
-            "input": {
-                "action": "mouse_move",
-                "coordinate": [
-                    708,
-                    736
-                ]
-            }
-        },
-        {
-            "type": "tool_use",
-            "id": "toolu_234",
-            "name": "computer",
-            "input": {
-                "action": "left_click"
-            }
-        }
-    ],
-    "stop_reason": "tool_use",
-    "stop_sequence": null,
-    "usage": {
-        "input_tokens": 3391,
-        "output_tokens": 132
-    }
-}
-```
+For the underlying tool protocol, the full action vocabulary, and prompt-engineering
+guidance, see [Computer
+use](https://docs.anthropic.com/en/docs/build-with-claude/computer-use "https://docs.anthropic.com/en/docs/build-with-claude/computer-use") in the Anthropic documentation.
 
 ## Anthropic defined tools
 
-Anthropic provides a set of tools to enable certain Claude models to effectively
-use computers. When specifying an Anthropic defined tool, the `description`
-and `tool_schema` fields are not necessary or allowed. Anthropic defined
-tools are defined by Anthropic, but you must explicitly evaluate the results of the
-tool and return the `tool_results` to Claude. As with any tool, the model
-does not automatically execute the tool. Each Anthropic defined tool has versions
-optimized for specific models Claude 3.5 Sonnet (new) and Claude 3.7 Sonnet:
+Anthropic provides a set of pre-defined tools that Claude models can use to
+interact with computers. When specifying an Anthropic-defined tool, the
+`description` and `tool_schema` fields are not necessary or
+allowed. The model does not execute these tools automatically; you must run each
+requested action and return a `tool_result` to Claude. To find which
+of these tools each model accepts, see the _Capabilities and
+Features_ table in the model's ; submitting a tool type that a model does not
+support returns a `400 invalid_request_error`.
 
-| Model                                                                                                      | Tool                                                                                         | Notes                                           |
-| ---------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| Claude Claude Opus 4.1<br>Claude Claude Opus 4<br>Claude Sonnet 4.5<br>Claude Haiku 4.5<br>Claude Sonnet 4 | `<br>{<br>"type": "text_editor_20250124",<br>"name": "str_replace_based_edit_tool"<br>}<br>` | Update to existing `str_replace_editor`<br>tool |
-| Claude 3.7 Sonnet                                                                                          | `<br>{<br>"type": "computer_20250124",<br>"name": "computer"<br>}<br>`                       | Includes new actions for more precise control   |
-| Claude 3.7 Sonnet                                                                                          | `<br>{<br>"type": "text_editor_20250124",<br>"name": "str_replace_editor"<br>}<br>`          | Same capabilities as 20241022 version           |
-| Claude 3.5 Sonnet v2                                                                                       | `<br>{<br>"type": "bash_20250124",<br>"name": "bash"<br>}<br>`                               | Same capabilities as 20241022 version           |
-| Claude 3.5 Sonnet v2                                                                                       | `<br>{<br>"type": "text_editor_20241022",<br>"name": "str_replace_editor"<br>}<br>`          |
-| Claude 3.5 Sonnet v2                                                                                       | `<br>{<br>"type": "bash_20241022",<br>"name": "bash"<br>}<br>`                               |
-| Claude 3.5 Sonnet v2                                                                                       | `<br>{<br>"type": "computer_20241022",<br>"name": "computer"<br>}<br>`                       |
+| Tool                                                                                         | Notes                                                                                                                                              |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `<br>{<br>"type": "computer_20251124",<br>"name": "computer"<br>}<br>`                       | Latest computer-use tool. Use with `"anthropic_beta":<br>["computer-use-2025-11-24"]`.                                                             |
+| `<br>{<br>"type": "computer_20250124",<br>"name": "computer"<br>}<br>`                       | Use with `"anthropic_beta":<br>["computer-use-2025-01-24"]`.                                                                                       |
+| `<br>{<br>"type": "computer_20241022",<br>"name": "computer"<br>}<br>`                       | Legacy. Use with `"anthropic_beta":<br>["computer-use-2024-10-22"]`.                                                                               |
+| `<br>{<br>"type": "text_editor_20250124",<br>"name": "str_replace_based_edit_tool"<br>}<br>` | Update to the existing `str_replace_editor`<br>tool. Use with `"anthropic_beta": ["computer-use-2025-01-24"]`<br>or `["computer-use-2025-11-24"]`. |
+| `<br>{<br>"type": "text_editor_20241022",<br>"name": "str_replace_editor"<br>}<br>`          | Legacy. Use with `"anthropic_beta":<br>["computer-use-2024-10-22"]`.                                                                               |
+| `<br>{<br>"type": "bash_20250124",<br>"name": "bash"<br>}<br>`                               | Use with `"anthropic_beta":<br>["computer-use-2025-01-24"]` or<br>`["computer-use-2025-11-24"]`.                                                   |
+| `<br>{<br>"type": "bash_20241022",<br>"name": "bash"<br>}<br>`                               | Legacy. Use with `"anthropic_beta":<br>["computer-use-2024-10-22"]`.                                                                               |
 
 The `type` field identifies the tool and its parameters for validation
-purposes, the `name` field is the tool name exposed to the model.
+purposes; the `name` field is the tool name exposed to the model.
 
 If you want to prompt the model to use one of these tools, you can explicitly refer
 the tool by the `name` field. The `name` field must be unique
 within the tool list; you cannot define a tool with the same `name` as an
-Anthropic defined tool in the same API call.
+Anthropic-defined tool in the same API call.
 
 ## Automatic tool call clearing (Beta)
 

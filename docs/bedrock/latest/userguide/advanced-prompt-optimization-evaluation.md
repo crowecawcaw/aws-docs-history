@@ -9,9 +9,21 @@ Pick ONE evaluation method per prompt template, or omit all optional evaluation 
 - [Custom LLM-as-a-judge](#advanced-prompt-optimization-evaluation-llmj "#advanced-prompt-optimization-evaluation-llmj")
 - [Custom Lambda evaluator](#advanced-prompt-optimization-evaluation-lambda "#advanced-prompt-optimization-evaluation-lambda")
 
+## Dataset tips
+
+- **Mix easy and hard examples** — match what you see in the real world. All-easy data won't push the prompt to improve; all-hard data leaves nothing to learn from.
+- **Cover the cases you care about** — the system generalizes beyond what it sees, but a representative data distribution helps it generalize better to real-world inputs.
+- **After prompt optimization, test on data the optimizer hasn't seen with a held-out dataset** — confirms the gains are real and not just memorized.
+
 ## Default evaluation
 
-Omit all optional evaluation fields (`steeringCriteria`, `customLLMJConfig`, `evaluationMetricLambdaArn`). The service uses a built-in generic LLM-as-judge powered by Anthropic Claude Sonnet 4.6 that evaluates three default criteria: Answer Accuracy, Answer Completeness, and Expression Quality. Given the prompt, target model's answer, and a reference answer, the judge assigns a score per dimension and dynamically assigns appropriate weights to the task, then produces a weighted Overall score.
+Omit all optional evaluation fields (`steeringCriteria`,
+`customLLMJConfig`, `evaluationMetricLambdaArn`). The service
+uses a built-in generic LLM-as-judge powered by Anthropic Claude Sonnet 4.6 that
+evaluates three default criteria: Answer Accuracy, Answer Completeness, and Expression
+Quality. Given the prompt, target model's answer, and a reference answer, the judge
+scores each dimension. It then dynamically assigns appropriate weights to the task, and
+produces a weighted Overall score.
 
 We recommend defining your own evaluation method for best results.
 
@@ -143,11 +155,23 @@ Provide a full rubric with a grading scale that you define. Your custom judge pr
 
 ### Best practices for writing judge prompts
 
-Use a clearly defined rubric with explicit scoring criteria and concrete examples of each score level. Anchor each rubric level with behavioral descriptions rather than subjective adjectives. Include at least one worked example showing a non-perfect score to calibrate the judge away from defaulting to high ratings. Instruct the model to provide written justification before the numeric score. Consider evaluating specific dimensions independently before assigning an overall score. The most trusted and helpful LLM-as-a-judge evaluators are typically ones where you agree with the answers the judge model provides, so it may help to use an evaluation you have already vetted.
+Use a clearly defined rubric with explicit scoring criteria and concrete examples
+of each score level. Anchor each rubric level with behavioral descriptions rather
+than subjective adjectives. Include at least one worked example showing a
+non-perfect score to calibrate the judge away from defaulting to high ratings.
+Instruct the model to provide written justification before the numeric score.
+Consider evaluating specific dimensions independently before assigning an overall
+score. The most trusted and helpful LLM-as-a-judge evaluators are typically ones
+where you agree with the answers the judge model provides. Therefore, it may help to
+use an evaluation you have already vetted.
 
 ### How your custom judge prompt is merged with the system prompt at runtime
 
-When you provide your own LLM-as-a-judge evaluator prompt, it is merged with a generic service-provided judge prompt containing specific instructions on formatting and other best practices that help the optimization progress. Your custom judge prompt is given stronger weighting than the generic criteria in the final judgement. Specifically, the service:
+When you provide your own LLM-as-a-judge evaluator prompt, it is merged with a
+generic service-provided judge prompt. The prompt contains specific instructions on
+formatting and other best practices that help the optimization progress. Your custom
+judge prompt is given stronger weighting than the generic criteria in the final
+judgement. Specifically, the service:
 
 - Extracts the intent from your custom prompt
 - Normalizes the scale to match the system's 0 to 3 rubric
@@ -274,8 +298,19 @@ When you create the job via the API, no additional evaluation configuration is n
 - The `golds` parameter contains the `referenceResponse` values. If you did not provide `referenceResponse` in your input dataset, you don't need to pass `golds` in your `compute_score` function.
 - Never crash; return 0.0 on errors instead of raising exceptions
 - Prefer continuous scores (0.0 to 1.0) over binary 0/1 for faster optimization convergence
+- Scores are not required to be bounded to [0, 1].
+- Scores must follow a "higher is better" scale. This is a requirement for the optimization to work correctly.
 - Set timeout to max 15 minutes (900s) for large batches to avoid early timeouts
 - Add resource-based policy allowing `bedrock.amazonaws.com` to invoke your Lambda
+
+### Lambda metric tips
+
+- **Write a clear docstring on `compute_score`** — the docstring is extracted and shown to the system as the metric's description. Explain what the score means and what makes a high score vs. a low score.
+- **Write your metric code clearly** — the full source code is read by the system. Comments, variable names, and readable logic help it understand your intent and generate better feedback.
+- **Prefer continuous scores over binary 0/1** — the optimizer maximizes the average score across samples. Continuous gradations (for example, partial credit) give a smoother signal to follow than all-or-nothing scores.
+- **Return structured details, not just a number** — returning a dict with sub-scores or diagnostic fields gives the system more signal about why a prediction scored low, leading to more targeted improvements.
+- **Make error messages descriptive** — if the metric raises an exception, the error text is captured and used in feedback. Clear errors help the system understand what went wrong.
+- **Verify your scoring** — score a few obviously-bad outputs to confirm your metric penalizes them. If a trivial answer scores well, the optimizer will find that shortcut.
 
 ### Lambda template
 
@@ -337,4 +372,5 @@ def lambda_handler(event, context):
         return {"score": 0.0, "scores": [0.0] * len(event.get("preds", [])), "error": str(e)}
 ```
 
-See the AWS Samples GitHub for more detailed examples including boilerplate code for error handling and Lambda function input validation.
+See the AWS Samples GitHub for more detailed examples including boilerplate code
+for error handling and Lambda function input validation.

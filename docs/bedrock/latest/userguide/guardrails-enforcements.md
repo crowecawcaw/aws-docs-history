@@ -14,7 +14,7 @@ The following are the key capabilities of guardrails enforcements:
 ###### Topics
 
 - [Implementation guide](#guardrails-enforcements-implementation-guide "#guardrails-enforcements-implementation-guide")
-- [Monitoring](#monitoring "#monitoring")
+- [Monitoring](#guardrails-monitoring "#guardrails-monitoring")
 - [Pricing](#pricing "#pricing")
 - [Frequently Asked Questions](#faq "#faq")
 
