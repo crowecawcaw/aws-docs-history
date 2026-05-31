@@ -183,7 +183,7 @@ Either account _(bill-source account_ or _bill-transfer account)_ can withdraw t
 | When the transfer starts | • Consolidated bills for charges accrued before the start date are managed and paid for by the organization's own management account _(bill-source account)_.<br>• Consolidated bills for charges accrued after the start date are managed and paid for by the _bill-transfer account_.        |
 | When the transfer ends   | • Consolidated bills for charges accrued between the start and end date are managed and paid for by the _bill-transfer account_.<br>• Consolidated bills for charges accrued after the end date are managed and paid for by the organization's own management account _(bill-source account)_. |
 
-![](images/transfer-billing-how-it-works.jpg)
+![Billing transfer flow showing management accounts, bill-transfer and bill-source accounts, consolidated bill, and pricing configuration.](images/transfer-billing-how-it-works.jpg)
 
 _Figure 1: Diagram depicting how billing transfer works between two organizations._
 

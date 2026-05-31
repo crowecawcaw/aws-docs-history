@@ -4,6 +4,7 @@ Use this section to get started with the AWS Billing and Cost Management console
 
 ###### Topics
 
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Learn more about Billing features](#billing-gs-features "#billing-gs-features")
 - [What do I do next?](#what-next "#what-next")
 - [Setting up your tax information](manage-account-payment.md "manage-account-payment.md")
@@ -12,9 +13,8 @@ Use this section to get started with the AWS Billing and Cost Management console
 - [Setting up your India billing](manage-account-payment-aispl.md "manage-account-payment-aispl.md")
 - [Finding the seller of record](finding-the-seller-of-record.md "finding-the-seller-of-record.md")
 - [Reviewing your monthly billing best practices](monthly-billing-checklist.md "monthly-billing-checklist.md")
-  If you're new to AWS, create an AWS account. For more information, see [Getting Started with AWS](https://aws.amazon.com/getting-started/ "https://aws.amazon.com/getting-started/").
 
-### Sign up for an AWS account
+## Sign up for an AWS account
 
 To get started with AWS, you need an AWS account. For information about creating an AWS account, see
 [Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
