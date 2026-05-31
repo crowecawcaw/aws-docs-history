@@ -10,43 +10,14 @@ Before you can start with this exercise, you must sign up for an AWS account (if
 
 ###### Topics
 
-- [Set Up an AWS account and an Administrator User](#setup "#setup")
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Download the Appropriate AWS SDK](#getting-started-download-sdk "#getting-started-download-sdk")
 
-## Set Up an AWS account and an Administrator User
+## Sign up for an AWS account
 
-If you have not already done so, you must sign up for an AWS account and create an
-administrator user in the account.
-
-To complete the setup, follow the instructions in the following topics.
-
-### Set Up an AWS account and Create an Administrator User
-
-#### Sign up for AWS
-
-When you sign up for Amazon Web Services (AWS), your AWS account is automatically signed up for all services in AWS, including Amazon Glacier. You are charged only for the services that you use. For more information about Amazon Glacier usage rates, see the [Amazon Glacier pricing page](https://aws.amazon.com/s3/glacier/pricing/ "https://aws.amazon.com/s3/glacier/pricing/").
-
-If you already have an AWS account, skip to [Download the Appropriate AWS SDK](#getting-started-download-sdk "#getting-started-download-sdk"). If you don't have an AWS account, use the following procedure to create one.
-
-If you do not have an AWS account, complete the following steps to create one.
-
-###### To sign up for an AWS account
-
-1. Open [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup").
-2. Follow the online instructions.
-
-Part of the sign-up procedure involves receiving a phone call or text message and entering
-a verification code on the phone keypad.
-
-When you sign up for an AWS account, an _AWS account root user_ is created. The root user has access to all AWS services
-and resources in the account. As a security best practice, assign administrative access to a user, and use only the root user to perform [tasks that require root user access](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks").
-
-To create an administrator user, choose one of the following options.
-
-| Choose one way to manage your administrator | To                                                                                                                                                                                                                                                                                                                                                  | By                                                                                                                                                                                                                                          | You can also                                                                                                                                                                                                                                          |
-| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| In IAM Identity Center (Recommended)        | Use short-term credentials to access AWS.This aligns with the security best<br>practices. For information about best practices, see [Security best<br>practices in IAM](../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp "../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp") in the _IAM User Guide_. | Following the instructions in [Getting started](../../../singlesignon/latest/userguide/getting-started.md "../../../singlesignon/latest/userguide/getting-started.md") in the<br>_AWS IAM Identity Center User Guide_.                      | Configure programmatic access by [Configuring the AWS CLI to use<br>AWS IAM Identity Center](../../../cli/latest/userguide/cli-configure-sso.md "../../../cli/latest/userguide/cli-configure-sso.md") in the _AWS Command Line Interface User Guide_. |
-| In IAM (Not recommended)                    | Use long-term credentials to access AWS.                                                                                                                                                                                                                                                                                                            | Following the instructions in [Create an IAM user for emergency access](../../../IAM/latest/UserGuide/getting-started-emergency-iam-user.md "../../../IAM/latest/UserGuide/getting-started-emergency-iam-user.md") in the _IAM User Guide_. | Configure programmatic access by [Manage access keys for IAM<br>users](../../../IAM/latest/UserGuide/id_credentials_access-keys.md "../../../IAM/latest/UserGuide/id_credentials_access-keys.md") in the _IAM User Guide_.                            |
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
 
 ## Download the Appropriate AWS SDK
 
