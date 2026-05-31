@@ -1946,7 +1946,7 @@ This check reports the resources that are flagged by the criteria and the total 
 
 - Red:
   Security
-  Group is attached to a resource and provides unrestricted access to
+  Group provides unrestricted access to
   port 20, 21, 22 , 1433, 1434, 3306, 3389, 4333, 5432, or
 
 5500.
@@ -1955,8 +1955,6 @@ This check reports the resources that are flagged by the criteria and the total 
   Security
   Group provides unrestricted access to any other
   port.
-- Yellow: Security Group is not attached to any resource and
-  provides unrestricted access.
 
 **Recommended Action**
 
