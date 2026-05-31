@@ -2,10 +2,12 @@
 
 You can manage your own lists for mailing and subscriptions as well as for email
 suppression in Amazon SES. To help you maintain your sender reputation, SES offers
-account-level and configuration set-level suppression that prevents you from sending to
-invalid recipients and harming your sender reputation. As another measure against bounced
-emails and complaints, SES can automatically add unsubscribe links to all outgoing
-mail through subscription management.
+account-level, tenant-level, and configuration set-level suppression that prevents you from
+sending to invalid recipients and harming your sender reputation. If you use multi-tenancy,
+tenant-level suppression lists give each tenant its own isolated suppression list, preventing
+cross-tenant contamination. As another measure against bounced emails and complaints,
+SES can automatically add unsubscribe links to all outgoing mail through subscription
+management.
 
 Each of these types of lists is discussed in detail in the sections listed in this
 chapter's topics; however, an overview of suppression lists is presented here to understand
@@ -84,6 +86,7 @@ account-level suppression, including not using any suppression at all. See [Usin
 
 - [Amazon SES global suppression list](sending-email-global-suppression-list.md "sending-email-global-suppression-list.md")
 - [Using the Amazon SES account-level suppression list](sending-email-suppression-list.md "sending-email-suppression-list.md")
+- [Using tenant-level suppression lists in Amazon SES](sending-email-suppression-list-tenant-level.md "sending-email-suppression-list-tenant-level.md")
 - [Using configuration set-level suppression to override your account-level suppression list](sending-email-suppression-list-config-level.md "sending-email-suppression-list-config-level.md")
 - [Using list management](sending-email-list-management.md "sending-email-list-management.md")
 - [Using subscription management](sending-email-subscription-management.md "sending-email-subscription-management.md")

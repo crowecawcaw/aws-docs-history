@@ -13,6 +13,13 @@ console.
 
 ###### Note
 
+If you use multi-tenancy, you can also configure tenant-level suppression lists for
+per-tenant isolation. When tenant-level suppression is enabled for a tenant, SES
+uses the tenant's suppression list instead of the account-level suppression list. For
+more information, see [Using tenant-level suppression lists in Amazon SES](sending-email-suppression-list-tenant-level.md "sending-email-suppression-list-tenant-level.md").
+
+###### Note
+
 To bulk add or remove addresses, you must have production access. To learn more about
 the sandbox, see [Request production access (Moving out of the Amazon SES sandbox)](request-production-access.md "request-production-access.md").
 

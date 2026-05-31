@@ -12,6 +12,21 @@ addresses are added to your account-level suppression list just for complaints (
 and complaints like is set in your account-level suppression list) from email sent with this
 configuration set.
 
+If you use multi-tenancy, configuration sets can also override tenant-level suppression
+settings. The `SuppressionOptions` for a configuration set includes a
+`SuppressionScope` field that determines which suppression list SES
+uses. You can set `SuppressionScope` to `TENANT` to use the tenant's
+suppression list, or `ACCOUNT` to use the account-level suppression list. You can
+override the scope, the suppressed reasons, or both independently. For more information
+about tenant-level suppression, see [Using tenant-level suppression lists in Amazon SES](sending-email-suppression-list-tenant-level.md "sending-email-suppression-list-tenant-level.md").
+
+###### Important
+
+If you set `SuppressionScope` to `TENANT` on a configuration
+set, all `SendEmail` and `SendBulkEmail` requests that use this
+configuration set must include a tenant name. Requests without a tenant name are
+rejected.
+
 With configuration set-level suppression, there are different levels of overriding your
 account-level suppression, including not using any suppression at all. To help understand
 these various levels of suppression that can be set in the following console procedures, the

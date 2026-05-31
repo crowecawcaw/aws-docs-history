@@ -64,6 +64,9 @@ campaigns. For example, you can enable engagement tracking and optimized shared 
 disable them for your transactional email. See [Virtual Deliverability Manager options](creating-configuration-sets.md#vdm-create-config-overrides "creating-configuration-sets.md#vdm-create-config-overrides") while creating or editing
 a configuration set.
 
+You can also enable global deliverability from the Virtual Deliverability Manager Settings page to extend your
+visibility with analytics across all providers. See [Getting started with global deliverability](vdm-gd-get-started.md "vdm-gd-get-started.md").
+
 ## Getting started with Virtual Deliverability Manager using the AWS CLI
 
 The following examples show you how to get started with Virtual Deliverability Manager using the AWS CLI.

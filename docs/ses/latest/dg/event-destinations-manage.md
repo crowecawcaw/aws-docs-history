@@ -121,7 +121,7 @@ To learn more about event types, see [Monitoring your Amazon SES sending activit
     		 other configuration set, does not affect engagement
     		 tracking options for Virtual Deliverability Manager dashboard; these are
     		 defined through either [Virtual Deliverability Manager's account
-    		 settings](vdm-settings.md#vdm-settings-console "vdm-settings.md#vdm-settings-console") or configuration set overrides.
+    		 settings](vdm-settings.md#vdm-settings-ses-console "vdm-settings.md#vdm-settings-ses-console") or configuration set overrides.
     		 For example, if you have engagement tracking
     		 disabled through Virtual Deliverability Manager, it will not disable the open
     		 and click event publishing you have set up here in

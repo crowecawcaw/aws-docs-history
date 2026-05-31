@@ -638,6 +638,23 @@ SES:
   (ISVs), business units, client/application types, and regulatory
   requirements.
 
+## Tenant-level suppression lists
+
+By default, all tenants in your account share the account-level suppression list. This
+means that when a recipient bounces or complains about one tenant's email, that address
+is suppressed for every tenant in the account. Tenant-level suppression lists solve this
+by giving each tenant its own isolated suppression list.
+
+When you enable tenant-level suppression for a tenant, SES maintains a separate
+suppression list for that tenant. Bounces and complaints only affect the tenant that sent
+the email. Other tenants can continue sending to the same recipients. You configure
+tenant-level suppression by setting the `SuppressionScope` to
+`TENANT` and choosing which `SuppressedReasons` (bounces,
+complaints, or both) to track.
+
+For complete information about configuring and managing tenant-level suppression lists,
+see [Using tenant-level suppression lists in Amazon SES](sending-email-suppression-list-tenant-level.md "sending-email-suppression-list-tenant-level.md").
+
 ## Limitations
 
 When using tenant management, be aware of these limitations:

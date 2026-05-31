@@ -112,6 +112,7 @@ initially resulted in a `Transient` bounce in the future.
 | `Permanent`    | `Suppressed`                | Amazon SES has suppressed sending to this address because it has a recent<br>history of bouncing as an invalid address. To override the global<br>suppression list, see [Using the Amazon SES account-level suppression list](sending-email-suppression-list.md "sending-email-suppression-list.md"). |
 | `Permanent`    | `OnAccountSuppressionList`  | Amazon SES has suppressed sending to this address because it is on the [account-level suppression<br>list](sending-email-suppression-list.md "sending-email-suppression-list.md"). This does not count toward your bounce rate metric.                                                                |
 | `Permanent`    | `EmailValidationSuppressed` | Amazon SES has suppressed sending to this address because<br>the address did not meet the threshold for your [email validation<br>settings](email-validation-auto.md "email-validation-auto.md").                                                                                                     |
+| `Permanent`    | `OnTenantSuppressionList`   | Amazon SES has suppressed sending to this address because it is on the [tenant-level<br>suppression list](sending-email-suppression-list-tenant-level.md "sending-email-suppression-list-tenant-level.md"). This does not count toward your bounce rate<br>metric.                                    |
 | `Transient`    | `General`                   | Amazon SES received a general bounce. You may be able to successfully send to<br>this recipient in the future.                                                                                                                                                                                        |
 | `Transient`    | `MailboxFull`               | Amazon SES received a mailbox full bounce. You may be able to successfully send<br>to this recipient in the future.                                                                                                                                                                                   |
 | `Transient`    | `MessageTooLarge`           | Amazon SES received a message too large bounce. You may be able to successfully<br>send to this recipient if you reduce the size of the message.                                                                                                                                                      |
@@ -179,7 +180,8 @@ The value of the `complaintSubType` field can either be null or
 `OnAccountSuppressionList`. If the value is
 `OnAccountSuppressionList`, Amazon SES accepted the message, but didn't
 attempt to send it because it was on the [account-level suppression
-list](sending-email-suppression-list.md "sending-email-suppression-list.md").
+list](sending-email-suppression-list.md "sending-email-suppression-list.md"). The value can also be `OnTenantSuppressionList` if the
+address was on the [tenant-level suppression list](sending-email-suppression-list-tenant-level.md "sending-email-suppression-list-tenant-level.md").
 
 ## Delivery object
 

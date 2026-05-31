@@ -33,6 +33,10 @@ advisor's guidance. Resolved recommendations are listed with an initial status t
 describes the issue before it was resolved. Resolved recommendations expire after 30
 days.
 
+If you have global deliverability enabled, the advisor also generates recommendations
+when your monitored domains or IPs are listed on a blocklist. These recommendations include
+the blocklist name, listing reason, and delisting guidance. For more information, see [Blocklists](vdm-gd-blocklists.md "vdm-gd-blocklists.md").
+
 ## What the Virtual Deliverability Manager advisor's looking for
 
 In the previous section we discussed that Virtual Deliverability Manager's advisor performs checks against your
