@@ -42,7 +42,7 @@ This section describes known limitations and unsupported use cases in AWS Contro
 - Email addresses of shared accounts in the Security OU can be changed, but you
   must update your landing zone to see these changes in the AWS Control Tower
   console.
-- A limit of five (5) SCPs per OU applies to OUs in your AWS Control Tower landing
+- A limit of ten (10) SCPs per OU applies to OUs in your AWS Control Tower landing
   zone.
 - AWS Control Tower supports up to 10,000 accounts in your landing zone's organization,
   divided among all of your OUs.

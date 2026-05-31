@@ -18,12 +18,13 @@ drift is resolved. This drift reset is not the same as a full landing zone reset
 information, see _Don't delete required roles_ in the section
 called [Types of drift to resolve right away](drift.md#types-of-drift "drift.md#types-of-drift").
 
-###### When you take action to resolve drift on a landing zone version, two behaviors are possible.
+###### When you take action to resolve drift on a landing zone version, the behavior depends on your current version.
 
-- If you are on the latest landing zone version, when you choose
-  **Reset** and then choose **Confirm**, your drifted
-  landing zone resources are reset to the saved AWS Control Tower configuration. The landing zone
-  version stays the same.
-- If you are not on the latest version, you must choose **Update**.
-  The landing zone is upgraded to the latest landing zone version. Drift is resolved as
-  part of this process.
+- If you are on landing zone version 3.1 or above, you can choose
+  **Update** to change your landing zone configuration without
+  upgrading versions, or choose **Reset** to reapply your saved
+  configurations to your drifted landing zone resources. Drift is resolved as part of the
+  update process.
+- If you are on a landing zone version earlier than 3.1, you cannot choose
+  **Reset**. You must choose **Update** and upgrade
+  your landing zone to at least version 3.1.

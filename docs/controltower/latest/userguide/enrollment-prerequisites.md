@@ -67,7 +67,7 @@ trail for the AWS Control Tower organization. If you have an existing deployment
 trail, you may see duplicate charges unless you delete the existing trail for the
 account before you enroll it in AWS Control Tower.
 
-**About trusted access with the `AWSControTowerExecution` role**
+**About trusted access with the `AWSControlTowerExecution` role**
 
 Before you can enroll an existing AWS account into AWS Control Tower you must give permission for
 AWS Control Tower to manage, or _govern_, the account. Specifically,

@@ -33,7 +33,7 @@ Reset your current landing zone, or update it to the latest version.
 - **Exceeds maximum number of SCPs**
 
 You may be over the limit for service control policies (SCPs) per OU, or you
-may have reached another quota. A limit of 5 SCPs per OU applies to all OUs in
+may have reached another quota. A limit of 10 SCPs per OU applies to all OUs in
 your AWS Control Tower landing zone. If you have more SCPs than the quota allows, you must
 delete or combine the SCPs.
 
