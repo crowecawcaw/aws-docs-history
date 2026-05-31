@@ -5,29 +5,11 @@ otherwise, the requirements apply to both network creators and invited members.
 
 ######
 
-- [An AWS account](#w2aab9b9b7 "#w2aab9b9b7")
-- [A Linux Client (EC2 Instance)](#w2aab9b9b9 "#w2aab9b9b9")
-- [A VPC](#w2aab9b9c11 "#w2aab9b9c11")
+- [A Linux Client (EC2 Instance)](#w2aab9b9b7 "#w2aab9b9b7")
+- [A VPC](#w2aab9b9b9 "#w2aab9b9b9")
 - [Permissions to Create an Interface VPC Endpoint](#vpc-endpoint-permissions "#vpc-endpoint-permissions")
 - [EC2 Security Groups That Allow Communication on Required Ports](#get-started-prerequisites-sgs "#get-started-prerequisites-sgs")
 - [Additional Considerations](#additional-considerations "#additional-considerations")
-
-## An AWS account
-
-Before you use AMB Access for the first time, you must sign up for an Amazon Web Services (AWS) account.
-
-If you do not have an AWS account, complete the following steps to create one.
-
-###### To sign up for an AWS account
-
-1. Open [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup").
-2. Follow the online instructions.
-
-Part of the sign-up procedure involves receiving a phone call or text message and entering
-a verification code on the phone keypad.
-
-When you sign up for an AWS account, an _AWS account root user_ is created. The root user has access to all AWS services
-and resources in the account. As a security best practice, assign administrative access to a user, and use only the root user to perform [tasks that require root user access](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks").
 
 ## A Linux Client (EC2 Instance)
 
