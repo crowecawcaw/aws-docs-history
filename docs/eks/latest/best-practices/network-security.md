@@ -18,7 +18,6 @@ but often include the following items:
 ## Network encryption
 
 - Service Mesh
-- Container Network Interfaces (CNIs)
 - Ingress Controllers and Load Balancers
 - Nitro Instances
 - ACM Private CA with cert-manager
@@ -525,12 +524,6 @@ load balancer, the traffic is not encrypted. See
 in transit](../../../AWSEC2/latest/UserGuide/data-protection.md#encryption-transit "../../../AWSEC2/latest/UserGuide/data-protection.md#encryption-transit") for further details on encryption in transit as well as the
 complete list of instances types that support network encryption by
 default.
-
-### Container Network Interfaces (CNIs)
-
-[WeaveNet](https://www.weave.works/oss/net/ "https://www.weave.works/oss/net/") can be configured to
-automatically encrypt all traffic using NaCl encryption for sleeve
-traffic, and IPsec ESP for fast datapath traffic.
 
 ### Service Mesh
 
