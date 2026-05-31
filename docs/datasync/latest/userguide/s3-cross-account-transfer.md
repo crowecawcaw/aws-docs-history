@@ -45,72 +45,71 @@ add permissions to a role, see [creating](../../../IAM/latest/UserGuide/id_roles
 an IAM role.
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "SourceUserRolePermissions",
- "Effect": "Allow",
- "Action": [
- "datasync:CreateLocationS3",
- "datasync:CreateTask",
- "datasync:DescribeLocation*",
- "datasync:DescribeTaskExecution",
- "datasync:ListLocations",
- "datasync:ListTaskExecutions",
- "datasync:DescribeTask",
- "datasync:CancelTaskExecution",
- "datasync:ListTasks",
- "datasync:StartTaskExecution",
- "s3:GetBucketLocation",
- "s3:ListAllMyBuckets"
- ],
- "Resource": "*"
- },
- {
- "Sid": "IAMPermissions",
- "Effect": "Allow",
- "Action": [
- "iam:CreateRole",
- "iam:ListRoles",
- "iam:CreatePolicy"
- ],
- "Resource": "arn:aws:iam::111122223333:role/DataSync-*"
- },
- {
- "Sid": "IAMAttachRolePermissions",
- "Effect": "Allow",
- "Action": [
- "iam:AttachRolePolicy"
- ],
- "Resource": "arn:aws:iam::111122223333:role/DataSync-*",
- "Condition": {
- "ArnLike": {
- "iam:PolicyARN": [
- "arn:aws:iam::111122223333:policy/DataSync-*",
- "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess",
- "arn:aws:iam::aws:policy/service-role/AWSDataSyncFullAccess"
- ]
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "iam:PassRole"
- ],
- "Resource": "*",
- "Condition": {
- "StringEquals": {
- "iam:PassedToService": [
- "datasync.amazonaws.com"
- ]
- }
- }
- }
- ]
-}`
-
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "SourceUserRolePermissions",
+            "Effect": "Allow",
+            "Action": [
+                "datasync:CreateLocationS3",
+                "datasync:CreateTask",
+                "datasync:DescribeLocation*",
+                "datasync:DescribeTaskExecution",
+                "datasync:ListLocations",
+                "datasync:ListTaskExecutions",
+                "datasync:DescribeTask",
+                "datasync:CancelTaskExecution",
+                "datasync:ListTasks",
+                "datasync:StartTaskExecution",
+                "s3:GetBucketLocation",
+                "s3:ListAllMyBuckets"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "IAMPermissions",
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateRole",
+                "iam:ListRoles",
+                "iam:CreatePolicy"
+            ],
+            "Resource": "arn:aws:iam::111122223333:role/DataSync-*"
+        },
+        {
+            "Sid": "IAMAttachRolePermissions",
+            "Effect": "Allow",
+            "Action": [
+                "iam:AttachRolePolicy"
+            ],
+            "Resource": "arn:aws:iam::111122223333:role/DataSync-*",
+            "Condition": {
+            "ArnLike": {
+                "iam:PolicyARN": [
+                   "arn:aws:iam::111122223333:policy/DataSync-*",
+                   "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess",
+                   "arn:aws:iam::aws:policy/service-role/AWSDataSyncFullAccess"
+                ]
+            }
+          }
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:PassRole"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "iam:PassedToService": [
+                        "datasync.amazonaws.com"
+                    ]
+                }
+            }
+        }
+    ]
+}
 ```
 
 ###### Tip
@@ -131,34 +130,33 @@ your [destination bucket policy](#s3-cross-account-update-s3-policy-destination-
 DataSync destination location](#s3-cross-account-create-datasync-destination "#s3-cross-account-create-datasync-destination").
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Action": [
- "s3:GetBucketLocation",
- "s3:ListBucket",
- "s3:ListBucketMultipartUploads"
- ],
- "Effect": "Allow",
- "Resource": "arn:aws:s3:::`amzn-s3-demo-destination-bucket`"
- },
- {
- "Action": [
- "s3:AbortMultipartUpload",
- "s3:DeleteObject",
- "s3:GetObject",
- "s3:ListMultipartUploadParts",
- "s3:PutObject",
- "s3:GetObjectTagging",
- "s3:PutObjectTagging"
- ],
- "Effect": "Allow",
- "Resource": "arn:aws:s3:::`amzn-s3-demo-destination-bucket`/*"
- }
- ]
-}`
-
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "s3:GetBucketLocation",
+        "s3:ListBucket",
+        "s3:ListBucketMultipartUploads"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::`amzn-s3-demo-destination-bucket`"
+    },
+    {
+      "Action": [
+        "s3:AbortMultipartUpload",
+        "s3:DeleteObject",
+        "s3:GetObject",
+        "s3:ListMultipartUploadParts",
+        "s3:PutObject",
+        "s3:GetObjectTagging",
+        "s3:PutObjectTagging"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::`amzn-s3-demo-destination-bucket`/*"
+    }
+  ]
+}
 ```
 
 ## Prerequisite: Required destination account permissions
@@ -243,49 +241,46 @@ transfer data to the S3 bucket in your destination account.
    account ID that owns the Amazon S3 bucket specified in the
    policy.
 
-   JSON
-
    ```
-   `{
-    "Version":"2012-10-17",
+   {
+    "Version": "2012-10-17",
     "Statement": [
-    {
-    "Action": [
-    "s3:GetBucketLocation",
-    "s3:ListBucket",
-    "s3:ListBucketMultipartUploads"
-    ],
-    "Effect": "Allow",
-    "Resource": "arn:aws:s3:::amzn-s3-demo-destination-bucket",
-    "Condition": {
-    "StringEquals": {
-    "aws:ResourceAccount": "123456789012"
-    }
-    }
-    },
-    {
-    "Action": [
-    "s3:AbortMultipartUpload",
-    "s3:DeleteObject",
-    "s3:GetObject",
-    "s3:GetObjectTagging",
-    "s3:GetObjectVersion",
-    "s3:GetObjectVersionTagging",
-    "s3:ListMultipartUploadParts",
-    "s3:PutObject",
-    "s3:PutObjectTagging"
-    ],
-    "Effect": "Allow",
-    "Resource": "arn:aws:s3:::amzn-s3-demo-destination-bucket/*",
-    "Condition": {
-    "StringEquals": {
-    "aws:ResourceAccount": "123456789012"
-    }
-    }
-    }
+        {
+            "Action": [
+                "s3:GetBucketLocation",
+                "s3:ListBucket",
+                "s3:ListBucketMultipartUploads"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:s3:::amzn-s3-demo-destination-bucket",
+            "Condition": {
+                "StringEquals": {
+                 "aws:ResourceAccount": "123456789012"
+                }
+            }
+        },
+        {
+            "Action": [
+                "s3:AbortMultipartUpload",
+                "s3:DeleteObject",
+                "s3:GetObject",
+                "s3:GetObjectTagging",
+                "s3:GetObjectVersion",
+                "s3:GetObjectVersionTagging",
+                "s3:ListMultipartUploadParts",
+                "s3:PutObject",
+                "s3:PutObjectTagging"
+              ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:s3:::amzn-s3-demo-destination-bucket/*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:ResourceAccount": "123456789012"
+                }
+            }
+        }
     ]
-   }`
-
+   }
    ```
 
    2. Replace each instance of
@@ -319,38 +314,35 @@ permissions for your destination account](#onprem-s3-cross-account-required-perm
    1. Update what's in the editor to include the following policy
       statements:
 
-   JSON
-
    ```
-   `{
-    "Version":"2012-10-17",
-    "Statement": [
-    {
-    "Sid": "DataSyncCreateS3LocationAndTaskAccess",
-    "Effect": "Allow",
-    "Principal": {
-    "AWS": "arn:aws:iam::`111122223333`:role/`source-datasync-role`"
-    },
-    "Action": [
-    "s3:GetBucketLocation",
-    "s3:ListBucket",
-    "s3:ListBucketMultipartUploads",
-    "s3:AbortMultipartUpload",
-    "s3:DeleteObject",
-    "s3:GetObject",
-    "s3:ListMultipartUploadParts",
-    "s3:PutObject",
-    "s3:GetObjectTagging",
-    "s3:PutObjectTagging"
-    ],
-    "Resource": [
-    "arn:aws:s3:::`amzn-s3-demo-destination-bucket`",
-    "arn:aws:s3:::`amzn-s3-demo-destination-bucket`/*"
-    ]
-    }
-    ]
-   }`
-
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Sid": "DataSyncCreateS3LocationAndTaskAccess",
+         "Effect": "Allow",
+         "Principal": {
+         "AWS": "arn:aws:iam::`111122223333`:role/`source-datasync-role`"
+         },
+         "Action": [
+           "s3:GetBucketLocation",
+           "s3:ListBucket",
+           "s3:ListBucketMultipartUploads",
+           "s3:AbortMultipartUpload",
+           "s3:DeleteObject",
+           "s3:GetObject",
+           "s3:ListMultipartUploadParts",
+           "s3:PutObject",
+           "s3:GetObjectTagging",
+           "s3:PutObjectTagging"
+         ],
+         "Resource": [
+           "arn:aws:s3:::`amzn-s3-demo-destination-bucket`",
+           "arn:aws:s3:::`amzn-s3-demo-destination-bucket`/*"
+         ]
+       }
+     ]
+   }
    ```
 
    2. Replace each instance of

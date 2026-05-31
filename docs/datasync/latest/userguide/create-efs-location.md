@@ -152,20 +152,17 @@ policy](#create-efs-location-iam-policy "#create-efs-location-iam-policy").
    **Custom trust policy**.
 4. Paste the following JSON into the policy editor:
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [{
- "Effect": "Allow",
- "Principal": {
- "Service": "datasync.amazonaws.com"
- },
- "Action": "sts:AssumeRole"
- }]
-}`
-
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Effect": "Allow",
+        "Principal": {
+            "Service": "datasync.amazonaws.com"
+        },
+        "Action": "sts:AssumeRole"
+    }]
+}
 ```
 
 5. Choose **Next**. On the **Add
@@ -184,35 +181,32 @@ system (identified in the policy as
  restricted but still allows access to DataSync through an IAM role named
  `MyDataSyncRole``:
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Id": "ExampleEFSFileSystemPolicy",
- "Statement": [{
- "Sid": "AccessEFSFileSystem",
- "Effect": "Allow",
- "Principal": {
- "AWS": "arn:aws:iam::`111122223333`:role/`MyDataSyncRole`"
- },
- "Action": [
- "elasticfilesystem:ClientMount",
- "elasticfilesystem:ClientWrite",
- "elasticfilesystem:ClientRootAccess"
- ],
- "Resource": "arn:aws:elasticfilesystem:`us-east-1`:`111122223333`:file-system/fs-`1234567890abcdef0`",
- "Condition": {
- "Bool": {
- "aws:SecureTransport": "true"
- },
- "StringEquals": {
- "elasticfilesystem:AccessPointArn": "arn:aws:elasticfilesystem:`us-east-1`:`111122223333`:access-point/fsap-`abcdef01234567890`"
- }
- }
- }]
-}`
-
+{
+    "Version": "2012-10-17",
+    "Id": "ExampleEFSFileSystemPolicy",
+    "Statement": [{
+        "Sid": "AccessEFSFileSystem",
+        "Effect": "Allow",
+        "Principal": {
+            "AWS": "arn:aws:iam::`111122223333`:role/`MyDataSyncRole`"
+        },
+        "Action": [
+            "elasticfilesystem:ClientMount",
+            "elasticfilesystem:ClientWrite",
+            "elasticfilesystem:ClientRootAccess"
+        ],
+        "Resource": "arn:aws:elasticfilesystem:`us-east-1`:`111122223333`:file-system/fs-`1234567890abcdef0`",
+        "Condition": {
+            "Bool": {
+                "aws:SecureTransport": "true"
+            },
+            "StringEquals": {
+                "elasticfilesystem:AccessPointArn": "arn:aws:elasticfilesystem:`us-east-1`:`111122223333`:access-point/fsap-`abcdef01234567890`"
+            }
+        }
+    }]
+}
 ```
 
 - `Principal` – Specifies an [IAM role](#create-efs-location-iam "#create-efs-location-iam") that gives

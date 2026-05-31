@@ -44,30 +44,27 @@ The following full example shows how you can use the
 `aws:SourceArn` and `aws:SourceAccount` global
 condition context keys to prevent the confused deputy problem with DataSync.
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "Service": "datasync.amazonaws.com"
- },
- "Action": "sts:AssumeRole",
- "Condition": {
- "StringEquals": {
- "aws:SourceAccount": "`123456789012`"
- },
- "ArnLike": {
- "aws:SourceArn": "arn:aws:datasync:`us-east-1`:`123456789012`:*"
- }
- }
- }
- ]
-}`
-
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "datasync.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole",
+            "Condition": {
+                "StringEquals": {
+                "aws:SourceAccount": "`123456789012`"
+                },
+                "ArnLike": {
+                "aws:SourceArn": "arn:aws:datasync:`us-east-1`:`123456789012`:*"
+                }
+            }
+        }
+    ]
+}
 ```
 
 - Allows DataSync to upload a task report to your S3 bucket.
@@ -76,20 +73,17 @@ The following example does this by including the `s3:PutObject`
 action only for a specific prefix (`reports/`) in your
 bucket.
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [{
- "Action": [
- "s3:PutObject"
- ],
- "Effect": "Allow",
- "Resource": "arn:aws:s3:::`your-task-reports-bucket`/reports/*"
- }]
-}`
-
+{
+        "Version": "2012-10-17",
+        "Statement": [{
+            "Action": [
+                "s3:PutObject"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:s3:::`your-task-reports-bucket`/reports/*"
+        }]
+}
 ```
 
 - If your S3 bucket is encrypted with a customer managed SSE-KMS key, the

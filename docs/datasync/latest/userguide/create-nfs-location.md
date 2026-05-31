@@ -145,7 +145,7 @@ For more information on creating the location, see [Providing DataSync access to
 
 DataSync automatically chooses the NFS version that it uses to read
 from an NFS location. To specify an NFS version, use the optional
-`Version` parameter in the [NfsMountOptions](API_NfsMountOptions.md "API_NfsMountOptions.md") API operation.
+`Version` parameter in the [NfsMountOptions](../apireference/API_NfsMountOptions.md "../apireference/API_NfsMountOptions.md") API operation.
 This command returns the Amazon Resource Name (ARN) of the NFS location,
 similar to the ARN shown following.
 

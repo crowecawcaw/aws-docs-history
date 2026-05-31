@@ -52,7 +52,7 @@ There are several ways to use DataSync:
 
 - [DataSync console](https://console.aws.amazon.com/datasync/home "https://console.aws.amazon.com/datasync/home"), which is
   part of the AWS Management Console.
-- [DataSync API](API_Reference.md "API_Reference.md") or the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/datasync/index.html#cli-aws-datasync "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/datasync/index.html#cli-aws-datasync") to programmatically configure and manage DataSync.
+- [DataSync API](../apireference/Welcome.md "../apireference/Welcome.md") or the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/datasync/index.html#cli-aws-datasync "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/datasync/index.html#cli-aws-datasync") to programmatically configure and manage DataSync.
 - [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/AWS_DataSync.md "../../../AWSCloudFormation/latest/UserGuide/AWS_DataSync.md")
   or [Terraform](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/datasync_agent "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/datasync_agent") to provision your DataSync resources.
 - [AWS SDKs](https://aws.amazon.com/developer/ "https://aws.amazon.com/developer/") to build

@@ -99,51 +99,6 @@ Amazon S3 (destination location)
 }
 ```
 
-Amazon S3 on Outposts
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Action": [
- "s3-outposts:ListBucket",
- "s3-outposts:ListBucketMultipartUploads"
- ],
- "Effect": "Allow",
- "Resource": [
- "arn:aws:s3-outposts:`us-east-1`:`123456789012`:outpost/`outpost-id`/bucket/`amzn-s3-demo-bucket`",
- "arn:aws:s3-outposts:`us-east-1`:`123456789012`:outpost/`outpost-id`/accesspoint/`bucket-access-point-name`"
- ]
- },
- {
- "Action": [
- "s3-outposts:AbortMultipartUpload",
- "s3-outposts:DeleteObject",
- "s3-outposts:GetObject",
- "s3-outposts:GetObjectTagging",
- "s3-outposts:GetObjectVersion",
- "s3-outposts:GetObjectVersionTagging",
- "s3-outposts:ListMultipartUploadParts",
- "s3-outposts:PutObject",
- "s3-outposts:PutObjectTagging"
- ],
- "Effect": "Allow",
- "Resource": [
- "arn:aws:s3-outposts:`us-east-1`:`123456789012`:outpost/`outpost-id`/bucket/`amzn-s3-demo-bucket`/*",
- "arn:aws:s3-outposts:`us-east-1`:`123456789012`:outpost/`outpost-id`/accesspoint/`bucket-access-point-name`/*"
- ]
- },
- {
- "Action": "s3-outposts:GetAccessPoint",
- "Effect": "Allow",
- "Resource": "arn:aws:s3-outposts:`us-east-1`:`123456789012`:outpost/`outpost-id`/accesspoint/`bucket-access-point-name`"
- }
- ]
-}`
-
-```
-
 ### Creating an IAM role for DataSync to access your Amazon S3 location
 
 When [creating your Amazon S3
@@ -187,43 +142,7 @@ bucket in a different AWS accounts).
         1. On the role's details page, choose the **Trust
          relationships** tab. Choose **Edit
          trust policy**.
-        2. Update the trust policy by using the following
-         example, which includes the `aws:SourceArn`
-         and `aws:SourceAccount` global condition
-         context keys:
-
-
-
-        JSON
-
-
-
-
-
-        ```
-        `{
-         "Version":"2012-10-17",
-         "Statement": [
-         {
-         "Effect": "Allow",
-         "Principal": {
-         "Service": "datasync.amazonaws.com"
-         },
-         "Action": "sts:AssumeRole",
-         "Condition": {
-         "StringEquals": {
-         "aws:SourceAccount": "`444455556666`"
-         },
-         "ArnLike": {
-         "aws:SourceArn": "arn:aws:datasync:`us-east-1`:`444455556666`:*"
-         }
-         }
-         }
-         ]
-        }`
-
-        ```
-        3. Choose **Update policy**.
+        2. Choose **Update policy**.
 
     You can specify this role when creating your Amazon S3 location.
 
@@ -287,63 +206,60 @@ your own:
   name of the IAM role that allows DataSync to use the key when
   accessing the bucket.
 
-JSON
-
 ```
-`{
- "Id": "key-consolepolicy-3",
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "Enable IAM Permissions",
- "Effect": "Allow",
- "Principal": {
- "AWS": "arn:aws:iam::`111122223333`:root"
- },
- "Action": "kms:*",
- "Resource": "*"
- },
- {
- "Sid": "Allow access for Key Administrators",
- "Effect": "Allow",
- "Principal": {
- "AWS": "arn:aws:iam::`111122223333`:role/`admin-role-name`"
- },
- "Action": [
- "kms:Create*",
- "kms:Describe*",
- "kms:Enable*",
- "kms:List*",
- "kms:Put*",
- "kms:Update*",
- "kms:Revoke*",
- "kms:Disable*",
- "kms:Get*",
- "kms:Delete*",
- "kms:TagResource",
- "kms:UntagResource",
- "kms:ScheduleKeyDeletion",
- "kms:CancelKeyDeletion"
- ],
- "Resource": "*"
- },
- {
- "Sid": "Allow use of the key",
- "Effect": "Allow",
- "Principal": {
- "AWS": "arn:aws:iam::`111122223333`:role/`datasync-role-name`"
- },
- "Action": [
- "kms:Encrypt",
- "kms:Decrypt",
- "kms:ReEncrypt*",
- "kms:GenerateDataKey*"
- ],
- "Resource": "*"
- }
- ]
-}`
-
+{
+    "Id": "key-consolepolicy-3",
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Enable IAM Permissions",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::`111122223333`:root"
+            },
+            "Action": "kms:*",
+            "Resource": "*"
+        },
+        {
+            "Sid": "Allow access for Key Administrators",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::`111122223333`:role/`admin-role-name`"
+            },
+            "Action": [
+                "kms:Create*",
+                "kms:Describe*",
+                "kms:Enable*",
+                "kms:List*",
+                "kms:Put*",
+                "kms:Update*",
+                "kms:Revoke*",
+                "kms:Disable*",
+                "kms:Get*",
+                "kms:Delete*",
+                "kms:TagResource",
+                "kms:UntagResource",
+                "kms:ScheduleKeyDeletion",
+                "kms:CancelKeyDeletion"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "Allow use of the key",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::`111122223333`:role/`datasync-role-name`"
+            },
+            "Action": [
+                "kms:Encrypt",
+                "kms:Decrypt",
+                "kms:ReEncrypt*",
+                "kms:GenerateDataKey*"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
 ```
 
 ### Accessing restricted S3 buckets
@@ -354,31 +270,28 @@ for your transfer.
 
 1. Copy the following S3 bucket policy.
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [{
- "Sid": "Deny-access-to-bucket",
- "Effect": "Deny",
- "Principal": "*",
- "Action": "s3:*",
- "Resource": [
- "arn:aws:s3:::`amzn-s3-demo-bucket`",
- "arn:aws:s3:::`amzn-s3-demo-bucket`/*"
- ],
- "Condition": {
- "StringNotLike": {
- "aws:userid": [
- "`datasync-iam-role-id`:*",
- "`your-iam-role-id`"
- ]
- }
- }
- }]
-}`
-
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Sid": "Deny-access-to-bucket",
+        "Effect": "Deny",
+        "Principal": "*",
+        "Action": "s3:*",
+        "Resource": [
+            "arn:aws:s3:::`amzn-s3-demo-bucket`",
+            "arn:aws:s3:::`amzn-s3-demo-bucket`/*"
+        ],
+        "Condition": {
+            "StringNotLike": {
+                "aws:userid": [
+                    "`datasync-iam-role-id`:*",
+                    "`your-iam-role-id`"
+                ]
+            }
+        }
+    }]
+}
 ```
 
 2. In the policy, replace the following values:
@@ -439,32 +352,31 @@ includes the [ArnNotLikeIfExists](../../../IAM/latest/UserGuide/reference_polici
 a DataSync location role to access the bucket.
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "Access-to-specific-VPCs-only",
- "Effect": "Deny",
- "Principal": "*",
- "Action": "s3:*",
- "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`/*",
- "Condition": {
- "StringNotEqualsIfExists": {
- "aws:SourceVpc": [
- "vpc-`1234567890abcdef0`",
- "vpc-`abcdef01234567890`"
- ]
- },
- "ArnNotLikeIfExists": {
- "aws:PrincipalArn": [
- "arn:aws:iam::`111122223333`:role/`datasync-location-role-name`"
- ]
- }
- }
- }
- ]
-}`
-
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Access-to-specific-VPCs-only",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`/*",
+            "Condition": {
+                "StringNotEqualsIfExists": {
+                    "aws:SourceVpc": [
+                        "vpc-`1234567890abcdef0`",
+                        "vpc-`abcdef01234567890`"
+                    ]
+                },
+                "ArnNotLikeIfExists": {
+                    "aws:PrincipalArn": [
+                        "arn:aws:iam::`111122223333`:role/`datasync-location-role-name`"
+                    ]
+                }
+            }
+        }
+    ]
+}
 ```
 
 Option 2: Allowing access based on DataSync location role
@@ -484,28 +396,27 @@ policy by specifying a tag attached to your DataSync location
 role.
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "Access-to-specific-VPCs-only",
- "Effect": "Deny",
- "Principal": "*",
- "Action": "s3:*",
- "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`/*",
- "Condition": {
- "StringNotEqualsIfExists": {
- "aws:SourceVpc": [
- "vpc-`1234567890abcdef0`",
- "vpc-`abcdef01234567890`"
- ],
- "aws:PrincipalTag/`exclude-from-vpc-restriction`": "`true`"
- }
- }
- }
- ]
-}`
-
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Access-to-specific-VPCs-only",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`/*",
+            "Condition": {
+                "StringNotEqualsIfExists": {
+                    "aws:SourceVpc": [
+                        "vpc-`1234567890abcdef0`",
+                        "vpc-`abcdef01234567890`"
+                    ],
+                    "aws:PrincipalTag/`exclude-from-vpc-restriction`": "`true`"
+                }
+            }
+        }
+    ]
+}
 ```
 
 ## Storage class considerations with Amazon S3 transfers

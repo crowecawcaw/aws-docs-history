@@ -39,30 +39,27 @@ DataSync:
   `aws:SourceAccount` global condition context keys in a trust policy to
   prevent the confused deputy problem with DataSync.
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "Service": "datasync.amazonaws.com"
- },
- "Action": "sts:AssumeRole",
- "Condition": {
- "StringEquals": {
- "aws:SourceAccount": "`123456789012`"
- },
- "ArnLike": {
- "aws:SourceArn": "arn:aws:datasync:`us-east-2`:`123456789012`:*"
- }
- }
- }
- ]
-}`
-
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "datasync.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole",
+            "Condition": {
+                "StringEquals": {
+                "aws:SourceAccount": "`123456789012`"
+                },
+                "ArnLike": {
+                "aws:SourceArn": "arn:aws:datasync:`us-east-2`:`123456789012`:*"
+                }
+            }
+        }
+    ]
+}
 ```
 
 For more example policies that show how you can use the `aws:SourceArn` and

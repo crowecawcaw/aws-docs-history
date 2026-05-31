@@ -97,9 +97,9 @@ following.
 
 - If the task execution succeeds, the value of **Status**
   changes to **SUCCESS**. For information about what the
-  response elements mean, see [DescribeTaskExecution](API_DescribeTaskExecution.md "API_DescribeTaskExecution.md").
+  response elements mean, see [DescribeTaskExecution](../apireference/API_DescribeTaskExecution.md "../apireference/API_DescribeTaskExecution.md").
 - If the task execution fails, the result sends error codes that can help
-  you troubleshoot issues. For information about the error codes, see [TaskExecutionResultDetail](API_TaskExecutionResultDetail.md "API_TaskExecutionResultDetail.md").
+  you troubleshoot issues. For information about the error codes, see [TaskExecutionResultDetail](../apireference/API_TaskExecutionResultDetail.md "../apireference/API_TaskExecutionResultDetail.md").
 
 ## Monitoring your transfer by using the `watch` utility
 

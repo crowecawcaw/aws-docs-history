@@ -14,27 +14,24 @@ When creating a customer managed policy, you include statements about DataSync o
 that can be used on certain AWS resources. The following example policy has two statements
 (note the `Action` and `Resource` elements in each statement):
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "AllowsSpecifiedActionsOnAllTasks",
- "Effect": "Allow",
- "Action": "datasync:DescribeTask",
- "Resource": "arn:aws:datasync:`us-east-1`:`111122223333`:task/*"
- },
- {
- "Sid": "ListAllTasks",
- "Effect": "Allow",
- "Action": "datasync:ListTasks",
- "Resource": "*"
- }
- ]
-}`
-
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowsSpecifiedActionsOnAllTasks",
+            "Effect": "Allow",
+            "Action": "datasync:DescribeTask",
+            "Resource": "arn:aws:datasync:`us-east-1`:`111122223333`:task/*"
+        },
+        {
+            "Sid": "ListAllTasks",
+            "Effect": "Allow",
+            "Action": "datasync:ListTasks",
+            "Resource": "*"
+        }
+    ]
+}
 ```
 
 The policy's statements do the following:
@@ -65,29 +62,27 @@ role. This role allows DataSync to access an Amazon S3 bucket. To prevent the [c
 problem](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md"), we recommend using the [`aws:SourceArn`](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn") and [`aws:SourceAccount`](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount") global condition context keys in the
 policy.
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "Service": "datasync.amazonaws.com"
- },
- "Action": "sts:AssumeRole",
- "Condition": {
- "StringEquals": {
- "aws:SourceAccount": "`111111111111`"
- },
- "ArnLike": {
- "aws:SourceArn": "arn:aws:datasync:`us-east-1`:`111111111111`:*"
- }
- }
- }
- ]
-}`
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "datasync.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole",
+            "Condition": {
+                "StringEquals": {
+                "aws:SourceAccount": "`111111111111`"
+                },
+                "ArnLike": {
+                "aws:SourceArn": "arn:aws:datasync:`us-east-1`:`111111111111`:*"
+                }
+            }
+        }
+    ]
+}
 
 ```
 

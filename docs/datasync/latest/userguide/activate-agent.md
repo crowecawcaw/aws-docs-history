@@ -285,6 +285,6 @@ This happens briefly after activating an agent.
   connection](test-agent-connections.md "test-agent-connections.md") to your storage system and the DataSync service.
 - If you run into issues trying to activate your agent, get help with [troubleshooting](troubleshooting-datasync-agents.md "troubleshooting-datasync-agents.md").
 - Create the DataSync location that you want to use with your agent. This might
-  be an [on-premises](transferring-on-premises-storage.md "transferring-on-premises-storage.md") or
-  [other cloud](transferring-other-cloud-storage.md "transferring-other-cloud-storage.md")
+  be an [on-premises](transferring-on-premises-storage.md "transferring-on-premises-storage.md")
+  or [other cloud](transferring-other-cloud-storage.md "transferring-other-cloud-storage.md")
   location.

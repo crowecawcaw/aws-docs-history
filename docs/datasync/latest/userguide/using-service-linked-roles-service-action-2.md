@@ -33,52 +33,49 @@ role:
 The service-linked role uses the AWS managed policy named [AWSDataSyncServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-awsdatasyncservicerolepolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-awsdatasyncservicerolepolicy"), which allows DataSync to complete the following actions
 on the specified resources:
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [{
- "Sid": "DataSyncCloudWatchLogCreateAccess",
- "Effect": "Allow",
- "Action": [
- "logs:CreateLogGroup",
- "logs:CreateLogStream"
- ],
- "Resource": [
- "arn:*:logs:*:*:log-group:/aws/datasync*"
- ]
- },
- {
- "Sid": "DataSyncCloudWatchLogStreamUpdateAccess",
- "Effect": "Allow",
- "Action": [
- "logs:PutLogEvents"
- ],
- "Resource": [
- "arn:*:logs:*:*:log-group:/aws/datasync*:log-stream:*"
- ]
- },
- {
- "Sid": "DataSyncSecretsManagerReadAccess",
- "Effect": "Allow",
- "Action": [
- "secretsmanager:DescribeSecret",
- "secretsmanager:GetSecretValue"
- ],
- "Resource": [
- "arn:*:secretsmanager:*:*:secret:aws-datasync!*"
- ],
- "Condition": {
- "StringEquals": {
- "secretsmanager:ResourceTag/aws:secretsmanager:owningService": "aws-datasync",
- "aws:ResourceAccount": "${aws:PrincipalAccount}"
- }
- }
- }
- ]
-}`
-
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+            "Sid": "DataSyncCloudWatchLogCreateAccess",
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream"
+            ],
+            "Resource": [
+                "arn:*:logs:*:*:log-group:/aws/datasync*"
+            ]
+        },
+        {
+            "Sid": "DataSyncCloudWatchLogStreamUpdateAccess",
+            "Effect": "Allow",
+            "Action": [
+                "logs:PutLogEvents"
+            ],
+            "Resource": [
+                "arn:*:logs:*:*:log-group:/aws/datasync*:log-stream:*"
+            ]
+        },
+        {
+            "Sid": "DataSyncSecretsManagerReadAccess",
+            "Effect": "Allow",
+            "Action": [
+                "secretsmanager:DescribeSecret",
+                "secretsmanager:GetSecretValue"
+            ],
+            "Resource": [
+                "arn:*:secretsmanager:*:*:secret:aws-datasync!*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "secretsmanager:ResourceTag/aws:secretsmanager:owningService": "aws-datasync",
+                    "aws:ResourceAccount": "${aws:PrincipalAccount}"
+                }
+            }
+        }
+    ]
+}
 ```
 
 You must configure permissions to allow your users, groups, or roles to create, edit, or

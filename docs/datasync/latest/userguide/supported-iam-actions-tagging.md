@@ -28,56 +28,47 @@ permissions to users creating DataSync resources.
 The following statement allows users to tag a DataSync agent when they create the
 agent.
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "datasync:TagResource",
- "Resource": "arn:aws:datasync:us-east-1:`444455556666`:agent/*"
- }
- ]
-}`
-
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "datasync:TagResource",
+            "Resource": "arn:aws:datasync:us-east-1:`444455556666`:agent/*"
+        }
+    ]
+}
 ```
 
 The following statement allows users to tag a DataSync location when they create the
 location.
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "datasync:TagResource",
- "Resource": "arn:aws:datasync:`us-east-1`:`111122223333`:location/*"
- }
- ]
-}`
-
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "datasync:TagResource",
+            "Resource": "arn:aws:datasync:`us-east-1`:`111122223333`:location/*"
+        }
+    ]
+}
 ```
 
 The following statement allows users to tag a DataSync task when they create the
 task.
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "datasync:TagResource",
- "Resource": "arn:aws:datasync:`us-east-1`:`444455556666`:task/*"
- }
- ]
-}`
-
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "datasync:TagResource",
+            "Resource": "arn:aws:datasync:`us-east-1`:`444455556666`:task/*"
+        }
+    ]
+}
 ```

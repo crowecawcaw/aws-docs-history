@@ -1,17 +1,21 @@
 # Securing storage location credentials with Secrets Manager
 
+###### Note
+
+Secrets Manager integration is available for object storage and Microsoft Azure Blob Storage.
+
 DataSync uses [locations](how-datasync-transfer-works.md#sync-locations "how-datasync-transfer-works.md#sync-locations") to access your storage resources located on premises, in other
-clouds, or in AWS. Some location types require you to provide credentials (examples such as,
-access key and secret key, user name and password, Kerberos keytab, SAS token, etc.) to authenticate
-with your storage system. When you create a DataSync location that requires credentials for authentication, you
+clouds, or in AWS. Some location types require you to provide credentials, such as an
+access key and secret key or a user name and password, to authenticate with your storage
+system. When you create a DataSync location that requires credentials for authentication, you
 can use AWS Secrets Manager (Secrets Manager) to store the secret for your credentials. The following options are
 available:
 
-- [ManagedSecretConfig](API_ManagedSecretConfig.md "API_ManagedSecretConfig.md"): DataSync-Managed Secret configuration. Store the secret in Secrets Manager using a DataSync service-managed secret encrypted with a
+- Store the secret in Secrets Manager using a service-managed secret encrypted with a
   default key.
-- [CmkSecretConfig](API_CmkSecretConfig.md "API_CmkSecretConfig.md"): DataSync-Managed Secret with Customer-Managed Key (CMK) configuration. Store the secret in Secrets Manager using a DataSync service-managed secret encrypted with an
+- Store the secret in Secrets Manager using a service-managed secret encrypted with an
   AWS KMS key that you manage.
-- [CustomSecretConfig](API_CustomSecretConfig.md "API_CustomSecretConfig.md"): Customer-Managed Secret configuration. Store the secret in Secrets Manager using a secret and key that you create and manage.
+- Store the secret in Secrets Manager using a secret and key that you create and manage.
   DataSync accesses this secret using an IAM role that you provide.
   In all cases, the Secrets Manager secret is stored in your account, allowing you to update the
   secret as needed, independent of the DataSync service. Secrets created and managed by DataSync have the
@@ -122,23 +126,20 @@ do the following:
 8. Choose the **JSON** tab and add the following permissions
    into the policy editor:
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "secretsmanager:GetSecretValue",
- "secretsmanager:DescribeSecret"
- ],
- "Resource": "arn:aws:secretsmanager:`us-east-1`:`111122223333`:secret:`your-secret-name`"
- }
- ]
-}`
-
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "secretsmanager:GetSecretValue",
+                "secretsmanager:DescribeSecret"
+            ],
+            "Resource": "arn:aws:secretsmanager:`us-east-1`:`111122223333`:secret:`your-secret-name`"
+        }
+    ]
+}
 ```
 
 Replace `your-secret-name` with the name of your Secrets Manager
@@ -154,34 +155,27 @@ choose **Create policy**. 10. (Recommended) To prevent the [cross-service confus
 
 
 
-    JSON
-
-
-
-
-
     ```
-    `{
-     "Version":"2012-10-17",
-     "Statement": [
-     {
-     "Effect": "Allow",
-     "Principal": {
-     "Service": "datasync.amazonaws.com"
-     },
-     "Action": "sts:AssumeRole",
-     "Condition": {
-     "StringEquals": {
-     "aws:SourceAccount": "`111122223333`"
-     },
-     "ArnLike": {
-     "aws:SourceArn": "arn:aws:datasync:`us-east-1`:`111122223333`:*"
-     }
-     }
-     }
-     ]
-    }`
-
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Principal": {
+                    "Service": "datasync.amazonaws.com"
+                },
+                "Action": "sts:AssumeRole",
+                "Condition": {
+                    "StringEquals": {
+                    "aws:SourceAccount": "`111122223333`"
+                    },
+                    "ArnLike": {
+                    "aws:SourceArn": "arn:aws:datasync:`us-east-1`:`111122223333`:*"
+                    }
+                }
+            }
+        ]
+    }
     ```
     3. Choose **Update policy**.
 

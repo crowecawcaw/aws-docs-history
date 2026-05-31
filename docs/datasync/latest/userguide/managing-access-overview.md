@@ -108,23 +108,20 @@ The following example policy grants permissions to all `List*` actions on
 all resources. This action is a read-only action and doesn't allow resource
 modification.
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "AllowAllListActionsOnAllResources",
- "Effect": "Allow",
- "Action": [
- "datasync:List*"
- ],
- "Resource": "*"
- }
- ]
-}`
-
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowAllListActionsOnAllResources",
+            "Effect": "Allow",
+            "Action": [
+                "datasync:List*"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
 ```
 
 For more information about using identity-based policies with DataSync, see [AWS managed policies](security-iam-awsmanpol.md "security-iam-awsmanpol.md") and [customer managed policies](using-identity-based-policies.md "using-identity-based-policies.md"). For more

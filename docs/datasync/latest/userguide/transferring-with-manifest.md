@@ -240,22 +240,19 @@ AWS account where you use DataSync and your manifest's S3 bucket is located.
 8. Choose the **JSON** tab and paste the following
    sample policy into the policy editor:
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [{
- "Sid": "DataSyncAccessManifest",
- "Effect": "Allow",
- "Action": [
- "s3:GetObject",
- "s3:GetObjectVersion"
- ],
- "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`/`my-manifest.csv`"
- }]
-}`
-
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Sid": "DataSyncAccessManifest",
+        "Effect": "Allow",
+        "Action": [
+            "s3:GetObject",
+            "s3:GetObjectVersion"
+        ],
+        "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`/`my-manifest.csv`"
+    }]
+}
 ```
 
 9.  In the sample policy that you just pasted, replace the following
@@ -283,39 +280,28 @@ JSON
 
 
 
-        JSON
-
-
-
-
-
         ```
-        `{
-         "Version":"2012-10-17",
-         "Statement": [
-         {
-         "Effect": "Allow",
-         "Principal": {
-         "Service": "datasync.amazonaws.com"
-         },
-         "Action": "sts:AssumeRole",
-         "Condition": {
-         "StringEquals": {
-         "aws:SourceAccount": "`555555555555`"
-         },
-         "ArnLike": {
-         "aws:SourceArn": "arn:aws:datasync:`us-east-1`:`555555555555`:*"
-         }
-         }
-         }
-         ]
-        }`
-
+        {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Principal": {
+                    "Service": "datasync.amazonaws.com"
+                },
+                "Action": "sts:AssumeRole",
+                "Condition": {
+                    "StringEquals": {
+                    "aws:SourceAccount": "`555555555555`"
+                    },
+                    "ArnLike": {
+                    "aws:SourceArn": "arn:aws:datasync:`us-east-1`:`555555555555`:*"
+                    }
+                }
+              }
+          ]
+        }
         ```
-
-
-
-
 
 
 
@@ -361,22 +347,19 @@ the role in the S3 bucket policy.
 8. Choose the **JSON** tab and paste the following
    sample policy into the policy editor:
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [{
- "Sid": "DataSyncAccessManifest",
- "Effect": "Allow",
- "Action": [
- "s3:GetObject",
- "s3:GetObjectVersion"
- ],
- "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`/`my-manifest.csv`"
- }]
-}`
-
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Sid": "DataSyncAccessManifest",
+        "Effect": "Allow",
+        "Action": [
+            "s3:GetObject",
+            "s3:GetObjectVersion"
+        ],
+        "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`/`my-manifest.csv`"
+    }]
+}
 ```
 
 9.  In the sample policy that you just pasted, replace the following
@@ -401,30 +384,27 @@ JSON
        `aws:SourceAccount` global condition context
        keys:
 
-    JSON
-
     ```
-    `{
-     "Version":"2012-10-17",
-     "Statement": [
-     {
-     "Effect": "Allow",
-     "Principal": {
-     "Service": "datasync.amazonaws.com"
-     },
-     "Action": "sts:AssumeRole",
-     "Condition": {
-     "StringEquals": {
-     "aws:SourceAccount": "`000000000000`"
-     },
-     "ArnLike": {
-     "aws:SourceArn": "arn:aws:datasync:`us-east-1`:`000000000000`:*"
-     }
-     }
-     }
-     ]
-    }`
-
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "datasync.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole",
+            "Condition": {
+                "StringEquals": {
+                "aws:SourceAccount": "`000000000000`"
+                },
+                "ArnLike": {
+                "aws:SourceArn": "arn:aws:datasync:`us-east-1`:`000000000000`:*"
+                }
+            }
+         }
+      ]
+    }
     ```
 
         * Replace each instance of
@@ -459,24 +439,21 @@ located.
    1. Update what's in the editor to include the following policy
       statements:
 
-   JSON
-
    ```
-   `{
-    "Version":"2012-10-17",
-    "Statement": [
-    {
-    "Sid": "DataSyncAccessManifestBucket",
-    "Effect": "Allow",
-    "Action": [
-    "s3:GetObject",
-    "s3:GetObjectVersion"
-    ],
-    "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`"
-    }
-    ]
-   }`
-
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Sid": "DataSyncAccessManifestBucket",
+         "Effect": "Allow",
+         "Action": [
+           "s3:GetObject",
+           "s3:GetObjectVersion"
+         ],
+         "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`"
+       }
+     ]
+   }
    ```
 
    2. Replace `account-id`

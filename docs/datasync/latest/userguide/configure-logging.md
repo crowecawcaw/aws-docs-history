@@ -32,34 +32,33 @@ The
 following example is an IAM policy that grants these permissions.
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "DataSyncLogsToCloudWatchLogs",
- "Effect": "Allow",
- "Action": [
- "logs:PutLogEvents",
- "logs:CreateLogStream"
- ],
- "Principal": {
- "Service": "datasync.amazonaws.com"
- },
- "Condition": {
- "ArnLike": {
- "aws:SourceArn": [
- "arn:aws:datasync:`us-east-1`:`444455556666`:task/*"
- ]
- },
- "StringEquals": {
- "aws:SourceAccount": "`444455556666`"
- }
- },
- "Resource": "arn:aws:logs:`us-east-1`:`444455556666`:log-group:*:*"
- }
- ]
-}`
-
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DataSyncLogsToCloudWatchLogs",
+            "Effect": "Allow",
+            "Action": [
+                "logs:PutLogEvents",
+                "logs:CreateLogStream"
+            ],
+            "Principal": {
+                "Service": "datasync.amazonaws.com"
+            },
+            "Condition": {
+                "ArnLike": {
+                    "aws:SourceArn": [
+                    "arn:aws:datasync:`us-east-1`:`444455556666`:task/*"
+                    ]
+                },
+                "StringEquals": {
+                "aws:SourceAccount": "`444455556666`"
+                }
+            },
+            "Resource": "arn:aws:logs:`us-east-1`:`444455556666`:log-group:*:*"
+        }
+    ]
+}
 ```
 
 The policy uses
