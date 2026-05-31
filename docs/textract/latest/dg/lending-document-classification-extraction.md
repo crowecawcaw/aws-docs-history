@@ -7,12 +7,12 @@ into pages, classifying them according to the type of document. The document pag
 then automatically routed to Amazon Textract text processing operations for accurate data
 extraction and analysis.
 
-[StartLendingAnalysis](API_StartLendingAnalysis.md "API_StartLendingAnalysis.md")
+[StartLendingAnalysis](../APIReference/API_StartLendingAnalysis.md "../APIReference/API_StartLendingAnalysis.md")
 initiates the classification and analysis of a packet of lending documents.
 StartLendingAnalysis operates on a document file located in an Amazon S3 bucket.
 
-After processing, you can retrieve the results by using [GetLendingAnalysis](API_GetLendingAnalysis.md "API_GetLendingAnalysis.md") while a
-summary can be retrieved with [GetLendingAnalysisSummary](API_GetLendingAnalysisSummary.md "API_GetLendingAnalysisSummary.md"). Note that Analyze Lending document
+After processing, you can retrieve the results by using [GetLendingAnalysis](../APIReference/API_GetLendingAnalysis.md "../APIReference/API_GetLendingAnalysis.md") while a
+summary can be retrieved with [GetLendingAnalysisSummary](../APIReference/API_GetLendingAnalysisSummary.md "../APIReference/API_GetLendingAnalysisSummary.md"). Note that Analyze Lending document
 analysis is for asynchronous processing only.
 
 For a sample of the output for the GetLendingAnalysis operation, see the following.

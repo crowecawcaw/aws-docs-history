@@ -74,7 +74,7 @@ Example Query: What is the customer’s SSN?
 
 Example Answer: 111-xx-333
 
-For analyzed items, Amazon Textract returns the following in multiple [Block](API_Block.md "API_Block.md") objects:
+For analyzed items, Amazon Textract returns the following in multiple [Block](../APIReference/API_Block.md "../APIReference/API_Block.md") objects:
 
 - The lines and words of detected text
 - The content of detected items
@@ -94,8 +94,8 @@ samples.
 After you create an adapter, Amazon Textract provides you with an AdapterId. You can have
 multiple adapter versions within a single adapter. You can provide the AdapterId, along
 with an AdapterVersion, to an operation to specify that you want to use the adapter that
-you created. For example, you provide the two parameters to the [AnalyzeDocument](API_AnalyzeDocument.md "API_AnalyzeDocument.md") API for
-synchronous document analysis, or the [StartDocumentAnalysis](API_StartDocumentAnalysis.md "API_StartDocumentAnalysis.md") operation for asynchronous analysis.
+you created. For example, you provide the two parameters to the [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md") API for
+synchronous document analysis, or the [StartDocumentAnalysis](../APIReference/API_StartDocumentAnalysis.md "../APIReference/API_StartDocumentAnalysis.md") operation for asynchronous analysis.
 Providing the AdapterId as part of the request will automatically integrate the adapter
 into the analysis process and use it to enhance predictions for your documents. This
 way, you can leverage the capabilities of AnalyzeDocument while customizing the model to
@@ -113,12 +113,12 @@ the text in those elements. This information is returned in the implied reading 
 from top to bottom, left to right.
 
 You can use synchronous or asynchronous operations to analyze text in a document. To
-analyze text synchronously, use the [AnalyzeDocument](API_AnalyzeDocument.md "API_AnalyzeDocument.md") operation, and pass a document as input.
+analyze text synchronously, use the [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md") operation, and pass a document as input.
 `AnalyzeDocument` returns the entire set of results. For more
 information, see [Analyzing Document Text with Amazon Textract](analyzing-document-text.md "analyzing-document-text.md").
 
-To detect text asynchronously, use [StartDocumentAnalysis](API_StartDocumentAnalysis.md "API_StartDocumentAnalysis.md") to start processing. To get the results,
-call [GetDocumentAnalysis](API_GetDocumentAnalysis.md "API_GetDocumentAnalysis.md").
+To detect text asynchronously, use [StartDocumentAnalysis](../APIReference/API_StartDocumentAnalysis.md "../APIReference/API_StartDocumentAnalysis.md") to start processing. To get the results,
+call [GetDocumentAnalysis](../APIReference/API_GetDocumentAnalysis.md "../APIReference/API_GetDocumentAnalysis.md").
 The results are returned in one or more responses from `GetDocumentAnalysis`.
 For more information and an example, see [Detecting or Analyzing Text in a Multipage Document](async-analyzing-with-sqs.md "async-analyzing-with-sqs.md").
 

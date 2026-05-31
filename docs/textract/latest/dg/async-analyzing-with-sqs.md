@@ -8,7 +8,7 @@ For more information, see [Calling Amazon Textract Asynchronous Operations](api-
 You can choose the type of processing that you want the code to do: text detection,
 text analysis, or expense analysis.
 
-The processing results are returned in an array of [Block](API_Block.md "API_Block.md")
+The processing results are returned in an array of [Block](../APIReference/API_Block.md "../APIReference/API_Block.md")
 objects, which differ depending on the type of processing you use.
 
 To detect text in or analyze multipage documents, you do the following:
@@ -18,11 +18,11 @@ To detect text in or analyze multipage documents, you do the following:
 3. Give the topic permission to send messages to the queue.
 4. Start processing the document. Use the appropriate operation for your chosen
    type of analysis:
-   - [StartDocumentTextDetection](API_StartDocumentTextDetection.md "API_StartDocumentTextDetection.md") for text detection
+   - [StartDocumentTextDetection](../APIReference/API_StartDocumentTextDetection.md "../APIReference/API_StartDocumentTextDetection.md") for text detection
      tasks.
-   - [StartDocumentAnalysis](API_StartDocumentAnalysis.md "API_StartDocumentAnalysis.md") for text analysis
+   - [StartDocumentAnalysis](../APIReference/API_StartDocumentAnalysis.md "../APIReference/API_StartDocumentAnalysis.md") for text analysis
      tasks.
-   - [StartExpenseAnalysis](API_StartExpenseAnalysis.md "API_StartExpenseAnalysis.md") for expense analysis
+   - [StartExpenseAnalysis](../APIReference/API_StartExpenseAnalysis.md "../APIReference/API_StartExpenseAnalysis.md") for expense analysis
      tasks.
 
 5. Get the completion status from the Amazon SQS queue. The example code tracks the
@@ -34,11 +34,11 @@ To detect text in or analyze multipage documents, you do the following:
    further investigation.
 6. Get and display the processing results by calling the appropriate operation
    for your chosen type of analysis:
-   - [GetDocumentTextDetection](API_GetDocumentTextDetection.md "API_GetDocumentTextDetection.md") for text detection
+   - [GetDocumentTextDetection](../APIReference/API_GetDocumentTextDetection.md "../APIReference/API_GetDocumentTextDetection.md") for text detection
      tasks.
-   - [GetDocumentAnalysis](API_GetDocumentAnalysis.md "API_GetDocumentAnalysis.md") for text analysis
+   - [GetDocumentAnalysis](../APIReference/API_GetDocumentAnalysis.md "../APIReference/API_GetDocumentAnalysis.md") for text analysis
      tasks.
-   - [GetExpenseAnalysis](API_GetExpenseAnalysis.md "API_GetExpenseAnalysis.md") for expense analysis
+   - [GetExpenseAnalysis](../APIReference/API_GetExpenseAnalysis.md "../APIReference/API_GetExpenseAnalysis.md") for expense analysis
      tasks.
 
 7. Delete the Amazon SNS topic and the Amazon SQS queue.
@@ -76,15 +76,15 @@ function:
 
 For the AWS CLI example, do the following:
 
-    * When calling [StartDocumentTextDetection](API_StartDocumentTextDetection.md "API_StartDocumentTextDetection.md"), replace the value
+    * When calling [StartDocumentTextDetection](../APIReference/API_StartDocumentTextDetection.md "../APIReference/API_StartDocumentTextDetection.md"), replace the value
      of `bucket-name` with the name of your S3 bucket, and replace
      `file-name` with the name of the file you specified in
      step 2. Specify the region of your bucket by replacing
      `region-name` with the name of your region. Take note
      that the CLI example does not make use of SQS.
-    * When calling [GetDocumentTextDetection](API_GetDocumentTextDetection.md "API_GetDocumentTextDetection.md") replace
+    * When calling [GetDocumentTextDetection](../APIReference/API_GetDocumentTextDetection.md "../APIReference/API_GetDocumentTextDetection.md") replace
      `job-id-number` with the `job-id` returned by
-     [StartDocumentTextDetection](API_StartDocumentTextDetection.md "API_StartDocumentTextDetection.md"). Specify the region
+     [StartDocumentTextDetection](../APIReference/API_StartDocumentTextDetection.md "../APIReference/API_StartDocumentTextDetection.md"). Specify the region
      of your bucket by replacing `region-name` with the name of
      your region.
 

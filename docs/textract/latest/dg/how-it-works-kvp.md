@@ -7,8 +7,8 @@ Carolina_).
 
 _Name: Ana Carolina_
 
-Detected key-value pairs are returned as [Block](API_Block.md "API_Block.md") objects in the responses from [AnalyzeDocument](API_AnalyzeDocument.md "API_AnalyzeDocument.md") and
-[GetDocumentAnalysis](API_GetDocumentAnalysis.md "API_GetDocumentAnalysis.md"). You can use the
+Detected key-value pairs are returned as [Block](../APIReference/API_Block.md "../APIReference/API_Block.md") objects in the responses from [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md") and
+[GetDocumentAnalysis](../APIReference/API_GetDocumentAnalysis.md "../APIReference/API_GetDocumentAnalysis.md"). You can use the
 `FeatureTypes` input parameter to retrieve information about
 key-value pairs, tables, or both. For key-value pairs only, use the value
 `FORMS`. For an example, see [Extracting Key-Value Pairs from a Form Document](examples-extract-kvp.md "examples-extract-kvp.md"). For general information about how a

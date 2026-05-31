@@ -13,8 +13,8 @@ cells.
 | **Easy to Use**  | ☐         | ☑           | ☐            |
 | **Fair Price**   | ☑         | ☐           | ☐            |
 
-Detected selection elements are returned as [Block](API_Block.md "API_Block.md") objects in the responses from [AnalyzeDocument](API_AnalyzeDocument.md "API_AnalyzeDocument.md") and
-[GetDocumentAnalysis](API_GetDocumentAnalysis.md "API_GetDocumentAnalysis.md").
+Detected selection elements are returned as [Block](../APIReference/API_Block.md "../APIReference/API_Block.md") objects in the responses from [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md") and
+[GetDocumentAnalysis](../APIReference/API_GetDocumentAnalysis.md "../APIReference/API_GetDocumentAnalysis.md").
 
 Below is a table that provides examples of the different selectable types
 supported by Amazon Textract.
@@ -61,7 +61,7 @@ element in the `Geometry` field. A `SELECTION_ELEMENT`
 A key-value pair is used to represent a selection element that's detected
 on a form. The `KEY` block contains the text for the selection
 element. The `VALUE` block contains the SELECTION_ELEMENT block.
-The following diagram shows how selection elements are represented by [Block](API_Block.md "API_Block.md") objects.
+The following diagram shows how selection elements are represented by [Block](../APIReference/API_Block.md "../APIReference/API_Block.md") objects.
 
 ![Diagram depicting the representation of a selection element on a form using a key-value pair data structure, with KEY containing the text, VALUE containing the SELECTION_ELEMENT, and PAGE as the parent object.](images/hieroglyph-key-value-set-selectable.png)
 

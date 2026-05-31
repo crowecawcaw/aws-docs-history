@@ -3,9 +3,9 @@
 AWS Lambda is a compute service that you can use to run code without provisioning or managing
 servers. You can call Amazon Textract API operations from within an AWS Lambda function.
 The following instructions show how to create a Lambda function in Python that calls
-[DetectDocumentText](API_DetectDocumentText.md "API_DetectDocumentText.md").
+[DetectDocumentText](../APIReference/API_DetectDocumentText.md "../APIReference/API_DetectDocumentText.md").
 
-The Lambda function returns a list of [Block](API_Block.md "API_Block.md") objects with information about the detected words and
+The Lambda function returns a list of [Block](../APIReference/API_Block.md "../APIReference/API_Block.md") objects with information about the detected words and
 lines of text. The instructions include example Python code that shows you how to call
 the Lambda function with a document supplied from an Amazon S3 bucket or your local computer.
 Images stored in Amazon S3 must be in single-page PDF or TIFF document format, or in JPEG or

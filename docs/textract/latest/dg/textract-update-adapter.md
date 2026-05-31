@@ -2,7 +2,7 @@
 
 With Amazon Textract, you can update some configuration options of an adapter.
 Simultaneously, you can update any adapter versions associated with the adapter. To
-do this, call the [UpdateAdapter](API_UpdateAdapter.md "API_UpdateAdapter.md") operation and provide the operation with the
+do this, call the [UpdateAdapter](../APIReference/API_UpdateAdapter.md "../APIReference/API_UpdateAdapter.md") operation and provide the operation with the
 AdapterId and configuration elements that you want to update. The AdapterName and
 FeatureTypes elements cannot be updated.
 

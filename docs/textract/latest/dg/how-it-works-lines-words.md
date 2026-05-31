@@ -1,7 +1,7 @@
 # Lines and Words of Text
 
 Detected text that's returned by Amazon Textract operations is returned in a
-list of [Block](API_Block.md "API_Block.md") objects. These objects represent lines of
+list of [Block](../APIReference/API_Block.md "../APIReference/API_Block.md") objects. These objects represent lines of
 text or textual words that are detected on a document page. The following text
 shows two lines of text that are made from multiple words.
 
@@ -23,11 +23,11 @@ PRINTED respectively.
 The other `Block` properties are common to all block types, such as
 the ID, confidence, and geometry information. For more information, see [Text Detection and Document Analysis Response Objects](how-it-works-document-layout.md "how-it-works-document-layout.md").
 
-To detect only lines and words, you can use [DetectDocumentText](API_DetectDocumentText.md "API_DetectDocumentText.md") or
-[StartDocumentTextDetection](API_StartDocumentTextDetection.md "API_StartDocumentTextDetection.md"). For more information, see
+To detect only lines and words, you can use [DetectDocumentText](../APIReference/API_DetectDocumentText.md "../APIReference/API_DetectDocumentText.md") or
+[StartDocumentTextDetection](../APIReference/API_StartDocumentTextDetection.md "../APIReference/API_StartDocumentTextDetection.md"). For more information, see
 [Detecting Text](how-it-works-detecting.md "how-it-works-detecting.md"). To get the detected text (lines
 and words) and information about how it relates to other parts of the document,
-such as tables, you can use [AnalyzeDocument](API_AnalyzeDocument.md "API_AnalyzeDocument.md") or [StartDocumentAnalysis](API_StartDocumentAnalysis.md "API_StartDocumentAnalysis.md"). For more information, see [Analyzing Documents](how-it-works-analyzing.md "how-it-works-analyzing.md").
+such as tables, you can use [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md") or [StartDocumentAnalysis](../APIReference/API_StartDocumentAnalysis.md "../APIReference/API_StartDocumentAnalysis.md"). For more information, see [Analyzing Documents](how-it-works-analyzing.md "how-it-works-analyzing.md").
 
 `PAGE`, `LINE`, and `WORD` blocks are related
 to each other in a parent-to-child relationship. A `PAGE` block is

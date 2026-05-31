@@ -1,6 +1,6 @@
 # Analyzing Document Text with Amazon Textract
 
-To analyze text in a document, you use the [AnalyzeDocument](API_AnalyzeDocument.md "API_AnalyzeDocument.md") operation, and pass a document file as input.
+To analyze text in a document, you use the [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md") operation, and pass a document file as input.
 `AnalyzeDocument` returns a JSON structure that contains the analyzed
 text. For more information, see [Analyzing Documents](how-it-works-analyzing.md "how-it-works-analyzing.md").
 

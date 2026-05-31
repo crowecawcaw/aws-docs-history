@@ -71,7 +71,7 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 "Resource": "*"
 ```
 
-For actions that supports resource-level permission, such as the [AnalyzeDocument](API_AnalyzeDocument.md "API_AnalyzeDocument.md") and [GetAdapter](API_GetAdapter.md "API_GetAdapter.md")operations, use the
+For actions that supports resource-level permission, such as the [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md") and [GetAdapter](../APIReference/API_GetAdapter.md "../APIReference/API_GetAdapter.md")operations, use the
 ARN to indicate the resources:
 
 ```

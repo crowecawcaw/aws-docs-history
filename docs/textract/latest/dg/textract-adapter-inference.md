@@ -1,8 +1,8 @@
 # Using Adapters during Inference
 
 After creating an adapter, you are provided with an ID and version for your custom
-adapter. You can provide this ID and version to [AnalyzeDocument](API_AnalyzeDocument.md "API_AnalyzeDocument.md") for synchronous document analysis, or the
-[StartDocumentAnalysis](API_StartDocumentAnalysis.md "API_StartDocumentAnalysis.md") operation for asynchronous analysis. Providing the Adapter ID will automatically
+adapter. You can provide this ID and version to [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md") for synchronous document analysis, or the
+[StartDocumentAnalysis](../APIReference/API_StartDocumentAnalysis.md "../APIReference/API_StartDocumentAnalysis.md") operation for asynchronous analysis. Providing the Adapter ID will automatically
 integrate the adapter into the analysis process and use it to enhance predictions for
 your documents.
 

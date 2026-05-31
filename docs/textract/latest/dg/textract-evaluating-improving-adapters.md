@@ -34,10 +34,10 @@ the console to get predictions for these documents. This way, you can evaluate t
 adapter with your own test queries and documents and see real-world examples of how the
 adapter is performing.
 
-You can also retrieve metrics for an adapter version by using the [GetAdapterVersion](API_GetAdapterVersion.md "API_GetAdapterVersion.md") operation
+You can also retrieve metrics for an adapter version by using the [GetAdapterVersion](../APIReference/API_GetAdapterVersion.md "../APIReference/API_GetAdapterVersion.md") operation
 using an SDK or the CLI. Get a list of adapters that you want to retrieve metrics for by
-using the [ListAdapterVersions](API_ListAdapterVersions.md "API_ListAdapterVersions.md") API operation. Delete an adapter you no
-longer need with the [DeleteAdapterVersion](API_DeleteAdapterVersion.md "API_DeleteAdapterVersion.md") operation.
+using the [ListAdapterVersions](../APIReference/API_ListAdapterVersions.md "../APIReference/API_ListAdapterVersions.md") API operation. Delete an adapter you no
+longer need with the [DeleteAdapterVersion](../APIReference/API_DeleteAdapterVersion.md "../APIReference/API_DeleteAdapterVersion.md") operation.
 
 ###### Improving your model
 

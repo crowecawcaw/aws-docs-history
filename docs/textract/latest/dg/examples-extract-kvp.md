@@ -1,13 +1,13 @@
 # Extracting Key-Value Pairs from a Form Document
 
 The following Python example shows how to extract key-value pairs in form documents
-from [Block](API_Block.md "API_Block.md") objects that are stored in a map. Block objects are
-returned from a call to [AnalyzeDocument](API_AnalyzeDocument.md "API_AnalyzeDocument.md"). For more information, see
+from [Block](../APIReference/API_Block.md "../APIReference/API_Block.md") objects that are stored in a map. Block objects are
+returned from a call to [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md"). For more information, see
 [Form Data (Key-Value Pairs)](how-it-works-kvp.md "how-it-works-kvp.md").
 
 You use the following functions:
 
-- `get_kv_map` – Calls [AnalyzeDocument](API_AnalyzeDocument.md "API_AnalyzeDocument.md"), and stores the KEY and VALUE BLOCK
+- `get_kv_map` – Calls [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md"), and stores the KEY and VALUE BLOCK
   objects in a map.
 - `get_kv_relationship` and `find_value_block` – Constructs the
   key-value relationships from the map.

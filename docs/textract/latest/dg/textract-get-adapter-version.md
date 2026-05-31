@@ -1,7 +1,7 @@
 # Get an Adapter version
 
 You can retrieve configuration information and the current status of an adapter
-version by calling the [GetAdapterVersion](API_GetAdapterVersion.md "API_GetAdapterVersion.md") operation. When calling
+version by calling the [GetAdapterVersion](../APIReference/API_GetAdapterVersion.md "../APIReference/API_GetAdapterVersion.md") operation. When calling
 GetAdapterVersion, specify the AdapterId and the AdapterVersion. This returns
 information about the specified adapter version so that you can check the current
 operational status and configuration options.

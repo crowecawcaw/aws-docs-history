@@ -6,7 +6,7 @@ single-page documents that are in JPEG, PNG, TIFF, or PDF format.
 
 The information in this topic uses text detection operations to show how you to use
 Amazon Textract asynchronous operations. You can use the same approach with the text
-analysis operations of [StartDocumentAnalysis](API_StartDocumentAnalysis.md "API_StartDocumentAnalysis.md") and [GetDocumentAnalysis](API_GetDocumentAnalysis.md "API_GetDocumentAnalysis.md"). It also works the same with [StartExpenseAnalysis](API_StartExpenseAnalysis.md "API_StartExpenseAnalysis.md") and [GetExpenseAnalysis](API_GetExpenseAnalysis.md "API_GetExpenseAnalysis.md").
+analysis operations of [StartDocumentAnalysis](../APIReference/API_StartDocumentAnalysis.md "../APIReference/API_StartDocumentAnalysis.md") and [GetDocumentAnalysis](../APIReference/API_GetDocumentAnalysis.md "../APIReference/API_GetDocumentAnalysis.md"). It also works the same with [StartExpenseAnalysis](../APIReference/API_StartExpenseAnalysis.md "../APIReference/API_StartExpenseAnalysis.md") and [GetExpenseAnalysis](../APIReference/API_GetExpenseAnalysis.md "../APIReference/API_GetExpenseAnalysis.md").
 
 For an example, see [Detecting or Analyzing Text in a Multipage Document](async-analyzing-with-sqs.md "async-analyzing-with-sqs.md").
 
@@ -20,10 +20,10 @@ You can retreive results for individual pages by using the
 with `GetLendingAnalysisSummary`.
 
 Amazon Textract asynchronously processes a document stored in an Amazon S3 bucket. You start
-processing by calling a `Start` operation, such as [StartDocumentTextDetection](API_StartDocumentTextDetection.md "API_StartDocumentTextDetection.md"). The completion status of the
+processing by calling a `Start` operation, such as [StartDocumentTextDetection](../APIReference/API_StartDocumentTextDetection.md "../APIReference/API_StartDocumentTextDetection.md"). The completion status of the
 request is published to an Amazon Simple Notification Service (Amazon SNS) topic. To get the completion status from
 the Amazon SNS topic, you can use an Amazon Simple Queue Service (Amazon SQS) queue or an AWS Lambda function. After
-you have the completion status, you call a `Get` operation, such as [GetDocumentTextDetection](API_GetDocumentTextDetection.md "API_GetDocumentTextDetection.md"), to get the results of the request.
+you have the completion status, you call a `Get` operation, such as [GetDocumentTextDetection](../APIReference/API_GetDocumentTextDetection.md "../APIReference/API_GetDocumentTextDetection.md"), to get the results of the request.
 
 Results of asynchronous calls are encrypted and stored for 7 days in a Amazon Textract
 owned bucket by default, unless you specify an Amazon S3 bucket using an operation's
@@ -48,13 +48,13 @@ status from the Amazon SNS topic.
 
 ![Diagram showing an Amazon Textract workflow with key steps: start and return job ID, process document in S3 bucket, publish completion status to SNS topic, monitor SQS queue for completion status, call GetDocumentTextDetection to get analysis results.](images/asynchronous.png)
 The process displayed by the preceeding diagram is the same for analyzing text and
-invoices/receipts. You start analyzing text by calling [StartDocumentAnalysis](API_StartDocumentAnalysis.md "API_StartDocumentAnalysis.md") and start analyzing invoices/receipts by
-calling [StartExpenseAnalysis](API_StartExpenseAnalysis.md "API_StartExpenseAnalysis.md") You get the results by calling [GetDocumentAnalysis](API_GetDocumentAnalysis.md "API_GetDocumentAnalysis.md") or [GetExpenseAnalysis](API_GetExpenseAnalysis.md "API_GetExpenseAnalysis.md")
+invoices/receipts. You start analyzing text by calling [StartDocumentAnalysis](../APIReference/API_StartDocumentAnalysis.md "../APIReference/API_StartDocumentAnalysis.md") and start analyzing invoices/receipts by
+calling [StartExpenseAnalysis](../APIReference/API_StartExpenseAnalysis.md "../APIReference/API_StartExpenseAnalysis.md") You get the results by calling [GetDocumentAnalysis](../APIReference/API_GetDocumentAnalysis.md "../APIReference/API_GetDocumentAnalysis.md") or [GetExpenseAnalysis](../APIReference/API_GetExpenseAnalysis.md "../APIReference/API_GetExpenseAnalysis.md")
 respectively.
 
 ## Starting Text Detection
 
-You start an Amazon Textract text detection request by calling [StartDocumentTextDetection](API_StartDocumentTextDetection.md "API_StartDocumentTextDetection.md"). The following is an example of
+You start an Amazon Textract text detection request by calling [StartDocumentTextDetection](../APIReference/API_StartDocumentTextDetection.md "../APIReference/API_StartDocumentTextDetection.md"). The following is an example of
 a JSON request that's passed by `StartDocumentTextDetection`.
 
 ```
@@ -621,9 +621,9 @@ the following. The total number of pages that are detected is returned in
 
 ## Using an adapter
 
-With Amazon Textract, you can use an adapter when calling the [StartDocumentAnalysis](API_StartDocumentAnalysis.md "API_StartDocumentAnalysis.md")
+With Amazon Textract, you can use an adapter when calling the [StartDocumentAnalysis](../APIReference/API_StartDocumentAnalysis.md "../APIReference/API_StartDocumentAnalysis.md")
 operation. To use an adapter, you must first create and train an adapter by using
-the Amazon Textract console. To apply your adapter, provide its ID when calling the [StartDocumentAnalysis](API_StartDocumentAnalysis.md "API_StartDocumentAnalysis.md") API operation. When calling the [StartDocumentAnalysis](API_StartDocumentAnalysis.md "API_StartDocumentAnalysis.md") operation, you can use up to one
+the Amazon Textract console. To apply your adapter, provide its ID when calling the [StartDocumentAnalysis](../APIReference/API_StartDocumentAnalysis.md "../APIReference/API_StartDocumentAnalysis.md") API operation. When calling the [StartDocumentAnalysis](../APIReference/API_StartDocumentAnalysis.md "../APIReference/API_StartDocumentAnalysis.md") operation, you can use up to one
 adapter per page.
 
 ```

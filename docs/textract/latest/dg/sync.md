@@ -12,10 +12,10 @@ or to detect JPEG and PNG documents asynchronously, see [Processing Documents As
 You can use Amazon Textract synchronous operations for the following purposes:
 
 - Text detection – You can detect lines and words on a single-page document image by using the
-  [DetectDocumentText](API_DetectDocumentText.md "API_DetectDocumentText.md") operation. For more
+  [DetectDocumentText](../APIReference/API_DetectDocumentText.md "../APIReference/API_DetectDocumentText.md") operation. For more
   information, see [Detecting Text](how-it-works-detecting.md "how-it-works-detecting.md").
 - Text analysis – You can identify relationships between detected text on a single-page document
-  by using the [AnalyzeDocument](API_AnalyzeDocument.md "API_AnalyzeDocument.md") operation.
+  by using the [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md") operation.
   For more information, see [Analyzing Documents](how-it-works-analyzing.md "how-it-works-analyzing.md").
 - Invoice and receipt analysis – You can identify financial relationships between
   detected text on a single-page invoice or receipt using the AnalyzeExpense operation. For

@@ -191,7 +191,7 @@ documents, you use the AnalyzeExpense operation and pass a receipt or invoice to
 `AnalyzeExpense` returns the entire set of results. For more information,
 see [Analyzing Invoices and Receipts with Amazon Textract](analyzing-document-expense.md "analyzing-document-expense.md").
 
-To analyze invoices and receipts asynchronously, use [StartExpenseAnalysis](API_StartExpenseAnalysis.md "API_StartExpenseAnalysis.md") to
-start processing an input document file. To get the results, call [GetExpenseAnalysis](API_GetExpenseAnalysis.md "API_GetExpenseAnalysis.md"). The
-results for a given call to [StartExpenseAnalysis](API_StartExpenseAnalysis.md "API_StartExpenseAnalysis.md") are returned by
+To analyze invoices and receipts asynchronously, use [StartExpenseAnalysis](../APIReference/API_StartExpenseAnalysis.md "../APIReference/API_StartExpenseAnalysis.md") to
+start processing an input document file. To get the results, call [GetExpenseAnalysis](../APIReference/API_GetExpenseAnalysis.md "../APIReference/API_GetExpenseAnalysis.md"). The
+results for a given call to [StartExpenseAnalysis](../APIReference/API_StartExpenseAnalysis.md "../APIReference/API_StartExpenseAnalysis.md") are returned by
 `GetExpenseAnalysis`. For more information and an example, see [Processing Documents Asynchronously](async.md "async.md").

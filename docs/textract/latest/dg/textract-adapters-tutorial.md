@@ -5,7 +5,7 @@ This tutorial shows you how to create, train, evaluate, use, and manage adapters
 With adapters, you can improve the accuracy of the Amazon Textract API operations,
 customizing the model’s behavior to fit your own needs and use cases. After you create
 an adapter with this tutorial, you can use it when analyzing your own documents with the
-[AnalyzeDocument](API_AnalyzeDocument.md "API_AnalyzeDocument.md")API
+[AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md")API
 operation, and also retrain the adapter for future improvements.
 
 In this tutorial you’ll learn how to:
@@ -223,7 +223,7 @@ on your device. Alternatively, drag and drop the document into the **Upload a do
 After uploading a document, the Try Adapter page will update to display the
 results of the adapter’s analysis, including queries, query answers, and confidence
 levels. If you are satisfied with your adapter’s performance you can proceed to
-inference, using your adapter in a call to [AnalyzeDocument](API_AnalyzeDocument.md "API_AnalyzeDocument.md") or [StartDocumentAnalysis](API_StartDocumentAnalysis.md "API_StartDocumentAnalysis.md")
+inference, using your adapter in a call to [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md") or [StartDocumentAnalysis](../APIReference/API_StartDocumentAnalysis.md "../APIReference/API_StartDocumentAnalysis.md")
 . Otherwise, you can improve your adapter’s performance by retraining your adapter
 with additional documents.
 
@@ -250,8 +250,8 @@ proper adapter version.
 ## Inference
 
 After creating an adapter, you are provided with an ID for your custom adapter.
-You can provide this ID to the [AnalyzeDocument](API_AnalyzeDocument.md "API_AnalyzeDocument.md") operation for synchronous document
-analysis, or the [StartDocumentAnalysis](API_StartDocumentAnalysis.md "API_StartDocumentAnalysis.md") operation for asynchronous analysis.
+You can provide this ID to the [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md") operation for synchronous document
+analysis, or the [StartDocumentAnalysis](../APIReference/API_StartDocumentAnalysis.md "../APIReference/API_StartDocumentAnalysis.md") operation for asynchronous analysis.
 
 Providing the Adapter ID automatically integrates the adapter into the analysis
 process and uses it to enhance predictions for your documents. This way, you can

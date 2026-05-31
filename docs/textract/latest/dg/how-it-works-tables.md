@@ -4,8 +4,8 @@ Use Amazon Textract to extract tables in a document and extract cells, merged
 cells, column headers, titles, section titles, footers, table type (structured
 or semistructured), and summary cells within a table.
 
-Detected tables are returned as [Block](API_Block.md "API_Block.md") objects in the responses from [AnalyzeDocument](API_AnalyzeDocument.md "API_AnalyzeDocument.md") and
-[GetDocumentAnalysis](API_GetDocumentAnalysis.md "API_GetDocumentAnalysis.md"). You can use the
+Detected tables are returned as [Block](../APIReference/API_Block.md "../APIReference/API_Block.md") objects in the responses from [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md") and
+[GetDocumentAnalysis](../APIReference/API_GetDocumentAnalysis.md "../APIReference/API_GetDocumentAnalysis.md"). You can use the
 `FeatureTypes` input parameter to retrieve information about
 key-value pairs, tables, or both. For tables only, use the value
 `TABLES`. For an example, see [Exporting Tables into a CSV File](examples-export-table-csv.md "examples-export-table-csv.md"). For general information about

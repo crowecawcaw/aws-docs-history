@@ -2,7 +2,7 @@
 
 Amazon Textract operations process document images that are stored on a local file
 system, or document images stored in an Amazon S3 bucket. You specify where the input document is
-located by using the [Document](API_Document.md "API_Document.md") input
+located by using the [Document](../APIReference/API_Document.md "../APIReference/API_Document.md") input
 parameter. The document image can be in either PNG, JPEG, PDF, or TIFF format. Results for
 synchronous operations are returned immediately and are not stored for retrieval.
 
@@ -59,7 +59,7 @@ DetectDocumentTextResult result = client.detectDocumentText(request);
 ### Documents Stored in an Amazon S3 Bucket
 
 Amazon Textract can analyze document images that are stored in an Amazon S3 bucket. You
-specify the bucket and file name by using the [S3Object](API_S3Object.md "API_S3Object.md") field of the `Document` input
+specify the bucket and file name by using the [S3Object](../APIReference/API_S3Object.md "../APIReference/API_S3Object.md") field of the `Document` input
 parameter. The following example shows the input JSON for an Amazon Textract
 operation that processes a document stored in an Amazon S3 bucket.
 
@@ -98,7 +98,7 @@ With Amazon Textract, you can customize the output or response of a call to Anal
 by using an AdapterId and adapter version. To use an adapter, you must first have created
 and trained an adapter using the Amazon Textract Console or the API. To apply your adapter,
 provide its ID when calling the AnalyzeDocument API. This enhances predictions on your
-documents. Note that when calling the [Document](API_Document.md "API_Document.md"), you can only use one adapter per page.
+documents. Note that when calling the [Document](../APIReference/API_Document.md "../APIReference/API_Document.md"), you can only use one adapter per page.
 
 ```
 

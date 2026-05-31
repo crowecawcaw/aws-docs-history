@@ -1,6 +1,6 @@
 # List adapters
 
-You can list all of the adapters associated with your account by using the [ListAdapters](API_ListAdapters.md "API_ListAdapters.md") operation. You can
+You can list all of the adapters associated with your account by using the [ListAdapters](../APIReference/API_ListAdapters.md "../APIReference/API_ListAdapters.md") operation. You can
 filter the list of returned adapters by the date and time of creation by using the
 AfterCreationTime and BeforeCreationTime arguments. You can also set a number of
 maximum results to return using MaxResults.

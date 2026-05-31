@@ -1,7 +1,7 @@
 # Get adapter
 
 You can retrieve configuration information for an adapter at any time by calling
-the [GetAdapter](API_GetAdapter.md "API_GetAdapter.md") operation and
+the [GetAdapter](../APIReference/API_GetAdapter.md "../APIReference/API_GetAdapter.md") operation and
 specifying an AdapterId. GetAdapter returns information on AdapterName, Description,
 CreationTime, AutoUpdate status, and FeatureTypes.
 

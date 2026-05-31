@@ -1,12 +1,12 @@
 # Tutorials
 
-[Block](API_Block.md "API_Block.md") objects that are returned from Amazon Textract operations
-contain the results of text detection and text analysis operations, such as [AnalyzeDocument](API_AnalyzeDocument.md "API_AnalyzeDocument.md"). The following Python tutorials show some of the
+[Block](../APIReference/API_Block.md "../APIReference/API_Block.md") objects that are returned from Amazon Textract operations
+contain the results of text detection and text analysis operations, such as [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md"). The following Python tutorials show some of the
 different ways that you can use Block objects. For example, you can export table information
 to a comma-separated values (CSV) file.
 
 The tutorials use synchronous Amazon Textract operations that return all results. If you
-want to use asynchronous operations such as [StartDocumentAnalysis](API_StartDocumentAnalysis.md "API_StartDocumentAnalysis.md"), you
+want to use asynchronous operations such as [StartDocumentAnalysis](../APIReference/API_StartDocumentAnalysis.md "../APIReference/API_StartDocumentAnalysis.md"), you
 need to change the example code to accommodate multiple batches of returned
 `Block` objects. To make use of the asynchronous operations example, ensure
 that you have followed the instructions given at [Configuring Amazon Textract for Asynchronous Operations](api-async-roles.md "api-async-roles.md").

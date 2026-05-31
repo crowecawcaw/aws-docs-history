@@ -1,6 +1,6 @@
 # Pages
 
-A document consists of one or more pages. A [Block](API_Block.md "API_Block.md") object
+A document consists of one or more pages. A [Block](../APIReference/API_Block.md "../APIReference/API_Block.md") object
 of type `PAGE` exists for each page of the document. A
 `PAGE` block object contains a list of the child IDs for the
 lines of text, key-value pairs, tables, Queries, and Query Results that are

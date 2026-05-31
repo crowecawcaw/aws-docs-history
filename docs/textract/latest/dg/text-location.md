@@ -1,19 +1,19 @@
 # Locating Items on a Document Page
 
 Amazon Textract operations return the location and geometry of items found on a
-document page. [DetectDocumentText](API_DetectDocumentText.md "API_DetectDocumentText.md") and [GetDocumentTextDetection](API_GetDocumentTextDetection.md "API_GetDocumentTextDetection.md") return the location and geometry for lines and words, while [AnalyzeDocument](API_AnalyzeDocument.md "API_AnalyzeDocument.md") and [GetDocumentAnalysis](API_GetDocumentAnalysis.md "API_GetDocumentAnalysis.md") return
+document page. [DetectDocumentText](../APIReference/API_DetectDocumentText.md "../APIReference/API_DetectDocumentText.md") and [GetDocumentTextDetection](../APIReference/API_GetDocumentTextDetection.md "../APIReference/API_GetDocumentTextDetection.md") return the location and geometry for lines and words, while [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md") and [GetDocumentAnalysis](../APIReference/API_GetDocumentAnalysis.md "../APIReference/API_GetDocumentAnalysis.md") return
 the location and geometry of key-value pairs, tables, cells, and selection
 elements.
 
-To determine where an item is on a document page, use the bounding box ([Geometry](API_Geometry.md "API_Geometry.md")) information returned by the
-Amazon Textract operation in a [Block](API_Block.md "API_Block.md")
+To determine where an item is on a document page, use the bounding box ([Geometry](../APIReference/API_Geometry.md "../APIReference/API_Geometry.md")) information returned by the
+Amazon Textract operation in a [Block](../APIReference/API_Block.md "../APIReference/API_Block.md")
 object. The `Geometry` object contains two types of location and geometric
 information for detected items:
 
-- An axis-aligned [BoundingBox](API_BoundingBox.md "API_BoundingBox.md") object that contains the top-left
+- An axis-aligned [BoundingBox](../APIReference/API_BoundingBox.md "../APIReference/API_BoundingBox.md") object that contains the top-left
   coordinate and the width and height of the item.
 - A polygon object that describes the outline of the item, specified as an array
-  of [Point](API_Point.md "API_Point.md") objects that contain
+  of [Point](../APIReference/API_Point.md "../APIReference/API_Point.md") objects that contain
   `X` (horizontal axis) and `Y` (vertical axis) document
   page coordinates of each point.
   The JSON for a `Block` object looks similar to the following. Note the
@@ -135,7 +135,7 @@ Java
 
 Python
 This Python example takes in the `response` returned by the
-[DetectDocumentText](API_DetectDocumentText.md "API_DetectDocumentText.md") API operation.
+[DetectDocumentText](../APIReference/API_DetectDocumentText.md "../APIReference/API_DetectDocumentText.md") API operation.
 
 ```
 
@@ -166,7 +166,7 @@ def process_text_detection(response):
 
 ## Polygon
 
-The polygon returned by `AnalyzeDocument` is an array of [Point](API_Point.md "API_Point.md") objects. Each `Point`
+The polygon returned by `AnalyzeDocument` is an array of [Point](../APIReference/API_Point.md "../APIReference/API_Point.md") objects. Each `Point`
 has an X and Y coordinate for a specific location on the document page. Like the
 BoundingBox coordinates, the polygon coordinates are normalized to the document
 width and height, and are between 0 and 1.

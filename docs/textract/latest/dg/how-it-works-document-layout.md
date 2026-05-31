@@ -1,6 +1,6 @@
 # Text Detection and Document Analysis Response Objects
 
-When Amazon Textract processes a document, it creates a list of [Block](API_Block.md "API_Block.md") objects for the detected or
+When Amazon Textract processes a document, it creates a list of [Block](../APIReference/API_Block.md "../APIReference/API_Block.md") objects for the detected or
 analyzed text. Each block contains information about a detected item, where it's
 located, and the confidence that Amazon Textract has in the accuracy of the
 processing.
@@ -94,7 +94,7 @@ You can determine the type of a `Block` object by inspecting the
 `BlockType` field.
 
 A `Block` object contains a list of related `Block`
-objects in the `Relationships` field, which is an array of [Relationship](API_Relationship.md "API_Relationship.md") objects. A
+objects in the `Relationships` field, which is an array of [Relationship](../APIReference/API_Relationship.md "../APIReference/API_Relationship.md") objects. A
 `Relationships` array is either of type CHILD or of type VALUE.
 An array of type CHILD is used to list the items that are children of the
 current block. For example, if the current block is of type LINE,

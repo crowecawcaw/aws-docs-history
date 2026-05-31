@@ -1,13 +1,13 @@
 # Create an Adapter
 
-To customize the Amazon Textract base model, create an adapter. To do so, use the [CreateAdapter](API_CreateAdapter.md "API_CreateAdapter.md") operation. When
+To customize the Amazon Textract base model, create an adapter. To do so, use the [CreateAdapter](../APIReference/API_CreateAdapter.md "../APIReference/API_CreateAdapter.md") operation. When
 calling `CreateAdapter,` you provide an AdapterName and FeatureType as an
 input. Currently Queries is the only feature type supported.
 
 When creating an adapter you can also provide a Description, Tags, and a
 ClientRequestToken. Finally, you can choose whether the adapter should be
 auto-updated with the AutoUpdate argument. After creating an adapter, you can start
-training it on your own sample documents by using the [CreateAdapterVersion](API_CreateAdapterVersion.md "API_CreateAdapterVersion.md")
+training it on your own sample documents by using the [CreateAdapterVersion](../APIReference/API_CreateAdapterVersion.md "../APIReference/API_CreateAdapterVersion.md")
 operation.
 
 To create an adapter with the Amazon Textract console:

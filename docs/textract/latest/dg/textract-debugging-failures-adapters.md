@@ -73,6 +73,6 @@ The following is a list of file-related errors:
 
 To see API error descriptions, see the _Amazon Textract API Reference_
 for the appropriate operation. If an error occurs when you try to create a new adapter
-with the [CreateAdapterVersion](API_CreateAdapterVersion.md "API_CreateAdapterVersion.md") operation, see the API Reference page. If
+with the [CreateAdapterVersion](../APIReference/API_CreateAdapterVersion.md "../APIReference/API_CreateAdapterVersion.md") operation, see the API Reference page. If
 an error occurs when using the Amazon Textract console, read the error pop-up for information
 on why the operation failed.

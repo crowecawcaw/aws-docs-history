@@ -7,9 +7,9 @@ their classification. Amazon Textract analyzes the data and returns the relevant
 information extracted from the documents, such as detected signatures, identity
 information, forms, expense values, and queries data.
 
-After processing a document with [StartLendingAnalysis](API_StartLendingAnalysis.md "API_StartLendingAnalysis.md"), you can obtain analysis results for
-individual pages by using [GetLendingAnalysis](API_GetLendingAnalysis.md "API_GetLendingAnalysis.md"), or you can get a summary of the
-information in the document with [GetLendingAnalysisSummary](API_GetLendingAnalysisSummary.md "API_GetLendingAnalysisSummary.md"). The returned summary includes
+After processing a document with [StartLendingAnalysis](../APIReference/API_StartLendingAnalysis.md "../APIReference/API_StartLendingAnalysis.md"), you can obtain analysis results for
+individual pages by using [GetLendingAnalysis](../APIReference/API_GetLendingAnalysis.md "../APIReference/API_GetLendingAnalysis.md"), or you can get a summary of the
+information in the document with [GetLendingAnalysisSummary](../APIReference/API_GetLendingAnalysisSummary.md "../APIReference/API_GetLendingAnalysisSummary.md"). The returned summary includes
 information about documents grouped together by a common document type.
 
 The results for the analysis of individual pages follow one general structure,

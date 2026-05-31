@@ -4,20 +4,20 @@ These Python examples show how to export tables from an image of a document into
 comma-separated values (CSV) file.
 
 The example for synchronous document analysis collects table information from a call
-to [AnalyzeDocument](API_AnalyzeDocument.md "API_AnalyzeDocument.md"). The example for asynchronous document analysis
-makes a call to [StartDocumentAnalysis](API_StartDocumentAnalysis.md "API_StartDocumentAnalysis.md") and then retrives the
-results from [GetDocumentAnalysis](API_GetDocumentAnalysis.md "API_GetDocumentAnalysis.md") as `Block`
+to [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md"). The example for asynchronous document analysis
+makes a call to [StartDocumentAnalysis](../APIReference/API_StartDocumentAnalysis.md "../APIReference/API_StartDocumentAnalysis.md") and then retrives the
+results from [GetDocumentAnalysis](../APIReference/API_GetDocumentAnalysis.md "../APIReference/API_GetDocumentAnalysis.md") as `Block`
 objects.
 
-Table information is returned as [Block](API_Block.md "API_Block.md") objects
-from a call to [AnalyzeDocument](API_AnalyzeDocument.md "API_AnalyzeDocument.md"). For more information, see [Tables](how-it-works-tables.md "how-it-works-tables.md"). The
+Table information is returned as [Block](../APIReference/API_Block.md "../APIReference/API_Block.md") objects
+from a call to [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md"). For more information, see [Tables](how-it-works-tables.md "how-it-works-tables.md"). The
 `Block` objects are stored in a map structure that's used to export the
 table data into a CSV file.
 
 Synchronous
 In this example, you will use the functions:
 
-- `get_table_csv_results` – Calls [AnalyzeDocument](API_AnalyzeDocument.md "API_AnalyzeDocument.md"), and builds a map of
+- `get_table_csv_results` – Calls [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md"), and builds a map of
   tables that are detected in the document. Creates a CSV
   representation of all detected tables.
 - `generate_table_csv` – Generates the CSV file

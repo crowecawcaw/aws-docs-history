@@ -11,8 +11,8 @@ and as such this feature is referred to as Custom Queries
 After you create an adapter, Amazon Textract provides you with an AdapterId. You can have
 multiple adapter versions within a single adapter. You can provide the AdapterId, along
 with an AdapterVersion, to an operation to specify that you want to use the adapter that
-you created. For example, you provide the two parameters to the [AnalyzeDocument](API_AnalyzeDocument.md "API_AnalyzeDocument.md") API for
-synchronous document analysis, or the [StartDocumentAnalysis](API_StartDocumentAnalysis.md "API_StartDocumentAnalysis.md") operation for asynchronous analysis.
+you created. For example, you provide the two parameters to the [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md") API for
+synchronous document analysis, or the [StartDocumentAnalysis](../APIReference/API_StartDocumentAnalysis.md "../APIReference/API_StartDocumentAnalysis.md") operation for asynchronous analysis.
 Providing the AdapterId as part of the request will automatically integrate the adapter
 into the analysis process and use it to enhance predictions for your documents. This
 way, you can leverage the capabilities of AnalyzeDocument while customizing the model to

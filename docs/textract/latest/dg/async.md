@@ -15,15 +15,15 @@ TIFF or PDF format.
 You can use Amazon Textract asynchronous operations for the following purposes:
 
 - Text detection – You can detect lines and words on a multipage document.
-  The asynchronous operations are [StartDocumentTextDetection](API_StartDocumentTextDetection.md "API_StartDocumentTextDetection.md") and [GetDocumentTextDetection](API_GetDocumentTextDetection.md "API_GetDocumentTextDetection.md"). For more information, see [Detecting Text](how-it-works-detecting.md "how-it-works-detecting.md").
+  The asynchronous operations are [StartDocumentTextDetection](../APIReference/API_StartDocumentTextDetection.md "../APIReference/API_StartDocumentTextDetection.md") and [GetDocumentTextDetection](../APIReference/API_GetDocumentTextDetection.md "../APIReference/API_GetDocumentTextDetection.md"). For more information, see [Detecting Text](how-it-works-detecting.md "how-it-works-detecting.md").
 - Text analysis – You can identify relationships between detected text on a
-  multipage document. The asynchronous operations are [StartDocumentAnalysis](API_StartDocumentAnalysis.md "API_StartDocumentAnalysis.md")
-  and [GetDocumentAnalysis](API_GetDocumentAnalysis.md "API_GetDocumentAnalysis.md"). For more information, see [Analyzing Documents](how-it-works-analyzing.md "how-it-works-analyzing.md").
+  multipage document. The asynchronous operations are [StartDocumentAnalysis](../APIReference/API_StartDocumentAnalysis.md "../APIReference/API_StartDocumentAnalysis.md")
+  and [GetDocumentAnalysis](../APIReference/API_GetDocumentAnalysis.md "../APIReference/API_GetDocumentAnalysis.md"). For more information, see [Analyzing Documents](how-it-works-analyzing.md "how-it-works-analyzing.md").
 - Expense analysis – You can identify data relationships on multipage
   invoices and receipts. Amazon Textract treats each invoice or a receipt page of a
   multi-page document as an individual receipt or an invoice. It does not retain the
   context from one page to another of a multi-page document. The asynchronous
-  operations are [StartExpenseAnalysis](API_StartExpenseAnalysis.md "API_StartExpenseAnalysis.md") and [GetExpenseAnalysis](API_GetExpenseAnalysis.md "API_GetExpenseAnalysis.md"). For
+  operations are [StartExpenseAnalysis](../APIReference/API_StartExpenseAnalysis.md "../APIReference/API_StartExpenseAnalysis.md") and [GetExpenseAnalysis](../APIReference/API_GetExpenseAnalysis.md "../APIReference/API_GetExpenseAnalysis.md"). For
   more information, see [Analyzing Invoices and Receipts](invoices-receipts.md "invoices-receipts.md").
 - Lending document analysis – You can classify and analyze lending documents
   using the Analyze Lending workflow, which classifies documents and then

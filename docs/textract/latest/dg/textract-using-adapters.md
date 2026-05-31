@@ -3,7 +3,7 @@
 Amazon Textract lets you customize the output of its pretrained Queries feature using
 adapters. You can use the [Amazon Textract
 Console](https://console.aws.amazon.com/textract/ "https://console.aws.amazon.com/textract/") to create an adapter. This adapter can then be referenced when calling
-the [AnalyzeDocument](API_AnalyzeDocument.md "API_AnalyzeDocument.md") and [StartDocumentAnalysis](API_StartDocumentAnalysis.md "API_StartDocumentAnalysis.md")
+the [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md") and [StartDocumentAnalysis](../APIReference/API_StartDocumentAnalysis.md "../APIReference/API_StartDocumentAnalysis.md")
 operations.
 
 When you create an adapter using the console, you upload your own documents for the
@@ -74,12 +74,12 @@ For more information on evaluation metrics, see [Evaluating and improving your a
 **Get the AdapterId**
 
 Once the adapter has been trained, you can get the unique ID for your adapter to use with
-the Amazon Textract document analysis API operations. Retrieve the AdapterId by using the [ListAdapterVersions](API_ListAdapterVersions.md "API_ListAdapterVersions.md") API
+the Amazon Textract document analysis API operations. Retrieve the AdapterId by using the [ListAdapterVersions](../APIReference/API_ListAdapterVersions.md "../APIReference/API_ListAdapterVersions.md") API
 operation, or by using the AWS Management Console.
 
 **Call the AnalyzeDocument API operation**
 
-To apply your custom adapter, provide its ID when calling the [AnalyzeDocument](API_AnalyzeDocument.md "API_AnalyzeDocument.md") or [StartDocumentAnalysis](API_StartDocumentAnalysis.md "API_StartDocumentAnalysis.md") API
+To apply your custom adapter, provide its ID when calling the [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md") or [StartDocumentAnalysis](../APIReference/API_StartDocumentAnalysis.md "../APIReference/API_StartDocumentAnalysis.md") API
 operations. This enhances predictions on your documents. When calling API operations, you
 can use up to one adapter per page.
 

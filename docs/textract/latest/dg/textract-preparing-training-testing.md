@@ -33,8 +33,8 @@ by using the AWS Management Console:
 - Annotation file - The annotation file follows the Amazon Textract Block structure,
   though it contains only QUERY and QUERY_RESULT blocks.
 - Prelabeling files - This is the Block structure from the Amazon Textract current
-  API response, pulled from the result of either the [DetectDocumentText](API_DetectDocumentText.md "API_DetectDocumentText.md") or
-  [AnalyzeDocument](API_AnalyzeDocument.md "API_AnalyzeDocument.md")
+  API response, pulled from the result of either the [DetectDocumentText](../APIReference/API_DetectDocumentText.md "../APIReference/API_DetectDocumentText.md") or
+  [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md")
   operations. If you have already called Amazon Textract before and stored the result
   of the operation, you can provide the references to those results. Amazon Textract
   accepts multiple prelabeling files in case your document page has multiple
