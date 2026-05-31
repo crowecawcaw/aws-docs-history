@@ -4,15 +4,9 @@ Amazon Verified Permissions uses the Cedar policy language engine to perform its
 However, there are some differences between the native Cedar implementation and the
 implementation of Cedar found in Verified Permissions. This topic identifies those differences.
 
-## Namespace definition
+###### Note
 
-Verified Permissions implementation of Cedar has the following differences from the native Cedar
-implementation:
-
-- Verified Permissions supports only one [namespace in
-  a schema](https://docs.cedarpolicy.com/schema/schema.html#namespace "https://docs.cedarpolicy.com/schema/schema.html#namespace") defined in a policy store.
-- Verified Permissions doesn't allow you to create a [namespace](https://docs.cedarpolicy.com/schema/schema.html#namespace "https://docs.cedarpolicy.com/schema/schema.html#namespace") that's an empty string or includes the following values: `aws`,
-  `amazon`, or `cedar`.
+As of May 2026, Verified Permissions has aligned with Cedar and now supports multiple namespaces.
 
 ## Policy template support
 

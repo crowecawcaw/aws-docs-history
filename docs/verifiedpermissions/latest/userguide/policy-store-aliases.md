@@ -94,9 +94,9 @@ For example, you can have only one policy store alias with the name `example-pol
 
 You can create policy store aliases with the same name in different Regions. Each policy store alias will have a unique ARN. If your code refers to a policy store alias name like `policy-store-alias/example-policy-store`, you can run it in multiple Regions. In each Region, it uses a different policy store.
 
-###### Policy store aliases are soft deleted
+###### Policy store aliases support soft deletes and hard deletes
 
-When a policy store alias is deleted, the policy store alias name is reserved for a period of 24 hours. If you attempt to create a policy store alias with the same name during this period, the request will be rejected. During this period, `GetPolicyStoreAlias` returns the policy store alias with the `PendingDeletion` state.
+By default, when a policy store alias is deleted, it is soft deleted. The policy store alias name is reserved for a period of 24 hours. If you attempt to create a policy store alias with the same name during this period, the request will be rejected. During this period, `GetPolicyStoreAlias` returns the policy store alias with the `PendingDeletion` state. You can also hard delete a policy store alias by specifying `HardDelete` as the `deletionMode`. A hard-deleted policy store alias is immediately deleted and the policy store alias name becomes available for reuse immediately. For more information, see [Deleting Amazon Verified Permissions policy store aliases](policy-store-aliases-delete.md "policy-store-aliases-delete.md").
 
 ###### You can use aliases to identify policy stores
 

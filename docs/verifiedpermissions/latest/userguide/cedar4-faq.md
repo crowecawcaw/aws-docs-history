@@ -6,6 +6,7 @@ Amazon Verified Permissions is automatically upgrading policy stores to Cedar 4.
 
 ###### Topics
 
+- [Why do I receive an error saying Cedar 2 is no longer supported when I call Amazon Verified Permissions?](#why-do-i-receive-an-error "#why-do-i-receive-an-error")
 - [Why are some policies, policy templates and schemas not compatible with Cedar 4?](#why-are-some-policies-not-compatible-with-cedar-4 "#why-are-some-policies-not-compatible-with-cedar-4")
 - [How do I tell whether my policy store is using Cedar 2 or Cedar 4?](#how-do-i-tell-cedar-2-or-cedar-4 "#how-do-i-tell-cedar-2-or-cedar-4")
 - [How do I upgrade to Cedar 4?](#how-do-i-upgrade-to-cedar-4 "#how-do-i-upgrade-to-cedar-4")
@@ -13,6 +14,16 @@ Amazon Verified Permissions is automatically upgrading policy stores to Cedar 4.
 - [Why am I receiving an error message saying my policy store is configured for Cedar 2?](#why-am-i-receiving-an-error-message-policy-store-configured-for-cedar-4 "#why-am-i-receiving-an-error-message-policy-store-configured-for-cedar-4")
 - [How do I make my schema compatible with Cedar 4?](#how-do-i-make-my-schema-compatible "#how-do-i-make-my-schema-compatible")
 - [How do I make my policies and templates compatible with Cedar 4?](#how-do-i-make-my-policies-compatible "#how-do-i-make-my-policies-compatible")
+
+## Why do I receive an error saying Cedar 2 is no longer supported when I call Amazon Verified Permissions?
+
+Beginning April 2026, authorization APIs (`IsAuthorized`, `BatchIsAuthorized`, `IsAuthorizedWithToken` and `BatchIsAuthorizedWithToken`) are being disabled for policy stores which use Cedar 2. In this case, the following error message is returned:
+
+```
+Your policy store uses Cedar 2.x, which is no longer supported. See https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/cedar4-faq.html or contact AWS Support for more information.
+```
+
+If you encounter this error message when calling Verified Permissions, it means that your policy store is incompatible with Cedar 4, and so was unable to be migrated to the new version. To continue using Amazon Verified Permissions, create a new policy store, which will use Cedar 4, or contact Support.
 
 ## Why are some policies, policy templates and schemas not compatible with Cedar 4?
 

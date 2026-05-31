@@ -16,7 +16,7 @@ policy store aliases to refer to your policy stores by friendly names. For more 
 
 We recommend using _namespaces_ to Cedar entities in your policy stores to
 prevent ambiguity. A namespace is a string prefix for a type, separated by a pair of colons
-(`::`) as a delimiter. For example `MyApplicationNamespace::exampleType`. Verified Permissions supports one namespace per policy store. These
+(`::`) as a delimiter. For example `MyApplicationNamespace::exampleType`. Verified Permissions supports up to 100 namespaces per policy store. These
 namespaces help keep things straight when you’re working with multiple similar applications.
 For example, in multi-tenant applications, using a namespace to append the name of the
 tenant to the types defined in the schema will make them distinct from their similar

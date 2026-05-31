@@ -40,7 +40,7 @@ templates.
    function of the current policy store, for example _Weather updates web application_.
 4. In the **Details** section, type a
    **Namespace for your schema**. For more information
-   about namespaces, see [Namespace definition](terminology-differences-avp-cedar.md#differences-namespaces "terminology-differences-avp-cedar.md#differences-namespaces").
+   about namespaces, see [Namespaces](https://docs.cedarpolicy.com/schema/schema.html#namespace "https://docs.cedarpolicy.com/schema/schema.html#namespace") in the Cedar documentation.
 5. Choose **Next**.
 6. On the **Resource type** window, type a name for your
    resource type. For example, `currentTemperature` could be a
