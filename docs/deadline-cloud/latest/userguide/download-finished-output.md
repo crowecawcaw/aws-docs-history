@@ -32,3 +32,6 @@ Windows and Linux. If you have a
 Mac and you choose the **Download output** menu
 item, a window shows the AWS CLI command that you can use to download the rendered
 output.
+
+To browse and selectively download individual files instead of all output, see
+[Browsing job attachments in Deadline Cloud](browse-job-attachments.md "browse-job-attachments.md").

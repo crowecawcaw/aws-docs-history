@@ -35,7 +35,7 @@ submitter.
 
 **Unreal Engine:** The Unreal Engine submitter is not included in the standard installer and requires a separate setup process.
 For installation instructions, see the
-[Unreal Engine Submitter Setup Guide](https://aws-deadline.github.io/unreal-engine/setup-submitter/ "https://aws-deadline.github.io/unreal-engine/setup-submitter/").
+[Unreal Engine Submitter Setup Guide](https://github.com/aws-deadline/deadline-cloud-for-unreal-engine "https://github.com/aws-deadline/deadline-cloud-for-unreal-engine").
 
 ### Download the submitter installer
 
@@ -62,7 +62,7 @@ With the installer, you can install the following submitters:
 | [Autodesk Arnold for Maya](autodesk-maya.md "autodesk-maya.md")          | 7.1<br>• 7.4       | Included          | Included        | Included                |
 | [Autodesk Maya](autodesk-maya.md "autodesk-maya.md")                     | 2023<br>• 2026     | Included          | Included        | Included                |
 | [Autodesk VRED](autodesk-vred.md "autodesk-vred.md")                     | 2025<br>• 2026     | Included          | Not included    | Not included            |
-| [Blender](blender.md "blender.md")                                       | 3.6<br>• 5.0       | Included          | Included        | Included                |
+| [Blender](blender.md "blender.md")                                       | 3.6<br>• 5.1       | Included          | Included        | Included                |
 | [Chaos V-Ray for Maya](autodesk-maya.md "autodesk-maya.md")              | 6<br>• 7           | Included          | Included        | Included                |
 | [Foundry Nuke](foundry-nuke.md "foundry-nuke.md")                        | 15<br>• 17         | Included          | Included        | Included                |
 | [KeyShot Studio](keyshot.md "keyshot.md")                                | 2023<br>• 2025     | Included          | Not included    | Included                |
@@ -73,7 +73,7 @@ With the installer, you can install the following submitters:
 ###### Note
 
 **Unreal Engine:** The Unreal Engine submitter is not included in the standard installer and requires a separate setup process.
-For installation instructions, see the [Unreal Engine Submitter Setup Guide](https://aws-deadline.github.io/unreal-engine/setup-submitter/ "https://aws-deadline.github.io/unreal-engine/setup-submitter/").
+For installation instructions, see the [Unreal Engine Submitter Setup Guide](https://github.com/aws-deadline/deadline-cloud-for-unreal-engine "https://github.com/aws-deadline/deadline-cloud-for-unreal-engine").
 
 Windows
 

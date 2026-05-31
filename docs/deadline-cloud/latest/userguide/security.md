@@ -13,7 +13,8 @@ _in_ the cloud:
   provides you with services that you can use securely. Third-party auditors regularly test
   and verify the effectiveness of our security as part of the [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/"). To learn about the compliance programs that
   apply to AWS Deadline Cloud, see [AWS services in Scope by
-  Compliance Program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
+  Compliance Program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/"). AWS Deadline Cloud is in scope for
+  SOC 1, 2, and 3 compliance. For more information, see [Compliance validation for Deadline Cloud](deadline-compliance.md "deadline-compliance.md").
 - **Security in the cloud** – Your responsibility is
   determined by the AWS service that you use. You are also responsible for other factors
   including the sensitivity of your data, your company’s requirements, and applicable laws and
@@ -27,7 +28,7 @@ _in_ the cloud:
 
 - [Data protection in Deadline Cloud](data-protection.md "data-protection.md")
 - [Identity and Access Management in Deadline Cloud](security-iam.md "security-iam.md")
-- [Compliance validation for Deadline Cloud](SERVICE-compliance.md "SERVICE-compliance.md")
+- [Compliance validation for Deadline Cloud](deadline-compliance.md "deadline-compliance.md")
 - [Resilience in Deadline Cloud](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Deadline Cloud](infrastructure-security.md "infrastructure-security.md")
 - [Configuration and vulnerability analysis in Deadline Cloud](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")

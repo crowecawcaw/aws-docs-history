@@ -1,10 +1,6 @@
 # Autodesk Maya
 
-###### Note
-
-For more information about installing, configuring, and using this integration on your workstation, see the [Maya integration user guide on GitHub](https://aws-deadline.github.io/maya/ "https://aws-deadline.github.io/maya/").
-
-Autodesk Maya is a 3D computer animation, modeling, simulation, and rendering software used for creating interactive 3D applications, including video games, animated films, TV series, and visual effects. Maya is fully supported by Deadline Cloud with comprehensive integration including submitters, conda packages, usage-based licensing, and an adaptor for increased rendering performance.
+Autodesk Maya is a 3D computer animation, modeling, simulation, and rendering software used for creating interactive 3D applications, including video games, animated films, TV series, and visual effects. Maya is fully supported by Deadline Cloud with comprehensive integration including submitters, conda packages, usage-based licensing, and an adaptor for increased rendering performance. This guide provides step-by-step instructions for using Deadline Cloud with Autodesk Maya to render your projects faster by distributing rendering tasks across multiple machines.
 
 ## Support overview
 
@@ -52,6 +48,85 @@ To use Maya with Deadline Cloud:
 2. Install the Deadline Cloud monitor and Maya submitter on your artist workstation using the Deadline Cloud Submitter and monitor Installers. For more information, see [Set up your workstation](submitter.md "submitter.md").
 3. Submit your job directly from Maya using the integrated submitter to the queue.
 4. Monitor the job and download the output using the Deadline Cloud monitor.
+
+## Installation
+
+To install the Deadline Cloud submitter for Autodesk Maya, prepare the following environment:
+
+- Windows, Linux, or macOS workstation.
+- Autodesk Maya 2024, 2025, or 2026 installation.
+- Optional: Arnold (MtoA 5.3.5 or higher), V-Ray, or Redshift for Maya installation.
+- [Deadline Cloud monitor](monitor-onboarding.md "monitor-onboarding.md") installed.
+- Access to an Deadline Cloud farm with either:
+  - A service-managed fleet.
+  - A customer-managed fleet with Autodesk Maya and licensing set up.
+
+### Installing the submitter
+
+The Autodesk Maya submitter extension allows you to submit jobs to Deadline Cloud directly from within Maya. To install the submitter:
+
+1. Download the [Deadline Cloud submitter installer](submitter.md "submitter.md").
+2. Run the installer and follow the on-screen instructions.
+3. Launch Maya after installation.
+
+### Updating the submitter
+
+To update the submitter to the latest version, download and run the latest submitter installer.
+
+## Using the Autodesk Maya submitter
+
+To use the Deadline Cloud submitter for Maya, ensure your farm is configured with a Maya-capable fleet, and have the submitter installed. For installation steps, see [Installation](#maya-installation "#maya-installation"). To access Deadline Cloud, log into Deadline Cloud monitor or provide AWS credentials through a configuration profile.
+
+### Submit a job
+
+**To submit a job from Maya to Deadline Cloud**
+
+1. Save your Maya file.
+2. In Maya's shelf, choose the **Deadline Cloud** button.
+3. Use the tabs in the dialog to customize your job.
+4. (Optional) To export a job's associated files to your job history directory without submitting it, choose **Export bundle**.
+5. Choose **Submit** and follow the prompts to send your job to Deadline Cloud.
+
+### Shared job settings
+
+![Deadline Cloud submitter dialog showing the Shared job settings tab with job properties and queue environment fields.](images/maya-submitter-shared.png)
+
+Settings that apply to the entire job:
+
+- **Farm Selection** - Choose which farm your job will render on.
+- **Queue Selection** - Select the specific queue within your chosen farm.
+- **Job Name** - Give your render job a descriptive name.
+- **Job Description** - Add optional details about your render job.
+- **Priority** - Set job priority for queue management.
+- **Initial State** - Control whether the job starts immediately or remains paused.
+- **Max Failed Tasks Count** - Set the maximum number of tasks that can fail before the job is marked as failed.
+- **Max Retries Per Task** - Set the number of times a failed task is retried.
+- **Max Worker Count** - Set the maximum number of workers that can work on this job simultaneously.
+- **Conda Packages** - Specify additional conda packages required for your render.
+- **Conda Channels** - Define custom conda channels for package installation.
+
+### Maya-specific settings
+
+![Deadline Cloud submitter dialog showing the Job-specific settings tab with Maya project path, output path, render layers, cameras, and frame range options.](images/maya-submitter-job.png)
+
+Settings specific to Maya rendering:
+
+- **Project Path** - Specify the Maya project path (automatically detected).
+- **Output Path** - Specify the directory where rendered images are saved.
+- **Output Filename** - Enter the base name for rendered image files.
+- **Renderer** - Select the renderer to use (Arnold, V-Ray, Redshift, or Maya Software).
+- **Cameras To Render** - Select specific cameras or render all renderable cameras.
+- **Override Frame Range** - Optionally override the scene's frame range with custom values.
+- **Render Layers** - Select which render layers to render.
+
+#### Optional tabs
+
+Options to modify the scene during submission:
+
+- **Job Attachments** (optional) - Select which files will be uploaded and attached to the job. Files are automatically detected and attached by default.
+- **Host Requirements** (optional) - Allows you to specify which types of hosts will be eligible for picking up tasks for this job.
+
+For information about the submitter tabs, see the [Deadline Cloud guide for using a submitter](jobs-using-submitter.md "jobs-using-submitter.md").
 
 ## Advanced configurations
 

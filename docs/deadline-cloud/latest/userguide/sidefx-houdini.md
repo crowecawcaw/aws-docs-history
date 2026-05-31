@@ -1,10 +1,6 @@
 # SideFX Houdini
 
-###### Note
-
-For more information about installing, configuring, and using this integration on your workstation, see the [Houdini integration user guide on GitHub](https://aws-deadline.github.io/houdini/ "https://aws-deadline.github.io/houdini/").
-
-SideFX Houdini is a 3D procedural software for modeling, rigging, animation, VFX, look development, lighting and rendering in film, TV, advertising and video game pipelines. Houdini is fully supported by Deadline Cloud with comprehensive integration including submitters, conda packages, and an adaptor for increased rendering performance.
+SideFX Houdini is a 3D procedural software for modeling, rigging, animation, VFX, look development, lighting, and rendering in film, TV, advertising, and video game pipelines. Houdini is fully supported by Deadline Cloud with comprehensive integration including submitters, conda packages, and an adaptor for increased rendering performance. This guide provides step-by-step instructions for using AWS Deadline Cloud with Houdini to render your projects faster by distributing rendering tasks across multiple machines.
 
 ## Support overview
 
@@ -49,20 +45,179 @@ To use Houdini with Deadline Cloud:
 3. Submit your job directly from Houdini using the integrated submitter to the queue.
 4. Monitor the job and download the output using the Deadline Cloud monitor.
 
-## Using the Houdini submitter
+## Installation
 
-To use the Houdini submitter:
+To install the Deadline Cloud for Houdini submitter, you need:
+
+- A Windows, macOS (arm64), or Linux workstation.
+- A supported version of Houdini.
+
+### Installing the submitter
+
+**To install the submitter**
+
+1. Download the [Deadline Cloud submitter installer](submitter.md "submitter.md").
+2. Run the installer.
+   - When prompted, select each version of Houdini you want to use the submitter with.
+
+3. Launch Houdini.
+
+The Deadline Cloud submitter is automatically available as a render output (ROP) node.
+
+###### Note
+
+The submitter installer is available for Windows, macOS, and Linux. For manual installation, see the [manual installation instructions in the GitHub repository](https://github.com/aws-deadline/deadline-cloud-for-houdini/blob/mainline/README.md "https://github.com/aws-deadline/deadline-cloud-for-houdini/blob/mainline/README.md").
+
+### Verifying the submitter is installed correctly
 
 1. Open Houdini.
-2. In the Network Editor, usually in the lower right side of Houdini, select the `/out` network.
-3. Press **Tab**, and enter `deadline`.
-4. Select the **Deadline Cloud** option and place it within the `/out` network to create the node.
-5. Connect the output of the last render output node (ROP) (for example, Karma, Mantra, or compositing) in your existing `/out` network to the input of the Deadline Cloud node.
-6. Choose the Deadline Cloud node.
-7. Enter any job settings in the node editor, usually in the upper right side of Houdini.
-8. In the bottom right of the node editor, choose **Submit**.
+2. In the **Network Editor**, choose the `/out` network.
+3. Open the context menu (right-click or press **Tab**) and search for `deadline`.
+4. Choose **Deadline Cloud** to create a new node.
 
-The Deadline Cloud submission will automatically parse the connected `/out` network tree and submit each node as a step in the job maintaining the dependency tree. Using non-default render networks other than `/out` is also supported.
+## Using the Houdini submitter
+
+The Deadline Cloud for Houdini submitter is a node that accepts a render output (ROP) node as input. You can configure and submit your job through this node. When you submit a job, it includes steps for each ROP in the graph.
+
+### Submitting a job from Houdini
+
+To use the Deadline Cloud for Houdini submitter, you need:
+
+- A profile to submit to Deadline Cloud with.
+- An Deadline Cloud farm and queue to submit to.
+
+**To submit a job from Houdini to Deadline Cloud**
+
+1. In the Network Editor, choose the **/out** network.
+2. Open the context menu (right-click or press **Tab**) and search for `deadline` to create an Deadline Cloud node.
+3. Connect the output of a ROP to the input of the Deadline Cloud node.
+   - When you connect a node to the Deadline Cloud node, the submitted job renders the input ROP and all ROPs in its graph.
+
+4. Select the Deadline Cloud node.
+5. Use the options in the node editor to configure your job. See [Houdini-specific settings](#houdini-specific-settings "#houdini-specific-settings") for information about what each option does.
+6. (Optional) To export a job's associated files to your job history directory without submitting it, choose **Export Bundle**.
+7. Choose **Submit** to send your job to Deadline Cloud.
+
+### Houdini-specific settings
+
+The **Job-specific settings** tab of the Deadline Cloud node provides options specific to Houdini jobs.
+
+- _Submit Dependencies as Separate Steps_ - Split the ROP graph into separate rendering steps for easier monitoring and debugging. When enabled, each connected render node becomes its own step in the job.
+- _Include Adaptor Wheels_ - Enable custom builds of the adaptor (called _wheels_) that change rendering behavior. When enabled, you can specify a directory containing adaptor wheels. You can build adaptor wheels by running the [build_wheels.sh script in the GitHub repository](https://github.com/aws-deadline/deadline-cloud-for-houdini/blob/mainline/scripts/build_wheels.sh "https://github.com/aws-deadline/deadline-cloud-for-houdini/blob/mainline/scripts/build_wheels.sh").
+- _Adaptor Wheels_ - Specify the directory path containing custom adaptor wheels (only available when **Include Adaptor Wheels** is enabled).
+- _Automatically unlock ROPs_ - Automatically unlock dependency ROPs during submission. Locked ROPs use existing outputs and won't re-render, which can block dependencies from re-rendering.
+- _Automatically parse scene (.hip) references_ - Automatically discover and attach the job's input and output file names and directories based on the ROP graph during job submission.
+- _Automatically save scene (.hip) file_ - Automatically save the scene (`.hip`) file to `$HIP` when submitting a job.
+
+For information about the other submitter options, see the [Deadline Cloud guide for using a submitter](jobs-using-submitter.md "jobs-using-submitter.md").
+
+### Overriding the render strategy for Deadline Cloud jobs
+
+For many types of nodes, frames can be rendered independently and in any order. For others like simulations, each frame depends on the result of the previous frame and must be rendered sequentially. The submitter chooses a rendering strategy for each node based on its type, but also allows you to override the default.
+
+#### Parallel vs. sequential rendering
+
+For parallel rendering, each frame has its own task, and the tasks are distributed across available workers. For sequential rendering, all frames for a node are rendered in a single task running on a single worker.
+
+By default, if a node is a geometry node with **Initialize Simulation OPs** enabled, it renders sequentially. Otherwise the node renders in parallel.
+
+#### Adding a render strategy parameter
+
+You can override the render strategy by creating a `deadline_cloud_render_strategy` parameter on your render node (for example, Mantra or Karma) with a value of either `SEQUENTIAL` or `PARALLEL`.
+
+**To override render strategy by adding a parameter**
+
+1. Open the context menu for a node in the **/out** network (right-click).
+2. Choose **Parameters and Channels**, **Edit Parameter Interface**.
+3. Under **Create Parameters**, **By Type**, choose **Ordered Menu**.
+4. Add an ordered menu to **Existing parameters** by selecting the right arrow next to the **Create Parameters** column.
+5. Select the new parameter under **Existing Parameters**, then edit its configuration under **Parameter Description**:
+   - In the **Parameter** tab:
+     - For **Name**, enter `deadline_cloud_render_strategy`.
+     - For **Label**, enter `Deadline Cloud Render Strategy`.
+
+   - In the **Menu** tab, add menu items for:
+
+   | Token      | Label      |
+   | ---------- | ---------- |
+   | SEQUENTIAL | Sequential |
+   | PARALLEL   | Parallel   |
+
+6. Choose **Accept**.
+
+Now in the parameter editor for your node, you can use the **Deadline Cloud Render Strategy** menu to specify submitter behavior.
+
+### Husk rendering and USD workflows
+
+The following sections describe current limitations of USD export workflows in the Houdini submitter and an alternative example job bundle for rendering exported USD scenes with Husk.
+
+#### USD export workflow support
+
+**The Deadline Cloud submitter for Houdini does not currently have built-in support for USD export workflows.**
+
+You cannot use the submitter node to create a single job that will export a USD scene from Houdini and then call Husk standalone to render without consuming a Houdini Engine license.
+
+#### Alternative: example Husk job bundle
+
+Deadline Cloud provides an [example Husk job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/houdini_husk_usd_render "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/houdini_husk_usd_render") that enables USD export rendering workflows outside of the Houdini submitter. You will need to export the USD scene yourself separately from Houdini before using the example job bundle.
+
+The Husk example job bundle:
+
+- Allows direct submission of USD scenes for rendering using Husk and a chosen Hydra render delegate without launching Houdini and consuming a Houdini engine license during the render.
+- Automatically introspects USD files to find any file dependencies within to attach using job attachments.
+- Provides a simple GUI for configuration of common Husk settings and submission.
+
+##### Prerequisites
+
+Before using the Husk example job bundle, you need:
+
+- A scene exported to USD format.
+  - See the [SideFX USD documentation](https://www.sidefx.com/docs/houdini/solaris/output.html "https://www.sidefx.com/docs/houdini/solaris/output.html") for information on writing out USD files in Houdini.
+
+- The Deadline Cloud CLI installed and configured.
+  - The CLI can be installed from either the submitter installer or directly following the [deadline-cloud getting started guide](https://github.com/aws-deadline/deadline-cloud/blob/mainline/docs/index.md#getting-started "https://github.com/aws-deadline/deadline-cloud/blob/mainline/docs/index.md#getting-started").
+
+- A git clone of the [deadline-cloud-samples repository](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples").
+- The Hydra render delegate available on the worker nodes.
+  - Karma is included with Houdini. If you want to use other Hydra render delegates, you must provide them on the worker. See the deadline-cloud-samples repository for example conda packages for [V-Ray](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/houdini-vray-7 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/houdini-vray-7") and [Redshift](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/houdini-redshift-2026 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/houdini-redshift-2026") as one option to make them available on the worker nodes.
+
+##### Using the Husk example job bundle
+
+**To use the Husk example job bundle**
+
+1. Submit the bundle using the Deadline Cloud CLI:
+
+```
+deadline bundle gui-submit ./deadline-cloud-samples/job_bundles/houdini_husk_usd_render
+```
+
+2. Configure your USD file, output settings, frame range, and any other applicable settings to submit.
+
+![Husk example job bundle GUI interface.](images/houdini-husk-example-interface.png)
+
+##### Additional resources
+
+- [deadline-cloud-samples repository](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples").
+- [SideFX Husk documentation](https://www.sidefx.com/docs/houdini/ref/utils/husk.html "https://www.sidefx.com/docs/houdini/ref/utils/husk.html").
+
+## Troubleshooting
+
+The following sections describe common errors and questions you might encounter when using the Deadline Cloud submitter for Houdini, and how to resolve them.
+
+### Why do I get "incomplete asset definitions" errors while rendering?
+
+Jobs from this submitter that run in your farm may produce errors in the logs that look like:
+
+```
+The following node types are using incomplete asset definitions:
+  Driver/deadline_cloud
+```
+
+These errors are safe to ignore. The Deadline Cloud submitter exists as a node in your Houdini scene. When a worker in your farm loads the scene, the scene still contains the Deadline Cloud node, but the worker may not have the submitter installed. Because the worker does not have the files needed to run the Deadline Cloud node, it logs "incomplete asset definition" errors. The Deadline Cloud node itself is not rendered as part of the job, so these errors can be ignored.
+
+### Does the Deadline Cloud submitter support USD export render workflows using Husk?
+
+The Houdini submitter does not directly support export workflows using Husk at this time. Jobs created through the submitter always run the adaptor which uses `hython` and therefore a Houdini engine license for the duration of the render. If you want to render an exported USD scene using just Husk and a Hydra render delegate, you can use an example [job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/houdini_husk_usd_render "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/houdini_husk_usd_render"). This approach is useful to render USD scenes with only a render license (for example, Karma) without needing a Houdini engine license for the entire render. For more information on rendering USD scenes with Husk on Deadline Cloud, see [Husk rendering and USD workflows](#houdini-husk-rendering "#houdini-husk-rendering").
 
 ## Advanced configurations
 

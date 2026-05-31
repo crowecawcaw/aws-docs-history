@@ -71,6 +71,7 @@ Linux
   - `blender=4.2`
   - `blender=4.5`
   - `blender=5.0`
+  - `blender=5.1`
   - `blender-openjd`
 
 - Chaos V-Ray for Maya
