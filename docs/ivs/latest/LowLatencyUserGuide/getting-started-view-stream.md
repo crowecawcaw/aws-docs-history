@@ -1,4 +1,4 @@
-# Step 6: View Your Live Stream
+# Step 5: View Your Live Stream
 
 You can view your live stream with:
 
@@ -14,7 +14,7 @@ You can view your live stream with:
 2. From the [Amazon IVS
    console](https://console.aws.amazon.com/ivs "https://console.aws.amazon.com/ivs"), get the **Playback URL**
    that was generated when you created your channel. (See [Final
-   Channel Creation](create-channel-console.md#getting-started-create-channel-console-final-creation "create-channel-console.md#getting-started-create-channel-console-final-creation") earlier in this _Getting
+   Channel Creation](create-channel-console.md#getting-started-create-channel-console-record-s3 "create-channel-console.md#getting-started-create-channel-console-record-s3") earlier in this _Getting
    Started_ guide.)
 3. Call `player.load()` with the playback URL.
 

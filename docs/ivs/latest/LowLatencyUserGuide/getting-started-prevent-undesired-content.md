@@ -1,4 +1,4 @@
-# Step 8: Prevent Undesired Content and Viewers (Recommended)
+# Step 7: Prevent Undesired Content and Viewers (Recommended)
 
 Malicious users may try to re-stream undesirable content (e.g., professional sports)
 on your platform, or try to embed your platform’s streams on another website without

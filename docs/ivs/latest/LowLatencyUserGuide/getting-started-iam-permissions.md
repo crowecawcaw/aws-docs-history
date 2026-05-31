@@ -1,4 +1,4 @@
-# Step 3: Set Up IAM Permissions
+# Step 2: Set Up IAM Permissions
 
 Next, you must create an AWS Identity and Access Management (IAM) policy that gives
 users a basic set of permissions (e.g., to create an Amazon IVS channel, get streaming

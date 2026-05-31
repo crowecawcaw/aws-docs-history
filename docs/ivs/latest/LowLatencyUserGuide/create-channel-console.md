@@ -24,7 +24,7 @@ RTMP (instead of RTMPS) ingest. Custom specifications are not documented
 here.
 
 ![Create a channel using the IVS Console: Specify channel configuration in the Create Channel window.](images/Accept_Default_Configuration.png) 5. If you want to auto-record to Amazon S3, continue with [Set Up to Auto-Record to Amazon S3 (Optional)](#getting-started-create-channel-console-record-s3 "#getting-started-create-channel-console-record-s3")
-below. Otherwise, skip that and proceed directly to [Final Channel Creation](#getting-started-create-channel-console-final-creation "#getting-started-create-channel-console-final-creation").
+below. Otherwise, skip that and proceed directly to [Set Up to Auto-Record to Amazon S3 (Optional)](#getting-started-create-channel-console-record-s3 "#getting-started-create-channel-console-record-s3").
 
 ## Set Up to Auto-Record to Amazon S3 (Optional)
 
@@ -64,8 +64,6 @@ configuration.
    its **State** as **Active** and the S3 bucket (**Storage**) that you created.
 
 ![Create a channel using the IVS Console: New recording configuration created.](images/Create_Recording_Config.png)
-
-## Final Channel Creation
 
 1. At the bottom of the **Create channel**
    window, choose **Create channel**, to create a

@@ -148,7 +148,7 @@ EventBridge:** Recording End events and _recording-ended_ JSON metadata files ar
 `recordingReconnectWindowSeconds`, as Amazon IVS waits to ensure a new
 stream is not started.
 
-For instructions on setting up the merge-streams functionality, see [Step 4: Create a Channel with Optional Recording](getting-started-create-channel.md "getting-started-create-channel.md") in _Getting
+For instructions on setting up the merge-streams functionality, see [Step 3: Create a Channel with Optional Recording](getting-started-create-channel.md "getting-started-create-channel.md") in _Getting
 Started with Amazon IVS_.
 
 ### Eligibility

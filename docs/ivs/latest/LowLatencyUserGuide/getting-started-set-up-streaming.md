@@ -1,4 +1,4 @@
-# Step 5: Set Up Streaming Software
+# Step 4: Set Up Streaming Software
 
 You can stream (low-latency) to Amazon IVS with:
 
