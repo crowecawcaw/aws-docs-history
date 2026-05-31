@@ -13,9 +13,9 @@ F5 BIG-IP supports real-time log delivery via Telemetry Streaming to [forward lo
 
 ## Instructions to setup Amazon S3 and Amazon SQS
 
-Configuring F5 BIG-IP to send logs to an Amazon S3 bucket involves several steps,
-primarily focused on setting up the Amazon S3 bucket, Amazon SQS queue, IAM credentials,
-and configuring Telemetry Streaming and the CloudWatch Pipeline.
+Configuring F5 BIG-IP to send logs to an Amazon S3 bucket involves several steps.
+These steps focus on setting up the Amazon S3 bucket, Amazon SQS queue, and IAM credentials,
+and then configuring Telemetry Streaming and the CloudWatch pipeline.
 
 - Ensure F5 BIG-IP Telemetry Streaming is installed and configured. Create
   an Amazon S3 bucket to store logs. It is recommended to enable server-side
@@ -43,8 +43,8 @@ and configuring Telemetry Streaming and the CloudWatch Pipeline.
 ## Configuring Telemetry Streaming
 
 - Configure Telemetry Streaming using the declarative API endpoint:
-  `/mgmt/shared/telemetry/declare`
-- Define the Telemetry configuration with class "Telemetry".
+  `/mgmt/shared/telemetry/declare`.
+- Define the Telemetry configuration with class `Telemetry`.
 - Define a Telemetry Listener to receive logs (for example, port 6514).
 - Define a Telemetry Consumer of type Amazon S3: configure the bucket name and
   Region, and provide IAM access key and secret key for authentication.
@@ -58,8 +58,8 @@ pipeline, data will be available in the selected CloudWatch Logs log group.
 ## Supported Open Cybersecurity Schema Framework Event Classes
 
 This integration supports OCSF schema version v1.5.0 and F5 BIG-IP events that
-map to Network Activity (4001) and HTTP Activity (4002). Each event comes from a
-source as mentioned below.
+map to Network Activity (4001) and HTTP Activity (4002). The following lists show the
+source for each event.
 
 **Network Activity (4001)** contains the following log formats:
 

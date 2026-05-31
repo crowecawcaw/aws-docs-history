@@ -24,7 +24,7 @@ or by calling `GET /organizations`.
 
 `authentication.api_key` (required)
 
-Cisco Meraki API key, stored as a key/value pair. From the above example,
+Cisco Meraki API key, stored as a key/value pair. From the preceding example,
 the name of the key will be `api_key`.
 
 ###### Note

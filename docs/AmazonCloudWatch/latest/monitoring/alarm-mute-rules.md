@@ -27,7 +27,19 @@ Alarm mute rules can be defined using: **rules** and **targets**.
 
     ```
 
-        * The characters `*`, `,`, `-` will be supported in all fields.
+        * The following characters are supported in each field:
+
+
+
+
+
+        	+ `Minute`: `*` `,` `-` `/`
+        	+ `Hour`: `*` `,` `-` `/`
+        	+ `Day of month`: `*` `?` `,` `-` `/` `L`
+        	+ `Month`: `*` `,` `-` `/`
+        	+ `Day of week`: `*` `?` `,` `-` `L` `#`
+
+         For example, `cron(0 9 * * SUN#4)` activates on the fourth Sunday of every month at 9:00 AM.
         * English names can be used for the `month` (JAN-DEC) and `day of week` (SUN-SAT) fields
 
     - **At expressions** – Use at expressions for one-time mute windows. This approach works well for planned operational events that occur once at a known time.

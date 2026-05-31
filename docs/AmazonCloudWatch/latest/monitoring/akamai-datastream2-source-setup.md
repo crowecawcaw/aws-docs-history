@@ -15,8 +15,8 @@ Akamai DataStream 2 supports real-time log delivery via DataStream 2 to
 ## Instructions to setup Amazon S3 and Amazon SQS
 
 Configuring Akamai DataStream 2 to send logs to an Amazon S3 bucket involves several
-steps, primarily focused on setting up the Amazon S3 bucket, Amazon SQS queue, IAM roles,
-and then configuring the CloudWatch Pipeline.
+steps. These steps focus on setting up the Amazon S3 bucket, Amazon SQS queue, and IAM roles,
+and then configuring the CloudWatch pipeline.
 
 - Create an Amazon S3 bucket that stores Akamai logs and create separate folders
   for each log type (for example, DNS, CDN, EdgeWorkers). Create an IAM user

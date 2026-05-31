@@ -1,7 +1,7 @@
 # Getting set up
 
 To use Amazon CloudWatch you need an AWS account. Your AWS account allows you to use services (for example,
-Amazon EC2) to generate metrics that you can view in the CloudWatch console, a point-and-click
+Amazon EC2) to generate metrics that you can view in the CloudWatch console, a graphical
 web-based interface. In addition, you can install and configure the AWS command line
 interface (CLI).
 

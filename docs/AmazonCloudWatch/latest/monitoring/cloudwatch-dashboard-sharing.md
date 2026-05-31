@@ -181,6 +181,34 @@ That deny statement should look similar to the following:
 }
 ```
 
+## Allow widgets that use PromQL queries to be visible in shared dashboards
+
+When you share a dashboard, widgets that use PromQL (Prometheus Query Language) queries are not visible by default to people with whom you share the dashboard.
+If you want these people to see PromQL widgets, you must add permissions
+to the IAM role for dashboard sharing.
+
+###### To allow people that you share a dashboard with to see PromQL widgets
+
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. In the navigation pane, choose **Dashboards**.
+3. Choose the name of the shared dashboard.
+4. Choose **Actions**, **Share dashboard**.
+5. Under **Resources**, choose **IAM Role**.
+6. In the IAM console, choose the displayed policy.
+7. Choose **Edit policy** and add the following
+   statement.
+
+```
+{
+    "Effect": "Allow",
+    "Action": "cloudwatch:ListMetrics",
+    "Resource": "*"
+}
+```
+
+8. Choose **Save Changes**.
+
 ## Allowing people that you share with to see logs table widgets
 
 When you share a dashboard, by default the CloudWatch Logs Insights widgets that are on the dashboard
