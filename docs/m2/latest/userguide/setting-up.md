@@ -6,7 +6,7 @@ availability change](mainframe-modernization-availability-change.md "mainframe-m
 # Set up for AWS Mainframe Modernization
 
 Before you can start using AWS Mainframe Modernization you or your administrator need to sign up for an
-AWS account, create user with administrative settings, and secure your IAM users.
+AWS account and create a user with administrative access.
 
 ###### Topics
 
