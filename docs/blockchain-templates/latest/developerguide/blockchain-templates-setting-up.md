@@ -9,8 +9,6 @@ If you have questions about AMB or require further support, [contact Support](ht
 
 Before you start with AWS Blockchain Templates, complete the following tasks:
 
-- [Sign Up for AWS](#blockchain-templates-sign-up-for-aws "#blockchain-templates-sign-up-for-aws")
-- [Create an IAM User](#blockchain-templates-create-iam-user "#blockchain-templates-create-iam-user")
 - [Create a Key Pair](#blockchain-templates-create-a-key-pair "#blockchain-templates-create-a-key-pair")
   These are fundamental prerequisites for all blockchain configurations. In addition, the
   blockchain network that you choose may have prerequisites, which vary according to your desired
@@ -19,75 +17,11 @@ Before you start with AWS Blockchain Templates, complete the following tasks:
 
 For step-by-step instructions to set up prerequisites for a private Ethereum network using an Amazon ECS cluster, see [Getting Started with AWS Blockchain Templates](blockchain-templates-getting-started.md "blockchain-templates-getting-started.md").
 
-## Sign Up for AWS
+## Sign up for an AWS account
 
-When you sign up for AWS, your AWS account is automatically signed up for all services. You are charged only for the services that you use.
-
-If you have an AWS account already, skip to the next task. If you don't have an AWS
-account, use the following procedure to create one.
-
-###### To create an AWS account
-
-1. Open [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup").
-2. Follow the online instructions.
-
-Part of the sign-up procedure involves receiving a phone call or text message and entering
-a verification code on the phone keypad.
-
-When you sign up for an AWS account, an _AWS account root user_ is created. The root user has access to all AWS services
-and resources in the account. As a security best practice, assign administrative access to a user, and use only the root user to perform [tasks that require root user access](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks").
-
-Note your AWS account number. You need it when you create an IAM user in the next
-task.
-
-## Create an IAM User
-
-Services in AWS require that you provide credentials when you access them, so that the
-service can determine whether you have permissions to access its resources. The console requires
-your password. You can create access keys for your AWS account to access the command line
-interface or API. However, we don't recommend that you access AWS using the credentials for
-your AWS account; we recommend that you use AWS Identity and Access Management (IAM) instead. Create an IAM user,
-and then add the user to an IAM group with administrative permissions or grant this user
-administrative permissions. You can then access AWS using a special URL and the credentials
-for the IAM user.
-
-If you signed up for AWS but have not created an IAM user for yourself, you can create
-one using the IAM console. If you already have an IAM user, you can skip this step.
-
-To create an administrator user, choose one of the following options.
-
-| Choose one way to manage your administrator | To                                                                                                                                                                                                                                                                                                                                                  | By                                                                                                                                                                                                                                          | You can also                                                                                                                                                                                                                                          |
-| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| In IAM Identity Center (Recommended)        | Use short-term credentials to access AWS.This aligns with the security best<br>practices. For information about best practices, see [Security best<br>practices in IAM](../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp "../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp") in the _IAM User Guide_. | Following the instructions in [Getting started](../../../singlesignon/latest/userguide/getting-started.md "../../../singlesignon/latest/userguide/getting-started.md") in the<br>_AWS IAM Identity Center User Guide_.                      | Configure programmatic access by [Configuring the AWS CLI to use<br>AWS IAM Identity Center](../../../cli/latest/userguide/cli-configure-sso.md "../../../cli/latest/userguide/cli-configure-sso.md") in the _AWS Command Line Interface User Guide_. |
-| In IAM (Not recommended)                    | Use long-term credentials to access AWS.                                                                                                                                                                                                                                                                                                            | Following the instructions in [Create an IAM user for emergency access](../../../IAM/latest/UserGuide/getting-started-emergency-iam-user.md "../../../IAM/latest/UserGuide/getting-started-emergency-iam-user.md") in the _IAM User Guide_. | Configure programmatic access by [Manage access keys for IAM<br>users](../../../IAM/latest/UserGuide/id_credentials_access-keys.md "../../../IAM/latest/UserGuide/id_credentials_access-keys.md") in the _IAM User Guide_.                            |
-
-To sign in as this new IAM user, sign out of the AWS Management Console, then use the following URL,
-where _your_aws_account_id_ is your AWS account number without the hyphens
-(for example, if your AWS account number is `1234-5678-9012`, your AWS account ID
-is `123456789012`):
-
-```
-https://`your_aws_account_id`.signin.aws.amazon.com/console/
-```
-
-Enter the IAM user name and password that you just created. When you're signed in, the
-navigation bar displays "_your_user_name_ @
-_your_aws_account_id_".
-
-If you don't want the URL for your sign-in page to contain your AWS account ID, you can
-create an account alias. From the IAM dashboard, choose **Create Account
-Alias** and enter an alias, such as your company name. To sign in after you create an
-account alias, use the following URL:
-
-```
-https://`your_account_alias`.signin.aws.amazon.com/console/
-```
-
-To verify the sign-in link for IAM users for your account, open the IAM console and
-check under **IAM users sign-in link** on the dashboard.
-
-For more information, see the [AWS Identity and Access
-Management User Guide](../../../IAM/latest/UserGuide.md "../../../IAM/latest/UserGuide.md").
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
 
 ## Create a Key Pair
 
