@@ -19,11 +19,7 @@ clusters, and the best practices.
 
 Before you can start setting up and using AWS ParallelCluster, make sure that you've completed the following prerequisites.
 
-### Setting up an AWS account
-
-Set up an AWS account to use AWS ParallelCluster.
-
-#### Sign up for an AWS account
+### Sign up for an AWS account
 
 To get started with AWS, you need an AWS account. For information about creating an AWS account, see
 [Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")

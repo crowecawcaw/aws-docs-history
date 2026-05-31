@@ -8,7 +8,7 @@ hosted on Amazon API Gateway in your AWS account. For more information about the
 
 - You must have an AWS account
 - You must have access to the AWS Management Console
-  For more information, see [Setting up an AWS account](install-v3.md#setting-up "install-v3.md#setting-up").
+  For more information, see [Sign up for an AWS account](install-v3.md#sign-up-for-aws "install-v3.md#sign-up-for-aws").
 
 ###### Topics
 
