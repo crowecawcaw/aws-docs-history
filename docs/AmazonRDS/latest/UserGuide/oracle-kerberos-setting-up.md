@@ -380,6 +380,14 @@ During the Kerberos authentication setup, RDS for Oracle creates a user with the
 domain. Periodically, RDS uses the credentials provided by the Directory Service to log in to your Oracle database. Afterward, RDS
 immediately destroys the ticket cache.
 
+To verify the domain join succeeded, run the following command:
+
+```
+aws rds describe-db-instances --db-instance-identifier `mydbinstance` --query 'DBInstances[0].DomainMemberships'
+```
+
+Confirm that `Status` shows `joined`. If it shows `failed`, verify that the security group allows traffic between the DB instance and the directory service.
+
 ## Step 7: Create Kerberos authentication Oracle logins
 
 Use the Amazon RDS master user credentials to connect to the Oracle DB instance as you do any other DB instance. The DB instance is joined to
@@ -423,8 +431,8 @@ Following is sample content for AWS Managed Microsoft AD.
   admin_server = example.com
  }
 [domain_realm]
- .example.com = CORP.EXAMPLE.COM
- example.com = CORP.EXAMPLE.COM
+ .example.com = EXAMPLE.COM
+ example.com = EXAMPLE.COM
 ```
 
 Following is sample content for on-premise Microsoft AD. In your krb5.conf or krb5.ini file, replace

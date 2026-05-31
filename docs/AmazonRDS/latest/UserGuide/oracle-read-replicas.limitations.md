@@ -133,7 +133,7 @@ limitations:
 Before you create an RDS for Oracle replica, consider the following:
 
 - When you are creating an RDS for Oracle replica for a DB instance that has additional storage volumes,
-  RDS automatically configure additional storage volumes on the replica. However, any subsequent
+  RDS automatically configures additional storage volumes on the replica. However, any subsequent
   modifications made in storage volumes of your primary DB instance are not automatically applied to the replica.
 - If you add additional storage volumes in your primary DB instance,
   RDS does not automatically add additional storage volumes to the replica.

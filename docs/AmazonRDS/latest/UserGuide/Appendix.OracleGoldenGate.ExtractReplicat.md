@@ -49,7 +49,7 @@ TABLE EXAMPLE.TABLE;
    logging in.
 
 ```
-dblogin oggadm1@OGGSOURCE
+dblogin userid oggadm1@OGGSOURCE
 ```
 
 3. Add transaction data to turn on supplemental logging for the database

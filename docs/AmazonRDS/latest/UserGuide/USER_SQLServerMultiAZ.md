@@ -50,27 +50,20 @@ The following restrictions apply for existing SQL Server 2022 Web Edition instan
   a new instance with the same or higher minor version to enable block level replication.
 - SQL Server 2022 Web instances with an older minor version can
   be upgraded to minor version 16.00.4215.2 or higher to enable block level replication.
-  You can use the following SQL query to determine whether your SQL Server DB instance is
-  Single-AZ, Multi-AZ with DBM, or Multi-AZ with Always On AGs.
-  This query does not apply for Multi-AZ deployments on SQL Server Web Edition.
+  You can use the following stored procedure to determine whether your SQL Server DB instance is
+  Single-AZ, Multi-AZ with DBM, Multi-AZ with Always On AGs, or Multi-AZ with block level
+  replication:
 
 ```
-SELECT CASE WHEN dm.mirroring_state_desc IS NOT NULL THEN 'Multi-AZ (Mirroring)'
-    WHEN dhdrs.group_database_id IS NOT NULL THEN 'Multi-AZ (AlwaysOn)'
-    ELSE 'Single-AZ'
-    END 'high_availability'
-FROM sys.databases sd
-LEFT JOIN sys.database_mirroring dm ON sd.database_id = dm.database_id
-LEFT JOIN sys.dm_hadr_database_replica_states dhdrs ON sd.database_id = dhdrs.database_id AND dhdrs.is_local = 1
-WHERE DB_NAME(sd.database_id) = 'rdsadmin';
+EXEC msdb.dbo.rds_get_high_availability_option;
 ```
 
-The output resembles the following:
-
-```
-high_availability
-Multi-AZ (AlwaysOn)
-```
+| Output value                         | Description                                                               |
+| ------------------------------------ | ------------------------------------------------------------------------- |
+| `Multi-AZ (AlwaysOn)`                | The DB instance uses Always On Availability Groups for high availability. |
+| `Multi-AZ (Mirroring)`               | The DB instance uses SQL Server Database Mirroring for high availability. |
+| `Multi-AZ (Block level replication)` | The DB instance uses block level replication for high availability.       |
+| `Single-AZ`                          | The DB instance has no high availability configuration.                   |
 
 ## Adding Multi-AZ to a Microsoft SQL Server DB instance
 

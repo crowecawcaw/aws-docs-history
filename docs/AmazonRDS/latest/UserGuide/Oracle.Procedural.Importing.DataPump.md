@@ -325,7 +325,15 @@ END;
 ###### Note
 
 Data Pump jobs are started asynchronously. For information about monitoring a Data Pump job, see [Monitoring job status](https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-data-pump-overview.html#GUID-E365D74E-12CD-495C-BA23-5A55F679C7E7 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-data-pump-overview.html#GUID-E365D74E-12CD-495C-BA23-5A55F679C7E7") in the Oracle documentation. You can view the contents of the import log by using the
-`rdsadmin.rds_file_util.read_text_file` procedure. For more information, see [Reading files in a DB instance directory](Appendix.Oracle.CommonDBATasks.Misc.md#Appendix.Oracle.CommonDBATasks.ReadingFiles "Appendix.Oracle.CommonDBATasks.Misc.md#Appendix.Oracle.CommonDBATasks.ReadingFiles"). 3. Verify the data import by listing the schema tables on your target DB instance.
+`rdsadmin.rds_file_util.read_text_file` procedure. For more information, see [Reading files in a DB instance directory](Appendix.Oracle.CommonDBATasks.Misc.md#Appendix.Oracle.CommonDBATasks.ReadingFiles "Appendix.Oracle.CommonDBATasks.Misc.md#Appendix.Oracle.CommonDBATasks.ReadingFiles").
+
+To monitor the progress of your Data Pump import job, run the following query:
+
+```
+SELECT job_name, operation, job_mode, state, attached_sessions FROM DBA_DATAPUMP_JOBS WHERE owner_name = USER;
+```
+
+3. Verify the data import by listing the schema tables on your target DB instance.
 
 For example, the following query returns the number of tables for `SCHEMA_1`.
 
@@ -338,7 +346,7 @@ SELECT COUNT(*) FROM DBA_TABLES WHERE OWNER='`SCHEMA_1`';
 To check the status of a Data Pump import job, query the import log file:
 
 ```
-SELECT * FROM TABLE(rdsadmin.rds_file_util.read_text_file('DATA_PUMP_DIR', 'import.log'));
+SELECT * FROM TABLE(rdsadmin.rds_file_util.read_text_file('DATA_PUMP_DIR', 'sample_imp.log'));
 ```
 
 Common errors include:

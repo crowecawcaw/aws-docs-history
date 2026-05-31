@@ -12,6 +12,7 @@ concepts.
 - [Automatic snapshots during engine upgrades](#USER_UpgradeDBInstance.Oracle.Overview.snapshots "#USER_UpgradeDBInstance.Oracle.Overview.snapshots")
 - [Oracle upgrades in a Multi-AZ deployment](#USER_UpgradeDBInstance.Oracle.Overview.multi-az "#USER_UpgradeDBInstance.Oracle.Overview.multi-az")
 - [Oracle upgrades of read replicas](#USER_UpgradeDBInstance.Oracle.Overview.read-replicas "#USER_UpgradeDBInstance.Oracle.Overview.read-replicas")
+- [Post-upgrade validation](#USER_UpgradeDBInstance.Oracle.Overview.post-upgrade-validation "#USER_UpgradeDBInstance.Oracle.Overview.post-upgrade-validation")
 
 ## Major and minor version upgrades
 
@@ -221,3 +222,15 @@ additional actions:
   the new option group
 - Associates the upgraded cross-Region read replica with the new option
   group
+
+## Post-upgrade validation
+
+After the upgrade completes, verify the new version and check for invalid objects:
+
+```
+SELECT VERSION_FULL FROM V$INSTANCE;
+
+SELECT COMP_NAME, VERSION, STATUS FROM DBA_REGISTRY;
+
+SELECT OWNER, OBJECT_NAME, OBJECT_TYPE FROM DBA_OBJECTS WHERE STATUS = 'INVALID' ORDER BY OWNER, OBJECT_TYPE;
+```

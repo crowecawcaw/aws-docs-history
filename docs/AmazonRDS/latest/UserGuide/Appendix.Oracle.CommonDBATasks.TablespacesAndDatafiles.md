@@ -160,8 +160,8 @@ To create a smallfile tablespace and spread its data files across different
 storage volumes, add data files to the tablespace after you create it. In the
 following example, you create a tablespace with the data files in the default
 location of `/rdsdbdata/db`. Then you set the default destination to
-`/rdsdbdata/db2`. When you add a data file to your newly created
-tablespace, the database stores the file in `/rdsdbdata/db2`.
+`/rdsdbdata2/db`. When you add a data file to your newly created
+tablespace, the database stores the file in `/rdsdbdata2/db`.
 
 ```
 ALTER SESSION SET db_create_file_dest = '/rdsdbdata/db';
@@ -212,6 +212,12 @@ The following example sets the default tablespace to
 
 ```
 EXEC rdsadmin.rdsadmin_util.alter_default_tablespace(tablespace_name => '`users2`');
+```
+
+To verify the default tablespace setting, run the following query:
+
+```
+SELECT PROPERTY_VALUE FROM DATABASE_PROPERTIES WHERE PROPERTY_NAME = 'DEFAULT_PERMANENT_TABLESPACE';
 ```
 
 ## Setting the default temporary tablespace in RDS for Oracle

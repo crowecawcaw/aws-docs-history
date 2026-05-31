@@ -96,6 +96,10 @@ initialization parameter set to `true`. For more information about the
 `ENABLE_GOLDENGATE_REPLICATION` initialization parameter, see the
 [Oracle Database documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/ENABLE_GOLDENGATE_REPLICATION.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/ENABLE_GOLDENGATE_REPLICATION.html").
 
+###### Note
+
+This is a static parameter. You must reboot the DB instance after modifying the parameter group for the change to take effect. To verify: `SHOW PARAMETER ENABLE_GOLDENGATE_REPLICATION`
+
 ### Step 3: Set the log retention period on the source database
 
 Make sure that you configure the source database to retain archived redo logs. Consider

@@ -63,6 +63,12 @@ This procedure has the following parameter.
 | -------------- | --------- | ------- | -------- | --------------------------------------------- |
 | `seqnum`       | number    | —       | Yes      | The sequence number of the archived redo log. |
 
+To find valid archived redo log sequence numbers, run the following query:
+
+```
+SELECT SEQUENCE#, FIRST_TIME, NEXT_TIME FROM V$ARCHIVED_LOG WHERE DEST_ID = 1 ORDER BY SEQUENCE# DESC FETCH FIRST 20 ROWS ONLY;
+```
+
 The following example downloads the log with sequence number 20.
 
 ```

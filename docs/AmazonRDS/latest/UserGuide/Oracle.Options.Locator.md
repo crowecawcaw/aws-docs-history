@@ -29,7 +29,7 @@ Database Insider blog.
 The following are prerequisites for using Oracle Locator:
 
 - Your DB instance must be of sufficient class. Oracle Locator is not supported for the db.t3.small
-  DB instance classes. For more information, see
+  DB instance class. For more information, see
   [RDS for Oracle DB instance classes](Oracle.Concepts.InstanceClasses.md "Oracle.Concepts.InstanceClasses.md").
 - Your DB instance must have **Auto Minor Version Upgrade** enabled.
   This option enables your DB instance to receive minor DB engine version upgrades automatically when they become

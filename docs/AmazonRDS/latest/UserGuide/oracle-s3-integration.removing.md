@@ -1,5 +1,11 @@
 # Removing the Amazon S3 integration option
 
+###### Important
+
+Removing the S3_INTEGRATION option invalidates the
+`rdsadmin.rdsadmin_s3_tasks` package. Ensure all S3 transfers are complete
+before removing this option.
+
 You can remove Amazon S3 integration option from a DB instance.
 
 To remove the Amazon S3 integration option from a DB instance, do one of the following:

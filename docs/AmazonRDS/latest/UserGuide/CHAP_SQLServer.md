@@ -43,7 +43,7 @@ guide. For more information, see [Setting up your Amazon RDS environment](CHAP_S
 - [Microsoft SQL Server security](SQLServer.Concepts.General.FeatureSupport.UnsupportedRoles.md "SQLServer.Concepts.General.FeatureSupport.UnsupportedRoles.md")
 - [Compliance program support for Microsoft SQL Server DB instances](#SQLServer.Concepts.General.Compliance "#SQLServer.Concepts.General.Compliance")
 - [Microsoft SQL Server versions on Amazon RDS](SQLServer.Concepts.General.VersionSupport.md "SQLServer.Concepts.General.VersionSupport.md")
-- [Amazon RDS for SQL Server version policy](SQLServer.Concepts.General.VersionPolicy.md "SQLServer.Concepts.General.VersionPolicy.md")
+- [Version policy for Amazon RDS for Microsoft SQL Server](SQLServer.Concepts.General.VersionPolicy.md "SQLServer.Concepts.General.VersionPolicy.md")
 - [Microsoft SQL Server features on Amazon RDS](SQLServer.Concepts.General.FeatureSupport.md "SQLServer.Concepts.General.FeatureSupport.md")
 - [Multi-AZ deployments using Microsoft SQL Server Database Mirroring or Always On availability groups](#SQLServer.Concepts.General.Mirroring "#SQLServer.Concepts.General.Mirroring")
 - [Using Transparent Data Encryption to encrypt data at rest](#SQLServer.Concepts.General.Options "#SQLServer.Concepts.General.Options")

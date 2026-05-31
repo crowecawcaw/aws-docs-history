@@ -84,6 +84,10 @@ command, or the API operation [DescribeDBInstances](../APIReference/API_Describe
 
 ## Adding the TDE option
 
+###### Important
+
+The TDE option is permanent and cannot be removed from a DB instance. If you need to reverse this decision later, you must decrypt all data, export it, and import into a new DB instance without TDE. Plan accordingly before enabling TDE.
+
 To add the `TDE` option to your DB instance, complete the following steps:
 
 1. (Recommended) Take a snapshot of your DB instance.

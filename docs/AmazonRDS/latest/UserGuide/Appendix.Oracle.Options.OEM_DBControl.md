@@ -71,7 +71,7 @@ You can also use the AWS CLI to add the OEM option. For examples, see [Adding an
 ## Step 2: (CDB only) Unlocking the DBSNMP user account
 
 If your DB instance uses the CDB architecture, you must log in to EM Express as
-`DBSNMP`. in a CDB, `DBSNMP` is a common user. By default,
+`DBSNMP`. In a CDB, `DBSNMP` is a common user. By default,
 this account is locked. If your DB instance doesn't use the CDB architecture, skip this
 step.
 

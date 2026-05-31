@@ -51,14 +51,14 @@ For Linux, macOS, or Unix:
 
 ```
 aws rds add-option-to-option-group --option-group-name ora-option-group \
-  --options 'OptionName=SSL,Port=2484,VpcSecurityGroupMemberships="sg-68184619",OptionSettings=[{Name=SQLNET.SSL_VERSION,Value=1.0}]'
+  --options 'OptionName=SSL,Port=2484,VpcSecurityGroupMemberships="sg-68184619",OptionSettings=[{Name=SQLNET.SSL_VERSION,Value=1.2}]'
 ```
 
 For Windows:
 
 ```
 aws rds add-option-to-option-group --option-group-name ora-option-group ^
-  --options 'OptionName=SSL,Port=2484,VpcSecurityGroupMemberships="sg-68184619",OptionSettings=[{Name=SQLNET.SSL_VERSION,Value=1.0}]'
+  --options 'OptionName=SSL,Port=2484,VpcSecurityGroupMemberships="sg-68184619",OptionSettings=[{Name=SQLNET.SSL_VERSION,Value=1.2}]'
 ```
 
 3. Create a new RDS for Oracle DB instance and associate the option group with it, or

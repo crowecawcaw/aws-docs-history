@@ -46,6 +46,12 @@ upgraded version. For instructions, see [Setting up Oracle APEX listener](Append
 
 ## Removing the APEX and APEX-DEV options
 
+###### Important
+
+Removing the APEX option drops the APEX repository, permanently deleting all
+APEX applications, workspaces, and user accounts stored in the DB instance.
+Export your applications before removing this option.
+
 You can remove the `APEX` and `APEX-DEV` options from a
 DB instance. To remove these options from your DB instance, do one of the following:
 

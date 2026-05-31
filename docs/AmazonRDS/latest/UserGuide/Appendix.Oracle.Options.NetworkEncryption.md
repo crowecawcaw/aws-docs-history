@@ -22,6 +22,19 @@ For more information, see
 
 - [NATIVE_NETWORK_ENCRYPTION option settings](Oracle.Options.NNE.Options.md "Oracle.Options.NNE.Options.md")
 - [Adding the NATIVE_NETWORK_ENCRYPTION option](Oracle.Options.NNE.Add.md "Oracle.Options.NNE.Add.md")
+- [Verifying that NNE is active](#Oracle.Options.NNE.Verify "#Oracle.Options.NNE.Verify")
 - [Setting NNE values in the sqlnet.ora](Oracle.Options.NNE.Using.md "Oracle.Options.NNE.Using.md")
 - [Modifying NATIVE_NETWORK_ENCRYPTION option settings](Oracle.Options.NNE.ModifySettings.md "Oracle.Options.NNE.ModifySettings.md")
 - [Removing the NATIVE_NETWORK_ENCRYPTION option](Oracle.Options.NNE.Remove.md "Oracle.Options.NNE.Remove.md")
+
+## Verifying that NNE is active
+
+After connecting to your DB instance, run the following query to confirm your session is encrypted:
+
+```
+SELECT SYS_CONTEXT('USERENV', 'NETWORK_PROTOCOL') AS PROTOCOL,
+       SYS_CONTEXT('USERENV', 'ENCRYPTION_TYPE') AS ENCRYPTION
+FROM DUAL;
+```
+
+If NNE is active, the `ENCRYPTION` column shows the algorithm in use (for example, `AES256`). If it shows blank or NULL, the connection is not encrypted.

@@ -65,8 +65,8 @@ value is set automatically by Amazon RDS.
 | DB instance name | DB instance IP | Local listener value (set automatically)                                          | Remote listener value (set by user) |
 | ---------------- | -------------- | --------------------------------------------------------------------------------- | ----------------------------------- |
 | `orcla`          | `10.0.159.200` | `<br>( address=<br>(protocol=tcp)<br>(host=10.0.159.200)<br>(port=1521)<br>)<br>` | `10.0.159.100:1521`                 |
-| `orclb`          | `10.0.159.300` | `<br>( address=<br>(protocol=tcp)<br>(host=10.0.159.300)<br>(port=1521)<br>)<br>` | `10.0.159.100:1521`                 |
-| `orclc`          | `10.0.159.400` | `<br>( address=<br>(protocol=tcp)<br>(host=10.0.159.400)<br>(port=1521)<br>)<br>` | `10.0.159.100:1521`                 |
+| `orclb`          | `10.0.159.30`  | `<br>( address=<br>(protocol=tcp)<br>(host=10.0.159.30)<br>(port=1521)<br>)<br>`  | `10.0.159.100:1521`                 |
+| `orclc`          | `10.0.159.40`  | `<br>( address=<br>(protocol=tcp)<br>(host=10.0.159.40)<br>(port=1521)<br>)<br>`  | `10.0.159.100:1521`                 |
 
 ### Step 3: Associate your DB instance with the parameter group
 

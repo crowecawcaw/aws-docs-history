@@ -20,6 +20,7 @@ For more information about DB instance class types, supported DB engines, suppor
 - [Supported DB engines for DB instance classes](Concepts.DBInstanceClass.Support.md "Concepts.DBInstanceClass.Support.md")
 - [Determining DB instance class support in AWS Regions](Concepts.DBInstanceClass.RegionSupport.md "Concepts.DBInstanceClass.RegionSupport.md")
 - [Changing your DB instance class](#Concepts.DBInstanceClass.Changing "#Concepts.DBInstanceClass.Changing")
+- [Cross-Availability Zone ENA Express support for Multi-AZ deployments](Concepts.DBInstanceClass.CrossAZENAExpress.md "Concepts.DBInstanceClass.CrossAZENAExpress.md")
 - [Configuring the processor for a DB instance class in RDS for Oracle](USER_ConfigureProcessor.md "USER_ConfigureProcessor.md")
 - [Hardware specifications for DB instance classes](Concepts.DBInstanceClass.Summary.md "Concepts.DBInstanceClass.Summary.md")
 

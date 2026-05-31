@@ -450,7 +450,7 @@ The following query fails because `UTL_HTTP` requires the location of the Oracle
 the certificates.
 
 ```
-SELECT UTL_HTTP.REQUEST('`secret.encrypted-website.com`') FROM DUAL;
+SELECT UTL_HTTP.REQUEST('`https://secret.encrypted-website.com`') FROM DUAL;
 ```
 
 4. Test website access by using `UTL_HTTP.SET_WALLET` and selecting from
@@ -469,7 +469,7 @@ BEGIN
 END;
 /
 
-SELECT UTL_HTTP.REQUEST('`secret.encrypted-website.com`') FROM DUAL;
+SELECT UTL_HTTP.REQUEST('`https://secret.encrypted-website.com`') FROM DUAL;
 ```
 
 5. (Optional) Test website access by storing your query in a variable and using `EXECUTE

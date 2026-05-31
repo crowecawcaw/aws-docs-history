@@ -24,7 +24,6 @@ To complete this tutorial, carry out the following tasks:
 Before you begin, complete the steps in the following sections:
 
 - [Sign up for an AWS account](CHAP_SettingUp.md#sign-up-for-aws "CHAP_SettingUp.md#sign-up-for-aws")
--
 
 ## Add tags to categorize your DB instance as a development environment
 

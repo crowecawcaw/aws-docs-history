@@ -29,7 +29,7 @@ The character set for a CDB is always AL32UTF8. You can set a different characte
 | AR8MSWIN1256   | Microsoft Windows Code Page 1256 8-bit Latin/Arabic                                                                                            |
 | BLT8ISO8859P13 | ISO 8859-13 Baltic                                                                                                                             |
 | BLT8MSWIN1257  | Microsoft Windows Code Page 1257 8-bit Baltic                                                                                                  |
-| CL8ISO8859P5   | ISO 88559-5 Latin/Cyrillic                                                                                                                     |
+| CL8ISO8859P5   | ISO 8859-5 Latin/Cyrillic                                                                                                                      |
 | CL8MSWIN1251   | Microsoft Windows Code Page 1251 8-bit Latin/Cyrillic                                                                                          |
 | EE8ISO8859P2   | ISO 8859-2 East European                                                                                                                       |
 | EL8ISO8859P7   | ISO 8859-7 Latin/Greek                                                                                                                         |

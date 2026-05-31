@@ -26,7 +26,7 @@ SELECT * FROM dba_java_policy
 The following are prerequisites for using Oracle Java:
 
 - Your DB instance must be of a large enough class. Oracle Java isn't
-  supported for the db.t3.small DB instance classes.
+  supported for the db.t3.small DB instance class.
   For more information, see [DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 - Your DB instance must have **Auto Minor Version Upgrade** enabled.
   This option enables your DB instance to receive minor DB engine version

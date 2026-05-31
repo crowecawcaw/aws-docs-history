@@ -51,3 +51,8 @@ The shorter format connection string (EZ Connect), such as `sqlplus
  USER/PASSWORD@`longer-than-63-chars-rds-endpoint-here`:1521/`database-identifier``,
 might encounter a maximum character limit, so we recommend that you don't use it
 to connect.
+
+###### Tip
+
+If the connection hangs without returning an error, verify that your security
+group allows inbound traffic on the database port from your client IP address.

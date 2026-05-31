@@ -286,7 +286,7 @@ backups to your RDS for Oracle DB instance.
    DB instance.
 2. Download the backups from the Amazon S3 bucket to your target DB instance by
    using the Amazon RDS procedure
-   `rdsadmin.rdsadmin_s3_tasks.download_from_s3` to d. The
+   `rdsadmin.rdsadmin_s3_tasks.download_from_s3` to download files from your Amazon S3 bucket to your DB instance. The
    following example downloads all of the files from an Amazon S3 bucket named
    `amzn-s3-demo-bucket` to the
    `DATA_PUMP_DIR`
@@ -401,6 +401,10 @@ last time.
 
 The following example places `tbs1`, `tbs2`, and
 `tbs3` in read-only mode.
+
+###### Important
+
+Setting tablespaces to read-only mode begins your migration downtime window. From this point forward, applications cannot write to these tablespaces on the source database. Plan this step during a maintenance window.
 
 ```
 ALTER TABLESPACE tbs1 READ ONLY;
@@ -617,7 +621,7 @@ ALTER TABLESPACE `TBS3` READ WRITE;
 In this optional step, you remove any unneeded files. Use the
 `rdsadmin.rdsadmin_transport_util.list_xtts_orphan_files` procedure to
 list data files that were orphaned after a tablespace import, and then use
-`rdsadmin.rdsadmin_transport_util.list_xtts_orphan_files` procedure to
+`rdsadmin.rdsadmin_transport_util.cleanup_incomplete_xtts_import` procedure to
 delete them. For syntax and semantics of these procedures, see [Listing orphaned files after a tablespace import](rdsadmin_transport_util_list_xtts_orphan_files.md "rdsadmin_transport_util_list_xtts_orphan_files.md") and [Deleting orphaned data files after a tablespace import](rdsadmin_transport_util_cleanup_incomplete_xtts_import.md "rdsadmin_transport_util_cleanup_incomplete_xtts_import.md").
 
 ###### To clean up leftover files

@@ -39,6 +39,12 @@ The following example puts the database in force logging mode.
 EXEC rdsadmin.rdsadmin_util.force_logging(p_enable => `true`);
 ```
 
+To verify that force logging is enabled, run the following query:
+
+```
+SELECT FORCE_LOGGING FROM V$DATABASE;
+```
+
 ## Setting supplemental logging
 
 If you enable supplemental logging, LogMiner has the necessary information to
@@ -125,6 +131,10 @@ The parameters are mutually exclusive.
 | -------------- | --------- | ------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `bytes`        | positive  | null    | No       | The size of the log file in bytes.<br>Use this parameter only if the size of the log is under<br>2147483648 bytes (2 GiB). Otherwise, RDS issues an error. For<br>log sizes above this byte value, use the `p_size`<br>parameter instead. |
 | `p_size`       | varchar2  | —       | No       | The size of the log file in kilobytes (K), megabytes (M), or<br>gigabytes (G).                                                                                                                                                            |
+
+###### Note
+
+You must specify either `bytes` or `p_size`. If you specify both, the procedure uses `p_size`.
 
 The following command adds a 100 MB log file.
 

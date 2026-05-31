@@ -126,7 +126,7 @@ public class OracleSslConnectionTest {
     public static void main(String[] args) throws SQLException {
         final Properties properties = new Properties();
         final String connectionString = String.format(
-                "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCPS)(HOST=%s)(PORT=%d))(CONNECT_DATA=(SID=%s)))",
+                "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCPS)(HOST=%s)(PORT=%s))(CONNECT_DATA=(SID=%s)))",
                 DB_SERVER_NAME, SSL_PORT, DB_SID);
         properties.put("user", DB_USER);
         properties.put("password", DB_PASSWORD);
