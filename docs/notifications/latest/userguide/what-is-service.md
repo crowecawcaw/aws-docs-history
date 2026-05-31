@@ -26,6 +26,12 @@ the AWS Management Console Notifications Center and your chosen delivery channel
 For UCNs, User Notifications uses [Amazon EventBridge](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge/latest/userguide/eb-what-is.md") to send notifications about [events from AWS services](../../../eventbridge/latest/userguide/eb-events.md#eb-service-event "../../../eventbridge/latest/userguide/eb-events.md#eb-service-event") to
 the AWS Management Console Notifications Center and your chosen delivery channels.
 
+## Sign up for an AWS account
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
+
 ## Accessing User Notifications
 
 You can access User Notifications through the [AWS Management Console](https://console.aws.amazon.com/notifications/ "https://console.aws.amazon.com/notifications/").
