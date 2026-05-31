@@ -5,12 +5,10 @@ feature in the Developer Tools console.
 
 ###### Topics
 
-- [Sign up for AWS](#setting-up-aws-sign-up "#setting-up-aws-sign-up")
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Create and apply a policy with permissions to create connections](#setting-up-connections-iamuser "#setting-up-connections-iamuser")
 
-## Sign up for AWS
-
-### Sign up for an AWS account
+## Sign up for an AWS account
 
 To get started with AWS, you need an AWS account. For information about creating an AWS account, see
 [Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
