@@ -112,7 +112,7 @@ When you create a VPC endpoint for Quick APIs, the private DNS resolution automa
 For more information about VPC endpoints for the AWS Management Console,
 see [Required VPC endpoints and DNS configuration](../../../awsconsolehelpdocs/latest/gsg/required-endpoints-dns-configuration.md "../../../awsconsolehelpdocs/latest/gsg/required-endpoints-dns-configuration.md").
 
-###### Following APIs are not supported via interface VPC endpoint Quick API:
+###### APIs listed in the [CLI reference](../../../cli/latest/reference/quicksight.md "../../../cli/latest/reference/quicksight.md") are supported via interface VPC endpoint Quick APIs except the ones listed below:
 
 | API Name                           |
 | ---------------------------------- |

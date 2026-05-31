@@ -24,6 +24,12 @@ Following, you can find out how to get started using the Amazon Quick Sight API:
 - [Amazon Resource Names (ARNs) in Quick Sight](arns.md "arns.md")
 - [Operations](operations.md "operations.md")
 
+## Sign up for an AWS account
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
+
 ## Are you a first-time Amazon Quick Sight user?
 
 If you are a first-time user of Amazon Quick Sight, we recommend that you begin by reading the
