@@ -10,8 +10,6 @@ supported by AWS End User Messaging.
 
 Before you begin this tutorial, you have to complete the following prerequisites:
 
-- You have to have an AWS account. To create an AWS account, go to [https://console.aws.amazon.com/](https://console.aws.amazon.com/ "https://console.aws.amazon.com/") and choose
-  **Create a new AWS account**.
 - The account that you use to sign in to the AWS Management Console has to be able to perform the
   following tasks:
   - Create new IAM policies and roles

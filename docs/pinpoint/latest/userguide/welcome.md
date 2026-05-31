@@ -30,6 +30,7 @@ If you only need application-to-person (A2P) SMS and voice messaging, then see t
 
 - [Features of Amazon Pinpoint](#welcome-features "#welcome-features")
 - [Regional availability](#welcome-regions "#welcome-regions")
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Get started](#welcome-getstarted "#welcome-getstarted")
 
 ## Features of Amazon Pinpoint
@@ -113,6 +114,12 @@ quotas](../../../general/latest/gr/pinpoint.md "../../../general/latest/gr/pinpo
 service endpoints](../../../general/latest/gr/rande.md#pinpoint_region "../../../general/latest/gr/rande.md#pinpoint_region") in the _Amazon Web Services General Reference_. To learn more about the number of Availability Zones
 that are available in each Region, see [AWS global
 infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/ "https://aws.amazon.com/about-aws/global-infrastructure/").
+
+## Sign up for an AWS account
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
 
 ## Get started
 
