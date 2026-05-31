@@ -47,11 +47,11 @@ The _Supports RBP_ column indicates whether the API operation is subject to reso
 
 ## Backup and restore APIs
 
-| API Operation                                                                                      | Description                               | Supports RBP |
-| -------------------------------------------------------------------------------------------------- | ----------------------------------------- | ------------ |
-| [GetBackupJob](../APIReference/API_GetBackupJob.md "../APIReference/API_GetBackupJob.md")          | Retrieves information about a backup job  | No           |
-| [GetRestoreJob](../APIReference/API_GetRestoreJob.md "../APIReference/API_GetRestoreJob.md")       | Retrieves information about a restore job | No           |
-| [StartBackupJob](../APIReference/API_StartBackupJob.md "../APIReference/API_StartBackupJob.md")    | Starts a backup job for a cluster         | Yes          |
-| [StartRestoreJob](../APIReference/API_StartRestoreJob.md "../APIReference/API_StartRestoreJob.md") | Starts a restore job from a backup        | No           |
-| [StopBackupJob](../APIReference/API_StopBackupJob.md "../APIReference/API_StopBackupJob.md")       | Stops a running backup job                | No           |
-| [StopRestoreJob](../APIReference/API_StopRestoreJob.md "../APIReference/API_StopRestoreJob.md")    | Stops a running restore job               | No           |
+| API Operation                                                    | Description                               | Supports RBP |
+| ---------------------------------------------------------------- | ----------------------------------------- | ------------ |
+| [GetBackupJob](backup-aurora-dsql.md "backup-aurora-dsql.md")    | Retrieves information about a backup job  | No           |
+| [GetRestoreJob](backup-aurora-dsql.md "backup-aurora-dsql.md")   | Retrieves information about a restore job | No           |
+| [StartBackupJob](backup-aurora-dsql.md "backup-aurora-dsql.md")  | Starts a backup job for a cluster         | Yes          |
+| [StartRestoreJob](backup-aurora-dsql.md "backup-aurora-dsql.md") | Starts a restore job from a backup        | No           |
+| [StopBackupJob](backup-aurora-dsql.md "backup-aurora-dsql.md")   | Stops a running backup job                | No           |
+| [StopRestoreJob](backup-aurora-dsql.md "backup-aurora-dsql.md")  | Stops a running restore job               | No           |

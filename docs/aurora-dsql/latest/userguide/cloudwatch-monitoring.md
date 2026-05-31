@@ -24,6 +24,15 @@ active and total, offer insights into the current load on the system.
 | ComputeTime            | QP compute time        | milliseconds | QP wall clock time                                                                            |
 | ClusterStorageSize     | Cluster Storage Size   | bytes        | Cluster size                                                                                  |
 
+Aurora DSQL also publishes the following metrics under the AWS/Usage namespace. Use
+these metrics to monitor connection attempts and active connection count for your
+clusters.
+
+| CloudWatch Metric Name | Type     | Resource                    | ResourceId           | Service    | Unit  | Description                                                                                  |
+| ---------------------- | -------- | --------------------------- | -------------------- | ---------- | ----- | -------------------------------------------------------------------------------------------- |
+| ResourceCount          | Resource | ClusterConnectionCount      | cluster/<cluster-id> | AuroraDSQL | Count | The number of active connections for a cluster.                                              |
+| CallCount              | API      | DbConnectAdmin or DbConnect | cluster/<cluster-id> | AuroraDSQL | Count | The number of API calls for database connection operations<br>(DbConnectAdmin or DbConnect). |
+
 ## Usage metrics
 
 Aurora DSQL measures all request-based activity, such as query processing, reads, and writes, using a single normalized billing unit called Distributed Processing Unit (DPU).
