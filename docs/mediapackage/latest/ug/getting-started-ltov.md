@@ -23,7 +23,7 @@ Before you can use AWS Elemental MediaPackage, you need an AWS account and the a
 permissions to access, view, and edit MediaPackage components. Make sure that your
 system administrator has completed the following steps in [Setting up MediaPackage](setting-up.md "setting-up.md"), and then return to this tutorial:
 
-- To create an AWS account, see [Signing up for AWS](setting-up-aws-sign-up.md "setting-up-aws-sign-up.md").
+- To create an AWS account, see .
 - To allow non-administrative roles access to MediaPackage, see [Creating policies and non-administrative roles](setting-up-create-non-admin-iam.md "setting-up-create-non-admin-iam.md").
 - To allow MediaPackage to access your Amazon S3 bucket to save and retrieve the
   live-to-VOD asset, see [Allowing AWS Elemental MediaPackage to access other AWS services](setting-up-create-trust-rel.md "setting-up-create-trust-rel.md").

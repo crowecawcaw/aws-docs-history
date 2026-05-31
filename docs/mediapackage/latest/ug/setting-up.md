@@ -12,8 +12,14 @@ management for MediaPackage, see [Identity and Access Management for AWS Element
 
 ###### Topics
 
-- [Signing up for AWS](setting-up-aws-sign-up.md "setting-up-aws-sign-up.md")
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Creating policies and non-administrative roles](setting-up-create-non-admin-iam.md "setting-up-create-non-admin-iam.md")
 - [Allowing AWS Elemental MediaPackage to access other AWS services](setting-up-create-trust-rel.md "setting-up-create-trust-rel.md")
 - [(Optional) Setting up encryption](set-up-encryption.md "set-up-encryption.md")
 - [(Optional) Installing the AWS CLI](setting-up-install-cli.md "setting-up-install-cli.md")
+
+## Sign up for an AWS account
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
