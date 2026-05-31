@@ -6,10 +6,15 @@ Before you can use RTB Fabric, you must complete several setup tasks including a
 
 Before you begin using RTB Fabric, ensure you have completed the following prerequisites:
 
-- **AWS account** – You need an AWS account with appropriate permissions to create and manage RTB Fabric resources. If you don't have an AWS account, you can sign up at [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup").
 - **IAM permissions** – You must configure appropriate AWS Identity and Access Management (IAM) permissions to create and manage RTB Fabric resources. RTB Fabric requires permissions for core operations such as creating gateways and links, as well as optional permissions for features like log delivery.
 
 For details about required permissions and example policies, see [Identity and access management for AWS RTB Fabric](security-iam.md "security-iam.md"). RTB Fabric also uses service-linked roles that are automatically created when you first use the service.
+
+### Sign up for an AWS account
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
 
 ## VPC requirements
 

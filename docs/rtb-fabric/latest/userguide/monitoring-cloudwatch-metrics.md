@@ -2,6 +2,10 @@
 
 RTB Fabric publishes the following metrics to CloudWatch.
 
+###### Important
+
+The request-count metrics in this table (`total-request-count`, `success-request-count`, `failure-request-count`, and `request-status-count`) are emitted as multiple data points per minute. View these metrics with the `Sum` statistic to see the actual request volume for the time period. Other statistics, such as `Average`, will not reflect the true total.
+
 | Metric                    | Description                                                                                                                                                                                                                                                                                                                                             |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `total-request-count`     | The total number of requests received by the service.<br>Valid Dimensions: Link<br>Valid Statistics: Sum<br>Units: Count                                                                                                                                                                                                                                |
