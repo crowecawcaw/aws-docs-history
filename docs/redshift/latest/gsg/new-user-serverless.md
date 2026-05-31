@@ -11,23 +11,14 @@ The sample data is used throughout the Amazon Redshift documentation to demonstr
 To get started using Amazon Redshift provisioned data warehouses, see
 [Get started with Amazon Redshift provisioned data warehouses](new-user.md "new-user.md").
 
-- [Signing up for AWS](#serverless-prereq-signup "#serverless-prereq-signup")
 - [Creating a data warehouse with Amazon Redshift Serverless](#serverless-console-resource-creation "#serverless-console-resource-creation")
 - [Loading in data from Amazon S3](#serverless-load-data-from-s3 "#serverless-load-data-from-s3")
 
-## Signing up for AWS
+## Sign up for an AWS account
 
-If you don't already have an AWS account, sign up for one. If you already have an account,
-you can skip this prerequisite and use your existing account.
-
-1. Open [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup").
-2. Follow the online instructions.
-
-When you sign up for an AWS account, an AWS account root user is created.
-The root user has access to all AWS services and resources in the account.
-As a security best practice, [assign administrative access to an administrative user](../../../singlesignon/latest/userguide/getting-started.md "../../../singlesignon/latest/userguide/getting-started.md"), and use
-only the root user to perform
-[tasks that require root user access](../../../accounts/latest/reference/root-user-tasks.md "../../../accounts/latest/reference/root-user-tasks.md").
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
 
 ## Creating a data warehouse with Amazon Redshift Serverless
 

@@ -79,7 +79,7 @@ Depending on your configuration, the following items appear in the navigation pa
 
 ###### Topics
 
-- [Signing up for AWS](#provisioned-prereq-signup "#provisioned-prereq-signup")
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Determine firewall rules](#rs-gsg-prereq-firewall-rules "#rs-gsg-prereq-firewall-rules")
 - [Step 1: Create a sample Amazon Redshift cluster](#rs-gsg-launch-sample-cluster "#rs-gsg-launch-sample-cluster")
 - [Step 2: Configure inbound rules for SQL clients](#rs-gsg-authorize-cluster-access "#rs-gsg-authorize-cluster-access")
@@ -88,19 +88,11 @@ Depending on your configuration, the following items appear in the navigation pa
 - [Step 5: Try example queries using the query editor](#rs-gsg-try-query "#rs-gsg-try-query")
 - [Step 6: Reset your environment](#rs-gsg-clean-up-tasks "#rs-gsg-clean-up-tasks")
 
-## Signing up for AWS
+## Sign up for an AWS account
 
-If you don't already have an AWS account, sign up for one. If you already have
-an account, you can skip this prerequisite and use your existing account.
-
-1. Open [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup").
-2. Follow the online instructions.
-
-Part of the sign-up procedure involves receiving a phone call or text message and entering
-a verification code on the phone keypad.
-
-When you sign up for an AWS account, an _AWS account root user_ is created. The root user has access to all AWS services
-and resources in the account. As a security best practice, assign administrative access to a user, and use only the root user to perform [tasks that require root user access](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks").
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
 
 ## Determine firewall rules
 
@@ -130,7 +122,7 @@ In this tutorial, you walk through the process to create an Amazon Redshift clus
 a dataset from Amazon S3 to tables in your database. You can use this sample cluster to evaluate the Amazon Redshift
 service.
 
-Before you begin setting up an Amazon Redshift cluster, make sure that you complete any necessary prerequisites such as [Signing up for AWS](#provisioned-prereq-signup "#provisioned-prereq-signup") and [Determine firewall rules](#rs-gsg-prereq-firewall-rules "#rs-gsg-prereq-firewall-rules").
+Before you begin setting up an Amazon Redshift cluster, make sure that you complete any necessary prerequisites such as [Determine firewall rules](#rs-gsg-prereq-firewall-rules "#rs-gsg-prereq-firewall-rules").
 
 For any operation that accesses data from another AWS resource, your cluster needs
 permission to access the resource and the data on the resource on your behalf. An
