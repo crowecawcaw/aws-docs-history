@@ -14,11 +14,26 @@ The following prerequisites are required:
 
 ## Step 1: Install required packages
 
-Install the Amazon Connect AppManager package from npm into your web application:
+Choose the appropriate package based on your integration needs:
+
+- **For basic application management** — Install
+  the `@amazon-connect/app-manager` package:
 
 ```
 
 npm install @amazon-connect/app-manager
+```
+
+- **For contact-scoped applications** — If you
+  need to manage applications that are tied to specific customer contacts,
+  install the `@amazon-connect/app-manager-agent` package instead.
+  This package includes all the functionality of
+  `@amazon-connect/app-manager` plus contact-scoped application
+  support. For more information, see [Contact-scoped applications](integrate-aws-managed-apps-contact-scoped.md "integrate-aws-managed-apps-contact-scoped.md").
+
+```
+
+npm install @amazon-connect/app-manager-agent
 ```
 
 ###### Note
@@ -48,7 +63,7 @@ connect.core.initCCP(containerElement, {
 ```
 
 import "@amzn/amazon-connect-streams";
-import "@amazon-connect/app-manager";
+import "@amazon-connect/app-manager"; // Or import "@amazon-connect/app-manager-agent";
 import { AppManagerPlugin } from "@amazon-connect/app-manager";
 
 const containerElement = document.getElementById("ccp-container");

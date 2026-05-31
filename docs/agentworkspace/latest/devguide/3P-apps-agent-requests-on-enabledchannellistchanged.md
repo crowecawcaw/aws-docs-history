@@ -21,6 +21,9 @@ agentClient.onEnabledChannelListChanged(handler);
     };
 }
 
+// AgentRoutingProfileChannelTypes
+type AgentRoutingProfileChannelTypes = "VOICE" | "CHAT" | "TASK" | "EMAIL";
+
 ```
 
 **Permissions required:**

@@ -12,3 +12,10 @@ tools on one screen. You can customize the agent workspace to present agents wit
 - [How
   applications are loaded in the agent workspace](integrating-with-agent-workspace-how-apps-load.md "integrating-with-agent-workspace-how-apps-load.md")
 - [Recommendations and best practices](recommendations-and-best-practices.md "recommendations-and-best-practices.md")
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
+
+## Sign up for an AWS account
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.

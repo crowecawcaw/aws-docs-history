@@ -1,4 +1,8 @@
-# Subscribe a callback function when an Connect Customer agent workspace agent state changes
+# Subscribe a callback function when an Connect Customer agent workspace agent state changes - Deprecated
+
+###### Note
+
+This API is deprecated, use [onAvailabilityStateChanged()](3P-apps-agent-events-availabilitystatechanged-sub.md "3P-apps-agent-events-availabilitystatechanged-sub.md") instead.
 
 Subscribes a callback function to-be-invoked whenever an agent state changed event
 occurs in the Connect Customer agent workspace.

@@ -1,4 +1,8 @@
-# Get the current state of the agent in Connect Customer agent workspace
+# Get the current state of the agent in Connect Customer agent workspace - Deprecated
+
+###### Note
+
+This API is deprecated, use [getAvailabilityState()](3P-apps-agent-requests-getavailabilitystate.md "3P-apps-agent-requests-getavailabilitystate.md") instead.
 
 Returns the Connect Customer agent workspace agent's current `AgentState` object indicating
 their availability state type. This object contains the following fields:
