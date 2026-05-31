@@ -14,7 +14,7 @@ enable Audit Manager.
 ###### Tasks
 
 1. [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
-2.
+2. [Create a user with administrative access](../userguide.md#create-an-admin "../userguide.md#create-an-admin")
 3. [Add the required permissions to access and enable Audit Manager](#attach-IAM "#attach-IAM")
 
 ###### Important
