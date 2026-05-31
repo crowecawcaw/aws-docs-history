@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: December 03, 2019, 08:45 UTC
-- **Edited time:** February 12, 2026, 17:59 UTC
+- **Edited time:** May 27, 2026, 17:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/ComputeOptimizerServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v9 (default)
+**Policy version:** v10 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -79,6 +79,58 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeVolumes",
         "ec2:DescribeNatGateways",
         "ec2:DescribeRouteTables"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "ElastiCacheAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "elasticache:DescribeCacheClusters",
+        "elasticache:DescribeServerlessCaches"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "MemoryDBAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "memorydb:DescribeClusters"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "DocumentDBAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "rds:DescribeDBClusters"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "DynamoDBAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "dynamodb:ListTables",
+        "dynamodb:DescribeTable"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "WorkSpacesAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "workspaces:DescribeWorkspaces",
+        "workspaces:DescribeWorkspacesConnectionStatus"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "SageMakerAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "sagemaker:ListEndpoints",
+        "sagemaker:DescribeEndpoint"
       ],
       "Resource" : "*"
     }

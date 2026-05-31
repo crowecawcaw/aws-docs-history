@@ -12,13 +12,13 @@ You can attach `AmazonEBSCSIDriverEKSClusterScopedPolicy` to your users, groups,
 
 - **Type**: AWS managed policy
 - **Creation time**: April 16, 2026, 17:27 UTC
-- **Edited time:** April 16, 2026, 17:27 UTC
+- **Edited time:** May 28, 2026, 17:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonEBSCSIDriverEKSClusterScopedPolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -137,6 +137,20 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "StringEquals" : {
           "ec2:ResourceTag/eks:cluster-name" : "${aws:PrincipalTag/eks-cluster-name}"
+        }
+      }
+    },
+    {
+      "Sid" : "AttachDetachVolumesToEKSStandardTaggedInstance",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:AttachVolume",
+        "ec2:DetachVolume"
+      ],
+      "Resource" : "arn:aws:ec2:*:*:instance/*",
+      "Condition" : {
+        "StringEquals" : {
+          "ec2:ResourceTag/eks:eks-cluster-name" : "${aws:PrincipalTag/eks-cluster-name}"
         }
       }
     },

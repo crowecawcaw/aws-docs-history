@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: September 23, 2021, 20:54 UTC
-- **Edited time:** October 03, 2024, 20:20 UTC
+- **Edited time:** May 27, 2026, 01:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonConnectCampaignsServiceLinkedRolePolicy`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -45,9 +45,66 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "connect:BatchPutContact",
         "connect:StopContact",
         "connect:DescribeContactFlow",
-        "connect:SendOutboundEmail"
+        "connect:SendOutboundEmail",
+        "connect:SendOutboundWebNotification"
       ],
       "Resource" : "arn:aws:connect:*:*:instance/*"
+    },
+    {
+      "Sid" : "ConnectChatAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "connect:SendOutboundChatMessage"
+      ],
+      "Resource" : [
+        "arn:aws:connect:*:*:instance/*",
+        "arn:aws:connect:*:*:phone-number/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AllowSocialMessagingSendMessageOperations",
+      "Effect" : "Allow",
+      "Action" : [
+        "social-messaging:SendWhatsAppMessage"
+      ],
+      "Resource" : "arn:aws:social-messaging:*:*:phone-number-id/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/AmazonConnectEnabled" : "True",
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AllowSocialMessagingTemplateOperations",
+      "Effect" : "Allow",
+      "Action" : [
+        "social-messaging:GetWhatsAppMessageTemplate"
+      ],
+      "Resource" : "arn:aws:social-messaging:*:*:waba/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AllowSMSVoiceOperationsForConnect",
+      "Effect" : "Allow",
+      "Action" : [
+        "sms-voice:SendTextMessage"
+      ],
+      "Resource" : "arn:aws:sms-voice:*:*:phone-number/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
     },
     {
       "Sid" : "EventBridgeListRuleAccess",

@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: September 07, 2018, 00:21 UTC
-- **Edited time:** May 18, 2026, 21:12 UTC
+- **Edited time:** May 27, 2026, 21:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonConnectServiceLinkedRolePolicy`
 
 ## Policy version
 
-**Policy version:** v54 (default)
+**Policy version:** v55 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -97,135 +97,49 @@ request to access an AWS resource, AWS checks the default version of the policy 
     {
       "Sid" : "AllowCustomerProfilesForConnectDomain",
       "Effect" : "Allow",
-      "Action" : [
-        "profile:SearchProfiles",
-        "profile:CreateProfile",
-        "profile:UpdateProfile",
-        "profile:AddProfileKey",
-        "profile:ListProfileObjectTypes",
-        "profile:ListCalculatedAttributeDefinitions",
-        "profile:ListCalculatedAttributesForProfile",
-        "profile:GetDomain",
-        "profile:ListIntegrations",
-        "profile:GetIntegration",
-        "profile:PutIntegration",
-        "profile:DeleteIntegration",
-        "profile:ListEventTriggers",
-        "profile:ListSegmentDefinitions",
-        "profile:ListProfileAttributeValues",
-        "profile:CreateSegmentEstimate",
-        "profile:GetSegmentEstimate",
-        "profile:BatchGetProfile",
-        "profile:BatchGetCalculatedAttributeForProfile",
-        "profile:GetSegmentMembership",
-        "profile:ListDomainLayouts",
-        "profile:CreateUploadJob",
-        "profile:ListUploadJobs",
-        "profile:DetectProfileObjectType",
-        "profile:GetSimilarProfiles",
-        "profile:GetUploadJob",
-        "profile:GetUploadJobPath",
-        "profile:StartUploadJob",
-        "profile:StopUploadJob",
-        "profile:GetProfileRecommendations",
-        "profile:GetProfileInsights",
-        "profile:ListRecommenders"
-      ],
-      "Resource" : "arn:aws:profile:*:*:domains/amazon-connect-*"
-    },
-    {
-      "Sid" : "AllowCustomerProfilesEventTriggerForConnectDomain",
-      "Effect" : "Allow",
-      "Action" : [
-        "profile:CreateEventTrigger",
-        "profile:GetEventTrigger",
-        "profile:UpdateEventTrigger",
-        "profile:DeleteEventTrigger"
-      ],
+      "Action" : "profile:*",
       "Resource" : [
-        "arn:aws:profile:*:*:domains/amazon-connect-*/event-triggers/*"
-      ]
+        "arn:aws:profile:*:*:domains/amazon-connect-*",
+        "arn:aws:profile:*:*:/domains/amazon-connect-*",
+        "arn:aws:profile:*:*:/templates*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
     },
     {
-      "Sid" : "AllowCustomerProfilesDomainLayoutsForConnectDomain",
+      "Sid" : "AllowCustomerProfilesListOperations",
       "Effect" : "Allow",
       "Action" : [
-        "profile:CreateDomainLayout",
-        "profile:UpdateDomainLayout",
-        "profile:DeleteDomainLayout",
-        "profile:GetDomainLayout"
+        "profile:ListRecommenderRecipes",
+        "profile:ListAccountIntegrations",
+        "profile:ListDomains"
       ],
-      "Resource" : [
-        "arn:aws:profile:*:*:domains/amazon-connect-*/layouts/*"
-      ]
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
     },
     {
-      "Sid" : "AllowCustomerProfilesSegmentationImportForConnectDomain",
-      "Effect" : "Allow",
+      "Sid" : "DenyCustomerProfilesForConnectDomain",
+      "Effect" : "Deny",
       "Action" : [
-        "profile:GetUploadJob",
-        "profile:GetUploadJobPath",
-        "profile:StartUploadJob",
-        "profile:StopUploadJob"
+        "profile:CreateDomain",
+        "profile:UpdateDomain",
+        "profile:DeleteDomain",
+        "profile:CreateEventStream",
+        "profile:DeleteEventStream",
+        "profile:DeleteWorkflow",
+        "profile:DeleteProfileKey",
+        "profile:UntagResource",
+        "profile:TagResource",
+        "profile:CreateIntegrationWorkflow"
       ],
-      "Resource" : [
-        "arn:aws:profile:*:*:domains/amazon-connect-*/upload-jobs/*"
-      ]
-    },
-    {
-      "Sid" : "AllowReadPermissionForCustomerProfileObjects",
-      "Effect" : "Allow",
-      "Action" : [
-        "profile:ListProfileObjects",
-        "profile:GetProfileObjectType",
-        "profile:ListObjectTypeAttributes",
-        "profile:ListObjectTypeAttributeValues"
-      ],
-      "Resource" : [
-        "arn:aws:profile:*:*:domains/amazon-connect-*/object-types/*"
-      ]
-    },
-    {
-      "Sid" : "AllowReadPermissionForCustomerProfilePredictiveInsights",
-      "Effect" : "Allow",
-      "Action" : [
-        "profile:GetRecommender",
-        "profile:CreateRecommender",
-        "profile:UpdateRecommender",
-        "profile:DeleteRecommender",
-        "profile:StopRecommender",
-        "profile:StartRecommender"
-      ],
-      "Resource" : [
-        "arn:aws:profile:*:*:domains/amazon-connect-*/recommenders/*"
-      ]
-    },
-    {
-      "Sid" : "AllowReadPermissionForCustomerProfilesPersonalizeForRecommenderRecipes",
-      "Effect" : "Allow",
-      "Action" : [
-        "profile:ListRecommenderRecipes"
-      ],
-      "Resource" : [
-        "arn:aws:profile:*:*:*"
-      ]
-    },
-    {
-      "Sid" : "AllowListIntegrationForCustomerProfile",
-      "Effect" : "Allow",
-      "Action" : [
-        "profile:ListAccountIntegrations"
-      ],
-      "Resource" : "*"
-    },
-    {
-      "Sid" : "AllowReadForCustomerProfileObjectTemplates",
-      "Effect" : "Allow",
-      "Action" : [
-        "profile:ListProfileObjectTypeTemplates",
-        "profile:GetProfileObjectTypeTemplate"
-      ],
-      "Resource" : "arn:aws:profile:*:*:/templates*"
+      "Resource" : "arn:aws:profile:*:*:domains/*"
     },
     {
       "Sid" : "AllowAppIntegrationsForConnectEnabledTaggedResources",
@@ -285,32 +199,15 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*"
     },
     {
-      "Sid" : "AllowCustomerProfilesCalculatedAttributesForConnectDomain",
+      "Sid" : "AllowKMSListRetirableGrants",
       "Effect" : "Allow",
-      "Action" : [
-        "profile:GetCalculatedAttributeForProfile",
-        "profile:CreateCalculatedAttributeDefinition",
-        "profile:DeleteCalculatedAttributeDefinition",
-        "profile:GetCalculatedAttributeDefinition",
-        "profile:UpdateCalculatedAttributeDefinition"
-      ],
-      "Resource" : [
-        "arn:aws:profile:*:*:domains/amazon-connect-*/calculated-attributes/*"
-      ]
-    },
-    {
-      "Sid" : "AllowCustomerProfilesSegmentationForConnectDomain",
-      "Effect" : "Allow",
-      "Action" : [
-        "profile:CreateSegmentDefinition",
-        "profile:GetSegmentDefinition",
-        "profile:DeleteSegmentDefinition",
-        "profile:CreateSegmentSnapshot",
-        "profile:GetSegmentSnapshot"
-      ],
-      "Resource" : [
-        "arn:aws:profile:*:*:domains/amazon-connect-*/segment-definitions/*"
-      ]
+      "Action" : "kms:ListRetirableGrants",
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
     },
     {
       "Sid" : "AllowPutMetricsForConnectNamespace",
@@ -350,16 +247,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "aws:ResourceTag/AmazonConnectEnabled" : "True"
         }
       }
-    },
-    {
-      "Sid" : "AllowWritePermissionForCustomerProfileObjects",
-      "Effect" : "Allow",
-      "Action" : [
-        "profile:PutProfileObject"
-      ],
-      "Resource" : [
-        "arn:aws:profile:*:*:domains/amazon-connect-*/object-types/*"
-      ]
     },
     {
       "Sid" : "AllowChimeSDKVoiceConnectorGetOperationForConnect",

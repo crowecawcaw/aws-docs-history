@@ -12,13 +12,13 @@ You can attach `SageMakerStudioUserIAMPermissiveExecutionPolicy` to your users, 
 
 - **Type**: AWS managed policy
 - **Creation time**: August 18, 2025, 17:19 UTC
-- **Edited time:** May 11, 2026, 21:42 UTC
+- **Edited time:** May 29, 2026, 20:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioUserIAMPermissiveExecutionPolicy`
 
 ## Policy version
 
-**Policy version:** v18 (default)
+**Policy version:** v20 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -58,7 +58,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "scheduler:*",
         "sqlworkbench:*",
         "emr-serverless:*",
-        "airflow-serverless:*"
+        "airflow-serverless:*",
+        "airflow:*"
       ],
       "Resource" : "*"
     },
@@ -156,9 +157,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "datazone:UpdateEnvironment",
         "datazone:UpdateProject",
         "datazone:UpdateSubscriptionRequest",
-        "datazone:CreateNotebook",
-        "datazone:UpdateNotebook",
-        "datazone:DeleteNotebook",
+        "datazone:*Notebook*",
         "datazone:CreateCell",
         "datazone:UpdateCell",
         "datazone:DeleteCell",
@@ -168,13 +167,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "datazone:DeleteCellRun",
         "datazone:BatchGetCellRun",
         "datazone:PutCellRunResult",
-        "datazone:StartNotebookCompute",
-        "datazone:StopNotebookCompute",
         "datazone:StartConversation",
         "datazone:GenerateCode",
         "datazone:SendMessage",
-        "datazone:StartNotebookImport",
-        "datazone:StartNotebookExport"
+        "datazone:CancelMessage",
+        "datazone:QueryGraph"
       ],
       "Resource" : "*"
     },
@@ -318,7 +315,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "secretsmanager:DescribeSecret",
         "secretsmanager:GetSecretValue",
         "secretsmanager:UpdateSecret",
-        "secretsmanager:PutResourcePolicy"
+        "secretsmanager:PutResourcePolicy",
+        "secretsmanager:PutSecretValue"
       ],
       "Resource" : "*",
       "Condition" : {
@@ -334,7 +332,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "secretsmanager:CreateSecret",
         "secretsmanager:DescribeSecret",
         "secretsmanager:GetSecretValue",
-        "secretsmanager:UpdateSecret"
+        "secretsmanager:UpdateSecret",
+        "secretsmanager:PutSecretValue"
       ],
       "Resource" : "*",
       "Condition" : {

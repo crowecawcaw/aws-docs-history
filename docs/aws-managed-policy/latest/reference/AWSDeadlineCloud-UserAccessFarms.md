@@ -12,13 +12,13 @@ You can attach `AWSDeadlineCloud-UserAccessFarms` to your users, groups, and rol
 
 - **Type**: AWS managed policy
 - **Creation time**: April 01, 2024, 16:54 UTC
-- **Edited time:** April 08, 2026, 16:42 UTC
+- **Edited time:** May 29, 2026, 20:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSDeadlineCloud-UserAccessFarms`
 
 ## Policy version
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -37,9 +37,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "identitystore:DescribeUser",
         "identitystore:ListGroupMembershipsForMember",
         "deadline:GetApplicationVersion",
+        "deadline:GetMonitorSettings",
         "ec2:DescribeInstanceTypes",
-        "identitystore:ListUsers",
-        "deadline:GetMonitorSettings"
+        "identitystore:ListUsers"
       ],
       "Resource" : [
         "*"
@@ -201,6 +201,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "deadline:GetStorageProfile",
         "deadline:GetStorageProfileForQueue",
         "deadline:GetTask",
+        "deadline:GetVolume",
         "deadline:GetWorker",
         "deadline:ListJobParameterDefinitions",
         "deadline:ListQueueEnvironments",
@@ -214,6 +215,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "deadline:ListStorageProfiles",
         "deadline:ListStorageProfilesForQueue",
         "deadline:ListTasks",
+        "deadline:ListVolumes",
         "deadline:ListWorkers",
         "deadline:SearchJobs",
         "deadline:SearchSteps",

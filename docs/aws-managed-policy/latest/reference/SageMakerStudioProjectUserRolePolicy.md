@@ -12,13 +12,13 @@ You can attach `SageMakerStudioProjectUserRolePolicy` to your users, groups, and
 
 - **Type**: AWS managed policy
 - **Creation time**: November 20, 2024, 21:59 UTC
-- **Edited time:** May 11, 2026, 20:42 UTC
+- **Edited time:** May 28, 2026, 16:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioProjectUserRolePolicy`
 
 ## Policy version
 
-**Policy version:** v67 (default)
+**Policy version:** v68 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -2472,7 +2472,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "dynamodb:ListTables",
-        "glue:ManagedConnector"
+        "glue:ManagedConnector",
+        "glue:TestConnection"
       ],
       "Resource" : "*"
     },
