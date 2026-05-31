@@ -88,6 +88,14 @@ Amazon EMR Serverless:
   with policies suitable for EMR Serverless. No additional setup is required on
   EMR Serverless.
 
+###### Tip
+
+To reduce AWS KMS costs when using SSE-KMS, consider enabling Amazon S3 Bucket Keys on your Amazon S3 buckets. Amazon S3 Bucket Keys use a
+short-lived bucket-level key to reduce AWS KMS API calls by up to 99 percent. Before enabling Amazon S3 Bucket Keys, review your IAM and
+AWS KMS key policies – the encryption context changes from the Amazon S3 object ARN to the bucket ARN, which may affect policies that
+use the object ARN for access control. For more information, see [Reducing the cost of SSE-KMS with Amazon S3 Bucket Keys](../../../AmazonS3/latest/userguide/bucket-key.md "../../../AmazonS3/latest/userguide/bucket-key.md") in the
+_Amazon Simple Storage Service User Guide_.
+
 To use AWS KMS encryption for data that you write to Amazon S3, you have two
 options when you use the `StartJobRun` API. You can either enable encrytion for
 everything that you write to Amazon S3, or enable encryption for data that

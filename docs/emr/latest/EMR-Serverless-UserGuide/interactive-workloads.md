@@ -140,7 +140,7 @@ aws emr-serverless start-application \
   the application after 30 minutes of idle time. You can change this configuration as
   part of your `create-application` or `update-application`
   request.
-- When using an interactive application, we suggest that you configure a pre-intialized capacity
+- When using an interactive application, we suggest that you configure a pre-initialized capacity
   of kernels, drivers, and executors to run your notebooks. Each Spark interactive session requires
   one kernel and one driver, so EMR Serverless maintains a pre-initialized kernel worker for every
   pre-initialized driver. By default, EMR Serverless maintains a pre-initialized capacity of one kernel worker
