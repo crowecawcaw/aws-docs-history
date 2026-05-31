@@ -116,7 +116,9 @@ For more information, including instructions on how to change password setting, 
 ```
 
 2. To disable automatic daily backups, set the
-   `AutomaticBackupRetentionDays` property to 0.
+   `AutomaticBackupRetentionDays` property to 0. Setting it to 0 disables
+   automatic backups and deletes all existing automatic backups for the file system's
+   volumes.
 
 ```
 `aws fsx update-file-system \

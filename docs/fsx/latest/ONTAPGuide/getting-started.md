@@ -17,10 +17,7 @@ following steps.
 
 ## Setting up FSx for ONTAP
 
-Before you use Amazon FSx for the first time, complete the following tasks:
-
-1. [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
-2.
+Before you use Amazon FSx for the first time, complete the following tasks.
 
 ###### Topics
 

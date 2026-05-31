@@ -97,7 +97,7 @@ Using the console, you can set the retention period for automatic daily backups 
 when creating a file system or at any time. The default automatic daily backup
 retention period is 30 days. Amazon FSx deletes an automatic daily backup once its retention period expires.
 Using the AWS CLI and API, you can set the retention period to a value from 0 to 90 days; setting it to 0
-turns off automatic daily backups.
+disables automatic backups and deletes all existing automatic backups for the file system's volumes.
 
 Automatic daily backups, the daily backup window, and the backup retention period are file system settings, and
 apply to all volumes on your file system. You can use the Amazon FSx console, the AWS CLI, or
