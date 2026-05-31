@@ -213,7 +213,7 @@ Aurora is not available in all AWS Regions. For a list of AWS Regions where Auro
     * **Aurora (MySQL Compatible)**
     * **Aurora (PostgreSQL Compatible)**
 
-![Aurora MySQL engine selection interface showing version options and compatibility settings for database creation.](images/aurora-engine-options-mysql.png) 7. Choose the **Engine version**.
+![Aurora MySQL engine selection interface showing version options and compatibility settings for database creation.](/images/AmazonRDS/latest/AuroraUserGuide/images/aurora-engine-options-mysql.png) 7. Choose the **Engine version**.
 
 For more information, see [Amazon Aurora versions](Aurora.VersionPolicy.md "Aurora.VersionPolicy.md"). You can
 use the filters to choose versions that are compatible with features that you want, such as Aurora serverless.

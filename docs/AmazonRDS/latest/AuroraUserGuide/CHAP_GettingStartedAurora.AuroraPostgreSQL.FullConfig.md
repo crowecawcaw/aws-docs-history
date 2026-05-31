@@ -51,7 +51,6 @@ For information, see [Creating an Amazon Aurora DB cluster](Aurora.CreateInstanc
 Before you begin, complete the steps in the following sections:
 
 - [Sign up for an AWS account](CHAP_SettingUp_Aurora.md#sign-up-for-aws "CHAP_SettingUp_Aurora.md#sign-up-for-aws")
--
 
 ## Step 1: Create an EC2 instance
 

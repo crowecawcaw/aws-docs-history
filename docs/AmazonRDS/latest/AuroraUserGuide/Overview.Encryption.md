@@ -105,7 +105,9 @@ considerations about using KMS keys:
   If you need to change the encryption key for your DB cluster, follow these steps:
   - Create a manual snapshot of your cluster.
   - Restore the snapshot and enable encryption with your desired KMS key
-    during the restore operation.
+    during the restore operation. You cannot enable encryption with an AWS owned
+    key if your cluster was originally encrypted with an AWS managed key or a customer
+    managed key.
 
 - If you restore an unencrypted snapshot and choose no encryption,
   the database cluster created will be encrypted

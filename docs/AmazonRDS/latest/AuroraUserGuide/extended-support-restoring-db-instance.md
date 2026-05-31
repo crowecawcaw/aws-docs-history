@@ -84,7 +84,7 @@ to a version under Aurora standard support.
 The following image shows the **Enable RDS Extended Support**
 setting:
 
-![The Enable RDS Extended Support setting in the Engine options section.](images/extended-support-enable.png)
+![The Enable RDS Extended Support setting in the Engine options section.](/images/AmazonRDS/latest/AuroraUserGuide/images/extended-support-enable.png)
 When you run the [restore-db-cluster-from-snapshot](../../../cli/latest/reference/rds/restore-db-cluster-from-snapshot.md "../../../cli/latest/reference/rds/restore-db-cluster-from-snapshot.md") AWS CLI command, select
 RDS Extended Support by specifying `open-source-rds-extended-support` for the
 `--engine-lifecycle-support` option.

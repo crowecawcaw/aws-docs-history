@@ -51,7 +51,6 @@ This tutorial requires you to have an AWS account and a user with administrative
 If you don't already have those set up, complete the steps in the following sections:
 
 - [Sign up for an AWS account](CHAP_SettingUp_Aurora.md#sign-up-for-aws "CHAP_SettingUp_Aurora.md#sign-up-for-aws")
--
 
 ## Create an Amazon Aurora DB cluster parameter group
 
