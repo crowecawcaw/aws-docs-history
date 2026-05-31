@@ -122,6 +122,49 @@ US East (Ohio)
 
 For more information on the pricing identifier, see [https://aws.amazon.com/codebuild/pricing/](https://aws.amazon.com/codebuild/pricing/ "https://aws.amazon.com/codebuild/pricing/").
 
+US West (N. California)
+
+| Environment type | vCPUs | Memory  | Disk space   | Machine type | Compute instance type               |
+| ---------------- | ----- | ------- | ------------ | ------------ | ----------------------------------- |
+| ARM              | 2     | 4 GiB   | 64 GB        | `GENERAL`    | `reserved.arm.2cpu.4gib`            |
+| ARM              | 4     | 8 GiB   | 128 GB       | `GENERAL`    | `reserved.arm.4cpu.8gib`            |
+| ARM              | 8     | 16 GiB  | 128 GB       | `GENERAL`    | `reserved.arm.8cpu.16gib`           |
+| ARM              | 16    | 32 GiB  | 256 GB       | `GENERAL`    | `reserved.arm.16cpu.32gib`          |
+| ARM              | 32    | 64 GiB  | 256 GB       | `GENERAL`    | `reserved.arm.32cpu.64gib`          |
+| ARM              | 48    | 96 GiB  | 824 GB       | `GENERAL`    | `reserved.arm.48cpu.96gib`          |
+| ARM              | 64    | 128 GiB | 824 GB       | `GENERAL`    | `reserved.arm.64cpu.128gib`         |
+| ARM EC2          | 2     | 4 GiB   | 64 GB        | `GENERAL`    | `reserved.arm.2cpu.4gib`            |
+| ARM EC2          | 4     | 8 GiB   | 128 GB       | `GENERAL`    | `reserved.arm.4cpu.8gib`            |
+| ARM EC2          | 8     | 16 GiB  | 128 GB       | `GENERAL`    | `reserved.arm.8cpu.16gib`           |
+| Linux            | 2     | 4 GiB   | 64 GB        | `GENERAL`    | `reserved.x86-64.2cpu.4gib`         |
+| Linux            | 4     | 8 GiB   | 128 GB       | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
+| Linux            | 8     | 16 GiB  | 128 GB       | `GENERAL`    | `reserved.x86-64.8cpu.16gib`        |
+| Linux            | 16    | 32 GiB  | 256 GB       | `GENERAL`    | `reserved.x86-64.16cpu.32gib`       |
+| Linux            | 32    | 64 GiB  | 256 GB       | `GENERAL`    | `reserved.x86-64.32cpu.64gib`       |
+| Linux            | 36    | 72 GiB  | 256 GB       | `GENERAL`    | `reserved.x86-64.36cpu.72gib`       |
+| Linux            | 48    | 96 GiB  | 512 GB       | `GENERAL`    | `reserved.x86-64.48cpu.96gib`       |
+| Linux            | 64    | 128 GiB | 512 GB       | `GENERAL`    | `reserved.x86-64.64cpu.128gib`      |
+| Linux            | 72    | 144 GiB | 824 GB       | `GENERAL`    | `reserved.x86-64.72cpu.144gib`      |
+| Linux            | 96    | 192 GiB | 824 GB       | `GENERAL`    | `reserved.x86-64.96cpu.192gib`      |
+| Linux            | 72    | 144 GiB | 824 GB (SSD) | `NVME`       | `reserved.x86-64.72cpu.144gib.nvme` |
+| Linux EC2        | 2     | 4 GiB   | 64 GB        | `GENERAL`    | `reserved.x86-64.2cpu.4gib`         |
+| Linux EC2        | 4     | 8 GiB   | 128 GB       | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
+| Linux EC2        | 8     | 16 GiB  | 128 GB       | `GENERAL`    | `reserved.x86-64.8cpu.16gib`        |
+| Windows          | 2     | 4 GiB   | 64 GB        | `GENERAL`    | `reserved.x86-64.2cpu.4gib`         |
+| Windows          | 4     | 8 GiB   | 128 GB       | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
+| Windows          | 8     | 16 GiB  | 128 GB       | `GENERAL`    | `reserved.x86-64.8cpu.16gib`        |
+| Windows          | 16    | 32 GiB  | 256 GB       | `GENERAL`    | `reserved.x86-64.16cpu.32gib`       |
+| Windows          | 32    | 64 GiB  | 256 GB       | `GENERAL`    | `reserved.x86-64.32cpu.64gib`       |
+| Windows          | 36    | 72 GiB  | 256 GB       | `GENERAL`    | `reserved.x86-64.36cpu.72gib`       |
+| Windows          | 48    | 96 GiB  | 512 GB       | `GENERAL`    | `reserved.x86-64.48cpu.96gib`       |
+| Windows          | 64    | 128 GiB | 512 GB       | `GENERAL`    | `reserved.x86-64.64cpu.128gib`      |
+| Windows          | 72    | 144 GiB | 824 GB       | `GENERAL`    | `reserved.x86-64.72cpu.144gib`      |
+| Windows          | 96    | 192 GiB | 824 GB       | `GENERAL`    | `reserved.x86-64.96cpu.192gib`      |
+| Windows EC2      | 4     | 8 GiB   | 128 GB       | `GENERAL`    | `reserved.x86-64.4cpu.8gib`         |
+| Windows EC2      | 8     | 16 GiB  | 128 GB       | `GENERAL`    | `reserved.x86-64.8cpu.16gib`        |
+
+For more information on the pricing identifier, see [https://aws.amazon.com/codebuild/pricing/](https://aws.amazon.com/codebuild/pricing/ "https://aws.amazon.com/codebuild/pricing/").
+
 US West (Oregon)
 
 | Environment type | vCPUs | Memory  | Disk space    | Machine type | Compute instance type               |
@@ -823,6 +866,7 @@ Some environment and compute types have Region availability limitations:
   Regions:
   - US East (N. Virginia)
   - US East (Ohio)
+  - US West (N. California)
   - US West (Oregon)
   - Asia Pacific (Mumbai)
   - Asia Pacific (Singapore)

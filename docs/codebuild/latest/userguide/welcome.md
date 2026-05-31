@@ -19,6 +19,12 @@ CodeBuild provides these benefits:
   you need to do is point to your build script to start your first build.
   For more information, see [AWS CodeBuild](https://aws.amazon.com/codebuild/ "https://aws.amazon.com/codebuild/").
 
+## Sign up for an AWS account
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
+
 ## How to run CodeBuild
 
 You can use the AWS CodeBuild or AWS CodePipeline console to run CodeBuild. You can also automate the
