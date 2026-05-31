@@ -7,8 +7,8 @@ You can use the AWS Command Line Interface (AWS CLI) to control multiple AWS ser
 line and automate them through scripts. You can use the AWS CLI for ad hoc operations. You
 can also use it to embed Amazon Timestream for LiveAnalytics operations within utility scripts.
 
-Before you can use the AWS CLI with Timestream for LiveAnalytics, you must set up programmatic access. For more
-information, see [Grant programmatic access](accessing.md#programmatic-access "accessing.md#programmatic-access").
+Before you can use the AWS CLI with Timestream for LiveAnalytics, you must get credentials that grant programmatic access. For more
+information, see [Provide Timestream for LiveAnalytics access](accessing.md#getting-started.prereqs.iam-user "accessing.md#getting-started.prereqs.iam-user").
 
 For a complete listing of all the commands available for the Timestream for LiveAnalytics Query API in the
 AWS CLI, see the [AWS CLI Command

@@ -21,7 +21,7 @@ complete the tutorial if they are no longer needed.
 
 The following diagram shows the configuration when accessibility is public.
 
-![](images/kronos/public.png)
+![Network diagram showing internet gateway, ENI in public subnet with security group, and Timestream-InfluxDB database within VPC.](images/kronos/public.png)
 
 ###### Warning
 
@@ -57,7 +57,7 @@ If your instance is not publicly accessible, do the following:
 Localhost is unable to validate the certificate because localhost is not part of the certificate SAN.
 The following diagram shows the configuration when accessibility is private:
 
-![](images/kronos/private.png)
+![Network architecture with internet gateway, public and private subnets, route tables, and security groups for private access.](images/kronos/private.png)
 
 ## Prerequisites
 
@@ -119,7 +119,7 @@ db.influx.large DB instance class.
    Databases**.
 4. Choose **Create InfluxDB database**.
 
-![](images/kronos/CreateInfluxDatabase.png) 5. In the **Deployment settings** section, select **Cluster
+![Empty InfluxDB databases page with no databases created and Create InfluxDB database button.](images/kronos/CreateInfluxDatabase.png) 5. In the **Deployment settings** section, select **Cluster
 with read replicas**. Choose **View subscription
 options** to start a subscription for the read replica add-on. For
 more information, see [Read replica licensing through AWS Marketplace](timestream-for-influx-rr-licensing.md "timestream-for-influx-rr-licensing.md"). 6. In the **Database credentials** section, enter KronosTest-1 for
@@ -137,7 +137,7 @@ If you need to change the user password after the DB instance is available, you 
 modify the DB instance to do so. For more information about modifying a DB instance, see
 [Updating DB instances](timestream-for-influx-managing-modifying-db.md "timestream-for-influx-managing-modifying-db.md").
 
-![](images/kronos/CreateInfluxDatabaseDetails.png) 8. In the **Instance configuration** section, select the
+![Create InfluxDB database page showing deployment settings and database credentials fields.](images/kronos/CreateInfluxDatabaseDetails.png) 8. In the **Instance configuration** section, select the
 **db.influx.large** DB instance class. 9. In the **Storage configuration** section, select **Influx IO
 Included (3K)** for **Storage type**. 10. In the **Connectivity configuration** section, select
 **IPv4** for the **Network type**. Make sure
@@ -145,7 +145,7 @@ your InfluxDB instance is in the same subnet as your newly created EC2 instance.
 **Public access**, select **Not publicly accessible** to
 make your DB instance private.
 
-![](images/kronos/ConnectivityConfiguration.png) 11. In the **Failover settings** and **Parameter group
+![Connectivity configuration section showing Network type, VPC, Subnets, Security groups, Public access, and Database port settings.](images/kronos/ConnectivityConfiguration.png) 11. In the **Failover settings** and **Parameter group
 settings** sections, keep the default values. 12. Configure your logs in **Log delivery settings** and create tags
 (optional). For more information about logs, see [Setup to view InfluxDB logs on Timestream Influxdb Instances](timestream-for-influx-managing-view-influx-logs.md "timestream-for-influx-managing-view-influx-logs.md"). For more
 details about adding tags, see [Adding tags and labels to resources](tagging-keyspaces-influxdb.md "tagging-keyspaces-influxdb.md"). 13. Choose **Create InfluxDB database**. 14. In the **Databases** list, chose the name of your new
@@ -223,7 +223,7 @@ metrics to you InfluxDB DB instance.
 For production scenarios, we recommend creating tokens with specific access to the
 required buckets that are built for specific Telegraf needs.
 
-![](images/kronos/AllAccessAPIToken.png) 4. Your token will appear on the screen.
+![Generate All Access API Token dialog with warning, description field, and CANCEL and SAVE buttons.](images/kronos/AllAccessAPIToken.png) 4. Your token will appear on the screen.
 
 ###### Important
 

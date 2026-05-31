@@ -70,4 +70,4 @@ A **database** contains 0 or more **tables**. Each
 described using its meta-data or **dimensions**, its data or
 **measures**, and its **timestamps**.
 
-![](images/concepts_simple.png)
+![Database hierarchy showing tables containing series with dimensions, timestamps, and measure values.](images/concepts_simple.png)

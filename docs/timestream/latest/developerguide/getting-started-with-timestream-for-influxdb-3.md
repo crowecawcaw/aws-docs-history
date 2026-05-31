@@ -10,22 +10,6 @@ Before you use Amazon Timestream for InfluxDB for the first time, complete the f
 If you already have an AWS account, know your Timestream for InfluxDB requirements, and
 prefer to use the defaults for IAM and Amazon VPC, skip to [Creating and connecting to a Timestream for InfluxDB instance](#creating-and-connecting-to-a-timestream-for-influxdb-instance "#creating-and-connecting-to-a-timestream-for-influxdb-instance").
 
-### Sign up for an AWS account
-
-To get started with AWS, you need an AWS account. For information about creating an AWS account, see
-[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
-in the _AWS Account Management Reference Guide_.
-
-### Grant programmatic access
-
-Users need programmatic access if they want to interact with AWS outside of the
-AWS Management Console. The way to grant programmatic access depends on the type of user that's accessing
-AWS:
-
-- For workforce identity (Users managed in AWS IAM Identity Center): Use temporary credentials
-- For IAM users: Use temporary credentials or long-term credentials (not
-  recommended)
-
 ### Determine requirements
 
 Before you create a DB instance and a security group, you must know your DB instance

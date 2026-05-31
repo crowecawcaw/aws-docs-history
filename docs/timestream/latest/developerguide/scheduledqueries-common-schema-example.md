@@ -11,7 +11,7 @@ following diagram provides an illustration of the setup where a set of monitored
 instances emit metrics to Timestream for LiveAnalytics. Another set of concurrent users issues queries for
 alerts, dashboards, or ad-hoc analysis, where queries and ingestion run in parallel.
 
-![](images/schedquery_common_schema_example.png)
+![Monitored instances sending metrics to Timestream, with users querying for dashboards and alerts.](images/schedquery_common_schema_example.png)
 The application being monitored is modeled as a highly scaled-out service that is
 deployed in several regions across the globe. Each region is further subdivided into a
 number of scaling units called cells that have a level of isolation in terms of

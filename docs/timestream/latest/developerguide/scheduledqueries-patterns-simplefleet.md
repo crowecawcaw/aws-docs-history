@@ -35,7 +35,7 @@ In this example, you are tracking the number of metrics emitted by the servers
 within a given region in every minute. The graph below is an example plotting
 this time series for the region us-east-1.
 
-![](images/schedquery_aggrfromsourcetable.png)
+![Time series graph showing numDataPoints metrics fluctuating between 1 and 6 million from 23:00 to 10:00.](images/schedquery_aggrfromsourcetable.png)
 
 Below is an example query to compute this aggregate from the raw data. It
 filters the rows for the region us-east-1 and then computes the per minute sum
@@ -219,7 +219,7 @@ GROUP BY bin(time, 1m)
 ORDER BY 1 desc
 ```
 
-![](images/schedquery_aggrfromderived.png)
+![Time series graph showing numDatapoints metric fluctuating between 1 and 6 million from 23:00 to 10:00.](images/schedquery_aggrfromderived.png)
 
 The previous figure plots the aggregate computed from the aggregate table.
 Comparing this panel with the panel computed from the raw source data, you will
@@ -297,7 +297,7 @@ the dashboard looks almost identical to the view computed from the derived
 table, except for that it will have the most up-to-date aggregate at the
 rightmost tip.
 
-![](images/schedquery_aggrcombsourceandderived.png)
+![Time series graph showing numDatapoints metric with green bars fluctuating between 1 and 6 million from 23:00 to 10:00.](images/schedquery_aggrcombsourceandderived.png)
 
 ## Aggregate from frequently refreshed scheduled computation
 
@@ -369,7 +369,7 @@ Since the derived table has more recent aggregates, you can now directly query
 the derived table per_minute_aggs_pt1m to get fresher aggregates, as can be seen
 from the previous query and the dashboard snapshot below.
 
-![](images/schedquery_aggregatefromrequently.png)
+![Time series graph showing numDatapoints metric with frequent spikes between 1-6 million from 23:00 to 10:00.](images/schedquery_aggregatefromrequently.png)
 
 Note that refreshing the scheduled computation at a faster schedule (say 1
 minute compared to 5 minutes) will increase the maintenance costs for the

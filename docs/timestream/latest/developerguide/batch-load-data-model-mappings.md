@@ -182,7 +182,7 @@ can specify a new one. `MeasureValueType` is one of `DOUBLE`,
 }
 ```
 
-![](images/column-mapping.jpg)
+![Visual builder table showing seven column mappings with source names, target names, attribute types, and data types.](images/column-mapping.jpg)
 
 ## Data model mappings with `MixedMeasureMappings` example
 

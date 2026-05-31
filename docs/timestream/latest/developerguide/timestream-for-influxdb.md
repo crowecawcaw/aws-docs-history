@@ -192,7 +192,7 @@ occur that affect the availability of DB instances that are in the same location
 your DB instances in one location that is affected by such a failure, none of your DB instances
 will be available.
 
-![](images/kronos/AvailabilityZone.png)
+![Region containing three availability zones, with Amazon Timestream for InfluxDB in zone C.](images/kronos/AvailabilityZone.png)
 
 It is important to remember that each AWS Region is completely independent. Any Amazon
 Timestream for InfluxDB activity you initiate (for example, creating database instances or
