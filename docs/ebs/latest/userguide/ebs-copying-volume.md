@@ -85,9 +85,10 @@ the source volume. You can't copy unencrypted volumes.
 
 ## Pricing
 
-When you initiate a volume copy operation, you are charged a one-time fee per GiB of data
-blocks written to the volume copy. After the volume copy is created, it is charged the same
-way as any other Amazon EBS volume in your account. For more information, see [Amazon EBS pricing](https://aws.amazon.com/ebs/pricing/ "https://aws.amazon.com/ebs/pricing/").
+When creating a clone of a source volume, you are charged for the clone operation. The
+clone operation charge is based on the size of the data blocks written to the source volume
+at the time of clone creation. The newly created volume is charged the same way as any other
+Amazon EBS volume. For more information, see [Amazon EBS pricing](https://aws.amazon.com/ebs/pricing/ "https://aws.amazon.com/ebs/pricing/").
 
 ## Copy a volume
 
