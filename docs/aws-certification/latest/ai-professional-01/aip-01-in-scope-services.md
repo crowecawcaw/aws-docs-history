@@ -25,7 +25,7 @@ The following list contains AWS services and features that are in scope for the 
 - AWS Glue
 - Amazon Kinesis
 - Amazon OpenSearch Service
-- Amazon QuickSight
+- Amazon Quick Sight
 - Amazon Managed Streaming for Apache Kafka (Amazon MSK)
 
 ## Application Integration
@@ -77,6 +77,7 @@ The following list contains AWS services and features that are in scope for the 
 - AWS CodeBuild
 - AWS CodeDeploy
 - AWS CodePipeline
+- Kiro
 - AWS Tools and SDKs
 - AWS X-Ray
 
@@ -94,6 +95,7 @@ The following list contains AWS services and features that are in scope for the 
 - Amazon Q Business
 - Amazon Q Business Apps
 - Amazon Q Developer
+- Amazon Quick
 - Amazon Rekognition
 - Amazon SageMaker AI
 - Amazon SageMaker Clarify
