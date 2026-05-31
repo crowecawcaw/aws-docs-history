@@ -14,9 +14,15 @@ Complete the following tasks to get set up for AWS Batch.
 
 ###### Topics
 
-- [Create IAM account and administrative user](create-an-iam-account.md "create-an-iam-account.md")
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Create IAM roles for your compute environments and container instances](create-an-iam-role.md "create-an-iam-role.md")
 - [Create a key pair for your instances](create-a-key-pair.md "create-a-key-pair.md")
 - [Create a VPC](create-a-vpc.md "create-a-vpc.md")
 - [Create a security group](create-a-base-security-group.md "create-a-base-security-group.md")
 - [Install the AWS CLI](install_aws_cli.md "install_aws_cli.md")
+
+## Sign up for an AWS account
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.

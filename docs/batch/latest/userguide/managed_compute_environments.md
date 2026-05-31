@@ -33,6 +33,10 @@ of AWS Batch job submissions on these managed resources can be interrupted witho
 workloads on AWS Batch-managed clusters and instances can also interfere with AWS Batch job scheduling and
 instance scaling.
 
+For compute environments that use Amazon ECS, do not set Amazon ECS agent configuration values that
+AWS Batch manages in your launch template user data. For a list of reserved values, see
+[Reserved Amazon ECS agent configuration values](launch-templates.md#lt-reserved-ecs-config "launch-templates.md#lt-reserved-ecs-config").
+
 Managed compute environments launch Amazon EC2 instances into the VPC and subnets that you
 specify and then registers them with an Amazon ECS cluster. The Amazon EC2 instances need external network
 access to communicate with the Amazon ECS service endpoint. Some subnets don't provide Amazon EC2 instances

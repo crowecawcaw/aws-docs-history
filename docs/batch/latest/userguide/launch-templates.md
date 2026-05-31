@@ -142,6 +142,34 @@ and submit that string as the value of the `UserData` parameter when you call [C
 }
 ```
 
+### Reserved Amazon ECS agent configuration values
+
+AWS Batch writes specific Amazon ECS agent configuration values to
+`/etc/ecs/ecs.config` when instances launch in EC2-based managed compute
+environments that use Amazon ECS. AWS Batch may also overwrite these values during compute environment
+updates, so your changes may not persist.
+
+###### Important
+
+Conflicts between your user data and AWS Batch-managed values can prevent jobs from being
+scheduled, cause unexpected scaling behavior, and result in unexpected costs.
+
+###### Important
+
+Do not copy user data from a AWS Batch-managed launch template into your own launch template.
+AWS Batch-managed user data contains values that differ between compute environments and change
+when the compute environment is updated. If your launch template contains copied values, they
+may conflict with the expected values for the current compute environment.
+
+Do not set the following values in your launch template user data.
+These values are managed by AWS Batch and conflicts can cause scheduling and scaling issues:
+
+- `ECS_CLUSTER`
+- `ECS_INSTANCE_ATTRIBUTES`
+
+For more information about the parameters listed above, see [Amazon ECS container agent
+configuration](../../../AmazonECS/latest/developerguide/ecs-agent-config.md "../../../AmazonECS/latest/developerguide/ecs-agent-config.md") in the _Amazon Elastic Container Service Developer Guide_.
+
 ###### Topics
 
 - [Reference: Amazon EC2 launch template examples](launch-template-examples.md "launch-template-examples.md")

@@ -4,6 +4,13 @@ You can update a service environment to modify its capacity limits, change its o
 
 You can change the Capacity limits, State, or Tags of a service environment.
 
+###### Note
+
+When capacity limits are lowered, jobs already in SCHEDULED, STARTING, or RUNNING
+states are not terminated. Already-scheduled jobs may cause current utilization to
+temporarily exceed the new capacity limit, but new jobs will respect the updated
+limits during scheduling.
+
 Update a service environment (AWS Console)Use the AWS Batch console to update a service environment through the web interface.
 
 **To update a service environment**

@@ -43,7 +43,7 @@ If you are a first-time user of AWS Batch, we recommend that you begin by readin
 following sections:
 
 - [Components of AWS Batch](batch_components.md "batch_components.md")
-- [Create IAM account and administrative user](create-an-iam-account.md "create-an-iam-account.md")
+- [Sign up for an AWS account](get-set-up-for-aws-batch.md#sign-up-for-aws "get-set-up-for-aws-batch.md#sign-up-for-aws")
 - [Setting up AWS Batch](get-set-up-for-aws-batch.md "get-set-up-for-aws-batch.md")
 - [Getting started with AWS Batch tutorials](Batch_GetStarted.md "Batch_GetStarted.md")
 - [Getting started with AWS Batch on SageMaker AI](getting-started-sagemaker.md "getting-started-sagemaker.md")
