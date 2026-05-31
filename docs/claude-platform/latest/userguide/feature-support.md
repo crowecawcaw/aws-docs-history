@@ -23,7 +23,6 @@ The following Claude Managed Agents capabilities are not currently available on 
 
 - **Outcomes:** Outcome tracking for agent sessions is not available.
 - **Multi-agent sessions:** Sessions with multiple interacting agents are not available.
-- **Webhooks:** Webhook delivery of session events is not available.
 
 ## Compliance
 

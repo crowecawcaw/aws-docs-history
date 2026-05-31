@@ -157,6 +157,7 @@ AWS provides managed policies for common access patterns:
 - **`AnthropicReadOnlyAccess`:** Grants `Get*`, `List*`, and `CallWithBearerToken` on all resources.
 - **`AnthropicInferenceAccess`:** Grants the ReadOnly actions plus the inference actions (`CreateInference`, `CreateBatchInference`, `CancelBatchInference`, `DeleteBatchInference`, `CountTokens`) on all resources.
 - **`AnthropicLimitedAccess`:** Grants the `AnthropicInferenceAccess` actions plus all Claude Managed Agents actions (agents, sessions, environments, vaults, memory stores) on all resources.
+- **`AnthropicSelfHostedEnvironmentAccess`:** Grants the permissions a self-hosted sandbox worker needs to poll and process environment work items, read the associated environment, session, and skill resources, and update session state. Attach this policy to the IAM role that your self-hosted environment worker assumes. `AnthropicSelfHostedEnvironmentAccess` is the recommended single-role default; if you run the work poller and the per-session sandbox under separate IAM principals, you can split these permissions across two narrower custom policies for least-privilege.
 
 `AnthropicInferenceAccess` is the narrowest managed policy sufficient to run inference. Through the `Get*` and `List*` wildcards it grants read access to every API resource in the namespace, including file content download through `GetFile` and memory contents through `GetMemoryStore`. It does not grant file or skill creation or deletion, user profile management, workspace mutation, or console federation.
 

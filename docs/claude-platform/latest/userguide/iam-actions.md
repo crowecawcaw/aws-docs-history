@@ -16,7 +16,7 @@ The ARN region is always populated and matches the region the workspace is bound
 
 ## Actions
 
-The service defines 58 actions across 14 groups. Actions follow the AWS `VerbNoun` convention and use verb discipline so that `Get*` and `List*` wildcards produce a clean read-only boundary.
+The service defines 65 actions across 15 groups. Actions follow the AWS `VerbNoun` convention and use verb discipline so that `Get*` and `List*` wildcards produce a clean read-only boundary.
 
 ### Inference
 
@@ -57,13 +57,13 @@ The service defines 58 actions across 14 groups. Actions follow the AWS `VerbNou
 
 ### Skills
 
-| Action        | Routes authorized                                                                                   |
-| ------------- | --------------------------------------------------------------------------------------------------- |
-| `CreateSkill` | `POST /v1/skills`                                                                                   |
-| `GetSkill`    | `GET /v1/skills/{id}`<br>`GET /v1/skills/{id}/versions`<br>`GET /v1/skills/{id}/versions/{version}` |
-| `ListSkills`  | `GET /v1/skills`                                                                                    |
-| `UpdateSkill` | `POST /v1/skills/{id}/versions`<br>`DELETE /v1/skills/{id}/versions/{version}`                      |
-| `DeleteSkill` | `DELETE /v1/skills/{id}`                                                                            |
+| Action        | Routes authorized                                                                                                                                       |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `CreateSkill` | `POST /v1/skills`                                                                                                                                       |
+| `GetSkill`    | `GET /v1/skills/{id}`<br>`GET /v1/skills/{id}/versions`<br>`GET /v1/skills/{id}/versions/{version}`<br>`GET /v1/skills/{id}/versions/{version}/content` |
+| `ListSkills`  | `GET /v1/skills`                                                                                                                                        |
+| `UpdateSkill` | `POST /v1/skills/{id}/versions`<br>`DELETE /v1/skills/{id}/versions/{version}`                                                                          |
+| `DeleteSkill` | `DELETE /v1/skills/{id}`                                                                                                                                |
 
 ###### Note
 
@@ -111,14 +111,15 @@ Agent sessions and event history.
 
 Cloud container configurations for sessions.
 
-| Action               | Routes authorized          |
-| -------------------- | -------------------------- |
-| `CreateEnvironment`  | Environment create routes  |
-| `GetEnvironment`     | Environment read routes    |
-| `ListEnvironments`   | Environment list routes    |
-| `UpdateEnvironment`  | Environment update routes  |
-| `ArchiveEnvironment` | Environment archive routes |
-| `DeleteEnvironment`  | Environment delete routes  |
+| Action                   | Routes authorized                     |
+| ------------------------ | ------------------------------------- |
+| `CreateEnvironment`      | Environment create routes             |
+| `GetEnvironment`         | Environment read routes               |
+| `ListEnvironments`       | Environment list routes               |
+| `UpdateEnvironment`      | Environment update routes             |
+| `ArchiveEnvironment`     | Environment archive routes            |
+| `DeleteEnvironment`      | Environment delete routes             |
+| `ProcessEnvironmentWork` | Self-hosted environment worker routes |
 
 ### Vaults
 
@@ -153,6 +154,19 @@ Persistent agent memory.
 ###### Note
 
 `GetMemoryStore` reads memory contents. The `Get*` wildcard in a managed or custom policy therefore grants memory read access. Scope policies explicitly if memory contents must be restricted.
+
+### Webhooks
+
+Lifecycle event notifications for sessions.
+
+| Action                | Routes authorized                                                   |
+| --------------------- | ------------------------------------------------------------------- |
+| `ListWebhooks`        | `GET /v1/webhooks`                                                  |
+| `GetWebhook`          | `GET /v1/webhooks/{webhook_endpoint_id}`                            |
+| `CreateWebhook`       | `POST /v1/webhooks`                                                 |
+| `UpdateWebhook`       | `POST /v1/webhooks/{webhook_endpoint_id}`                           |
+| `DeleteWebhook`       | `DELETE /v1/webhooks/{webhook_endpoint_id}`                         |
+| `RotateWebhookSecret` | `POST /v1/webhooks/{webhook_endpoint_id}/regenerate_signing_secret` |
 
 ### Workspaces
 
@@ -194,40 +208,41 @@ Actions performed inside the Claude Console after federation are not recorded in
 
 The following table lists every route on Claude Platform on AWS and the IAM action required to call it. The stable route’s IAM action also authorizes requests that use the `anthropic-beta` header. CloudTrail classifies each action as either a Data event (high-volume, data-plane operations) or a Management event (control-plane operations).
 
-| Method   | Route                                       | IAM action             | CloudTrail event type |
-| -------- | ------------------------------------------- | ---------------------- | --------------------- |
-| `POST`   | `/v1/messages`                              | `CreateInference`      | Data                  |
-| `POST`   | `/v1/messages/count_tokens`                 | `CountTokens`          | Data                  |
-| `POST`   | `/v1/messages/batches`                      | `CreateBatchInference` | Data                  |
-| `GET`    | `/v1/messages/batches`                      | `ListBatchInferences`  | Data                  |
-| `GET`    | `/v1/messages/batches/{id}`                 | `GetBatchInference`    | Data                  |
-| `GET`    | `/v1/messages/batches/{id}/results`         | `GetBatchInference`    | Data                  |
-| `POST`   | `/v1/messages/batches/{id}/cancel`          | `CancelBatchInference` | Data                  |
-| `DELETE` | `/v1/messages/batches/{id}`                 | `DeleteBatchInference` | Data                  |
-| `GET`    | `/v1/models`                                | `ListModels`           | Data                  |
-| `GET`    | `/v1/models/{id}`                           | `GetModel`             | Data                  |
-| `POST`   | `/v1/files`                                 | `CreateFile`           | Data                  |
-| `GET`    | `/v1/files`                                 | `ListFiles`            | Data                  |
-| `GET`    | `/v1/files/{id}`                            | `GetFile`              | Data                  |
-| `GET`    | `/v1/files/{id}/content`                    | `GetFile`              | Data                  |
-| `DELETE` | `/v1/files/{id}`                            | `DeleteFile`           | Data                  |
-| `POST`   | `/v1/skills`                                | `CreateSkill`          | Data                  |
-| `GET`    | `/v1/skills`                                | `ListSkills`           | Data                  |
-| `GET`    | `/v1/skills/{id}`                           | `GetSkill`             | Data                  |
-| `DELETE` | `/v1/skills/{id}`                           | `DeleteSkill`          | Data                  |
-| `POST`   | `/v1/skills/{id}/versions`                  | `UpdateSkill`          | Data                  |
-| `GET`    | `/v1/skills/{id}/versions`                  | `GetSkill`             | Data                  |
-| `GET`    | `/v1/skills/{id}/versions/{version}`        | `GetSkill`             | Data                  |
-| `DELETE` | `/v1/skills/{id}/versions/{version}`        | `UpdateSkill`          | Data                  |
-| `POST`   | `/v1/user_profiles`                         | `CreateUserProfile`    | Data                  |
-| `GET`    | `/v1/user_profiles`                         | `ListUserProfiles`     | Data                  |
-| `GET`    | `/v1/user_profiles/{id}`                    | `GetUserProfile`       | Data                  |
-| `POST`   | `/v1/user_profiles/{id}`                    | `UpdateUserProfile`    | Data                  |
-| `POST`   | `/v1/organizations/workspaces`              | `CreateWorkspace`      | Management            |
-| `GET`    | `/v1/organizations/workspaces`              | `ListWorkspaces`       | Management            |
-| `GET`    | `/v1/organizations/workspaces/{id}`         | `GetWorkspace`         | Management            |
-| `POST`   | `/v1/organizations/workspaces/{id}`         | `UpdateWorkspace`      | Management            |
-| `POST`   | `/v1/organizations/workspaces/{id}/archive` | `ArchiveWorkspace`     | Management            |
+| Method   | Route                                        | IAM action             | CloudTrail event type |
+| -------- | -------------------------------------------- | ---------------------- | --------------------- |
+| `POST`   | `/v1/messages`                               | `CreateInference`      | Data                  |
+| `POST`   | `/v1/messages/count_tokens`                  | `CountTokens`          | Data                  |
+| `POST`   | `/v1/messages/batches`                       | `CreateBatchInference` | Data                  |
+| `GET`    | `/v1/messages/batches`                       | `ListBatchInferences`  | Data                  |
+| `GET`    | `/v1/messages/batches/{id}`                  | `GetBatchInference`    | Data                  |
+| `GET`    | `/v1/messages/batches/{id}/results`          | `GetBatchInference`    | Data                  |
+| `POST`   | `/v1/messages/batches/{id}/cancel`           | `CancelBatchInference` | Data                  |
+| `DELETE` | `/v1/messages/batches/{id}`                  | `DeleteBatchInference` | Data                  |
+| `GET`    | `/v1/models`                                 | `ListModels`           | Data                  |
+| `GET`    | `/v1/models/{id}`                            | `GetModel`             | Data                  |
+| `POST`   | `/v1/files`                                  | `CreateFile`           | Data                  |
+| `GET`    | `/v1/files`                                  | `ListFiles`            | Data                  |
+| `GET`    | `/v1/files/{id}`                             | `GetFile`              | Data                  |
+| `GET`    | `/v1/files/{id}/content`                     | `GetFile`              | Data                  |
+| `DELETE` | `/v1/files/{id}`                             | `DeleteFile`           | Data                  |
+| `POST`   | `/v1/skills`                                 | `CreateSkill`          | Data                  |
+| `GET`    | `/v1/skills`                                 | `ListSkills`           | Data                  |
+| `GET`    | `/v1/skills/{id}`                            | `GetSkill`             | Data                  |
+| `DELETE` | `/v1/skills/{id}`                            | `DeleteSkill`          | Data                  |
+| `POST`   | `/v1/skills/{id}/versions`                   | `UpdateSkill`          | Data                  |
+| `GET`    | `/v1/skills/{id}/versions`                   | `GetSkill`             | Data                  |
+| `GET`    | `/v1/skills/{id}/versions/{version}`         | `GetSkill`             | Data                  |
+| `GET`    | `/v1/skills/{id}/versions/{version}/content` | `GetSkill`             | Data                  |
+| `DELETE` | `/v1/skills/{id}/versions/{version}`         | `UpdateSkill`          | Data                  |
+| `POST`   | `/v1/user_profiles`                          | `CreateUserProfile`    | Data                  |
+| `GET`    | `/v1/user_profiles`                          | `ListUserProfiles`     | Data                  |
+| `GET`    | `/v1/user_profiles/{id}`                     | `GetUserProfile`       | Data                  |
+| `POST`   | `/v1/user_profiles/{id}`                     | `UpdateUserProfile`    | Data                  |
+| `POST`   | `/v1/organizations/workspaces`               | `CreateWorkspace`      | Management            |
+| `GET`    | `/v1/organizations/workspaces`               | `ListWorkspaces`       | Management            |
+| `GET`    | `/v1/organizations/workspaces/{id}`          | `GetWorkspace`         | Management            |
+| `POST`   | `/v1/organizations/workspaces/{id}`          | `UpdateWorkspace`      | Management            |
+| `POST`   | `/v1/organizations/workspaces/{id}/archive`  | `ArchiveWorkspace`     | Management            |
 
 Claude Managed Agents routes (agents, sessions, environments, vaults, memory stores) follow the same route-to-action pattern; for the complete per-route mapping, see [the Anthropic IAM actions reference](https://platform.claude.com/docs/en/api/claude-platform-on-aws-iam-actions "https://platform.claude.com/docs/en/api/claude-platform-on-aws-iam-actions"). Vault routes are Management events; agent, session, environment, and memory store routes are Data events.
 
