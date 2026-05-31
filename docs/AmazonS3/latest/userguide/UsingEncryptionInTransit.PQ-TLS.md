@@ -9,7 +9,7 @@ cipher suites used in TLS key exchange mechanisms will be susceptible to these a
 present, the industry is aligned on hybrid post-quantum key exchange that combines classic
 and post-quantum elements to ensure that your TLS connection is at least as strong as it
 would be with classic cipher suites. Amazon S3 supports hybrid PQ-TLS, in compliance with the
-industry-standard IANA specification, today
+industry-standard IANA specification, today.
 
 If you’re developing applications that rely on the long-term confidentiality of data
 passed over a TLS connection, you should consider a plan to migrate to post-quantum

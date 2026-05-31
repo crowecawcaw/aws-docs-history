@@ -95,6 +95,11 @@ the following topics.
   multipart uploads in the bucket and use the
   `AbortMultipartUpload` operation to abort all the
   in-progress multipart uploads.
+- **AWS Command Line Interface (CLI) `s3 sync`
+  command** – The `s3 sync` command is not
+  supported with directory buckets. Use `s3 cp --recursive`
+  as an alternative to transfer files to or from
+  directory buckets.
 - **AWS Local Zones** – Local Zones are only supported for directory buckets not general purpose buckets.
   - Appending data to existing objects isn’t supported for
     directory buckets that reside in Local Zones. You can only append data to

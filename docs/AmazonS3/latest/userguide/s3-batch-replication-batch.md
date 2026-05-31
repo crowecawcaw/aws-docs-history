@@ -174,4 +174,4 @@ For information about troubleshooting Batch Replication, see [Batch Replication 
 
 ## Getting started with Batch Replication
 
-To learn more about how to use Batch Replication, see [Tutorial: Replicating existing objects in your Amazon S3 buckets with S3 Batch Replication](https://aws.amazon.com/getting-started/hands-on/replicate-existing-objects-with-amazon-s3-batch-replication/ "https://aws.amazon.com/getting-started/hands-on/replicate-existing-objects-with-amazon-s3-batch-replication/").
+To learn more about how to use Batch Replication, see [Create a Batch Replication job for new replication rules or destinations](s3-batch-replication-new-config.md "s3-batch-replication-new-config.md") and [Create a Batch Replication job for existing replication rules](s3-batch-replication-existing-config.md "s3-batch-replication-existing-config.md").

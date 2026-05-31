@@ -47,10 +47,28 @@ ACLs.
 
 ###### Note
 
-Granting `s3:PutObject` to the logging service principal is not sufficient
-if the destination bucket uses SSE-KMS default encryption. The destination bucket must use
-Amazon S3 managed keys (SSE-S3). If the destination bucket uses SSE-KMS, Amazon S3 might deliver
-log objects that are encrypted with a key that you can't access.
+If the destination bucket uses SSE-KMS default encryption, you must also grant the
+logging service principal (`logging.s3.amazonaws.com`) the
+`kms:GenerateDataKey` and `kms:Decrypt` permissions in your AWS KMS
+key policy. The following example shows the required AWS KMS key policy statement:
+
+```
+{
+    "Sid": "Allow S3 logging service to use the KMS key",
+    "Effect": "Allow",
+    "Principal": {
+        "Service": "logging.s3.amazonaws.com"
+    },
+    "Action": [
+        "kms:GenerateDataKey",
+        "kms:Decrypt"
+    ],
+    "Resource": "*"
+}
+```
+
+If you don't grant these permissions, Amazon S3 might deliver log objects that are encrypted
+with a key that you can't access, or log delivery might fail.
 
 ###### Bucket owner enforced setting for S3 Object Ownership
 

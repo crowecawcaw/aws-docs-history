@@ -926,10 +926,10 @@ JSON
 
 In the example, the `Condition` block specifies the
 `StringEquals` condition that is applied to the specified key-value pair,
-`"s3:x-amz-acl":["public-read"]`. There is a set of predefined keys that
-you can use in expressing a condition. The example uses the `s3:x-amz-acl`
-condition key. This condition requires the user to include the `x-amz-acl`
-header with value `public-read` in every `PutObject`
+`"s3:x-amz-storage-class":["STANDARD_IA"]`. There is a set of predefined keys that
+you can use in expressing a condition. The example uses the `s3:x-amz-storage-class`
+condition key. This condition requires the user to include the `x-amz-storage-class`
+header with value `STANDARD_IA` in every `PutObject`
 request.
 
 ### Policy examples for Amazon S3

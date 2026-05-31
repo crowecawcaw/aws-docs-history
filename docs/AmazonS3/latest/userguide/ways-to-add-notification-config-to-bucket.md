@@ -163,7 +163,37 @@ Follow the steps to create and subscribe to an Amazon SNS topic.
 You get an email requesting you to confirm your subscription to the topic.
 Confirm the subscription. 3. Replace the access policy attached to the topic with the following policy.
 In it, provide your SNS topic ARN, bucket name, and bucket owner's
-account ID. 4. Note the topic ARN.
+account ID.
+
+```
+{
+    "Version": "2012-10-17",
+    "Id": "example-ID",
+    "Statement": [
+        {
+            "Sid": "example-statement-ID",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "s3.amazonaws.com"
+            },
+            "Action": [
+                "SNS:Publish"
+            ],
+            "Resource": "`arn:aws:sns:us-west-2:111122223333:s3-notification-topic`",
+            "Condition": {
+                "ArnLike": {
+                    "aws:SourceArn": "arn:aws:s3:*:*:`awsexamplebucket1`"
+                },
+                "StringEquals": {
+                    "aws:SourceAccount": "`bucket-owner-123456789012`"
+                }
+            }
+        }
+    ]
+}
+```
+
+4. Note the topic ARN.
 
 The SNS topic you created is another resource in your AWS account, and
 it has a unique ARN. You will need this ARN in the next step. The ARN will

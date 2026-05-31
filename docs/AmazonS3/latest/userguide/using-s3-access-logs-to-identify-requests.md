@@ -101,7 +101,7 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT
  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
 LOCATION
- 's3://bucket-name/prefix-name/account-id/region/source-bucket-name/'
+ 's3://`bucket-name/prefix-name/account-id/region/source-bucket-name/`'
  TBLPROPERTIES (
   'projection.enabled'='true',
   'projection.timestamp.format'='yyyy/MM/dd',
@@ -109,7 +109,7 @@ LOCATION
   'projection.timestamp.interval.unit'='DAYS',
   'projection.timestamp.range'='2024/01/01,NOW',
   'projection.timestamp.type'='date',
-  'storage.location.template'='s3://bucket-name/prefix-name/account-id/region/source-bucket-name/${timestamp}')
+  'storage.location.template'='s3://`bucket-name/prefix-name/account-id/region/source-bucket-name/`${timestamp}')
 ```
 
 Non-date-based partitioning

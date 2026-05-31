@@ -265,7 +265,7 @@ from pyspark.sql import SparkSession
 spark = SparkSession.builder.appName("SparkIcebergSQL") \
     .config("spark.jars.packages", "org.apache.iceberg:iceberg-spark-runtime-3.4_2.12:1.4.2") \
     .config("spark.sql.extensions", "org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions") \
-    .config("spark.sql.defaultCatalog","s3tables")
+    .config("spark.sql.defaultCatalog","s3tables") \
     .config("spark.sql.catalog.s3tables", "org.apache.iceberg.spark.SparkCatalog") \
     .config("spark.sql.catalog.s3tables.catalog-impl", "org.apache.iceberg.aws.glue.GlueCatalog") \
     .config("spark.sql.catalog.s3tables.glue.id", "`111122223333`:s3tablescatalog/`amzn-s3-demo-table-bucket`") \
