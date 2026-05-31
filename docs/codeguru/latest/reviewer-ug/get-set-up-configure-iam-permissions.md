@@ -2,18 +2,6 @@ As of November 7, 2025, you can't create new repository associations in Amazon C
 
 # Configure IAM permissions for Amazon CodeGuru Reviewer
 
-When you create an AWS account, you get a single sign-in identity that has complete
-access to all of the AWS services and resources in the account. This identity is called the
-AWS account _root user_. Signing in to the AWS console
-using the email address and password that you used to create the account gives you complete
-access to all of the AWS resources in your account.
-
-We strongly recommend that you _not_ use the root user
-for everyday tasks, even the administrative ones. Instead, create an administrative user with the least
-privileges needed. Then securely lock away the root user credentials and use them to perform
-only a few account and service management tasks. For more information, see [Security best practices
-in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
-
 See the following topics for information about permissions required for CodeGuru Reviewer and how to
 add them.
 

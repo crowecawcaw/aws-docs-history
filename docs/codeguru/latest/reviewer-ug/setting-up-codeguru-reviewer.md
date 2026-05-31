@@ -21,7 +21,13 @@ recommendations](recommendation-suppression.md "recommendation-suppression.md").
 
 ###### Topics
 
-- [Sign up for AWS](get-set-up-sign-up-for-aws.md "get-set-up-sign-up-for-aws.md")
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Configure IAM permissions for Amazon CodeGuru Reviewer](get-set-up-configure-iam-permissions.md "get-set-up-configure-iam-permissions.md")
 - [Install or upgrade and then configure the AWS CLI](get-set-up-install-cli.md "get-set-up-install-cli.md")
 - [Create a repository for your source code](get-set-up-setup-repository.md "get-set-up-setup-repository.md")
+
+## Sign up for an AWS account
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
