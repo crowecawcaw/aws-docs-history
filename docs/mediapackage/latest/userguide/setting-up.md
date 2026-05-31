@@ -8,7 +8,13 @@ organization.
 
 ###### Topics
 
-- [Signing up for AWS](setting-up-aws-sign-up.md "setting-up-aws-sign-up.md")
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Set up additional IAM permissions](setting-up-iam-permissions.md "setting-up-iam-permissions.md")
 - [Allowing MediaPackage to access other AWS services](setting-up-create-trust-rel.md "setting-up-create-trust-rel.md")
 - [Download tools](setting-up-tools.md "setting-up-tools.md")
+
+## Sign up for an AWS account
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
