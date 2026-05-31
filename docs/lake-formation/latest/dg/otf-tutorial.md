@@ -36,7 +36,7 @@ This tutorial is intended for IAM administrators, data lake administrators, and 
 ## Prerequisites
 
 Before you start this tutorial, you must have an AWS account that you can sign in as a
-user with the correct permissions. For more information, see [Sign up for an AWS account](getting-started-setup.md#sign-up-for-aws "getting-started-setup.md#sign-up-for-aws") and .
+user with the correct permissions. For more information, see [Sign up for an AWS account](getting-started-setup.md#sign-up-for-aws "getting-started-setup.md#sign-up-for-aws").
 
 The tutorial assumes that you are familiar with IAM roles and policies. For information about IAM, see the [IAM User Guide](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md").
 

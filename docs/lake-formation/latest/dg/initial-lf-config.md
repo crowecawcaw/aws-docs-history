@@ -192,9 +192,8 @@ JSON
 
 ```
 
-5. Open the AWS Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/") and sign in as the
-   administrator user that you created in or as a user with `AdministratorAccess` user AWS managed
-   policy.
+5. Open the AWS Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/") and sign in as a
+   user with the `AdministratorAccess` AWS managed policy.
 6. If a **Welcome to Lake Formation** window appears, choose the
    IAM user that you created or selected in Step 1, and then choose **Get
    started**.
@@ -237,9 +236,7 @@ about Lake Formation permissions, see [Lake Formation permissions reference](lf-
 ###### To change the default Data Catalog settings
 
 1. Continue in the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/").
-   Ensure that you are signed in as the administrator user
-   that you created in or
-   as a user with the `AdministratorAccess` AWS managed policy.
+   Ensure that you are signed in as a user with the `AdministratorAccess` AWS managed policy.
 2. Modify the Data Catalog settings:
    1. In the navigation pane, under **Administration**, choose
       **Data Catalog settings**.
@@ -265,8 +262,7 @@ For more information on creating users or groups, see [IAM identities](../../../
 ###### To attach permissions to a non-administrator user to access Lake Formation data
 
 1. Open the IAM console at [https://console.aws.amazon.com/iam](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam") and sign in
-   as an administrator user that you created in or as a
-   user with the `AdministratorAccess` AWS managed
+   as a user with the `AdministratorAccess` AWS managed
    policy.
 2. Choose **Users** or **User groups**.
 3. In the list, choose the name of the user or group to embed a policy in.
@@ -395,7 +391,7 @@ The following procedure assumes familiarity with IAM.
 ###### To create an IAM role for workflows
 
 1. Open the IAM console at [https://console.aws.amazon.com/iam](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam")
-   and sign in as the administrator user that you created in or as user with the `AdministratorAccess` AWS managed
+   and sign in as a user with the `AdministratorAccess` AWS managed
    policy.
 2. In the navigation pane, choose **Roles**, then
    **Create role**.

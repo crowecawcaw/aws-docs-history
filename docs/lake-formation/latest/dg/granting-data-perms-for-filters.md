@@ -18,7 +18,7 @@ Console
 ![The image is a screenshot of the top page of the Permissions page in the console. In the Data Permissions section, the Grant button is highlighted.](images/permissions-grant-action.png) 2. Select the principals you want to provide access to, and select **Named
 data catalog resources**.
 
-![The image is a screenshot of the Permissions page in the console. The "LF-Tags or catalog resources" section is shown, with the "Named data catalog resources" option selected. Under Databases, there is one value provided: cloudtrail. For Tables, there is one value provided: cloudtrail-logs-aws_logs. For Data Filters, there is one value provided: cloudtrail_lakeformation_filter.](images/grant-data-filter-perms-step2.png) 3. To provide access to the data that the filter represents, choose
+![The image is a screenshot of the Permissions page in the console. The "LF-Tags or catalog resources" section is shown, with the "Named data catalog resources" option selected. Under Databases, there is one value provided: cloudtrail. For Tables, there is one value provided: cloudtrail-logs-aws_logs. For Data Filters, there is one value provided: cloudtrail_lakeformation_filter.](/images/lake-formation/latest/dg/images/grant-data-filter-perms-step2.png) 3. To provide access to the data that the filter represents, choose
 **Select** under **Data filter
 permissions**.
 
