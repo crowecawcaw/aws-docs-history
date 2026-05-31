@@ -9,6 +9,12 @@ Currently, AWS DevOps Agent supports Dynatrace users with a built-in, 2-way inte
 - **Telemetry introspection** - AWS DevOps Agent can introspect Dynatrace telemetry as it investigates an issue via the AWS DevOps Agent-hosted Dynatrace MCP server.
 - **Status updates** - AWS DevOps Agent will publish key investigation findings, root cause analyses, and generated mitigation plans to the Dynatrace user interface.
 
+## Prerequisites
+
+The AWS DevOps Agent integration with Dynatrace requires **Dynatrace SaaS**. The integration depends on Dynatrace platform features (Workflows, AppEngine apps including the SRE Agents app, and OAuth clients) that are only available in Dynatrace SaaS environments.
+
+**Dynatrace Managed (on-premises) is not supported**, and Dynatrace has no plans to bring these platform features to Managed. If you are running Dynatrace Managed, you will need to upgrade to Dynatrace SaaS before connecting it to AWS DevOps Agent. See [Upgrading from Dynatrace Managed to SaaS](https://www.dynatrace.com/platform/saas-upgrade/ "https://www.dynatrace.com/platform/saas-upgrade/").
+
 ## Onboarding
 
 ### Onboarding Process

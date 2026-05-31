@@ -471,6 +471,20 @@ Provides access to use the AWS DevOps operator web app for an Agent Space.
 					"aws:ResourceAccount": "${aws:PrincipalAccount}"
 				}
 			}
+		},
+		{
+			"Sid": "AllowSecretsManagerOperatorActions",
+			"Effect": "Allow",
+			"Action": [
+				"secretsmanager:CreateSecret",
+				"secretsmanager:ListSecrets"
+			],
+			"Resource": "*",
+			"Condition": {
+				"StringEquals": {
+					"aws:ResourceAccount": "${aws:PrincipalAccount}"
+				}
+			}
 		}
 	]
 }
