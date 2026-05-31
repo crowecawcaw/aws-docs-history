@@ -138,17 +138,20 @@ stop after the last documented field, and update log parsing after we release a 
 If the target health check fails, the load balancer will log one of the following
 reason codes in the health check log.
 
-| Code                     | Description                                                                                                                  |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
-| `RequestTimedOut`        | Health check request timed out while waiting for response                                                                    |
-| `ConnectionTimedOut`     | Health check failed because TCP connection attempt timed out                                                                 |
-| `ConnectionReset`        | Health check failed due to connection reset                                                                                  |
-| `ResponseCodeMismatch`   | HTTP status code of the target’s response to the health check<br>request did not match the configured status code            |
-| `ResponseStringMismatch` | Response body returned by the target did not contain<br>the string configured in the target group health check configuration |
-| `InternalError`          | Internal load balancer error                                                                                                 |
-| `TargetError`            | Target returns 5xx error code in response to the health check request                                                        |
-| `GRPCStatusHeaderEmpty`  | GRPC target response has a grpc-status header without value                                                                  |
-| `GRPCUnexpectedStatus`   | GRPC target responds with an unexpected grpc-status                                                                          |
+| Code                     | Description                                                                                                                                                                                                                                                                                                                               |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `TimedOut`               | Health check failed because the connection attempt to the target timed out or the target did not respond within the configured health check timeout period. This can occur when the target's security group blocks inbound traffic on the health check port, the target is slow to respond, or the TLS handshake did not complete in time |
+| `ConnectionReset`        | Health check failed because the target reset or gracefully closed the connection before a valid response was returned                                                                                                                                                                                                                     |
+| `ResponseCodeMismatch`   | HTTP status code of the target's response to the health check request did not match the configured status code                                                                                                                                                                                                                            |
+| `ResponseStringMismatch` | Response body returned by the target did not contain the string configured in the target group health check configuration                                                                                                                                                                                                                 |
+| `InternalError`          | Internal load balancer error                                                                                                                                                                                                                                                                                                              |
+| `TargetError`            | Target returns 5xx error code in response to the health check request                                                                                                                                                                                                                                                                     |
+| `GRPCStatusHeaderEmpty`  | GRPC target response has a grpc-status header without value                                                                                                                                                                                                                                                                               |
+| `GRPCUnexpectedStatus`   | GRPC target responds with an unexpected grpc-status                                                                                                                                                                                                                                                                                       |
+
+###### Note
+
+The new `TimedOut` error reason code replaces the `RequestTimedOut` and `ConnectionTimedOut` reason codes.
 
 ## Example log entries
 
