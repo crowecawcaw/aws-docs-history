@@ -16,7 +16,14 @@ Security Lake does not support backfilling of existing AWS raw log source events
 
 ###### Topics
 
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Setting up your AWS account](initial-account-setup.md "initial-account-setup.md")
 - [Considerations when enabling Security Lake](enable-securitylake-considerations.md "enable-securitylake-considerations.md")
 - [Enabling Security Lake using the console](get-started-console.md "get-started-console.md")
 - [Enabling Security Lake programmatically](get-started-programmatic.md "get-started-programmatic.md")
+
+## Sign up for an AWS account
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
