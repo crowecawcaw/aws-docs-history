@@ -31,3 +31,22 @@ When deleting Amazon RDS recovery points, consider:
 If this is selected for an Amazon Aurora recovery point, AWS Backup sets the retention period to
 1 day. Aurora backups cannot be completely deleted until the source cluster has also been
 deleted.
+
+## Transitioning continuous backups between backup plans
+
+If you transition a resource's continuous backup protection from one backup plan to
+another, be aware of the following behavior:
+
+- **Amazon RDS:** After the existing continuous recovery
+  point's retention period elapses and the recovery point is removed from the vault,
+  the next execution of the new backup plan configures continuous backups. There is no
+  gap in point-in-time restore coverage during this transition. For more information,
+  see [How do I stop continuous backups for Amazon RDS in AWS Backup?](https://repost.aws/knowledge-center/backup-stop-rds-continuous-backup "https://repost.aws/knowledge-center/backup-stop-rds-continuous-backup")
+- **Amazon S3:** A disassociated Amazon S3 continuous recovery
+  point transitions to a `STOPPED` state and remains in its backup vault.
+  For more information, see [Backup deletion](deleting-backups.md "deleting-backups.md").
+
+In all cases, when you remove a continuous backup rule from a backup plan, AWS Backup
+remembers the retention period from the deleted rule and automatically deletes the
+continuous backup recovery point when the retention period elapses. For more information,
+see [Removing the only continuous backup rule from a backup plan](point-in-time-recovery-removing_rule.md "point-in-time-recovery-removing_rule.md").

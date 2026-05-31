@@ -159,8 +159,12 @@ JSON
 
 ```
 
-These permissions must be part of the key, whether it is AWS managed or customer
-managed.
+For customer managed keys, ensure these permissions are included in the key policy.
+You can view and update the key policy using the steps below.
+
+For AWS managed keys (such as `aws/backup` or `aws/ebs`),
+these permissions are already included in the key policy by AWS and cannot be modified
+by the customer.
 
 1. Ensure required permissions are part of KMS key policy
    1. Run KMS CLI `get-key-policy` ([`kms:GetKeyPolicy`](../../../kms/latest/APIReference/API_GetKeyPolicy.md "../../../kms/latest/APIReference/API_GetKeyPolicy.md")) to view the key policy attached to the

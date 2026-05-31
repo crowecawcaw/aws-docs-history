@@ -144,6 +144,20 @@ enable backup policies for your organization so you can:
 See [AWS Backup quotas](aws-backup-limits.md "aws-backup-limits.md") for
 AWS Backup-specific quotas on elements contained in a policy.
 
+###### Important
+
+Backup policies support resource selection by resource types
+(for example, `arn:aws:ec2:*:*:volume/*`) or by tags,
+but not by individual resource ARNs. Use backup policies for broad
+application across multiple accounts in an organization or OU,
+not for targeting individual resources.
+
+To back up individual resources by ARN, use a local backup plan
+resource assignment instead.
+
+For full details on the `selections` syntax, see [Backup policy syntax and examples](../../../organizations/latest/userguide/orgs_manage_policies_backup_syntax.md "../../../organizations/latest/userguide/orgs_manage_policies_backup_syntax.md") in the AWS Organizations User
+Guide.
+
 ## Delegated administrator
 
 Delegated administration provides a convenient way for assigned users in a

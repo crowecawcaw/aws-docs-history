@@ -24,7 +24,10 @@ those APIs to fully control the access to those backup types.
 Regardless of the AWS Backup vault's access policy, cross-account access for any action other
 than `backup:CopyIntoBackupVault` will be rejected; that is, AWS Backup will reject any
 other request from an account that is different from the account of the resource that is being
-referenced.
+referenced. This restriction applies to vault access policies on both standard and logically
+air-gapped backup vaults. Logically air-gapped vaults additionally support cross-account
+sharing through AWS Resource Access Manager (RAM), which enables operations such as restore through a separate
+mechanism outside of vault access policies. For more information, see [Logically air-gapped vault](logicallyairgappedvault.md "logicallyairgappedvault.md").
 
 ###### Topics
 

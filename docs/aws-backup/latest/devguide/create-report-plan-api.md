@@ -18,7 +18,7 @@ If you encrypt your bucket using a custom KMS key, the KMS key policy must meet 
 following requirements:
 
 - The `Principal` attribute must include the Backup Audit Manager
-  service-linked role [`AWSServiceRolePolicyForBackupReports`](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSServiceRolePolicyForBackupReports "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSServiceRolePolicyForBackupReports") ARN.
+  service-linked role [`AWSServiceRoleForBackupReports`](https://console.aws.amazon.com/iam/home#/roles/AWSServiceRoleForBackupReports "https://console.aws.amazon.com/iam/home#/roles/AWSServiceRoleForBackupReports") ARN.
 
 - The `Action` attribute must include `kms:GenerateDataKey`
   at minimum.

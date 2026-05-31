@@ -29,6 +29,7 @@ AWS Backup.
 - [Continuous backups and point-in-time recovery (PITR)](point-in-time-recovery.md "point-in-time-recovery.md")
 - [Backup creation by resource type](creating-a-backup.md "creating-a-backup.md")
 - [Backup and tag copy](recov-point-create-a-copy.md "recov-point-create-a-copy.md")
+- [Add or remove tags on existing recovery points](tagging-recovery-points.md "tagging-recovery-points.md")
 - [Backup deletion](deleting-backups.md "deleting-backups.md")
 - [Backup and tag edits](editing-a-backup.md "editing-a-backup.md")
 - [Backup search](backup-search.md "backup-search.md")

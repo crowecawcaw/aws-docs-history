@@ -16,6 +16,12 @@ support copy operations, see the Cross-Region backup and Cross-account backup co
 underlying AWS service provides its own native copy or replication feature, refer to that
 service's documentation.
 
+###### Note
+
+AWS Backup does not provide any service-level agreements (SLAs) for copy job completion
+times. Copy times can vary based upon system load, capacity, and the size of the resources
+being copied, even for copy jobs containing the same resources.
+
 Some resource types have both continuous backup capability and cross-Region and
 cross-account copy available. When a cross-Region or cross-account copy of a continuous backup
 is made, the copied recovery point (backup) becomes a snapshot (periodic) backup (not

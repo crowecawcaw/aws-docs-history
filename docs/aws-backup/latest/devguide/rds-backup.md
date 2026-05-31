@@ -36,9 +36,25 @@ your AWS Backup backup plan or Amazon RDS window do not coincide in their times.
 
 ### Considerations
 
-RDS Custom for SQL Server and RDS Custom for Oracle are not currently supported by AWS Backup.
+AWS Backup supports creating on-demand backups of RDS Custom for SQL Server instances.
+However, restoring RDS Custom for SQL Server through AWS Backup is not natively supported.
+To restore, use the `restore-db-instance-from-db-snapshot` operation in Amazon RDS
+with the AWS Backup-created snapshot. For more information, see [Restore an Amazon RDS Custom for SQL Server instance using a backup from
+AWS Backup](https://aws.amazon.com/blogs/database/restore-an-amazon-rds-custom-for-sql-server-instance-using-a-backup-from-aws-backup/ "https://aws.amazon.com/blogs/database/restore-an-amazon-rds-custom-for-sql-server-instance-using-a-backup-from-aws-backup/").
+
+RDS Custom for Oracle is not currently supported by AWS Backup.
 
 AWS Backup does not support backup and restore of RDS on Outposts.
+
+## Understanding backup overlap and costs
+
+AWS Backup periodic snapshots are classified as manual backups in Amazon RDS. While they
+share the same incremental snapshot chain as automated backups, they count toward your
+total backup storage alongside automated backups. Amazon RDS provides a free backup storage
+allocation equal to your provisioned DB instance storage — this covers both automated
+backups and manual snapshots combined. Storage beyond that allocation is billed. If you
+run both scheduled AWS Backup snapshots and Amazon RDS automated backups, both contribute to this
+total, and you should factor this into your cost planning.
 
 ## Amazon RDS continuous backups and point in time restore
 

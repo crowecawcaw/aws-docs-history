@@ -164,5 +164,27 @@ number of failed jobs. See [Working with gateways](working-with-gateways.md "wor
 **complete within duration** of the backup window in your backup
 plan. See [Backup plan options and configuration](plan-options-and-configuration.md "plan-options-and-configuration.md") for more detail.
 
+## Restore to EC2 fails due to missing ENA drivers
+
+**Failure message:** `"Restore failed because the instance type
+ selected for restore requires that the VirtualMachine image have Elastic Network
+ Adapter (ENA) drivers installed, but no ENA drivers were present in the backed up
+ VM."`
+
+**Possible cause:** Your restore job failed because you are
+attempting to restore a VMware backup that does not have ENA drivers installed to an
+Amazon EC2 instance type that requires Elastic Network Adapters (ENA).
+
+**Remedies:**
+
+**Restore to an instance type that does not require ENA:** Restore
+this recovery point to an instance type that does not require ENA. For a list of instance
+types and their requirements, see [Amazon EC2 instance types](../../../ec2/latest/instancetypes/pg.md "../../../ec2/latest/instancetypes/pg.md").
+
+**Install ENA drivers and take a new backup:** To restore to
+instance types that require ENA, install ENA drivers on the virtual machine first, take a
+new backup, and then restore from that backup. For more information about driver
+requirements, see [VM Import/Export requirements](../../../vm-import/latest/userguide/limitations-image-importing.md#limitations-image-importing-linux "../../../vm-import/latest/userguide/limitations-image-importing.md#limitations-image-importing-linux").
+
 For help resolving these issues, see [AWS
 Knowledge Center](https://repost.aws/knowledge-center/backup-troubleshoot-vmware-backups "https://repost.aws/knowledge-center/backup-troubleshoot-vmware-backups").

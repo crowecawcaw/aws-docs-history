@@ -114,7 +114,8 @@ restoring to a specified point in time.
 
 AWS Backup for S3 relies on receiving S3 events through Amazon EventBridge. If this setting is
 disabled in S3 bucket notification settings, continuous backups will stop for those
-buckets with the setting turned off. For more information, see [Using EventBridge](../../../AmazonS3/latest/userguide/EventBridge.md "../../../AmazonS3/latest/userguide/EventBridge.md").
+buckets with the setting turned off. For more information, see
+[Amazon EventBridge dependency for S3 continuous backups](s3-backups.md#s3-eventbridge-dependency "s3-backups.md#s3-eventbridge-dependency").
 
 Disabling AWS Backup's Amazon EventBridge rule will also result in your continuous backup stopping.
 If you have an active backup plan with a continuous backup rule, when that rule
@@ -127,12 +128,24 @@ AWS Backup supports continuous backups and point-in-time recovery for all Amazon
 and Aurora that are supported by the native Amazon RDS service. AWS Backup does not support
 continuous backups or point-in-time recovery for Amazon RDS Multi-AZ clusters.
 
-**Backup schedules:** When an AWS Backup plan creates both Amazon RDS snapshots
-and continuous backups, AWS Backup will intelligently schedule your backup windows to
-coordinate with the Amazon RDS maintenance window to prevent conflicts. To further prevent
-conflicts, manual configuration of the Amazon RDS automated backup window is unavailable. RDS
-takes snapshots once per day, even if a backup plan has a frequency for snapshot
-backups other than once per day.
+**Backup schedules:** When you enable continuous backups for an
+Amazon RDS instance through AWS Backup, AWS Backup takes over the Amazon RDS automated backup window (the
+native daily snapshot that anchors point-in-time recovery). AWS Backup positions this automated
+backup window near the Amazon RDS maintenance window to prevent conflicts. You cannot directly
+configure the automated backup window while AWS Backup manages continuous backups, but you can
+influence its placement by adjusting your Amazon RDS maintenance window. The automated backup
+window repositions itself on the next backup cycle. RDS takes snapshots once per day, even
+if a backup plan has a frequency for snapshot backups other than once per day.
+
+###### Note
+
+AWS Backup does not modify or manage the Amazon RDS maintenance window. The maintenance window
+remains under your control and can be adjusted through Amazon RDS settings. Backup jobs
+initiated by a snapshot rule in your backup plan run on the schedule you define and can
+still fail if they overlap with the maintenance window. If this occurs, you receive an
+error similar to "Backup job could not start because it is either inside or too close to
+the weekly maintenance window configured in RDS instance." To avoid this error, schedule
+your snapshot backup rules outside of your configured Amazon RDS maintenance window.
 
 **Settings:** After you apply an AWS Backup continuous backup rule to an
 Amazon RDS instance, you can't create or modify continuous backup settings in Amazon RDS. You must

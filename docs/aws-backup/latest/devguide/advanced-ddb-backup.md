@@ -16,6 +16,7 @@ security features.
 
 - [Benefits of advanced DDB backup](#advanced-ddb-backup-benefits "#advanced-ddb-backup-benefits")
 - [Considerations for Advanced DynamoDB backup](#advanced-ddb-considerations "#advanced-ddb-considerations")
+- [Understanding backup overlap and costs](#advanced-ddb-backup-overlap-costs "#advanced-ddb-backup-overlap-costs")
 - [Enabling advanced DynamoDB backup using the console](#advanced-ddb-backup-enable-console "#advanced-ddb-backup-enable-console")
 - [Enabling advanced DynamoDB backup programmatically](#advanced-ddb-backup-enable-cli "#advanced-ddb-backup-enable-cli")
 - [Editing an advanced DynamoDB backup](#advanced-ddb-backup-edit "#advanced-ddb-backup-edit")
@@ -67,6 +68,18 @@ your custom role:
 
 To learn more about AWS-managed policies and view examples of customer-managed
 policies, see [Managed policies for AWS Backup](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
+
+## Understanding backup overlap and costs
+
+AWS Backup advanced DynamoDB features provide periodic snapshot-based backups with
+additional capabilities. These do not replace or duplicate native DynamoDB point-in-time
+recovery (PITR), which provides continuous backup with second-level granularity. If your
+recovery strategy requires both periodic snapshots (for long-term retention, cross-Region
+DR, or compliance) and continuous recovery (for operational recovery within a short
+window), you may choose to enable both AWS Backup advanced features and native DynamoDB PITR.
+In this case, you will incur charges for both — this is intentional complementary
+protection, not unintended duplication. If your recovery requirements are met by periodic
+snapshots alone, native DynamoDB PITR can be disabled to reduce costs.
 
 ## Enabling advanced DynamoDB backup using the console
 

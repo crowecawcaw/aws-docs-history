@@ -405,6 +405,46 @@ the AWS services and third-party application supported by AWS Backup. You can us
 existing AWS managed policies as a model as you create your own policy documents,
 and then customize them to further restrict access to your AWS resources.
 
+### How to build a customer managed policy from managed policy statements
+
+Each service section below lists the specific statement names (Sids) you need from
+the AWS Backup managed policies. To build a least-privilege customer managed policy for a
+specific service, follow these steps:
+
+1. Open the managed policy reference for [AWSBackupServiceRolePolicyForBackup](../../../aws-managed-policy/latest/reference/AWSBackupServiceRolePolicyForBackup.md "../../../aws-managed-policy/latest/reference/AWSBackupServiceRolePolicyForBackup.md") (for backup permissions) or [AWSBackupServiceRolePolicyForRestores](../../../aws-managed-policy/latest/reference/AWSBackupServiceRolePolicyForRestores.md "../../../aws-managed-policy/latest/reference/AWSBackupServiceRolePolicyForRestores.md") (for restore permissions).
+2. Locate each statement by its `Sid` value as listed in the service
+   section below.
+3. Copy the full JSON block for each required statement into your custom policy
+   document.
+4. Wrap the statements in a valid IAM policy structure. Include the
+   `Version` element to avoid [IAM Access Analyzer warnings](../../../IAM/latest/UserGuide/access-analyzer-reference-policy-checks.md#access-analyzer-reference-policy-checks-general-warning-missing-version "../../../IAM/latest/UserGuide/access-analyzer-reference-policy-checks.md#access-analyzer-reference-policy-checks-general-warning-missing-version"):
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    `// Paste your extracted statements here`
+  ]
+}
+```
+
+5. (Optional) Narrow the `Resource` field in each statement to restrict
+   access to specific resources rather than using `"*"`.
+
+Alternatively, you can retrieve the full policy JSON using the AWS CLI:
+
+```
+aws iam get-policy-version \
+    --policy-arn arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup \
+    --version-id $(aws iam get-policy --policy-arn arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup --query "Policy.DefaultVersionId" --output text) \
+    --query "PolicyVersion.Document" \
+    --output json
+```
+
+This returns the complete policy document, from which you can extract the statements
+you need by matching the `Sid` values listed in the service sections
+below.
+
 ###### Important
 
 When using custom IAM roles for AWS Backup, you must include resource-specific permissions

@@ -6,9 +6,9 @@ AWS Backup stores your backups with _at least_ as much resilience and
 durability as your resource’s original AWS service would give you, if you backed it up
 there.
 
-AWS Backup is designed to use the AWS global infrastructure to replicate your backups across
-multiple Availability Zones for durability of 99.999999999% (11 nines) in any given year,
-provided that you adhere to the current AWS Backup documentation.
+AWS Backup is designed to use the AWS global infrastructure to resiliently and redundantly
+store your backups across multiple Availability Zones for durability of 99.999999999% (11
+nines) in any given year, provided that you adhere to the current AWS Backup documentation.
 
 AWS Backup encrypts your backup plans at rest and continuously backs them up. You can also
 restrict access to your backup plans using AWS Identity and Access Management (IAM) credentials and policies. For

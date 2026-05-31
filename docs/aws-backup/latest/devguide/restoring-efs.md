@@ -11,7 +11,24 @@ AWS Backup does not support destructive restores with Amazon EFS. A destructive 
 restored file system deletes or overwrites the source or existing file system. Instead,
 AWS Backup restores your file system to a recovery directory off of the root directory.
 
-**Item-Level Restore**
+###### Important
+
+After a full restore completes, all restored files are located in a recovery
+subdirectory under the root of the file system. An example subdirectory is
+`aws-backup-restore_`datetime``. Files are
+not restored to their original locations. You must manually move or copy the restored
+files from this recovery directory to their intended locations. The same behavior applies
+to item-level restores.
+
+For additional troubleshooting guidance related to Amazon EFS restores, see the following
+AWS Knowledge Center articles:
+
+- [Troubleshooting
+  EFS file system restore issues for AWS Backup](https://repost.aws/knowledge-center/backup-troubleshoot-efs-file-system "https://repost.aws/knowledge-center/backup-troubleshoot-efs-file-system")
+- [Getting
+  accurate Amazon EFS file system and object sizes after a restore in
+  AWS Backup](https://repost.aws/knowledge-center/backup-report-efs-file-system-sizes "https://repost.aws/knowledge-center/backup-report-efs-file-system-sizes")
+  **Item-Level Restore**
 
 When you perform an item-level restore, AWS Backup restores a specific file or directory. You
 must specify the path relative to the file system root. For example, if the file system is
@@ -35,6 +52,12 @@ whether you perform an Amazon EFS item-level restore to an existing file system 
 system, each restore attempt creates a new recovery directory off of the root directory to
 contain the restored files. If you attempt multiple restores for the same path, several
 directories containing the restored items might exist.
+
+###### Note
+
+As with full restores, item-level restored files are placed in a recovery
+subdirectory and not in their original locations. You must manually move the restored
+files to their intended locations.
 
 ###### Note
 

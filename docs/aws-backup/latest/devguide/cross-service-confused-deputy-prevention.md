@@ -25,8 +25,37 @@ you don't know the full ARN of the resource or if you are specifying multiple re
 the unknown portions of the ARN. For example,
 `arn:aws::`servicename`::`123456789012`:*`.
 
-The following example policy shows how you can use the `aws:SourceArn` and
+The following example shows how you can use the `aws:SourceArn` and
 `aws:SourceAccount` global condition context keys in AWS Backup to prevent the
-confused deputy problem. This policy grants the service principal backup-storage.amazonaws.com
-ability to perform KMS actions only when the service principal is acting on behalf of AWS account
-123456789012 on the backup vaults:
+confused deputy problem. Add the following statement to your _KMS key policy_
+to deny the service principal `backup-storage.amazonaws.com` from performing KMS
+actions unless the request originates from your specified backup vaults and account:
+
+```
+{
+  "Sid": "Deny Backup Storage confused deputy",
+  "Effect": "Deny",
+  "Principal": {
+    "Service": "backup-storage.amazonaws.com"
+  },
+  "Action": [
+    "kms:Decrypt",
+    "kms:RetireGrant",
+    "kms:GenerateDataKey"
+  ],
+  "Resource": "*",
+  "Condition": {
+    "StringNotEquals": {
+      "aws:SourceAccount": "`123456789012`"
+    },
+    "ArnNotLike": {
+      "aws:SourceArn": "arn:aws::backup:`us-east-1`:`123456789012`:backup-vault:*"
+    }
+  }
+}
+```
+
+Replace `us-east-1` with your AWS Region and
+`123456789012` with your AWS account ID. This policy denies the
+AWS Backup storage service principal from using your KMS key unless the request comes from a backup
+vault in your specified account and Region.

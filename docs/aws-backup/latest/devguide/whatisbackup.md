@@ -177,6 +177,15 @@ altering their retention period. AWS Backup Vault Lock helps you enforce a
 _write-once-read-many_ (WORM) model and add another layer of defense to
 your defense in depth. To get started, see [AWS Backup Vault Lock](vault-lock.md "vault-lock.md").
 
+## AWS Backup and native service backups
+
+The relationship between AWS Backup and native service backup mechanisms varies by service.
+In some cases, AWS Backup uses the same underlying backup infrastructure as the native service
+(for example, Amazon RDS continuous backups). In other cases, AWS Backup operates as a separate backup
+layer (for example, DynamoDB). Understanding this relationship helps you avoid unintended
+duplicate costs. Consult the service-specific pages in this guide for details on how AWS Backup
+interacts with each service's native backup capabilities.
+
 ## Getting started
 
 To learn more about AWS Backup, we recommend that you start with [Getting started with AWS Backup](getting-started.md "getting-started.md").

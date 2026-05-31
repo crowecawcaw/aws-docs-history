@@ -7,7 +7,7 @@ template enables Amazon GuardDuty Malware Protection scanning in a backup plan.
 ###### Note
 
 If you are using the default service role, replace
-`service-role` with
+`backup-policy-name` with
 `AWSBackupServiceRolePolicyForBackup`.
 
 ```
@@ -77,7 +77,7 @@ Resources:
             Action:
               - "sts:AssumeRole"
       ManagedPolicyArns:
-        - "arn:aws:iam::aws:policy/service-role/`service-role`"
+        - "arn:aws:iam::aws:policy/service-role/`backup-policy-name`"
 
   TagBasedBackupSelection:
     Type: "AWS::Backup::BackupSelection"
@@ -202,7 +202,7 @@ Resources:
             Action:
               - "sts:AssumeRole"
       ManagedPolicyArns:
-        - "arn:aws:iam::aws:policy/service-role/`service-role`"
+        - "arn:aws:iam::aws:policy/service-role/`backup-policy-name`"
         - "arn:aws:iam::aws:policy/AWSBackupServiceRolePolicyForScans"
 
   TagBasedBackupSelection:
