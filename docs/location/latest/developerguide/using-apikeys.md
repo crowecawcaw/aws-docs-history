@@ -27,16 +27,17 @@ For example, you might want a web application that shows your business location 
 available to anyone using the website, whether they are logged in or not. In this case,
 one alternative is to use API keys to make the API calls.
 
-See [API key best practices](#api-keys-best-practices "#api-keys-best-practices") for additional information about when to
+See [Best practices for API keys](api-keys-best-practices.md "api-keys-best-practices.md") for additional information about when to
 use API keys.
 
 For more information about working with keys using the Amazon Location Service API, see the following
 topics in the _Amazon Location Service API Reference_:
 
-- [CreateKey](../APIReference/API_geotags_CreateKey.md "../APIReference/API_geotags_CreateKey.md")
-- [DeleteKey](../APIReference/API_geotags_DeleteKey.md "../APIReference/API_geotags_DeleteKey.md")
-- [DescribeKey](../APIReference/API_geotags_DescribeKey.md "../APIReference/API_geotags_DescribeKey.md")
-- [ListKeys](../APIReference/API_geotags_ListKeys.md "../APIReference/API_geotags_ListKeys.md")
+- [CreateKey](../APIReference/API_geoapikeys_CreateKey.md "../APIReference/API_geoapikeys_CreateKey.md")
+- [DeleteKey](../APIReference/API_geoapikeys_DeleteKey.md "../APIReference/API_geoapikeys_DeleteKey.md")
+- [DescribeKey](../APIReference/API_geoapikeys_DescribeKey.md "../APIReference/API_geoapikeys_DescribeKey.md")
+- [ListKeys](../APIReference/API_geoapikeys_ListKeys.md "../APIReference/API_geoapikeys_ListKeys.md")
+- [UpdateKey](../APIReference/API_geoapikeys_UpdateKey.md "../APIReference/API_geoapikeys_UpdateKey.md")
 
 ## Create an API key for Amazon Location Service
 
@@ -70,7 +71,7 @@ Amazon Location console
      Actions**.
    - **Expiration time** –
      Optionally, add an expiration date and time for your API
-     key. For more information, see [API key best practices](#api-keys-best-practices "#api-keys-best-practices").
+     key. For more information, see [Best practices for API keys](api-keys-best-practices.md "api-keys-best-practices.md").
    - **Client restrictions** –
      Optionally, add one or more web domains or one or more
      Android or Apple apps where you can use the API key. For
@@ -129,7 +130,7 @@ aws location describe-key \
 ```
 
 Amazon Location API
-Use the [CreateKey](../APIReference/API_geotags_CreateKey.md "../APIReference/API_geotags_CreateKey.md") operation from the Amazon Location APIs. The following
+Use the [CreateKey](../APIReference/API_geoapikeys_CreateKey.md "../APIReference/API_geoapikeys_CreateKey.md") operation from the Amazon Location APIs. The following
 example is an API request to create an API key called
 `ExampleKey` with no expiration date and access to a
 single map resource.
@@ -159,7 +160,7 @@ The response includes the API key value to use when accessing
 resources in your applications. The key value will havethe format
 `v1.public.a1b2c3d4...`.
 
-You can also use the [DescribeKey](../APIReference/API_geotags_DescribeKey.md "../APIReference/API_geotags_DescribeKey.md") API to find the key value for a key at a later
+You can also use the [DescribeKey](../APIReference/API_geoapikeys_DescribeKey.md "../APIReference/API_geoapikeys_DescribeKey.md") API to find the key value for a key at a later
 time.
 
 ## Use an API key to call an Amazon Location API
@@ -339,84 +340,3 @@ class MapActivity : Activity(), OnMapReadyCallback {
     }
 }
 ```
-
-## Restrict API key usage by request origin
-
-You can configure API keys with client restrictions that limit access to specific
-domains or mobile applications. When restricting by domain, requests will be
-authorized only if the HTTP Referer header matches the value that you provide. When
-restricting by Android or Apple application, requests will be authorized only if the
-application identifier HTTP header fields match the values that you provide.
-
-For more information, see [ApiKeyRestrictions](../APIReference/API_geotags_ApiKeyRestrictions.md "../APIReference/API_geotags_ApiKeyRestrictions.md") in the _Amazon Location Service API
-Reference_.
-
-**Android application identifiers:**
-
-- `X-Android-Package`:
-
-A unique identifier for Android applications, defined in the app's
-`build.gradle` file, typically following a reverse-domain
-format.
-
-Example:
-
-`com.mydomain.appname`
-
-- `X-Android-Cert`:
-
-The SHA-1 hash of the signing certificate used to sign the Android
-APK.
-
-Example:
-
-`BB:0D:AC:74:D3:21:E1:43:67:71:9B:62:91:AF:A1:66:6E:44:5D:75`
-
-**Apple application identifiers:**
-
-- `X-Apple-Bundle-Id` :
-
-A unique identifier for Apple (iOS, macOS, etc.) applications, defined in
-the app's `Info.plist`, typically following a reverse-domain
-format.
-
-Example:
-
-`com.mydomain.appname`
-
-## API key best practices
-
-API keys include a plain text _value_ that gives access to one
-or more resources or APIs in your AWS account. If someone copies your API key,
-they can access those same resources and APIs. To minimize the potential impact,
-review the following best practices:
-
-- **Limit the API key**
-
-To avoid the situation above, it is best to limit your API key. When you
-create the key, you can specify the domain, Android app or Apple app where
-the key can be used.
-
-- **Manage API key lifetimes**
-
-You can create API keys that work indefinitely. However, if you want to
-create a temporary API key, rotate API keys on a regular basis, or revoke an
-existing API key, you can use _API key
-expiration_.
-
-    + You can set the expiration time for an API key when you create or
-     update it.
-    + When an API key reaches its expiration time, the key is
-     automatically deactivated. Inactive keys can no longer be used to
-     make requests.
-    + You can change a temporary key to a permanent key by removing the
-     expiration time.
-    + You can delete an API key 90 days after deactivating it.
-    + If you attempt to deactivate an API key that has been used within
-     the last seven days, you'll be prompted to confirm that you want to
-     make the change.
-
-
-    If you are using the Amazon Location Service API or the AWS CLI, set the
-     `ForceUpdate` parameter to `true`,
-     otherwise you'll receive an error.

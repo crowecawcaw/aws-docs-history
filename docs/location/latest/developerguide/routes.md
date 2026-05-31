@@ -2,9 +2,9 @@
 
 ![An overview of Amazon Location Service Routes.](images/routesV2/route-banner.png)
 With Amazon Location Service Routes, you can calculate travel time and distance between multiple starting
-points and ending points, visualize vehicle GPS traces aligned with roads, and better
-understand your serviceable areas. This helps reduce operating costs and improve customer
-experience.
+points and ending points, visualize vehicle GPS traces aligned with roads, plan journeys
+using public transit and intermodal transport, and better understand your serviceable areas.
+This helps reduce operating costs and improve customer experience.
 
 ## Features
 
@@ -44,6 +44,16 @@ and toll roads.
 
 Find speed limits for each segment of a route, ensuring drivers comply
 with local regulations.
+
+**Transit routing**
+
+Calculate routes using public transportation such as buses, subways,
+and trains, including transit line information, stops, and schedules.
+
+**Intermodal routing**
+
+Combine multiple transport types such as transit, pedestrian, rental,
+taxi, and vehicle to calculate intermodal routes.
 
 ![An application using Amazon Location Service route features.](images/routesV2/route-demo.png)
 

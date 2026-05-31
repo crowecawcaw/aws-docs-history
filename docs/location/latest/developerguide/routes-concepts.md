@@ -11,3 +11,5 @@ The Routes concepts in Amazon Location Service provide a robust framework for pl
 - [Traffic awareness](concepts-traffic-awareness.md "concepts-traffic-awareness.md")
 - [Optimize route and waypoint sequence](optimize-route-waypoint.md "optimize-route-waypoint.md")
 - [Driver schedule and notices](driver-schedule-notices.md "driver-schedule-notices.md")
+- [Transit routing](transit-routing.md "transit-routing.md")
+- [Intermodal routing](intermodal-routing.md "intermodal-routing.md")

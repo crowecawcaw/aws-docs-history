@@ -1,7 +1,7 @@
 # Calculate routes
 
 The Routes API calculates routes between two or more locations with or without avoidances
-for different travel modes such as car, truck, scooter, and pedestrian. With this API, you
+for different travel modes such as car, truck, scooter, pedestrian, transit, and intermodal. With this API, you
 can customize routing options and request additional route-related information to meet
 specific needs. This API supports turn-by-turn navigation and customizes route calculations
 by applying parameters like avoiding toll roads, motorways, or ferries. The API also returns
@@ -23,8 +23,8 @@ Calculate routes](calculate-routes-how-to.md "calculate-routes-how-to.md").
   decision-making by allowing users to view clear routes from their starting point
   to their destination. This feature can support navigation, planning, and various
   logistics scenarios, and display routes for travel modes such as cars, trucks,
-  scooters, and pedestrians. Customize routes by adding elements like avoidances
-  or toll calculations.
+  scooters, pedestrians, transit, and intermodal. Customize routes by adding
+  elements like avoidances or toll calculations.
 - **Show turn-by-turn navigation:** Provide
   seamless navigation support on web and mobile devices. Users can access
   turn-by-turn directions, ensuring efficient travel. Both platforms can leverage
@@ -45,6 +45,15 @@ Calculate routes](calculate-routes-how-to.md "calculate-routes-how-to.md").
   integrating routes, navigation, and tracking capabilities into logistics
   portals. Efficiently plan routes for multiple deliveries, track shipments in
   real-time, and manage fuel costs through better routing.
+- **Plan public transit journeys:**
+  Calculate routes using public transportation such as buses, subways, trains,
+  and monorails. Transit routes include walking directions to and from stops,
+  departure and arrival times, and transit line information.
+- **Combine transport types with intermodal routing:**
+  Calculate routes that combine multiple transport types in a single journey,
+  including transit, pedestrian, rental, taxi, and vehicle legs. Intermodal
+  routing enables end-to-end trip planning that reflects how people actually
+  travel in urban environments.
 
 ## Understand the request
 
@@ -102,6 +111,18 @@ journey.
 Span features that can be enabled within the response for each leg of the
 journey.
 
+**TravelMode**
+
+Specifies the mode of transport. Supported values include `Car`,
+`Truck`, `Scooter`, `Pedestrian`,
+`Transit`, and `Intermodal`.
+
+**TravelModeOptions**
+
+Travel mode-specific options. Includes options for `Transit` (such as
+allowed/excluded modes, max transfers, and pedestrian options) and `Intermodal`
+(such as transit, rental, taxi, vehicle, and pedestrian options).
+
 ## Understand the response
 
 The response provides route details such as the legs of the journey, notices about
@@ -122,7 +143,7 @@ Specifies the format of the route's geometry.
 
 ### Leg details
 
-Each leg of a journey can be of type Ferry, Pedestrian, or Vehicle depending on
+Each leg of a journey can be of type Ferry, Pedestrian, Vehicle, Transit, Rental, or Taxi depending on
 the transport mode. While each leg contains properties agnostic to transport mode,
 specific properties can be found under:
 
@@ -137,6 +158,18 @@ Vehicle-specific properties for the leg.
 **PedestrianLegDetails**
 
 Pedestrian-specific properties for the leg.
+
+**TransitLegDetails**
+
+Transit-specific properties for the leg, including transit line information, stops, and schedules.
+
+**RentalLegDetails**
+
+Rental-specific properties for the leg, such as car-share details.
+
+**TaxiLegDetails**
+
+Taxi-specific properties for the leg.
 
 ### Steps
 

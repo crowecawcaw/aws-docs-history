@@ -1,4 +1,4 @@
-# Best practices for Amazon Location Service
+# Best practices
 
 When working with Amazon Location Service, adhering to best practices ensures your maps are optimized
 for performance, accuracy, and user experience. This section outlines key considerations

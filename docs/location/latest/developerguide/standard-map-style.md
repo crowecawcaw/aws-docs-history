@@ -100,21 +100,21 @@ decision-making and spatial awareness.
 
 Both Terrain and Contour Density
 
-![](images/map-terrain-contour-light.png)
+![Topographic map showing Ireland Lake surrounded by contour lines indicating mountainous terrain.](images/map-terrain-contour-light.png)
 
-![](images/map-terrain-contour-dark.png)
+![Topographic map showing terrain with contour lines, elevation changes, and Ireland Lake labeled.](images/map-terrain-contour-dark.png)
 
 Only terrain
 
-![](images/map-terrain-light.png)
+![Topographic map showing Yosemite National Park area with labeled lakes and terrain features.](images/map-terrain-light.png)
 
-![](images/map-terrain-dark.png)
+![Topographic map showing Yosemite National Park with surrounding lakes including Cherry Lake, Benson Lake, Tenaya Lake, Merced Lake, and Ireland Lake.](images/map-terrain-dark.png)
 
 Only contour density
 
-![](images/map-contour-light.png)
+![Topographic map showing Ireland Lake surrounded by contour lines indicating terrain elevation.](images/map-contour-light.png)
 
-![](images/map-contour-dark.png)
+![Topographic map showing terrain contours with Ireland Lake labeled in the center.](images/map-contour-dark.png)
 
 ## Navigation
 
@@ -127,21 +127,21 @@ routing experiences.
 
 Traffic
 
-![](images/traffic-light.png)
+![Traffic map of New York City area showing road conditions with green, orange, and red routes.](images/traffic-light.png)
 
-![](images/traffic-dark.png)
+![Traffic map of New York City area showing road conditions with green, yellow, and red routes.](images/traffic-dark.png)
 
 Transit
 
-![](images/transit-light.png)
+![Map showing New York City area including Manhattan, Brooklyn, Jersey City, and Hoboken with major highways and waterways.](images/transit-light.png)
 
-![](images/transit-dark.png)
+![Map showing New York City area with colored route lines connecting Manhattan, Brooklyn, Jersey City, and surrounding regions.](images/transit-dark.png)
 
 Truck
 
-![](images/truck-light.png)
+![Map of New York City area showing road closures marked with prohibition icons on major routes.](images/truck-light.png)
 
-![](images/truck-dark.png)
+![Map of New York City area showing locations marked with circular icons containing symbols.](images/truck-dark.png)
 
 ## 3D
 
@@ -151,15 +151,15 @@ This three-dimensional rendering is ideal for route planning, urban navigation, 
 
 3D Terrain
 
-![](images/3d-terrain-light.png)
+![3D terrain map showing snow-covered mountain peaks, valleys, and glaciers in an alpine region.](images/3d-terrain-light.png)
 
-![](images/3d-terrain-dark.png)
+![Satellite map view showing terrain with water bodies in blue, land masses in dark gray, and labeled locations including Lac de Moiry and Siders.](images/3d-terrain-dark.png)
 
 3D Buildings
 
-![](images/3d-buildings-light.png)
+![3D map view of downtown Seattle showing buildings, Interstate 5, and city blocks in gray and white.](images/3d-buildings-light.png)
 
-![](images/3d-buildings-dark.png)
+![3D map view of urban area showing buildings, streets, and Interstate 5 highway with navigation routes.](images/3d-buildings-dark.png)
 
 ## Land use
 

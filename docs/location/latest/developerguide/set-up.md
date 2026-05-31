@@ -3,8 +3,6 @@
 This section describes what you need to do to use Amazon Location Service. You must have an
 AWS account and have set up access to Amazon Location for users that want to use it.
 
-### Sign up for an AWS account
-
 To get started with AWS, you need an AWS account. For information about creating an AWS account, see
 [Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
 in the _AWS Account Management Reference Guide_.

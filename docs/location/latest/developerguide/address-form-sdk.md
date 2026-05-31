@@ -73,7 +73,7 @@ Use of the Address Form SDK requires the following actions to be allowed in the 
 
 Follow the [Use API Keys to authenticate](using-apikeys.md "using-apikeys.md") guide to create an Amazon Location Service API key with the necessary permissions.
 
-Example key policy for the [CreateKey](../APIReference/API_geotags_CreateKey.md "../APIReference/API_geotags_CreateKey.md") API with required permissions:
+Example key policy for the [CreateKey](../APIReference/API_geoapikeys_CreateKey.md "../APIReference/API_geoapikeys_CreateKey.md") API with required permissions:
 
 ```
 

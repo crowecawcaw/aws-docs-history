@@ -4,14 +4,16 @@ Use the following options to specify the travel mode and related features to use
 
 **Travel mode options**
 
-Specifies the mode of transport when calculating a route. This setting influences the estimated speed of travel, road compatibility, and the potential use of ferries where needed.
+Specifies the mode of transport when calculating a route. This setting influences the estimated speed of travel, road compatibility, and the potential use of ferries, public transit, or intermodal transport where needed.
 
-| Parameter  | Description          | Routes            | Routes Matrix     | Isoline           | Optimize Waypoint | Snap To Road      |
-| ---------- | -------------------- | ----------------- | ----------------- | ----------------- | ----------------- | ----------------- |
-| Car        | Car travel mode.     | Yes, with options | Yes, with options | Yes, with options | Yes               | Yes               |
-| Scooter    | Scooter travel mode. | Yes, with options | Yes               | Yes, with options | Yes               | Yes               |
-| Pedestrian | Walking travel mode. | Yes, with options | Yes               | Yes               | Yes, with options | Yes               |
-| Truck      | Truck travel mode.   | Yes, with options | Yes, with options | Yes, with options | Yes, with options | Yes, with options |
+| Parameter  | Description                                                                                                                                                                    | Routes            | Routes Matrix     | Isoline           | Optimize Waypoint | Snap To Road      |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- | ----------------- | ----------------- | ----------------- | ----------------- |
+| Car        | Car travel mode.                                                                                                                                                               | Yes, with options | Yes, with options | Yes, with options | Yes               | Yes               |
+| Scooter    | Scooter travel mode.                                                                                                                                                           | Yes, with options | Yes               | Yes, with options | Yes               | Yes               |
+| Pedestrian | Walking travel mode.                                                                                                                                                           | Yes, with options | Yes               | Yes               | Yes, with options | Yes               |
+| Truck      | Truck travel mode.                                                                                                                                                             | Yes, with options | Yes, with options | Yes, with options | Yes, with options | Yes, with options |
+| Transit    | Public transit travel mode. Calculates routes using public transportation such as buses, subways, and trains.                                                                  | Yes, with options | No                | No                | No                | No                |
+| Intermodal | Intermodal travel mode. Combines multiple transport types such as transit, pedestrian, rental, taxi, and vehicle to calculate intermodal routes. Pedestrian is always enabled. | Yes, with options | No                | No                | No                | No                |
 
 **Avoidance, exclusion, and allow options**
 

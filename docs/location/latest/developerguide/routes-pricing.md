@@ -9,8 +9,8 @@ has three pricing buckets: Core, Advanced, and Premium.
 
 **Core**
 
-This pricing bucket supports the travel modes `Car`, `Truck`, and
-`Pedestrian`, without toll cost calculation.
+This pricing bucket supports the travel modes `Car` and `Truck`
+without toll cost calculation, and `Pedestrian` and `Transit`.
 
 **Advanced**
 
@@ -24,11 +24,12 @@ the `Scooter` travel mode is part of the Core pricing bucket.
 
 **Premium**
 
-This pricing bucket supports toll cost calculation. You will be charged
-at Premium price when you request toll cost calculation by setting the
-request parameters `LegAdditionalFeatures["Tolls"]` or
-`SpanAdditionalFeatures["TollSystems"]`, regardless of
-travel mode.
+This pricing bucket supports toll cost calculation and the `Intermodal`
+travel mode. You will be charged at Premium price when you request toll cost
+calculation by setting the request parameters
+`LegAdditionalFeatures["Tolls"]` or
+`SpanAdditionalFeatures["TollSystems"]`, or when using the
+`Intermodal` travel mode.
 
 ## Calculate Route Matrix
 

@@ -32,7 +32,7 @@ Follow the procedures below to create your first API key.
      **geo-places:Search\***.
    - **Expiration time** – Optionally, add an
      expiration date and time for your API key. For more information, see
-     [API key best practices](using-apikeys.md#api-keys-best-practices "using-apikeys.md#api-keys-best-practices").
+     [Best practices for API keys](api-keys-best-practices.md "api-keys-best-practices.md").
    - **Client restrictions** – Optionally, add one
      or more web domains or one or more Android or Apple apps where you can
      use the API key. For example, if the API key is to allow an application

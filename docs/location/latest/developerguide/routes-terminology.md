@@ -14,7 +14,7 @@ Waypoints are intermediate stops along a route from the departure point to the d
 
 **Leg**
 
-A leg represents the journey between two consecutive positions on a route. If the positions are off-road, they are moved to the nearest road. A route with no waypoints consists of a single leg. Routes with one or more waypoints have multiple legs, with each leg representing travel from one waypoint to the next. Certain legs, like those involving ferries, contain specific information pertinent to that leg type.
+A leg represents the journey between two consecutive positions on a route. If the positions are off-road, they are moved to the nearest road. A route with no waypoints consists of a single leg. Routes with one or more waypoints have multiple legs, with each leg representing travel from one waypoint to the next. Certain legs, like those involving ferries, transit, rental, or taxi, contain specific information pertinent to that leg type.
 
 **Step**
 

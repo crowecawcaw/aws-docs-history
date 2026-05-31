@@ -8,6 +8,6 @@ requests.
 
 ###### Topics
 
-- [Best practices for Amazon Location Service](maps-best-practices.md "maps-best-practices.md")
+- [Best practices](maps-best-practices.md "maps-best-practices.md")
 - [Maps pricing](maps-pricing.md "maps-pricing.md")
 - [Map quotas and usage](map-quota-and-usage.md "map-quota-and-usage.md")

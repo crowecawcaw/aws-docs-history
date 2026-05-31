@@ -1,0 +1,60 @@
+# Intermodal routing
+
+Intermodal routing calculates routes that combine multiple transport types in a single journey.
+When the travel mode is set to `Intermodal`, the route may include transit, pedestrian,
+rental, taxi, and vehicle legs. Pedestrian legs are always enabled and are used to connect between
+other transport types.
+
+## Leg types
+
+An intermodal route consists of one or more legs, each representing a different transport type.
+The following leg types can appear in an intermodal route.
+
+| Leg type   | Description                                                                                                                        |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Pedestrian | Walking segments that connect other legs. Always enabled and cannot be disabled.                                                   |
+| Transit    | Public transit segments using buses, trains, subways, and other transit modes. Supports the same transit modes as Transit routing. |
+| Rental     | Rental segments. Currently supports car share.                                                                                     |
+| Taxi       | Taxi segments. Currently supports car-based taxis.                                                                                 |
+| Vehicle    | Private vehicle segments. Currently supports car.                                                                                  |
+
+## EnabledFor options
+
+For transit, rental, taxi, and vehicle legs, you can use `EnabledFor` to control
+which portion of the route allows that leg type. The following values are supported.
+
+| Value         | Description                                                         |
+| ------------- | ------------------------------------------------------------------- |
+| `FirstLeg`    | Enable this leg type for the first non-pedestrian leg of the route. |
+| `LastLeg`     | Enable this leg type for the last non-pedestrian leg of the route.  |
+| `EntireRoute` | Enable this leg type for the entire route.                          |
+| `None`        | Disable this leg type entirely.                                     |
+
+## Modes
+
+For transit, rental, taxi, and vehicle legs, you can control which modes are used with
+`AllowedModes` or `ExcludedModes`. These are configured at
+the individual leg type level.
+
+- `AllowedModes` – Only the specified modes are used. All other modes are disabled.
+- `ExcludedModes` – The specified modes are disabled. All other modes remain enabled.
+
+You cannot use `AllowedModes` and `ExcludedModes` together for the same leg type.
+
+## Unsupported fields
+
+Intermodal routing supports a different set of request fields compared to other travel modes.
+The following top-level fields are not supported when the travel mode is set to `Intermodal`.
+
+| Field                    | Description                                                                              |
+| ------------------------ | ---------------------------------------------------------------------------------------- |
+| `Allow`                  | Road features to allow during route calculation, such as high occupancy lanes.           |
+| `Avoid`                  | Road features or areas to avoid during route calculation, such as toll roads or ferries. |
+| `Driver`                 | Driver-related options such as schedule or rest rules.                                   |
+| `Exclude`                | Exclusion options such as specific countries to avoid.                                   |
+| `OptimizeRoutingFor`     | Optimization objective for routing, such as fastest or shortest distance.                |
+| `SpanAdditionalFeatures` | Additional span-level features such as speed limits or road attributes.                  |
+| `Tolls`                  | Toll cost calculation options.                                                           |
+| `Traffic`                | Traffic usage options for route calculation.                                             |
+| `TravelStepType`         | The `TurnByTurn` value is not supported for intermodal routing.                          |
+| `Waypoints`              | Intermediate waypoints along the route.                                                  |

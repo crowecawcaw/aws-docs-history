@@ -1,4 +1,4 @@
-# Best Practices
+# Best practices
 
 This section covers best practices for using compression and choosing between Simple
 (GeoJSON) and FlexiblePolyline formats when interacting with the API, providing guidance

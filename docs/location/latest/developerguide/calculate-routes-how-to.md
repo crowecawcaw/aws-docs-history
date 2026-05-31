@@ -13,3 +13,5 @@ This section provides step-by-step instructions for using `CalculateRoutes`. Thi
 - [How to create routes with custom avoidance of several potential items](calculate-routes-custom-avoidance-multiple.md "calculate-routes-custom-avoidance-multiple.md")
 - [How to find the fastest route](calculate-routes-custom-avoidance-fast.md "calculate-routes-custom-avoidance-fast.md")
 - [How to find the shortest routes](calculate-routes-custom-avoidance-shortest.md "calculate-routes-custom-avoidance-shortest.md")
+- [How to find a transit route](calculate-routes-transit-route.md "calculate-routes-transit-route.md")
+- [How to find an intermodal route](calculate-routes-intermodal-route.md "calculate-routes-intermodal-route.md")

@@ -8,6 +8,6 @@ API requests.
 
 ###### Topics
 
-- [Best Practices](routes-best-practices.md "routes-best-practices.md")
+- [Best practices](routes-best-practices.md "routes-best-practices.md")
 - [Routes pricing](routes-pricing.md "routes-pricing.md")
 - [Routes Quota and Usage](routes-quota-usage.md "routes-quota-usage.md")
