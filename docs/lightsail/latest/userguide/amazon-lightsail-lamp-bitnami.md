@@ -22,6 +22,7 @@ If your instance uses the LAMP blueprint packaged by Lightsail, see
 ###### Topics
 
 - [Launch and configure instances that use LAMP packaged by Bitnami](amazon-lightsail-quick-start-guide-lamp-bitnami.md "amazon-lightsail-quick-start-guide-lamp-bitnami.md")
+- [Enable HTTPS on instances that use LAMP packaged by Bitnami with Let's Encrypt and Certbot](amazon-lightsail-using-lets-encrypt-certificates-with-lamp.md "amazon-lightsail-using-lets-encrypt-certificates-with-lamp.md")
 - [Connect instances that use LAMP packaged by Bitnami to an Aurora database](amazon-lightsail-connect-lamp-instance-to-aurora-database.md "amazon-lightsail-connect-lamp-instance-to-aurora-database.md")
 - [Identify your blueprint vendor](#identify-blueprint-vendor "#identify-blueprint-vendor")
 

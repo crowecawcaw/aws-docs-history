@@ -22,5 +22,4 @@ Node.js
 - [Set up a PrestaShop website on Lightsail](amazon-lightsail-quick-start-guide-prestashop.md "amazon-lightsail-quick-start-guide-prestashop.md")
 - [Configure and secure a Redmine instance on Lightsail](amazon-lightsail-quick-start-guide-redmine.md "amazon-lightsail-quick-start-guide-redmine.md")
 - [Set up Ruby on Rails on Lightsail](amazon-lightsail-quick-start-guide-rubyonrails.md "amazon-lightsail-quick-start-guide-rubyonrails.md")
-- [Launch and configure a WordPress instance on Lightsail](amazon-lightsail-quick-start-wordpress.md "amazon-lightsail-quick-start-wordpress.md")
 - [Set up WordPress Multisite on Lightsail](amazon-lightsail-quick-start-guide-wordpress-multisite.md "amazon-lightsail-quick-start-guide-wordpress-multisite.md")

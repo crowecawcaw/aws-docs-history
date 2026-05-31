@@ -92,7 +92,7 @@ without setting up an SSH client.
 Now that you can connect to your instance, what you do next depends on how you plan to use
 it. For example:
 
-- [Configure and manage Lightsail WordPress instances](wordpress-tutorials.md "wordpress-tutorials.md") if you're creating a blog.
+- [WordPress](amazon-lightsail-wordpress.md "amazon-lightsail-wordpress.md") if you're creating a blog.
 - [Create a static IP
   address](lightsail-create-static-ip.md "lightsail-create-static-ip.md") for your instance to keep the same IP address each time you restart your
   Lightsail instance.

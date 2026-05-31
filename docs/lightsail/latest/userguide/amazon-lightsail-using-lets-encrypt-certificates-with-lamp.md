@@ -101,7 +101,7 @@ ACME-enabled client that interacts with Let's Encrypt.
    you want to connect to. For example, with a WordPress instance named
    _Example_:
 
-![SSH quick connect on the Lightsail home page.](/images/lightsail/latest/userguide/images/instances/resource_cards/ssh_quick_connect.png) 3. After your Lightsail browser-based SSH session is connected, enter the following
+![SSH quick connect on the Lightsail home page.](images/instances/resource_cards/ssh-quick-connect.png) 3. After your Lightsail browser-based SSH session is connected, enter the following
 command to update the packages on your instance:
 
 ```

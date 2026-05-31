@@ -113,18 +113,19 @@ administration dashboard of their blog sites.
    you want to connect to. For example, with a WordPress instance named
    _Example_:
 
-![SSH quick connect on the Lightsail home page.](/images/lightsail/latest/userguide/images/instances/resource_cards/ssh_quick_connect.png) 3. After your Lightsail browser-based SSH session is connected, enter the following
+![SSH quick connect on the Lightsail home page.](images/instances/resource_cards/ssh-quick-connect.png) 3. After your Lightsail browser-based SSH session is connected, enter the following
 command to open and edit the `wp-config.php` file of your instance using
-Vim:
+Vim.
+
+Select the tab for your blueprint vendor:
+
+Lightsail
 
 ```
-sudo vim /opt/bitnami/wordpress/wp-config.php
+sudo vim /var/www/wp-config.php
 ```
 
-###### Note
-
-If this command fails, you might be using an older version of the WordPress
-Multisite instance. Try running the following command instead.
+Bitnami
 
 ```
 sudo vim /opt/bitnami/wordpress/wp-config.php
@@ -144,6 +145,14 @@ The file will look like the following when done:
 `:wq!` and press **Enter** to save your edits (write) and
 quit Vim. 7. Enter the following command to restart the underlying services of the WordPress
 instance.
+
+Lightsail
+
+```
+sudo systemctl restart apache2
+```
+
+Bitnami
 
 ```
 sudo /opt/bitnami/ctlscript.sh restart

@@ -51,8 +51,8 @@ of the Amazon SES sandbox. For more information, see [Moving Out of the Amazon S
 You must complete the following tasks before you can enable email on your WordPress
 instance:
 
-- Create a WordPress instance in Lightsail. For more information, see [Tutorial: Launch
-  and configure a WordPress instance in Amazon Lightsail](amazon-lightsail-tutorial-launching-and-configuring-wordpress.md "amazon-lightsail-tutorial-launching-and-configuring-wordpress.md").
+- Create a WordPress instance in Lightsail. For more information, see [Launch
+  and configure a WordPress instance in Amazon Lightsail](amazon-lightsail-launch-and-configure-wordpress.md "amazon-lightsail-launch-and-configure-wordpress.md").
 - Point your registered domain to your WordPress instance using a Lightsail DNS zone.
   For more information, see [Create a DNS
   zone to manage your domain’s DNS records](lightsail-how-to-create-dns-entry.md "lightsail-how-to-create-dns-entry.md").

@@ -33,10 +33,26 @@ redirects to the main blog of your WordPress Multisite instance.
    you want to connect to. For example, with a WordPress instance named
    _Example_:
 
-![SSH quick connect on the Lightsail home page.](/images/lightsail/latest/userguide/images/instances/resource_cards/ssh_quick_connect.png) 3. Enter the following command to define the primary domain name for your WordPress
+![SSH quick connect on the Lightsail home page.](/images/lightsail/latest/userguide/images/instances/resource_cards/ssh-quick-connect.png) 3. Enter the following command to define the primary domain name for your WordPress
 Multisite instance. Be sure to replace
 `<domain>` with the correct domain name for
 your WordPress Multisite.
+
+Select the tab for your blueprint vendor:
+
+Lightsail
+
+```
+sudo /opt/aws/wordpress/update_multisite_domain.sh `<domain>`
+```
+
+Example:
+
+```
+sudo /opt/aws/wordpress/update_multisite_domain.sh `example.com`
+```
+
+Bitnami
 
 ```
 sudo /opt/bitnami/configure_app_domain --domain `<domain>`

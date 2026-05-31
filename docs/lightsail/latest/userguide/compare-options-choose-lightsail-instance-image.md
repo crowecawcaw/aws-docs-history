@@ -20,7 +20,7 @@ Windows-based application hosting, website and web service hosting, data process
 distributed testing, ASP.NET application hosting, and any other application requiring
 Windows software. For end of support information, see the [_Microsoft_](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022 "https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022") website.
 
-This blueprint is compatible with a Lightsail IPv6-only instance plan.
+This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.
 
 Learn more about [Windows Server
 2022](https://aws.amazon.com/marketplace/pp/prodview-dq4sxno5vuy7m "https://aws.amazon.com/marketplace/pp/prodview-dq4sxno5vuy7m").
@@ -35,7 +35,7 @@ application hosting, website and web service hosting, data processing, distribut
 testing, ASP.NET application hosting, and any other application requiring Windows
 software. For end of support information, see the [_Microsoft_](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2019 "https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2019") website.
 
-This blueprint is compatible with a Lightsail IPv6-only instance plan.
+This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.
 
 Learn more about [Windows Server 2019](https://aws.amazon.com/marketplace/pp/B07QZ4XZ8F "https://aws.amazon.com/marketplace/pp/B07QZ4XZ8F").
 
@@ -49,7 +49,7 @@ application hosting, website and web service hosting, data processing, distribut
 testing, ASP.NET application hosting, and any other application requiring Windows
 software. For end of support information, see the [_Microsoft_](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2016 "https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2016") website.
 
-This blueprint is compatible with a Lightsail IPv6-only instance plan.
+This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.
 
 Learn more about [Windows Server 2016](https://aws.amazon.com/marketplace/pp/B01M7SJEU7 "https://aws.amazon.com/marketplace/pp/B01M7SJEU7").
 
@@ -65,7 +65,7 @@ needs.
 Lightsail instances launched from AL2023 will have Instance Metadata Service Version 2
 (IMDSv2) enforced by default. For more information, see [How Instance Metadata Service Version 2 works](amazon-lightsail-configuring-instance-metadata-service.md "amazon-lightsail-configuring-instance-metadata-service.md").
 
-This blueprint is compatible with a Lightsail IPv6-only instance plan.
+This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.
 
 Learn more about [Amazon Linux 2023](https://aws.amazon.com/linux/amazon-linux-2023/ "https://aws.amazon.com/linux/amazon-linux-2023/").
 
@@ -83,7 +83,7 @@ you get an application environment that offers long term support with access to 
 latest innovations in Linux. Amazon Linux 2 is provided at no additional charge. For end
 of support information, see [Amazon Linux 2 FAQs](https://aws.amazon.com/amazon-linux-2/faqs/ "https://aws.amazon.com/amazon-linux-2/faqs/").
 
-This blueprint is compatible with a Lightsail IPv6-only instance plan.
+This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.
 
 Learn more about [Amazon Linux 2](https://aws.amazon.com/amazon-linux-2 "https://aws.amazon.com/amazon-linux-2").
 
@@ -94,7 +94,7 @@ enterprise Linux distribution, focused on long-term stability, providing a robus
 production-grade platform. AlmaLinux is compatible with RHEL® and pre-Stream CentOS.
 For end of support information, see the [_AlmaLinux OS Foundation_](https://almalinux.org "https://almalinux.org") website.
 
-This blueprint is compatible with a Lightsail IPv6-only instance plan.
+This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.
 
 Learn more about [AlmaLinux OS
 9](https://aws.amazon.com/marketplace/pp/prodview-ykmb6re2rcouy "https://aws.amazon.com/marketplace/pp/prodview-ykmb6re2rcouy").
@@ -108,7 +108,7 @@ RHEL. It's designed to be functionally compatible with RHEL and provides a stabl
 predictable, manageable and reproducible Linux environment. For end of support
 information, see the [CentOS](https://www.centos.org/ "https://www.centos.org/") website.
 
-This blueprint is compatible with a Lightsail IPv6-only instance plan.
+This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.
 
 Learn more at the [_CentOS Stream_](https://www.centos.org/centos-stream/ "https://www.centos.org/centos-stream/") website.
 
@@ -125,7 +125,7 @@ its volunteer base, its dedication to the Debian Social Contract and Free Softwa
 its commitment to provide the best operating system possible. This new release is
 another important step in that direction. For end of support information, see the [Debian website](https://wiki.debian.org/DebianReleases "https://wiki.debian.org/DebianReleases").
 
-This blueprint is compatible with a Lightsail IPv6-only instance plan.
+This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.
 
 Learn more at the [_Debian_](https://www.debian.org/doc/ "https://www.debian.org/doc/") website.
 
@@ -141,7 +141,7 @@ for many of the busiest websites and most pervasive embedded networking and stor
 systems. For end of support information, see the [_FreeBSD_](https://www.freebsd.org/security/#sup "https://www.freebsd.org/security/#sup")
 website.
 
-This blueprint is compatible with a Lightsail IPv6-only instance plan.
+This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.
 
 Learn more at the [_FreeBSD_](https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/ "https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/") website.
 
@@ -169,7 +169,7 @@ about logging in, see [Connect to
 Linux or Unix instances on Lightsail](lightsail-how-to-connect-to-your-instance-virtual-private-server.md "lightsail-how-to-connect-to-your-instance-virtual-private-server.md") or [Connect to Lightsail Linux or Unix
 instances with the SSH command](amazon-lightsail-ssh-using-terminal.md "amazon-lightsail-ssh-using-terminal.md").
 
-This blueprint is compatible with a Lightsail IPv6-only instance plan.
+This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.
 
 Learn more at the [_openSUSE_](https://www.opensuse.org/ "https://www.opensuse.org/") website.
 
@@ -186,7 +186,7 @@ website.
 Lightsail instances created with the Ubuntu 24 blueprint will have Instance Metadata Service Version 2
 (IMDSv2) enforced by default. For more information, see [How Instance Metadata Service Version 2 works](amazon-lightsail-configuring-instance-metadata-service.md "amazon-lightsail-configuring-instance-metadata-service.md").
 
-This blueprint is compatible with a Lightsail IPv6-only instance plan.
+This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.
 
 Learn more at the [_Ubuntu_](https://help.ubuntu.com/community/CommunityHelpWiki "https://help.ubuntu.com/community/CommunityHelpWiki") website.
 
@@ -201,7 +201,7 @@ download, distribute, and use. It comprises a database specifically targeted for
 embedded and smaller-scale applications. This Lightsail image runs on a base OS of
 Windows Server 2022.
 
-This blueprint is compatible with a Lightsail IPv6-only instance plan.
+This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.
 
 Learn more about [SQL Server 2022
 Express](https://aws.amazon.com/marketplace/pp/prodview-c2jz4lr4h2yc6 "https://aws.amazon.com/marketplace/pp/prodview-c2jz4lr4h2yc6").
@@ -213,7 +213,7 @@ download, distribute, and use. It comprises a database specifically targeted for
 embedded and smaller-scale applications. This Lightsail image runs on a base OS of
 Windows Server 2022.
 
-This blueprint is compatible with a Lightsail IPv6-only instance plan.
+This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.
 
 Learn more about [SQL Server 2019
 Express](https://aws.amazon.com/marketplace/pp/prodview-xbikutlmywslu "https://aws.amazon.com/marketplace/pp/prodview-xbikutlmywslu").
@@ -230,7 +230,7 @@ download, distribute, and use. It comprises a database specifically targeted for
 embedded and smaller-scale applications. This Lightsail image runs on a base OS of
 Windows Server 2016.
 
-This blueprint is compatible with a Lightsail IPv6-only instance plan.
+This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.
 
 Learn more about [SQL
 Server 2016 Express](https://aws.amazon.com/marketplace/pp/B01MAZHH98 "https://aws.amazon.com/marketplace/pp/B01MAZHH98").
@@ -251,7 +251,7 @@ AMP, and W3 Total Cache are pre-installed in this blueprint.
 Lightsail instances launched from WordPress will have Instance Metadata Service Version 2
 (IMDSv2) enforced by default. For more information, see [How Instance Metadata Service Version 2 works](amazon-lightsail-configuring-instance-metadata-service.md "amazon-lightsail-configuring-instance-metadata-service.md").
 
-[Launch and configure a WordPress instance on Lightsail](amazon-lightsail-tutorial-launching-and-configuring-wordpress.md "amazon-lightsail-tutorial-launching-and-configuring-wordpress.md")
+[Launch and configure a WordPress instance](amazon-lightsail-launch-and-configure-wordpress.md "amazon-lightsail-launch-and-configure-wordpress.md")
 
 Learn more about the [WordPress
 stack](https://wordpress.org/ "https://wordpress.org/") at the _WordPress_ website.
@@ -268,7 +268,7 @@ feel of your site with a few clicks. You can also use existing free or commercia
 WordPress themes. WordPress is in full compliance with the standards of the [_World Wide Web Consortium
 (W3C)_](https://www.w3.org/ "https://www.w3.org/").
 
-[Launch and configure a WordPress instance on Lightsail](amazon-lightsail-tutorial-launching-and-configuring-wordpress.md "amazon-lightsail-tutorial-launching-and-configuring-wordpress.md")
+[WordPress by Bitnami](amazon-lightsail-wordpress-bitnami.md "amazon-lightsail-wordpress-bitnami.md")
 
 Learn more about [WordPress](https://bitnami.com/stack/wordpress "https://bitnami.com/stack/wordpress")
 at the _Bitnami_ website.
@@ -408,7 +408,7 @@ application as soon as you create your instance in Lightsail. Bitnami LAMP stack
 regularly updated to ensure that you always have access to the latest stable releases
 for each bundled component.
 
-This blueprint is compatible with a Lightsail IPv6-only instance plan.
+This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.
 
 [Launch and configure a LAMP packaged by Bitnami instance](amazon-lightsail-quick-start-guide-lamp-bitnami.md "amazon-lightsail-quick-start-guide-lamp-bitnami.md")
 
@@ -468,7 +468,7 @@ Bitnami MEAN stack provides a complete development environment for MongoDB and
 Node.js that you can deploy in one click. It includes the latest stable release of
 MongoDB, Express, Angular, Node.js, Git, PHP, and RockMongo.
 
-This blueprint is compatible with a Lightsail IPv6-only instance plan.
+This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.
 
 Learn more about the [MEAN stack](https://bitnami.com/stack/mean "https://bitnami.com/stack/mean")
 at the _Bitnami_ website.
@@ -511,7 +511,7 @@ Lightsail packages blueprints to be secure and up-to-date using industry best pr
 Lightsail instances launched from Nginx will have Instance Metadata Service Version 2
 (IMDSv2) enforced by default. For more information, see [How Instance Metadata Service Version 2 works](amazon-lightsail-configuring-instance-metadata-service.md "amazon-lightsail-configuring-instance-metadata-service.md").
 
-This blueprint is compatible with a Lightsail IPv6-only instance plan.
+This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.
 
 [Deploy and manage an Nginx web server on Lightsail](amazon-lightsail-quick-start-guide-nginx.md "amazon-lightsail-quick-start-guide-nginx.md")
 
@@ -589,7 +589,7 @@ support for multiple projects, role-based access control, Gantt charts and calen
 management of news, documents, and files, per-project wikis and forums, SCM integration,
 and more.
 
-This blueprint is compatible with a Lightsail IPv6-only instance plan.
+This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.
 
 [Configure and secure a Redmine instance on Lightsail](amazon-lightsail-quick-start-guide-redmine.md "amazon-lightsail-quick-start-guide-redmine.md")
 

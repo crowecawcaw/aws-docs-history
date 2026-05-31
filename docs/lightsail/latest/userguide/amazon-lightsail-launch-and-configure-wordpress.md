@@ -1,4 +1,4 @@
-# Launch and configure a WordPress instance on Lightsail
+# Launch and configure a WordPress instance
 
 Amazon Lightsail is the easiest way to get started with Amazon Web Services (AWS). Lightsail
 includes everything you need to launch your project quickly — instances (virtual private
@@ -7,7 +7,7 @@ management, static IPs, and load balancers — for a [low, predictable price](ht
 
 With this tutorial, you will learn how to launch and configure a WordPress instance on
 Lightsail. It includes steps to configure a custom domain name, secure internet traffic with
-HTTPS, connect to your instance by using SSH, and sign in to your WordPress website. When you’re
+HTTPS, connect to your instance by using SSH, and sign in to your WordPress website. When you're
 done with this tutorial, you have the fundamentals to get your instance up and running on
 Lightsail.
 
@@ -185,7 +185,7 @@ Codex](https://codex.wordpress.org/ "https://codex.wordpress.org/") in the WordP
 Here are some additional steps that you can perform after launching a WordPress instance
 in Amazon Lightsail:
 
-- [Configure WordPress with a Lightsail content delivery network](amazon-lightsail-editing-wp-config-for-distribution.md "amazon-lightsail-editing-wp-config-for-distribution.md")
+- [Configure WordPress with a Lightsail content delivery network](amazon-lightsail-configure-wordpress-for-distribution.md "amazon-lightsail-configure-wordpress-for-distribution.md")
 - [Create a snapshot
   of your Linux or Unix instance](lightsail-how-to-create-a-snapshot-of-your-instance.md "lightsail-how-to-create-a-snapshot-of-your-instance.md")
 - [Enable or disable

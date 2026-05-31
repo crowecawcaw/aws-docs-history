@@ -1,62 +1,20 @@
-# Launch and configure a WordPress instance on Lightsail
+# Secure your WordPress site with HTTPS on Lightsail
 
-Amazon Lightsail is the easiest way to get started with Amazon Web Services (AWS). Lightsail
-includes everything you need to launch your project quickly — instances (virtual private
-servers), managed databases, SSD-based storage, backups (snapshots), data transfer, domain DNS
-management, static IPs, and load balancers — for a [low, predictable price](https://aws.amazon.com/lightsail/pricing/ "https://aws.amazon.com/lightsail/pricing/").
+###### This tutorial applies to instances that use WordPress packaged by Bitnami only
 
-With this tutorial, you will learn how to launch and configure a WordPress instance on
-Lightsail. It includes steps to configure a custom domain name, secure internet traffic with
-HTTPS, connect to your instance by using SSH, and sign in to your WordPress website. When you’re
-done with this tutorial, you have the fundamentals to get your instance up and running on
-Lightsail.
+If your instance uses the WordPress blueprint packaged by Lightsail, see
+[WordPress](amazon-lightsail-wordpress.md "amazon-lightsail-wordpress.md") instead.
 
-###### Note
+Enabling Hypertext Transfer Protocol Secure (HTTPS) for your WordPress website assures
+visitors that your website is secure; that it's sending and receiving encrypted data. A
+non-secure website has an address that starts with `http`, such as
+`http://example.com`, while a secure website has an address that starts with
+`https`, such as `https://example.com`. Even if your website is
+primarily informational, it's still recommended that you enable HTTPS. This is because most web
+browsers will notify website visitors that your website is not secure if HTTPS is not enabled,
+and your website will rank lower in search engine results.
 
-As part of the AWS Free Tier, you can get started with Amazon Lightsail for free on
-select instance bundles. For more information, see **AWS Free Tier**
-on the [Amazon Lightsail Pricing page](https://aws.amazon.com/lightsail/pricing "https://aws.amazon.com/lightsail/pricing").
-
-## Step 1: Sign up for AWS
-
-Amazon Lightsail requires an AWS account. [Sign up for AWS](https://console.aws.amazon.com/console/home "https://console.aws.amazon.com/console/home"), or [sign in to AWS](https://console.aws.amazon.com/console/home "https://console.aws.amazon.com/console/home") if you already
-have an account.
-
-## Step 2: Create a WordPress instance
-
-Complete the following steps to get your WordPress instance up and running. For more
-information, see [Create a Lightsail instance](how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md "how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md").
-
-###### To create a Lightsail instance for WordPress
-
-1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/").
-2. On the **Instances** section of the Lightsail home page, choose
-   **Create instance**.
-
-![Launching WordPress in Lightsail.](images/amazon-wordpress-tutorial-01.png) 3. Choose the AWS Region and Availability Zone for your instance.
-
-![Launching WordPress in Lightsail.](images/create-instance-select-region-az.png) 4. Choose the image for your instance as follows:
-
-    1. For **Select a platform**, choose **Linux/Unix**.
-    2. Select a **WordPress** blueprint.
-    3. Select your **Blueprint provider**. We recommend using **Lightsail**.
-
-5. Choose an instance plan.
-
-A plan includes a machine configuration (RAM, SSD, vCPU) at a low, predictable cost, plus a
-data transfer allowance. 6. Enter a name for your instance. Resource names:
-
-    * Must be unique within each AWS Region in your Lightsail account.
-    * Must contain 2 to 255 characters.
-    * Must start and end with an alphanumeric character or number.
-    * Can include alphanumeric characters, numbers, periods, dashes, and
-     underscores.
-
-7. Choose **Create instance**.
-8. To view the test blog post, go to the instance management page and copy the public IPv4 address shown in the upper-right corner of the page.
-   Paste the address into the address field of an internet-connected web browser. The browser displays the test blog post.
-
-## Step 3: Configure your WordPress instance
+## Step 1: Configure your WordPress instance
 
 You can configure your WordPress instance by using a guided, step-by-step workflow
 that will configure the following:
@@ -82,6 +40,9 @@ that will configure the following:
 
 Review the following tips before you begin. For troubleshooting information, see [Troubleshooting WordPress setup](amazon-lightsail-troubleshooting-wp-setup.md "amazon-lightsail-troubleshooting-wp-setup.md").
 
+- Setup supports Lightsail instances with WordPress version 6 and newer, that were created after
+  January 1, 2023.
+- The Certbot dependency file, HTTPS rewrite script and certificate renewal script that are run during setup are saved in the `/opt/bitnami/lightsail/scripts/` directory on your instance.
 - Your instance must be in a **Running** state. Allow a few minutes for the SSH connection to become ready
   if the instance was just started.
 - Ports 22, 80, and 443 on your instance firewall must allow TCP connections from
@@ -93,6 +54,9 @@ Review the following tips before you begin. For troubleshooting information, see
   Internet. You can verify that your DNS changes have taken effect by using tools such
   as [nslookup](https://aws.amazon.com/blogs//messaging-and-targeting/how-to-check-your-domain-verification-settings/ "https://aws.amazon.com/blogs//messaging-and-targeting/how-to-check-your-domain-verification-settings/"), or [DNS
   Lookup](https://mxtoolbox.com/DnsLookup.aspx "https://mxtoolbox.com/DnsLookup.aspx") from _MxToolbox_.
+- Wordpress instances that were created prior to January 1, 2023, might contain a deprecated Certbot Personal Package Archive (PPA) repository that will
+  cause website setup to fail. If this repository is present during setup, it will be removed from the existing path and backed up to the following
+  location on your instance: `~/opt/bitnami/lightsail/repo.backup`. For more information about the deprecated PPA, see [Certbot PPA](https://launchpad.net/~certbot/+archive/ubuntu/certbot "https://launchpad.net/~certbot/+archive/ubuntu/certbot") on the _Canonical_ website.
 - Let's Encrypt certificates will automatically renew
   every 60 to 90 days.
 - While setup is in progress, do not stop or make changes to your instance. It can
@@ -132,7 +96,12 @@ It can take up to 15 minutes to configure your instance. You can view the progre
 each step in the instance connect tab. 7. After the website setup is complete, verify that the URLs that you specified in the
 domain assignments step open your WordPress site.
 
-## Step 4: Get the admin password for your WordPress website
+###### Note
+
+If your blueprint does not support the guided workflow, you can use `bncert` to create
+your SSL certificates.For more information about using `bncert` to enable HTTPS, see [Secure your WordPress site with HTTPS on Lightsail with bncert](amazon-lightsail-enabling-https-on-wordpress-with-bncert.md "amazon-lightsail-enabling-https-on-wordpress-with-bncert.md").
+
+## Step 2: Get the admin password for your WordPress website
 
 The default password to sign in to the administration dashboard of your WordPress website
 is stored on the instance. Complete the following steps to get the password.
@@ -144,15 +113,15 @@ is stored on the instance. Complete the following steps to get the password.
    password**. This expands **Access default password** at
    the bottom of the page.
 
-![Accessing WordPress admin password in Lightsail.](images/wordpress/wordpress-lightsail-retrieve-password.png) 3. Choose **Launch CloudShell**. This opens a panel at the bottom of
+![Accessing WordPress admin password in Lightsail.](images/wordpress/wordpress-bitnami-retrieve-password.png) 3. Choose **Launch CloudShell**. This opens a panel at the bottom of
 the page. 4. Choose **Copy** and then paste the contents into the CloudShell
 window. You can either put your cursor at the CloudShell prompt and press Ctrl+V,
 or you can right-click to open the menu and then choose **Paste**. 5. Make a note of the password displayed in the CloudShell window. You need this
 to sign in to the administration dashboard of your WordPress website.
 
-![Viewing WordPress admin password in Lightsail.](images/wordpress/amazon-wordpress-lightsail-viewing-admin-password.png)
+![Viewing WordPress admin password in Lightsail.](images/amazon-wordpress-viewing-admin-password-01.png)
 
-## Step 5: Sign in to the administration dashboard of your WordPress website
+## Step 3: Sign in to the administration dashboard of your WordPress website
 
 Now that you have the password for the administration dashboard of your WordPress website,
 you can sign in. In the administration dashboard, you can change your user password, install
@@ -179,16 +148,3 @@ WordPress website, see the [WordPress
 Codex](https://codex.wordpress.org/ "https://codex.wordpress.org/") in the WordPress documentation.
 
 ![Launching and configuring WordPress in Lightsail.](images/amazon-wordpress-tutorial-08.png)
-
-## Additional information
-
-Here are some additional steps that you can perform after launching a WordPress instance
-in Amazon Lightsail:
-
-- [Configure WordPress with a Lightsail content delivery network](amazon-lightsail-editing-wp-config-for-distribution.md "amazon-lightsail-editing-wp-config-for-distribution.md")
-- [Create a snapshot
-  of your Linux or Unix instance](lightsail-how-to-create-a-snapshot-of-your-instance.md "lightsail-how-to-create-a-snapshot-of-your-instance.md")
-- [Enable or disable
-  automatic snapshots for instances or disks](amazon-lightsail-configuring-automatic-snapshots.md "amazon-lightsail-configuring-automatic-snapshots.md")
-- [Create and
-  attach additional block storage disks to your Linux-based instances](create-and-attach-additional-block-storage-disks-linux-unix.md "create-and-attach-additional-block-storage-disks-linux-unix.md")

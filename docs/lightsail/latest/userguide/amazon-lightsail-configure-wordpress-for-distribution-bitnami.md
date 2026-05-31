@@ -1,6 +1,24 @@
 # Configure WordPress with a Lightsail content delivery network
 
-In this guide, we show you how to configure your WordPress instance to work with a
+###### This blueprint packaged by Bitnami is being deprecated
+
+Blueprints packaged by Bitnami will no longer receive updates after May 19, 2026.
+Starting November 19, 2026, you will no longer be able to create new instances with
+this blueprint. When creating new instances, we recommend using the equivalent
+Lightsail blueprint if available. Existing instances using blueprints packaged by
+Bitnami will continue to run without any disruption.
+[Learn more](amazon-lightsail-faq-bitnami-blueprints.md "amazon-lightsail-faq-bitnami-blueprints.md")
+
+If you have an existing instance that uses a blueprint packaged by Bitnami and want to
+migrate to a Lightsail-packaged blueprint, see
+[Migrate to Lightsail blueprints](migrate-from-bitnami-to-lightsail-blueprints.md "migrate-from-bitnami-to-lightsail-blueprints.md").
+
+###### This tutorial applies to instances that use WordPress packaged by Bitnami only
+
+If your instance uses the WordPress blueprint packaged by Lightsail, see
+[WordPress](amazon-lightsail-wordpress.md "amazon-lightsail-wordpress.md") instead.
+
+In this guide, we show you how to configure your WordPress instance to work with an
 Amazon Lightsail distribution.
 
 All Lightsail distributions have HTTPS enabled by default for their default domain (for
@@ -17,14 +35,16 @@ encrypted.
   forward all content requests to your instance using an encrypted connection. This
   configuration is known as end-to-end encryption.
 
-## Create the distribution
+## Step 1: Complete the prerequisites
+
+Before you get started, make sure your WordPress instance is in a running state. For more
+information, see [Start,
+stop, or restart your instance](lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.md "lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.md").
+
+## Step 2: Create the distribution
 
 Complete the following steps to configure a Lightsail distribution for your WordPress
 instance. For more information, see [Create a Lightsail content delivery network distribution](amazon-lightsail-creating-content-delivery-network-distribution.md "amazon-lightsail-creating-content-delivery-network-distribution.md").
-
-###### Prerequisite
-
-Create and configure a WordPress instance as described in [Launch and configure a WordPress instance on Lightsail](amazon-lightsail-tutorial-launching-and-configuring-wordpress.md "amazon-lightsail-tutorial-launching-and-configuring-wordpress.md").
 
 ###### To create a distribution for your WordPress instance
 
@@ -46,7 +66,7 @@ Create and configure a WordPress instance as described in [Launch and configure 
 9. For **Update DNS records**, choose **I
    understand**.
 
-## Update DNS records
+## Step 3: Update DNS records
 
 Complete the following steps to update the DNS records for your Lightsail DNS
 zone.
@@ -62,7 +82,7 @@ zone.
    d2vbec9EXAMPLE.cloudfront.net).
 5. Choose **Save**.
 
-## Allow static content to be cached by the distribution
+## Step 4: Allow static content to be cached by the distribution
 
 Complete the following procedure to edit the `wp-config.php` file in your
 WordPress instance so that it works with your distribution.

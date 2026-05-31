@@ -1,5 +1,23 @@
 # Secure your WordPress site with HTTPS on Lightsail with bncert
 
+###### This blueprint packaged by Bitnami is being deprecated
+
+Blueprints packaged by Bitnami will no longer receive updates after May 19, 2026.
+Starting November 19, 2026, you will no longer be able to create new instances with
+this blueprint. When creating new instances, we recommend using the equivalent
+Lightsail blueprint if available. Existing instances using blueprints packaged by
+Bitnami will continue to run without any disruption.
+[Learn more](amazon-lightsail-faq-bitnami-blueprints.md "amazon-lightsail-faq-bitnami-blueprints.md")
+
+If you have an existing instance that uses a blueprint packaged by Bitnami and want to
+migrate to a Lightsail-packaged blueprint, see
+[Migrate to Lightsail blueprints](migrate-from-bitnami-to-lightsail-blueprints.md "migrate-from-bitnami-to-lightsail-blueprints.md").
+
+###### This tutorial applies to instances that use WordPress packaged by Bitnami only
+
+If your instance uses the WordPress blueprint packaged by Lightsail, see
+[WordPress](amazon-lightsail-wordpress.md "amazon-lightsail-wordpress.md") instead.
+
 Enabling Hypertext Transfer Protocol Secure (HTTPS) for your WordPress website assures
 visitors that your website is secure; that it's sending and receiving encrypted data. A
 non-secure website has an address that starts with `http`, such as
@@ -15,7 +33,7 @@ Lightsail offers a guided workflow that automates the installation and configura
 an SSL/TLS Let's Encrypt certificate on your WordPress instance. We highly recommend that you
 use the workflow instead of following the manual steps in this tutorial. For more information,
 see [Launch and
-configure a WordPress instance](amazon-lightsail-tutorial-launching-and-configuring-wordpress.md "amazon-lightsail-tutorial-launching-and-configuring-wordpress.md").
+configure a WordPress instance](amazon-lightsail-launch-and-configure-wordpress.md "amazon-lightsail-launch-and-configure-wordpress.md").
 
 This guide shows you how to use the Bitnami HTTPS configuration tool (`bncert`)
 to enable HTTPS on your _Certified by Bitnami_ WordPress instance on
@@ -96,8 +114,9 @@ The `bncert` tool has the following limitations:
 
 Complete the following prerequisites if you haven’t already done so:
 
-- Create a WordPress instance in Lightsail, and configure your website on your
-  instance. For more information, see [Get started with Linux/Unix-based instances in Amazon Lightsail](getting-started-with-amazon-lightsail.md "getting-started-with-amazon-lightsail.md").
+- Make sure your WordPress instance is in a running state. For more information, see
+  [Start,
+  stop, or restart your instance](lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.md "lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.md").
 - Attach a static IP to your instance. Your instance's public IP address changes if you
   stop and start your instance. A static IP does not change if you stop and start your
   instance. For more information, see [Create a
@@ -132,7 +151,7 @@ client in the Lightsail console.
    you want to connect to. For example, with a WordPress instance named
    _Example_:
 
-![SSH quick connect on the Lightsail home page.](/images/lightsail/latest/userguide/images/instances/resource_cards/ssh_quick_connect.png) 3. The browser-based SSH client terminal window opens. You are successfully connected to
+![SSH quick connect on the Lightsail home page.](images/instances/resource_cards/ssh-quick-connect.png) 3. The browser-based SSH client terminal window opens. You are successfully connected to
 your instance via SSH if you see the Bitnami logo as shown in the following
 example.
 

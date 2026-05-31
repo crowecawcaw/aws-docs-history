@@ -1,5 +1,10 @@
 # Connect a WordPress instance to a Lightsail bucket for static content
 
+###### This tutorial applies to instances that use WordPress packaged by Bitnami only
+
+If your instance uses the WordPress blueprint packaged by Lightsail, see
+[WordPress](amazon-lightsail-wordpress.md "amazon-lightsail-wordpress.md") instead.
+
 This tutorial describes the steps required to connect your WordPress website running on an
 Amazon Lightsail instance to a Lightsail bucket. You can use the bucket to host static content
 such as images and attachments. To do this, you must install the WP Offload Media Lite plugin on
@@ -22,8 +27,9 @@ your bucket instead of the instance’s disk.
 
 Complete the following prerequisites if you haven't already:
 
-- Create a WordPress instance in Lightsail. For more information, see [Tutorial: Launch
-  and configure a WordPress instance in Amazon Lightsail](amazon-lightsail-tutorial-launching-and-configuring-wordpress.md "amazon-lightsail-tutorial-launching-and-configuring-wordpress.md").
+- Make sure your WordPress instance is in a running state. For more information, see
+  [Start,
+  stop, or restart your instance](lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.md "lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.md").
 - Create a bucket in the Lightsail object storage service. For more information, see
   [Create a bucket](amazon-lightsail-creating-buckets.md "amazon-lightsail-creating-buckets.md").
 

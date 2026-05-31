@@ -1,5 +1,23 @@
 # Connect a Lightsail WordPress instance to an Amazon Aurora database
 
+###### This blueprint packaged by Bitnami is being deprecated
+
+Blueprints packaged by Bitnami will no longer receive updates after May 19, 2026.
+Starting November 19, 2026, you will no longer be able to create new instances with
+this blueprint. When creating new instances, we recommend using the equivalent
+Lightsail blueprint if available. Existing instances using blueprints packaged by
+Bitnami will continue to run without any disruption.
+[Learn more](amazon-lightsail-faq-bitnami-blueprints.md "amazon-lightsail-faq-bitnami-blueprints.md")
+
+If you have an existing instance that uses a blueprint packaged by Bitnami and want to
+migrate to a Lightsail-packaged blueprint, see
+[Migrate to Lightsail blueprints](migrate-from-bitnami-to-lightsail-blueprints.md "migrate-from-bitnami-to-lightsail-blueprints.md").
+
+###### This tutorial applies to instances that use WordPress packaged by Bitnami only
+
+If your instance uses the WordPress blueprint packaged by Lightsail, see
+[WordPress](amazon-lightsail-wordpress.md "amazon-lightsail-wordpress.md") instead.
+
 Website data for posts, pages, and users is stored on a database that is running on your
 WordPress instance in Amazon Lightsail. If your instance fails, your data may become
 unrecoverable. To prevent this scenario, you should transfer your website data to an Amazon Aurora
@@ -19,23 +37,23 @@ in Lightsail to an Aurora managed database in Amazon RDS.
 **Contents**
 
 - [Step 1: Complete the
-  prerequisites](#connect-mysql-to-aurora-prerequisites "#connect-mysql-to-aurora-prerequisites")
+  prerequisites](#connect-mysql-to-aurora-prerequisites-bitnami "#connect-mysql-to-aurora-prerequisites-bitnami")
 - [Step 2: Configure the
-  security group for your Aurora database](#configure-aurora-security-group "#configure-aurora-security-group")
+  security group for your Aurora database](#configure-aurora-security-group-bitnami "#configure-aurora-security-group-bitnami")
 - [Step 3:
-  Connect to your Aurora database from your Lightsail instance](#connect-to-aurora-database-from-lightsail-instance "#connect-to-aurora-database-from-lightsail-instance")
+  Connect to your Aurora database from your Lightsail instance](#connect-to-aurora-database-from-lightsail-instance-bitnami "#connect-to-aurora-database-from-lightsail-instance-bitnami")
 - [Step 4: Transfer
-  the MySQL database from your WordPress instance to your Aurora database](#transfer-database-from-wordpres-to-aurora "#transfer-database-from-wordpres-to-aurora")
+  the MySQL database from your WordPress instance to your Aurora database](#transfer-database-from-wordpress-to-aurora-bitnami "#transfer-database-from-wordpress-to-aurora-bitnami")
 - [Step 5: Configure WordPress to
-  connect to your Aurora managed database](#connect-wordpress-to-aurora "#connect-wordpress-to-aurora")
+  connect to your Aurora managed database](#connect-wordpress-to-aurora-bitnami "#connect-wordpress-to-aurora-bitnami")
 
 ## Step 1: Complete the prerequisites
 
 Complete the following prerequisites before you begin:
 
-1. Create a WordPress instance in Lightsail, and configure your application on it. The
-   instance should be in a running state before you continue. For more information, see [Tutorial: Launch
-   and configure a WordPress instance in Amazon Lightsail](amazon-lightsail-tutorial-launching-and-configuring-wordpress.md "amazon-lightsail-tutorial-launching-and-configuring-wordpress.md").
+1. Make sure your WordPress instance is in a running state. For more information, see
+   [Start,
+   stop, or restart your instance](lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.md "lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.md").
 2. Turn on VPC peering in your Lightsail account. For more information, see [Set up peering to work
    with AWS resources outside of Lightsail](lightsail-how-to-set-up-vpc-peering-with-aws-resources.md "lightsail-how-to-set-up-vpc-peering-with-aws-resources.md").
 3. Create an Aurora managed database in Amazon RDS. The database must be located in the same
@@ -63,7 +81,7 @@ instance can establish a connection to your Aurora database.
    instance**. You will need these later when configuring your Lightsail
    instance to connect to the database.
 6. In the **Security** section, choose the active VPC security group
-   link. You will be redirected to your database’s security group.
+   link. You will be redirected to your database's security group.
 
 ![Connectivity & security tab screenshot of the Amazon RDS console.](images/wp-aurora-db-select-writer-instance.png) 7. Make sure that the security group for your Aurora database is selected. 8. Choose the **Inbound rules** tab. 9. Choose **Edit inbound rules**.
 
@@ -112,14 +130,14 @@ instance can access and connect to your Aurora database.
 
 ![Successful MySQL connection response.](images/wp-aurora-mysql-connect-message.png)
 
-If you don’t see this response, or you get an error message, then you might need to
+If you don't see this response, or you get an error message, then you might need to
 configure the security group of your Aurora database to allow the private IP address of
 your Lightsail instance to connect to it. For more information, see the [Configure the security group for
-your Aurora database](#configure-aurora-security-group "#configure-aurora-security-group") section of this guide.
+your Aurora database](#configure-aurora-security-group-bitnami "#configure-aurora-security-group-bitnami") section of this guide.
 
 ## Step 4: Transfer the database from your WordPress instance to your Aurora database
 
-Now that you’ve confirmed you can connect to your database from your instance, you should
+Now that you've confirmed you can connect to your database from your instance, you should
 transfer your WordPress website data to your Aurora database.
 
 1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/").
@@ -156,7 +174,7 @@ displayed:
 
 ![Successful transfer response.](images/wp-aurora-mysql-dump-2.png)
 
-If you get an error, confirm that you’re using the correct database user name,
+If you get an error, confirm that you're using the correct database user name,
 password, and endpoint, and try again.
 
 ## Step 5: Configure WordPress to connect to your Aurora database

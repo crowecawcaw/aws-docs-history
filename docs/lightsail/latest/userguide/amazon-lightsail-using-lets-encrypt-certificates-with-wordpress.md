@@ -1,12 +1,30 @@
 # Secure your Lightsail WordPress instance with free Let's Encrypt SSL certificates and certbot
 
+###### This blueprint packaged by Bitnami is being deprecated
+
+Blueprints packaged by Bitnami will no longer receive updates after May 19, 2026.
+Starting November 19, 2026, you will no longer be able to create new instances with
+this blueprint. When creating new instances, we recommend using the equivalent
+Lightsail blueprint if available. Existing instances using blueprints packaged by
+Bitnami will continue to run without any disruption.
+[Learn more](amazon-lightsail-faq-bitnami-blueprints.md "amazon-lightsail-faq-bitnami-blueprints.md")
+
+If you have an existing instance that uses a blueprint packaged by Bitnami and want to
+migrate to a Lightsail-packaged blueprint, see
+[Migrate to Lightsail blueprints](migrate-from-bitnami-to-lightsail-blueprints.md "migrate-from-bitnami-to-lightsail-blueprints.md").
+
+###### This tutorial applies to instances that use WordPress packaged by Bitnami only
+
+If your instance uses the WordPress blueprint packaged by Lightsail, see
+[WordPress](amazon-lightsail-wordpress.md "amazon-lightsail-wordpress.md") instead.
+
 ###### Tip
 
 Amazon Lightsail offers a guided workflow that automates the installation and configuration
 of a Let's Encrypt certificate on your WordPress instance. We highly recommend that you use
 the workflow instead of following the manual steps in this tutorial. For more information, see
 [Launch and
-configure a WordPress instance](amazon-lightsail-tutorial-launching-and-configuring-wordpress.md "amazon-lightsail-tutorial-launching-and-configuring-wordpress.md").
+configure a WordPress instance](amazon-lightsail-launch-and-configure-wordpress.md "amazon-lightsail-launch-and-configure-wordpress.md").
 
 Lightsail makes it easy to secure your websites and applications with SSL/TLS using
 Lightsail load balancers. However, using a Lightsail load balancer might not generally be
@@ -99,8 +117,9 @@ command:
 
 Complete the following prerequisites if you haven’t already done so:
 
-- Create a WordPress instance in Lightsail. To learn more, see [Create an
-  instance](how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md "how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md").
+- Make sure your WordPress instance is in a running state. For more information, see
+  [Start,
+  stop, or restart your instance](lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.md "lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.md").
 - Register a domain name, and get administrative access to edit its DNS records. To
   learn more, see [DNS](understanding-dns-in-amazon-lightsail.md "understanding-dns-in-amazon-lightsail.md").
 
@@ -129,7 +148,7 @@ ACME-enabled client that interacts with Let's Encrypt.
    you want to connect to. For example, with a WordPress instance named
    _Example_:
 
-![SSH quick connect on the Lightsail home page.](/images/lightsail/latest/userguide/images/instances/resource_cards/ssh_quick_connect.png) 3. After your Lightsail browser-based SSH session is connected, enter the following
+![SSH quick connect on the Lightsail home page.](images/instances/resource_cards/ssh-quick-connect.png) 3. After your Lightsail browser-based SSH session is connected, enter the following
 command to update the packages on your instance:
 
 ```

@@ -75,7 +75,7 @@ and forwards all query strings.
 
 You must edit the WordPress configuration file in your instance to make your WordPress
 website work with your distribution. For more information, see [Configure your WordPress
-instance to work with your distribution](amazon-lightsail-editing-wp-config-for-distribution.md "amazon-lightsail-editing-wp-config-for-distribution.md").
+instance to work with your distribution](amazon-lightsail-configure-wordpress-for-distribution.md "amazon-lightsail-configure-wordpress-for-distribution.md").
 
 ## Default behavior
 

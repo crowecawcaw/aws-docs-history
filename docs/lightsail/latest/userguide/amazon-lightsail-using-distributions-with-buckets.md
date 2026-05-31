@@ -34,8 +34,8 @@ distributions](amazon-lightsail-content-delivery-network-distributions.md "amazo
 Complete the following prerequisites if you haven't already:
 
 - Create and configure a WordPress instance in Lightsail, and get the password to sign
-  in to the administration dashboard. For more information, see [Tutorial: Launch
-  and configure a WordPress instance in Amazon Lightsail](amazon-lightsail-tutorial-launching-and-configuring-wordpress.md "amazon-lightsail-tutorial-launching-and-configuring-wordpress.md").
+  in to the administration dashboard. For more information, see [Launch
+  and configure a WordPress instance in Amazon Lightsail](amazon-lightsail-launch-and-configure-wordpress.md "amazon-lightsail-launch-and-configure-wordpress.md").
 - Create a bucket in the Lightsail object storage service. For more information, see
   [Creating buckets in
   Lightsail](amazon-lightsail-creating-buckets.md "amazon-lightsail-creating-buckets.md").

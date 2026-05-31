@@ -142,7 +142,7 @@ Lightsail instance and a distribution.
 4.  (Optional) If your distribution's origin is a WordPress instance, you must edit the
     WordPress configuration file in your instance to make your WordPress website work with
     your distribution. For more information, see [Configure your WordPress
-    instance to work with your distribution](amazon-lightsail-editing-wp-config-for-distribution.md "amazon-lightsail-editing-wp-config-for-distribution.md").
+    instance to work with your distribution](amazon-lightsail-configure-wordpress-for-distribution.md "amazon-lightsail-configure-wordpress-for-distribution.md").
 5.  **(Optional) Create a Lightsail DNS zone to manage your domain's
     DNS in the Lightsail console.** This allows you to easily map your domain to
     your Lightsail resources. For more information, see [Create a DNS zone to manage your domain’s

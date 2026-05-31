@@ -47,7 +47,7 @@ Amazon Lightsail](log-in-to-your-bitnami-application-running-on-amazon-lightsail
 1. On your instance management page, under the **Connect** tab,
    choose **Connect using SSH**.
 
-![Connect using SSH in the Lightsail console](/images/lightsail/latest/userguide/images/quick-start-connect-to-your-instance.png) 2. After you're connected, enter the following command to get the application
+![Connect using SSH in the Lightsail console](images/quick-start-connect-to-your-instance.png) 2. After you're connected, enter the following command to get the application
 password:
 
 ```
@@ -247,7 +247,7 @@ press **Enter** to confirm and continue.
 ![Confirming the changes](images/bncert-confirm-changes.png) 11. Enter your email address to associate with your Let's Encrypt certificate and
 press **Enter**.
 
-![Associating your email address with your Let's Encrypt certificate](/images/lightsail/latest/userguide/images/bncert-email-address.png) 12. Review the Let's Encrypt Subscriber Agreement. Type `Y` and press
+![Associating your email address with your Let's Encrypt certificate](images/bncert-email-address.png) 12. Review the Let's Encrypt Subscriber Agreement. Type `Y` and press
 **Enter** to accept the agreement and continue.
 
 ![Review the Let's Encrypt subscriber agreement](images/bncert-lets-ecrypt-agreement.png)
@@ -262,7 +262,7 @@ Your certificate is successfully issued and validated, and the redirections
 are successfully configured on your instance if you see a message similar to the
 following example.
 
-![Actions successfully completed](/images/lightsail/latest/userguide/images/bncert-success-conf.png)
+![Actions successfully completed](images/bncert-success-conf.png)
 
 The `bncert` tool will perform an automatic renewal of your
 certificate every 80 days before it expires. Repeat the above steps if you wish

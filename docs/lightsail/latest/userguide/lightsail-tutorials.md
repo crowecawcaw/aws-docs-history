@@ -4,7 +4,8 @@ This section covers the following topics related to Amazon Lightsail:
 
 ###### Topics
 
-- [Configure and manage Lightsail WordPress instances](wordpress-tutorials.md "wordpress-tutorials.md")
+- [WordPress](amazon-lightsail-wordpress.md "amazon-lightsail-wordpress.md")
+- [Nginx tutorials for Amazon Lightsail](amazon-lightsail-nginx.md "amazon-lightsail-nginx.md")
 - [Manage multiple WordPress sites with Multisite on Lightsail](wordpress-multisite-tutorials.md "wordpress-multisite-tutorials.md")
 - [LAMP](amazon-lightsail-lamp-lightsail.md "amazon-lightsail-lamp-lightsail.md")
 - [Migrate to Lightsail](migrate-to-lightsail-tutorials.md "migrate-to-lightsail-tutorials.md")
