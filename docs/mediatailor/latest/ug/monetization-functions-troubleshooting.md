@@ -78,7 +78,7 @@ Use this field to identify the class of failure:
 | `VALIDATION_ERROR`     | Output path targets a field not writable in the current hook's scope     |
 | `INTERNAL_ERROR`       | Infrastructure failure unrelated to the function                         |
 
-The entries below are organized by symptom and reference these error types where
+The entries are organized by symptom and reference these error types where
 applicable.
 
 ### Expression returns null unexpectedly

@@ -9,8 +9,7 @@ the initial manifest response.
 ## Input
 
 `session.*`, `player_params.*`, and
-`event.*`. See the [Input field reference](monetization-functions-hooks.md#monetization-functions-hooks-input-ref "monetization-functions-hooks.md#monetization-functions-hooks-input-ref") for the complete
-list.
+`event.*`. For all available fields, see [Input field reference](monetization-functions-hooks.md#monetization-functions-hooks-input-ref "monetization-functions-hooks.md#monetization-functions-hooks-input-ref").
 
 ## Output namespace allowed
 

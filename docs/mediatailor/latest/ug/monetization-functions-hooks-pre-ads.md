@@ -10,8 +10,7 @@ opportunity is encountered during manifest processing.
 
 All fields from `PRE_SESSION_INITIALIZATION`, plus
 `avail.*`, `scte.*`, and `adsRequest.*` (url,
-method, headers, body). See the [Input field reference](monetization-functions-hooks.md#monetization-functions-hooks-input-ref "monetization-functions-hooks.md#monetization-functions-hooks-input-ref") for the complete
-list.
+method, headers, body). For all available fields, see [Input field reference](monetization-functions-hooks.md#monetization-functions-hooks-input-ref "monetization-functions-hooks.md#monetization-functions-hooks-input-ref").
 
 ## Output namespace allowed
 

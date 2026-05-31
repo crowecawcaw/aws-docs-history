@@ -91,8 +91,8 @@ These limits are enforced at runtime.
 
 ## Allowed JSONata functions
 
-See [JSONata expression
-reference](monetization-functions-jsonata.md "monetization-functions-jsonata.md") for the full list.
+For the full list of allowed functions, see [JSONata expression
+reference](monetization-functions-jsonata.md "monetization-functions-jsonata.md").
 
 For help diagnosing errors related to these limits, see [Troubleshooting and
 monitoring](monetization-functions-troubleshooting.md "monetization-functions-troubleshooting.md").
