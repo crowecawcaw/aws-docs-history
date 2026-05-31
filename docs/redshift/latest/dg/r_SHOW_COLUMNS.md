@@ -50,7 +50,7 @@ The name of the table that contains the columns to list.
 
 _filter_pattern_
 
-A valid UTF-8 character expression with a pattern to match table names. The
+A valid UTF-8 character expression with a pattern to match column names. The
 LIKE option performs a case-sensitive match that supports the following
 pattern-matching metacharacters:
 

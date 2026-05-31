@@ -14,6 +14,14 @@ SVV_DATASHARES is visible to the following users:
 - Users with ALTER or USAGE permissions on a datashare
   Other users can't see any rows. For information on the ALTER and USAGE permissions, see [GRANT](r_GRANT.md "r_GRANT.md").
 
+For more information about best practices when querying system tables and views, see
+[Querying System Tables](../mgmt/discovering-metadata-system-tables.md "../mgmt/discovering-metadata-system-tables.md").
+
+###### Note
+
+Use the [SHOW DATASHARES](r_SHOW_DATASHARES.md "r_SHOW_DATASHARES.md") command for datashare discovery. SHOW DATASHARES is updated as new features are released.
+For more information, see [Best practices for discovering metadata](../mgmt/best-practices-discovering-metadata.md "../mgmt/best-practices-discovering-metadata.md").
+
 ## Table columns
 
 | Column name         | Data type                   | Description                                                                                        |

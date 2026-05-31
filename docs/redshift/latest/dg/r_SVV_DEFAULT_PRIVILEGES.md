@@ -13,6 +13,15 @@ SVV_DEFAULT_PRIVILEGES is visible to the following users:
   Other users can
   only see default permissions granted to them.
 
+For more information about best practices when querying system tables and views, see
+[Querying System Tables](../mgmt/discovering-metadata-system-tables.md "../mgmt/discovering-metadata-system-tables.md").
+
+###### Note
+
+Use the [SHOW GRANTS](r_SHOW_GRANTS.md "r_SHOW_GRANTS.md") command for permission discovery. SHOW GRANTS works consistently
+across local, datashare, and external catalog contexts and is updated as new features are released.
+For more information, see [Best practices for discovering metadata](../mgmt/best-practices-discovering-metadata.md "../mgmt/best-practices-discovering-metadata.md").
+
 ## Table columns
 
 | Column name    | Data type | Description                                                                                                                              |

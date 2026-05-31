@@ -8,6 +8,15 @@ Use SVV_RLS_POLICY to view a list of all row-level security policies created on 
 
 SVV_RLS_POLICY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
+For more information about best practices when querying system tables and views, see
+[Querying System Tables](../mgmt/discovering-metadata-system-tables.md "../mgmt/discovering-metadata-system-tables.md").
+
+###### Note
+
+Use the [SHOW POLICIES](r_SHOW_POLICIES.md "r_SHOW_POLICIES.md") command for policy discovery. SHOW POLICIES works consistently
+across local, datashare, and external catalog contexts and is updated as new features are released.
+For more information, see [Best practices for discovering metadata](../mgmt/best-practices-discovering-metadata.md "../mgmt/best-practices-discovering-metadata.md").
+
 ## Table columns
 
 | Column name     | Data type | Description                                                                          |

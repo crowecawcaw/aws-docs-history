@@ -23,6 +23,15 @@ they have been granted access. Although regular users can see table metadata in 
 system catalog tables, they can only select data from user-defined tables if they
 own the table or have been granted access.
 
+For more information about best practices when querying system tables and views, see
+[Querying System Tables](../mgmt/discovering-metadata-system-tables.md "../mgmt/discovering-metadata-system-tables.md").
+
+###### Note
+
+Use the [SHOW COLUMNS](r_SHOW_COLUMNS.md "r_SHOW_COLUMNS.md") command for column discovery. SHOW COLUMNS works consistently across
+local, datashare, and external catalog contexts and is updated as new features are released.
+For more information, see [Best practices for discovering metadata](../mgmt/best-practices-discovering-metadata.md "../mgmt/best-practices-discovering-metadata.md").
+
 ## Table columns
 
 | Column name              | Data type | Description                                                                                                                                          |

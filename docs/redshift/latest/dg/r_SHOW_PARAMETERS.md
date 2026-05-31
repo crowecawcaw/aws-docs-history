@@ -36,7 +36,7 @@ The name of the schema that contains the function to list.
 
 _filter_pattern_
 
-A valid UTF-8 character expression with a pattern to match table names. The LIKE option performs a case-sensitive match that supports the following pattern-matching metacharacters:
+A valid UTF-8 character expression with a pattern to match parameter names. The LIKE option performs a case-sensitive match that supports the following pattern-matching metacharacters:
 
 | Metacharacter | Description                                     |
 | ------------- | ----------------------------------------------- |
