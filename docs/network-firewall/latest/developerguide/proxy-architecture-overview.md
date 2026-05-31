@@ -22,7 +22,7 @@ You can either configure the Network Firewall Proxy in the same VPC as your appl
 
 When the Network Firewall Proxy and the Applications are in the same VPC. This architecture provides complete isolation and independent control over proxy configurations for each VPC. Traffic from applications within a VPC flows through its designated proxy before reaching the NAT Gateway for internet access.
 
-![](images/dedicated-vpc-proxy.png)
+![VPC architecture with private subnet containing clients and proxy endpoint connecting through NFW proxy and NAT gateway to internet gateway in public subnet.](images/dedicated-vpc-proxy.png)
 
 ###### Note
 
@@ -32,10 +32,10 @@ When you create a VPC endpoint, AWS automatically creates a private hosted zone 
 
 This architecture implements a centralized AWS Network Firewall Proxy that serves multiple VPCs through proxy endpoints. The proxy resides in a dedicated security VPC, while proxy endpoints are automatically created in each connected application VPC. Traffic from all application VPCs flows through these endpoints to the central proxy before reaching the internet.
 
-![](images/centralized-proxy.png)
+![Three VPCs with private subnets connect through proxy endpoints to a central VPC containing Network Firewall proxy, NAT gateway, and internet gateway.](images/centralized-proxy.png)
 
 ## 3. Transit Gateway Integration Architecture
 
 For environments with non-overlapping CIDR ranges, you can leverage AWS Transit Gateway (TGW) to connect multiple VPCs to a centralized proxy. This architecture extends the centralized proxy model by using TGW as the connectivity layer between application VPCs and the security VPC hosting the proxy.
 
-![](images/tgw-proxy.png)
+![Three VPCs with clients connected via Transit Gateway to a central VPC with proxy and NAT gateway.](images/tgw-proxy.png)
