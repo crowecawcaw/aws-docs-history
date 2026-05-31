@@ -31,6 +31,7 @@ For more information, see [Service roles for AWS HealthOmics](permissions-servic
 - [Starting a run using the console](#starting-a-run-console "#starting-a-run-console")
 - [Starting a run using the API](#starting-a-run-api "#starting-a-run-api")
 - [Get information about a run](#getinfo-about-runs "#getinfo-about-runs")
+- [Specify engine settings](#start-run-api-engine-settings "#start-run-api-engine-settings")
 - [VPC networking](#start-run-vpc-networking "#start-run-vpc-networking")
 
 ## HealthOmics run parameters
@@ -304,6 +305,62 @@ The following is an example of the manifest.
 ```
 
 Run metadata isn't deleted if it's not present in the CloudWatch logs.
+
+## Specify engine settings
+
+For Nextflow v26.04.0 (and selected keys on earlier versions), you can pass an
+`engineSettings` map in the **StartRun** request to control engine behavior
+without modifying your workflow.
+
+The following table describes the supported keys:
+
+| Key             | Values                                                          | Behavior                                                                                                                                                                                                         | Version support                                                                  |
+| --------------- | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `engineVersion` | `"22.04.0"`, `"23.10.0"`, `"24.10.8"`, `"25.10.0"`, `"26.04.0"` | Pins the Nextflow version for the run. Overrides the version detected from `nextflow.config`.                                                                                                                    | All Nextflow versions                                                            |
+| `syntaxVersion` | `"v1"`, `"v2"`                                                  | Selects the syntax parser. For more information, see [Specify the Nextflow syntax version](workflow-definition-nextflow.md#nextflow-syntax-version "workflow-definition-nextflow.md#nextflow-syntax-version").   | Nextflow v26.04.0 and later. For v25.10.0 and earlier, only `"v1"` is supported. |
+| `outputFormat`  | `"json"`, `"text"`, `"none"`                                    | Sets the format of the engine's stdout/stderr summary.                                                                                                                                                           | Nextflow v26.04.0 and later (silently ignored on earlier versions)               |
+| `agentMode`     | `"true"`, `"false"` (case-insensitive), `"0"`, `"1"`, `0`, `1`  | Controls Nextflow agent mode.                                                                                                                                                                                    | Nextflow v26.04.0 and later (silently ignored on earlier versions)               |
+| `profile`       | Comma-separated profile names                                   | Activates one or more Nextflow configuration profiles. For more information, see [Use Nextflow profiles](workflow-definition-nextflow.md#nextflow-profiles "workflow-definition-nextflow.md#nextflow-profiles"). | All Nextflow versions                                                            |
+
+The following example uses `engineSettings` to pin the Nextflow version and select the
+legacy syntax parser:
+
+```
+{
+  "engineSettings": {
+    "engineVersion": "26.04.0",
+    "syntaxVersion": "v1",
+    "outputFormat": "json"
+  }
+}
+```
+
+The following example starts a run with a single Nextflow profile:
+
+```
+aws omics start-run \
+  --workflow-id `workflow-id` \
+  --role-arn `role-arn` \
+  --output-uri s3://`bucket-name`/`prefix`/ \
+  --engine-settings '{"profile": "test"}'
+```
+
+To specify multiple profiles, provide a comma-separated list as shown in the example below. Nextflow applies
+profiles in the order they are specified in the command line. If multiple profiles define the same setting, later
+profiles override earlier ones. In the example below, `test` is applied first and then
+`docker`, so any conflicting settings in `docker` take precedence over
+`test`.
+
+```
+aws omics start-run \
+  --workflow-id `workflow-id` \
+  --role-arn `role-arn` \
+  --output-uri s3://`bucket-name`/`prefix`/ \
+  --engine-settings '{"profile": "test,docker"}'
+```
+
+The `engineSettings` field is returned in the **GetRun** response, showing which
+engine settings were applied to the run.
 
 ## VPC networking
 

@@ -12,8 +12,10 @@ the workflow.
 - [Use nf-schema and nf-validation plugins](#schema-and-validation-plugins-nextflow "#schema-and-validation-plugins-nextflow")
 - [Specify storage URIs](#storage-uris-nextflow "#storage-uris-nextflow")
 - [Nextflow directives](#workflow-nexflow-directives "#workflow-nexflow-directives")
+- [Use Nextflow profiles](#nextflow-profiles "#nextflow-profiles")
 - [Export workflow-level content](#exporting-workflow-content-nextflow "#exporting-workflow-content-nextflow")
 - [Export task content](#exporting-task-content-nextflow "#exporting-task-content-nextflow")
+- [Specify the Nextflow syntax version](#nextflow-syntax-version "#nextflow-syntax-version")
 
 ## Use nf-schema and nf-validation plugins
 
@@ -24,13 +26,14 @@ Summary of HealthOmics support for plugins:
 - v22.04 – no support for plugins
 - v23.10 – supports `nf-schema` and `nf-validation`
 - v24.10 – supports `nf-schema`
-- v25.10 – supports `nf-schema`, `nf-core-utils`, `nf-fgbio`, and `nf-prov`
+- v25.10, v26.04 – supports `nf-schema`, `nf-core-utils`, `nf-fgbio`, and `nf-prov`
 
 HealthOmics provides the following support for Nextflow plugins:
 
 - For Nextflow v23.10, HealthOmics pre-installs the nf-validation@1.1.1 plugin.
 - For Nextflow v23.10 and v24.10, HealthOmics pre-installs the nf-schema@2.3.0 plugin.
 - For Nextflow v25.10, HealthOmics pre-installs the nf-schema@2.6.1, nf-core-utils@0.4.0, nf-prov@1.7.0, and nf-fgbio@1.0.1 plugins.
+- For Nextflow v26.04, HealthOmics pre-installs the nf-schema@2.7.2, nf-core-utils@0.4.0, nf-prov@1.7.0, and nf-fgbio@1.0.1 plugins.
 - You cannot retrieve additional plugins during a workflow run. HealthOmics ignores any other plugin versions
   that you specify in the `nextflow.config` file.
 - For Nextflow v24 and higher, `nf-schema` is the new version of the deprecated
@@ -257,9 +260,59 @@ process {
 }
 ```
 
+## Use Nextflow profiles
+
+Nextflow profiles are named sets of configuration settings that you can select at runtime. Define profiles in
+the `profiles` block of your `nextflow.config` file:
+
+```
+profiles {
+    standard {
+        process.cpus = 2
+        process.memory = '4 GB'
+    }
+
+    production {
+        process.cpus = 16
+        process.memory = '64 GB'
+        params.input = 's3://bucket/production-data.bam'
+    }
+}
+```
+
+When you start a run, specify one or more profiles using the `engineSettings` parameter. HealthOmics passes
+the `-profile` flag to the Nextflow engine. For more information, see [Specify engine settings](starting-a-run.md#start-run-api-engine-settings "starting-a-run.md#start-run-api-engine-settings").
+
+```
+aws omics start-run \
+  --workflow-id `workflow-id` \
+  --role-arn `role-arn` \
+  --output-uri s3://`bucket`/`prefix`/ \
+  --engine-settings '{"profile": "production"}'
+```
+
+When multiple profiles are specified (for example, `"test,docker"`), Nextflow applies them in the
+order they are specified in the command line. Later profiles override earlier ones for conflicting settings. For
+Nextflow versions lower than 26, profiles are applied in the order they are defined in the configuration file
+instead of command line order.
+
+Note the following:
+
+- Profile support is available for all HealthOmics supported Nextflow versions.
+- Profiles can contain parameters, process directives, `includeConfig` statements, and
+  manifest overrides (including `manifest.nextflowVersion`).
+- Explicit run parameters take precedence over profile-defined parameter values.
+- If you specify a nonexistent profile, HealthOmics returns a validation error.
+- Profiles must be defined in the workflow definition zip file. HealthOmics doesn't support fetching profile
+  definitions from external sources.
+- If you don't specify a profile, the run uses the `standard` profile if it's defined
+  under profiles in the workflow definition. Otherwise, the run uses the default (top-level) configuration.
+- When using profiles, we recommend pinning the Nextflow version in your workflow definition using
+  `manifest.nextflowVersion` to ensure consistent profile application behavior across runs.
+
 ## Export workflow-level content
 
-For Nextflow v25.10, you can export files produced outside of individual tasks, such as
+For Nextflow v25.10 and later, you can export files produced outside of individual tasks, such as
 provenance reports or pipeline DAGs. To export these files, write them to
 `/mnt/workflow/output/`. HealthOmics exports files placed in this directory to the
 `output/` prefix in your run's Amazon S3 output location.
@@ -350,7 +403,7 @@ to your output Amazon S3 bucket. As shown in the following example, set the **pu
   }
 ```
 
-For Nextflow v25.10, as an alternative to `publishDir`, you can use workflow outputs to export task content.
+For Nextflow v25.10 and later, as an alternative to `publishDir`, you can use workflow outputs to export task content.
 The following example shows how to define a workflow `output` block that
 exports task results to Amazon S3.
 
@@ -385,3 +438,23 @@ output {
 
 For more information about workflow outputs, see [Workflow
 outputs](https://www.nextflow.io/docs/latest/workflow.html#workflow-output-def "https://www.nextflow.io/docs/latest/workflow.html#workflow-output-def") in the Nextflow documentation.
+
+## Specify the Nextflow syntax version
+
+Nextflow v26.04.0 uses the strict (v2) syntax parser by default. This is a breaking change for
+workflows written using the legacy (v1) syntax, which is the default in Nextflow v25.10.0 and earlier.
+For information about the v2 syntax, see [Strict
+syntax](https://docs.seqera.io/nextflow/strict-syntax "https://docs.seqera.io/nextflow/strict-syntax") in the Seqera Nextflow documentation.
+
+To run a workflow authored against the legacy (v1) parser, set `engineSettings.syntaxVersion`
+to `v1` in the **StartRun** request:
+
+```
+{
+  "engineSettings": {
+    "syntaxVersion": "v1"
+  }
+}
+```
+
+For Nextflow v25.10.0 and earlier, HealthOmics does not support the v2 parser.

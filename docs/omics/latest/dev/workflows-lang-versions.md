@@ -34,7 +34,7 @@ see the [CWL user guide](https://github.com/common-workflow-language/user_guide 
 
 ## Nextflow version support
 
-HealthOmics supports four Nextflow stable versions. Nextflow typically releases a stable version every six months.
+HealthOmics supports five Nextflow stable versions. Nextflow typically releases a stable version every six months.
 HealthOmics doesn't support the monthly “edge” releases.
 
 HealthOmics supports released features in each version, but not preview features.
@@ -47,14 +47,17 @@ HealthOmics supports the following Nextflow versions:
 - Nextflow v23.10.0 DSL 2 (default)
 - Nextflow v24.10.8 DSL 2
 - Nextflow v25.10.0 DSL 2
+- Nextflow v26.04.0 DSL 2
 
 ###### Note
 
-HealthOmics does not support strict syntax mode in Nextflow v25.10.0.
+Nextflow v26.04.0 uses the strict (v2) syntax parser by default. To use the legacy parser, set
+`engineSettings.syntaxVersion` to `v1`. For Nextflow v25.10.0 and earlier, HealthOmics
+does not support strict syntax mode and the only allowed value is `v1`.
 
-To migrate your workflow to the latest supported version (v25.10.0), follow the [Nextflow upgrade guide](https://www.nextflow.io/docs/latest/migrations/25-10.html "https://www.nextflow.io/docs/latest/migrations/25-10.html").
+To migrate your workflow to the latest supported version (v26.04.0), follow the [Nextflow upgrade guide](https://nextflow.io/docs/latest/migrations/26-04.html "https://nextflow.io/docs/latest/migrations/26-04.html").
 
-There are some breaking changes when migrating to Nextflow v24 and v25. Follow the [Nextflow migration guide](https://www.nextflow.io/docs/latest/migrations/index.html "https://www.nextflow.io/docs/latest/migrations/index.html").
+There are some breaking changes when migrating to Nextflow v24, v25, or v26. Follow the [Nextflow migration guide](https://www.nextflow.io/docs/latest/migrations/index.html "https://www.nextflow.io/docs/latest/migrations/index.html").
 
 ### Detect and process Nextflow versions
 
@@ -110,14 +113,18 @@ HealthOmics processes the Nextflow version information as follows:
 - If you use **!** to specify an exact version or a range of versions that are not
   supported, HealthOmics raises an exception and fails the run. Consider using this option if you want to be strict
   with version requests and fail quickly if the request includes unsupported versions.
-- If you specify a range of versions, HealthOmics uses the highest-preference version in that range. The preference order from highest to lowest is v23.10.0, v22.04.0, v24.10.8, and v25.10.0. For example:
-  - If the range covers v23.10.0, v24.10.8, and v25.10.0, HealthOmics chooses v23.10.0.
+- If you specify a range of versions, HealthOmics uses the highest-preference version in that range. The preference order from highest to lowest is v23.10.0, v22.04.0, v24.10.8, v25.10.0, and v26.04.0. For example:
+  - If the range covers v25.10.0 and v26.04.0, HealthOmics chooses v25.10.0.
   - If the range covers v24.10.8 and v25.10.0, HealthOmics chooses v24.10.8.
 
 - If there is no requested version, or if the requested versions aren't valid or can’t be parsed for
   any reason:
   - If you specified DSL 1, HealthOmics runs Nextflow v22.04.
   - Otherwise, HealthOmics runs Nextflow v23.10.0.
+
+You can override the auto-selected Nextflow version by setting `engineSettings.engineVersion`
+in the **StartRun** request. This pins the run to a specific Nextflow version regardless of the
+version specified in the workflow's `nextflow.config` file. For more information, see [Specify engine settings](starting-a-run.md#start-run-api-engine-settings "starting-a-run.md#start-run-api-engine-settings").
 
 You can retrieve the following information about the Nextflow version that HealthOmics used for each run:
 
