@@ -304,33 +304,3 @@ information, see [Private image replication in Amazon ECR](replication.md "repli
   }
 }
 ```
-
-**Event for a failed image replication**
-
-The following event is sent when an image replication fails. The
-`result` field will contain `FAILED` and additional error
-information may be included in the event details.
-
-```
-{
-  "version": "0",
-  "id": "d9c244c2-7130-ff84-f3b2-5g577c9cb000",
-  "detail-type": "ECR Replication Action",
-  "source": "aws.ecr",
-  "account": "`123456789012`",
-  "time": "2024-05-08T20:45:12Z",
-  "region": "us-east-1",
-  "resources": [
-    "arn:aws:ecr:`us-east-1`:`123456789012`:repository/my-app"
-  ],
-  "detail": {
-    "result": "FAILED",
-    "repository-name": "`my-app`",
-    "image-digest": "`sha256:8g6c3751gf7gc5g47603ege4511d5a80ead5g90f5893543f1489bde2345`",
-    "source-account": "`123456789012`",
-    "action-type": "REPLICATE",
-    "source-region": "`us-west-2`",
-    "image-tag": "latest"
-  }
-}
-```
