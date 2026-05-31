@@ -17,16 +17,24 @@ Console
 2. In the navigation pane, choose **Placement
    Groups**.
 3. Choose **Create placement group**.
-4. Specify a name for the group.
-5. Choose the placement strategy for the group: **Cluster**,
-   **Spread**, or **Partition**.
+4. For **Name**, specify a name for the
+   group.
+5. For **Placement strategy**, choose the
+   placement strategy for the group: **Cluster**,
+   **Spread**, or
+   **Partition**.
+   1. If you chose **Spread**, for
+      **Spread level**, choose
+      **Host** or
+      **Rack**.
+   2. If you chose **Partition**, for
+      **Number of partitions**, enter the
+      number of partitions for the group.
 
-If you chose **Spread**, you must choose the
-spread level: **Rack** or **Host**.
-
-If you chose **Partition**, you must enter
-the number of partitions for the group. 6. (Optional) To add a tag, choose **Add new tag**, and
-then enter a key and value. 7. Choose **Create group**.
+6. (Optional) To add a tag, under **Tags**,
+   choose **Add new tag**, and then enter a key and
+   value.
+7. Choose **Create group**.
 
 AWS CLI
 Use the [create-placement-group](../../../cli/latest/reference/ec2/create-placement-group.md "../../../cli/latest/reference/ec2/create-placement-group.md") command.

@@ -64,10 +64,10 @@ metric.
 
 ###### Bare metal instances
 
-If you perform a restart from the operating system on a bare metal
-instance, the system status check might temporarily return a fail status.
-When the instance becomes available, the system status check should return a
-pass status.
+If you perform a restart on a bare metal instance, the system status
+check might temporarily return a fail status. When the instance becomes
+available, the system status check should return a pass
+status.
 
 ### Instance status checks
 
@@ -104,10 +104,10 @@ metric.
 
 ###### Bare metal instances
 
-If you perform a restart from the operating system on a bare metal
-instance, the instance status check might temporarily return a fail status.
-When the instance becomes available, the instance status check should return
-a pass status.
+If you perform a restart on a bare metal instance, the instance
+status check might temporarily return a fail status. When the instance
+becomes available, the instance status check should return a pass
+status.
 
 ### Attached EBS status checks
 
