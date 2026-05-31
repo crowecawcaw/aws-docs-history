@@ -4,17 +4,18 @@ After you [enable real-time analytics](enable-analytics.md "enable-analytics.md"
 in your flow, you can add rules that automatically alert supervisors when a
 customer experience issue occurs.
 
-For example, Contact Lens can automatically send an alert when certain
+For example, Conversational analytics can automatically send an alert when certain
 keywords or phrases are mentioned during the conversation, or when it detects
-other criteria. The supervisor sees the alert on the real-time metrics
-dashboard. From there, supervisors can listen in to the live call, and provide
+other criteria. The supervisor sees the alert on the **Current agent
+performance** widget on the [Queue and agent performance
+dashboard](queue-performance-dashboard.md "queue-performance-dashboard.md") analytics dashboard. From there, supervisors can listen in to the live call, and provide
 guidance to the agent over chat to help them resolve the issue faster.
 
 The following image shows an example of what a supervisor would see on the
-real-time metrics report when they get an alert. In this case,
-Contact Lens has detected an angry customer situation.
+real-time analytics dashboard when they get an alert. In this case,
+Conversational analytics has detected an angry customer situation.
 
-![The real-time metrics page, an alert for an angry customer.](images/contact-lens-real-time-metrics-alert2.png)
+![The real-time metrics page, an alert for an angry customer.](images/contact-lens-real-time-alert-analytics-dashboard.png)
 When the supervisor listens in to a live call, Contact Lens provides
 them with a real-time transcript and customer sentiment trend that helps them
 understand the situation and assess the appropriate action. The transcript also

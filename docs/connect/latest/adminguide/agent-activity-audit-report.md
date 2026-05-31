@@ -67,7 +67,7 @@ agent activity audit report.
 - **Contact Missed**: When the agent misses a chat or
   task contact.
 - **Missed Call Agent**: When an agent accepts a
-  callback, but they end the call before ringing the customer has
+  call, but they end the call before ringing the customer has
   finished.
 - **Paused**: When a contact has been paused after
   being connected to an agent using the CCP or public API.

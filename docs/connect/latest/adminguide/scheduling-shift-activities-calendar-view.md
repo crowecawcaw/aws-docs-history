@@ -50,8 +50,50 @@ you selected in the previous step.
      modifications made to the activity, such as adjustments to the
      date or time, will apply to an individual agent.
 
-7. Select the date and time for the activity.
-8. Select if you want to create this as a repeating activity.
+7. Select activity placement method:
+   1. **Do not optimize**: activity will be placed
+      for the date and time that you specify.
+   2. **Anytime within shift**: Optimizes
+      placement across the entire shift to minimize impact to service
+      level targets. Specify a date range, and the system finds the
+      best time within each agent's shift. For individual activities,
+      placement may vary by agent. For shared activities, all agents
+      receive the same date and time.
+   3. **Time window**: Optimizes placement
+      within a specific date and time range you define. The system
+      finds the best time within that window to minimize impact to
+      service level targets. For individual activities, placement
+      may vary by agent. For shared activities, all agents receive
+      the same date and time.
+   4. **Relative to shift**: Optimizes
+      placement within a time window defined by offsets from each
+      agent's shift start and end (for example, "1 hour after shift
+      start" to "2 hours before shift end"). The system finds the
+      best time within that window to minimize impact to service
+      level targets. For individual activities, placement may vary
+      by agent. For shared activities, all agents receive the same
+      date and time.###### Note
+
+Additional things to note when you select one of the optimized
+placement options:
+
+    * To create a recurring activity, use the Do not optimize
+     placement method.
+    * For individual optimized activities, you can download a
+     CSV file from the **Actions log** to view
+     where the activity was placed for each agent. Date and time
+     in this file are in UTC.
+    * Breaks and meals are automatically optimized during
+     schedule generation. To adjust their timing, modify the
+     schedule rather than using activity placement.
+    * Set a minimum attendance percentage to control when the
+     activity is placed. To ensure placement regardless of
+     attendance, set minimum attendance to 1%.
+    * Wait for placement to complete before editing agent
+     shifts within the placement window.
+
+8. Select the date and time for the activity.
+9. Select if you want to create this as a repeating activity.
 
 For example, let's say you have:
 
@@ -76,8 +118,8 @@ When you add this meeting to the current published schedule:
     	* Apply any other changes you made to the recurring
     	 meeting pattern.
 
-9. Choose **Override rules check** to bypass scheduling
-   restrictions like minimum and maximum working hours.
+10. Choose **Override rules check** to bypass scheduling
+    restrictions like minimum and maximum working hours.
 
 If you don't select this option:
 
@@ -86,11 +128,11 @@ If you don't select this option:
     * You can view excluded agents and the reasons for their
      exclusion in the **Actions log**.
 
-10. Enter any note in the provided **Comment** text
+11. Enter any note in the provided **Comment** text
     box.
-11. Choose **Apply** to add the activity to agent
+12. Choose **Apply** to add the activity to agent
     schedules.
-12. You can monitor the progress in the **Actions log**,
+13. You can monitor the progress in the **Actions log**,
     where the status will transition from **In progress**
     to **Complete**.
 
@@ -106,7 +148,9 @@ schedules.
 1.  From an agent's shift, choose the activity, select
     **Edit**, and then select the activity name to open
     the edit activity screen.
-2.  If the activity you are editing is part of a recurring series, you can
+2.  Select activity placement method. For details on placement methods,
+    see [Add a shift activity](#scheduling-add-shift-activities-calendar-view "#scheduling-add-shift-activities-calendar-view").
+3.  If the activity you are editing is part of a recurring series, you can
     choose to edit just this occurrence. Or, you can edit the series.
     - To edit just this occurrence, continue editing using steps
       below.
@@ -120,7 +164,7 @@ schedules.
     past are not modified. Only future occurrences are modified
     based on the latest repeating pattern.
 
-3.  If the activity was added as a **Shared activity**,
+4.  If the activity was added as a **Shared activity**,
     then all of the agents added to the activity will be listed under
     **Staff**.
     1. From here, you can add or remove agents, change the date or
@@ -130,7 +174,7 @@ schedules.
     2. Choose **Apply** to commit the
        changes.
 
-4.  If the activity was added as an **Individual
+5.  If the activity was added as an **Individual
     activity**, then only the agent whose shift you chose will
     be listed under **Staff**.
 

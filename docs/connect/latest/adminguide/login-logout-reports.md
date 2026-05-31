@@ -20,7 +20,7 @@ session that user was logged in to Connect Customer.
 - [Share a Login/Logout report](#loginlogout-report-share "#loginlogout-report-share")
 - [Schedule a Login/Logout report](#loginlogout-report-schedule "#loginlogout-report-schedule")
 - [Delete a Saved Login/Logout report](#loginlogout-report-delete "#loginlogout-report-delete")
-- [Tag-based access
+- [Tag-based and hierarchy-based access
   controls](#login-logout-tag-based-access-control "#login-logout-tag-based-access-control")
 
 ## Why your Login/Logout report may appear incorrect
@@ -255,13 +255,21 @@ files created from a scheduled report are removed from your S3 bucket.
    **Delete** icon.
 4. Choose **Delete** again.
 
-## Tag-based access controls on the Login/Logout report
+## Tag-based and hierarchy-based access controls for the Login/Logout report
 
 To use tags to control access to users on the agent Login/Logout report, you must
 first configure user and routing profile resource tags, resource permissions, and tag
 based access controls, see [Apply tag-based access controls to dashboards and reports in Connect Customer](dashboard-tag-based-access-control.md "dashboard-tag-based-access-control.md"). For more information on
 tagging resources and tag-based access control in Connect Customer, see [Add tags to resources in Connect Customer](tagging.md "tagging.md") and [Apply tag-based access control in Connect Customer](tag-based-access-control.md "tag-based-access-control.md").
 
-After your resource tags, access control tags, and permissions have been appropriately
-configured, you will have access controls applied to users for the Login/Logout
-report.
+After you configure your resource tags, access control tags, and permissions,
+Connect Customer applies tag-based access controls to users for the Login/Logout report.
+
+To use agent hierarchy-based access control for the Login/Logout report, you must
+first complete several configuration steps. Configure agent hierarchy in Connect Customer, assign
+users to a hierarchy, configure resource permissions, and set up hierarchy-based access
+controls. For more information, see [Apply hierarchy-based access control to dashboards and reports in Connect Customer](dashboard-access-control.md "dashboard-access-control.md").
+
+After you configure the agent hierarchy, assign users to a hierarchy, and configure
+user permissions, Connect Customer applies hierarchy-based access controls to users for the
+Login/Logout report.

@@ -68,7 +68,7 @@ Following is an example `describe-authentication-profile`
 command:
 
 ```
-aws connect describe-authentication-profile --instance-id `your-instance-id` --profile-id `profile-id`
+aws connect describe-authentication-profile --instance-id `your-instance-id` --authentication-profile-id `authentication-profile-id`
 ```
 
 Following is an example of the information returned by the
@@ -110,7 +110,7 @@ inactivity duration](#configure-session-timeouts "#configure-session-timeouts") 
 ```
 aws connect update-authentication-profile
     --instance-id `your-instance-id`
-    --profile-id `profile-id`
+    --authentication-profile-id `authentication-profile-id`
     --name "Default Authentication Profile"
     --description "A basic default Authentication Profile"
     --allowed-ips "ip-range-1" "ip-range-2" ...
@@ -267,10 +267,10 @@ To opt-in to automatic logout on user inactivity, perform the following API call
 
 ```
 aws connect update-authentication-profile
-    --instance-id <your-instance-id>
-    --profile-id <profile-id>
+    --instance-id `your-instance-id`
+    --authentication-profile-id `authentication-profile-id`
     --session-inactivity-handling-enabled
-    --session-inactivity-duration <minutes between 15 and 720>
+    --session-inactivity-duration `minutes between 15 and 720`
 ```
 
 ###### Note

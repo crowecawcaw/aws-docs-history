@@ -169,7 +169,7 @@ available.
 | ------------------------ | -------------- | --------------------------------------------------- | -------- |
 | US East (N. Virginia)    | us-east-1      | contact-lens.us-east-1.amazonaws.com                | HTTPS    |
 | US West (Oregon)         | us-west-2      | contact-lens.us-west-2.amazonaws.com                | HTTPS    |
-| Africa (Cape Town)       |                | Real-time voice API is not available in this Region | N/A      |
+| Africa (Cape Town)       | af-south-1     | Real-time voice API is not available in this Region | N/A      |
 | Asia Pacific (Seoul)     | ap-northeast-2 | contact-lens.ap-northeast-2.amazonaws.com           | HTTPS    |
 | Asia Pacific (Singapore) | ap-southeast-1 | contact-lens.ap-southeast-1.amazonaws.com           | HTTPS    |
 | Asia Pacific (Sydney)    | ap-southeast-2 | contact-lens.ap-southeast-2.amazonaws.com           | HTTPS    |
@@ -177,7 +177,7 @@ available.
 | Canada (Central)         | ca-central-1   | contact-lens.ca-central-1.amazonaws.com             | HTTPS    |
 | Europe (Frankfurt)       | eu-central-1   | contact-lens.eu-central-1.amazonaws.com             | HTTPS    |
 | Europe (London)          | eu-west-2      | contact-lens.eu-west-2.amazonaws.com                | HTTPS    |
-| AWS GovCloud (US-West)   | us-gov-west-1  | ontact-lens.us-gov-west-1.amazonaws.com             | HTTPS    |
+| AWS GovCloud (US-West)   | us-gov-west-1  | contact-lens.us-gov-west-1.amazonaws.com            | HTTPS    |
 
 ### Conversational analytics features by Region
 

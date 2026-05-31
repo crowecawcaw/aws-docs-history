@@ -73,6 +73,11 @@ OR
 - **Analytics and Optimization - Agent Activity Audit -
   Access**
 
+OR
+
+- **Analytics and Optimization - Login/Logout report -
+  View**
+
 ![Tabs on the Dashboards and reports page.](images/dashboard-hbac-permissions.png)
 
 Additionally, the user will need permissions to access resources. The following

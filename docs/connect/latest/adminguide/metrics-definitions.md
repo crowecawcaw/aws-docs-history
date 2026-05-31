@@ -105,7 +105,6 @@ This metric helps organizations:
 **How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Active
-- Historical metrics reports: Active
 - Dashboard: Active Slots
 
 ## Adherence
@@ -268,7 +267,6 @@ contacts in ACW state, not the number of agents.
 **How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: ACW
-- Historical metrics reports: Contacts in ACW
 - Dashboard: ACW contacts
 
 To learn more about agent status and contact states, see [Agent status in the Contact Control Panel (CCP)](metrics-agent-status.md "metrics-agent-status.md") and [About contact states in Connect Customer](about-contact-states.md "about-contact-states.md").
@@ -440,7 +438,6 @@ This metric helps organizations:
 **How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Error
-- Historical metrics reports: Agents in error
 - Dashboard: Error state agents
 
 ## Agent idle time
@@ -614,7 +611,6 @@ This metric helps organizations:
 **How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: NPT
-- Historical metrics reports: Non-Productive Time
 - Dashboard: NPT agents
 
 ## Agent non-productive time
@@ -829,7 +825,6 @@ Legacy API Identifier: AGENTS_ON_CALL (still supported)
 **How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: On contact
-- Historical metrics reports: Agents on contact
 - Dashboard: Active contacts
 
 ## Agent outbound connecting time
@@ -6176,7 +6171,6 @@ This means 30 agents have set their status in the CCP to a custom status. 1 of t
 **How to access using the Connect Customer admin website**:
 
 - Real-time metrics reports: Online
-- Historical metrics reports: Online agents
 - Dashboard: Online agents
 
 ## Online time

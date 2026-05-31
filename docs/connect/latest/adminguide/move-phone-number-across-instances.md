@@ -75,7 +75,7 @@ case.
 When the old and new Connect Customer instances belong to different AWS accounts,
 create two AWS Support cases, one from each account, following the same steps.
 
-1. Sign in to your AWS account and then choose [here](https://console.aws.amazon.com/support/home#/case/create?issueType=customer-service&serviceCode=service-connect-number-management "https://console.aws.amazon.com/support/home#/case/create?issueType=customer-service&serviceCode=service-connect-number-management") to access a pre-populated form in the AWS Support
+1. Sign in to your AWS account and then open the [phone number migration support form](https://console.aws.amazon.com/support/home#/case/create?issueType=customer-service&serviceCode=service-connect-number-management "https://console.aws.amazon.com/support/home#/case/create?issueType=customer-service&serviceCode=service-connect-number-management") in the AWS Support
    console.
 2. In the form, for **Service**, select
    **Connect (Number Management)**.

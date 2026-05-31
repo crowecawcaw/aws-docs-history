@@ -46,65 +46,26 @@ It also grants `s3:PutObject`, `s3:PutObjectAcl`, and
   group specified for flow logging.
 - Action: Amazon Lex `lex:ListBots`, `lex:ListBotAliases` for all bots
   created in the account across all Regions.
-- Action: Connect Customer Customer Profiles
+- Action: Connect Customer Customer Profiles `profile:*` on all Connect Customer Customer Profiles
+  resources with the `amazon-connect-` domain prefix and template resources
+  associated with your Connect Customer instance, except for the following actions which are
+  explicitly denied:
 
-      + `profile:SearchProfiles`
-      + `profile:CreateProfile`
-      + `profile:UpdateProfile`
-      + `profile:AddProfileKey`
-      + `profile:ListProfileObjects`
-      + `profile:ListAccountIntegrations`
-      + `profile:ListProfileObjectTypeTemplates`
-      + `profile:GetProfileObjectTypeTemplate`
-      + `profile:ListProfileObjectTypes`
-      + `profile:GetProfileObjectType`
-      + `profile:ListCalculatedAttributeDefinitions`
-      + `profile:GetCalculatedAttributeForProfile`
-      + `profile:ListCalculatedAttributesForProfile`
-      + `profile:GetDomain`
-      + `profile:ListIntegrations`
-      + `profile:GetIntegration`
-      + `profile:PutIntegration`
-      + `profile:DeleteIntegration`
-      + `profile:CreateEventTrigger`
-      + `profile:GetEventTrigger`
-      + `profile:ListEventTriggers`
-      + `profile:UpdateEventTrigger`
-      + `profile:DeleteEventTrigger`
-      + `profile:CreateCalculatedAttributeDefinition`
-      + `profile:DeleteCalculatedAttributeDefinition`
-      + `profile:GetCalculatedAttributeDefinition`
-      + `profile:UpdateCalculatedAttributeDefinition`
-      + `profile:PutProfileObject`
-      + `profile:ListObjectTypeAttributes`
-      + `profile:ListProfileAttributeValues`
-      + `profile:BatchGetProfile`
-      + `profile:BatchGetCalculatedAttributeForProfile`
-      + `profile:ListSegmentDefinitions`
-      + `profile:CreateSegmentDefinition`
-      + `profile:GetSegmentDefinition`
-      + `profile:DeleteSegmentDefinition`
-      + `profile:CreateSegmentEstimate`
-      + `profile:GetSegmentEstimate`
-      + `profile:CreateSegmentSnapshot`
-      + `profile:GetSegmentSnapshot`
-      + `profile:GetSegmentMembership`
-      + `profile:CreateDomainLayout`
-      + `profile:UpdateDomainLayout`
-      + `profile:DeleteDomainLayout`
-      + `profile:GetDomainLayout`
-      + `profile:ListDomainLayouts`
-      + `profile:GetSimilarProfiles`
-      + `profile:GetUploadJob`
-      + `profile:GetUploadJobPath`
-      + `profile:StartUploadJob`
-      + `profile:StopUploadJob`
-      + `profile:CreateUploadJob`
-      + `profile:ListUploadJobs`
-      + `profile:DetectProfileObjectType`
+      + `profile:CreateDomain`
+      + `profile:UpdateDomain`
+      + `profile:DeleteDomain`
+      + `profile:CreateEventStream`
+      + `profile:DeleteEventStream`
+      + `profile:DeleteWorkflow`
+      + `profile:DeleteProfileKey`
+      + `profile:UntagResource`
+      + `profile:TagResource`
+      + `profile:CreateIntegrationWorkflow`
 
-  to use your default Customer Profiles domain (including profiles and all object-types in domain)
-  with the Connect Customer flows and agent experience applications.
+  Additionally, the following actions are allowed on all resources:
+  `profile:ListRecommenderRecipes`,
+  `profile:ListAccountIntegrations`, and
+  `profile:ListDomains`.
 
 ###### Note
 

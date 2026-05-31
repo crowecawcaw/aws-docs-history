@@ -219,7 +219,7 @@ cross-sell scenarios.
 
 To begin implementation, access the AWS Management Console and navigate to Connect Customer. After
 logging into your Connect instance through the Access URL, locate Amazon Q from
-the left side menu and select AI agents. You'll find a pre-configured AI Agent
+the left navigation pane and select AI agents. You'll find a pre-configured AI Agent
 of Type Orchestration (SalesAgent) in draft status on the QiC page under AI
 Agents. This template comes equipped with all necessary configurations for 1P
 tools and example prompts for recommendations.

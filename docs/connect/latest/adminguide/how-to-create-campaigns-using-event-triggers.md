@@ -14,7 +14,65 @@ setting up your external application, see [Integrate with external applications]
 ![Event source selection panel showing integration options and attribute condition configuration.](images/how-to-create-campaigns-using-event-triggers-2.png) 3. Select the **Delivery mode** and additional communication
 settings.
 
-![Delivery mode selection and additional communication settings for event-triggered campaigns.](images/how-to-create-campaigns-using-event-triggers-3.png) 4. (Optional) Configure the **Recommendations** section to integrate
+![Delivery mode selection and additional communication settings for event-triggered campaigns.](images/how-to-create-campaigns-using-event-triggers-3.png)
+
+###### Important
+
+To create a communication widget campaign, you must have a Customer Profiles integration
+between your Customer Profiles domain and your instance. The required object type name is
+`Campaign-WebNotification`. You can do this by choosing the upgrade button in
+the Connect Customer admin website console by selecting your instance and then going to the
+**Outbound campaigns** subpage.
+
+![Communication section showing Delivery mode dropdown with Communication widget selected from options including Agent assisted voice, Automated voice, Email, SMS, and WhatsApp.](images/shows_channel_option.png)
+
+![Communication section showing Communication widget dropdown with My-custom-widget selected and Notification type section with Action and View options.](images/shows_channel_option_after_a_widget_is_selected.png)
+
+There are two notification types to choose from:
+**View** and **Action**.
+
+**View**
+
+A **View** notification displays a visual message or prompt above the
+communication widget button. It presents information to the end user, such as a greeting,
+offer, or contextual message. The notification invites the end user to engage in a conversation
+with an agent or bot.
+
+Select **View** when you want to surface a message, promotion, or
+contextual nudge to the end user before they start a conversation. This gives the end user a
+moment to read and decide whether to engage.
+
+Examples:
+
+    * A proactive banner saying "Hi! We noticed you've been on this page for a while. Need
+     help finding the right plan?"
+    * A promotional message: "Limited time offer — chat with us to get 20% off your
+     upgrade."
+    * A contextual nudge: "Having trouble completing your order? We're here to
+     help."
+
+**Action**
+
+An **Action** notification bypasses any visual message and immediately
+triggers the communication widget to open, and starts a conversation directly with a bot or
+human agent.
+
+Select **Action** when you want to skip the notification step entirely
+and launch the end user straight into a live conversation. No intermediate message is
+shown.
+
+Examples:
+
+    * The system immediately connects a high-intent customer on a checkout page to a support
+     agent.
+    * The system routes a returning customer with an open case directly into a bot flow to check
+     status.
+    * A VIP customer triggers an instant connection to a dedicated agent upon visiting the
+     help page.
+
+![View notification type selected showing View selection dropdown, View version dropdown, and Recommendations section with Recommender dropdown.](images/shows_view_notification_type_components.png)
+
+After you choose a notification type, you can select a recommender. 4. (Optional) Configure the **Recommendations** section to integrate
 Predictive Insights with your event-triggered campaign. This enables you to deliver
 personalized template content through email and SMS channels.
 

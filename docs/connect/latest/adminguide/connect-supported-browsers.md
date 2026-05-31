@@ -42,8 +42,7 @@ their mobile device. For instructions, see [Forward calls in the Connect Custome
 The out-of-the-box communications widget's Voice Focus (VF) and Echo
 Reduction (ER) features are not universally supported across all devices.
 Lower specification devices may not support Amazon Voice Focus irrespective
-to laptop, desktop or iOS and Android devices. Check Amazon Chime SDK for
-JavaScript documentation [here](https://aws.github.io/amazon-chime-sdk-js/modules/amazonvoice_focus.html#can-i-use-amazon-voice-focus-and-echo-reduction-in-my-application "https://aws.github.io/amazon-chime-sdk-js/modules/amazonvoice_focus.html#can-i-use-amazon-voice-focus-and-echo-reduction-in-my-application") for more information. On devices where Voice Focus is not
+to laptop, desktop or iOS and Android devices. For more information, see [Amazon Voice Focus support by device](https://aws.github.io/amazon-chime-sdk-js/modules/amazonvoice_focus.html#can-i-use-amazon-voice-focus-and-echo-reduction-in-my-application "https://aws.github.io/amazon-chime-sdk-js/modules/amazonvoice_focus.html#can-i-use-amazon-voice-focus-and-echo-reduction-in-my-application") in the Amazon Chime SDK for JavaScript documentation. On devices where Voice Focus is not
 supported, the browser's built-in noise suppression is relied upon.
 
 If you are building custom communication widget, you can follow [Integrating Amazon Voice Focus and Echo Reduction into your Amazon Chime SDK

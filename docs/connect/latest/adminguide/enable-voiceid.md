@@ -84,7 +84,7 @@ Information Privacy Act](https://en.wikipedia.org/wiki/Biometric_Information_Pri
    URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box
    around the instance alias.
 
-![The Connect Customer virtual contact center instances page, the instance alias.](/images/connect/latest/adminguide/images/instance.png) 3. In the navigation pane, choose **Voice ID**. Read the
+![The Connect Customer virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **Voice ID**. Read the
 BIPA Consent Acknowledgement, and accept if you agree.
 
 ![The Enable Voice ID page showing the BIPA (Biometric Information Privacy Act) Consent Acknowledgement button that users must read and accept before enabling Voice ID.](images/voiceid-bipa.png)
