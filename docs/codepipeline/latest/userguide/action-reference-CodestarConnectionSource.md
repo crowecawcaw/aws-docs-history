@@ -279,11 +279,21 @@ that uses a connection, such as Bitbucket Cloud.
 {
     "Effect": "Allow",
     "Action": [
-        "codeconnections:UseConnection"
+        "codeconnections:UseConnection",
+        "codestar-connections:UseConnection"
     ],
     "Resource": "`resource_ARN`"
 },
 ```
+
+###### Note
+
+Both actions are required. Operations invoked through call
+`codestar-connections:UseConnection`, while operations invoked
+outside of call `codeconnections:UseConnection`. Granting both
+actions ensures the role works for both code paths, regardless of whether the
+connection's resource ARN uses the `codeconnections` or
+`codestar-connections` service prefix.
 
 For more information about the IAM permissions for connections, see [Connections permissions reference](../../../dtconsole/latest/userguide/security-iam.md#permissions-reference-connections "../../../dtconsole/latest/userguide/security-iam.md#permissions-reference-connections").
 

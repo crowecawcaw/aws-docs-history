@@ -19,21 +19,19 @@ create your first administrative user.
 
 ###### Topics
 
-- [Step 1: Create an AWS account and administrative user](#create-iam-user "#create-iam-user")
-- [Step 2: Apply a managed policy for administrative access to CodePipeline](#assign-permissions "#assign-permissions")
-- [Step 3: Install the AWS CLI](#install-cli "#install-cli")
-- [Step 4: Open the console for CodePipeline](#open-codepipeline-console "#open-codepipeline-console")
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
+- [Apply a managed policy for administrative access to CodePipeline](#assign-permissions "#assign-permissions")
+- [Install the AWS CLI](#install-cli "#install-cli")
+- [Open the console for CodePipeline](#open-codepipeline-console "#open-codepipeline-console")
 - [Next steps](#next-steps "#next-steps")
 
-## Step 1: Create an AWS account and administrative user
-
-### Sign up for an AWS account
+## Sign up for an AWS account
 
 To get started with AWS, you need an AWS account. For information about creating an AWS account, see
 [Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
 in the _AWS Account Management Reference Guide_.
 
-## Step 2: Apply a managed policy for administrative access to CodePipeline
+## Apply a managed policy for administrative access to CodePipeline
 
 You must grant permissions to interact with CodePipeline. The quickest way to do this is to apply
 the `AWSCodePipeline_FullAccess` managed policy to the administrative user.
@@ -78,7 +76,7 @@ in the _IAM User Guide_.
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
-## Step 3: Install the AWS CLI
+## Install the AWS CLI
 
 To call CodePipeline commands from the AWS CLI on a local development machine, you must install
 the AWS CLI. This step is optional if you intend to get started using only the steps in this
@@ -120,7 +118,7 @@ Credentials?](../../../IAM/latest/UserGuide/IAM_Introduction.md#IAM_SecurityCred
 
 For more information about the Regions and endpoints available for CodePipeline, see [AWS CodePipeline endpoints and quotas](../../../general/latest/gr/codepipeline.md "../../../general/latest/gr/codepipeline.md").
 
-## Step 4: Open the console for CodePipeline
+## Open the console for CodePipeline
 
 - Sign in to the AWS Management Console and open the CodePipeline console at [http://console.aws.amazon.com/codesuite/codepipeline/home](http://console.aws.amazon.com/codesuite/codepipeline/home "http://console.aws.amazon.com/codesuite/codepipeline/home").
 
