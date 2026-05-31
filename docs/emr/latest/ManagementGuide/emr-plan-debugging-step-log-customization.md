@@ -57,5 +57,5 @@ response = emr_client.add_job_flow_steps(
   provide a `StepMonitoringConfiguration`.
 - If your step runs a Spark application, the application's container logs will also be uploaded to the location specified
   in the `StepMonitoringConfiguration`.
-- You are allowed to specify a `LogUri` without specifiying an `EncryptionKeyArn` or vice versa. EMR will default
+- You are allowed to specify a `LogUri` without specifying an `EncryptionKeyArn` or vice versa. EMR will default
   to the cluster-wide setting for any field which is omitted in the `StepMonitoringConfiguration`.

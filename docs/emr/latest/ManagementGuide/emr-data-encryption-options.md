@@ -81,6 +81,14 @@ SSE in Amazon EMR:
 SSE with customer-provided keys (SSE-C) is not available for use with
 Amazon EMR.
 
+###### Tip
+
+To reduce AWS KMS costs when using SSE-KMS, consider enabling Amazon S3 Bucket Keys on your Amazon S3 buckets. Amazon S3 Bucket Keys use a
+short-lived bucket-level key to reduce AWS KMS API calls by up to 99 percent. Before enabling Amazon S3 Bucket Keys, review your IAM and
+AWS KMS key policies – the encryption context changes from the Amazon S3 object ARN to the bucket ARN, which may affect policies that
+use the object ARN for access control. For more information, see [Reducing the cost of SSE-KMS with Amazon S3 Bucket Keys](../../../AmazonS3/latest/userguide/bucket-key.md "../../../AmazonS3/latest/userguide/bucket-key.md") in the
+_Amazon Simple Storage Service User Guide_.
+
 ### Amazon S3 client-side encryption
 
 With Amazon S3 client-side encryption, the Amazon S3 encryption and decryption takes place in the EMRFS

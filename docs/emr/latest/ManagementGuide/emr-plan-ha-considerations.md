@@ -71,7 +71,7 @@ clusters.
    Considerations for Setting Alarms on Metrics:
 
 - Amazon EMR doesn't provide application-specific metrics about HDFS or YARN. We
-  reccommend that you set up alarms to monitor the primary node instance
+  recommend that you set up alarms to monitor the primary node instance
   count. Configure the alarms using the following Amazon CloudWatch metrics:
   `MultiMasterInstanceGroupNodesRunning`,
   `MultiMasterInstanceGroupNodesRunningPercentage`, or
