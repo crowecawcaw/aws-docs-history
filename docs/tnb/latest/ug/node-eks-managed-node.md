@@ -201,7 +201,7 @@ Type: List
 `kubernetes_version`
 
 The Kubernetes version for the Managed Node group. AWS TNB supports
-Kubernetes versions 1.25 through 1.32. Consider the following:
+Kubernetes versions 1.27 through 1.34. Consider the following:
 
 - Specify either the `kubernetes_version` or
   `ami_id`. Do not specify both.
@@ -219,7 +219,7 @@ Required: No
 
 Type: String
 
-Possible values: 1.25 | 1.26 | 1.27 | 1.28 | 1.29 | 1.30 | 1.31 | 1.32
+Possible values: 1.27 | 1.28 | 1.29 | 1.30 | 1.31 | 1.32 | 1.33 | 1.34
 
 ## Requirements
 

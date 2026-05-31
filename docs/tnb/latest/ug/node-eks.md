@@ -88,14 +88,14 @@ Type: String
 `version`
 
 The Kubernetes version for the cluster. AWS Telco Network Builder supports Kubernetes
-versions 1.25 through 1.32.
+versions 1.27 through 1.34.
 
 Required: Yes
 
 Type: String
 
-Possible values: 1.25 | 1.26 | 1.27 | 1.28 | 1.29 | 1.30 |
-1.31 | 1.32
+Possible values: 1.27 | 1.28 | 1.29 | 1.30 |
+1.31 | 1.32 | 1.33 | 1.34
 
 `access`
 
