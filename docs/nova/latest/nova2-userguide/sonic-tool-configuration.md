@@ -24,7 +24,7 @@ The following are simplified steps on how to use tools:
    response
    The following diagram illustrates how tool use works:
 
-![](images/How-tool-use-works_5.png)
+![Conversation flow showing client setup, tool use event handling with Amazon Bedrock Agents and Nova S2S, and transcript generation stages.](images/How-tool-use-works_5.png)
 
 ## Defining tools
 

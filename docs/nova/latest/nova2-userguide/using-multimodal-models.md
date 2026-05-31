@@ -68,19 +68,11 @@ performance:
 
 ### Image-token estimation
 
-Amazon Nova converts each image into tokens for processing. The number of tokens
-depends on the resolution and aspect ratio of the image.
-
-The following are examples of approximate token counts based on image
-resolution:
-
-| Image resolution | Estimated tokens |
-| ---------------- | ---------------- |
-| 900 x 450        | 515              |
-| 900 x 900        | ~1,035           |
-| 1400 x 900       | ~1,600           |
-| 1800 x 900       | ~2,060           |
-| 1300 x 1300      | ~2,155           |
+Amazon Nova converts each image into tokens for processing. While the number of
+tokens processed varies based on image resolution and aspect ratio, usage is billed
+at a flat rate of 230 tokens per image. Note that the
+`inputTokens` count that's returned from the API call reflects these
+230 tokens.
 
 ### Image understanding examples
 

@@ -66,7 +66,7 @@ ties all conversation events together, while each `contentName` marks
 the boundaries of specific content blocks. This hierarchy ensures that model
 maintains proper context throughout the interaction.
 
-![](images/Closing-the-session_2.png)
+![Flow diagram showing session structure with prompt markers including sessionStart, promptStart, contentStart, textInput, audioInput, and contentEnd.](images/Closing-the-session_2.png)
 
 ## Input Event Flow
 

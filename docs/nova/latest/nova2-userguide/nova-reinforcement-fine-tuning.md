@@ -537,7 +537,7 @@ Adaptive curriculum works by running a lightweight pass-rate predictor on a pool
 
 Adaptive curriculum is supported for `max_prompt_length` up to 32,768 tokens (32K). Enabling it on datasets that exceed this length is not supported; disable adaptive curriculum or shorten your prompts before training.
 
-The settings below keep adaptive curriculum usable and cost-effective on long-context datasets. Apply them together; they address different components of screening cost.
+The following settings keep adaptive curriculum usable and cost-effective on long-context datasets. Apply them together; they address different components of screening cost.
 
 | Typical `max_prompt_length`   | Recommended adaptive curriculum settings                                                                                                                                                                                          |
 | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -722,4 +722,4 @@ python get_training_time_estimate.py
 python get-training-job-progress.py --region us-east-1 --job-name my-training-job --num-dataset-samples 1000
 ```
 
-Please see [here](https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/SageMakerUilts/SageMakerJobsMonitoring/README.md "https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/SageMakerUilts/SageMakerJobsMonitoring/README.md") for additional details and examples.
+See the [Amazon Nova Samples monitoring scripts README](https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/SageMakerUilts/SageMakerJobsMonitoring/README.md "https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/SageMakerUilts/SageMakerJobsMonitoring/README.md") for additional details and examples.
