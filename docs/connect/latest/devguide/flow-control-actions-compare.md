@@ -1,0 +1,28 @@
+# Compare
+
+Allows comparisons against the specified value.
+
+## Parameter object
+
+```
+{
+  "ComparisonValue": Any **single** JSONPath identifier that is valid for the flow data object
+}
+```
+
+## Execution results and conditions
+
+The value specified for comparison. This can be used for conditions.
+
+## Errors
+
+- NoMatchingCondition - if no other Condition matches.
+
+## Restrictions
+
+This action is available in every type of flow.
+
+## Corresponding block in the UI
+
+[Check contact
+attributes](../adminguide/check-contact-attributes.md "../adminguide/check-contact-attributes.md")

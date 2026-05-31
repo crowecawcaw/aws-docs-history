@@ -1,0 +1,33 @@
+# UpdatePreviousContactParticipantState
+
+This action is primarily used to prevent previous participants on the contact from
+observing the contact. Common use cases are disconnecting the agent that initiates a
+transfer when they transfer a contact to a secure destination, or putting the agent on
+hold when transferring to a quick connect that securely gathers customer input such as
+credit card numbers.
+
+## Parameter object
+
+```
+{
+    "PreviousContactParticipantState": One of ["AgentOnHold", "CustomerOnHold", "OffHold"], which are only supported for voice contacts.
+}
+
+```
+
+## Execution results and conditions
+
+None.
+
+## Errors
+
+- NoMatchingError - if no other Error matches.
+
+## Restrictions
+
+This action is supported only in inbound contact flows and transfer flows.
+
+## Corresponding block in the UI
+
+[Hold customer or
+agent](../adminguide/hold-customer-agent.md "../adminguide/hold-customer-agent.md")

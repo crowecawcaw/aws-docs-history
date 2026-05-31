@@ -1,0 +1,28 @@
+# TransferToFlow
+
+Execution jumps to a different flow, and continues running at that flow's beginning.
+
+## Parameter object
+
+```
+{
+    "ContactFlowId": A flow ID or flow ARN. *Must be either fully static or a single valid JSONPath identifier*
+}
+```
+
+## Execution results and conditions
+
+None.
+
+## Errors
+
+- NoMatchingError - if no other Error matches.
+
+## Restrictions
+
+This action is available in inbound flows and transfer flows. It is not available
+to hold flows, customer queue flows, or whisper flows.
+
+## Corresponding block in the UI
+
+[Transfer to flow](../adminguide/transfer-to-flow.md "../adminguide/transfer-to-flow.md")

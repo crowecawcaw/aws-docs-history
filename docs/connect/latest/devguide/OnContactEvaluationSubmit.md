@@ -1,0 +1,325 @@
+# OnContactEvaluationSubmit
+
+## Agent Hierarchy
+
+###### Parameters
+
+- Operator - "CONTAINS_ANY"
+- Operands - Agent hierarchy ARNs.
+- ComparisonValue - "$.ContactLens.ContactEvaluation.Agent.HierarchyGroup.ARN"
+- Negate - false
+
+## Initiation Method
+
+###### Parameters
+
+- Operator - "CONTAINS_ANY"
+- Operands - A validated enum set of possible values. Possible values are as follows:
+  - 'INBOUND'
+  - 'OUTBOUND'
+  - 'TRANSFER'
+  - 'QUEUE_TRANSFER'
+  - 'CALLBACK'
+  - 'API'
+  - 'DISCONNECT'
+
+- ComparisonValue - "$.ContactLens.ContactEvaluation.InitiationMethod"
+- Negate - false
+
+## DisconnectReason
+
+###### Parameters
+
+- Operator - "CONTAINS_ANY"
+- Operands - A validated enum set of possible values. Possible values are as follows:
+  - 'TELECOM_BUSY'
+  - 'TELECOM_NUMBER_INVALID'
+  - 'TELECOM_POTENTIAL_BLOCKING'
+  - 'TELECOM_UNANSWERED'
+  - 'TELECOM_TIMEOUT'
+  - 'TELECOM_ORIGINATOR_CANCEL'
+  - 'TELECOM_PROBLEM'
+  - 'CUSTOMER_NEVER_ARRIVED'
+  - 'THIRD_PARTY_DISCONNECT'
+  - 'CUSTOMER_DISCONNECT'
+  - 'AGENT_DISCONNECT'
+  - 'BARGED'
+  - 'CONTACT_FLOW_DISCONNECT'
+  - 'OTHER'
+  - 'OUTBOUND_DESTINATION_ENDPOINT_ERROR'
+  - 'OUTBOUND_RESOURCE_ERROR'
+  - 'OUTBOUND_ATTEMPT_FAILED'
+  - 'EXPIRED'
+  - 'AGENT_NETWORK_DISCONNECT'
+  - 'CUSTOMER_CONNECTION_NOT_ESTABLISHED'
+  - 'API'
+  - 'IDLE_DISCONNECT'
+  - 'SYSTEM_ERROR'
+  - 'AGENT_COMPLETED'
+  - 'TRANSFERRED'
+  - 'DISCARDED'
+
+- ComparisonValue - "$.ContactLens.ContactEvaluation.DisconnectReason"
+- Negate - false
+
+## Routing Profile
+
+###### Parameters
+
+- Operator - "CONTAINS_ANY"
+- Operands - Routing profile ARNs.
+- ComparisonValue - "$.ContactLens.ContactEvaluation.Agent.RoutingProfile"
+- Negate - false
+
+## PotentialDisconnectIssue
+
+###### Parameters
+
+- Operator - "CONTAINS_ANY" or "EQUALS"
+- Operands - A validated enum of possible values.
+- ComparisonValue - "$.ContactLens.ContactEvaluation.PotentialDisconnectIssue"
+- Negate - false
+
+## Custom User-Defined Segment Attribute
+
+###### Parameters
+
+- Operator - "CONTAINS_ANY"
+- Operands - A list of segment attribute values. The values must be a value in the pre-defined attribute resource.
+- ComparisonValue - "$.ContactLens.ContactEvaluation.SegmentAttributes.UserDefined.[KEY]"
+
+The KEY must be an instance pre-defined attribute resource.
+
+- Negate - false or true
+
+## ContactEvaluation - Results available condition
+
+###### Parameters
+
+- Operator - "EQUALS"
+- Operands – An array of string, array length can only be 1. Value is
+  the evaluation form ID.
+- ComparisonValue – "$.ContactLens.ContactEvaluation.Form.FormId"
+- Negate - false
+
+## ContactEvaluation - Form score condition
+
+ContactEvaluation form score condition has a compound condition format where
+Operator is an AND condition and its operands consist of two conditions that
+represent the form and the form score.
+
+**Parameters that represent the form**: See
+[ContactEvaluation - Results available condition](../APIReference/OnContactEvaluationSubmit.md#ContactEvaluation-results "../APIReference/OnContactEvaluationSubmit.md#ContactEvaluation-results")
+
+###### Parameters that represent the form score:
+
+- Operator - "NumberLessOrEqualTo" | "NumberGreaterOrEqualTo"
+- Operands – An array of number, array length can only be 1. Value is
+  the form score.
+- ComparisonValue – "$.ContactLens.ContactEvaluation.Form.Score"
+- Negate - false
+
+Following is an example.
+
+```
+{
+    "Operator": "AND",
+    "Operands": [
+        {
+            "Operator": "EQUALS",
+            "Operands": ["11111111-1234-5678-9123-12345678012"],
+            "ComparisonValue": "$.ContactLens.ContactEvaluation.Form.FormId",
+            "Negate": false
+        },
+        {
+            "Operator": "NumberLessOrEqualTo",
+            "Operands": [50],
+            "ComparisonValue": "$.ContactLens.ContactEvaluation.Form.Score",
+            "Negate":false
+        },
+    ]
+}
+```
+
+## ContactEvaluation - Section Score
+
+ContactEvaluation section score condition has a compound condition format
+where Operator is an AND condition and its operands consist of three conditions
+that represent the form, section, and section score respectively.
+
+**Parameters that represent the form**: See
+[ContactEvaluation - Results available condition](../APIReference/OnContactEvaluationSubmit.md#ContactEvaluation-results "../APIReference/OnContactEvaluationSubmit.md#ContactEvaluation-results")
+
+###### Parameters that represent the section:
+
+- Operator - "EQUALS"
+- Operands – An array of string, array length can only be 1. Value is
+  the section reference ID.
+- ComparisonValue –
+  "$.ContactLens.ContactEvaluation.Section.SectionRefId"
+- Negate - false
+
+###### Parameters that represent the section score:
+
+- Operator - "NumberLessOrEqualTo" | "NumberGreaterOrEqualTo"
+- Operands – An array of number, array length can only be 1. Value is
+  the section score.
+- ComparisonValue –
+  "$.ContactLens.ContactEvaluation.Section.Score"
+- Negate - false
+
+Following is an example.
+
+```
+{
+    "Operator": "AND",
+    "Operands": [
+        {
+            "Operator": "EQUALS",
+            "Operands": ["11111111-1234-5678-9123-12345678012"],
+            "ComparisonValue": "$.ContactLens.ContactEvaluation.Form.FormId",
+            "Negate": false
+        },
+        {
+            "Operator": "EQUALS",
+            "Operands": ["s12345678"],
+            "ComparisonValue": "$.ContactLens.ContactEvaluation.Section.SectionRefId",
+            "Negate":false
+        },
+        {
+            "Operator": "NumberLessOrEqualTo",
+            "Operands": [50],
+            "ComparisonValue": "$.ContactLens.ContactEvaluation.Section.Score",
+            "Negate":false
+        },
+    ]
+}
+```
+
+## ContactEvaluation - Question and Answer
+
+ContactEvaluation question and answer condition has a compound condition
+format where Operator is an AND condition and its operands consist of three
+conditions that represent the form, question, and answer value
+respectively.
+
+**Parameters that represent the form**: See
+[ContactEvaluation - Results available condition](../APIReference/OnContactEvaluationSubmit.md#ContactEvaluation-results "../APIReference/OnContactEvaluationSubmit.md#ContactEvaluation-results")
+
+###### Parameters that represent the question:
+
+- Operator - "EQUALS"
+- Operands – An array of string, array length can only be 1. Value is
+  the question reference ID.
+- ComparisonValue –
+  "$.ContactLens.ContactEvaluation.Question.QuestionRefId"
+- Negate - false
+
+###### Parameters that represent a numeric answer:
+
+- Operator - "NumberLessOrEqualTo" | "NumberGreaterOrEqualTo"
+- Operands – An array of number, array length can only be 1. Value is
+  the answer value.
+- ComparisonValue –
+  "$.ContactLens.ContactEvaluation.Question.Answer.Value"
+- Negate - false
+
+Following is an example for a numeric question type.
+
+```
+{
+    "Operator": "AND",
+    "Operands": [
+        {
+            "Operator": "EQUALS",
+            "Operands": ["11111111-1234-5678-9123-12345678012"],
+            "ComparisonValue": "$.ContactLens.ContactEvaluation.Form.FormId",
+            "Negate": false
+        },
+        {
+            "Operator": "EQUALS",
+            "Operands": ["s12345678"],
+            "ComparisonValue": "$.ContactLens.ContactEvaluation.Question.QuestionRefId",
+            "Negate":false
+        },
+        {
+            "Operator": "NumberLessOrEqualTo",
+            "Operands": [5],
+            "ComparisonValue": "$.ContactLens.ContactEvaluation.Question.Answer.Value",
+            "Negate":false
+        }
+    ]
+}
+```
+
+###### Parameters that represent a single select answer:
+
+- Operator - "EQUALS"
+- Operands – An array of string, array length can only be 1. Value is
+  the answer reference ID.
+- ComparisonValue –
+  "$.ContactLens.ContactEvaluation.Question.Answer.ValueRefId"
+- Negate - true/false. If set to true, it means _The answer is
+  not equal to the answer reference ID specified in the
+  Operands_.
+
+Following is an example for single select question type.
+
+```
+{
+    "Operator": "AND",
+    "Operands": [
+        {
+            "Operator": "EQUALS",
+            "Operands": ["11111111-1234-5678-9123-12345678012"],
+            "ComparisonValue": "$.ContactLens.ContactEvaluation.Form.FormId",
+            "Negate": false
+        },
+        {
+            "Operator": "EQUALS",
+            "Operands": ["q12345678"],
+            "ComparisonValue": "$.ContactLens.ContactEvaluation.Question.QuestionRefId",
+            "Negate":false
+        },
+        { // for single select question type
+            "Operator": "EQUALS",
+            "Operands": ["o12345678"],
+            "ComparisonValue": "$.ContactLens.ContactEvaluation.Question.Answer.ValueRefId",
+            "Negate":false
+       },
+    ]
+}
+```
+
+## ContactEvaluation - agent condition
+
+###### Parameters
+
+- Operator - "CONTAINS_ANY"
+- Operands – A list of agent IDs.
+- ComparisonValue –
+  "$.ContactLens.ContactEvaluation.Agent.AgentId"
+- Negate - false
+
+## ContactEvaluation - queue condition
+
+###### Parameters
+
+- Operator – "EQUALS"
+- Operands – No value
+- ComparisonValue –
+  "$.ContactLens.ContactEvaluation.Queue.QueueId"
+- Negate - false
+
+## ContactEvaluation - contact attributes condition
+
+###### Parameters
+
+- Operator - "EQUALS"
+- Operands – An array of string, array length can only be 1. Value is
+  the contact attribute value.
+- ComparisonValue –
+  "$.ContactLens.ContactEvaluation.ContactAttribute.`YOUR_ATTRIBUTE_KEY`"
+- Negate - true/false. If set to true, it means
+  `YOUR_ATTRIBUTE_KEY` does not equal to the
+  attribute value specified in the Operands.
