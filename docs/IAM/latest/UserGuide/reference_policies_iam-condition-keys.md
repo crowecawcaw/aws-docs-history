@@ -1315,6 +1315,159 @@ The following example trust policy uses the `rpst_id` claim to limit access to a
 }
 ```
 
+GitLab.com
+This tab explains how GitLab.com CI/CD maps OIDC claims to AWS STS condition context keys in
+AWS. You can use these keys to control access to a role. To do that, compare the
+**AWS STS condition keys** to the values in the
+**IdP JWT claim** column.
+
+###### Note
+
+These custom condition keys are only supported when using the GitLab.com
+multi-tenant SaaS instance as an OIDC identity provider. You cannot use these
+condition keys with GitLab Dedicated or GitLab Self-Managed instances.
+
+| AWS STS condition key | IdP JWT claim     | Available in session |
+| --------------------- | ----------------- | -------------------- |
+| namespace_id          | namespace_id      | No                   |
+| project_id            | project_id        | No                   |
+| user_id               | user_id           | No                   |
+| user_login            | user_login        | No                   |
+| user_email            | user_email        | No                   |
+| user_access_level     | user_access_level | No                   |
+| ref_protected         | ref_protected     | No                   |
+| pipeline_source       | pipeline_source   | No                   |
+
+**namespace_id**
+
+Works with [string
+operators](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String").
+
+**Example** –
+`gitlab.com:namespace_id`
+
+This key identifies the namespace (group) ID of the project running the
+CI/CD job. The namespace ID is a stable, unique identifier that does not
+change if the group is renamed.
+
+**project_id**
+
+Works with [string
+operators](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String").
+
+**Example** –
+`gitlab.com:project_id`
+
+This key identifies the ID of the project running the CI/CD job. The
+project ID is a stable, unique identifier that does not change if the
+project is renamed or moved.
+
+**user_id**
+
+Works with [string
+operators](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String").
+
+**Example** –
+`gitlab.com:user_id`
+
+This key identifies the ID of the user executing the CI/CD job. The
+user ID is a stable, unique identifier.
+
+**user_login**
+
+Works with [string
+operators](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String").
+
+**Example** –
+`gitlab.com:user_login`
+
+This key identifies the username of the user executing the CI/CD job.
+Usernames can be changed; for a stable identifier, use
+`user_id` instead.
+
+**user_email**
+
+Works with [string
+operators](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String").
+
+**Example** –
+`gitlab.com:user_email`
+
+This key identifies the email address of the user executing the CI/CD
+job. The value of this claim may change over time; for a stable
+identifier, use `user_id` instead.
+
+**user_access_level**
+
+Works with [string
+operators](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String").
+
+**Example** –
+`gitlab.com:user_access_level`
+
+This key identifies the access level of the user within the project
+(for example, `maintainer`, `developer`,
+`owner`).
+
+**ref_protected**
+
+Works with [string
+operators](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String").
+
+**Example** –
+`gitlab.com:ref_protected`
+
+This key indicates whether the Git ref that triggered the job is
+protected. The value is `true` if protected, `false`
+otherwise.
+
+**pipeline_source**
+
+Works with [string
+operators](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String").
+
+**Example** –
+`gitlab.com:pipeline_source`
+
+This key identifies the source that triggered the pipeline (for
+example, `push`, `web`, `schedule`,
+`api`, `merge_request_event`).
+
+###### Important
+
+On GitLab.com SaaS, after a group or project has been deleted it is possible
+for them to be created by users who are different from the original owner.
+Policies that rely solely on path-based claims that are constructed using the group or project name (such as the `sub` claim) may
+inadvertently grant access to unintended identities. AWS and GitLab recommend
+including conditions on stable, unique identifiers — such as
+`namespace_id` or `project_id` — in your role
+trust policies or resource control policies to mitigate this risk.
+
+The following example trust policy uses the `namespace_id` claim
+together with `sub` to limit access to a specific GitLab.com project
+and branch.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "arn:aws:iam::123456789012:oidc-provider/gitlab.com"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringEquals": {
+          "gitlab.com:sub": "project_path:mygroup/myproject:ref_type:branch:ref:main",
+          "gitlab.com:namespace_id": "12345"
+        }
+      }
+    }
+  ]
+}
+```
+
 ### More information about OIDC federation
 
 - [Amazon Cognito User
