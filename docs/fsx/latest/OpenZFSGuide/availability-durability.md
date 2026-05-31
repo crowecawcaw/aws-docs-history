@@ -68,7 +68,7 @@ begins serving all file system read and write requests. A failover typically tak
 seconds from the detection of the failure on the active file server to the promotion of the
 standby file server to active status. Upon completion of the failover, you continue to have
 access to your data without manual intervention. When the preferred file server is fully recovered and becomes available, Amazon FSx automatically fails back to
-it, usually in less than 60 seconds.
+it, usually in less than 60 seconds. During failover and failback, I/O might be briefly paused and Amazon CloudWatch metrics might be temporarily unavailable.
 
 ### Testing failover on Multi-AZ (HA) and Single-AZ (HA) file systems
 
