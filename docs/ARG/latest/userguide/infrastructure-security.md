@@ -1,4 +1,4 @@
-# Infrastructure security in Resource Groups
+# Infrastructure Security in AWS Resource Groups
 
 There are no additional ways of isolating service or network traffic provided by Resource Groups. If
 applicable, use AWS-specific isolation. You can use the Resource Groups API and console in a VPC to

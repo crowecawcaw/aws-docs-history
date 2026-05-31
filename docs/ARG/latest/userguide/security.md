@@ -27,11 +27,11 @@ _in_ the cloud:
 
 ###### Topics
 
-- [Data protection in AWS Resource Groups](security_data-protection.md "security_data-protection.md")
+- [Data protection in AWS Resource Groups](data-protection.md "data-protection.md")
 - [Identity and access management for AWS Resource Groups](security-iam.md "security-iam.md")
 - [Logging and monitoring in Resource Groups](security_logging-monitoring.md "security_logging-monitoring.md")
-- [Compliance validation for Resource Groups](security_compliance.md "security_compliance.md")
-- [Resilience in Resource Groups](security_resilience.md "security_resilience.md")
-- [Infrastructure security in Resource Groups](security_infrastructure.md "security_infrastructure.md")
+- [Compliance validation for AWS Resource Groups](compliance-validation.md "compliance-validation.md")
+- [Resilience in AWS Resource Groups](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
+- [Infrastructure Security in AWS Resource Groups](infrastructure-security.md "infrastructure-security.md")
 - [Access AWS Resource Groups using an interface endpoint (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
 - [Security best practices for Resource Groups](security_best-practices.md "security_best-practices.md")

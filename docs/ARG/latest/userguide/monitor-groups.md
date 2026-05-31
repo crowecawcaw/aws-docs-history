@@ -30,7 +30,7 @@ When you turn on group lifecycle events, AWS Resource Groups creates the followi
   generates membership events to send to EventBridge for your custom rules to process.
   The service-linked role can be assumed by _only_ the
   Resource Groups service. For more information about the service-linked role used by Resource Groups for this
-  feature, see [Using service-linked roles for Resource Groups](security_iam_service-linked-roles.md "security_iam_service-linked-roles.md").
+  feature, see [Using service-linked roles for Resource Groups](using-service-linked-roles.md "using-service-linked-roles.md").
 
 When this feature is turned on, Resource Groups generates an event when you make any of the
 following changes to a resource group:

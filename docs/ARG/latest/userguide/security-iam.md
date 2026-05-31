@@ -11,8 +11,8 @@ use with no additional charge.
 - [Authenticating with identities](#security_iam_authentication_arg-te "#security_iam_authentication_arg-te")
 - [Managing access using policies](#security_iam_access-manage-arg-te "#security_iam_access-manage-arg-te")
 - [How Resource Groups works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
-- [AWS managed policies for AWS Resource Groups](security_iam_awsmanpol.md "security_iam_awsmanpol.md")
-- [Using service-linked roles for Resource Groups](security_iam_service-linked-roles.md "security_iam_service-linked-roles.md")
+- [AWS managed policies for AWS Resource Groups](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
+- [Using service-linked roles for Resource Groups](using-service-linked-roles.md "using-service-linked-roles.md")
 - [AWS Resource Groups identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
 - [Troubleshooting AWS Resource Groups identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
 

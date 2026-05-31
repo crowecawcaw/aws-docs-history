@@ -13,7 +13,7 @@ intend to turn on group lifecycle events again in the future, you can disable yo
 intend to use those rules again, you can delete them. For more information, see [Disabling or
 deleting an EventBridge rule](../../../eventbridge/latest/userguide/delete-or-disable-rule.md "../../../eventbridge/latest/userguide/delete-or-disable-rule.md") in the _Amazon EventBridge User Guide_.
 
-Turning off group lifecycle events does **_not_** delete the service-linked role. You can [delete the service-linked role manually](security_iam_service-linked-roles.md#delete-service-linked-role "security_iam_service-linked-roles.md#delete-service-linked-role")
+Turning off group lifecycle events does **_not_** delete the service-linked role. You can [delete the service-linked role manually](using-service-linked-roles.md#delete-service-linked-role "using-service-linked-roles.md#delete-service-linked-role")
 if you wish using IAM. If you later need to turn on group lifecycle events again and the
 service-linked role doesn't exist, Resource Groups recreates it automatically.
 

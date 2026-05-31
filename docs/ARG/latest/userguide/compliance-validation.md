@@ -1,4 +1,4 @@
-# Compliance validation for Resource Groups
+# Compliance validation for AWS Resource Groups
 
 To learn whether an AWS service is within the scope of specific compliance programs, see
 [AWS services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/") and choose the compliance program that you are

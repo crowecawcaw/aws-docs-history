@@ -25,7 +25,7 @@ _IAM User Guide_.
 
 You can't attach `ResourceGroupsServiceRolePolicy` to any IAM entities yourself. This
 policy can be attached only to a service-linked role that allows Resource Groups to perform
-actions on your behalf. For more information, see [Using service-linked roles for Resource Groups](security_iam_service-linked-roles.md "security_iam_service-linked-roles.md").
+actions on your behalf. For more information, see [Using service-linked roles for Resource Groups](using-service-linked-roles.md "using-service-linked-roles.md").
 
 This policy grants the permissions required for Resource Groups to retrieve information about
 the resources in your resource groups and any CloudFormation stacks that those resources belong

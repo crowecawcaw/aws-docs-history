@@ -54,17 +54,17 @@ There are no additional ways of isolating service or network traffic specific to
 Resource Groups. If applicable, use AWS-specific isolation. You can use the Resource Groups API and
 console in a VPC to help maximize privacy and infrastructure security.
 
-### Encryption in transit
+## Encryption in transit
 
 AWS Resource Groups data is encrypted in transit to the service's internal database for
 backup. This is not user-configurable.
 
-### Key management
+## Key management
 
 AWS Resource Groups is not currently integrated with AWS Key Management Service and does not support
 AWS KMS keys.
 
-## Internetwork traffic privacy
+## Inter-network traffic privacy
 
 AWS Resource Groups uses HTTPS for all transmissions between Resource Groups users and AWS. Resource Groups uses
 transport layer security (TLS) 1.2, but also supports TLS 1.0 and 1.1.
