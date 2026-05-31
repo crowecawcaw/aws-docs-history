@@ -34,15 +34,15 @@ agent and configuring EKS Runtime Monitoring.
 
 | OS distribution**[2](#runtime-monitoring-eks-os-support "#runtime-monitoring-eks-os-support")** | Kernel version**[3](#runtime-monitoring-eks-kernel-version-required-flag "#runtime-monitoring-eks-kernel-version-required-flag")**     | Supported Kubernetes version |
 | ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| Bottlerocket                                                                                    | 5.4, 5.10, 5.15, 6.1[4](#v6.1-kernel-dns-findings-unsupported-eks "#v6.1-kernel-dns-findings-unsupported-eks")                         | v1.23<br>• v1.35             |
-| Ubuntu                                                                                          | 5.4, 5.10, 5.15, 6.1, 6.15, 6.16, 6.17, 6.18[4](#v6.1-kernel-dns-findings-unsupported-eks "#v6.1-kernel-dns-findings-unsupported-eks") | v1.21<br>• v1.35             |
-| Amazon Linux 2                                                                                  | 5.4, 5.10, 5.15, 6.1[4](#v6.1-kernel-dns-findings-unsupported-eks "#v6.1-kernel-dns-findings-unsupported-eks")                         | v1.21<br>• v1.35             |
-| Amazon Linux 2023*[5](#runtime-eks-al2023-support-v1.6.0 "#runtime-eks-al2023-support-v1.6.0")* | 5.4, 5.10, 5.15, 6.1, 6.8, 6.12[4](#v6.1-kernel-dns-findings-unsupported-eks "#v6.1-kernel-dns-findings-unsupported-eks")              | v1.21<br>• v1.35             |
-| RedHat 9.4                                                                                      | 5.14[4](#v6.1-kernel-dns-findings-unsupported-eks "#v6.1-kernel-dns-findings-unsupported-eks")                                         | v1.21<br>• v1.35             |
-| Fedora 34                                                                                       | 5.11, 5,17                                                                                                                             | v1.21<br>• v1.35             |
-| Fedora 40                                                                                       | 6.8                                                                                                                                    | v1.28<br>• v1.35             |
-| Fedora 41                                                                                       | 6.12                                                                                                                                   | v1.28<br>• v1.35             |
-| CentOS Stream 9                                                                                 | 5.14                                                                                                                                   | v1.21<br>• v1.35             |
+| Bottlerocket                                                                                    | 5.4, 5.10, 5.15, 6.1[4](#v6.1-kernel-dns-findings-unsupported-eks "#v6.1-kernel-dns-findings-unsupported-eks")                         | v1.23<br>• v1.36             |
+| Ubuntu                                                                                          | 5.4, 5.10, 5.15, 6.1, 6.15, 6.16, 6.17, 6.18[4](#v6.1-kernel-dns-findings-unsupported-eks "#v6.1-kernel-dns-findings-unsupported-eks") | v1.21<br>• v1.36             |
+| Amazon Linux 2                                                                                  | 5.4, 5.10, 5.15, 6.1[4](#v6.1-kernel-dns-findings-unsupported-eks "#v6.1-kernel-dns-findings-unsupported-eks")                         | v1.21<br>• v1.36             |
+| Amazon Linux 2023*[5](#runtime-eks-al2023-support-v1.6.0 "#runtime-eks-al2023-support-v1.6.0")* | 5.4, 5.10, 5.15, 6.1, 6.8, 6.12[4](#v6.1-kernel-dns-findings-unsupported-eks "#v6.1-kernel-dns-findings-unsupported-eks")              | v1.21<br>• v1.36             |
+| RedHat 9.4                                                                                      | 5.14[4](#v6.1-kernel-dns-findings-unsupported-eks "#v6.1-kernel-dns-findings-unsupported-eks")                                         | v1.21<br>• v1.36             |
+| Fedora 34                                                                                       | 5.11, 5,17                                                                                                                             | v1.21<br>• v1.36             |
+| Fedora 40                                                                                       | 6.8                                                                                                                                    | v1.28<br>• v1.36             |
+| Fedora 41                                                                                       | 6.12                                                                                                                                   | v1.28<br>• v1.36             |
+| CentOS Stream 9                                                                                 | 5.14                                                                                                                                   | v1.21<br>• v1.36             |
 
 1. Runtime Monitoring for Amazon EKS clusters doesn't support the first generation Graviton instance such
    as A1 instance types.
@@ -64,8 +64,8 @@ GuardDuty security agent.
 
 | Amazon EKS add-on GuardDuty security agent version                               | Kubernetes version |
 | -------------------------------------------------------------------------------- | ------------------ |
-| v1.15.0 (latest<br>• v1.15.0-eksbuild.2)                                         | 1.28<br>• 1.35     |
-| v1.12.2 (latest<br>• v1.12.2-eksbuild.2)                                         | 1.28<br>• 1.35     |
+| v1.15.0 (latest<br>• v1.15.0-eksbuild.2)                                         | 1.28<br>• 1.36     |
+| v1.12.2 (latest<br>• v1.12.2-eksbuild.2)                                         | 1.28<br>• 1.36     |
 | v1.12.1 (latest<br>• v1.12.1-eksbuild.4)                                         | 1.28<br>• 1.35     |
 | v1.11.0 (latest<br>• v1.11.0-eksbuild.4)                                         | 1.28<br>• 1.34     |
 | v1.10.0 (latest<br>• v1.10.0-eksbuild.2)                                         | 1.21<br>• 1.33     |

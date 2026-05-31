@@ -12,6 +12,8 @@ You can't reactivate retired GuardDuty finding types.
 
 ###### Topics
 
+- [PrivilegeEscalation:Kubernetes/PrivilegedContainer](#privilegeescalation-kubernetes-privilegedcontainer "#privilegeescalation-kubernetes-privilegedcontainer")
+- [Persistence:Kubernetes/ContainerWithSensitiveMount](#persistence-kubernetes-containerwithsensitivemount "#persistence-kubernetes-containerwithsensitivemount")
 - [Exfiltration:S3/ObjectRead.Unusual](#exfiltration-s3-objectreadunusual "#exfiltration-s3-objectreadunusual")
 - [Impact:S3/PermissionsModification.Unusual](#impact-s3-permissionsmodificationunusual "#impact-s3-permissionsmodificationunusual")
 - [Impact:S3/ObjectDelete.Unusual](#impact-s3-objectdeleteunusual "#impact-s3-objectdeleteunusual")
@@ -31,6 +33,56 @@ You can't reactivate retired GuardDuty finding types.
 - [Behavior:IAMUser/InstanceLaunchUnusual](#behavior1 "#behavior1")
 - [CryptoCurrency:EC2/BitcoinTool.A](#crypto1 "#crypto1")
 - [UnauthorizedAccess:IAMUser/UnusualASNCaller](#unauthorized6 "#unauthorized6")
+
+## PrivilegeEscalation:Kubernetes/PrivilegedContainer
+
+### A privileged container with root level access was launched on your Kubernetes cluster.
+
+**Default severity: Medium**
+
+- **Feature:** EKS audit logs
+
+This finding informs you that a privileged container was launched on your
+Kubernetes cluster using an image has never before been used to launch privileged
+containers in your cluster. A privileged container has root level access to the
+host. Adversaries can launch privileged containers as a privilege escalation
+tactic to gain access to and then compromise the host.
+
+**Remediation recommendations:**
+
+If this container launch is unexpected, the credentials of the user identity
+used to launch the container may be compromised. Revoke access of the user and
+reverse any changes made by an adversary to your cluster. For more information,
+see [Remediating EKS Protection findings](guardduty-remediate-kubernetes.md "guardduty-remediate-kubernetes.md").
+
+## Persistence:Kubernetes/ContainerWithSensitiveMount
+
+### A container was launched with a sensitive external host path mounted inside.
+
+**Default severity: Medium**
+
+- **Feature:** EKS audit logs
+
+This finding informs you that a container was launched with a configuration
+that included a sensitive host path with write access in the
+`volumeMounts` section. This makes the sensitive host path
+accessible and writable from inside the container. This technique is commonly
+used by adversaries to gain access to the host's filesystem.
+
+**Remediation recommendations:**
+
+If this container launch is unexpected, the credentials of the user identity
+used to launch the container may be compromised. Revoke access of the user and
+reverse any changes made by an adversary to your cluster. For more information,
+see [Remediating EKS Protection findings](guardduty-remediate-kubernetes.md "guardduty-remediate-kubernetes.md").
+
+If this container launch is expected, it's recommended that you use a
+suppression rule consisting of a filter criteria based on the
+`resource.KubernetesDetails.KubernetesWorkloadDetails.containers.imagePrefix`
+field. In the filter criteria the `imagePrefix` field should be same
+as the `imagePrefix` specified in the finding. To learn more about
+creating suppression rules see [Suppression
+rules](findings_suppression-rule.md "findings_suppression-rule.md").
 
 ## Exfiltration:S3/ObjectRead.Unusual
 

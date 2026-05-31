@@ -32,7 +32,6 @@ adding [Suppression rules in GuardDuty](findings_suppression-rule.md "findings_s
 - [Impact:Kubernetes/MaliciousIPCaller.Custom](#impact-kubernetes-maliciousipcallercustom "#impact-kubernetes-maliciousipcallercustom")
 - [Impact:Kubernetes/SuccessfulAnonymousAccess](#impact-kubernetes-successfulanonymousaccess "#impact-kubernetes-successfulanonymousaccess")
 - [Impact:Kubernetes/TorIPCaller](#impact-kubernetes-toripcaller "#impact-kubernetes-toripcaller")
-- [Persistence:Kubernetes/ContainerWithSensitiveMount](#persistence-kubernetes-containerwithsensitivemount "#persistence-kubernetes-containerwithsensitivemount")
 - [Persistence:Kubernetes/MaliciousIPCaller](#persistence-kubernetes-maliciousipcaller "#persistence-kubernetes-maliciousipcaller")
 - [Persistence:Kubernetes/MaliciousIPCaller.Custom](#persistence-kubernetes-maliciousipcallercustom "#persistence-kubernetes-maliciousipcallercustom")
 - [Persistence:Kubernetes/SuccessfulAnonymousAccess](#persistence-kubernetes-successfulanonymousaccess "#persistence-kubernetes-successfulanonymousaccess")
@@ -41,7 +40,6 @@ adding [Suppression rules in GuardDuty](findings_suppression-rule.md "findings_s
 - [Policy:Kubernetes/AnonymousAccessGranted](#policy-kubernetes-anonymousaccessgranted "#policy-kubernetes-anonymousaccessgranted")
 - [Policy:Kubernetes/ExposedDashboard](#policy-kubernetes-exposeddashboard "#policy-kubernetes-exposeddashboard")
 - [Policy:Kubernetes/KubeflowDashboardExposed](#policy-kubernetes-kubeflowdashboardexposed "#policy-kubernetes-kubeflowdashboardexposed")
-- [PrivilegeEscalation:Kubernetes/PrivilegedContainer](#privilegeescalation-kubernetes-privilegedcontainer "#privilegeescalation-kubernetes-privilegedcontainer")
 - [CredentialAccess:Kubernetes/AnomalousBehavior.SecretsAccessed](#credaccess-kubernetes-anomalousbehavior-secretsaccessed "#credaccess-kubernetes-anomalousbehavior-secretsaccessed")
 - [PrivilegeEscalation:Kubernetes/AnomalousBehavior.RoleBindingCreated](#privesc-kubernetes-anomalousbehavior-rolebindingcreated "#privesc-kubernetes-anomalousbehavior-rolebindingcreated")
 - [Execution:Kubernetes/AnomalousBehavior.ExecInPod](#execution-kubernetes-anomalousbehvaior-execinprod "#execution-kubernetes-anomalousbehvaior-execinprod")
@@ -532,35 +530,6 @@ malicious. If the activity was malicious revoke access of the user and reverse
 any changes made by an adversary to your cluster. For more information, see
 [Remediating EKS Protection findings](guardduty-remediate-kubernetes.md "guardduty-remediate-kubernetes.md").
 
-## Persistence:Kubernetes/ContainerWithSensitiveMount
-
-### A container was launched with a sensitive external host path mounted inside.
-
-**Default severity: Medium**
-
-- **Feature:** EKS audit logs
-
-This finding informs you that a container was launched with a configuration
-that included a sensitive host path with write access in the
-`volumeMounts` section. This makes the sensitive host path
-accessible and writable from inside the container. This technique is commonly
-used by adversaries to gain access to the host's filesystem.
-
-**Remediation recommendations:**
-
-If this container launch is unexpected, the credentials of the user identity
-used to launch the container may be compromised. Revoke access of the user and
-reverse any changes made by an adversary to your cluster. For more information,
-see [Remediating EKS Protection findings](guardduty-remediate-kubernetes.md "guardduty-remediate-kubernetes.md").
-
-If this container launch is expected, it's recommended that you use a
-suppression rule consisting of a filter criteria based on the
-`resource.KubernetesDetails.KubernetesWorkloadDetails.containers.imagePrefix`
-field. In the filter criteria the `imagePrefix` field should be same
-as the `imagePrefix` specified in the finding. To learn more about
-creating suppression rules see [Suppression
-rules](findings_suppression-rule.md "findings_suppression-rule.md").
-
 ## Persistence:Kubernetes/MaliciousIPCaller
 
 ### An API commonly used to obtain persistent access to a Kubernetes cluster was invoked from a known malicious IP address.
@@ -768,27 +737,6 @@ access control to restrict access to the dashboard from specific IP
 addresses.
 
 For more information, see [Remediating EKS Protection findings](guardduty-remediate-kubernetes.md "guardduty-remediate-kubernetes.md").
-
-## PrivilegeEscalation:Kubernetes/PrivilegedContainer
-
-### A privileged container with root level access was launched on your Kubernetes cluster.
-
-**Default severity: Medium**
-
-- **Feature:** EKS audit logs
-
-This finding informs you that a privileged container was launched on your
-Kubernetes cluster using an image has never before been used to launch privileged
-containers in your cluster. A privileged container has root level access to the
-host. Adversaries can launch privileged containers as a privilege escalation
-tactic to gain access to and then compromise the host.
-
-**Remediation recommendations:**
-
-If this container launch is unexpected, the credentials of the user identity
-used to launch the container may be compromised. Revoke access of the user and
-reverse any changes made by an adversary to your cluster. For more information,
-see [Remediating EKS Protection findings](guardduty-remediate-kubernetes.md "guardduty-remediate-kubernetes.md").
 
 ## CredentialAccess:Kubernetes/AnomalousBehavior.SecretsAccessed
 

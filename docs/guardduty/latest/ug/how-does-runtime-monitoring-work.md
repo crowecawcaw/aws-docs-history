@@ -20,7 +20,7 @@ following list explains this two-step process:
 
 ###### Note
 
-GuardDuty doesn't make the runtime events accessible to you.
+GuardDuty analyzes runtime events in your AWS environment, uses them internally for threat detection, and presents the results through findings.
 
 When you manage the security agent (either manually or through GuardDuty) in EKS Runtime Monitoring
 or Runtime Monitoring for EC2 instances, and
