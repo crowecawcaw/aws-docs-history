@@ -33,7 +33,7 @@
 
 ### Skills in:
 
-- Building CloudWatch dashboards and Amazon QuickSight visualizations
+- Building CloudWatch dashboards and Amazon Quick Sight visualizations
 - Associating CloudWatch alarms with CloudWatch metrics (standard and custom)
 - Configuring AWS X-Ray for different services (for example, containers, Amazon API Gateway, Lambda)
 - Analyzing real-time log streams (for example, using Amazon Kinesis Data Streams)

@@ -23,7 +23,7 @@ The following list contains AWS services and features that are in scope for the 
 - Amazon Kinesis Data Firehose
 - Amazon Kinesis Data Streams
 - Amazon OpenSearch Service
-- Amazon QuickSight
+- Amazon Quick Sight
 
 ## Application Integration
 
