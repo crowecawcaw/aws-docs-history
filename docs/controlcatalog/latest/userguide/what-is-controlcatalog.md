@@ -12,6 +12,12 @@ you use the APIs that are provided by Control Catalog.
 
 The Control Catalog embodies a Control Ontology, which is a standard classification system for controls.
 
+## Sign up for an AWS account
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
+
 ## Access to Control Catalog
 
 Control Catalog is available through the console and through the Control Catalog application programming interface (API).
