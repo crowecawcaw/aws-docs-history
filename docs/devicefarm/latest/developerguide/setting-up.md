@@ -4,35 +4,15 @@ Before you use Device Farm for the first time, you must complete the following t
 
 ###### Topics
 
-- [Step 1: Sign up for AWS](#setting-up-sign-up "#setting-up-sign-up")
-- [Step 2: Create or use an IAM user in your AWS account](#setting-up-iam "#setting-up-iam")
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Step 3: Give the IAM user permission to access Device Farm](#setting-up-permissions "#setting-up-permissions")
 - [Next step](#setting-up-next-step "#setting-up-next-step")
 
-## Step 1: Sign up for AWS
+## Sign up for an AWS account
 
-Sign up for Amazon Web Services (AWS).
-
-If you do not have an AWS account, complete the following steps to create one.
-
-###### To sign up for an AWS account
-
-1. Open [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup").
-2. Follow the online instructions.
-
-Part of the sign-up procedure involves receiving a phone call or text message and entering
-a verification code on the phone keypad.
-
-When you sign up for an AWS account, an _AWS account root user_ is created. The root user has access to all AWS services
-and resources in the account. As a security best practice, assign administrative access to a user, and use only the root user to perform [tasks that require root user access](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks").
-
-## Step 2: Create or use an IAM user in your AWS account
-
-We recommend that you do not use your AWS root account to access Device Farm. Instead, create an AWS Identity and Access Management
-(IAM) user (or use an existing one) in your AWS account, and then access Device Farm with that IAM
-user.
-
-For more information, see [Creating an IAM User (AWS Management Console)](../../../IAM/latest/UserGuide/Using_SettingUpUser.md#Using_CreateUser_console "../../../IAM/latest/UserGuide/Using_SettingUpUser.md#Using_CreateUser_console").
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
 
 ## Step 3: Give the IAM user permission to access Device Farm
 
