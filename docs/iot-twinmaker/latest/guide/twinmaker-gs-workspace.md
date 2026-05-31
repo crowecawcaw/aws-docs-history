@@ -30,7 +30,7 @@ For information about assigning permissions to this role, see [Create and manage
 IAM role that AWS IoT TwinMaker created for users and accounts that view the Grafana
 dashboard. The name of this role follows this pattern:
 `workspace-name`DashboardRole, For instructions on
-how to create a policy and attach it to a role, see [Modifying a role permissions policy (console)](../../../IAM/latest/UserGuide/id_roles_create_for-service.htmlroles-managingrole-editing-console.md#roles-modify_permissions-policy "../../../IAM/latest/UserGuide/id_roles_create_for-service.htmlroles-managingrole-editing-console.md#roles-modify_permissions-policy").
+how to create a policy and attach it to a role, see [Modifying a role permissions policy (console)](../../../IAM/latest/UserGuide/roles-managingrole-editing-console.md#roles-modify_permissions-policy "../../../IAM/latest/UserGuide/roles-managingrole-editing-console.md#roles-modify_permissions-policy").
 
 The following example contains the policy to add to the dashboard role.
 
