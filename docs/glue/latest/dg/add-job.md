@@ -147,7 +147,7 @@ US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (
 Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), Europe (Ireland), Europe (London),
 Europe (Spain), Europe (Stockholm), and South America (São Paulo).
 
-`G.12X`, `G.16X`, and `R.1X` through `R.8X` worker types are available only for AWS Glue version 4.0 or later Spark ETL jobs in the following AWS Regions: US East (N. Virginia), US West (Oregon), US East (Ohio), Europe (Ireland), and Europe (Frankfurt). Additional regions will be supported in future releases.
+`G.12X`, `G.16X`, and `R.1X` through `R.8X` worker types are available only for AWS Glue version 4.0 or later Spark ETL jobs in the following AWS Regions: US East (N. Virginia), US West (Oregon), US East (Ohio), Europe (Ireland), Europe (Frankfurt), Europe (Spain), Asia Pacific (Tokyo), and South America (São Paulo). Additional regions will be supported in future releases.
 
 **Requested number of workers**
 
