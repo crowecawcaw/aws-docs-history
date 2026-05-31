@@ -213,7 +213,7 @@ URLs are not accessible from private webservers installing requirements in Amazo
 
 #### Creating a WHL files from a DAG
 
-If you have a private webserver using Apache Airflow v2.2.2 or later and you're unable to install requirements because your environment does not have access to external repositories, you
+If you have a **Private network** environment using Apache Airflow v2.2.2 or later and you're unable to install requirements because your environment does not have access to external repositories, you
 can use the following DAG to take your existing Amazon MWAA requirements and package them on Amazon S3:
 
 ```

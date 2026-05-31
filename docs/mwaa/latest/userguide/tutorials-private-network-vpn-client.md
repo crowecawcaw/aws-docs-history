@@ -2,6 +2,10 @@
 
 This tutorial walks you through the steps to create a VPN tunnel from your computer to the Apache Airflow webserver for your Amazon Managed Workflows for Apache Airflow environment. To connect to the internet through a VPN tunnel, you'll first need to create a AWS Client VPN endpoint. Once set up, a Client VPN endpoint acts as a VPN server allowing a secure connection from your computer to the resources in your VPC. You'll then connect to the Client VPN from your computer using the [AWS Client VPN for Desktop](https://aws.amazon.com/vpn/client-vpn-download/ "https://aws.amazon.com/vpn/client-vpn-download/").
 
+###### Note
+
+This tutorial applies to the **Private network** access mode. If you chose **Both public and private network access**, you do not need a VPN to access the Apache Airflow UI since it is accessible over the internet.
+
 ###### Sections
 
 - [Private network](#private-network-vpn-onconsole "#private-network-vpn-onconsole")
@@ -22,18 +26,18 @@ This tutorial walks you through the steps to create a VPN tunnel from your compu
 
 This tutorial assumes you've chosen the **Private network** access mode for your Apache Airflow webserver.
 
-![This image displays the architecture for an Amazon MWAA environment with a private webserver.](images/mwaa-private-web-server.png)
+![This image displays the architecture for an Amazon MWAA environment with Private network access.](images/mwaa-private-web-server.png)
 
 The private network access mode limits access to the Apache Airflow UI to users _within your Amazon VPC_ who have been granted access to the
 [IAM policy for your environment](access-policies.md "access-policies.md").
 
-When you create an environment with private webserver access, you must package all of your dependencies in a Python wheel archive (`.whl`), then
+When you create an environment with **Private network** access, you must package all of your dependencies in a Python wheel archive (`.whl`), then
 reference the `.whl` in your `requirements.txt`. For instructions on packaging and installing your dependencies
 using wheel, refer to [Managing dependencies using Python wheel](best-practices-dependencies.md#best-practices-dependencies-python-wheels "best-practices-dependencies.md#best-practices-dependencies-python-wheels").
 
 The following image depicts where to find the **Private network** option on the Amazon MWAA console.
 
-![This image depicts where to find the Private network option on the Amazon MWAA console.](images/mwaa-console-private-network.png)
+![This image depicts where to find the Private network option on the Amazon MWAA console.](images/mwaa-console-private-network-2026.png)
 
 ## Use cases
 

@@ -1,6 +1,6 @@
 # About networking on Amazon MWAA
 
-A Amazon VPC is a virtual network linked to your AWS account. It gives you cloud security and the ability to scale dynamically by providing fine-grained control over your virtual infrastructure and network traffic segmentation. This page describes the Amazon VPC infrastructure with _public routing_ or _private routing_ needed to support an Amazon Managed Workflows for Apache Airflow environment.
+A Amazon VPC is a virtual network linked to your AWS account. It gives you cloud security and the ability to scale dynamically by providing fine-grained control over your virtual infrastructure and network traffic segmentation. This page describes the Amazon VPC infrastructure with _public routing_, _private routing_, or _both public and private routing_ needed to support an Amazon Managed Workflows for Apache Airflow environment.
 
 ###### Contents
 
@@ -135,7 +135,13 @@ If internet access in your VPC is allowed by your organization, _and_ you would 
 
 ### Internet access is not allowed - new Amazon VPC network
 
-If internet access in your VPC is **not allowed** by your organization:
+If internet access in your VPC is **not allowed** by your organization, _and_ you want the Apache Airflow web server to remain accessible over the internet:
+
+1. Create an Amazon VPC network without internet access.
+2. Create an environment with the **Both public and private network access** mode for your Apache Airflow webserver. This option is available for Apache Airflow version 3.2.1 and later.
+3. **What we recommend**: We recommend using the CloudFormation template to create an Amazon VPC without internet access and the VPC endpoints for each AWS service used by Amazon MWAA in [Option three: Creating an Amazon VPC network without internet access](vpc-create.md#vpc-create-template-private-only "vpc-create.md#vpc-create-template-private-only").
+
+If internet access in your VPC is **not allowed** by your organization, _and_ you want to limit Apache Airflow webserver access to users within your VPC:
 
 1. Create an Amazon VPC network without internet access.
 2. Create a mechanism to access the VPC interface endpoint for your Apache Airflow webserver from your computer.

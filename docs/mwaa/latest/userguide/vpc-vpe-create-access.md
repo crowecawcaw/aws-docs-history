@@ -2,6 +2,10 @@
 
 An existing Amazon VPC network without internet access needs additional VPC service endpoints (AWS PrivateLink) to use Apache Airflow on Amazon Managed Workflows for Apache Airflow. This page describes the VPC endpoints required for the AWS services used by Amazon MWAA, the VPC endpoints required for Apache Airflow, and how to create and attach the VPC endpoints to an existing Amazon VPC with private routing.
 
+###### Note
+
+If you chose **Both public and private network access**, the VPC endpoint for the webserver is created and managed automatically by Amazon MWAA. You do not need to create VPC endpoints for Apache Airflow webserver connectivity. However, if your Amazon VPC does not have internet access, you still need VPC endpoints for other AWS services (such as Amazon S3, CloudWatch Logs, SQS, KMS, and Amazon ECR) as described on this page.
+
 ###### Contents
 
 - [Pricing](vpc-vpe-create-access.md#vpc-vpe-create-pricing "vpc-vpe-create-access.md#vpc-vpe-create-pricing")
@@ -21,18 +25,18 @@ An existing Amazon VPC network without internet access needs additional VPC serv
 
 ## Private network and private routing
 
-![This image displays the architecture for an Amazon MWAA environment with a private webserver.](images/mwaa-private-web-server.png)
+![This image displays the architecture for an Amazon MWAA environment with Private network access.](images/mwaa-private-web-server.png)
 
 The private network access mode limits access to the Apache Airflow UI to users _within your Amazon VPC_ who have been granted access to the
 [IAM policy for your environment](access-policies.md "access-policies.md").
 
-When you create an environment with private webserver access, you must package all of your dependencies in a Python wheel archive (`.whl`), then
+When you create an environment with **Private network** access, you must package all of your dependencies in a Python wheel archive (`.whl`), then
 reference the `.whl` in your `requirements.txt`. For instructions on packaging and installing your dependencies
 using wheel, refer to [Managing dependencies using Python wheel](best-practices-dependencies.md#best-practices-dependencies-python-wheels "best-practices-dependencies.md#best-practices-dependencies-python-wheels").
 
 The following image depicts where to find the **Private network** option on the Amazon MWAA console.
 
-![This image depicts where to find the Private network option on the Amazon MWAA console.](images/mwaa-console-private-network.png)
+![This image depicts where to find the Private network option on the Amazon MWAA console.](/images/mwaa/latest/userguide/images/mwaa-console-private-network-2026.png)
 
 - **Private routing**. An [Amazon VPC without internet access](networking-about.md "networking-about.md")
   limits network traffic within the VPC. This page assumes your Amazon VPC does not have internet access and requires VPC endpoints for each AWS
