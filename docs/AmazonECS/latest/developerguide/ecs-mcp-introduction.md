@@ -30,6 +30,14 @@ Review VPC, subnet, and security group configurations for your Amazon ECS servic
 
 Identify blockers preventing task definition deletion and understand resource relationships.
 
+- **Assess security posture**
+
+Collect cluster security configuration data for AI-powered analysis against AWS best practices with prioritized remediation steps.
+
+- **Access up-to-date documentation**
+
+Look up current AWS documentation for accurate, timely guidance on Amazon ECS features and configurations.
+
 The fully managed Amazon ECS MCP server is hosted in the AWS cloud, eliminating the need for local installation and maintenance. It provides enterprise-grade capabilities like automatic updates and patching, centralized security through IAM integration, comprehensive audit logging via CloudTrail, and the proven scalability, reliability, and support of AWS.
 
 ## Getting started

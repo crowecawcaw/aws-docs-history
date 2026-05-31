@@ -52,11 +52,6 @@ Available metrics for Amazon ECS Managed Instances include:
   [Amazon ECS Container Insights metrics](../../../AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-ECS.md "../../../AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-ECS.md")
 - Amazon EBS metrics: IOPS, throughput, read and write latency. For more information, see [Amazon EBS CloudWatch metrics](../../../ebs/latest/userguide/using_cloudwatch_ebs.md "../../../ebs/latest/userguide/using_cloudwatch_ebs.md")
 
-###### Note
-
-The CloudWatch agent cannot be run as a daemon because daemons are not supported on Amazon ECS Managed Instances.
-This means additional system-level metrics that require the CloudWatch agent running as a daemon are not available.
-
 These metrics are automatically available without manual agent installation.
 
 ### Detailed monitoring for Amazon ECS Managed Instances

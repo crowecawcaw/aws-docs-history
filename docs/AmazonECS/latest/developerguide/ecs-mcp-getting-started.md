@@ -144,6 +144,19 @@ Alternatively, you can create and attach a single custom JSON policy that includ
         "ecr:DescribeImages"
       ],
       "Resource": "*"
+    },
+    {
+      "Sid": "IAMReadOnlyAccessForSecurityAnalysis",
+      "Effect": "Allow",
+      "Action": [
+        "iam:GetRole",
+        "iam:ListAttachedRolePolicies",
+        "iam:GetPolicy",
+        "iam:GetPolicyVersion",
+        "iam:ListRolePolicies",
+        "iam:GetRolePolicy"
+      ],
+      "Resource": "*"
     }
   ]
 }
@@ -271,6 +284,14 @@ Why is my task definition stuck in DELETE_IN_PROGRESS state?
 Show me the network configuration for my web-service
 What security groups are attached to my service?
 List all VPC and subnet details for my ECS service
+```
+
+**Example 5: Assess security posture**
+
+```
+Are there any security issues with my production cluster?
+Analyze IAM roles and policies for my web-service
+Check for overly permissive security groups in my ECS cluster
 ```
 
 ## Common configurations and best practices

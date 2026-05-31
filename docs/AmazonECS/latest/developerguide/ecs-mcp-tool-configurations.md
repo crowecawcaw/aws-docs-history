@@ -182,3 +182,71 @@ This tool retrieves Amazon ECS service network configuration details. You can us
   - `service_name` (string): Amazon ECS service name
 
 - Response: The tool returns a list of NetworkConfigurationResult with network details
+
+**get_security_recommendations**
+
+This tool collects Amazon ECS cluster security configuration data for AI-powered security analysis. It gathers IAM roles and policies, network settings (security groups, subnets, public IP), task definition container settings, and cluster-level configuration. Your AI assistant compares this data against AWS security best practices and generates a prioritized findings report with remediation steps.
+
+- Required IAM actions:
+  - `ecs:DescribeClusters`
+  - `ecs:ListServices`
+  - `ecs:DescribeServices`
+  - `ecs:DescribeTaskDefinition`
+  - `ec2:DescribeSecurityGroups`
+  - `ec2:DescribeSubnets`
+  - `iam:GetRole`
+  - `iam:ListAttachedRolePolicies`
+  - `iam:GetPolicy`
+  - `iam:GetPolicyVersion`
+  - `iam:ListRolePolicies`
+  - `iam:GetRolePolicy`
+
+- Required parameters:
+  - `cluster_name` (string): Amazon ECS cluster name to analyze
+
+- Optional parameters:
+  - `service_name` (string): Scope analysis to a single service. If omitted, all services in the cluster are analyzed.
+  - `max_services` (integer): Maximum number of services to analyze (default 25, capped at 50)
+
+- Response: The tool returns cluster configuration, service configurations, task definition settings, network security details, IAM role and policy data, and any collection warnings. Your AI assistant uses this data to generate a prioritized security findings report with remediation guidance.
+
+### Knowledge tools
+
+These tools provide access to up-to-date AWS documentation. They are powered by the AWS Knowledge MCP Server and do not require any IAM permissions from the caller — the Amazon ECS MCP service connects to the knowledge endpoint on your behalf.
+
+**aws_knowledge_aws\_\_\_search_documentation**
+
+This tool searches AWS documentation for relevant pages matching a query.
+
+- Required IAM actions: None
+- Required parameters:
+  - `search_phrase` (string): Search query for AWS documentation
+
+- Optional parameters:
+  - `topics` (array): Up to 3 topic areas to search across (default `["general"]`)
+  - `limit` (integer): Maximum number of results per topic (default 5)
+
+- Response: The tool returns matching documentation pages with titles, URLs, and context snippets.
+
+**aws_knowledge_aws\_\_\_read_documentation**
+
+This tool reads the content of AWS documentation pages and returns them in markdown format.
+
+- Required IAM actions: None
+- Required parameters:
+  - `requests` (array): Array of request objects. Each object contains:
+    - `url` (string, required): URL of the documentation page to read
+    - `max_length` (integer, optional): Maximum characters to return (default 10000)
+    - `start_index` (integer, optional): Character position to start reading from (default 0)
+
+- Response: The tool returns the documentation page content in markdown format. Long pages are returned in chunks with navigation support.
+
+**aws_knowledge_aws\_\_\_recommend**
+
+This tool returns related documentation pages for a given AWS documentation URL.
+
+- Required IAM actions: None
+- Required parameters:
+  - `url` (string): An AWS documentation URL (must be a docs.aws.amazon.com page)
+
+- Response: The tool provides recommendations for related AWS documentation pages across four categories: popular, new, similar, and commonly read next.
