@@ -48,6 +48,12 @@ API](../APIReference/Welcome.md "../APIReference/Welcome.md").
 
 For more information about AWS Billing Conductor service quotas, see [Quotas and restrictions](limits.md "limits.md"). For more information about billing transfer, see [Transfer billing management to external accounts](../../../awsaccountbilling/latest/aboutv2/orgs_transfer_billing.md "../../../awsaccountbilling/latest/aboutv2/orgs_transfer_billing.md").
 
+## Sign up for an AWS account
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
+
 ## Features in AWS Billing Conductor
 
 You can use the AWS Billing Conductor features to do the following:
