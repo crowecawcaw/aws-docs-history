@@ -3,12 +3,12 @@
 Before you can create transcriptions, you have a few prerequisites:
 
 - [Sign up for an
-  AWS account](#getting-started-sign-up "#getting-started-sign-up")
+  AWS account](#getting-started-api "#getting-started-api")
 - [Install the AWS CLI and SDKs](#getting-started-api "#getting-started-api") (if
   you're using the AWS Management Console for your transcriptions, you can skip this
   step)
 - [Configure IAM
-  credentials](#getting-started-iam "#getting-started-iam")
+  credentials](#getting-started-s3 "#getting-started-s3")
 - [Set up an Amazon S3
   bucket](#getting-started-s3 "#getting-started-s3")
 - [Create an IAM
@@ -32,17 +32,11 @@ Because streaming using HTTP/2 and WebSockets is more complicated than the other
 transcription methods, we recommend reviewing the [Setting up a streaming transcription](streaming-setting-up.md "streaming-setting-up.md") section before getting started with these methods.
 **Note that we strongly recommend using an SDK for streaming transcriptions.**
 
-## Signing up for an AWS account
+## Sign up for an AWS account
 
-You can sign up for a [free tier](https://aws.amazon.com/free/ "https://aws.amazon.com/free/") account or
-a [paid account](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html"). Both options give you access to all AWS services. The free tier has a trial period during which you can explore AWS services and estimate your usage. Once your trial period expires, you can
-migrate to a paid account. Fees are accrued on a pay-as-you-use basis; see [Amazon Transcribe Pricing](https://aws.amazon.com/transcribe/pricing/ "https://aws.amazon.com/transcribe/pricing/") for
-details.
-
-###### Tip
-
-When setting up your account, make note of your AWS account ID because
-you need it to create IAM entities.
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
 
 ## Installing the AWS CLI and SDKs
 
@@ -74,33 +68,6 @@ instructions:
   transcriptions)
 - [Rust](https://crates.io/crates/aws-sdk-transcribestreaming "https://crates.io/crates/aws-sdk-transcribestreaming") (streaming
   transcriptions)
-
-## Configure IAM credentials
-
-When you create an AWS account, you begin with one sign-in identity that has
-complete access to all AWS services and resources in your account. This identity is
-called the AWS account root user and is accessed by signing in with the email address
-and password that you used to create the account.
-
-We strongly recommend that you do not use the root user for your everyday tasks. Safeguard
-your root user credentials and use them to perform the tasks that only the root user can perform.
-
-As a best practice, require users—including those that require administrator
-access—to use federation with an identity provider to access AWS services by
-using temporary credentials.
-
-A federated identity is any user who accesses AWS services by using
-credentials provided through an identity source. When federated identities access
-AWS accounts, they assume roles, and the roles provide temporary
-credentials.
-
-For centralized access management, we recommend that you use [AWS IAM Identity Center](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md"). You can create users and groups in IAM Identity Center.
-Or you can connect and synchronize to a set of users and groups in your own identity
-source for use across all your AWS accounts and applications. For more
-information, see [Identity and Access Management for Amazon Transcribe](security-iam.md "security-iam.md").
-
-To learn more about IAM best practices, refer to [Security best practices in
-IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md").
 
 ## Creating an Amazon S3 bucket
 

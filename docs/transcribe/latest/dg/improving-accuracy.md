@@ -26,13 +26,15 @@ domain-specific language. For example, a custom language model can learn when to
 
 This context-aware approach is most appropriate for transcribing large volumes of domain-specific
 speech. Custom language models can produce significant accuracy improvements over custom vocabularies
-alone. When using batch transcriptions, you can include both a custom language model and a custom vocabulary
-in your request.
+alone. Although the API accepts both a custom language model and a custom vocabulary in the same request,
+custom vocabulary effects (such as `DisplayAs` rendering) are not applied to the transcription
+output when a custom language model is active.
 
-###### Tip
+###### Important
 
-To achieve the highest transcription accuracy, use custom vocabularies in
-conjunction with your custom language models.
+Custom vocabulary features (such as the `DisplayAs` field) are not applied to
+transcription output when a custom language model is active in the same request. This applies to
+both batch and streaming transcriptions.
 
 For a video walkthrough of creating and using custom
 vocabularies, see:
