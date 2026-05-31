@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="422" height="7240">
+<svg xmlns="http://www.w3.org/2000/svg" width="432" height="7240">
 <style>
   text { font-family: ui-monospace, "Cascadia Mono", "Segoe UI Mono", "Liberation Mono", Menlo, Monaco, Consolas, monospace; }
   .svc { font-size: 7px; fill: #555; }
@@ -7,14 +7,14 @@
   .bar-del { fill: #f85149; }
   .row-even { fill: #f6f8fa; }
 </style>
-<rect width="422" height="7240" fill="white"/>
+<rect width="432" height="7240" fill="white"/>
 <text x="166" y="14" class="month">Dec</text>
 <text x="216" y="14" class="month">Jan</text>
 <text x="256" y="14" class="month">Feb</text>
 <text x="296" y="14" class="month">Mar</text>
 <text x="346" y="14" class="month">Apr</text>
 <text x="386" y="14" class="month">May</text>
-<rect x="0" y="20" width="422" height="22" class="row-even"/>
+<rect x="0" y="20" width="432" height="22" class="row-even"/>
 <text x="6" y="33.5" class="svc">accounts</text>
 <rect x="176" y="26.3" width="8" height="4.7" class="bar-add"/>
 <rect x="246" y="29.5" width="8" height="1.5" class="bar-add"/>
@@ -33,11 +33,13 @@
 <rect x="326" y="53.0" width="8" height="4.6" class="bar-del"/>
 <rect x="346" y="48.3" width="8" height="4.7" class="bar-add"/>
 <rect x="406" y="53.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="64" width="422" height="22" class="row-even"/>
+<rect x="416" y="51.8" width="8" height="1.2" class="bar-add"/>
+<rect x="0" y="64" width="432" height="22" class="row-even"/>
 <text x="6" y="77.5" class="svc">agentworkspace</text>
 <rect x="196" y="68.8" width="8" height="6.2" class="bar-add"/>
 <rect x="256" y="69.7" width="8" height="5.3" class="bar-add"/>
 <rect x="286" y="75.0" width="8" height="5.0" class="bar-del"/>
+<rect x="416" y="69.3" width="8" height="5.7" class="bar-add"/>
 <text x="6" y="99.5" class="svc">AL2</text>
 <rect x="176" y="92.6" width="8" height="4.4" class="bar-add"/>
 <rect x="226" y="92.7" width="8" height="4.3" class="bar-add"/>
@@ -52,7 +54,8 @@
 <rect x="376" y="92.6" width="8" height="4.4" class="bar-add"/>
 <rect x="386" y="92.5" width="8" height="4.5" class="bar-add"/>
 <rect x="396" y="92.4" width="8" height="4.6" class="bar-add"/>
-<rect x="0" y="108" width="422" height="22" class="row-even"/>
+<rect x="416" y="92.4" width="8" height="4.6" class="bar-add"/>
+<rect x="0" y="108" width="432" height="22" class="row-even"/>
 <text x="6" y="121.5" class="svc">amazon-mq</text>
 <rect x="196" y="114.5" width="8" height="4.5" class="bar-add"/>
 <rect x="206" y="119.0" width="8" height="0.9" class="bar-del"/>
@@ -67,6 +70,7 @@
 <rect x="386" y="114.0" width="8" height="5.0" class="bar-add"/>
 <rect x="396" y="119.0" width="8" height="2.8" class="bar-del"/>
 <rect x="406" y="119.0" width="8" height="3.2" class="bar-del"/>
+<rect x="416" y="119.0" width="8" height="2.4" class="bar-del"/>
 <text x="6" y="143.5" class="svc">AmazonCloudFront</text>
 <rect x="166" y="136.8" width="8" height="4.2" class="bar-add"/>
 <rect x="176" y="135.2" width="8" height="5.8" class="bar-add"/>
@@ -91,7 +95,8 @@
 <rect x="386" y="137.4" width="8" height="3.6" class="bar-add"/>
 <rect x="396" y="135.6" width="8" height="5.4" class="bar-add"/>
 <rect x="406" y="141.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="152" width="422" height="22" class="row-even"/>
+<rect x="416" y="138.2" width="8" height="2.8" class="bar-add"/>
+<rect x="0" y="152" width="432" height="22" class="row-even"/>
 <text x="6" y="165.5" class="svc">AmazonCloudWatch</text>
 <rect x="166" y="155.6" width="8" height="7.4" class="bar-add"/>
 <rect x="176" y="157.0" width="8" height="6.0" class="bar-add"/>
@@ -118,6 +123,7 @@
 <rect x="386" y="157.4" width="8" height="5.6" class="bar-add"/>
 <rect x="396" y="157.8" width="8" height="5.2" class="bar-add"/>
 <rect x="406" y="156.2" width="8" height="6.8" class="bar-add"/>
+<rect x="416" y="160.0" width="8" height="3.0" class="bar-add"/>
 <text x="6" y="187.5" class="svc">amazondynamodb</text>
 <rect x="166" y="179.0" width="8" height="6.0" class="bar-add"/>
 <rect x="176" y="185.0" width="8" height="6.2" class="bar-del"/>
@@ -140,7 +146,8 @@
 <rect x="376" y="181.6" width="8" height="3.4" class="bar-add"/>
 <rect x="386" y="185.0" width="8" height="0.6" class="bar-del"/>
 <rect x="406" y="185.0" width="8" height="3.3" class="bar-del"/>
-<rect x="0" y="196" width="422" height="22" class="row-even"/>
+<rect x="416" y="185.0" width="8" height="3.0" class="bar-del"/>
+<rect x="0" y="196" width="432" height="22" class="row-even"/>
 <text x="6" y="209.5" class="svc">AmazonECR</text>
 <rect x="176" y="207.0" width="8" height="0.9" class="bar-del"/>
 <rect x="186" y="204.1" width="8" height="2.9" class="bar-add"/>
@@ -156,6 +163,7 @@
 <rect x="366" y="207.0" width="8" height="4.0" class="bar-del"/>
 <rect x="396" y="205.5" width="8" height="1.5" class="bar-add"/>
 <rect x="406" y="205.2" width="8" height="1.8" class="bar-add"/>
+<rect x="416" y="207.0" width="8" height="2.7" class="bar-del"/>
 <text x="6" y="231.5" class="svc">AmazonECS</text>
 <rect x="166" y="225.7" width="8" height="3.3" class="bar-add"/>
 <rect x="176" y="226.3" width="8" height="2.7" class="bar-add"/>
@@ -181,7 +189,8 @@
 <rect x="386" y="224.6" width="8" height="4.4" class="bar-add"/>
 <rect x="396" y="226.6" width="8" height="2.4" class="bar-add"/>
 <rect x="406" y="223.1" width="8" height="5.9" class="bar-add"/>
-<rect x="0" y="240" width="422" height="22" class="row-even"/>
+<rect x="416" y="225.2" width="8" height="3.8" class="bar-add"/>
+<rect x="0" y="240" width="432" height="22" class="row-even"/>
 <text x="6" y="253.5" class="svc">AmazonElastiCache</text>
 <rect x="166" y="245.6" width="8" height="5.4" class="bar-add"/>
 <rect x="176" y="250.1" width="8" height="0.9" class="bar-add"/>
@@ -207,11 +216,13 @@
 <rect x="376" y="249.5" width="8" height="1.5" class="bar-add"/>
 <rect x="386" y="251.0" width="8" height="4.3" class="bar-del"/>
 <rect x="406" y="251.0" width="8" height="3.3" class="bar-del"/>
+<rect x="416" y="246.2" width="8" height="4.8" class="bar-add"/>
 <text x="6" y="275.5" class="svc">amazonglacier</text>
 <rect x="216" y="273.0" width="8" height="3.3" class="bar-del"/>
 <rect x="266" y="270.0" width="8" height="3.0" class="bar-add"/>
 <rect x="286" y="273.0" width="8" height="5.2" class="bar-del"/>
-<rect x="0" y="284" width="422" height="22" class="row-even"/>
+<rect x="416" y="273.0" width="8" height="2.8" class="bar-del"/>
+<rect x="0" y="284" width="432" height="22" class="row-even"/>
 <text x="6" y="297.5" class="svc">amazonq</text>
 <rect x="176" y="295.0" width="8" height="4.9" class="bar-del"/>
 <rect x="186" y="295.0" width="8" height="2.1" class="bar-del"/>
@@ -253,7 +264,8 @@
 <rect x="386" y="311.6" width="8" height="5.4" class="bar-add"/>
 <rect x="396" y="311.8" width="8" height="5.2" class="bar-add"/>
 <rect x="406" y="310.5" width="8" height="6.5" class="bar-add"/>
-<rect x="0" y="328" width="422" height="22" class="row-even"/>
+<rect x="416" y="309.9" width="8" height="7.1" class="bar-add"/>
+<rect x="0" y="328" width="432" height="22" class="row-even"/>
 <text x="6" y="341.5" class="svc">AmazonS3</text>
 <rect x="166" y="332.3" width="8" height="6.7" class="bar-add"/>
 <rect x="176" y="335.7" width="8" height="3.3" class="bar-add"/>
@@ -274,11 +286,13 @@
 <rect x="386" y="336.0" width="8" height="3.0" class="bar-add"/>
 <rect x="396" y="338.1" width="8" height="0.9" class="bar-add"/>
 <rect x="406" y="339.0" width="8" height="2.9" class="bar-del"/>
+<rect x="416" y="335.0" width="8" height="4.0" class="bar-add"/>
 <text x="6" y="363.5" class="svc">AmazonSimpleDB</text>
 <rect x="286" y="361.0" width="8" height="2.3" class="bar-del"/>
 <rect x="306" y="355.2" width="8" height="5.8" class="bar-add"/>
 <rect x="406" y="361.0" width="8" height="3.3" class="bar-del"/>
-<rect x="0" y="372" width="422" height="22" class="row-even"/>
+<rect x="416" y="361.0" width="8" height="1.7" class="bar-del"/>
+<rect x="0" y="372" width="432" height="22" class="row-even"/>
 <text x="6" y="385.5" class="svc">amazonswf</text>
 <rect x="166" y="383.0" width="8" height="3.3" class="bar-del"/>
 <rect x="176" y="378.9" width="8" height="4.1" class="bar-add"/>
@@ -301,7 +315,8 @@
 <rect x="186" y="402.8" width="8" height="2.2" class="bar-add"/>
 <rect x="286" y="405.0" width="8" height="5.2" class="bar-del"/>
 <rect x="386" y="404.4" width="8" height="0.6" class="bar-add"/>
-<rect x="0" y="416" width="422" height="22" class="row-even"/>
+<rect x="416" y="405.0" width="8" height="1.7" class="bar-del"/>
+<rect x="0" y="416" width="432" height="22" class="row-even"/>
 <text x="6" y="429.5" class="svc">apigateway</text>
 <rect x="166" y="423.6" width="8" height="3.4" class="bar-add"/>
 <rect x="176" y="427.0" width="8" height="2.3" class="bar-del"/>
@@ -322,13 +337,15 @@
 <rect x="346" y="426.4" width="8" height="0.6" class="bar-add"/>
 <rect x="386" y="424.9" width="8" height="2.1" class="bar-add"/>
 <rect x="406" y="427.0" width="8" height="3.2" class="bar-del"/>
+<rect x="416" y="426.4" width="8" height="0.6" class="bar-add"/>
 <text x="6" y="451.5" class="svc">app-mesh</text>
 <rect x="286" y="449.0" width="8" height="4.5" class="bar-del"/>
 <rect x="406" y="447.2" width="8" height="1.8" class="bar-add"/>
-<rect x="0" y="460" width="422" height="22" class="row-even"/>
+<rect x="0" y="460" width="432" height="22" class="row-even"/>
 <text x="6" y="473.5" class="svc">app2container</text>
 <rect x="286" y="471.0" width="8" height="3.5" class="bar-del"/>
 <rect x="406" y="469.2" width="8" height="1.8" class="bar-add"/>
+<rect x="416" y="471.0" width="8" height="2.3" class="bar-del"/>
 <text x="6" y="495.5" class="svc">appconfig</text>
 <rect x="236" y="491.7" width="8" height="1.3" class="bar-add"/>
 <rect x="286" y="493.0" width="8" height="4.8" class="bar-del"/>
@@ -336,19 +353,23 @@
 <rect x="386" y="491.8" width="8" height="1.2" class="bar-add"/>
 <rect x="396" y="489.3" width="8" height="3.7" class="bar-add"/>
 <rect x="406" y="493.0" width="8" height="3.3" class="bar-del"/>
-<rect x="0" y="504" width="422" height="22" class="row-even"/>
+<rect x="416" y="493.0" width="8" height="2.1" class="bar-del"/>
+<rect x="0" y="504" width="432" height="22" class="row-even"/>
 <text x="6" y="517.5" class="svc">appfabric</text>
 <rect x="286" y="515.0" width="8" height="5.1" class="bar-del"/>
 <rect x="406" y="515.0" width="8" height="3.2" class="bar-del"/>
+<rect x="416" y="515.0" width="8" height="1.2" class="bar-del"/>
 <text x="6" y="539.5" class="svc">appflow</text>
 <rect x="266" y="535.8" width="8" height="1.2" class="bar-add"/>
 <rect x="286" y="537.0" width="8" height="4.6" class="bar-del"/>
 <rect x="316" y="534.9" width="8" height="2.1" class="bar-add"/>
 <rect x="406" y="535.2" width="8" height="1.8" class="bar-add"/>
-<rect x="0" y="548" width="422" height="22" class="row-even"/>
+<rect x="416" y="535.7" width="8" height="1.3" class="bar-add"/>
+<rect x="0" y="548" width="432" height="22" class="row-even"/>
 <text x="6" y="561.5" class="svc">application-discovery</text>
 <rect x="216" y="557.2" width="8" height="1.8" class="bar-add"/>
 <rect x="286" y="559.0" width="8" height="4.9" class="bar-del"/>
+<rect x="416" y="559.0" width="8" height="3.1" class="bar-del"/>
 <text x="6" y="583.5" class="svc">apprunner</text>
 <rect x="186" y="578.2" width="8" height="2.8" class="bar-add"/>
 <rect x="216" y="577.2" width="8" height="3.8" class="bar-add"/>
@@ -361,7 +382,8 @@
 <rect x="336" y="575.1" width="8" height="5.9" class="bar-add"/>
 <rect x="376" y="581.0" width="8" height="3.7" class="bar-del"/>
 <rect x="406" y="581.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="592" width="422" height="22" class="row-even"/>
+<rect x="416" y="581.0" width="8" height="2.2" class="bar-del"/>
+<rect x="0" y="592" width="432" height="22" class="row-even"/>
 <text x="6" y="605.5" class="svc">appstream2</text>
 <rect x="186" y="600.2" width="8" height="2.8" class="bar-add"/>
 <rect x="266" y="602.1" width="8" height="0.9" class="bar-add"/>
@@ -376,10 +398,12 @@
 <rect x="376" y="597.5" width="8" height="5.5" class="bar-add"/>
 <rect x="386" y="598.6" width="8" height="4.4" class="bar-add"/>
 <rect x="406" y="603.0" width="8" height="3.3" class="bar-del"/>
+<rect x="416" y="598.6" width="8" height="4.4" class="bar-add"/>
 <text x="6" y="627.5" class="svc">appstudio</text>
 <rect x="286" y="625.0" width="8" height="3.9" class="bar-del"/>
 <rect x="406" y="623.2" width="8" height="1.8" class="bar-add"/>
-<rect x="0" y="636" width="422" height="22" class="row-even"/>
+<rect x="416" y="625.0" width="8" height="2.8" class="bar-del"/>
+<rect x="0" y="636" width="432" height="22" class="row-even"/>
 <text x="6" y="649.5" class="svc">appsync</text>
 <rect x="186" y="644.1" width="8" height="2.9" class="bar-add"/>
 <rect x="286" y="647.0" width="8" height="5.2" class="bar-del"/>
@@ -387,15 +411,17 @@
 <rect x="406" y="645.2" width="8" height="1.8" class="bar-add"/>
 <text x="6" y="671.5" class="svc">architecture-diagrams</text>
 <rect x="286" y="669.0" width="8" height="2.7" class="bar-del"/>
-<rect x="0" y="680" width="422" height="22" class="row-even"/>
+<rect x="0" y="680" width="432" height="22" class="row-even"/>
 <text x="6" y="693.5" class="svc">ARG</text>
 <rect x="286" y="691.0" width="8" height="4.1" class="bar-del"/>
 <rect x="406" y="689.2" width="8" height="1.8" class="bar-add"/>
+<rect x="416" y="687.1" width="8" height="3.9" class="bar-add"/>
 <text x="6" y="715.5" class="svc">artifact</text>
 <rect x="176" y="713.0" width="8" height="5.9" class="bar-del"/>
 <rect x="186" y="711.7" width="8" height="1.3" class="bar-add"/>
 <rect x="286" y="713.0" width="8" height="2.3" class="bar-del"/>
-<rect x="0" y="724" width="422" height="22" class="row-even"/>
+<rect x="416" y="709.0" width="8" height="4.0" class="bar-add"/>
+<rect x="0" y="724" width="432" height="22" class="row-even"/>
 <text x="6" y="737.5" class="svc">athena</text>
 <rect x="166" y="731.4" width="8" height="3.6" class="bar-add"/>
 <rect x="226" y="732.6" width="8" height="2.4" class="bar-add"/>
@@ -416,7 +442,7 @@
 <rect x="376" y="757.0" width="8" height="4.3" class="bar-del"/>
 <rect x="396" y="757.0" width="8" height="2.3" class="bar-del"/>
 <rect x="406" y="757.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="768" width="422" height="22" class="row-even"/>
+<rect x="0" y="768" width="432" height="22" class="row-even"/>
 <text x="6" y="781.5" class="svc">aurora-dsql</text>
 <rect x="166" y="775.6" width="8" height="3.4" class="bar-add"/>
 <rect x="176" y="775.1" width="8" height="3.9" class="bar-add"/>
@@ -438,6 +464,7 @@
 <rect x="376" y="775.5" width="8" height="3.5" class="bar-add"/>
 <rect x="386" y="777.1" width="8" height="1.9" class="bar-add"/>
 <rect x="396" y="772.8" width="8" height="6.2" class="bar-add"/>
+<rect x="416" y="777.1" width="8" height="1.9" class="bar-add"/>
 <text x="6" y="803.5" class="svc">aws-backup</text>
 <rect x="176" y="798.1" width="8" height="2.9" class="bar-add"/>
 <rect x="196" y="798.0" width="8" height="3.0" class="bar-add"/>
@@ -458,16 +485,18 @@
 <rect x="366" y="799.0" width="8" height="2.0" class="bar-add"/>
 <rect x="386" y="796.5" width="8" height="4.5" class="bar-add"/>
 <rect x="396" y="798.6" width="8" height="2.4" class="bar-add"/>
-<rect x="0" y="812" width="422" height="22" class="row-even"/>
+<rect x="416" y="795.9" width="8" height="5.1" class="bar-add"/>
+<rect x="0" y="812" width="432" height="22" class="row-even"/>
 <text x="6" y="825.5" class="svc">aws-certification</text>
 <rect x="186" y="815.4" width="8" height="7.6" class="bar-add"/>
 <rect x="216" y="823.0" width="8" height="3.7" class="bar-del"/>
 <rect x="286" y="819.3" width="8" height="3.7" class="bar-add"/>
 <rect x="326" y="820.3" width="8" height="2.7" class="bar-add"/>
 <rect x="376" y="819.3" width="8" height="3.7" class="bar-add"/>
+<rect x="416" y="823.0" width="8" height="3.2" class="bar-del"/>
 <text x="6" y="847.5" class="svc">aws-iq</text>
 <rect x="286" y="845.0" width="8" height="3.7" class="bar-del"/>
-<rect x="0" y="856" width="422" height="22" class="row-even"/>
+<rect x="0" y="856" width="432" height="22" class="row-even"/>
 <text x="6" y="869.5" class="svc">aws-managed-policy</text>
 <rect x="166" y="860.9" width="8" height="6.1" class="bar-add"/>
 <rect x="176" y="861.3" width="8" height="5.7" class="bar-add"/>
@@ -493,6 +522,7 @@
 <rect x="386" y="861.7" width="8" height="5.3" class="bar-add"/>
 <rect x="396" y="862.0" width="8" height="5.0" class="bar-add"/>
 <rect x="406" y="863.2" width="8" height="3.8" class="bar-add"/>
+<rect x="416" y="861.6" width="8" height="5.4" class="bar-add"/>
 <text x="6" y="891.5" class="svc">aws-mcp</text>
 <rect x="166" y="883.1" width="8" height="5.9" class="bar-add"/>
 <rect x="176" y="887.1" width="8" height="1.9" class="bar-add"/>
@@ -500,7 +530,7 @@
 <rect x="276" y="885.0" width="8" height="4.0" class="bar-add"/>
 <rect x="286" y="889.0" width="8" height="3.4" class="bar-del"/>
 <rect x="316" y="885.3" width="8" height="3.7" class="bar-add"/>
-<rect x="0" y="900" width="422" height="22" class="row-even"/>
+<rect x="0" y="900" width="432" height="22" class="row-even"/>
 <text x="6" y="913.5" class="svc">aws-supply-chain</text>
 <rect x="266" y="908.7" width="8" height="2.3" class="bar-add"/>
 <rect x="286" y="911.0" width="8" height="3.8" class="bar-del"/>
@@ -518,7 +548,7 @@
 <rect x="346" y="928.7" width="8" height="4.3" class="bar-add"/>
 <rect x="396" y="933.0" width="8" height="3.4" class="bar-del"/>
 <rect x="406" y="933.0" width="8" height="3.1" class="bar-del"/>
-<rect x="0" y="944" width="422" height="22" class="row-even"/>
+<rect x="0" y="944" width="432" height="22" class="row-even"/>
 <text x="6" y="957.5" class="svc">AWSCloudFormation</text>
 <rect x="166" y="955.0" width="8" height="5.8" class="bar-del"/>
 <rect x="176" y="954.4" width="8" height="0.6" class="bar-add"/>
@@ -542,6 +572,7 @@
 <rect x="386" y="954.1" width="8" height="0.9" class="bar-add"/>
 <rect x="396" y="949.9" width="8" height="5.1" class="bar-add"/>
 <rect x="406" y="955.0" width="8" height="3.2" class="bar-del"/>
+<rect x="416" y="955.0" width="8" height="1.3" class="bar-del"/>
 <text x="6" y="979.5" class="svc">awscloudtrail</text>
 <rect x="176" y="974.4" width="8" height="2.6" class="bar-add"/>
 <rect x="196" y="973.2" width="8" height="3.8" class="bar-add"/>
@@ -554,7 +585,7 @@
 <rect x="356" y="976.4" width="8" height="0.6" class="bar-add"/>
 <rect x="366" y="975.5" width="8" height="1.5" class="bar-add"/>
 <rect x="406" y="974.9" width="8" height="2.1" class="bar-add"/>
-<rect x="0" y="988" width="422" height="22" class="row-even"/>
+<rect x="0" y="988" width="432" height="22" class="row-even"/>
 <text x="6" y="1001.5" class="svc">awsconsolehelpdocs</text>
 <rect x="176" y="997.4" width="8" height="1.6" class="bar-add"/>
 <rect x="276" y="997.7" width="8" height="1.3" class="bar-add"/>
@@ -586,7 +617,8 @@
 <rect x="386" y="1016.3" width="8" height="4.7" class="bar-add"/>
 <rect x="396" y="1019.4" width="8" height="1.6" class="bar-add"/>
 <rect x="406" y="1019.1" width="8" height="1.9" class="bar-add"/>
-<rect x="0" y="1032" width="422" height="22" class="row-even"/>
+<rect x="416" y="1017.9" width="8" height="3.1" class="bar-add"/>
+<rect x="0" y="1032" width="432" height="22" class="row-even"/>
 <text x="6" y="1045.5" class="svc">AWSMechTurk</text>
 <rect x="286" y="1043.0" width="8" height="3.8" class="bar-del"/>
 <text x="6" y="1067.5" class="svc">AWSSimpleQueueService</text>
@@ -599,7 +631,7 @@
 <rect x="286" y="1065.0" width="8" height="5.3" class="bar-del"/>
 <rect x="366" y="1061.1" width="8" height="3.9" class="bar-add"/>
 <rect x="406" y="1065.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="1076" width="422" height="22" class="row-even"/>
+<rect x="0" y="1076" width="432" height="22" class="row-even"/>
 <text x="6" y="1089.5" class="svc">awssupport</text>
 <rect x="166" y="1081.5" width="8" height="5.5" class="bar-add"/>
 <rect x="176" y="1087.0" width="8" height="2.9" class="bar-del"/>
@@ -617,12 +649,13 @@
 <rect x="386" y="1084.5" width="8" height="2.5" class="bar-add"/>
 <rect x="396" y="1086.1" width="8" height="0.9" class="bar-add"/>
 <rect x="406" y="1085.1" width="8" height="1.9" class="bar-add"/>
+<rect x="416" y="1087.0" width="8" height="0.9" class="bar-del"/>
 <text x="6" y="1111.5" class="svc">b2bi</text>
 <rect x="226" y="1109.0" width="8" height="1.5" class="bar-del"/>
 <rect x="286" y="1109.0" width="8" height="4.4" class="bar-del"/>
 <rect x="326" y="1109.0" width="8" height="1.5" class="bar-del"/>
 <rect x="406" y="1109.0" width="8" height="2.9" class="bar-del"/>
-<rect x="0" y="1120" width="422" height="22" class="row-even"/>
+<rect x="0" y="1120" width="432" height="22" class="row-even"/>
 <text x="6" y="1133.5" class="svc">batch</text>
 <rect x="176" y="1128.5" width="8" height="2.5" class="bar-add"/>
 <rect x="226" y="1127.9" width="8" height="3.1" class="bar-add"/>
@@ -638,6 +671,7 @@
 <rect x="386" y="1131.0" width="8" height="2.7" class="bar-del"/>
 <rect x="396" y="1127.3" width="8" height="3.7" class="bar-add"/>
 <rect x="406" y="1129.5" width="8" height="1.5" class="bar-add"/>
+<rect x="416" y="1128.0" width="8" height="3.0" class="bar-add"/>
 <text x="6" y="1155.5" class="svc">bedrock</text>
 <rect x="166" y="1146.2" width="8" height="6.8" class="bar-add"/>
 <rect x="176" y="1147.3" width="8" height="5.7" class="bar-add"/>
@@ -664,7 +698,8 @@
 <rect x="386" y="1153.0" width="8" height="3.2" class="bar-del"/>
 <rect x="396" y="1146.5" width="8" height="6.5" class="bar-add"/>
 <rect x="406" y="1153.0" width="8" height="4.0" class="bar-del"/>
-<rect x="0" y="1164" width="422" height="22" class="row-even"/>
+<rect x="416" y="1146.8" width="8" height="6.2" class="bar-add"/>
+<rect x="0" y="1164" width="432" height="22" class="row-even"/>
 <text x="6" y="1177.5" class="svc">bedrock-agentcore</text>
 <rect x="166" y="1167.3" width="8" height="7.7" class="bar-add"/>
 <rect x="176" y="1175.0" width="8" height="0.6" class="bar-del"/>
@@ -690,6 +725,7 @@
 <rect x="386" y="1167.8" width="8" height="7.2" class="bar-add"/>
 <rect x="396" y="1169.8" width="8" height="5.2" class="bar-add"/>
 <rect x="406" y="1169.0" width="8" height="6.0" class="bar-add"/>
+<rect x="416" y="1172.3" width="8" height="2.7" class="bar-add"/>
 <text x="6" y="1199.5" class="svc">billingconductor</text>
 <rect x="176" y="1194.7" width="8" height="2.3" class="bar-add"/>
 <rect x="186" y="1195.3" width="8" height="1.7" class="bar-add"/>
@@ -697,8 +733,10 @@
 <rect x="326" y="1192.7" width="8" height="4.3" class="bar-add"/>
 <rect x="376" y="1193.8" width="8" height="3.2" class="bar-add"/>
 <rect x="406" y="1195.2" width="8" height="1.8" class="bar-add"/>
-<rect x="0" y="1208" width="422" height="22" class="row-even"/>
+<rect x="416" y="1195.4" width="8" height="1.6" class="bar-add"/>
+<rect x="0" y="1208" width="432" height="22" class="row-even"/>
 <text x="6" y="1221.5" class="svc">blockchain-templates</text>
+<rect x="416" y="1219.0" width="8" height="3.5" class="bar-del"/>
 <text x="6" y="1243.5" class="svc">braket</text>
 <rect x="166" y="1241.0" width="8" height="3.7" class="bar-del"/>
 <rect x="186" y="1241.0" width="8" height="3.7" class="bar-del"/>
@@ -712,7 +750,7 @@
 <rect x="346" y="1239.4" width="8" height="1.6" class="bar-add"/>
 <rect x="396" y="1237.9" width="8" height="3.1" class="bar-add"/>
 <rect x="406" y="1239.2" width="8" height="1.8" class="bar-add"/>
-<rect x="0" y="1252" width="422" height="22" class="row-even"/>
+<rect x="0" y="1252" width="432" height="22" class="row-even"/>
 <text x="6" y="1265.5" class="svc">ccft</text>
 <rect x="186" y="1261.4" width="8" height="1.6" class="bar-add"/>
 <rect x="276" y="1260.8" width="8" height="2.2" class="bar-add"/>
@@ -720,16 +758,18 @@
 <rect x="366" y="1260.9" width="8" height="2.1" class="bar-add"/>
 <text x="6" y="1287.5" class="svc">cfn-guard</text>
 <rect x="286" y="1285.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="1296" width="422" height="22" class="row-even"/>
+<rect x="0" y="1296" width="432" height="22" class="row-even"/>
 <text x="6" y="1309.5" class="svc">chatbot</text>
 <rect x="286" y="1307.0" width="8" height="4.1" class="bar-del"/>
 <rect x="406" y="1307.0" width="8" height="3.2" class="bar-del"/>
 <text x="6" y="1331.5" class="svc">chime</text>
 <rect x="286" y="1329.0" width="8" height="4.3" class="bar-del"/>
 <rect x="406" y="1329.0" width="8" height="3.3" class="bar-del"/>
-<rect x="0" y="1340" width="422" height="22" class="row-even"/>
+<rect x="416" y="1327.5" width="8" height="1.5" class="bar-add"/>
+<rect x="0" y="1340" width="432" height="22" class="row-even"/>
 <text x="6" y="1353.5" class="svc">claude-platform</text>
 <rect x="396" y="1344.8" width="8" height="6.2" class="bar-add"/>
+<rect x="416" y="1348.7" width="8" height="2.3" class="bar-add"/>
 <text x="6" y="1375.5" class="svc">clean-rooms</text>
 <rect x="166" y="1368.2" width="8" height="4.8" class="bar-add"/>
 <rect x="186" y="1373.0" width="8" height="8.1" class="bar-del"/>
@@ -744,24 +784,27 @@
 <rect x="356" y="1368.4" width="8" height="4.6" class="bar-add"/>
 <rect x="396" y="1370.8" width="8" height="2.2" class="bar-add"/>
 <rect x="406" y="1368.4" width="8" height="4.6" class="bar-add"/>
-<rect x="0" y="1384" width="422" height="22" class="row-even"/>
+<rect x="416" y="1373.0" width="8" height="2.8" class="bar-del"/>
+<rect x="0" y="1384" width="432" height="22" class="row-even"/>
 <text x="6" y="1397.5" class="svc">cloud-map</text>
 <rect x="286" y="1395.0" width="8" height="4.2" class="bar-del"/>
 <rect x="406" y="1395.0" width="8" height="3.3" class="bar-del"/>
+<rect x="416" y="1395.0" width="8" height="2.9" class="bar-del"/>
 <text x="6" y="1419.5" class="svc">cloud9</text>
 <rect x="186" y="1415.5" width="8" height="1.5" class="bar-add"/>
 <rect x="266" y="1414.7" width="8" height="2.3" class="bar-add"/>
 <rect x="286" y="1417.0" width="8" height="5.5" class="bar-del"/>
 <rect x="306" y="1417.0" width="8" height="4.8" class="bar-del"/>
 <rect x="406" y="1417.0" width="8" height="3.8" class="bar-del"/>
-<rect x="0" y="1428" width="422" height="22" class="row-even"/>
+<rect x="0" y="1428" width="432" height="22" class="row-even"/>
 <text x="6" y="1441.5" class="svc">cloudcontrolapi</text>
 <rect x="166" y="1436.3" width="8" height="2.7" class="bar-add"/>
 <rect x="286" y="1439.0" width="8" height="3.3" class="bar-del"/>
 <rect x="396" y="1436.3" width="8" height="2.7" class="bar-add"/>
+<rect x="416" y="1439.0" width="8" height="2.8" class="bar-del"/>
 <text x="6" y="1463.5" class="svc">clouddirectory</text>
 <rect x="286" y="1461.0" width="8" height="2.8" class="bar-del"/>
-<rect x="0" y="1472" width="422" height="22" class="row-even"/>
+<rect x="0" y="1472" width="432" height="22" class="row-even"/>
 <text x="6" y="1485.5" class="svc">cloudhsm</text>
 <rect x="166" y="1483.0" width="8" height="0.6" class="bar-del"/>
 <rect x="186" y="1483.0" width="8" height="0.6" class="bar-del"/>
@@ -783,7 +826,7 @@
 <text x="6" y="1507.5" class="svc">cloudsearch</text>
 <rect x="266" y="1502.9" width="8" height="2.1" class="bar-add"/>
 <rect x="286" y="1505.0" width="8" height="3.3" class="bar-del"/>
-<rect x="0" y="1516" width="422" height="22" class="row-even"/>
+<rect x="0" y="1516" width="432" height="22" class="row-even"/>
 <text x="6" y="1529.5" class="svc">cloudshell</text>
 <rect x="266" y="1525.4" width="8" height="1.6" class="bar-add"/>
 <rect x="286" y="1527.0" width="8" height="4.5" class="bar-del"/>
@@ -796,11 +839,12 @@
 <rect x="286" y="1545.4" width="8" height="3.6" class="bar-add"/>
 <rect x="326" y="1548.4" width="8" height="0.6" class="bar-add"/>
 <rect x="336" y="1549.0" width="8" height="1.7" class="bar-del"/>
-<rect x="0" y="1560" width="422" height="22" class="row-even"/>
+<rect x="0" y="1560" width="432" height="22" class="row-even"/>
 <text x="6" y="1573.5" class="svc">codeartifact</text>
 <rect x="286" y="1571.0" width="8" height="4.6" class="bar-del"/>
 <rect x="356" y="1568.3" width="8" height="2.7" class="bar-add"/>
 <rect x="406" y="1569.2" width="8" height="1.8" class="bar-add"/>
+<rect x="416" y="1571.0" width="8" height="2.1" class="bar-del"/>
 <text x="6" y="1595.5" class="svc">codebuild</text>
 <rect x="166" y="1593.0" width="8" height="4.2" class="bar-del"/>
 <rect x="176" y="1588.8" width="8" height="4.2" class="bar-add"/>
@@ -812,7 +856,8 @@
 <rect x="326" y="1588.7" width="8" height="4.3" class="bar-add"/>
 <rect x="346" y="1591.7" width="8" height="1.3" class="bar-add"/>
 <rect x="406" y="1589.2" width="8" height="3.8" class="bar-add"/>
-<rect x="0" y="1604" width="422" height="22" class="row-even"/>
+<rect x="416" y="1586.7" width="8" height="6.3" class="bar-add"/>
+<rect x="0" y="1604" width="432" height="22" class="row-even"/>
 <text x="6" y="1617.5" class="svc">codecatalyst</text>
 <rect x="166" y="1615.0" width="8" height="3.3" class="bar-del"/>
 <rect x="186" y="1611.7" width="8" height="3.3" class="bar-add"/>
@@ -832,16 +877,18 @@
 <text x="6" y="1639.5" class="svc">codecommit</text>
 <rect x="286" y="1637.0" width="8" height="5.5" class="bar-del"/>
 <rect x="326" y="1637.0" width="8" height="3.4" class="bar-del"/>
-<rect x="0" y="1648" width="422" height="22" class="row-even"/>
+<rect x="0" y="1648" width="432" height="22" class="row-even"/>
 <text x="6" y="1661.5" class="svc">codedeploy</text>
 <rect x="286" y="1659.0" width="8" height="6.2" class="bar-del"/>
 <rect x="336" y="1658.1" width="8" height="0.9" class="bar-add"/>
 <rect x="406" y="1659.0" width="8" height="3.2" class="bar-del"/>
+<rect x="416" y="1659.0" width="8" height="2.4" class="bar-del"/>
 <text x="6" y="1683.5" class="svc">codeguru</text>
 <rect x="266" y="1681.0" width="8" height="1.6" class="bar-del"/>
 <rect x="286" y="1681.0" width="8" height="5.3" class="bar-del"/>
 <rect x="406" y="1681.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="1692" width="422" height="22" class="row-even"/>
+<rect x="416" y="1681.0" width="8" height="3.4" class="bar-del"/>
+<rect x="0" y="1692" width="432" height="22" class="row-even"/>
 <text x="6" y="1705.5" class="svc">codepipeline</text>
 <rect x="226" y="1703.0" width="8" height="1.3" class="bar-del"/>
 <rect x="266" y="1700.6" width="8" height="2.4" class="bar-add"/>
@@ -851,6 +898,7 @@
 <rect x="346" y="1700.7" width="8" height="2.3" class="bar-add"/>
 <rect x="376" y="1700.5" width="8" height="2.5" class="bar-add"/>
 <rect x="406" y="1703.0" width="8" height="3.2" class="bar-del"/>
+<rect x="416" y="1701.2" width="8" height="1.8" class="bar-add"/>
 <text x="6" y="1727.5" class="svc">cognito</text>
 <rect x="176" y="1720.6" width="8" height="4.4" class="bar-add"/>
 <rect x="216" y="1725.0" width="8" height="5.0" class="bar-del"/>
@@ -864,7 +912,8 @@
 <rect x="376" y="1720.8" width="8" height="4.2" class="bar-add"/>
 <rect x="396" y="1721.9" width="8" height="3.1" class="bar-add"/>
 <rect x="406" y="1725.0" width="8" height="3.3" class="bar-del"/>
-<rect x="0" y="1736" width="422" height="22" class="row-even"/>
+<rect x="416" y="1719.5" width="8" height="5.5" class="bar-add"/>
+<rect x="0" y="1736" width="432" height="22" class="row-even"/>
 <text x="6" y="1749.5" class="svc">comprehend</text>
 <rect x="236" y="1741.7" width="8" height="5.3" class="bar-add"/>
 <rect x="266" y="1745.0" width="8" height="2.0" class="bar-add"/>
@@ -876,7 +925,8 @@
 <rect x="286" y="1769.0" width="8" height="3.8" class="bar-del"/>
 <rect x="326" y="1765.8" width="8" height="3.2" class="bar-add"/>
 <rect x="406" y="1767.2" width="8" height="1.8" class="bar-add"/>
-<rect x="0" y="1780" width="422" height="22" class="row-even"/>
+<rect x="416" y="1765.1" width="8" height="3.9" class="bar-add"/>
+<rect x="0" y="1780" width="432" height="22" class="row-even"/>
 <text x="6" y="1793.5" class="svc">compute-optimizer</text>
 <rect x="186" y="1789.7" width="8" height="1.3" class="bar-add"/>
 <rect x="286" y="1791.0" width="8" height="4.1" class="bar-del"/>
@@ -901,7 +951,8 @@
 <rect x="376" y="1808.4" width="8" height="4.6" class="bar-add"/>
 <rect x="386" y="1806.7" width="8" height="6.3" class="bar-add"/>
 <rect x="406" y="1813.0" width="8" height="3.9" class="bar-del"/>
-<rect x="0" y="1824" width="422" height="22" class="row-even"/>
+<rect x="416" y="1813.0" width="8" height="4.7" class="bar-del"/>
+<rect x="0" y="1824" width="432" height="22" class="row-even"/>
 <text x="6" y="1837.5" class="svc">connect</text>
 <rect x="166" y="1827.8" width="8" height="7.2" class="bar-add"/>
 <rect x="176" y="1830.6" width="8" height="4.4" class="bar-add"/>
@@ -927,20 +978,24 @@
 <rect x="386" y="1829.4" width="8" height="5.6" class="bar-add"/>
 <rect x="396" y="1830.3" width="8" height="4.7" class="bar-add"/>
 <rect x="406" y="1830.4" width="8" height="4.6" class="bar-add"/>
+<rect x="416" y="1827.3" width="8" height="7.7" class="bar-add"/>
 <text x="6" y="1859.5" class="svc">connect-decisions</text>
 <rect x="376" y="1849.8" width="8" height="7.2" class="bar-add"/>
-<rect x="0" y="1868" width="422" height="22" class="row-even"/>
+<rect x="0" y="1868" width="432" height="22" class="row-even"/>
 <text x="6" y="1881.5" class="svc">connecthealth</text>
 <rect x="296" y="1872.7" width="8" height="6.3" class="bar-add"/>
 <rect x="306" y="1877.7" width="8" height="1.3" class="bar-add"/>
 <rect x="326" y="1875.6" width="8" height="3.4" class="bar-add"/>
 <rect x="366" y="1875.5" width="8" height="3.5" class="bar-add"/>
 <rect x="406" y="1877.1" width="8" height="1.9" class="bar-add"/>
+<rect x="416" y="1874.9" width="8" height="4.1" class="bar-add"/>
 <text x="6" y="1903.5" class="svc">consolemobileapp</text>
-<rect x="0" y="1912" width="422" height="22" class="row-even"/>
+<rect x="416" y="1901.0" width="8" height="1.7" class="bar-del"/>
+<rect x="0" y="1912" width="432" height="22" class="row-even"/>
 <text x="6" y="1925.5" class="svc">controlcatalog</text>
 <rect x="286" y="1923.0" width="8" height="3.4" class="bar-del"/>
 <rect x="406" y="1921.2" width="8" height="1.8" class="bar-add"/>
+<rect x="416" y="1921.4" width="8" height="1.6" class="bar-add"/>
 <text x="6" y="1947.5" class="svc">controltower</text>
 <rect x="166" y="1940.0" width="8" height="5.0" class="bar-add"/>
 <rect x="186" y="1945.0" width="8" height="4.2" class="bar-del"/>
@@ -957,7 +1012,8 @@
 <rect x="386" y="1942.8" width="8" height="2.2" class="bar-add"/>
 <rect x="396" y="1942.7" width="8" height="2.3" class="bar-add"/>
 <rect x="406" y="1945.0" width="8" height="2.6" class="bar-del"/>
-<rect x="0" y="1956" width="422" height="22" class="row-even"/>
+<rect x="416" y="1944.4" width="8" height="0.6" class="bar-add"/>
+<rect x="0" y="1956" width="432" height="22" class="row-even"/>
 <text x="6" y="1969.5" class="svc">corretto</text>
 <rect x="186" y="1962.5" width="8" height="4.5" class="bar-add"/>
 <rect x="266" y="1961.0" width="8" height="6.0" class="bar-add"/>
@@ -972,7 +1028,8 @@
 <rect x="366" y="1985.6" width="8" height="3.4" class="bar-add"/>
 <rect x="376" y="1986.5" width="8" height="2.5" class="bar-add"/>
 <rect x="406" y="1989.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="2000" width="422" height="22" class="row-even"/>
+<rect x="416" y="1986.2" width="8" height="2.8" class="bar-add"/>
+<rect x="0" y="2000" width="432" height="22" class="row-even"/>
 <text x="6" y="2013.5" class="svc">cur</text>
 <rect x="186" y="2008.7" width="8" height="2.3" class="bar-add"/>
 <rect x="256" y="2011.0" width="8" height="0.6" class="bar-del"/>
@@ -988,7 +1045,7 @@
 <rect x="266" y="2032.1" width="8" height="0.9" class="bar-add"/>
 <rect x="286" y="2033.0" width="8" height="5.3" class="bar-del"/>
 <rect x="406" y="2033.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="2044" width="422" height="22" class="row-even"/>
+<rect x="0" y="2044" width="432" height="22" class="row-even"/>
 <text x="6" y="2057.5" class="svc">databrew</text>
 <rect x="166" y="2055.0" width="8" height="3.5" class="bar-del"/>
 <rect x="176" y="2049.9" width="8" height="5.1" class="bar-add"/>
@@ -1012,20 +1069,23 @@
 <rect x="266" y="2074.4" width="8" height="2.6" class="bar-add"/>
 <rect x="286" y="2077.0" width="8" height="4.1" class="bar-del"/>
 <rect x="406" y="2077.0" width="8" height="3.3" class="bar-del"/>
-<rect x="0" y="2088" width="422" height="22" class="row-even"/>
+<rect x="0" y="2088" width="432" height="22" class="row-even"/>
 <text x="6" y="2101.5" class="svc">datasync</text>
 <rect x="176" y="2094.5" width="8" height="4.5" class="bar-add"/>
 <rect x="286" y="2099.0" width="8" height="5.6" class="bar-del"/>
 <rect x="326" y="2094.1" width="8" height="4.9" class="bar-add"/>
 <rect x="336" y="2096.3" width="8" height="2.7" class="bar-add"/>
 <rect x="406" y="2099.0" width="8" height="3.3" class="bar-del"/>
+<rect x="416" y="2099.0" width="8" height="7.9" class="bar-del"/>
 <text x="6" y="2123.5" class="svc">datatransferterminal</text>
 <rect x="226" y="2121.0" width="8" height="0.6" class="bar-del"/>
-<rect x="0" y="2132" width="422" height="22" class="row-even"/>
+<rect x="416" y="2121.0" width="8" height="2.8" class="bar-del"/>
+<rect x="0" y="2132" width="432" height="22" class="row-even"/>
 <text x="6" y="2145.5" class="svc">datazone</text>
 <rect x="286" y="2143.0" width="8" height="5.3" class="bar-del"/>
 <rect x="306" y="2142.1" width="8" height="0.9" class="bar-add"/>
 <rect x="406" y="2141.2" width="8" height="1.8" class="bar-add"/>
+<rect x="416" y="2143.0" width="8" height="2.6" class="bar-del"/>
 <text x="6" y="2167.5" class="svc">dcv</text>
 <rect x="196" y="2165.0" width="8" height="2.7" class="bar-del"/>
 <rect x="256" y="2161.3" width="8" height="3.7" class="bar-add"/>
@@ -1034,7 +1094,7 @@
 <rect x="286" y="2165.0" width="8" height="4.3" class="bar-del"/>
 <rect x="356" y="2162.4" width="8" height="2.6" class="bar-add"/>
 <rect x="406" y="2162.6" width="8" height="2.4" class="bar-add"/>
-<rect x="0" y="2176" width="422" height="22" class="row-even"/>
+<rect x="0" y="2176" width="432" height="22" class="row-even"/>
 <text x="6" y="2189.5" class="svc">deadline-cloud</text>
 <rect x="166" y="2187.0" width="8" height="0.6" class="bar-del"/>
 <rect x="176" y="2182.9" width="8" height="4.1" class="bar-add"/>
@@ -1060,11 +1120,12 @@
 <rect x="386" y="2183.0" width="8" height="4.0" class="bar-add"/>
 <rect x="396" y="2185.5" width="8" height="1.5" class="bar-add"/>
 <rect x="406" y="2184.6" width="8" height="2.4" class="bar-add"/>
+<rect x="416" y="2180.4" width="8" height="6.6" class="bar-add"/>
 <text x="6" y="2211.5" class="svc">deep-learning-containers</text>
 <rect x="186" y="2204.5" width="8" height="4.5" class="bar-add"/>
 <rect x="216" y="2203.9" width="8" height="5.1" class="bar-add"/>
 <rect x="266" y="2209.0" width="8" height="7.3" class="bar-del"/>
-<rect x="0" y="2220" width="422" height="22" class="row-even"/>
+<rect x="0" y="2220" width="432" height="22" class="row-even"/>
 <text x="6" y="2233.5" class="svc">deepracer</text>
 <rect x="186" y="2230.4" width="8" height="0.6" class="bar-add"/>
 <rect x="206" y="2231.0" width="8" height="0.6" class="bar-del"/>
@@ -1075,12 +1136,13 @@
 <rect x="266" y="2252.1" width="8" height="0.9" class="bar-add"/>
 <rect x="286" y="2253.0" width="8" height="4.7" class="bar-del"/>
 <rect x="406" y="2253.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="2264" width="422" height="22" class="row-even"/>
+<rect x="0" y="2264" width="432" height="22" class="row-even"/>
 <text x="6" y="2277.5" class="svc">devicefarm</text>
 <rect x="266" y="2273.2" width="8" height="1.8" class="bar-add"/>
 <rect x="286" y="2275.0" width="8" height="4.7" class="bar-del"/>
 <rect x="356" y="2270.4" width="8" height="4.6" class="bar-add"/>
 <rect x="406" y="2273.2" width="8" height="1.8" class="bar-add"/>
+<rect x="416" y="2275.0" width="8" height="2.6" class="bar-del"/>
 <text x="6" y="2299.5" class="svc">devops-guru</text>
 <rect x="166" y="2295.7" width="8" height="1.3" class="bar-add"/>
 <rect x="176" y="2293.0" width="8" height="4.0" class="bar-add"/>
@@ -1099,7 +1161,7 @@
 <rect x="306" y="2294.4" width="8" height="2.6" class="bar-add"/>
 <rect x="326" y="2291.9" width="8" height="5.1" class="bar-add"/>
 <rect x="406" y="2297.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="2308" width="422" height="22" class="row-even"/>
+<rect x="0" y="2308" width="432" height="22" class="row-even"/>
 <text x="6" y="2321.5" class="svc">devopsagent</text>
 <rect x="166" y="2312.1" width="8" height="6.9" class="bar-add"/>
 <rect x="176" y="2315.7" width="8" height="3.3" class="bar-add"/>
@@ -1116,15 +1178,17 @@
 <rect x="376" y="2315.1" width="8" height="3.9" class="bar-add"/>
 <rect x="396" y="2315.1" width="8" height="3.9" class="bar-add"/>
 <rect x="406" y="2314.4" width="8" height="4.6" class="bar-add"/>
+<rect x="416" y="2316.2" width="8" height="2.8" class="bar-add"/>
 <text x="6" y="2343.5" class="svc">diagnostic-tools</text>
 <rect x="286" y="2341.0" width="8" height="3.4" class="bar-del"/>
 <rect x="406" y="2339.2" width="8" height="1.8" class="bar-add"/>
-<rect x="0" y="2352" width="422" height="22" class="row-even"/>
+<rect x="0" y="2352" width="432" height="22" class="row-even"/>
 <text x="6" y="2365.5" class="svc">directconnect</text>
 <rect x="206" y="2362.4" width="8" height="0.6" class="bar-add"/>
 <rect x="286" y="2363.0" width="8" height="4.5" class="bar-del"/>
 <rect x="336" y="2361.8" width="8" height="1.2" class="bar-add"/>
 <rect x="406" y="2363.0" width="8" height="4.4" class="bar-del"/>
+<rect x="416" y="2358.6" width="8" height="4.4" class="bar-add"/>
 <text x="6" y="2387.5" class="svc">directoryservice</text>
 <rect x="246" y="2382.4" width="8" height="2.6" class="bar-add"/>
 <rect x="266" y="2385.0" width="8" height="1.3" class="bar-del"/>
@@ -1132,7 +1196,8 @@
 <rect x="286" y="2385.0" width="8" height="5.7" class="bar-del"/>
 <rect x="336" y="2381.0" width="8" height="4.0" class="bar-add"/>
 <rect x="376" y="2383.5" width="8" height="1.5" class="bar-add"/>
-<rect x="0" y="2396" width="422" height="22" class="row-even"/>
+<rect x="416" y="2383.4" width="8" height="1.6" class="bar-add"/>
+<rect x="0" y="2396" width="432" height="22" class="row-even"/>
 <text x="6" y="2409.5" class="svc">dlami</text>
 <rect x="176" y="2406.1" width="8" height="0.9" class="bar-add"/>
 <rect x="186" y="2406.4" width="8" height="0.6" class="bar-add"/>
@@ -1167,7 +1232,7 @@
 <rect x="386" y="2425.0" width="8" height="4.0" class="bar-add"/>
 <rect x="396" y="2424.4" width="8" height="4.6" class="bar-add"/>
 <rect x="406" y="2424.8" width="8" height="4.2" class="bar-add"/>
-<rect x="0" y="2440" width="422" height="22" class="row-even"/>
+<rect x="0" y="2440" width="432" height="22" class="row-even"/>
 <text x="6" y="2453.5" class="svc">documentdb</text>
 <rect x="166" y="2451.0" width="8" height="4.6" class="bar-del"/>
 <rect x="176" y="2446.1" width="8" height="4.9" class="bar-add"/>
@@ -1193,6 +1258,7 @@
 <rect x="386" y="2450.1" width="8" height="0.9" class="bar-add"/>
 <rect x="396" y="2447.2" width="8" height="3.8" class="bar-add"/>
 <rect x="406" y="2448.7" width="8" height="2.3" class="bar-add"/>
+<rect x="416" y="2441.7" width="8" height="9.3" class="bar-add"/>
 <text x="6" y="2475.5" class="svc">drs</text>
 <rect x="186" y="2473.0" width="8" height="3.0" class="bar-del"/>
 <rect x="246" y="2472.4" width="8" height="0.6" class="bar-add"/>
@@ -1202,11 +1268,13 @@
 <rect x="346" y="2471.1" width="8" height="1.9" class="bar-add"/>
 <rect x="356" y="2469.3" width="8" height="3.7" class="bar-add"/>
 <rect x="366" y="2473.0" width="8" height="1.2" class="bar-del"/>
-<rect x="0" y="2484" width="422" height="22" class="row-even"/>
+<rect x="416" y="2468.6" width="8" height="4.4" class="bar-add"/>
+<rect x="0" y="2484" width="432" height="22" class="row-even"/>
 <text x="6" y="2497.5" class="svc">dtconsole</text>
 <rect x="286" y="2495.0" width="8" height="5.3" class="bar-del"/>
 <rect x="396" y="2493.5" width="8" height="1.5" class="bar-add"/>
 <rect x="406" y="2495.0" width="8" height="3.2" class="bar-del"/>
+<rect x="416" y="2495.0" width="8" height="0.9" class="bar-del"/>
 <text x="6" y="2519.5" class="svc">ebs</text>
 <rect x="226" y="2515.4" width="8" height="1.6" class="bar-add"/>
 <rect x="236" y="2514.7" width="8" height="2.3" class="bar-add"/>
@@ -1215,7 +1283,8 @@
 <rect x="296" y="2517.0" width="8" height="0.6" class="bar-del"/>
 <rect x="376" y="2517.0" width="8" height="0.9" class="bar-del"/>
 <rect x="406" y="2517.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="2528" width="422" height="22" class="row-even"/>
+<rect x="416" y="2512.5" width="8" height="4.5" class="bar-add"/>
+<rect x="0" y="2528" width="432" height="22" class="row-even"/>
 <text x="6" y="2541.5" class="svc">ec2</text>
 <rect x="166" y="2534.8" width="8" height="4.2" class="bar-add"/>
 <rect x="176" y="2535.6" width="8" height="3.4" class="bar-add"/>
@@ -1244,7 +1313,7 @@
 <rect x="286" y="2561.0" width="8" height="5.1" class="bar-del"/>
 <rect x="306" y="2561.0" width="8" height="2.8" class="bar-del"/>
 <rect x="406" y="2559.2" width="8" height="1.8" class="bar-add"/>
-<rect x="0" y="2572" width="422" height="22" class="row-even"/>
+<rect x="0" y="2572" width="432" height="22" class="row-even"/>
 <text x="6" y="2585.5" class="svc">eks</text>
 <rect x="166" y="2575.4" width="8" height="7.6" class="bar-add"/>
 <rect x="176" y="2577.2" width="8" height="5.8" class="bar-add"/>
@@ -1269,6 +1338,7 @@
 <rect x="386" y="2578.1" width="8" height="4.9" class="bar-add"/>
 <rect x="396" y="2582.1" width="8" height="0.9" class="bar-add"/>
 <rect x="406" y="2583.0" width="8" height="4.1" class="bar-del"/>
+<rect x="416" y="2577.9" width="8" height="5.1" class="bar-add"/>
 <text x="6" y="2607.5" class="svc">elasticbeanstalk</text>
 <rect x="166" y="2599.1" width="8" height="5.9" class="bar-add"/>
 <rect x="176" y="2605.0" width="8" height="4.4" class="bar-del"/>
@@ -1293,7 +1363,8 @@
 <rect x="376" y="2602.6" width="8" height="2.4" class="bar-add"/>
 <rect x="386" y="2599.5" width="8" height="5.5" class="bar-add"/>
 <rect x="406" y="2605.0" width="8" height="3.5" class="bar-del"/>
-<rect x="0" y="2616" width="422" height="22" class="row-even"/>
+<rect x="416" y="2600.1" width="8" height="4.9" class="bar-add"/>
+<rect x="0" y="2616" width="432" height="22" class="row-even"/>
 <text x="6" y="2629.5" class="svc">elasticloadbalancing</text>
 <rect x="176" y="2624.9" width="8" height="2.1" class="bar-add"/>
 <rect x="276" y="2625.8" width="8" height="1.2" class="bar-add"/>
@@ -1303,9 +1374,10 @@
 <rect x="366" y="2625.3" width="8" height="1.7" class="bar-add"/>
 <rect x="376" y="2624.5" width="8" height="2.5" class="bar-add"/>
 <rect x="406" y="2625.2" width="8" height="1.8" class="bar-add"/>
+<rect x="416" y="2623.0" width="8" height="4.0" class="bar-add"/>
 <text x="6" y="2651.5" class="svc">elemental-appliances-s..</text>
 <rect x="286" y="2649.0" width="8" height="1.3" class="bar-del"/>
-<rect x="0" y="2660" width="422" height="22" class="row-even"/>
+<rect x="0" y="2660" width="432" height="22" class="row-even"/>
 <text x="6" y="2673.5" class="svc">elemental-cf2</text>
 <rect x="266" y="2670.1" width="8" height="0.9" class="bar-add"/>
 <rect x="286" y="2671.0" width="8" height="4.2" class="bar-del"/>
@@ -1313,22 +1385,23 @@
 <rect x="166" y="2689.8" width="8" height="3.2" class="bar-add"/>
 <rect x="266" y="2691.4" width="8" height="1.6" class="bar-add"/>
 <rect x="286" y="2693.0" width="8" height="5.6" class="bar-del"/>
-<rect x="0" y="2704" width="422" height="22" class="row-even"/>
+<rect x="0" y="2704" width="432" height="22" class="row-even"/>
 <text x="6" y="2717.5" class="svc">elemental-inference</text>
 <rect x="286" y="2709.7" width="8" height="5.3" class="bar-add"/>
 <rect x="346" y="2709.4" width="8" height="5.6" class="bar-add"/>
 <rect x="406" y="2715.0" width="8" height="3.2" class="bar-del"/>
+<rect x="416" y="2710.8" width="8" height="4.2" class="bar-add"/>
 <text x="6" y="2739.5" class="svc">elemental-live</text>
 <rect x="266" y="2735.0" width="8" height="2.0" class="bar-add"/>
 <rect x="286" y="2737.0" width="8" height="6.0" class="bar-del"/>
-<rect x="0" y="2748" width="422" height="22" class="row-even"/>
+<rect x="0" y="2748" width="432" height="22" class="row-even"/>
 <text x="6" y="2761.5" class="svc">elemental-server</text>
 <rect x="266" y="2758.1" width="8" height="0.9" class="bar-add"/>
 <rect x="286" y="2759.0" width="8" height="5.0" class="bar-del"/>
 <text x="6" y="2783.5" class="svc">elemental-statmux</text>
 <rect x="266" y="2779.4" width="8" height="1.6" class="bar-add"/>
 <rect x="286" y="2781.0" width="8" height="2.2" class="bar-del"/>
-<rect x="0" y="2792" width="422" height="22" class="row-even"/>
+<rect x="0" y="2792" width="432" height="22" class="row-even"/>
 <text x="6" y="2805.5" class="svc">emr</text>
 <rect x="166" y="2796.4" width="8" height="6.6" class="bar-add"/>
 <rect x="176" y="2798.7" width="8" height="4.3" class="bar-add"/>
@@ -1354,6 +1427,7 @@
 <rect x="386" y="2798.7" width="8" height="4.3" class="bar-add"/>
 <rect x="396" y="2796.9" width="8" height="6.1" class="bar-add"/>
 <rect x="406" y="2798.3" width="8" height="4.7" class="bar-add"/>
+<rect x="416" y="2799.5" width="8" height="3.5" class="bar-add"/>
 <text x="6" y="2827.5" class="svc">enclaves</text>
 <rect x="166" y="2824.1" width="8" height="0.9" class="bar-add"/>
 <rect x="176" y="2824.4" width="8" height="0.6" class="bar-add"/>
@@ -1366,7 +1440,7 @@
 <rect x="356" y="2824.1" width="8" height="0.9" class="bar-add"/>
 <rect x="376" y="2823.4" width="8" height="1.6" class="bar-add"/>
 <rect x="386" y="2823.7" width="8" height="1.3" class="bar-add"/>
-<rect x="0" y="2836" width="422" height="22" class="row-even"/>
+<rect x="0" y="2836" width="432" height="22" class="row-even"/>
 <text x="6" y="2849.5" class="svc">entityresolution</text>
 <rect x="186" y="2843.1" width="8" height="3.9" class="bar-add"/>
 <rect x="266" y="2844.9" width="8" height="2.1" class="bar-add"/>
@@ -1374,6 +1448,7 @@
 <rect x="366" y="2847.0" width="8" height="0.6" class="bar-del"/>
 <rect x="376" y="2842.6" width="8" height="4.4" class="bar-add"/>
 <rect x="406" y="2845.2" width="8" height="1.8" class="bar-add"/>
+<rect x="416" y="2847.0" width="8" height="2.6" class="bar-del"/>
 <text x="6" y="2871.5" class="svc">eventbridge</text>
 <rect x="186" y="2869.0" width="8" height="0.6" class="bar-del"/>
 <rect x="196" y="2866.4" width="8" height="2.6" class="bar-add"/>
@@ -1395,7 +1470,8 @@
 <rect x="386" y="2865.0" width="8" height="4.0" class="bar-add"/>
 <rect x="396" y="2866.5" width="8" height="2.5" class="bar-add"/>
 <rect x="406" y="2869.0" width="8" height="2.9" class="bar-del"/>
-<rect x="0" y="2880" width="422" height="22" class="row-even"/>
+<rect x="416" y="2867.4" width="8" height="1.6" class="bar-add"/>
+<rect x="0" y="2880" width="432" height="22" class="row-even"/>
 <text x="6" y="2893.5" class="svc">evs</text>
 <rect x="236" y="2887.0" width="8" height="4.0" class="bar-add"/>
 <rect x="266" y="2888.0" width="8" height="3.0" class="bar-add"/>
@@ -1403,13 +1479,14 @@
 <rect x="366" y="2885.8" width="8" height="5.2" class="bar-add"/>
 <rect x="376" y="2889.2" width="8" height="1.8" class="bar-add"/>
 <rect x="406" y="2886.9" width="8" height="4.1" class="bar-add"/>
+<rect x="416" y="2891.0" width="8" height="2.5" class="bar-del"/>
 <text x="6" y="2915.5" class="svc">fedramp</text>
 <rect x="256" y="2905.7" width="8" height="7.3" class="bar-add"/>
 <rect x="266" y="2907.7" width="8" height="5.3" class="bar-add"/>
 <rect x="286" y="2913.0" width="8" height="1.6" class="bar-del"/>
 <rect x="326" y="2909.5" width="8" height="3.5" class="bar-add"/>
 <rect x="406" y="2910.8" width="8" height="2.2" class="bar-add"/>
-<rect x="0" y="2924" width="422" height="22" class="row-even"/>
+<rect x="0" y="2924" width="432" height="22" class="row-even"/>
 <text x="6" y="2937.5" class="svc">filegateway</text>
 <rect x="176" y="2933.5" width="8" height="1.5" class="bar-add"/>
 <rect x="186" y="2933.8" width="8" height="1.2" class="bar-add"/>
@@ -1425,10 +1502,12 @@
 <rect x="346" y="2935.0" width="8" height="3.1" class="bar-del"/>
 <rect x="356" y="2933.7" width="8" height="1.3" class="bar-add"/>
 <rect x="406" y="2932.5" width="8" height="2.5" class="bar-add"/>
+<rect x="416" y="2935.0" width="8" height="3.4" class="bar-del"/>
 <text x="6" y="2959.5" class="svc">finspace</text>
 <rect x="286" y="2957.0" width="8" height="4.3" class="bar-del"/>
 <rect x="406" y="2957.0" width="8" height="3.3" class="bar-del"/>
-<rect x="0" y="2968" width="422" height="22" class="row-even"/>
+<rect x="416" y="2957.0" width="8" height="2.3" class="bar-del"/>
+<rect x="0" y="2968" width="432" height="22" class="row-even"/>
 <text x="6" y="2981.5" class="svc">firehose</text>
 <rect x="236" y="2975.4" width="8" height="3.6" class="bar-add"/>
 <rect x="256" y="2979.0" width="8" height="0.6" class="bar-del"/>
@@ -1446,7 +1525,8 @@
 <rect x="286" y="3001.0" width="8" height="3.6" class="bar-del"/>
 <rect x="326" y="2998.7" width="8" height="2.3" class="bar-add"/>
 <rect x="406" y="2999.2" width="8" height="1.8" class="bar-add"/>
-<rect x="0" y="3012" width="422" height="22" class="row-even"/>
+<rect x="416" y="3000.4" width="8" height="0.6" class="bar-add"/>
+<rect x="0" y="3012" width="432" height="22" class="row-even"/>
 <text x="6" y="3025.5" class="svc">forecast</text>
 <rect x="266" y="3022.1" width="8" height="0.9" class="bar-add"/>
 <rect x="286" y="3023.0" width="8" height="4.6" class="bar-del"/>
@@ -1456,7 +1536,8 @@
 <text x="6" y="3047.5" class="svc">frauddetector</text>
 <rect x="286" y="3045.0" width="8" height="3.7" class="bar-del"/>
 <rect x="406" y="3045.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="3056" width="422" height="22" class="row-even"/>
+<rect x="416" y="3045.0" width="8" height="1.6" class="bar-del"/>
+<rect x="0" y="3056" width="432" height="22" class="row-even"/>
 <text x="6" y="3069.5" class="svc">fsx</text>
 <rect x="166" y="3061.5" width="8" height="5.5" class="bar-add"/>
 <rect x="216" y="3064.2" width="8" height="2.8" class="bar-add"/>
@@ -1473,6 +1554,7 @@
 <rect x="386" y="3065.4" width="8" height="1.6" class="bar-add"/>
 <rect x="396" y="3062.5" width="8" height="4.5" class="bar-add"/>
 <rect x="406" y="3067.0" width="8" height="4.5" class="bar-del"/>
+<rect x="416" y="3067.0" width="8" height="2.3" class="bar-del"/>
 <text x="6" y="3091.5" class="svc">gameliftservers</text>
 <rect x="166" y="3087.7" width="8" height="1.3" class="bar-add"/>
 <rect x="176" y="3086.5" width="8" height="2.5" class="bar-add"/>
@@ -1490,7 +1572,8 @@
 <rect x="376" y="3084.9" width="8" height="4.1" class="bar-add"/>
 <rect x="386" y="3088.4" width="8" height="0.6" class="bar-add"/>
 <rect x="406" y="3085.6" width="8" height="3.4" class="bar-add"/>
-<rect x="0" y="3100" width="422" height="22" class="row-even"/>
+<rect x="416" y="3086.7" width="8" height="2.3" class="bar-add"/>
+<rect x="0" y="3100" width="432" height="22" class="row-even"/>
 <text x="6" y="3113.5" class="svc">gameliftstreams</text>
 <rect x="186" y="3106.6" width="8" height="4.4" class="bar-add"/>
 <rect x="246" y="3108.1" width="8" height="2.9" class="bar-add"/>
@@ -1527,7 +1610,8 @@
 <rect x="386" y="3131.3" width="8" height="1.7" class="bar-add"/>
 <rect x="396" y="3129.1" width="8" height="3.9" class="bar-add"/>
 <rect x="406" y="3133.0" width="8" height="4.9" class="bar-del"/>
-<rect x="0" y="3144" width="422" height="22" class="row-even"/>
+<rect x="416" y="3133.0" width="8" height="2.1" class="bar-del"/>
+<rect x="0" y="3144" width="432" height="22" class="row-even"/>
 <text x="6" y="3157.5" class="svc">global-accelerator</text>
 <rect x="166" y="3155.0" width="8" height="1.9" class="bar-del"/>
 <rect x="176" y="3150.3" width="8" height="4.7" class="bar-add"/>
@@ -1547,7 +1631,7 @@
 <rect x="326" y="3148.5" width="8" height="6.5" class="bar-add"/>
 <text x="6" y="3179.5" class="svc">global-infrastructure</text>
 <rect x="186" y="3176.1" width="8" height="0.9" class="bar-add"/>
-<rect x="0" y="3188" width="422" height="22" class="row-even"/>
+<rect x="0" y="3188" width="432" height="22" class="row-even"/>
 <text x="6" y="3201.5" class="svc">glossary</text>
 <text x="6" y="3223.5" class="svc">glue</text>
 <rect x="166" y="3215.3" width="8" height="5.7" class="bar-add"/>
@@ -1570,7 +1654,7 @@
 <rect x="386" y="3218.6" width="8" height="2.4" class="bar-add"/>
 <rect x="396" y="3218.8" width="8" height="2.2" class="bar-add"/>
 <rect x="406" y="3217.2" width="8" height="3.8" class="bar-add"/>
-<rect x="0" y="3232" width="422" height="22" class="row-even"/>
+<rect x="0" y="3232" width="432" height="22" class="row-even"/>
 <text x="6" y="3245.5" class="svc">govcloud-us</text>
 <rect x="166" y="3243.0" width="8" height="0.9" class="bar-del"/>
 <rect x="186" y="3241.3" width="8" height="1.7" class="bar-add"/>
@@ -1590,6 +1674,7 @@
 <rect x="376" y="3241.8" width="8" height="1.2" class="bar-add"/>
 <rect x="386" y="3239.7" width="8" height="3.3" class="bar-add"/>
 <rect x="406" y="3243.0" width="8" height="2.6" class="bar-del"/>
+<rect x="416" y="3243.0" width="8" height="2.7" class="bar-del"/>
 <text x="6" y="3267.5" class="svc">grafana</text>
 <rect x="246" y="3264.1" width="8" height="0.9" class="bar-add"/>
 <rect x="256" y="3259.9" width="8" height="5.1" class="bar-add"/>
@@ -1598,7 +1683,8 @@
 <rect x="356" y="3256.5" width="8" height="8.5" class="bar-add"/>
 <rect x="396" y="3260.9" width="8" height="4.1" class="bar-add"/>
 <rect x="406" y="3261.1" width="8" height="3.9" class="bar-add"/>
-<rect x="0" y="3276" width="422" height="22" class="row-even"/>
+<rect x="416" y="3265.0" width="8" height="1.6" class="bar-del"/>
+<rect x="0" y="3276" width="432" height="22" class="row-even"/>
 <text x="6" y="3289.5" class="svc">ground-station</text>
 <rect x="166" y="3282.4" width="8" height="4.6" class="bar-add"/>
 <rect x="176" y="3287.0" width="8" height="4.9" class="bar-del"/>
@@ -1620,6 +1706,7 @@
 <rect x="356" y="3281.4" width="8" height="5.6" class="bar-add"/>
 <rect x="396" y="3284.9" width="8" height="2.1" class="bar-add"/>
 <rect x="406" y="3287.0" width="8" height="3.3" class="bar-del"/>
+<rect x="416" y="3283.7" width="8" height="3.3" class="bar-add"/>
 <text x="6" y="3311.5" class="svc">guardduty</text>
 <rect x="166" y="3304.6" width="8" height="4.4" class="bar-add"/>
 <rect x="186" y="3305.7" width="8" height="3.3" class="bar-add"/>
@@ -1636,7 +1723,8 @@
 <rect x="366" y="3303.7" width="8" height="5.3" class="bar-add"/>
 <rect x="396" y="3304.1" width="8" height="4.9" class="bar-add"/>
 <rect x="406" y="3306.7" width="8" height="2.3" class="bar-add"/>
-<rect x="0" y="3320" width="422" height="22" class="row-even"/>
+<rect x="416" y="3307.2" width="8" height="1.8" class="bar-add"/>
+<rect x="0" y="3320" width="432" height="22" class="row-even"/>
 <text x="6" y="3333.5" class="svc">guidance</text>
 <rect x="176" y="3326.3" width="8" height="4.7" class="bar-add"/>
 <rect x="186" y="3331.0" width="8" height="3.0" class="bar-del"/>
@@ -1650,11 +1738,12 @@
 <rect x="366" y="3329.2" width="8" height="1.8" class="bar-add"/>
 <rect x="376" y="3326.2" width="8" height="4.8" class="bar-add"/>
 <rect x="386" y="3327.2" width="8" height="3.8" class="bar-add"/>
+<rect x="416" y="3331.0" width="8" height="2.3" class="bar-del"/>
 <text x="6" y="3355.5" class="svc">hands-on</text>
 <rect x="216" y="3347.7" width="8" height="5.3" class="bar-add"/>
 <rect x="286" y="3348.9" width="8" height="4.1" class="bar-add"/>
 <rect x="366" y="3352.4" width="8" height="0.6" class="bar-add"/>
-<rect x="0" y="3364" width="422" height="22" class="row-even"/>
+<rect x="0" y="3364" width="432" height="22" class="row-even"/>
 <text x="6" y="3377.5" class="svc">health</text>
 <rect x="176" y="3373.5" width="8" height="1.5" class="bar-add"/>
 <rect x="196" y="3375.0" width="8" height="2.1" class="bar-del"/>
@@ -1664,6 +1753,7 @@
 <rect x="376" y="3373.3" width="8" height="1.7" class="bar-add"/>
 <rect x="396" y="3375.0" width="8" height="3.0" class="bar-del"/>
 <rect x="406" y="3375.0" width="8" height="3.2" class="bar-del"/>
+<rect x="416" y="3375.0" width="8" height="1.5" class="bar-del"/>
 <text x="6" y="3399.5" class="svc">healthimaging</text>
 <rect x="166" y="3396.1" width="8" height="0.9" class="bar-add"/>
 <rect x="186" y="3393.5" width="8" height="3.5" class="bar-add"/>
@@ -1676,7 +1766,7 @@
 <rect x="326" y="3392.6" width="8" height="4.4" class="bar-add"/>
 <rect x="346" y="3395.4" width="8" height="1.6" class="bar-add"/>
 <rect x="406" y="3392.4" width="8" height="4.6" class="bar-add"/>
-<rect x="0" y="3408" width="422" height="22" class="row-even"/>
+<rect x="0" y="3408" width="432" height="22" class="row-even"/>
 <text x="6" y="3421.5" class="svc">healthlake</text>
 <rect x="166" y="3417.7" width="8" height="1.3" class="bar-add"/>
 <rect x="226" y="3417.7" width="8" height="1.3" class="bar-add"/>
@@ -1692,6 +1782,7 @@
 <rect x="376" y="3417.5" width="8" height="1.5" class="bar-add"/>
 <rect x="386" y="3416.5" width="8" height="2.5" class="bar-add"/>
 <rect x="406" y="3419.0" width="8" height="3.2" class="bar-del"/>
+<rect x="416" y="3415.0" width="8" height="4.0" class="bar-add"/>
 <text x="6" y="3443.5" class="svc">IAM</text>
 <rect x="166" y="3438.4" width="8" height="2.6" class="bar-add"/>
 <rect x="176" y="3440.4" width="8" height="0.6" class="bar-add"/>
@@ -1716,7 +1807,8 @@
 <rect x="386" y="3439.7" width="8" height="1.3" class="bar-add"/>
 <rect x="396" y="3440.4" width="8" height="0.6" class="bar-add"/>
 <rect x="406" y="3437.7" width="8" height="3.3" class="bar-add"/>
-<rect x="0" y="3452" width="422" height="22" class="row-even"/>
+<rect x="416" y="3436.8" width="8" height="4.2" class="bar-add"/>
+<rect x="0" y="3452" width="432" height="22" class="row-even"/>
 <text x="6" y="3465.5" class="svc">IDR</text>
 <rect x="176" y="3460.3" width="8" height="2.7" class="bar-add"/>
 <rect x="226" y="3462.4" width="8" height="0.6" class="bar-add"/>
@@ -1727,6 +1819,7 @@
 <rect x="336" y="3463.0" width="8" height="0.9" class="bar-del"/>
 <rect x="366" y="3461.4" width="8" height="1.6" class="bar-add"/>
 <rect x="396" y="3458.4" width="8" height="4.6" class="bar-add"/>
+<rect x="416" y="3461.0" width="8" height="2.0" class="bar-add"/>
 <text x="6" y="3487.5" class="svc">imagebuilder</text>
 <rect x="166" y="3483.5" width="8" height="1.5" class="bar-add"/>
 <rect x="236" y="3481.8" width="8" height="3.2" class="bar-add"/>
@@ -1737,15 +1830,17 @@
 <rect x="356" y="3481.0" width="8" height="4.0" class="bar-add"/>
 <rect x="396" y="3480.3" width="8" height="4.7" class="bar-add"/>
 <rect x="406" y="3483.2" width="8" height="1.8" class="bar-add"/>
-<rect x="0" y="3496" width="422" height="22" class="row-even"/>
+<rect x="0" y="3496" width="432" height="22" class="row-even"/>
 <text x="6" y="3509.5" class="svc">incident-manager</text>
 <rect x="236" y="3502.0" width="8" height="5.0" class="bar-add"/>
 <rect x="286" y="3507.0" width="8" height="4.7" class="bar-del"/>
 <rect x="406" y="3507.0" width="8" height="3.2" class="bar-del"/>
+<rect x="416" y="3507.0" width="8" height="2.3" class="bar-del"/>
 <text x="6" y="3531.5" class="svc">infrastructure-composer</text>
 <rect x="286" y="3529.0" width="8" height="3.8" class="bar-del"/>
 <rect x="406" y="3527.2" width="8" height="1.8" class="bar-add"/>
-<rect x="0" y="3540" width="422" height="22" class="row-even"/>
+<rect x="416" y="3527.3" width="8" height="1.7" class="bar-add"/>
+<rect x="0" y="3540" width="432" height="22" class="row-even"/>
 <text x="6" y="3553.5" class="svc">inspector</text>
 <rect x="176" y="3551.0" width="8" height="2.4" class="bar-del"/>
 <rect x="196" y="3547.4" width="8" height="3.6" class="bar-add"/>
@@ -1767,13 +1862,14 @@
 <rect x="386" y="3544.4" width="8" height="6.6" class="bar-add"/>
 <rect x="396" y="3551.0" width="8" height="2.4" class="bar-del"/>
 <rect x="406" y="3551.0" width="8" height="3.2" class="bar-del"/>
+<rect x="416" y="3545.7" width="8" height="5.3" class="bar-add"/>
 <text x="6" y="3575.5" class="svc">interconnect</text>
 <rect x="166" y="3568.7" width="8" height="4.3" class="bar-add"/>
 <rect x="176" y="3573.0" width="8" height="0.6" class="bar-del"/>
 <rect x="356" y="3567.5" width="8" height="5.5" class="bar-add"/>
 <rect x="396" y="3573.0" width="8" height="1.2" class="bar-del"/>
 <rect x="406" y="3572.4" width="8" height="0.6" class="bar-add"/>
-<rect x="0" y="3584" width="422" height="22" class="row-even"/>
+<rect x="0" y="3584" width="432" height="22" class="row-even"/>
 <text x="6" y="3597.5" class="svc">iot</text>
 <rect x="166" y="3592.0" width="8" height="3.0" class="bar-add"/>
 <rect x="186" y="3588.3" width="8" height="6.7" class="bar-add"/>
@@ -1791,12 +1887,13 @@
 <rect x="366" y="3590.5" width="8" height="4.5" class="bar-add"/>
 <rect x="376" y="3590.2" width="8" height="4.8" class="bar-add"/>
 <rect x="406" y="3595.0" width="8" height="3.5" class="bar-del"/>
+<rect x="416" y="3589.0" width="8" height="6.0" class="bar-add"/>
 <text x="6" y="3619.5" class="svc">iot-device-defender</text>
 <rect x="166" y="3613.7" width="8" height="3.3" class="bar-add"/>
 <rect x="266" y="3612.8" width="8" height="4.2" class="bar-add"/>
 <rect x="286" y="3617.0" width="8" height="4.6" class="bar-del"/>
 <rect x="406" y="3617.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="3628" width="422" height="22" class="row-even"/>
+<rect x="0" y="3628" width="432" height="22" class="row-even"/>
 <text x="6" y="3641.5" class="svc">iot-expresslink</text>
 <rect x="226" y="3636.2" width="8" height="2.8" class="bar-add"/>
 <rect x="266" y="3637.4" width="8" height="1.6" class="bar-add"/>
@@ -1810,7 +1907,8 @@
 <rect x="346" y="3655.7" width="8" height="5.3" class="bar-add"/>
 <rect x="376" y="3660.4" width="8" height="0.6" class="bar-add"/>
 <rect x="406" y="3661.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="3672" width="422" height="22" class="row-even"/>
+<rect x="416" y="3661.0" width="8" height="0.6" class="bar-del"/>
+<rect x="0" y="3672" width="432" height="22" class="row-even"/>
 <text x="6" y="3685.5" class="svc">iot-mi</text>
 <rect x="206" y="3678.0" width="8" height="5.0" class="bar-add"/>
 <rect x="226" y="3677.2" width="8" height="5.8" class="bar-add"/>
@@ -1827,10 +1925,12 @@
 <rect x="286" y="3705.0" width="8" height="5.6" class="bar-del"/>
 <rect x="346" y="3701.1" width="8" height="3.9" class="bar-add"/>
 <rect x="406" y="3705.0" width="8" height="3.7" class="bar-del"/>
-<rect x="0" y="3716" width="422" height="22" class="row-even"/>
+<rect x="416" y="3705.0" width="8" height="1.3" class="bar-del"/>
+<rect x="0" y="3716" width="432" height="22" class="row-even"/>
 <text x="6" y="3729.5" class="svc">iot-twinmaker</text>
 <rect x="286" y="3727.0" width="8" height="4.3" class="bar-del"/>
 <rect x="406" y="3727.0" width="8" height="3.2" class="bar-del"/>
+<rect x="416" y="3726.4" width="8" height="0.6" class="bar-add"/>
 <text x="6" y="3751.5" class="svc">iot-wireless</text>
 <rect x="186" y="3747.4" width="8" height="1.6" class="bar-add"/>
 <rect x="286" y="3749.0" width="8" height="5.8" class="bar-del"/>
@@ -1838,14 +1938,14 @@
 <rect x="366" y="3744.2" width="8" height="4.8" class="bar-add"/>
 <rect x="376" y="3748.1" width="8" height="0.9" class="bar-add"/>
 <rect x="406" y="3747.2" width="8" height="1.8" class="bar-add"/>
-<rect x="0" y="3760" width="422" height="22" class="row-even"/>
+<rect x="0" y="3760" width="432" height="22" class="row-even"/>
 <text x="6" y="3773.5" class="svc">iotanalytics</text>
 <rect x="166" y="3771.0" width="8" height="2.9" class="bar-del"/>
 <text x="6" y="3795.5" class="svc">iotevents</text>
 <rect x="266" y="3791.7" width="8" height="1.3" class="bar-add"/>
 <rect x="286" y="3793.0" width="8" height="4.5" class="bar-del"/>
 <rect x="406" y="3793.0" width="8" height="3.3" class="bar-del"/>
-<rect x="0" y="3804" width="422" height="22" class="row-even"/>
+<rect x="0" y="3804" width="432" height="22" class="row-even"/>
 <text x="6" y="3817.5" class="svc">ivs</text>
 <rect x="166" y="3811.3" width="8" height="3.7" class="bar-add"/>
 <rect x="176" y="3809.7" width="8" height="5.3" class="bar-add"/>
@@ -1864,10 +1964,11 @@
 <rect x="386" y="3811.5" width="8" height="3.5" class="bar-add"/>
 <rect x="396" y="3812.0" width="8" height="3.0" class="bar-add"/>
 <rect x="406" y="3813.3" width="8" height="1.7" class="bar-add"/>
+<rect x="416" y="3815.0" width="8" height="3.0" class="bar-del"/>
 <text x="6" y="3839.5" class="svc">kendra</text>
 <rect x="286" y="3837.0" width="8" height="5.4" class="bar-del"/>
 <rect x="406" y="3837.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="3848" width="422" height="22" class="row-even"/>
+<rect x="0" y="3848" width="432" height="22" class="row-even"/>
 <text x="6" y="3861.5" class="svc">keyspaces</text>
 <rect x="166" y="3859.0" width="8" height="5.1" class="bar-del"/>
 <rect x="176" y="3853.2" width="8" height="5.8" class="bar-add"/>
@@ -1887,9 +1988,10 @@
 <rect x="326" y="3851.7" width="8" height="7.3" class="bar-add"/>
 <rect x="396" y="3857.7" width="8" height="1.3" class="bar-add"/>
 <rect x="406" y="3859.0" width="8" height="3.2" class="bar-del"/>
+<rect x="416" y="3856.3" width="8" height="2.7" class="bar-add"/>
 <text x="6" y="3883.5" class="svc">kinesis-agent-windows</text>
 <rect x="286" y="3881.0" width="8" height="3.7" class="bar-del"/>
-<rect x="0" y="3892" width="422" height="22" class="row-even"/>
+<rect x="0" y="3892" width="432" height="22" class="row-even"/>
 <text x="6" y="3905.5" class="svc">kinesisanalytics</text>
 <rect x="286" y="3903.0" width="8" height="5.1" class="bar-del"/>
 <rect x="406" y="3903.0" width="8" height="3.9" class="bar-del"/>
@@ -1901,7 +2003,8 @@
 <rect x="326" y="3925.0" width="8" height="2.4" class="bar-del"/>
 <rect x="336" y="3922.3" width="8" height="2.7" class="bar-add"/>
 <rect x="406" y="3925.0" width="8" height="3.3" class="bar-del"/>
-<rect x="0" y="3936" width="422" height="22" class="row-even"/>
+<rect x="416" y="3925.0" width="8" height="7.7" class="bar-del"/>
+<rect x="0" y="3936" width="432" height="22" class="row-even"/>
 <text x="6" y="3949.5" class="svc">kinesisvideostreams-we..</text>
 <rect x="196" y="3947.0" width="8" height="4.0" class="bar-del"/>
 <rect x="266" y="3944.1" width="8" height="2.9" class="bar-add"/>
@@ -1918,7 +2021,7 @@
 <rect x="346" y="3968.4" width="8" height="0.6" class="bar-add"/>
 <rect x="376" y="3964.5" width="8" height="4.5" class="bar-add"/>
 <rect x="406" y="3963.8" width="8" height="5.2" class="bar-add"/>
-<rect x="0" y="3980" width="422" height="22" class="row-even"/>
+<rect x="0" y="3980" width="432" height="22" class="row-even"/>
 <text x="6" y="3993.5" class="svc">lake-formation</text>
 <rect x="166" y="3985.4" width="8" height="5.6" class="bar-add"/>
 <rect x="176" y="3989.8" width="8" height="1.2" class="bar-add"/>
@@ -1931,6 +2034,7 @@
 <rect x="366" y="3989.8" width="8" height="1.2" class="bar-add"/>
 <rect x="386" y="3989.1" width="8" height="1.9" class="bar-add"/>
 <rect x="406" y="3991.0" width="8" height="3.2" class="bar-del"/>
+<rect x="416" y="3991.0" width="8" height="2.6" class="bar-del"/>
 <text x="6" y="4015.5" class="svc">lambda</text>
 <rect x="166" y="4005.5" width="8" height="7.5" class="bar-add"/>
 <rect x="176" y="4013.0" width="8" height="1.7" class="bar-del"/>
@@ -1950,16 +2054,18 @@
 <rect x="376" y="4008.1" width="8" height="4.9" class="bar-add"/>
 <rect x="396" y="4009.1" width="8" height="3.9" class="bar-add"/>
 <rect x="406" y="4013.0" width="8" height="4.2" class="bar-del"/>
-<rect x="0" y="4024" width="422" height="22" class="row-even"/>
+<rect x="416" y="4013.0" width="8" height="1.6" class="bar-del"/>
+<rect x="0" y="4024" width="432" height="22" class="row-even"/>
 <text x="6" y="4037.5" class="svc">launchwizard</text>
 <rect x="206" y="4033.7" width="8" height="1.3" class="bar-add"/>
 <rect x="266" y="4033.8" width="8" height="1.2" class="bar-add"/>
 <rect x="286" y="4035.0" width="8" height="5.2" class="bar-del"/>
 <rect x="326" y="4031.5" width="8" height="3.5" class="bar-add"/>
 <rect x="406" y="4027.5" width="8" height="7.5" class="bar-add"/>
+<rect x="416" y="4035.0" width="8" height="2.7" class="bar-del"/>
 <text x="6" y="4059.5" class="svc">lex</text>
 <rect x="286" y="4057.0" width="8" height="5.2" class="bar-del"/>
-<rect x="0" y="4068" width="422" height="22" class="row-even"/>
+<rect x="0" y="4068" width="432" height="22" class="row-even"/>
 <text x="6" y="4081.5" class="svc">lexv2</text>
 <rect x="166" y="4075.0" width="8" height="4.0" class="bar-add"/>
 <rect x="286" y="4079.0" width="8" height="5.3" class="bar-del"/>
@@ -1978,7 +2084,7 @@
 <rect x="326" y="4101.0" width="8" height="1.3" class="bar-del"/>
 <rect x="366" y="4098.3" width="8" height="2.7" class="bar-add"/>
 <rect x="406" y="4099.2" width="8" height="1.8" class="bar-add"/>
-<rect x="0" y="4112" width="422" height="22" class="row-even"/>
+<rect x="0" y="4112" width="432" height="22" class="row-even"/>
 <text x="6" y="4125.5" class="svc">lightsail</text>
 <rect x="166" y="4119.5" width="8" height="3.5" class="bar-add"/>
 <rect x="186" y="4119.0" width="8" height="4.0" class="bar-add"/>
@@ -1997,11 +2103,12 @@
 <rect x="386" y="4119.6" width="8" height="3.4" class="bar-add"/>
 <rect x="396" y="4118.8" width="8" height="4.2" class="bar-add"/>
 <rect x="406" y="4118.2" width="8" height="4.8" class="bar-add"/>
+<rect x="416" y="4117.6" width="8" height="5.4" class="bar-add"/>
 <text x="6" y="4147.5" class="svc">lightsail-for-research</text>
 <rect x="286" y="4145.0" width="8" height="4.3" class="bar-del"/>
 <rect x="396" y="4140.7" width="8" height="4.3" class="bar-add"/>
 <rect x="406" y="4145.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="4156" width="422" height="22" class="row-even"/>
+<rect x="0" y="4156" width="432" height="22" class="row-even"/>
 <text x="6" y="4169.5" class="svc">local-zones</text>
 <rect x="266" y="4162.6" width="8" height="4.4" class="bar-add"/>
 <rect x="286" y="4167.0" width="8" height="1.9" class="bar-del"/>
@@ -2024,13 +2131,15 @@
 <rect x="366" y="4182.6" width="8" height="6.4" class="bar-add"/>
 <rect x="396" y="4186.9" width="8" height="2.1" class="bar-add"/>
 <rect x="406" y="4189.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="4200" width="422" height="22" class="row-even"/>
+<rect x="416" y="4183.3" width="8" height="5.7" class="bar-add"/>
+<rect x="0" y="4200" width="432" height="22" class="row-even"/>
 <text x="6" y="4213.5" class="svc">lookout-for-equipment</text>
 <rect x="226" y="4209.7" width="8" height="1.3" class="bar-add"/>
 <rect x="286" y="4211.0" width="8" height="4.3" class="bar-del"/>
 <rect x="326" y="4211.0" width="8" height="2.4" class="bar-del"/>
 <rect x="336" y="4208.3" width="8" height="2.7" class="bar-add"/>
 <rect x="406" y="4211.0" width="8" height="3.3" class="bar-del"/>
+<rect x="416" y="4211.0" width="8" height="2.2" class="bar-del"/>
 <text x="6" y="4235.5" class="svc">m2</text>
 <rect x="176" y="4227.6" width="8" height="5.4" class="bar-add"/>
 <rect x="186" y="4227.9" width="8" height="5.1" class="bar-add"/>
@@ -2048,25 +2157,29 @@
 <rect x="366" y="4228.2" width="8" height="4.8" class="bar-add"/>
 <rect x="396" y="4233.0" width="8" height="1.6" class="bar-del"/>
 <rect x="406" y="4233.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="4244" width="422" height="22" class="row-even"/>
+<rect x="416" y="4231.2" width="8" height="1.8" class="bar-add"/>
+<rect x="0" y="4244" width="432" height="22" class="row-even"/>
 <text x="6" y="4257.5" class="svc">machine-learning</text>
 <rect x="286" y="4255.0" width="8" height="3.9" class="bar-del"/>
+<rect x="416" y="4255.0" width="8" height="2.4" class="bar-del"/>
 <text x="6" y="4279.5" class="svc">macie</text>
 <rect x="176" y="4275.7" width="8" height="1.3" class="bar-add"/>
 <rect x="286" y="4277.0" width="8" height="5.3" class="bar-del"/>
 <rect x="296" y="4275.5" width="8" height="1.5" class="bar-add"/>
 <rect x="406" y="4275.2" width="8" height="1.8" class="bar-add"/>
-<rect x="0" y="4288" width="422" height="22" class="row-even"/>
+<rect x="0" y="4288" width="432" height="22" class="row-even"/>
 <text x="6" y="4301.5" class="svc">managed-blockchain</text>
 <rect x="266" y="4296.2" width="8" height="2.8" class="bar-add"/>
 <rect x="286" y="4299.0" width="8" height="5.2" class="bar-del"/>
 <rect x="406" y="4296.3" width="8" height="2.7" class="bar-add"/>
+<rect x="416" y="4299.0" width="8" height="3.3" class="bar-del"/>
 <text x="6" y="4323.5" class="svc">managed-flink</text>
 <rect x="196" y="4321.0" width="8" height="0.6" class="bar-del"/>
 <rect x="286" y="4321.0" width="8" height="5.7" class="bar-del"/>
 <rect x="336" y="4315.4" width="8" height="5.6" class="bar-add"/>
 <rect x="406" y="4321.0" width="8" height="4.7" class="bar-del"/>
-<rect x="0" y="4332" width="422" height="22" class="row-even"/>
+<rect x="416" y="4321.0" width="8" height="2.4" class="bar-del"/>
+<rect x="0" y="4332" width="432" height="22" class="row-even"/>
 <text x="6" y="4345.5" class="svc">managedservices</text>
 <rect x="176" y="4338.6" width="8" height="4.4" class="bar-add"/>
 <rect x="186" y="4337.2" width="8" height="5.8" class="bar-add"/>
@@ -2108,7 +2221,8 @@
 <rect x="386" y="4361.3" width="8" height="3.7" class="bar-add"/>
 <rect x="396" y="4361.0" width="8" height="4.0" class="bar-add"/>
 <rect x="406" y="4360.7" width="8" height="4.3" class="bar-add"/>
-<rect x="0" y="4376" width="422" height="22" class="row-even"/>
+<rect x="416" y="4365.0" width="8" height="5.2" class="bar-del"/>
+<rect x="0" y="4376" width="432" height="22" class="row-even"/>
 <text x="6" y="4389.5" class="svc">mcp-sap</text>
 <rect x="376" y="4381.2" width="8" height="5.8" class="bar-add"/>
 <rect x="386" y="4387.0" width="8" height="0.6" class="bar-del"/>
@@ -2121,7 +2235,7 @@
 <rect x="336" y="4405.3" width="8" height="3.7" class="bar-add"/>
 <rect x="346" y="4406.2" width="8" height="2.8" class="bar-add"/>
 <rect x="406" y="4405.4" width="8" height="3.6" class="bar-add"/>
-<rect x="0" y="4420" width="422" height="22" class="row-even"/>
+<rect x="0" y="4420" width="432" height="22" class="row-even"/>
 <text x="6" y="4433.5" class="svc">mediaconvert</text>
 <rect x="286" y="4431.0" width="8" height="5.4" class="bar-del"/>
 <rect x="356" y="4427.1" width="8" height="3.9" class="bar-add"/>
@@ -2140,20 +2254,23 @@
 <rect x="346" y="4447.6" width="8" height="5.4" class="bar-add"/>
 <rect x="366" y="4451.8" width="8" height="1.2" class="bar-add"/>
 <rect x="406" y="4453.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="4464" width="422" height="22" class="row-even"/>
+<rect x="416" y="4448.9" width="8" height="4.1" class="bar-add"/>
+<rect x="0" y="4464" width="432" height="22" class="row-even"/>
 <text x="6" y="4477.5" class="svc">mediapackage</text>
 <rect x="186" y="4471.0" width="8" height="4.0" class="bar-add"/>
 <rect x="266" y="4472.0" width="8" height="3.0" class="bar-add"/>
 <rect x="286" y="4475.0" width="8" height="5.0" class="bar-del"/>
 <rect x="336" y="4470.1" width="8" height="4.9" class="bar-add"/>
 <rect x="406" y="4471.8" width="8" height="3.2" class="bar-add"/>
+<rect x="416" y="4475.0" width="8" height="2.0" class="bar-del"/>
 <text x="6" y="4499.5" class="svc">mediatailor</text>
 <rect x="266" y="4496.1" width="8" height="0.9" class="bar-add"/>
 <rect x="286" y="4497.0" width="8" height="5.7" class="bar-del"/>
 <rect x="326" y="4492.3" width="8" height="4.7" class="bar-add"/>
 <rect x="386" y="4490.5" width="8" height="6.5" class="bar-add"/>
 <rect x="406" y="4497.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="4508" width="422" height="22" class="row-even"/>
+<rect x="416" y="4496.4" width="8" height="0.6" class="bar-add"/>
+<rect x="0" y="4508" width="432" height="22" class="row-even"/>
 <text x="6" y="4521.5" class="svc">memorydb</text>
 <rect x="166" y="4519.0" width="8" height="4.7" class="bar-del"/>
 <rect x="176" y="4514.6" width="8" height="4.4" class="bar-add"/>
@@ -2175,6 +2292,7 @@
 <rect x="376" y="4518.4" width="8" height="0.6" class="bar-add"/>
 <rect x="386" y="4517.5" width="8" height="1.5" class="bar-add"/>
 <rect x="406" y="4519.0" width="8" height="3.2" class="bar-del"/>
+<rect x="416" y="4519.0" width="8" height="2.8" class="bar-del"/>
 <text x="6" y="4543.5" class="svc">mgn</text>
 <rect x="176" y="4537.6" width="8" height="3.4" class="bar-add"/>
 <rect x="186" y="4537.8" width="8" height="3.2" class="bar-add"/>
@@ -2191,33 +2309,34 @@
 <rect x="386" y="4536.9" width="8" height="4.1" class="bar-add"/>
 <rect x="396" y="4540.1" width="8" height="0.9" class="bar-add"/>
 <rect x="406" y="4537.8" width="8" height="3.2" class="bar-add"/>
-<rect x="0" y="4552" width="422" height="22" class="row-even"/>
+<rect x="0" y="4552" width="432" height="22" class="row-even"/>
 <text x="6" y="4565.5" class="svc">mhj</text>
 <rect x="286" y="4563.0" width="8" height="3.2" class="bar-del"/>
 <text x="6" y="4587.5" class="svc">microservice-extractor</text>
 <rect x="286" y="4585.0" width="8" height="3.5" class="bar-del"/>
 <rect x="406" y="4583.2" width="8" height="1.8" class="bar-add"/>
-<rect x="0" y="4596" width="422" height="22" class="row-even"/>
+<rect x="0" y="4596" width="432" height="22" class="row-even"/>
 <text x="6" y="4609.5" class="svc">migrationhub</text>
 <rect x="226" y="4607.0" width="8" height="1.6" class="bar-del"/>
 <rect x="286" y="4607.0" width="8" height="4.6" class="bar-del"/>
 <text x="6" y="4631.5" class="svc">migrationhub-orchestra..</text>
 <rect x="286" y="4629.0" width="8" height="3.6" class="bar-del"/>
 <rect x="406" y="4627.2" width="8" height="1.8" class="bar-add"/>
-<rect x="0" y="4640" width="422" height="22" class="row-even"/>
+<rect x="0" y="4640" width="432" height="22" class="row-even"/>
 <text x="6" y="4653.5" class="svc">migrationhub-refactor-..</text>
 <rect x="286" y="4651.0" width="8" height="4.1" class="bar-del"/>
 <rect x="406" y="4651.0" width="8" height="3.2" class="bar-del"/>
+<rect x="416" y="4651.0" width="8" height="2.3" class="bar-del"/>
 <text x="6" y="4675.5" class="svc">migrationhub-strategy</text>
 <rect x="286" y="4673.0" width="8" height="4.4" class="bar-del"/>
 <rect x="406" y="4673.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="4684" width="422" height="22" class="row-even"/>
+<rect x="0" y="4684" width="432" height="22" class="row-even"/>
 <text x="6" y="4697.5" class="svc">mobileanalytics</text>
 <rect x="286" y="4695.0" width="8" height="2.2" class="bar-del"/>
 <text x="6" y="4719.5" class="svc">Monitron</text>
 <rect x="286" y="4717.0" width="8" height="4.9" class="bar-del"/>
 <rect x="406" y="4717.0" width="8" height="3.9" class="bar-del"/>
-<rect x="0" y="4728" width="422" height="22" class="row-even"/>
+<rect x="0" y="4728" width="432" height="22" class="row-even"/>
 <text x="6" y="4741.5" class="svc">mpa</text>
 <rect x="286" y="4739.0" width="8" height="3.5" class="bar-del"/>
 <rect x="296" y="4735.1" width="8" height="3.9" class="bar-add"/>
@@ -2232,7 +2351,7 @@
 <rect x="376" y="4757.3" width="8" height="3.7" class="bar-add"/>
 <rect x="396" y="4758.2" width="8" height="2.8" class="bar-add"/>
 <rect x="406" y="4756.8" width="8" height="4.2" class="bar-add"/>
-<rect x="0" y="4772" width="422" height="22" class="row-even"/>
+<rect x="0" y="4772" width="432" height="22" class="row-even"/>
 <text x="6" y="4785.5" class="svc">MSKC</text>
 <rect x="186" y="4780.1" width="8" height="2.9" class="bar-add"/>
 <rect x="276" y="4780.0" width="8" height="3.0" class="bar-add"/>
@@ -2247,7 +2366,8 @@
 <rect x="326" y="4804.1" width="8" height="0.9" class="bar-add"/>
 <rect x="366" y="4803.1" width="8" height="1.9" class="bar-add"/>
 <rect x="406" y="4805.0" width="8" height="3.6" class="bar-del"/>
-<rect x="0" y="4816" width="422" height="22" class="row-even"/>
+<rect x="416" y="4801.5" width="8" height="3.5" class="bar-add"/>
+<rect x="0" y="4816" width="432" height="22" class="row-even"/>
 <text x="6" y="4829.5" class="svc">neptune</text>
 <rect x="166" y="4827.0" width="8" height="4.7" class="bar-del"/>
 <rect x="176" y="4827.0" width="8" height="4.4" class="bar-del"/>
@@ -2287,7 +2407,7 @@
 <rect x="376" y="4844.9" width="8" height="4.1" class="bar-add"/>
 <rect x="386" y="4844.0" width="8" height="5.0" class="bar-add"/>
 <rect x="406" y="4847.2" width="8" height="1.8" class="bar-add"/>
-<rect x="0" y="4860" width="422" height="22" class="row-even"/>
+<rect x="0" y="4860" width="432" height="22" class="row-even"/>
 <text x="6" y="4873.5" class="svc">network-firewall</text>
 <rect x="226" y="4869.5" width="8" height="1.5" class="bar-add"/>
 <rect x="246" y="4866.1" width="8" height="4.9" class="bar-add"/>
@@ -2304,7 +2424,7 @@
 <rect x="276" y="4892.4" width="8" height="0.6" class="bar-add"/>
 <rect x="286" y="4893.0" width="8" height="4.9" class="bar-del"/>
 <rect x="336" y="4890.6" width="8" height="2.4" class="bar-add"/>
-<rect x="0" y="4904" width="422" height="22" class="row-even"/>
+<rect x="0" y="4904" width="432" height="22" class="row-even"/>
 <text x="6" y="4917.5" class="svc">next-generation-sagema..</text>
 <rect x="286" y="4915.0" width="8" height="3.1" class="bar-del"/>
 <rect x="406" y="4915.0" width="8" height="3.3" class="bar-del"/>
@@ -2316,7 +2436,8 @@
 <rect x="356" y="4933.0" width="8" height="4.0" class="bar-add"/>
 <rect x="376" y="4936.4" width="8" height="0.6" class="bar-add"/>
 <rect x="406" y="4935.2" width="8" height="1.8" class="bar-add"/>
-<rect x="0" y="4948" width="422" height="22" class="row-even"/>
+<rect x="416" y="4935.4" width="8" height="1.6" class="bar-add"/>
+<rect x="0" y="4948" width="432" height="22" class="row-even"/>
 <text x="6" y="4961.5" class="svc">nova</text>
 <rect x="166" y="4951.3" width="8" height="7.7" class="bar-add"/>
 <rect x="186" y="4953.7" width="8" height="5.3" class="bar-add"/>
@@ -2333,13 +2454,14 @@
 <rect x="376" y="4952.8" width="8" height="6.2" class="bar-add"/>
 <rect x="386" y="4955.1" width="8" height="3.9" class="bar-add"/>
 <rect x="396" y="4953.5" width="8" height="5.5" class="bar-add"/>
+<rect x="416" y="4952.5" width="8" height="6.5" class="bar-add"/>
 <text x="6" y="4983.5" class="svc">nova-act</text>
 <rect x="166" y="4974.9" width="8" height="6.1" class="bar-add"/>
 <rect x="186" y="4978.9" width="8" height="2.1" class="bar-add"/>
 <rect x="306" y="4976.6" width="8" height="4.4" class="bar-add"/>
 <rect x="326" y="4977.0" width="8" height="4.0" class="bar-add"/>
 <rect x="356" y="4978.0" width="8" height="3.0" class="bar-add"/>
-<rect x="0" y="4992" width="422" height="22" class="row-even"/>
+<rect x="0" y="4992" width="432" height="22" class="row-even"/>
 <text x="6" y="5005.5" class="svc">odb</text>
 <rect x="186" y="4999.3" width="8" height="3.7" class="bar-add"/>
 <rect x="196" y="5000.1" width="8" height="2.9" class="bar-add"/>
@@ -2364,7 +2486,8 @@
 <rect x="376" y="5023.4" width="8" height="1.6" class="bar-add"/>
 <rect x="386" y="5023.0" width="8" height="2.0" class="bar-add"/>
 <rect x="406" y="5025.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="5036" width="422" height="22" class="row-even"/>
+<rect x="416" y="5020.8" width="8" height="4.2" class="bar-add"/>
+<rect x="0" y="5036" width="432" height="22" class="row-even"/>
 <text x="6" y="5049.5" class="svc">one-enterprise</text>
 <rect x="286" y="5047.0" width="8" height="3.5" class="bar-del"/>
 <text x="6" y="5071.5" class="svc">online-register</text>
@@ -2381,7 +2504,7 @@
 <rect x="356" y="5067.4" width="8" height="1.6" class="bar-add"/>
 <rect x="366" y="5066.1" width="8" height="2.9" class="bar-add"/>
 <rect x="376" y="5065.9" width="8" height="3.1" class="bar-add"/>
-<rect x="0" y="5080" width="422" height="22" class="row-even"/>
+<rect x="0" y="5080" width="432" height="22" class="row-even"/>
 <text x="6" y="5093.5" class="svc">opensearch-service</text>
 <rect x="166" y="5085.3" width="8" height="5.7" class="bar-add"/>
 <rect x="186" y="5086.0" width="8" height="5.0" class="bar-add"/>
@@ -2404,6 +2527,7 @@
 <rect x="386" y="5086.3" width="8" height="4.7" class="bar-add"/>
 <rect x="396" y="5086.4" width="8" height="4.6" class="bar-add"/>
 <rect x="406" y="5091.0" width="8" height="2.8" class="bar-del"/>
+<rect x="416" y="5085.3" width="8" height="5.7" class="bar-add"/>
 <text x="6" y="5115.5" class="svc">organizations</text>
 <rect x="166" y="5113.0" width="8" height="2.7" class="bar-del"/>
 <rect x="176" y="5108.6" width="8" height="4.4" class="bar-add"/>
@@ -2428,7 +2552,8 @@
 <rect x="386" y="5110.4" width="8" height="2.6" class="bar-add"/>
 <rect x="396" y="5110.4" width="8" height="2.6" class="bar-add"/>
 <rect x="406" y="5110.2" width="8" height="2.8" class="bar-add"/>
-<rect x="0" y="5124" width="422" height="22" class="row-even"/>
+<rect x="416" y="5113.0" width="8" height="1.6" class="bar-del"/>
+<rect x="0" y="5124" width="432" height="22" class="row-even"/>
 <text x="6" y="5137.5" class="svc">outposts</text>
 <rect x="186" y="5135.0" width="8" height="1.3" class="bar-del"/>
 <rect x="226" y="5131.3" width="8" height="3.7" class="bar-add"/>
@@ -2443,7 +2568,7 @@
 <text x="6" y="5159.5" class="svc">panorama</text>
 <rect x="286" y="5157.0" width="8" height="2.4" class="bar-del"/>
 <rect x="406" y="5155.2" width="8" height="1.8" class="bar-add"/>
-<rect x="0" y="5168" width="422" height="22" class="row-even"/>
+<rect x="0" y="5168" width="432" height="22" class="row-even"/>
 <text x="6" y="5181.5" class="svc">parallelcluster</text>
 <rect x="166" y="5175.6" width="8" height="3.4" class="bar-add"/>
 <rect x="176" y="5179.0" width="8" height="2.5" class="bar-del"/>
@@ -2463,6 +2588,7 @@
 <rect x="326" y="5172.5" width="8" height="6.5" class="bar-add"/>
 <rect x="376" y="5178.4" width="8" height="0.6" class="bar-add"/>
 <rect x="406" y="5179.0" width="8" height="3.2" class="bar-del"/>
+<rect x="416" y="5179.0" width="8" height="1.3" class="bar-del"/>
 <text x="6" y="5203.5" class="svc">partner-central</text>
 <rect x="166" y="5201.0" width="8" height="4.8" class="bar-del"/>
 <rect x="176" y="5197.4" width="8" height="3.6" class="bar-add"/>
@@ -2482,7 +2608,8 @@
 <rect x="366" y="5197.4" width="8" height="3.6" class="bar-add"/>
 <rect x="376" y="5197.6" width="8" height="3.4" class="bar-add"/>
 <rect x="396" y="5199.1" width="8" height="1.9" class="bar-add"/>
-<rect x="0" y="5212" width="422" height="22" class="row-even"/>
+<rect x="416" y="5198.0" width="8" height="3.0" class="bar-add"/>
+<rect x="0" y="5212" width="432" height="22" class="row-even"/>
 <text x="6" y="5225.5" class="svc">payment-cryptography</text>
 <rect x="166" y="5219.8" width="8" height="3.2" class="bar-add"/>
 <rect x="176" y="5223.0" width="8" height="3.5" class="bar-del"/>
@@ -2505,6 +2632,7 @@
 <rect x="366" y="5222.1" width="8" height="0.9" class="bar-add"/>
 <rect x="376" y="5217.6" width="8" height="5.4" class="bar-add"/>
 <rect x="406" y="5221.2" width="8" height="1.8" class="bar-add"/>
+<rect x="416" y="5219.3" width="8" height="3.7" class="bar-add"/>
 <text x="6" y="5247.5" class="svc">pcs</text>
 <rect x="176" y="5245.0" width="8" height="0.9" class="bar-del"/>
 <rect x="186" y="5242.0" width="8" height="3.0" class="bar-add"/>
@@ -2522,7 +2650,8 @@
 <rect x="376" y="5242.5" width="8" height="2.5" class="bar-add"/>
 <rect x="396" y="5242.7" width="8" height="2.3" class="bar-add"/>
 <rect x="406" y="5241.2" width="8" height="3.8" class="bar-add"/>
-<rect x="0" y="5256" width="422" height="22" class="row-even"/>
+<rect x="416" y="5241.2" width="8" height="3.8" class="bar-add"/>
+<rect x="0" y="5256" width="432" height="22" class="row-even"/>
 <text x="6" y="5269.5" class="svc">personalize</text>
 <rect x="166" y="5262.1" width="8" height="4.9" class="bar-add"/>
 <rect x="286" y="5267.0" width="8" height="5.1" class="bar-del"/>
@@ -2536,7 +2665,8 @@
 <rect x="356" y="5283.8" width="8" height="5.2" class="bar-add"/>
 <rect x="376" y="5286.1" width="8" height="2.9" class="bar-add"/>
 <rect x="406" y="5285.8" width="8" height="3.2" class="bar-add"/>
-<rect x="0" y="5300" width="422" height="22" class="row-even"/>
+<rect x="416" y="5287.8" width="8" height="1.2" class="bar-add"/>
+<rect x="0" y="5300" width="432" height="22" class="row-even"/>
 <text x="6" y="5313.5" class="svc">polly</text>
 <rect x="186" y="5309.7" width="8" height="1.3" class="bar-add"/>
 <rect x="236" y="5306.0" width="8" height="5.0" class="bar-add"/>
@@ -2548,16 +2678,17 @@
 <rect x="366" y="5310.1" width="8" height="0.9" class="bar-add"/>
 <rect x="376" y="5307.8" width="8" height="3.2" class="bar-add"/>
 <rect x="406" y="5305.8" width="8" height="5.2" class="bar-add"/>
+<rect x="416" y="5309.7" width="8" height="1.3" class="bar-add"/>
 <text x="6" y="5335.5" class="svc">portingassistant</text>
 <rect x="286" y="5333.0" width="8" height="3.3" class="bar-del"/>
 <rect x="406" y="5331.2" width="8" height="1.8" class="bar-add"/>
-<rect x="0" y="5344" width="422" height="22" class="row-even"/>
+<rect x="0" y="5344" width="432" height="22" class="row-even"/>
 <text x="6" y="5357.5" class="svc">pricing-calculator</text>
 <rect x="256" y="5355.0" width="8" height="0.9" class="bar-del"/>
 <rect x="286" y="5355.0" width="8" height="3.1" class="bar-del"/>
 <text x="6" y="5379.5" class="svc">PricingPlanManager</text>
 <rect x="266" y="5376.1" width="8" height="0.9" class="bar-add"/>
-<rect x="0" y="5388" width="422" height="22" class="row-even"/>
+<rect x="0" y="5388" width="432" height="22" class="row-even"/>
 <text x="6" y="5401.5" class="svc">privateca</text>
 <rect x="216" y="5399.0" width="8" height="3.0" class="bar-del"/>
 <rect x="286" y="5399.0" width="8" height="4.5" class="bar-del"/>
@@ -2573,7 +2704,8 @@
 <rect x="356" y="5416.4" width="8" height="4.6" class="bar-add"/>
 <rect x="366" y="5420.1" width="8" height="0.9" class="bar-add"/>
 <rect x="406" y="5418.3" width="8" height="2.7" class="bar-add"/>
-<rect x="0" y="5432" width="422" height="22" class="row-even"/>
+<rect x="416" y="5419.4" width="8" height="1.6" class="bar-add"/>
+<rect x="0" y="5432" width="432" height="22" class="row-even"/>
 <text x="6" y="5445.5" class="svc">prometheus</text>
 <rect x="186" y="5442.1" width="8" height="0.9" class="bar-add"/>
 <rect x="246" y="5443.0" width="8" height="0.6" class="bar-del"/>
@@ -2583,9 +2715,10 @@
 <rect x="356" y="5439.5" width="8" height="3.5" class="bar-add"/>
 <rect x="396" y="5443.0" width="8" height="0.6" class="bar-del"/>
 <rect x="406" y="5443.0" width="8" height="3.2" class="bar-del"/>
+<rect x="416" y="5443.0" width="8" height="2.0" class="bar-del"/>
 <text x="6" y="5467.5" class="svc">proton</text>
 <rect x="286" y="5465.0" width="8" height="4.0" class="bar-del"/>
-<rect x="0" y="5476" width="422" height="22" class="row-even"/>
+<rect x="0" y="5476" width="432" height="22" class="row-even"/>
 <text x="6" y="5489.5" class="svc">push-notifications</text>
 <rect x="286" y="5487.0" width="8" height="3.5" class="bar-del"/>
 <rect x="406" y="5487.0" width="8" height="3.2" class="bar-del"/>
@@ -2603,10 +2736,12 @@
 <rect x="386" y="5504.8" width="8" height="4.2" class="bar-add"/>
 <rect x="396" y="5504.2" width="8" height="4.8" class="bar-add"/>
 <rect x="406" y="5504.9" width="8" height="4.1" class="bar-add"/>
-<rect x="0" y="5520" width="422" height="22" class="row-even"/>
+<rect x="416" y="5505.2" width="8" height="3.8" class="bar-add"/>
+<rect x="0" y="5520" width="432" height="22" class="row-even"/>
 <text x="6" y="5533.5" class="svc">quicksight</text>
 <rect x="266" y="5530.1" width="8" height="0.9" class="bar-add"/>
 <rect x="286" y="5531.0" width="8" height="2.1" class="bar-del"/>
+<rect x="416" y="5529.4" width="8" height="1.6" class="bar-add"/>
 <text x="6" y="5555.5" class="svc">quicksuite</text>
 <rect x="166" y="5550.2" width="8" height="2.8" class="bar-add"/>
 <rect x="176" y="5553.0" width="8" height="2.0" class="bar-del"/>
@@ -2618,7 +2753,7 @@
 <rect x="246" y="5548.2" width="8" height="4.8" class="bar-add"/>
 <rect x="256" y="5552.4" width="8" height="0.6" class="bar-add"/>
 <rect x="266" y="5549.0" width="8" height="4.0" class="bar-add"/>
-<rect x="0" y="5564" width="422" height="22" class="row-even"/>
+<rect x="0" y="5564" width="432" height="22" class="row-even"/>
 <text x="6" y="5577.5" class="svc">r53recovery</text>
 <rect x="166" y="5575.0" width="8" height="3.6" class="bar-del"/>
 <rect x="176" y="5575.0" width="8" height="3.7" class="bar-del"/>
@@ -2646,7 +2781,7 @@
 <rect x="286" y="5592.2" width="8" height="4.8" class="bar-add"/>
 <rect x="346" y="5595.4" width="8" height="1.6" class="bar-add"/>
 <rect x="406" y="5595.2" width="8" height="1.8" class="bar-add"/>
-<rect x="0" y="5608" width="422" height="22" class="row-even"/>
+<rect x="0" y="5608" width="432" height="22" class="row-even"/>
 <text x="6" y="5621.5" class="svc">redshift</text>
 <rect x="166" y="5613.3" width="8" height="5.7" class="bar-add"/>
 <rect x="176" y="5619.0" width="8" height="2.4" class="bar-del"/>
@@ -2672,6 +2807,7 @@
 <rect x="386" y="5616.0" width="8" height="3.0" class="bar-add"/>
 <rect x="396" y="5614.4" width="8" height="4.6" class="bar-add"/>
 <rect x="406" y="5617.2" width="8" height="1.8" class="bar-add"/>
+<rect x="416" y="5613.5" width="8" height="5.5" class="bar-add"/>
 <text x="6" y="5643.5" class="svc">rekognition</text>
 <rect x="216" y="5641.0" width="8" height="4.0" class="bar-del"/>
 <rect x="226" y="5641.0" width="8" height="3.7" class="bar-del"/>
@@ -2680,10 +2816,11 @@
 <rect x="336" y="5636.4" width="8" height="4.6" class="bar-add"/>
 <rect x="376" y="5641.0" width="8" height="3.2" class="bar-del"/>
 <rect x="406" y="5641.0" width="8" height="3.8" class="bar-del"/>
-<rect x="0" y="5652" width="422" height="22" class="row-even"/>
+<rect x="0" y="5652" width="432" height="22" class="row-even"/>
 <text x="6" y="5665.5" class="svc">repostprivate</text>
 <rect x="286" y="5663.0" width="8" height="3.6" class="bar-del"/>
 <rect x="406" y="5661.2" width="8" height="1.8" class="bar-add"/>
+<rect x="416" y="5661.4" width="8" height="1.6" class="bar-add"/>
 <text x="6" y="5687.5" class="svc">res</text>
 <rect x="196" y="5682.1" width="8" height="2.9" class="bar-add"/>
 <rect x="286" y="5685.0" width="8" height="4.7" class="bar-del"/>
@@ -2691,7 +2828,7 @@
 <rect x="336" y="5683.1" width="8" height="1.9" class="bar-add"/>
 <rect x="346" y="5683.4" width="8" height="1.6" class="bar-add"/>
 <rect x="406" y="5685.0" width="8" height="0.6" class="bar-del"/>
-<rect x="0" y="5696" width="422" height="22" class="row-even"/>
+<rect x="0" y="5696" width="432" height="22" class="row-even"/>
 <text x="6" y="5709.5" class="svc">resilience-hub</text>
 <rect x="176" y="5704.9" width="8" height="2.1" class="bar-add"/>
 <rect x="196" y="5707.0" width="8" height="2.1" class="bar-del"/>
@@ -2704,6 +2841,7 @@
 <rect x="306" y="5707.0" width="8" height="2.4" class="bar-del"/>
 <rect x="326" y="5703.6" width="8" height="3.4" class="bar-add"/>
 <rect x="406" y="5705.2" width="8" height="1.8" class="bar-add"/>
+<rect x="416" y="5700.1" width="8" height="6.9" class="bar-add"/>
 <text x="6" y="5731.5" class="svc">resource-explorer</text>
 <rect x="166" y="5728.4" width="8" height="0.6" class="bar-add"/>
 <rect x="266" y="5727.4" width="8" height="1.6" class="bar-add"/>
@@ -2713,7 +2851,7 @@
 <rect x="386" y="5724.3" width="8" height="4.7" class="bar-add"/>
 <rect x="396" y="5728.4" width="8" height="0.6" class="bar-add"/>
 <rect x="406" y="5729.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="5740" width="422" height="22" class="row-even"/>
+<rect x="0" y="5740" width="432" height="22" class="row-even"/>
 <text x="6" y="5753.5" class="svc">rfdk</text>
 <text x="6" y="5775.5" class="svc">rolesanywhere</text>
 <rect x="176" y="5773.0" width="8" height="2.2" class="bar-del"/>
@@ -2725,7 +2863,7 @@
 <rect x="366" y="5771.7" width="8" height="1.3" class="bar-add"/>
 <rect x="376" y="5769.0" width="8" height="4.0" class="bar-add"/>
 <rect x="406" y="5771.2" width="8" height="1.8" class="bar-add"/>
-<rect x="0" y="5784" width="422" height="22" class="row-even"/>
+<rect x="0" y="5784" width="432" height="22" class="row-even"/>
 <text x="6" y="5797.5" class="svc">rosa</text>
 <rect x="266" y="5793.4" width="8" height="1.6" class="bar-add"/>
 <rect x="296" y="5795.0" width="8" height="1.2" class="bar-del"/>
@@ -2754,7 +2892,8 @@
 <rect x="386" y="5811.4" width="8" height="5.6" class="bar-add"/>
 <rect x="396" y="5813.2" width="8" height="3.8" class="bar-add"/>
 <rect x="406" y="5810.9" width="8" height="6.1" class="bar-add"/>
-<rect x="0" y="5828" width="422" height="22" class="row-even"/>
+<rect x="416" y="5813.3" width="8" height="3.7" class="bar-add"/>
+<rect x="0" y="5828" width="432" height="22" class="row-even"/>
 <text x="6" y="5841.5" class="svc">rtb-fabric</text>
 <rect x="166" y="5836.3" width="8" height="2.7" class="bar-add"/>
 <rect x="176" y="5839.0" width="8" height="1.2" class="bar-del"/>
@@ -2765,6 +2904,7 @@
 <rect x="346" y="5834.1" width="8" height="4.9" class="bar-add"/>
 <rect x="396" y="5833.0" width="8" height="6.0" class="bar-add"/>
 <rect x="406" y="5835.5" width="8" height="3.5" class="bar-add"/>
+<rect x="416" y="5837.1" width="8" height="1.9" class="bar-add"/>
 <text x="6" y="5863.5" class="svc">sagemaker</text>
 <rect x="166" y="5853.1" width="8" height="7.9" class="bar-add"/>
 <rect x="176" y="5855.5" width="8" height="5.5" class="bar-add"/>
@@ -2789,7 +2929,8 @@
 <rect x="386" y="5854.1" width="8" height="6.9" class="bar-add"/>
 <rect x="396" y="5856.0" width="8" height="5.0" class="bar-add"/>
 <rect x="406" y="5854.7" width="8" height="6.3" class="bar-add"/>
-<rect x="0" y="5872" width="422" height="22" class="row-even"/>
+<rect x="416" y="5855.4" width="8" height="5.6" class="bar-add"/>
+<rect x="0" y="5872" width="432" height="22" class="row-even"/>
 <text x="6" y="5885.5" class="svc">sagemaker-lakehouse-ar..</text>
 <rect x="186" y="5883.0" width="8" height="3.7" class="bar-del"/>
 <rect x="226" y="5879.3" width="8" height="3.7" class="bar-add"/>
@@ -2814,7 +2955,8 @@
 <rect x="386" y="5901.0" width="8" height="4.0" class="bar-add"/>
 <rect x="396" y="5905.0" width="8" height="8.5" class="bar-del"/>
 <rect x="406" y="5900.6" width="8" height="4.4" class="bar-add"/>
-<rect x="0" y="5916" width="422" height="22" class="row-even"/>
+<rect x="416" y="5900.4" width="8" height="4.6" class="bar-add"/>
+<rect x="0" y="5916" width="432" height="22" class="row-even"/>
 <text x="6" y="5929.5" class="svc">sap</text>
 <rect x="176" y="5920.6" width="8" height="6.4" class="bar-add"/>
 <rect x="226" y="5927.0" width="8" height="1.8" class="bar-del"/>
@@ -2829,7 +2971,7 @@
 <rect x="166" y="5947.2" width="8" height="1.8" class="bar-add"/>
 <rect x="286" y="5949.0" width="8" height="3.2" class="bar-del"/>
 <rect x="296" y="5948.4" width="8" height="0.6" class="bar-add"/>
-<rect x="0" y="5960" width="422" height="22" class="row-even"/>
+<rect x="0" y="5960" width="432" height="22" class="row-even"/>
 <text x="6" y="5973.5" class="svc">scheduler</text>
 <rect x="256" y="5968.2" width="8" height="2.8" class="bar-add"/>
 <rect x="286" y="5971.0" width="8" height="3.3" class="bar-del"/>
@@ -2839,6 +2981,7 @@
 <rect x="386" y="5969.0" width="8" height="2.0" class="bar-add"/>
 <rect x="396" y="5968.5" width="8" height="2.5" class="bar-add"/>
 <rect x="406" y="5969.2" width="8" height="1.8" class="bar-add"/>
+<rect x="416" y="5971.0" width="8" height="2.5" class="bar-del"/>
 <text x="6" y="5995.5" class="svc">SchemaConversionTool</text>
 <rect x="166" y="5988.3" width="8" height="4.7" class="bar-add"/>
 <rect x="176" y="5993.0" width="8" height="5.4" class="bar-del"/>
@@ -2856,7 +2999,7 @@
 <rect x="296" y="5993.0" width="8" height="4.8" class="bar-del"/>
 <rect x="306" y="5987.8" width="8" height="5.2" class="bar-add"/>
 <rect x="326" y="5985.4" width="8" height="7.6" class="bar-add"/>
-<rect x="0" y="6004" width="422" height="22" class="row-even"/>
+<rect x="0" y="6004" width="432" height="22" class="row-even"/>
 <text x="6" y="6017.5" class="svc">secretsmanager</text>
 <rect x="216" y="6011.4" width="8" height="3.6" class="bar-add"/>
 <rect x="286" y="6015.0" width="8" height="4.9" class="bar-del"/>
@@ -2879,11 +3022,13 @@
 <rect x="386" y="6034.3" width="8" height="2.7" class="bar-add"/>
 <rect x="396" y="6037.0" width="8" height="0.6" class="bar-del"/>
 <rect x="406" y="6037.0" width="8" height="0.6" class="bar-del"/>
-<rect x="0" y="6048" width="422" height="22" class="row-even"/>
+<rect x="416" y="6035.3" width="8" height="1.7" class="bar-add"/>
+<rect x="0" y="6048" width="432" height="22" class="row-even"/>
 <text x="6" y="6061.5" class="svc">security-lake</text>
 <rect x="276" y="6056.1" width="8" height="2.9" class="bar-add"/>
 <rect x="286" y="6059.0" width="8" height="4.6" class="bar-del"/>
 <rect x="406" y="6059.0" width="8" height="3.2" class="bar-del"/>
+<rect x="416" y="6058.4" width="8" height="0.6" class="bar-add"/>
 <text x="6" y="6083.5" class="svc">securityagent</text>
 <rect x="166" y="6074.2" width="8" height="6.8" class="bar-add"/>
 <rect x="186" y="6080.1" width="8" height="0.9" class="bar-add"/>
@@ -2904,7 +3049,8 @@
 <rect x="386" y="6078.0" width="8" height="3.0" class="bar-add"/>
 <rect x="396" y="6075.6" width="8" height="5.4" class="bar-add"/>
 <rect x="406" y="6077.6" width="8" height="3.4" class="bar-add"/>
-<rect x="0" y="6092" width="422" height="22" class="row-even"/>
+<rect x="416" y="6081.0" width="8" height="1.3" class="bar-del"/>
+<rect x="0" y="6092" width="432" height="22" class="row-even"/>
 <text x="6" y="6105.5" class="svc">securityhub</text>
 <rect x="166" y="6096.3" width="8" height="6.7" class="bar-add"/>
 <rect x="176" y="6103.0" width="8" height="3.3" class="bar-del"/>
@@ -2928,7 +3074,7 @@
 <text x="6" y="6127.5" class="svc">serverless</text>
 <rect x="286" y="6125.0" width="8" height="0.9" class="bar-del"/>
 <rect x="406" y="6125.0" width="8" height="3.9" class="bar-del"/>
-<rect x="0" y="6136" width="422" height="22" class="row-even"/>
+<rect x="0" y="6136" width="432" height="22" class="row-even"/>
 <text x="6" y="6149.5" class="svc">serverless-application..</text>
 <rect x="166" y="6140.7" width="8" height="6.3" class="bar-add"/>
 <rect x="246" y="6143.2" width="8" height="3.8" class="bar-add"/>
@@ -2939,11 +3085,12 @@
 <rect x="326" y="6143.9" width="8" height="3.1" class="bar-add"/>
 <rect x="366" y="6141.0" width="8" height="6.0" class="bar-add"/>
 <rect x="406" y="6141.9" width="8" height="5.1" class="bar-add"/>
+<rect x="416" y="6147.0" width="8" height="3.7" class="bar-del"/>
 <text x="6" y="6171.5" class="svc">serverlessrepo</text>
 <rect x="286" y="6169.0" width="8" height="4.5" class="bar-del"/>
 <rect x="356" y="6166.2" width="8" height="2.8" class="bar-add"/>
 <rect x="406" y="6167.2" width="8" height="1.8" class="bar-add"/>
-<rect x="0" y="6180" width="422" height="22" class="row-even"/>
+<rect x="0" y="6180" width="432" height="22" class="row-even"/>
 <text x="6" y="6193.5" class="svc">service-authorization</text>
 <rect x="166" y="6185.2" width="8" height="5.8" class="bar-add"/>
 <rect x="176" y="6187.1" width="8" height="3.9" class="bar-add"/>
@@ -2969,19 +3116,22 @@
 <rect x="386" y="6187.5" width="8" height="3.5" class="bar-add"/>
 <rect x="396" y="6187.8" width="8" height="3.2" class="bar-add"/>
 <rect x="406" y="6189.4" width="8" height="1.6" class="bar-add"/>
+<rect x="416" y="6187.2" width="8" height="3.8" class="bar-add"/>
 <text x="6" y="6215.5" class="svc">servicecatalog</text>
 <rect x="186" y="6211.4" width="8" height="1.6" class="bar-add"/>
 <rect x="286" y="6213.0" width="8" height="4.3" class="bar-del"/>
 <rect x="336" y="6211.5" width="8" height="1.5" class="bar-add"/>
 <rect x="386" y="6213.0" width="8" height="4.4" class="bar-del"/>
 <rect x="406" y="6213.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="6224" width="422" height="22" class="row-even"/>
+<rect x="416" y="6207.9" width="8" height="5.1" class="bar-add"/>
+<rect x="0" y="6224" width="432" height="22" class="row-even"/>
 <text x="6" y="6237.5" class="svc">servicequotas</text>
 <rect x="166" y="6230.9" width="8" height="4.1" class="bar-add"/>
 <rect x="226" y="6231.1" width="8" height="3.9" class="bar-add"/>
 <rect x="266" y="6232.6" width="8" height="2.4" class="bar-add"/>
 <rect x="286" y="6235.0" width="8" height="3.0" class="bar-del"/>
 <rect x="406" y="6233.2" width="8" height="1.8" class="bar-add"/>
+<rect x="416" y="6233.4" width="8" height="1.6" class="bar-add"/>
 <text x="6" y="6259.5" class="svc">ses</text>
 <rect x="176" y="6257.0" width="8" height="0.6" class="bar-del"/>
 <rect x="186" y="6251.9" width="8" height="5.1" class="bar-add"/>
@@ -2997,22 +3147,24 @@
 <rect x="376" y="6250.9" width="8" height="6.1" class="bar-add"/>
 <rect x="386" y="6252.6" width="8" height="4.4" class="bar-add"/>
 <rect x="406" y="6254.3" width="8" height="2.7" class="bar-add"/>
-<rect x="0" y="6268" width="422" height="22" class="row-even"/>
+<rect x="416" y="6251.1" width="8" height="5.9" class="bar-add"/>
+<rect x="0" y="6268" width="432" height="22" class="row-even"/>
 <text x="6" y="6281.5" class="svc">signer</text>
 <rect x="286" y="6279.0" width="8" height="2.8" class="bar-del"/>
 <rect x="406" y="6279.0" width="8" height="3.3" class="bar-del"/>
+<rect x="416" y="6276.5" width="8" height="2.5" class="bar-add"/>
 <text x="6" y="6303.5" class="svc">signin</text>
 <rect x="256" y="6297.6" width="8" height="3.4" class="bar-add"/>
 <rect x="266" y="6298.4" width="8" height="2.6" class="bar-add"/>
 <rect x="286" y="6301.0" width="8" height="4.2" class="bar-del"/>
 <rect x="306" y="6297.4" width="8" height="3.6" class="bar-add"/>
 <rect x="406" y="6298.0" width="8" height="3.0" class="bar-add"/>
-<rect x="0" y="6312" width="422" height="22" class="row-even"/>
+<rect x="0" y="6312" width="432" height="22" class="row-even"/>
 <text x="6" y="6325.5" class="svc">silk</text>
 <text x="6" y="6347.5" class="svc">simspaceweaver</text>
 <rect x="266" y="6343.2" width="8" height="1.8" class="bar-add"/>
 <rect x="286" y="6345.0" width="8" height="4.3" class="bar-del"/>
-<rect x="0" y="6356" width="422" height="22" class="row-even"/>
+<rect x="0" y="6356" width="432" height="22" class="row-even"/>
 <text x="6" y="6369.5" class="svc">singlesignon</text>
 <rect x="166" y="6364.5" width="8" height="2.5" class="bar-add"/>
 <rect x="186" y="6364.7" width="8" height="2.3" class="bar-add"/>
@@ -3032,7 +3184,7 @@
 <text x="6" y="6391.5" class="svc">smc</text>
 <rect x="286" y="6389.0" width="8" height="4.9" class="bar-del"/>
 <rect x="336" y="6383.3" width="8" height="5.7" class="bar-add"/>
-<rect x="0" y="6400" width="422" height="22" class="row-even"/>
+<rect x="0" y="6400" width="432" height="22" class="row-even"/>
 <text x="6" y="6413.5" class="svc">sms-voice</text>
 <rect x="176" y="6408.4" width="8" height="2.6" class="bar-add"/>
 <rect x="196" y="6407.6" width="8" height="3.4" class="bar-add"/>
@@ -3049,12 +3201,14 @@
 <rect x="386" y="6409.7" width="8" height="1.3" class="bar-add"/>
 <rect x="396" y="6404.5" width="8" height="6.5" class="bar-add"/>
 <rect x="406" y="6411.0" width="8" height="1.6" class="bar-del"/>
+<rect x="416" y="6404.9" width="8" height="6.1" class="bar-add"/>
 <text x="6" y="6435.5" class="svc">snow</text>
 <rect x="286" y="6433.0" width="8" height="3.0" class="bar-del"/>
-<rect x="0" y="6444" width="422" height="22" class="row-even"/>
+<rect x="0" y="6444" width="432" height="22" class="row-even"/>
 <text x="6" y="6457.5" class="svc">snowball</text>
 <rect x="286" y="6455.0" width="8" height="4.9" class="bar-del"/>
 <rect x="406" y="6455.0" width="8" height="3.3" class="bar-del"/>
+<rect x="416" y="6449.8" width="8" height="5.2" class="bar-add"/>
 <text x="6" y="6479.5" class="svc">sns</text>
 <rect x="166" y="6477.0" width="8" height="4.2" class="bar-del"/>
 <rect x="176" y="6472.8" width="8" height="4.2" class="bar-add"/>
@@ -3076,7 +3230,8 @@
 <rect x="366" y="6474.9" width="8" height="2.1" class="bar-add"/>
 <rect x="376" y="6472.2" width="8" height="4.8" class="bar-add"/>
 <rect x="406" y="6477.0" width="8" height="3.3" class="bar-del"/>
-<rect x="0" y="6488" width="422" height="22" class="row-even"/>
+<rect x="416" y="6473.7" width="8" height="3.3" class="bar-add"/>
+<rect x="0" y="6488" width="432" height="22" class="row-even"/>
 <text x="6" y="6501.5" class="svc">social-messaging</text>
 <rect x="166" y="6498.4" width="8" height="0.6" class="bar-add"/>
 <rect x="186" y="6495.3" width="8" height="3.7" class="bar-add"/>
@@ -3088,7 +3243,7 @@
 <rect x="396" y="6496.3" width="8" height="2.7" class="bar-add"/>
 <rect x="406" y="6499.0" width="8" height="3.2" class="bar-del"/>
 <text x="6" y="6523.5" class="svc">speke</text>
-<rect x="0" y="6532" width="422" height="22" class="row-even"/>
+<rect x="0" y="6532" width="432" height="22" class="row-even"/>
 <text x="6" y="6545.5" class="svc">sql-server-ec2</text>
 <rect x="206" y="6541.0" width="8" height="2.0" class="bar-add"/>
 <rect x="226" y="6539.3" width="8" height="3.7" class="bar-add"/>
@@ -3097,12 +3252,13 @@
 <rect x="336" y="6543.0" width="8" height="4.0" class="bar-del"/>
 <rect x="376" y="6543.0" width="8" height="0.6" class="bar-del"/>
 <rect x="406" y="6543.0" width="8" height="3.3" class="bar-del"/>
+<rect x="416" y="6543.0" width="8" height="0.6" class="bar-del"/>
 <text x="6" y="6567.5" class="svc">ssm-sap</text>
 <rect x="176" y="6561.3" width="8" height="3.7" class="bar-add"/>
 <rect x="266" y="6563.0" width="8" height="2.0" class="bar-add"/>
 <rect x="326" y="6565.0" width="8" height="3.2" class="bar-del"/>
 <rect x="396" y="6560.9" width="8" height="4.1" class="bar-add"/>
-<rect x="0" y="6576" width="422" height="22" class="row-even"/>
+<rect x="0" y="6576" width="432" height="22" class="row-even"/>
 <text x="6" y="6589.5" class="svc">step-functions</text>
 <rect x="266" y="6585.7" width="8" height="1.3" class="bar-add"/>
 <rect x="286" y="6587.0" width="8" height="5.1" class="bar-del"/>
@@ -3123,7 +3279,8 @@
 <rect x="346" y="6609.0" width="8" height="1.9" class="bar-del"/>
 <rect x="386" y="6607.2" width="8" height="1.8" class="bar-add"/>
 <rect x="406" y="6606.6" width="8" height="2.4" class="bar-add"/>
-<rect x="0" y="6620" width="422" height="22" class="row-even"/>
+<rect x="416" y="6605.7" width="8" height="3.3" class="bar-add"/>
+<rect x="0" y="6620" width="432" height="22" class="row-even"/>
 <text x="6" y="6633.5" class="svc">streams</text>
 <rect x="186" y="6631.0" width="8" height="0.6" class="bar-del"/>
 <rect x="266" y="6628.4" width="8" height="2.6" class="bar-add"/>
@@ -3133,7 +3290,7 @@
 <text x="6" y="6655.5" class="svc">sustainability</text>
 <rect x="336" y="6647.0" width="8" height="6.0" class="bar-add"/>
 <rect x="406" y="6651.2" width="8" height="1.8" class="bar-add"/>
-<rect x="0" y="6664" width="422" height="22" class="row-even"/>
+<rect x="0" y="6664" width="432" height="22" class="row-even"/>
 <text x="6" y="6677.5" class="svc">systems-manager</text>
 <rect x="176" y="6675.0" width="8" height="3.4" class="bar-del"/>
 <rect x="186" y="6670.3" width="8" height="4.7" class="bar-add"/>
@@ -3154,6 +3311,7 @@
 <rect x="386" y="6670.8" width="8" height="4.2" class="bar-add"/>
 <rect x="396" y="6675.0" width="8" height="1.2" class="bar-del"/>
 <rect x="406" y="6675.0" width="8" height="4.5" class="bar-del"/>
+<rect x="416" y="6672.8" width="8" height="2.2" class="bar-add"/>
 <text x="6" y="6699.5" class="svc">systems-manager-automa..</text>
 <rect x="186" y="6696.1" width="8" height="0.9" class="bar-add"/>
 <rect x="216" y="6691.6" width="8" height="5.4" class="bar-add"/>
@@ -3166,15 +3324,17 @@
 <rect x="356" y="6694.4" width="8" height="2.6" class="bar-add"/>
 <rect x="376" y="6695.5" width="8" height="1.5" class="bar-add"/>
 <rect x="406" y="6692.9" width="8" height="4.1" class="bar-add"/>
-<rect x="0" y="6708" width="422" height="22" class="row-even"/>
+<rect x="0" y="6708" width="432" height="22" class="row-even"/>
 <text x="6" y="6721.5" class="svc">tag-editor</text>
 <rect x="266" y="6719.0" width="8" height="0.9" class="bar-del"/>
 <rect x="286" y="6719.0" width="8" height="3.8" class="bar-del"/>
 <rect x="406" y="6719.0" width="8" height="2.9" class="bar-del"/>
+<rect x="416" y="6717.5" width="8" height="1.5" class="bar-add"/>
 <text x="6" y="6743.5" class="svc">textract</text>
 <rect x="286" y="6741.0" width="8" height="4.3" class="bar-del"/>
 <rect x="406" y="6741.0" width="8" height="3.3" class="bar-del"/>
-<rect x="0" y="6752" width="422" height="22" class="row-even"/>
+<rect x="416" y="6741.0" width="8" height="7.5" class="bar-del"/>
+<rect x="0" y="6752" width="432" height="22" class="row-even"/>
 <text x="6" y="6765.5" class="svc">timestream</text>
 <rect x="166" y="6763.0" width="8" height="5.3" class="bar-del"/>
 <rect x="176" y="6763.0" width="8" height="5.2" class="bar-del"/>
@@ -3195,11 +3355,12 @@
 <rect x="336" y="6757.8" width="8" height="5.2" class="bar-add"/>
 <rect x="346" y="6759.5" width="8" height="3.5" class="bar-add"/>
 <rect x="406" y="6763.0" width="8" height="3.8" class="bar-del"/>
+<rect x="416" y="6763.0" width="8" height="2.9" class="bar-del"/>
 <text x="6" y="6787.5" class="svc">tnb</text>
 <rect x="226" y="6784.4" width="8" height="0.6" class="bar-add"/>
 <rect x="286" y="6785.0" width="8" height="3.6" class="bar-del"/>
 <rect x="406" y="6785.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="6796" width="422" height="22" class="row-even"/>
+<rect x="0" y="6796" width="432" height="22" class="row-even"/>
 <text x="6" y="6809.5" class="svc">transcribe</text>
 <rect x="236" y="6802.1" width="8" height="4.9" class="bar-add"/>
 <rect x="256" y="6806.1" width="8" height="0.9" class="bar-add"/>
@@ -3210,6 +3371,7 @@
 <rect x="386" y="6807.0" width="8" height="0.9" class="bar-del"/>
 <rect x="396" y="6803.6" width="8" height="3.4" class="bar-add"/>
 <rect x="406" y="6803.9" width="8" height="3.1" class="bar-add"/>
+<rect x="416" y="6807.0" width="8" height="2.9" class="bar-del"/>
 <text x="6" y="6831.5" class="svc">transfer</text>
 <rect x="166" y="6829.0" width="8" height="1.6" class="bar-del"/>
 <rect x="206" y="6829.0" width="8" height="1.3" class="bar-del"/>
@@ -3220,7 +3382,8 @@
 <rect x="326" y="6829.0" width="8" height="4.0" class="bar-del"/>
 <rect x="346" y="6825.7" width="8" height="3.3" class="bar-add"/>
 <rect x="376" y="6829.0" width="8" height="1.2" class="bar-del"/>
-<rect x="0" y="6840" width="422" height="22" class="row-even"/>
+<rect x="416" y="6824.0" width="8" height="5.0" class="bar-add"/>
+<rect x="0" y="6840" width="432" height="22" class="row-even"/>
 <text x="6" y="6853.5" class="svc">transform</text>
 <rect x="166" y="6844.0" width="8" height="7.0" class="bar-add"/>
 <rect x="176" y="6847.3" width="8" height="3.7" class="bar-add"/>
@@ -3243,11 +3406,12 @@
 <rect x="386" y="6845.3" width="8" height="5.7" class="bar-add"/>
 <rect x="396" y="6845.0" width="8" height="6.0" class="bar-add"/>
 <rect x="406" y="6846.4" width="8" height="4.6" class="bar-add"/>
+<rect x="416" y="6846.9" width="8" height="4.1" class="bar-add"/>
 <text x="6" y="6875.5" class="svc">translate</text>
 <rect x="266" y="6871.7" width="8" height="1.3" class="bar-add"/>
 <rect x="286" y="6873.0" width="8" height="4.2" class="bar-del"/>
 <rect x="406" y="6873.0" width="8" height="3.3" class="bar-del"/>
-<rect x="0" y="6884" width="422" height="22" class="row-even"/>
+<rect x="0" y="6884" width="432" height="22" class="row-even"/>
 <text x="6" y="6897.5" class="svc">verified-access</text>
 <rect x="176" y="6894.4" width="8" height="0.6" class="bar-add"/>
 <rect x="246" y="6894.4" width="8" height="0.6" class="bar-add"/>
@@ -3262,7 +3426,8 @@
 <rect x="286" y="6917.0" width="8" height="4.5" class="bar-del"/>
 <rect x="326" y="6911.6" width="8" height="5.4" class="bar-add"/>
 <rect x="406" y="6917.0" width="8" height="3.3" class="bar-del"/>
-<rect x="0" y="6928" width="422" height="22" class="row-even"/>
+<rect x="416" y="6912.8" width="8" height="4.2" class="bar-add"/>
+<rect x="0" y="6928" width="432" height="22" class="row-even"/>
 <text x="6" y="6941.5" class="svc">vm-import</text>
 <rect x="186" y="6937.8" width="8" height="1.2" class="bar-add"/>
 <rect x="286" y="6939.0" width="8" height="3.4" class="bar-del"/>
@@ -3287,7 +3452,8 @@
 <rect x="376" y="6959.1" width="8" height="1.9" class="bar-add"/>
 <rect x="386" y="6958.1" width="8" height="2.9" class="bar-add"/>
 <rect x="406" y="6956.8" width="8" height="4.2" class="bar-add"/>
-<rect x="0" y="6972" width="422" height="22" class="row-even"/>
+<rect x="416" y="6958.2" width="8" height="2.8" class="bar-add"/>
+<rect x="0" y="6972" width="432" height="22" class="row-even"/>
 <text x="6" y="6985.5" class="svc">vpc-lattice</text>
 <rect x="176" y="6979.5" width="8" height="3.5" class="bar-add"/>
 <rect x="186" y="6980.8" width="8" height="2.2" class="bar-add"/>
@@ -3300,10 +3466,11 @@
 <rect x="286" y="7005.0" width="8" height="4.5" class="bar-del"/>
 <rect x="386" y="7001.8" width="8" height="3.2" class="bar-add"/>
 <rect x="406" y="7003.2" width="8" height="1.8" class="bar-add"/>
-<rect x="0" y="7016" width="422" height="22" class="row-even"/>
+<rect x="0" y="7016" width="432" height="22" class="row-even"/>
 <text x="6" y="7029.5" class="svc">vsts</text>
 <rect x="286" y="7027.0" width="8" height="3.5" class="bar-del"/>
 <rect x="406" y="7025.2" width="8" height="1.8" class="bar-add"/>
+<rect x="416" y="7027.0" width="8" height="2.9" class="bar-del"/>
 <text x="6" y="7051.5" class="svc">waf</text>
 <rect x="166" y="7047.8" width="8" height="1.2" class="bar-add"/>
 <rect x="176" y="7045.5" width="8" height="3.5" class="bar-add"/>
@@ -3321,7 +3488,8 @@
 <rect x="386" y="7044.5" width="8" height="4.5" class="bar-add"/>
 <rect x="396" y="7047.3" width="8" height="1.7" class="bar-add"/>
 <rect x="406" y="7049.0" width="8" height="3.6" class="bar-del"/>
-<rect x="0" y="7060" width="422" height="22" class="row-even"/>
+<rect x="416" y="7043.8" width="8" height="5.2" class="bar-add"/>
+<rect x="0" y="7060" width="432" height="22" class="row-even"/>
 <text x="6" y="7073.5" class="svc">wavelength</text>
 <rect x="286" y="7071.0" width="8" height="2.8" class="bar-del"/>
 <text x="6" y="7095.5" class="svc">wellarchitected</text>
@@ -3344,7 +3512,7 @@
 <rect x="376" y="7092.4" width="8" height="0.6" class="bar-add"/>
 <rect x="386" y="7091.4" width="8" height="1.6" class="bar-add"/>
 <rect x="406" y="7092.1" width="8" height="0.9" class="bar-add"/>
-<rect x="0" y="7104" width="422" height="22" class="row-even"/>
+<rect x="0" y="7104" width="432" height="22" class="row-even"/>
 <text x="6" y="7117.5" class="svc">wickr</text>
 <rect x="166" y="7115.0" width="8" height="3.4" class="bar-del"/>
 <rect x="176" y="7110.5" width="8" height="4.5" class="bar-add"/>
@@ -3368,13 +3536,14 @@
 <rect x="386" y="7113.3" width="8" height="1.7" class="bar-add"/>
 <rect x="396" y="7112.8" width="8" height="2.2" class="bar-add"/>
 <rect x="406" y="7112.6" width="8" height="2.4" class="bar-add"/>
+<rect x="416" y="7109.5" width="8" height="5.5" class="bar-add"/>
 <text x="6" y="7139.5" class="svc">workmail</text>
 <rect x="256" y="7133.3" width="8" height="3.7" class="bar-add"/>
 <rect x="276" y="7134.3" width="8" height="2.7" class="bar-add"/>
 <rect x="286" y="7137.0" width="8" height="4.5" class="bar-del"/>
 <rect x="336" y="7131.4" width="8" height="5.6" class="bar-add"/>
 <rect x="406" y="7137.0" width="8" height="3.2" class="bar-del"/>
-<rect x="0" y="7148" width="422" height="22" class="row-even"/>
+<rect x="0" y="7148" width="432" height="22" class="row-even"/>
 <text x="6" y="7161.5" class="svc">workspaces</text>
 <rect x="186" y="7156.7" width="8" height="2.3" class="bar-add"/>
 <rect x="236" y="7154.5" width="8" height="4.5" class="bar-add"/>
@@ -3391,10 +3560,11 @@
 <rect x="376" y="7156.5" width="8" height="2.5" class="bar-add"/>
 <rect x="396" y="7156.3" width="8" height="2.7" class="bar-add"/>
 <rect x="406" y="7154.4" width="8" height="4.6" class="bar-add"/>
+<rect x="416" y="7155.9" width="8" height="3.1" class="bar-add"/>
 <text x="6" y="7183.5" class="svc">workspaces-core</text>
 <rect x="286" y="7181.0" width="8" height="2.4" class="bar-del"/>
 <rect x="406" y="7179.1" width="8" height="1.9" class="bar-add"/>
-<rect x="0" y="7192" width="422" height="22" class="row-even"/>
+<rect x="0" y="7192" width="432" height="22" class="row-even"/>
 <text x="6" y="7205.5" class="svc">workspaces-web</text>
 <rect x="166" y="7203.0" width="8" height="0.6" class="bar-del"/>
 <rect x="176" y="7198.1" width="8" height="4.9" class="bar-add"/>
