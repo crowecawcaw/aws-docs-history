@@ -58,4 +58,4 @@ Amazon Connect Health uses Amazon Bedrock foundation models to power AI capabili
 
 ## Service improvement and how to opt out
 
-You can opt out of the use of your content for service improvement by contacting the Amazon Connect Health team at [amazon-connecthealth-ai-optout@amazon.com](mailto:amazon-connecthealth-ai-optout@amazon.com "mailto:amazon-connecthealth-ai-optout@amazon.com").
+You can opt out of the use of your content for service improvement by contacting the Amazon Connect Health team at [amazon-connecthealth-ai-optout@amazon.com](mailto:amazon-connecthealth-ai-optout@amazon.com "mailto:amazon-connecthealth-ai-optout@amazon.com") with your AWS Account ID.

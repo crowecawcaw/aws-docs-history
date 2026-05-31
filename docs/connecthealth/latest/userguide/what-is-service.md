@@ -2,7 +2,7 @@
 
 Amazon Connect Health is an AI-powered healthcare service built on Amazon Connect. It provides pre-built agents that automate patient engagement workflows and support clinical documentation at the point of care. You can use Amazon Connect Health to streamline voice-based patient interactions and give clinicians real-time insights during patient visits.
 
-Amazon Connect Health integrates with electronic health record (EHR) systems through FHIR R4 APIs. This integration enables agents to access and update patient data directly from your EHR. Currently, Amazon Connect Health supports Epic EHR systems.
+Amazon Connect Health integrates with electronic health record (EHR) systems through FHIR R4 APIs. This integration enables agents to access and update patient data directly from your EHR. Currently, Amazon Connect Health is compatible with the Epic EHR.
 
 ###### Important
 
@@ -41,7 +41,7 @@ Amazon Connect Health surfaces a unified patient profile within the Amazon Conne
 
 ### EHR integration
 
-Amazon Connect Health connects to your EHR system through FHIR R4 APIs. This integration enables bidirectional data exchange for patient verification, appointment management, and clinical data retrieval. Amazon Connect Health currently supports integration with Epic EHR systems.
+Amazon Connect Health connects to your EHR system through FHIR R4 APIs. This integration enables bidirectional data exchange for patient verification, appointment management, and clinical data retrieval. Amazon Connect Health is currently compatible with the Epic EHR.
 
 ## Are you a first-time user?
 

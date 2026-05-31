@@ -1,6 +1,6 @@
 # Patient engagement agents
 
-Amazon Connect Health provides two AI agents for patient engagement: the Patient verification agent and the Appointment management agent. These agents handle routine patient interactions through voice calls via Amazon Connect. They integrate with Epic EHR systems in real time through FHIR R4 APIs and support intelligent escalation to human agents with full context preservation.
+Amazon Connect Health provides two AI agents for patient engagement: the Patient verification agent and the Appointment management agent. These agents handle routine patient interactions through voice calls via Amazon Connect. They integrate with the Epic EHR in real time through FHIR R4 APIs and support intelligent escalation to human agents with full context preservation.
 
 ###### Topics
 
@@ -12,6 +12,7 @@ Amazon Connect Health provides two AI agents for patient engagement: the Patient
 - [Agent customization](agent-customization.md "agent-customization.md")
 - [Sample contact flow](contact-flow-setup.md "contact-flow-setup.md")
 - [Insurance verification integration](insurance-verification.md "insurance-verification.md")
+- [Epic EHR integration](epic-ehr-integration.md "epic-ehr-integration.md")
 
 ## Communication channels
 

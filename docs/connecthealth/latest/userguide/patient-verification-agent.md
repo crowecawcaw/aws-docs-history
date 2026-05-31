@@ -2,7 +2,7 @@
 
 The Patient verification agent provides secure, conversational identity verification through real-time EHR integration and configurable multi-attribute authentication such as date of birth and phone number. It provides patient profile lookup based on incoming call number and eliminates manual lookup by contact center staff. This agent collects and verifies patient identity through self service for caregivers on behalf of a patient.
 
-The Patient verification agent eliminates time-consuming manual EHR lookups by automating the identity verification process. It queries Epic FHIR APIs in real time to match and verify patient records during the call.
+The Patient verification agent eliminates time-consuming manual EHR lookups by automating the identity verification process. It queries the Epic EHR through FHIR APIs in real time to match and verify patient records during the call.
 
 ###### Topics
 
@@ -14,7 +14,7 @@ The Patient verification agent eliminates time-consuming manual EHR lookups by a
 
 The Patient verification agent provides the following capabilities:
 
-- **Real-time patient identity verification** – Verifies patient identity through Epic FHIR APIs.
+- **Real-time patient identity verification** – Verifies patient identity against EHR records in real time.
 - **Configurable multi-factor authentication** – Supports verification using phone number, medical record number (MRN), date of birth, zip code, and Social Security number (SSN).
 - **LLM-based safety guardrails** – Detects safety concerns, frustrated patients, and complex requests.
 - **Intelligent escalation to human agents** – Escalates to human agents with full verification context.
