@@ -437,33 +437,85 @@ When the job completes, the response includes job metadata and a FHIR Parameters
 }
 ```
 
+## How HealthLake classifies members into output Groups
+
+Every member submitted in a `$bulk-member-match` request is evaluated through a sequential pipeline. The outcome of each step determines which output Group the member is placed in.
+
+1. **Structural validation** — Does the MemberBundle conform to required profiles? On failure: Error (not in any Group).
+2. **Patient matching** — Can HealthLake find patients matching the submitted demographics? On failure: NonMatchedMembers.
+3. **Coverage confirmation** — Can HealthLake narrow to exactly one patient with valid CoverageToMatch? On failure: NonMatchedMembers.
+4. **Consent evaluation** — Is the submitted Consent honorable right now? (status = active, period covers current date, performer can be validated). On failure: ConsentConstrainedMembers.
+5. **Success** — All checks pass. Consent stored in datastore. Member placed in MatchedMembers.
+
+**Key principle:** A member can only appear in one destination. The first failing step determines placement. Members who fail Steps 2 or 3 are never placed in ConsentConstrainedMembers — that Group is exclusively for members who matched successfully but whose consent cannot be honored.
+
+**Consent evaluation details (Step 4):**
+
+- **Check 1 — Consent status:** Is `Consent.status` equal to "active"? If not → ConsentConstrainedMembers.
+- **Check 2 — Provision period:** Does `provision.period` cover the current date? If current date is before `period.start` or after `period.end` → ConsentConstrainedMembers.
+- **Check 3 — Performer validation:** Can the `Consent.performer` reference be validated? If the referenced resource is not found in the datastore or is not associated with the matched patient → ConsentConstrainedMembers.
+
+All checks must pass for the member to be placed in MatchedMembers and for the Consent to be stored.
+
+## Coverage matching behavior
+
+During member matching, only `CoverageToMatch` is validated against the responding payer's datastore. `CoverageToLink` belongs to the new/requesting payer and is _not_ validated against the old payer's datastore. Including `CoverageToLink` in the request will not affect matching results.
+
+Each Patient + Coverage combination in the request is processed independently. The same patient can be submitted multiple times with different coverage plans, and each entry receives its own result based on its specific coverage.
+
+## Consent performer reference handling
+
+The new payer may send a temporary or local patient reference in `Consent.performer` (for example, the same reference used in `Consent.patient`). HealthLake resolves these references automatically:
+
+- If `Consent.performer` contains the same local reference as `Consent.patient`, HealthLake replaces it with the actual matched patient reference after matching succeeds.
+- HealthLake supports performer references of type Patient, RelatedPerson, Practitioner, PractitionerRole, and Organization (both direct references and logical identifier references).
+- If performer validation fails (resource not found or not associated with the matched patient), the member is placed in ConsentConstrainedMembers rather than returning an error.
+
 ## Output Group resources
 
 The completed job returns a Parameters resource containing three Group resources:
 
 **MatchedMembers Group**
-Contains Patient references for all successfully matched members and is not categorized as consent constraint.
 
-The `Group.quantity` field contains the total count of members in each of their respective groups.
+Contains Patient references for all successfully matched members whose consent is active and valid at the time of the request. The Consent resource is created and stored in the datastore for each matched member. This Group is instantiated in the datastore and can be used directly with `$davinci-data-export`.
 
 **NonMatchedMembers Group**
-Contains references to members where no match was found or multiple matches were identified.
+
+Contains references to members where no unique match was found. A member is placed here when no patient in the datastore matches the provided demographics, no valid coverage exists for any matched patient candidate, or multiple patients match demographics and multiple have valid coverage (ambiguous).
 
 **ConsentConstrainedMembers Group**
 
-Contains Patient references for all successfully matched members where consent constraints prevent data sharing. A Consent resource is considered constrained when both of the following conditions are present:
+Contains Patient references for members who were successfully matched (demographics and coverage confirmed) but whose consent cannot be honored at the time of the request. The Consent resource is _not_ stored for consent-constrained members. The matched member identity (MemberIdentifier and MemberId) is still included so the requesting payer knows who was constrained.
 
-- **The policy URI ends in `#sensitive`** — This is the clearest, most direct signal. The submitting payer is explicitly saying: "This member's data is sensitive — handle with care."
+The `Group.quantity` field contains the total count of members in each of their respective groups.
 
-```
-"policy": [{ "uri": "...hrex-consent.html#sensitive" }]
-```
+**Group member references:**
 
-- **The top-level provision type is `deny`** — The member has broadly refused data sharing.
+- `Group.member.entity.reference` — For MatchedMembers and ConsentConstrainedMembers, contains the Patient ID of the matched member in the responding payer's system. For NonMatchedMembers, references the contained input Patient.
+- `Group.member.entity.extension (base-ext-match-parameters)` — Contains the Patient ID from the original input request (the ID submitted by the requesting payer, derived from `Patient.id`, `Coverage.beneficiary.reference`, or `Consent.patient.reference`).
 
-```
-"provision": { "type": "deny" }
-```
+## Consent-Patient linkage
+
+###### Important
+
+The stored Consent resource retains the patient reference exactly as submitted by the requesting payer. HealthLake does not automatically update the Consent's patient field to point to the matched Patient in the receiving datastore.
+
+To link a stored Consent to the matched Patient, use the job output: each member in the MatchedMembers Group has a `member.entity.reference` pointing to the matched Patient and a `member.entity.extension` (`base-ext-match-parameters`) pointing to the contained input Patient. Cross-reference these with the Consent's patient field to build the mapping in your application layer.
+
+## What gets stored vs. what is transient
+
+The following table documents what HealthLake persists to the datastore during `$bulk-member-match` processing and what exists only in the job response:
+
+| Resource                          | Stored? | Queryable via REST?           | Notes                                                         |
+| --------------------------------- | ------- | ----------------------------- | ------------------------------------------------------------- |
+| MemberPatient (input)             | No      | No                            | Used only for matching; not persisted                         |
+| CoverageToMatch (input)           | No      | No                            | Used only for coverage confirmation                           |
+| CoverageToLink (input)            | No      | No                            | Not validated against the datastore; belongs to the new payer |
+| **Consent (matched members)**     | **Yes** | Yes — GET [base]/Consent/{id} | Stored as-received from requesting payer                      |
+| Consent (constrained members)     | No      | No                            | Not stored. Member identity still included in response.       |
+| **MatchedMembers Group (output)** | **Yes** | Yes — GET [base]/Group/{id}   | Instantiated; usable with $davinci-data-export                |
+| NonMatchedMembers Group           | No      | No                            | Job response only                                             |
+| ConsentConstrainedMembers Group   | No      | No                            | Job response only                                             |
 
 ## Integration with $davinci-data-export
 
@@ -475,6 +527,20 @@ GET [base]/Group/{matched-group-id}
 ```
 
 This integration enables efficient workflows where you first identify matched members in bulk, then export their complete health records using the resulting Group resource.
+
+### Using $member-remove before export
+
+If you need to exclude specific members from export after matching (for example, a member revokes consent between matching and export), use `$member-remove` on the MatchedMembers Group.
+
+###### Important
+
+Removing a member via `$member-remove` marks the member as inactive in the Group, but `$davinci-data-export` only excludes inactive members after the Group is updated to status "final". If you call `$davinci-data-export` on a Group that still has the default status, removed members may still appear in export results.
+
+Workflow:
+
+1. `POST [base]/Group/{id}/$member-remove` — mark members inactive
+2. `PUT [base]/Group/{id}` — update Group status to "final"
+3. `POST [base]/Group/{id}/$davinci-data-export` — export now excludes removed members
 
 ## Performance characteristics
 
@@ -497,6 +563,54 @@ The API uses SMART on FHIR authorization protocol with the following required sc
 - `system/Consent.write` — Conditional, required if consent resources are provided.
 
 The operation also supports AWS IAM Signature Version 4 (SigV4) authorization for programmatic access.
+
+## Validation rules
+
+The following validation rules are applied to each MemberBundle at Step 1. Members that fail validation are reported as errors and do not appear in any output Group.
+
+### MemberPatient
+
+| Field         | How HealthLake uses it                                  | Validation failure if...                          |
+| ------------- | ------------------------------------------------------- | ------------------------------------------------- |
+| `name.family` | Demographic search                                      | Missing                                           |
+| `name.given`  | Demographic search                                      | Missing (at least one required)                   |
+| `birthDate`   | Demographic search                                      | Missing                                           |
+| `gender`      | Demographic search; if absent, Birth Sex extension used | Neither gender nor Birth Sex present (hrex-pat-1) |
+| `identifier`  | Included in search when present; improves confidence    | Never causes failure (optional)                   |
+
+### CoverageToMatch / CoverageToLink
+
+| Field                             | How HealthLake uses it                        | Validation failure if...        |
+| --------------------------------- | --------------------------------------------- | ------------------------------- |
+| `status`                          | Confirms coverage is actionable               | Missing                         |
+| `beneficiary`                     | Links coverage to a patient candidate         | Missing                         |
+| `payor`                           | Disambiguation when multiple candidates exist | Missing, or more than one payor |
+| `relationship`                    | Confirms subscriber-beneficiary relationship  | Missing                         |
+| `identifier (MB) or subscriberId` | Primary disambiguation key                    | Neither present                 |
+
+### Consent
+
+| Field              | How HealthLake uses it                            | Validation failure if...                                                                  |
+| ------------------ | ------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `scope`            | Confirms consent scope is patient-privacy         | Missing or no patient-privacy code                                                        |
+| `category`         | Confirms disclosure classification                | Missing                                                                                   |
+| `patient`          | Identifies the consent subject                    | Missing                                                                                   |
+| `performer`        | Identifies who is agreeing                        | Missing                                                                                   |
+| `sourceReference`  | Documents the consent source                      | Missing                                                                                   |
+| `policy.uri`       | Determines data sharing scope                     | Missing or URI not ending in #regular or #sensitive                                       |
+| `provision.type`   | Must be "permit" per HRex Consent profile         | Missing or not "permit" (including "deny")                                                |
+| `provision.period` | Evaluated at Step 4 for consent-constrained check | Missing or no start/end                                                                   |
+| `status`           | Evaluated at Step 4 (NOT Step 1)                  | Never causes Step 1 failure — HealthLake accepts any valid status and evaluates at Step 4 |
+
+###### Note
+
+The HRex Consent profile defines status with a fixed value of "active". HealthLake intentionally relaxes this constraint so that a non-active Consent receives a meaningful classification (ConsentConstrainedMembers) rather than a blanket validation rejection.
+
+## Matching behavior
+
+- **Patient search (Step 2)** — HealthLake searches using `name.family` + `name.given` (exact, case-insensitive), `birthDate` (exact), `gender` (exact; Birth Sex used if gender absent), and `identifier` (when present, optional).
+- **Coverage disambiguation (Step 3)** — When multiple patient candidates are found, `CoverageToMatch` is used to narrow to one. A coverage is "valid" when an active Coverage resource exists in the datastore matching on `subscriberId` or `identifier` (MB type) AND `payor`.
+- **Consent evaluation (Step 4)** — Only performed after a successful unique match. See the consent evaluation details section above.
 
 ## Error handling
 
