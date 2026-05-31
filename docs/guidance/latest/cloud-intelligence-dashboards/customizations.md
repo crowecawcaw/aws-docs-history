@@ -2,7 +2,7 @@
 
 ## Last Updated
 
-March 2026
+May 2026
 
 If you wish to provide feedback on this lab, or you have spotted an
 error, or have any improvement suggestion, please email:
@@ -20,6 +20,7 @@ us at the e-mail address above.
 ## Customization Guides
 
 - [Create Analysis (Required)](create-analysis.md "create-analysis.md")
+- [Building a Consolidated Dashboard](building-a-consolidated-dashboard.md "building-a-consolidated-dashboard.md")
 - [Adding Cost Allocation Tags](adding-cost-allocation-tags.md "adding-cost-allocation-tags.md")
 - [Filtering Visuals by Cost Allocation Tags](filtering-visuals-by-cost-allocation.md "filtering-visuals-by-cost-allocation.md")
 - [Net Amortized cost](net-amortized-cost.md "net-amortized-cost.md")

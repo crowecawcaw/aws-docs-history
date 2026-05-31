@@ -121,6 +121,7 @@ The Cloud Intelligence Dashboards are managed by:
 - Vineeth Nair, Senior Technical Account Manager, AWS
 - Devashish Meher, Technical Account Manager, AWS
 - Zarif Samar, Delivery Consultant, AWS
+- Jack Jones, Senior Technical Account Manager, AWS
 
 ## Legal Notice
 

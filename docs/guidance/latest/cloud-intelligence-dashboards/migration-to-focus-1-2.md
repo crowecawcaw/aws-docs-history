@@ -58,13 +58,6 @@ To bring in the new FOCUS 1.2 columns and update the FOCUS Dashboard to version 
 pip3 install --upgrade cid-cmd
 ```
 
-If using [CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell"), use the following instead:
-
-```
-sudo yum install python3.11-pip -y
-python3.11 -m pip install -U cid-cmd
-```
-
 4. Run the following command to update the dashboard and all dependent views:
 
 ```

@@ -587,6 +587,59 @@ Research industry-specific security compliance requirements and best practices t
 
 **Customer Value:** Provides regulatory context for security findings, identifies compliance gaps, and recommends cost-effective paths to meet industry requirements while optimizing cloud spending.
 
+## Advanced Scenarios: Add CFM Tips as Knowledge Base
+
+Enhance your CID Operations Advisor with Cloud Financial Management (CFM) best practices by adding the [CFM Technical Implementation Playbooks (CFM TIPs)](https://catalog.workshops.aws/awscff/en-US "https://catalog.workshops.aws/awscff/en-US") as a knowledge base. This enables your chat agent and flows to provide more effective guidance grounded in proven CFM frameworks and actionable examples.
+
+For full details on Web Crawler integration, see [Web Crawler integration in Amazon Quick Suite](../../../quicksuite/latest/userguide/web-crawler-integration.md "../../../quicksuite/latest/userguide/web-crawler-integration.md").
+
+### Step 1: Create a Web Crawler Knowledge Base
+
+1. **Navigate to Quick Suite Knowledge Bases**
+   - Open Amazon Quick Suite console
+   - Select "Knowledge bases" from navigation menu
+   - Click "Create knowledge base"
+
+2. **Select Web Crawler as Source**
+   - Choose "Web Crawler" as the integration type
+   - Click "Create"
+
+3. **Configure the Web Crawler**
+   - Knowledge base name: "CFM Technical Implementation Playbooks"
+   - Description: "Cloud Financial Management TIPs from the AWS Cloud Financial Framework workshop"
+   - Source URL: `https://catalog.workshops.aws/awscff/en-US`
+   - Authentication: No authentication (public website)
+   - Review crawl scope and content filter settings as needed
+
+4. **Start Data Sync**
+   - After clicking create, the initial data sync starts automatically
+   - Wait for the sync to complete before proceeding
+
+### Step 2: Add Knowledge Base to Your CID Space
+
+1. **Open Your CID Space**
+   - In Quick Suite console, select "Spaces"
+   - Open your existing "CID Dashboards Space"
+
+2. **Link the CFM Knowledge Base**
+   - Click on "Knowledge bases"
+   - Click "Add knowledge base"
+   - Select "CFM Technical Implementation Playbooks"
+   - Click "Add"
+
+3. **Verify Integration**
+   - Confirm the knowledge base appears in your Space’s linked sources
+   - The CID Operations Advisor chat agent and flows linked to this Space will now have access to CFM TIPs content
+
+### Step 3: Test the Enhanced Agent
+
+Test your CID Operations Advisor with CFM-specific prompts to verify the knowledge base integration:
+
+- Based on my CUDOS data, which CFM playbook should I follow to reduce EC2 costs?
+- What does the CFM framework recommend for organizations at our stage of cloud financial maturity?
+
+The agent will now combine your CID dashboard data with CFM TIPs guidance to provide recommendations grounded in both your actual cloud usage and proven CFM frameworks.
+
 ## Tips for Effective Implementation
 
 ### Chat Agent Best Practices

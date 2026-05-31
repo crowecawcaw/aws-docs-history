@@ -25,15 +25,6 @@ please use the following steps.
 pip3 install --upgrade cid-cmd
 ```
 
-- If using [CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell"), use the following instead:
-
--
-
-```
-sudo yum install python3.11-pip -y
-python3.11 -m pip install -U cid-cmd
-```
-
 1. Start update. Run the following command and choose the dashboard to
    update :
 
