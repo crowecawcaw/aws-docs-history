@@ -608,7 +608,7 @@ You can create private offers for ESC customers using the same private offer wor
 ### Creating ESC Private Offers
 
 1. Select **AWS Marketplace - European Sovereign Cloud (aws-eusc)** from the catalog dropdown.
-2. Navigate to **Offers** and choose **Create private offer**.
+2. Navigate to **Private offers** and choose **Create private offer**.
 3. Select your ESC product and complete the private offer details.
 4. **Currency:** Private offers for ESC products can use **EUR** or **USD** currency, but will default to **EUR**. Public offers must use **EUR** currency.
 5. Extend the offer to your ESC customer's AWS Account ID (must be in ESC partition).

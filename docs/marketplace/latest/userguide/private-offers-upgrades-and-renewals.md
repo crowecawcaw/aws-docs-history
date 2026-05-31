@@ -72,7 +72,7 @@ creating amendments.
 ###### Tip
 
 Entering descriptive custom offer names can help you distinguish between your active
-offers on the **Offers** page. Custom offer names are also visible to
+offers on the **Private offers** page. Custom offer names are also visible to
 buyers.
 
 AWS recommends using a custom offer name that includes any additional
@@ -86,7 +86,7 @@ characters for this field.
 
 An amended offer will appear on the **Private Offer** page within
 approximately 45 minutes. To view the offer, sign in to the AWS Marketplace Management Portal and choose
-**Offers**. On the **Private Offer** page, the buyer has
+**Private offers**. On the **Private Offer** page, the buyer has
 the option to accept the offer or to continue the original agreement.
 
 If the buyer accepts the public or private offer upgrade or renewal, the new agreement takes

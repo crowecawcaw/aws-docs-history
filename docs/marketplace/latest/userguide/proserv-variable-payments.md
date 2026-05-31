@@ -11,8 +11,7 @@ contract.
 ###### To create a private offer with variable payment
 
 1. Open a web browser and sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
-2. Open the **Offers** list and choose **Private
-   offers**.
+2. Choose **Private offers**.
 3. The first step is to **Provide offer information**. You must enter an
    offer name. Providing an offer description is optional. Indicate whether this private
    offer is a renewal or not.

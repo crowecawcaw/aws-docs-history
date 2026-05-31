@@ -29,17 +29,12 @@ Sellers can create SaaS free trial offers in the AWS Marketplace Management Port
 ###### To create a SaaS free trial offer
 
 1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management").
-2. On the AWS Marketplace Management Portal, choose either:
-   - **Create or manage offers**
-   - The **Offers** tab
-
-3. On the **Offers** page, choose the **Public free
-   trials** tab to review all SaaS free trials.
-4. Choose **Create free trial offer**. Sellers can create one SaaS free
+2. Choose **Public free trials**.
+3. Choose **Create free trial offer**. Sellers can create one SaaS free
    trial offer per each public SaaS product.
-5. For **Offer fundamentals**, select your **Product**
+4. For **Offer fundamentals**, select your **Product**
    and then choose **Next**.
-6. In **Free trial settings**:
+5. In **Free trial settings**:
    1. Enter the number of days for your **Free trial length
       (days)**.
 
@@ -51,11 +46,11 @@ Sellers can create SaaS free trial offers in the AWS Marketplace Management Port
    You can set the quantity limits per each dimension for SaaS contract free trials,
    and **Remove** or **Add dimensions**.
 
-7. View the **Service agreement**.
+6. View the **Service agreement**.
 
 For the EULA version, you can select either **Standard contract for
 AWS Marketplace** or **Custom EULA**, and then choose **Review
-offer**. 8. Verify and review all information for the offer, and then choose **Create
+offer**. 7. Verify and review all information for the offer, and then choose **Create
 offer**.
 
 ## Cancelling a SaaS free trial offer
@@ -65,11 +60,8 @@ Sellers can cancel free trial offers at any time from the AWS Marketplace Manage
 To cancel a SaaS free trial offer
 
 1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management").
-2. On the AWS Marketplace Management Portal, choose either:
-   - **Create or manage offers**
-   - The **Offers** tab
-
-3. On the **Offers** page, select the offer.
+2. Choose **Public free trials**.
+3. Select the offer.
 4. Choose **View offer**.
 5. Choose **Cancel offer**.
 

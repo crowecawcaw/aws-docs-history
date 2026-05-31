@@ -5,7 +5,7 @@ This FAQ answers commonly asked questions about creating, managing, and troubles
 ###### Topics
 
 - [What is the Private Offer Success Team (POST), and how can sellers contact them?](#what-is-post "#what-is-post")
-- [How can a seller resolve errors when accessing the Offers tab?](#resolve-offers-tab-errors "#resolve-offers-tab-errors")
+- [How can a seller resolve errors when accessing the Private offers tab?](#resolve-offers-tab-errors "#resolve-offers-tab-errors")
 - [What is an installment plan or flexible payment schedule?](#faq-installment-plans "#faq-installment-plans")
 - [How can I help a buyer who receives a 404 Error when accessing a private offer?](#troubleshoot-404-errors "#troubleshoot-404-errors")
 - [Why do customers see a "You already have an active contract" error when trying to accept a private offer?](#active-contract-error "#active-contract-error")
@@ -23,9 +23,9 @@ This FAQ answers commonly asked questions about creating, managing, and troubles
 The POST enables external audiences on the AWS Marketplace Private Offer experience.
 Sellers can us the [Support Form](https://aws.amazon.com/marketplace/management/contact-us/ "https://aws.amazon.com/marketplace/management/contact-us/") in the AWS Marketplace Management Portal. For help with the support form, download and refer to the [Private offers support form guide](https://d1.awsstatic.com/awsmp/solutions/mk-sol-files/private-offers/Private%20Offer%20Support%20Form%20Guide.pdf "https://d1.awsstatic.com/awsmp/solutions/mk-sol-files/private-offers/Private%20Offer%20Support%20Form%20Guide.pdf") PDF.
 
-## How can a seller resolve errors when accessing the Offers tab?
+## How can a seller resolve errors when accessing the Private offers tab?
 
-If you encounter an error when choosing the **Offers** tab in the AWS Marketplace Management Portal, ensure that you meet the following prerequisites:
+If you encounter an error when choosing the **Private offers** tab in the AWS Marketplace Management Portal, ensure that you meet the following prerequisites:
 
 ### Prerequisites for creating private offers to sell software or services directly
 
@@ -181,7 +181,7 @@ For more information, see [Creating agreement-based offers](private-offers-upgra
 
 Each buyer account can only have one active subscription. To update or expand:
 
-1. Issue a new offer from the **Offers** tab.
+1. Issue a new offer from the **Private offers** tab.
 2. When the buyer accepts, the new terms override previous contract terms.
 3. Pending charges from the previous offer's payment schedule will continue unless cancelled.
 
@@ -192,7 +192,7 @@ Use the [refund/cancellation form](https://aws.amazon.com/marketplace/management
 
 ## Can a seller or buyer cancel a private offer?
 
-- **If the buyer hasn't subscribed:** The seller can cancel by navigating to the **Offers**
+- **If the buyer hasn't subscribed:** The seller can cancel by navigating to the **Private offers**
   tab in the AWS Marketplace Management Portal, selecting the offer, and choosing **Cancel**.
 - **If the buyer has subscribed:** The seller of record must initiate a cancellation request by using the
   [refund/cancellation form](https://aws.amazon.com/marketplace/management/support/refund-request "https://aws.amazon.com/marketplace/management/support/refund-request") in the AWS Marketplace Management Portal.

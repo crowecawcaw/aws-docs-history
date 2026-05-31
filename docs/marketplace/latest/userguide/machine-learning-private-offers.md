@@ -11,7 +11,7 @@ You can negotiate and offer a private offer directly to customers for your machi
 ###### To create a private offer for a machine learning product:
 
 1. Sign in to the AWS Marketplace Management Portal.
-2. Choose **Offers**, and then choose **Create private
+2. Choose **Private offers**, and then choose **Create private
    offer**
 3. On the **Create private offer** page, select the product that
    you want to create a private offer for. You can only create offers for available

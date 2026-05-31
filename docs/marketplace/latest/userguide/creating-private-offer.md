@@ -31,7 +31,7 @@ The following steps explain how to use the Use the [AWS Marketplace Management P
 ###### To start a private offer
 
 1. Sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management").
-2. Open the **Offers** list and choose **Private offers**.
+2. Choose **Private offers**.
 3. On the **Private offers** page, choose **Create private
    offer**.
 4. On the **Create private offer** page, choose the offer type, product type, and the product
@@ -254,7 +254,7 @@ fulfillment page for the offer.
 
 ###### To send a private offer to your buyer
 
-1. Sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and choose **Offers**.
+1. Sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and choose **Private offers**.
 2. Select the **radio button** next to the offer.
 3. Choose **Actions** and then **Copy Offer
    URL**.
@@ -266,8 +266,8 @@ You can clone a private offer, including AWS Marketplace Channel Partner private
 
 ###### To clone a private offer
 
-1. Sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and choose **Offers**.
-2. In the **Offers** table, select the option next to the offer you want to clone.
+1. Sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and choose **Private offers**.
+2. In the **Private offers** table, select the option next to the offer you want to clone.
 3. Choose **Clone offer**.
 4. A new offer-creation experience will open with pre-populated information from the selected offer. Review and modify the offer details as needed.
 5. (Optional) If you're cloning to replace an existing offer, select **Cancel the existing offer**. When selected, the original offer will automatically expire and not be accessible to the buyer when this new offer is published. This only affects the offer's accessibility and does not impact any existing subscriptions if the buyer has already accepted the original offer.
@@ -279,8 +279,8 @@ Use the following procedure to download offer details in a .pdf file.
 
 ###### To download offer details
 
-1. Sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and choose **Offers**.
-2. In the **Offers** table, select the option next to the offer and choose **View details**. Alternatively, you can choose the link for the offer in the **Offer ID** column.
+1. Sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and choose **Private offers**.
+2. In the **Private offers** table, select the option next to the offer and choose **View details**. Alternatively, you can choose the link for the offer in the **Offer ID** column.
 3. On the offer detail page, choose **Download PDF**.
 
 ## Saving your private offer progress
@@ -299,7 +299,7 @@ After you save and exit, the request is under review while it's processing. It c
 take a few minutes or hours to finish processing. You can't continue the steps or modify
 the request until it has succeeded. After the request has succeeded, you have
 completed the save. If the request fails, there was either a system error or an error
-you must correct before resubmitting. 2. To resume working on your offer, open the **Offers** page, choose
+you must correct before resubmitting. 2. To resume working on your offer, open the **Private offers** page, choose
 your offer, and then choose **Resume offer creation**. 3. When you're finished, you can choose either **Save and exit** to save
 your progress or **Create offer** to publish and extend the private offer
 to your selected buyers.
@@ -310,8 +310,8 @@ Use the following process to update the expiration date of a private offer.
 
 ###### To update the expiration date of a private offer
 
-1. Sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and choose **Offers**.
-2. On the **Offers** page, choose the **offer** you
+1. Sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and choose **Private offers**.
+2. On the **Private offers** page, choose the **offer** you
    want to update.
 3. Choose **Edit**.
 4. Provide a new **offer expiration date**.
@@ -324,8 +324,8 @@ status and your buyer can accept the offer.
 
 Use the following process to cancel the private offer.
 
-1. Sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and choose **Offers**.
-2. On the **Offers** page, choose the **offer** you
+1. Sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and choose **Private offers**.
+2. On the **Private offers** page, choose the **offer** you
    want to update.
 
 ###### Note

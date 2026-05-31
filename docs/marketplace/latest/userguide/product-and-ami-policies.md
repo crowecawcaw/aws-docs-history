@@ -34,6 +34,7 @@ All AMIs must comply with the following policies:
 
 - AMIs must pass all security checks performed by the [AWS Marketplace AMI scanning tool](https://aws.amazon.com/marketplace/management/products/server "https://aws.amazon.com/marketplace/management/products/server"), showing no known vulnerabilities or malware.
 - AMIs must use currently supported operating systems and software. Operating systems and software that reached their end of life are not allowed.
+- AMIs must not be older than two years from their creation date. AMIs that exceed this age are not allowed.
 - Password-based authentication for instance services is prohibited. This applies
   even if the password is generated, reset, or defined by the user at launch. Null and
   blank passwords are not allowed.

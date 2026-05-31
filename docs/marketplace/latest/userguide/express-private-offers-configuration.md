@@ -70,7 +70,7 @@ For express private offer configuration permissions, you can use the [AWSMarketp
 
 ## Access express private offers
 
-You can access express private offers from the **Offers** or **Products** tab on the AWS Marketplace Management Portal.
+You can access express private offers from the **Private offers** or **Products** tab on the AWS Marketplace Management Portal.
 
 ## Rate card types and implementation
 

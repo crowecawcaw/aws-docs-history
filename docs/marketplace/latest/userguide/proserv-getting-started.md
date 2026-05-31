@@ -107,7 +107,7 @@ the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/manag
    is not obligated to purchase your product, so it makes sense to agree before
    creating the offer.
 2. Open a web browser and sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
-3. Select **Offers** from the menu, and then select
+3. Select **Private offers** from the menu, and then select
    **Create private offer**.
 4. On the **Create private offer** page, select the product that
    you want to create a private offer for. Only currently available products are

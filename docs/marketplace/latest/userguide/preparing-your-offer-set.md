@@ -16,7 +16,7 @@ An offer set is a container that groups multiple private offers together. Key fe
 ## Getting Started
 
 1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/partners/management-tour "https://aws.amazon.com/marketplace/partners/management-tour").
-2. Go to **Offers** → **Private Offer Sets**.
+2. Go to **Private offers** → **Private Offer Sets**.
 3. Choose **Create offer set**.
 
 ###### Note
