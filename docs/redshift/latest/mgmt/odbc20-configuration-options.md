@@ -22,6 +22,83 @@ options set in `amazon.redshiftodbc.ini`.
 Following are descriptions for the options that you can specify for the Amazon Redshift ODBC
 version 2.x driver:
 
+###### Topics
+
+- [AccessKeyID](#odbc20-accesskeyid-option "#odbc20-accesskeyid-option")
+- [app_id](#odbc20-app-id-option "#odbc20-app-id-option")
+- [ApplicationName](#odbc20-application_name-option "#odbc20-application_name-option")
+- [app_name](#odbc20-app-name-option "#odbc20-app-name-option")
+- [AuthProfile](#odbc20-authprofile-option "#odbc20-authprofile-option")
+- [AuthType](#odbc20-authtype-option "#odbc20-authtype-option")
+- [AutoCreate](#odbc20-autocreate-option "#odbc20-autocreate-option")
+- [CaFile](#odbc20-cafile-option "#odbc20-cafile-option")
+- [client_id](#odbc20-client-id-option "#odbc20-client-id-option")
+- [client\_ secret](#odbc20-client-secret-option "#odbc20-client-secret-option")
+- [ClusterId](#odbc20-clusterid-option "#odbc20-clusterid-option")
+- [compression](#odbc20-compression-option "#odbc20-compression-option")
+- [Database](#odbc20-database-option "#odbc20-database-option")
+- [DatabaseMetadataCurrentDbOnly](#odbc20-database-metadata-option "#odbc20-database-metadata-option")
+- [dbgroups_filter](#odbc20-dbgroups-filter-option "#odbc20-dbgroups-filter-option")
+- [Driver](#odbc20-driver-option "#odbc20-driver-option")
+- [DSN](#odbc20-dsn-option "#odbc20-dsn-option")
+- [EndpointUrl](#odbc20-endpointurl-option "#odbc20-endpointurl-option")
+- [ForceLowercase](#odbc20-forcelowercase-option "#odbc20-forcelowercase-option")
+- [group_federation](#odbc20-group-federation-option "#odbc20-group-federation-option")
+- [https_proxy_host](#odbc20-https-proxy-host-option "#odbc20-https-proxy-host-option")
+- [https_proxy_password](#odbc20-https-proxy-password-option "#odbc20-https-proxy-password-option")
+- [https_proxy_port](#odbc20-https-proxy-port-option "#odbc20-https-proxy-port-option")
+- [https_proxy_username](#odbc20-https-proxy-username-option "#odbc20-https-proxy-username-option")
+- [IAM](#odbc20-iam-option "#odbc20-iam-option")
+- [idc_client_display_name](#odbc20-idc_client_display_name-option "#odbc20-idc_client_display_name-option")
+- [idc_region](#odbc20-idc_region "#odbc20-idc_region")
+- [idp_host](#odbc20-idp-host-option "#odbc20-idp-host-option")
+- [idp_port](#odbc20-idp-port-option "#odbc20-idp-port-option")
+- [idp_response_timeout](#odbc20-idp-response-timeout-option "#odbc20-idp-response-timeout-option")
+- [idp_tenant](#odbc20-idp-tenant-option "#odbc20-idp-tenant-option")
+- [idp_partition](#odbc20-idp-partition-option "#odbc20-idp-partition-option")
+- [idp_use_https_proxy](#odbc20-idp-use-https-proxy-option "#odbc20-idp-use-https-proxy-option")
+- [InstanceProfile](#odbc20-instanceprofile-option "#odbc20-instanceprofile-option")
+- [issuer_url](#odbc20-issuer_url "#odbc20-issuer_url")
+- [KeepAlive](#odbc20-keepalive-option "#odbc20-keepalive-option")
+- [KeepAliveCount](#odbc20-keepalivecount-option "#odbc20-keepalivecount-option")
+- [KeepAliveInterval](#odbc20-keepaliveinterval-option "#odbc20-keepaliveinterval-option")
+- [KeepAliveIdle](#odbc20-keepaliveidle-option "#odbc20-keepaliveidle-option")
+- [listen_port](#odbc20-listen-port-option "#odbc20-listen-port-option")
+- [login_url](#odbc20-login-url-option "#odbc20-login-url-option")
+- [loginToRp](#odbc20-logintorp-option "#odbc20-logintorp-option")
+- [LogLevel](#odbc20-loglevel-option "#odbc20-loglevel-option")
+- [LogPath](#odbc20-logpath-option "#odbc20-logpath-option")
+- [LoginTimeout](#odbc20-logintimeout-option "#odbc20-logintimeout-option")
+- [MaxLongVarcharSize](#odbc20-maxlongvarcharsize-option "#odbc20-maxlongvarcharsize-option")
+- [MaxVarcharSize](#odbc20-maxvarcharsize-option "#odbc20-maxvarcharsize-option")
+- [Min_TLS](#odbc20-min-tls-option "#odbc20-min-tls-option")
+- [partner_spid](#odbc20-partner-spid-option "#odbc20-partner-spid-option")
+- [Password | PWD](#odbc20-password-option "#odbc20-password-option")
+- [plugin_name](#odbc20-plugin-name-option "#odbc20-plugin-name-option")
+- [Port | PortNumber](#odbc20-port-option "#odbc20-port-option")
+- [preferred_role](#odbc20-preferred-role-option "#odbc20-preferred-role-option")
+- [Profile](#odbc20-profile-option "#odbc20-profile-option")
+- [provider_name](#odbc20-provider-name-option "#odbc20-provider-name-option")
+- [ProxyHost](#odbc20-proxyhost-option "#odbc20-proxyhost-option")
+- [ProxyPort](#odbc20-proxyport-option "#odbc20-proxyport-option")
+- [ProxyPwd](#odbc20-proxypwd-option "#odbc20-proxypwd-option")
+- [ProxyUid](#odbc20-proxyuid-option "#odbc20-proxyuid-option")
+- [ReadOnly](#odbc20-readonly-option "#odbc20-readonly-option")
+- [region](#odbc20-region-option "#odbc20-region-option")
+- [SecretAccessKey](#odbc20-secretaccesskey-option "#odbc20-secretaccesskey-option")
+- [SessionToken](#odbc20-sessiontoken-option "#odbc20-sessiontoken-option")
+- [Server | HostName | Host](#odbc20-server-option "#odbc20-server-option")
+- [ssl_insecure](#odbc20-ssl-insecure-option "#odbc20-ssl-insecure-option")
+- [SSLMode](#odbc20-sslmode-option "#odbc20-sslmode-option")
+- [StreamingCursorRows](#odbc20-streamingcursorrows-option "#odbc20-streamingcursorrows-option")
+- [StsConnectionTimeout](#odbc20-stsconnectiontimeout-option "#odbc20-stsconnectiontimeout-option")
+- [StsEndpointUrl](#odbc20-stsendpointurl-option "#odbc20-stsendpointurl-option")
+- [token](#jdbc20-token-option "#jdbc20-token-option")
+- [token_type](#jdbc20-token-type-option "#jdbc20-token-type-option")
+- [UID | User | LogonID](#odbc20-uid-option "#odbc20-uid-option")
+- [UseUnicode](#odbc20-useunicode-option "#odbc20-useunicode-option")
+- [web_identity_token](#odbc20-web-identity-token-option "#odbc20-web-identity-token-option")
+
 ## AccessKeyID
 
 - Default Value – None
@@ -484,7 +561,7 @@ parameter is set to 0, the driver uses the system default for this setting.
 
 This parameter is optional.
 
-## KeepAliveTime
+## KeepAliveIdle
 
 - Default Value – 0
 - Data Type – Integer
@@ -533,6 +610,26 @@ This string is optional.
 - Default Value – 0
 - Data Type – Integer
 
+###### Note
+
+`LogLevel` and `LogPath` are global settings.
+The driver reads them in the following order of precedence:
+
+1. **Connection string**
+   (`LogLevel=6;LogPath=/path;`) — highest priority,
+   overrides all other settings at connect time.
+2. **On Windows:** The DSN Setup
+   dialog (Advanced tab).
+
+**On Linux and macOS:**
+`[ODBC]` section in your
+`odbc.ini` file. 3. **`[DRIVER]` section**
+in the `amazon.redshiftodbc.ini` file — used as a
+fallback if logging is not enabled from the above source.
+Setting `LogLevel` or `LogPath` in an individual
+DSN section (for example, `[MyDSN]`) has no effect. These
+options are not read from per-DSN sections.
+
 Use this property to enable or disable logging in the driver and to specify the
 amount of detail included in log. files. We recommend you only enable logging long
 enough to capture an issue, as logging decreases performance and can consume a large
@@ -541,15 +638,25 @@ quantity of disk space.
 Set the property to one of the following values:
 
 - 0: OFF. Disable all logging.
-- 1: ERROR. Logs error events that might allow the driver to continue
-  running but produce an error.
-- 2: API_CALL. Logs ODBC API function calls with function argument values.
-- 3: INFO. Logs general information that describes the progress of the
-  driver.
-- 4: MSG_PROTOCOL. Logs detailed information of the driver's message
-  procotol.
-- 5: DEBUG. Logs all driver activity
-- 6: DEBUG_APPEND. Keep appending logs for all driver activities.
+- 1: FATAL. Reserved for fatal errors.
+- 2: ERROR. Logs error events such as connection failures and
+  authentication errors.
+- 3: WARN. Logs warnings and unexpected conditions in addition to
+  errors.
+- 4: INFO. Logs general progress information such as connection
+  status and server parameters.
+- 5: DEBUG. Logs all driver activity including ODBC API function
+  calls with arguments and return values.
+- 6: TRACE. Logs all driver activity including additional low-level
+  protocol and internal state details.
+
+###### Important
+
+Log level 5 (DEBUG) or higher captures all driver activity, which may
+include sensitive information such as connection credentials and query data.
+Only enable these log levels temporarily to capture an issue, and ensure all
+sensitive information is redacted before sharing logs with support or any
+third party.
 
 When logging is enabled, the driver produces the following log files at the
 location you specify in the **LogPath** property:
@@ -567,8 +674,45 @@ This parameter is optional.
   directory
 - Data Type – String
 
+###### Note
+
+`LogLevel` and `LogPath` are global settings.
+The driver reads them in the following order of precedence:
+
+1. **Connection string**
+   (`LogLevel=6;LogPath=/path;`) — highest priority,
+   overrides all other settings at connect time.
+2. **On Windows:** The DSN Setup
+   dialog (Advanced tab).
+
+**On Linux and macOS:**
+`[ODBC]` section in your
+`odbc.ini` file. 3. **`[DRIVER]` section**
+in the `amazon.redshiftodbc.ini` file — used as a
+fallback if logging is not enabled from the above source.
+Setting `LogLevel` or `LogPath` in an individual
+DSN section (for example, `[MyDSN]`) has no effect. These
+options are not read from per-DSN sections.
+
 The full path to the folder where the driver saves log files when
 **LogLevel** is higher than 0.
+
+This parameter is optional.
+
+## LoginTimeout
+
+- Default Value – 0
+- Data Type – Integer
+
+The number of seconds the driver waits for a connection to the server to be
+established before timing out. A value of 0 means no timeout (the driver waits
+indefinitely).
+
+You can set this option in the connection string (using
+`LoginTimeout` or the short alias `LT`), in the DSN
+configuration, or programmatically using `SQLSetConnectAttr` with
+`SQL_ATTR_LOGIN_TIMEOUT`. On Windows, this option is also
+available in the DSN Setup dialog (Advanced tab).
 
 This parameter is optional.
 
@@ -647,7 +791,7 @@ connection using the PingFederate service.
 
 This parameter is optional.
 
-## Password | PWS
+## Password | PWD
 
 - Default Value – None
 - Data Type – String
@@ -756,7 +900,7 @@ This parameter is optional.
 
 ## ProxyPwd
 
-- Default ValPrevious ODBC driver versionsue – None
+- Default Value – None
 - Data Type – String
 
 The password that you use to access the proxy server.
@@ -858,6 +1002,36 @@ following values are possible:
 - `allow`: By default, connect without using SSL. If the server
   requires SSL connections, then use SSL.
 - `disable`: Connect without using SSL.
+
+This parameter is optional.
+
+## StreamingCursorRows
+
+- Default Value – 0
+- Data Type – Integer
+
+The number of rows the driver fetches per batch when using streaming cursor
+mode. When set to a positive integer and the cursor type is forward-only, the
+driver reads rows from the server in batches of the specified size instead of
+loading the entire result set into memory.
+
+Set the property to one of the following values:
+
+- 0: Disabled. The driver loads the entire result set into memory
+  (default).
+- Positive integer: The number of rows per streaming batch.
+
+Streaming cursor mode requires a forward-only cursor. If the Client Side
+Cursor (CSC) option is enabled, it takes priority and streaming cursor mode
+is disabled.
+
+###### Note
+
+This option replaces the `UseDeclareFetch` and
+`Fetch` (Cache Size) options from ODBC driver version 1.x.
+Unlike the previous server-side cursor approach, streaming cursor mode
+does not require transaction wrapping or multiple server
+round-trips.
 
 This parameter is optional.
 

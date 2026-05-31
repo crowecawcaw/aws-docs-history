@@ -16,12 +16,41 @@ The following describes upcoming behavior changes.
 
 ###### Topics
 
+- [Amazon Redshift Serverless preserves zero-ETL and S3 event integrations on snapshot restore starting with Patch 202](#serverless-restore-integrations-patch202 "#serverless-restore-integrations-patch202")
 - [End of support for the Amazon Redshift ODBC 1.x driver on June 30, 2026](#odbc1x-deprecation-jun2026 "#odbc1x-deprecation-jun2026")
 - [Scalar Python UDFs will reach end of support after June 30, 2026](#python-udf-jun2026 "#python-udf-jun2026")
 - [Materialized View (MV) Auto-REFRESH Behavior Change after February 27, 2026](#autorefresh-feb272026 "#autorefresh-feb272026")
 - [Amazon Redshift won’t support functions that access consumer information through datasharing after February 16, 2026](#datasharing-feb2026 "#datasharing-feb2026")
 - [Minimum Transport Layer Security (TLS) version changes effective starting January 31, 2026](#tls-changes-jan2026 "#tls-changes-jan2026")
 - [Amazon Redshift won’t support the creation of new scalar Python UDFs after October 30, 2025](#python-udf-oct2025 "#python-udf-oct2025")
+
+### Amazon Redshift Serverless preserves zero-ETL and S3 event integrations on snapshot restore starting with Patch 202
+
+Starting with Amazon Redshift Patch 202, when you restore an Amazon Redshift Serverless namespace from a
+snapshot or recovery point to the same serverless namespace, zero-ETL and S3 event
+integrations associated with the namespace and snapshot/recovery point are maintained
+automatically. No additional action is required.
+
+You may be impacted by this if you restore a snapshot or recovery point to Amazon Redshift Serverless
+namespaces that have zero-ETL or S3 event integrations configured.
+
+Previously, restoring a snapshot or recovery point to a serverless namespace marked
+associated zero-ETL and S3 event integrations as failed, requiring you to manually recreate
+them after the restore completed. Starting with Patch 202, these integrations are maintained
+by default and resume operating after the restore completes.
+
+This feature applies to Amazon Redshift Serverless only when restored to the same serverless namespace.
+Restoring a snapshot to a different namespace does not maintain integrations. Snapshot
+restores on provisioned clusters do not maintain zero-ETL or S3 event integrations.
+
+To opt out of maintaining integrations during a restore, uncheck the
+**Maintain Integrations** box on the restore page in the AWS Management Console. If
+you are using the AWS CLI, set the `--no-maintain-integration` parameter when
+calling the [restore-from-snapshot](../../../redshift-serverless/latest/APIReference/API_RestoreFromSnapshot.md "../../../redshift-serverless/latest/APIReference/API_RestoreFromSnapshot.md") or [restore-from-recovery-point](../../../redshift-serverless/latest/APIReference/API_RestoreFromRecoveryPoint.md "../../../redshift-serverless/latest/APIReference/API_RestoreFromRecoveryPoint.md") API operation. When you opt out, integrations enter
+the `FAILED` state after the restore. You can then delete the failed integrations
+and recreate them.
+
+For more information about patch versions, see [Cluster versions for Amazon Redshift](cluster-versions.md "cluster-versions.md").
 
 ### End of support for the Amazon Redshift ODBC 1.x driver on June 30, 2026
 

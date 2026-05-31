@@ -10,6 +10,8 @@ minimum requirements:
 
 - Root access on the machine.
 - One of the following distributions:
+  - Amazon Linux 2
+  - Amazon Linux 2023
   - Red Hat® Enterprise Linux® (RHEL) 8 or later
   - CentOS 8 or later.
 

@@ -25,6 +25,7 @@ and avoid potential disruptions to your workloads, see
 
 ###### Topics
 
+- [Amazon Redshift patch 202](#cluster-version-202 "#cluster-version-202")
 - [Amazon Redshift patch 201](#cluster-version-201 "#cluster-version-201")
 - [Amazon Redshift patch 200](#cluster-version-200 "#cluster-version-200")
 - [Amazon Redshift patch 199](#cluster-version-199 "#cluster-version-199")
@@ -60,10 +61,54 @@ and avoid potential disruptions to your workloads, see
 - [Amazon Redshift patch 169](#cluster-version-169 "#cluster-version-169")
 - [Amazon Redshift patch 168](#cluster-version-168 "#cluster-version-168")
 
+## Amazon Redshift patch 202
+
+Cluster versions in this patch:
+
+- 1.0.314775 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
+  workgroup version – Released May 28, 2026
+
+### New features and improvements in this patch
+
+- Added support for superusers to drop IAM Identity Center identity providers that are in a disabled state of Lakehouse type
+- Added support for concurrency scaling for queries that reference temporary tables.
+- Surfaced internal maintenance queries labeled "JIT ANALYZE" in the STL_QUERY and STL_QUERYTEXT system tables. These queries are automatically executed by Amazon Redshift to collect external table statistics and keep query plans optimized. No customer action is required.
+- We have optimized Kinesis stream identity validation to reduce `DescribeStreamSummary` API calls. This will avoid hitting Kinesis API quotas for Redshift customers with many Kinesis stream MVs. See the Redshift Streaming documentation section for details.
+- Enhanced query execution performance by using Top K Aggregation for queries with GROUP BY, ORDER BY, and LIMIT clauses, reducing the amount of data processed during aggregations.
+- Enhanced performance for queries on partitioned AWS Glue Data Catalog tables by pushing compound filter predicates (OR, IN, NOT IN) to the Glue GetPartitions API, reducing the number of partitions retrieved.
+- Enhanced performance for queries using Lambda User-Defined Functions with Window functions.
+- Enhanced performance for particular queries using Lambda User-Defined functions in Join Filters of Hash Joins.
+- Enhanced stability for queries that use Lambda UDFs in Joins.
+- Allow using ARN as the name of AWS Lambda when creating Lambda User-Defined functions.
+- Improved query performance by optimizing memory usage for COALESCE and CASE WHEN expressions.
+- Applies advanced filtering to queries containing subplans that are evaluated once, with their results reused as constants throughout the remaining execution.
+- Improved performance of the first time run queries using ST_Transform
+- Improved Apache Iceberg compatibility by accepting positional delete files that contain duplicate row indices, which can be produced by AWS Glue compaction.
+- Improved Apache Iceberg compatibility by accepting s3a:// paths in delete file references.
+- Improved handling of the Spectrum partition level fetching errors when processing not properly configured tables
+- Improved stability of stored procedure that invokes nested SQL UDFs across databases via USE
+- Improved error messages for unsupported operations on stored procedures, such as adding or removing them from datashares.
+- Fixed a bug that prevented detection of customer's VPC information when EVR is in use. This information is only necessary for training local Redshift ML models, and has no impact on any other Redshift functionality. This did not prevent the use of existing trained Redshift ML models.
+- Fixed an issue where duplicate query IDs could appear in system tables after a cluster pause and resume when the internal query ID counter was near its maximum value.
+- Fixed an issue where queries on STL system tables could return incomplete results after a Multi-AZ failover due to an internal caching inconsistency
+- Fixed an issue where the "isAutoIncremented" field in extended row descriptions could return incorrect values for IDENTITY columns
+- Fixed an issue where the ARRAY_CONTAINS and ARRAY_POSITION functions did not return NULL as expected when given NULL inputs.
+- Fixed a rare issue where queries with multiple combined filter predicates during vectorized scans could fail unexpectedly.
+- Fixed a rare issue where concurrent COPY operations could cause cluster instability in the data loading process
+- Fixed an issue where automatic maintenance operations such as vacuum and analyze could cause cluster instability during process shutdown
+- Fixed an issue where queries could fail after workload management (WLM) short query acceleration was dynamically toggled off and back on
+- Fixed an issue where time-travel queries on zero-ETL tables with history mode.
+- Fixed an issue where zero-ETL integrations could become unresponsive during concurrent client shutdown
+- Fixed an issue where zero-ETL tables sharing a source shard could trigger unnecessary resynchronization
+- Fixed an issue where zero-ETL integration table state updates could fail when the internal reason field exceeded the allowed length
+- Fixed an issue where zero-ETL integrations encountered errors during column changes on an Aurora PostgreSQL partitioned table
+
 ## Amazon Redshift patch 201
 
 Cluster versions in this patch:
 
+- 1.0.313685 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
+  workgroup version – Released May 27, 2026
 - 1.0.300094 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
   workgroup version – Released May 12, 2026
 - 1.0.298697 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
@@ -112,6 +157,8 @@ Cluster versions in this patch:
 
 Cluster versions in this patch:
 
+- 1.0.314426 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
+  workgroup version – Released on May 27, 2026
 - 1.0.293472 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
   workgroup version – Released on May 7, 2026
 - 1.0.293472 – **CURRENT Tracks** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless

@@ -35,7 +35,7 @@ By default, a SQL query cell appears in the notebook. 3. In the SQL query cell, 
    ).
 
 From the menu icon (
-![Three dots arranged horizontally, representing an ellipsis or "more" menu icon.](images/qev2-more.png)
+![Three dots arranged horizontally, representing an ellipsis or "more" menu icon.](/images/redshift/latest/mgmt/images/qev2-more.png)
 ), you can also perform the following operations on a
 notebook:
 

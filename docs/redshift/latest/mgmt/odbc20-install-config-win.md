@@ -12,7 +12,7 @@ minimum requirements:
 - The machine meets the following system requirements:
   - One of the following operating systems:
     - Windows 10 or 8.1.
-    - Windows Server 2019, 2016, or 2012.
+    - Windows Server 2025, 2022, 2019, 2016, or 2012.
 
   - 100 MB of available disk space.
   - Visual C++ Redistributable for Visual Studio 2015 for 64-bit Windows

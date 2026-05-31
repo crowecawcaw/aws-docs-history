@@ -41,6 +41,7 @@ Amazon Redshift](configuring-connections.md "configuring-connections.md").
 ###### Topics
 
 - [Configuring connections in Amazon Redshift](configuring-connections.md "configuring-connections.md")
+- [Best practices for discovering metadata](best-practices-discovering-metadata.md "best-practices-discovering-metadata.md")
 - [Configuring security options for connections](connecting-ssl-support.md "connecting-ssl-support.md")
 - [Connecting from client tools and code](connecting-via-client-tools.md "connecting-via-client-tools.md")
 - [Using an authentication profile to connect to Amazon Redshift](connecting-with-authentication-profiles.md "connecting-with-authentication-profiles.md")
