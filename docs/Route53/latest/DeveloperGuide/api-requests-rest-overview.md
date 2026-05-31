@@ -1,7 +1,6 @@
 # REST Requests
 
-Amazon Route 53 REST requests are HTTPS requests, as defined by RFC 2616 (for more information, go to
-[https://www.ietf.org/rfc/rfc2616.txt](https://www.ietf.org/rfc/rfc2616.txt "https://www.ietf.org/rfc/rfc2616.txt")). This section describes the structure of an
+Amazon Route 53 REST requests are HTTPS requests, as defined by [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt "https://www.ietf.org/rfc/rfc2616.txt"). This section describes the structure of an
 Route 53 REST request.
 
 A typical REST action consists of sending a single HTTPS request to Route 53, and waiting for the response. Like any HTTP request,

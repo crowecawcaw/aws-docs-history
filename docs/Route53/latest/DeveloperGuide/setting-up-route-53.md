@@ -1,7 +1,5 @@
 # Set up Amazon Route 53
 
-The overview and procedures in this section help you get started with AWS.
-
 ###### Topics
 
 - [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")

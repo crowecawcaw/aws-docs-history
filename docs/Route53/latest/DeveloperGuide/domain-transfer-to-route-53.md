@@ -196,10 +196,13 @@ For more information, see [Transfer requirements for top-level domains](#domain-
 domain**
 
 If you use DNSSEC with a domain and you transfer the domain
-registration to Route 53, you must disable DNSSEC at the former registrar
-first. Then, after you transfer the domain registration, take steps to
-set up DNSSEC for the domain in Route 53. Route 53 supports DNSSEC for domain
-registration and for DNSSEC signing. For more information, see [Configuring DNSSEC signing in Amazon Route 53](dns-configuring-dnssec.md "dns-configuring-dnssec.md").
+registration to Route 53, you must remove the DS records for your domain
+at your current registrar before transferring. After removing the DS
+records, wait at least 24 hours for the change to propagate before
+proceeding with the transfer. Then, after you transfer the domain
+registration, you can set up DNSSEC for the domain in Route 53. Route 53
+supports DNSSEC for domain registration and for DNSSEC signing. For
+more information, see [Configuring DNSSEC signing in Amazon Route 53](dns-configuring-dnssec.md "dns-configuring-dnssec.md").
 
 ###### Important
 

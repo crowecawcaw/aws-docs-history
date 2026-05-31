@@ -9,15 +9,8 @@ Route 53 Global Resolver.
 
 ###### Topics
 
-- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Creating policies and roles](#gr-setting-up-permissions "#gr-setting-up-permissions")
 - [Network considerations](#gr-setting-up-network "#gr-setting-up-network")
-
-## Sign up for an AWS account
-
-To get started with AWS, you need an AWS account. For information about creating an AWS account, see
-[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
-in the _AWS Account Management Reference Guide_.
 
 ## Creating policies and roles
 

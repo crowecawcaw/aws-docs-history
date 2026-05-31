@@ -15,7 +15,7 @@ A short description that provides more information about the rule.
 
 The list of domains that the rule inspects for. You can create and
 manage your own domain list or you can subscribe to a domain list that
-AWS manages for you. For more information, see [Resolver DNS Firewall domain lists](resolver-dns-firewall-domain-lists.md "resolver-dns-firewall-domain-lists.md").
+AWS manages for you. For more information, see [DNS Firewall Foundational Rules](resolver-dns-firewall-domain-lists.md "resolver-dns-firewall-domain-lists.md").
 
 A rule can contain ether a domain list or a DNS Firewall Advanced protection, but
 not both.
@@ -101,7 +101,7 @@ command-and-control communications.
 In a DNS Firewall Advanced rule you can choose to either block, or alert on a
 query that matches the threat.
 
-For more information, see For more information, see [Resolver DNS Firewall Advanced](firewall-advanced.md "firewall-advanced.md").
+For more information, see For more information, see [DNS Firewall Advanced Rules](firewall-advanced.md "firewall-advanced.md").
 
 A rule can contain ether a DNS Firewall Advanced protection or a domain list, but
 not both.

@@ -70,7 +70,7 @@ Added Resolver DNS Firewall findings to the Security Hub CSPM. For more informat
 **November 15, 2024**
 Added Resolver DNS Firewall Advanced, a new set of features on Resolver DNS Firewall that allows you to identify and block DNS traffic associated with advanced DNS threats,
 such as DNS tunneling, Domain Generation Algorithm (DGA), and Dictionary DGA based threats.
-For more information, see [Resolver DNS Firewall Advanced](firewall-advanced.md "firewall-advanced.md").
+For more information, see [DNS Firewall Advanced Rules](firewall-advanced.md "firewall-advanced.md").
 
 **October 29, 2024**
 Added support for HTTPS, SSHFP, SVCB, and TLSA DNS record types.
