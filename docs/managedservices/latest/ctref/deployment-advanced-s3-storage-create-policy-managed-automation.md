@@ -21,7 +21,7 @@ Create an S3 bucket policy. The existing bucket policy (if any) is replaced with
 
 Screenshot of this change type in the AMS console:
 
-![](images/guiS3CreatePolicyCT.png)
+![Create policy section showing ID, execution mode as Manual, version 1.0, and S3 bucket policy description.](images/guiS3CreatePolicyCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

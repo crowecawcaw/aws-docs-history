@@ -21,7 +21,7 @@ Creation of GuardDuty Suppression Rules.
 
 The following shows this change type in the AMS console.
 
-![](images/guiGuardDutySuppRulesCreateMaCT.png)
+![GuardDuty Suppression Rules creation details showing ID, manual execution mode, and version 1.0.](images/guiGuardDutySuppRulesCreateMaCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

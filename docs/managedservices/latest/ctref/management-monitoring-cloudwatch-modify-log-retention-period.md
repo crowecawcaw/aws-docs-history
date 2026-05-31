@@ -21,7 +21,7 @@ Modify the retention period for Amazon CloudWatch log groups. This change perfor
 
 The following shows this change type in the AMS console.
 
-![](images/guiModifyLogRetentionPeriodCT.png)
+![Modify log retention period change type details showing ID, execution mode, version, and classification path.](images/guiModifyLogRetentionPeriodCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

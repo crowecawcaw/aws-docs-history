@@ -21,7 +21,7 @@ Accept a directory sharing request sent from the directory owner account. This i
 
 The following shows this change type in the AMS console.
 
-![Accept Directory Sharing Request form with description, ID, and version fields.](/images/managedservices/latest/ctref/images/guiDirservAcceptShareCT.png)
+![Accept Directory Sharing Request form with description, ID, and version fields.](images/guiDirservAcceptShareCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
