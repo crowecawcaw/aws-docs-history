@@ -26,9 +26,9 @@ _in_ the cloud:
 
 ###### Topics
 
-- [Data protection in Tag Editor](security_data-protection.md "security_data-protection.md")
+- [Data protection in Tag Editor](data-protection.md "data-protection.md")
 - [Identity and access management for Tag Editor](security-iam.md "security-iam.md")
-- [Logging and monitoring in Tag Editor](security_logging-monitoring.md "security_logging-monitoring.md")
-- [Compliance validation for Tag Editor](security_compliance.md "security_compliance.md")
-- [Resilience in Tag Editor](security_resilience.md "security_resilience.md")
-- [Infrastructure security in Tag Editor](security_infrastructure.md "security_infrastructure.md")
+- [Logging and monitoring in Tag Editor](logging-monitoring.md "logging-monitoring.md")
+- [Compliance validation for Tag Editor](compliance-validation.md "compliance-validation.md")
+- [Resilience in Tag Editor](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
+- [Infrastructure security in Tag Editor](infrastructure-security.md "infrastructure-security.md")

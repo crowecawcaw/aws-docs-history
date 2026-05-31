@@ -107,6 +107,11 @@ permissions:
   service-owned Amazon S3 bucket.
 - `s3:PutObject` – To place the compliance report in the specified
   Amazon S3 bucket.
+- `s3:PutObject` with `Null: {s3:x-amz-copy-source: true}` –
+  Required to allow multipart upload operations (`InitiateMultipartUpload`,
+  `CompleteMultipartUpload`) when the service delivers large compliance reports.
+  These operations do not include a copy-source header, so they require a separate
+  statement from the copy-based delivery.
 
 If the Amazon S3 bucket where the report is being delivered is encrypted via SSE-KMS, you must also
 have the `kms:GenerateDataKey` permission for that bucket.
