@@ -30,9 +30,15 @@ The notification type is determined by whether the quota supports automatic adju
 
 Even if your utilization reaches 100%, you'll receive an APPROACHING_THRESHOLD notification if the quota supports automatic adjustment. For more information about notification types, see [Integrating event-driven applications with Service Quotas using Amazon EventBridge](eventbridge-integration.md "eventbridge-integration.md").
 
+Q6: Why am I receiving alerts for quotas when my usage hasn't changed?
+
+More AWS services are making their quota utilization available through Service Quotas. When a service enables utilization, Service Quotas Automatic Management may begin alerting on quotas whose utilization was not previously available. This may trigger quota utilization alerts for resources that were already at or near their quota.
+
+This is expected behavior and indicates improved monitoring coverage, not a change in your usage.
+
 ## Auto-adjustment process
 
-Q6: What happens when the system automatically requests a quota increase on my behalf?
+Q7: What happens when the system automatically requests a quota increase on my behalf?
 
 When you enable **Notify and Auto-Adjust** mode, the system automatically submits a quota increase request when your usage breaches the configured threshold.
 
@@ -50,19 +56,19 @@ Manual fallback
 
 If the request can't be processed through auto-adjustment, the request result shows as `NOT_APPROVED` and you receive a Health notification. In these cases, submit a quota increase request manually through AWS Service Quotas.
 
-Q7: Are auto-adjust requests evaluated differently than manual Service Quotas requests?
+Q8: Are auto-adjust requests evaluated differently than manual Service Quotas requests?
 
 Yes, auto-adjust requests are processed differently than manual quota increase requests. Auto-adjust requests only work for quotas that support automated processing and are submitted without creating a support case. These requests use a streamlined approval process that may have different criteria than manual requests that go through AWS Support.
 
 If an auto-adjust request isn't approved, you can submit a manual quota increase request through the Service Quotas console or API, which may be approved even if the auto-adjust request wasn't.
 
-Q8: Why don't I see explicit rejection reasons for auto-adjust failures?
+Q9: Why don't I see explicit rejection reasons for auto-adjust failures?
 
 Auto-adjust requests use an automated approval process that doesn't provide detailed rejection reasons. When an auto-adjust request fails, you receive a notification that the request was `NOT_APPROVED`, but specific rejection details aren't available.
 
 For more information about why a quota increase wasn't approved, submit a manual quota increase request through the Service Quotas console, which provides more detailed feedback through the support case process.
 
-Q9: Which quotas support auto-adjust?
+Q10: Which quotas support auto-adjust?
 
 Not all service quotas support auto-adjustment. Only quotas that support automated processing can be auto-adjusted. Auto-adjustable status doesn't guarantee approval. If an auto-adjust request fails, submit a manual quota increase request through the Service Quotas console or API.
 
@@ -74,7 +80,7 @@ To view which quotas are supported in your account:
 
 ## Troubleshooting
 
-Q10: My auto-adjust request failed, but a manual request for the same quota was approved. Why?
+Q11: My auto-adjust request failed, but a manual request for the same quota was approved. Why?
 
 Auto-adjust requests and manual quota increase requests use different approval processes:
 
@@ -83,7 +89,7 @@ Auto-adjust requests and manual quota increase requests use different approval p
 
 If your auto-adjust requests consistently fail, consider submitting manual quota increase requests through the Service Quotas console for those specific quotas.
 
-Q11: How can I track auto-adjust request results?
+Q12: How can I track auto-adjust request results?
 
 You can monitor auto-adjust request results through several methods:
 
