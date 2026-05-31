@@ -1,26 +1,19 @@
 # Setting up
 
 Before you use Amazon File Cache for the first time, complete the tasks
-in the [Sign up for Amazon Web Services](#setting-up-aws "#setting-up-aws") section.
+in the [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws") section.
 To complete the [Getting started tutorial](getting-started.md "getting-started.md"), make
 sure the Amazon S3 bucket that you'll link to your cache has the permissions listed
 in [Adding permissions to use data repositories in Amazon S3](#fsx-adding-permissions-s3 "#fsx-adding-permissions-s3").
 
 ###### Topics
 
-- [Sign up for Amazon Web Services](#setting-up-aws "#setting-up-aws")
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Adding permissions to use data repositories in Amazon S3](#fsx-adding-permissions-s3 "#fsx-adding-permissions-s3")
 - [How Amazon File Cache checks for access to linked S3 buckets](#fsx-lustre-permissions-s3-bucket "#fsx-lustre-permissions-s3-bucket")
 - [Next step](#setting-up-next-step "#setting-up-next-step")
 
-## Sign up for Amazon Web Services
-
-To set up for AWS, complete the following tasks:
-
-1. [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
-2.
-
-### Sign up for an AWS account
+## Sign up for an AWS account
 
 To get started with AWS, you need an AWS account. For information about creating an AWS account, see
 [Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
