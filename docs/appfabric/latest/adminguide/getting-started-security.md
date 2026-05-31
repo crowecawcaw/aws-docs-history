@@ -18,9 +18,8 @@ This section explains how to start using AppFabric in the AWS Management Console
 
 ## Prerequisites
 
-Before you get started, you must first create an AWS account and an administrative user.
-For more information, see [Sign up for an AWS account](prerequisites.md#sign-up-for-aws "prerequisites.md#sign-up-for-aws") and
-.
+Before you get started, you must first create an AWS account.
+For more information, see [Sign up for an AWS account](prerequisites.md#sign-up-for-aws "prerequisites.md#sign-up-for-aws").
 
 ## Step 1: Create app bundle
 
