@@ -56,11 +56,11 @@ operation of the Amazon Macie API.
      the filter, and enter the value for the filter. Then choose
      **Apply**. In the filter box, choose the equals
      icon (
-     ![The equals icon, which is a solid gray circle.](/images/macie/latest/user/images/icon-operator-equals.png)
+     ![The equals icon, which is a solid gray circle.](images/icon-operator-equals.png)
      ) for the filter. This changes the filter's
      operator from _equals_ to _not equals_
      (
-     ![The not equals icon, which is an empty gray circle that has a backslash in it.](images/icon-operator-not-equals.png)
+     ![The not equals icon, which is an empty gray circle that has a backslash in it.](/images/macie/latest/user/images/icon-operator-not-equals.png)
      ).
    - To remove a filter, choose the remove filter icon
      (
