@@ -17,12 +17,6 @@ Durable functions currently support Python, Node.js (JavaScript/TypeScript), and
 
 To learn how to build **serverless solutions**, check out the [Serverless Developer Guide](../../../serverless/latest/devguide.md "../../../serverless/latest/devguide.md").
 
-## Prerequisites
-
-To get started with AWS, you need an AWS account. For information about creating an AWS account, see
-[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
-in the _AWS Account Management Reference Guide_.
-
 ## Create a Lambda durable function with the console
 
 In this example, your durable function processes an order through multiple steps with automatic checkpointing. The function takes a JSON object

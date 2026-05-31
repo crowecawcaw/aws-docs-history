@@ -15,7 +15,7 @@ in the _AWS Serverless Developer Guide_.
 ## Lambda functions and function handlers
 
 In Lambda, **functions** are the fundamental building blocks you use to create applications. A Lambda function is a piece
-of code that runs in response to events, such as a user clicking a button on a website or a file being uploaded to an Amazon Simple Storage Service (Amazon S3) bucket. With durable functions, your code can pause execution between steps, maintaining state automatically, making them ideal for long-running workflows like order processing or content moderation.
+of code that runs in response to events, such as a user selecting a button on a website or a file being uploaded to an Amazon Simple Storage Service (Amazon S3) bucket. With durable functions, your code can pause execution between steps, maintaining state automatically, making them ideal for long-running workflows like order processing or content moderation.
 You can think of a function as a kind of self-contained program with the following properties.
 
 A Lambda **function handler** is the method in your function code that processes events.
