@@ -19,8 +19,6 @@ during the test deployment step.
 5. Verify that your application is running correctly in the production
    environment.
 
-## Important considerations
-
 ###### Important
 
 Review the generated infrastructure configurations with your team to ensure

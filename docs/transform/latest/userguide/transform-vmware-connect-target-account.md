@@ -123,31 +123,17 @@ The key difference between the two options is:
 For more information, see [Delegated administrator
 for Application Migration Service](../../../mgn/latest/ug/mgn-delegated-admin.md "../../../mgn/latest/ug/mgn-delegated-admin.md") in the _Application Migration Service User Guide_.
 
-### IAM roles created during setup
+### IAM roles created during connector setup
 
-During migration setup, a CloudFormation StackSet
-(`MGNMultiAccountRoles`) is deployed to create the required
-IAM roles across your target accounts. These roles grant the permissions
-that AWS Transform needs to replicate servers, launch instances, and install
-agents in each target account. The following roles are
-created:
+During connector setup, AWS Transform creates the following IAM role in your
+target account:
 
-- `AWSApplicationMigrationConnectorManagementRole` –
-  Used during agent installation to access source server credentials
-  from AWS Secrets Manager.
-- `AWSApplicationMigrationConnectorSharingRole_<ACCOUNT-ID>`
-  – Contains permissions for agent installation across
-  accounts.
-- Application Migration Service service roles – Created automatically during Application Migration Service
-  initialization in each target account. These include roles for
-  replication and launch operations, and cross-account roles for
-  multi-account migrations.
-
-###### Note
-
-IAM roles are created only if they don't already exist in the
-account. If they already exist, the setup process doesn't create
-them again.
+- `AWSTransform-Connector-role-`
+  – Created when you set up the target account connector, in the
+  management account or the delegated administrator account of your
+  AWS Organization. This role allows AWS Transform to connect to your
+  target account and act on your behalf to run migration
+  operations.
 
 ### Target account connector setup
 

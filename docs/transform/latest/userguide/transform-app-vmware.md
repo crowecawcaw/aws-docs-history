@@ -32,21 +32,3 @@ Guide_.
 This diagram displays an overview of AWS Transform VMware migration architecture.
 
 ![AWS Transform VMware architecture](images/atx-vm-architecture_v2.png)
-
-## Limitations
-
-AWS Transform has the following limitations:
-
-- If you stop a running migration job, and then ask the agent to restart it, the
-  job will start again from the beginning and you will lose any progress you have
-  made in the job. However, artifacts created in the job before restarting it will
-  still be available.
-- You can specify one target AWS Region per VMware migration job. To migrate applications to different target Regions, create multiple VMware migration jobs.
-- NSX imports are only supported for end-to-end migration jobs.
-
-###### Important
-
-AWS Transform generates network configurations and migration strategies based on your environment assessment.
-Review these configurations with stakeholders to ensure that they meet your organization's security,
-compliance, and business requirements. While AWS Transform provides automated configuration recommendations,
-you are responsible for validating and adjusting the settings to match your security and compliance needs before proceeding with migration.

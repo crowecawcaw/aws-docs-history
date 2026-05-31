@@ -8,6 +8,12 @@ Before you set up AWS Transform make sure you have an AWS account with administr
 
 If you want to try out AWS Transform as a proof-of-concept or for test environments see [Quick start: Trying AWS Transform](transform-setup.md#transform-app-admin-starting-standalone "transform-setup.md#transform-app-admin-starting-standalone").
 
+## Sign up for an AWS account
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
+
 ## Getting started with IAM-only access
 
 With IAM-only access, users authenticate with their existing AWS credentials.

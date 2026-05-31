@@ -140,7 +140,7 @@ Knowledge items are transformation-specific and are not shared across different 
 
 **Client-side skills** are additional capabilities that extend the agent during transformation executions. Unlike transformation definitions which define what transformation to perform, client-side skills provide supplementary tools, scripts, and instructions that the agent can use alongside its built-in capabilities during any transformation.
 
-Client-side skills are discovered from project-level and user-level directories. Project-level skills are only available when a code repository path is provided. For detailed configuration and usage, see [Client-Side Skills](custom-workflows.md#custom-client-side-skills "custom-workflows.md#custom-client-side-skills").
+Client-side skills are discovered from project-level and user-level directories. Place skills at the project level when they enforce standards specific to a repository, and at the user level when they apply across all your projects. Project-level skills are only available when a code repository path is provided. For detailed configuration and usage, see [Client-Side Skills](custom-workflows.md#custom-client-side-skills "custom-workflows.md#custom-client-side-skills").
 
 ## Introduction to custom transformation commands
 

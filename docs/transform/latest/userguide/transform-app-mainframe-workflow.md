@@ -367,7 +367,7 @@ analysis results.
 
 Your SMF extract must meet these format requirements:
 
-- Include all types 30 and 110
+- Include types 30 (sub-type 5) and 110
 - Use raw binary file in EBCDIC format
 - Include RDW bytes
 

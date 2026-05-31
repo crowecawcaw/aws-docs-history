@@ -443,6 +443,24 @@ Instructions for the agent...
 
 The `name` field must match the parent directory name.
 
+**Disabling a skill:**
+
+To prevent a skill from being loaded without removing its files, add `disable-model-invocation: true` to the frontmatter:
+
+```
+---
+name: my-skill
+description: When to use this skill
+disable-model-invocation: true
+---
+```
+
+When this property is set, the CLI skips the skill during discovery. The agent cannot see or use the skill unless a transformation definition explicitly instructs it to read the skill file. Use this to temporarily disable a skill, mark it as work-in-progress, or keep reference material intended for human readers only.
+
+###### Note
+
+A disabled skill's files remain on disk. If a transformation definition instructs the agent to read a specific file path, the agent can still access the content. The `disable-model-invocation` property prevents automatic discovery and context injection, not file-system access.
+
 **Skill availability by execution mode:**
 
 - **Exec mode** (`atx custom def exec` with `--code-repository-path`) - Discovers skills from both user-level and project-level directories.
@@ -461,6 +479,125 @@ Skills that fail validation are skipped with a warning in the debug logs.
 ###### Note
 
 Client-side skills require CLI version 2.0 or later.
+
+#### Choosing Between Project-Level and User-Level Skills
+
+Where you place a skill determines who benefits from it and when it activates.
+
+**Project-level skills** (`<project>/.aws/atx/skills/`):
+
+Commit these to version control so every team member running transformations against the repository automatically discovers them. Use project-level skills for:
+
+- Repository-specific compliance checks (Dockerfile rules, Terraform policies, migration safety validators)
+- Organization coding standards that apply to this codebase (observability patterns, error handling, naming conventions)
+- Build or test scripts unique to the project (custom linters, architecture fitness functions)
+- API migration guides for internal libraries used in this repository
+
+**User-level skills** (`~/.aws/atx/skills/`):
+
+These remain on your machine and activate during all transformations regardless of which repository you target. Use user-level skills for:
+
+- Personal workflow tools (changelog generators, commit message formatters)
+- Cross-project preferences (preferred test patterns, documentation style reminders)
+- License compliance checks that your organization requires across all repositories
+- Coverage thresholds or quality gates you enforce on every codebase you work with
+
+**Tips for effective skills:**
+
+- Write clear `description` fields in your `SKILL.md` frontmatter. The agent uses this field to decide when a skill is relevant.
+- Exit validation scripts with code 0 on success and non-zero on failure. The agent interprets exit codes to determine compliance.
+- Print clear, actionable error messages in scripts. The agent reads output to understand what to fix.
+- Place skills in the cross-client directory (`.agents/skills/`) at either level to share them with other AI development tools beyond the AWS Transform CLI.
+
+#### Client-Side Skill Examples
+
+These examples show two common patterns: a script-based validation skill and a reference-only skill.
+
+##### Example: Dockerfile Compliance Checker (Script-Based)
+
+This skill validates Dockerfiles against security and operational best practices. It uses a validation script that the agent runs before and after making changes.
+
+**Directory structure:**
+
+```
+.aws/atx/skills/
+└── dockerfile-compliance/
+    ├── SKILL.md
+    ├── scripts/
+    │   └── lint_dockerfile.sh
+    └── references/
+        └── dockerfile-best-practices.md
+```
+
+**SKILL.md:**
+
+```
+---
+name: dockerfile-compliance
+description: Validates Dockerfiles against security and operational best practices
+---
+# Dockerfile Compliance Checker
+
+When a transformation creates or modifies Dockerfiles, run the compliance checker.
+
+## When to use
+
+- After creating a new Dockerfile
+- After modifying FROM, RUN, USER, or EXPOSE directives
+- When containerizing an application as part of a transformation
+
+## How to use
+
+Run: `bash scripts/lint_dockerfile.sh <path-to-Dockerfile>`
+
+If violations are found, consult `references/dockerfile-best-practices.md`
+for compliant patterns.
+```
+
+The validation script checks for unpinned base image tags, running as root, hardcoded secrets in `ENV` directives, and missing `HEALTHCHECK` definitions. The agent runs the script, fixes violations using patterns from the reference file, and re-runs the script to confirm compliance.
+
+##### Example: API Deprecation Helper (Reference-Only)
+
+This skill guides the agent through replacing deprecated API calls during upgrade transformations. It uses only reference files with no scripts.
+
+**Directory structure:**
+
+```
+.aws/atx/skills/
+└── api-deprecation-helper/
+    ├── SKILL.md
+    └── references/
+        ├── aws-sdk-v2-to-v3.md
+        └── react-class-to-hooks.md
+```
+
+**SKILL.md:**
+
+```
+---
+name: api-deprecation-helper
+description: Guides the agent through replacing deprecated API calls with modern equivalents
+---
+# API Deprecation Helper
+
+When performing upgrade transformations, use this skill to identify and replace
+deprecated API calls with their modern equivalents.
+
+## When to use
+
+- During any version upgrade transformation
+- When build warnings mention deprecated APIs
+- When transforming code that uses legacy patterns
+
+## Process
+
+1. Identify deprecated API calls in the codebase
+2. For each deprecated call, find the replacement in `references/`
+3. Apply the replacement, preserving the original behavior
+4. Verify the replacement compiles and tests pass
+```
+
+The reference files contain before-and-after code examples. For instance, `aws-sdk-v2-to-v3.md` maps patterns like `s3.putObject(params).promise()` to the modular v3 equivalent using `S3Client` and `PutObjectCommand`.
 
 ### Tags and Organization
 

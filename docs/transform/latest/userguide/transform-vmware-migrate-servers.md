@@ -104,12 +104,24 @@ AWS Transform supports two migration modes:
 AWS Transform confirms the target account configuration and verifies that
 Application Migration Service is initialized in each target account. If Application Migration Service is not yet
 initialized, AWS Transform provides instructions to complete the
-initialization. During initialization, Application Migration Service creates the required IAM
-service roles for replication and launch operations, including cross-account
-roles for multi-account migrations. To learn more about this requirement,
-see [Initializing Application Migration Service
+initialization. During initialization, Application Migration Service creates the following IAM
+service roles for replication and launch operations:
+
+- `AWSApplicationMigrationReplicationServerRole`
+- `AWSApplicationMigrationConversionServerRole`
+- `AWSApplicationMigrationMGHRole`
+- `AWSApplicationMigrationLaunchInstanceWithDrsRole`
+- `AWSApplicationMigrationLaunchInstanceWithSsmRole`
+- `AWSApplicationMigrationAgentRole`
+
+To learn more about these roles, see [Initializing Application Migration Service
 with the console](../../../mgn/latest/ug/mgn-initialize-console.md "../../../mgn/latest/ug/mgn-initialize-console.md") or [Initializing Application Migration Service with
 the API](../../../mgn/latest/ug/mgn-initialize-api.md "../../../mgn/latest/ug/mgn-initialize-api.md") in the _Application Migration Service User Guide_.
+
+For multi-account migrations, AWS Transform also creates the following role
+during the initialization step:
+`AWSTransformRehostSharingRole_<management-or-delegated-admin-account-id>`.
+This role is deployed across all migration target accounts.
 
 ### Resource tagging verification
 

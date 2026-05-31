@@ -26,7 +26,7 @@ Alternatively, in the Powers panel choose **Add Custom Power** > **Import power 
 ## Agent plugin
 
 The AWS Transform agent plugin is available at
-[https://github.com/awslabs/agent-plugins](https://github.com/awslabs/agent-plugins "https://github.com/awslabs/agent-plugins")
+[awslabs/agent-plugins](https://github.com/awslabs/agent-plugins "https://github.com/awslabs/agent-plugins") on GitHub,
 in the `plugins/aws-transform` directory. The plugin supports Claude Code, Codex,
 and Cursor.
 
@@ -92,8 +92,8 @@ Add to `~/.kiro/settings/mcp.json`:
 }
 ```
 
-For configuration details for your specific MCP client, see
-[https://github.com/awslabs/mcp/tree/main/src/aws-transform-mcp-server](https://github.com/awslabs/mcp/tree/main/src/aws-transform-mcp-server "https://github.com/awslabs/mcp/tree/main/src/aws-transform-mcp-server").
+For configuration details for your specific MCP client, see the
+[aws-transform-mcp-server](https://github.com/awslabs/mcp/tree/main/src/aws-transform-mcp-server "https://github.com/awslabs/mcp/tree/main/src/aws-transform-mcp-server") README on GitHub.
 
 ## Authentication
 
