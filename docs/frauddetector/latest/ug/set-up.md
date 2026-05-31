@@ -12,13 +12,7 @@ Complete the following tasks in this section to get set up for using Amazon Frau
 - Set up interfaces you want to use to access Amazon Fraud Detector.
   After you complete these steps, see [Get started with Amazon Fraud Detector](get-started.md "get-started.md") to continue getting started with Amazon Fraud Detector.
 
-## Sign up for AWS
-
-When you sign up for Amazon Web Services (AWS), your AWS account is automatically signed up for all
-services on AWS, including Amazon Fraud Detector. You're charged only for the services that you use. If you already have an AWS account, skip
-to the next task.
-
-### Sign up for an AWS account
+## Sign up for an AWS account
 
 To get started with AWS, you need an AWS account. For information about creating an AWS account, see
 [Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
