@@ -73,6 +73,7 @@ Amazon Polly generative voices are available in the following regions:
 - Asia Pacific (Singapore): ap-southeast-1
 - Europe (London): eu-west-2
 - Canada (Central): ca-central-1
+- Europe (Zurich): eu-central-2
 - Other Regions are not available
 
 **The following features are supported for generative
@@ -81,7 +82,7 @@ voices:**
 - Bidirectional Streaming API is now offered in Generative engine and allows for streaming input
   and output at the same time. This API is available in the following AWS regions: US East (N. Virginia),
   Europe (Frankfurt), US West (Oregon), Asia Pacific (Singapore),
-  Europe (London), and Canada (Central). Visit the
+  Europe (London), Canada (Central), and Europe (Zurich). Visit the
   [documentation](API_StartSpeechSynthesisStream.md "API_StartSpeechSynthesisStream.md")
   to learn more about how to use it.
 - Real-time and asynchronous speech synthesis operations.
@@ -99,7 +100,7 @@ _Support for generating speech marks is currently not available._
 
 ###### Note
 
-Currently Europe (London) and Canada (Central) regions only support the following Generative voices:
+Currently Europe (London), Canada (Central) and Europe (Zurich) regions only support the following Generative voices:
 Joanna (en-US), Ruth (en-US), Salli (en-US), Stephen (en-US), Tiffany (en-US), Amy (en-GB), Brian (en-GB),
 Olivia (en-AU), Florian (fr-FR), Ambre (fr-FR), Lorenzo (it-IT), Beatrice (it-IT), Jasmine (en-SG), Aria (en-NZ),
 Lennart (de-DE), Vicki (de-DE), Sabrina (de-CH), Hannah (de-AT), Niamh (en-IE), Camila (pt-BR), Lisa (nl-BE),

@@ -88,6 +88,7 @@ Neural voices are supported in the following regions:
 - Asia Pacific (Singapore): ap-southeast-1
 - Asia Pacific (Sydney): ap-southeast-2
 - Asia Pacific (Malaysia): ap-southeast-5
+- Asia Pacific (Thailand): ap-southeast-7
 - Canada (Central): ca-central-1
 - Europe (Frankfurt): eu-central-1
 - Europe (Ireland): eu-west-1
