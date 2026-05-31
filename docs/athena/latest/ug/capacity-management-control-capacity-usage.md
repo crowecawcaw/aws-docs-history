@@ -37,7 +37,7 @@ Set DPU controls at the workgroup level to manage costs and control workload per
 
 ```
 aws athena update-work-group \
-  --work-group my_workgroup \
+  --work-group "my_workgroup" \
   --configuration-updates '{
         "EngineConfiguration": {
             "Classifications": [
