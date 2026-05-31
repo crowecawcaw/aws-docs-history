@@ -16,6 +16,12 @@ Non-administrative users use the re:Post Private application to sign in using cr
 
 Only customers with Enterprise Support (ES) and Enterprise On-Ramp (EOP) Support plans can subscribe to the re:Post Private service. You can choose from the two available pricing tiers - Free tier and Standard tier. The Free tier provides you the ability to explore and try out Standard tier capabilities to full extent for six months before you can seamlessly transition to a paid tier. If you use the Standard tier, then you can pay a monthly subscription per user charge to use re:Post Private. For more information, see [Pricing](https://aws.amazon.com/repost-private/pricing/ "https://aws.amazon.com/repost-private/pricing/").
 
+## Sign up for an AWS account
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
+
 ## Prerequisites
 
 You must meet the following prerequisites before you can create a new private re:Post or manage an existing private re:Post in AWS re:Post Private:
