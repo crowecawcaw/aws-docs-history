@@ -1,110 +1,63 @@
 # Out-of-Scope AWS Services
 
-The following list contains AWS services and features that are out of scope for the AWS Certified Developer - Associate (DVA-C02) exam. This list is non-exhaustive and is subject to change.
+The following list contains AWS services and features that are out of scope for the exam. This list is non-exhaustive and is subject to change. AWS offerings that are entirely unrelated to the target job roles for the exam are excluded from this list:
 
 ###### Topics
 
 - [Analytics](#dva-02-out-of-scope-analytics "#dva-02-out-of-scope-analytics")
 - [Business Applications](#dva-02-out-of-scope-business-applications "#dva-02-out-of-scope-business-applications")
-- [Compute](#dva-02-out-of-scope-compute "#dva-02-out-of-scope-compute")
-- [Database](#dva-02-out-of-scope-database "#dva-02-out-of-scope-database")
 - [End User Computing](#dva-02-out-of-scope-end-user-computing "#dva-02-out-of-scope-end-user-computing")
-- [Internet of Things (IoT)](#dva-02-out-of-scope-iot "#dva-02-out-of-scope-iot")
+- [Game Tech](#dva-02-out-of-scope-game-tech "#dva-02-out-of-scope-game-tech")
 - [Machine Learning](#dva-02-out-of-scope-machine-learning "#dva-02-out-of-scope-machine-learning")
 - [Management and Governance](#dva-02-out-of-scope-management-governance "#dva-02-out-of-scope-management-governance")
 - [Media Services](#dva-02-out-of-scope-media-services "#dva-02-out-of-scope-media-services")
 - [Migration and Transfer](#dva-02-out-of-scope-migration-transfer "#dva-02-out-of-scope-migration-transfer")
-- [Networking and Content Delivery](#dva-02-out-of-scope-networking "#dva-02-out-of-scope-networking")
-- [Robotics](#dva-02-out-of-scope-robotics "#dva-02-out-of-scope-robotics")
-- [Satellite](#dva-02-out-of-scope-satellite "#dva-02-out-of-scope-satellite")
+- [Security, Identity, and Compliance](#dva-02-out-of-scope-security "#dva-02-out-of-scope-security")
 - [Storage](#dva-02-out-of-scope-storage "#dva-02-out-of-scope-storage")
 
 ## Analytics
 
-- Amazon EMR
-- AWS Glue
-- Amazon Redshift
+- Amazon Quick Sight
 
 ## Business Applications
 
+- Amazon Chime
 - Amazon Connect
-- Amazon SES
-
-## Compute
-
-- AWS Batch
-- Amazon Lightsail
-- AWS Outposts
-
-## Database
-
-- Amazon DocumentDB
-- Amazon Neptune
-- Amazon Quantum Ledger Database (Amazon QLDB)
+- Amazon WorkMail
 
 ## End User Computing
 
 - Amazon AppStream 2.0
 - Amazon WorkSpaces
 
-## Internet of Things (IoT)
+## Game Tech
 
-- AWS IoT Core
-- AWS IoT Greengrass
+- Amazon GameLift
 
 ## Machine Learning
 
-- Amazon Comprehend
-- Amazon Forecast
-- Amazon Lex
 - Amazon Polly
 - Amazon Rekognition
-- Amazon SageMaker
-- Amazon Textract
-- Amazon Transcribe
-- Amazon Translate
 
 ## Management and Governance
 
-- AWS Config
-- AWS Control Tower
-- AWS License Manager
-- AWS Organizations
-- AWS Service Catalog
-- AWS Trusted Advisor
+- AWS Managed Services (AMS)
 
 ## Media Services
 
 - Amazon Elastic Transcoder
-- Amazon Kinesis Video Streams
 
 ## Migration and Transfer
 
-- AWS Database Migration Service (AWS DMS)
-- AWS DataSync
-- AWS Migration Hub
-- AWS Snow Family
-- AWS Transfer Family
+- AWS Application Discovery Service
+- AWS Application Migration Service
 
-## Networking and Content Delivery
+## Security, Identity, and Compliance
 
-- AWS App Mesh
-- AWS Cloud Map
-- AWS Direct Connect
-- AWS Global Accelerator
-- AWS PrivateLink
-- AWS Transit Gateway
-
-## Robotics
-
-- AWS RoboMaker
-
-## Satellite
-
-- AWS Ground Station
+- AWS Shield Advanced
+- AWS Shield Standard
 
 ## Storage
 
-- AWS Backup
-- Amazon FSx
+- AWS Snow Family
 - AWS Storage Gateway
