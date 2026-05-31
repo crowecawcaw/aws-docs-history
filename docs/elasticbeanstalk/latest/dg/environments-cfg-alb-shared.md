@@ -131,7 +131,7 @@ Use the following settings to configure process health checks:
 - **Deregistration delay** – The amount of time, in seconds, to wait for active requests to complete before deregistering
   an instance.
 
-![Application Load Balancer process settings for a health check](/images/elasticbeanstalk/latest/dg/images/aeb-config-alb-process-healthcheck.png)
+![Application Load Balancer process settings for a health check](images/aeb-config-alb-process-healthcheck.png)
 
 ###### Note
 
