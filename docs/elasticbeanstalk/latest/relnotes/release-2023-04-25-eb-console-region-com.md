@@ -15,7 +15,7 @@ in a final review panel.
 
 ![Configure environment panel. Linkable steps on left side of panel. Marked optional if applicable.](images/2023-03-02-Step01-configure-middle-cut.png)
 
-![Review environment panel. Linkable steps on left side of panel. Marked optional if applicable.](images/2023-03-02-Step06-review-middle-cut.png)
+![Review environment panel. Linkable steps on left side of panel. Marked optional if applicable.](/images/elasticbeanstalk/latest/relnotes/images/2023-03-02-Step06-review-middle-cut.png)
 
 To manage and monitor the environments of your existing applications, the **Environment overview** page shows a tabbed view of main
 environment details, including a list of recent environment-generated events, environment health, and monitoring metrics.
