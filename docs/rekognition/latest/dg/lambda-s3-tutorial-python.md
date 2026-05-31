@@ -133,7 +133,7 @@ zip boto3-layer.zip -r python/
 10. Choose **Create** to create the layer.
 11. Choose the navigation pane menu icon.
 12. In the navigation pane, choose **Functions**.
-13. In the resources list, choose the function that you created previously in .
+13. In the resources list, choose the function that you created previously in [Create an Lambda function (console)](#lambda-s3-tutorial-python-create "#lambda-s3-tutorial-python-create").
 14. Choose the **Code** tab.
 15. In the **Layers** section, choose **Add a
     layer**.
@@ -362,7 +362,7 @@ if __name__ == "__main__":
 ```
 
 3. Run the code. If the document is in an Amazon S3 bucket. make sure that it is the same bucket
-   that you specified previously in step 12 of .
+   that you specified previously in step 12 of [Create an Lambda function (console)](#lambda-s3-tutorial-python-create "#lambda-s3-tutorial-python-create").
 
 If successful, your code returns a partial JSON response for each Block
 type detected in the document.

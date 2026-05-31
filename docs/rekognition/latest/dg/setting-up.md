@@ -46,7 +46,7 @@ administrative user's credentials.
 
 If you signed up for AWS, but you haven't yet created a user for yourself,
 you can create one by using the IAM console. Refer to the upcoming
-section for instructions
+[Create a user with administrative access](../dg.md#create-an-admin "../dg.md#create-an-admin") section for instructions
 about how to create an administrative user.
 
 ### Sign up for an AWS account
