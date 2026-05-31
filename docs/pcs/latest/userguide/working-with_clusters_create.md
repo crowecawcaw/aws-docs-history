@@ -67,7 +67,19 @@ AWS Management Console
 4. (Optional) In the **Slurm accounting configuration** section, you can
    enable Slurm accounting and set accounting parameters. For more information, see
    [Slurm accounting in AWS PCS](slurm-accounting.md "slurm-accounting.md").
-5. (Optional) In the **Slurm configuration** section, you can add parameter name and value pairs to configure additional Slurm settings. For a complete list of supported parameters, see [Custom Slurm settings for AWS PCS clusters](slurm-custom-settings-cluster.md "slurm-custom-settings-cluster.md").
+5. (Optional) In the **Scheduler configuration** section, you can add
+   parameter name and value pairs to configure additional Slurm settings. For a complete list
+   of supported parameters, see [Custom Slurm settings for AWS PCS clusters](slurm-custom-settings-cluster.md "slurm-custom-settings-cluster.md"). You can also configure custom cgroup
+   settings (see [Configuring custom cgroup settings in AWS PCS](cgroup-custom-settings.md "cgroup-custom-settings.md")) and custom SlurmDBD settings (see
+   [Configuring custom SlurmDBD settings in AWS PCS](slurmdbd-custom-settings.md "slurmdbd-custom-settings.md")).
+
+Additionally, you can also specify the following settings:
+
+    1. **Scale-down idle time** – (Optional) The time in seconds
+     before an idle node is scaled down. This applies to all compute node groups in the cluster
+     by default. For Slurm 25.11 or later, individual compute node groups can
+     override this value with their own **Scale-down idle time** setting.
+
 6. (Optional) Under **Tags**, add any tags to your AWS PCS cluster.
 7. Choose **Create cluster**. The **Status**
    field shows `Creating` while the AWS PCS creates the cluster.
@@ -137,6 +149,14 @@ aws pcs create-cluster --region `region` \
     ###### Note
 
     Accounting is supported for Slurm 24.11 or later.
+
+
+    ###### Note
+
+    The cluster-level `scaleDownIdleTimeInSeconds` applies to all compute
+     node groups in the cluster by default. For Slurm 25.11 or later,
+     individual compute node groups can override this value with their own
+     `scaleDownIdleTimeInSeconds` setting.
 
 
 

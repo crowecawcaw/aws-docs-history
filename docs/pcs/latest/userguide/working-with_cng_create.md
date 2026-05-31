@@ -110,11 +110,17 @@ AWS Management Console
       This option has no effect if you have
       selected the On-demand purchase option.
 
-6. (Optional) In the **Slurm custom settings** section,
+6. (Optional) In the **Scheduler configuration** section, you can
+   specify the following:
+   1. **Scale-down idle time** – (Optional) The time in seconds
+      before an idle node in this node group is scaled down. If not set, the cluster-level value
+      is used. This setting requires Slurm version 25.11 or later.
+
+7. (Optional) In the **Slurm custom settings** section,
    you can add parameter name and value pairs to configure additional Slurm settings. For a complete list of supported parameters, see [Custom Slurm settings for AWS PCS compute node groups](slurm-custom-settings-cng.md "slurm-custom-settings-cng.md").
-7. (Optional) Under **Tags**, add any tags to your compute node
+8. (Optional) Under **Tags**, add any tags to your compute node
    group.
-8. Choose **Create compute node group**. The **Status**
+9. Choose **Create compute node group**. The **Status**
    field shows `Creating` while AWS PCS provisions the node group.
    This can take several minutes.
 
@@ -190,6 +196,24 @@ aws pcs create-compute-node-group --region `region` \
 ```
 
 For more information, see [Custom Slurm settings for AWS PCS compute node groups](slurm-custom-settings-cng.md "slurm-custom-settings-cng.md").
+
+###### Example– Creating a compute node group with a scale-down idle time
+
+```
+aws pcs create-compute-node-group --region `region` \
+    --cluster-identifier `my-cluster` \
+    --compute-node-group-name `my-gpu-nodes` \
+    --subnet-ids `subnet-ExampleID1` \
+    --custom-launch-template id=`lt-ExampleID1`,version='`1`' \
+    --iam-instance-profile-arn=`arn:InstanceProfile` \
+    --scaling-config minInstanceCount=`0`,maxInstanceCount=`10` \
+    --instance-configs instanceType=`p4d.24xlarge` \
+    --slurm-configuration scaleDownIdleTimeInSeconds=`300`
+```
+
+The `scaleDownIdleTimeInSeconds` setting at the compute node group level
+overrides the cluster-level value for nodes in this group. This setting requires
+Slurm version 25.11 or later.
 
 There are several optional configuration settings you can add to the
 `create-compute-node-group` command.

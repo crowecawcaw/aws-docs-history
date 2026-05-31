@@ -76,7 +76,11 @@ AWS Management Console
 
     For more information about Slurm custom settings, see [Custom Slurm settings for AWS PCS compute node groups](slurm-custom-settings-cng.md "slurm-custom-settings-cng.md").
 
-5.  Choose **Update**. The **Status** field will show
+5.  In the **Scheduler configuration** section, you can update the
+    **Scale-down idle time** to set a new value (1–10000000 seconds) that
+    overrides the cluster default, or clear it to revert to the cluster-level setting. This
+    setting requires Slurm version 25.11 or later.
+6.  Choose **Update**. The **Status** field will show
     _Updating_ while changes are being applied.
 
 ###### Important
@@ -112,7 +116,32 @@ aws pcs update-compute-node-group --region `region-code` \
     'slurmCustomSettings=[{parameterName=Features,parameterValue="`gpu,nvme`"}]'
 ```
 
-For more information, see [Custom Slurm settings for AWS PCS compute node groups](slurm-custom-settings-cng.md "slurm-custom-settings-cng.md"). 2. Update any node group parameters except for `--instance-configs`. For example, to
+For more information, see [Custom Slurm settings for AWS PCS compute node groups](slurm-custom-settings-cng.md "slurm-custom-settings-cng.md").
+
+###### Example– Updating the scale-down idle time for a compute node group
+
+```
+aws pcs update-compute-node-group --region `region` \
+    --cluster-identifier `my-cluster` \
+    --compute-node-group-identifier `my-gpu-nodes` \
+    --slurm-configuration scaleDownIdleTimeInSeconds=`600`
+```
+
+You can update `scaleDownIdleTimeInSeconds` on an existing compute node
+group to override the cluster-level scale-down idle time. Valid values are 1–10000000.
+This setting requires Slurm version 25.11 or later.
+
+###### Example– Removing the scale-down idle time override from a compute node group
+
+```
+aws pcs update-compute-node-group --region `region` \
+    --cluster-identifier `my-cluster` \
+    --compute-node-group-identifier `my-gpu-nodes` \
+    --slurm-configuration scaleDownIdleTimeInSeconds=-1
+```
+
+Set `scaleDownIdleTimeInSeconds` to `-1` to remove the
+node group override and revert to the cluster-level setting. 2. Update any node group parameters except for `--instance-configs`. For example, to
 set a new AMI ID, pass `--amiId my-custom-ami-id` where
 `my-custom-ami-id` is replaced by your AMI of choice.
 
