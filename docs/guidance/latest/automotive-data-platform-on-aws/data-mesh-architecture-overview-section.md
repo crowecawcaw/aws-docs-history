@@ -2,7 +2,7 @@
 
 The Automotive Data Mesh follows a domain-oriented decentralized architecture with centralized governance.
 
-![Automotive Data Mesh Architecture](/images/guidance/latest/automotive-data-platform-on-aws/images/mesh.png)
+![Automotive Data Mesh Architecture](images/mesh.png)
 
 ## High-Level Architecture
 
