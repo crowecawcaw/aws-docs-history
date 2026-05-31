@@ -10,7 +10,6 @@ The implementation of Amazon EC2 Image Builder is different for AWS GovCloud (US
 
 The following Image Builder features are not supported in AWS GovCloud (US) Regions:
 
-- Image lifecycle policies
 - AWS Marketplace Software components
 - ISO disk file import
 

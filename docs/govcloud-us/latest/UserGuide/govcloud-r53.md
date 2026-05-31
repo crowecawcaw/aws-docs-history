@@ -12,7 +12,10 @@ Public Hosted Zones
 - The CloudWatch Logs log group for query logging must be in AWS GovCloud (US-West).
 - CloudWatch metrics like DNSQueries can be found in AWS GovCloud (US-West).
 - IP-based routing type is not available.
-- Traffic Flow features are not available.
+- Route 53 [Traffic Flow](../../../Route53/latest/DeveloperGuide/traffic-flow.md "../../../Route53/latest/DeveloperGuide/traffic-flow.md") is supported as follows:
+  - You can create traffic policies using all routing policy types.
+  - You can’t use CloudFront distributions as alias targets in traffic policies.
+
 - DNS query checking tool on the console, and `TestDNSAnswer` API are not available.
 
 Private Hosted Zones
