@@ -37,12 +37,18 @@ node fails, the primary fails over to a read replica. Because the data is update
 replica nodes asynchronously, there may be some data loss due to latency in updating the
 replica nodes. For more information, see [Mitigating Failures when Running Valkey or Redis OSS](disaster-recovery-resiliency.md#FaultTolerance.Redis "disaster-recovery-resiliency.md#FaultTolerance.Redis").
 
+###### Note
+
+For clusters with durability enabled, data is persisted in a Multi-AZ transactional log and can be recovered even if all nodes fail. With synchronous writes, no acknowledged data is lost during failover. With asynchronous writes, up to 10 seconds of data may be lost in case of a failure.
+
 ###### Topics
 
 - [Understanding Valkey and Redis OSS replication](Replication.Redis.Groups.md "Replication.Redis.Groups.md")
+- [Replication with durability enabled](#replication-with-durability "#replication-with-durability")
 - [Replication: Valkey and Redis OSS Cluster Mode Disabled vs. Enabled](Replication.Redis-RedisCluster.md "Replication.Redis-RedisCluster.md")
 - [Minimizing downtime in ElastiCache by using Multi-AZ with Valkey and Redis OSS](AutoFailover.md "AutoFailover.md")
 - [How synchronization and backup are implemented](Replication.Redis.Versions.md "Replication.Redis.Versions.md")
+- [Synchronization and backup with durability](#sync-backup-durability "#sync-backup-durability")
 - [Creating a Valkey or Redis OSS replication group](Replication.CreatingRepGroup.md "Replication.CreatingRepGroup.md")
 - [Viewing a replication group's details](Replication.ViewDetails.md "Replication.ViewDetails.md")
 - [Finding replication group endpoints](Replication.Endpoints.md "Replication.Endpoints.md")
@@ -50,3 +56,14 @@ replica nodes. For more information, see [Mitigating Failures when Running Valke
 - [Deleting a replication group](Replication.DeletingRepGroup.md "Replication.DeletingRepGroup.md")
 - [Changing the number of replicas](increase-decrease-replica-count.md "increase-decrease-replica-count.md")
 - [Promoting a read replica to primary, for Valkey or Redis OSS (cluster mode disabled) replication groups](Replication.PromoteReplica.md "Replication.PromoteReplica.md")
+
+## Replication with durability enabled
+
+For Valkey 9.0+ clusters with durability enabled, replication is mediated through the Multi-AZ transactional log rather than direct primary-to-replica streaming. The primary node writes to the transactional log, and replicas independently consume committed writes from the log. This architecture means replicas recover independently without imposing load on the primary node.
+
+## Synchronization and backup with durability
+
+For clusters with durability enabled, synchronization and backup operations differ from standard clusters:
+
+- **Off-box snapshotting:** Snapshots are created by ephemeral instances that read from the Multi-AZ transactional log, eliminating performance impact on your cluster.
+- **Log-based recovery:** Failed replicas restore from the transactional log and snapshots rather than requiring a full synchronization from the primary.

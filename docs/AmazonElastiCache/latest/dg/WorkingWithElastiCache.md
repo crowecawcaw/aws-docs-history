@@ -7,6 +7,7 @@ In this section you can find details about how to manage the various components 
 - [Snapshot and restore](backups.md "backups.md")
 - [Engine versions and upgrading in ElastiCache](engine-versions.md "engine-versions.md")
 - [ElastiCache best practices and caching strategies](BestPractices.md "BestPractices.md")
+- [Durability in ElastiCache](durability.md "durability.md")
 - [Managing your node-based cluster in ElastiCache](manage-self-designed-cluster.md "manage-self-designed-cluster.md")
 - [Connecting an EC2 instance and an ElastiCache cache automatically](compute-connection.md "compute-connection.md")
 - [Scaling ElastiCache](Scaling.md "Scaling.md")

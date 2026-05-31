@@ -55,6 +55,10 @@ to the primary, the changes are asynchronously propagated to all the read replic
 To improve fault tolerance and reduce write downtime, enable Multi-AZ with Automatic
 Failover for your Valkey or Redis OSS (cluster mode disabled) cluster with replicas. For more information, see [Minimizing downtime in ElastiCache by using Multi-AZ with Valkey and Redis OSS](AutoFailover.md "AutoFailover.md").
 
+###### Note
+
+Durability is not supported for cluster mode disabled (CMD) clusters.
+
 You can change the roles of the nodes within the Valkey or Redis OSS (cluster mode disabled) cluster, with the primary
 and one of the replicas exchanging roles. You might decide to do this for
 performance tuning reasons. For example, with a web application that has heavy write activity,
@@ -98,5 +102,9 @@ To improve fault tolerance, you can provision both primaries and read replicas i
 within that region.
 
 Currently, Valkey or Redis OSS (cluster mode enabled) features have some limitations.
+
+###### Note
+
+For Valkey 9.0+ cluster mode enabled (CME) clusters, durability changes the replication model. Replicas consume writes from the Multi-AZ transactional log rather than streaming directly from the primary.
 
 - You cannot manually promote any of the replica nodes to primary.

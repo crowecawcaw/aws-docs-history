@@ -110,7 +110,7 @@ For more information, see [Supported node types](CacheNodes.SupportedTypes.md "C
 
 ## Further Valkey and Redis OSS options
 
-For further information on options available for Valkey and Redis OSS, see the followling links.
+For further information on options available for Valkey and Redis OSS, see the following links.
 
 - [At-Rest Encryption in ElastiCache](at-rest-encryption.md "at-rest-encryption.md")
 - [Authenticating with the Valkey and Redis OSS AUTH command](auth.md "auth.md")

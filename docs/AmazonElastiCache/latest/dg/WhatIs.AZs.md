@@ -10,3 +10,5 @@ For more information, see [Choosing regions and availability zones](RegionsAndAZ
 
 You can create your cluster in several Availability Zones, an option called a Multi-AZ deployment. When you choose this option, Amazon automatically provisions and maintains a secondary standby node instance in a different Availability Zone. Your primary node instance is asynchronously replicated across Availability Zones to the secondary instance. This approach helps provide data redundancy and failover support, eliminate I/O freezes, and minimize latency spikes during system backups.
 For more information, see [Minimizing downtime in ElastiCache for Valkey and Redis OSS with Multi-AZ](AutoFailover.md "AutoFailover.md").
+
+With durability enabled, writes can be synchronously persisted to a Multi-AZ transactional log across at least two Availability Zones before being acknowledged, providing durability with zero data loss during failures.

@@ -29,6 +29,10 @@ don't enable Multi-AZ.
 You can enable Multi-AZ using the ElastiCache Management Console,
 the AWS CLI, or the ElastiCache API.
 
+###### Note
+
+**Durability-enabled clusters:** For Valkey 9.0+ clusters with durability enabled, failover behavior differs from the scenarios described below. With durability, all committed data is persisted in a Multi-AZ transactional log. During failovers, synchronous writes ensure zero data loss, while asynchronous writes may lose up to 10 seconds of uncommitted data. Failed nodes restore all committed data from the transactional log without requiring a full synchronization from the primary. For more information, see [Durability in ElastiCache](durability.md "durability.md").
+
 Enabling ElastiCache Multi-AZ on your Valkey or Redis OSS cluster (in the API and CLI,
 replication group) improves your fault tolerance. This is true particularly in cases where
 your cluster's read/write primary cluster becomes unreachable or fails for any reason.
@@ -566,7 +570,7 @@ Be aware of the following limitations for Multi-AZ:
 - Multi-AZ is supported on Valkey, and on Redis OSS version 2.8.6 and later.
 - Multi-AZ isn't supported on T1 node types.
 - Valkey and Redis OSS replication is asynchronous. Therefore, when a primary node fails over to a replica, a small
-  amount of data might be lost due to replication lag.
+  amount of data might be lost due to replication lag. For clusters with durability enabled, this limitation does not apply — all committed data is restored from the Multi-AZ transactional log.
 
 When choosing the replica to promote to primary, ElastiCache chooses the replica
 with the least replication lag. In other words, it chooses the replica that is
@@ -608,7 +612,7 @@ the failed primary node.
   interruption, during which the replicas are not accessible. The sync process
   also causes a temporary load increase on the primary while syncing with the
   replicas. This behavior is native to Valkey and Redis OSS and isn't unique to ElastiCache
-  Multi-AZ. For details about this behavior, see [Replication](http://valkey.io/topics/replication "http://valkey.io/topics/replication") on the Valkey website.
+  Multi-AZ. For details about this behavior, see [Replication](http://valkey.io/topics/replication "http://valkey.io/topics/replication") on the Valkey website. For clusters with durability enabled, replicas restore from the transactional log independently without imposing load on the primary.
 
 ###### Important
 

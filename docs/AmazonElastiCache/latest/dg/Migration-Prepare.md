@@ -20,10 +20,10 @@ requirements for migration:
     * It has Multi-AZ enabled.
     * It has sufficient memory available to fit the data from your Valkey or Redis OSS cluster. To configure the right reserved memory settings, see [Managing reserved memory for Valkey and Redis OSS](redis-memory-management.md "redis-memory-management.md").
     * For cluster-mode disabled, you can migrate directly from Valkey or Redis OSS versions
-     2.8.21 onward to Valkey or Redis OSS version 5.0.6 onward if are using the CLI or
+     2.8.21 onward to Valkey or Redis OSS version 5.0.6 onward if you are using the CLI or
      Valkey or Redis OSS versions 5.0.6 onward using the CLI or console. For cluster
      mode enabled, you can migrate directly from any cluster-mode enabled Valkey or Redis OSS version
-     to Redis OSS version 5.0.6 onward, if are using the CLI or Redis OSS versions
+     to Redis OSS version 5.0.6 onward, if you are using the CLI or Redis OSS versions
      5.0.6 onward using the CLI or console.
     * Number of shards in source and target match.
     * It is not part of a global datastore.

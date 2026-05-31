@@ -45,6 +45,7 @@ For more information, see [Mitigating Failures](disaster-recovery-resiliency.md#
 - [ElastiCache scaling requirements](#cluster-create-determine-requirements-scaling "#cluster-create-determine-requirements-scaling")
 - [ElastiCache access requirements](#cluster-create-determine-requirements-access "#cluster-create-determine-requirements-access")
 - [Region, Availability Zone and Local Zone requirements for ElastiCache](#cluster-create-determine-requirements-region "#cluster-create-determine-requirements-region")
+- [Do you need durability?](#cluster-create-determine-requirements-durability "#cluster-create-determine-requirements-durability")
 
 ## ElastiCache memory and processor requirements
 
@@ -125,3 +126,7 @@ For more information, see the following:
 - [Choosing regions and availability zones for ElastiCache](RegionsAndAZs.md "RegionsAndAZs.md")
 - [Using local zones with ElastiCache](Local_zones.md "Local_zones.md")
 - [Mitigating Failures](disaster-recovery-resiliency.md#FaultTolerance "disaster-recovery-resiliency.md#FaultTolerance")
+
+## Do you need durability?
+
+Do you need durability for your data? If your application requires durability beyond in-memory replication, you can create a Valkey 9.0+ cluster with durability enabled. Durability is set at cluster creation time and cannot be enabled or disabled afterward. For more information, see [Durability in ElastiCache](durability.md "durability.md").

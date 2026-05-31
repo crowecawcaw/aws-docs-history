@@ -30,6 +30,7 @@ of your application.
 - [Messaging (Pub/Sub)](#elasticache-for-redis-use-cases-messaging "#elasticache-for-redis-use-cases-messaging")
 - [Recommendation Data (Hashes)](#elasticache-for-redis-use-cases-recommendations "#elasticache-for-redis-use-cases-recommendations")
 - [Semantic caching for generative AI applications](#elasticache-for-redis-use-cases-semantic-caching "#elasticache-for-redis-use-cases-semantic-caching")
+- [Durability for system-of-record workloads](#elasticache-use-cases-durability "#elasticache-use-cases-durability")
 - [ElastiCache Customer Testimonials](#elasticache-use-cases-testimonials "#elasticache-use-cases-testimonials")
 - [Using Amazon ElastiCache for Valkey for semantic caching](semantic-caching.md "semantic-caching.md")
 - [Using Amazon ElastiCache for Valkey for agentic memory](agentic-memory.md "agentic-memory.md")
@@ -306,6 +307,10 @@ The following diagram illustrates an example architecture using ElastiCache to i
 **Semantic Search**
 
 Vector search retrieves the most relevant text, speech, image, or video data based on closeness in meaning or features. This capability enables machine learning applications that rely on similarity search across diverse data modalities, including recommendation engines, anomaly detection, personalization, and knowledge management systems. Recommendation systems use vector representations to capture complex patterns in user behavior and item characteristics, enabling them to suggest the most relevant content. Vector search for ElastiCache is well suited for these applications because of its near real-time updates and low latency, enabling similarity comparisons that deliver instant, highly relevant recommendations based on live user interactions.
+
+## Durability for system-of-record workloads
+
+If you enable durability and choose synchronous writes, you can use ElastiCache for use cases beyond caching where data loss is not acceptable. Examples include knowledge bases for RAG applications, AI agent memory, AI agent workflow state, payment tokenization, streaming metadata, and real-time inventory management.
 
 ## ElastiCache Customer Testimonials
 

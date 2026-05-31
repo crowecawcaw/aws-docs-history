@@ -94,6 +94,16 @@ The following diagram illustrates how node-based ElastiCache clusters work.
 
 ![A diagram of ElastiCache node-based clusters operation, from availability zones to the Customer VPC and then to ElastiCache managed cache nodes.](images/ELC-serverless-works2.png)
 
+#### Durability for node-based clusters
+
+For node-based Valkey clusters (version 9.0 and higher), you can enable durability to persist your data in a Multi-AZ transactional log. With durability enabled, the architecture changes as follows:
+
+- **Write path:** The primary node writes data to a Multi-AZ transactional log that replicates across at least two Availability Zones. With synchronous writes, data is acknowledged only after being persisted in the log. With asynchronous writes, data is acknowledged immediately and persisted asynchronously.
+- **Read path (steady state):** In steady state, replicas continuously receive committed writes from the Multi-AZ transactional log and apply them in order. Reads on replicas are served immediately from in-memory state.
+- **Replica recovery:** Replicas recover independently from the Multi-AZ transactional log and snapshots, without requiring any work from the primary node.
+- **Off-box snapshotting:** Snapshots are created by ephemeral instances that read from the Multi-AZ transactional log, eliminating performance impact on customer workload.
+- **Durability:** Data is recoverable even if all cache nodes fail, from the Multi-AZ transactional log and snapshots stored in Amazon S3.
+
 ### Pricing dimensions
 
 You can deploy ElastiCache in two deployment options. When deploying ElastiCache Serverless, you pay for usage for data stored in

@@ -47,6 +47,7 @@ Data tiering has the following limitations:
 - Forkless save is supported for Valkey version 7.2 and later, and Redis OSS version 7.0.7 and later. For more information, see [How synchronization and backup are implemented](Replication.Redis.Versions.md "Replication.Redis.Versions.md").
 - Items larger than 128 MiB are not moved to SSD.
 - Starting from Valley 8.1 and later, an item whose key + value size is less than 40 bytes will not be moved to the SSD.
+- Data tiering is not supported with durability-enabled clusters.
 
 ## Pricing
 

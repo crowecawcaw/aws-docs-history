@@ -302,7 +302,7 @@ public class RedisIAMAuthCredentialsProvider implements RedisCredentialsProvider
     public RedisIAMAuthCredentialsProvider(String userId,
         IAMAuthTokenRequest iamAuthTokenRequest,
         AWSCredentialsProvider awsCredentialsProvider) {
-        this.userName = userName;
+        this.userId = userId;
         this.awsCredentialsProvider = awsCredentialsProvider;
         this.iamAuthTokenRequest = iamAuthTokenRequest;
         this.iamAuthTokenSupplier = Suppliers.memoizeWithExpiration(this::getIamAuthToken, TOKEN_EXPIRY_SECONDS, TimeUnit.SECONDS);

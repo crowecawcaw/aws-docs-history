@@ -4,10 +4,11 @@ To help keep your data secure, Amazon ElastiCache and Amazon S3 provide differen
 to data in your cache. For more information, see [Amazon VPCs and ElastiCache security](VPCs.md "VPCs.md")
 and [Identity and Access Management for Amazon ElastiCache](IAM.md "IAM.md").
 
-ElastiCache at-rest encryption is a feature to increase data security by encrypting on-disk data. It is always enabled on a serverless cache. When enabled, it encrypts the following aspects:
+ElastiCache at-rest encryption is a feature to increase data security by encrypting on-disk data. It is always enabled on a serverless cache and on clusters with durability enabled. When enabled, it encrypts the following aspects:
 
 - Disk during sync, backup and swap operations
 - Backups stored in Amazon S3
+- Multi-AZ transactional durability logs (for clusters with durability enabled)
   Data stored on SSDs (solid-state drives) in data tiering enabled clusters is always encrypted.
 
 ElastiCache offers default (service managed) encryption at rest, as well as ability to use your own symmetric customer managed AWS KMS keys in [AWS Key Management Service (KMS)](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md").
@@ -29,6 +30,7 @@ cases.
 - [At-Rest Encryption Conditions](#at-rest-encryption-constraints "#at-rest-encryption-constraints")
 - [Using customer managed keys from AWS KMS](#using-customer-managed-keys-for-elasticache-security "#using-customer-managed-keys-for-elasticache-security")
 - [Enabling At-Rest Encryption](#at-rest-encryption-enable "#at-rest-encryption-enable")
+- [Viewing at-rest encryption status](#viewing-at-rest-encryption-status "#viewing-at-rest-encryption-status")
 - [See Also](#at-rest-encryption-see-also "#at-rest-encryption-see-also")
 
 ## At-Rest Encryption Conditions
@@ -66,6 +68,10 @@ your implementation of ElastiCache encryption at-rest:
 Implementing at-rest encryption can reduce performance during backup and node sync
 operations. Benchmark at-rest encryption compared to no encryption on your own data to
 determine its impact on performance for your implementation.
+
+###### Note
+
+Clusters with durability enabled (sync or async) always have at-rest encryption enabled. You cannot enable durability without also enabling at-rest encryption.
 
 ## Using customer managed keys from AWS KMS
 
@@ -105,6 +111,7 @@ Once a replication group is encrypted using customer managed key, all backups fo
 - If you delete the key or [disable](../../../kms/latest/developerguide/enabling-keys.md "../../../kms/latest/developerguide/enabling-keys.md") the key and [revoke grants](../../../kms/latest/APIReference/API_RevokeGrant.md "../../../kms/latest/APIReference/API_RevokeGrant.md") for the key that you used to encrypt a cache,
   the cache becomes irrecoverable. In other words, it cannot be modified or recovered after a hardware failure. AWS KMS deletes root keys only after a waiting period of at least seven days.
   After the key is deleted, you can use a different customer managed key to create a backup for archival purposes.
+- If you delete the key, disable the key, or revoke grants for the key that you used to encrypt a durability-enabled cluster, the cluster is set to a failed state within 12 hours.
 - Automatic key rotation preserves the properties of your AWS KMS root keys, so the rotation has no effect on your ability to access your ElastiCache data.
   Encrypted Amazon ElastiCache caches don't support manual key rotation, which involves creating a new root key and updating
   any references to the old key. To learn more, see [Rotating AWS KMS keys](../../../kms/latest/developerguide/rotate-keys.md "../../../kms/latest/developerguide/rotate-keys.md") in the _AWS Key Management Service Developer Guide_.
@@ -276,6 +283,46 @@ For additional information, see the following:
 
 - [Creating a Valkey or Redis OSS (Cluster Mode Enabled) replication group from scratch (AWS CLI)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI "Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI")
 - [create-replication-group](../../../cli/latest/reference/elasticache/create-replication-group.md "../../../cli/latest/reference/elasticache/create-replication-group.md")
+
+## Viewing at-rest encryption status
+
+You can check the at-rest encryption status of an existing cluster using the `StorageEncryptionType` field returned by the describe API calls. This field is available on both node-based replication groups and serverless caches.
+
+`StorageEncryptionType` values:
+
+| Value             | Meaning                                        |
+| ----------------- | ---------------------------------------------- |
+| `none`            | At-rest encryption is not enabled              |
+| `sse-elasticache` | Encrypted using a service-managed AWS KMS key  |
+| `sse-kms`         | Encrypted using a customer-managed AWS KMS key |
+
+### Checking status for a node-based replication group (AWS CLI)
+
+```
+aws elasticache describe-replication-groups \
+    --replication-group-id `my-replication-group` \
+    --query 'ReplicationGroups[0].StorageEncryptionType'
+```
+
+Example output:
+
+```
+"sse-elasticache"
+```
+
+### Checking status for a serverless cache (AWS CLI)
+
+```
+aws elasticache describe-serverless-caches \
+    --serverless-cache-name `my-serverless-cache` \
+    --query 'ServerlessCaches[0].StorageEncryptionType'
+```
+
+Example output:
+
+```
+"sse-elasticache"
+```
 
 ## See Also
 

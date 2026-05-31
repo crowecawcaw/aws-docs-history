@@ -63,6 +63,7 @@ At this time, you can't use global datastores in [Using local zones with ElastiC
 - Global datastores support AWS KMS keys. For more information, see [AWS
   key management service concepts](../../../kms/latest/developerguide/concepts.md#master_keys "../../../kms/latest/developerguide/concepts.md#master_keys") in the
   _AWS Key Management Service Developer Guide._
+- Global datastores are not supported with durability-enabled clusters.
 
 ###### Note
 

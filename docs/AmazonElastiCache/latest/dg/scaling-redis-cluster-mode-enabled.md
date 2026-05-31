@@ -40,6 +40,12 @@ _CPUUtilization_, _NetworkBytesIn_,
 _NetworkBytesOut_, _CurrConnections_,
 and _NewConnections_.
 
+- **Durability write throughput limit:**
+
+Durability-enabled clusters support up to 100 MiBps of write throughput per primary node. If your workload approaches this limit, you should scale out by adding shards to distribute write load across more primary nodes.
+
+You can detect when throughput saturation is approaching by monitoring the following metrics: _DurabilityLag_ and _TrafficManagementActive_.
+
 ###### Performance Impact of Scaling
 
 When you scale using the offline process, your cluster is offline for a significant portion

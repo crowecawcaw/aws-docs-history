@@ -126,6 +126,8 @@ number of nodes.
 You can also use data-tiering. More frequently accessed data is stored in memory and less frequently accessed data is stored on disk. The advantage of using data tiering is that it decreases memory needs. For
 more information, see [Data tiering in ElastiCache](data-tiering.md "data-tiering.md").
 
+For Valkey 9.0 and higher, you can create your cluster with durability enabled to persist data in a Multi-AZ transactional log. With durability enabled, your data is protected even if all cache nodes fail, replicas recover independently without impacting the primary, and snapshots are created off-box without performance impact.
+
 ElastiCache supports changing a Valkey or Redis OSS cluster's node type to a larger node type dynamically.
 For information on scaling up or down, see [Scaling for Valkey or Redis OSS (Cluster Mode Disabled) clusters](scaling-redis-classic.md#Scaling.RedisStandalone "scaling-redis-classic.md#Scaling.RedisStandalone")
 or [Scaling replica nodes for Valkey or Redis OSS (Cluster Mode Disabled)](Scaling.RedisReplGrps.md "Scaling.RedisReplGrps.md").
