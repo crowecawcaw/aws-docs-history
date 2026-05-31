@@ -5,8 +5,7 @@ For a summary checklist of deployment prerequisites, see [Amazon EVS deployment 
 
 ###### Topics
 
-- [Sign up for AWS](#setting-up-aws-sign-up "#setting-up-aws-sign-up")
-- [Create an IAM user](#setting-up-create-iam-user "#setting-up-create-iam-user")
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Create an IAM role to delegate Amazon EVS permission to an IAM user](#setting-up-create-iam-role "#setting-up-create-iam-role")
 - [Sign up for an AWS Business, AWS Enterprise On-Ramp, or AWS Enterprise Support plan](#setting-up-aws-business-support "#setting-up-aws-business-support")
 - [Check quotas](#check-quotas "#check-quotas")
@@ -24,26 +23,9 @@ For a summary checklist of deployment prerequisites, see [Amazon EVS deployment 
 - [VMware HCX prerequisites](#hcx-prereqs "#hcx-prereqs")
 - [Amazon EVS deployment prerequisite checklist](evs-deployment-prereq-checklist.md "evs-deployment-prereq-checklist.md")
 
-## Sign up for AWS
+## Sign up for an AWS account
 
-If you don’t have an AWS account, complete the following steps to create one.
-
-1. Open https://portal.aws.amazon.com/billing/signup.
-2. Follow the online instructions.
-
-## Create an IAM user
-
-1. Sign in to the [IAM console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/") as the account owner by choosing **Root user** and entering your AWS account email address. On the next page, enter your password.
-
-###### Note
-
-We strongly recommend that you adhere to the best practice of using the `Administrator` IAM user below and securely lock away the root user credentials. Sign in as the root user only to perform a few [account and service management tasks](../../../general/latest/gr/aws_tasks-that-require-root.md "../../../general/latest/gr/aws_tasks-that-require-root.md"). 2. In the navigation pane, choose **Users** and then choose **Create user**. 3. For **User name**, enter `Administrator`. 4. Select the check box next to **AWS Management Console access**. Then select **Custom password**, and then enter your new password in the text box. 5. (Optional) By default, AWS requires the new user to create a new password when first signing in. You can clear the check box next to **User must create a new password at next sign-in** to allow the new user to reset their password after they sign in. 6. Choose **Next: Permissions**. 7. Under **Set permissions**, choose **Add user to group**. 8. Choose **Create group**. 9. In the **Create group** dialog box, for **Group name** enter `Administrators`. 10. Choose **Filter policies**, and then select **AWS managed -job function** to filter the table contents. 11. In the policy list, select the check box for **AdministratorAccess**. Then choose **Create group**.
-
-###### Note
-
-You must activate IAM user and role access to Billing before you can use the `AdministratorAccess` permissions to access the AWS Billing and Cost Management console. To do this, follow the instructions in [step 1 of the tutorial about delegating access to the billing console](../../../IAM/latest/UserGuide/tutorial_billing.md "../../../IAM/latest/UserGuide/tutorial_billing.md"). 12. Back in the list of groups, select the check box for your new group. Choose **Refresh** if necessary to see the group in the list. 13. Choose **Next: Tags**. 14. (Optional) Add metadata to the user by attaching tags as key-value pairs. For more information about using tags in IAM, see [Tagging IAM Entities](../../../IAM/latest/UserGuide/id_tags.md "../../../IAM/latest/UserGuide/id_tags.md") in the _IAM User Guide_. 15. Choose **Next: Review** to see the list of group memberships to be added to the new user. When you are ready to proceed, choose **Create user**.
-
-You can use this same process to create more groups and users and to give your users access to your AWS account resources. To learn about using policies that restrict user permissions to specific AWS resources, see [Access Management](../../../IAM/latest/UserGuide/access.md "../../../IAM/latest/UserGuide/access.md") and [Example Policies](../../../IAM/latest/UserGuide/access_policies_examples.md "../../../IAM/latest/UserGuide/access_policies_examples.md").
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see [Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md") in the _AWS Account Management Reference Guide_.
 
 ## Create an IAM role to delegate Amazon EVS permission to an IAM user
 
