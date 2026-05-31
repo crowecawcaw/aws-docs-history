@@ -5,7 +5,6 @@ Before you can use EventBridge Scheduler, you must complete the following steps.
 ###### Topics
 
 - [Sign up for AWS](#setting-up-aws-sign-up "#setting-up-aws-sign-up")
-- [Create an IAM user](#setting-up-create-iam-user "#setting-up-create-iam-user")
 - [Use managed policies](#setting-up-managed-policies "#setting-up-managed-policies")
 - [Set up the execution role](#setting-up-execution-role "#setting-up-execution-role")
 - [Set up a target](#setting-up-target "#setting-up-target")
@@ -13,38 +12,21 @@ Before you can use EventBridge Scheduler, you must complete the following steps.
 
 ## Sign up for AWS
 
-If you do not have an AWS account, complete the following steps to create one.
+### Sign up for an AWS account
 
-###### To sign up for an AWS account
-
-1. Open [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup").
-2. Follow the online instructions.
-
-Part of the sign-up procedure involves receiving a phone call or text message and entering
-a verification code on the phone keypad.
-
-When you sign up for an AWS account, an _AWS account root user_ is created. The root user has access to all AWS services
-and resources in the account. As a security best practice, assign administrative access to a user, and use only the root user to perform [tasks that require root user access](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks").
-
-## Create an IAM user
-
-To create an administrator user, choose one of the following options.
-
-| Choose one way to manage your administrator | To                                                                                                                                                                                                                                                                                                                                                  | By                                                                                                                                                                                                                                          | You can also                                                                                                                                                                                                                                          |
-| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| In IAM Identity Center (Recommended)        | Use short-term credentials to access AWS.This aligns with the security best<br>practices. For information about best practices, see [Security best<br>practices in IAM](../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp "../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp") in the _IAM User Guide_. | Following the instructions in [Getting started](../../../singlesignon/latest/userguide/getting-started.md "../../../singlesignon/latest/userguide/getting-started.md") in the<br>_AWS IAM Identity Center User Guide_.                      | Configure programmatic access by [Configuring the AWS CLI to use<br>AWS IAM Identity Center](../../../cli/latest/userguide/cli-configure-sso.md "../../../cli/latest/userguide/cli-configure-sso.md") in the _AWS Command Line Interface User Guide_. |
-| In IAM (Not recommended)                    | Use long-term credentials to access AWS.                                                                                                                                                                                                                                                                                                            | Following the instructions in [Create an IAM user for emergency access](../../../IAM/latest/UserGuide/getting-started-emergency-iam-user.md "../../../IAM/latest/UserGuide/getting-started-emergency-iam-user.md") in the _IAM User Guide_. | Configure programmatic access by [Manage access keys for IAM<br>users](../../../IAM/latest/UserGuide/id_credentials_access-keys.md "../../../IAM/latest/UserGuide/id_credentials_access-keys.md") in the _IAM User Guide_.                            |
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
 
 ## Use managed policies
 
-In the previous step, you set up an IAM user with the credentials to access your AWS resources. In most cases, to use EventBridge Scheduler securely, we recommend that
+After you set up your AWS account and administrative user, we recommend that
 you create separate users, groups, or roles with only the necessary permissions to use EventBridge Scheduler. EventBridge Scheduler supports the following managed policies for common use cases.
 
 - AmazonEventBridgeSchedulerFullAccess – Grants full access to EventBridge Scheduler using the console and the API.
 - AmazonEventBridgeSchedulerReadOnlyAccess – Grants read-only access to EventBridge Scheduler.
 
-You can attach these managed policies to your IAM principals the same way you
-attached the `AdministratorAccess` policy in the previous step. For more
+You can attach these managed policies to your IAM principals. For more
 information about managing access to EventBridge Scheduler using identity-based IAM policies, see
 [Using identity-based policies in EventBridge Scheduler](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
