@@ -35,9 +35,16 @@ following according to the type of Firewall Manager policies that you use:
     * **Shield policy** – Enable Config for the resource types Shield
      Protection, ShieldRegional Protection, Application Load Balancer, EC2 EIP, WAF WebACL, WAF
      Regional WebACL, and WAFv2 WebACL.
-    * **Security group policy** – Enable Config for the
-     resource types EC2 SecurityGroup, EC2 Instance, and EC2
-     NetworkInterface.
+    * **Common security group policy** – Enable Config
+     for the resource types Amazon EC2 SecurityGroup and Amazon EC2 VPC, plus the resource
+     types in the policy's resource type list (typically Amazon EC2 Instance and Amazon EC2
+     NetworkInterface). If you enable security group references distribution
+     on the policy, also enable Amazon EC2 VPCPeeringConnection.
+    * **Security group content audit policy** – Enable
+     Config for the resource types Amazon EC2 SecurityGroup, Amazon EC2 NetworkInterface,
+     and Amazon EC2 Instance.
+    * **Security group usage audit policy** – Enable
+     Config for the resource type Amazon EC2 SecurityGroup.
     * **Network ACL policy** – Enable Config for the resource types Amazon EC2 Subnet and Amazon EC2 network ACL.
     * **Network Firewall policy** – Enable Config
      for the resource types NetworkFirewall FirewallPolicy, NetworkFirewall

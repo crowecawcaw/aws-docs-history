@@ -36,9 +36,9 @@ Log files from your protection pack (web ACL) are published to the Amazon S3 buc
 Each log file contains log records for the traffic recorded in the
 previous 5 minutes.
 
-The maximum file size for a log file is 75 MB. If the log file reaches the
-file size limit within the 5-minute period, the log stops adding records to it,
-publishes it to the Amazon S3 bucket, and then creates a new log file.
+Multiple log files may be published within a 5-minute period. The log files
+may contain some or all of the AWS WAF log records for the traffic recorded in the
+previous five minutes.
 
 The log files are compressed. If you open the files using the Amazon S3 console, Amazon S3
 decompresses the log records and displays them. If you download the log files, you

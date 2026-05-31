@@ -59,6 +59,7 @@ on the specified resources:
 
 - Action: `firehose:PutRecord` and `firehose:PutRecordBatch` on Amazon Data Firehose data stream resources with a name that starts with "aws-waf-logs-." For example,
   `aws-waf-logs-us-east-2-analytics`.
+- Action: `kms:GenerateDataKey` and `kms:Decrypt` on AWS Key Management Service to allow Amazon Data Firehose to use customer managed AWS KMS keys to encrypt data.
 
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see [Service-Linked Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_.

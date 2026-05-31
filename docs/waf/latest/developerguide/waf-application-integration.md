@@ -24,6 +24,10 @@ can use rule groups that check and monitor challenge tokens, like the ones liste
 next section, at [Intelligent threat integration and AWS Managed Rules](waf-application-integration-with-AMRs.md "waf-application-integration-with-AMRs.md"), and you can use the
 CAPTCHA and Challenge rule actions to check, as described in [CAPTCHA and Challenge in AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md").
 
+Use the AWS WAF SDK to improve the detection accuracy of the targeted protection level
+of Bot Control. Add the challenge `script` tag to your key pages (login, checkout,
+and account creation). For more guidance on when and how to integrate, see [Integrating the client application integration SDKs](waf-bot-control-use-cases.md#waf-bot-control-sdk-guidance "waf-bot-control-use-cases.md#waf-bot-control-sdk-guidance").
+
 AWS WAF provides two levels of integration for JavaScript applications, and one for mobile
 applications:
 

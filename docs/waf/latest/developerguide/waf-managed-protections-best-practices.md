@@ -55,6 +55,10 @@ Consider the following approaches to reduce your use of these rule groups:
 
 For detailed pricing information, see [AWS WAF Pricing](https://aws.amazon.com/waf/pricing/ "https://aws.amazon.com/waf/pricing/").
 
+You can also place less expensive rules (IP reputation, geo-blocking) before
+Bot Control so that requests blocked by cheaper rules never reach the paid
+inspection. For more cost management guidance, see [Managing costs](waf-bot-control-use-cases.md#waf-bot-control-cost-strategies "waf-bot-control-use-cases.md#waf-bot-control-cost-strategies").
+
 - **Do not limit the requests that you send to the Anti-DDoS rule group** – This rule group operates best when you configure it in to monitor all web traffic that you
   aren't explicitly allowing through. Position it in your web ACL to be evaluated
   only after rules with the Allow rule action and before all other rules.

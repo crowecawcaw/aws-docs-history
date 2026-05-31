@@ -17,6 +17,12 @@ effective use of the Bot Control rule group. The challenge script must run befor
 rule group in order for the rule group to benefit from the tokens that the script
 acquires.
 
+At minimum, add the JavaScript challenge script tag to your most critical
+pages such as login, checkout, and account creation. For the strongest detection,
+integrate the SDK more broadly across pages that serve dynamic content. The
+more behavioral data Bot Control has, the better it can distinguish real users from
+advanced bots. For detailed integration guidance, see [Integrating the client application integration SDKs](waf-bot-control-use-cases.md#waf-bot-control-sdk-guidance "waf-bot-control-use-cases.md#waf-bot-control-sdk-guidance").
+
 - With the application integration SDKs, the script runs automatically.
 - If you're unable to use the SDKs, you can configure your protection pack (web ACL) so that it runs the
   Challenge or CAPTCHA rule action against all requests that will be

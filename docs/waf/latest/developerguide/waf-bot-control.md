@@ -47,6 +47,9 @@ applications in multiple accounts that are part of your organization in AWS Orga
 
 For more information about the Bot Control managed rule group, see [AWS WAF Bot Control rule group](aws-managed-rule-groups-bot.md "aws-managed-rule-groups-bot.md").
 
+For guidance on choosing the right protection level and configuring Bot Control for specific
+application scenarios, see [Choosing and configuring Bot Control for your use case](waf-bot-control-use-cases.md "waf-bot-control-use-cases.md").
+
 ## Web bot authentication for AI agents
 
 AWS WAF Bot Control now supports Web Bot Authentication (WBA) as a cryptographic verification method for bots and AI agents accessing your CloudFront distributions.

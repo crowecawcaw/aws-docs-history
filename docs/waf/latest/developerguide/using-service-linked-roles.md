@@ -41,6 +41,7 @@ The permissions policies of the role allow AWS WAF to complete the following act
 - Amazon Data Firehose actions: `PutRecord` and `PutRecordBatch` on Firehose data stream resources with a name that
   starts with `aws-waf-logs-`. For example, `aws-waf-logs-us-east-2-analytics`.
 - AWS Organizations action: `DescribeOrganization` on Organizations organizations resources.
+- AWS Key Management Service actions: `GenerateDataKey` and `Decrypt` to allow Amazon Data Firehose to use customer managed AWS KMS keys to encrypt data.
 
 See the full service-linked role in the IAM console:
 [AWSServiceRoleForWAFV2Logging](https://console.aws.amazon.com/iam/home#/roles/details/AWSServiceRoleForWAFV2Logging "https://console.aws.amazon.com/iam/home#/roles/details/AWSServiceRoleForWAFV2Logging").

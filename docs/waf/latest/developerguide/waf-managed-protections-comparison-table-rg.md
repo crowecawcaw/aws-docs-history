@@ -27,3 +27,8 @@ client applications.
 For details about costs associated with these options, see the intelligent threat
 mitigation information at [AWS WAF
 Pricing](https://aws.amazon.com/waf/pricing/ "https://aws.amazon.com/waf/pricing/").
+
+If your application faces bots that rotate IP addresses and mimic browser behavior,
+the common protection level alone won't detect them. These bots don't self-identify
+and require the behavioral analysis and machine learning that targeted protection provides.
+For guidance on choosing the right protection level for your specific application, see [Choosing and configuring Bot Control for your use case](waf-bot-control-use-cases.md "waf-bot-control-use-cases.md").
