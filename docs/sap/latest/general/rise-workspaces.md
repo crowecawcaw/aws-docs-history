@@ -28,8 +28,8 @@ The following image shows the use of Amazon WorkSpaces as remote access solution
 
 1. To use or setup Amazon WorkSpaces to connect to SAP RISE, follow the [Get started with WorkSpaces](../../../workspaces/latest/adminguide/getting-started.md "../../../workspaces/latest/adminguide/getting-started.md").
 2. For more information about integrating Amazon WorkSpaces with SAP Single-sign-on, see [How to integrate Amazon WorkSpaces with SAP Single Sign-On](https://aws.amazon.com/blogs/awsforsap/how-to-integrate-amazon-workspaces-with-sap-single-sign-on/ "https://aws.amazon.com/blogs/awsforsap/how-to-integrate-amazon-workspaces-with-sap-single-sign-on/")
-3. {https---help-sap-com-doc-2e5792a2569b403da415080f35f8bbf6-770-00-en-US-sap-frontend-inst-guide-pdf}[Install SAPGUI on your WorkSpaces from SAP Software download]
-4. {https---help-sap-com-doc-saphelp-em92-9-2-en-US-4e-1260dd1e3d2287e10000000a15822b-content-htm}[Connect to SAP system via the SAPGUI client] in WorkSpaces using your SAP System details
+3. [Install SAPGUI on your WorkSpaces from SAP Software download](https://help.sap.com/doc/2e5792a2569b403da415080f35f8bbf6/770.00/en-US/sap_frontend_inst_guide.pdf "https://help.sap.com/doc/2e5792a2569b403da415080f35f8bbf6/770.00/en-US/sap_frontend_inst_guide.pdf")
+4. [Connect to SAP system via the SAPGUI client](https://help.sap.com/doc/saphelp_em92/9.2/en-US/4e/1260dd1e3d2287e10000000a15822b/content.htm "https://help.sap.com/doc/saphelp_em92/9.2/en-US/4e/1260dd1e3d2287e10000000a15822b/content.htm") in WorkSpaces using your SAP System details
 
 **Amazon Workspaces Operational Best Practices**
 

@@ -1,6 +1,6 @@
 # Connecting to RISE using AWS VPN
 
-Enable access to your remote network from RISE with SAP VPC using {https---docs-aws-amazon-com-vpn-latest-s2svpn-VPC-VPN-html}[AWS Site-to-Site VPN]. Traffic between AWS cloud and your on-premises location is encrypted via Internet Protocol security (IPsec) and transferred through a secure tunnel on internet. This option is efficient, and faster to implement when compared to AWS Direct Connect. For more information, see [Connect your VPC to remote networks using AWS Virtual Private Network](../../../vpc/latest/userguide/vpn-connections.md "../../../vpc/latest/userguide/vpn-connections.md").
+Enable access to your remote network from RISE with SAP VPC using [AWS Site-to-Site VPN](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md"). Traffic between AWS cloud and your on-premises location is encrypted via Internet Protocol security (IPsec) and transferred through a secure tunnel on internet. This option is efficient, and faster to implement when compared to AWS Direct Connect. For more information, see [Connect your VPC to remote networks using AWS Virtual Private Network](../../../vpc/latest/userguide/vpn-connections.md "../../../vpc/latest/userguide/vpn-connections.md").
 
 You can get a maximum bandwidth of up to 1.25 Gbps per VPN tunnel. For more information, see [Site-to-Site VPN quotas](../../../vpn/latest/s2svpn/vpn-limits.md "../../../vpn/latest/s2svpn/vpn-limits.md").
 

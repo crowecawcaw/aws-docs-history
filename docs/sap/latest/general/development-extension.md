@@ -11,7 +11,7 @@ You can authenticate AWS SDK for SAP ABAP with IAM access key. The following ima
 Data flow
 
 1. AWS SDK for SAP ABAP is installed via a set of transports in SAP S/4HANA within RISE with SAP VPC.
-2. SAP S/4HANA is configured with IAM access key for authenticating access to AWS services. For more information, see {https---docs-aws-amazon-com-IAM-latest-UserGuide-id-credentials-access-keys-html}[Managing access keys for IAM users].
+2. SAP S/4HANA is configured with IAM access key for authenticating access to AWS services. For more information, see [Managing access keys for IAM users](../../../IAM/latest/UserGuide/id_credentials_access-keys.md "../../../IAM/latest/UserGuide/id_credentials_access-keys.md").
 3. Access to AWS services with AWS SDK for SAP ABAP has been established.
 
 ## Compatibility packs and alternatives
