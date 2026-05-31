@@ -32,7 +32,7 @@ The following list contains AWS services and features that are in scope for the 
 - AWS Lake Formation
 - Amazon Managed Streaming for Apache Kafka (Amazon MSK)
 - Amazon OpenSearch Service
-- Amazon QuickSuite
+- Amazon Quick
 - Amazon Redshift
 
 ## Application Integration
