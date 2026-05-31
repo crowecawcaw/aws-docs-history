@@ -1,5 +1,9 @@
 # Scanning Windows EC2 instances with Amazon Inspector
 
+###### Note
+
+This page applies to customers that have not opted in to Enhanced EC2 Scanning.
+
 Amazon Inspector automatically discovers all supported Windows instances and includes them in continuous scanning without any extra actions.
 For information about which instances are supported, see [Operating systems and programming languages supported by Amazon Inspector](supported.md "supported.md").
 Amazon Inspector runs Windows scans at regular intervals.

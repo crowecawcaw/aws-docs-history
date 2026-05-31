@@ -6,7 +6,7 @@ Amazon Inspector performs network reachability scans once every 12 hours and pac
 
 Package vulnerability scans can be performed using an [agent-based](scanning-ec2.md#agent-based "scanning-ec2.md#agent-based") or [agentless](scanning-ec2.md#agentless "scanning-ec2.md#agentless") scan method.
 Both of these scan methods determine how and when Amazon Inspector collects the software inventory from an EC2 instance for package vulnerability scans.
-Agent-based scanning collects software inventory using the SSM agent, and agentless scanning collects software inventory using on Amazon EBS snapshots.
+Agent-based scanning collects software inventory from your instances using the Amazon EC2 Systems Manager (SSM) agent, and agentless scanning collects software inventory using Amazon EBS snapshots.
 
 Amazon Inspector uses the scan methods that you activate for your account.
 When you activate Amazon Inspector for the first time, your account is automatically enrolled in hybrid scanning, which uses both scan methods.
@@ -14,26 +14,32 @@ However, you can [change this setting](scanning-ec2.md#scan-mode "scanning-ec2.m
 For information about how to activate a scan type, see [Activating a scan type](activate-scans.md "activate-scans.md").
 This section provides information about Amazon EC2 scanning.
 
-###### Note
-
-Amazon EC2 scanning does not scan filesystem directories related to virtual environment even if they are provisioned through deep inspection.
-For example, the path `/var/lib/docker/` is not scanned because it's commonly used for container run times.
-
 ## Agent-based scanning
 
-Agent-based scans are performed continuously using the SSM agent on all eligible
+### Enhanced EC2 Scanning
+
+Enhanced EC2 Scanning is performed using the [Amazon Inspector VM Scanner](inspector-vm-scanner.md "inspector-vm-scanner.md"). This scanner is installed and updated using SSM associations. Customers can opt in by going to their Amazon Inspector console and visiting the **Settings** > **Scan Settings** page. Choose **Start Upgrade** to begin Enhanced EC2 Scanning.
+
+1. Amazon Inspector creates SSM associations in your account to collect inventory from
+   your instances. These associations install plugins on individual instances to collect inventory.
+2. Using system tools like Systemd and Scheduled Tasks, Inspector VM Scanner extracts package inventory from an instance and communicates that information to Amazon Inspector.
+3. Amazon Inspector evaluates the extracted inventory and generates findings for any
+   detected vulnerabilities.
+
+### Standard scanning
+
+Agent-based scans are performed continuously using the Amazon Inspector SSM plugin on all eligible
 instances. For agent-based scans, Amazon Inspector uses SSM associations, and plugins installed
 through these associations, to collect software inventory from your instances. In
 addition to package vulnerability scans for operating system packages, Amazon Inspector
 agent-based scanning can also detect package vulnerabilities for application
-programming language packages in Linux-based instances through [Amazon Inspector deep inspection for Linux-based Amazon EC2 instances](deep-inspection.md "deep-inspection.md").
+programming language packages through Amazon Inspector [deep inspection](deep-inspection.md "deep-inspection.md").
 
 The following process explains how Amazon Inspector uses SSM to collect inventory and perform
 agent-based scans:
 
 1. Amazon Inspector creates SSM associations in your account to collect inventory from
-   your instances. For some Instance types (Windows, and Linux), these
-   associations install plugins on individual instances to collect inventory.
+   your instances. These associations install plugins on individual instances to collect inventory.
 2. Using SSM, Amazon Inspector extracts package inventory from an instance.
 3. Amazon Inspector evaluates the extracted inventory and generates findings for any
    detected vulnerabilities.
@@ -41,6 +47,24 @@ agent-based scans:
 ###### Note
 
 For agent-based scanning, the Amazon EC2 instance must be managed by SSM in same AWS account.
+
+### Amazon VPC endpoint requirements for Enhanced EC2 Scanning on private Amazon EC2 instances
+
+You can run Enhanced EC2 Scanning on Amazon EC2 instances over an Amazon network. However, if you want to run Enhanced EC2 Scanning on private Amazon EC2 instances, you must create Amazon VPC endpoints. The following endpoints are required:
+
+- `com.amazonaws.`region`.ec2messages`
+- `com.amazonaws.`region`.inspector2-telemetry`
+- `com.amazonaws.`region`.s3`
+- `com.amazonaws.`region`.ssm`
+- `com.amazonaws.`region`.ssmmessages`
+
+Where `region` is the Region code for the applicable AWS Region.
+
+For more information, see [Improve the security of Amazon EC2 instances by using Amazon VPC endpoints for Systems Manager](../../../systems-manager/latest/userguide/setup-create-vpc.md "../../../systems-manager/latest/userguide/setup-create-vpc.md") in the _AWS Systems Manager User Guide_.
+
+###### Note
+
+Currently, some AWS Regions don't support the `com.amazonaws.`region`.inspector2-telemetry` endpoint.
 
 ### Eligible instances
 
@@ -51,8 +75,6 @@ following conditions:
   **Agent-based scan support** column of [Supported operating systems: Amazon EC2 scanning](supported.md#supported-os-ec2 "supported.md#supported-os-ec2").
 - The instance is not excluded from scans by Amazon Inspector EC2 exclusion
   tags.
-- The instance is SSM managed. For instructions on verifying and
-  configuring the agent, see [Configuring the SSM Agent](#configure-ssm "#configure-ssm").
 
 ### Agent-based scan behaviors
 
@@ -104,9 +126,7 @@ permissions needed for Amazon Inspector EC2 scanning.
 
 You can also automate SSM management of all your EC2 instances, without
 the use of IAM instance profiles, by using SSM Default Host Management
-Configuration. For more information, see [Default Host Management Configuration](../../../systems-manager/latest/userguide/managed-instances-default-host-management.md "../../../systems-manager/latest/userguide/managed-instances-default-host-management.md"). When an IAM instance
-profile is configured on an instance, Amazon Inspector uses that profile and ignores
-the Default Host Management Configuration (DHMC) role.
+Configuration. For more information, see [Default Host Management Configuration](../../../systems-manager/latest/userguide/managed-instances-default-host-management.md "../../../systems-manager/latest/userguide/managed-instances-default-host-management.md").
 
 ###### To configure SSM for an Amazon EC2 instance
 
@@ -128,20 +148,6 @@ the Default Host Management Configuration (DHMC) role.
 5. (Optional) Configure Systems Manager to use an Amazon Virtual Private Cloud (Amazon VPC) endpoint. For
    more information, see [Create
    Amazon VPC endpoints](../../../systems-manager/latest/userguide/setup-create-vpc.md "../../../systems-manager/latest/userguide/setup-create-vpc.md").
-
-###### Important
-
-Amazon Inspector requires a Systems Manager State Manager association in your account to
-collect software application inventory. Amazon Inspector automatically creates an
-association called `InspectorInventoryCollection-do-not-delete`
-if one doesn't already exist.
-
-Amazon Inspector also requires a resource data sync and automatically creates one
-called `InspectorResourceDataSync-do-not-delete` if one doesn't
-already exist. For more information, see [Configuring resource data sync for Inventory](../../../systems-manager/latest/userguide/sysman-inventory-datasync.md "../../../systems-manager/latest/userguide/sysman-inventory-datasync.md") in the _AWS Systems Manager User Guide_. Each account can have a
-set number of resource data syncs per Region. For more information, see
-Maximum number of resource data syncs (per AWS account per Region) in
-[SSM endpoints and quotas](../../../general/latest/gr/ssm.md#limits_ssm "../../../general/latest/gr/ssm.md#limits_ssm").
 
 #### SSM resources created for scanning
 
@@ -167,6 +173,12 @@ inventory data from your Amazon EC2 instances to an Amazon S3 bucket owned
 by Amazon Inspector. For more information, see [Configuring resource data sync for Inventory](../../../systems-manager/latest/userguide/sysman-inventory-datasync.md "../../../systems-manager/latest/userguide/sysman-inventory-datasync.md") in the
 _AWS Systems Manager User
 Guide_.
+
+`InspectorVmScannerDistributor-do-not-delete`
+
+This is an SSM association that Amazon Inspector uses to install and
+update the [Amazon Inspector VM Scanner](inspector-vm-scanner.md "inspector-vm-scanner.md") on
+your Amazon EC2 instances.
 
 `InspectorDistributor-do-not-delete`
 

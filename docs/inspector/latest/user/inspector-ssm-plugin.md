@@ -1,10 +1,10 @@
-# The Amazon Inspector SSM plugin for Linux and Windows
+# Amazon Inspector SSM plugin for Linux and Windows
 
 This topic describes the Amazon Inspector SSM plugin for Linux and Windows instances.
 
 ## The Amazon Inspector SSM plugin for Linux
 
-Amazon Inspector uses the Amazon Inspector SSM plugin to perform deep inspection scans on Linux instances.
+If you have not enabled Enhanced EC2 Scanning with the Amazon Inspector VM Scanner, Amazon Inspector uses the Amazon Inspector SSM plugin to perform deep inspection scans on Linux instances.
 The Amazon Inspector SSM plugin is automatically installed on Linux instances in the `/opt/aws/inspector/bin` directory.
 The name of the executable is `inspectorssmplugin`.
 
@@ -28,7 +28,7 @@ If you deactivate Amazon EC2 scanning, the plugin will be automatically uninstal
 
 ## The Amazon Inspector SSM plugin for Windows
 
-The Amazon Inspector SSM plugin is required for Amazon Inspector to scan your Windows instances.
+If you have not enabled Enhanced EC2 Scanning with the Amazon Inspector VM Scanner, the Amazon Inspector SSM plugin is required for Amazon Inspector to scan your Windows instances.
 The Amazon Inspector SSM plugin is automatically installed on your Windows instances in `C:\Program Files\Amazon\Inspector`, and the executable binary file is named `InspectorSsmPlugin.exe`.
 
 The following file locations are created to store data the Amazon Inspector SSM plugin collects:
