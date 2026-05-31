@@ -22,6 +22,20 @@ Amazon GameLift Servers to request the VPC peering that you just authorized. Ama
 creating the peering connection, setting up the route tables, and configuring the
 connection.
 
+## IAM permissions for VPC peering
+
+Amazon GameLift Servers uses the caller's credentials to update peer-VPC resources. The IAM user that
+calls `CreateVpcPeeringAuthorization` or
+`CreateVpcPeeringConnection` must have the following Amazon EC2 permissions
+enabled:
+
+- `ec2:AcceptVpcPeeringConnection`
+- `ec2:AuthorizeSecurityGroupEgress`
+- `ec2:AuthorizeSecurityGroupIngress`
+- `ec2:CreateRoute`
+- `ec2:DescribeRouteTables`
+- `ec2:DescribeSecurityGroups`
+
 ## To set up VPC peering for an existing fleet
 
 1. ###### Get AWS account ID(s) and credentials.
