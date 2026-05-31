@@ -280,7 +280,7 @@ You are now ready to deploy your application to the AWS Cloud.
 
 ###### Note
 
-This step requires AWS credentials configuration. For more information, see [Step 5: Use the AWS CLI to configure AWS credentials](prerequisites.md#prerequisites-configure-credentials "prerequisites.md#prerequisites-configure-credentials") in [AWS SAM prerequisites](prerequisites.md "prerequisites.md").
+This step requires AWS credentials configuration. For more information, see [Step 2: Use the AWS CLI to configure AWS credentials](prerequisites.md#prerequisites-configure-credentials "prerequisites.md#prerequisites-configure-credentials") in [AWS SAM prerequisites](prerequisites.md "prerequisites.md").
 
 In this step, you use the AWS SAM CLI to deploy your application to the AWS Cloud. The AWS SAM CLI will do the
 following:

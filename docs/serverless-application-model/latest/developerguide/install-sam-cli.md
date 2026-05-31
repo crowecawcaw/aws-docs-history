@@ -2,7 +2,7 @@
 
 Install the latest release of the AWS Serverless Application Model Command Line Interface
 (AWS SAM CLI) on supported operating systems by following instructions in
-[Step 4: Install the AWS CLI](prerequisites.md#prerequisites-install-cli "prerequisites.md#prerequisites-install-cli").
+[Step 1: Install the AWS CLI](prerequisites.md#prerequisites-install-cli "prerequisites.md#prerequisites-install-cli").
 
 For information on managing a currently installed version of the AWS SAM CLI, including how to
 upgrade, uninstall, or manage nightly builds, see [Managing AWS SAM CLI versions](manage-sam-cli-versions.md "manage-sam-cli-versions.md").

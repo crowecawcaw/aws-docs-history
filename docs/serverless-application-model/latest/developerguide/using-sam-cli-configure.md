@@ -254,4 +254,4 @@ _AWS Command Line Interface User Guide_:
 - [Using an
   IAM Identity Center enabled named profile](../../../cli/latest/userguide/sso-using-profile.md "../../../cli/latest/userguide/sso-using-profile.md")
 
-For quick setup instructions, see [Step 5: Use the AWS CLI to configure AWS credentials](prerequisites.md#prerequisites-configure-credentials "prerequisites.md#prerequisites-configure-credentials").
+For quick setup instructions, see [Step 2: Use the AWS CLI to configure AWS credentials](prerequisites.md#prerequisites-configure-credentials "prerequisites.md#prerequisites-configure-credentials").
