@@ -18,6 +18,13 @@ upgrade). For example, a Windows 11 23H2 system which was upgraded to 24H2 canno
 to create an image. However, Windows cumulative or security updates are supported by the
 WorkSpaces image-creation process.
 
+If your account is already enabled for BYOL, you do not need to provision new dedicated
+infrastructure to run WorkSpaces Applications fleets powered by Windows 11. The same dedicated
+hardware that supports your existing WorkSpaces Personal or Pools BYOL workloads can be used
+for WorkSpaces Applications. Simply import your Windows 11 BYOL image into WorkSpaces
+Applications and create a fleet from it. To learn more, see [Bring Your Own Windows Desktop
+Licenses for WorkSpaces Applications](../../../appstream2/latest/developerguide/byol-windows-images.md "../../../appstream2/latest/developerguide/byol-windows-images.md").
+
 ###### Topics
 
 - [Using Bring Your Own Windows desktop licenses in WorkSpaces](#byol-process "#byol-process")
@@ -34,11 +41,13 @@ Before you begin, verify the following:
 
 - Your Microsoft licensing agreement allows Windows to run in a virtual hosted
   environment.
-- If you are using non-GPU-enabled bundles, verify that you use a minimum of 50 WorkSpaces per region in any mix of AlwaysOn and AutoStop configurations.
-  This minimum is required to run WorkSpaces on dedicated hardware, which is necessary to comply with Microsoft licensing requirements.
-  The dedicated hardware is provisioned by AWS, so your VPC can remain on default tenancy.
-
-If you plan to use GPU-enabled bundles, verify that you run a minimum of 4 AlwaysOn or 20 AutoStop GPU-enabled WorkSpaces per region per month on dedicated hardware.
+- For non-GPU-enabled bundles, a minimum of 50 WorkSpaces per Region per month is required.
+  This minimum ensures workloads run on dedicated hardware in compliance with Microsoft licensing requirements.
+  - The 50-instance minimum can be fulfilled by any combination of WorkSpaces Applications
+    unique users streaming sessions (AlwaysOn or On-Demand) and WorkSpaces Personal instances within the same Region.
+    The dedicated hardware is provisioned and managed by AWS — your VPC can remain on default tenancy.
+  - If you plan to use GPU-enabled bundles, verify that you run a minimum of 4 AlwaysOn or
+    20 AutoStop GPU-enabled WorkSpaces and/or WorkSpaces Applications per region per month on dedicated hardware.
 
 ###### Note
 
@@ -132,6 +141,14 @@ Your VM must run one of the following Windows versions:
 
 You will need a Windows virtual machine image or Windows ISO image file that uses a supported Windows OS version:
 
+###### Important
+
+Software-level disk encryption such as Microsoft BitLocker must be
+disabled on the source image before importing. Images with BitLocker
+or other full-disk encryption software enabled will fail the import
+process. Ensure BitLocker is turned off and the volume is fully
+decrypted before exporting your VM for import.
+
 - Download an Enterprise edition ISO image by signing into the [Microsoft 365 admin center](https://admin.microsoft.com/adminportal/home#/subscriptions/vlnew "https://admin.microsoft.com/adminportal/home#/subscriptions/vlnew").
   Sign in to your subscription on the [Visual Studio Subscriptions portal](https://my.visualstudio.com/downloads "https://my.visualstudio.com/downloads") for available downloads.
   Do not use an ISO file downloaded from the [public Windows 11 download website](https://www.microsoft.com/en-us/software-download/windows11 "https://www.microsoft.com/en-us/software-download/windows11") which does not provide an Enterprise edition ISO.
@@ -145,6 +162,16 @@ You will need a Windows virtual machine image or Windows ISO image file that use
 - All supported OS versions support all of the compute types available in the AWS Region
   where you're using WorkSpaces. Versions of Windows that are no longer supported by
   Microsoft are not guaranteed to work and are not supported by AWS Support.
+
+###### Important
+
+If you are using Windows 10 or Windows 11 LTSC (Long-Term Servicing
+Channel) editions, note that Amazon EC2 Image Builder does not support importing
+ISOs for LTSC editions. You must use an alternative method to create your
+base image, such as importing a VM image directly using the
+`aws ec2 import-image` AWS CLI command. For more information, see
+[Supported operating systems for VM import](../../../vm-import/latest/userguide/prerequisites.md "../../../vm-import/latest/userguide/prerequisites.md") in the
+_VM Import/Export User Guide_.
 
 ###### Note
 
@@ -193,7 +220,8 @@ disables the Windows Update service.
    the `Downloads\BYOL` folder.
 4. Delete the `Downloads\ImageCompatibilityChecker.zip` folder so that only
    the extracted files remain.
-   Check that Windows VM is not enabled with BitLocker.
+   Check that Windows VM is not enabled with BitLocker. For more information on
+   this requirement, see the [Prerequisites for using Windows BYOL with Amazon WorkSpaces](#windows_images_prerequisites "#windows_images_prerequisites") section above.
 
 ###### Ensure Windows VM is not enabled with BitLocker
 

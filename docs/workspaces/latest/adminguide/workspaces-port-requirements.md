@@ -54,6 +54,19 @@ For PCoIP WorkSpaces, the desktop client applications do not support the use of 
 TLS decryption and inspection for port 4172 traffic in UDP (for desktop traffic).
 They require a direct connection to ports 4172.
 
+Ports 50002 and 55002 (UDP)
+
+The PCoIP client initiates outbound UDP communication on ports 50002 and
+55002 for streaming. Ensure that the client's local firewall or network
+allows outbound UDP traffic on these ports. If outbound UDP on ports 50002
+and 55002 is blocked on the client side, users may experience a black screen
+when connecting to their WorkSpaces.
+
+If your firewall uses stateful filtering, return traffic on ephemeral
+ports 50002 and 55002 is automatically permitted. If your firewall uses
+stateless filtering, you must open ephemeral ports 49152–65535 to allow
+return communication.
+
 Port 4195 (UDP and TCP)
 This port is used for streaming the WorkSpace desktop and health checks for DCV WorkSpaces.
 This port must be open to the DCV Gateway IP address ranges
@@ -406,11 +419,6 @@ WorkSpaces:
   client.
 - Outbound UDP on ports 3478, 4172, and 4195. This is used for access using
   the web client.
-- Outbound UDP on ports 50002 and 55002. This is used for streaming. If your
-  firewall uses stateful filtering, the ephemeral ports 50002 and 55002 are
-  automatically opened to allow return communication. If your firewall uses
-  stateless filtering, you must open ephemeral ports 49152 - 65535 to allow
-  return communication.
 - Outbound TCP on port 80, as defined in
   [Management interface IP ranges](workspaces-port-requirements.md#management-ip-ranges "workspaces-port-requirements.md#management-ip-ranges"), to IP address 169.254.169.254 for access to the
   EC2 metadata service. Any HTTP proxy assigned to your WorkSpaces must also

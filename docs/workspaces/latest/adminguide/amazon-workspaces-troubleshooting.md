@@ -458,7 +458,7 @@ Issues on the client side often cause the network check in the client to fail. T
 see which health checks are failing, choose the network check icon (typically a red
 triangle with an exclamation point in the bottom-right corner of the login screen
 for 2.0+ clients or the network icon
-![Network icon](/images/workspaces/latest/adminguide/images/network-icon.png)
+![Network icon](images/network-icon.png)
 in the upper-right corner of the 3.0+ clients).
 
 ###### Note
@@ -918,9 +918,6 @@ causes for this problem are:
   the WorkSpace from responding to the status request.
 - High CPU utilization is preventing the WorkSpace from responding to the
   status request in a timely manner.
-- The computer name of the WorkSpace has been changed. This prevents a
-  secure channel from being established between WorkSpaces and the
-  WorkSpace.
 
 You can attempt to correct the situation using the following methods:
 

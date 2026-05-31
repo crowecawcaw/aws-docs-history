@@ -97,37 +97,43 @@ new WorkSpace is terminated.
 
 The following table shows which migration scenarios are available:
 
-| Source OS                                            | Target OS                                            | Available? |
-| ---------------------------------------------------- | ---------------------------------------------------- | ---------- |
-| Public or custom bundle Windows 7                    | Public or custom bundle Windows 10                   | Yes        |
-| Custom bundle Windows 7                              | Public bundle Windows 7                              | No         |
-| Custom bundle Windows 7                              | Custom bundle Windows 7                              | No         |
-| Public bundle Windows 7                              | Custom bundle Windows 7                              | No         |
-| Public or custom bundle Windows 10                   | Public or custom bundle Windows 7                    | No         |
-| Public or custom bundle Windows 10                   | Custom bundle Windows 10                             | Yes        |
-| Windows 7 BYOL bundle                                | Windows 7 BYOL bundle                                | No         |
-| Windows 7 BYOL bundle                                | Windows 10 BYOL bundle                               | Yes        |
-| Windows 10 BYOL bundle                               | Windows 7 BYOL bundle                                | No         |
-| Windows 10 BYOL bundle                               | Windows 10 BYOL bundle                               | Yes        |
-| Windows Server 2016-powered Public Windows 10 bundle | Windows Server 2019-powered Public Windows 10 bundle | Yes        |
-| Windows Server 2019-powered Public Windows 10 bundle | Windows Server 2016-powered Public Windows 10 bundle | Yes        |
-| Windows 10 BYOL bundle                               | Windows 11 BYOL bundle                               | Yes        |
-| Windows 11 BYOL bundle                               | Windows 10 BYOL bundle                               | No         |
-| Windows Server 2016-powered custom Windows 10 bundle | Windows Server 2019-powered Public Windows 10 bundle | Yes        |
-| Windows Server 2016-powered custom Windows 10 bundle | Windows Server 2022-powered Public Windows 10 bundle | Yes        |
-| Windows Server 2019-powered custom Windows 10 bundle | Windows Server 2022-powered Public Windows 10 bundle | Yes        |
-| Windows 10 BYOP BYOL                                 | Windows 11 BYOP BYOL                                 | Yes        |
-| Windows 11 BYOP BYOL                                 | Windows 10 BYOP BYOL                                 | No         |
-| Windows Server 2019-powered Public BYOP              | Windows Server 2022-powered Public BYOP              | Yes        |
-| Windows Server 2022-powered Public BYOP              | Windows Server 2019-powered Public BYOP              | No         |
-| Windows Server 2019-powered Public BYOP              | Windows Server 2025-powered Public BYOP              | Yes        |
-| Windows Server 2025-powered Public BYOP              | Windows Server 2019-powered Public BYOP              | No         |
-| Windows Server 2022-powered Public BYOP              | Windows Server 2025-powered Public BYOP              | Yes        |
-| Windows Server 2025-powered Public BYOP              | Windows Server 2022-powered Public BYOP              | No         |
-| Windows Server 2019-powered Public Windows 10 bundle | Windows Server 2025-powered Public BYOP              | Yes        |
-| Windows Server 2019-powered Custom Windows 10 bundle | Windows Server 2025-powered Public BYOP              | Yes        |
-| Windows Server 2022-powered Public Windows 10 bundle | Windows Server 2025-powered Public BYOP              | Yes        |
-| Windows Server 2022-powered Custom Windows 10 bundle | Windows Server 2025-powered Public BYOP              | Yes        |
+| Source OS                                            | Target OS                                                | Available? |
+| ---------------------------------------------------- | -------------------------------------------------------- | ---------- |
+| Public or custom bundle Windows 7                    | Public or custom bundle Windows 10                       | Yes        |
+| Custom bundle Windows 7                              | Public bundle Windows 7                                  | No         |
+| Custom bundle Windows 7                              | Custom bundle Windows 7                                  | No         |
+| Public bundle Windows 7                              | Custom bundle Windows 7                                  | No         |
+| Public or custom bundle Windows 10                   | Public or custom bundle Windows 7                        | No         |
+| Public or custom bundle Windows 10                   | Custom bundle Windows 10                                 | Yes        |
+| Windows 7 BYOL bundle                                | Windows 7 BYOL bundle                                    | No         |
+| Windows 7 BYOL bundle                                | Windows 10 BYOL bundle                                   | Yes        |
+| Windows 10 BYOL bundle                               | Windows 7 BYOL bundle                                    | No         |
+| Windows 10 BYOL bundle                               | Windows 10 BYOL bundle                                   | Yes        |
+| Windows Server 2016-powered Public Windows 10 bundle | Windows Server 2019-powered Public Windows 10 bundle     | Yes        |
+| Windows Server 2019-powered Public Windows 10 bundle | Windows Server 2016-powered Public Windows 10 bundle     | Yes        |
+| Windows 10 BYOL bundle                               | Windows 11 BYOL bundle                                   | Yes        |
+| Windows 11 BYOL bundle                               | Windows 10 BYOL bundle                                   | No         |
+| Windows Server 2016-powered custom Windows 10 bundle | Windows Server 2019-powered Public Windows 10 bundle     | Yes        |
+| Windows Server 2016-powered custom Windows 10 bundle | Windows Server 2022-powered Public Windows 10 bundle     | Yes        |
+| Windows Server 2019-powered custom Windows 10 bundle | Windows Server 2022-powered Public Windows 10 bundle     | Yes        |
+| Windows 10 BYOP BYOL                                 | Windows 11 BYOP BYOL                                     | Yes        |
+| Windows 11 BYOP BYOL                                 | Windows 10 BYOP BYOL                                     | No         |
+| Windows Server 2016-powered Public Windows 10 bundle | Windows Server 2025-powered Public Windows Server bundle | Yes        |
+| Windows Server 2019-powered Public Windows 10 bundle | Windows Server 2025-powered Public Windows Server bundle | Yes        |
+| Windows Server 2022-powered Public Windows 10 bundle | Windows Server 2025-powered Public Windows Server bundle | Yes        |
+| Windows Server 2016-powered custom Windows 10 bundle | Windows Server 2025-powered Public Windows Server bundle | Yes        |
+| Windows Server 2019-powered custom Windows 10 bundle | Windows Server 2025-powered Public Windows Server bundle | Yes        |
+| Windows Server 2022-powered custom Windows 10 bundle | Windows Server 2025-powered Public Windows Server bundle | Yes        |
+| Windows Server 2019-powered Public BYOP              | Windows Server 2022-powered Public BYOP                  | Yes        |
+| Windows Server 2022-powered Public BYOP              | Windows Server 2019-powered Public BYOP                  | No         |
+| Windows Server 2019-powered Public BYOP              | Windows Server 2025-powered Public BYOP                  | Yes        |
+| Windows Server 2025-powered Public BYOP              | Windows Server 2019-powered Public BYOP                  | No         |
+| Windows Server 2022-powered Public BYOP              | Windows Server 2025-powered Public BYOP                  | Yes        |
+| Windows Server 2025-powered Public BYOP              | Windows Server 2022-powered Public BYOP                  | No         |
+| Windows Server 2019-powered Public Windows 10 bundle | Windows Server 2025-powered Public BYOP                  | Yes        |
+| Windows Server 2019-powered Custom Windows 10 bundle | Windows Server 2025-powered Public BYOP                  | Yes        |
+| Windows Server 2022-powered Public Windows 10 bundle | Windows Server 2025-powered Public BYOP                  | Yes        |
+| Windows Server 2022-powered Custom Windows 10 bundle | Windows Server 2025-powered Public BYOP                  | Yes        |
 
 ###### Note
 
