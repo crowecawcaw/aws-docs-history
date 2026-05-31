@@ -26,18 +26,9 @@ permissions are typically performed by an IAM administrator for your organizatio
 
 ###### Topics
 
-- [Sign up for an AWS account](#launch-wizard-sql-aws-account "#launch-wizard-sql-aws-account")
 - [Assign permissions to use Launch Wizard](#launch-wizard-user-setup "#launch-wizard-user-setup")
 - [One-time creation of IAM Role](#launch-wizard-iam-role "#launch-wizard-iam-role")
 - [AWS Secrets Manager permissions](#launch-wizard-sql-prerequisites-secrets-manager "#launch-wizard-sql-prerequisites-secrets-manager")
-
-### Sign up for an AWS account
-
-#### Sign up for an AWS account
-
-To get started with AWS, you need an AWS account. For information about creating an AWS account, see
-[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
-in the _AWS Account Management Reference Guide_.
 
 ### Assign permissions to use Launch Wizard
 

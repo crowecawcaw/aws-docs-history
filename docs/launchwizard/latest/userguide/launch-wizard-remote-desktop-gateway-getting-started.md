@@ -8,7 +8,6 @@ following the steps and parameter specification details provided in this section
 
 - [Access AWS Launch Wizard](#launch-wizard-remote-desktop-gateway-access "#launch-wizard-remote-desktop-gateway-access")
 - [Specialized knowledge](#launch-wizard-remote-desktop-gateway-specialized-knowledge "#launch-wizard-remote-desktop-gateway-specialized-knowledge")
-- [Amazon Web Services account](#launch-wizard-remote-desktop-gateway-aws-account "#launch-wizard-remote-desktop-gateway-aws-account")
 - [Service Quotas](#launch-wizard-remote-desktop-gateway-resource-quotas "#launch-wizard-remote-desktop-gateway-resource-quotas")
 - [Amazon Elastic Compute Cloud key pairs](#launch-wizard-remote-desktop-gateway-key-pairs "#launch-wizard-remote-desktop-gateway-key-pairs")
 - [AWS Identity and Access Management permissions](#launch-wizard-remote-desktop-gateway-iam-permissions "#launch-wizard-remote-desktop-gateway-iam-permissions")
@@ -26,14 +25,6 @@ Certification](https://aws.amazon.com/training "https://aws.amazon.com/training"
 operate your infrastructure and applications on the AWS Cloud.
 
 This Launch Wizard assumes familiarity with Remote Desktop Gateway.
-
-## Amazon Web Services account
-
-### Sign up for an AWS account
-
-To get started with AWS, you need an AWS account. For information about creating an AWS account, see
-[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
-in the _AWS Account Management Reference Guide_.
 
 ## Service Quotas
 

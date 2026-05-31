@@ -64,18 +64,11 @@ administrator** for your organization. The steps are as follows:
 
 ###### Launch Wizard for SAP IAM topics
 
-- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [One-time creation of IAM role](#launch-wizard-sap-iam-role "#launch-wizard-sap-iam-role")
 - [Enable users to use Launch Wizard](#launch-wizard-user-setup "#launch-wizard-user-setup")
 - [Add permissions to use AWS KMS keys](#launch-wizard-sap-iam-encryption "#launch-wizard-sap-iam-encryption")
 - [Add permissions to run custom pre- and post-deployment configuration scripts](#launch-wizard-sap-iam-scripts "#launch-wizard-sap-iam-scripts")
 - [Add permissions to save deployment artifacts to Amazon S3](#launch-wizard-sap-iam-s3-artifacts "#launch-wizard-sap-iam-s3-artifacts")
-
-### Sign up for an AWS account
-
-To get started with AWS, you need an AWS account. For information about creating an AWS account, see
-[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
-in the _AWS Account Management Reference Guide_.
 
 ### One-time creation of IAM role
 
