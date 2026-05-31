@@ -20,7 +20,7 @@ The App Runner console has three areas. From left to right:
 - Help pane – A side pane for more information. Expand it to get help about the page you're on. Or choose any
   **Info** link on a console page to get contextual help.
 
-![The App Runner console layout, showing the navigation, content, and help panes](images/getting-started-services.png)
+![The App Runner console layout, showing the navigation, content, and help panes](/images/apprunner/latest/dg/images/getting-started-services.png)
 
 ## The Services page
 
@@ -44,7 +44,7 @@ name.
 
 To get to the service dashboard, navigate to the **Services** page (see previous section), and then choose your App Runner service.
 
-![App Runner service dashboard page](images/console-dashboard.png)
+![App Runner service dashboard page](/images/apprunner/latest/dg/images/console-dashboard.png)
 
 The **Service overview** section provides basic details about the App Runner service and your application. Things you can do here:
 
