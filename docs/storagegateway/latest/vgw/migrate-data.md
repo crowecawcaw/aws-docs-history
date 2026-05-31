@@ -1,5 +1,12 @@
 # Moving your data to a new gateway instance
 
+###### Note
+
+If you are performing a Storage Gateway AL2 to AL2023 migration, before you begin, ensure you have completed all items in the **Pre-migration Checklist** in
+
+[Storage Gateway AL2 to AL2023 Migration Campaign](al2-to-al2023-migration.md "al2-to-al2023-migration.md")
+.
+
 You can move data between gateways as your data and performance needs grow, or if you
 receive an AWS notification to migrate your gateway. The following are some reasons for
 doing this:
