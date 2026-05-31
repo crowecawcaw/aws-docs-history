@@ -5,9 +5,7 @@ You can access Amazon Keyspaces using the console, AWS CloudShell, programmatica
 supports drivers and clients that are compatible with Apache Cassandra 3.11.2.
 Before accessing Amazon Keyspaces, you must complete setting up AWS Identity and Access Management and then grant an IAM identity access permissions to Amazon Keyspaces.
 
-## Setting up AWS Identity and Access Management
-
-### Sign up for an AWS account
+## Sign up for an AWS account
 
 To get started with AWS, you need an AWS account. For information about creating an AWS account, see
 [Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")

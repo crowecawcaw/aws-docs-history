@@ -71,3 +71,29 @@ aws keyspacesstreams get-records \
 --shard-iterator '`SHARD_ITERATOR`' \
 --limit 100
 ```
+
+The following is an example of the output.
+
+```
+`{
+ "changeRecords": [...],
+ "nextShardIterator": "<NEXT_SHARD_ITERATOR>",
+ "iteratorDescription": {
+ "iteratorPosition": "BEHIND_TIP"
+ }
+}`
+```
+
+## Optimize polling frequency with iterator position
+
+The `GetRecords` response includes an `iteratorDescription` field
+that indicates your consumer's current position within the shard:
+
+- `AT_TIP` — No more records are currently available.
+  Consider reducing your polling frequency to optimize costs.
+- `BEHIND_TIP` — The stream tip advances continuously.
+  Additional records may be available. Continue polling at your normal frequency.
+
+`BEHIND_TIP` with an empty `changeRecords` list indicates
+the stream is progressing but no customer records are available at this position.
+Continue polling normally.
