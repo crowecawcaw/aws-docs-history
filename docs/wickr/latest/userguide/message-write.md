@@ -11,7 +11,7 @@ To send a direct message to another Wickr user, complete the following steps.
 1. Sign in to the Wickr client. For more information, see [Sign in to the Wickr client](getting-started.md#sign-in-step2 "getting-started.md#sign-in-step2").
 2. In the navigation pane, choose the new message
    icon (
-   ![New icon](images/icon-wickr-new.png)
+   ![New icon](/images/wickr/latest/userguide/images/icon-wickr-new.png)
    ), and then choose **New Direct
    Message**.
 

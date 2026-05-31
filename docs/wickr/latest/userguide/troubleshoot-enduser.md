@@ -14,6 +14,7 @@ Wickr network administrator.
 - [Registration issues](#troubleshoot-enduser-registration "#troubleshoot-enduser-registration")
 - [Reset your password](#troubleshoot-enduser-password-reset "#troubleshoot-enduser-password-reset")
 - [Collect logs for your administrator](#troubleshoot-enduser-logs "#troubleshoot-enduser-logs")
+- [Desktop keychain or secure store errors](#troubleshoot-enduser-keychain "#troubleshoot-enduser-keychain")
 
 ## Before you begin
 
@@ -193,3 +194,32 @@ before sign-in completes – launch the client with the
    **About**,
    **Export All Logs**.
 2. Send the exported log file to your administrator.
+
+## Desktop keychain or secure store errors
+
+Wickr uses your operating system's secure credential store (Credential
+Manager on Windows, Keychain on macOS, or Secret Service on Linux) to protect
+your login credentials. If you see errors related to the keychain, secure store,
+or saved credentials, try the following steps in order.
+
+1. **Restart the Wickr client.** Close
+   Wickr completely and reopen it. This resolves most one-time keychain
+   access failures, including "SYSTEM SECURITY DELAY" prompts.
+2. **Sign out of and back into your operating
+   system.** Log out of your OS user session (not Wickr) and
+   log back in. This resolves issues caused by password changes,
+   OS updates, sleep/wake cycles, or fast user switching.
+3. **Restart your device.** A full restart
+   clears transient session state that can prevent Wickr from accessing
+   the secure store.
+
+If the issue persists after all three steps, the problem is with your
+device's credential store rather than Wickr. Contact your IT team or refer
+to your platform's documentation.
+
+###### Note
+
+If other applications on your device also have trouble accessing saved
+credentials, the issue is with your operating system's credential store
+or an enterprise policy — not with Wickr. Contact your IT
+administrator.

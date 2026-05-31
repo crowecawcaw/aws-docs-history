@@ -14,3 +14,6 @@ cannot resolve the issue through self-service, open a case in the [AWS Support C
 ###### Topics
 
 - [Troubleshoot login and registration issues](troubleshoot-enduser.md "troubleshoot-enduser.md")
+- [Troubleshoot voice and video call issues](troubleshoot-calls.md "troubleshoot-calls.md")
+- [Troubleshoot message delivery issues](troubleshoot-messages.md "troubleshoot-messages.md")
+- [Troubleshoot network and connectivity issues](troubleshoot-network.md "troubleshoot-network.md")
