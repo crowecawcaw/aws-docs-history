@@ -113,11 +113,31 @@ rules. For more information, see [Integrating AWS Transit Gateway with AWS Priva
 
 ## Subnets and Availability Zones
 
-You can configure your VPC endpoint with one subnet per Availability Zone.
-We create an elastic network interface for the VPC endpoint in your subnet.
-We assign IP addresses to each elastic network interface from its subnet in multiples of /28, if the [IP address type](privatelink-access-resources.md#resource-endpoint-ip-address-type "privatelink-access-resources.md#resource-endpoint-ip-address-type") of the VPC endpoint is IPv4.
-The number of IP addresses assigned in each subnet depends on the number of resource configurations and we add additional IPs in /28 blocks as needed.
-In a production environment, for high availability and resiliency, we recommend configuring at least two Availability Zones for each VPC endpoint and having contiguous IPs available.
+You can configure your service-network endpoint with one subnet per Availability Zone. We
+create an elastic network interface for the VPC endpoint in each subnet that you specify. We
+assign IP addresses to each elastic network interface from its subnet as follows:
+
+- **VPC Lattice services (Layer 7)** – We assign a /28 block (16 contiguous IPv4 addresses)
+  per Availability Zone for all VPC Lattice services associated with the service network.
+  This /28 block is allocated when the service-network endpoint is created, even if there
+  are no services currently in the service network. The /28 block must consist of 16
+  contiguous, unoccupied IPv4 addresses and it cannot overlap with the five AWS-reserved
+  addresses (first four and last IP). Ensure that sufficient free contiguous address
+  space is available. For IPv6, we also assign a /80 block per Availability Zone for VPC
+  Lattice services.
+- **VPC Lattice resources (Layer 4/TCP)** – We assign one IPv4 address per resource
+  configuration per Availability Zone. Contiguous address space is not required for VPC
+  Lattice resources. We allocate up to 63 IP addresses per elastic network interface. When
+  additional resource configurations exceed this limit, we create another elastic network
+  interface in the same subnet. For IPv6, we assign a /80 block on the first elastic network
+  interface created for resources; no additional elastic network interfaces are created
+  when using IPv6. When you remove a resource configuration from the service network,
+  we release its associated IP address. When all IPv4 addresses on an elastic network
+  interface are released, we remove the elastic network interface.
+
+In a production environment, for high availability and resiliency, we recommend that you
+configure at least two Availability Zones for each service-network endpoint and ensure that
+each subnet has sufficient available IPv4 addresses.
 
 ## IP address types
 

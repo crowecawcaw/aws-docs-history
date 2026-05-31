@@ -13,15 +13,23 @@ To create a service-network endpoint, you must meet the following prerequisites.
 - If a service network is shared with you from another account, you must review and accept
   the resource share that contains the service network. For more information, see [Accepting and rejecting invitations](../../../ram/latest/userguide/working-with-shared-invitations.md "../../../ram/latest/userguide/working-with-shared-invitations.md") in the
   _AWS RAM User Guide_.
-- A service network endpoint initially requires a contiguous /28 block of IPv4 addresses
-  available in an Availability Zone. If you add a resource configuration to the service network that is
-  associated with your endpoint, you need an additional /28 block available in the same subnet,
-  as each resource consumes a unique IP per Availability Zone.
+- For VPC Lattice services associated with the service network, the service-network endpoint
+  requires a contiguous /28 block (16 IPv4 addresses) per Availability Zone. This /28 block is
+  allocated when the endpoint is created, even if no services are currently in the service network.
+  The /28 block must consist of 16 contiguous, unoccupied IPv4 addresses and cannot overlap with
+  the five AWS-reserved addresses (first four and last IP in the subnet). For IPv6, a /80 block per
+  Availability Zone is allocated for VPC Lattice services. Ensure that sufficient free contiguous
+  address space is available in each subnet you select.
+- For VPC Lattice resources (Layer 4/TCP) associated with the service network, one IPv4 address
+  per resource configuration per Availability Zone is required. Contiguous address space is not
+  required. Up to 63 IP addresses can be allocated per elastic network interface. When additional
+  resource configurations exceed this limit, an additional elastic network interface is created in the
+  same subnet. For IPv6, a /80 block is assigned on the first elastic network interface created for
+  resources; no additional elastic network interfaces are created when using IPv6.
 
-If you plan on adding over 16 resource configurations to a service network, additional
-/28 blocks are consumed on the service network endpoint to
-accommodate new resources. We recommend that if you need to avoid using VPC CIDR IPs, you use
-a service network VPC association. For more information, see [Manage VPC endpoint associations](../../../vpc-lattice/latest/ug/service-network-associations.md#service-network-vpc-endpoint-associations "../../../vpc-lattice/latest/ug/service-network-associations.md#service-network-vpc-endpoint-associations") in the _Amazon VPC Lattice User
+If you need to avoid consuming VPC CIDR IP addresses, or anticipate a large number of
+resource configurations associated with the service network, consider using a service network
+VPC association instead. For more information, see [Manage VPC endpoint associations](../../../vpc-lattice/latest/ug/service-network-associations.md#service-network-vpc-endpoint-associations "../../../vpc-lattice/latest/ug/service-network-associations.md#service-network-vpc-endpoint-associations") in the _Amazon VPC Lattice User
 Guide_.
 
 ## Create a service network endpoint
