@@ -42,7 +42,7 @@ A typical Managed Service for Apache Flink application has the following compone
   using one or more _operators_. An operator can transform,
   enrich, or aggregate data. For more information, see [Operators](how-operators.md "how-operators.md").
 - **Sinks:** The application sends data to external
-  sources through _sinks_. A sink uses a [connector](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/connectors/table/overview/ "https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/connectors/table/overview/")v to send data to a Kinesis data stream, a Kafka topic, Amazon S3,
+  sources through _sinks_. A sink uses a [connector](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/connectors/table/overview/ "https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/connectors/table/overview/") to send data to a Kinesis data stream, a Kafka topic, Amazon S3,
   or a relational database. You can also use a special connector to print the
   output for development purposes only. For more information, see [Write data using sinks](how-sinks.md "how-sinks.md").
 
