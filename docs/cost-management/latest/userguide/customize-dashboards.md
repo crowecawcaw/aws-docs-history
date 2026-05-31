@@ -9,3 +9,7 @@ Time periods can be managed at both the dashboard and widget level:
   all widgets temporarily and resets when you leave or refresh the dashboard.
 - Configure individual widget time periods. These settings are saved with each widget
   and persist when you return to the dashboard.
+
+###### Note
+
+The Budget report widget displays data in table format only. Visualization type options (line chart, bar chart, stacked bar chart) do not apply to Budget report widgets. The dashboard level time period filter does not apply to Budget report widgets, as budget data is retrieved directly from the AWS Budgets service.

@@ -35,6 +35,15 @@ You can opt out of Cost Anomaly Detection at any time. For more information, see
 
 Cost Anomaly Detection isn't available for bill source accounts that use billing transfer. Cost Anomaly Detection doesn't support billing transfer views.
 
+Cost Anomaly Detection does not monitor third-party products and services available through
+AWS Marketplace. This includes third-party LLMs like Anthropic Claude models on
+Amazon Bedrock (which appear in Cost Explorer and on your bill under the legal
+entity "Anthropic, PBC") and any models you deploy through Amazon Bedrock
+Marketplace. To get alerts for these charges, use AWS Budgets. A cost budget
+tracks your total AWS costs, including AWS Marketplace. You can use the
+**Billing entity** filter to track AWS Marketplace charges
+specifically. For more information, see [Creating a budget](budgets-create.md "budgets-create.md").
+
 ###### Topics
 
 - [Setting up your anomaly detection](settingup-ad.md "settingup-ad.md")

@@ -2,14 +2,14 @@
 
 AWS Billing and Cost Management Dashboards enable you to create and share customized views
 of your cost and usage data in a single page. You can create collections of charts and tables,
-called widgets, that combine data from Cost Explorer with Savings Plans and Reserved Instance
-coverage and utilization metrics, providing comprehensive insights into your AWS spending
+called widgets, that combine data from Cost Explorer with Savings Plans and Reserved Instance coverage and utilization metrics, and Budgets, providing comprehensive insights into your AWS spending
 patterns.
 
 Key features of Dashboards:
 
 - Create custom dashboards with multiple visualization types to display cost and usage
   data.
+- Monitor budgets alongside cost and usage data, including actual spend against budget limits and forecasted spend.
 - Customize dashboard layouts by resizing and arranging widgets to highlight key
   information.
 - Share dashboards securely with accounts within or outside your AWS Organization.
@@ -21,6 +21,7 @@ Key features of Dashboards:
 
 - Analyzing spending trends across services, Regions, and teams to identify cost
   patterns.
+- Monitoring budget performance across multiple budgets in a single view, reducing the need to navigate between the AWS Budgets and Dashboards.
 - Monitoring Savings Plans and Reserved Instance utilization and coverage to optimize
   commitments.
 - Establishing standardized cost reporting practices to maintain consistency across your

@@ -41,6 +41,10 @@ To ensure complete data export:
 4. Adjust widget filters to reduce the data volume displayed
 5. Preview the PDF again to verify all important data is now included
 
+###### Note
+
+When exporting a dashboard that contains AWS Budgets report widgets, the PDF includes the budget name, budgeted amount, actual spend, and forecasted amount columns.
+
 ###### To export widget data as CSV
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
