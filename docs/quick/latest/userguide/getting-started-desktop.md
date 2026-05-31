@@ -13,7 +13,7 @@ meets the following requirements.
 | Requirement      | Minimum                                                                                                                 |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | Operating system | macOS 12 (Monterey) or later                                                                                            |
-| Processor        | Apple Silicon (M1 or later) or Intel 64-bit                                                                             |
+| Processor        | Apple Silicon (M1 or later)                                                                                             |
 | Memory           | 8 GB RAM                                                                                                                |
 | Disk space       | 500 MB available (installation only). 10 GB or more<br>recommended for search indexing and knowledge graph<br>features. |
 | Internet         | Required for sign-in, AI model access, and connected<br>services                                                        |
@@ -32,8 +32,8 @@ meets the following requirements.
 
 ###### Important
 
-If your organization uses a Professional or Enterprise account with IAM
-Identity Center or IAM federation, complete the steps in [Setting up Amazon Quick on desktop for enterprise deployments](desktop-enterprise-setup.md "desktop-enterprise-setup.md") before downloading or distributing the
+If your organization uses a Professional or Enterprise account, complete
+the steps in [Setting up Amazon Quick on desktop for enterprise deployments](desktop-enterprise-setup.md "desktop-enterprise-setup.md") before downloading or distributing the
 application. Enterprise sign-in is not available until an administrator configures
 the extension access.
 

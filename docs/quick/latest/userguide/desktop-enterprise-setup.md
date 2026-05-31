@@ -21,11 +21,8 @@ Continue to [Getting started](getting-started-desktop.md "getting-started-deskto
 The setup involves the following steps, in order:
 
 1. Create an OIDC application in your IdP.
-2. Create a Trusted Token Issuer (TTI) in IAM Identity Center (only
-   required for accounts that use IAM Identity Center for
-   authentication).
-3. Configure the extension access in the Amazon Quick management console.
-4. Distribute the desktop application to your users.
+2. Configure the extension access in the Amazon Quick management console.
+3. Distribute the desktop application to your users.
    This guide provides IdP-specific instructions for Microsoft Entra ID, Okta, and
    Ping Identity (PingFederate and PingOne). See instructions for your specific identity
    provider below.
@@ -39,20 +36,18 @@ application then exchanges the resulting authorization code for tokens using Pro
 for Code Exchange (PKCE).
 
 Amazon Quick validates the token and maps the user to an identity in your account.
-For accounts that use IAM Identity Center, the TTI maps the
-`email` claim in the OIDC token to the `emails.value` attribute
-in the identity store. For accounts that use IAM federation, Amazon Quick maps the
-user by email directly. In both cases, the email address in your IdP must exactly
-match the email address of the user in Amazon Quick.
+The email address in your IdP must exactly match the email address of the user
+in Amazon Quick.
 
 ## Prerequisites
 
 Before you begin, verify that you have the following:
 
-- An AWS account with an active Amazon Quick subscription that uses
-  IAM Identity Center or IAM federation for authentication. The
+- An AWS account with an active Amazon Quick subscription. The
   Amazon Quick account's home region (identity region) must be US East
-  (N. Virginia) (us-east-1).
+  (N. Virginia) (us-east-1). All identity types are supported, including
+  IAM Identity Center, IAM federation, and native Amazon Quick
+  (username/password) users.
 - Administrator access to your Amazon Quick account.
 - Access to your IdP with permissions to create OIDC application
   registrations.
@@ -334,94 +329,7 @@ Your OIDC endpoints use the following format. Replace
 | Token endpoint         | `https://auth.pingone.com/<ENV_ID>/as/token`     |
 | JWKS URI               | `https://auth.pingone.com/<ENV_ID>/as/jwks`      |
 
-## Step 2: Create a Trusted Token Issuer in IAM Identity Center
-
-###### Note
-
-This step is only required if your Amazon Quick account uses AWS Identity and Access Management
-Identity Center for authentication. If your account uses IAM federation,
-skip this step and proceed to Step 3.
-
-The TTI tells IAM Identity Center to trust tokens from your IdP and how to
-map them to IAM Identity Center users. You can create the TTI in the AWS Identity and Access Management
-Identity Center console or with the AWS CLI.
-
-For more information, see [Setting up a trusted token issuer](../../../singlesignon/latest/userguide/setuptrustedtokenissuer.md "../../../singlesignon/latest/userguide/setuptrustedtokenissuer.md") in the
-_AWS Identity and Access Management Identity Center User Guide_.
-
-###### To create the TTI in the IAM Identity Center console
-
-1. Open the [AWS Identity and Access Management Identity
-   Center console](https://console.aws.amazon.com/singlesignon "https://console.aws.amazon.com/singlesignon").
-2. Choose **Settings**.
-3. On the **Settings** page, choose the
-   **Authentication** tab.
-4. Under **Trusted token issuers**, choose
-   **Create trusted token issuer**.
-5. On the **Set up an external IdP to issue trusted
-   tokens** page, under **Trusted token issuer
-   details**, configure the following:
-
-| Field                     | Value                                                |
-| ------------------------- | ---------------------------------------------------- |
-| Issuer URL                | The OIDC issuer URL from Step 1 (see table<br>below) |
-| Trusted token issuer name | `AmazonQuickDesktop`                                 |
-
-6. Under **Map attributes**, configure the
-   attribute mapping that IAM Identity Center uses to look up
-   users:
-
-| Field                         | Value                                                                                                     |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------- |
-| Identity provider attribute   | The claim in the IdP token that identifies the user<br>(for example, `email`)                             |
-| IAM Identity Center attribute | The corresponding attribute in the IAM Identity<br>Center identity store (for example,<br>`emails.value`) |
-
-###### Important
-
-The identity provider attribute must match a claim that your IdP
-includes in the token, and the IAM Identity Center attribute must
-uniquely identify the user in your identity store. The most common
-mapping is `email` → `emails.value`, but
-your organization may use a different attribute such as
-`sub` or a custom claim. The value in the token claim
-must exactly match the value of the corresponding attribute in IAM
-Identity Center. 7. Choose **Create trusted token
-issuer**. 8. Note the **Trusted token issuer ARN**.
-You need it in the next step.
-
-Alternatively, to create the TTI with the AWS CLI, run the following command.
-Replace `<IDC_INSTANCE_ARN>` with your IAM Identity Center
-instance Amazon Resource Name (ARN) and `<ISSUER_URL>` with the
-issuer URL from Step 1.
-
-```
-aws sso-admin create-trusted-token-issuer \
-  --instance-arn <IDC_INSTANCE_ARN> \
-  --name "AmazonQuickDesktop" \
-  --trusted-token-issuer-type OIDC_JWT \
-  --trusted-token-issuer-configuration '{
-    "OidcJwtConfiguration": {
-      "IssuerUrl": "<ISSUER_URL>",
-      "ClaimAttributePath": "email",
-      "IdentityStoreAttributePath": "emails.value",
-      "JwksRetrievalOption": "OPEN_ID_DISCOVERY"
-    }
-  }'
-```
-
-Note the `TrustedTokenIssuerArn` from the output. You need it in the
-next step.
-
-The following table lists the issuer URL for each identity provider.
-
-| Identity provider  | Issuer URL                                           |
-| ------------------ | ---------------------------------------------------- |
-| Microsoft Entra ID | `https://login.microsoftonline.com/<TENANT_ID>/v2.0` |
-| Okta               | `https://<OKTA_DOMAIN>/oauth2/default`               |
-| PingFederate       | `https://<PINGFEDERATE_HOST>`                        |
-| PingOne            | `https://auth.pingone.com/<ENV_ID>/as`               |
-
-## Step 3: Configure the extension access in the Amazon Quick management console
+## Step 2: Configure the extension access in the Amazon Quick management console
 
 ###### To add the extension access
 
@@ -429,17 +337,9 @@ The following table lists the issuer URL for each identity provider.
 2. Under **Permissions**, choose
    **Extension access**.
 3. Choose **Add extension access**.
-4. (Optional) If your account uses IAM Identity Center, the
-   **Trusted Token Issuer Setup** step appears.
-   Enter the following:
-
-| Field                    | Value                                      |
-| ------------------------ | ------------------------------------------ |
-| Trusted Token Issuer ARN | The `TrustedTokenIssuerArn` from<br>Step 2 |
-| Aud claim                | The Client ID from Step 1                  |
-
-This step does not appear for accounts that use IAM federation. 5. Select the **Desktop application for
-Quick** extension and choose **Next**. 6. Enter the Amazon Quick extension details:
+4. Select the **Desktop application for
+   Quick** extension and choose **Next**.
+5. Enter the Amazon Quick extension details:
 
 | Field                  | Value                                              |
 | ---------------------- | -------------------------------------------------- |
@@ -451,7 +351,7 @@ Quick** extension and choose **Next**. 6. Enter the Amazon Quick extension detai
 | JWKS URI               | The JSON Web Key Set URI from Step 1               |
 | Client ID              | The OIDC client identifier from Step 1             |
 
-7. Choose **Add**.
+6. Choose **Add**.
 
 ###### Important
 
@@ -472,7 +372,7 @@ one.
    **Next**.
 4. Choose **Create**.
 
-## Step 4: Download and distribute the desktop application
+## Step 3: Download and distribute the desktop application
 
 After you configure enterprise sign-in, verify the setup by downloading and
 installing the desktop application yourself. Choose **Enterprise
@@ -480,10 +380,10 @@ login** on the sign-in screen and authenticate with your corporate
 credentials to confirm the configuration is working. For download and installation
 steps, see [Getting started](getting-started-desktop.md "getting-started-desktop.md").
 
-If the sign-in fails, verify the values you entered in Step 3 against the OIDC
+If the sign-in fails, verify the values you entered in Step 2 against the OIDC
 endpoints from Step 1. If any value is incorrect, delete the extension access under
 **Permissions → Extension access**, and repeat
-Step 3 with the correct values.
+Step 2 with the correct values.
 
 After you verify the setup, direct your users to [Getting started](getting-started-desktop.md "getting-started-desktop.md") for
 download, installation, and sign-in instructions.
@@ -499,13 +399,13 @@ client or native platform.
 User not found after sign-in
 
 The email in the IdP token must exactly match the email of a user in
-IAM Identity Center. Verify that the user is provisioned and that
+Amazon Quick. Verify that the user is provisioned and that
 the email addresses are identical in both systems.
 
 Token validation failure
 
-Verify that the issuer URL in the TTI matches the issuer URL in your
-IdP's OIDC configuration exactly.
+Verify that the issuer URL in the extension access configuration
+matches the issuer URL in your IdP's OIDC configuration exactly.
 
 Consent or permission errors (Microsoft Entra ID)
 

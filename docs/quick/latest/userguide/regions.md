@@ -149,16 +149,16 @@ still occur.
 
 ## Cross-Region calls for web search
 
-Amazon Quick makes cross-Region calls for web search functionality in Chat, Agents, and Research features. When using web search, requests are processed in the US East (N. Virginia) Region, even for requests originating outside the US East (N. Virginia) Region and the US geography. For customers in EMEA Regions, web search queries are processed in the Europe (Ireland) Region. Users in Asia Pacific (Sydney) and Asia Pacific (Tokyo) will receive an explicit notification that web search queries are processed in the US and must acknowledge this before proceeding.
+Amazon Quick makes cross-Region calls for web search functionality in Chat, Agents, and Research features. When using web search, requests originating in US West (Oregon) are processed in the US East (N. Virginia) Region. For customers in EMEA Regions, web search queries are processed in the Europe (Ireland) Region.
 
 ### Web search regional availability
 
-| Region name and code                   | Web search processing region      |
-| -------------------------------------- | --------------------------------- |
-| US East (N. Virginia) (us-east-1)      | US East (N. Virginia) (us-east-1) |
-| US West (Oregon) (us-west-2)           | US East (N. Virginia) (us-east-1) |
-| Europe (Ireland) (eu-west-1)           | Europe (Ireland) (eu-west-1)      |
-| Europe (Frankfurt) (eu-central-1)      | Europe (Ireland) (eu-west-1)      |
-| Europe (London) (eu-west-2)            | Europe (Ireland) (eu-west-1)      |
-| Asia Pacific (Sydney) (ap-southeast-2) | US East (N. Virginia) (us-east-1) |
-| Asia Pacific (Tokyo) (ap-northeast-1)  | US East (N. Virginia) (us-east-1) |
+| Region name and code                   | Web search processing region           |
+| -------------------------------------- | -------------------------------------- |
+| US East (N. Virginia) (us-east-1)      | US East (N. Virginia) (us-east-1)      |
+| US West (Oregon) (us-west-2)           | US East (N. Virginia) (us-east-1)      |
+| Europe (Ireland) (eu-west-1)           | Europe (Ireland) (eu-west-1)           |
+| Europe (Frankfurt) (eu-central-1)      | Europe (Ireland) (eu-west-1)           |
+| Europe (London) (eu-west-2)            | Europe (Ireland) (eu-west-1)           |
+| Asia Pacific (Sydney) (ap-southeast-2) | Asia Pacific (Sydney) (ap-southeast-2) |
+| Asia Pacific (Tokyo) (ap-northeast-1)  | Asia Pacific (Tokyo) (ap-northeast-1)  |

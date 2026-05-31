@@ -113,7 +113,7 @@ Custom agent testing enables you to test individual agents independently from th
 
 ### Monitor test execution
 
-During test execution, you can monitor progress in the audit panel on the right side of the screen. The test skips all preceding workflow steps and executes only the selected agent. You get the same logging experience as a full workflow run.
+During test execution, you can monitor progress in the audit panel. The test skips all preceding workflow steps and executes only the selected agent. You get the same logging experience as a full workflow run.
 
 ### Review test results
 
@@ -128,7 +128,7 @@ After the test completes, review the following information in the Test panel:
 - Watch Variables Tab (Bottom accordion of the Test panel)
   - Input - View input variables and their values
   - Output - Examine output results from the agent execution
-  - For structured outputs, click View Details button to choose the JSON viewer to open the View Output dialog box:
+  - For structured outputs, choose **View Details** to open the View Output dialog box:
     - Fields Tab - Navigate data using the tree structure view
     - Fields - Highlight corresponding values by selecting tree nodes in Fields tab
     - Output fields - Corresponding values for the JSON keys
@@ -201,7 +201,7 @@ To link a space to an automation group:
 
 ###### Tip
 
-You can also choose **Create group** on the right-hand side to create a new automation group. 3. In the **Assets** section, choose **Add**, and then choose **Spaces**. 4. Select the space that contains the knowledge bases you want to use, and then choose **Add**.
+You can also choose **Create group** to create a new automation group. 3. In the **Assets** section, choose **Add**, and then choose **Spaces**. 4. Select the space that contains the knowledge bases you want to use, and then choose **Add**.
 
 The space now appears in the automation group's connections list. Custom agents in this automation group can access the knowledge bases and files within the linked space. Other resources in the space are not available to automations.
 

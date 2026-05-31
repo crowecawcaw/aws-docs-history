@@ -325,7 +325,10 @@ unsubscribe from Amazon Quick.
     },
     {
       "Effect": "Deny",
-      "Action": "quicksight:Unsubscribe",
+      "Action": [
+        "quicksight:Unsubscribe",
+        "quicksight:DeleteAccountSubscription"
+      ],
       "Resource": "*"
     }
   ]
@@ -491,7 +494,10 @@ denies permission to unsubscribe from Amazon Quick.
         },
         {
             "Effect": "Deny",
-            "Action": "quicksight:Unsubscribe",
+            "Action": [
+                "quicksight:Unsubscribe",
+                "quicksight:DeleteAccountSubscription"
+            ],
             "Resource": "*"
         }
     ]

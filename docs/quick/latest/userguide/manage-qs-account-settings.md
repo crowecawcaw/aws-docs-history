@@ -73,10 +73,19 @@ account. Contact your account administrator for help.
 - You need permissions to run the following (except if you're the root admin
   user (IAM ) who added Amazon Quick)
   - `quicksight:Unsubscribe`
+  - `quicksight:DeleteAccountSubscription`
   - `ds:UnauthorizeApplication`
   - `ds:DeleteDirectory`
   - `ds:DescribeDirectories`
   - `quicksight:UpdateAccountSettings`
+
+###### Note
+
+The `DeleteAccountSubscription` Amazon Quick API requires
+both `quicksight:Unsubscribe` and
+`quicksight:DeleteAccountSubscription` IAM permissions. An
+explicit deny on either permission results in an
+`AccessDeniedException`.
 
 - To remove custom namespaces, you need permission to run the following API
   operations:
