@@ -54,6 +54,7 @@ VPC links V2 are supported in the following Regions and Availability Zones:
 | US West (Oregon)          | us-west-2      | usw2-az1, usw2-az2, usw2-az3, usw2-az4           |
 | Asia Pacific (Hong Kong)  | ap-east-1      | ape1-az2, ape1-az3                               |
 | Asia Pacific (Mumbai)     | ap-south-1     | aps1-az1, aps1-az2, aps1-az3                     |
+| Asia Pacific (Osaka)      | ap-northeast-3 | apne3-az1, apne3-az2, apne3-az3                  |
 | Asia Pacific (Seoul)      | ap-northeast-2 | apne2-az1, apne2-az2, apne2-az3                  |
 | Asia Pacific (Singapore)  | ap-southeast-1 | apse1-az1, apse1-az2, apse1-az3                  |
 | Asia Pacific (Sydney)     | ap-southeast-2 | apse2-az1, apse2-az2, apse2-az3                  |
