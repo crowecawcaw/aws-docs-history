@@ -9,7 +9,7 @@ For policy and policy engine resource types, Amazon Bedrock AgentCore publishes 
 
 ## Provided metric data
 
-Amazon Bedrock AgentCore publishes the following invocation metrics by default to the `Bedrock-Agentcore` CloudWatch namespace. These metrics can be used to observe and monitor policy evaluations and overall performance.
+Amazon Bedrock AgentCore publishes the following invocation metrics by default to the `AWS/Bedrock-AgentCore` CloudWatch namespace. These metrics can be used to observe and monitor policy evaluations and overall performance.
 
 | Metric                  | Description                                                                                    | Unit         |
 | ----------------------- | ---------------------------------------------------------------------------------------------- | ------------ |

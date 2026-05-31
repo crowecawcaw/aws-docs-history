@@ -372,7 +372,7 @@ The following table shows the APIs that you can call if you add this target type
 | GET           | getAttachmentById   | /users/ `{userId}` /messages/ `{messageId}` /attachments/ `{attachmentId}` | Get attachments from users                         |
 | GET           | listCalendarEvents  | /users/ `{userId}` /calendar/events                                        | Get events from users                              |
 | POST          | createCalendarEvent | /users/ `{userId}` /calendar/events                                        | Create new navigation property to events for users |
-| PATCH         | updateCalendarEvent | /users/ `{userId}` /calendar/events/ `{eventId}`                           | Update the calender events in users                |
+| PATCH         | updateCalendarEvent | /users/ `{userId}` /calendar/events/ `{eventId}`                           | Update the calendar events in users                |
 | POST          | findMeetingTimes    | /users/ `{userId}` /findMeetingTimes                                       | Suggest meeting times and locations                |
 | GET           | listMailFolders     | /users/ `{userId}` /mailFolders                                            | Get mailFolders from users                         |
 | GET           | listContacts        | /users/ `{userId}` /contacts                                               | Get contacts from users                            |

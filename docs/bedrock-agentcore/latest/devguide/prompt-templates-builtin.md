@@ -236,7 +236,7 @@ Rate the faithfulness of the assistant's response using this scale:
 - Not Generally: Most of the information in the assistant's response conflicts with the conversation history.
 - Not At All: Almost all information in the assistant's response conflicts with the conversation history.
 
-You should select "Completely Yes" unless you see any information in the AI assistant's reponse conflicting with the conversation history.
+You should select "Completely Yes" unless you see any information in the AI assistant's response conflicting with the conversation history.
 
 **IMPORTANT**: The tool output ALWAYS takes priority over your own knowledge.
 

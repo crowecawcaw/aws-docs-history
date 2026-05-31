@@ -110,7 +110,7 @@ import { CloudFrontTarget } from 'aws-cdk-lib/aws-route53-targets';
 const aRecord = new ARecord(this, 'AliasRecord', {
     zone: hostedZone, // route53 hosted zone from step 1
     recordName: domainName, // route53 hosted zone domain name from step 1
-    target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)), // cloufront distribution from from step 3
+    target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)), // cloudfront distribution from step 3
 });
 ```
 

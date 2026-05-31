@@ -18,7 +18,7 @@ If you choose to use a customer managed key, you are responsible for managing th
 
 ## Prerequisites for encrypting your AgentCore gateway
 
-Before encrypting your gateway, ensure that you have fulfilled the following prerequsites:
+Before encrypting your gateway, ensure that you have fulfilled the following prerequisites:
 
 - You have access to a KMS key. For information about creating a KMS key, see [Create a KMS key](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md").
 - The KMS key has a key policy attached to it that allows the following permissions:

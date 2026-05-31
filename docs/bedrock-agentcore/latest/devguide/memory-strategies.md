@@ -30,7 +30,7 @@ AgentCore handles all memory extraction and consolidation automatically with pre
 
 Extends built-in strategies with targeted customization while using an AgentCore managed extraction pipeline.
 
-- Extends built-in strategies with targetted customization
+- Extends built-in strategies with targeted customization
 - Allows modification of prompts while still using AgentCore managed extraction pipeline
 - Provides support for bedrock models (invoked in your account)
 - Lower cost for storage than built-ins

@@ -1,6 +1,6 @@
 # Security in Amazon Bedrock AgentCore
 
-Cloud security at AWS is the highest priority. As an AWS customer, you benefit from data centers and network architectures that are are designed to help meet with the requirements of the most security-sensitive organizations.
+Cloud security at AWS is the highest priority. As an AWS customer, you benefit from data centers and network architectures that are designed to help meet with the requirements of the most security-sensitive organizations.
 
 Security is a shared responsibility between AWS and you. The [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/") describes this as security _of_ the cloud and security _in_ the cloud:
 

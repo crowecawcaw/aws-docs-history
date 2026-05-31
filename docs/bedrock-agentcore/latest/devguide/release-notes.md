@@ -4,6 +4,30 @@ We recommend subscribing to the RSS feed so updates to these notes are delivered
 
 ## May 2026
 
+### AWS CDK: AgentCore Constructs Graduate to Stable
+
+The aws-bedrockagentcore L2 constructs have graduated from alpha to stable in aws-cdk-lib. Customers can now define AgentCore resources (runtime, memory, gateway, identity, and more) using CDK with full backward-compatibility guarantees, no separate -alpha package required. The Policy submodule remains in alpha. See [CDK release notes](https://github.com/aws/aws-cdk/releases/tag/v2.255.0 "https://github.com/aws/aws-cdk/releases/tag/v2.255.0").
+
+### Gateway: MCP Sessions
+
+AgentCore gateway can now maintain stateful sessions with MCP clients, allowing them to receive a unique Mcp-Session-Id on initialize and track session state (including downstream MCP target sessions, and pending elicitation or sampling request interactions). Sessions are scoped per authenticated user with configurable timeouts (default 1 hour, up to 8 hours). MCP Sessions serves as the foundation for all interactive MCP features below. See [Use MCP sessions with your AgentCore gateway](gateway-sessions.md "gateway-sessions.md").
+
+### Gateway: Response Streaming
+
+AgentCore Gateway now supports Server-Sent-Events (SSE), delivering multiple JSON-RPC messages on a single connection. Previously, the gateway buffered the entire target response and returned only the final result. Now, events from MCP server targets are delivered as they’re produced, enabling the real-time capabilities below.
+
+### Gateway: Elicitation Pass-Through
+
+MCP servers targets on AgentCore Gateway can now request input from end users mid-tool-execution. The gateway proxies these elicitation requests to the client and routes responses back to the correct downstream server. Supported modes: Form mode — Server sends a structured form (e.g., "Confirm you want to proceed with this refund?"), user responds, server continues. URL mode — Server directs the user to a URL (e.g., OAuth consent page), then completes processing once the user finishes. This enables interactive, human-in-the-loop workflows through a managed gateway — no custom infrastructure required. See [Use elicitation with your AgentCore gateway](gateway-mcp-elicitation.md "gateway-mcp-elicitation.md").
+
+### Gateway: Sampling Messages
+
+MCP servers can now request LLM completions from the client during tool execution. The gateway transparently relays these server-initiated requests, enabling patterns where tools augment their behavior with model reasoning mid-flight. See [Use sampling with your AgentCore gateway](gateway-mcp-sampling.md "gateway-mcp-sampling.md").
+
+### Gateway: Progress Notifications & Logging Notifications
+
+Clients now receive real-time progress updates and structured log messages from tools as they execute. Previously, the gateway returned only the final result. Now, long-running operations can report incremental progress and emit diagnostic logs that stream directly to the caller. See documentation for [progress notifications](gateway-mcp-progress.md "gateway-mcp-progress.md") and [logging messages](gateway-mcp-logging.md "gateway-mcp-logging.md").
+
 ### Harness: Bring-Your-Own File System (Amazon S3 Files and Amazon EFS)
 
 AgentCore harnesses now support Amazon S3 Files and Amazon EFS access points alongside managed session storage. Attach access points at `CreateHarness` or `UpdateHarness` time and the harness mounts them into every session at a path you specify. Use S3 Files for round-trip with an S3 bucket, EFS for low-latency shared storage, or combine up to five mounts on a single harness. See [Filesystem](harness-memory.md#harness-filesystem "harness-memory.md#harness-filesystem").

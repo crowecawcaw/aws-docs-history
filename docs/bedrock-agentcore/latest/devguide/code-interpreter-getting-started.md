@@ -85,6 +85,6 @@ Follow these steps:
 
 ###### Note
 
-If you’re deploying agents to Amazon Bedrock AgentCore Runtime, you’ll also eed to create an IAM execution role with a service trust policy. For more information, see [Get started with AgentCore Runtime](runtime-getting-started.md "runtime-getting-started.md").
+If you’re deploying agents to Amazon Bedrock AgentCore Runtime, you’ll also need to create an IAM execution role with a service trust policy. For more information, see [Get started with AgentCore Runtime](runtime-getting-started.md "runtime-getting-started.md").
 
-The following sections show you how to use the Amazon Bedrock AgentCore Code Interpreter with and without the agent framework. Using the Code Interpeter directly without an agent framework is especially useful when you want to execute specific code snippets programmatically.
+The following sections show you how to use the Amazon Bedrock AgentCore Code Interpreter with and without the agent framework. Using the Code Interpreter directly without an agent framework is especially useful when you want to execute specific code snippets programmatically.

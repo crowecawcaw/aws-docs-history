@@ -153,7 +153,7 @@ CMD ["opentelemetry-instrument", "python", "main.py"]
 
 When using ADOT, in order to propagate session id correctly, define the `X-Amzn-Bedrock-AgentCore-Runtime-Session-Id` in the request header. ADOT then sets the session_id correctly in the downstream headers.
 
-To propoagate a trace ID, invoke the AgentCore runtime with the parameter `traceId=<traceId>` set.
+To propagate a trace ID, invoke the AgentCore runtime with the parameter `traceId=<traceId>` set.
 
 You can also invoke your agent with additional headers for additional observability options. See [Enhanced AgentCore runtime observability with custom headers](#observability-configure-invoke "#observability-configure-invoke") to learn more.
 
@@ -267,7 +267,7 @@ Built-in tools
 
 1. ====== To configure log delivery for built-in tools resources (console)
 2. Open the [Built-in tools](https://console.aws.amazon.com/bedrock-agentcore/builtInTools "https://console.aws.amazon.com/bedrock-agentcore/builtInTools") page in the AgentCore console.
-3. In the **Built-in tools** pane, either in the **Code interperter tools** or the **Browser tools** tab, select the code interpreter tool or browser tool for which you want to configure a log destination.
+3. In the **Built-in tools** pane, either in the **Code interpreter tools** or the **Browser tools** tab, select the code interpreter tool or browser tool for which you want to configure a log destination.
 4. Scroll down to the **Log delivery** pane and from the **Add** drop-down, choose the **Logging destination** - either Amazon CloudWatch Logs, Amazon S3, or Amazon Data Firehose.
 5. Configure the following log delivery details and then choose **Add** :
    - For **Log type** , choose **APPLICATION_LOGS**.
@@ -320,10 +320,10 @@ Built-in tools
 
 1. ====== To configure tracing for built-in tools (console)
 2. Open the [Built-in tools](https://console.aws.amazon.com/bedrock-agentcore/builtInTools "https://console.aws.amazon.com/bedrock-agentcore/builtInTools") page in the AgentCore console.
-3. In the **Built-in tools** pane, either in the **Code interperter tools** or the **Browser tools** tab, select the code interpreter tool or browser tool for which you want to enable tracing.
+3. In the **Built-in tools** pane, either in the **Code interpreter tools** or the **Browser tools** tab, select the code interpreter tool or browser tool for which you want to enable tracing.
 4. In the **Tracing** pane, choose **Edit** , toggle the widget to **Enable** , and then choose **Save**.
 
-Tracing will be enabled for the selected code interperter or browser tool and spans will be available in the `aws/spans` log group.
+Tracing will be enabled for the selected code interpreter or browser tool and spans will be available in the `aws/spans` log group.
 
 Gateway
 
@@ -453,7 +453,7 @@ You can include the following optional headers when invoking your agent to enhan
 
 ## Enhanced AgentCore built-in tools observability with custom headers
 
-You can invoke your Build-in Tools with additional HTTP headers to provide enhanced observability options. You can include the following optional headers when integrating following Build-in Tools APIs to enhance observability and tracing capabilities:
+You can invoke your Built-in Tools with additional HTTP headers to provide enhanced observability options. You can include the following optional headers when integrating following Build-in Tools APIs to enhance observability and tracing capabilities:
 
 The following APIs support custom headers:
 

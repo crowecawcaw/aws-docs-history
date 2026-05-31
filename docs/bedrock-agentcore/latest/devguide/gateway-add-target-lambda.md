@@ -96,7 +96,7 @@ The `inputSchema` and `outputSchema` fields at the top level of the tool definit
 - **type** (required) – Must be `object`.
 - **description** (optional) – A description of the schema and its purpose and usage.
 - **properties** (optional) – A JSON object that defines the properties or arguments of the tool. Each key is a name of a property and maps to a [SchemaDefinition](../../../bedrock-agentcore-control/latest/APIReference/API_SchemaDefinition.md "../../../bedrock-agentcore-control/latest/APIReference/API_SchemaDefinition.md") object that defines the property.
-- **required** (optional) – An array that enumerates the properties that are reqired in the `properties` object.
+- **required** (optional) – An array that enumerates the properties that are required in the `properties` object.
 
 If you include a `properties` field to define arguments for the tool, you provide a schema definition for each argument. The different types of schema definitions are outlined in the next section.
 

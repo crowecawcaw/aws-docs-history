@@ -28,7 +28,7 @@ Your output must be a single JSON object, which is a list of JSON dicts followin
   "description": "This is a standalone personal fact about the user, stated in a simple sentence.\\nIt should represent a piece of personal information, such as life events, personal experience, and preferences related to the user.\\nMake sure you include relevant details such as specific numbers, locations, or dates, if presented.\\nMinimize the coreference across the facts, e.g., replace pronouns with actual entities.",
   "properties": {
     "fact": {
-      "description": "The memory as a well-written, standalone fact about the user. Refer to the user's instructions for more information the prefered memory organization.",
+      "description": "The memory as a well-written, standalone fact about the user. Refer to the user's instructions for more information the preferred memory organization.",
       "title": "Fact",
       "type": "string"
     }

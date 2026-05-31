@@ -16,7 +16,7 @@ The following sections show examples of CloudTrail events:
 
 ## InvokeGateway data event with authentication error
 
-The following example shows a CloudTrail log entry that demonstrates the `InvokeGateway` action with an authentication error. The authentication error can be seen in hte `body` field of the `responseElements`.
+The following example shows a CloudTrail log entry that demonstrates the `InvokeGateway` action with an authentication error. The authentication error can be seen in the `body` field of the `responseElements`.
 
 ```
 {

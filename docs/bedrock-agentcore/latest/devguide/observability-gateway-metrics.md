@@ -62,7 +62,7 @@ For more information about viewing CloudWatch metrics, see [View available metri
 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. In the left navigation pane, choose **All metrics** under the **Metrics** section.
 3. Under **Browse** , from the dropdown menu that displays the current AWS Region, select the Region for which you want metrics.
-4. Choose the **Bedrock-AgentCore** namespace.
+4. Choose the **AWS/Bedrock-AgentCore** namespace.
 5. Choose a dimension (ex. **Operation** ) or combination of dimensions (ex. **Method, Operation, Protocol** ) to view the metrics for it.
 6. To add a metric to the CloudWatch graph, select the checkbox next to it.
 
@@ -77,7 +77,7 @@ aws cloudwatch put-metric-alarm \
   --alarm-name "HighErrorRate" \
   --alarm-description "Alarm when error rate exceeds 5%" \
   --metric-name "SystemErrors" \
-  --namespace "Bedrock-AgentCore" \
+  --namespace "AWS/Bedrock-AgentCore" \
   --statistic "Sum" \
   --dimensions "Name=Resource,Value=my-gateway-arn" \
   --period 300 \
