@@ -35,7 +35,7 @@ The following cURL examples show how to retrieve feature flag variants based on 
 context. To best illustrate how to make these calls, this section uses sample calls based on
 a scenario where a customer created variants similar to the following:
 
-![An example screenshot of a feature flag with variants.](/images/appconfig/latest/userguide/images/flag-variant-example.png)
+![An example screenshot of a feature flag with variants.](images/flag-variant-example.png)
 
 ###### Note
 
