@@ -12,6 +12,11 @@ local drives and folders at any time.
 To use WorkSpaces Applications file redirection, you must have the WorkSpaces Applications client installed on your local
 computer. File redirection is not available when you connect to WorkSpaces Applications by using a web browser.
 
+###### Note
+
+If your image uses an WorkSpaces Applications agent released on or after September 25, 2025, the drive
+for file system redirection will be available as a removable disk instead of a network drive.
+
 ###### To share local drives and folders
 
 1. Open the WorkSpaces Applications client and connect to a streaming session.

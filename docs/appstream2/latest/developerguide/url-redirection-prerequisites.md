@@ -10,3 +10,4 @@ requirements:
 
 - A streaming instance that runs Windows Server 2019 or later
 - An WorkSpaces Applications agent released on or after March 30, 2026
+- A fleet with internet access enabled

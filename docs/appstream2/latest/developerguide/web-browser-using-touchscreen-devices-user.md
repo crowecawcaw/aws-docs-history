@@ -12,7 +12,7 @@ keyboard icon on the WorkSpaces Applications toolbar. The keyboard icon turns bl
 use the on-screen keyboard to input text in the streaming application. Tap the
 keyboard icon again to hide the on-screen keyboard.
 
-![](images/toolbar-fn-keys.png)
+![Toolbar with icons for Catalog, Windows, My Files, Clipboard, Microphone, Camera, Preferences, Full screen, Dual monitor, FN Keys, and Profile.](images/toolbar-fn-keys.png)
 Tap the Fn icon to display a row of Windows-specific keys and keyboard shortcuts.
 
 ![Row of icons including grid, folder, and settings symbols, with Fn dropdown highlighted.](images/CircleFnIconBorder.PNG)

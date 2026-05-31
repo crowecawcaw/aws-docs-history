@@ -14,6 +14,11 @@ sharing their local drives or folders at any time.
 File system redirection is currently not supported for Linux-based fleet
 instances, or when using the macOS client.
 
+###### Note
+
+If your image uses an WorkSpaces Applications agent released on or after September 25, 2025, the drive
+for file system redirection will be available as a removable disk instead of a network drive.
+
 ###### Topics
 
 - [Prerequisites for File System Redirection](file-system-redirection-prerequisites.md "file-system-redirection-prerequisites.md")

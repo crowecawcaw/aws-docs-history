@@ -50,7 +50,7 @@ builder by doing the following:
 
 
 
-    	+ You can use stream.\* instance types for images with `type = "native"`. To use any of the following instance type you must [Import Image](import-image.md "import-image.md") and create an image with `type = "custom"`.
+    	+ You can use stream.\* instance types for images with `type = "native"` and `type = "BYOL"`. To use any of the following instance types, you must use the [Import Image](import-image.md "import-image.md") option to import an EC2 AMI and create an image with `type = "custom"`.
 
 
 
