@@ -13,9 +13,8 @@ preparing to use Microsoft SQL Server on Amazon EC2 instances for your SQL Serve
 Complete the tasks in this section to start using SQL Server on Amazon EC2 instances for the first time:
 
 1. [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
-2.
-3. [Create a key pair](#create-a-key-pair "#create-a-key-pair")
-4. [Create a security group](#create-a-base-security-group "#create-a-base-security-group")
+2. [Create a key pair](#create-a-key-pair "#create-a-key-pair")
+3. [Create a security group](#create-a-base-security-group "#create-a-base-security-group")
 
 ### Sign up for an AWS account
 

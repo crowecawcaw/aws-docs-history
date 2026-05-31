@@ -133,7 +133,7 @@ To run the restore in the AWS Management Console, follow these steps:
 To review the execution status, navigate to the **Executed Steps**
 section within the automation execution details. This section displays all of the steps
 that ran, along with their runtime status. If the automation execution failed, follow
-the troubleshooting steps outlined in .
+the troubleshooting steps outlined in [Troubleshoot restoring your SQL Server database from AWS VSS solution snapshots using the Systems Manager console](#ms-ssdb-ec2-vss-restore-troubleshoot "#ms-ssdb-ec2-vss-restore-troubleshoot").
 
     * Locate the command execution ID in the step details.
     * Select the linked ID to access the execution details.
