@@ -43,6 +43,14 @@ of your FSx for Lustre file system:
     automatic export, you can run a manual data repository task (DRT) export to synchronize your
     file system with the S3 bucket before upgrading.
 
+- **Plan for file system downtime:** For the upgrade
+  to succeed all clients must be disconnected before the upgrade starts and remain disconnected
+  until the upgrade finishes. Total downtime depends on the time to identify and unmount all
+  clients, the upgrade process itself (typically under 30 minutes for the vast majority of
+  file systems), and the time to remount clients and resume workloads once the upgrade
+  completes. Clients unmount and remount duration varies by your environment and number
+  of clients.
+
 ## Performing the upgrade
 
 To upgrade your FSx for Lustre file system to a newer version, follow the
@@ -52,7 +60,7 @@ listed steps:
    the upgrade, you must unmount the file system from all client instances accessing
    your file system. You can verify that all clients are successfully unmounted by
    using the `ClientConnections` metric on Amazon CloudWatch - this metric should
-   display zero connections. The upgrade process will not proceed if any clients
+   display zero connections. The upgrade process will not succeed if any clients
    remain connected to the file system.
 
 You can view the list of client network identifiers (NIDs) connected to the
@@ -98,8 +106,11 @@ The following example updates the file system's Lustre version from 2.12 to 2.15
  --file-system-type-version "2.15"`
 ```
 
-3. **Mount all clients:** You can monitor the progress of
-   Lustre version updates by using the **Updates** tab in the Amazon FSx console or
-   `describe-file-systems` in the AWS CLI. Once the Lustre version upgrade status shows
-   as `Completed`, you can safely remount the file system on your client instances and
-   resume your workload.
+If the upgrade workflow fails (e.g., if a client is still connected to the file system),
+the file system is automatically rolled back to its original Lustre version and state. In
+such a case, the administrative action event will contain a failure message with guidance
+on how to address the issue before retrying the upgrade. 3. **Mount all clients:** You can monitor the progress of
+Lustre version updates by using the **Updates** tab in the Amazon FSx console or
+`describe-file-systems` in the AWS CLI. Once the Lustre version upgrade status shows
+as `Completed`, you can safely remount the file system on your client instances and
+resume your workload.
