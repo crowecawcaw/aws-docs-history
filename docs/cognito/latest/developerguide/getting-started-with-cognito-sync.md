@@ -1,5 +1,7 @@
 # Getting started with Amazon Cognito Sync
 
+###### Note
+
 If you're new to Amazon Cognito Sync, use [AWS AppSync](https://aws.amazon.com/appsync/ "https://aws.amazon.com/appsync/"). Like Amazon Cognito Sync, AWS AppSync is
 a service for synchronizing application data across devices.
 

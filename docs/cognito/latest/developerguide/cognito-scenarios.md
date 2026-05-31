@@ -40,7 +40,7 @@ resources, or to the Amazon API Gateway.
 
 For more information, see [An example authentication session](authentication.md#amazon-cognito-user-pools-authentication-flow "authentication.md#amazon-cognito-user-pools-authentication-flow") and [Understanding user pool JSON web tokens (JWTs)](amazon-cognito-user-pools-using-tokens-with-identity-providers.md "amazon-cognito-user-pools-using-tokens-with-identity-providers.md").
 
-![Authentication overview](/images/cognito/latest/developerguide/images/scenario-authentication-cup.png)
+![Authentication overview](images/scenario-authentication-cup.png)
 
 ## Access back-end resources with user pool tokens
 

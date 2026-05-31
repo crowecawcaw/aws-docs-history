@@ -40,6 +40,43 @@ For more information on the OpenID Connect and OAuth standards, see [OpenID Conn
 1.0](http://openid.net/specs/openid-connect-core-1_0.html "http://openid.net/specs/openid-connect-core-1_0.html") and [OAuth
 2.0](https://tools.ietf.org/html/rfc6749 "https://tools.ietf.org/html/rfc6749").
 
+## Amazon Cognito user pools as an OIDC issuer
+
+Amazon Cognito user pools function as OpenID Connect (OIDC) identity providers, serving as
+an issuer that application libraries can use for OIDC federation. Application
+libraries for OIDC federation can reference the two different paths as discussed
+below as an autodiscovery endpoint. This endpoint provides access to the JSON Web
+Key Set (JWKS) at `/.well-known/jwks.json` and OIDC discovery metadata at
+`/.well-known/openid-configuration`, where applications can discover
+the authorization, token, and userInfo endpoints.
+
+Applications that support OIDC autodiscovery can automatically configure
+themselves by querying these well-known endpoints. For applications that don't
+support autodiscovery, you can hardcode your application with the specific OIDC
+endpoints that are listed in the previous section.
+
+###### User pool issuer types
+
+**Original issuer**
+
+The current default issuer configuration for user pools. The issuer
+URL is hosted in the user pool's Region and provides OIDC endpoints
+specific to that Region.
+
+Original issuers take the format
+`https://cognito-idp.`us-east-1`.amazonaws.com/`us-east-1_EXAMPLE``.
+
+**Updated issuer**
+
+Recommended for all user pools, including for multi-Region
+replication. Updated issuers host the same JWKS content in multiple
+Regions, resulting in improved resilience and efficiency.
+
+Updated issuers take the format
+`https://issuer-cognito-idp.`us-east-1`.amazonaws.com/`us-east-1_EXAMPLE``,
+ where `Region` is the primary AWS Region of
+your user pool.
+
 ###### Topics
 
 - [The redirect and authorization endpoint](authorization-endpoint.md "authorization-endpoint.md")

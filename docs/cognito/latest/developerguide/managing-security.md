@@ -59,6 +59,7 @@ not.
 - [Adding MFA to a user pool](user-pool-settings-mfa.md "user-pool-settings-mfa.md")
 - [Advanced security with threat protection](cognito-user-pool-settings-threat-protection.md "cognito-user-pool-settings-threat-protection.md")
 - [Associate an AWS WAF web ACL with a user pool](user-pool-waf.md "user-pool-waf.md")
+- [Multi-Region replication for user pools](user-pool-multi-region.md "user-pool-multi-region.md")
 - [User pool case sensitivity](user-pool-case-sensitivity.md "user-pool-case-sensitivity.md")
 - [User pool deletion protection](user-pool-settings-deletion-protection.md "user-pool-settings-deletion-protection.md")
 - [Managing user existence error responses](cognito-user-pool-managing-errors.md "cognito-user-pool-managing-errors.md")

@@ -333,6 +333,13 @@ and purchase an increase from the Service Quotas console or with the Service Quo
 Only adjustable quotas can be increased. You must purchase increased quota
 capacity. For quota-increase pricing, see [Amazon Cognito pricing](https://aws.amazon.com/cognito/pricing/ "https://aws.amazon.com/cognito/pricing/").
 
+###### Note
+
+Quota increases are regional configurations. A quota increase in one
+AWS Region doesn't affect your quotas in other Regions. If you require higher
+API quotas in multiple Regions, you must request a quota increase in each Region
+separately.
+
 ## Amazon Cognito user pools API operation categories and request rate quotas
 
 Because Amazon Cognito has overlapping classes of API operations with [differing

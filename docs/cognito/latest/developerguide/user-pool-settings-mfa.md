@@ -352,7 +352,7 @@ indicates unsuccessful authentication.
     messages for password reset. If true, they can't complete sign-in with MFA required and
     Amazon Cognito returns an error. To activate sign-in for this user, you must add a non-recovery
     attribute or register a TOTP authenticator for them.
-    ![](images/error.png)
+    ![Red circle with white X icon indicating error or deletion.](images/error.png)
 
         1. If they have an available non-recovery email address or phone number, determine
          whether the corresponding email or SMS MFA factor is enabled.
@@ -369,7 +369,7 @@ indicates unsuccessful authentication.
          complete sign-in with MFA required and Amazon Cognito returns an error. To activate sign-in
          for this user, you must add a non-recovery attribute or register a TOTP
          authenticator for them.
-        ![](images/error.png)
+        ![Red circle with white X icon indicating error or deletion.](images/error.png)
 
 
 

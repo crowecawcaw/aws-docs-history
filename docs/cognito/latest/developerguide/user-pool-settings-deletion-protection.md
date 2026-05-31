@@ -1,8 +1,8 @@
 # User pool deletion protection
 
 To make it so that your administrators don't accidentally delete your user pool, activate
-deletion protection. With deletion protection active, you must confirm that you want to delete
-your user pool before you delete it. When you delete a user pool in the AWS Management Console, you can
+deletion protection. With deletion protection active, you can only delete your user pool after
+you confirm that you want to delete it. When you delete a user pool in the AWS Management Console, you can
 deactivate deletion protection at the same time. When you accept the prompt to deactivate
 deletion protection and confirm your intention to delete, as shown in the following image,
 Amazon Cognito deletes your user pool.
@@ -23,14 +23,14 @@ You can activate or deactivate deletion protection status in the **Deletion
 protection** container in the **Settings** menu in the
 Amazon Cognito console.
 
-# To configure deletion protection
+###### To configure deletion protection
 
 1. Go to the [Amazon Cognito console](https://console.aws.amazon.com/cognito/home "https://console.aws.amazon.com/cognito/home"). You might
    be prompted for your AWS credentials.
 2. Choose **User Pools**.
 3. Choose an existing user pool from the list, or [create a user
    pool](cognito-user-pool-as-user-directory.md "cognito-user-pool-as-user-directory.md").
-4. Choose the **Settings** menu and navigate to the **Deletion
-   Protection** tab. Select **Activate** or
-   **Deactivate**.
+4. Choose the **Settings** menu, navigate to the **User pool
+   security** tab, and locate **Deletion Protection**. Select
+   **Activate** or **Deactivate**.
 5. Confirm your choice in the next dialogue.
