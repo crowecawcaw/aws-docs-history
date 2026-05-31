@@ -1,0 +1,36 @@
+# Query and projection operators
+
+This section provides detailed information about query and projection operators supported by Amazon DocumentDB.
+
+###### Topics
+
+- [$](dollar-projection.md "dollar-projection.md")
+- [$all](all.md "all.md")
+- [$and](and.md "and.md")
+- [$bitsAllClear](bitsAllClear.md "bitsAllClear.md")
+- [$bitsAllSet](bitsAllSet.md "bitsAllSet.md")
+- [$bitsAnyClear](bitsAnyClear.md "bitsAnyClear.md")
+- [$bitsAnySet](bitsAnySet.md "bitsAnySet.md")
+- [$comment](comment.md "comment.md")
+- [$elemMatch](elemMatch.md "elemMatch.md")
+- [$eq](eq.md "eq.md")
+- [$exists](exists.md "exists.md")
+- [$expr](expr.md "expr.md")
+- [$gt](gt.md "gt.md")
+- [$gte](gte.md "gte.md")
+- [$in](in.md "in.md")
+- [$jsonSchema](jsonSchema.md "jsonSchema.md")
+- [$lt](lt.md "lt.md")
+- [$mod](mod-query.md "mod-query.md")
+- [$lte](lte.md "lte.md")
+- [$meta](meta.md "meta.md")
+- [$ne](ne.md "ne.md")
+- [$nin](nin.md "nin.md")
+- [$nor](nor.md "nor.md")
+- [$not](not.md "not.md")
+- [$or](or.md "or.md")
+- [$regex](regex.md "regex.md")
+- [$slice](slice-projection.md "slice-projection.md")
+- [$size](size-query.md "size-query.md")
+- [$text](text.md "text.md")
+- [$type](type.md "type.md")
