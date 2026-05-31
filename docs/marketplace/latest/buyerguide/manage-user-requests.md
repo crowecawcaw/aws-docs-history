@@ -23,11 +23,3 @@ Product procurement request is enabled by default for an experience. You can vie
    1. You can view the reason for request, optional purchase order number, and the Private Marketplace experience associated with the user.
    2. You can choose to **Approve** or **Decline** and inform your buyer about your decision using an optional approver note.
    3. All users associated with the Private Marketplace experience will be allowed to subscribe to the products in the request, if approved. If declined, all users associated with the Private Marketplace experience will not be able to subscribe to the products in the request.
-
-###### Note
-
-Private Marketplace supports two user experiences: AWS Console and the legacy website.
-
-To view and manage Private Marketplace in the AWS Marketplace Console, an administrator in the management account of your AWS Organizations must create an integration for Private Marketplace. See [Enabling Private Marketplace](private-marketplace-current.md#enable-private-marketplace "private-marketplace-current.md#enable-private-marketplace") for details. For end users, administrators must also grant the new permissions listed in [AWSPrivateMarketplaceRequests](buyer-security-iam-awsmanpol.md#security-iam-awsmanpol-awsprivatemarketplacerequests "buyer-security-iam-awsmanpol.md#security-iam-awsmanpol-awsprivatemarketplacerequests").
-
-Product requests created using the legacy website will be available at [Private Marketplace](https://aws.amazon.com/marketplace/privatemarketplace "https://aws.amazon.com/marketplace/privatemarketplace"). **Important:** The legacy website will be deprecated on March 17, 2026.

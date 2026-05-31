@@ -6,10 +6,6 @@ You can create multiple experiences to govern your entire organization, AWS orga
 
 After you set up governing experiences using Private Marketplace, users in your organization can buy and deploy only vetted products that comply with your organization's policies and standards. They can browse the entire AWS Marketplace catalog and request additional products. Administrators can view user requests and approve or decline these requests. Private Marketplace publishes Amazon EventBridge events when users create requests and when administrators approve or decline these requests. To streamline the approval process and receive timely updates, administrators and users can set up email notifications for these events. For more information, see [Private Marketplace notifications](configuring-notifications.md "configuring-notifications.md").
 
-###### Note
-
-The legacy version of Private Marketplace will be deprecated on March 17, 2026. To use the current version, an administrator in the management account of your AWS Organizations must create an integration for Private Marketplace. To check integration status, see [Viewing Private Marketplace settings](view-private-marketplace-settings.md "view-private-marketplace-settings.md").
-
 ## Products governed by Private Marketplace
 
 All products that require AWS Marketplace subscriptions will be governed by Private Marketplace. Keep in mind the following important exceptions and considerations:

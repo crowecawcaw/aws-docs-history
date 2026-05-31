@@ -1,6 +1,6 @@
 # Creating a private marketplace administrator
 
-You can create an administrators group to manage your company’s [private marketplace](private-marketplace.md "private-marketplace.md") settings. After private
+You can create an administrators group to manage your company’s [private marketplace](private-marketplace-current.md "private-marketplace-current.md") settings. After private
 marketplace is enabled for your organization, administrators for the private marketplace can
 perform many tasks including the following:
 

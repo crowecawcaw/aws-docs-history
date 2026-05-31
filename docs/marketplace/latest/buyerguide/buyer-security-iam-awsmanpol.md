@@ -209,7 +209,7 @@ approved or declined by a Private Marketplace administrator.
 
 The permissions are organized into multiple groups:
 
-1. `LegacyPrivateMarketplaceRequestsPermissions`: These permissions are used by legacy Private Marketplace which will be deprecated. For details, see [Private marketplaces in AWS Marketplace (legacy version)](private-marketplace.md "private-marketplace.md").
+1. `LegacyPrivateMarketplaceRequestsPermissions`: These permissions are used by legacy Private Marketplace which will be deprecated. For details, see [Private Marketplace](private-marketplace-current.md "private-marketplace-current.md").
 2. `PrivateMarketplaceManageRequestsPermissions`: These permissions are required to create and cancel product approval requests.
 3. `PrivateMarketplaceReadRequestsPermissions` and `PrivateMarketplaceListRequestsPermissions`: These permissions are required to list and get details of the product approval requests.
 4. `PrivateMarketplaceReadChangeSetPermissions`: These permissions are required to list and get details of change sets to create and cancel requests. See [Working with change sets](../APIReference/catalog-apis.md#working-with-change-sets "../APIReference/catalog-apis.md#working-with-change-sets") in the _AWS Marketplace API Reference_.
