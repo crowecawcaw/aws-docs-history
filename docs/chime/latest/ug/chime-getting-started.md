@@ -18,8 +18,15 @@ following options:
 
 - [1. Know the system requirements](chime-requirements.md "chime-requirements.md")
 - [2. Install the software](install-software.md "install-software.md")
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [3. Create an Amazon Chime user account](create-account.md "create-account.md")
 - [4. Get to know the desktop client and web app](client-differences.md "client-differences.md")
 - [5. (Optional) Set a personalized meeting link](set-link.md "set-link.md")
 - [6. Add contacts](contacts.md "contacts.md")
 - [7. Learn how to schedule meetings](schedule.md "schedule.md")
+
+## Sign up for an AWS account
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.

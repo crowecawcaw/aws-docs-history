@@ -20,8 +20,6 @@ Amazon Chime Pro features for 30 days at no charge. When that trial period ends,
 If you only want to participate in meetings and use chat, you can stop there. However, if you want to schedule meetings for up to 250 attendees, use other paid
 features, or manage your company’s usage of Amazon Chime, you need to do the following:
 
-- Create an AWS account. For more information about creating an AWS account, see
-  [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup"). Creating the account makes you the account owner.
 - Create an Amazon Chime administrative user. For more information about creating the user, see
   [Prerequisites](../ag/prereqs.md "../ag/prereqs.md") in the _Amazon Chime Administration Guide_.
 - Create an Amazon Chime Team or Enterprise account and associate it with the AWS account.
