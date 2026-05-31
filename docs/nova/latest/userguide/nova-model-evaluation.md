@@ -9,6 +9,10 @@ in your Amazon S3 bucket.
 
 ###### Note
 
+You can also evaluate your models using [Inspect AI](nova-eval-inspect-ai.md "nova-eval-inspect-ai.md"), an open-source evaluation framework that supports standardized benchmarks and custom evaluation tasks.
+
+###### Note
+
 The evaluation process described in this topic is an offline process. The model is
 tested against fixed benchmarks with predefined answers, rather than being assessed
 in real-time or through live user interactions. For real-time evaluation, you can

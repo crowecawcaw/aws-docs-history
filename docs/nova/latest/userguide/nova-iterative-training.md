@@ -346,7 +346,7 @@ The training technique must remain consistent across iterations:
 **How LoRA adapters work in iterative training**
 
 - Each LoRA training iteration produces new adapter weights
-- New adapters replace (not stack with) previous adapters
+- Adapters from each stage are merged based on the merge weights you specify. For details on how adapters are merged, see [LoRA fine-tuning](nova-model-merge.md#nova-model-merge-lora "nova-model-merge.md#nova-model-merge-lora") in the model merge documentation.
 - The base model remains frozen; only adapters are updated
 
 ### Technique compatibility matrix

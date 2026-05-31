@@ -1,10 +1,10 @@
-# Evaluate Models Hosted on SageMaker Inference
+# Evaluate with Inspect AI SDK
 
 This guide explains how to evaluate your customized Amazon Nova models deployed on SageMaker inference endpoints using [Inspect AI](https://github.com/UKGovernmentBEIS/inspect_ai "https://github.com/UKGovernmentBEIS/inspect_ai"), an open-source evaluation framework.
 
 ###### Note
 
-For a hands-on walkthrough, see the [SageMaker Inspect AI quickstart notebook](https://github.com/aws-samples/amazon-nova-samples/tree/main/customization/sagemaker-inference/sagemaker_inspect_quickstart.ipynb "https://github.com/aws-samples/amazon-nova-samples/tree/main/customization/sagemaker-inference/sagemaker_inspect_quickstart.ipynb").
+For hands-on walkthroughs, see the [SageMaker Inspect AI sample notebooks](https://github.com/aws-samples/amazon-nova-samples/tree/main/customization/sagemaker-inspect-ai "https://github.com/aws-samples/amazon-nova-samples/tree/main/customization/sagemaker-inspect-ai").
 
 ## Overview
 
@@ -113,11 +113,7 @@ print(f"Account: {identity['Account']}")
 print(f"User/Role: {identity['Arn']}")
 ```
 
-## Step 4: Install the SageMaker provider
-
-The SageMaker provider enables Inspect AI to communicate with your SageMaker endpoints. The provider installation process is streamlined in the [quickstart notebook](https://github.com/aws-samples/amazon-nova-samples/tree/main/customization/sagemaker-inference/sagemaker_inspect_quickstart.ipynb "https://github.com/aws-samples/amazon-nova-samples/tree/main/customization/sagemaker-inference/sagemaker_inspect_quickstart.ipynb").
-
-## Step 5: Download evaluation benchmarks
+## Step 4: Download evaluation benchmarks
 
 Clone the Inspect Evals repository to access standard benchmarks:
 
@@ -132,7 +128,7 @@ This repository includes benchmarks such as:
 - HumanEval (code generation)
 - GSM8K (mathematical reasoning)
 
-## Step 6: Run evaluations
+## Step 5: Run evaluations
 
 Run an evaluation using your SageMaker endpoint:
 
@@ -169,7 +165,7 @@ For a multi-instance endpoint:
 
 Setting `--max-connections` too high may overwhelm the endpoint and cause throttling. Setting it too low underutilizes capacity.
 
-## Step 7: View results
+## Step 6: View results
 
 Launch the Inspect AI viewer to analyze evaluation results:
 

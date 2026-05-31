@@ -45,7 +45,7 @@ Flow 1: The account user must reach out to the account admin to request the foll
 - Add the `forge-subscription` tag to the account through IAM (see Appendix A for steps).
 - Add the `ListRoleTags` and `ListAttachedRolePolicies` permissions through IAM (see Appendix B for steps).
 
-![](images/Onboarding-option-a.png)
+![Nova Forge subscription page showing not subscribed status with setup requirements banner.](images/Onboarding-option-a.png)
 
 ### Option B
 
@@ -61,21 +61,21 @@ Flow: The account user must reach out to the account admin to request admin acce
 
 1. Go to the Amazon Web Services IAM Dashboard. Click on Roles on the left. Search for a role with Admin permissions and select it.
 
-![](images/add-forge-sub-policy.png) 2. Select <AssumedRoleToUse>. Click on the Tags tab.
+![IAM console showing Roles page with admin search filter applied and one matching role displayed.](images/add-forge-sub-policy.png) 2. Select <AssumedRoleToUse>. Click on the Tags tab.
 
-![](images/add-forge-sub-policy-2.png) 3. Click on Manage tabs. Add new tag. Type "forge-subscription" under Key and click on save changes
+![Tags tab showing two tags with key forge-subscription for the IAM role.](images/add-forge-sub-policy-2.png) 3. Click on Manage tabs. Add new tag. Type "forge-subscription" under Key and click on save changes
 
-![](images/add-forge-sub-tag-policy.png) 4. Ensure that you see forge-subscription as a key in Tags section
+![Tags container showing two tags with keys forge-subscription and prime-subscription, each with matching values.](images/add-forge-sub-tag-policy.png) 4. Ensure that you see forge-subscription as a key in Tags section
 
-![](images/forge-tag-policy-verify.png)
+![Tags section showing forge-subscription as a key in the IAM role details page.](images/forge-tag-policy-verify.png)
 
 ### Appendix B. Add ListRoleTags and ListAttachedPolicies policies to Amazon Web Services account for Non-Admin Role by Admin
 
 1. Go to the Amazon Web Services IAM Dashboard. Click on Roles on the left. Search for <AssumedRoleToUse> (e.g., ForgeAccessRole) and click on the <AssumedRoleToUse> (e.g., ForgeAccessRole) role
 
-![](images/forge-list-tags-policy.png) 2. Click on the <AssumedRoleToUse> (e.g., ForgeAccessRole) role and select Tags. Add a new tag with type "forge-subscription"
+![IAM Roles page filtered by forge showing ForgeAccessRole in the results list.](images/forge-list-tags-policy.png) 2. Click on the <AssumedRoleToUse> (e.g., ForgeAccessRole) role and select Tags. Add a new tag with type "forge-subscription"
 
-![](images/forge-tag-appendix.png) 3. Under Permissions, add new permission: Add Permissions → Create inline policy → Add the following policy listed below
+![Tags tab showing forge-subscription key-value pair tag in ForgeAccessRole interface.](images/forge-tag-appendix.png) 3. Under Permissions, add new permission: Add Permissions → Create inline policy → Add the following policy listed below
 
 ```
 
@@ -96,7 +96,7 @@ Flow: The account user must reach out to the account admin to request admin acce
 
 ```
 
-![](images/forge-add-tag-polices-example.png)
+![ForgeAccessRole details page showing creation date, permissions policies, and JSON policy document with VisualEditor and RolePlus actions.](images/forge-add-tag-polices-example.png)
 
 ## Step 2. Set up HyperPod infrastructure
 

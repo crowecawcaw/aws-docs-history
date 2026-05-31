@@ -49,5 +49,7 @@ If you provide a KMS key to your Amazon Nova model customization training job fo
 - [Amazon Nova customization on SageMaker Training Jobs](nova-model-training-job.md "nova-model-training-job.md")
 - [Amazon Nova customization on SageMaker HyperPod](nova-hp.md "nova-hp.md")
 - [Iterative Training](nova-iterative-training.md "nova-iterative-training.md")
+- [Model Merge](nova-model-merge.md "nova-model-merge.md")
 - [SageMaker Inference](nova-model-sagemaker-inference.md "nova-model-sagemaker-inference.md")
 - [Amazon Bedrock inference](nova-model-bedrock-inference.md "nova-model-bedrock-inference.md")
+- [Evaluation with Inspect AI](nova-eval-inspect-ai.md "nova-eval-inspect-ai.md")

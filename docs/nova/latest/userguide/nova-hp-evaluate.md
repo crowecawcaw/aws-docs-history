@@ -11,6 +11,10 @@ with predefined answers. They are not assessed in real-time or against live user
 For real-time evaluations, you can evaluate the model after it is deployed to Amazon Bedrock by calling
 the Amazon Bedrock runtime APIs.
 
+###### Note
+
+You can also evaluate your models using [Inspect AI](nova-eval-inspect-ai.md "nova-eval-inspect-ai.md"), an open-source evaluation framework that supports standardized benchmarks and custom evaluation tasks.
+
 ###### Important
 
 The evaluation container only supports checkpoints produced by the same training

@@ -130,5 +130,4 @@ For issues and support with Amazon Nova models on SageMaker inference, contact A
 - [Getting Started](nova-sagemaker-inference-getting-started.md "nova-sagemaker-inference-getting-started.md")
 - [Inference Container Features](nova-sagemaker-inference-container-features.md "nova-sagemaker-inference-container-features.md")
 - [API Reference](nova-sagemaker-inference-api-reference.md "nova-sagemaker-inference-api-reference.md")
-- [Evaluate Models Hosted on SageMaker Inference](nova-eval-on-sagemaker-inference.md "nova-eval-on-sagemaker-inference.md")
 - [Deployment of Amazon Nova Forge Models in Amazon SageMaker Inference abuse detection](nova-sagemaker-inference-abuse-detection.md "nova-sagemaker-inference-abuse-detection.md")
