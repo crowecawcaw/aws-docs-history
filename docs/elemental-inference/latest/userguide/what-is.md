@@ -1,8 +1,10 @@
 # What Is Elemental Inference?
 
-AWS Elemental Inference is a real-time service that lets you lets you easily apply machine learning
+AWS Elemental Inference is a real-time service that lets you easily apply machine learning
 models to video, audio, and image content for automated analysis, classification, and
-insights generation.
+insights generation. Features include smart crop, event clipping, and smart subtitles.
+Smart subtitles uses automatic speech recognition (ASR) to generate TTML subtitles
+from audio in your source media.
 
 ###### Topics
 

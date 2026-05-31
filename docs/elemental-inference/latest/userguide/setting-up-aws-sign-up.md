@@ -1,9 +1,5 @@
 # Signing up for AWS
 
-###### Topics
-
-- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
-
 ## Sign up for an AWS account
 
 To get started with AWS, you need an AWS account. For information about creating an AWS account, see

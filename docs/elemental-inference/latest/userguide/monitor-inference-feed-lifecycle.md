@@ -67,7 +67,7 @@ need to do this.
 Elemental Inference produces metadata for a feature type (for example, smart crop) when media is being
 streamed to the feed and the output for that feature is ENABLED.
 
-Elemental Inference retains metadata for 24 hours, for both ENABLED and DISABLED outputs.
+Elemental Inference retains metadata for 7 days, for both ENABLED and DISABLED outputs.
 
-It continually discards data that is older than 24 hours, for both ENABLED and DISABLED
+It continually discards data that is older than 7 days, for both ENABLED and DISABLED
 outputs.

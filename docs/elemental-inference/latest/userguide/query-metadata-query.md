@@ -24,6 +24,7 @@ topics.
 ###### Topics
 
 - [Metadata for smart crop](#query-metadata-smart-crop "#query-metadata-smart-crop")
+- [Metadata for smart subtitles](#query-metadata-smart-subtitles "#query-metadata-smart-subtitles")
 
 ## Metadata for smart crop
 
@@ -148,3 +149,36 @@ Or if the output video is 1280 x 720, then the following applies:
 - The X pixel position is 2176 x 1280 / 10000 = pixel 278.528 or 279
   rounded up
 - The Y pixel position is 6250 x 720 / 10000= pixel 450
+
+## Metadata for smart subtitles
+
+For smart subtitles, Elemental Inference returns the metadata as a TTML (Timed Text Markup
+Language) document encapsulated in the JSON response. The TTML contains the
+transcribed text with timing information that corresponds to the requested time
+range.
+
+The following `awscurl` command shows how to query for smart subtitles metadata:
+
+```
+# Query the first 5 seconds of subtitles metadata
+$ awscurl --service "elemental-inference" --region <`region`> \
+  -X POST 'https://<`data-endpoint`>/v1/feed/<`feed-id`>/input/0/metadata' \
+  -H "Content-Type: application/json" \
+  -d '{"outputName": "subtitles", "timeSpecification": { "ptsBased": { "startPts": 0, "endPts": 5000, "timescale": 1000 }}}'
+```
+
+The response contains a TTML document with subtitle cues timed to the requested
+range. Each subtitle cue includes a start time, end time, and the transcribed
+text.
+
+### Using the metadata
+
+The TTML subtitles returned by Elemental Inference can be used in the following
+ways:
+
+- Embed the subtitles directly into your video player as a subtitle
+  track.
+- Convert the TTML to other subtitle formats such as WebVTT or SRT for
+  compatibility with different players and platforms.
+- Use the timed text for downstream processing such as search indexing
+  or content analysis.
