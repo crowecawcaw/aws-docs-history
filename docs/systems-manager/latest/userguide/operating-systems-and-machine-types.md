@@ -10,6 +10,22 @@ machine type are supported as managed nodes.
 
 ## Supported operating systems for Systems Manager
 
+AWS Systems Manager provides support for a defined set of operating system (OS) versions
+that are actively supported by the OS vendor and are listed as supported in the
+AWS Systems Manager documentation. AWS Systems Manager OS support is aligned with vendors' lifecycles,
+as defined in their software terms of service. Not all operating systems or OS
+versions supported by a vendor are supported by AWS Systems Manager.
+
+AWS Systems Manager support for an OS version ends when the OS vendor declares that version
+end-of-life (EOL). Support does not extend to vendor paid Extended Long-Term Support
+(ELTS), or similar paid programs. While customers can continue to use and install OS
+versions that have gone past vendor EOL, AWS Support will only provide assistance
+if an issue is reproducible on a supported OS version.
+
+New AWS Systems Manager product releases, including new major releases of SSM Agent, do not
+add support for OS versions that are scheduled to reach vendor EOL within six months
+of the release date.
+
 The following sections list the OSs and OS versions supported by Systems Manager.
 
 ###### Note

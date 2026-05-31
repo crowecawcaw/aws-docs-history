@@ -27,9 +27,6 @@ ensure that you're ready to use all Systems Manager tools.
 
 ## General setup for AWS Systems Manager
 
-If you haven't already done so, sign up for an AWS account and create
-an administrative user.
-
 ### Sign up for an AWS account
 
 To get started with AWS, you need an AWS account. For information about creating an AWS account, see
