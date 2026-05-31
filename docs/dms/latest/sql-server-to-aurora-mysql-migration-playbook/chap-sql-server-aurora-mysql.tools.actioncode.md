@@ -146,7 +146,7 @@ For workarounds using traditional SQL syntax, see [Common Table Expressions](cha
 
 ## Cursors
 
-![Three star automation level](images/pb-automation-3.png)
+![Three star automation level](/images/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)
 
 AWS SCT automatically converts the most commonly used cursor operations. These operations include forward-only, read only cursors, and the `DECLARE CURSOR`, `CLOSE CURSOR`, and `FETCH NEXT` operations. Modifications through cursors and non-forward-only fetches, which aren’t supported by Aurora MySQL, require manual conversions.
 
@@ -223,7 +223,7 @@ For more information, see [Stored Procedures](chap-sql-server-aurora-mysql.tsql.
 
 ## Triggers
 
-![Three star automation level](images/pb-automation-3.png)
+![Three star automation level](/images/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)
 
 Aurora MySQL supports `BEFORE` and `AFTER` triggers for `INSERT`, `UPDATE`, and `DELETE`. However, Aurora MySQL triggers differ substantially from SQL Server triggers, but most common use cases can be migrated with minimal code changes. Although AWS SCT can automatically migrate trigger code, manual inspection and potential code modifications may be required because Aurora MySQL triggers are ran once for each row, not once for each statement such as triggers in SQL Server.
 
@@ -248,7 +248,7 @@ For more information, see [GROUP BY](chap-sql-server-aurora-mysql.sql.groupby.md
 
 ## Identity and Sequences
 
-![Three star automation level](images/pb-automation-3.png)
+![Three star automation level](/images/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)
 
 Although the syntax for SQL Server `IDENTITY` and Aurora MySQL
 `AUTO_INCREMENT` auto-enumeration columns differs significantly, it can be automatically converted by AWS SCT. Some limitations imposed by Aurora MySQL require manual conversion such as explicit `SEED` and `INCREMENT` auto-enumeration columns that aren’t part of the primary key and the table-independent `SEQUENCE` objects.
@@ -266,7 +266,7 @@ For more information, see [Identity and Sequences](chap-sql-server-aurora-mysql.
 
 ## Error Handling
 
-![Three star automation level](images/pb-automation-3.png)
+![Three star automation level](/images/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)
 
 The error handling paradigms in Aurora MySQL and SQL Server are significantly different; the former uses condition and handler objects. AWS SCT migrates the basic error handling constructs automatically. Due to the paradigm differences, we highly recommend that you perform strict inspection and validation of the migrated code. Manual conversions are required for `THROW` with variables and for built-in messages in SQL Server.
 
@@ -303,7 +303,7 @@ For more information, see [Date and Time Functions](chap-sql-server-aurora-mysql
 
 ## User-Defined Functions
 
-![Three star automation level](images/pb-automation-3.png)
+![Three star automation level](/images/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)
 
 Aurora MySQL supports only scalar user-defined functions, which are automatically converted by AWS SCT. Table-valued user-defined functions, both in-line and multi-statement, require manual conversion. Workarounds using views or derived tables should be straightforward in most cases.
 
@@ -316,7 +316,7 @@ For more information, see [User-Defined Functions](chap-sql-server-aurora-mysql.
 
 ## User-Defined Types
 
-![Three star automation level](images/pb-automation-3.png)
+![Three star automation level](/images/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)
 
 Aurora MySQL 5.7 doesn’t support-user defined types and user-defined table-valued parameters. AWS SCT can convert standard user defined types by replacing it with their base types, but manual conversion is required for user defined table types, which are used for table valued parameters for stored procedures.
 
@@ -378,7 +378,7 @@ For more information and potential workarounds, see [MERGE](chap-sql-server-auro
 
 ## Query Hints
 
-![Three star automation level](images/pb-automation-3.png)
+![Three star automation level](/images/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)
 
 Basic query hints such as index hints can be converted automatically by AWS SCT, except for DML statements. Note that specific optimizations used for SQL Server may be completely inapplicable to a new query optimizer. We recommend that you remove all hints before the start of migration testin. Then, selectively apply hints as a last resort if other means such as schema, index, and query optimizations have failed. Plan guides aren’t supported by Aurora MySQL.
 
