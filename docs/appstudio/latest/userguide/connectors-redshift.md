@@ -18,7 +18,7 @@ Use the following procedure to create and configure Amazon Redshift resources to
 
 We recommend
 using the administrative user created in
-[Create an administrative user for managing AWS resources](setting-up-first-time-admin.md#setting-up-create-admin-user "setting-up-first-time-admin.md#setting-up-create-admin-user"). 2. Create a Redshift Serverless data warehouse or a provisiond cluster. For more information, see
+[Sign up for an AWS account](setting-up-first-time-admin.md#sign-up-for-aws "setting-up-first-time-admin.md#sign-up-for-aws"). 2. Create a Redshift Serverless data warehouse or a provisiond cluster. For more information, see
 [Creating a data warehouse with Redshift Serverless](../../../redshift/latest/gsg/new-user-serverless.md#serverless-console-resource-creation "../../../redshift/latest/gsg/new-user-serverless.md#serverless-console-resource-creation")
 or [Creating a cluster](../../../redshift/latest/mgmt/managing-clusters-console.md#create-cluster "../../../redshift/latest/mgmt/managing-clusters-console.md#create-cluster") in the
 _Amazon Redshift User Guide_. 3. Once provisioning is complete, choose **Query Data** to open the query editor. Connect to your database. 4. Change the following settings:
@@ -71,7 +71,7 @@ for the application to follow best security practices.
 
 1. Sign in to the [IAM console](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam") with a user that has permissions to create IAM policies. We recommend
    using the administrative user created in
-   [Create an administrative user for managing AWS resources](setting-up-first-time-admin.md#setting-up-create-admin-user "setting-up-first-time-admin.md#setting-up-create-admin-user").
+   [Sign up for an AWS account](setting-up-first-time-admin.md#sign-up-for-aws "setting-up-first-time-admin.md#sign-up-for-aws").
 2. In the left-side navigation pane, choose **Policies**.
 3. Choose **Create policy**.
 4. In the **Policy editor** section, choose the **JSON** option.
@@ -151,7 +151,7 @@ to the configured Amazon Redshift resources.
 
 1. Sign in to the [IAM console](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam") with a user that has permissions to create IAM roles. We recommend
    using the administrative user created in
-   [Create an administrative user for managing AWS resources](setting-up-first-time-admin.md#setting-up-create-admin-user "setting-up-first-time-admin.md#setting-up-create-admin-user").
+   [Sign up for an AWS account](setting-up-first-time-admin.md#sign-up-for-aws "setting-up-first-time-admin.md#sign-up-for-aws").
 2. In the left-side navigation pane, choose **Roles**
 3. Choose **Create role**.
 4. In **Trusted entity type**, choose **Custom trust policy**.

@@ -2,37 +2,9 @@
 
 ## Sign up for an AWS account
 
-An AWS account is required to set up App Studio. Only one AWS account is required to
-use App Studio—builders and administrators don't need an AWS account to use
-App Studio because access is managed with AWS IAM Identity Center.
-
-###### To create an AWS account
-
-1. Open [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup").
-2. Follow the online instructions.
-
-Part of the sign-up procedure involves receiving a phone call or text message and entering
-a verification code on the phone keypad.
-
-When you sign up for an AWS account, an _AWS account root user_ is created. The root user has access to all AWS services
-and resources in the account. As a security best practice, assign administrative access to a user, and use only the root user to perform [tasks that require root user access](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks").
-
-## Create an administrative user for managing AWS resources
-
-When you first create an AWS account, you begin with a default set of credentials with
-complete access to all AWS resources in your account. This identity is called the [AWS account
-root user](../../../IAM/latest/UserGuide/root-user-best-practices.md "../../../IAM/latest/UserGuide/root-user-best-practices.md"). For creating AWS roles and resources to be used with App Studio, we
-strongly recommend that you do not use the AWS account root user. Instead, we recommend that
-you create and use an administrative user.
-
-Use the following topics to create an administrative user for managing AWS roles and resources for use with App Studio.
-
-- For a single, standalone AWS account, see [Create your first
-  IAM user](../../../IAM/latest/UserGuide/getting-started-iam-user.md "../../../IAM/latest/UserGuide/getting-started-iam-user.md") in the _IAM User Guide_. You can provide any user
-  name, but it must have the `AdministratorAccess` permissions policy.
-- For multiple AWS accounts managed through AWS Organizations, see
-  [Set up AWS account access for an IAM Identity Center administrative user](../../../singlesignon/latest/userguide/quick-start-default-idc.md "../../../singlesignon/latest/userguide/quick-start-default-idc.md")
-  in the _AWS IAM Identity Center User Guide_.
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
 
 ## Create an App Studio instance in the AWS Management Console
 

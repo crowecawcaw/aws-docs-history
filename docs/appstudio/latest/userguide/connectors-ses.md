@@ -29,7 +29,7 @@ for the application to follow best security practices.
 
 1. Sign in to the [IAM console](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam") with a user that has permissions to create IAM policies. We recommend
    using the administrative user created in
-   [Create an administrative user for managing AWS resources](setting-up-first-time-admin.md#setting-up-create-admin-user "setting-up-first-time-admin.md#setting-up-create-admin-user").
+   [Sign up for an AWS account](setting-up-first-time-admin.md#sign-up-for-aws "setting-up-first-time-admin.md#sign-up-for-aws").
 2. In the left-side navigation pane, choose **Policies**.
 3. Choose **Create policy**.
 4. In the **Policy editor** section, choose the **JSON** option.
@@ -71,7 +71,7 @@ to Amazon SES.
 
 1. Sign in to the [IAM console](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam") with a user that has permissions to create IAM roles. We recommend
    using the administrative user created in
-   [Create an administrative user for managing AWS resources](setting-up-first-time-admin.md#setting-up-create-admin-user "setting-up-first-time-admin.md#setting-up-create-admin-user").
+   [Sign up for an AWS account](setting-up-first-time-admin.md#sign-up-for-aws "setting-up-first-time-admin.md#sign-up-for-aws").
 2. In the left-side navigation pane, choose **Roles**
 3. Choose **Create role**.
 4. In **Trusted entity type**, choose **Custom trust policy**.

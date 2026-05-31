@@ -18,7 +18,7 @@ Use the following procedure to create and configure DynamoDB resources to be use
 
 We recommend
 using the administrative user created in
-[Create an administrative user for managing AWS resources](setting-up-first-time-admin.md#setting-up-create-admin-user "setting-up-first-time-admin.md#setting-up-create-admin-user"). 2. In the left navigation pane, choose **Tables**. 3. Choose **Create table**. 4. Enter a name and keys for your table. 5. Choose **Create table**. 6. After your table is created, add some items to it so they will appear once the table is connected to App Studio.
+[Sign up for an AWS account](setting-up-first-time-admin.md#sign-up-for-aws "setting-up-first-time-admin.md#sign-up-for-aws"). 2. In the left navigation pane, choose **Tables**. 3. Choose **Create table**. 4. Enter a name and keys for your table. 5. Choose **Create table**. 6. After your table is created, add some items to it so they will appear once the table is connected to App Studio.
 
     1. Choose your table, choose **Actions**, and choose **Explore items**.
     2. In **Items returned**, choose **Create item**.
@@ -45,7 +45,7 @@ for the application to follow best security practices.
 
 1. Sign in to the [IAM console](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam") with a user that has permissions to create IAM policies. We recommend
    using the administrative user created in
-   [Create an administrative user for managing AWS resources](setting-up-first-time-admin.md#setting-up-create-admin-user "setting-up-first-time-admin.md#setting-up-create-admin-user").
+   [Sign up for an AWS account](setting-up-first-time-admin.md#sign-up-for-aws "setting-up-first-time-admin.md#sign-up-for-aws").
 2. In the left-side navigation pane, choose **Policies**.
 3. Choose **Create policy**.
 4. In the **Policy editor** section, choose the **JSON** option.
@@ -193,7 +193,7 @@ to the configured DynamoDB resources.
 
 1. Sign in to the [IAM console](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam") with a user that has permissions to create IAM roles. We recommend
    using the administrative user created in
-   [Create an administrative user for managing AWS resources](setting-up-first-time-admin.md#setting-up-create-admin-user "setting-up-first-time-admin.md#setting-up-create-admin-user").
+   [Sign up for an AWS account](setting-up-first-time-admin.md#sign-up-for-aws "setting-up-first-time-admin.md#sign-up-for-aws").
 2. In the navigation pane of the console, choose **Roles** and then choose **Create role**.
 3. In **Trusted entity type**, choose **Custom trust policy**.
 4. Replace the default policy with the following policy to allow App Studio applications to assume this role in your account.
