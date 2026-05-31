@@ -494,12 +494,11 @@ For more information about
 throughput and message size, see [SMS character limits
 in Amazon Pinpoint](../../../pinpoint/latest/userguide/channels-sms-limitations-mps.md "../../../pinpoint/latest/userguide/channels-sms-limitations-mps.md") in the _Amazon Pinpoint User Guide_.
 
-To view the number of message parts for each message that you send, you should first
-enable [Event stream
-settings](../../../pinpoint/latest/userguide/settings-event-streams.md "../../../pinpoint/latest/userguide/settings-event-streams.md"). When you do, Amazon SNS produces an `_SMS.SUCCESS` event when
-the message is delivered to the recipient's mobile provider. The `_SMS.SUCCESS`
-event record contains an attribute called `attributes.number_of_message_parts`.
-This attribute specifies the number of message parts that the message contained.
+To view the number of message parts for each message that you send, enable CloudWatch
+Logs for SMS deliveries. When you do, Amazon SNS produces CloudWatch Logs for your SMS
+deliveries that include the delivery status. The CloudWatch Log contains an attribute
+called `numberOfMessageParts`. This attribute specifies the number of message
+parts that the message contained.
 
 ###### Important
 

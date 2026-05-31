@@ -37,7 +37,7 @@ request body, see [HTTP/HTTPS headers](http-header.md "http-header.md") and [HTT
 
 ###### Note
 
-Amazon SNS considers all 5XX errors and 429 (too many requests sent) errors as retryable. These errors are subject to the delivery policy. All other errors are considered as permanent failures and retries will not be attempted.
+Amazon SNS considers all 5XX errors and 429 (too many requests sent) errors as retryable. These errors are subject to the delivery policy. All other errors are considered as permanent failures and retries will not be attempted. However, messages that Amazon SNS self-throttles due to the `maxReceivesPerSecond` setting are not subject to the delivery retry policy. Self-throttled messages are re-queued and continue to be delivered as capacity allows, without consuming retry attempts.
 
 ```
 POST / HTTP/1.1

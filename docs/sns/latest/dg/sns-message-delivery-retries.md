@@ -111,7 +111,7 @@ message before discarding it. To retain messages that can't be delivered after a
 retries, configure your subscription to move undeliverable messages to a dead-letter
 queue (DLQ). For more information, see [Amazon SNS dead-letter queues](sns-dead-letter-queues.md "sns-dead-letter-queues.md").
 
-Amazon SNS considers all 5XX errors and 429 (too many requests sent) errors as retryable. These errors are subject to the delivery policy. All other errors are considered as permanent failures and retries will not be attempted.
+Amazon SNS considers all 5XX errors and 429 (too many requests sent) errors as retryable. These errors are subject to the delivery policy. All other errors are considered as permanent failures and retries will not be attempted. However, messages that Amazon SNS self-throttles due to the `maxReceivesPerSecond` setting are not subject to the delivery retry policy. Self-throttled messages are re-queued and continue to be delivered as capacity allows, without consuming retry attempts.
 
 ###### Note
 
