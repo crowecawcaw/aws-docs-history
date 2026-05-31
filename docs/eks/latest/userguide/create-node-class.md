@@ -253,7 +253,7 @@ The `podSubnetSelectorTerms` and `podSecurityGroupSelectorTerms` fields enable a
 
 ###### Note
 
-This feature is different from the [Security Groups for Pods](security-groups-for-pods.md "security-groups-for-pods.md") (SGPP) feature used with the AWS VPC CNI for non-EKS Auto Mode compute. SGPP is not supported in EKS Auto Mode. Instead, use `podSecurityGroupSelectorTerms` in the `NodeClass` to apply separate security groups to Pod traffic. The security groups apply at the `NodeClass` level, meaning all Pods on nodes using that `NodeClass` share the same Pod security groups.
+This feature is different from the [Security Groups for Pods](security-groups-for-pods.md "security-groups-for-pods.md") (SGPP) feature used with the VPC CNI for non-EKS Auto Mode compute. SGPP is not supported in EKS Auto Mode. Instead, use `podSecurityGroupSelectorTerms` in the `NodeClass` to apply separate security groups to Pod traffic. The security groups apply at the `NodeClass` level, meaning all Pods on nodes using that `NodeClass` share the same Pod security groups.
 
 ### How it works
 

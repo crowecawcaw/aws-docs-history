@@ -13,7 +13,7 @@ When you enable the Argo CD capability, you can create and manage the following 
 
 **Application**
 
-Defines a deployment from a Git repository to a target cluster. `Application` resources specify the source repository, target namespace, and sync policy. You can create up to 1000 `Application` resources per Argo CD capability instance.
+Defines a deployment from a Git repository to a target cluster. `Application` resources specify the source repository, target namespace, and sync policy. You can create up to 3,000 `Application` resources per Argo CD capability instance.
 
 **ApplicationSet**
 
@@ -152,7 +152,7 @@ EKS Capabilities have the following resource limits:
 
 **Argo CD usage limits**:
 
-- Maximum 1000 `Application` resources per Argo CD capability instance
+- Maximum 3,000 `Application` resources per Argo CD capability instance
 - Maximum 100 remote clusters configured per Argo CD capability instance
 
 **Resource configuration limits**:

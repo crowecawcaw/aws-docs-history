@@ -38,7 +38,7 @@ This section provides best practices for optimizing storage in AI/ML workloads o
 
 ### [AI/ML Observability](../best-practices/aiml-observability.md "../best-practices/aiml-observability.md")
 
-This section focuses on monitoring and optimizing GPU utilization for AI/ML workloads on Amazon EKS to improve efficiency and reduce costs, including strategies such as targeting high GPU usage with tools like CloudWatch Container Insights and NVIDIA’s DCGM-Exporter integrated with Prometheus and Grafana, and metrics we recommend you analyze for your AI/ML workloads.
+This section focuses on monitoring and optimizing GPU utilization for AI/ML workloads on Amazon EKS to improve efficiency and reduce costs, including strategies such as targeting high GPU usage with tools like CloudWatch Container Insights and NVIDIA’s DCGM-Exporter integrated with Prometheus and Grafana, and metrics we recommend analyzing for your AI/ML workloads.
 
 ### [AI/ML Performance](../best-practices/aiml-performance.md "../best-practices/aiml-performance.md")
 

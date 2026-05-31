@@ -32,7 +32,6 @@ For more information, see [Amazon EC2 managed instances](../../../AWSEC2/latest/
 
 The following functionality works for both Managed instances and Standard EC2 instances:
 
-- You can view the instance in the AWS console.
 - You can use instance storage as ephemeral storage for workloads.
 
 ### AMI Support
@@ -40,6 +39,30 @@ The following functionality works for both Managed instances and Standard EC2 in
 With EKS Auto Mode, AWS determines the image (AMI) used for your compute nodes. AWS monitors the rollout of new EKS Auto Mode AMI versions. If you experience workload issues related to an AMI version, create a support case. For more information, see [Creating support cases and case management](../../../awssupport/latest/user/case-management.md "../../../awssupport/latest/user/case-management.md") in the AWS Support User Guide.
 
 Generally, EKS releases a new AMI each week containing CVE and security fixes.
+
+## Managed resource visibility
+
+###### Note
+
+Beginning April 22, 2026, new Amazon EC2 managed instances and associated resources (for example, EC2 launch templates, EBS volumes, and network interfaces (ENIs)) created by EKS Auto Mode are hidden from EC2 console views and `describe` API list operations by default. Managed resources that already existed in your account before that date remain visible. You can change this behavior using managed resource visibility settings.
+
+Amazon EC2 provides managed resource visibility settings that control whether managed resources appear in your EC2 console views and API list operations such as `DescribeInstances`.
+
+When managed resources are hidden, EKS Auto Mode managed instances and their associated resources (EBS volumes, launch templates, and network interfaces) do not appear in the EC2 console or `describe` API responses. This can simplify governance dashboards, reduce noise in observability tools, and prevent false positives in cloud security posture management (CSPM) scanners that flag managed resources as customer misconfigurations.
+
+Visibility settings apply account-wide to all IAM principals. You cannot selectively show or hide managed resources by resource type or by the service that created them. Hidden resources remain fully operational and billable.
+
+You can change visibility settings at any time through the Amazon EC2 console or the AWS CLI. For more information, see [Managed resource visibility settings](../../../AWSEC2/latest/UserGuide/amazon-ec2-managed-instances.md#managed-resource-visibility-settings "../../../AWSEC2/latest/UserGuide/amazon-ec2-managed-instances.md#managed-resource-visibility-settings") in the _Amazon EC2 User Guide_.
+
+###### Note
+
+Even when managed resources are hidden from EC2 console views and list APIs, you can still view EKS Auto Mode instances through:
+
+- The Amazon EKS console, under your cluster’s **Compute** tab.
+- Kubernetes APIs (for example, `kubectl get nodes`).
+- Direct EC2 API queries by instance ID (for example, `describe-instances --instance-ids i-0123456789abcdef0`).
+- The `DescribeInstances` API with the `include-managed-resources` parameter.
+- The EC2 console, after changing the managed resource visibility setting.
 
 ## EKS Auto Mode supported instance reference
 

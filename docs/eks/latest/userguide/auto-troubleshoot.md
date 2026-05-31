@@ -119,7 +119,24 @@ You can use the AWS console to view the status of resources associated with your
   - View EKS Auto Mode load balancers by searching for the tag key `eks:eks-cluster-name`
 
 - [EC2 Instances](https://console.aws.amazon.com/ec2/home#Instances "https://console.aws.amazon.com/ec2/home#Instances")
-  - View EKS Auto Mode instances by searching for the tag key `eks:eks-cluster-name`
+
+EKS Auto Mode instances are EC2 managed instances. Beginning April 22, 2026, new managed instances and associated resources are hidden by default from EC2 console views and API list operations (such as `DescribeInstances`). If you don’t see your Auto Mode instances in the EC2 console, check your managed resource visibility settings:
+
+    1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+    2. In the navigation pane, choose **Dashboard**.
+    3. On the **Account attributes** card, under **Settings**, choose **Managed resource visibility**.
+    4. Choose **Manage**, and then select the visibility toggle for managed instances.
+    5. Choose **Save changes**.
+
+After enabling visibility, you can view EKS Auto Mode instances by searching for the tag key `eks:eks-cluster-name`.
+
+Alternatively, you can view Auto Mode nodes through:
+
+    + The Amazon EKS console, under your cluster’s **Compute** tab.
+    + `kubectl get nodes` from a configured Kubernetes client.
+    + Direct EC2 API queries by instance ID or with the `include-managed-resources` parameter.
+
+For more information, see [Managed resource visibility settings](../../../AWSEC2/latest/UserGuide/amazon-ec2-managed-instances.md#managed-resource-visibility-settings "../../../AWSEC2/latest/UserGuide/amazon-ec2-managed-instances.md#managed-resource-visibility-settings") in the _Amazon EC2 User Guide_.
 
 ## View IAM Errors in your AWS account
 

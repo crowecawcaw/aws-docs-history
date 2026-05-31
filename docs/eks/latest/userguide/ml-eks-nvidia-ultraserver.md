@@ -405,23 +405,17 @@ spec:
             resourceClaimTemplateName: nvbandwidth-test-compute-domain-channel
 ```
 
-- . Create the ComputeDomain and start the job with the following command.
-
--
+3. Create the ComputeDomain and start the job with the following command.
 
 ```
 kubectl apply -f nvbandwidth-test-job.yaml
 ```
 
-- . ComputeDomain creation, you can see the workload’s ComputeDomain has two nodes:
-
--
+4. ComputeDomain creation, you can see the workload’s ComputeDomain has two nodes:
 
 ```
 kubectl get computedomains.resource.nvidia.com -o yaml
 ```
-
--
 
 ```
 status:
@@ -435,17 +429,13 @@ status:
   status: Ready
 ```
 
-- . Review the results of the job with the following command.
-
--
+5. Review the results of the job with the following command.
 
 ```
 kubectl logs --tail=-1 -l job-name=nvbandwidth-test-launcher
 ```
 
-- A successful test shows bandwidth statistics in GB/s for the multi-node memcpy test. An example of a successful test output is shown below.
-
--
+A successful test shows bandwidth statistics in GB/s for the multi-node memcpy test. An example of a successful test output is shown below.
 
 ```
 ...
@@ -484,9 +474,7 @@ NOTE: The reported results may not reflect the full capabilities of the platform
 Performance can vary with software drivers, hardware clocks, and system topology.
 ```
 
-- . When the test is complete, delete it with the following command.
-
--
+6. When the test is complete, delete it with the following command.
 
 ```
 kubectl delete -f nvbandwidth-test-job.yaml
