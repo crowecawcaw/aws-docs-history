@@ -19,19 +19,13 @@ the organization.
 
 ###### Topics
 
-- [Signing up for AWS](#getting-started-signing-up "#getting-started-signing-up")
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Accessing AWS Organizations](#how-to-access "#how-to-access")
 - [Tutorial: Creating and configuring an organization](orgs_tutorials_basic.md "orgs_tutorials_basic.md")
 - [Tutorial: Monitor an organization with Amazon EventBridge](orgs_tutorials_cwe.md "orgs_tutorials_cwe.md")
 - [Working with AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md")
 
-## Signing up for AWS
-
-###### Topics
-
-- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
-
-### Sign up for an AWS account
+## Sign up for an AWS account
 
 To get started with AWS, you need an AWS account. For information about creating an AWS account, see
 [Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
