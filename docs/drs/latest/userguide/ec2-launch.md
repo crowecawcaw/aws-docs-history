@@ -11,7 +11,8 @@ added to AWS DRS upon the installation of the AWS Replication Agent.
 ###### Topics
 
 - [EC2 launch template parameters](#server-ec2-launch-template-parameters "#server-ec2-launch-template-parameters")
-- [EC2 template considerations](#ec2-considerations "#ec2-considerations")
+- [Key considerations for EC2 launch templates](ec2-key-considerations.md "ec2-key-considerations.md")
+- [Full launch template setting review](ec2-full-setting-review.md "ec2-full-setting-review.md")
 
 ###### Note
 
@@ -55,7 +56,7 @@ The basic settings include:
 
 ###### Note
 
-    + If you have a default VPC, you must modify the EC2 launch
+    + If you do not have a default VPC, you must modify the EC2 launch
      template and explicitly define the subnet in which to
      launch. Failure to do so will result in errors when
      launching drill or recovery instances.
@@ -83,8 +84,8 @@ The basic settings include:
 
 See more about these attributes here:
 [How attribute-based instance type selection works](../../../AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.md#ec2fleet-abs-how-it-works "../../../AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.md#ec2fleet-abs-how-it-works").
-EC2 will use fleets to launch your instances, and will apply price protection to ensure the fleet does not pick expensive instance types for you. DRS uses the default protection settings,
-so we will protect against selecting instance types that are 20% more expensive than the lowest cost instance type. To learn more about price protection using fleets, visit:
+EC2 uses fleets to launch your instances and applies default price protection settings to avoid selecting expensive instance types.
+For current price protection defaults, see
 [Price Protection](../../../AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.md#ec2fleet-abs-price-protection "../../../AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.md#ec2fleet-abs-price-protection").
 
 To learn more about using instance type attributes in DRS, visit [Flexible Instance Types](flexible-instance-types.md "flexible-instance-types.md").
@@ -132,18 +133,3 @@ take precedence over tags set in the AWS DRS Console or tags manually added to t
 server.
 
 Learn more about EC2 launch template settings and configuration options in [this EC2 article](../../../AWSEC2/latest/UserGuide/ec2-launch-templates.md "../../../AWSEC2/latest/UserGuide/ec2-launch-templates.md").
-
-## EC2 template considerations
-
-**Revert to previous version –** The right-sizing mechanism can fix issues such as an incorrect instance type, but other issues may still occur. If you encounter any issues with the launch template, you can quickly address them by choosing the original
-default launch template that was created by AWS DRS when the agent was installed. Alternatively, you can edit the relevant fields from the AWS DRS console.
-
-###### Important
-
-If you decide to create the EC2 template from the Amazon EC2 console, be sure not to change or edit the following fields:
-
-- RAM disk ID
-- Kernel
-- Nitro Enclave
-- Metadata accessible
-  These fields must remain unchanged for AWS Elastic Disaster Recovery to function properly.

@@ -2,6 +2,7 @@
 
 ###### Topics
 
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Disaster recovery overview](#recovery-workflow-gs "#recovery-workflow-gs")
 - [Elastic Disaster Recovery initialization and permissions](getting-started-initializing.md "getting-started-initializing.md")
 - [Accessing the AWS Elastic Disaster Recovery Console](accessing-console.md "accessing-console.md")
@@ -10,6 +11,12 @@
 - [Best practices for Elastic Disaster Recovery](best_practices_drs.md "best_practices_drs.md")
 - [Disaster recovery at scale](drs-at-scale.md "drs-at-scale.md")
 - [Elastic Disaster Recovery quick start guide](quick-start-guide-gs.md "quick-start-guide-gs.md")
+
+## Sign up for an AWS account
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
 
 ## Disaster recovery overview
 

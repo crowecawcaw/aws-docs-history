@@ -25,3 +25,9 @@ following points into consideration:
 - In case of EC2 instances from one account that replicate to a staging account (see [multi-account](multi-account.md "multi-account.md"))
   and launch in one or more target accounts, only the staging account must have
   a [Failback and in-AWS right-sizing role created](adding-trusted-account.md#trusted-accounts-failback-role "adding-trusted-account.md#trusted-accounts-failback-role") for.
+- The AWS account where recovery instances are launched (the target account or
+  staging account) must have an active subscription to the same AWS Marketplace
+  product associated with the source volumes. If the account is not subscribed,
+  the launch will fail with an `OptInRequired` error during volume
+  creation. Ensure that all accounts used for recovery are subscribed to the
+  required Marketplace products before initiating a drill or recovery.

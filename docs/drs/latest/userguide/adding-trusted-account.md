@@ -138,7 +138,7 @@ The **DRSCrossAccountAgentAuthorizedRole** contains the
 following trust policy. If you plan to use the policy as a template, replace the
 `account-id` with the Trusted AWS Account ID.
 
-The **DRSCrossAccountReplicationRole** has the following
+The **DRSCrossAccountAgentAuthorizedRole** has the following
 inline policy attached. If you plan to use the policy as a template, replace the
 `trustedAccount` with the Trusted AWS Account ID, and replace
 `sourceAccount` with the source AWS Account ID.
