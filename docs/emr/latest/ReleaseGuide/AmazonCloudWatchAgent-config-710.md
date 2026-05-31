@@ -321,7 +321,7 @@ The previous example has the following properties:
 
 - Every 20 seconds, the agent collects the `BlockCapacity` and `CapacityUsedGB` metrics from instances running the Hadoop Namenode service.
 - Every 30 seconds, the agent collects `MemNonHeapUsedM` metrics from instances running the Hadoop Datanode service.
-- Every 30 seconds, the agent collects the `AllocateNumOps` and `NodeUpdateNumOps` metrics from instances that run the Hadoop YARN ResourceManaager.
+- Every 30 seconds, the agent collects the `AllocateNumOps` and `NodeUpdateNumOps` metrics from instances that run the Hadoop YARN ResourceManager.
 
 ## Amazon Managed Service for Prometheus example
 
