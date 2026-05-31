@@ -25,14 +25,19 @@ The AWS IoT message broker generates log entries for the following events:
 
 - [Connect log entry](#log-mb-connect "#log-mb-connect")
 - [Disconnect log entry](#log-mb-disconnect "#log-mb-disconnect")
+- [Ping log entry](#log-mb-ping "#log-mb-ping")
+- [Connection.AuthNError log entry](#log-mb-authn-error "#log-mb-authn-error")
 - [DeleteConnection log entry](#log-mb-delete-connection "#log-mb-delete-connection")
 - [GetRetainedMessage log entry](#log-mb-get-retain "#log-mb-get-retain")
 - [ListRetainedMessage log entry](#log-mb-list-retain "#log-mb-list-retain")
+- [ListSubscriptions log entry](#log-mb-list-subscriptions "#log-mb-list-subscriptions")
+- [GetConnection log entry](#log-mb-get-connection "#log-mb-get-connection")
 - [Publish-In log entry](#log-mb-publish-in "#log-mb-publish-in")
 - [Publish-Out log entry](#log-mb-publish-out "#log-mb-publish-out")
 - [Queued log entry](#log-mb-queued "#log-mb-queued")
 - [Subscribe log entry](#log-mb-subscribe "#log-mb-subscribe")
 - [Unsubscribe log entry](#log-mb-unsubscribe "#log-mb-unsubscribe")
+- [SendDirectMessage log entry](#log-mb-send-direct-message "#log-mb-send-direct-message")
 
 ### Connect log entry
 
@@ -144,6 +149,242 @@ A brief explanation of the error.
 disconnectReason
 
 The reason why the client is disconnecting.
+
+### Ping log entry
+
+The AWS IoT message broker generates a log entry with an `eventType` of
+`Ping` when it processes an MQTT PINGREQ from a connected client and sends the
+corresponding PINGRESP. A single log entry is emitted per Ping operation.
+
+###### Important
+
+Ping log entries are opt-in and disabled by default. The emission threshold
+matches the per-entry outcome: success entries are emitted at the `DEBUG`
+level and failure entries are emitted at the `ERROR` level. As a result,
+you will see Ping failure entries whenever the event-level or Resource-specific
+override that applies to the connection is set to `ERROR` or a more verbose
+level (`WARN`, `INFO`, or `DEBUG`), but Ping success
+entries are published only when that level is set to `DEBUG`. To configure
+these settings, see [Configure Account and Event-level logging in AWS IoT (CLI)](configure-logging.md#global-logging-cli "configure-logging.md#global-logging-cli") and [Configure Resource-specific overrides in AWS IoT (CLI)](configure-logging.md#fine-logging-cli "configure-logging.md#fine-logging-cli").
+
+On success, the `logLevel` is `DEBUG` and the
+`status` is `Success`. On failure (for example, when the client
+connection is terminated before the PINGRESP can be sent), the `logLevel`
+is `ERROR` and the `status` is `Failure`.
+
+#### Ping log entry example (success)
+
+```
+{
+    "timestamp": "2025-10-31 15:37:23.476",
+    "logLevel": "DEBUG",
+    "traceId": "20b23f3f-d7f1-feae-169f-82263394fbdb",
+    "accountId": "123456789012",
+    "status": "Success",
+    "eventType": "Ping",
+    "protocol": "MQTT",
+    "latency": 128,
+    "requestTimestamp": "2025-10-31 15:37:23.348",
+    "responseTimestamp": "2025-10-31 15:37:23.476",
+    "clientId": "abf27092886e49a8a5c1922749736453",
+    "principalId": "145179c40e2219e18a909d896a5340b74cf97a39641beec2fc3eeafc5a932167",
+    "sourceIp": "205.251.233.181",
+    "sourcePort": 13490
+}
+```
+
+#### Ping log entry example (failure)
+
+```
+{
+    "timestamp": "2025-10-31 15:37:23.476",
+    "logLevel": "ERROR",
+    "traceId": "20b23f3f-d7f1-feae-169f-82263394fbdb",
+    "accountId": "123456789012",
+    "status": "Failure",
+    "eventType": "Ping",
+    "protocol": "MQTT",
+    "requestTimestamp": "2025-10-31 15:37:23.476",
+    "clientId": "abf27092886e49a8a5c1922749736453",
+    "principalId": "145179c40e2219e18a909d896a5340b74cf97a39641beec2fc3eeafc5a932167",
+    "sourceIp": "205.251.233.181",
+    "sourcePort": 13490,
+    "reason": "CONNECTION_ALREADY_CLOSED",
+    "details": "Connection has already closed"
+}
+```
+
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"),
+`Ping` log entries contain the following attributes:
+
+protocol
+
+The protocol used to make the request. The value is always
+`MQTT`.
+
+latency
+
+The time in milliseconds between receiving the PINGREQ and sending the
+PINGRESP. This field is present only when the `status` is
+`Success`.
+
+requestTimestamp
+
+The timestamp when AWS IoT Core received the PINGREQ from the client.
+
+responseTimestamp
+
+The timestamp when AWS IoT Core sent the PINGRESP to the client. This field is
+present only when the `status` is `Success`.
+
+clientId
+
+The ID of the client making the request.
+
+principalId
+
+The ID of the principal making the request.
+
+sourceIp
+
+The IP address where the request originated.
+
+sourcePort
+
+The port where the request originated.
+
+reason
+
+The reason for the Ping operation failure. This field is present only when the
+`status` is `Failure`.
+
+details
+
+A brief explanation of the error. This field is present only when the
+`status` is `Failure`.
+
+### Connection.AuthNError log entry
+
+The AWS IoT message broker generates a log entry with an `eventType` of
+`Connection.AuthNError` when a client connection attempt is rejected due to an
+authentication failure. The `logLevel` for this log entry is always
+`ERROR` and the `status` is always `Failure`. This log
+entry corresponds to the [Connection.AuthNError](metrics_dimensions.md#authentication-metrics "metrics_dimensions.md#authentication-metrics") CloudWatch
+metric.
+
+###### Important
+
+`Connection.AuthNError` log entries are opt-in and disabled by default.
+They are emitted at the `ERROR` log level, so a
+`Connection.AuthNError` log entry is published only when the event-level or
+Resource-specific override that applies to the connection is set to `ERROR`
+or a more verbose level (`WARN`, `INFO`, or `DEBUG`).
+To configure these settings, see [Configure Account and Event-level logging in AWS IoT (CLI)](configure-logging.md#global-logging-cli "configure-logging.md#global-logging-cli") and [Configure Resource-specific overrides in AWS IoT (CLI)](configure-logging.md#fine-logging-cli "configure-logging.md#fine-logging-cli").
+
+###### Note
+
+This log entry is published to the AWS account that owns the Server Name Indication
+(SNI) provided in the TLS handshake. If the client does not provide an SNI, or the SNI
+cannot be resolved to an account, no log entry or metric is emitted.
+
+#### Connection.AuthNError log entry example
+
+```
+{
+    "timestamp": "2025-10-31 15:37:23.476",
+    "logLevel": "ERROR",
+    "traceId": "20b23f3f-d7f1-feae-169f-82263394fbdb",
+    "accountId": "123456789012",
+    "status": "Failure",
+    "eventType": "Connection.AuthNError",
+    "protocol": "MQTT",
+    "authenticationType": "AWS_X509",
+    "clientId": "abf27092886e49a8a5c1922749736453",
+    "principalId": "145179c40e2219e18a909d896a5340b74cf97a39641beec2fc3eeafc5a932167",
+    "sourceIp": "205.251.233.181",
+    "sourcePort": 13490,
+    "targetIp": "52.94.236.10",
+    "targetPort": 8883,
+    "serverNameIndication": "a1b2c3d4e5f6g7-ats.iot.us-east-1.amazonaws.com",
+    "reason": "DEVICE_CERTIFICATE_NOT_REGISTERED",
+    "details": "Device certificate is not registered"
+}
+```
+
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"),
+`Connection.AuthNError` log entries contain the following attributes:
+
+protocol
+
+The protocol used to make the request. Valid values are `MQTT` or
+`HTTP`.
+
+authenticationType
+
+The type of authentication used for the connection attempt. Valid values are
+`AWS_X509`, `AWS_SIGV4`, `CUSTOM_AUTH`, and
+`CUSTOM_AUTH_X509`.
+
+clientId
+
+The ID of the client making the request, if available.
+
+principalId
+
+The ID of the principal making the request, if available.
+
+sourceIp
+
+The IP address where the request originated.
+
+sourcePort
+
+The port where the request originated.
+
+targetIp
+
+The destination IP address of the connection. This field might not be present in
+all log entries.
+
+targetPort
+
+The destination port of the connection.
+
+serverNameIndication
+
+The TLS Server Name Indication (SNI) extension hostname provided by the
+client.
+
+reason
+
+The reason why the client authentication failed. See [Connection.AuthNError error codes](#log-mb-authn-error-codes "#log-mb-authn-error-codes") for a list of possible values.
+
+details
+
+A brief description of the authentication failure.
+
+#### Connection.AuthNError error codes
+
+The following table lists the `reason` error codes and the corresponding
+`details` messages that can appear for a `Connection.AuthNError`
+log entry. Additional error codes may be added in the future.
+
+| Error code                                 | Error message                                                                     |
+| ------------------------------------------ | --------------------------------------------------------------------------------- |
+| `CUSTOM_AUTHORIZER_LAMBDA_EXECUTION_ERROR` | Custom authorizer Lambda invocation failed                                        |
+| `CUSTOM_AUTHORIZER_NOT_FOUND`              | Could not find custom authorizer                                                  |
+| `CUSTOM_AUTHORIZER_PARAMETER_INVALID`      | Custom authentication parameter is invalid                                        |
+| `DEVICE_CERTIFICATE_INACTIVE`              | Device certificate is not active                                                  |
+| `DEVICE_CERTIFICATE_NOT_REGISTERED`        | Device certificate is not registered                                              |
+| `DEVICE_CERTIFICATE_REVOKED`               | Device certificate is revoked                                                     |
+| `DOMAIN_CONFIGURATION_DISABLED`            | Domain configuration for the Server Name Indication (SNI) provided is<br>disabled |
+| `DOMAIN_CONFIGURATION_INVALID`             | The endpoint type in domain configuration is invalid                              |
+| `INTERNAL_SERVER_ERROR`                    | Internal server error                                                             |
+| `NOT_AUTHENTICATED`                        | The credentials provided could not be authenticated                               |
+| `SECURITY_TOKEN_EXPIRED`                   | The security token is expired                                                     |
+| `SECURITY_TOKEN_INVALID`                   | The security token included in the request is invalid                             |
+| `SECURITY_TOKEN_SIGNATURE_MISMATCH`        | Request signature does not match the signature provided                           |
+| `SNI_MISUSED`                              | The client used an SNI that is not associated with this account                   |
 
 ### DeleteConnection log entry
 
@@ -264,6 +505,107 @@ protocol
 
 The protocol used to make the request. Valid value:
 `HTTP`.
+
+### ListSubscriptions log entry
+
+The AWS IoT message broker generates a log entry with an `eventType` of
+`ListSubscriptions` when a request to list client subscriptions is
+received.
+
+#### ListSubscriptions log entry example
+
+```
+{
+    "timestamp": "2025-08-22 19:57:46.587",
+    "logLevel": "INFO",
+    "traceId": "5bea658a-0752-bf20-770f-ad17c8dabb95",
+    "accountId": "987654321",
+    "status": "Success",
+    "eventType": "ListSubscriptions",
+    "protocol": "HTTP",
+    "clientId": "abc",
+    "principalId": "AIDAZPOK3C3545MCMYATF",
+    "sourceIp": "52.94.133.137",
+    "sourcePort": 13490,
+    "maxResults": 100
+}
+```
+
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `ListSubscriptions` log entries contain
+the following attributes:
+
+clientId
+
+The ID of the client making the request.
+
+principalId
+
+The ID of the principal making the request.
+
+protocol
+
+The protocol used to make the request. Valid value:
+`HTTP`.
+
+sourceIp
+
+The IP address where the request originated.
+
+sourcePort
+
+The port where the request originated.
+
+maxResults
+
+The maximum number of results requested.
+
+### GetConnection log entry
+
+The AWS IoT message broker generates a log entry with an `eventType` of
+`GetConnection` when a request to get connection information is
+received.
+
+#### GetConnection log entry example
+
+```
+{
+    "timestamp": "2025-08-22 19:19:50.679",
+    "logLevel": "INFO",
+    "traceId": "7a04de1a-d1a3-50bc-3ca5-96b1ee293dae",
+    "accountId": "987654321",
+    "status": "Success",
+    "eventType": "GetConnection",
+    "protocol": "HTTP",
+    "clientId": "aClient",
+    "principalId": "AIDAZPOK3C3545MCMYATF",
+    "sourceIp": "52.94.133.137",
+    "sourcePort": 31983
+}
+```
+
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"), `GetConnection` log entries contain
+the following attributes:
+
+clientId
+
+The ID of the client making the request.
+
+principalId
+
+The ID of the principal making the request.
+
+protocol
+
+The protocol used to make the request. Valid value:
+`HTTP`.
+
+sourceIp
+
+The IP address where the API request originated.
+
+sourcePort
+
+The port where the API request originated.
 
 ### Publish-In log entry
 
@@ -661,6 +1003,122 @@ The IP address where the request originated.
 sourcePort
 
 The port where the request originated.
+
+### SendDirectMessage log entry
+
+The AWS IoT message broker generates a log entry with an `eventType` of
+`SendDirectMessage` when a SendDirectMessage API request is made.
+
+AWS IoT Core logs SendDirectMessage events to CloudWatch Logs when you enable IoT logging. For more
+information about configuring logging, see [Configure AWS IoT logging](configure-logging.md "configure-logging.md").
+
+#### SendDirectMessage success log entry example
+
+```
+{
+    "timestamp": "2026-01-20 20:44:00.123",
+    "logLevel": "INFO",
+    "traceId": "1a2b3c4d-1234-3214-abcd-1a2b3c4d5e6f",
+    "accountId": "123456789012",
+    "status": "Success",
+    "eventType": "SendDirectMessage",
+    "protocol": "HTTP",
+    "topicName": "commands/reboot",
+    "clientId": "mydevice-002",
+    "principalId": "145179c40e2219e18a909d896a5340b74cf97a39641beec2fc3eeafc5a932167",
+    "confirmation": true,
+    "sourceIp": "203.0.113.45",
+    "sourcePort": 52847,
+    "timeout": 3
+}
+```
+
+#### SendDirectMessage failure log entry example
+
+```
+{
+    "timestamp": "2026-01-15 20:30:00.123",
+    "logLevel": "ERROR",
+    "traceId": "1a2b3c4d-1234-5678-abcd-1a2b3c4d5e6f",
+    "accountId": "123456789012",
+    "status": "Failure",
+    "eventType": "SendDirectMessage",
+    "protocol": "HTTP",
+    "topicName": "commands/reboot",
+    "clientId": "myDevice",
+    "principalId": "145179c40e2219e18a909d896a5340b74cf97a39641beec2fc3eeafc5a932167",
+    "confirmation": true,
+    "sourceIp": "203.0.113.45",
+    "sourcePort": 52847,
+    "reason": "DELIVERY_CONFIRMATION_TIMEOUT",
+    "details": "The delivery confirmation was not received within the specified timeout period",
+    "timeout": 2
+}
+```
+
+In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes"),
+`SendDirectMessage` log entries contain the following attributes:
+
+clientId
+
+The ID of the client receiving the direct message.
+
+topicName
+
+The topic on which the message was sent.
+
+protocol
+
+The protocol used to make the request. Valid value: `HTTP`.
+
+confirmation
+
+Whether delivery confirmation was requested. Valid values are `true` or `false`.
+
+timeout
+
+Maximum time, in seconds, to wait for a delivery confirmation from the receiving client. Only present when `confirmation` is `true`.
+
+reason
+
+The reason code for the failure.
+
+details
+
+A brief explanation of the error.
+
+principalId
+
+The ID of the principal making the request.
+
+sourceIp
+
+The IP address where the request originated.
+
+sourcePort
+
+The port where the request originated.
+
+#### Reason codes
+
+The following reason codes and details will appear in the failure log entries:
+
+| SendDirectMessage reason codes            | Reason                                                                                                                                          | Details |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `MALFORMED_CLIENTID`                      | This client ID isn't valid. Client IDs must not exceed 128 characters and can't start with a dollar sign ($). Enter a different client ID       |
+| `INVALID_TOPIC`                           | This topic isn't valid. Topics size needs to be within 256 bytes, should contain less than 9 parts, and should not start with a dollar sign ($) |
+| `INVALID_TIMEOUT_PARAMETER`               | Invalid timeout value. Must be an integer between 1 and 15                                                                                      |
+| `INVALID_CONFIRMATION_PARAMETER`          | Invalid confirmation value. Must be 'true' or 'false'                                                                                           |
+| `RECEIVE_AUTHORIZATION_FAILURE`           | Authorization failed for the target client. Verify that your policy grants the necessary permissions                                            |
+| `TARGET_CLIENT_ID_NOT_FOUND`              | The client ID is not found. Verify that the client is connected and try again                                                                   |
+| `TARGET_CLIENT_NOT_CONNECTED`             | The target client ID is not connected, but it has an active persistent session                                                                  |
+| `SEND_DIRECT_MESSAGE_THROTTLED`           | The request was denied due to send direct message request rate exceeded                                                                         |
+| `RECEIVE_SESSION_THROTTLED`               | The request was denied because request rate exceeded the outbound publish requests per second per connection                                    |
+| `RECEIVER_MAX_UNACKED_QOS1_EXCEEDED`      | The receiver client has reached the maximum number of unacknowledged QoS 1 messages                                                             |
+| `DELIVERY_CONFIRMATION_TIMEOUT`           | The delivery confirmation was not received within the specified timeout period                                                                  |
+| `DELIVERY_CONFIRMATION_SENDER_DISCONNECT` | The sender disconnected before the delivery confirmation was received                                                                           |
+| `CLIENT_ENDPOINT_NOT_WRITABLE`            | The receiver client endpoint is not writable                                                                                                    |
+| `INTERNAL_SERVER_ERROR`                   | Internal server error                                                                                                                           |
 
 ## Server certificate OCSP log entries
 

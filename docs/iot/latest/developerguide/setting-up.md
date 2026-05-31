@@ -14,8 +14,6 @@ To get started with AWS, you need an AWS account. For information about creating
 in the _AWS Account Management Reference Guide_.
 
 - [Open the AWS IoT console](#iot-console-signin "#iot-console-signin")
-  If you already have an AWS account and a user for yourself, you can use them and
-  skip ahead to [Open the AWS IoT console](#iot-console-signin "#iot-console-signin").
 
 ## Open the AWS IoT console
 

@@ -21,3 +21,4 @@ The examples in this section use these policy elements:
 - [Certificate policy examples](certificate-policy-examples.md "certificate-policy-examples.md")
 - [Thing policy examples](thing-policy-examples.md "thing-policy-examples.md")
 - [Basic job policy example](basic-jobs-example.md "basic-jobs-example.md")
+- [Direct messaging policy examples](direct-messaging-policy-examples.md "direct-messaging-policy-examples.md")

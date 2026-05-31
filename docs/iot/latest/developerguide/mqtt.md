@@ -33,7 +33,7 @@ Security in AWS IoT](transport-security.md "transport-security.md"). Clients tha
 authenticate clients must provide the correct [Signature Version 4](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md")
 authentication.
 
-After your clients are connected, you can monitor and manage their MQTT client connections using APIs. For more information, see [Managing MQTT connections](#mqtt-client-disconnect "#mqtt-client-disconnect").
+After your clients are connected, you can monitor and manage their MQTT client connections using the console or APIs. For more information, see [MQTT connection management](#mqtt-client-disconnect "#mqtt-client-disconnect").
 
 ###### In this topic:
 
@@ -47,7 +47,7 @@ After your clients are connected, you can monitor and manage their MQTT client c
 - [MQTT 5 properties](#mqtt5-properties "#mqtt5-properties")
 - [MQTT reason codes](#mqtt5-reason-codes "#mqtt5-reason-codes")
 - [AWS IoT differences from MQTT specifications](#mqtt-differences "#mqtt-differences")
-- [Managing MQTT connections](#mqtt-client-disconnect "#mqtt-client-disconnect")
+- [MQTT connection management](#mqtt-client-disconnect "#mqtt-client-disconnect")
 
 ## Connecting with MQTT using the AWS IoT Device SDKs
 
@@ -232,7 +232,7 @@ Persistent sessions can end in the following ways:
   out.
 - The client sends a `CONNECT` message that sets the
   `cleanSession` flag to `1`.
-- You manually disconnect the client and clear the session using `DeleteConnection` API. For more information, see [Managing MQTT connections](#mqtt-client-disconnect "#mqtt-client-disconnect").
+- You manually disconnect the client and clear the session using the console or `DeleteConnection` API. For more information, see [MQTT connection management](#mqtt-client-disconnect "#mqtt-client-disconnect").
 
 In MQTT 3, the default value of persistent sessions expiration time is an hour,
 and this applies to all the sessions in the account.
@@ -462,7 +462,7 @@ messages:
     The **MQTT test client** page in the AWS IoT
      console can subscribe and publish to MQTT topics. The publish
      option lets you set the RETAIN flag on the messages that you
-     publish to simulate how your devices might behave. You can also use the MQTT test client to monitor messages from connected clients that you manage through the client connections interface. For more information about managing client connections, see [Managing MQTT connections](#mqtt-client-disconnect "#mqtt-client-disconnect").
+     publish to simulate how your devices might behave. You can also use the MQTT test client to monitor messages from connected clients that you manage through the client connections interface. For more information about managing client connections, see [MQTT connection management](#mqtt-client-disconnect "#mqtt-client-disconnect").
 
 Some unexpected results might be the result of these aspects of how
 retained messages are implemented in AWS IoT Core.
@@ -559,7 +559,7 @@ connection. For example, if the `Will Retain` flag is set to `1`,
 a Will Message will be stored in the broker in the associated Will Topic. For more
 information, see [Will Messages](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc479576982 "https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc479576982").
 
-When managing client connections, you can control whether LWT messages are published when you disconnect a client. For more information, see [Managing MQTT connections](#mqtt-client-disconnect "#mqtt-client-disconnect").
+When managing client connections, you can control whether LWT messages are published when you disconnect a client. For more information, see [MQTT connection management](#mqtt-client-disconnect "#mqtt-client-disconnect").
 
 The broker will store the Will Messages until an uninitiated disconnection occurs.
 When that happens, the broker will publish the messages to all clients that subscribed
@@ -595,7 +595,7 @@ By default, your policy has a non-persistent connection and there are no attribu
 passed for this connection. You must specify a persistent connection in your IAM
 policy if you want to have one.
 
-When managing client connections, you can view the connection attributes and session configuration for connected clients. For more information, see [Managing MQTT connections](#mqtt-client-disconnect "#mqtt-client-disconnect").
+When managing client connectionsthrough the console or APIs, you can view the connection attributes and session configuration for connected clients. For more information, see [MQTT connection management](#mqtt-client-disconnect "#mqtt-client-disconnect").
 
 For `ConnectAttributes` examples, see [Connect Policy Examples](connect-policy.md "connect-policy.md").
 
@@ -703,7 +703,7 @@ For more information about shared subscriptions limits, see [AWS IoT Core endpoi
 and quotas](../../../general/latest/gr/iot-core.md "../../../general/latest/gr/iot-core.md") from the _AWS General
 Reference_. To test shared subscriptions using the AWS IoT MQTT client
 in the [AWS IoT console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home"),
-see [Testing Shared Subscriptions in the MQTT client](view-mqtt-messages.md#view-mqtt-shared-subscriptions "view-mqtt-messages.md#view-mqtt-shared-subscriptions"). You can also view which topics connected clients are subscribed to, including shared subscriptions, by using the client connection management features. For more information, see [Managing MQTT connections](#mqtt-client-disconnect "#mqtt-client-disconnect"). For more information about
+see [Testing Shared Subscriptions in the MQTT client](view-mqtt-messages.md#view-mqtt-shared-subscriptions "view-mqtt-messages.md#view-mqtt-shared-subscriptions"). You can also view which topics connected clients are subscribed to, including shared subscriptions, by using the client connection management features. For more information, see [MQTT connection management](#mqtt-client-disconnect "#mqtt-client-disconnect"). For more information about
 shared subscriptions, see [Shared Subscriptions](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901250 "https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901250") from the MQTTv5.0 specification.
 
 #### Shared subscriptions message queuing
@@ -946,7 +946,7 @@ specification](http://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html "http://
   Two clients with the same client ID can't be connected concurrently to the
   message broker. When a client connects to the message broker using a client ID
   that another client is using, the new client connection is accepted and the
-  previously connected client is disconnected. You can also manually disconnect clients using APIs. For more information, see [Managing MQTT connections](#mqtt-client-disconnect "#mqtt-client-disconnect").
+  previously connected client is disconnected. You can also manually disconnect clients using the console or APIs. For more information, see [MQTT connection management](#mqtt-client-disconnect "#mqtt-client-disconnect").
 - On rare occasions, the message broker might resend the same logical PUBLISH
   message with a different packet ID.
 - Subscription to topic filters that contain a wildcard character can't receive
@@ -959,11 +959,18 @@ specification](http://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html "http://
   message broker and protocol limits and quotas](../../../general/latest/gr/iot-core.md#message-broker-limits "../../../general/latest/gr/iot-core.md#message-broker-limits") from the _AWS IoT Reference Guide_.
 - The MQTT DUP flag is not supported.
 
-## Managing MQTT connections
+## MQTT connection management
 
-AWS IoT Core provides APIs to help you manage MQTT connections, including the ability to disconnect clients and manage their sessions. These capabilities give you more control over your AWS IoT client fleet and help with troubleshooting connection issues.
+AWS IoT Core provides APIs and console features to help you manage MQTT connections, including the ability to disconnect clients, view connection details, and manage their sessions. These capabilities give you more control over your AWS IoT client fleet and help with troubleshooting connection issues.
 
-### DeleteConnection API
+###### In this section
+
+- [Disconnecting MQTT clients](#delete-connection-api "#delete-connection-api")
+- [Viewing connection details](#get-connection-api "#get-connection-api")
+- [Managing client subscriptions](#list-subscriptions-api "#list-subscriptions-api")
+- [CloudWatch Logs AWS IoT log entries](#mqtt-connect-log-entries "#mqtt-connect-log-entries")
+
+### Disconnecting MQTT clients
 
 Use the `DeleteConnection` API to disconnect MQTT devices from AWS IoT Core by specifying their client IDs. When you disconnect a client, AWS IoT Core disconnects the client from the AWS IoT Core message broker and can optionally clean the session state and suppress the Last Will and Testament (LWT) message.
 
@@ -1014,7 +1021,7 @@ cleanSession (optional)
 
 Specifies whether to remove the client's session state when disconnecting. Set to `true` to delete all session
 information, including subscriptions and queued messages. Set to `false` to preserve the session state. By default,
-this is set to `false` (preserves the session state). For clean sessions this parameter will be ignored.
+this is set to `false` (preserves the session state). For clean sessions, this parameter is ignored.
 
 preventWillMessage (optional)
 
@@ -1064,7 +1071,7 @@ You can scope this permission to specific client IDs using resource-based polici
         {
             "Effect": "Allow",
             "Action": "iot:DeleteConnection",
-            "Resource": "arn:aws:iot:region:account:client/myDevice*"
+            "Resource": "arn:aws:iot:us-east-1:987654321:client/myDevice*"
         }
     ]
 }
@@ -1107,3 +1114,496 @@ An unexpected error has occurred. Retry the request after a brief delay.
 ServiceUnavailableException
 
 The service is temporarily unavailable. Retry the request after a brief delay.
+
+### Viewing connection details
+
+Use the `GetConnection` API to retrieve detailed information about active MQTT client connections, including connection status, session details, and network information.
+
+The `GetConnection` API returns comprehensive connection metadata that helps with troubleshooting connectivity issues, monitoring client behavior, and auditing connection patterns. You can use this information to understand client connection lifecycles and diagnose problems with MQTT sessions.
+Connection information is available for 30 minutes after disconnection regardless of whether the client used a clean or [persistent session](#mqtt-persistent-sessions "#mqtt-persistent-sessions").
+For disconnected metatdata beyond 30 minutes, use the [GetThingConnectivityData](device-connectivity-status.md "device-connectivity-status.md") API which requires fleet indexing to be enabled.
+
+#### Use cases
+
+The `GetConnection` API is useful for troubleshooting connection issues and monitoring client behavior. You can verify client connectivity status, check persistent session settings, and review connection timestamps to understand client connectivity patterns.
+
+Network diagnostics also benefit from this API. The connection details include source and target IP addresses and ports, which help identify network routing issues or connection endpoint problems. This information is valuable when debugging connectivity problems or optimizing network configurations.
+
+#### API parameters
+
+The `GetConnection` API accepts the following parameters:
+
+clientId (required)
+
+The unique identifier of the MQTT client to retrieve connection details for. This is specified in the URL path. The client ID can't start with a dollar sign ($).
+
+###### Note
+
+MQTT client IDs can contain characters that are not valid in HTTP requests. When using the `GetConnection` API, you must URL encode (percent-encode)
+any characters in the client ID that are valid in MQTT but not in HTTP. This includes special characters like spaces, forward slashes (/),
+and UTF-8 characters. For example, a space becomes %20, a forward slash becomes %2F, and the UTF-8 character ü becomes %C3%BC.
+Proper encoding ensures that MQTT client IDs are correctly transmitted in the HTTP-based API call.
+
+Routing considerations: URL encoding is required when client IDs contain both forward slashes and the string "subscriptions".
+Without proper encoding, the path structure may be misinterpreted and your request will be routed to the `ListSubscriptions` API instead of `GetConnection`.
+For instance, a client ID client/subscriptions must be encoded as client%2Fsubscriptions to ensure the request routes correctly to `GetConnection`
+rather than being interpreted as a `ListSubscriptions` call.
+
+includeSocketInformation (optional)
+
+Type: Boolean
+
+Default: false
+
+The `includeSocketInformation` parameter controls whether socket-level network information is included in the API response.
+When set to `true`, the response includes the following fields: `sourceIp`, `sourcePort`, `targetIp`, `targetPort`, `vpcEndpointId`.
+When `includeSocketInformation` is not specified or set to `false`, these socket fields are excluded from the response.
+If the `includeSocketInformation` parameter is set to `true` but the caller lacks authorization to view socket information, the entire API call fails with 403 Forbidden.
+
+#### API syntax
+
+The `GetConnection` API uses the following HTTP request format:
+
+```
+GET /connections/<client-id>?includeSocketInformation=false HTTP/1.1
+```
+
+Example requests:
+
+```
+GET /connections/myDevice123?includeSocketInformation=false HTTP/1.1
+
+// Get connection details for a client with special characters (URL encoded)
+// Original client ID: "my device/123"
+GET /connections/my%20device%2F123?includeSocketInformation=true HTTP/1.1
+```
+
+Example response for a connected client:
+
+```
+{
+    "clientId": "abcd12345fvgbh",
+    "connected": true,
+    "cleanSession": false,
+    "connectedSince": 1573002340451,
+    "thingName": "deviceABC",
+    "sourceIp": "203.0.113.1",
+    "sourcePort": 8883,
+    "targetIp": "198.51.100.1",
+    "targetPort": 8883,
+    "keepAliveDuration": 60,
+    "disconnectReason": null,
+    "sessionExpiry": 3600
+}
+```
+
+Response fields:
+
+clientId
+The client ID of the MQTT client.
+
+connected
+The connection state of the client. Returns `true` if the client is currently connected to AWS IoT Core, or `false` if the client is not connected.
+
+cleanSession
+Indicates whether the client is using a clean session. Returns `true` for clean sessions or `false` for persistent sessions. Clean sessions don't retain state after disconnection, while persistent sessions maintain subscriptions and queued messages.
+
+connectedSince
+Unix timestamp (in milliseconds) indicating when the client connected. Present only when `connected` is `true`.
+
+disconnectedSince
+Unix timestamp (in milliseconds) indicating when the client disconnected. Present only when `connected` is `false`.
+
+thingName
+Thing name of the client, present only when there is a thing associated with the clientId.
+
+disconnectReason
+The reason for the most recent disconnection, if the client is currently disconnected. This field helps identify whether the disconnection was client-initiated, server-initiated, or due to network issues. Present only when `connected` is `false`. For disconnect reason codes, see [LifeCycleEvents](life-cycle-events.md "life-cycle-events.md").
+
+keepAliveDuration
+The keep-alive interval in seconds that the client specified when establishing the connection. This determines how frequently the client sends keep-alive messages to maintain the connection.
+
+sourceIp
+The IP address of the client that initiated the connection. Only returned if `includeSocketInformation` is set to `true` and you are authorized to retrieve this information.
+
+sourcePort
+The port number used by the client for the connection. Only returned if `includeSocketInformation` is set to `true` and you are authorized to retrieve this information.
+
+targetIp
+The IP address where the connection request was made to. Only returned if `includeSocketInformation` is set to `true` and you are authorized to retrieve this information.
+
+targetPort
+The port number of the AWS IoT Core endpoint that the client connected to. Only returned if `includeSocketInformation` is set to `true` and you are authorized to retrieve this information.
+
+vpcEndpointId
+The ID of the VPC endpoint. Present for clients connected to AWS IoT Core via a [VPC endpoint](IoTCore-VPC.md "IoTCore-VPC.md"). Only returned if `includeSocketInformation` is set to `true` and you are authorized to retrieve this information.
+
+sessionExpiry
+The persistent session expiry configuration the client specified or defaulted when establishing the connection. This determines how long a session remains active after the client disconnects.
+
+###### Note
+
+The service name used by [AWS Signature Version 4](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md") to sign requests is: _iotdevicegateway_. You can find your endpoint by using the `aws iot describe-endpoint --endpoint-type iot:Data-ATS` command.
+
+#### Required permissions
+
+To use the `GetConnection` API, you need the following IAM permission:
+
+```
+iot:GetConnection
+```
+
+You can scope this permission to specific client IDs using resource-based policies.
+
+###### Tip
+
+Use the `iot:IncludeSocketInformation` condition to implement granular access control based on your organization's privacy requirements.
+
+##### Authorization policy examples
+
+**Example 1: Allow GetConnection with socket information for all clients**
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "iot:GetConnection",
+            "Resource": "arn:aws:iot:us-east-1:987654321:client/*"
+        }
+    ]
+}
+```
+
+With this policy, the following API call returns connection details including socket information:
+
+```
+GET /connections/myDevice123?includeSocketInformation=true HTTP/1.1
+```
+
+Result: The API returns all connection fields, including `sourceIp`, `sourcePort`, `targetIp`, and `targetPort`.
+
+**Example 2: Allow GetConnection but deny socket information for specific clients**
+
+You can use either a condition-based approach or an explicit deny approach:
+
+Condition-based approach:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "iot:GetConnection",
+            "Resource": "arn:aws:iot:us-east-1:987654321:client/myDevice*",
+            "Condition": {
+                "Bool": {
+                    "iot:IncludeSocketInformation": "false"
+                }
+            }
+        }
+    ]
+}
+```
+
+Explicit deny approach:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": "iot:GetConnection",
+            "Resource": "arn:aws:iot:us-east-1:987654321:client/myDevice*",
+            "Condition": {
+                "Bool": {
+                    "iot:IncludeSocketInformation": "true"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": ["iot:GetConnection"],
+            "Resource": "arn:aws:iot:us-east-1:987654321:client/myDevice*"
+        }
+    ]
+}
+```
+
+With either policy, the following API call is denied:
+
+```
+GET /connections/myDevice123?includeSocketInformation=true HTTP/1.1
+```
+
+Result: The API returns a 403 Forbidden error because socket information access is restricted for these clients.
+
+#### Error responses
+
+The `GetConnection` API can return the following error responses:
+
+InvalidRequestException
+The request is not valid. This can occur if the client ID format is invalid, contains a dollar sign ($) prefix, or if required parameters are missing. HTTP Status Code: 400
+
+ResourceNotFoundException
+The specified client ID does not exist or is not currently connected, and doesn't have a persistent session. HTTP Status Code: 404
+
+ForbiddenException
+The caller isn't authorized to make the request. This might occur due to insufficient IAM permissions or resource-based policy restrictions. HTTP Status Code: 403
+
+ThrottlingException
+The rate exceeds the limit. Reduce the frequency of your API calls and implement appropriate retry logic with exponential backoff. HTTP Status Code: 429
+
+InternalFailureException
+An unexpected error has occurred. Retry the request after a brief delay. HTTP Status Code: 500
+
+### Managing client subscriptions
+
+Use the `ListSubscriptions` API to retrieve all topic subscriptions for an MQTT client session. This API returns subscriptions for both connected clients and offline clients with persistent sessions, providing visibility into client subscription patterns and helping with troubleshooting subscription-related issues.
+
+The `ListSubscriptions` API provides comprehensive subscription information that helps with auditing client behavior, troubleshooting message delivery issues, and understanding subscription patterns across your device fleet. You can use this information to verify that clients are subscribed to the expected topics and identify potential subscription conflicts.
+
+#### Use cases
+
+The `ListSubscriptions` API helps you troubleshoot message delivery issues and audit client subscription behavior. Use this API to verify which topics a client is subscribed to, validate QoS levels, and identify overlapping subscriptions or overly permissive whildcards.
+
+Subscription management scenarios also benefit from this API. When clients report missing messages or unexpected message delivery, you can use this API to verify their current subscriptions and ensure they match the expected configuration. This is particularly valuable for debugging complex subscription hierarchies and shared subscription configurations.
+
+#### API parameters
+
+The `ListSubscriptions` API accepts the following parameters:
+
+clientId (required)
+
+The unique identifier of the MQTT client to retrieve subscriptions for. This is specified in the URL path. The client ID can't start with a dollar sign ($).
+
+###### Note
+
+MQTT client IDs can contain characters that are not valid in HTTP requests. When using the `ListSubscriptions` API, you must URL encode (percent-encode) any characters in the client ID that are valid in MQTT but not in HTTP. This includes special characters like spaces, forward slashes (/), and UTF-8 characters. For example, a space becomes %20, a forward slash becomes %2F, and the UTF-8 character ü becomes %C3%BC. Proper encoding ensures that MQTT client IDs are correctly transmitted in the HTTP-based API call.
+
+Routing considerations: URL encoding is required when client IDs contain both forward slashes and the string "subscriptions". Without proper encoding, the path structure may be misinterpreted and your request will be routed to the `ListSubscriptions` API instead of `GetConnection`. For instance, a client ID client/subscriptions must be encoded as client%2Fsubscriptions to ensure the request routes correctly to `GetConnection` rather than being interpreted as a `ListSubscriptions` call.
+
+nextToken (optional)
+
+The pagination token for retrieving the next set of results. Use this token from a previous response to continue paginating through large subscription lists.
+
+maxResults (optional)
+
+The maximum number of subscriptions to return in a single response. Valid range is 1-200. Default value is 20.
+
+#### API syntax
+
+The `ListSubscriptions` API uses the following HTTP request format:
+
+```
+GET /connections/<client-id>/subscriptions?nextToken=token&maxResults=max HTTP/1.1
+```
+
+Example requests:
+
+```
+// Get subscriptions for a specific client
+GET /connections/myDevice123/subscriptions HTTP/1.1
+
+// Get subscriptions with custom page size
+GET /connections/myDevice123/subscriptions?maxResults=50 HTTP/1.1
+
+// Get next page of results using pagination token
+GET /connections/myDevice123/subscriptions?nextToken=eyJhbGciOiJIUzI1NiJ9&maxResults=50 HTTP/1.1
+```
+
+Example response:
+
+```
+{
+    "subscriptions": [
+        {"topicFilter": "device/myDevice123/commands", "qos": 1},
+        {"topicFilter": "device/myDevice123/shadow", "qos": 0}
+    ],
+    "nextToken": "eyJhbGciOiJIUzI1NiJ9"
+}
+```
+
+Response fields:
+
+subscriptions
+An array of subscription objects, each containing a topic filter and QoS level.
+
+topicFilter
+The MQTT topic filter that the client is subscribed to. This can include wildcards (+, #) for pattern matching.
+
+qos
+The Quality of Service level for the subscription (0 or 1).
+
+nextToken
+The pagination token for retrieving additional results. Present only when there are more subscriptions to retrieve.
+
+###### Note
+
+The service name used by [AWS Signature Version 4](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md") to sign requests is: _iotdevicegateway_. You can find your endpoint by using the `aws iot describe-endpoint --endpoint-type iot:Data-ATS` command.
+
+#### Required permissions
+
+To use the `ListSubscriptions` API, you need the following IAM permission:
+
+```
+iot:ListSubscriptions
+```
+
+You can scope this permission to specific client IDs using resource-based policies. For example:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "iot:ListSubscriptions",
+            "Resource": "arn:aws:iot:us-east-1:987654321:client/myDevice*"
+        }
+    ]
+}
+```
+
+#### Error responses
+
+The `ListSubscriptions` API can return the following error responses:
+
+InvalidRequestException
+The request is not valid. HTTP Status Code: 400
+
+ResourceNotFoundException
+The specified resource does not exist. HTTP Status Code: 404
+
+ForbiddenException
+The caller isn't authorized to make the request. HTTP Status Code: 403
+
+ThrottlingException
+The rate exceeds the limit. HTTP Status Code: 429
+
+InternalFailureException
+An unexpected error has occurred. HTTP Status Code: 500
+
+### MQTT connection management using the console
+
+You can use the AWS IoT console to disconnect MQTT devices and manage their connections. The console provides an intuitive interface for viewing connected devices and performing disconnect operations.
+
+#### View connected MQTT clients
+
+This procedure shows you how to view currently connected MQTT devices in the AWS IoT console.
+
+###### To view connected MQTT devices
+
+1. Open the [AWS IoT console](https://console.aws.amazon.com//iot/home "https://console.aws.amazon.com//iot/home").
+2. In the left navigation pane, choose **Manage**, and then choose **All devices**.
+3. Choose **Client connections** to view the list of currently connected MQTT devices.
+4. The **Client connections** page displays comprehensive information about each connected device. You can view the **Client ID**, which serves as the unique identifier for the MQTT device, and the **Connection status** that shows whether the device is currently connected. The page also displays the **Connected since** timestamp indicating when the device established its connection, the **Source IP** address from which the device is connecting, and the **Keep alive** interval configured for the device connection.
+
+#### View MQTT client subscriptions
+
+This procedure shows you how to view the topic subscriptions for a specific MQTT client using the AWS IoT console.
+
+###### To view client subscriptions
+
+1. Open the [AWS IoT console](https://console.aws.amazon.com//iot/home "https://console.aws.amazon.com//iot/home").
+2. In the left navigation pane, choose **Manage**, and then choose **All devices**.
+3. Choose **Client connections** to view the list of MQTT devices.
+4. Search for the specific client ID you want to view subscriptions for using the search functionality.
+5. Select the client ID to view its details page.
+6. In the client details page, locate the **Subscribed topics** table. This table displays all topic filters that the client is currently subscribed to, along with their corresponding Quality of Service (QoS) levels.
+7. The **Subscribed topics** table shows:
+   - **Topic filter**: The MQTT topic pattern the client is subscribed to, which may include wildcards (+, #)
+   - **QoS**: The Quality of Service level for the subscription (0 or 1)
+
+###### Note
+
+Subscription information is available for both connected clients and offline clients with persistent sessions. If a client has no active subscriptions, the table will be empty.
+
+#### Disconnect an MQTT device
+
+This procedure shows you how to disconnect a specific MQTT device using the AWS IoT console.
+
+###### To disconnect an MQTT device
+
+1. In the **Client connections** page, locate the device you want to disconnect.
+2. Select the device by choosing the radio button next to the client ID.
+3. Choose **Actions**, and then choose **Disconnect client**.
+4. In the **Disconnect client** dialog box, configure the disconnect options:
+   1. For **Clean session**, you can choose to either preserve or clear the session state. Selecting **Preserve session state** keeps the device's session information, including subscriptions and queued messages, allowing the device to resume its previous session upon reconnection. Alternatively, choosing **Clear session state** removes all session information when disconnecting the device, forcing it to establish a completely new session when it reconnects.
+   2. For **Last Will and Testament message**, you can control whether the device's LWT message is published upon disconnection. Choosing **Allow LWT message** publishes the device's Last Will and Testament message upon disconnection, which notifies other devices about the unexpected disconnection. Selecting **Prevent LWT message** prevents the Last Will and Testament message from being published, which is useful during planned maintenance or controlled disconnections.
+
+5. Choose **Disconnect** to confirm the action.
+6. The console displays a confirmation message when the device is successfully disconnected. The device will no longer appear in the connected devices list.
+
+###### Note
+
+Disconnected devices can immediately attempt to reconnect unless you have implemented additional logic to prevent reconnection. The disconnect operation only terminates the current connection.
+
+### AWS IoT differences from MQTT specifications
+
+The message broker implementation is based on the [MQTT v3.1.1 specification](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html "http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html") and the [MQTT v5.0 specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html "https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html"), but it differs from the specifications in these ways:
+
+- AWS IoT doesn't support the following packets for MQTT 3: PUBREC, PUBREL, and PUBCOMP.
+- AWS IoT doesn't support the following packets for MQTT 5: PUBREC, PUBREL, PUBCOMP, and AUTH.
+- AWS IoT doesn't support MQTT 5 server redirection.
+- AWS IoT supports MQTT quality of service (QoS) levels 0 and 1 only. AWS IoT doesn't support publishing or subscribing with QoS level 2. When QoS level 2 is requested, the message broker doesn't send a PUBACK or SUBACK.
+- In AWS IoT, subscribing to a topic with QoS level 0 means that a message is delivered zero or more times. A message might be delivered more than once. Messages delivered more than once might be sent with a different packet ID. In these cases, the DUP flag is not set.
+- When responding to a connection request, the message broker sends a CONNACK message. This message contains a flag to indicate if the connection is resuming a previous session.
+
+### CloudWatch Logs AWS IoT log entries
+
+The AWS IoT message broker generates a log entry with an `eventType` of `Connect` when an MQTT client connects.
+
+**Connect log entry example**
+
+```
+{
+    "timestamp": "2017-08-10 15:37:23.476",
+    "logLevel": "INFO",
+    "traceId": "20b23f3f-d7f1-feae-169f-82263394fbdb",
+    "accountId": "123456789012",
+    "status": "Success",
+    "eventType": "Connect",
+    "protocol": "MQTT",
+    "clientId": "abf27092886e49a8a5c1922749736453",
+    "thingName": "myDevice",
+    "principalId": "145179c40e2219e18a909d896a5340b74cf97a39641beec2fc3eeafc5a932167",
+    "sourceIp": "205.251.233.181",
+    "sourcePort": 13490,
+    "keepAliveDuration": 60,
+    "sessionExpiry": 3600,
+    "cleanSession": boolean
+}
+```
+
+In addition to the common CloudWatch Logs attributes, Connect log entries contain the following attributes:
+
+clientId
+The ID of the client making the request.
+
+principalId
+The ID of the principal making the request.
+
+thingName
+The thing name of the client. Returns a value when a thing is associated with the client ID.
+
+protocol
+The protocol used to make the request. Valid values are MQTT or HTTP.
+
+sourceIp
+The IP address where the request originated.
+
+sourcePort
+The port where the request originated.
+
+keepAliveDuration
+The keep-alive interval in seconds that the client specified when establishing the connection.
+
+sessionExpiry
+The persistent session expiry configuration the client specified when establishing the connection.
+
+cleanSession
+Indicates whether the client is using a clean session.
