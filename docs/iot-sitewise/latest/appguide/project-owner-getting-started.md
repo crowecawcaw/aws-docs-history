@@ -34,7 +34,7 @@ The following procedure assumes that you signed in the AWS IoT SiteWise Monitor 
 
 - In the navigation bar, choose the **Assets** icon.
 
-![The "Assets" icon in the navigation bar.](images/portal-navigation-asset-library-console.png)
+![The "Assets" icon in the navigation bar.](/images/iot-sitewise/latest/appguide/images/portal-navigation-asset-library-console.png)
 The **Assets** page
 appears.
 
@@ -61,7 +61,7 @@ dashboard is quick and easy.
 ![The "Projects" icon in the navigation bar.](images/portal-navigation-projects-console.png) 2. On the **Projects** page, choose the project in which you want to
 create a dashboard.
 
-![The "Projects" page as a project owner.](/images/iot-sitewise/latest/appguide/images/projects-portal-user-choose-project-console.png) 3. In the **Dashboards** section, choose **Create
+![The "Projects" page as a project owner.](images/projects-portal-user-choose-project-console.png) 3. In the **Dashboards** section, choose **Create
 dashboard**.
 
 ![The dashboards list on the project details page with "Create dashboard" highlighted.](images/project-create-dashboard-console.png)
@@ -92,7 +92,7 @@ You can drag multiple properties and alarms onto a single visualization.
 
 ![The dashboard editor with "Total average power" highlighted.](images/dashboard-add-visualization-console.png) 3. To change how your data displays, choose the visualization type.
 
-![A sample visualization with the visualization type icon highlighted.](images/dashboard-edit-visualization-type-console.png)
+![A sample visualization with the visualization type icon highlighted.](/images/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-type-console.png)
 
 For more information about the available visualization types, see [Choose visualization types](choose-visualization-types.md "choose-visualization-types.md"). To
 customize details of the visualization, see [Customize visualizations](customize-visualizations.md "customize-visualizations.md"). 4. To add thresholds to your property, choose the visualization configuration icon. If you
@@ -126,7 +126,7 @@ You can assign viewers to your project from the project details page.
 ![The "Projects" icon in the navigation bar.](images/portal-navigation-projects-console.png) 2. On the **Projects** page, choose the project to which to assign
 viewers.
 
-![The "Projects" page with "Wind Farm 3" highlighted.](/images/iot-sitewise/latest/appguide/images/projects-portal-user-choose-project-console.png) 3. In the **Project viewers** section of the project details page, choose
+![The "Projects" page with "Wind Farm 3" highlighted.](images/projects-portal-user-choose-project-console.png) 3. In the **Project viewers** section of the project details page, choose
 **Add viewers** if the project has no viewers, or **Edit
 viewers**.
 
