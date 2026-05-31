@@ -1,10 +1,13 @@
 # Exporting a certificate
 
-The following example shows how to use the [ExportCertificate](../APIReference/API_ExportCertificate.md "../APIReference/API_ExportCertificate.md") function. The function exports a private certificate
-issued by a private certificate authority (CA) in the PKCS #8 format. (It is not
-possible to export public certificates whether they are ACM-issued or imported.) It also
-exports the certificate chain and private key. In the example, the passphrase for the
-key is stored in a local file.
+The following example shows how to use the [ExportCertificate](../APIReference/API_ExportCertificate.md "../APIReference/API_ExportCertificate.md") function. The function exports a certificate in the
+PKCS #8 format. It also exports the certificate chain and private key. In the example,
+the passphrase for the key is stored in a local file.
+
+###### Note
+
+If you want to export public certificates issued through ACM, see [ACM
+exportable public certificates](acm-exportable-certificates.md "acm-exportable-certificates.md").
 
 ```
 package com.amazonaws.samples;

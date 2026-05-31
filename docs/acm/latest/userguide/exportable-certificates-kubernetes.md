@@ -14,7 +14,7 @@ AWS Controllers for Kubernetes (ACK) extends the Kubernetes API to manage AWS re
 
 You can use ACM certificates with Kubernetes in a few ways:
 
-![](images/kubernetes-acm.png)
+![ELB connects to Ingress, which routes to Service distributing traffic across Pod1, Pod2, and Pod3.](images/kubernetes-acm.png)
 
 1. _Load balancer termination (without export)_: Issue certificates through ACK and use them to terminate TLS at an AWS load balancer. The certificate remains in ACM and is automatically discovered by the [AWS Load Balancer Controller](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.1/guide/ingress/cert_discovery/ "https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.1/guide/ingress/cert_discovery/"). This approach does not require exporting the certificate.
 2. _Ingress termination (with export)_: Export certificates from ACM and store them in Kubernetes Secrets for TLS termination at the Ingress level. This enables you to use certificates directly within your Kubernetes workloads.
