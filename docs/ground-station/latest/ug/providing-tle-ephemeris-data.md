@@ -20,7 +20,10 @@ troubleshooting support.
 
 Uploading custom TLE ephemerides can improve the quality of tracking, handle early operations where no
 [Space-Track](https://www.space-track.org/ "https://www.space-track.org/") ephemerides are available to AWS Ground Station,
-and account for maneuvers.
+and account for maneuvers. However, TLE accuracy is limited by the propagation model and
+degrades over time away from epoch. For higher-fidelity ephemeris data over longer time spans,
+consider using OEM format (see
+[Provide OEM ephemeris data](providing-oem-ephemeris-data.md "providing-oem-ephemeris-data.md")).
 
 ###### Note
 
@@ -31,6 +34,52 @@ launched in 2024).
 
 For more information about the format of TLEs, see
 [Two-line element set](https://en.wikipedia.org/wiki/Two-line_element_set "https://en.wikipedia.org/wiki/Two-line_element_set").
+
+## Alpha-5 satellite catalog numbers in TLEs
+
+Two-Line Element sets (TLEs) use a fixed-width format in which the satellite catalog number
+field (columns 3–7 of lines 1 and 2) is limited to 5 digits, supporting a maximum value of
+99,999. To represent satellite catalog numbers beyond this limit,
+the United States Space Force developed the
+[Alpha-5](https://www.space-track.org/documentation#tle-alpha5 "https://www.space-track.org/documentation#tle-alpha5") encoding
+scheme. Alpha-5 replaces the first digit of the satellite catalog number field with an
+alphabetic character (A–Z, excluding I and O to avoid confusion with digits 1 and 0). This
+extends the range of representable satellite catalog numbers from 100,000 to 339,999 within
+the existing fixed-width TLE format.
+
+Alpha-5 is purely a display encoding for the TLE text format. The underlying numeric satellite
+catalog number does not change. The `noradSatelliteID` field in the AWS Ground Station
+API remains an integer — API responses such as `ListSatellites` and
+`GetSatellite` continue to return the numeric satellite catalog number, not
+the Alpha-5 encoded form. Alpha-5 encoding is only relevant within the TLE text lines
+themselves.
+
+AWS Ground Station supports TLE ephemerides that contain Alpha-5 encoded satellite numbers. When you
+upload a TLE through the
+[CreateEphemeris](../APIReference/API_CreateEphemeris.md "../APIReference/API_CreateEphemeris.md")
+action, AWS Ground Station correctly parses Alpha-5 encoded satellite numbers and resolves them to the
+corresponding integer satellite catalog numbers internally. Satellites with satellite catalog
+numbers in the Alpha-5 range (100,000–339,999) are fully supported.
+
+The following is an example TLE set for a satellite with satellite catalog number 100,000. The
+Alpha-5 encoding represents this as `A0000` in columns 3–7 of each TLE line:
+
+```
+[
+    {
+        "tleLine1": "1 A0000U 26001A   26120.50000000  .00000072  00000-0  24500-4 0  9991",
+        "tleLine2": "2 A0000  97.4500  85.2300 0012345  45.6789 314.5678 15.20000000 10013",
+        "validTimeRange": {
+            "startTime": 1777680000,
+            "endTime": 1778284800
+        }
+    }
+]
+```
+
+For more information about the Alpha-5 encoding scheme, see the
+[Space-Track Alpha-5
+documentation](https://www.space-track.org/documentation#tle-alpha5 "https://www.space-track.org/documentation#tle-alpha5").
 
 ## Creating a TLE ephemeris
 

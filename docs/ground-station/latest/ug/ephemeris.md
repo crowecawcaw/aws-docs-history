@@ -8,8 +8,10 @@ The Ephemeris API allows custom ephemerides to be uploaded to AWS Ground Station
 These ephemerides override the default ephemerides from
 [Space-Track](https://www.space-track.org/ "https://www.space-track.org/") (see:
 [Default ephemeris data](default-ephemeris-data.md "default-ephemeris-data.md")).
-We support receiving ephemeris data in Orbit Ephemeris Message (OEM), two-line element
-(TLE), and azimuth elevation formats.
+AWS Ground Station supports ephemeris data in Orbit Ephemeris Message (OEM), two-line element
+(TLE), and azimuth elevation formats. For the highest accuracy and most flexible time-span
+coverage, provide ephemeris data in OEM format (see
+[Provide OEM ephemeris data](providing-oem-ephemeris-data.md "providing-oem-ephemeris-data.md")).
 
 AWS Ground Station uses ephemeris data to determine when contacts become available based on the provided ephemeris and correctly
 command antennas in the AWS Ground Station network. By default, no action is required to

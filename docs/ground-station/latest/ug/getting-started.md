@@ -2,8 +2,6 @@
 
 Before you begin, you should familiarize yourself with the basic concepts in AWS Ground Station. For more information, see [How AWS Ground Station works](how-it-works.md "how-it-works.md").
 
-Below are the best practices for AWS Identity and Access Management (IAM) and what permissions you will need. After setting up the appropriate roles you can begin following the remainder of the steps.
-
 ## Sign up for an AWS account
 
 To get started with AWS, you need an AWS account. For information about creating an AWS account, see
