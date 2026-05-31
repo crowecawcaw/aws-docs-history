@@ -569,4 +569,4 @@ history page.](doc-history.md "doc-history.md")
 
 | Policy                                                      | Version | Change         | Date         |
 | ----------------------------------------------------------- | ------- | -------------- | ------------ |
-| AmazonSageMakerModelCustomizationCoreAccess<br>• New policy | 1       | Initial policy | May 22, 2026 |
+| AmazonSageMakerModelCustomizationCoreAccess<br>• New policy | 1       | Initial policy | May 26, 2026 |

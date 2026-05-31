@@ -132,3 +132,104 @@ Question: Is there idle, borrowable quota from other teams?
 
     * Yes → Admit using borrowed quota (marked as preemptible)
     * No → Pod remains in `NotAdmitted` state
+
+## Configuring task governance for inference workloads
+
+To integrate your inference workloads with Kueue, add task governance labels to your `InferenceEndpointConfig` or `JumpStartModel` CRD. These labels determine which LocalQueue receives the workload for quota management and define the scheduling priority used in preemption decisions. The following sections cover prerequisites, resource scoping, label configuration, and verification steps.
+
+### Prerequisites
+
+Before configuring task governance for inference workloads, ensure the following resources exist in your HyperPod cluster:
+
+- **Kueue** is installed and running on your cluster
+- A **ClusterQueue** exists with GPU quota allocated to your team
+- A **LocalQueue** exists in the namespace where you plan to deploy your inference endpoint
+- One or more **PriorityClass** resources are defined for workload types (such as inference, training, evaluation)
+
+To verify these resources are available, run the following commands:
+
+```
+# Verify Kueue is installed
+kubectl get crd | grep kueue
+
+# List available PriorityClasses
+kubectl get priorityclass
+
+# List ClusterQueues
+kubectl get clusterqueue
+
+# List LocalQueues in your namespace
+kubectl get localqueue -n <your-namespace>
+```
+
+### Understanding resource scoping
+
+Task governance resources have different scopes that affect how you configure your inference deployment labels.
+
+The `kueue.x-k8s.io/queue-name` label must reference a LocalQueue that exists in the same namespace as your `InferenceEndpointConfig` or `JumpStartModel`. If no matching LocalQueue is found in that namespace, the workload will not be admitted by Kueue.
+
+ClusterQueue, ResourceFlavor, and PriorityClass are cluster-scoped and accessible from any namespace.
+
+To verify resource scoping on your cluster:
+
+```
+kubectl api-resources | grep kueue
+```
+
+### Adding task governance labels
+
+To enable task governance for your inference deployment, add the following labels to the `metadata` section of your `InferenceEndpointConfig` or `JumpStartModel` CRD:
+
+```
+metadata:
+  name: <your-deployment-name>
+  namespace: <your-namespace>
+  labels:
+    kueue.x-k8s.io/queue-name: <your-localqueue-name>
+    kueue.x-k8s.io/priority-class: <your-priority-class>
+```
+
+**Label descriptions:**
+
+- `kueue.x-k8s.io/queue-name` — Routes the workload to your team's LocalQueue for quota tracking. Must match a LocalQueue name in the same namespace as the workload.
+- `kueue.x-k8s.io/priority-class` — Sets the scheduling priority for preemption decisions. References a cluster-scoped PriorityClass by name.
+
+### Verifying task governance configuration
+
+After applying your `InferenceEndpointConfig` or `JumpStartModel` with task governance labels, verify that Kueue admitted the workload and pods are being scheduled correctly.
+
+###### To verify task governance is working
+
+1. Check workload admission status:
+
+```
+kubectl get workloads -n <namespace>
+```
+
+A successfully admitted workload shows `True` in the ADMITTED column and lists the ClusterQueue that reserved resources in the RESERVED IN column. 2. Check pod status:
+
+```
+kubectl get pods -n <namespace>
+```
+
+After admission, pods gradually transition through initialization stages until they reach `Running` state. 3. Check quota consumption:
+
+```
+kubectl get clusterqueue <clusterqueue-name> -o yaml
+```
+
+Review the `status` section to confirm resource consumption is being tracked. 4. Check LocalQueue pending workloads:
+
+```
+kubectl get localqueue -n <namespace>
+```
+
+The PENDING WORKLOADS column shows how many workloads are waiting for admission. 5. View Kueue admission events:
+
+```
+kubectl describe workload <workload-name> -n <namespace>
+```
+
+Review the Events section for admission decisions and any errors.
+
+If pods remain in `Pending` state, determine whether the issue is at the Kueue admission level (workload shows `Admitted: False`) or the Kubernetes scheduler level (workload admitted but pod unschedulable).

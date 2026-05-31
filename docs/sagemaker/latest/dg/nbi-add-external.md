@@ -92,13 +92,6 @@ inconsistent, please check the package plan carefully". Despite this warning, Sa
 that all the SageMaker AI provided environments are correct. SageMaker AI cannot guarantee that any user
 installed packages will function correctly.
 
-###### Note
-
-Users of SageMaker AI, AWS Deep Learning AMIs and Amazon EMR can access the commercial Anaconda repository
-without taking a commercial license through February 1, 2024 when using Anaconda in those
-services. For any usage of the commercial Anaconda repository after February 1, 2024,
-customers are responsible for determining their own Anaconda license requirements.
-
 Conda has two methods for activating environments: conda activate/deactivate, and source
 activate/deactivate. For more information, see
 [Should

@@ -18,6 +18,20 @@ environment:
   Administrators create and attach default or built-in lifecycle configurations at the domain,
   space, or user profile level.
 
+## Understanding built-in and default lifecycle configurations
+
+There are two types of lifecycle configurations in Studio:
+
+- Built-in LCC: Built-in LCC is controlled
+  by the administrator, always runs when a space starts, and resolves dynamically
+  from the domain settings at launch time. When an administrator updates the
+  built-in LCC at the domain level, all spaces automatically pick up the new
+  LCC on their next launch without requiring any user action.
+- Default LCC: The default LCC is
+  pre-selected for the user at the space level and persists until the user
+  explicitly changes it. Updating the domain-level default LCC does not
+  affect running spaces until they are restarted.
+
 ###### Important
 
 Amazon SageMaker Studio first runs the built-in lifecycle configuration and then runs the

@@ -14,7 +14,7 @@ Before you begin, verify that you've:
 
 - Set up inference capabilities on your Amazon SageMaker HyperPod clusters. For
   more information, see [Setting up your HyperPod clusters for model deployment](sagemaker-hyperpod-model-deployment-setup.md "sagemaker-hyperpod-model-deployment-setup.md").
-- Installed [kubectl](https://kubernetes.io/docs/reference/kubectl/ "https://kubernetes.io/docs/reference/kubectl/") utility and configured [jq](https://jqlang.org/ "https://jqlang.org/") in your terminal.
+- Installed [kubectl](https://kubernetes.io/docs/reference/kubectl/ "https://kubernetes.io/docs/reference/kubectl/") utility in your terminal.
 
 ## Setup and configuration
 
@@ -40,8 +40,8 @@ user you are using in your terminal.
 # Specify your hyperpod cluster name here
 HYPERPOD_CLUSTER_NAME="<Hyperpod_cluster_name>"
 
-# NOTE: For sample deployment, we use g5.8xlarge for deepseek-r1 1.5b model which has sufficient memory and GPU
-instance_type="ml.g5.8xlarge"
+# NOTE: For sample deployment, we use g5.24xlarge for Llama 3.1 8B model which has sufficient memory and GPU
+instance_type="ml.g5.24xlarge"
 ```
 
 3. Initialize your cluster namespace. Your cluster admin should've
@@ -61,7 +61,7 @@ Using Amazon FSx as the model source
 
 
     ```
-    export SAGEMAKER_ENDPOINT_NAME="deepseek15b-fsx"
+    export SAGEMAKER_ENDPOINT_NAME="llama-fsx"
     ```
     2. Configure the Amazon FSx file system ID to be
      used.
@@ -72,7 +72,7 @@ Using Amazon FSx as the model source
     export FSX_FILE_SYSTEM_ID="fs-1234abcd"
     ```
     3. The following is an example yaml file for creating
-     an endpoint with Amazon FSx and a DeepSeek model.
+     an endpoint with Amazon FSx and a Llama model.
 
 
     ###### Note
@@ -87,8 +87,8 @@ Using Amazon FSx as the model source
     apiVersion: inference.sagemaker.aws.amazon.com/v1
     kind: InferenceEndpointConfig
     metadata:
-      name: lmcache-test
-      namespace: inf-update
+      name: $SAGEMAKER_ENDPOINT_NAME
+      namespace: $CLUSTER_NAMESPACE
     spec:
       modelName: Llama-3.1-8B-Instruct
       instanceType: ml.g5.24xlarge
@@ -97,36 +97,35 @@ Using Amazon FSx as the model source
       modelSourceConfig:
         fsxStorage:
           fileSystemId: $FSX_FILE_SYSTEM_ID
-        modelLocation: deepseek-1-5b
+        modelLocation: Llama-3.1-8B-Instruct
         modelSourceType: fsx
       worker:
-        environmentVariables:
-        - name: HF_MODEL_ID
-          value: /opt/ml/model
-        - name: SAGEMAKER_PROGRAM
-          value: inference.py
-        - name: SAGEMAKER_SUBMIT_DIRECTORY
-          value: /opt/ml/model/code
-        - name: MODEL_CACHE_ROOT
-          value: /opt/ml/model
-        - name: SAGEMAKER_ENV
-          value: '1'
-        image: 763104351884.dkr.ecr.us-east-2.amazonaws.com/huggingface-pytorch-tgi-inference:2.4.0-tgi2.3.1-gpu-py311-cu124-ubuntu22.04-v2.0
+        image: vllm/vllm-openai:v0.10.1
         modelInvocationPort:
-          containerPort: 8080
+          containerPort: 8000
           name: http
         modelVolumeMount:
           mountPath: /opt/ml/model
           name: model-weights
         resources:
           limits:
-            nvidia.com/gpu: 1
-            # For MIG-enabled instances, use: nvidia.com/mig-1g.10gb: 1
+            nvidia.com/gpu: 4
           requests:
             cpu: 30000m
             memory: 100Gi
-            nvidia.com/gpu: 1
-            # For MIG-enabled instances, use: nvidia.com/mig-1g.10gb: 1
+            nvidia.com/gpu: 4
+        args:
+          - "--model"
+          - "/opt/ml/model"
+          - "--port"
+          - "8000"
+          - "--tensor-parallel-size"
+          - "4"
+          - "--served-model-name"
+          - "Llama-3.1-8B-Instruct"
+        environmentVariables:
+          - name: VLLM_REQUEST_TIMEOUT
+            value: "600"
     EOF
     ```
 
@@ -137,7 +136,7 @@ Using Amazon S3 as the model source
 
 
     ```
-    export SAGEMAKER_ENDPOINT_NAME="deepseek15b-s3"
+    export SAGEMAKER_ENDPOINT_NAME="llama-s3"
     ```
     2. Configure the Amazon S3 bucket location where the model
      is located.
@@ -145,10 +144,11 @@ Using Amazon S3 as the model source
 
 
     ```
-    export S3_MODEL_LOCATION="deepseek-qwen-1-5b"
+    export S3_MODEL_LOCATION="<your-s3-bucket-name>"
     ```
     3. The following is an example yaml file for creating
-     an endpoint with Amazon S3 and a DeepSeek model.
+     an endpoint with Amazon S3 and a Llama model using vLLM
+     as the inference runtime.
 
 
     ###### Note
@@ -160,108 +160,11 @@ Using Amazon S3 as the model source
     ```
     cat <<EOF> deploy_s3_inference.yaml
     ---
-    apiVersion: inference.sagemaker.aws.amazon.com/v1alpha1
+    apiVersion: inference.sagemaker.aws.amazon.com/v1
     kind: InferenceEndpointConfig
     metadata:
       name: $SAGEMAKER_ENDPOINT_NAME
       namespace: $CLUSTER_NAMESPACE
-    spec:
-      modelName: deepseek15b
-      endpointName: $SAGEMAKER_ENDPOINT_NAME
-      instanceType: ml.g5.8xlarge
-      invocationEndpoint: invocations
-      modelSourceConfig:
-        modelSourceType: s3
-        s3Storage:
-          bucketName: $S3_MODEL_LOCATION
-          region: $REGION
-        modelLocation: deepseek15b
-        prefetchEnabled: true
-      worker:
-        resources:
-          limits:
-            nvidia.com/gpu: 1
-            # For MIG-enabled instances, use: nvidia.com/mig-1g.10gb: 1
-          requests:
-            nvidia.com/gpu: 1
-            # For MIG-enabled instances, use: nvidia.com/mig-1g.10gb: 1
-            cpu: 25600m
-            memory: 102Gi
-        image: 763104351884.dkr.ecr.us-east-2.amazonaws.com/djl-inference:0.32.0-lmi14.0.0-cu124
-        modelInvocationPort:
-          containerPort: 8000
-          name: http
-        modelVolumeMount:
-          name: model-weights
-          mountPath: /opt/ml/model
-        environmentVariables:
-          - name: PYTHONHASHSEED
-            value: "123"
-          - name: OPTION_ROLLING_BATCH
-            value: "vllm"
-          - name: SERVING_CHUNKED_READ_TIMEOUT
-            value: "480"
-          - name: DJL_OFFLINE
-            value: "true"
-          - name: NUM_SHARD
-            value: "1"
-          - name: SAGEMAKER_PROGRAM
-            value: "inference.py"
-          - name: SAGEMAKER_SUBMIT_DIRECTORY
-            value: "/opt/ml/model/code"
-          - name: MODEL_CACHE_ROOT
-            value: "/opt/ml/model"
-          - name: SAGEMAKER_MODEL_SERVER_WORKERS
-            value: "1"
-          - name: SAGEMAKER_MODEL_SERVER_TIMEOUT
-            value: "3600"
-          - name: OPTION_TRUST_REMOTE_CODE
-            value: "true"
-          - name: OPTION_ENABLE_REASONING
-            value: "true"
-          - name: OPTION_REASONING_PARSER
-            value: "deepseek_r1"
-          - name: SAGEMAKER_CONTAINER_LOG_LEVEL
-            value: "20"
-          - name: SAGEMAKER_ENV
-            value: "1"
-          - name: MODEL_SERVER_TYPE
-            value: "vllm"
-          - name: SESSION_KEY
-            value: "x-user-id"
-    EOF
-    ```
-
-Using Amazon S3 as the model source
-
-    1. Set up a SageMaker endpoint name.
-
-
-
-    ```
-    export SAGEMAKER_ENDPOINT_NAME="deepseek15b-s3"
-    ```
-    2. Configure the Amazon S3 bucket location where the model
-     is located.
-
-
-
-    ```
-    export S3_MODEL_LOCATION="deepseek-qwen-1-5b"
-    ```
-    3. The following is an example yaml file for creating
-     an endpoint with Amazon S3 and a DeepSeek model.
-
-
-
-    ```
-    cat <<EOF> deploy_s3_inference.yaml
-    ---
-    apiVersion: inference.sagemaker.aws.amazon.com/v1
-    kind: InferenceEndpointConfig
-    metadata:
-      name: lmcache-test
-      namespace: inf-update
     spec:
       modelName: Llama-3.1-8B-Instruct
       instanceType: ml.g5.24xlarge
@@ -270,82 +173,37 @@ Using Amazon S3 as the model source
       modelSourceConfig:
         modelSourceType: s3
         s3Storage:
-          bucketName: bugbash-ada-resources
-          region: us-west-2
-        modelLocation: models/Llama-3.1-8B-Instruct
-        prefetchEnabled: false
-      kvCacheSpec:
-        enableL1Cache: true
-    #    enableL2Cache: true
-    #    l2CacheSpec:
-    #      l2CacheBackend: redis/sagemaker
-    #      l2CacheLocalUrl: redis://redis.redis-system.svc.cluster.local:6379
-      intelligentRoutingSpec:
-        enabled: true
-      tlsConfig:
-        tlsCertificateOutputS3Uri: s3://sagemaker-lmcache-fceb9062-tls-6f6ee470
-      metrics:
-        enabled: true
-        modelMetrics:
-          port: 8000
-      loadBalancer:
-        healthCheckPath: /health
+          bucketName: $S3_MODEL_LOCATION
+          region: $REGION
+        modelLocation: Llama-3.1-8B-Instruct
+        prefetchEnabled: true
       worker:
-        resources:
-          limits:
-            nvidia.com/gpu: "4"
-          requests:
-            cpu: "6"
-            memory: 30Gi
-            nvidia.com/gpu: "4"
-        image: lmcache/vllm-openai:latest
-        args:
-          - "/opt/ml/model"
-          - "--max-model-len"
-          - "20000"
-          - "--tensor-parallel-size"
-          - "4"
+        image: vllm/vllm-openai:v0.10.1
         modelInvocationPort:
           containerPort: 8000
           name: http
         modelVolumeMount:
           name: model-weights
           mountPath: /opt/ml/model
+        resources:
+          limits:
+            nvidia.com/gpu: 4
+          requests:
+            cpu: 30000m
+            memory: 100Gi
+            nvidia.com/gpu: 4
+        args:
+          - "--model"
+          - "/opt/ml/model"
+          - "--port"
+          - "8000"
+          - "--tensor-parallel-size"
+          - "4"
+          - "--served-model-name"
+          - "Llama-3.1-8B-Instruct"
         environmentVariables:
-          - name: PYTHONHASHSEED
-            value: "123"
-          - name: OPTION_ROLLING_BATCH
-            value: "vllm"
-          - name: SERVING_CHUNKED_READ_TIMEOUT
-            value: "480"
-          - name: DJL_OFFLINE
-            value: "true"
-          - name: NUM_SHARD
-            value: "1"
-          - name: SAGEMAKER_PROGRAM
-            value: "inference.py"
-          - name: SAGEMAKER_SUBMIT_DIRECTORY
-            value: "/opt/ml/model/code"
-          - name: MODEL_CACHE_ROOT
-            value: "/opt/ml/model"
-          - name: SAGEMAKER_MODEL_SERVER_WORKERS
-            value: "1"
-          - name: SAGEMAKER_MODEL_SERVER_TIMEOUT
-            value: "3600"
-          - name: OPTION_TRUST_REMOTE_CODE
-            value: "true"
-          - name: OPTION_ENABLE_REASONING
-            value: "true"
-          - name: OPTION_REASONING_PARSER
-            value: "deepseek_r1"
-          - name: SAGEMAKER_CONTAINER_LOG_LEVEL
-            value: "20"
-          - name: SAGEMAKER_ENV
-            value: "1"
-          - name: MODEL_SERVER_TYPE
-            value: "vllm"
-          - name: SESSION_KEY
-            value: "x-user-id"
+          - name: VLLM_REQUEST_TIMEOUT
+            value: "600"
     EOF
     ```
 

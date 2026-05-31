@@ -10,6 +10,88 @@ information about Amazon SageMaker HyperPod feature releases, see [Amazon SageMa
 
 To update existing HyperPod clusters with the latest DLAMI, see [Update the SageMaker HyperPod platform software of a cluster](sagemaker-hyperpod-operate-slurm-cli-command.md#sagemaker-hyperpod-operate-slurm-cli-command-update-cluster-software "sagemaker-hyperpod-operate-slurm-cli-command.md#sagemaker-hyperpod-operate-slurm-cli-command-update-cluster-software").
 
+## SageMaker HyperPod AMI releases for Slurm: May 27, 2026
+
+###### Known issue: auto-resume on Slurm 25.11
+
+Auto-resume has known issues on SageMaker HyperPod clusters
+running Slurm 25.11. Jobs submitted with auto-resume enabled are not
+guaranteed to resume on the node that is replaced after a node fault.
+Instead the affected jobs are requeued. A fix is under investigation.
+
+**AMI general updates**
+
+- Released updates for SageMaker HyperPod AMI for Slurm versions 25.11.
+- Base DLAMI release note is available [here](../../../dlami/latest/devguide/appendix-ami-release-notes.md#appendix-ami-release-notes-base "../../../dlami/latest/devguide/appendix-ami-release-notes.md#appendix-ami-release-notes-base").
+
+**SageMaker HyperPod DLAMI for Slurm support**
+
+This release includes the following updates:
+
+Slurm v25.11
+
+- Slurm 25.11 (ARM64):
+  - Linux Kernel version: 6.8.0-1053-aws
+  - Glibc version: 2.35
+  - OpenSSL version: 3.0.2
+  - FSx Lustre Client version: 2.15.6-1fsx30
+  - Containerd version: v2.2.3
+  - NVIDIA Driver version: 580.126.09
+  - NVIDIA CUDA Default version: 13.0
+  - CUDA version: 12.6, 12.8, 12.9, 13.0
+  - EFA Installer version: 1.47.0
+  - Python version: 3.10.12
+  - Slurm version: 25.11.4
+  - nvme-cli version: 1.16
+  - collectd version: 5.12.0.
+  - lustre-client version: 2.15.6-1fsx30
+  - nvidia-imex version: 580.126.09-1
+  - systemd version: 249
+  - openssh version: 8.9
+  - sudo version: 1.9.9
+  - ufw version: 0.36.1
+  - gcc version: 11.4.0
+  - cmake version: 3.22.1
+  - git version: 2.34.1
+  - make version: 4.3
+  - cloudwatch-agent version: 1.300067.0b1404-1
+  - nfs-utils version: 1:2.6.1-1ubuntu1.2
+  - iscsi-initiator-utils version: 2.1.5-1ubuntu1.1
+  - lvm2 version: 2.03.11
+  - ec2-instance-connect version: 1.1.14-0ubuntu1.1
+  - rdma-core version: 61.0-1
+
+- Slurm 25.11 (x86_64):
+  - Linux Kernel version: 6.8.0-1053-aws
+  - Glibc version: 2.35
+  - OpenSSL version: 3.0.2
+  - FSx Lustre Client version: 2.15.6-1fsx30
+  - Containerd version: v2.2.3
+  - aws Neuronx DKMS version: 2.27.4.0
+  - NVIDIA Driver version: 580.126.09
+  - NVIDIA CUDA Default version: 12.9
+  - CUDA version: 12.6, 12.8, 12.9, 13.0
+  - EFA Installer version: 1.47.0
+  - Python version: 3.10.12
+  - Slurm version: 25.11.4
+  - nvme-cli version: 1.16
+  - stress version: 1.0.5
+  - collectd version: 5.12.0.
+  - lustre-client version: 2.15.6-1fsx30
+  - systemd version: 249
+  - openssh version: 8.9
+  - sudo version: 1.9.9
+  - ufw version: 0.36.1
+  - gcc version: 11.4.0
+  - cmake version: 3.22.1
+  - make version: 4.3
+  - cloudwatch-agent version: 1.300067.0b1404-1
+  - nfs-utils version: 1:2.6.1-1ubuntu1.2
+  - iscsi-initiator-utils version: 2.1.5-1ubuntu1.1
+  - lvm2 version: 2.03.11
+  - ec2-instance-connect version: 1.1.14-0ubuntu1.1
+  - rdma-core version: 61.0-1
+
 ## SageMaker HyperPod AMI releases for Slurm: May 07, 2026
 
 **AMI general updates**
