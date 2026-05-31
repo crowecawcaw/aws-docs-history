@@ -25,6 +25,7 @@ designation by default and access to the domain administration page.
 
 ###### Topics
 
+- [Accessing domain management](accessing-domain-management-idc.md "accessing-domain-management-idc.md")
 - [Set up projects within an Identity Center-based domain](setup-projects-idc-based-domains.md "setup-projects-idc-based-domains.md")
 - [View and manage project details](view-manage-project-details-idc.md "view-manage-project-details-idc.md")
 - [Edit project configuration](edit-project-configuration-idc.md "edit-project-configuration-idc.md")
