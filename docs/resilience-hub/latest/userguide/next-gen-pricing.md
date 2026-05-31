@@ -1,0 +1,22 @@
+# Pricing overview
+
+Next generation Resilience Hub uses a service-based pricing model. The following table summarizes the pricing
+components.
+
+| Component                                                                              | Price                                          |
+| -------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| Service fee (includes up to 150 resources and 2 failure mode assessments per<br>month) | $15 per service per month                      |
+| Additional resources above 150 and each assessment after 2 included                    | $0.10 per resource per failure mode assessment |
+| Dependency discovery (optional add-on)                                                 | $10 per service per month                      |
+
+The service fee includes two failure mode assessments per month for
+services with up to 150 resources. For services with more than 150 resources, each included
+failure mode assessment incurs an additional charge of $0.10 per resource above the
+150-resource threshold. For additional assessments beyond the two included, the cost is $0.10
+per assessable resource with a minimum of 50 resources.
+
+Dependency discovery is an optional add-on that provides continuous, automated
+identification of all dependencies your service calls.
+
+For detailed pricing information, see
+[Next generation Resilience Hub pricing](https://aws.amazon.com/resilience-hub/pricing/ "https://aws.amazon.com/resilience-hub/pricing/").

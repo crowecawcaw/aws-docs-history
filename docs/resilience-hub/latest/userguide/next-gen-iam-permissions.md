@@ -1,0 +1,206 @@
+# Required IAM permissions and roles
+
+**IAM Role for assessment**
+
+In order to run an assessment, the next generation of Resilience Hub needs to be able to assume an IAM role
+with a number of read-only permissions to discover and understand configuration of your AWS
+resources.
+
+You can create an IAM role in the AWS IAM console. Choose **Custom trust
+policy** and use a trust policy like this:
+
+```
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "resiliencehub.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole",
+      "Condition": {}
+    }
+  ]
+}
+
+```
+
+For permissions, choose the `AWSResilienceHubAsssessmentExecutionPolicy`
+managed policy and the `ReadOnlyAccess` managed policy. The
+`ReadOnlyAccess` policy is required for the best performance of the failure
+mode assessment.
+
+**IAM Service-Linked Role**
+
+Next generation Resilience Hub automatically creates a Service-Linked Role with the
+`AWSResilienceHubServiceRolePolicy` managed policy. This role is required
+only for AWS Organizations support.
+
+**Terraform state file access permissions**
+
+If you are including Terraform state files into your Next generation Resilience Hub service, provide
+permissions to read the Terraform files from your Amazon S3 bucket with a policy like this:
+
+```
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::`s3-bucket-name`/`path-to-state-file`"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::`s3-bucket-name`"
+    }
+  ]
+}
+
+```
+
+**Amazon EKS Permissions**
+
+If you are including Amazon EKS clusters into your Next generation Resilience Hub service, follow the
+following 3-step process to provide Next generation Resilience Hub permissions to read configuration data for
+your Amazon EKS clusters using Kubernetes role-based access control (RBAC).
+
+**Step 1: Apply the following to your Amazon EKS cluster**
+
+This grants Next generation Resilience Hub read-only access to the Kubernetes resources it needs across
+all namespaces:
+
+```
+
+cat << EOF | kubectl apply -f -
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: resilience-hub-eks-access-cluster-role
+rules:
+- apiGroups:
+    - ""
+  resources:
+    - pods
+    - replicationcontrollers
+    - nodes
+    - services
+  verbs:
+    - get
+    - list
+- apiGroups:
+    - apps
+  resources:
+    - deployments
+    - replicasets
+  verbs:
+    - get
+    - list
+- apiGroups:
+    - policy
+  resources:
+    - poddisruptionbudgets
+  verbs:
+    - get
+    - list
+- apiGroups:
+    - autoscaling.k8s.io
+  resources:
+    - verticalpodautoscalers
+  verbs:
+    - get
+    - list
+- apiGroups:
+    - autoscaling
+  resources:
+    - horizontalpodautoscalers
+  verbs:
+    - get
+    - list
+- apiGroups:
+    - karpenter.sh
+  resources:
+    - provisioners
+    - nodepools
+  verbs:
+    - get
+    - list
+- apiGroups:
+    - karpenter.k8s.aws
+  resources:
+    - awsnodetemplates
+    - ec2nodeclasses
+  verbs:
+    - get
+    - list
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: resilience-hub-eks-access-cluster-role-binding
+subjects:
+  - kind: Group
+    name: resilience-hub-eks-access-group
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: resilience-hub-eks-access-cluster-role
+  apiGroup: rbac.authorization.k8s.io
+---
+EOF
+
+```
+
+**Step 2: Map the ResilienceHubRole to the Kubernetes group in
+aws-auth**
+
+Edit the aws-auth ConfigMap to map the IAM role you have created to the
+`resilience-hub-eks-access-group`:
+
+Using eksctl:
+
+```
+
+eksctl create iamidentitymapping \
+  --cluster `cluster-name` \
+  --region `region` \
+  --arn arn:aws:iam::`ACCOUNT-ID`:role/ResilienceHubRole \
+  --group resilience-hub-eks-access-group \
+  --username AwsResilienceHubAssessmentEKSAccessRole
+
+```
+
+Or manually edit the ConfigMap:
+
+```
+
+kubectl edit -n kube-system configmap/aws-auth
+
+```
+
+Add this under `mapRoles` in the data section:
+
+```
+
+- groups:
+    - resilience-hub-eks-access-group
+  rolearn: arn:aws:iam::`ACCOUNT-ID`:role/ResilienceHubRole
+  username: AwsResilienceHubAssessmentEKSAccessRole
+
+```
+
+**Step 3: Verify**
+
+Confirm the RBAC resources exist and the role mapping is in place:
+
+```
+
+kubectl get clusterrole resilience-hub-eks-access-cluster-role
+kubectl describe clusterrolebinding resilience-hub-eks-access-cluster-role-binding
+kubectl get configmap aws-auth -n kube-system -o yaml | grep -A 3 "ResilienceHubRole"
+
+```
