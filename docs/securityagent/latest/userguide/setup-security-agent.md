@@ -133,6 +133,6 @@ After setting up AWS Security Agent:
 - Define security requirements for your organization
 - Configure penetration testing capabilities including domain verification and VPC access for your Agent Space
 - Connect GitHub repositories for code review and penetration testing context
-- **(If using IAM Identity Center)** Assign users to the Agent Space in IAM Identity Center
+- **(If using IAM Identity Center)** Assign users to the Agent Space in the AWS Security Agent console
 - **(If using IAM-only access)** Launch the web application through the admin access link in the AWS Console
-- Create additional Agent Spaces for other applications (see <>)
+- Create additional Agent Spaces for other applications (see [Create an Agent Space](create-agent-space.md "create-agent-space.md"))

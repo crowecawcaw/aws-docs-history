@@ -39,7 +39,7 @@ Administrators configure AWS Security Agent through the AWS Management Console.
 - Enable code review for full repository scans and pull request analysis
 - Enable automated code remediation through pull requests for code review and penetration test findings
 
-**User access** - Manage how users access the Security Agent Web Application. If you’ve enabled IAM Identity Center (SSO), assign users either in IAM Identity Center or the AWS Security Agent console to provide direct SSO access to the Web Application. If you’re using IAM-only access, users with AWS Console access can launch the Web Application through the admin access link in the Console for any Agent Space.
+**User access** - Manage how users access the Security Agent Web Application. If you’ve enabled IAM Identity Center (SSO), assign users in the AWS Security Agent console to provide direct SSO access to the Web Application. If you’re using IAM-only access, users with AWS Console access can launch the Web Application through the admin access link in the Console for any Agent Space.
 
 ### Web Application activities
 

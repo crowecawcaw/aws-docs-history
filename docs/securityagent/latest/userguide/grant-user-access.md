@@ -4,13 +4,13 @@ AWS Security Agent provides two methods for users to access the web application,
 
 ## Access methods overview
 
-**IAM Identity Center (SSO)** - If you enabled IAM Identity Center when creating your Agent Space, users can access the web application directly through SSO. You assign users to the Agent Space either through the IAM Identity Center console or through the AWS Security Agent console, and users log in using their Identity Center credentials.
+**IAM Identity Center (SSO)** - If you enabled IAM Identity Center when creating your Agent Space, users can access the web application directly through SSO. You assign users to the Agent Space through the AWS Security Agent console, and users log in using their Identity Center credentials.
 
 **Admin Access** - Users with AWS Console access can launch the web application through an admin access link on the Agent Space overview page in the AWS Management Console.
 
 ## Grant access with IAM Identity Center (SSO)
 
-If you configured your Agent Space with IAM Identity Center, you can assign users to the Agent Space using either the AWS Security Agent console or the IAM Identity Center console.
+If you configured your Agent Space with IAM Identity Center, you can assign users to the Agent Space using the AWS Security Agent console.
 
 ### Assign users through the AWS Security Agent console
 
@@ -23,10 +23,6 @@ If you configured your Agent Space with IAM Identity Center, you can assign user
 ###### Tip
 
 Users assigned to the Agent Space can access the web application by logging in through IAM Identity Center with their SSO credentials.
-
-### Assign users through the IAM Identity Center console
-
-You can also manage user access directly from the IAM Identity Center console. Learn how to [assign user access to applications in the IAM Identity Center console](../../../singlesignon/latest/userguide/assignuserstoapp.md "../../../singlesignon/latest/userguide/assignuserstoapp.md") in the AWS IAM Identity Center User Guide.
 
 ### Access the web application with SSO
 

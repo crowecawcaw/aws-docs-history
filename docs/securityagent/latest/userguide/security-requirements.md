@@ -133,4 +133,4 @@ After configuring your security requirements:
 
 - Enable penetration testing to complement your design and code reviews
 - Configure the Agent Web App to provide users access to security capabilities
-- Assign users to your agent through IAM Identity Center
+- Assign users to your Agent Space through the AWS Security Agent console
