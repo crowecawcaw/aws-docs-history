@@ -82,6 +82,7 @@ compression types and extensions shown in the following table. ​
 | GZIP                  | .gz            |
 | Bzip2                 | .bz2           |
 | Snappy                | .snappy        |
+| Zstandard (Zstd)      | .zstd          |
 
 You can apply compression at different levels. Most commonly, you compress a whole file or
 compress individual blocks within a file. Compressing columnar formats at the file level doesn't

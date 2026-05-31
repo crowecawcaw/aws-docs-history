@@ -4,7 +4,6 @@ The following sections describe the roles needed to perform each task.
 
 ###### Topics
 
-- [Create an administrator user](#setting-up-create-iam-user "#setting-up-create-iam-user")
 - [Create an IAM role for a collaboration member](#create-role-DP "#create-role-DP")
 - [Create a service role to read data from Amazon S3](#create-service-role-procedure "#create-service-role-procedure")
 - [Create a service role to read data from Amazon Athena](#create-service-role-athena "#create-service-role-athena")
@@ -12,18 +11,6 @@ The following sections describe the roles needed to perform each task.
 - [Create a service role to read code from an S3 bucket (PySpark analysis template role)](#create-role-pyspark-analysis-template "#create-role-pyspark-analysis-template")
 - [Create a service role to write results of a PySpark job](#create-role-pyspark-job "#create-role-pyspark-job")
 - [Create a service role to receive results](#create-role-write-results "#create-role-write-results")
-
-## Create an administrator user
-
-To use AWS Clean Rooms, you need to create an administrator user for yourself and add
-the administrator user to an administrators group.
-
-To create an administrator user, choose one of the following options.
-
-| Choose one way to manage your administrator | To                                                                                                                                                                                                                                                                                                                                                  | By                                                                                                                                                                                                                                          | You can also                                                                                                                                                                                                                                          |
-| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| In IAM Identity Center (Recommended)        | Use short-term credentials to access AWS.This aligns with the security best<br>practices. For information about best practices, see [Security best<br>practices in IAM](../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp "../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp") in the _IAM User Guide_. | Following the instructions in [Getting started](../../../singlesignon/latest/userguide/getting-started.md "../../../singlesignon/latest/userguide/getting-started.md") in the<br>_AWS IAM Identity Center User Guide_.                      | Configure programmatic access by [Configuring the AWS CLI to use<br>AWS IAM Identity Center](../../../cli/latest/userguide/cli-configure-sso.md "../../../cli/latest/userguide/cli-configure-sso.md") in the _AWS Command Line Interface User Guide_. |
-| In IAM (Not recommended)                    | Use long-term credentials to access AWS.                                                                                                                                                                                                                                                                                                            | Following the instructions in [Create an IAM user for emergency access](../../../IAM/latest/UserGuide/getting-started-emergency-iam-user.md "../../../IAM/latest/UserGuide/getting-started-emergency-iam-user.md") in the _IAM User Guide_. | Configure programmatic access by [Manage access keys for IAM<br>users](../../../IAM/latest/UserGuide/id_credentials_access-keys.md "../../../IAM/latest/UserGuide/id_credentials_access-keys.md") in the _IAM User Guide_.                            |
 
 ## Create an IAM role for a collaboration member
 

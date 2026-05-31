@@ -17,8 +17,8 @@ Consider the following when using AWS Clean Rooms with Iceberg tables:
   information, see [https://docs.snowflake.com/en/user-guide/tables-iceberg](https://docs.snowflake.com/en/user-guide/tables-iceberg "https://docs.snowflake.com/en/user-guide/tables-iceberg")
 - **Parquet file format** – AWS Clean Rooms only supports Iceberg
   tables in the Parquet data file format.
-- **GZIP and Snappy compression** – AWS Clean Rooms supports
-  Parquet with GZIP and Snappy compression.
+- **GZIP, Snappy, and Zstd compression** – AWS Clean Rooms supports
+  Parquet with GZIP, Snappy, and Zstandard (Zstd) compression.
 - **Iceberg versions** – AWS Clean Rooms supports running queries
   against version 1 and version 2 Iceberg tables.
 - **Partitions** – You don't need to manually add
@@ -42,10 +42,6 @@ Consider the following when using AWS Clean Rooms with Iceberg tables:
   - **File formats**
 
   Avro and Optimized Row Columnar (ORC) file formats are not
-  supported.
-  - **Compression**
-
-  Zstandard (Zstd) compression for Parquet is not
   supported.
 
 ## Supported data types for Iceberg tables
