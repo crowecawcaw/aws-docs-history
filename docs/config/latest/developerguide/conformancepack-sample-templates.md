@@ -24,9 +24,6 @@ and amend the template for rules not yet available in that region before deployi
 
 ###### Topics
 
-- [AI/ML Security & Governance Supporting Infrastructure Best Practices](AI-ML-security-governance-supporting-infrastructure-best-practices.md "AI-ML-security-governance-supporting-infrastructure-best-practices.md")
-- [Amazon Bedrock Security and Governance Best Practices](amazon-bedrock-security-and-governance-best-practices.md "amazon-bedrock-security-and-governance-best-practices.md")
-- [Amazon SageMaker AI Security and Governance Best Practices](amazon-sagemaker-ai-security-and-governance-best-practices.md "amazon-sagemaker-ai-security-and-governance-best-practices.md")
 - [AWS Control Tower Detective Guardrails Conformance Pack](aws-control-tower-detective-guardrails.md "aws-control-tower-detective-guardrails.md")
 - [Cyber Resilience Best Practices for Amazon S3, Amazon EBS, and Amazon DynamoDB](cyber-resilience-best-practices-for-s3-ebs-dynamoDB.md "cyber-resilience-best-practices-for-s3-ebs-dynamoDB.md")
 - [Operational Best Practices for ABS CCIG 2.0 Material Workloads](operational-best-practices-for-ABS-CCIGv2-Material.md "operational-best-practices-for-ABS-CCIGv2-Material.md")
@@ -129,7 +126,10 @@ and amend the template for rules not yet available in that region before deployi
 - [Security Best Practices for Amazon SageMaker AI](security-best-practices-for-SageMaker.md "security-best-practices-for-SageMaker.md")
 - [Security Best Practices for AWS Secrets Manager](security-best-practices-for-Secrets-Manager.md "security-best-practices-for-Secrets-Manager.md")
 - [Security Best Practices for AWS WAF](security-best-practices-for-aws-waf.md "security-best-practices-for-aws-waf.md")
-- [Self-Hosted AI/ML Security & Governance Best Practices](self-hosted-AI-ML-security-governance-best-practices.md "self-hosted-AI-ML-security-governance-best-practices.md")
+- [Security and Governance Best Practices for AI/ML Supporting Infrastructure](security-and-governance-best-practices-for-AI-ML-supporting-infrastructure.md "security-and-governance-best-practices-for-AI-ML-supporting-infrastructure.md")
+- [Security and Governance Best Practices for Amazon Bedrock](security-and-governance-best-practices-for-amazon-bedrock.md "security-and-governance-best-practices-for-amazon-bedrock.md")
+- [Security and Governance Best Practices for Amazon SageMaker AI](security-and-governance-best-practices-for-amazon-sagemaker-ai.md "security-and-governance-best-practices-for-amazon-sagemaker-ai.md")
+- [Security and Governance Best Practices for Self-Hosted AI/ML](security-and-governance-best-practices-for-self-hosted-AI-ML.md "security-and-governance-best-practices-for-self-hosted-AI-ML.md")
 - [Example Templates with Remediation Action](templateswithremediation.md "templateswithremediation.md")
   For more information about template structure, see [Template Anatomy](../../../AWSCloudFormation/latest/UserGuide/template-anatomy.md "../../../AWSCloudFormation/latest/UserGuide/template-anatomy.md") in the
   AWS CloudFormation User Guide.

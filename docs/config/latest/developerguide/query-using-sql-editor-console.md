@@ -1,9 +1,5 @@
 # Query Using the SQL Query Editor for AWS Config (Console)
 
-|                                                                                                                                                                                                                                                                                                                                                                        |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Introducing a preview feature for advanced queries that allows you to<br>use generative artificial intelligence (generative AI) capabilities to<br>enter prompts in plain English and convert them into a ready-to-use<br>query format. For more information, see [Natural language query<br>processor for advanced queries](query-assistant.md "query-assistant.md"). |
-
 You can either use AWS sample queries or you can create your own query called as
 custom queries.
 

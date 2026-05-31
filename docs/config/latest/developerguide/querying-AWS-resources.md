@@ -1,14 +1,10 @@
 # Querying the Current Configuration State of AWS Resources with AWS Config
 
-|                                                                                                                                                                                                                                                                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Introducing a preview feature for advanced queries that allows you to use<br>generative artificial intelligence (generative AI) capabilities to enter<br>prompts in plain English and convert them into a ready-to-use query format.<br>For more information, see [Natural language query processor for advanced queries](query-assistant.md "query-assistant.md"). |
-
 You can use AWS Config to query the current configuration state of AWS resources based on
 configuration properties for a single account and Region or across multiple accounts and
 Regions. You can perform property-based queries against current AWS resource state
 metadata across a list of resources that AWS Config supports. For more information on the list
-of supported resource types, see [Supported Resource Types for Advanced Queries](https://github.com/awslabs/aws-config-resource-schema/tree/master/config/properties/resource-types "https://github.com/awslabs/aws-config-resource-schema/tree/master/config/properties/resource-types").
+of supported resource types, see [Supported Resource Types](querying-AWS-resources.md#supported-resource-types "querying-AWS-resources.md#supported-resource-types").
 
 _Advanced queries_ provides a single query endpoint and a query
 language to get current resource state metadata without performing service-specific describe
@@ -21,12 +17,12 @@ account across multiple accounts and AWS Regions.
 - [Query Components](query-components.md "query-components.md")
 - [Query Editor (Console)](query-using-sql-editor-console.md "query-using-sql-editor-console.md")
 - [Query Editor (AWS CLI)](query-using-sql-editor-cli.md "query-using-sql-editor-cli.md")
-- [Natural language query processor](query-assistant.md "query-assistant.md")
 - [Examples Queries](example-query.md "example-query.md")
 - [Example Relationship Queries](examplerelationshipqueries.md "examplerelationshipqueries.md")
 - [Limitations](#query-limitations "#query-limitations")
 - [CIDR notation/IP range](#query-cidr-notation "#query-cidr-notation")
 - [Multiple properties within an array](#array-property-query-behavior "#array-property-query-behavior")
+- [Supported Resource Types](#supported-resources "#supported-resources")
 - [Region Support](#query-regionsupport "#query-regionsupport")
 
 ## Features
@@ -209,6 +205,15 @@ The second condition
 elements in R.configRuleList, because R has a rule (rule A) with configRuleName
 = 'A', the condition is evaluated as true. As both conditions are true, R will
 be returned.
+
+## Supported Resource Types
+
+Not all resource types that AWS Config supports are queryable in Advanced Query. Additionally,
+some fields in a configuration item are unsearchable. Unsearchable fields may be returned in results
+and used in the `SELECT` portion of the query, but cannot be used in other parts of the query,
+such as `WHERE`, `GROUP BY`, or `ORDER BY`.
+
+For a full list of searchable fields and resource types, see [Supported Resource Types for Advanced Queries](https://github.com/awslabs/aws-config-resource-schema/tree/master/config/properties/resource-types "https://github.com/awslabs/aws-config-resource-schema/tree/master/config/properties/resource-types").
 
 ## Region Support
 

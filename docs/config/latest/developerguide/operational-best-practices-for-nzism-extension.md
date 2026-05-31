@@ -7,13 +7,13 @@ You are responsible for making your own assessment of whether your use of the Se
 
 The following provides a sample mapping between the [New Zealand Government Communications Security Bureau (GCSB) Information Security Manual (NZISM) 2025-11 Version 3.9](https://www.nzism.gcsb.govt.nz/ism-document "https://www.nzism.gcsb.govt.nz/ism-document") and AWS Managed Config rules.
 Each Config rule applies to a specific AWS resource type, and relates to one or more NZISM controls.
-An NZISM control can be related to multiple Config rules. Refer to the table below for more detail and guidance related to these mappings. Only controls representing recommended or baseline practice
+An NZISM control can be related to multiple Config rules. Refer to the following table for more detail and guidance related to these mappings. Only controls representing recommended or baseline practice
 for information classified RESTRICTED and below are included in the mappings.
 
 This sample conformance pack template contains mappings to controls within the NZISM framework, which is an integral part of the Protective Security Requirements (PSR) framework that sets
 out the New Zealand Government’s expectations for the management of personnel, information and physical security.
 
-The Foundation part of this conformance pack can be deployed to the Sydney and global regions. The NZ Transition part contains the subset of Foundation Config rules that are currently available in the New Zealand region. The Foundation part will not currently deploy to the New Zealand region. The Extension part of this conformance pack can be deployed to the Sydney and New Zealand regions in order to augment the Config rules provided in the Foundation and NZ Transition parts.
+The Foundation part of this conformance pack can be deployed to the Sydney and global regions. The NZ Transition part contains the subset of Foundation Config rules that are currently available in the New Zealand region. The Foundation part will not currently deploy to the New Zealand region. The Extension part of this conformance pack can be deployed to the Sydney and New Zealand regions to augment the Config rules provided in the Foundation and NZ Transition parts.
 
 The NZISM is licensed under the Creative Commons Attribution 4.0 New Zealand licence,
 available at [https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/ "https://creativecommons.org/licenses/by/4.0/"). Copyright information can be

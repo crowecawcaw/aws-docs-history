@@ -601,7 +601,7 @@ You might continue to see your data for `AWS::OpenSearch::Domain` under the exis
 | AWS Service                   | Resource Type Value          | Relationship | Related Resource | Notes |
 | ----------------------------- | ---------------------------- | ------------ | ---------------- | ----- |
 | Amazon Quick                  | `AWS::QuickSight::Dashboard` | NA           | NA               |       |
-| `AWS::QuickSight::Dataset`    | NA                           | NA           |                  |
+| `AWS::QuickSight::DataSet`    | NA                           | NA           |                  |
 | `AWS::QuickSight::DataSource` | NA                           | NA           |                  |
 | `AWS::QuickSight::Template`   | NA                           | NA           |                  |
 | `AWS::QuickSight::Theme`      | NA                           | NA           |                  |
