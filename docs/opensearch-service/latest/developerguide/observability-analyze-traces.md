@@ -11,7 +11,7 @@ correlating traces with related log data.
 In your observability workspace, expand **Discover** in the left
 navigation and choose **Traces**.
 
-![](images/discover-traces/discover-traces.png)
+![Traces interface showing request count, error count, and latency charts with a table of trace results below.](images/discover-traces/discover-traces.png)
 
 ## Configuring trace datasets
 
@@ -24,7 +24,7 @@ When you navigate to the Discover Traces page for the first time and trace data
 exists in your domain, the page prompts you to create a dataset automatically.
 Choose **Create dataset** to accept the default configuration.
 
-![](images/discover-traces/trace-auto-create.png)
+![Dialog box prompting to create trace datasets for DockerTest with otel-v1-apm-span traces detected.](images/discover-traces/trace-auto-create.png)
 
 ### Manual dataset creation
 
@@ -54,7 +54,7 @@ To view details for a specific span, choose the span row in the span table. A
 flyout panel opens with the span attributes, resource attributes, and event
 information.
 
-![](images/discover-traces/trace-details-flyout.png)
+![Span details panel showing service identifier, span ID, start time, and span status for user_get_recommendations.](images/discover-traces/trace-details-flyout.png)
 
 ## Trace detail page
 
@@ -63,7 +63,7 @@ panel. The trace detail page displays a waterfall chart showing all spans in the
 trace, their timing relationships, and the overall trace duration. You can expand
 individual spans to view their attributes and identify bottlenecks.
 
-![](images/discover-traces/trace-detail-page.png)
+![Trace waterfall chart showing nested spans for load-generator, frontend-proxy, frontend, and cart services with timing details.](images/discover-traces/trace-detail-page.png)
 
 ## Correlating traces with logs
 
@@ -78,7 +78,7 @@ In the span details flyout or trace detail page, choose the
 trace ID, service name, and time range. This correlation helps you understand
 what happened in your application during the span execution.
 
-![](images/discover-traces/related-logs.png)
+![Related logs tab showing log entries filtered by trace ID with timestamps, levels, and span IDs.](images/discover-traces/related-logs.png)
 
 ### Log redirection with context
 
@@ -87,7 +87,7 @@ relevant context preserved. Choose **View in Logs** from the
 related logs panel to open the Discover Logs page with the query pre-populated
 to filter by the span's trace ID and time range.
 
-![](images/discover-traces/logs-redirection.png)
+![Logs page showing 8 query results filtered by trace ID with log entries from various services.](images/discover-traces/logs-redirection.png)
 
 ## Querying traces using PPL
 

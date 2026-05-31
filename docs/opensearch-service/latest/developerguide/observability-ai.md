@@ -173,7 +173,7 @@ your time filter and query.
 The Traces tab lists all root agent traces that match your current query and
 time range. Each row represents a single agent invocation.
 
-![](images/agent-traces/traces-table.png)
+![Table displaying agent traces with columns for time, kind, name, status, latency, tokens, input, and output.](images/agent-traces/traces-table.png)
 
 The following table describes the columns in the traces table:
 
@@ -208,7 +208,7 @@ a unique color and icon in the UI.
 The Spans tab displays individual spans across all traces. You can filter
 and sort spans to find specific operations.
 
-![](images/agent-traces/spans-table.png)
+![Spans tab showing a table with columns for Time, Kind, Name, Status, Latency, Tokens, Input, and Output.](images/agent-traces/spans-table.png)
 
 ### Trace details flyout
 

@@ -26,11 +26,16 @@ operation, your requests to the indexes fail.
 To work with snapshots, configure the following permissions in your data access policy.
 For more information about data access policies, see [Data access policies versus IAM policies](serverless-data-access.md#serverless-data-access-vs-iam "serverless-data-access.md#serverless-data-access-vs-iam").
 
-| Data Access Policy           | APIs                                                                          |
-| ---------------------------- | ----------------------------------------------------------------------------- |
-| aoss:DescribeSnapshot        | GET /\_cat/snapshots/aoss-automatedGET<br>\_snapshot/aoss-automated/snapshot/ |
-| aoss:RestoreSnapshot         | POST /\_snapshot/aoss-automated/snapshot/\_restore                            |
-| aoss:DescribeCollectionItems | GET /\_cat/recovery                                                           |
+| Data Access Policy           | APIs                                                                               |
+| ---------------------------- | ---------------------------------------------------------------------------------- |
+| aoss:DescribeSnapshot        | GET /\_cat/snapshots/aoss-automatedGET<br>\_snapshot/aoss-automated/`snapshot_id`/ |
+| aoss:RestoreSnapshot         | POST /\_snapshot/aoss-automated/snapshot/\_restore                                 |
+| aoss:DescribeCollectionItems | GET /\_cat/recovery                                                                |
+
+###### Note
+
+Replace `<snapshot_id>` with the actual snapshot ID retrieved from
+`GET /_cat/snapshots/aoss-automated`.
 
 You can configure policies using the following AWS CLI commands:
 

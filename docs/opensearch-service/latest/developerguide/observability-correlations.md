@@ -29,13 +29,13 @@ logs dataset.
 3. Choose the **Correlations** tab in the dataset
    configuration panel.
 
-![](images/datasets/correlations-trace-dataset-tab.png) 4. Choose **Create correlation**. 5. In the configuration dialog, select the target logs dataset and map the
+![Correlated datasets tab showing no correlations exist with option to create correlation.](images/datasets/correlations-trace-dataset-tab.png) 4. Choose **Create correlation**. 5. In the configuration dialog, select the target logs dataset and map the
 required correlation fields (trace ID and timestamp). Optionally, map span ID
 and service name for more precise matching.
 
-![](images/datasets/correlations-configure-dialog.png) 6. Choose **Create** to save the correlation. 7. Verify that the correlation appears in the correlations table.
+![Configure correlation dialog showing Logs Dataset mapped to trace fields including time, traceId, spanId, and service name.](images/datasets/correlations-configure-dialog.png) 6. Choose **Create** to save the correlation. 7. Verify that the correlation appears in the correlations table.
 
-![](images/datasets/correlations-created-table.png)
+![Correlations table showing Trace-to-logs correlation type linking Trace Dataset to Logs Dataset.](images/datasets/correlations-created-table.png)
 
 ## Viewing correlations in logs datasets
 
@@ -43,7 +43,7 @@ After you create a correlation, you can also view it from the logs dataset side.
 Navigate to the Discover Logs page, select the correlated logs dataset, and choose
 the **Correlations** tab to see the linked traces dataset.
 
-![](images/datasets/correlations-logs-dataset-tab.png)
+![Correlated traces tab showing Trace-to-logs correlation type linking Trace Dataset to Logs Dataset.](images/datasets/correlations-logs-dataset-tab.png)
 
 ## Using correlations in the Traces page
 
@@ -51,7 +51,7 @@ When a correlation exists, the Discover Traces page displays related logs in the
 span details view. Choose a span in the span table to open the details flyout, then
 choose the **Related logs** tab to view correlated log entries.
 
-![](images/datasets/correlations-span-details-logs.png)
+![Span details view showing Related logs tab with a log entry for GetCartAsync operation.](images/datasets/correlations-span-details-logs.png)
 
 ## Managing correlations
 

@@ -28,10 +28,10 @@ Complete the following steps to create a logs dataset in OpenSearch UI.
 2. Choose **Create dataset**.
 3. Select a data source from the list of available OpenSearch Service connections.
 
-![](images/datasets/datasets-select-data-source.png) 4. Configure the dataset by entering a name, selecting the index, and
+![Data source selection dialog showing OpenSearch 3.4 with logs-otel-v1 wildcard pattern and one matching index.](images/datasets/datasets-select-data-source.png) 4. Configure the dataset by entering a name, selecting the index, and
 specifying the timestamp field.
 
-![](images/datasets/datasets-configure-logs.png) 5. Choose **Create dataset** to save the configuration.
+![Dataset configuration dialog showing fields for dataset name, language, time field, and OTel logs schema mappings including trace ID, span ID, service name, and timestamp.](images/datasets/datasets-configure-logs.png) 5. Choose **Create dataset** to save the configuration.
 
 ## To create a traces dataset
 
@@ -44,7 +44,7 @@ Complete the following steps to create a traces dataset in OpenSearch UI.
 4. Configure the dataset by entering a name, selecting the span index,
    and specifying the timestamp field.
 
-![](images/datasets/datasets-configure-traces.png) 5. Choose **Create dataset** to save the configuration.
+![Configure Dataset dialog with fields for dataset name, description, data source, language, and time field.](images/datasets/datasets-configure-traces.png) 5. Choose **Create dataset** to save the configuration.
 
 ## To view datasets
 
@@ -52,7 +52,7 @@ You can view all configured datasets from the dataset selector on the Discover L
 or Discover Traces page. The dataset list shows the name, type, data source, and
 timestamp field for each dataset.
 
-![](images/datasets/datasets-list.png)
+![Workspace datasets table showing Logs Dataset and Trace Dataset with their types and data sources.](images/datasets/datasets-list.png)
 
 ## Analyzing datasets in Discover
 

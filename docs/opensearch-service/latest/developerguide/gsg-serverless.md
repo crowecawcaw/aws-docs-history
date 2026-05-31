@@ -1,9 +1,9 @@
 # Tutorial: Getting started with security in Amazon OpenSearch Serverless (console)
 
-This tutorial walks you through the basic steps to create and manage security policies
+In this tutorial, you create and manage security policies
 using the Amazon OpenSearch Serverless console.
 
-You will complete the following steps in this tutorial:
+You complete the following steps in this tutorial:
 
 1. [Configure permissions](#gsgpermissions "#gsgpermissions")
 2. [Create an encryption policy](#gsg-encryption "#gsg-encryption")
@@ -11,7 +11,7 @@ You will complete the following steps in this tutorial:
 4. [Configure a data access policy](#gsg-data-access "#gsg-data-access")
 5. [Create a collection](#gsgcreate-collection "#gsgcreate-collection")
 6. [Upload and search data](#gsgindex-collection "#gsgindex-collection")
-   This tutorial walks you through setting up a collection using the AWS Management Console. For the
+   This tutorial shows you how to set up a collection using the AWS Management Console. For the
    same steps using the AWS CLI, see [Tutorial: Getting started with security in Amazon OpenSearch Serverless (CLI)](gsg-serverless-cli.md "gsg-serverless-cli.md").
 
 ## Step 1: Configure permissions
@@ -20,11 +20,11 @@ You will complete the following steps in this tutorial:
 
 You can skip this step if you're already using a more broad identity-based
 policy, such as `Action":"aoss:*"` or `Action":"*"`. In
-production environments, however, we recommend that you follow the principal of
+production environments, however, follow the principle of
 least privilege and only assign the minimum permissions necessary to complete a
 task.
 
-In order to complete this tutorial, you must have the correct IAM permissions.
+To complete this tutorial, you must have the correct IAM permissions.
 Your user or role must have an attached [identity-based policy](security-iam-serverless.md#security-iam-serverless-id-based-policies "security-iam-serverless.md#security-iam-serverless-id-based-policies")
 with the following minimum permissions:
 
@@ -59,9 +59,9 @@ For a full list of OpenSearch Serverless permissions, see [Identity and Access M
 ## Step 2: Create an encryption policy
 
 [Encryption policies](serverless-encryption.md "serverless-encryption.md") specify the AWS KMS
-key that OpenSearch Serverless will use to encrypt the collection. You can encrypt collections with
-an AWS managed key or a different key. For simplicity in this tutorial, we'll
-encrypt our collection with an AWS managed key.
+key that OpenSearch Serverless uses to encrypt the collection. You can encrypt collections with
+an AWS managed key or a different key. For simplicity in this tutorial, you
+encrypt your collection with an AWS managed key.
 
 ###### To create an encryption policy
 
@@ -69,11 +69,11 @@ encrypt our collection with an AWS managed key.
 2. Expand **Serverless** in the left navigation pane and
    choose **Encryption policies**.
 3. Choose **Create encryption policy**.
-4. Name the policy **books-policy**. For the description,
-   enter **Encryption policy for books collection**.
-5. Under **Resources**, enter **books**,
-   which is what you'll name your collection. If you wanted to be more broad,
-   you could include an asterisk (`books*`) to make the policy apply
+4. Name the policy `books-policy`. For the description,
+   enter `Encryption policy for books collection`.
+5. Under **Resources**, enter `books`,
+   which is what you name your collection. If you want to be more broad,
+   you can include an asterisk (`books*`) to make the policy apply
    to all collections beginning with the word "books".
 6. For **Encryption**, keep **Use AWS owned
    key** selected.
@@ -83,28 +83,28 @@ encrypt our collection with an AWS managed key.
 
 [Network policies](serverless-network.md "serverless-network.md") determine whether your
 collection is accessible over the internet from public networks, or whether it must
-be accessed through OpenSearch Serverless–managed VPC endpoints. In this tutorial, we'll
+be accessed through OpenSearch Serverless–managed VPC endpoints. In this tutorial, you
 configure public access.
 
 ###### To create a network policy
 
 1. Choose **Network policies** in the left navigation pane
    and choose **Create network policy**.
-2. Name the policy **books-policy**. For the description,
-   enter **Network policy for books collection**.
-3. Under **Rule 1**, name the rule **Public access
-   for books collection**.
-4. For simplicity in this tutorial, we'll configure public access for the
+2. Name the policy `books-policy`. For the description,
+   enter `Network policy for books collection`.
+3. Under **Rule 1**, name the rule `Public access
+for books collection`.
+4. For simplicity in this tutorial, configure public access for the
    _books_ collection. For the access type, select
    **Public**.
-5. We're going to access the collection from OpenSearch Dashboards. In order to do
+5. You access the collection from OpenSearch Dashboards. To do
    this, you need to configure network access for Dashboards
    _and_ the OpenSearch endpoint, otherwise Dashboards
    won't function.
 
 For the resource type, enable both **Access to OpenSearch
 endpoints** and **Access to OpenSearch
-Dashboards**. 6. In both input boxes, enter **Collection Name = books**.
+Dashboards**. 6. In both input boxes, enter `Collection Name = books`.
 This setting scopes the policy down so that it only applies to a single
 collection (`books`). Your rule should look like this:
 
@@ -112,23 +112,23 @@ collection (`books`). Your rule should look like this:
 
 ## Step 4: Create a data access policy
 
-Your collection data won't be accessible until you configure data access. [Data access policies](serverless-data-access.md "serverless-data-access.md") are separate from
+You can't access your collection data until you configure data access. [Data access policies](serverless-data-access.md "serverless-data-access.md") are separate from
 the IAM identity-based policy that you configured in step 1. They allow users to
 access the actual data within a collection.
 
-In this tutorial, we'll provide a single user the permissions required to index
+In this tutorial, you provide a single user the permissions required to index
 data into the _books_ collection.
 
 ###### To create a data access policy
 
 1. Choose **Data access policies** in the left navigation
    pane and choose **Create access policy**.
-2. Name the policy **books-policy**. For the description,
-   enter **Data access policy for books collection**.
+2. Name the policy `books-policy`. For the description,
+   enter `Data access policy for books collection`.
 3. Select **JSON** for the policy definition method and
    paste the following policy in the JSON editor.
 
-Replace the principal ARN with the ARN of the account that you'll use to
+Replace the principal ARN with the ARN of the account that you use to
 log in to OpenSearch Dashboards and index data.
 
 ```
@@ -163,28 +163,44 @@ data, and search for it. 4. Choose **Create**.
 
 ## Step 5: Create a collection
 
-Now that you configured encryption and network policies, you can create a matching
-collection and the security settings will be automatically applied to it.
+Now that you configured encryption and network policies, you can create a
+collection that matches them. OpenSearch Serverless automatically applies the security settings.
 
 ###### To create an OpenSearch Serverless collection
 
 1. Choose **Collections** in the left navigation pane and
    choose **Create collection**.
-2. Name the collection **books**.
-3. For collection type, choose **Search**.
-4. Under **Encryption**, OpenSearch Serverless informs you that the
+2. In the **Serverless generation** field, choose
+   **Switch to Classic** if not already on
+   Classic.
+3. For the collection name, enter `books`.
+4. For collection type, choose **Search**.
+5. Under **Encryption**, OpenSearch Serverless informs you that the
    collection name matches the `books-policy` encryption
    policy.
-5. Under **Network access settings**, OpenSearch Serverless informs you
+6. Under **Network access settings**, OpenSearch Serverless informs you
    that the collection name matches the `books-policy` network
    policy.
-6. Choose **Next**.
-7. Under **Data access policy options**, OpenSearch Serverless informs you
+7. Choose **Next**.
+8. Under **Data access policy options**, OpenSearch Serverless informs you
    that the collection name matches the `books-policy` data access
    policy.
-8. Choose **Next**.
-9. Review the collection configuration and choose **Submit**. Collections typically take less than a minute to
-   initialize.
+9. Choose **Next**.
+10. Under **Configure OpenSearch UI**, configure the
+    OpenSearch application and workspace for your collection. Choose
+    **Select existing OpenSearch application** or
+    **Create new OpenSearch application**, and select or
+    create a workspace. Choose **Next**.
+11. Review the collection configuration and choose
+    **Submit**. Collections typically take less than a minute
+    to initialize.
+
+###### Note
+
+This tutorial uses the Classic collection creation flow to demonstrate how
+pre-configured security policies are automatically matched during collection
+creation. For information about creating collections using the NextGen flow,
+see [Creating collections](serverless-create.md "serverless-create.md").
 
 ## Step 6: Upload and search data
 

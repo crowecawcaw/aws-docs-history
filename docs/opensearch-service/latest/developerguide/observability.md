@@ -38,7 +38,7 @@ Amazon OpenSearch Service differentiates itself in three key ways:
   Each language is optimized for its signal type, giving you expressive querying
   without compromise.
 
-![](images/otel-sdk-service.png)
+![Architecture diagram showing OpenTelemetry data flow from microservices through OTel Collector to OpenSearch Observability Stack components.](images/otel-sdk-service.png)
 
 ###### Note
 

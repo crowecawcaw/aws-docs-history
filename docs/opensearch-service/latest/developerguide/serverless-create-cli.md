@@ -49,7 +49,7 @@ the rule more broad, such as `collection/logs*` or
 `collection/*`. 2. Run the following command to configure network settings for the
 collection using a [network
 policy](serverless-network.md "serverless-network.md"). You can create network policies after you create a
-collection, but we recommend doing it beforehand.
+collection, but as a best practice, do it beforehand.
 
 ```
 &aws opensearchserverless create-security-policy \
@@ -79,7 +79,7 @@ If your collection is encrypted with an AWS owned key, the
 
 ###### Important
 
-After you create a collection, you won't be able to access it unless it
+After you create a collection, you can't access it unless it
 matches a data access policy. For more information, see [Data access control for Amazon OpenSearch Serverless](serverless-data-access.md "serverless-data-access.md").
 
 ###### To create a collection
@@ -91,6 +91,8 @@ matches a data access policy. For more information, see [Data access control for
 ```
 &aws opensearchserverless create-collection --name "`collection name`" --type `collection type` --description "`description`"
 ```
+
+Collection creation typically takes several minutes. Use the [BatchGetCollection](../ServerlessAPIReference/API_BatchGetCollection.md "../ServerlessAPIReference/API_BatchGetCollection.md") operation to check the collection status.
 
 ## Creating a collection with an automatic semantic enrichment index
 

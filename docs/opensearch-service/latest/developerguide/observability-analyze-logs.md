@@ -16,7 +16,7 @@ navigation and choose **Logs**.
 The Discover Logs interface provides the following components for exploring your
 log data.
 
-![](images/discover-logs/discover-logs-interface.png)
+![Logs interface showing bar chart of log counts, field list, and table with timestamp, body, severity, and service columns.](images/discover-logs/discover-logs-interface.png)
 
 - **Dataset selector** – Choose the logs
   dataset that you want to query. Each dataset maps to one or more indexes in
@@ -92,7 +92,7 @@ source = my-logs-dataset |
 After you run a `stats` query, choose the **Visualization**
 tab to see the results as a chart.
 
-![](images/discover-logs/discover-logs-visualization.png)
+![Bar chart showing count of requests over time for two URL paths, /api/cart and /api/checkout.](images/discover-logs/discover-logs-visualization.png)
 
 ### Visualization types
 
@@ -109,7 +109,7 @@ The following table describes the visualization types that you can use.
 | Bar gauge      | Displays a single value as a filled bar within a range, useful for showing progress toward a threshold. |
 | Pie            | Displays data as proportional slices of a circle, useful for showing composition.                       |
 
-![](images/discover-logs/discover-logs-viz-types.png)
+![Area chart showing request counts over time for /api/cart and /api/checkout endpoints from 02:00 to 02:12.](images/discover-logs/discover-logs-viz-types.png)
 
 ### Visualization settings
 

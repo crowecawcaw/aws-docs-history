@@ -1,21 +1,21 @@
 # Tutorial: Getting started with security in Amazon OpenSearch Serverless (CLI)
 
-This tutorial walks you through the steps described in the [console getting started tutorial](gsg-serverless.md "gsg-serverless.md") for security, but
+This tutorial covers the steps described in the [console getting started tutorial](gsg-serverless.md "gsg-serverless.md") for security, but
 uses the AWS CLI rather than the OpenSearch Service console.
 
-You'll complete the following steps in this tutorial:
+You complete the following steps in this tutorial:
 
 1. Create an IAM permissions policy
-2. Attatch the IAM policy to an IAM role
+2. Attach the IAM policy to an IAM role
 3. Create an encryption policy
 4. Create a network policy
 5. Create a collection
 6. Configure a data access policy
 7. Retrieve the collection endpoint
-8. Upload data to your connection
+8. Upload data to your collection
 9. Search data in your collection
    The goal of this tutorial is to set up a single OpenSearch Serverless collection with fairly simple
-   encryption, network, and data access settings. For example, we'll configure public
+   encryption, network, and data access settings. For example, you configure public
    network access, an AWS managed key for encryption, and a simplified data access policy
    that grants minimal permissions to a single user.
 
@@ -28,12 +28,12 @@ SAML authentication, a custom encryption key, and VPC access.
 
 You can skip this step if you're already using a more broad identity-based
 policy, such as `Action":"aoss:*"` or `Action":"*"`.
-In production environments, however, we recommend that you follow the
-principal of least privilege and only assign the minimum permissions
+In production environments, however, follow the
+principle of least privilege and only assign the minimum permissions
 necessary to complete a task.
 
 To start, create an AWS Identity and Access Management policy with the minimum required permissions to
-perform the steps in this tutorial. We'll name the policy
+perform the steps in this tutorial. Name the policy
 `TutorialPolicy`:
 
 ```
@@ -62,7 +62,7 @@ aws iam create-policy \
 ```
 
 2. Attach `TutorialPolicy` to the IAM role who will index and search
-   data in the collection. We'll name the user `TutorialRole`:
+   data in the collection. In this example, the role is named `TutorialRole`:
 
 ```
 aws iam attach-role-policy \
@@ -71,7 +71,7 @@ aws iam attach-role-policy \
 ```
 
 3. Before you create a collection, you need to create an [encryption policy](serverless-encryption.md "serverless-encryption.md") that assigns an
-   AWS owned key to the _books_ collection that you'll create
+   AWS owned key to the _books_ collection that you create
    in a later step.
 
 Send the following request to create an encryption policy for the
@@ -254,11 +254,11 @@ aws opensearchserverless batch-get-collection --names books
 
 ###### Note
 
-You won't be able to see the collection endpoint until the collection
-status changes to `ACTIVE`. You might have to make multiple calls
+The collection endpoint isn't available until the collection
+status changes to `ACTIVE`. You might need to make multiple calls
 to check the status until the collection is successfully created. 8. Use an HTTP tool such as [Postman](https://www.getpostman.com/ "https://www.getpostman.com/") or curl to index data into the _books_
-collection. We'll create an index called _books-index_ and
-add a single document.
+collection. The following example creates an index called _books-index_ and
+adds a single document.
 
 Send the following request to the collection endpoint that you retrieved in
 the previous step, using the credentials for `TutorialRole`.

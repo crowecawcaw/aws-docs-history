@@ -1,15 +1,15 @@
 # Tutorial: Getting started with Amazon OpenSearch Serverless
 
-This tutorial walks you through the basic steps to get an Amazon OpenSearch Serverless
-_search_ collection up and running quickly. A search collection
-allows you to power applications in your internal networks and internet-facing applications,
+This tutorial shows you the basic steps to get an Amazon OpenSearch Serverless
+_search_ collection up and running quickly. With a search collection,
+you can power applications in your internal networks and internet-facing applications,
 such as ecommerce website search and content search.
 
 To learn how to use a _vector search_ collection, see [Working with vector search collections](serverless-vector-search.md "serverless-vector-search.md"). For more detailed information about using
 collections, see [Managing Amazon OpenSearch Serverless collections](serverless-manage.md "serverless-manage.md") and the other topics within this
 guide.
 
-You'll complete the following steps in this tutorial:
+You complete the following steps in this tutorial:
 
 1. [Configure permissions](serverless-getting-started.md#serverless-gsg-permissions "serverless-getting-started.md#serverless-gsg-permissions")
 2. [Create a collection](serverless-getting-started.md#serverless-gsg-create "serverless-getting-started.md#serverless-gsg-create")
@@ -18,16 +18,16 @@ You'll complete the following steps in this tutorial:
 
 ###### Note
 
-We recommend that you use only ASCII characters for your
-`IndexName`. If you do not use ASCII characters for your
-`IndexName`, the `IndexName` in CloudWatch metrics will be
-converted to a URL encoded format for Non-ASCII characters.
+Use only ASCII characters for your `IndexName`. If you do not
+use ASCII characters for your `IndexName`, the
+`IndexName` in CloudWatch metrics is converted to a URL encoded
+format for non-ASCII characters.
 
 ## Step 1: Configure permissions
 
-In order to complete this tutorial, and to use OpenSearch Serverless in general, you must have the
-correct IAM permissions. In this tutorial, you will create a collection, upload and
-search data, and then delete the collection.
+To complete this tutorial and to use OpenSearch Serverless in general, you must have the correct
+IAM permissions. In this tutorial, you create a collection, upload and search data,
+and then delete the collection.
 
 Your user or role must have an attached [identity-based policy](security-iam-serverless.md#security-iam-serverless-id-based-policies "security-iam-serverless.md#security-iam-serverless-id-based-policies")
 with the following minimum permissions:
@@ -70,44 +70,38 @@ workload or use case.
 
 ###### To create an OpenSearch Serverless collection
 
-1. Open the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home ").
-2. Choose **Collections** in the left navigation pane and choose
-   **Create collection**.
-3. Name the collection **movies**.
-4. For collection type, choose **Search**. For more
-   information, see [Choosing a collection type](serverless-overview.md#serverless-usecase "serverless-overview.md#serverless-usecase").
-5. For **Security**, choose **Standard
-   create**.
-6. Under **Encryption**, select **Use
-   AWS owned key**. This is the AWS KMS key that OpenSearch Serverless will use
-   to encrypt your data.
-7. Under **Network**, configure network settings for the
-   collection.
-   - For the access type, select **Public**.
-   - For the resource type, choose both **Enable access to
-     OpenSearch endpoints** and **Enable access to
-     OpenSearch Dashboards**. Since you'll upload and search
-     data using OpenSearch Dashboards, you need to enable both.
+1. Open the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
+2. In the left navigation pane, choose
+   **Collections**.
+3. Choose **Create collection**.
+4. For **Name**, enter
+   `movies`.
+5. For **Collection type**, choose
+   **Search**. For more information, see [Choosing a collection type](serverless-overview.md#serverless-usecase "serverless-overview.md#serverless-usecase").
+6. For **Collection creation method**, choose **Express
+   Create**.
+7. Review the default settings. These include the collection group, OpenSearch
+   UI application settings, encryption with an AWS owned key, public network
+   access, and the auto-generated data access policy.
+8. Choose **Create collection**.
+9. Wait for the collection status to change to `Active`. This
+   might take several minutes.
 
-8. Choose **Next**.
-9. For **Configure data access**, set up access settings for the
-   collection. [Data access policies](serverless-data-access.md "serverless-data-access.md")
-   allow users and roles to access the data within a collection. In this tutorial,
-   we'll provide a single user the permissions required to index and search data in
-   the _movies_ collection.
+###### Tip
 
-Create a single rule that provides access to the _movies_
-collection. Name the rule **Movies collection access**. 10. Choose **Add principals**, **IAM users and
-roles** and select the user or role that you'll use to sign in to
-OpenSearch Dashboards and index data. Choose **Save**. 11. Under **Index permissions**, select all of the
-permissions. 12. Choose **Next**. 13. For the access policy settings, choose **Create a new data access
-policy** and name the policy **movies**. 14. Choose **Next**. 15. Review your collection settings and choose **Submit**. Wait several minutes for the collection status to become
-`Active`.
+This tutorial uses the NextGen Express Create method. You can also access
+Express Create from the **Express create** button in the
+info banner on the landing page for a quicker path. For more control over
+encryption, network, and data access settings, use
+**Standard Create**. To use the Classic collection creation
+wizard, choose **Switch to Classic**. For more information,
+see [Creating collections](serverless-create.md "serverless-create.md").
 
 ## Step 3: Upload and search data
 
-You can upload data to an OpenSearch Serverless collection using [Postman](https://www.postman.com/downloads/ "https://www.postman.com/downloads/") or cURL. For brevity, these
-examples use **Dev Tools** within the OpenSearch Dashboards console.
+You can upload data to an OpenSearch Serverless collection using [Postman](https://www.postman.com/downloads/ "https://www.postman.com/downloads/") or cURL. For simplicity,
+these examples use **Dev Tools** within the OpenSearch Dashboards
+console.
 
 ###### To index and search data in the movies collection
 
@@ -147,11 +141,11 @@ PUT movies-index/_doc/1
    `genre`.
 8. To begin searching your data, open the left navigation pane again and choose
    **Discover**, or use the [search
-   API](https://opensearch.org/docs/latest/api-reference/search/ "https://opensearch.org/docs/latest/api-reference/search/") within Dev Tools.
+   API](https://opensearch.org/docs/latest/api-reference/search/ "https://opensearch.org/docs/latest/api-reference/search/") within **Dev Tools**.
 
 ## Handling errors
 
-When running index and search operations, you may get the following error
+When you run index and search operations, you might get the following error
 responses:
 
 - `HTTP 507` – Indicates that an internal server error
@@ -173,11 +167,11 @@ Guide_.
 ## Step 4: Delete the collection
 
 Because the _movies_ collection is for test purposes,
-make sure to delete it when you're done experimenting.
+delete it when you're done experimenting.
 
 ###### To delete an OpenSearch Serverless collection
 
-1. Go back to the **Amazon OpenSearch Service** console.
+1. Go back to the Amazon OpenSearch Service console.
 2. Choose **Collections** in the left navigation pane and select
    the **movies** collection.
 3. Choose **Delete** and confirm deletion.
@@ -185,11 +179,11 @@ make sure to delete it when you're done experimenting.
 ## Next steps
 
 Now that you know how to create a collection and index data, you might want to try
-some of the following exercises:
+the following:
 
-- See more advanced options for creating a collection. For more information, see
-  [Managing Amazon OpenSearch Serverless collections](serverless-manage.md "serverless-manage.md").
-- Learn how to configure security policies to manage collection security at
-  scale. For more information, see [Overview of security in Amazon OpenSearch Serverless](serverless-security.md "serverless-security.md").
-- Discover other ways to index data into collections. For more information, see
+- Explore more advanced options for creating a collection. For more information,
+  see [Managing Amazon OpenSearch Serverless collections](serverless-manage.md "serverless-manage.md").
+- Configure security policies to manage collection security at scale. For more
+  information, see [Overview of security in Amazon OpenSearch Serverless](serverless-security.md "serverless-security.md").
+- Use other methods to index data into collections. For more information, see
   [Ingesting data into Amazon OpenSearch Serverless collections](serverless-clients.md "serverless-clients.md").

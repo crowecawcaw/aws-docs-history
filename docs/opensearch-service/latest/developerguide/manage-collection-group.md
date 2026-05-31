@@ -17,7 +17,7 @@ Console
 2. In the left navigation pane, choose
    **Serverless**, then choose
    **Collections**
-3. Choose the **Collection groups tab**. Your
+3. Choose the **Collection groups** tab. Your
    account's collection groups are displayed.
 4. Choose the **Name** of a collection group to
    display its details.
@@ -59,7 +59,7 @@ Console
 2. In the left navigation pane, choose
    **Serverless**, then choose
    **Collections**
-3. Choose the **Collection groups tab**. Your
+3. Choose the **Collection groups** tab. Your
    account's collection groups are displayed.
 4. Choose the **Name** of a collection group to
    display its details.
@@ -73,7 +73,7 @@ AWS CLI
 - Use the [update-collection-group](../../../cli/latest/reference/opensearchserverless/update-collection-group.md "../../../cli/latest/reference/opensearchserverless/update-collection-group.md") command to update the
   description and capacity limits of an existing collection group.
   In the following command, replace the
-  `example` content with you own
+  `example` content with your own
   information.
 
 ```
@@ -85,7 +85,7 @@ aws opensearchserverless update-collection-group \
 
 ```
 
-Changes to capacity limits take effect immediately and might impact the scaling
+Changes to capacity limits take effect immediately and might affect the scaling
 behavior of collections in the group.
 
 ## Delete collection groups
@@ -101,7 +101,7 @@ Console
 2. In the left navigation pane, choose
    **Serverless**, then choose
    **Collections**
-3. Choose the **Collection groups tab**. Your
+3. Choose the **Collection groups** tab. Your
    account's collection groups are displayed.
 4. Choose the **Name** of the collection group
    you want to delete.
@@ -128,7 +128,7 @@ association or by moving them to other collection
 groups.
 
 In the following command, replace the
-`example` content with you own
+`example` content with your own
 information.
 
 Delete the empty collection group:

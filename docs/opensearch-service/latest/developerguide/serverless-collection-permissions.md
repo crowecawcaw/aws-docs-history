@@ -39,11 +39,11 @@ collections.
 ```
 
 `aoss:CreateAccessPolicy` and `aoss:CreateSecurityPolicy` are
-included because encryption, network, and data access policies are required in order for
+included because encryption, network, and data access policies are required for
 a collection to function properly. For more information, see [Identity and Access Management for Amazon OpenSearch Serverless](security-iam-serverless.md "security-iam-serverless.md").
 
 ###### Note
 
-If you're creating the first collection in your account, you also need the
+If you're creating the first collection in your account, you also require the
 `iam:CreateServiceLinkedRole` permission. For more information, see
 [Using service-linked roles to create OpenSearch Serverless collections](serverless-service-linked-roles.md "serverless-service-linked-roles.md").

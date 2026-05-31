@@ -7,6 +7,7 @@ the collection, requiring minimal manual input.
 ###### Topics
 
 - [Managing Amazon OpenSearch Serverless collections](serverless-manage.md "serverless-manage.md")
+- [Collection endpoints for Amazon OpenSearch Serverless](serverless-collection-endpoints.md "serverless-collection-endpoints.md")
 - [Working with vector search collections](serverless-vector-search.md "serverless-vector-search.md")
 - [Using data lifecycle policies with Amazon OpenSearch Serverless](serverless-lifecycle.md "serverless-lifecycle.md")
 - [Using the AWS SDKs to interact with Amazon OpenSearch Serverless](serverless-sdk.md "serverless-sdk.md")

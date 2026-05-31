@@ -1,16 +1,16 @@
 # Automatic semantic enrichment for Serverless
 
-## Introduction
+## Overview
 
 The automatic semantic enrichment feature can help improve search relevance by up to 20% over lexical search.
 Automatic semantic enrichment eliminates the undifferentiated heavy lifting of managing your own ML (machine learning) model
 infrastructure and integration with the search engine. The feature is available for all three serverless collection types:
 Search, Time Series, and Vector.
 
-## What is semantic search
+## Semantic search concepts
 
 Traditional search engines rely on word-to-word matching (referred to as lexical search) to find results for queries.
-Although this works well for specific queries such as television model numbers, it struggles with more abstract searches.
+Although this works well for specific queries such as television model numbers, it might not return relevant results for more abstract searches.
 For example, when searching for "shoes for the beach," a lexical search merely matches individual words "shoes," "beach," "for," and "the"
 in catalog items, potentially missing relevant products like "water-resistant sandals" or "surf footwear" that don't contain the exact search terms.
 
@@ -23,49 +23,48 @@ For example, if a user searches for "how to treat a headache," a semantic search
 
 ## Model details and performance benchmark
 
-While this feature handles the technical complexities behind the scenes without exposing the underlying model,
-we provide transparency through a brief model description and benchmark results to help you make informed decisions about
+Although this feature handles the technical complexities behind the scenes without exposing the underlying model,
+the following model description and benchmark results help you make informed decisions about
 feature adoption in your critical workloads.
 
 Automatic semantic enrichment uses a service-managed, pre-trained sparse model that works effectively without requiring custom fine-tuning.
 The model analyzes the fields you specify, expanding them into sparse vectors based on learned associations from diverse training data.
 The expanded terms and their significance weights are stored in native Lucene index format for efficient retrieval.
-We’ve optimized this process using [document-only mode,](https://docs.opensearch.org/docs/latest/vector-search/ai-search/neural-sparse-with-pipelines/#step-1a-choose-the-search-mode "https://docs.opensearch.org/docs/latest/vector-search/ai-search/neural-sparse-with-pipelines/#step-1a-choose-the-search-mode")
-where encoding happens only during data ingestion. Search queries are merely tokenized rather than processed through the sparse model,
+We’ve optimized this process using [document-only mode](https://docs.opensearch.org/docs/latest/vector-search/ai-search/neural-sparse-with-pipelines/#step-1a-choose-the-search-mode "https://docs.opensearch.org/docs/latest/vector-search/ai-search/neural-sparse-with-pipelines/#step-1a-choose-the-search-mode"),
+where encoding happens only during data ingestion. Search queries are tokenized rather than processed through the sparse model,
 making the solution both cost-effective and performant.
 
-Our performance validation during feature development used the [MS MARCO](https://huggingface.co/datasets/BeIR/msmarco "https://huggingface.co/datasets/BeIR/msmarco")
-passage retrieval dataset, featuring passages averaging 334 characters. For relevance scoring, we measured average Normalized Discounted Cumulative Gain (NDCG) for
+Performance validation during feature development used the [MS MARCO](https://huggingface.co/datasets/BeIR/msmarco "https://huggingface.co/datasets/BeIR/msmarco")
+passage retrieval dataset, featuring passages averaging 334 characters. For relevance scoring, the metric used was average Normalized Discounted Cumulative Gain (NDCG) for
 the first 10 search results (ndcg@10) on the [BEIR](https://github.com/beir-cellar/beir "https://github.com/beir-cellar/beir")
 benchmark for English content and average ndcg@10 on MIRACL for multilingual content.
-We assessed latency through client-side, 90th-percentile (p90) measurements and search response p90
+Latency assessment used client-side, 90th-percentile (p90) measurements and search response p90
 [took values.](https://github.com/beir-cellar/beir "https://github.com/beir-cellar/beir")
-These benchmarks provide baseline performance indicators for both search relevance and response times. Here are the key benchmark numbers -
+These benchmarks provide baseline performance indicators for both search relevance and response times. The following are the key benchmark numbers:
 
 - English language - Relevance improvement of 20% over lexical search. It also lowered P90 search latency by 7.7% over lexical search (BM25 is 26 ms, and automatic semantic enrichment is 24 ms).
 - Multi-lingual - Relevance improvement of 105% over lexical search, whereas P90 search latency increased by 38.4% over lexical search (BM25 is 26 ms, and automatic semantic enrichment is 36 ms).
 
-Given the unique nature of each workload, we encourage you to evaluate this feature in your development environment using your own benchmarking criteria before making implementation decisions.
+Given the unique nature of each workload, you can evaluate this feature in your development environment using your own benchmarking criteria before making implementation decisions.
 
-## Languages Supported
+## Languages supported
 
 The feature supports English. In addition, the model also supports Arabic, Bengali, Chinese, Finnish, French, Hindi, Indonesian, Japanese, Korean, Persian, Russian, Spanish, Swahili, and Telugu.
 
 ## Set up an automatic semantic enrichment index for serverless collections
 
-Setting up an index with automatic semantic enrichment enabled for your text fields is easy,
-and you can manage it through the console, APIs, and CloudFormation templates during new index creation.
-To enable it for an existing index, you need to recreate the index with automatic semantic enrichment enabled for text fields.
+You can set up an index with automatic semantic enrichment enabled for your text fields
+through the console, APIs, and CloudFormation templates during new index creation.
+To enable it for an existing index, you must recreate the index with automatic semantic enrichment enabled for text fields.
 
-Console experience -
-The AWS console allows you to easily create an index with automatic semantic enrichment fields. Once you select a collection,
-you will find the create index button at the top of the console. Once you click the create index button,
-you will find options to define automatic semantic enrichment fields. In one index, you can have combinations of
+With the AWS console, you can create an index with automatic semantic enrichment fields. After you select a collection,
+you can find the **Create index** button at the top of the console. After you choose **Create index**,
+the console provides options to define automatic semantic enrichment fields. In one index, you can have combinations of
 automatic semantic enrichment for English and multilingual, as well as lexical fields.
 
 ![Create index page showing index name field, semantic enrichment fields, and lexical search fields.](images/ase-console-exp-serverless.png)
 
-API experience - To create an automatic semantic enrichment index using the AWS Command Line Interface (AWS CLI), use the create-index command:
+To create an automatic semantic enrichment index using the AWS Command Line Interface (AWS CLI), use the create-index command:
 
 ```
 aws opensearchserverless create-index \
@@ -75,10 +74,10 @@ aws opensearchserverless create-index \
 
 ```
 
-In the following example index-schema, the _title_semantic_ field has a field type set to _text_ and has parameter
-_semantic_enrichment_ set to status _ENABLED_.
-Setting the _semantic_enrichment_ parameter enables automatic semantic enrichment on the _title_semantic_ field.
-You can use the _language_options_ field to specify either _english_ or _MULTI-LINGUAL_.
+In the following example index-schema, the `title_semantic` field has a field type set to `text` and has parameter
+`semantic_enrichment` set to status `ENABLED`.
+Setting the `semantic_enrichment` parameter enables automatic semantic enrichment on the `title_semantic` field.
+You can use the `language_options` field to specify either `english` or `multi-lingual`.
 
 ```
 
@@ -219,7 +218,7 @@ pipeline before adding semantic enrichment fields.
 
 ## Data ingestion and search
 
-Once you've created an index with automatic semantic enrichment enabled,
+After you create an index with automatic semantic enrichment enabled,
 the feature works automatically during data ingestion process, no additional configuration required.
 
 Data ingestion: When you add documents to your index, the system automatically:
@@ -235,7 +234,7 @@ This means you get improved search relevance with no additional search latency o
 
 ## Configuring permissions for automatic semantic enrichment
 
-Before creating an automated semantic enrichment index, you need to configure the
+Before creating an automated semantic enrichment index, you must configure the
 required permissions. This section explains the permissions needed and how to set
 them up.
 
@@ -368,30 +367,30 @@ the collection. For more information about network policies, see [Network access
 ###### To configure network access permissions for a private collection
 
 1. Sign in to the OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
-2. In the left navigation, choose _Network
-   policies_. Then do one of the following:
+2. In the left navigation pane, choose **Network
+   policies**. Then do one of the following:
    - Choose an existing policy name and choose
-     _Edit_
-   - Choose _Create network policy_ and
+     **Edit**
+   - Choose **Create network policy** and
      configure the policy details
 
-3. In the _Access type_ area, choose
-   _Private (recommended)_, and then select
-   _AWS service private access_.
-4. In the search field, choose _Service_, and then
-   choose _aoss.amazonaws.com_.
-5. In the _Resource type_ area, select the
-   _Enable access to OpenSearch endpoint_
-   box.
-6. For _Search collection(s), or input specific prefix
-   term(s)_, in the search field, select
-   _Collection Name_. Then enter or select the
+3. In the **Access type** area, choose
+   **Private (recommended)**, and then select
+   **AWS service private access**.
+4. In the search field, choose **Service**, and then
+   choose **aoss.amazonaws.com**.
+5. In the **Resource type** area, select the
+   **Enable access to OpenSearch endpoint**
+   checkbox.
+6. For **Search collection(s), or input specific prefix
+   term(s)**, in the search field, select
+   **Collection Name**. Then enter or select the
    name of the collections to associate with the network policy.
-7. Choose _Create_ for a new network policy or
-   _Update_ for an existing network
+7. Choose **Create** for a new network policy or
+   **Update** for an existing network
    policy.
 
-## Query Rewrites
+## Query rewrites
 
 Automatic semantic enrichment automatically converts your existing “match”
 queries to semantic search queries without requiring query modifications. If a match query is part of a compound query,
@@ -405,7 +404,7 @@ Compound queries include: bool, boosting, constant_score, dis_max, function_scor
 Automatic semantic search is most effective when applied to small-to-medium
 sized fields containing natural language content, such as movie titles, product descriptions,
 reviews, and summaries. Although semantic search enhances relevance for most use cases,
-it might not be optimal for certain scenarios. Consider following limitations when deciding whether
+it might not be optimal for certain scenarios. Consider the following limitations when deciding whether
 to implement automatic semantic enrichment for your specific use case.
 
 - Very long documents – The current sparse model processes only the first 8,192 tokens of each document for English.
@@ -415,9 +414,6 @@ to implement automatic semantic enrichment for your specific use case.
   which might be unnecessary for log analysis where exact matching typically suffices.
   The additional semantic context rarely improves log search effectiveness enough to justify the increased storage requirements.
 - Automatic semantic enrichment is not compatible with the Derived Source feature.
-- Throttling – Indexing inference requests are currently capped at 100 TPS for
-  OpenSearch Serverless. This is a soft limit; reach out to AWS Support for
-  higher limits.
 
 ## Pricing
 

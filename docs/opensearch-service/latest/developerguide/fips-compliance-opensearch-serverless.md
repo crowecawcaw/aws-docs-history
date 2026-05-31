@@ -22,26 +22,39 @@ _AWS Verified access User Guide_.
 ## Using FIPS endpoints with OpenSearch Serverless
 
 In AWS Regions where FIPS is supported, OpenSearch Serverless collections are accessible through
-both standard and FIPS-compliant endpoints. For more information, see [FIPS
+both standard and FIPS-compliant endpoints. The FIPS-compliant variants are available
+for both OpenSearch Serverless NextGen and Classic collection endpoints. For more information, see
+[FIPS
 compliance](../../../verified-access/latest/ug/fips-compliance.md "../../../verified-access/latest/ug/fips-compliance.md") in the _AWS Verified access User
 Guide_.
 
-In the following examples, replace `collection_id` and
-`AWS Region` with your collection ID and its
-AWS Region.
+In the following examples, replace `collection-id`,
+`account-id`, and `region` with
+your collection ID, AWS account ID, and Region.
 
-- **Standard endpoint** –
-  `https://`collection_id`.`AWS Region`.aoss.amazonaws.com`.
-- **FIPS-compliant endpoint** –
-  `https://`collection_id`.`AWS Region`.aoss-fips.amazonaws.com`.
+**NextGen per-collection endpoint**
 
-Similarly, OpenSearch Dashboards are accessible through both standard and FIPS-compliant
-endpoints:
+- **Standard** –
+  `https://`collection-id`.aoss.`region`.on.aws`
+- **FIPS-compliant** –
+  `https://`collection-id`.aoss-fips.`region`.on.aws`
 
-- **Standard Dashboards endpoint** –
-  `https://`collection_id`.`AWS Region`.aoss.amazonaws.com/_dashboards`.
-- **FIPS-compliant Dashboards endpoint** –
-  `https://`collection_id`.`AWS Region`.aoss-fips.amazonaws.com/_dashboards`.
+**NextGen per-account endpoint**
+
+- **Standard** –
+  `https://`account-id`.aoss.`region`.on.aws`
+- **FIPS-compliant** –
+  `https://`account-id`.aoss-fips.`region`.on.aws`
+
+**Classic per-collection endpoint**
+
+- **Standard** –
+  `https://`collection-id`.`region`.aoss.amazonaws.com`
+- **FIPS-compliant** –
+  `https://`collection-id`.`region`.aoss-fips.amazonaws.com`
+
+NextGen FIPS endpoints use standard AWS PrivateLink for VPC access, the same as their
+non-FIPS counterparts. For more information, see [Data plane access through AWS PrivateLink](serverless-vpc.md "serverless-vpc.md").
 
 ###### Note
 

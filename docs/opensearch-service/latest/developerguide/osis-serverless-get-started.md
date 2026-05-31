@@ -74,16 +74,18 @@ First, create a collection to ingest data into. We'll name the collection
 1. Navigate to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
 2. Choose **Collections** from the left navigation and choose
    **Create collection**.
-3. Name the collection **ingestion-collection**.
-4. For **Security**, choose **Standard
+3. In the **Serverless generation** field, choose
+   **Switch to Classic**.
+4. Name the collection **ingestion-collection**.
+5. For **Security**, choose **Standard
    create**.
-5. Under **Network access settings**, change the access type to
+6. Under **Network access settings**, change the access type to
    **Public**.
-6. Keep all other settings as their defaults and choose
+7. Keep all other settings as their defaults and choose
    **Next**.
-7. Now, configure a data acces policy for the collection. Deselect
+8. Now, configure a data acces policy for the collection. Deselect
    **Automatically match access policy settings**.
-8. For **Definition method**, choose **JSON**
+9. For **Definition method**, choose **JSON**
    and paste the following policy into the editor. This policy does two
    things:
    - Allows the pipeline role to write to the collection.
@@ -119,13 +121,13 @@ First, create a collection to ingest data into. We'll name the collection
    ]
    ```
 
-9. Modify the `Principal` elements to include your AWS account ID.
-   For the second principal, specify a user or role that you can use to query the
-   collection later.
-10. Choose **Next**. Name the access policy
+10. Modify the `Principal` elements to include your AWS account ID.
+    For the second principal, specify a user or role that you can use to query the
+    collection later.
+11. Choose **Next**. Name the access policy
     **pipeline-collection-access** and choose
     **Next** again.
-11. Review your collection configuration and choose
+12. Review your collection configuration and choose
     **Submit**.
 
 ## Step 2: Create a pipeline

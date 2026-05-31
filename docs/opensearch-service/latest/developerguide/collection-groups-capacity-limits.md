@@ -8,7 +8,7 @@ By default, there is a service quota (limit) for the number of collections in a 
 group, the number of indexes in a collection, and the number of OCUs in a collection group.
 For more information, see [OpenSearch Serverless quotas](../../../general/latest/gr/opensearch-service.md#opensearch-limits-serverless "../../../general/latest/gr/opensearch-service.md#opensearch-limits-serverless").
 
-## Understanding collection group capacity limits
+## Collection group capacity limits overview
 
 You can configure minimum and maximum OCU limits for both indexing and search
 operations at the collection group level. These limits control how OpenSearch Serverless scales
@@ -17,14 +17,14 @@ resources for collections in the group:
 - **Minimum OCU** – The minimum number of OCUs
   that OpenSearch Serverless maintains for the collection group, ensuring consistent baseline
   performance.
-  - If the workload requires fewer OCU's than the specified minimum value, OpenSearch Serverless would still maintain the specified minimum value of OCU's and billing would reflect the same.
-  - If the workload requires higher number of OCU's than the specified minimum value, OpenSearch Serverless would maintain that level of OCU's that's required for the workload and the billing would reflect the higher OCU utilization.
+  - If the workload requires fewer OCUs than the specified minimum value, OpenSearch Serverless still maintains the specified minimum number of OCUs, and billing reflects that minimum.
+  - If the workload requires more OCUs than the specified minimum value, OpenSearch Serverless maintains the number of OCUs that the workload requires, and billing reflects the higher OCU utilization.
 
 - **Maximum OCU** – The maximum number of OCUs
   that OpenSearch Serverless can scale up to for the collection group, helping you control
   costs.
 
-Collection group capacity limits are decoupled from account-level limits.
+Collection group capacity limits operate independently from account-level limits.
 Account-level maximum OCU settings apply only to collections not associated with any
 collection group, while collection group maximum OCU settings apply to collections
 within that specific group.
@@ -41,9 +41,9 @@ OCUs.
 
 The minimum OCU limit must be less than or equal to the maximum OCU limit.
 
-## Understanding the relationship between account-level and collection group OCU limits
+## Account-level and collection group OCU limits
 
-When planning your OpenSearch Serverless capacity, it's important to understand how account-level
+When you plan your OpenSearch Serverless capacity, understand how account-level
 OCU limits and collection group OCU limits interact. The sum of the maximum OCU
 settings across all collection groups plus the maximum OCU setting at the account
 level must be less than or equal to the service quota limit per account. For current
@@ -74,13 +74,13 @@ limit is 1,700:
   (600 + 600 + 500 = 1,700), using the full capacity allowed by the service
   quota
 
-This relationship is critical for capacity planning. Before creating new
-collection groups or increasing maximum OCU limits, verify that your total
+This relationship is essential for capacity planning. Before you create new
+collection groups or increase maximum OCU limits, verify that your total
 allocation doesn't exceed the service quota limit. If you reach this limit, you must
 either reduce the maximum OCU settings on existing collection groups or decrease
 your account-level maximum OCU settings to make room for new allocations.
 
-## Configuring capacity limits
+## Configure capacity limits
 
 You can set capacity limits when you create a collection group or update them
 later. To configure capacity limits using the AWS CLI, use the [CreateCollectionGroup](../ServerlessAPIReference/API_CreateCollectionGroup.md "../ServerlessAPIReference/API_CreateCollectionGroup.md") or [UpdateCollectionGroup](../ServerlessAPIReference/API_UpdateCollectionGroup.md "../ServerlessAPIReference/API_UpdateCollectionGroup.md") commands:
@@ -99,7 +99,7 @@ aws opensearchserverless update-collection-group \
     --capacity-limits maxIndexingCapacityInOCU=`48`,maxSearchCapacityInOCU=`48`,minIndexingCapacityInOCU=`8`,minSearchCapacityInOCU=`8`
 ```
 
-## Monitoring collection group capacity
+## Monitor collection group capacity
 
 OpenSearch Serverless emits the following Amazon CloudWatch Logs metrics at one-minute intervals to help you
 monitor OCU utilization and capacity limits at the collection group level:
@@ -114,20 +114,20 @@ associated with any collection group. You can aggregate these metrics in CloudWa
 visualize the sum of OCUs across all collection groups and account-level
 collections.
 
-Configure alarms to notify you when your collection group approaches its capacity
-limits so you can adjust settings as needed. For more information about OpenSearch Serverless
-metrics, see [Monitoring Amazon OpenSearch Serverless](serverless-monitoring.md "serverless-monitoring.md").
+You can configure alarms to receive notifications when your collection group
+approaches its capacity limits so that you can adjust settings as needed. For more
+information about OpenSearch Serverless metrics, see [Monitoring Amazon OpenSearch Serverless](serverless-monitoring.md "serverless-monitoring.md").
 
-## How capacity limits are enforced
+## Capacity limit enforcement
 
 OpenSearch Serverless enforces collection group capacity limits during scaling operations. When
 your collections need additional resources, OpenSearch Serverless scales up to the maximum OCU
 limit. When demand decreases, OpenSearch Serverless scales down but maintains at least the minimum
 OCU limit to ensure consistent performance.
 
-Capacity limits are enforced only when the collection group contains at least one
-collection. Empty collection groups do not consume OCUs or enforce capacity
-limits.
+OpenSearch Serverless enforces capacity limits only when the collection group contains at
+least one collection. Empty collection groups do not consume OCUs or enforce
+capacity limits.
 
 If a scaling operation would exceed the maximum OCU limit or violate the minimum
 OCU requirement, OpenSearch Serverless rejects the operation to maintain compliance with your

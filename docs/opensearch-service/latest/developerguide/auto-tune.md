@@ -10,6 +10,14 @@ window. You can revert to the default OpenSearch Service settings at any time. A
 analyzes performance metrics for your domain, you can view its recommendations in the OpenSearch Service
 console on the **Notifications** page.
 
+###### Important
+
+If you have not configured a custom off-peak window for your domain, Auto-Tune will
+use the default off-peak window. Blue/green deployment changes (such as JVM heap size
+and JVM young generation adjustments) will be applied during this window. Ensure you
+have reviewed and configured your off-peak window settings before enabling Auto-Tune to
+avoid unexpected blue/green deployments. For more information, see [Off-peak windows for Amazon OpenSearch Service](off-peak.md "off-peak.md").
+
 Auto-Tune is available on domains running any OpenSearch
 version, or Elasticsearch 6.7 or later, with a [supported instance type](supported-instance-types.md "supported-instance-types.md").
 

@@ -45,13 +45,15 @@ For example, the full name of the `recordsIn.count` metric for a
 sub-pipeline named `my-pipeline` and the [date](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/processors/date/ "https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/processors/date/") processor would be
 `my-pipeline.date.recordsIn.count`.
 
-| Metric suffix       | Description                                                                                                                                                                                                |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `recordsIn.count`   | The ingress of records to a pipeline component. This metric<br>applies to processors and sinks.<br>**Relevant statistics**: Sum<br>**Dimension**:<br>`PipelineName`                                        |
-| `recordsOut.count`  | The egress of records from a pipeline component. This metric<br>applies to processors and sources.<br>**Relevant statistics**: Sum<br>**Dimension**:<br>`PipelineName`                                     |
-| `timeElapsed.count` | A count of data points recorded during execution of a pipeline<br>component. This metric applies to processors and sinks.<br>**Relevant statistics**: Sum<br>**Dimension**:<br>`PipelineName`              |
-| `timeElapsed.sum`   | The total time elapsed during execution of a pipeline component.<br>This metric applies to processors and sinks, in<br>milliseconds.<br>**Relevant statistics**: Sum<br>**Dimension**:<br>`PipelineName`   |
-| `timeElapsed.max`   | The maximum time elapsed during execution of a pipeline component.<br>This metric applies to processors and sinks, in<br>milliseconds.<br>**Relevant statistics**: Max<br>**Dimension**:<br>`PipelineName` |
+| Metric suffix         | Description                                                                                                                                                                                                |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `recordsIn.count`     | The ingress of records to a pipeline component. This metric<br>applies to processors and sinks.<br>**Relevant statistics**: Sum<br>**Dimension**:<br>`PipelineName`                                        |
+| `recordsOut.count`    | The egress of records from a pipeline component. This metric<br>applies to processors and sources.<br>**Relevant statistics**: Sum<br>**Dimension**:<br>`PipelineName`                                     |
+| `timeElapsed.count`   | A count of data points recorded during execution of a pipeline<br>component. This metric applies to processors and sinks.<br>**Relevant statistics**: Sum<br>**Dimension**:<br>`PipelineName`              |
+| `timeElapsed.sum`     | The total time elapsed during execution of a pipeline component.<br>This metric applies to processors and sinks, in<br>milliseconds.<br>**Relevant statistics**: Sum<br>**Dimension**:<br>`PipelineName`   |
+| `timeElapsed.max`     | The maximum time elapsed during execution of a pipeline component.<br>This metric applies to processors and sinks, in<br>milliseconds.<br>**Relevant statistics**: Max<br>**Dimension**:<br>`PipelineName` |
+| `PipelineLatency.avg` | The average end-to-end time in milliseconds for events to pass<br>through the entire pipeline from source read to sink write.<br>**Relevant statistics**: Average<br>**Dimension**:<br>`PipelineName`      |
+| `PipelineLatency.max` | The maximum end-to-end time in milliseconds for events to pass<br>through the entire pipeline from source read to sink write.<br>**Relevant statistics**: Maximum<br>**Dimension**:<br>`PipelineName`      |
 
 ## Buffer metrics
 

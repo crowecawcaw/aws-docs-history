@@ -29,7 +29,7 @@ configured.
 The following diagram shows the end-to-end architecture for application
 monitoring.
 
-![](images/otel-sdk-service.png)
+![Architecture diagram showing microservices sending OTLP data through OTel Collector to OpenSearch Observability Stack components.](images/otel-sdk-service.png)
 
 1. Your applications and infrastructure emit telemetry through
    OpenTelemetry SDKs, auto-instrumentation, or the OTel API to the OTel
@@ -59,7 +59,7 @@ OpenSearch UI and choose **APM** >
 The Services home page displays a table of all instrumented services along with
 summary panels. The following image shows the Services home page.
 
-![](images/apm/services-home.png)
+![Services page showing top services by fault rate, dependency paths, and service catalog with latency and throughput metrics.](images/apm/services-home.png)
 
 The following table describes the columns in the services table.
 
@@ -98,7 +98,7 @@ To open the service detail view, select a service name in the services
 table. The Overview tab displays metric tiles and time-series charts for the
 selected service.
 
-![](images/apm/services-overview.png)
+![Service overview dashboard showing throughput, fault rate, error rate, availability, and latency metrics for frontend service.](images/apm/services-overview.png)
 
 The Overview tab includes the following time-series charts:
 
@@ -119,7 +119,7 @@ The Operations tab provides a per-operation breakdown for the selected
 service. You can sort the table by any column to identify problematic
 operations.
 
-![](images/apm/service-operations.png)
+![Operations table showing POST /api/checkout with 50.0% availability, accompanied by request, error, and latency graphs.](images/apm/service-operations.png)
 
 The following table describes the columns in the operations table.
 
@@ -136,7 +136,7 @@ The following table describes the columns in the operations table.
 The Dependencies tab displays the downstream services that the selected
 service calls.
 
-![](images/apm/service-dependencies.png)
+![Dependencies tab showing checkout and product-reviews services with latency, requests, error rate, and availability metrics.](images/apm/service-dependencies.png)
 
 The following table describes the columns in the dependencies table.
 
@@ -157,7 +157,7 @@ navigate from service metrics directly to related traces and logs. You can
 use correlations to investigate the root cause of latency spikes or error
 rate increases.
 
-![](images/apm/service-span-correlations.png)
+![Table showing correlated spans for POST /api/checkout operation with columns for Time, Status, HTTP Status, Kind, Operation, and Span ID.](images/apm/service-span-correlations.png)
 
 The following correlation options are available:
 
@@ -183,7 +183,7 @@ OpenSearch UI and choose **APM** >
 
 The following image shows the Application Map.
 
-![](images/apm/application-map.png)
+![Application Map showing service dependencies with nodes for frontend-proxy, frontend, checkout, cart, currency, fraud-detection, email, mcp-server, weather-agent, and events-agent.](images/apm/application-map.png)
 
 The map displays the following RED metrics for each service:
 
@@ -208,7 +208,7 @@ environment. When you select a group-by attribute, the map switches from a
 topology graph to a card grid view. Each card represents a group of services
 that share the same attribute value.
 
-![](images/apm/groupby-attributes.png)
+![Application map showing services grouped by programming language including cpp, erlang, python, go, nodejs, rust, dotnet, java, ruby, and php with request and service counts.](images/apm/groupby-attributes.png)
 
 The available group-by attributes are determined by the
 `group_by_attributes` setting in the
@@ -220,7 +220,7 @@ OpenSearch Ingestion.
 To view details for a service, select a node on the map. A detail panel
 opens with the following sections.
 
-![](images/apm/application-map-node-details.png)
+![Application map showing frontend service node selected with detail panel displaying health metrics, requests graph, and latency percentiles.](images/apm/application-map-node-details.png)
 
 The **Health** section displays the following
 summary metrics:
@@ -253,7 +253,7 @@ You can filter the Application Map by using the following filters:
 
 The following image shows the map filtered by error rate.
 
-![](images/apm/filter-by-error-rate.png)
+![Application map showing services filtered by fault rate greater than 5%, displaying frontend-proxy, frontend, weather-agent, travel-planner, and mcp-server services with request counts.](images/apm/filter-by-error-rate.png)
 
 ### In-context correlations
 

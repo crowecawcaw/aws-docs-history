@@ -22,15 +22,38 @@ _AWS PrivateLink Guide_.
 
 ###### Topics
 
-- [DNS resolution of collection endpoints](#vpc-endpoint-dnc "#vpc-endpoint-dnc")
+- [VPC endpoint creation methods](#vpc-endpoint-creation-methods "#vpc-endpoint-creation-methods")
+- [DNS resolution of Classic collection endpoints](#vpc-endpoint-dnc "#vpc-endpoint-dnc")
 - [VPCs and network access policies](#vpc-endpoint-network "#vpc-endpoint-network")
 - [VPCs and endpoint policies](#vpc-endpoint-policy "#vpc-endpoint-policy")
 - [Considerations](#vpc-endpoint-considerations "#vpc-endpoint-considerations")
 - [Permissions required](#serverless-vpc-permissions "#serverless-vpc-permissions")
-- [Create an interface endpoint for OpenSearch Serverless](#serverless-vpc-create "#serverless-vpc-create")
+- [Create a standard AWS PrivateLink interface endpoint (OpenSearch Serverless NextGen)](#serverless-vpc-create-standard "#serverless-vpc-create-standard")
+- [Create an OpenSearch Serverless-managed interface endpoint (OpenSearch Serverless Classic)](#serverless-vpc-create "#serverless-vpc-create")
 - [Shared VPC setup for Amazon OpenSearch Serverless](#shared-vpc-setup "#shared-vpc-setup")
 
-## DNS resolution of collection endpoints
+## VPC endpoint creation methods
+
+Amazon OpenSearch Serverless supports two ways to create a data plane VPC endpoint, depending on which
+type of collection endpoint you want to access. For more information about collection
+endpoint formats, see [Collection endpoints for Amazon OpenSearch Serverless](serverless-collection-endpoints.md "serverless-collection-endpoints.md").
+
+- **Standard AWS PrivateLink VPC endpoint
+  (NextGen)** – Use this method to access the OpenSearch Serverless NextGen
+  collection endpoints on `on.aws` (per-collection and per-account
+  formats). You create the VPC endpoint through the Amazon VPC console or the Amazon EC2
+  `CreateVpcEndpoint` API, the same way you create an interface VPC
+  endpoint for any other AWS service. To create this type of endpoint, see
+  [Create a standard AWS PrivateLink interface endpoint (OpenSearch Serverless NextGen)](#serverless-vpc-create-standard "#serverless-vpc-create-standard").
+- **OpenSearch Serverless-managed VPC endpoint (Classic)**
+  – Use this method to access OpenSearch Serverless Classic per-collection endpoints on
+  `aoss.amazonaws.com`. You create the VPC endpoint through the OpenSearch Serverless
+  console, the OpenSearch Serverless `CreateVpcEndpoint` API, or the OpenSearch Serverless AWS CLI. The
+  service creates the interface VPC endpoint and a Amazon Route 53 private hosted zone
+  in your account on your behalf. To create this type of endpoint, see
+  [Create an OpenSearch Serverless-managed interface endpoint (OpenSearch Serverless Classic)](#serverless-vpc-create "#serverless-vpc-create").
+
+## DNS resolution of Classic collection endpoints
 
 When you create a data plane VPC endpoint through the OpenSearch Serverless console, the service
 creates a new Amazon Route 53 [private hosted zone](../../../Route53/latest/DeveloperGuide/hosted-zones-private.md "../../../Route53/latest/DeveloperGuide/hosted-zones-private.md") and attaches it to the VPC. This private hosted zone
@@ -101,7 +124,7 @@ principals can use the endpoint to access your AWS service. For more information
 To use an endpoint policy, you must first create an interface endpoint. You can create
 an interface endpoint using either the OpenSearch Serverless console or the OpenSearch Serverless API. After you
 create your interface endpoint, you will need to add the endpoint policy to the
-endpoint. For more information, see [Create an interface endpoint for OpenSearch Serverless](#serverless-vpc-create "#serverless-vpc-create").
+endpoint. For more information, see [Create an OpenSearch Serverless-managed interface endpoint (OpenSearch Serverless Classic)](#serverless-vpc-create "#serverless-vpc-create").
 
 ###### Note
 
@@ -350,12 +373,55 @@ VPC endpoint.
 - `route53:ListHostedZonesByVPC`
 - `route53:ListResourceRecordSets`
 
-## Create an interface endpoint for OpenSearch Serverless
+## Create a standard AWS PrivateLink interface endpoint (OpenSearch Serverless NextGen)
 
-You can create an interface endpoint for OpenSearch Serverless using either the console or the OpenSearch Serverless
-API.
+For OpenSearch Serverless NextGen collection endpoints on `on.aws`, you create
+the VPC endpoint as a standard interface VPC endpoint – the same way you do for
+any other AWS service. You can use the Amazon VPC console or the Amazon EC2
+`CreateVpcEndpoint` API. You don't need to use the OpenSearch Serverless
+`CreateVpcEndpoint` API for these endpoints.
 
-###### To create an interface endpoint for an OpenSearch Serverless collection
+The endpoint resolves all collections in the Region under
+`*.aoss.`region`.on.aws` (and
+`*.aoss-fips.`region`.on.aws` in Regions where
+FIPS is supported).
+
+Use the following service name when you create the VPC endpoint:
+
+```
+com.amazonaws.`region`.aoss-data
+```
+
+For example, in the `us-east-1` Region, the
+service name is
+`com.amazonaws.`us-east-1`.aoss-data`.
+
+###### To create a standard interface VPC endpoint for OpenSearch Serverless NextGen
+
+1. Follow the procedure in [Access an
+   AWS service using an interface VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in the
+   _AWS PrivateLink Guide_.
+2. For the service name, choose
+   `com.amazonaws.`region`.aoss-data`.
+3. Select the VPC, subnets, and security groups for the endpoint. Make sure
+   your security groups allow inbound HTTPS (port 443) traffic from the resources
+   that will use the endpoint.
+4. Enable private DNS for the endpoint to use AWS PrivateLink-managed DNS
+   resolution for OpenSearch Serverless NextGen collection hostnames.
+
+After you create the endpoint, you can use the
+`vpce-`abc123def4EXAMPLE`` ID in OpenSearch Serverless
+[network access policies](serverless-network.md "serverless-network.md") to grant the
+endpoint access to your collections, the same way you do for OpenSearch Serverless-managed VPC
+endpoints.
+
+## Create an OpenSearch Serverless-managed interface endpoint (OpenSearch Serverless Classic)
+
+For OpenSearch Serverless Classic per-collection endpoints on `aoss.amazonaws.com`, you
+create an OpenSearch Serverless-managed interface endpoint using either the OpenSearch Serverless console or the
+OpenSearch Serverless API.
+
+###### To create an interface endpoint for an OpenSearch Serverless Classic collection
 
 1. Open the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
 2. In the left navigation pane, expand **Serverless** and choose
@@ -429,7 +495,7 @@ Ensure the following requirements are met before setting up the shared VPC:
 ###### To set up a shared VPC in an owner account/common networking account.
 
 1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
-2. Follow the steps in [Create an interface endpoint for OpenSearch Serverless](#serverless-vpc-create "#serverless-vpc-create"). As you do, make
+2. Follow the steps in [Create an OpenSearch Serverless-managed interface endpoint (OpenSearch Serverless Classic)](#serverless-vpc-create "#serverless-vpc-create"). As you do, make
    the following selections:
    - Select a VPC and subnets that are shared with the consumer accounts in
      your organization.

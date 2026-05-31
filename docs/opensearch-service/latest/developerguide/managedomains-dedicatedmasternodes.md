@@ -84,7 +84,7 @@ fail. This behavior differs from the OpenSearch default.
 Although dedicated master nodes don't process search and query requests, their
 size is highly correlated with the instance size and number of instances,
 indexes, and shards that they can manage. For production clusters, we recommend,
-at a minimum, the following instance types for dedicated master nodes.
+at a minimum, the following sizing recommendations for dedicated master nodes.
 
 These recommendations are based on typical workloads and can vary based on
 your needs. Clusters with many shards or field mappings can benefit from larger

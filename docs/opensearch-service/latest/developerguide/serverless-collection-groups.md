@@ -17,7 +17,7 @@ optimization. This flexibility lets you balance security requirements with resou
 efficiency.
 
 When you add a collection to a collection group, OpenSearch Serverless assigns it to the group's shared
-compute resources. The system automatically manages the distribution of workloads across
+compute resources. OpenSearch Serverless automatically manages the distribution of workloads across
 these resources while maintaining security by encrypting each collection's data with its
 designated KMS key. Access controls continue to apply at the collection level, and the
 shared compute resources access multiple KMS keys as needed to serve the collections in the
