@@ -89,7 +89,7 @@ In this example, the specified signing platform is
  --signature-validity-period value=`10`, type='`MONTHS`'`
 ```
 
-- [**get-signing-profile**](../../../cli/latest/reference/signer/get-signing-platform.md "../../../cli/latest/reference/signer/get-signing-platform.md")
+- [**get-signing-profile**](../../../cli/latest/reference/signer/get-signing-profile.md "../../../cli/latest/reference/signer/get-signing-profile.md")
 
 This command retrieves a signing profile for inspection.
 

@@ -1,9 +1,8 @@
 # Set up to use Signer
 
 Access to AWS Signer requires credentials that AWS can use to authenticate
-your requests. The credentials must have permissions to access AWS resources. The
-following sections provide details on how you can use [AWS Identity and Access Management (IAM)](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md") to help secure your
-resources by controlling who can access them.
+your requests. The credentials must have permissions to access AWS resources. Complete
+the following steps to set up your AWS account and create an administrative user.
 
 ## Sign up for an AWS account
 
