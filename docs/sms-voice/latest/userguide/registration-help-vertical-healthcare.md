@@ -133,7 +133,7 @@ Your privacy policy must explicitly state that mobile opt-in data will not be sh
 For a healthcare paper form opt-in form example, see the form screenshots in this section.
 This vertical follows the [Transactional opt-in](registration-help-optin-transactional.md "registration-help-optin-transactional.md") with industry-specific disclosures.
 
-![Healthcare paper form opt-in example](images/vertical-healthcare-optin.png)
+![Patient intake form showing an unchecked SMS consent checkbox with message frequency, data rates, and opt-out disclosures](images/vertical-healthcare-optin.png)
 
 ## GLP-1 and metabolic medications
 

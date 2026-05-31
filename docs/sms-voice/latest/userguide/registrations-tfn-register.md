@@ -50,6 +50,16 @@ registration form. 3. In the **Company info** section, enter the following:
 
     Unless you select **Sole proprietor**, the following three company identification fields are required: **Company identification number**, **Identification number type**, and **Identification number country**.
     * For **Company identification number**, enter your company's official tax identification or registration number (such as EIN or VAT) used to verify your business identity with telecommunications carriers. For example, `12-3456789`.
+
+
+    ###### Note
+
+    Your business registration number is verified against
+     official business registries. The company name on your registration
+     must exactly match the legal name associated with your registration
+     number. If verification fails, you can upload supporting
+     documentation. For detailed guidance, see
+     [Business verification for toll-free registrations](registration-help-tfn-verification.md "registration-help-tfn-verification.md").
     * For **Identification number type**, choose the type of identification number you provided. This helps carriers verify your business credentials with the appropriate government authority. Options include EIN, CBN, CRN, PROVINCIAL\_NUMBER, VAT, ACN, ABN, BRN, SIREN, SIRET, NZBN, USt-IdNr, CIF, NIF, CNPJ, UID, NEQ, and OTHER.
     * For **Identification number country**, enter the two-letter ISO country code (for example, `US`, `CA`, `GB`) for the country where your identification number was issued. This must match the country of the authority that issued your identification number.
     * Choose **Next**.

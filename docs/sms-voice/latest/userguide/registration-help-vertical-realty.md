@@ -126,4 +126,4 @@ If you manage rental properties and send tenant communications (rent reminders, 
 For a real estate-specific opt-in form example, see the form screenshots in this section.
 This vertical follows the [Transactional opt-in](registration-help-optin-transactional.md "registration-help-optin-transactional.md") with industry-specific disclosures.
 
-![Real estate opt-in form example](images/vertical-realty-optin.png)
+![Buyer registration form showing an unchecked SMS consent checkbox with brokerage name, message frequency, data rates, and opt-out disclosures](images/vertical-realty-optin.png)

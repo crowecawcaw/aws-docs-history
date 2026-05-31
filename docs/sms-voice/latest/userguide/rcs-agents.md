@@ -150,9 +150,8 @@ One AWS RCS Agent can have the following RCS for Business IDs:
   standard rates.
 - **Multiple country launch agents** — Each
   country where you launch RCS creates a separate RCS for Business ID. For
-  example, if you launch in both the United States and Canada, your AWS RCS Agent
-  has two country launch agents (one US RCS for Business ID and one Canada RCS for
-  Business ID) in addition to the testing agent.
+  example, if you launch in multiple countries, your AWS RCS Agent
+  has one country launch agent per country in addition to the testing agent.
 
 The following diagram shows the relationship between these identities:
 
@@ -160,8 +159,9 @@ The following diagram shows the relationship between these identities:
 
 AWS RCS Agent (rcs-a1b2c3d4)
 ├── Testing agent (RCS for Business ID)
-├── US country launch agent (US RCS for Business ID)
-└── CA country launch agent (Canada RCS for Business ID)
+├── US country launch agent (RCS for Business ID)
+├── ...additional country launch agents
+└── [Country N] country launch agent (RCS for Business ID)
 
 ```
 

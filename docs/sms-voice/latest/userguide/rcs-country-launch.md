@@ -3,13 +3,15 @@
 After you have tested your RCS messaging integration using a testing agent, the
 next step is to launch your AWS RCS Agent in one or more countries. Each country
 launch creates a separate RCS for Business ID that is approved
-for each carrier in that country. AWS End User Messaging supports RCS country launches in the
-United States and Canada.
+for each carrier in that country. AWS End User Messaging supports RCS country launches in
+22 countries across North America, South America, Europe, and Asia Pacific.
 
 The country launch process follows this path: you create an AWS RCS Agent,
 submit a testing registration to get a testing agent, and then submit one or more
 country launch registrations. Each country launch registration goes through a
-separate approval process for each carrier in that country.
+separate approval process for each carrier in that country. For the full list of
+supported countries, see
+[Supported countries for RCS](rcs-supported-countries.md "rcs-supported-countries.md").
 
 ###### Note
 
@@ -28,13 +30,24 @@ and managing your AWS RCS Agent, see
 
 - [Testing registration](#rcs-country-launch-testing-registration "#rcs-country-launch-testing-registration")
 - [Testing agent as a template for country launches](#rcs-country-launch-template "#rcs-country-launch-template")
-- [Launching in the United States](#rcs-country-launch-us "#rcs-country-launch-us")
-- [Launching in Canada](#rcs-country-launch-ca "#rcs-country-launch-ca")
 - [Use case selection](#rcs-country-launch-use-cases "#rcs-country-launch-use-cases")
 - [Registration state management](#rcs-country-launch-registration-states "#rcs-country-launch-registration-states")
 - [Per-carrier launch status](#rcs-country-launch-carrier-status "#rcs-country-launch-carrier-status")
 - [Carrier approval timelines](#rcs-country-launch-timelines "#rcs-country-launch-timelines")
 - [Common registration issues and troubleshooting](#rcs-country-launch-troubleshooting "#rcs-country-launch-troubleshooting")
+- [Standard country launch registration](rcs-country-launch-standard.md "rcs-country-launch-standard.md")
+- [Launching RCS in Austria](rcs-country-launch-at.md "rcs-country-launch-at.md")
+- [Launching RCS in Brazil](rcs-country-launch-br.md "rcs-country-launch-br.md")
+- [Launching RCS in Canada](rcs-country-launch-ca.md "rcs-country-launch-ca.md")
+- [Launching RCS in France](rcs-country-launch-fr.md "rcs-country-launch-fr.md")
+- [Launching RCS in Germany](rcs-country-launch-de.md "rcs-country-launch-de.md")
+- [Launching RCS in Mexico](rcs-country-launch-mx.md "rcs-country-launch-mx.md")
+- [Launching RCS in the Netherlands](rcs-country-launch-nl.md "rcs-country-launch-nl.md")
+- [Launching RCS in Peru](rcs-country-launch-pe.md "rcs-country-launch-pe.md")
+- [Launching RCS in Singapore](rcs-country-launch-sg.md "rcs-country-launch-sg.md")
+- [Launching RCS in Spain](rcs-country-launch-es.md "rcs-country-launch-es.md")
+- [Launching RCS in the United Kingdom](rcs-country-launch-gb.md "rcs-country-launch-gb.md")
+- [Launching RCS in the United States](rcs-country-launch-us.md "rcs-country-launch-us.md")
 - [RCS country launch compliance guide](rcs-country-launch-compliance.md "rcs-country-launch-compliance.md")
 
 ## Testing registration
@@ -74,74 +87,6 @@ might adjust the consumer-facing agent name, logo, banner image, or contact
 information to match local requirements. Countries can have different brand
 assets. The testing agent provides the starting point, but each country
 launch can be customized independently.
-
-## Launching in the United States
-
-To launch your AWS RCS Agent in the United States, submit a country launch
-registration using the `US_RCS_LAUNCH` registration type. The US
-launch registration requires additional information beyond what you provided
-for the testing registration.
-
-### US registration requirements
-
-The US launch registration requires the following information:
-
-- **Brand information** —
-  Auto-populated from your testing agent configuration. You can
-  review and adjust the brand name, description, website URL, and
-  contact information.
-- **Use case selection** —
-  Select the use case category for your RCS messaging. Available
-  categories include OTP (one-time passwords), Transactional,
-  Promotional, and Multi-use.
-- **Screen recording** —
-  You must provide a screen recording that demonstrates your
-  RCS messaging experience. The recording should show the end-user
-  experience of receiving and interacting with your RCS messages.
-  For detailed video requirements, see
-  [Launch video requirements](rcs-compliance-video.md "rcs-compliance-video.md").
-- **Privacy policy and terms of service**
-  — URLs to your privacy policy and terms of service pages.
-
-###### Important
-
-Both the US and Canada launch registrations require a screen
-recording. You must provide a recording that clearly demonstrates
-your RCS messaging use case. Registrations submitted without a valid
-screen recording are rejected. For detailed requirements, see
-[Launch video requirements](rcs-compliance-video.md "rcs-compliance-video.md").
-
-## Launching in Canada
-
-To launch your AWS RCS Agent in Canada, submit a country launch registration
-using the `CA_RCS_LAUNCH` registration type. The Canada launch
-registration has different form field requirements than the US launch.
-
-### Canada registration requirements
-
-The Canada launch registration requires the following information:
-
-- **Brand information** —
-  Auto-populated from your testing agent configuration. You can
-  review and adjust the brand name, description, website URL, and
-  contact information for the Canadian market.
-- **Use case selection** —
-  Select the use case category for your RCS messaging. Available
-  categories include OTP (one-time passwords), Transactional,
-  Promotional, and Multi-use.
-- **Screen recording** —
-  You must provide a screen recording that demonstrates your
-  RCS messaging experience. For detailed video requirements, see
-  [Launch video requirements](rcs-compliance-video.md "rcs-compliance-video.md").
-- **Privacy policy and terms of service**
-  — URLs to your privacy policy and terms of service pages.
-
-###### Note
-
-The Canada launch registration form field requirements differ from
-the US launch registration. A screen recording is required for both
-countries. Review the registration form carefully to ensure all
-required fields are completed for the Canadian market.
 
 ## Use case selection
 
@@ -352,10 +297,11 @@ Carrier approval for RCS country launches is a multi-step process that involves
 review by each carrier in the target country. Approval timelines vary depending
 on the carrier and the completeness of your registration.
 
-For both the United States and Canada, expect the carrier approval process to
+Expect the carrier approval process to
 take several months from the time you submit your country launch registration.
-The timeline includes the initial review, any required updates, and the
-per-carrier rollout.
+Timelines vary by country and carrier. The timeline includes the initial review,
+any required updates, the per-carrier rollout, and any out-of-band verification
+steps required by specific countries.
 
 To help ensure a smooth approval process:
 
@@ -410,7 +356,7 @@ other carriers in the same country.
 
 ### Registration in review for an extended period
 
-Carrier approval timelines for the United States and Canada are typically
+Carrier approval timelines vary by country and can take
 several months. If your registration has been in the REVIEWING state for
 longer than expected:
 

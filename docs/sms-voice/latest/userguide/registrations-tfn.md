@@ -26,6 +26,7 @@ anything other than the specified use case, it can be revoked.
 - [US toll-free number registration form](registrations-tfn-register.md "registrations-tfn-register.md")
 - [Toll-free number registration rejection reasons](registrations-tfn-rejection-reason.md "registrations-tfn-rejection-reason.md")
 - [Toll-free number frequently asked questions](registrations-tfn-register-faq.md "registrations-tfn-register-faq.md")
+- [TFN business verification](registration-help-tfn-verification.md "registration-help-tfn-verification.md")
 
 ## Toll-free number forbidden use cases
 

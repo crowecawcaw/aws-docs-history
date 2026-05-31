@@ -315,7 +315,7 @@ messaging into your application or fine-tune how RCS messaging works:
   [RCS to SMS fallback using phone pools](rcs-sms-fallback.md "rcs-sms-fallback.md").
 - **Launch in production countries**:
   Submit country launch registrations to send RCS messages to all
-  recipients in the United States and Canada. See
+  recipients in supported countries. See
   [Launching RCS in countries](rcs-country-launch.md "rcs-country-launch.md").
 
 ## AI agent prompt for RCS setup

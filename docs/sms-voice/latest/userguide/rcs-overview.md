@@ -2,7 +2,7 @@
 
 Rich Communication Services (RCS) for business is a messaging protocol that enhances
 traditional SMS with verified brand identity. With AWS End User Messaging, you can send RCS text messages
-to recipients in the United States and Canada, with automatic SMS fallback for devices or
+to recipients in 22 supported countries, with automatic SMS fallback for devices or
 carriers that don't support RCS.
 
 RCS messages appear in the same messaging app that recipients use for SMS, but include
@@ -80,7 +80,7 @@ The following table compares RCS and SMS messaging capabilities in AWS End User 
 | Delivery confirmation | Device-level delivery receipts: the recipient's device reports back directly, confirming actual delivery. You are only billed for confirmed deliveries. | Carrier-level confirmation: the carrier network acknowledges receipt, but this does not guarantee the message reached the device. You are billed when the carrier accepts the message. |
 | Message content       | Text messages                                                                                                                                           | Text messages, MMS for media                                                                                                                                                           |
 | Device support        | Android devices with RCS enabled, iPhone with iOS 18 or later                                                                                           | All mobile devices                                                                                                                                                                     |
-| Supported countries   | United States and Canada                                                                                                                                | Over 200 countries and regions                                                                                                                                                         |
+| Supported countries   | 22 countries including the United States, Canada, United Kingdom, Germany, France, Brazil, and more                                                     | Over 200 countries and regions                                                                                                                                                         |
 
 ## Why SMS fallback is essential
 
@@ -121,8 +121,8 @@ AWS End User Messaging.
 
 ## Supported RCS capabilities
 
-The initial launch of RCS in AWS End User Messaging supports text-only messaging in the United
-States and Canada. You can send and receive plain text RCS messages using the same
+The initial launch of RCS in AWS End User Messaging supports text-only messaging in
+22 countries. You can send and receive plain text RCS messages using the same
 `SendTextMessage` API that you use for SMS.
 
 RCS in AWS End User Messaging currently supports the following:
@@ -134,11 +134,12 @@ RCS in AWS End User Messaging currently supports the following:
 - Two-way messaging (receiving inbound RCS text messages)
 - Keyword management for auto-responses
 - CloudWatch metrics for RCS message monitoring
-- Country launches in the United States and Canada
+- Country launches in 22 supported countries across North America,
+  South America, Europe, and Asia Pacific
 - RCS testing agents for testing without carrier approval
 - Phone mockups in the console to preview how your brand appears on
   devices
-- A single AWS RCS Agent resource that manages country-specific registrations for both the US and Canada
+- A single AWS RCS Agent resource that manages country-specific registrations across all supported countries
 - Shared registration details across countries, with per-country
   customization
 - All AWS End User Messaging capabilities including configuration sets, phone pools,

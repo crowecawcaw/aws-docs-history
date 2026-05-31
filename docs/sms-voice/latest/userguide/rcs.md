@@ -1,7 +1,7 @@
 # RCS messaging
 
 Rich Communication Services (RCS) for business in AWS End User Messaging lets you send verified,
-branded text messages to recipients in the United States and Canada. RCS is the next
+branded text messages to recipients in 22 supported countries. RCS is the next
 evolution of SMS — not a separate channel. RCS messages are delivered to the same
 native messaging app that recipients already use for SMS, making it an in-place upgrade
 rather than a new app to install. Verified brand identities inspire trust, encourage
@@ -11,6 +11,7 @@ AWS End User Messaging can automatically fall back to SMS.
 ###### Topics
 
 - [What is RCS?](rcs-overview.md "rcs-overview.md")
+- [Supported countries for RCS](rcs-supported-countries.md "rcs-supported-countries.md")
 - [Getting started with RCS](rcs-getting-started.md "rcs-getting-started.md")
 - [Managing RCS agents](rcs-agents.md "rcs-agents.md")
 - [Testing RCS messages](rcs-testing.md "rcs-testing.md")

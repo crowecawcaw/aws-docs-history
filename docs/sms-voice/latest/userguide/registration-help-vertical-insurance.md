@@ -89,4 +89,4 @@ If any part of your business involves premium financing (paying insurance premiu
 For a insurance-specific opt-in form example, see the form screenshots in this section.
 This vertical follows the [Transactional opt-in](registration-help-optin-transactional.md "registration-help-optin-transactional.md") with industry-specific disclosures.
 
-![Insurance opt-in form example](images/vertical-insurance-optin.png)
+![Insurance quote form showing an unchecked SMS consent checkbox with agency name, message frequency, data rates, and opt-out disclosures](images/vertical-insurance-optin.png)
