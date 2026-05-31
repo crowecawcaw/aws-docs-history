@@ -6,9 +6,20 @@ Previous platform versions remain accessible to accounts with active or terminat
 See the [Supported platforms](platforms-supported.md "platforms-supported.md") page for information on the latest version of each platform
 supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](../relnotes.md "../relnotes.md").
 
-## May 19, 2026 – present
+## May 28, 2026 – present
 
-The following Elastic Beanstalk platform versions for .NET Core on Linux have been current since May 19, 2026:
+The following Elastic Beanstalk platform versions for .NET Core on Linux have been current since May 28, 2026:
+
+| Platform Version and _Solution Stack Name_                                                | Framework                    | Proxy Server | AMI              | AWS X-Ray |
+| ----------------------------------------------------------------------------------------- | ---------------------------- | ------------ | ---------------- | --------- |
+| **.NET 10 on AL2023 version 3.11.1**<br>_64bit Amazon Linux 2023 v3.11.1 running .NET 10_ | .NET 10.0.8, supports 10.0.8 | nginx 1.30.1 | 2023.11.20260526 | 3.6.4     |
+| **.NET 9 on AL2023 version 3.11.1**<br>_64bit Amazon Linux 2023 v3.11.1 running .NET 9_   | .NET 9.0.16, supports 9.0.16 | nginx 1.30.1 | 2023.11.20260526 | 3.6.4     |
+| **.NET 8 on AL2023 version 3.11.1**<br>_64bit Amazon Linux 2023 v3.11.1 running .NET 8_   | .NET 8.0.27, supports 8.0.27 | nginx 1.30.1 | 2023.11.20260526 | 3.6.4     |
+| **.NET Core on AL2 version 2.16.0**<br>_64bit Amazon Linux 2 v2.16.0 running .NET Core_   | .NET 8.0.27, supports 8.0.27 | nginx 1.30.1 | 2.0.20260526     | 3.6.4     |
+
+## May 19, 2026 – May 27, 2026
+
+The following Elastic Beanstalk platform versions for .NET Core on Linux were current between May 19, 2026 and May 27, 2026:
 
 | Platform Version and _Solution Stack Name_                                                | Framework                    | Proxy Server | AMI              | AWS X-Ray |
 | ----------------------------------------------------------------------------------------- | ---------------------------- | ------------ | ---------------- | --------- |
