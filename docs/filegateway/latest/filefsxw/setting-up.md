@@ -19,9 +19,9 @@ getting started with AWS Storage Gateway:
 
 **Topics**
 
-- [Sign up for Amazon Web Services](setting-up-aws-sign-up.md "setting-up-aws-sign-up.md") - Learn
+- [Accessing AWS Storage Gateway](WhatIsAPIIntro.md "WhatIsAPIIntro.md") - Learn
   how to sign up for AWS and create an AWS account.
-- [Create an IAM user with administrator privileges](setting-up-create-iam-user.md "setting-up-create-iam-user.md")
+- [Accessing AWS Storage Gateway](WhatIsAPIIntro.md "WhatIsAPIIntro.md")
 
 * Learn how to create an IAM user with administrative privileges for your AWS
   account.
@@ -31,3 +31,9 @@ getting started with AWS Storage Gateway:
 - [AWS Regions that support Storage Gateway](available-regions-intro.md "available-regions-intro.md") -
   Learn which AWS Regions you can use to store your data when you activate your gateway in
   Storage Gateway.
+
+## Sign up for an AWS account
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
