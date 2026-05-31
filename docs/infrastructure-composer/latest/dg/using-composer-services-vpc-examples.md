@@ -16,7 +16,7 @@ In this example, we reference a security group ID and subnet ID. These values ar
 ![The Resource properties panel of a Lambda Function card with static values being provided in the Security group ID field.](images/aac_use_vpc_05.png)
 Now that our Lambda function is configured with our VPC, the VPC tag is displayed on our card.
 
-![The VPC tag visualizing a Lambda function in Infrastructure Composer that is configured with a VPC.](/images/infrastructure-composer/latest/dg/images/aac_use_vpc_01.png)
+![The VPC tag visualizing a Lambda function in Infrastructure Composer that is configured with a VPC.](images/aac_use_vpc_01.png)
 Infrastructure Composer has created the infrastructure code to configure our Lambda function with the security group and subnet of the external VPC.
 
 ```

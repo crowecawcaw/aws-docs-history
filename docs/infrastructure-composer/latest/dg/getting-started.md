@@ -8,6 +8,13 @@ For details on using Infrastructure Composer in each of these tools, see [Where 
 
 ###### Topics
 
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Take a tour in the Infrastructure Composer console](getting-started-tour.md "getting-started-tour.md")
 - [Load and modify the Infrastructure Composer demo project](getting-started-demo.md "getting-started-demo.md")
 - [Build your first application with Infrastructure Composer](getting-started-build.md "getting-started-build.md")
+
+## Sign up for an AWS account
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
