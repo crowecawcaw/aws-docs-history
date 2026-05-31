@@ -76,7 +76,7 @@ JSON
 
 ```
 
-For more information, see [Step 2: create a user and get your AWS credentials](amazon-mq-setting-up.md#create-iam-user "amazon-mq-setting-up.md#create-iam-user") and [Never Modify or Delete the Amazon MQ Elastic Network Interface](best-practices-activemq.md#never-modify-delete-elastic-network-interface "best-practices-activemq.md#never-modify-delete-elastic-network-interface").
+For more information, see and [Never Modify or Delete the Amazon MQ Elastic Network Interface](best-practices-activemq.md#never-modify-delete-elastic-network-interface "best-practices-activemq.md#never-modify-delete-elastic-network-interface").
 
 ## Amazon MQ REST API permissions reference
 
