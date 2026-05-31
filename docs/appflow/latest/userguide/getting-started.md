@@ -7,15 +7,19 @@ The following diagram illustrates how you can use Amazon AppFlow to transfer and
 
 ###### Tasks
 
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Prerequisites](#prerequisites "#prerequisites")
+
+## Sign up for an AWS account
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
 
 ## Prerequisites
 
 Complete the following prerequisites before getting started with Amazon AppFlow.
 
-- AWS account setup — If you don't have
-  an AWS account, you must create one. For more information, see [How to
-  create and activate a new AWS account](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/ "https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/").
 - SaaS application setup — You must verify
   that you have the required information about the source and destination
   applications, and that they meet the relevant configuration requirements. For
