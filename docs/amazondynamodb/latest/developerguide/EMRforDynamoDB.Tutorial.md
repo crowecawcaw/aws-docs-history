@@ -26,7 +26,7 @@ Tutorial](https://cwiki.apache.org/confluence/display/Hive/Tutorial "https://cwi
 
 For this tutorial, you will need the following:
 
-- An AWS account. If you do not have one, see [Signing up for AWS](SettingUp.DynamoWebService.md#SettingUp.DynamoWebService.SignUpForAWS "SettingUp.DynamoWebService.md#SettingUp.DynamoWebService.SignUpForAWS").
+- An AWS account. If you do not have one, see [Sign up for an AWS account](SettingUp.DynamoWebService.md#sign-up-for-aws "SettingUp.DynamoWebService.md#sign-up-for-aws").
 - An SSH client (Secure Shell). You use the SSH client to connect to the
   leader node of the Amazon EMR cluster and run interactive commands. SSH
   clients are available by default on most Linux, Unix, and Mac OS X

@@ -4,12 +4,6 @@ In this step, you create a user with a policy that grants access to your Amazon
 DynamoDB Accelerator (DAX) cluster and to DynamoDB using AWS Identity and Access Management. You can then run applications
 that interact with your DAX cluster.
 
-## Sign up for an AWS account
-
-To get started with AWS, you need an AWS account. For information about creating an AWS account, see
-[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
-in the _AWS Account Management Reference Guide_.
-
 To provide access, add permissions to your users, groups, or roles:
 
 - Users and groups in AWS IAM Identity Center:

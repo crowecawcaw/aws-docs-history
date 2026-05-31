@@ -39,7 +39,7 @@ such as creating a table. You can also use it to embed Amazon DynamoDB operation
 utility scripts.
 
 Before you can use the AWS CLI with DynamoDB, you must get an access key ID and secret
-access key. For more information, see [Granting programmatic access](SettingUp.DynamoWebService.md#SettingUp.DynamoWebService.GetCredentials "SettingUp.DynamoWebService.md#SettingUp.DynamoWebService.GetCredentials").
+access key. For more information, see [Create an IAM user with administrator privileges](../../../IAM/latest/UserGuide/getting-started_create-admin-group.md "../../../IAM/latest/UserGuide/getting-started_create-admin-group.md").
 
 For a complete listing of all the commands available for DynamoDB in the AWS CLI, see the
 [AWS CLI command
