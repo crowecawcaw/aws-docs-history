@@ -5,23 +5,41 @@ Administration Guide](../adminguide-classic/what-is-wickr.md "../adminguide-clas
 # Troubleshoot general issues for AWS Wickr
 
 The following are troubleshooting tips to help you solve general issues for
-AWS Wickr.
+AWS Wickr. If the steps in this section don't resolve your issue, open a
+case in the [AWS
+Support Center](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home").
 
 ###### Topics
 
-- [Prerequisites](#prerequisites-general "#prerequisites-general")
+- [Before you begin](#troubleshoot-general-before "#troubleshoot-general-before")
 - [Collect diagnostic information](#diagnostic-info "#diagnostic-info")
 - [Common error messages](#general-error-messages "#general-error-messages")
 
-## Prerequisites
+## Before you begin
 
-Before troubleshooting AWS Wickr issues, verify the following:
+Verify the following before troubleshooting:
 
-- You are using AWS Wickr with a current, supported client version.
-- Your device meets [System
-  requirements for AWS Wickr](../userguide/system-requirements.md "../userguide/system-requirements.md").
-- Your network allows required [Ports and
-  domains for your Wickr network](allow-list-ports-domains.md "allow-list-ports-domains.md").
+- You are using the correct Wickr product for your organization:
+  **AWS Wickr**,
+  **AWS WickrGov** (GovCloud), or
+  **Wickr Enterprise** (self-hosted).
+  If you're unsure, contact your network administrator.
+- You are running a supported client version. AWS Wickr supports the
+  current version and the previous 2–3 versions. To check your version,
+  open Wickr and choose **Settings**,
+  **About**. To update, see
+  [Check for
+  updates](../userguide/updates.md "../userguide/updates.md").
+- You have the correct authentication method for your organization
+  (SSO or non-SSO).
+- You have saved your user password and Wickr recovery key in a
+  secure location.
+- Your network allows communication with required
+  [Wickr
+  domains and ports](allow-list-ports-domains.md "allow-list-ports-domains.md").
+- Your device meets
+  [system
+  requirements](../userguide/system-requirements.md "../userguide/system-requirements.md").
 
 ## Collect diagnostic information
 

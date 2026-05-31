@@ -14,3 +14,6 @@ support case in the [AWS Support Center](https://console.aws.amazon.com/support/
 
 - [Troubleshoot general issues for AWS Wickr](troubleshoot-general.md "troubleshoot-general.md")
 - [Troubleshoot login and registration issues](troubleshoot-enduser.md "troubleshoot-enduser.md")
+- [Troubleshoot SSO and authentication issues](troubleshoot-sso.md "troubleshoot-sso.md")
+- [Troubleshoot identity and access issues](troubleshoot-iam.md "troubleshoot-iam.md")
+- [Troubleshoot network and connectivity issues](troubleshoot-network.md "troubleshoot-network.md")

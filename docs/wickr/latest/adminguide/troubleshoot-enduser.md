@@ -5,7 +5,9 @@ Administration Guide](../adminguide-classic/what-is-wickr.md "../adminguide-clas
 # Troubleshoot login and registration issues
 
 This section helps you troubleshoot login and registration issues with
-AWS Wickr.
+AWS Wickr. If the steps in this section don't resolve your issue, open a
+case in the [AWS
+Support Center](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home").
 
 ###### Topics
 
