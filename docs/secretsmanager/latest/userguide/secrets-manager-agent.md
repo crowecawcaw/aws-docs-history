@@ -211,7 +211,7 @@ Cross compile with Rust cross
 ###### To cross-compile using Rust cross
 
 If the cross-compile tools are not available natively on the system,
-you can use the Rust cross project. For more information, see [https://github.com/cross-rs/cross](https://github.com/cross-rs/cross "https://github.com/cross-rs/cross").
+you can use the Rust cross project. For more information, see [cross](https://github.com/cross-rs/cross "https://github.com/cross-rs/cross") on GitHub.
 
 ###### Important
 
@@ -376,7 +376,7 @@ Lambda function to get secrets.
 
 The following instructions show how to get a secret named
 _MyTest_ by using the example script
-`secrets-manager-agent-extension.sh` in [https://github.com/aws/aws-secretsmanager-agent](https://github.com/aws/aws-secretsmanager-agent "https://github.com/aws/aws-secretsmanager-agent") to install the
+`secrets-manager-agent-extension.sh` in the [aws-secretsmanager-agent](https://github.com/aws/aws-secretsmanager-agent "https://github.com/aws/aws-secretsmanager-agent") GitHub repository to install the
 Secrets Manager Agent as a Lambda extension.
 
 ###### To create a Lambda extension for the Secrets Manager Agent
