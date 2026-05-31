@@ -16,6 +16,39 @@ An Amazon FinSpace environment is created from an AWS account. In this section, 
 
 Topics
 
-- [Sign up for Amazon Web Services](sign-up-for-aws.md "sign-up-for-aws.md")
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
+- [(Optional) Attach managed policies for creating FinSpace environment](#optional-attach-managed-policies-for-creating-finspace-environment "#optional-attach-managed-policies-for-creating-finspace-environment")
 - [Create an Amazon FinSpace environment](create-an-amazon-finspace-environment.md "create-an-amazon-finspace-environment.md")
 - [Sample data bundles](sample-data-bundle.md "sample-data-bundle.md")
+
+## Sign up for an AWS account
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
+
+## (Optional) Attach managed policies for creating FinSpace environment
+
+To create a FinSpace environment, the user performing the actions must have IAM permissions for `AdministratorAccess` or must have the FinSpace managed policy attached to their role. This step is optional if the user has `AdministratorAccess` permissions. Create and attach FinSpace managed policies to the account you used to create the FinSpace environment. These policies grant permissions to create the FinSpace environment and superusers in an AWS
+account.
+
+1. Create a managed policy on the JSON tab for FinSpace. For more information, see [Creating policies on the JSON tab](../../../IAM/latest/UserGuide/access_policies_create-console.md#access_policies_create-json-editor "../../../IAM/latest/UserGuide/access_policies_create-console.md#access_policies_create-json-editor").
+2. Use the following managed policy:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "finspace:*"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
