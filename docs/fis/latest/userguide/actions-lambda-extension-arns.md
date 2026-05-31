@@ -14,9 +14,10 @@ You can view AWS Region and ARN details below.
 
 The following table describes changes made to recent versions of the AWS FIS Lambda extension
 
-| Version | Launch date | Notes           |
-| ------- | ----------- | --------------- |
-| 1.0.0   | 2024-10-29  | Initial release |
+| Version | Launch date | Notes                                                      |
+| ------- | ----------- | ---------------------------------------------------------- |
+| 1.0.6   | 2025-01-29  | Improved support for larger fault configuration responses. |
+| 1.0.0   | 2024-10-29  | Initial release                                            |
 
 ## Access Guide for Lambda Extension ARNs
 
