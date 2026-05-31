@@ -21,6 +21,7 @@ in a non-production environment may impact your compliance scope such as for PCI
 - [Encrypt, Decrypt and Re-encrypt data](crypto-ops.encryptdecrypt.md "crypto-ops.encryptdecrypt.md")
 - [Generate and verify card data](crypto-ops-carddata.md "crypto-ops-carddata.md")
 - [Generate, translate and verify PIN data](data-operations.pindata.md "data-operations.pindata.md")
+- [Generate auth request (ARQC) cryptogram](data-operations.generateauthrequestcryptogram.md "data-operations.generateauthrequestcryptogram.md")
 - [Verify auth request (ARQC) cryptogram](data-operations.verifyauthrequestcryptogram.md "data-operations.verifyauthrequestcryptogram.md")
 - [Generate and verify MAC](crypto-ops-mac.md "crypto-ops-mac.md")
 - [Valid keys for cryptographic operations](crypto-ops-validkeys-ops.md "crypto-ops-validkeys-ops.md")

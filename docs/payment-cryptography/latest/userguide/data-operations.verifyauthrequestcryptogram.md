@@ -21,9 +21,9 @@ ARQC cryptograms typically require the following inputs (although this may vary 
 
 ###### Topics
 
-- [Building transaction data](#w2aac15c25c13 "#w2aac15c25c13")
-- [Transaction data padding](#w2aac15c25c15 "#w2aac15c25c15")
-- [Examples](#w2aac15c25c17 "#w2aac15c25c17")
+- [Building transaction data](#w2aac15c28c13 "#w2aac15c28c13")
+- [Transaction data padding](#w2aac15c28c15 "#w2aac15c28c15")
+- [Examples](#w2aac15c28c17 "#w2aac15c28c17")
 
 ## Building transaction data
 

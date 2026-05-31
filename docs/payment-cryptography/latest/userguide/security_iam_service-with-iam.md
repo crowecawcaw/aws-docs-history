@@ -51,7 +51,7 @@ actions that begin with the word `List` (such as `ListKeys` and
 `"Action": "payment-cryptography:List*"`
 ```
 
-To see a list of AWS Payment Cryptography actions, see [Actions Defined by AWS Payment Cryptography](../../../IAM/latest/UserGuide/list_awskeymanagementservice.md#awskeymanagementservice-actions-as-permissions "../../../IAM/latest/UserGuide/list_awskeymanagementservice.md#awskeymanagementservice-actions-as-permissions") in the
+To see a list of AWS Payment Cryptography actions, see [Actions Defined by AWS Payment Cryptography](../../../IAM/latest/UserGuide/list_awspaymentcryptography.md#awspaymentcryptography-actions-as-permissions "../../../IAM/latest/UserGuide/list_awspaymentcryptography.md#awspaymentcryptography-actions-as-permissions") in the
 _IAM User Guide_.
 
 ### Resources

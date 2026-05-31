@@ -9,12 +9,6 @@ You can use an alias to identify a key in most key management (control plane) op
 You can also allow and deny access to AWS Payment Cryptography key based on their aliases without editing
 policies or managing grants. This feature is part of the service's support for [attribute-based access control](security.md "security.md") (ABAC).
 
-Much of the power of aliases comes from your ability to change the key associated with
-an alias at any time. Aliases can make your code easier to write and maintain. For example,
-suppose you use an alias to refer to a particular AWS Payment Cryptography key and you want to change the
-AWS Payment Cryptography key. In that case, just associate the alias with a different key. You don't need to
-change your code or application configuration.
-
 Aliases also make it easier to reuse the same code in different AWS Regions. Create
 aliases with the same name in multiple Regions and associate each alias with an AWS Payment Cryptography key in its
 Region. When the code runs in each Region, the alias refers to the associated AWS Payment Cryptography key in that
@@ -31,7 +25,7 @@ an alias (**delete-alias**).
 
 - [About aliases](alias-about.md "alias-about.md")
 - [Using aliases in your applications](alias-using.md "alias-using.md")
-- [Related APIs](#w2aac12c30c23 "#w2aac12c30c23")
+- [Related APIs](#w2aac12c30c21 "#w2aac12c30c21")
 
 ## Related APIs
 

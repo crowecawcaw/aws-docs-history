@@ -100,6 +100,10 @@ AWS Payment Cryptography key, you can update it so it is associated with the
 AWS Payment Cryptography doesn't validate that the old and new keys have all the same attributes such as key usage. Updating with a
 different key type may result in problems in your application.
 
+###### Warning
+
+Updates to aliases are subject to eventual consistency. After you update an alias, there is a brief period during which the alias might resolve to either the old key or the new key. Do not update aliases if this behavior would break your processes.
+
 **Some keys don't have aliases**
 
 An alias is an optional feature and not all keys will have aliases unless you choose to operate your environment in this way. Keys can be

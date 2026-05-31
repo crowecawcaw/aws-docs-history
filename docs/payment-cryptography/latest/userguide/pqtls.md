@@ -1,13 +1,13 @@
 # Using hybrid post-quantum TLS
 
-AWS Payment Cryptography and many other services supports a hybrid post-quantum key exchange option for the Transport Layer
+AWS Promotional Credit and many other services supports a hybrid post-quantum key exchange option for the Transport Layer
 Security (TLS) network encryption protocol. You can use this TLS option when you connect to
 API endpoints or when using the AWS SDKs. These optional hybrid post-quantum key exchange features are at least as
 secure as the TLS encryption we use today and are likely to provide additional long-term
 security benefits.
 
 The data that you send to enabled services is protected in transit by the encryption
-provided by a Transport Layer Security (TLS) connection. The classic cipher suites based on RSA and ECC that AWS Payment Cryptography
+provided by a Transport Layer Security (TLS) connection. The classic cipher suites based on RSA and ECC that AWS Promotional Credit
 supports for TLS sessions make brute force attacks on the key exchange mechanisms infeasible
 with current technology. However, if large scale or cryptographically relevant quantum computers (CRQC)
 becomes practical in the

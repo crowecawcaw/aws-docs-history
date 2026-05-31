@@ -1,6 +1,6 @@
 # Enabling hybrid post-quantum TLS
 
-AWS SDKs and tools have cryptographic capabilities and configuration that differ across language and runtime.
+AWSSDKs and tools have cryptographic capabilities and configuration that differ across language and runtime.
 There are three ways that an AWS SDK or tool currently provides PQ TLS support:
 
 ###### Topics
@@ -50,7 +50,7 @@ client version released after that date will support and prefer PQ TLS by defaul
 
 You can determine the minimum version supporting PQ TLS for a particular service client by
 navigating to the relevant crates.io version URL (for example,
-AWS Payment Cryptography's is [here](https://crates.io/crates/aws-sdk-paymentcryptography/versions "https://crates.io/crates/aws-sdk-paymentcryptography/versions"))
+AWS Promotional Credit's is [here](https://crates.io/crates/aws-sdk-paymentcryptography/versions "https://crates.io/crates/aws-sdk-paymentcryptography/versions"))
 and finding the first version published after 29-Aug-25. Any service client version published after 29-Aug-25
 will have PQ TLS enabled and preferred by default.
 
@@ -79,7 +79,7 @@ but note that you may need a few additional CMake flags:
  -DUSE_OPENSSL=OFF \`
 ```
 
-### AWS SDK for Java
+### AWSSDK for Java
 
 As of v2, AWS SDK for Java provides an AWS Common Runtime (AWS CRT) HTTP Client that
 can be configured to perform PQ TLS. As of v2.35.11, the AwsCrtHttpClient enables and prefers PQ TLS by default wherever it’s used.
@@ -97,13 +97,14 @@ system that supports Docker. See Post-quantum TLS in Python for an example of se
 
 ### AWS CLI
 
-PQ TLS support with the [AWS CLI installer](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") is coming soon.
-To enable immediately, you can use alternative installers for the AWS CLI, which varies by operating system, and can enable PQ TLS.
+As of v2.34.54, the [AWS CLI installer](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") for Linux
+bundles OpenSSL 3.5.6, so PQ TLS is enabled and preferred by default for that and subsequent versions on Linux.
+AWS CLI users on Linux can enable PQ TLS by upgrading to AWS CLI v2.34.54 or later.
 
 For MacOS, install the AWS CLI via [Homebrew](https://brew.sh/ "https://brew.sh/") and ensure that your Homebrew-vended OpenSSL is upgraded to version 3.5+.
 You can do this with “brew install openssl@3.6” and validate with “brew list | grep openssl”.
 
-For Ubuntu or Debian Linux: ensure the Linux distribution you are using has OpenSSL 3.5+ installed as system OpenSSL.
+If you cannot upgrade to AWS CLI v2.34.54 or later on Ubuntu or Debian Linux, ensure the Linux distribution you are using has OpenSSL 3.5+ installed as system OpenSSL.
 Then, install the AWS CLI using apt or [PyPI](https://pypi.org/project/awscliv2/ "https://pypi.org/project/awscliv2/"). With these prerequisites,
 the AWS CLI vended by apt or PyPI will be configured to negotiate PQ-TLS.
 For step-by-step instructions to validate the installation, see [github repository](https://github.com/aws-samples/sample-post-quantum-tls-python/ "https://github.com/aws-samples/sample-post-quantum-tls-python/")

@@ -11,20 +11,20 @@ CVV codes `(generate)` but then unable to verify them `(verify)`.
 
 ###### Topics
 
-- [GenerateCardData](#w2aac15c31b9 "#w2aac15c31b9")
-- [VerifyCardData](#w2aac15c31c11 "#w2aac15c31c11")
-- [GeneratePinData (for VISA/ABA schemes)](#w2aac15c31c15 "#w2aac15c31c15")
-- [GeneratePinData (for IBM3624)](#w2aac15c31c17 "#w2aac15c31c17")
-- [VerifyPinData (for VISA/ABA schemes)](#w2aac15c31c21 "#w2aac15c31c21")
-- [VerifyPinData (for IBM3624)](#w2aac15c31c23 "#w2aac15c31c23")
-- [Decrypt Data](#w2aac15c31c27 "#w2aac15c31c27")
-- [Encrypt Data](#w2aac15c31c33 "#w2aac15c31c33")
-- [Translate Pin Data](#w2aac15c31c39 "#w2aac15c31c39")
+- [GenerateCardData](#w2aac15c34b9 "#w2aac15c34b9")
+- [VerifyCardData](#w2aac15c34c11 "#w2aac15c34c11")
+- [GeneratePinData (for VISA/ABA schemes)](#w2aac15c34c15 "#w2aac15c34c15")
+- [GeneratePinData (for IBM3624)](#w2aac15c34c17 "#w2aac15c34c17")
+- [VerifyPinData (for VISA/ABA schemes)](#w2aac15c34c21 "#w2aac15c34c21")
+- [VerifyPinData (for IBM3624)](#w2aac15c34c23 "#w2aac15c34c23")
+- [Decrypt Data](#w2aac15c34c27 "#w2aac15c34c27")
+- [Encrypt Data](#w2aac15c34c33 "#w2aac15c34c33")
+- [Translate Pin Data](#w2aac15c34c39 "#w2aac15c34c39")
 - [Generate/Verify MAC](#crypto-ops-validkeys.generatemac "#crypto-ops-validkeys.generatemac")
 - [GenerateMacEmvPinChange](#crypto-ops-validkeys.generatemacemvpinchange "#crypto-ops-validkeys.generatemacemvpinchange")
-- [VerifyAuthRequestCryptogram](#w2aac15c31c51 "#w2aac15c31c51")
+- [VerifyAuthRequestCryptogram](#w2aac15c34c51 "#w2aac15c34c51")
 - [Import/Export Key](#crypto-ops-validkeys.importexport "#crypto-ops-validkeys.importexport")
-- [Unused key types](#w2aac15c31c57 "#w2aac15c31c57")
+- [Unused key types](#w2aac15c34c57 "#w2aac15c34c57")
 
 ## GenerateCardData
 

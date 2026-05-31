@@ -242,7 +242,8 @@ role is now included as part of key block formats such as [TR-31](#terms.tr31 "#
 bytes, each with value of zero, with the key to be checked and retaining the 3 highest
 order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC
 algorithm where the input data is 16 bytes of zero and retaining the 3 highest order
-bytes of the encrypted result.
+bytes of the encrypted result. For HMAC keys, the KCV is computed using the hash selected at key creation on a
+zero-length message, taking the leftmost 3 bytes.
 
 **KDH**
 
