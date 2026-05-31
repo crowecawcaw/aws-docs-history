@@ -268,6 +268,7 @@ quotas](aws-general.pdf.md#aws-service-information "aws-general.pdf.md#aws-servi
 - [Amazon Translate](translate-service.md "translate-service.md")
 - [Trusted Advisor API](trustedadvisor-pas.md "trustedadvisor-pas.md")
 - [User Notifications](notifications.md "notifications.md")
+- [AWS User Experience Customization](uxc.md "uxc.md")
 - [Verified Access](verified-access-service.md "verified-access-service.md")
 - [Verified Permissions](verifiedpermissions.md "verifiedpermissions.md")
 - [Amazon VPC](vpc-service.md "vpc-service.md")
