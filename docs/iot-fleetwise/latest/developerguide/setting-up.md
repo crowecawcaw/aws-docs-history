@@ -11,20 +11,19 @@ Before you use AWS IoT FleetWise for the first time, complete the steps in the f
 
 ###### Topics
 
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Set up your AWS account](#setting-up-create-iam-user "#setting-up-create-iam-user")
 - [Get started in the console](#console-get-started "#console-get-started")
 - [Configure your AWS IoT FleetWise settings](configure-settings.md "configure-settings.md")
 - [Making requests to AWS IoT FleetWise using IPv6](fleetwise-ipv6-access.md "fleetwise-ipv6-access.md")
 
-## Set up your AWS account
-
-Complete the following tasks to sign up for AWS and create an administrative user.
-
-### Sign up for an AWS account
+## Sign up for an AWS account
 
 To get started with AWS, you need an AWS account. For information about creating an AWS account, see
 [Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
 in the _AWS Account Management Reference Guide_.
+
+## Set up your AWS account
 
 ###### Note
 
