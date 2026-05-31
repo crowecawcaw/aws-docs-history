@@ -56,7 +56,7 @@ Washington." returns:
   category.
   In the Amazon Comprehend Medical console, this is shown like this:
 
-![](images/patient.png)
+![Patient information card displaying name, age, profession, and address details.](images/patient.png)
 When using the **DetectPHI**
 operation, the response appears like this. When you use the **StartPHIDetectionJob**
 operation, Amazon Comprehend Medical creates a file in the output location with this structure.
