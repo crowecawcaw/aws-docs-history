@@ -8,13 +8,6 @@ Amplify Studio. Finally, you will connect the cloud backend to the frontend app.
 
 Before you begin this tutorial, complete the following prerequisites.
 
-**Sign up for an AWS account**
-
-If you are not already an AWS customer, you need to [create an
-AWS account](https://portal.aws.amazon.com/billing/signup#/start/email "https://portal.aws.amazon.com/billing/signup#/start/email") by following the online instructions. Signing up
-enables you to access Amplify and other AWS services that you can use with
-your application.
-
 **Create a Git repository**
 
 Amplify supports GitHub, Bitbucket, GitLab, and AWS CodeCommit. Push your

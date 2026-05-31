@@ -5,13 +5,6 @@ building and deploying a Next.js application from a Git repository.
 
 Before you begin this tutorial, complete the following prerequisites.
 
-**Sign up for an AWS account**
-
-If you are not already an AWS customer, you need to [create an
-AWS account](https://portal.aws.amazon.com/billing/signup#/start/email "https://portal.aws.amazon.com/billing/signup#/start/email") by following the online instructions. Signing up
-enables you to access Amplify and other AWS services that you can use with
-your application.
-
 **Create an application**
 
 Create a basic Next.js application to use for this tutorial, using the
