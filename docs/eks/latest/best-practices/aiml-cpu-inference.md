@@ -1,5 +1,9 @@
 # CPU Inference and Orchestration
 
+###### Tip
+
+[Register](https://events.eksworkshop.com/workshops/genai/ "https://events.eksworkshop.com/workshops/genai/") for upcoming Amazon EKS AI/ML workshops.
+
 ## Overview
 
 CPU instances are a first-class compute option for a wide range of AI workloads on Amazon EKS. From small language models (SLMs) and classical ML inference to data pipelines and agent orchestration, CPUs offer strong price-performance, broad capacity availability, and familiar Kubernetes scheduling semantics.
