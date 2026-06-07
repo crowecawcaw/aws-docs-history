@@ -3,17 +3,20 @@
 When a [rule](eb-rules.md "eb-rules.md") runs in EventBridge, all of the [targets](eb-targets.md "eb-targets.md") associated with the rule are invoked. Rules can
 invoke AWS Lambda functions, publish to Amazon SNS topics, or relay the event to Kinesis streams. To
 make API calls against the resources you own, EventBridge needs the appropriate permissions. For
-Lambda, Amazon SNS, Amazon SQS, and Amazon CloudWatch Logs resources, EventBridge uses resource-based policies. For Kinesis
+Amazon CloudWatch Logs resources, EventBridge uses resource-based policies. For Lambda, Amazon SNS, and Amazon SQS
+resources, EventBridge can use either an IAM execution role or a resource-based policy. For Kinesis
 streams, EventBridge uses [identity-based](eb-use-identity-based.md "eb-use-identity-based.md")
 policies.
 
 ###### Important
 
-For targets that use resource-based policies (Lambda, Amazon SNS, Amazon SQS, and Amazon CloudWatch Logs),
-do not specify a `RoleArn` in the target configuration. When you specify a
-`RoleArn` for these target types, event delivery may fail, particularly for
-Amazon SQS and Amazon SNS targets with AWS KMS encryption enabled. Use resource-based policies
-only for these targets.
+For Amazon CloudWatch Logs targets, do not specify a `RoleArn` in the target
+configuration. For Lambda, Amazon SNS, and Amazon SQS targets, you can use either an IAM
+execution role or a resource-based policy. If you specify a `RoleArn` for
+Lambda, Amazon SNS, or Amazon SQS targets, ensure the role has the required permissions (for
+example, `lambda:InvokeFunction`, `sns:Publish`, or
+`sqs:SendMessage`). If no execution role is configured, EventBridge uses
+resource-based policies on the target resource.
 
 You use the AWS CLI to add permissions to your targets. For information about how to install
 and configure the AWS CLI, see [Getting
@@ -106,6 +109,12 @@ For more information, see [PutResourcePolicy](../../../AmazonCloudWatchLogs/late
 
 To invoke your AWS Lambda function by using a EventBridge rule, add the following permission
 to the policy of your Lambda function.
+
+###### Note
+
+Alternatively, you can configure an IAM execution role on the target with
+`lambda:InvokeFunction` permission. Resource-based policies are
+required only when no execution role is configured on the target.
 
 ```
 {

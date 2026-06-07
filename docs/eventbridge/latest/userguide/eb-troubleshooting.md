@@ -179,8 +179,16 @@ calls from global services are only available in that region. For more informati
 
 ## The IAM role associated with my rule is being ignored when the rule runs
 
-EventBridge only uses IAM roles for [rules](eb-rules.md "eb-rules.md") that send [events](eb-events.md "eb-events.md") to Kinesis streams. For rules that invoke Lambda
-functions or Amazon SNS topics, you need to provide [resource-based permissions](eb-use-resource-based.md "eb-use-resource-based.md").
+EventBridge supports IAM execution roles for all target types. If your rule's IAM role
+appears to be ignored, verify that the role's trust policy allows
+`events.amazonaws.com` to assume it, and that the permission policy
+grants the required action for the target (for example,
+`lambda:InvokeFunction`, `sns:Publish`, or
+`sqs:SendMessage`).
+
+For Lambda, Amazon SNS, and Amazon SQS targets, if no IAM execution role is configured on the
+target, EventBridge falls back to [resource-based
+permissions](eb-use-resource-based.md "eb-use-resource-based.md") on the target resource.
 
 Make sure your regional AWS STS endpoints are enabled, so that EventBridge can use them when
 assuming the IAM role you provided. For more information, see [Activating and

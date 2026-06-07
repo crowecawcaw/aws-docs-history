@@ -344,13 +344,13 @@ The following table list AWS services and the management events they generate th
 | Amazon Macie                                   | UpdateFindingsFilter                                         | API call       |
 | AWS Elemental MediaConnect                     | ManagedDescribeFlow                                          | API call       |
 | AWS Elemental MediaConnect                     | PrivateDescribeFlowMeta                                      | API call       |
-| AWS Application Migration Service              | OperationalDescribeJobLogItems                               | API call       |
-| AWS Application Migration Service              | OperationalDescribeJobs                                      | API call       |
-| AWS Application Migration Service              | OperationalDescribeReplicationConfigurationTemplates         | API call       |
-| AWS Application Migration Service              | OperationalDescribeSourceServer                              | API call       |
-| AWS Application Migration Service              | OperationalGetLaunchConfiguration                            | API call       |
-| AWS Application Migration Service              | OperationalListSourceServers                                 | API call       |
-| AWS Application Migration Service              | VerifyClientRoleForMgn                                       | API call       |
+| AWS Transform MGN                              | OperationalDescribeJobLogItems                               | API call       |
+| AWS Transform MGN                              | OperationalDescribeJobs                                      | API call       |
+| AWS Transform MGN                              | OperationalDescribeReplicationConfigurationTemplates         | API call       |
+| AWS Transform MGN                              | OperationalDescribeSourceServer                              | API call       |
+| AWS Transform MGN                              | OperationalGetLaunchConfiguration                            | API call       |
+| AWS Transform MGN                              | OperationalListSourceServers                                 | API call       |
+| AWS Transform MGN                              | VerifyClientRoleForMgn                                       | API call       |
 | AWS HealthOmics                                | VerifyResourceExists                                         | API call       |
 | AWS HealthOmics                                | VerifyResourcesExistForTagris                                | API call       |
 | Amazon Polly                                   | SynthesizeLongSpeech                                         | API call       |

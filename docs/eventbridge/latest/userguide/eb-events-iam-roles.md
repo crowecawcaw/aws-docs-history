@@ -27,7 +27,10 @@ To relay events to targets, EventBridge needs an IAM role.
 
 EventBridge targets typically require IAM roles that grant permission to EventBridge to invoke the target. The following are some examples for various AWS services and targets. For others, use the EventBridge console to create a Rule and create a new Role which will be created with a policy with well-scoped permissions preconfigured.
 
-Amazon SQS, Amazon SNS, Lambda, CloudWatch Logs, and EventBridge bus targets do not use roles, and permissions to EventBridge must be granted via a resource policy. API Gateway targets can use either resource policies or IAM roles.
+Amazon SQS, Amazon SNS, and Lambda targets support both IAM execution roles and resource-based
+policies. CloudWatch Logs and EventBridge bus targets do not use roles, and permissions to EventBridge must be
+granted via a resource policy. API Gateway targets can use either resource policies or IAM
+roles.
 
 ### API destinations
 
