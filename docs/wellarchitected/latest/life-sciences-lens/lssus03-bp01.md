@@ -126,10 +126,10 @@ that may be accessed across multiple research projects.
 
 - [LSSUS01-BP01
   Design high-performance computing workloads to minimize energy
-  usage](sustainability/research-computing-optimization/lssus01-bp01.md.md "sustainability/research-computing-optimization/lssus01-bp01.md.md")
+  usage](lssus01-bp01.md "lssus01-bp01.md")
 - [LSSUS02-BP01
   Implement sustainability proxy metrics pipeline for research
-  workloads](sustainability/sustainability-metric-tracking-and-reporting/lssus02-bp01.md.md "sustainability/sustainability-metric-tracking-and-reporting/lssus02-bp01.md.md")
+  workloads](lssus02-bp01.md "lssus02-bp01.md")
 
 **Related documents:**
 

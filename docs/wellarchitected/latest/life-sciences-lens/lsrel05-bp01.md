@@ -78,10 +78,10 @@ during network disruptions.
 **Related best practices:**
 
 - [LSREL07-BP01 Implement
-  system-wide data checksums and transfer validation](lsrel07-bp01.md.md "lsrel07-bp01.md.md")
+  system-wide data checksums and transfer validation](lsrel07-bp01.md "lsrel07-bp01.md")
 - [LSREL11-BP01
   Implement monitoring of equipment telemetry to detect
-  anomalies](../failure-management/lsrel11-bp01.md.md "../failure-management/lsrel11-bp01.md.md")
+  anomalies](lsrel11-bp01.md "lsrel11-bp01.md")
 
 **Related tools:**
 

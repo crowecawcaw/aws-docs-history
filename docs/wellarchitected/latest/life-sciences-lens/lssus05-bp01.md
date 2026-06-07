@@ -121,13 +121,13 @@ and supporting remote participation.
 **Related best practices:**
 
 - [LSSUS03-BP02
-  Process data closer to source](sustainability/data-management-efficiency-in-data-analytics-and-data-lifecycle/lssus03-bp02.md.md "sustainability/data-management-efficiency-in-data-analytics-and-data-lifecycle/lssus03-bp02.md.md")
+  Process data closer to source](lssus03-bp02.md "lssus03-bp02.md")
 - [LSSUS02-BP01
   Implement sustainability proxy metrics pipeline for research
-  workloads](sustainability/sustainability-metric-tracking-and-reporting/lssus02-bp01.md.md "sustainability/sustainability-metric-tracking-and-reporting/lssus02-bp01.md.md")
+  workloads](lssus02-bp01.md "lssus02-bp01.md")
 - [LSSUS03-BP01
   Optimize Data Management for Sustainability in Life
-  Sciences](sustainability/data-management-efficiency-in-data-analytics-and-data-lifecycle/lssus03-bp01.md.md "sustainability/data-management-efficiency-in-data-analytics-and-data-lifecycle/lssus03-bp01.md.md")
+  Sciences](lssus03-bp01.md "lssus03-bp01.md")
 
 **Related documents:**
 

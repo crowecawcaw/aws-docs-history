@@ -124,12 +124,12 @@ by correlating proxy metrics with actual carbon footprint data.
 
 - [LSSUS01-BP01
   Design high-performance computing workloads to minimize energy
-  usage](sustainability/research-computing-optimization/lssus01-bp01.md.md "sustainability/research-computing-optimization/lssus01-bp01.md.md")
+  usage](lssus01-bp01.md "lssus01-bp01.md")
 - [LSSUS01-BP02
-  Leverage energy efficient hardware and services](sustainability/research-computing-optimization/lssus01-bp02.md.md "sustainability/research-computing-optimization/lssus01-bp02.md.md")
+  Leverage energy efficient hardware and services](lssus01-bp02.md "lssus01-bp02.md")
 - [LSSUS03-BP01
   Optimize Data Management for Sustainability in Life
-  Sciences](sustainability/data-management-efficiency-in-data-analytics-and-data-lifecycle/lssus03-bp01.md.md "sustainability/data-management-efficiency-in-data-analytics-and-data-lifecycle/lssus03-bp01.md.md")
+  Sciences](lssus03-bp01.md "lssus03-bp01.md")
 
 **Related documents:**
 
