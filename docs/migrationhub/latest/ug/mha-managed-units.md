@@ -22,11 +22,11 @@ managed automation unit.
   to be able to run the unit and the permissions policy that the unit needs. For information
   about the required trust policy and permissions policy, see [IAM roles and permissions for AWS Migration Hub automation units](mha-iam-roles.md "mha-iam-roles.md"). After you create the required role, associate it with the automation unit. For
   instructions, see [Associating an IAM role with an AWS Migration Hub automation unit](associate-role-with-unit.md "associate-role-with-unit.md").
-- The following automation units all use AWS Application Migration Service. Ensure that AWS Application Migration Service is initialized
+- The following automation units all use AWS Transform MGN. Ensure that AWS Transform MGN is initialized
   in the AWS Region where you plan to run one or more of these units. For instructions,
   see [Initializing Application Migration Service with the console](../../../mgn/latest/ug/mgn-initialize-console.md "../../../mgn/latest/ug/mgn-initialize-console.md") or [Initializing AWS
   Application Migration Service with the API](../../../mgn/latest/ug/mgn-initialize-api.md "../../../mgn/latest/ug/mgn-initialize-api.md").
-- Import your inventory into AWS Application Migration Service. For instructions, see [Importing your data
+- Import your inventory into AWS Transform MGN. For instructions, see [Importing your data
   inventory](../../../mgn/latest/ug/import-main.md "../../../mgn/latest/ug/import-main.md").
 
 ###### Managed automation units
@@ -56,8 +56,8 @@ performs the following actions:
 
 1. Ensure that your source servers meet the requirements for installing the AWS Replication Agent. For
    details, see [Installation requirements](../../../mgn/latest/ug/installation-requirements.md "../../../mgn/latest/ug/installation-requirements.md") .
-2. **Prepare Application Migration Service import file and import it to
-   Application Migration Service**:
+2. **Prepare MGN import file and import it to
+   MGN**:
    - Create an import file in the CSV format that contains the information about the
      servers that you want to migrate.
    - The import file must include the following fields: `mgn:account-id`,
@@ -68,7 +68,7 @@ performs the following actions:
      `mgn:launch:instance-type` , `mgn:launch:placement:tenancy` ,
      `mgn:launch:iam-instance-profile:name` ,
      `mgn:launch:placement:host-id` .
-   - Import the CSV file to the Application Migration Service service by using the AWS Management Console, AWS CLI, or AWS
+   - Import the CSV file to the MGN service by using the AWS Management Console, AWS CLI, or AWS
      SDK.
 
 3. **Set up the MGN connector**:
@@ -84,17 +84,17 @@ performs the following actions:
      for the source servers.
    - Make sure to add the `AWSApplicationMigrationServiceManaged` tag to the
      secret.
-   - The Application Migration Service service will use the stored credentials in order to connect to the source
+   - The MGN service will use the stored credentials in order to connect to the source
      servers and perform actions on them during the migration process.
 
 ### Inputs
 
-| Parameter name       | Description                                                                                      | Type   | Required? |
-| -------------------- | ------------------------------------------------------------------------------------------------ | ------ | --------- |
-| WaveARN              | Application Migration Service wave ARN                                                           | string | True      |
-| ApplicationARNs      | List of Application Migration Service application ARNs.                                          | array  | False     |
-| ConnectorArn         | Application Migration Service connector ARN to use for the Application Migration Service rehost. | string | True      |
-| CredentialsSecretArn | Secret ARN containing the credentials for the source servers in scope.                           | string | True      |
+| Parameter name       | Description                                                            | Type   | Required? |
+| -------------------- | ---------------------------------------------------------------------- | ------ | --------- |
+| WaveARN              | MGN wave ARN                                                           | string | True      |
+| ApplicationARNs      | List of MGN application ARNs.                                          | array  | False     |
+| ConnectorArn         | MGN connector ARN to use for the MGN rehost.                           | string | True      |
+| CredentialsSecretArn | Secret ARN containing the credentials for the source servers in scope. | string | True      |
 
 ## AWS-MGN-VerifyReplicationHealth
 
@@ -110,10 +110,10 @@ take several days.
 
 ### Inputs
 
-| Parameter name  | Description                                             | Type   | Required? |
-| --------------- | ------------------------------------------------------- | ------ | --------- |
-| WaveARN         | Application Migration Service wave ARN                  | string | True      |
-| ApplicationARNs | List of Application Migration Service application ARNs. | array  | False     |
+| Parameter name  | Description                   | Type   | Required? |
+| --------------- | ----------------------------- | ------ | --------- |
+| WaveARN         | MGN wave ARN                  | string | True      |
+| ApplicationARNs | List of MGN application ARNs. | array  | False     |
 
 ## AWS-MGN-LaunchTestInstances
 
@@ -126,10 +126,10 @@ Before you run this automation unit, ensure that ReplicationStatus is healthy.
 
 ### Inputs
 
-| Parameter name  | Description                                             | Type   | Required? |
-| --------------- | ------------------------------------------------------- | ------ | --------- |
-| WaveARN         | Application Migration Service wave ARN                  | string | True      |
-| ApplicationARNs | List of Application Migration Service application ARNs. | array  | False     |
+| Parameter name  | Description                   | Type   | Required? |
+| --------------- | ----------------------------- | ------ | --------- |
+| WaveARN         | MGN wave ARN                  | string | True      |
+| ApplicationARNs | List of MGN application ARNs. | array  | False     |
 
 ## AWS-MGN-MarkReadyForCutover
 
@@ -144,25 +144,25 @@ you are ready for cutover.
 
 ### Inputs
 
-| Parameter name  | Description                                             | Type   | Required? |
-| --------------- | ------------------------------------------------------- | ------ | --------- |
-| WaveARN         | Application Migration Service wave ARN                  | string | True      |
-| ApplicationARNs | List of Application Migration Service application ARNs. | array  | False     |
+| Parameter name  | Description                   | Type   | Required? |
+| --------------- | ----------------------------- | ------ | --------- |
+| WaveARN         | MGN wave ARN                  | string | True      |
+| ApplicationARNs | List of MGN application ARNs. | array  | False     |
 
 ## AWS-MGN-TerminateTargetInstances
 
 This automation unit starts and verifies the
-completion of an Application Migration Service job that terminates launched Amazon EC2 test and cutover instances.
+completion of an MGN job that terminates launched Amazon EC2 test and cutover instances.
 
 This unit does not work for any source
 server whose lifecycle state is TESTING, CUTTING_OVER, or CUTOVER.
 
 ### Inputs
 
-| Parameter name  | Description                                             | Type   | Required? |
-| --------------- | ------------------------------------------------------- | ------ | --------- |
-| WaveARN         | Application Migration Service wave ARN                  | string | True      |
-| ApplicationARNs | List of Application Migration Service application ARNs. | array  | False     |
+| Parameter name  | Description                   | Type   | Required? |
+| --------------- | ----------------------------- | ------ | --------- |
+| WaveARN         | MGN wave ARN                  | string | True      |
+| ApplicationARNs | List of MGN application ARNs. | array  | False     |
 
 ## AWS-MGN-LaunchCutoverInstances
 
@@ -171,10 +171,10 @@ cutover will migrate your source servers to the cutover instances on AWS.
 
 ### Inputs
 
-| Parameter name  | Description                                             | Type   | Required? |
-| --------------- | ------------------------------------------------------- | ------ | --------- |
-| WaveARN         | Application Migration Service wave ARN                  | string | True      |
-| ApplicationARNs | List of Application Migration Service application ARNs. | array  | False     |
+| Parameter name  | Description                   | Type   | Required? |
+| --------------- | ----------------------------- | ------ | --------- |
+| WaveARN         | MGN wave ARN                  | string | True      |
+| ApplicationARNs | List of MGN application ARNs. | array  | False     |
 
 ## AWS-MGN-FinalizeCutover
 
@@ -190,22 +190,22 @@ perform acceptance tests for your application.
 
 ### Inputs
 
-| Parameter name  | Description                                             | Type   | Required? |
-| --------------- | ------------------------------------------------------- | ------ | --------- |
-| WaveARN         | Application Migration Service wave ARN                  | string | True      |
-| ApplicationARNs | List of Application Migration Service application ARNs. | array  | False     |
+| Parameter name  | Description                   | Type   | Required? |
+| --------------- | ----------------------------- | ------ | --------- |
+| WaveARN         | MGN wave ARN                  | string | True      |
+| ApplicationARNs | List of MGN application ARNs. | array  | False     |
 
 ## AWS-MGN-ArchiveSourceServers
 
-This automation unit archives source servers by removing them from the main AWS Application Migration Service
-(Application Migration Service) source servers page. Archiving allows you to focus on source servers that haven't yet
+This automation unit archives source servers by removing them from the main AWS Transform MGN
+(MGN) source servers page. Archiving allows you to focus on source servers that haven't yet
 been cut over.
 
 Ensure that the servers that you plan to archive have launched cutover instances.
 
 ### Inputs
 
-| Parameter name  | Description                                             | Type   | Required? |
-| --------------- | ------------------------------------------------------- | ------ | --------- |
-| WaveARN         | Application Migration Service wave ARN                  | string | True      |
-| ApplicationARNs | List of Application Migration Service application ARNs. | array  | False     |
+| Parameter name  | Description                   | Type   | Required? |
+| --------------- | ----------------------------- | ------ | --------- |
+| WaveARN         | MGN wave ARN                  | string | True      |
+| ApplicationARNs | List of MGN application ARNs. | array  | False     |
