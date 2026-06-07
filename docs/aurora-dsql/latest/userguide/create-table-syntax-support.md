@@ -76,7 +76,7 @@ an unused name for the sequence.
 
 The optional `STORAGE` clause sets the storage mode for the column. Use
 these options to control the behavior of compression for variable-length data types such as
-`JSON`.
+`JSON` and `JSONB`.
 
 Amazon Aurora DSQL compresses some data types when they exceed a certain size. To disable
 this behavior, use the `PLAIN` or `EXTERNAL` options.

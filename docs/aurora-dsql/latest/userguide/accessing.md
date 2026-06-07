@@ -22,6 +22,67 @@ session remains active until it ends or the client disconnects.
 If you attempt to open a new session with an expired token, the connection request fails and
 a new token must be generated. For more information, see [Generating an authentication token in Amazon Aurora DSQL](SECTION_authentication-token.md "SECTION_authentication-token.md").
 
+## Supported session parameters
+
+Aurora DSQL automatically optimizes storage, connection management, and transaction processing,
+so it supports a focused set of session parameters. Aurora DSQL accepts the parameters listed in the
+following table. Parameters outside this set return the following error:
+
+```
+ERROR: setting configuration parameter "`parameter_name`" not supported
+```
+
+Aurora DSQL supports the following PostgreSQL session parameters. Unless otherwise noted,
+you can set these using `SET`, `SET SESSION`, or as connection string
+options. You can also use `SET LOCAL` to set any of these parameters for the
+duration of a single transaction. Use `RESET` to restore a parameter to its default
+value.
+
+| Supported session parameters | Parameter             | Category                                                                                                                                                                                      | Description |
+| ---------------------------- | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `application_name`           | Client identification | Sets the application name reported in connection metadata. Useful for identifying<br>connections in monitoring.                                                                               |
+| `client_encoding`            | Localization          | Sets the client-side character encoding. The database uses UTF-8 internally.                                                                                                                  |
+| `datestyle`                  | Output formatting     | Sets the display format for date and time values (for example,<br>`ISO, MDY`).                                                                                                                |
+| `extra_float_digits`         | Output formatting     | Sets the number of digits displayed for floating-point values. Some drivers,<br>such as JDBC, use this parameter.                                                                             |
+| `intervalstyle`              | Output formatting     | Sets the display format for interval values.                                                                                                                                                  |
+| `timezone`                   | Localization          | Sets the time zone for the session. Aurora DSQL stores all timezone-aware dates and times<br>internally in UTC. This parameter controls how Aurora DSQL displays values to the client.        |
+| `search_path`                | Schema resolution     | Sets the schema search order for unqualified object names.                                                                                                                                    |
+| `enable_bitmapscan`          | Query planner         | Enables or disables the query planner's use of bitmap-scan plan types.                                                                                                                        |
+| `enable_hashjoin`            | Query planner         | Enables or disables the query planner's use of hash-join plan types.                                                                                                                          |
+| `enable_indexonlyscan`       | Query planner         | Enables or disables the query planner's use of index-only-scan plan types.                                                                                                                    |
+| `enable_indexscan`           | Query planner         | Enables or disables the query planner's use of index-scan plan types.                                                                                                                         |
+| `enable_material`            | Query planner         | Enables or disables the query planner's use of materialization.                                                                                                                               |
+| `enable_mergejoin`           | Query planner         | Enables or disables the query planner's use of merge-join plan types.                                                                                                                         |
+| `enable_nestloop`            | Query planner         | Enables or disables the query planner's use of nested-loop join plans.                                                                                                                        |
+| `enable_seqscan`             | Query planner         | Enables or disables the query planner's use of sequential scan plan types.                                                                                                                    |
+| `disable_sync_create_index`  | Aurora DSQL-specific  | Controls whether `CREATE INDEX` runs asynchronously. Default is<br>`on`, meaning Aurora DSQL creates indexes asynchronously. Set to `off` to<br>create indexes synchronously on empty tables. |
+| `role`                       | Session identity      | Sets the current role. In Aurora DSQL, you can only set this parameter using<br>`SET LOCAL` within a transaction block.                                                                       |
+
+Aurora DSQL automatically manages the following aspects of your database, so you don't need to
+configure the corresponding PostgreSQL session parameters:
+
+- **Connection and network parameters** –
+  Aurora DSQL manages connection lifecycle and TCP settings internally, including
+  `tcp_keepalives_idle`, `tcp_keepalives_interval`, and
+  `tcp_keepalives_count`.
+- **Memory and resource parameters** –
+  Aurora DSQL automatically manages memory allocation, including `work_mem`
+  and `shared_buffers`.
+- **Timeout parameters** –
+  Aurora DSQL enforces its own transaction duration limits, including
+  `statement_timeout`, `lock_timeout`, and
+  `idle_in_transaction_session_timeout`.
+- **Replication and WAL parameters** –
+  Aurora DSQL handles replication automatically through its built-in multi-Region architecture,
+  including `wal_level` and `synchronous_commit`.
+- **Logging parameters** –
+  Aurora DSQL manages logging internally, including `log_statement` and
+  `client_min_messages`.
+- **Transaction parameters** –
+  Aurora DSQL uses a fixed `REPEATABLE READ` isolation level for all transactions.
+  If your driver requires specifying an isolation level, use `BEGIN ISOLATION LEVEL
+REPEATABLE READ`.
+
 ## Access Aurora DSQL using SQL clients
 
 Aurora DSQL supports multiple PostgreSQL-compatible clients for connecting to your cluster. The
