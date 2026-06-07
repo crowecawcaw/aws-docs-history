@@ -151,6 +151,10 @@ For resource configurations that are domain-name targets, a private hosted zone 
 - DNS resolution is set to IN_VPC on the resource gateway.
 - The custom domain name or group domain is the same or higher-level domain of the domain-name target.
 
+For resource configurations that are of type ARN, VPC Lattice does not create a private hosted zone entry if the following are true:
+
+- Resource gateway is in the same VPC as the service network VPC endpoint/service network VPC association.
+
 ## Custom domain names for service network owners
 
 The private DNS enabled property of the service network resource association overrides
@@ -163,7 +167,13 @@ configuration in any VPCs that the service network is connected to, even though 
 DNS is enabled on the service network endpoint or service network VPC
 associations.
 
-For resource configurations of type ARN the private DNS flag is true and immutable.
+For resource configurations of type ARN, the private DNS flag is true and immutable.
+Therefore, VPC Lattice provisions private hosted zones for ARN resource types regardless
+of the private DNS property setting of the service network endpoint and the service
+network VPC association, except when the resource gateway is also in the same VPC. In
+other words, when a VPC is both a consumer and a provider for an ARN type of resource
+configuration, VPC Lattice skips the creation of the private hosted zones in such a
+VPC.
 
 ## Resource definition
 

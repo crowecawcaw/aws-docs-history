@@ -15,6 +15,13 @@ To create a resource endpoint, you must meet the following prerequisites.
   accept the resource share that contains the resource configuration. For more information, see
   [Accepting and rejecting invitations](../../../ram/latest/userguide/working-with-shared-invitations.md "../../../ram/latest/userguide/working-with-shared-invitations.md") in the _AWS RAM User Guide_.
 
+VPC Lattice does not create a resource endpoint if the following are true:
+
+- Resource gateway is in the same VPC as the resource endpoint.
+- For domain-name targets
+  - DNS resolution is set to IN_VPC on the resource gateway.
+  - The custom domain name or group domain is the same or higher-level domain of the domain-name target.
+
 ## Create a VPC resource endpoint
 
 Use the following procedure to create a VPC resource endpoint. After you create a resource endpoint, you can only modify its security groups or tags.
