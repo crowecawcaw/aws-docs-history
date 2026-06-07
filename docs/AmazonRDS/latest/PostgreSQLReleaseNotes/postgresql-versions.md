@@ -21,6 +21,7 @@ the PostgreSQL documentation.
 
 ###### Topics
 
+- [PostgreSQL 19 versions](#postgresql-version19 "#postgresql-version19")
 - [PostgreSQL 18 versions](#postgresql-version18 "#postgresql-version18")
 - [PostgreSQL 17 versions](#postgresql-version17 "#postgresql-version17")
 - [PostgreSQL 16 versions](#postgresql-version16 "#postgresql-version16")
@@ -33,6 +34,68 @@ the PostgreSQL documentation.
 - [PostgreSQL 9.6 versions (Deprecated)](#postgresql-versions-version96 "#postgresql-versions-version96")
 - [Deprecation of PostgreSQL 10](#postgresql-versions-version10-deprecation-notice "#postgresql-versions-version10-deprecation-notice")
 - [Deprecation of PostgreSQL 9.6](#postgresql-versions-version96-deprecation-notice "#postgresql-versions-version96-deprecation-notice")
+
+## PostgreSQL 19 versions
+
+###### Minor versions
+
+- [PostgreSQL version 19 Beta 1 in the Amazon RDS Preview environment](#postgresql-versions-version19Beta1 "#postgresql-versions-version19Beta1")
+
+### PostgreSQL version 19 Beta 1 in the Amazon RDS Preview environment
+
+PostgreSQL 19 Beta 1 contains many new features and enhancements that can be seen in the
+release documentation: [PostgreSQL 19 Beta 1 Released!](https://www.postgresql.org/about/news/postgresql-19-beta-1-released-3313/ "https://www.postgresql.org/about/news/postgresql-19-beta-1-released-3313/").
+
+The following modifiable parameters were added:
+
+- `autovacuum_analyze_score_weight`
+- `autovacuum_freeze_score_weight`
+- `autovacuum_max_parallel_workers`
+- `autovacuum_multixact_freeze_score_weight`
+- `autovacuum_vacuum_insert_score_weight`
+- `autovacuum_vacuum_score_weight`
+- `debug_print_raw_parse`
+- `enable_eager_aggregate`
+- `log_autoanalyze_min_duration`
+- `max_repack_replication_slots`
+- `min_eager_agg_group_size`
+- `password_expiration_warning_threshold`
+- `wal_sender_shutdown_timeout`
+
+The following loadable module was added in this release:
+
+- `pg_plan_advice`
+
+This version also includes the following extension changes:
+
+- The `orafce` extension was updated to version 4.16.5.
+
+The following extensions that are supported in Amazon RDS PostgreSQL version 18 aren't supported for Amazon RDS PostgreSQL version 19 Beta 1 in preview:
+
+- `address_standardizer`
+- `address_standardizer_data_us`
+- `h3-pg`
+- `h3_postgis`
+- `hypopg`
+- `ip4r`
+- `mysql_fdw`
+- `pg_bigm`
+- `pg_cron`
+- `pg_hint_plan`
+- `pg_partman`
+- `pg_similarity`
+- `pg_stat_monitor`
+- `pgactive`
+- `pgAudit`
+- `pgrouting`
+- `plprofiler`
+- `plv8`
+- `PostGIS`
+- `postgis_raster`
+- `postgis_tiger_geocoder`
+- `tds_fdw`
+
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 19](postgresql-extensions.md#postgresql-extensions-19x "postgresql-extensions.md#postgresql-extensions-19x").
 
 ## PostgreSQL 18 versions
 
