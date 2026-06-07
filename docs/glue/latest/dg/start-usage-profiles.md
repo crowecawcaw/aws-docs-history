@@ -22,4 +22,4 @@ An AWS Glue usage profile is a resource identified by an Amazon Resource Name (A
 ###### Topics
 
 - [Creating and managing usage profiles](start-usage-profiles-managing.md "start-usage-profiles-managing.md")
-- [Usage profiles and jobs](start-usage-profiles-jobs.md "start-usage-profiles-jobs.md")
+- [Working with usage profiles](start-usage-profiles-jobs.md "start-usage-profiles-jobs.md")

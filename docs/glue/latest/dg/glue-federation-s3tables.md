@@ -97,6 +97,10 @@ Regions:
 | il-central-1   | Israel (Tel Aviv)          |
 | mx-central-1   | Mexico (Central)           |
 | sa-east-1      | South America (Sao Paulo)  |
+| us-gov-east-1  | AWS GovCloud (US-East)     |
+| us-gov-west-1  | AWS GovCloud (US-West)     |
+| cn-north-1     | China (Beijing)            |
+| cn-northwest-1 | China (Ningxia)            |
 
 ###### Topics
 

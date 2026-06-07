@@ -1,8 +1,12 @@
-# Usage profiles and jobs
+# Working with usage profiles
 
 ## Authoring jobs with usage profiles
 
 While authoring jobs, the limits and defaults set in your usage profile will apply. Your profile will be assigned to the job upon save.
+
+## Authoring sessions with usage profiles
+
+While authoring sessions, the limits and defaults set in your usage profile will apply. Your profile will be assigned to the session and these limits will be verified before it starts executing.
 
 ## Running jobs with usage profiles
 
