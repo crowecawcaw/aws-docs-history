@@ -9,6 +9,7 @@ Buyers in India can purchase products from sellers in India with specific billin
 
 ###### Topics
 
+- [Buying in the AWS European Sovereign Cloud Marketplace](esc-buyer-getting-started.md "esc-buyer-getting-started.md")
 - [Buying products in AWS Marketplace](buyer-subscribing-to-products.md "buyer-subscribing-to-products.md")
 - [Finding AWS Specialization Partners in AWS Marketplace](product-types-specialization-badges.md "product-types-specialization-badges.md")
 - [Launching software in AWS Marketplace](buyer-launching-software.md "buyer-launching-software.md")
