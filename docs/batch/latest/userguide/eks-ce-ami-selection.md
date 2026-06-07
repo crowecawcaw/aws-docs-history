@@ -19,30 +19,30 @@ or bug fixes from AWS. For more information on upgrading from AL2 to AL2023, see
 _AWS Batch User Guide_.
 
 Run the following command to see which AMI type AWS Batch selected for your Amazon EKS compute
-environment. This following example is a non-GPU instance type.
+environment. The following example is a non-GPU instance type.
 
 ```
-`# compute CE example: indicates Batch has chosen the AL2 x86 or ARM EKS 1.32 AMI, depending on instance types`
+`# compute CE example: indicates Batch has chosen the AL2023 x86 or ARM EKS 1.35 AMI, depending on instance types`
     `$` `aws batch describe-compute-environments --compute-environments `My-Eks-CE1` \
  | jq '.computeEnvironments[].computeResources.ec2Configuration'`
     `[
  {
- "imageType": "EKS_AL2",
- "imageKubernetesVersion": "1.32"
+ "imageType": "EKS_AL2023",
+ "imageKubernetesVersion": "1.35"
  }
  ]`
 ```
 
-This following example is a GPU instance type.
+The following example is a GPU instance type.
 
 ```
-`# GPU CE example: indicates Batch has choosen the AL2 x86 EKS Accelerated 1.32 AMI`
+`# GPU CE example: indicates Batch has chosen the AL2023 x86 EKS Accelerated 1.35 AMI`
     `$` `aws batch describe-compute-environments --compute-environments `My-Eks-GPU-CE` \
  | jq '.computeEnvironments[].computeResources.ec2Configuration'`
     `[
  {
- "imageType": "EKS_AL2_NVIDIA",
- "imageKubernetesVersion": "1.32"
+ "imageType": "EKS_AL2023_NVIDIA",
+ "imageKubernetesVersion": "1.35"
  }
  ]`
 ```

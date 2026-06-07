@@ -19,13 +19,13 @@ Maintenance of the compute environments is a shared responsibility.
 ```
 
 AWS Batch doesn't automatically upgrade the Kubernetes version. Run the following command to update
-the Kubernetes version of your computer environment to `1.32`.
+the Kubernetes version of your compute environment to `1.35`.
 
 ```
 `$` `aws batch update-compute-environment \
  --compute-environment `<compute-environment-name>` \
  --compute-resources \
- 'ec2Configuration=[{imageType=EKS_AL2,imageKubernetesVersion=`1.32`}]'`
+ 'ec2Configuration=[{imageType=EKS_AL2023,imageKubernetesVersion=`1.35`}]'`
 ```
 
 When updating to a more recent AMI or the Kubernetes version, you can specify whether to terminate jobs when they're

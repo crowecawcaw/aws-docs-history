@@ -2,6 +2,7 @@
 
 AWS Batch on Amazon EKS currently supports the following Kubernetes versions:
 
+- `1.35`
 - `1.34`
 - `1.33`
 - `1.32`
