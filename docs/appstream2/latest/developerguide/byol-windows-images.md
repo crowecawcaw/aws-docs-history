@@ -72,7 +72,7 @@ If you already have BYOL images in Amazon WorkSpaces, you can skip directly to *
 #### Option B: For new BYOL Customers
 
 - **(Optional) Validate your image before importing** — If you are importing a customized virtual machine image, run the WorkSpaces Image Checker tool to ensure compatibility. If importing a Windows ISO, you can skip this step.
-- **Import the image** — After enabling BYOL, click **Import Image**. You have three options:
+- **Import the image** — After enabling BYOL, choose **Import Image**. You have three options:
   - **VM import** — Imports a virtual machine image (VHDX, VMDK, or OVF file) that has already been customized
   - **ISO import** — Imports a Windows ISO image downloaded from Microsoft that has not been customized
   - **AMI import** — Imports an existing Amazon EC2 AMI to use as your BYOL image
