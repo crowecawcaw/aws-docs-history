@@ -41,8 +41,8 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
 
 All GuardDuty customer data is encrypted at rest using AWS encryption solutions.
 
-GuardDuty data, such as findings, is encrypted at rest using AWS Key Management Service (AWS KMS) using AWS
-owned customer managed keys.
+GuardDuty data, such as findings, is encrypted at rest using AWS Key Management Service (AWS KMS) with AWS
+owned keys.
 
 ## Encryption in transit
 

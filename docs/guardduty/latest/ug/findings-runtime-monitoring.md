@@ -57,6 +57,9 @@ example, you can HTML encode finding fields when displaying them on a webpage.
 - [Persistence:Runtime/SuspiciousCommand](#persistence-runtime-suspicious-command "#persistence-runtime-suspicious-command")
 - [PrivilegeEscalation:Runtime/SuspiciousCommand](#privilege-escalation-runtime-suspicious-command "#privilege-escalation-runtime-suspicious-command")
 - [DefenseEvasion:Runtime/KernelModuleLoaded](#defenseevasion-runtime-kernelmoduleloaded "#defenseevasion-runtime-kernelmoduleloaded")
+- [Persistence:Runtime/SensitiveFileModified](#persistence-runtime-sensitive-file-modified "#persistence-runtime-sensitive-file-modified")
+- [PrivilegeEscalation:Runtime/SensitiveFileModified](#privilege-escalation-runtime-sensitive-file-modified "#privilege-escalation-runtime-sensitive-file-modified")
+- [DefenseEvasion:Runtime/SensitiveFileModified](#defense-evasion-runtime-sensitive-file-modified "#defense-evasion-runtime-sensitive-file-modified")
 
 ## CryptoCurrency:Runtime/BitcoinTool.B
 
@@ -1317,6 +1320,101 @@ The GuardDuty runtime agent monitors events from multiple resources. To identify
 resource, view **Resource type** in the findings details in the GuardDuty
 console. When applicable, additional context, including process and process lineage information, is available
 in the finding for further investigation.
+
+**Remediation recommendations:**
+
+If this activity is unexpected, your resource might have been compromised. For more
+information, see [Remediating Runtime Monitoring findings](guardduty-remediate-runtime-monitoring.md "guardduty-remediate-runtime-monitoring.md").
+
+## Persistence:Runtime/SensitiveFileModified
+
+### A security-sensitive system file has been modified on an Amazon EC2 instance or a container, potentially enabling an adversary to gain persistence.
+
+**Default severity: Medium**
+
+- **Feature:** Runtime Monitoring
+
+This finding informs you that a security-sensitive system file on an Amazon EC2 instance or
+container has been modified, potentially enabling an adversary to maintain persistent execution
+rights on the system. This could include installation of new SSH key files, changes to user
+configuration files, modifications to password or shadow files, creation of scheduled tasks,
+manipulation of system startup scripts, or modification of executable or script files by web
+service processes in suspicious contexts. These modifications are indicators of compromise that
+could enable unauthorized persistence in your environment.
+
+GuardDuty monitors security-sensitive system files frequently targeted by adversaries for
+persistence. Since these files may also be
+modified during legitimate system administration and management, GuardDuty examines related runtime
+activity and context to generate this finding only when modifications are correlated with other
+suspicious activities.
+
+The GuardDuty runtime agent monitors events from multiple resource types. To identify the
+potentially compromised resource, view **Resource type** in the findings panel
+in the GuardDuty console. The `service.runtimeDetails.context` field contains details
+about the suspicious file modification, including the file path and operation type.
+
+**Remediation recommendations:**
+
+If this activity is unexpected, your resource might have been compromised. For more
+information, see [Remediating Runtime Monitoring findings](guardduty-remediate-runtime-monitoring.md "guardduty-remediate-runtime-monitoring.md").
+
+## PrivilegeEscalation:Runtime/SensitiveFileModified
+
+### A security-sensitive system file has been modified on an Amazon EC2 instance or container, potentially enabling an adversary to elevate privileges.
+
+**Default severity: Medium**
+
+- **Feature:** Runtime Monitoring
+
+This finding informs you that a security-sensitive system file has been modified on an
+Amazon EC2 instance or container, potentially enabling an adversary to elevate their privileges on
+the system. This could involve modifications to security-critical files such as sudoers
+configuration, PAM settings, or system authentication files. These modifications are indicators
+of compromise that could enable unauthorized privilege escalation, potentially resulting in
+unauthorized root access, weakened authentication mechanisms, or compromised security
+controls.
+
+GuardDuty monitors security-sensitive system files frequently targeted by adversaries for
+privilege escalation. Since these files may
+also be modified during legitimate system administration and management, GuardDuty examines related
+runtime activity and context to generate this finding only when modifications are correlated
+with other suspicious activities.
+
+The GuardDuty runtime agent monitors events from multiple resource types. To identify the
+potentially compromised resource, view **Resource type** in the findings panel
+in the GuardDuty console. The `service.runtimeDetails.context` field contains details
+about the suspicious file modification, including the file path and operation type.
+
+**Remediation recommendations:**
+
+If this activity is unexpected, your resource might have been compromised. For more
+information, see [Remediating Runtime Monitoring findings](guardduty-remediate-runtime-monitoring.md "guardduty-remediate-runtime-monitoring.md").
+
+## DefenseEvasion:Runtime/SensitiveFileModified
+
+### A security-sensitive system file has been modified on an Amazon EC2 instance or a container, potentially enabling an adversary to evade detection.
+
+**Default severity: Medium**
+
+- **Feature:** Runtime Monitoring
+
+This finding informs you that a security-sensitive system file on an Amazon EC2 instance or
+container has been modified, potentially enabling an adversary to evade detection on the system.
+This could involve modifications to system log files, audit configurations, command history
+files, or system logs. These modifications are indicators of compromise that could allow
+concealment of unauthorized activities, disruption of security monitoring, or removal of system
+activity evidence.
+
+GuardDuty monitors security-sensitive system files frequently targeted by adversaries for
+defense evasion. Since these files may also
+be modified during legitimate system administration and management, GuardDuty examines related
+runtime activity and context to generate this finding only when modifications are correlated
+with other suspicious activities.
+
+The GuardDuty runtime agent monitors events from multiple resource types. To identify the
+potentially compromised resource, view **Resource type** in the findings panel
+in the GuardDuty console. The `service.runtimeDetails.context` field contains details
+about the suspicious file modification, including the file path and operation type.
 
 **Remediation recommendations:**
 

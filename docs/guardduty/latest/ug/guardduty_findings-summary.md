@@ -688,6 +688,15 @@ are relevant to the finding type.
   Scanner, and Network Sniffer.
 - **Tool Name** – The name of the
   potentially suspicous tool.
+- **File Operation** – The type of file
+  operation that triggered the finding, such as Write, Delete, Rename,
+  Link, or Symlink.
+- **File Path** – The path of the sensitive
+  file that was modified. Modification includes write, delete, rename, link, or
+  symlink operations.
+- **Related File Paths** – All file paths
+  modified by the same process that triggered the finding, up to a maximum of
+  25 paths.
 - **Script Path** – The path to the executed
   script that generated the finding.
 - **Threat File Path** – The suspicious path
