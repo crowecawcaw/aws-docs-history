@@ -16,11 +16,11 @@ source to a target.
     1. Enter an **ID mapping workflow name** and an optional
        **Description**.
 
-    ![The Name and Description fields on the Specify ID mapping workflow details page](/images/entityresolution/latest/userguide/images/specify-ID-mapping-details-name.png) 2. For the **ID mapping method**, choose
+    ![The Name and Description fields on the Specify ID mapping workflow details page](images/specify-ID-mapping-details-name.png) 2. For the **ID mapping method**, choose
     **Rule-based**. 3. (Optional) To process only new, updated, or deleted records in the workflow,
     select **Enable incremental processing**.
 
-    ![The ID mapping section of the Specify ID mapping workflow page with the Enable incremental process checkbox selected.](images/id-mapping-method-enable-inc-proc.png)
+    ![The ID mapping section of the Specify ID mapping workflow page with the Enable incremental process checkbox selected.](/images/entityresolution/latest/userguide/images/id-mapping-method-enable-inc-proc.png)
 
     AWS Entity Resolution processes only new, updated, or deleted records in either the Source or
     Target ID namespace, rather than recreating the entire ID mapping table.
