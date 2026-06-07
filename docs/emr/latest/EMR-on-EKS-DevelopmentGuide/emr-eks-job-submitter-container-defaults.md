@@ -125,3 +125,9 @@ A mebibyte is a unit of measure that's similar to a megabyte.
   }
 }
 ```
+
+###### Note
+
+If the Fluentd logging container encounters an out-of-memory (OOM) error, increase the
+`logging.request.memory` value. For example, set it to `1Gi` to
+allocate more memory to the logging container and prevent OOM issues.
