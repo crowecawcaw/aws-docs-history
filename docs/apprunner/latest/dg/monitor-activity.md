@@ -22,7 +22,7 @@ The App Runner console displays your App Runner service activity and provides mo
 
 The console displays the service dashboard with a **Service overview**.
 
-![App Runner service dashboard page showing Activity list](images/console-dashboard.png) 3. On the service dashboard page, choose the **Activity** tab, if it isn't already chosen.
+![App Runner service dashboard page showing Activity list](/images/apprunner/latest/dg/images/console-dashboard.png) 3. On the service dashboard page, choose the **Activity** tab, if it isn't already chosen.
 
 The console displays a list of operations. 4. To find specific operations, scope down the list by entering a search term. You can search for any value that appears in the table. 5. Choose any listed operation to see or download the related log.
 
