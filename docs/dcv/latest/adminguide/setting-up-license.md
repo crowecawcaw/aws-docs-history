@@ -55,6 +55,14 @@ JSON
 
 ```
 
+###### Note
+
+For non-commercial AWS Regions, change the `aws` component of the Resource
+ARN according to the region's
+[partition](../../../IAM/latest/UserGuide/reference-arns.md "../../../IAM/latest/UserGuide/reference-arns.md").
+For example, use `aws-cn` for China Regions, `aws-us-gov`
+for GovCloud (US) Regions, `aws-eusc` for EU Sovereign Cloud Regions.
+
 - If you're using a Windows instance, ensure that the instance can access the
   _instance metadata service_. Access to this service is required
   to ensure that the Amazon DCV server can be properly licensed. For more information about the
