@@ -88,19 +88,24 @@ AWS Config](../../../apigateway/latest/developerguide/apigateway-config.md "../.
 
 ## Amazon Bedrock
 
-| AWS Service                                    | Resource Type Value                         | Relationship | Related Resource                                                                            | Notes |
-| ---------------------------------------------- | ------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------- | ----- |
-| Amazon Bedrock                                 | `AWS::Bedrock::ApplicationInferenceProfile` | NA           | NA                                                                                          |       |
-| `AWS::Bedrock::DataSource`                     | NA                                          | NA           | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
-| `AWS::Bedrock::Guardrail`                      | NA                                          | NA           |                                                                                             |
-| `AWS::Bedrock::KnowledgeBase`                  | NA                                          | NA           |                                                                                             |
-| `AWS::Bedrock::Prompt`                         | NA                                          | NA           |                                                                                             |
-| `AWS::BedrockAgentCore::BrowserCustom`         | NA                                          | NA           |                                                                                             |
-| `AWS::BedrockAgentCore::CodeInterpreterCustom` | NA                                          | NA           |                                                                                             |
-| `AWS::BedrockAgentCore::Gateway`               | NA                                          | NA           |                                                                                             |
-| `AWS::BedrockAgentCore::Memory`                | NA                                          | NA           |                                                                                             |
-| `AWS::BedrockAgentCore::Runtime`               | NA                                          | NA           |                                                                                             |
-| `AWS::BedrockAgentCore::WorkloadIdentity`      | NA                                          | NA           |                                                                                             |
+| AWS Service                                     | Resource Type Value                         | Relationship | Related Resource                                                                            | Notes |
+| ----------------------------------------------- | ------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------- | ----- |
+| Amazon Bedrock                                  | `AWS::Bedrock::ApplicationInferenceProfile` | NA           | NA                                                                                          |       |
+| `AWS::Bedrock::DataSource`                      | NA                                          | NA           | Recording CIs for resource deletion events may take up to 92 hours to reflect in AWS Config |
+| `AWS::Bedrock::FlowAlias`                       | NA                                          | NA           |                                                                                             |
+| `AWS::Bedrock::Guardrail`                       | NA                                          | NA           |                                                                                             |
+| `AWS::Bedrock::KnowledgeBase`                   | NA                                          | NA           |                                                                                             |
+| `AWS::Bedrock::Prompt`                          | NA                                          | NA           |                                                                                             |
+| `AWS::BedrockAgentCore::BrowserCustom`          | NA                                          | NA           |                                                                                             |
+| `AWS::BedrockAgentCore::CodeInterpreterCustom`  | NA                                          | NA           |                                                                                             |
+| `AWS::BedrockAgentCore::Evaluator`              | NA                                          | NA           |                                                                                             |
+| `AWS::BedrockAgentCore::Gateway`                | NA                                          | NA           |                                                                                             |
+| `AWS::BedrockAgentCore::GatewayTarget`          | NA                                          | NA           |                                                                                             |
+| `AWS::BedrockAgentCore::Memory`                 | NA                                          | NA           |                                                                                             |
+| `AWS::BedrockAgentCore::OnlineEvaluationConfig` | NA                                          | NA           |                                                                                             |
+| `AWS::BedrockAgentCore::Runtime`                | NA                                          | NA           |                                                                                             |
+| `AWS::BedrockAgentCore::RuntimeEndpoint`        | NA                                          | NA           |                                                                                             |
+| `AWS::BedrockAgentCore::WorkloadIdentity`       | NA                                          | NA           |                                                                                             |
 
 ## Amazon CloudFront
 
@@ -681,10 +686,12 @@ You might continue to see your data for `AWS::OpenSearch::Domain` under the exis
 | AWS Service                                        | Resource Type Value              | Relationship | Related Resource | Notes |
 | -------------------------------------------------- | -------------------------------- | ------------ | ---------------- | ----- |
 | Amazon SageMaker AI                                | `AWS::SageMaker::AppImageConfig` | NA           | NA               |       |
+| `AWS::SageMaker::Cluster`                          | NA                               | NA           |                  |
 | `AWS::SageMaker::CodeRepository`                   | NA                               | NA           |                  |
 | `AWS::SageMaker::DataQualityJobDefinition`         | NA                               | NA           |                  |
 | `AWS::SageMaker::Domain`                           | NA                               | NA           |                  |
 | `AWS::SageMaker::EndpointConfig`                   | NA                               | NA           |                  |
+| `AWS::SageMaker::Endpoint`                         | NA                               | NA           |                  |
 | `AWS::SageMaker::FeatureGroup`                     | NA                               | NA           |                  |
 | `AWS::SageMaker::Image`                            | NA                               | NA           |                  |
 | `AWS::SageMaker::InferenceExperiment`              | NA                               | NA           |                  |
@@ -693,9 +700,11 @@ You might continue to see your data for `AWS::OpenSearch::Domain` under the exis
 | `AWS::SageMaker::ModelBiasJobDefinition`           | NA                               | NA           |                  |
 | `AWS::SageMaker::ModelExplainabilityJobDefinition` | NA                               | NA           |                  |
 | `AWS::SageMaker::ModelQualityJobDefinition`        | NA                               | NA           |                  |
+| `AWS::SageMaker::ModelPackageGroup`                | NA                               | NA           |                  |
 | `AWS::SageMaker::MonitoringSchedule`               | NA                               | NA           |                  |
 | `AWS::SageMaker::NotebookInstance`                 | NA                               | NA           |                  |
 | `AWS::SageMaker::NotebookInstanceLifecycleConfig`  | NA                               | NA           |                  |
+| `AWS::SageMaker::Pipeline`                         | NA                               | NA           |                  |
 | `AWS::SageMaker::StudioLifecycleConfig`            | NA                               | NA           |                  |
 | `AWS::SageMaker::UserProfile`                      | NA                               | NA           |                  |
 | `AWS::SageMaker::Workteam`                         | NA                               | NA           |                  |
