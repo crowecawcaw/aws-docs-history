@@ -15,6 +15,13 @@ a two-level map that's declared in the `Mappings` section.
 { "Fn::FindInMap" : [ "`MapName`", "`TopLevelKey`", "`SecondLevelKey`"] }
 ```
 
+If you want to specify a fallback value for when a key isn't found in the mapping,
+include a `DefaultValue`:
+
+```
+{ "Fn::FindInMap" : [ "`MapName`", "`TopLevelKey`", "`SecondLevelKey`", {"DefaultValue": "`DefaultValue`"}] }
+```
+
 ### YAML
 
 Syntax for the full function name:
@@ -27,6 +34,29 @@ Syntax for the short form:
 
 ```
 !FindInMap [ `MapName`, `TopLevelKey`, `SecondLevelKey` ]
+```
+
+If you want to specify a fallback value for when a key isn't found in the mapping,
+include a `DefaultValue`:
+
+Syntax for the full function name:
+
+```
+Fn::FindInMap:
+  - `MapName`
+  - `TopLevelKey`
+  - `SecondLevelKey`
+  - DefaultValue: `DefaultValue`
+```
+
+Syntax for the short form:
+
+```
+!FindInMap
+  - `MapName`
+  - `TopLevelKey`
+  - `SecondLevelKey`
+  - DefaultValue: `DefaultValue`
 ```
 
 ###### Note
@@ -49,9 +79,22 @@ SecondLevelKey
 The second-level key name, which is set to one of the keys from the list assigned to
 `TopLevelKey`.
 
+DefaultValue
+
+The value that `Fn::FindInMap` returns if either the
+`TopLevelKey` or `SecondLevelKey` is not found in the specified
+mapping. This parameter is optional. If omitted, `Fn::FindInMap` raises an
+error when a key is not found.
+
+The fourth parameter must be a map with the key `DefaultValue`. For
+example: `{"DefaultValue": "us-east-1"}`.
+
 ## Return value
 
-The value that's assigned to `SecondLevelKey`.
+The value that's assigned to `SecondLevelKey`. If the
+`TopLevelKey` or `SecondLevelKey` is not found and a
+`DefaultValue` is specified, the `DefaultValue` is returned
+instead.
 
 ## Examples
 
@@ -62,6 +105,7 @@ function.
 
 - [Use Fn::FindInMap with region-specific values](#intrinsic-function-reference-findinmap-region-example "#intrinsic-function-reference-findinmap-region-example")
 - [Use Fn::FindInMap for environment-specific configurations](#intrinsic-function-reference-findinmap-environment-example "#intrinsic-function-reference-findinmap-environment-example")
+- [Use Fn::FindInMap with a default value](#intrinsic-function-reference-findinmap-default-value-example "#intrinsic-function-reference-findinmap-default-value-example")
 
 ### Use Fn::FindInMap with region-specific values
 
@@ -290,6 +334,69 @@ Resources:
           - Fn::FindInMap: [ SecurityGroups, !Ref EnvironmentType, SecurityGroupIds ]
 ```
 
+### Use Fn::FindInMap with a default value
+
+The following example uses a `DefaultValue` to provide a fallback when a key
+is not found in the mapping. If the current AWS Region is not defined in the
+`RegionMap` mapping, `Fn::FindInMap` returns
+`t3.micro` instead of raising an error.
+
+#### JSON
+
+```
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Mappings": {
+    "RegionMap": {
+      "us-east-1": {
+        "InstanceType": "t3.large"
+      },
+      "eu-west-1": {
+        "InstanceType": "t3.medium"
+      }
+    }
+  },
+  "Resources": {
+    "MyInstance": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "ImageId": "{{resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-6.1-x86_64}}",
+        "InstanceType": {
+          "Fn::FindInMap": [
+            "RegionMap",
+            { "Ref": "AWS::Region" },
+            "InstanceType",
+            { "DefaultValue": "t3.micro" }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
+#### YAML
+
+```
+AWSTemplateFormatVersion: 2010-09-09
+Mappings:
+  RegionMap:
+    us-east-1:
+      InstanceType: t3.large
+    eu-west-1:
+      InstanceType: t3.medium
+Resources:
+  MyInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: '{{resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-6.1-x86_64}}'
+      InstanceType: !FindInMap
+        - RegionMap
+        - !Ref AWS::Region
+        - InstanceType
+        - DefaultValue: t3.micro
+```
+
 ## Supported functions
 
 You can use the following functions in a `Fn::FindInMap` function:
@@ -299,9 +406,10 @@ You can use the following functions in a `Fn::FindInMap` function:
 
 ## Related resources
 
-To use other intrinsic functions or a default value in a `Fn::FindInMap`
-function, you must declare the `AWS::LanguageExtensions` transform within your
-template. For more information, see [Fn::FindInMap enhancements](intrinsic-function-reference-findinmap-enhancements.md "intrinsic-function-reference-findinmap-enhancements.md").
+To use intrinsic functions beyond `Fn::FindInMap` and `Ref` in the
+parameters of a `Fn::FindInMap` function, you must declare the
+`AWS::LanguageExtensions` transform within your template. For more information,
+see [Fn::FindInMap enhancements](intrinsic-function-reference-findinmap-enhancements.md "intrinsic-function-reference-findinmap-enhancements.md").
 
 These related topics can be helpful as you develop templates that use the
 `Fn::FindInMap` function.

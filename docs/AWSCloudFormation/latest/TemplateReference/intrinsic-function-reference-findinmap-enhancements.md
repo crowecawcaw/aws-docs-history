@@ -7,34 +7,32 @@ Please update your bookmarks and links. For help getting started with CloudForma
 The `AWS::LanguageExtensions` transform enhances the functionality of the
 `Fn::FindInMap` intrinsic function in CloudFormation templates.
 
-The `Fn::FindInMap` function is used to retrieve a value from a mapping defined
-in the `Mappings` section of a CloudFormation template. However, the standard
-`Fn::FindInMap` function has limitations, such as the inability to handle
-missing mappings or use a `Fn::FindInMap` function with some intrinsic functions
-embedded inside it.
+The standard `Fn::FindInMap` function supports only `Fn::FindInMap`
+and `Ref` as nested intrinsic functions. The
+`AWS::LanguageExtensions` transform removes this limitation, allowing you to
+use a wider range of intrinsic functions to define the parameters of
+`Fn::FindInMap`.
 
-The `AWS::LanguageExtensions` transform addresses these limitations by
-introducing the following enhancements:
+###### Note
 
-- Default value support – You can specify a
-  default value to be returned if a mapping is not found.
-- Intrinsic function support – You can also
-  use a wider range of intrinsic functions to define the fields of
-  `Fn::FindInMap` than with the standard `Fn::FindInMap`
-  function.
+The `DefaultValue` parameter for `Fn::FindInMap` no longer
+requires the `AWS::LanguageExtensions` transform. You can use
+`DefaultValue` in any CloudFormation template. For more information, see
+[Fn::FindInMap](intrinsic-function-reference-findinmap.md "intrinsic-function-reference-findinmap.md").
 
 ## Declaration
 
 ### JSON
 
 ```
-{ "Fn::FindInMap" : [
-    "`MapName`",
-    "`TopLevelKey`",
-    "`SecondLevelKey`",
-    {"DefaultValue": "`DefaultValue`"}
-  ]
-}
+{ "Fn::FindInMap" : [ "`MapName`", "`TopLevelKey`", "`SecondLevelKey`"] }
+```
+
+If you want to specify a fallback value for when a key isn't found in the
+mapping, include a `DefaultValue`:
+
+```
+{ "Fn::FindInMap" : [ "`MapName`", "`TopLevelKey`", "`SecondLevelKey`", {"DefaultValue": "`DefaultValue`"}] }
 ```
 
 ### YAML
@@ -42,10 +40,25 @@ introducing the following enhancements:
 Syntax for the full function name:
 
 ```
+Fn::FindInMap: [ `MapName`, `TopLevelKey`, `SecondLevelKey` ]
+```
+
+Syntax for the short form:
+
+```
+!FindInMap [ `MapName`, `TopLevelKey`, `SecondLevelKey` ]
+```
+
+If you want to specify a fallback value for when a key isn't found in the
+mapping, include a `DefaultValue`:
+
+Syntax for the full function name:
+
+```
 Fn::FindInMap:
-  `- MapName`
-  `- TopLevelKey`
-  `- SecondLevelKey`
+  - `MapName`
+  - `TopLevelKey`
+  - `SecondLevelKey`
   - DefaultValue: `DefaultValue`
 ```
 
@@ -53,72 +66,32 @@ Syntax for the short form:
 
 ```
 !FindInMap
-  `- MapName`
-  `- TopLevelKey`
-  `- SecondLevelKey`
+  - `MapName`
+  - `TopLevelKey`
+  - `SecondLevelKey`
   - DefaultValue: `DefaultValue`
 ```
 
 ## Parameters
 
-DefaultValue
-
-The value that `Fn::FindInMap` will resolve to if the
-`TopLevelKey` and/or `SecondLevelKey` can not be
-found from the `MapName` map. This field is optional.
-
-All parameters `MapName`, `TopLevelKey`,
-`SecondLevelKey`, and `DefaultValue` can be an intrinsic
-function as long as it's able to resolve to a valid value during the transform.
+With the `AWS::LanguageExtensions` transform, the parameters
+`MapName`, `TopLevelKey`, `SecondLevelKey`, and
+`DefaultValue` can each be an intrinsic function, as long as it resolves
+to a valid value during the transform.
 
 ## Examples
 
-The following examples demonstrate how to define the fields of
+The following examples demonstrate how to use intrinsic functions in the parameters of
 `Fn::FindInMap` when you add the `AWS::LanguageExtensions`
 transform.
 
-### Using a default value
+### Using intrinsic functions to define the top level key
 
-The following is an example of using a default value in the
-`Fn::FindInMap` function.
+The following is an example of using a `Fn::FindInMap` function with
+the `Fn::Select` and `Fn::Split` intrinsic functions embedded
+inside it to define the top level key.
 
 #### JSON
-
-```
-{
-  //...
-    "Transform": "AWS::LanguageExtensions",
-    //...
-    "Fn::FindInMap": [
-      "RegionMap",
-      { "Ref": "AWS::Region" },
-      "InstanceType",
-      { "DefaultValue": "t3.micro" }
-    ]
-  //...
-}
-```
-
-#### YAML
-
-```
-Transform: 'AWS::LanguageExtensions'
-#...
-    !FindInMap
-        - 'RegionMap'
-        - !Ref 'AWS::Region'
-        - 'InstanceType'
-        - DefaultValue: t3.micro
-#...
-```
-
-#### Using intrinsic functions to define the top level key
-
-The following is an example of using a `Fn::FindInMap` function
-with the `Fn::Select` and `Fn::Split` intrinsic functions
-embedded inside it to define the top level key.
-
-##### JSON
 
 ```
 {
@@ -144,7 +117,7 @@ embedded inside it to define the top level key.
 }
 ```
 
-##### YAML
+#### YAML
 
 ```
 Transform: 'AWS::LanguageExtensions'
@@ -155,8 +128,8 @@ Transform: 'AWS::LanguageExtensions'
 
 ## Supported functions
 
-You can use the following functions in the parameters of `Fn::FindInMap:`
-enhancements:
+You can use the following functions in the parameters of `Fn::FindInMap`
+with the `AWS::LanguageExtensions` transform:
 
 - `Fn::FindInMap`
 - `Fn::Join`
@@ -165,15 +138,15 @@ enhancements:
 - `Fn::Select`
 - `Fn::Length`
 - `Fn::ToJsonString`
-- `Fn::Split` - Unless it’s used
-  for the default value, `Fn::Split` has to be used in conjunction with
-  intrinsic functions that produce a string, such as `Fn::Join` or `Fn::Select`.
+- `Fn::Split` – Unless
+  it's used for the default value, `Fn::Split` must be used in
+  conjunction with intrinsic functions that produce a string, such as `Fn::Join` or `Fn::Select`.
 - `Ref`
 
 ## Related resources
 
 For more information and examples that show how to use the `Fn::FindInMap`
-intrinsic function, see [Fn::FindInMap](intrinsic-function-reference-findinmap.md "intrinsic-function-reference-findinmap.md").
+intrinsic function, including the `DefaultValue` parameter, see [Fn::FindInMap](intrinsic-function-reference-findinmap.md "intrinsic-function-reference-findinmap.md").
 
 For more information about the `AWS::LanguageExtensions` transform, see
 [AWS::LanguageExtensions transform](transform-aws-languageextensions.md "transform-aws-languageextensions.md").
