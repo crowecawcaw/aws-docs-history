@@ -2,11 +2,11 @@
 
 ###### Note
 
-Following the successful launch of AWS Application Migration Service, the CloudEndure Migration service is now end of life in all AWS Regions. We recommend customers use
-AWS Application Migration Service for lift and shift migrations to GovCloud Regions and to the Commercial Regions. For information, see
-[What Is AWS Application Migration Service?](../../../mgn/latest/ug/what-is-application-migration-service.md "../../../mgn/latest/ug/what-is-application-migration-service.md").
+Following the successful launch of AWS Transform MGN, the CloudEndure Migration service is now end of life in all AWS Regions. We recommend customers use
+AWS Transform MGN for lift and shift migrations to GovCloud Regions and to the Commercial Regions. For information, see
+[What Is AWS Transform MGN?](../../../mgn/latest/ug/what-is-application-migration-service.md "../../../mgn/latest/ug/what-is-application-migration-service.md").
 
-If you want to use the AWS Application Migration Service, reach out to your CA so they can guide you.
+If you want to use the AWS Transform MGN, reach out to your CA so they can guide you.
 
 Use AMS Self-Service Provisioning (SSP) mode to access AWS CloudEndure capabilities directly in your AMS managed account. AWS CloudEndure migration simplifies, expedites, and automates large-scale migrations from physical, virtual,
 and cloud-based infrastructure to AWS. CloudEndure Disaster Recovery (DR) protects against downtime and data
