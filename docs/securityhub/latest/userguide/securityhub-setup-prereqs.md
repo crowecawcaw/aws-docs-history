@@ -10,21 +10,50 @@ rules are custom AWS Config rules that Security Hub CSPM develops. AWS Config ru
 referred to as _service-linked rules_. Service-linked rules allow
 AWS services such as Security Hub CSPM to create AWS Config rules in your account.
 
-To receive control findings in Security Hub CSPM, you must enable AWS Config for your account. You must also
-turn on resource recording for the types of resources that enabled controls evaluate. Security Hub CSPM
-can then create the appropriate AWS Config rules for the controls and begin to run security checks
-and generate findings for the controls.
+If you have both AWS Security Hub CSPM and Security Hub enabled, Security Hub CSPM automatically creates a
+service-linked configuration recorder to assess your security controls. You don't need to
+manually enable or configure AWS Config. For more information, see [Using the service-linked configuration recorder](#service-linked-config-recorder "#service-linked-config-recorder").
+
+If you have Security Hub CSPM enabled without Security Hub, you must manually enable AWS Config and turn on
+resource recording. For more information, see [Manually configuring AWS Config](#manual-config-setup "#manual-config-setup").
 
 ###### Topics
 
-- [Considerations before enabling and configuring AWS Config](#securityhub-prereq-config "#securityhub-prereq-config")
-- [Recording resources in AWS Config](#config-resource-recording "#config-resource-recording")
-- [Ways to enable and configure AWS Config](#config-how-to-enable "#config-how-to-enable")
+- [Using the service-linked configuration recorder](#service-linked-config-recorder "#service-linked-config-recorder")
+- [Manually configuring AWS Config](#manual-config-setup "#manual-config-setup")
 - [Understanding the Config.1 control](#config-1-overview "#config-1-overview")
 - [Generating service-linked rules](#securityhub-standards-generate-awsconfigrules "#securityhub-standards-generate-awsconfigrules")
-- [Cost considerations](#config-cost-considerations "#config-cost-considerations")
 
-## Considerations before enabling and configuring AWS Config
+## Using the service-linked configuration recorder
+
+When you have both AWS Security Hub CSPM and Security Hub enabled, Security Hub CSPM automatically creates and
+manages a service-linked configuration recorder across your accounts and Regions. You
+don't need to manually enable or configure AWS Config.
+
+The name of this configuration recorder is
+`AWSConfigurationRecorderForSecurityHubCSPM`. Security Hub CSPM creates a corresponding
+service-linked configuration recorder for each account and Region where both Security Hub CSPM and
+Security Hub are enabled. As you enable Security Hub CSPM for new AWS accounts and AWS Regions,
+Security Hub CSPM automatically creates the service-linked configuration recorder.
+
+Security Hub CSPM manages the resource configuration of the service-linked configuration recorder,
+ensuring that recording is enabled for all resources that are tied to controls supported
+by Security Hub. For a list of required resources, see [Required AWS Config resources for control findings](controls-config-resources.md "controls-config-resources.md").
+
+When Security Hub CSPM creates this service-linked configuration recorder, Security Hub does not use
+the customer-managed configuration recorder in AWS Config.
+
+For more information about configuration recorders, see [Working with the
+configuration recorder](../../../config/latest/developerguide/stop-start-recorder.md "../../../config/latest/developerguide/stop-start-recorder.md") in the _AWS Config Developer Guide_.
+
+## Manually configuring AWS Config
+
+The following steps apply when you have Security Hub CSPM enabled without Security Hub. In this case,
+you must enable AWS Config for your account and turn on resource recording for the types of
+resources that your enabled controls evaluate. After you do this, Security Hub CSPM creates the
+appropriate AWS Config rules and begins running security checks to generate findings.
+
+### Considerations before enabling and configuring AWS Config
 
 To receive control findings in Security Hub CSPM, AWS Config must be enabled for your account in each
 AWS Region where Security Hub CSPM is enabled. If you use Security Hub CSPM for a multi-account environment,
@@ -38,7 +67,7 @@ To turn on resource recording in AWS Config, you must have sufficient permission
 resources in the AWS Identity and Access Management (IAM) role that's attached to the configuration recorder.
 In addition, ensure that no IAM policies or AWS Organizations policies prevent AWS Config from having
 permission to record your resources. Security Hub CSPM controls evaluate resource configurations
-directly and don’t take AWS Organizations policies into account. For more information about AWS Config
+directly and don't take AWS Organizations policies into account. For more information about AWS Config
 recording, see [Working with the
 configuration recorder](../../../config/latest/developerguide/stop-start-recorder.md "../../../config/latest/developerguide/stop-start-recorder.md") in the _AWS Config Developer Guide_.
 
@@ -55,7 +84,7 @@ If you use central configuration, Security Hub CSPM also tries to create service
 each time you associate a configuration policy that enables one or more standards with
 accounts, organizational units (OUs), or the root.
 
-## Recording resources in AWS Config
+### Recording resources in AWS Config
 
 When you enable AWS Config, you must specify which AWS resources you want the AWS Config
 configuration recorder to record. Through the service-linked rules, the configuration
@@ -104,7 +133,7 @@ change-triggered controls until a 24–hour period is complete.
 
 For more information about AWS Config recording, see [Recording AWS resources](../../../config/latest/developerguide/select-resources.md "../../../config/latest/developerguide/select-resources.md") in the _AWS Config Developer Guide_.
 
-## Ways to enable and configure AWS Config
+### Ways to enable and configure AWS Config
 
 You can enable AWS Config and turn on resource recording in any of the following ways:
 
@@ -137,7 +166,27 @@ For more information, see the following blog post on the _AWS
 Security blog_: [Optimize AWS Config for AWS Security Hub CSPM to effectively manage your cloud security
 posture](https://aws.amazon.com/blogs/security/optimize-aws-config-for-aws-security-hub-to-effectively-manage-your-cloud-security-posture/ "https://aws.amazon.com/blogs/security/optimize-aws-config-for-aws-security-hub-to-effectively-manage-your-cloud-security-posture/").
 
+### Cost considerations
+
+Security Hub CSPM can impact your AWS Config configuration recorder costs by updating the
+`AWS::Config::ResourceCompliance` configuration item. Updates can
+occur each time a Security Hub CSPM control associated with an AWS Config rule changes compliance
+state, is enabled or disabled, or has parameter updates. If you use the AWS Config configuration recorder only for
+Security Hub CSPM, and don't use this configuration item for other purposes, we recommend
+turning off recording for it in AWS Config. This can reduce your AWS Config
+costs. You don't need to record `AWS::Config::ResourceCompliance` for security
+checks to work in Security Hub CSPM.
+
+For information about the costs associated with resource recording, see [AWS Security Hub CSPM pricing](https://aws.amazon.com/security-hub/pricing/ "https://aws.amazon.com/security-hub/pricing/") and
+[AWS Config pricing](https://aws.amazon.com/config/pricing/ "https://aws.amazon.com/config/pricing/").
+
 ## Understanding the Config.1 control
+
+###### Note
+
+When AWS Security Hub CSPM and Security Hub are both enabled, the Config.1 control always has a
+status of `PASSED`. Security Hub CSPM has direct access to configuration items
+through a service-linked configuration recorder. For more information, see [Using the service-linked configuration recorder](#service-linked-config-recorder "#service-linked-config-recorder").
 
 In Security Hub CSPM, the [Config.1](config-controls.md#config-1 "config-controls.md#config-1") control generates
 `FAILED` findings in your account if AWS Config is disabled. It also generates
@@ -184,16 +233,7 @@ a security standard even if you've already reached the AWS Config quota for mana
 your account. To learn more about quotas for AWS Config rules, see [Service limits for AWS Config](../../../config/latest/developerguide/configlimits.md "../../../config/latest/developerguide/configlimits.md")
 in the _AWS Config Developer Guide_.
 
-## Cost considerations
+###### Note
 
-Security Hub CSPM can impact your AWS Config configuration recorder costs by updating the
-`AWS::Config::ResourceCompliance` configuration item. Updates can
-occur each time a Security Hub CSPM control associated with an AWS Config rule changes compliance
-state, is enabled or disabled, or has parameter updates. If you use the AWS Config configuration recorder only for
-Security Hub CSPM, and don't use this configuration item for other purposes, we recommend
-turning off recording for it in AWS Config. This can reduce your AWS Config
-costs. You don't need to record `AWS::Config::ResourceCompliance` for security
-checks to work in Security Hub CSPM.
-
-For information about the costs associated with resource recording, see [AWS Security Hub CSPM pricing](https://aws.amazon.com/security-hub/pricing/ "https://aws.amazon.com/security-hub/pricing/") and
-[AWS Config pricing](https://aws.amazon.com/config/pricing/ "https://aws.amazon.com/config/pricing/").
+If you are using Security Hub CSPM and Security Hub you can see the service-linked rules in AWS Config but you will not be able to see the compliant or noncompliant resources associated with the rule.
+Compliant and noncompliant resources will only be visible in Security Hub CSPM and Security Hub.

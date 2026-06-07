@@ -31,7 +31,6 @@ use case, we recommend switching to roles or federation instead of using IAM use
   - [The IAM user does not have MFA enabled](exposure-iam-user.md#user-mfa-disabled "exposure-iam-user.md#user-mfa-disabled")
   - [The IAM user has a policy with administrative access to an AWS service](exposure-iam-user.md#service-admin-policy "exposure-iam-user.md#service-admin-policy")
   - [The AWS account for the IAM user has weak password policies](exposure-iam-user.md#weak-password-policies "exposure-iam-user.md#weak-password-policies")
-  - [The IAM user has unused credentials](exposure-iam-user.md#unused-credentials "exposure-iam-user.md#unused-credentials")
   - [The IAM user has unrotated access keys](exposure-iam-user.md#unrotated-access-keys "exposure-iam-user.md#unrotated-access-keys")
   - [The IAM user has a policy that allows unrestricted access to KMS key decryption](exposure-iam-user.md#unrestricted-kms-decryption-allowed "exposure-iam-user.md#unrestricted-kms-decryption-allowed")
 
@@ -150,28 +149,6 @@ Consider these additional security measures in addition to a strong password pol
 - MFA adds an additional security layer by requiring an additional form of authentication.
   This helps prevent unauthorized access even if credentials are compromised.
 - Setting up condition elements to restrict when and how administrative permissions can be used based on factors like source IP or MFA age.
-
-### The IAM user has unused credentials
-
-Unused credentials, including passwords and access keys that have remained inactive for 90 days or more pose a security risk to your AWS environment.
-These unused credentials create potential attack vectors for attackers and increase your organization’s overall attack surface.
-Following security best practices, AWS recommends deactivating or removing credentials that haven’t been used in 90 days or more to reduce your attack surface.
-
-###### Deactivate or remove unused credentials
-
-In the exposure finding, open the resource.
-This will open the user details window.
-Before taking action on unused credentials, assess the potential impact on your environment.
-Removing credentials without proper assessment could disrupt background processes, scheduled jobs, and more.
-Consider a brief deactivation period before permanent removal to verify the impact of removing the unused credentials.
-
-Take the appropriate action based on the credential type:
-
-- For unused console passwords, consider first changing the password and temporarily deactivating it.
-  If no issues arise, proceed with permanent deactivation or deletion.
-- For unused access keys, consider first deactivating the key.
-  After confirming no systems are affected, proceed with permanent deactivation or deletion.
-- For unused users, consider temporarily deactivating the user by attaching a restrictive policy before full deletion.
 
 ### The IAM user has unrotated access keys
 

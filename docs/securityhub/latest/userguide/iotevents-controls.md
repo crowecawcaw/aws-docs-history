@@ -45,6 +45,11 @@ to many AWS services, including AWS Billing. For more tagging best practices, se
 [Best practices and strategies](../../../tag-editor/latest/userguide/tagging.md#tag-best-practices "../../../tag-editor/latest/userguide/tagging.md#tag-best-practices") in the
 _Tagging AWS Resources and Tag Editor User Guide_.
 
+###### Note
+
+This control will be retired after July 7, 2026 and removed from all applicable Security Hub CSPM standards.
+AWS announced end of support for AWS IoT Events service effective May 20, 2026.
+
 ### Remediation
 
 To add tags to an AWS IoT Events input, see [Tagging your AWS IoT Events resources](../../../iotevents/latest/developerguide/tagging-iotevents.md "../../../iotevents/latest/developerguide/tagging-iotevents.md") in the _AWS IoT Events Developer Guide_.
@@ -90,6 +95,11 @@ to many AWS services, including AWS Billing. For more tagging best practices, se
 [Best practices and strategies](../../../tag-editor/latest/userguide/tagging.md#tag-best-practices "../../../tag-editor/latest/userguide/tagging.md#tag-best-practices") in the
 _Tagging AWS Resources and Tag Editor User Guide_.
 
+###### Note
+
+This control will be retired after July 7, 2026 and removed from all applicable Security Hub CSPM standards.
+AWS announced end of support for AWS IoT Events service effective May 20, 2026.
+
 ### Remediation
 
 To add tags to an AWS IoT Events detector model, see [Tagging your AWS IoT Events resources](../../../iotevents/latest/developerguide/tagging-iotevents.md "../../../iotevents/latest/developerguide/tagging-iotevents.md") in the _AWS IoT Events Developer Guide_.
@@ -134,6 +144,11 @@ Don’t add personally identifiable information (PII) or other confidential or s
 to many AWS services, including AWS Billing. For more tagging best practices, see
 [Best practices and strategies](../../../tag-editor/latest/userguide/tagging.md#tag-best-practices "../../../tag-editor/latest/userguide/tagging.md#tag-best-practices") in the
 _Tagging AWS Resources and Tag Editor User Guide_.
+
+###### Note
+
+This control will be retired after July 7, 2026 and removed from all applicable Security Hub CSPM standards.
+AWS announced end of support for AWS IoT Events service effective May 20, 2026.
 
 ### Remediation
 

@@ -8,6 +8,12 @@ From this page, you can view your current costs, see projected monthly costs, ex
 The Usage page is available from any account that has Security Hub enabled.
 To access it, open the Security Hub console and choose **Usage** under **Settings** in the left navigation panel.
 
+###### Important
+
+If your account is a member account in an AWS Organization and a Security Hub delegated administrator has not been designated,
+usage data is not available. To view usage data, your organization's management account must designate a delegated administrator.
+For more information, see [Designating a delegated administrator in Security Hub](securityhub-v2-set-da.md "securityhub-v2-set-da.md").
+
 The experience differs depending on your account type:
 
 - **Delegated administrator or management account** –

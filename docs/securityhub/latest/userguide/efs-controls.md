@@ -196,16 +196,21 @@ This control checks whether an Amazon EFS mount target is associated with subnet
 assign public IP addresses on launch. The control fails if the mount target is
 associated with subnets that assign public IP addresses on launch.
 
-Subnets have attributes that determine whether network interfaces automatically
-receive public IPv4 and IPv6 addresses. For IPv4, this attribute is set to
-`TRUE` for default subnets and `FALSE` for nondefault subnets
-(with an exception for nondefault subnets created through the EC2 launch instance
-wizard, where it's set to `TRUE`). For IPv6, this attribute is set to
-`FALSE` for all subnets by default. When these attributes are enabled,
-instances launched in the subnet automatically receive the corresponding IP addresses
-(IPv4 or IPv6) on their primary network interface. Amazon EFS mount targets that are
-launched into subnets that have this attribute enabled have a public IP address assigned
-to their primary network interface.
+Subnets have attributes that determine whether network interfaces created in the
+subnet automatically receive public IP addresses. For IPv4, the
+`MapPublicIpOnLaunch` attribute is set to `TRUE` for default
+subnets and `FALSE` for nondefault subnets (with an exception for nondefault
+subnets created through the EC2 launch instance wizard, where it's set to
+`TRUE`). For IPv6, the `AssignIpv6AddressOnCreation` attribute
+is set to `FALSE` for all subnets by default.
+
+While Amazon EFS mount targets cannot be assigned public IPv4 addresses, placing them in
+subnets configured to assign public IP addresses on launch indicates that co-located instances
+launched in such subnets that may mount the EFS file system could automatically receive public IP
+addresses, which could risk the file system data becoming accessible from publicly-addressed hosts.
+
+Mount targets in subnets with auto-assign public IPv6 addresses enabled can receive
+globally-routable IPv6 addresses.
 
 ### Remediation
 

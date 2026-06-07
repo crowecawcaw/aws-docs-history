@@ -249,7 +249,6 @@ February 15, 2023.
 | aws-foundational-security-best-practices/v/1.0.0/ECR.1                        | security-control/ECR.1                                   |
 | aws-foundational-security-best-practices/v/1.0.0/ECR.2                        | security-control/ECR.2                                   |
 | aws-foundational-security-best-practices/v/1.0.0/ECR.3                        | security-control/ECR.3                                   |
-| aws-foundational-security-best-practices/v/1.0.0/ECS.1                        | security-control/ECS.1                                   |
 | aws-foundational-security-best-practices/v/1.0.0/ECS.10                       | security-control/ECS.10                                  |
 | aws-foundational-security-best-practices/v/1.0.0/ECS.12                       | security-control/ECS.12                                  |
 | aws-foundational-security-best-practices/v/1.0.0/ECS.2                        | security-control/ECS.2                                   |
@@ -347,7 +346,6 @@ February 15, 2023.
 | aws-foundational-security-best-practices/v/1.0.0/Redshift.6                   | security-control/Redshift.6                              |
 | aws-foundational-security-best-practices/v/1.0.0/Redshift.7                   | security-control/Redshift.7                              |
 | aws-foundational-security-best-practices/v/1.0.0/Redshift.8                   | security-control/Redshift.8                              |
-| aws-foundational-security-best-practices/v/1.0.0/Redshift.9                   | security-control/Redshift.9                              |
 | aws-foundational-security-best-practices/v/1.0.0/S3.1                         | security-control/S3.1                                    |
 | aws-foundational-security-best-practices/v/1.0.0/S3.12                        | security-control/S3.12                                   |
 | aws-foundational-security-best-practices/v/1.0.0/S3.13                        | security-control/S3.13                                   |
@@ -465,7 +463,6 @@ February 15, 2023.
 | service-managed-aws-control-tower/v/1.0.0/ECR.1                               | security-control/ECR.1                                   |
 | service-managed-aws-control-tower/v/1.0.0/ECR.2                               | security-control/ECR.2                                   |
 | service-managed-aws-control-tower/v/1.0.0/ECR.3                               | security-control/ECR.3                                   |
-| service-managed-aws-control-tower/v/1.0.0/ECS.1                               | security-control/ECS.1                                   |
 | service-managed-aws-control-tower/v/1.0.0/ECS.2                               | security-control/ECS.2                                   |
 | service-managed-aws-control-tower/v/1.0.0/ECS.3                               | security-control/ECS.3                                   |
 | service-managed-aws-control-tower/v/1.0.0/ECS.4                               | security-control/ECS.4                                   |
@@ -543,7 +540,6 @@ February 15, 2023.
 | service-managed-aws-control-tower/v/1.0.0/RDS.11                              | security-control/RDS.11                                  |
 | service-managed-aws-control-tower/v/1.0.0/RDS.13                              | security-control/RDS.13                                  |
 | service-managed-aws-control-tower/v/1.0.0/RDS.17                              | security-control/RDS.17                                  |
-| service-managed-aws-control-tower/v/1.0.0/RDS.18                              | security-control/RDS.18                                  |
 | service-managed-aws-control-tower/v/1.0.0/RDS.19                              | security-control/RDS.19                                  |
 | service-managed-aws-control-tower/v/1.0.0/RDS.20                              | security-control/RDS.20                                  |
 | service-managed-aws-control-tower/v/1.0.0/RDS.21                              | security-control/RDS.21                                  |
@@ -556,7 +552,6 @@ February 15, 2023.
 | service-managed-aws-control-tower/v/1.0.0/Redshift.6                          | security-control/Redshift.6                              |
 | service-managed-aws-control-tower/v/1.0.0/Redshift.7                          | security-control/Redshift.7                              |
 | service-managed-aws-control-tower/v/1.0.0/Redshift.8                          | security-control/Redshift.8                              |
-| service-managed-aws-control-tower/v/1.0.0/Redshift.9                          | security-control/Redshift.9                              |
 | service-managed-aws-control-tower/v/1.0.0/S3.1                                | security-control/S3.1                                    |
 | service-managed-aws-control-tower/v/1.0.0/S3.2                                | security-control/S3.2                                    |
 | service-managed-aws-control-tower/v/1.0.0/S3.3                                | security-control/S3.3                                    |

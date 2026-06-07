@@ -65,7 +65,7 @@ After the AWS Organization management account designates a delegated administrat
 
 ### Step 3. Create a policy that enables Security Hub in all member accounts
 
-After enbling Security Hub in the delegated administrator account for an organization you need to create a policy that defines which services and capabilities are enabled in the organization member accounts.
+After enabling Security Hub in the delegated administrator account for an organization you need to create a policy that defines which services and capabilities are enabled in the organization member accounts.
 For more information, see [Enabling a configuration with a type of policy](securityhub-v2-da-policy.md#securityhub-v2-configuration-enable-policy "securityhub-v2-da-policy.md#securityhub-v2-configuration-enable-policy").
 
 After you enable Security Hub the following resources are created in your account:

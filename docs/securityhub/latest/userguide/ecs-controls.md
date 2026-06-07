@@ -3,60 +3,6 @@
 These Security Hub CSPM controls evaluate the Amazon Elastic Container Service (Amazon ECS) service and resources. The controls
 might not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
-## [ECS.1] Amazon ECS task definitions should have secure networking modes and user definitions
-
-###### Important
-
-Security Hub CSPM retired this control in March 2026. For more information, see
-[Change log for Security Hub CSPM controls](controls-change-log.md "controls-change-log.md"). You can refer to the following
-controls for evaluation of privileged configuration, network mode configuration, and user configuration:
-
-- [[ECS.4] ECS containers should run as non-privileged](#ecs-4 "#ecs-4")
-- [[ECS.17] ECS task definitions should not use host network mode](#ecs-17 "#ecs-17")
-- [[ECS.20] ECS Task Definitions should configure non-root users in Linux container definitions](#ecs-20 "#ecs-20")
-- [[ECS.21] ECS Task Definitions should configure non-administrator users in Windows container definitions](#ecs-21 "#ecs-21")
-
-**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-5, NIST.800-53.r5 AC-6
-
-**Category:** Protect > Secure access management
-
-**Severity:** High
-
-**Resource type:**
-`AWS::ECS::TaskDefinition`
-
-**AWS Config rule:**
-[ecs-task-definition-user-for-host-mode-check](../../../config/latest/developerguide/ecs-task-definition-user-for-host-mode-check.md "../../../config/latest/developerguide/ecs-task-definition-user-for-host-mode-check.md")
-
-**Schedule type:** Change triggered
-
-**Parameters:**
-
-- `SkipInactiveTaskDefinitions`: `true` (not customizable)
-
-This control checks whether an active Amazon ECS task definition with host networking mode
-has `privileged` or `user` container definitions. The control fails
-for task definitions that have host network mode and container definitions of
-`privileged=false`, empty and `user=root`, or empty.
-
-This control
-only evaluates the latest active revision of an Amazon ECS task definition.
-
-The purpose of this control is to ensure that access is defined intentionally when you run tasks that use the host network mode.
-If a task definition has elevated privileges, it is because you have
-chosen that configuration. This control checks for unexpected privilege escalation when a
-task definition has host networking enabled, and you don't choose elevated
-privileges.
-
-### Remediation
-
-For information about how to update a task definition, see [Updating a task
-definition](../../../AmazonECS/latest/developerguide/update-task-definition.md "../../../AmazonECS/latest/developerguide/update-task-definition.md") in the _Amazon Elastic Container Service Developer Guide_.
-
-When you update a task definition, it doesn't update running tasks that were
-launched from the previous task definition. To update a running task, you must redeploy the
-task with the new task definition.
-
 ## [ECS.2] ECS services should not have public IP addresses assigned to them automatically
 
 **Related requirements:** NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(9), PCI DSS v4.0.1/1.4.4

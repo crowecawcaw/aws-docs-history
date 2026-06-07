@@ -76,14 +76,14 @@ _AWS General Reference_.
 
 ### Remediation
 
-###### To add tags to an AWS Backup recovery point
+To copy tags from source resources at backup creation time, see
+[Copy tags onto backups](../../../aws-backup/latest/devguide/tags-on-backups.md "../../../aws-backup/latest/devguide/tags-on-backups.md") in
+_AWS Backup Developer Guide_.
 
-1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
-2. In the navigation pane, choose **Backup plans**.
-3. Select a backup plan from the list.
-4. In the **Backup plan tags** section, choose **Manage tags**.
-5. Enter the key and value for the tag. Choose **Add new tag** for additional key-value pairs.
-6. When you are finished adding tags, choose **Save**.
+Tags are not copied at creation time for parent/composite recovery points.
+To add tags on existing recovery points including parent/composite recovery points, see
+[Add or remove tags on existing recovery points](../../../aws-backup/latest/devguide/tagging-recovery-points.md "../../../aws-backup/latest/devguide/tagging-recovery-points.md") in
+_AWS Backup Developer Guide_.
 
 ## [Backup.3] AWS Backup vaults should be tagged
 

@@ -317,8 +317,6 @@ details of a control, choose the control.
 
 [[MQ.2] ActiveMQ brokers should stream audit logs to CloudWatch](mq-controls.md#mq-2 "mq-controls.md#mq-2")
 
-[[MQ.3] Amazon MQ brokers should have automatic minor version upgrade enabled](mq-controls.md#mq-3 "mq-controls.md#mq-3")
-
 [[MSK.1] MSK clusters should be encrypted in transit among broker nodes](msk-controls.md#msk-1 "msk-controls.md#msk-1")
 
 [[MSK.3] MSK Connect connectors should be encrypted in transit](msk-controls.md#msk-3 "msk-controls.md#msk-3")

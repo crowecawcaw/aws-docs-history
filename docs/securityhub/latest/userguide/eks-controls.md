@@ -109,6 +109,12 @@ data (including secrets) that is stored in etcd as part of an EKS cluster. Using
 to deploy a defense in depth strategy for Kubernetes applications by encrypting Kubernetes secrets with a KMS key that you define
 and manage.
 
+###### Note
+
+This control will be retired after August 10, 2026 and removed from all applicable Security Hub CSPM standards.
+Starting with Kubernetes version 1.28, Amazon EKS clusters have Kubernetes secrets protected with envelope
+encryption by default.
+
 ### Remediation
 
 To enable secrets encryption on an EKS cluster, see [Enabling secret encryption on an existing cluster](../../../eks/latest/userguide/enable-kms.md "../../../eks/latest/userguide/enable-kms.md") in

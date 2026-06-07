@@ -255,8 +255,6 @@ control, choose the control.
 
 [[ECR.3] ECR repositories should have at least one lifecycle policy configured](ecr-controls.md#ecr-3 "ecr-controls.md#ecr-3")
 
-[[ECS.1] Amazon ECS task definitions should have secure networking modes and user definitions](ecs-controls.md#ecs-1 "ecs-controls.md#ecs-1")
-
 [[ECS.2] ECS services should not have public IP addresses assigned to them automatically](ecs-controls.md#ecs-2 "ecs-controls.md#ecs-2")
 
 [[ECS.3] ECS task definitions should not share the host's process namespace](ecs-controls.md#ecs-3 "ecs-controls.md#ecs-3")
@@ -470,8 +468,6 @@ control, choose the control.
 [[Macie.2] Macie automated sensitive data discovery should be enabled](macie-controls.md#macie-2 "macie-controls.md#macie-2")
 
 [[MQ.2] ActiveMQ brokers should stream audit logs to CloudWatch](mq-controls.md#mq-2 "mq-controls.md#mq-2")
-
-[[MQ.3] Amazon MQ brokers should have automatic minor version upgrade enabled](mq-controls.md#mq-3 "mq-controls.md#mq-3")
 
 [[MSK.1] MSK clusters should be encrypted in transit among broker nodes](msk-controls.md#msk-1 "msk-controls.md#msk-1")
 

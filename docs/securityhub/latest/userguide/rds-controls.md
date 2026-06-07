@@ -647,34 +647,6 @@ snapshots inherit the tags of their parent database instances.
 
 To automatically copy tags to snapshots for an RDS DB instance, see [Modifying an Amazon RDS DB instance](../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.md "../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.md") in the _Amazon RDS User Guide_. Select **Copy tags to snapshots**.
 
-## [RDS.18] RDS instances should be deployed in a VPC
-
-**Category:** Protect > Secure network configuration >
-Resources within VPC
-
-**Severity:** High
-
-**Resource type:**
-`AWS::RDS::DBInstance`
-
-**AWS Config rule:**
-`rds-deployed-in-vpc` (custom Security Hub CSPM rule)
-
-**Schedule type:** Change triggered
-
-**Parameters:** None
-
-This control checks whether an Amazon RDS instance is deployed on an EC2-VPC.
-
-VPCs provide a number of network controls to secure access to RDS resources. These controls
-include VPC Endpoints, network ACLs, and security groups. To take advantage of these controls,
-we recommend that you create your RDS instances on an EC2-VPC.
-
-### Remediation
-
-For instructions on moving RDS instances to a VPC, see [Updating
-the VPC for a DB instance](../../../AmazonRDS/latest/UserGuide/USER_VPC.VPC2VPC.md "../../../AmazonRDS/latest/UserGuide/USER_VPC.VPC2VPC.md") in the _Amazon RDS User Guide_.
-
 ## [RDS.19] Existing RDS event notification subscriptions should be configured for critical cluster events
 
 **Related requirements:** NIST.800-53.r5 CA-7, NIST.800-53.r5 SI-2

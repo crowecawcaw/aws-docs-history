@@ -33,44 +33,6 @@ security-related information.
 
 To stream ActiveMQ broker logs to CloudWatch Logs, see [Configuring Amazon MQ for ActiveMQ logs](../../../amazon-mq/latest/developer-guide/configure-logging-monitoring-activemq.md "../../../amazon-mq/latest/developer-guide/configure-logging-monitoring-activemq.md") in the _Amazon MQ Developer Guide_.
 
-## [MQ.3] Amazon MQ brokers should have automatic minor version upgrade enabled
-
-###### Important
-
-Security Hub CSPM retired this control in January 2026.
-For more information, see [Change log for Security Hub CSPM controls](controls-change-log.md "controls-change-log.md").
-
-**Related requirements:** NIST.800-53.r5 CM-3, NIST.800-53.r5 SI-2, PCI DSS v4.0.1/6.3.3
-
-**Category:** Identify > Vulnerability, patch, and version management
-
-**Severity:** Medium
-
-**Resource type:** `AWS::AmazonMQ::Broker`
-
-**AWS Config rule:**
-[`mq-auto-minor-version-upgrade-enabled`](../../../config/latest/developerguide/mq-auto-minor-version-upgrade-enabled.md "../../../config/latest/developerguide/mq-auto-minor-version-upgrade-enabled.md")
-
-**Schedule type:** Change triggered
-
-**Parameters:** None
-
-This control checks whether an Amazon MQ broker has automatic minor version upgrade enabled. The control fails if
-the broker doesn't have automatic minor version upgrade enabled.
-
-As Amazon MQ releases and supports new broker engine versions, the changes are backward-compatible with an existing
-application and don't deprecate existing functionality. Automatic broker engine version updates protect you against security
-risks, help fix bugs, and improve functionality.
-
-###### Note
-
-When the broker associated with automatic minor version upgrade is on its latest patch and becomes unsupported,
-you must take manual action to upgrade.
-
-### Remediation
-
-To enable automatic minor version upgrade for an MQ broker, see [Automatically upgrading the minor engine version](../../../amazon-mq/latest/developer-guide/upgrading-brokers.md#upgrading-brokers-automatic-upgrades.html "../../../amazon-mq/latest/developer-guide/upgrading-brokers.md#upgrading-brokers-automatic-upgrades.html") in the _Amazon MQ Developer Guide_.
-
 ## [MQ.4] Amazon MQ brokers should be tagged
 
 **Category:** Identify > Inventory > Tagging

@@ -156,6 +156,9 @@ After you enable Security Hub, the following service-linked configuration record
 
 - In each AWS account and AWS Region, a service-linked configuration recorder named `AWSConfigurationRecorderForSecurityHubAssets` is created.
 - For global resource types, an additional service-linked configuration recorder named `AWSConfigurationRecorderForSecurityHubAssetsGlobal` is created in the us-east-1 AWS Region.
+- If Security Hub and Security Hub CSPM are both enabled in an AWS account and AWS Region, a service-linked configuration recorder named `AWSConfigurationRecorderForSecurityHubCSPM` is created.
+
+For more information, see [Considerations for service-linked configuration recorders](../../../config/latest/developerguide/stop-start-recorder.md#stop-start-recorder-considerations-service-linked "../../../config/latest/developerguide/stop-start-recorder.md#stop-start-recorder-considerations-service-linked") and [Recording regional and global resources](../../../config/latest/developerguide/select-resources.md#select-resources-all "../../../config/latest/developerguide/select-resources.md#select-resources-all").
 
 **Service-linked analyzer**
 

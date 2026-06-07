@@ -6,6 +6,13 @@ These controls may not be available in all AWS Regions. For more information, se
 
 ## [Config.1] AWS Config should be enabled and use the service-linked role for resource recording
 
+###### Note
+
+When Security Hub CSPM and Security Hub are enabled the Config.1 rule will always have a status of PASSED.
+This is because Security Hub CSPM has direct access to configuration items via a service-linked configuration recorder.
+The parameter for this control is not applicable as the internal service-linked configuration recorder is automatically created with the AWS Config service-linked role.
+For more information, see [Using the service-linked configuration recorder](securityhub-setup-prereqs.md#service-linked-config-recorder "securityhub-setup-prereqs.md#service-linked-config-recorder").
+
 **Related requirements:** CIS AWS Foundations Benchmark v5.0.0/3.3, CIS AWS Foundations Benchmark v1.2.0/2.5, CIS AWS Foundations Benchmark v1.4.0/3.5, CIS AWS Foundations Benchmark v3.0.0/3.3, NIST.800-53.r5 CM-3, NIST.800-53.r5 CM-6(1), NIST.800-53.r5 CM-8, NIST.800-53.r5 CM-8(2), PCI DSS v3.2.1/10.5.2, PCI DSS v3.2.1/11.5
 
 **Category:** Identify > Inventory
