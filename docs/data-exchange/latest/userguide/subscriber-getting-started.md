@@ -18,8 +18,8 @@ information, see [Setting up AWS Data Exchange](setting-up.md "setting-up.md").
 
 ###### To set up AWS Data Exchange
 
-1. Sign up for an AWS account. For more information, see [Sign up for an AWS account](setting-up.md#setting-up-aws-sign-up "setting-up.md#setting-up-aws-sign-up").
-2. Create a user. For more information, see [Create a user](setting-up.md#setting-up-create-iam-user "setting-up.md#setting-up-create-iam-user").
+1. Sign up for an AWS account. For more information, see [Sign up for an AWS account](setting-up.md#sign-up-for-aws "setting-up.md#sign-up-for-aws").
+2. Create a user with administrative access. For more information, see [Creating your first IAM admin user and group](../../../IAM/latest/UserGuide/getting-started_create-admin-group.md "../../../IAM/latest/UserGuide/getting-started_create-admin-group.md").
 
 ## Step 2: Browse the catalog
 

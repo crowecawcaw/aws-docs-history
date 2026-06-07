@@ -6,7 +6,7 @@ AWS Data Exchange console:
 ###### Accepting a data grant
 
 1. You must sign up for an AWS account and create a user before you can accept a data grant.
-   For more information see [Sign up for an AWS account](setting-up.md#setting-up-aws-sign-up "setting-up.md#setting-up-aws-sign-up").
+   For more information see [Sign up for an AWS account](setting-up.md#sign-up-for-aws "setting-up.md#sign-up-for-aws").
 2. In the left navigation pane of the AWS Data Exchange console, under **Exchanged data
    grants**, choose **Received data grants**.
 3. Any data grants in which your AWS account is the receiver of will appear in the table
