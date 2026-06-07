@@ -1,32 +1,60 @@
-# Configuring RTB Fabric logs with Amazon CloudWatch Logs
+# Logging RTB Fabric link activity using vended logs
 
-You can configure RTB Fabric to send application logs to Amazon CloudWatch Logs using log delivery. Logging is not enabled by default and requires setup.
+AWS RTB Fabric publishes application logs as vended logs, an AWS-managed log-delivery pipeline. You can route the logs to:
+
+- _Amazon S3_, for high-volume log retention and downstream analytics.
+- _Amazon CloudWatch Logs_, for live querying with CloudWatch Logs Insights and CloudWatch alarms.
+- _Amazon Data Firehose_, for streaming logs to downstream systems.
+  Choose the destination that fits your workload's retention, query, and cost requirements.
+
+For more information about vended logs, see [Enable logging from AWS services](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md") in the _Amazon CloudWatch Logs User Guide_. For pricing, see the _Vended Logs_ section on the [CloudWatch pricing page](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
+
+###### Prerequisites
+
+Vended-log records appear only when an active link is processing traffic. Before configuring delivery, set up a link and verify that requests reach it. For instructions, see [Testing and using links](testing-and-using-links.md "testing-and-using-links.md").
+
+The following topics describe how to set up vended-log delivery, grant the required permissions, and control log volume with sampling.
 
 ###### Topics
 
-- [Setting up log delivery for RTB Fabric](#monitoring-logs-delivery-setup "#monitoring-logs-delivery-setup")
+- [Configure log delivery for RTB Fabric](#monitoring-logs-delivery-setup "#monitoring-logs-delivery-setup")
 - [Required permissions for log delivery](#monitoring-logs-permissions "#monitoring-logs-permissions")
-- [Configuring log sampling rates](#monitoring-logs-sampling "#monitoring-logs-sampling")
+- [Configure log sampling rates](#monitoring-logs-sampling "#monitoring-logs-sampling")
 
-## Setting up log delivery for RTB Fabric
+## Configure log delivery for RTB Fabric
 
 To enable logging for RTB Fabric, you need to create a log delivery source, destination, and delivery configuration. Only links can be registered as log sources, and only APPLICATION_LOGS log type is supported.
 
 ###### To set up log delivery for RTB Fabric
 
-1. Create a log delivery source for your link. The resource ARN must specify a link within a gateway:
+1. Register the link as a delivery source. The resource ARN must specify a link within a gateway.
 
 ```
-aws logs put-delivery-source \
-  --name rtbfabric-delivery \
-  --resource-arn arn:aws:rtbfabric:us-east-1:545746263314:gateway/rtb-gw-m8x4n2p9q7r5s1t6u3v8w0y2z/link/link-a9b7c5d3e1f4g8h2i6j0k4l7m \
-  --log-type APPLICATION_LOGS
+`$` `aws logs put-delivery-source \
+ --name rtbfabric-delivery-source \
+ --resource-arn arn:aws:rtbfabric:us-east-1:`111122223333`:gateway/`rtb-gw-EXAMPLE1`/link/`link-EXAMPLE1` \
+ --log-type APPLICATION_LOGS`
 ```
 
-2. Create a log delivery destination (such as an Amazon S3 bucket or CloudWatch log group).
-3. Create the delivery configuration to connect the source and destination.
+2. Create a delivery destination. The example below uses a CloudWatch Logs log group; you can also use an Amazon S3 bucket or an Amazon Data Firehose stream.
 
-For detailed information about log delivery setup, see [Configure standard logging](../../../AmazonCloudFront/latest/DeveloperGuide/standard-logging.md "../../../AmazonCloudFront/latest/DeveloperGuide/standard-logging.md") in the _Amazon CloudFront Developer Guide_ for a similar implementation pattern.
+```
+`$` `aws logs put-delivery-destination \
+ --name rtbfabric-delivery-destination \
+ --delivery-destination-configuration "destinationResourceArn=arn:aws:logs:us-east-1:`111122223333`:log-group:`/aws/vendedlogs/rtbfabric`"`
+```
+
+3. Create the delivery that ties the source to the destination.
+
+```
+`$` `aws logs create-delivery \
+ --delivery-source-name rtbfabric-delivery-source \
+ --delivery-destination-arn arn:aws:logs:us-east-1:`111122223333`:delivery-destination:rtbfabric-delivery-destination`
+```
+
+For destination-specific setup, including Amazon S3 and Amazon Data Firehose targets, and for the underlying log-delivery model, see [Enable logging from AWS services](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md") in the _Amazon CloudWatch Logs User Guide_.
+
+After the delivery is created, CloudWatch Logs writes a single record to a stream named `log_stream_created_by_aws_to_validate_log_delivery_subscriptions` on the destination log group. This stream confirms that the delivery wiring, IAM permissions, and resource policy are valid. It does not confirm that RTB Fabric is emitting application records; for that, send traffic to the link and watch for additional streams to appear.
 
 ## Required permissions for log delivery
 
@@ -34,14 +62,14 @@ To set up log delivery for RTB Fabric, you need the following IAM permissions:
 
 ```
 {
-    "Sid": "AllowLogDeliveryCreation",
-    "Effect": "Allow",
-    "Action": [
-        "logs:PutDeliverySource",
-        "logs:PutDeliveryDestination",
-        "logs:CreateDelivery"
-    ],
-    "Resource": "*"
+   "Sid": "AllowLogDeliveryCreation",
+   "Effect": "Allow",
+   "Action": [
+       "logs:PutDeliverySource",
+       "logs:PutDeliveryDestination",
+       "logs:CreateDelivery"
+   ],
+   "Resource": "*"
 }
 ```
 
@@ -49,35 +77,37 @@ Additionally, you need service-level permissions for the specific link resource:
 
 ```
 {
-    "Sid": "ServiceLevelAccessForLogDelivery",
-    "Effect": "Allow",
-    "Action": [
-        "rtbfabric:AllowVendedLogDeliveryForResource"
-    ],
-    "Resource": "arn:aws:rtbfabric:us-east-1:545746263314:gateway/rtb-gw-m8x4n2p9q7r5s1t6u3v8w0y2z/link/link-a9b7c5d3e1f4g8h2i6j0k4l7m"
+   "Sid": "ServiceLevelAccessForLogDelivery",
+   "Effect": "Allow",
+   "Action": [
+       "rtbfabric:AllowVendedLogDeliveryForResource"
+   ],
+   "Resource": "arn:aws:rtbfabric:us-east-1:`111122223333`:gateway/`rtb-gw-EXAMPLE1`/link/`link-EXAMPLE1`"
 }
 ```
 
 You can harden the resource permissions by specifying exact ARNs instead of using wildcards, and add additional actions like delete operations as needed.
 
-## Configuring log sampling rates
+When you call `create-delivery` against a CloudWatch Logs log group, CloudWatch Logs attaches a resource policy to that log group automatically. The policy grants `delivery.logs.amazonaws.com` permission to write log events, scoped by a `SourceArn` condition that lists the link ARN. You do not need to author this policy. If you create a resource policy with the same name on the destination log group beforehand, the auto-managed policy can fail to attach. Let the service manage it.
+
+## Configure log sampling rates
 
 You can configure log sampling rates when creating or accepting links to control the volume of logs generated. This helps manage costs and focus on the most relevant log data.
 
 Example of setting log sampling rates when accepting a link:
 
 ```
-aws rtbfabric accept-link \
-    --link-id link-brhta7fllwkwlb3l7gbpofkn \
-    --gateway-id rtb-gw-d43re9jdjmkw2r08e6psphe37 \
-    --log-settings '{
-        "applicationLogs": {
-            "sampling": {
-                "errorLog": 100.0,
-                "filterLog": 100.0
-            }
-        }
-    }'
+`$` `aws rtbfabric accept-link \
+ --link-id `link-EXAMPLE1` \
+ --gateway-id `rtb-gw-EXAMPLE1` \
+ --log-settings '{
+ "applicationLogs": {
+ "sampling": {
+ "errorLog": 100.0,
+ "filterLog": 100.0
+ }
+ }
+ }'`
 ```
 
 The sampling rates are specified as percentages (0.0 to 100.0) where:
