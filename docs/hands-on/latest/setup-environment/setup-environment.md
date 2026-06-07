@@ -24,10 +24,9 @@ In this tutorial, you will learn how to:
 
 ## Modules
 
-This tutorial is divided into the following short modules. You must
-complete each module before moving to the next one.
+This tutorial is divided into the following short modules.
 
 1. [Module 1: Create Your AWS Account](module-one.md "module-one.md") (10 minutes)
-2. [Module 2: Secure Your AWS Account](module-two.md "module-two.md") (15 minutes)
-3. [Module 3: (Optional) Set Up the AWS CLI](module-three.md "module-three.md") (10
+2. (Optional) [Module 2: (Optional) For Multiple AWS Accounts Managed Through AWS Organizations](module-two.md "module-two.md") (15 minutes)
+3. (Optional) [Module 3: (Optional) Set Up the AWS CLI](module-three.md "module-three.md") (10
    minutes)
