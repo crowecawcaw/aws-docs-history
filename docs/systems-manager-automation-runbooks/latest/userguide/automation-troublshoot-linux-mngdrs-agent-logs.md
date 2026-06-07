@@ -3,7 +3,7 @@
 **Description**
 
 `AWSSupport-TroubleshootLinuxMGNDRSAgentLogs` automation runbook is used to
-detect common errors when installing the AWS Application Migration Service (AWS MGN) and AWS Elastic Disaster Recovery (AWS DRS)
+detect common errors when installing the AWS Transform MGN (AWS MGN) and AWS Elastic Disaster Recovery (AWS DRS)
 replication agents in Linux servers to migrate source servers to the AWS cloud.
 
 **How does it work?**
