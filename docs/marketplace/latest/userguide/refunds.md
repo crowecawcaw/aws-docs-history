@@ -124,7 +124,7 @@ must submit a separate billing adjustment request. See
 
 ### To request an agreement cancellation
 
-1. Sign in to [AWS Partner Central](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management")
+1. Sign in to [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home")
    and navigate to the **Agreements** page.
 2. Select the agreement you want to cancel and choose
    **Request cancellation**.
@@ -174,7 +174,7 @@ the billing adjustment.
 
 ### To apply a billing adjustment
 
-1. Sign in to [AWS Partner Central](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management")
+1. Sign in to [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home")
    and navigate to the **Agreements** page.
 2. Select the agreement you want to adjust and choose
    **Apply billing adjustment**.
@@ -225,7 +225,7 @@ processed.
 You can track all cancellation requests from the **Cancellation requests**
 tab on the **Agreements** page.
 
-1. Sign in to [AWS Partner Central](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management").
+1. Sign in to [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. Navigate to the **Agreements** page.
 3. Choose the **Cancellation requests** tab.
 
@@ -254,7 +254,7 @@ link.
 You can track all billing adjustment requests from the **Billing adjustments**
 tab on the **Agreements** page.
 
-1. Sign in to [AWS Partner Central](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management").
+1. Sign in to [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. Navigate to the **Agreements** page.
 3. Choose the **Billing adjustments** tab.
 
@@ -444,7 +444,7 @@ The legacy process for requesting refunds:
 
 **Step 1: Submit a refund and/or cancellation request**
 
-1. Sign in to [AWS Partner Central](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management").
+1. Sign in to [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. Choose **Marketplace refund support** (or **Support**
    in the former AWS Marketplace Management Portal).
 3. Choose **Request Refund**.

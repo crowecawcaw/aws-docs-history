@@ -62,7 +62,7 @@ aws-mp-standardcontract@amazon.com.
 ###### To update a EULA to the SCMP for AMI and SaaS products listed through SSL
 
 1. Review the terms of the [Standard Contract for AWS Marketplace](https://s3.amazonaws.com/aws-mp-standard-contracts/Standard-Contact-for-AWS-Marketplace-2022-07-14.pdf "https://s3.amazonaws.com/aws-mp-standard-contracts/Standard-Contact-for-AWS-Marketplace-2022-07-14.pdf").
-2. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
+2. Sign in to the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 3. For products, choose the **product type** and select
    the **product listing** for which you want to update the
    contract.

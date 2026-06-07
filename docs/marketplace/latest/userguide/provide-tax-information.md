@@ -68,7 +68,7 @@ For help with India-specific tax requirements, see [Tax help > India](https://aw
 
 Follow these steps to provide your tax information in AWS Marketplace:
 
-1. Sign in to the AWS Marketplace Management Portal at [https://aws.amazon.com/marketplace/management/](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
+1. Sign in to the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. Navigate to the **Settings** tab.
 3. Select **Go to tax dashboard** in the **Payment information** section.
 4. Complete the U.S. tax interview. Follow the on-screen instructions to complete the appropriate tax form based on your location (W-9 form for US-based sellers or W-8 form for non-US sellers).

@@ -26,11 +26,11 @@ support](https://aws.amazon.com//marketplace/management/contact-us "https://aws.
 
 ## Starting a new private offer
 
-The following steps explain how to use the Use the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management") to create a private offer and generate an offer ID. The process creates a blank offer in a draft state.
+The following steps explain how to use [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") to create a private offer and generate an offer ID. The process creates a blank offer in a draft state.
 
 ###### To start a private offer
 
-1. Sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management").
+1. Sign into [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. Choose **Private offers**.
 3. On the **Private offers** page, choose **Create private
    offer**.
@@ -207,7 +207,7 @@ You must sign in to use these resources.
 
 ### Enabling the buttons
 
-Once you become ACE eligible to receive AWS referrals, you use the AWS Marketplace Management Portal to enable
+Once you become ACE eligible to receive AWS referrals, you use AWS Partner Central to enable
 one or both call-to-action buttons.
 
 You follow separate processes to enable the buttons, depending on whether you create a new
@@ -215,7 +215,7 @@ product listing or update a current listing.
 
 ###### To enable buttons for new products
 
-1. Use the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management") to create the following types of products and make them public:
+1. Use [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") to create the following types of products and make them public:
    - AMI
    - SaaS
    - Container
@@ -230,7 +230,7 @@ The buttons only appear on the product detail pages in your private offers after
 
 ###### To enable buttons for existing products
 
-1. In the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), on the **Build** tab, select the product that you want to change.
+1. In [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), on the **Build** tab, select the product that you want to change.
 2. Open the **Request changes** list and choose **Update product information**.
 3. Choose any combination of **Enable guided demo requests for buyers** and **Enable private offer requests for buyers**.
 
@@ -240,7 +240,7 @@ The buttons only appear on the product detail page after you save your changes.
 
 After the private offer has been published, buyers can view it by navigating to the
 **Available private offers** tab on the **Private offers**
-page in the AWS Marketplace Management Portal. On the **Available private offers** tab, the buyer can
+page in AWS Partner Central. On the **Available private offers** tab, the buyer can
 see offers extended by AWS Marketplace Channel Partners in the **Seller of record**
 column. The independent software vendor (ISV) will display in the
 **Publisher** column. A buyer can navigate to a private offer by choosing
@@ -254,7 +254,7 @@ fulfillment page for the offer.
 
 ###### To send a private offer to your buyer
 
-1. Sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and choose **Private offers**.
+1. Sign into [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), and choose **Private offers**.
 2. Select the **radio button** next to the offer.
 3. Choose **Actions** and then **Copy Offer
    URL**.
@@ -266,7 +266,7 @@ You can clone a private offer, including AWS Marketplace Channel Partner private
 
 ###### To clone a private offer
 
-1. Sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and choose **Private offers**.
+1. Sign into [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), and choose **Private offers**.
 2. In the **Private offers** table, select the option next to the offer you want to clone.
 3. Choose **Clone offer**.
 4. A new offer-creation experience will open with pre-populated information from the selected offer. Review and modify the offer details as needed.
@@ -279,7 +279,7 @@ Use the following procedure to download offer details in a .pdf file.
 
 ###### To download offer details
 
-1. Sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and choose **Private offers**.
+1. Sign into [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), and choose **Private offers**.
 2. In the **Private offers** table, select the option next to the offer and choose **View details**. Alternatively, you can choose the link for the offer in the **Offer ID** column.
 3. On the offer detail page, choose **Download PDF**.
 
@@ -310,7 +310,7 @@ Use the following process to update the expiration date of a private offer.
 
 ###### To update the expiration date of a private offer
 
-1. Sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and choose **Private offers**.
+1. Sign into [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), and choose **Private offers**.
 2. On the **Private offers** page, choose the **offer** you
    want to update.
 3. Choose **Edit**.
@@ -324,7 +324,7 @@ status and your buyer can accept the offer.
 
 Use the following process to cancel the private offer.
 
-1. Sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and choose **Private offers**.
+1. Sign into [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), and choose **Private offers**.
 2. On the **Private offers** page, choose the **offer** you
    want to update.
 

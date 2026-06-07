@@ -8,7 +8,7 @@ You can update your existing disbursement methods or add new ones at any time:
 
 ###### To modify disbursement methods
 
-1. Sign in to the AWS Marketplace Management Portal at [https://aws.amazon.com/marketplace/management/](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/") and choose **Settings**.
+1. Sign in to AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") and choose **Settings**.
 2. Select the **Payment information** tab.
 3. In the **Disbursement methods** section, choose **Add disbursement method** to create a new method, or select an existing method and choose **Edit**.
 4. Update your currency, bank account, or schedule preferences as needed.

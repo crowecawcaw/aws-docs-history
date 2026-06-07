@@ -38,7 +38,7 @@ find your requests on the AWS Marketplace Management Portal [Request](https://aw
 
 ###### To create a change request using self-service
 
-1. Open the AWS Marketplace Management Portal at [https://aws.amazon.com/marketplace/management/tour/](https://aws.amazon.com/marketplace/management/tour/ "https://aws.amazon.com/marketplace/management/tour/"), and sign in to
+1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), and sign in to
    your seller account, then go to the [**Server products**](https://aws.amazon.com/marketplace/management/products/server "https://aws.amazon.com/marketplace/management/products/server") page.
 2. On the **Server products** tab, select the product that you
    want to modify.
@@ -74,7 +74,7 @@ To make modifications to versions or the product information, you create a _chan
 
 ###### To create a change request
 
-1. Open the AWS Marketplace Management Portal at [https://aws.amazon.com/marketplace/management/tour/](https://aws.amazon.com/marketplace/management/tour/ "https://aws.amazon.com/marketplace/management/tour/"), and sign in to
+1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), and sign in to
    your seller account, then go to the [**Server products**](https://aws.amazon.com/marketplace/management/products/server "https://aws.amazon.com/marketplace/management/products/server") page.
 2. On the **Server products** tab, select the product that you
    want to modify.

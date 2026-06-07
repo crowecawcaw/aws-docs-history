@@ -7,7 +7,7 @@ data on your new and active agreements, plus customer trends and profiles.
 ###### Note
 
 - To unlock this dashboard, you must enroll the [AWS Marketplace Seller Prime](https://pages.awscloud.com/aws-marketplace-seller-prime.html "https://pages.awscloud.com/aws-marketplace-seller-prime.html") program.
-- To open this dashboard, sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/"), choose **Insights**, **Marketing**,
+- To open this dashboard, sign in to the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), choose **Insights**, **Marketing**,
   and then choose the **Customer agreements** tab.
   For more information about using the AWS Marketplace dashboards, see [Seller dashboards](dashboards.md "dashboards.md"), earlier in this section.
 

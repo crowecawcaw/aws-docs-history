@@ -22,7 +22,7 @@ The following topics explain how translation works, how to download the translat
 Remember the following about AWS Marketplace translations:
 
 - To help expand your reach to global markets, AWS Marketplace translates the English content you provide with no additional effort from you. If you have issues with a translation, use the
-  [Contact Us](https://aws.amazon.com/marketplace/management/contact-us "https://aws.amazon.com/marketplace/management/contact-us") page in the AWS Marketplace Management Portal. Choose the **Product Listing** and
+  [Contact Us](https://aws.amazon.com/marketplace/management/contact-us "https://aws.amazon.com/marketplace/management/contact-us") page in AWS Partner Central. Choose the **Product Listing** and
   **Local Languages Opt-out** categories, and provide feedback about the issue.
 
 AWS Marketplace can make limited changes, such as not translating technical terms or product names.
@@ -49,7 +49,7 @@ Allow 3 – 5 days for the opt-out to take effect.
 
 ###### To opt out
 
-1. Go to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/tour/ "https://aws.amazon.com/marketplace/management/tour/") and choose **Contact Us**.
+1. Go to the [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") and choose **Contact Us**.
 2. Select the following categories in the order listed:
    - **Commercial Marketplace**
    - **Product Listing**

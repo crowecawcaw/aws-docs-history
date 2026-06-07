@@ -10,7 +10,7 @@ contract.
 
 ###### To create a private offer with variable payment
 
-1. Open a web browser and sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
+1. Open a web browser and sign into the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. Choose **Private offers**.
 3. The first step is to **Provide offer information**. You must enter an
    offer name. Providing an offer description is optional. Indicate whether this private
@@ -35,7 +35,7 @@ duration of the contract.
 ###### To create payment requests
 
 1. You view and manage agreements from the **Agreements** page in the
-   [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
+   [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. Select **Agreements** from the menu.
 3. In the **Agreements** table, select the option next to the
    agreement and choose **View details**. Alternatively, you can choose
@@ -60,7 +60,7 @@ payment request. 7. Submit your payment request by selecting **Create**.
 ###### To cancel payment request
 
 1. You view and manage agreements from the **Agreements** page in the
-   [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
+   [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. Select **Agreements** from the menu.
 3. In the **Agreements** table, select the option next to the
    agreement and choose **View details**. Alternatively, you can choose

@@ -3,7 +3,7 @@
 The taxation dashboard provides visualization and fine-grained data on US and international
 tax for transactions in AWS Marketplace.
 
-To open this dashboard, sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/"), choose **Insights**, **Marketing**,
+To open this dashboard, sign in to the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), choose **Insights**, **Marketing**,
 and then choose the **Listing performance** tab.
 
 ###### Topics

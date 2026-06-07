@@ -4,7 +4,7 @@ As an AWS Marketplace seller, you can update the end-user license agreement (EUL
 made to the EULA take effect for new users subscribing to your product and product
 renewals. To update your EULA, use the following procedure.
 
-1. Open the AWS Marketplace Management Portal at [https://aws.amazon.com/marketplace/management/tour/](https://aws.amazon.com/marketplace/management/tour/ "https://aws.amazon.com/marketplace/management/tour/") and sign in to your seller
+1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") and sign in to your seller
    account.
 2. From the [**Server Products**](https://aws.amazon.com/marketplace/management/products/server "https://aws.amazon.com/marketplace/management/products/server") page, select the container product that
    you want to modify.

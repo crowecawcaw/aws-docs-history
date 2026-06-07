@@ -65,7 +65,7 @@ For any other transactions where the Seller needs to raise an invoice under Mark
 
 ## How do I identify which AWS EMEA branch I need to invoice?
 
-Your invoice must be addressed to the AWS EMEA branch where the Buyer is located. The Buyer's country code determines the correct branch. To identify the country of the branch facilitating the transaction, navigate to the Tax Information Tab in the AWS Marketplace Management Portal (AMMP).
+Your invoice must be addressed to the AWS EMEA branch where the Buyer is located. The Buyer's country code determines the correct branch. To identify the country of the branch facilitating the transaction, navigate to the Tax Information Tab in AWS Partner Central.
 
 ###### Important
 
@@ -201,7 +201,7 @@ If you sell to Buyers with AWS accounts in multiple countries from multiple Sell
 
 ## How do I submit a VAT invoice for VAT payment?
 
-You can submit a VAT invoice through the AMMP Portal. Navigate to the Tax Information tab in the AWS Marketplace Management Portal. Then:
+You can submit a VAT invoice through the AMMP Portal. Navigate to the Tax Information tab in AWS Partner Central. Then:
 
 1. Select Deemed Supply-eligible line items to upload a VAT invoice.
 2. Click Apply VAT disbursement once line items are selected.

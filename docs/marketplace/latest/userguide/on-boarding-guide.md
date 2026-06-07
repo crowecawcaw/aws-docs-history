@@ -50,7 +50,7 @@ the ARN for the topic and name of the bucket.
 
 ###### To enable access
 
-1. Log in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/") with the AWS account you use to manage your AWS Marketplace products.
+1. Log in to the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") with the AWS account you use to manage your AWS Marketplace products.
 2. Ensure you have the [necessary IAM permissions](commerce-analytics-service.md#technical-implementation-guide "commerce-analytics-service.md#technical-implementation-guide") to enroll in the AWS Marketplace
    Commerce Analytics Service.
 3. Navigate to the [Commerce Analytics

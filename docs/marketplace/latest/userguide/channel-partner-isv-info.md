@@ -1,5 +1,9 @@
 # Creating a selling authorization for an AWS Marketplace Channel Partner as an ISV
 
+###### Note
+
+Starting July 1, 2026, ISVs must enter the 12-digit AWS account ID of the intended reseller when creating a selling authorization. The reseller selection dropdown will no longer be available. Resellers can find their account's AWS Account ID by following the guidance on this [AWS Documentation page](../../../accounts/latest/reference/manage-acct-identifiers.md "../../../accounts/latest/reference/manage-acct-identifiers.md").
+
 As an independent software vendor (ISV), you can authorize AWS Marketplace Channel Partners to resell your products by creating a selling authorization for that partner. The Channel Partner can use the selling authorization to create Channel Partner Private Offer (CPPO) to the end buyer. Supported product types include:
 
 - AMI-based products
@@ -10,7 +14,7 @@ As an independent software vendor (ISV), you can authorize AWS Marketplace Chann
 
 ## Create a selling authorization
 
-1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/") with your AWS Marketplace Seller account.
+1. Sign in to the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") with your AWS Marketplace Seller account.
 
 ###### Tip
 

@@ -208,8 +208,7 @@ For more information about completing each step, expand the sections in the orde
 You must select a pricing model for your product. The model you choose controls the pricing information that you enter into the PLF.
 For a list of supported pricing models, see [AMI product pricing for AWS Marketplace](pricing-ami-products.md "pricing-ami-products.md") in this guide.
 
-1. Start the [AWS Marketplace
-   Management Portal](https://aws.amazon.com/marketplace/management/products/? "https://aws.amazon.com/marketplace/management/products/?").
+1. Start the [AWS Partner Central](https://aws.amazon.com/marketplace/management/products/? "https://aws.amazon.com/marketplace/management/products/?").
 2. On the **Assets** tab, in the right-hand pane, choose the
    [Single AMI with CloudFormation product](https://s3.amazonaws.com/awsmp-loadforms/ProductDataLoad-Current.xlsx "https://s3.amazonaws.com/awsmp-loadforms/ProductDataLoad-Current.xlsx") link.
 
@@ -345,7 +344,7 @@ and update pricing, instance types, Region availability, and metadata. To make a
 you prepare any updated product the same way you prepare a new product. After the product
 update is prepared, follow these steps:
 
-1. Use your existing PLF, or start the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/"), and on the
+1. Use your existing PLF, or start the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), and on the
    **Assets** tab, choose **File upload**. Under
    **Product load forms and seller guides**, you can download the PLF
    for your product.

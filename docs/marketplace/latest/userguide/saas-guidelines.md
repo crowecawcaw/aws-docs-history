@@ -199,7 +199,7 @@ For more information on SaaS architectures, refer to the [SaaS Architecture Fund
 ### Creating architecture diagrams
 
 To receive the special designation that your product is deployed on AWS, [update your product's architecture details](saas-product-settings.md#updating-architecture-details "saas-product-settings.md#updating-architecture-details")
-in the AWS Marketplace Management Portal. Select a hosting pattern that is deployed on AWS and upload an
+in AWS Partner Central. Select a hosting pattern that is deployed on AWS and upload an
 architecture diagram that AWS reviews. For hosting patterns that AWS Marketplace
 considers deployed on AWS, see [Guidelines](#march-saas-guidelines "#march-saas-guidelines") in the previous section. If your hosting pattern changes, you must update your product's architecture details.
 
@@ -249,4 +249,4 @@ The following is an example of a low-level, detailed diagram.
 
 For more information, see [What is Architecture
 Diagramming?](https://aws.amazon.com/what-is/architecture-diagramming/ "https://aws.amazon.com/what-is/architecture-diagramming/"). After creating a diagram, update your architecture details in the
-AWS Marketplace Management Portal (AMMP). For more information, see [Update architecture details](saas-product-settings.md#updating-architecture-details "saas-product-settings.md#updating-architecture-details").
+AWS Partner Central. For more information, see [Update architecture details](saas-product-settings.md#updating-architecture-details "saas-product-settings.md#updating-architecture-details").

@@ -39,7 +39,7 @@ Sellers in India can create private offers in USD and INR, and can extend these 
 ## How private offers work
 
 You use the **Offers** page in
-the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management") to create, update, and manage your private offers. You specify the product for the offer, which generates a unique ID and URL.
+the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") to create, update, and manage your private offers. You specify the product for the offer, which generates a unique ID and URL.
 You create a pricing plan for the private offer, add legal terms and sales documents, and
 extend the offer to specific buyer AWS accounts. The offer is only visible to the accounts
 for which you create the offer.

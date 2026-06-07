@@ -6,7 +6,7 @@ Custom dimensions are particularly useful for express private offers when you ne
 
 ## How custom dimensions work
 
-Custom dimensions must be created within the private offer workflow in the AWS Marketplace Management Portal. The listing experience in the portal requires all dimensions to be associated with pricing on the public offer, which makes them publicly discoverable. To create dimensions that remain private, you must use the private offer creation workflow.
+Custom dimensions must be created within the private offer workflow in AWS Partner Central. The listing experience in the portal requires all dimensions to be associated with pricing on the public offer, which makes them publicly discoverable. To create dimensions that remain private, you must use the private offer creation workflow.
 
 When you create a custom dimension through a private offer, the dimension is saved to your product and becomes available for use in any subsequent private offers or express private offers. You don't need to publish the private offer used to create the dimension—saving and exiting the workflow is sufficient to register the custom dimension with your product.
 
@@ -16,7 +16,7 @@ To create a custom dimension, you create a draft private offer and define the di
 
 ###### To create a custom dimension
 
-1. Go to the private offer page on the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/offers "https://aws.amazon.com/marketplace/management/offers").
+1. Go to the private offer page on [AWS Partner Central](https://aws.amazon.com/marketplace/management/offers "https://aws.amazon.com/marketplace/management/offers").
 2. Select **Create private offer** to start a new private offer.
 3. On the **Create offer** page, do the following:
    1. Choose **Direct private offer** as the offer type.

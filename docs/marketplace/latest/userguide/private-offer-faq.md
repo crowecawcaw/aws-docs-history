@@ -21,11 +21,11 @@ This FAQ answers commonly asked questions about creating, managing, and troubles
 ## What is the Private Offer Success Team (POST), and how can sellers contact them?
 
 The POST enables external audiences on the AWS Marketplace Private Offer experience.
-Sellers can us the [Support Form](https://aws.amazon.com/marketplace/management/contact-us/ "https://aws.amazon.com/marketplace/management/contact-us/") in the AWS Marketplace Management Portal. For help with the support form, download and refer to the [Private offers support form guide](https://d1.awsstatic.com/awsmp/solutions/mk-sol-files/private-offers/Private%20Offer%20Support%20Form%20Guide.pdf "https://d1.awsstatic.com/awsmp/solutions/mk-sol-files/private-offers/Private%20Offer%20Support%20Form%20Guide.pdf") PDF.
+Sellers can us the [Support Form](https://aws.amazon.com/marketplace/management/contact-us/ "https://aws.amazon.com/marketplace/management/contact-us/") in AWS Partner Central. For help with the support form, download and refer to the [Private offers support form guide](https://d1.awsstatic.com/awsmp/solutions/mk-sol-files/private-offers/Private%20Offer%20Support%20Form%20Guide.pdf "https://d1.awsstatic.com/awsmp/solutions/mk-sol-files/private-offers/Private%20Offer%20Support%20Form%20Guide.pdf") PDF.
 
 ## How can a seller resolve errors when accessing the Private offers tab?
 
-If you encounter an error when choosing the **Private offers** tab in the AWS Marketplace Management Portal, ensure that you meet the following prerequisites:
+If you encounter an error when choosing the **Private offers** tab in AWS Partner Central, ensure that you meet the following prerequisites:
 
 ### Prerequisites for creating private offers to sell software or services directly
 
@@ -148,7 +148,7 @@ This error occurs when a buyer account already has an active subscription to a p
 Each buyer account can only have one active subscription to a SaaS contract or contract with consumption product. To update or expand an active subscription:
 
 1. Create an agreement-based offer from the **Agreements** tab in the
-   [AWS Marketplace Management Portal (AMMP)](https://aws.amazon.com/marketplace/management/homepage "https://aws.amazon.com/marketplace/management/homepage").
+   [AWS Partner Central](https://aws.amazon.com/marketplace/management/homepage "https://aws.amazon.com/marketplace/management/homepage").
 2. Include any pending payment terms from the original offer in the agreement-based offer, as it will override remaining payments not yet invoiced.
 
 #### Creating agreement-based offers
@@ -193,9 +193,9 @@ Use the [refund/cancellation form](https://aws.amazon.com/marketplace/management
 ## Can a seller or buyer cancel a private offer?
 
 - **If the buyer hasn't subscribed:** The seller can cancel by navigating to the **Private offers**
-  tab in the AWS Marketplace Management Portal, selecting the offer, and choosing **Cancel**.
+  tab in AWS Partner Central, selecting the offer, and choosing **Cancel**.
 - **If the buyer has subscribed:** The seller of record must initiate a cancellation request by using the
-  [refund/cancellation form](https://aws.amazon.com/marketplace/management/support/refund-request "https://aws.amazon.com/marketplace/management/support/refund-request") in the AWS Marketplace Management Portal.
+  [refund/cancellation form](https://aws.amazon.com/marketplace/management/support/refund-request "https://aws.amazon.com/marketplace/management/support/refund-request") in AWS Partner Central.
   For detailed instructions, refer to this [video tutorial](https://www.youtube.com/watch?v=eQpadPl0ROs "https://www.youtube.com/watch?v=eQpadPl0ROs").
 
 ## How do I request a refund or contract cancellation?
@@ -271,7 +271,7 @@ For more information about tax obligations, refer to
 
 ## Resources and support
 
-If you have a specific request, reach out to one of the following AWS Marketplace teams through the AWS Marketplace Management Portal.
+If you have a specific request, reach out to one of the following AWS Marketplace teams through AWS Partner Central.
 
 **Private Offers Success Team (POST):** The team supports sellers (ISV and Channel Partners) and buyers with private offer
 operational enablement and support. Contact us via the [Support Form](https://aws.amazon.com/marketplace/management/contact-us/? "https://aws.amazon.com/marketplace/management/contact-us/?").

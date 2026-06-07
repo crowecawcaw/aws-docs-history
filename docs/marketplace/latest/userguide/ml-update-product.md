@@ -5,7 +5,7 @@ product information in AWS Marketplace,
 such as descriptions, highlights, title, SKU, categories, and keywords.
 
 1. Sign in to your seller account in
-   the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/tour/ "https://aws.amazon.com/marketplace/management/tour/").
+   the [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. Go to the **Machine learning products** page and select your target product.
 3. Choose **Request changes** and select **Update product information**.
 4. Update the fields as needed.

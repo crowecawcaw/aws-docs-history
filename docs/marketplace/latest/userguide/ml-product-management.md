@@ -1,8 +1,8 @@
 # Managing your machine learning products
 
-In the AWS Marketplace Management Portal, choose **Request changes** to modify a product or version in AWS Marketplace.
+In AWS Partner Central, choose **Request changes** to modify a product or version in AWS Marketplace.
 When you submit your changes, the system processes them. Processing time varies from minutes to days, depending on the type of modification.
-You can monitor the status of your changes in the AWS Marketplace Management Portal.
+You can monitor the status of your changes in AWS Partner Central.
 
 ###### You can modify ML products in AWS Marketplace through self-service by:
 
@@ -17,5 +17,5 @@ You can monitor the status of your changes in the AWS Marketplace Management Por
 
 ###### Note
 
-In addition to making changes through the AWS Marketplace Management Portal, you can also
+In addition to making changes through AWS Partner Central, you can also
 make changes using the [AWS Marketplace Catalog API](../APIReference/welcome.md "../APIReference/welcome.md").

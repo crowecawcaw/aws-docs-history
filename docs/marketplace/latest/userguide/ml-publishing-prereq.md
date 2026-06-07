@@ -3,7 +3,7 @@
 Before you can publish your model package or algorithm in AWS Marketplace, you must have the following:
 
 - An AWS account that is registered as an AWS Marketplace seller. You can do this in the
-  [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
+  [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 - A completed seller profile under the [Settings](https://aws.amazon.com/marketplace/management/seller-settings "https://aws.amazon.com/marketplace/management/seller-settings") page in the AWS Marketplace Management Portal.
 - For publishing paid products, you must complete the tax interview and bank forms. This
   is not required for publishing free products. For more information, see [Seller registration process](registration-process.md "registration-process.md").

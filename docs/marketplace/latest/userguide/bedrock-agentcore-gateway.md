@@ -94,7 +94,7 @@ server with Amazon Bedrock AgentCore Gateway by completing these tasks:
 
 ###### To enable Gateway integration
 
-1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management").
+1. Sign in to [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. Open the [AI agents and tools](https://aws.amazon.com/marketplace/management/products/aiagents "https://aws.amazon.com/marketplace/management/products/aiagents") page.
 3. On the **AI agents and tools products** tab,
    select the product to modify.

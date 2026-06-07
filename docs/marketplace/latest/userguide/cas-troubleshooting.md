@@ -8,7 +8,7 @@ Commerce Analytics Service.
 
 **I can't access the service because of an allow list issue.**
 
-If you're not yet registered as a seller on the AWS Marketplace, visit [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management") to register. If you
+If you're not yet registered as a seller on the AWS Marketplace, visit [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") to register. If you
 have already registered as a seller on AWS Marketplace, contact the [**AWS Marketplace Seller Operations**](https://aws.amazon.com/marketplace/management/contact-us/ "https://aws.amazon.com/marketplace/management/contact-us/") team.
 
 **I can't request datasets for a date in the past, even though the

@@ -19,7 +19,7 @@ usage instructions, and instance recommendations.
 Version names and ARNs cannot be modified. These changes require creating a new version.
 
 1. Sign in to your seller account in
-   the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/tour/ "https://aws.amazon.com/marketplace/management/tour/").
+   the [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. Go to the **Machine learning product** page and select your product.
 3. Choose **Request changes** and select **Update version information**.
 4. Select the version you want to update.
@@ -38,7 +38,7 @@ You can add new versions of your product to introduce features, updates, or impr
 maintaining access to previous versions.
 
 1. Sign in to your seller account in
-   the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/tour/ "https://aws.amazon.com/marketplace/management/tour/").
+   the [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. Go to the **Machine learning product** page and select your product.
 3. Choose **Versions** and choose **Add new version**.
 4. Enter information for the new version following the steps in [Step 3: Add initial product version](add-initial-version.md "add-initial-version.md").
@@ -54,7 +54,7 @@ When a version becomes outdated or you want to discontinue its availability,
 you can restrict buyer access to that version while maintaining access to other versions.
 
 1. Sign in to your seller account in
-   the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/tour/ "https://aws.amazon.com/marketplace/management/tour/").
+   the [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. Go to the **Machine learning product** page and select your product.
 3. Choose **Versions** and choose **Restrict versions**.
 

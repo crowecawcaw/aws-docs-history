@@ -140,7 +140,7 @@ see [Resource for companies outside of AWS Marketplace jurisdictions](https://s3
 
 ## AWS Marketplace Management Portal
 
-You can use the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/tour "https://aws.amazon.com/marketplace/management/tour") to manage the products that you sell in AWS Marketplace. All registered sellers
+You can use the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") to manage the products that you sell in AWS Marketplace. All registered sellers
 can access the AWS Marketplace Management Portal using their AWS credentials for the account that they used to
 create their products. The account that you use is defined as the seller of record when a
 customer subscribes to your product. If you need help determining the specific account that

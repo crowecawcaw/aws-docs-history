@@ -23,7 +23,7 @@ For all sellers, the bank account must be associated with the legal entity you p
 
 Follow these steps to provide your bank account information in AWS Marketplace:
 
-1. Sign in to the AWS Marketplace Management Portal at [https://aws.amazon.com/marketplace/management/](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/") and choose **Settings**.
+1. Sign in to the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") and choose **Settings**.
 2. Select **Complete banking information** in the **Payment information** section.
 3. Provide the required information about your bank account. You have the option to provide one or more bank accounts (US ACH account, SWIFT bank account from an eligible jurisdiction, or other supported account types).
 4. Choose **Submit** to save your bank account information.
@@ -44,7 +44,7 @@ Additional fees may apply to your use of Hyperwallet services (including transfe
 
 ###### To register with Hyperwallet and obtain US bank account information
 
-1. Sign in to the AWS Marketplace Management Portal at [https://aws.amazon.com/marketplace/management/](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/") and choose **Settings**.
+1. Sign in to the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") and choose **Settings**.
 2. Select **Complete banking information** in the **Payment information** section.
 3. If you don't have a Hyperwallet account and need one for use in AWS Marketplace, choose **No** in response to **Do you have a US bank account?** and **Are you registered with Hyperwallet?** You will be provided with a personal identification number (PIN) and link to sign up for Hyperwallet.
 4. After you have activated your Hyperwallet account, follow the steps described on the Hyperwallet registration portal to complete registration and receive your deposit account information.

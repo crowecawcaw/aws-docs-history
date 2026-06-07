@@ -111,20 +111,20 @@ due to invalid bank account details.
 
 The `Resource ARN` field shows the invalid bank account Amazon Resource
 Number (ARN). You can fix this issue by [adding the
-bank account](#add-bank-account-details "#add-bank-account-details") in the AWS Marketplace Management Portal (AMMP).
+bank account](#add-bank-account-details "#add-bank-account-details") in AWS Partner Central.
 
 ### Adding bank account details
 
-Add bank account details in the AWS Marketplace Management Portal (AMMP) to fix invalid bank
+Add bank account details in AWS Partner Central to fix invalid bank
 account ARN errors in disbursements.
 
 The `Resource ARN` field displays the ARN of the invalid bank account. To fix
-the issue, add the bank account in the AWS Marketplace Management Portal. The following steps explain
+the issue, add the bank account in AWS Partner Central. The following steps explain
 how.
 
 ###### To add bank account details
 
-1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/") with your AWS Marketplace seller account.
+1. Sign in to the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") with your AWS Marketplace seller account.
 2. On the menu bar, choose **Settings**.
 3. Choose the **Payments information** tab.
 4. In the **Bank accounts** section, choose **Add bank
@@ -210,7 +210,7 @@ AWS Marketplace Management Portal.
 
 ###### To add or update email addresses
 
-1. Sign in to the [AWS Marketplace Management Portal.](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/")
+1. Sign in to the [AWS Marketplace Management Portal.](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home")
 2. From **Settings**, choose the **Notifications**
    tab.
 3. Under **Email for custom notifications**, choose **Add
@@ -228,7 +228,7 @@ notifications.
 
 ###### To unsubscribe recipients from event notifications
 
-1. Sign in to the [AWS Marketplace Management Portal.](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/")
+1. Sign in to the [AWS Marketplace Management Portal.](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home")
 2. From **Settings** choose the **Notifications**
    tab.
 3. Under **Email for custom notifications**, choose **Update

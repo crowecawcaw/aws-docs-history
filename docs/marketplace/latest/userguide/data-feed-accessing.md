@@ -20,7 +20,7 @@ encrypted Amazon S3 bucket. This topic shows you how to access and unsubscribe f
 The video and the steps explain how to use a
 [CloudFormation template](https://s3.amazonaws.com/aws-marketplace-reports-resources/DataFeedsResources.yaml "https://s3.amazonaws.com/aws-marketplace-reports-resources/DataFeedsResources.yaml") that helps simplify configuration.
 
-    1. Open a web browser and sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/"), then go to [Set up
+    1. Open a web browser and sign into the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), then go to [Set up
      customer data storage](https://aws.amazon.com/marketplace/management/reports/data-feed-configuration "https://aws.amazon.com/marketplace/management/reports/data-feed-configuration").
     2. Choose **Create resources with CloudFormation template** to open the template
      in the CloudFormation console in another window.
@@ -179,7 +179,6 @@ AWS account.
 
 ## Unsubscribe from data feeds
 
-Open a web browser and sign in to the [AWS Marketplace Management
-Portal](http://aws.amazon.com/marketplace/management/ "http://aws.amazon.com/marketplace/management/"). Then, go to the [Contact us page](https://aws.amazon.com/marketplace/management/contact-us/ "https://aws.amazon.com/marketplace/management/contact-us/") to
+Open a web browser and sign in to the [AWS Partner Central](http://aws.amazon.com/marketplace/management/ "http://aws.amazon.com/marketplace/management/"). Then, go to the [Contact us page](https://aws.amazon.com/marketplace/management/contact-us/ "https://aws.amazon.com/marketplace/management/contact-us/") to
 submit an unsubscribe request to the AWS Marketplace Seller Operations team. The unsubscribe request can take up to 10
 business days to process.

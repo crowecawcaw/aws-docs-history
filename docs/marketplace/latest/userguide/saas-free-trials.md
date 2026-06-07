@@ -28,7 +28,7 @@ Sellers can create SaaS free trial offers in the AWS Marketplace Management Port
 
 ###### To create a SaaS free trial offer
 
-1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management").
+1. Sign in to the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. Choose **Public free trials**.
 3. Choose **Create free trial offer**. Sellers can create one SaaS free
    trial offer per each public SaaS product.
@@ -59,7 +59,7 @@ Sellers can cancel free trial offers at any time from the AWS Marketplace Manage
 
 To cancel a SaaS free trial offer
 
-1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management").
+1. Sign in to the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. Choose **Public free trials**.
 3. Select the offer.
 4. Choose **View offer**.

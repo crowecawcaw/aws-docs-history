@@ -6,7 +6,7 @@ Without a supplemental TRN, AWS Marketplace determines tax jurisdiction using th
 
 ###### To add a supplemental tax registration
 
-1. Sign in to the AWS Marketplace Management Portal at [https://aws.amazon.com/marketplace/management/](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/") and choose **Settings**.
+1. Sign in to AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") and choose **Settings**.
 2. On the **Settings** page, choose the **Tax settings** tab.
 3. Choose **Add supplemental tax information**.
 4. Enter supplemental tax registration details. A TRN can be a value-added tax (VAT) number, VAT ID, VAT registration number, or Business Registration Number.

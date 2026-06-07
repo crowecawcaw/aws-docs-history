@@ -70,7 +70,7 @@ pricing.
 
 ###### Tip
 
-ISVs and Channel Partners can use the **Partners** menu on the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/") to view selling authorizations.
+ISVs and Channel Partners can use the **Partners** menu on the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") to view selling authorizations.
 
 For detailed instructions about creating private offers, see [AWS Marketplace Channel Partner Private Offer – Create Offer](<https://s3.us-west-2.amazonaws.com/external-mp-channel-partners/Consulting+Partner+Creates+(1).pdf> "https://s3.us-west-2.amazonaws.com/external-mp-channel-partners/Consulting+Partner+Creates+(1).pdf").
 

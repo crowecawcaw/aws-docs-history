@@ -6,7 +6,7 @@ legacy [monthly billed revenue
 report](monthly-billed-revenue-report.md "monthly-billed-revenue-report.md"). The legacy report delivers on the 15th day of each month, which delays
 visibility on billings of the prior month.
 
-To open this dashboard, sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/"), choose **Insights**, **Finance operations**,
+To open this dashboard, sign in to the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), choose **Insights**, **Finance operations**,
 and then choose the **Billed revenue** tab.
 
 ###### Topics

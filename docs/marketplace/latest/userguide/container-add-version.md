@@ -33,7 +33,7 @@ The following procedure describes how to add any needed repositories in AWS Mark
 
 ###### To add repositories
 
-1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
+1. Sign in to the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. Select **Server** from the **Build**
    menu.
 3. On the **Server products** tab, select the product you want to
@@ -73,7 +73,7 @@ repositories you have created.
 
 ###### To upload container images and artifacts to repositories
 
-1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
+1. Sign in to the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. From the **Build** menu, choose
    **Server**.
 3. On the **Server products** tab, select the product you want to
@@ -152,7 +152,7 @@ Reference_.
 
 ###### To add a new version to your container product
 
-1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
+1. Sign in to the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. Choose **Server** from the **Build**
    menu.
 3. On the **Server products** tab, select the product you want to add
@@ -312,7 +312,7 @@ update the version information from the AWS Marketplace Management Portal.
 
 ###### To update version information
 
-1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
+1. Sign in to the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. Select **Server** from the **Build** menu.
 3. On the **Server products** tab, select the product that you want to
    modify.
@@ -361,4 +361,4 @@ page.
 ## Restrict a version of your Amazon EKS add-on
 
 To restrict a version of your container product published as an add-on, contact the AWS Marketplace
-operations team using the contact us form at the bottom of the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
+operations team using the contact us form at the bottom of the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").

@@ -10,7 +10,7 @@ product.
 
 ###### To create or update product details for your container product
 
-1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
+1. Sign in to the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. Select **Server** from the **Build** menu.
 3. On the **Server products** tab, select the product that you want to
    modify.

@@ -24,11 +24,11 @@ You can submit invoices for transactions of AWS Marketplace sales of Digital Ser
 
 ### Step 2: Navigate to the VAT on deemed supply Section
 
-1. Go to Settings in your AWS Marketplace Management Portal
+1. Go to Settings in AWS Partner Central
 2. Click on the Tax information tab
 3. Scroll down to the VAT on deemed supply section
 
-![The Tax information tab in the AWS Marketplace Management Portal showing the VAT on deemed supply section.](images/vat-deemed-supply-screenshot-2.png)
+![The Tax information tab in AWS Partner Central showing the VAT on deemed supply section.](images/vat-deemed-supply-screenshot-2.png)
 
 Here you can expand two tables:
 

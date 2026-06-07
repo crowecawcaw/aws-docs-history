@@ -4,7 +4,7 @@ As an AWS Marketplace seller, you can change the countries in which your contain
 more information, see [Countries](regions-and-countries.md#product-countries "regions-and-countries.md#product-countries"). The following procedure
 shows you how to update your container product availability by country.
 
-1. Open the AWS Marketplace Management Portal at [https://aws.amazon.com/marketplace/management/tour/](https://aws.amazon.com/marketplace/management/tour/ "https://aws.amazon.com/marketplace/management/tour/") and sign in to your seller
+1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") and sign in to your seller
    account.
 2. From the [**Server Products**](https://aws.amazon.com/marketplace/management/products/server "https://aws.amazon.com/marketplace/management/products/server") page, select the container product that
    you want to modify.

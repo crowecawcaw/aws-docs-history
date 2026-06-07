@@ -3,14 +3,14 @@
 AWS Marketplace provides you with seller tools that you can use to sell and manage your products. You can use these tools to gain insight into your customer base and help
 better understand your sales. This topic provides a information about these tools with links to additional resources.
 
-The [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/") is your primary
+The [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") is your primary
 tool for selling products on AWS Marketplace. You can manage your products into incremental channel revenue by taking advantage of
-the go-to-market activities made available in the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/tour "https://aws.amazon.com/marketplace/management/tour"). For more information, see [AWS Marketplace Management Portal](user-guide-for-sellers.md#aws-marketplace-management-portal "user-guide-for-sellers.md#aws-marketplace-management-portal").
+the go-to-market activities made available in the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"). For more information, see [AWS Marketplace Management Portal](user-guide-for-sellers.md#aws-marketplace-management-portal "user-guide-for-sellers.md#aws-marketplace-management-portal").
 
 AWS Marketplace provides the following additional seller tools:
 
 - **More Resources in AWS Marketplace Management Portal** – If you open the
-  [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/") and sign in, you
+  [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") and sign in, you
   can see links to additional resources on the home page, in the **Marketplace
   Resources** section. For example, to get support for marketing your product in
   the 90 days leading up to launch and the 90 days after launch, you can see the [180-day GTM Academy](product-marketing.md#gtm-academy "product-marketing.md#gtm-academy") that is linked from the AWS Marketplace Management Portal home

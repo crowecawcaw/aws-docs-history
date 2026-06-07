@@ -67,7 +67,7 @@ Follow these steps to complete Step 1 of the KYC process in AWS Marketplace:
 
 For accepted document types, templates, and formatting requirements referenced throughout these steps, see the [Templates and best practices for completing the KYC process](#kyc-best-practices "#kyc-best-practices") section at the end of this page.
 
-1. Sign in to the AWS Marketplace Management Portal at [https://aws.amazon.com/marketplace/management/](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/") and choose **Settings**.
+1. Sign in to the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") and choose **Settings**.
 2. In the **Account summary** section, confirm that the **Country** that is shown is correct.
 
 ###### Note

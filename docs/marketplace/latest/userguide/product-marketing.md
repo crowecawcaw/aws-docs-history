@@ -30,7 +30,7 @@ demand generation campaigns for your offering in AWS Marketplace. You can:
   Program Guide](https://s3.amazonaws.com/awsmp-loadforms/AWS_MP_GTM_ProgramGuide.pdf "https://s3.amazonaws.com/awsmp-loadforms/AWS_MP_GTM_ProgramGuide.pdf").
 
 You can access the 180-day GTM Academy from the **Marketplace Resources**
-section of the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
+section of [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 
 ## Announcing your product's availability
 
@@ -66,7 +66,7 @@ commercial and free IT and business software, including software infrastructure 
 databases and application servers, IoT solutions, developer tools, and business applications,
 from popular sellers. AWS Marketplace enables customers to compare options, read reviews, and quickly
 find the software they want. Then they can deploy it to their own Amazon Elastic Compute Cloud instance using
-1-Click or using the AWS Marketplace Management Portal.
+1-Click or using AWS Partner Central.
 
 Software prices are clearly posted on the website and customers can purchase most
 software immediately, with payment instruments already on file with Amazon Web Services. Software
@@ -221,7 +221,7 @@ Currently, Buy with AWS supports only SaaS products.
 Complete the following steps to submit a brand review request prior to launching with
 the Buy with AWS experience:
 
-1. Navigate to AWS Marketplace Management Portal and [submit support ticket](https://aws.amazon.com/marketplace/management/contact-us/? "https://aws.amazon.com/marketplace/management/contact-us/?") for **Commercial
+1. Navigate to AWS Partner Central and [submit support ticket](https://aws.amazon.com/marketplace/management/contact-us/? "https://aws.amazon.com/marketplace/management/contact-us/?") for **Commercial
    Marketplace**
    1. Select **Buy with AWS** as the category
    2. Select **Branding Review** as the
@@ -244,11 +244,11 @@ the Buy with AWS experience:
 
 Buy with AWS metrics offer sellers a comprehensive view of their conversion funnel.
 The Buy with AWS seller dashboard provides detailed insights to measure user engagement.
-Sellers can access Buy with AWS metrics through the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/homepage?pageType=awsmpmp%3Acustomer "https://aws.amazon.com/marketplace/management/homepage?pageType=awsmpmp%3Acustomer").
+Sellers can access Buy with AWS metrics through the [AWS Partner Central](https://aws.amazon.com/marketplace/management/homepage?pageType=awsmpmp%3Acustomer "https://aws.amazon.com/marketplace/management/homepage?pageType=awsmpmp%3Acustomer").
 
 To view the Buy with AWS metrics dashboard:
 
-1. Log into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/homepage?pageType=awsmpmp%3Acustomer "https://aws.amazon.com/marketplace/management/homepage?pageType=awsmpmp%3Acustomer").
+1. Log into the [AWS Partner Central](https://aws.amazon.com/marketplace/management/homepage?pageType=awsmpmp%3Acustomer "https://aws.amazon.com/marketplace/management/homepage?pageType=awsmpmp%3Acustomer").
 2. Navigate to **Insights**.
 3. Click **Marketing**.
 4. Click **Buy with AWS**

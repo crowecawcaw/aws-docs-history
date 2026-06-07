@@ -9,7 +9,7 @@ and configuring SaaS products, starting with the necessary prerequisites that yo
 
 Before you get started, you must complete the following prerequisites:
 
-1. Access and use the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/"). This is the tool that you use to register as a seller
+1. Access and use the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"). This is the tool that you use to register as a seller
    and manage the products that you sell in AWS Marketplace. For more information, see [AWS Marketplace Management Portal](user-guide-for-sellers.md#aws-marketplace-management-portal "user-guide-for-sellers.md#aws-marketplace-management-portal").
 2. Register as a seller, and submit your tax and banking information. For more
    information, see [Registration process](registration-process.md "registration-process.md").

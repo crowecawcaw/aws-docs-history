@@ -51,7 +51,7 @@ at, the product will have one of the following statuses.
 
 Before you get started, you must complete the following prerequisites:
 
-1. Access and use the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/"). This is the tool that you use to register as a seller and manage the
+1. Access and use the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"). This is the tool that you use to register as a seller and manage the
    products that you sell on AWS Marketplace. For more information, see [AWS Marketplace Management Portal](user-guide-for-sellers.md#management-portal "user-guide-for-sellers.md#management-portal").
 2. Register as a seller, and submit your tax and banking information. For more
    information, see [Registration process](registration-process.md "registration-process.md").
@@ -94,7 +94,7 @@ product.
 
 ###### To create the container product ID
 
-1. Open a web browser and sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
+1. Open a web browser and sign into the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. From the menu bar, select **Product**, and choose
    **Server**.
 3. Choose **Create server product** and then choose
@@ -171,7 +171,7 @@ For more information about product visibility and lifecycle, see [Product lifecy
 
 ###### To update visibility
 
-1. Open the AWS Marketplace Management Portal at [https://aws.amazon.com/marketplace/management/tour/](https://aws.amazon.com/marketplace/management/tour/ "https://aws.amazon.com/marketplace/management/tour/"), and then sign in to your
+1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), and then sign in to your
    seller account.
 2. Go to the [**Server products**](https://aws.amazon.com/marketplace/management/products/server "https://aws.amazon.com/marketplace/management/products/server") page, on the **Current server
    product** tab, select the container-based product that you want to
@@ -194,7 +194,7 @@ You can change the list of AWS account IDs that can view your product in a limit
 state. Allow-listed accounts display a Limited badge alongside the product version on the
 product detail page.
 
-1. Open the AWS Marketplace Management Portal at [https://aws.amazon.com/marketplace/management/tour/](https://aws.amazon.com/marketplace/management/tour/ "https://aws.amazon.com/marketplace/management/tour/") and sign in to your
+1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") and sign in to your
    seller account.
 2. From the [**Server Products**](https://aws.amazon.com/marketplace/management/products/server "https://aws.amazon.com/marketplace/management/products/server") page, select the container product
    that you want to modify.

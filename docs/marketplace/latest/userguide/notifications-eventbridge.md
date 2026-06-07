@@ -396,7 +396,7 @@ In the following JSON event code, the `source` value for these events is `aws.ma
 
 ```
 
-To resolve the invalid bank account details issue, add your bank account details in the AWS Marketplace Management Portal. For instructions, see [To add bank account details](email-notifications.md#resolve-invalid-bank-account-details "email-notifications.md#resolve-invalid-bank-account-details").
+To resolve the invalid bank account details issue, add your bank account details in AWS Partner Central. For instructions, see [To add bank account details](email-notifications.md#resolve-invalid-bank-account-details "email-notifications.md#resolve-invalid-bank-account-details").
 
 For more information about creating Amazon EventBridge rules, see [Rules in Amazon EventBridge](../../../eventbridge/latest/userguide/eb-rules.md "../../../eventbridge/latest/userguide/eb-rules.md") in the _Amazon EventBridge User Guide_.
 

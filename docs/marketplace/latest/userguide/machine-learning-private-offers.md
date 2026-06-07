@@ -6,11 +6,11 @@ You can negotiate and offer a private offer directly to customers for your machi
 ###### Prerequisites:
 
 - You must have a paid listing in AWS Marketplace.
-- You must have access to the AWS Marketplace Management Portal (AMMP).
+- You must have access to AWS Partner Central.
 
 ###### To create a private offer for a machine learning product:
 
-1. Sign in to the AWS Marketplace Management Portal.
+1. Sign in to AWS Partner Central.
 2. Choose **Private offers**, and then choose **Create private
    offer**
 3. On the **Create private offer** page, select the product that

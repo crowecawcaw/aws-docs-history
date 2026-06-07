@@ -79,24 +79,13 @@ Disbursements follow the standard AWS Marketplace schedule but are processed in 
 
 ## How do I migrate from selling outside India to selling in India?
 
-You have two options:
-
-_Option 1: Create a new standalone account (recommended)_
+To migrate from selling outside India to selling in India, create a new standalone account for your India-based entity:
 
 1. Create a new standalone account for your India-based entity.
 2. Re-list your offers and use `[IN]` in listing names to differentiate.
 3. Buyers must cancel existing agreements and re-negotiate from your India-based entity.
 
-_Option 2: Change your existing account location to India_
-
-1. Update tax location in AWS Billing Console to India.
-2. Ensure no linked accounts or turn off tax inheritance settings.
-3. Submit GSTIN, PAN, seller signature, and bank account in India in AWS Marketplace Management Portal.
-4. Upon validation, you can start listing on AWS India.
-5. You'll lose ability to sell to non-India buyers.
-6. Existing non-India disbursements will be blocked.
-7. You must cancel all agreements with non-India buyers.
-8. Existing contracts with buyers in India will be invoiced in INR from AWS India.
+You cannot change an existing account's country to India. Create a new standalone account instead.
 
 ## If I'm already registered as a buyer with AWS India, do I still need to create a separate account for selling?
 

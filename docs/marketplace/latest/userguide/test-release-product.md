@@ -72,7 +72,7 @@ results.
 **Release your add-on to public**
 
 After you have validated your software via Amazon EKS cluster as an add-on, you can submit a
-request to release the version of your Amazon EKS add-on to public using the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/") or AWS Marketplace Catalog API.
+request to release the version of your Amazon EKS add-on to public using the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") or AWS Marketplace Catalog API.
 
 For more information, see [Update the visibility for an Amazon EKS add-on](../../../marketplace-catalog/latest/api-reference/container-products.md#update-delivery-option-visibility "../../../marketplace-catalog/latest/api-reference/container-products.md#update-delivery-option-visibility") in the _AWS Marketplace Catalog API
 Reference_.

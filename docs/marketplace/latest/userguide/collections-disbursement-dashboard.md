@@ -24,7 +24,7 @@ The collections and disbursements dashboard provides information for operational
 financial processes. The dashboard refreshes daily. For more information, see the following
 topics.
 
-To open the dashboard, sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/"), choose **Insights**, **Finance operations**,
+To open the dashboard, sign in to the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), choose **Insights**, **Finance operations**,
 and then choose the **Collections and disbursements** tab.
 
 ###### Topics

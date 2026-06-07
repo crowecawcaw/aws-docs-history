@@ -18,7 +18,7 @@ The requirement for setting USD as a disbursement preference is not needed for s
 
 Follow these steps to set your disbursement preferences in AWS Marketplace:
 
-1. Sign in to the AWS Marketplace Management Portal at [https://aws.amazon.com/marketplace/management/](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/") and choose **Settings**.
+1. Sign in to the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") and choose **Settings**.
 2. Select the **Payment information** tab.
 3. In the **Disbursement methods** section, choose **Add disbursement method**.
 4. For **Currency**, select your preferred disbursement currency. Then, for **Bank account**, choose the account where you can receive payments in your selected currency.

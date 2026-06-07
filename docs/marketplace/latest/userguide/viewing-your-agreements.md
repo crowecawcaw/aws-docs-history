@@ -1,6 +1,6 @@
 # Working with agreements
 
-You view and manage agreements from the **Agreements** page in the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"). On the **Agreements** page, the **Agreements**
+You view and manage agreements from the **Agreements** page in the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"). On the **Agreements** page, the **Agreements**
 table shows the contracts for products you sell in AWS Marketplace. In the **Agreements** table, an agreement can have one of the following statuses:
 
 - **Active –** The terms of the agreement are active.
@@ -39,7 +39,7 @@ Use the following procedure to download agreement details in a .pdf file.
 
 ###### To download agreement details
 
-1. Sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and choose **Agreements**.
+1. Sign into the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), and choose **Agreements**.
 2. In the **Agreements** table, select the option next to the agreement and choose **View details**.
    Alternatively, you can choose the link for the agreement in the **Agreement ID** column.
 3. On the agreement detail page, choose **Download PDF**.

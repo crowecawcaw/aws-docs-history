@@ -6,7 +6,7 @@ consumption across usage-based products to make decisions on product support, pr
 conversion from public to private offers, and product discontinuation. The dashboard provides data from the last 6 months, which is a rolling
 window.
 
-To open the dashboard, sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/"),
+To open the dashboard, sign in to the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"),
 choose **Insights**, choose **Sales operations**, then choose the **Usage** tab.
 
 ###### Note

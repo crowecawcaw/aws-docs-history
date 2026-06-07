@@ -11,7 +11,7 @@ existing customers for a minimum of 90 days.
 
 ###### Note
 
-You can't delete restricted products from the AWS Marketplace Management Portal. The portal retains them as part of the account's publication history.
+You can't delete restricted products from AWS Partner Central. The portal retains them as part of the account's publication history.
 
 We process requests for product removal
 from AWS Marketplace with the following conditions:
@@ -34,7 +34,7 @@ from AWS Marketplace with the following conditions:
 
 ###### To remove a product created using the AWS Marketplace Management Portal
 
-1. Open the AWS Marketplace Management Portal at [https://aws.amazon.com/marketplace/management/tour/](https://aws.amazon.com/marketplace/management/tour/ "https://aws.amazon.com/marketplace/management/tour/"), and then sign
+1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), and then sign
    in to your seller account.
 2. Choose the **Build** tab, and then choose
    **Server**.

@@ -16,7 +16,7 @@ the AWS SDK language.
 
 ###### Example steps for AWS Marketplace Metering Service integration
 
-1. Sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/tour "https://aws.amazon.com/marketplace/management/tour").
+1. Sign into the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. From **Assets** choose **Containers** to start
    creating a new container product. Creating the product generates the product code
    for the product to integrate with your container image. For information about setting

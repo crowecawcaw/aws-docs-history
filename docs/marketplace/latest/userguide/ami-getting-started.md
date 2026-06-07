@@ -186,7 +186,7 @@ contract runs out. However, no new subscribers can be added to a product that is
 
 ## Product Load Forms
 
-Typically, you use [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management") to create or edit your product. However, a few operations require you to use
+Typically, you use [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") to create or edit your product. However, a few operations require you to use
 a _Product Load Form_ (PLF).
 
 A PLF is a spreadsheet that contains all the information about a product. To obtain a PLF, you can:

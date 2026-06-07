@@ -19,7 +19,7 @@ Bank account verification requires you to upload a bank statement or similar doc
 
 Follow these steps to complete the bank account verification process:
 
-1. Sign in to the AWS Marketplace Management Portal at [https://aws.amazon.com/marketplace/management/](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/") and choose **Settings**.
+1. Sign in to the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") and choose **Settings**.
 2. Select **Update banking information** in the **Payment Information** section.
 3. Select the appropriate disbursement account.
 

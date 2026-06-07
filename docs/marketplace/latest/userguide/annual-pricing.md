@@ -27,4 +27,4 @@ Considerations when working with an annual subscription include the following:
   about multi-year and custom duration contracts, see [Preparing a private offer for your AWS Marketplace product](private-offers-overview.md "private-offers-overview.md") and [Private offer installment plans](installment-plans.md "installment-plans.md").
   If you offer an Annual product in AWS Marketplace, you agree to the specific refund policies for
   Annual products, located in the **File Uploader** documents section in the
-  [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/tour "https://aws.amazon.com/marketplace/management/tour").
+  [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").

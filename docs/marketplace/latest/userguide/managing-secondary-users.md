@@ -12,7 +12,7 @@ To become KYC verified, secondary users must complete the same KYC process as de
 
 ###### To add secondary users for the Know Your Customer procedure
 
-1. Ask the user to sign in to the AWS Marketplace Management Portal at [https://aws.amazon.com/marketplace/management/](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
+1. Ask the user to sign in to AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. Navigate to the **Settings** tab.
 3. Choose the **Know Your Customer (KYC)** tab and see the section for **Secondary user information**.
 4. Choose **Complete secondary user information**.

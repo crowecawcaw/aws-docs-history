@@ -74,8 +74,7 @@ Specifications:
 
 **Add media**
 
-- Promotional media can be added by logging into the [AWS Marketplace Management
-  Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/") and either creating a new product or updating an
+- Promotional media can be added by logging into the [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") and either creating a new product or updating an
   existing product. The **Images and videos** section is used for
   adding promotional media and is located within the **Product
   information** area.

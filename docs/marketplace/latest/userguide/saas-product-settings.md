@@ -32,7 +32,7 @@ navigation bar.
 
 ###### To create a change request for a SaaS product
 
-1. Open the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and sign in to your seller account.
+1. Open the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), and sign in to your seller account.
 2. From the **Build** tab, select **SaaS**
    from the dropdown list.
 3. After the request is submitted, it begins processing. The change request goes
@@ -67,7 +67,7 @@ product that is in a **Restricted** status.
 After you create your product, you might want to change the information associated
 with it in AWS Marketplace.
 
-1. Open the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and sign in to your seller account.
+1. Open the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), and sign in to your seller account.
 2. From the [SaaS
    Products](https://aws.amazon.com/marketplace/management/products/saas "https://aws.amazon.com/marketplace/management/products/saas") page, on the **SaaS
    products** tab, select the product that you want to modify.
@@ -98,13 +98,13 @@ with it in AWS Marketplace.
 ## Update architecture details
 
 To receive the special designation that your product is deployed on AWS,
-update your product's architecture details in the AWS Marketplace Management Portal (AMMP)
+update your product's architecture details in AWS Partner Central
 by selecting a hosting pattern and uploading an architecture diagram.
 For list of hosting patterns that AWS considers deployed on AWS, see [Guidelines](saas-guidelines.md#march-saas-guidelines "saas-guidelines.md#march-saas-guidelines").
 
 ###### To update architecture details
 
-1. Sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management").
+1. Sign into the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. On the **Build** menu, choose **SaaS**.
 3. In the **SaaS products** table, choose your product.
 4. For **Request changes**, choose **Update architecture details**.
@@ -112,7 +112,7 @@ For list of hosting patterns that AWS considers deployed on AWS, see [Guidelines
    1. If prompted, in the **Architecture diagram** section, choose **Choose file** to upload your architecture diagram in PNG or JPG format. For more information about diagrams, see [Creating architecture diagrams](saas-guidelines.md#arch-diagram "saas-guidelines.md#arch-diagram").
    2. If prompted, in the **Application plane**, choose where your application runs. For more information, see [Control plane vs. application plane](../../../whitepapers/latest/saas-architecture-fundamentals/control-plane-vs.-application-plane.md "../../../whitepapers/latest/saas-architecture-fundamentals/control-plane-vs.-application-plane.md").
 
-6. Choose **Update architecuture details**.
+6. Choose **Update architecture details**.
 
 Once the request completes, **Request status** changes to **Succeeded**. To check request status, choose your product in the **SaaS products** table and choose the **Request log** tab.
 
@@ -123,7 +123,7 @@ To view your assessment results, choose your product in the **SaaS products** ta
 You can change the list of AWS account IDs that can view your product in a limited
 state.
 
-1. Open the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and sign in to your seller account.
+1. Open the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), and sign in to your seller account.
 2. From the [SaaS
    products](https://aws.amazon.com/marketplace/management/products/saas "https://aws.amazon.com/marketplace/management/products/saas") page, on the **SaaS
    products** tab, select the product that you want to modify.
@@ -140,7 +140,7 @@ state.
 To change which buyers can view your Quick Launch experience in AWS Marketplace, you can use
 **Update visibility**.
 
-1. Open the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and sign in to your seller account.
+1. Open the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), and sign in to your seller account.
 2. From the [SaaS
    products](https://console.aws.amazon.com/marketplace/latest/userguide/saas-guidelines.html "https://console.aws.amazon.com/marketplace/latest/userguide/saas-guidelines.html") page, select the product that you want to
    modify.
@@ -170,7 +170,7 @@ A pricing increase for any dimension results in the pricing update option being
 unavailable for at least the next 90 days. If updating both a price decrease and an
 increase, update the price decrease first.
 
-1. Open the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management")
+1. Open the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home")
    and sign in to your seller account.
 2. From the [SaaS
    Products](https://aws.amazon.com/marketplace/management/products/saas "https://aws.amazon.com/marketplace/management/products/saas") page, on the **SaaS
@@ -196,7 +196,7 @@ product.
 
 To update the name or description of an existing pricing dimension, see [Update pricing dimensions](#saas-update-dimension "#saas-update-dimension").
 
-1. Open the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and sign in to your seller account.
+1. Open the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), and sign in to your seller account.
 2. From the [SaaS
    Products](https://aws.amazon.com/marketplace/management/products/saas "https://aws.amazon.com/marketplace/management/products/saas") tab, select the product that you want to
    modify.
@@ -231,7 +231,7 @@ You can update a dimension that you want to use to charge your product. A dimens
 the foundational unit of measure that your buyer is charged for when using your
 product.
 
-1. Open the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and sign in to your seller account.
+1. Open the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), and sign in to your seller account.
 2. From the [SaaS
    Products](https://aws.amazon.com/marketplace/management/products/saas "https://aws.amazon.com/marketplace/management/products/saas") tab, select the product that you want to
    modify.
@@ -252,7 +252,7 @@ product.
 You can restrict a dimension that is currently listed in the product. This request
 removes the selected dimension from the product.
 
-1. Open the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and sign in to your seller account.
+1. Open the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), and sign in to your seller account.
 2. From the [SaaS
    Products](https://aws.amazon.com/marketplace/management/products/saas "https://aws.amazon.com/marketplace/management/products/saas") tab, select the product that you want to
    modify.
@@ -286,7 +286,7 @@ product:
 To update the URL that is used to fulfill your SaaS product, use the
 **Update fulfillment options** tab.
 
-1. Open the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and sign in to your seller account.
+1. Open the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), and sign in to your seller account.
 2. From the [SaaS Products](https://aws.amazon.com/marketplace/management/products/saas "https://aws.amazon.com/marketplace/management/products/saas") page, on the **SaaS
    products** tab, choose the product that you want to
    modify.
@@ -417,7 +417,7 @@ the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/manag
 
 You can define the countries in which your product can be offered.
 
-1. Open the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and sign in to your seller account.
+1. Open the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), and sign in to your seller account.
 2. From the [SaaS
    Products](https://aws.amazon.com/marketplace/management/products/saas "https://aws.amazon.com/marketplace/management/products/saas") tab, select the product that you want to
    modify.
@@ -441,7 +441,7 @@ You can define the countries in which your product can be offered.
 You can update the refund policy for your product by using **Update refund
 policy**.
 
-1. Open the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and sign in to your seller account.
+1. Open the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), and sign in to your seller account.
 2. From the [SaaS
    Products](https://aws.amazon.com/marketplace/management/products/saas "https://aws.amazon.com/marketplace/management/products/saas") page, on the **SaaS
    products** tab, select the product that you want to modify.
@@ -461,7 +461,7 @@ policy**.
 
 You can update your EULA for new users subscribing to your product.
 
-1. Open the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"), and sign in to your seller account.
+1. Open the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), and sign in to your seller account.
 2. From the [SaaS
    Products](https://aws.amazon.com/marketplace/management/products/saas "https://aws.amazon.com/marketplace/management/products/saas") tab, select the product that you want to
    modify.

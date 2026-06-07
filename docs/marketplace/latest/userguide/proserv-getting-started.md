@@ -52,7 +52,7 @@ the AWS Marketplace Management Portal.
 
 ###### To create a professional services product
 
-1. Open a web browser and sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
+1. Open a web browser and sign into the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. From the **Build** menu, select **Professional
    services**. This page shows you all professional services products
    that you have already created, as well as any requests you have made for
@@ -106,7 +106,7 @@ the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/manag
    Agree on the offer terms before creating the private offer in AWS Marketplace. The buyer
    is not obligated to purchase your product, so it makes sense to agree before
    creating the offer.
-2. Open a web browser and sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
+2. Open a web browser and sign into the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 3. Select **Private offers** from the menu, and then select
    **Create private offer**.
 4. On the **Create private offer** page, select the product that
@@ -163,7 +163,7 @@ professional services product in the AWS Marketplace Management Portal.
 
 ###### To edit product information
 
-1. Open a web browser and sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
+1. Open a web browser and sign into the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. From the **Build** menu, select **Professional
    services**. This page shows you all professional services products
    that you have already created, as well as any requests you have outstanding for
@@ -192,7 +192,7 @@ professional services product in the AWS Marketplace Management Portal.
 
 ###### To edit product pricing
 
-1. Open a web browser and sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
+1. Open a web browser and sign into the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. From the **Build** menu, select **Professional
    services**. This page shows you all professional services products
    that you have already created, as well as any requests you have made for
@@ -234,7 +234,7 @@ allowlist.
 
 ###### To edit product visibility
 
-1. Open a web browser and sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
+1. Open a web browser and sign into the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. From the **Build** menu, select **Professional
    services**. This page shows you all professional services products
    that you have already created.
@@ -265,7 +265,7 @@ offers.
 
 ###### To remove a product
 
-1. Open a web browser and sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
+1. Open a web browser and sign into the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. From the **Build** menu, select **Professional
    services**. This page shows you all professional services products
    that you have already created.

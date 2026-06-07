@@ -60,7 +60,7 @@ creating amendments.
 
 ###### To create offer upgrades, renewals, and amendments
 
-1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management") and choose **Agreements**.
+1. Sign in to the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") and choose **Agreements**.
 2. On the **Agreements** page, choose a check box next to an agreement,
    and then choose **View Details**.
 3. On the **View agreement** page, choose **Amend agreement**.
