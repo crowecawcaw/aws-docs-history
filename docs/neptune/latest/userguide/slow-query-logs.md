@@ -76,6 +76,7 @@ The following attributes are logged for slow queries when the
 | `waitingTimeMs`               | Query Gremlin/SPARQL/openCypher queue waiting time, in milliseconds |
 | `executionTimeMs`             | Query execution time, in milliseconds.                              |
 | `serializationTimeMs`         | Query serialization time, in milliseconds.                          |
+| `authTimeMs`                  | Query authentication and authorization time, in milliseconds.       |
 | **statementCounters**         | `read`                                                              | Number of statements read.                                           |
 | `written`                     | Number of statements written.                                       |
 | `deleted`                     | Number of statements deleted.                                       |

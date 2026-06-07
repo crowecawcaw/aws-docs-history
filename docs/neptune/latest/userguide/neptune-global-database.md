@@ -100,3 +100,10 @@ The following limitations currently apply to global databases:
   instance restarts or fails over, all the instances in secondary regions also restart. The secondary
   cluster is then unavailable until all its instances are back in sync with the primary DB cluster's writer
   instance.
+
+Starting with engine version
+[1.4.0.0](engine-releases-1.4.0.0.md "engine-releases-1.4.0.0.md"), secondary cluster reader
+instances remain available during a primary writer instance restart. This
+_survivable replica_ feature improves read availability in secondary
+clusters. The preceding restart limitation still applies to clusters running engine
+versions earlier than 1.4.0.0.
