@@ -15,22 +15,19 @@ The following sections show how to get started with AWS IoT Wireless.
 
 ## Setting up AWS IoT Wireless
 
-When you sign up for AWS, your AWS account is automatically signed up for all services in
-AWS, including AWS IoT Wireless. You are charged only for the services that you use.
-
-To set up AWS IoT Wireless, perform the steps in the following section:
+To set up AWS IoT Wireless, perform the steps in the following sections.
 
 ###### Topics
 
-- [Set up your AWS account and the AWS CLI](#iotwireless-setup-account "#iotwireless-setup-account")
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Installing Python and Python3-pip](#wireless-onboard-prereq "#wireless-onboard-prereq")
 - [Installing boto3 (AWS SDK for Python)](#wireless-prereq-cli "#wireless-prereq-cli")
 
-### Set up your AWS account and the AWS CLI
+### Sign up for an AWS account
 
-Before you use AWS IoT Core for LoRaWAN or AWS IoT Core for Amazon Sidewalk for the first time, you must set up your
-AWS account and AWS CLI. For detailed steps, see [Setting up your AWS
-environment](https://aws.amazon.com/getting-started/guides/setup-environment/ "https://aws.amazon.com/getting-started/guides/setup-environment/").
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
 
 ### Installing Python and Python3-pip
 
