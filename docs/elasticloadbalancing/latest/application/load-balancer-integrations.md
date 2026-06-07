@@ -117,3 +117,7 @@ offer protections against the most common security threats.
   bad inputs managed rule group](../../../waf/latest/developerguide/aws-managed-rule-groups-baseline.md#aws-managed-rule-groups-baseline-known-bad-inputs "../../../waf/latest/developerguide/aws-managed-rule-groups-baseline.md#aws-managed-rule-groups-baseline-known-bad-inputs") in the _AWS WAF Developer Guide_.
 
 For more information, see [Using web ACLs in AWS WAF](../../../waf/latest/developerguide/web-acl.md "../../../waf/latest/developerguide/web-acl.md") in the _AWS WAF Developer Guide_.
+
+###### Note
+
+Review the **WAF HTTP/2 traffic inspection behavior** setting which controls when AWS WAF inspects HTTP/2 request bodies for your Application Load Balancer. The inspection timing affects both security coverage and compatibility with different application communication patterns. To configure this setting, navigate to your target group's **Edit target group attributes** page and locate the **WAF HTTP/2 traffic inspection behavior** configuration.

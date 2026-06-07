@@ -11,6 +11,7 @@ After you create a target group for you Application Load Balancer, you can edit 
 - [Cross-zone load balancing](#modify-cross-zone "#modify-cross-zone")
 - [Automatic Target Weights (ATW)](#automatic-target-weights "#automatic-target-weights")
 - [Sticky sessions](#sticky-sessions "#sticky-sessions")
+- [WAF HTTP/2 traffic inspection behavior](#waf-http2-inspection "#waf-http2-inspection")
 
 ## Deregistration delay
 
@@ -979,3 +980,61 @@ options:
   stickiness configuration; for example, 1 second. This forces the Application Load Balancer
   to reestablish stickiness even if the cookie set by the target is not
   expired.
+
+## WAF HTTP/2 traffic inspection behavior
+
+By default, when you integrate Application Load Balancer with AWS WAF, AWS WAF inspects HTTP/2 requests immediately using the available request data. This inspection mode supports bidirectional streaming applications where the server must respond before the client completes sending request data, preventing timeouts in real-time communication scenarios.
+
+You can configure Application Load Balancer to accumulate HTTP/2 data frames before AWS WAF performs inspection. This configuration helps prevent security bypasses where attackers split malicious payloads across multiple HTTP/2 data frames. Use this option for standard request-response applications where clients transmit complete request data before expecting responses, ensuring AWS WAF inspects the full request payload.
+
+Console
+
+###### To configure WAF HTTP/2 traffic inspection behavior
+
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. On the navigation pane, under **Load Balancing**,
+   choose **Target Groups**.
+3. Choose the name of the target group to open its details page.
+4. On the **Attributes** tab, choose
+   **Edit**.
+5. For **WAF HTTP/2 traffic inspection behavior**,
+   choose the inspection mode.
+6. Choose **Save changes**.
+
+AWS CLI
+
+###### To configure WAF HTTP/2 traffic inspection behavior
+
+Use the [modify-target-group-attributes](../../../cli/latest/reference/elbv2/modify-target-group-attributes.md "../../../cli/latest/reference/elbv2/modify-target-group-attributes.md") command with the
+`waf.http2.traffic_inspection_behavior` attribute.
+
+```
+aws elbv2 modify-target-group-attributes \
+    --target-group-arn `target-group-arn` \
+    --attributes "Key=waf.http2.traffic_inspection_behavior,Value=`inspect_after_sufficient_data`"
+```
+
+CloudFormation
+
+###### To configure WAF HTTP/2 traffic inspection behavior
+
+Update the [AWS::ElasticLoadBalancingV2::TargetGroup](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.md") resource
+to include the `waf.http2.traffic_inspection_behavior`
+attribute.
+
+```
+Resources:
+  myTargetGroup:
+    Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
+    Properties:
+      Name: my-target-group
+      Protocol: HTTP
+      ProtocolVersion: HTTP2
+      Port: 80
+      TargetType: ip
+      VpcId: !Ref myVPC
+      TargetGroupAttributes:
+        - Key: "waf.http2.traffic_inspection_behavior"
+          Value: "`inspect_after_sufficient_data`"
+```
