@@ -629,7 +629,7 @@ your instance!
 
 In this task, you'll stop your instance to preserve your Free Tier benefits. When
 your instance is stopped, you stop incurring costs for it. If you created your
-AWS account before July 15, 2025 and your qualify for the Free Tier, you will
+AWS account before July 15, 2025 and you qualify for the Free Tier, you will
 continue to incur costs for the EBS storage.
 
 ###### Follow these steps to stop your instance

@@ -59,101 +59,26 @@ AWS Regions.
 
 ### Instance Capacity Blocks
 
-- **`p6-b300.48xlarge`**
-  - US East (N. Virginia) — `us-east-1`
-  - US West (Oregon) — `us-west-2`
-  - AWS GovCloud (US-East) — `us-gov-east-1`
-
-- **`p6-b200.48xlarge`**
-  - US East (N. Virginia) — `us-east-1`
-  - US East (Ohio) — `us-east-2`
-  - US West (Oregon) — `us-west-2`
-  - AWS GovCloud (US-West) — `us-gov-west-1`
-
-- **`p5.4xlarge`**
-  - US East (N. Virginia) — `us-east-1`
-  - US East (Ohio) — `us-east-2`
-  - US West (Oregon) — `us-west-2`
-  - Europe (London) — `eu-west-2`
-  - Asia Pacific (Mumbai) — `ap-south-1`
-  - Asia Pacific (Tokyo) — `ap-northeast-1`
-  - Asia Pacific (Sydney) — `ap-southeast-2`
-  - South America (São Paulo) — `sa-east-1`
-
-- **`p5.48xlarge`**
-  - US East (N. Virginia) — `us-east-1`
-  - US East (Ohio) — `us-east-2`
-  - US West (N. California) — `us-west-1`
-  - US West (Oregon) — `us-west-2`
-  - Europe (Stockholm) — `eu-north-1`
-  - Europe (London) — `eu-west-2`
-  - South America (São Paulo) — `sa-east-1`
-  - Asia Pacific (Tokyo) — `ap-northeast-1`
-  - Asia Pacific (Mumbai) — `ap-south-1`
-  - Asia Pacific (Sydney) — `ap-southeast-2`
-  - Asia Pacific (Jakarta) — `ap-southeast-3`
-  - US East (Atlanta) Local Zone — `us-east-1-atl-2a`
-
-- **`p5e.48xlarge`**
-  - US East (N. Virginia) — `us-east-1`
-  - US East (Ohio) — `us-east-2`
-  - US West (N. California) — `us-west-1`
-  - US West (Oregon) — `us-west-2`
-  - Europe (Stockholm) — `eu-north-1`
-  - Europe (London) — `eu-west-2`
-  - South America (São Paulo) — `sa-east-1`
-  - Asia Pacific (Tokyo) — `ap-northeast-1`
-  - Asia Pacific (Mumbai) — `ap-south-1`
-  - Asia Pacific (Sydney) — `ap-southeast-2`
-  - Asia Pacific (Jakarta) — `ap-southeast-3`
-  - US West (Phoenix) Local Zone — `us-west-2-phx-2a`
-
-- **`p5en.48xlarge`**
-  - US East (N. Virginia) — `us-east-1`
-  - US East (Ohio) — `us-east-2`
-  - US West (N. California) — `us-west-1`
-  - US West (Oregon) — `us-west-2`
-  - Europe (Stockholm) — `eu-north-1`
-  - Europe (London) — `eu-west-2`
-  - Europe (Spain) — `eu-south-2`
-  - Asia Pacific (Tokyo) — `ap-northeast-1`
-  - Asia Pacific (Seoul) — `ap-northeast-2`
-  - Asia Pacific (Mumbai) — `ap-south-1`
-  - Asia Pacific (Sydney) — `ap-southeast-2`
-  - Asia Pacific (Jakarta) — `ap-southeast-3`
-
-- **`p4d.24xlarge`**
-  - US East (N. Virginia) — `us-east-1`
-  - US East (Ohio) — `us-east-2`
-  - US West (Oregon) — `us-west-2`
-
-- **`p4de.24xlarge`**
-  - US East (N. Virginia) — `us-east-1`
-  - US West (Oregon) — `us-west-2`
-
-- **`trn1.32xlarge`**
-  - US East (N. Virginia) — `us-east-1`
-  - US East (Ohio) — `us-east-2`
-  - US West (Oregon) — `us-west-2`
-  - Europe (Stockholm) — `eu-north-1`
-  - Asia Pacific (Mumbai) — `ap-south-1`
-  - Asia Pacific (Sydney) — `ap-southeast-2`
-  - Asia Pacific (Melbourne) — `ap-southeast-4`
-
-- **`trn2.3xlarge`**
-  - Asia Pacific (Melbourne) — `ap-southeast-4`
-  - South America (São Paulo) — `sa-east-1`
-
-- **`trn2.48xlarge`**
-  - US East (Ohio) — `us-east-2`
+| Instance type      | US East (N. Virginia) us-east-1 | US East (Ohio) us-east-2 | US West (N. California) us-west-1 | US West (Oregon) us-west-2 | Europe (Stockholm) eu-north-1 | Europe (London) eu-west-2 | Europe (Spain) eu-south-2 | Asia Pacific (Tokyo) ap-northeast-1 | Asia Pacific (Seoul) ap-northeast-2 | Asia Pacific (Mumbai) ap-south-1 | Asia Pacific (Sydney) ap-southeast-2 | Asia Pacific (Jakarta) ap-southeast-3 | Asia Pacific (Melbourne) ap-southeast-4 | South America (São Paulo) sa-east-1 | AWS GovCloud (US-East) us-gov-east-1 | AWS GovCloud (US-West) us-gov-west-1 | US East (Atlanta) us-east-1-atl-2a | US West (Phoenix) us-west-2-phx-2a |
+| ------------------ | ------------------------------- | ------------------------ | --------------------------------- | -------------------------- | ----------------------------- | ------------------------- | ------------------------- | ----------------------------------- | ----------------------------------- | -------------------------------- | ------------------------------------ | ------------------------------------- | --------------------------------------- | ----------------------------------- | ------------------------------------ | ------------------------------------ | ---------------------------------- | ---------------------------------- |
+| `p6-b300.48xlarge` | ✓                               |                          |                                   | ✓                          |                               |                           |                           |                                     |                                     |                                  |                                      |                                       |                                         |                                     | ✓                                    |                                      |                                    |                                    |
+| `p6-b200.48xlarge` | ✓                               | ✓                        |                                   | ✓                          |                               |                           |                           |                                     |                                     |                                  |                                      |                                       |                                         |                                     |                                      | ✓                                    |                                    |                                    |
+| `p5.4xlarge`       | ✓                               | ✓                        |                                   | ✓                          |                               | ✓                         |                           | ✓                                   |                                     | ✓                                | ✓                                    |                                       |                                         | ✓                                   |                                      |                                      |                                    |                                    |
+| `p5.48xlarge`      | ✓                               | ✓                        | ✓                                 | ✓                          | ✓                             | ✓                         |                           | ✓                                   |                                     | ✓                                | ✓                                    | ✓                                     |                                         | ✓                                   |                                      |                                      | ✓                                  |                                    |
+| `p5e.48xlarge`     | ✓                               | ✓                        | ✓                                 | ✓                          | ✓                             | ✓                         |                           | ✓                                   |                                     | ✓                                | ✓                                    | ✓                                     |                                         | ✓                                   |                                      |                                      |                                    | ✓                                  |
+| `p5en.48xlarge`    | ✓                               | ✓                        | ✓                                 | ✓                          | ✓                             | ✓                         | ✓                         | ✓                                   | ✓                                   | ✓                                | ✓                                    | ✓                                     |                                         |                                     |                                      |                                      |                                    |                                    |
+| `p4d.24xlarge`     | ✓                               | ✓                        |                                   | ✓                          |                               |                           |                           |                                     |                                     |                                  |                                      |                                       |                                         |                                     |                                      |                                      |                                    |                                    |
+| `p4de.24xlarge`    | ✓                               |                          |                                   | ✓                          |                               |                           |                           |                                     |                                     |                                  |                                      |                                       |                                         |                                     |                                      |                                      |                                    |                                    |
+| `trn1.32xlarge`    | ✓                               | ✓                        |                                   | ✓                          | ✓                             |                           |                           |                                     |                                     | ✓                                | ✓                                    |                                       | ✓                                       |                                     |                                      |                                      |                                    |                                    |
+| `trn2.3xlarge`     |                                 |                          |                                   |                            |                               |                           |                           |                                     |                                     |                                  |                                      |                                       | ✓                                       | ✓                                   |                                      |                                      |                                    |                                    |
+| `trn2.48xlarge`    |                                 | ✓                        |                                   |                            |                               |                           |                           |                                     |                                     |                                  |                                      |                                       |                                         |                                     |                                      |                                      |                                    |                                    |
 
 ### UltraServer Capacity Blocks
 
-- **`Trn2`**
-  - US East (Ohio) — `us-east-2`
-
-- **`P6e-GB200`**
-  - US East (Dallas) Local Zone — `us-east-1-dfw-2a`
+| Instance type | US East (Ohio) us-east-2 | US East (Dallas) us-east-1-dfw-2a |
+| ------------- | ------------------------ | --------------------------------- |
+| `Trn2`        | ✓                        |                                   |
+| `P6e-GB200`   |                          | ✓                                 |
 
 ## Supported platforms
 

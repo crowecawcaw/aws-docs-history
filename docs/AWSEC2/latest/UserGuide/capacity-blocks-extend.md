@@ -5,7 +5,7 @@ With Capacity Blocks, you reserve compute capacity for your workloads, ensuring 
 To extend a Capacity Block, it must have a status of `active` or
 `scheduled`, and have no extensions that are
 `payment-pending`. You can request to extend the duration of your
-Capacity Block up to a minimum of 1 hour or a maximum of 56 days before it expires.
+Capacity Block up to a minimum of 1 hour or a maximum of 57 days before it expires.
 You can extend your Capacity Block by 1-day increments up to 14 days, and 7-day increments
 up to 182 days (26 weeks) total. When you extend your Capacity Block, its end date will be
 updated so that your instances can continue to run without disruption.

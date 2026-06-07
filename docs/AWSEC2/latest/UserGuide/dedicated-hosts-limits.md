@@ -48,7 +48,7 @@ support:
 
 - **General purpose:** A1 | M5 | M5n | M6i | M7i | T3
 - **Compute optimized:** C5 | C5n | C6i | C7i
-- **Memory optimized:** R5 | R5n | R6i | R7i
+- **Memory optimized:** R5 | R5b | R5n | R6i | R7i | R7iz | X2iedn
 
 The number of instances you can run on the host depends on the number of physical
 cores provided by the host, and the number of cores consumed by each instance type

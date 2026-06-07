@@ -25,7 +25,7 @@ EC2Rescue for Windows Server can collect the following data from **active and of
 | EC2 ElasticGPUs File                           | Collects event logs related to elastic GPUs.                                                                                                                |
 | ECS                                            | Collects logs related to Amazon ECS.                                                                                                                        |
 | CloudEndure                                    | Collects log files related to CloudEndure Agent.                                                                                                            |
-| AWS Replication Agent for MGN or DRS Log Files | Collects log files related to AWS Application Migration Service or AWS Elastic Disaster Recovery.                                                           |
+| AWS Replication Agent for MGN or DRS Log Files | Collects log files related to AWS Transform MGN or AWS Elastic Disaster Recovery.                                                                           |
 
 EC2Rescue for Windows Server can collect the following additional data from **active instances**:
 

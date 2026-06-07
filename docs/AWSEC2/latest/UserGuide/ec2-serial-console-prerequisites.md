@@ -34,16 +34,29 @@ Supported instance types:
   - All virtualized instances built on the Nitro System.
   - All bare metal instances except:
     - General purpose: `a1.metal`, `mac1.metal`,
-      `mac2.metal`
+      `mac2.metal`, `mac2-m1ultra.metal`,
+      `mac2-m2.metal`, `mac2-m2pro.metal`,
+      `mac-m3ultra.metal`, `mac-m4.metal`,
+      `mac-m4max.metal`, and
+      `mac-m4pro.metal`
     - Accelerated computing: `g5g.metal`
     - Memory optimized: `u-6tb1.metal`, `u-9tb1.metal`,
-      `u-12tb1.metal`, `u-18tb1.metal`,
+      `u-12tb1.metal`, `u-18tb1.metal`, and
       `u-24tb1.metal`
 
 - **Windows**
-
-All virtualized instances built on the Nitro System. Not supported on bare metal
-instances.
+  - All virtualized instances built on the Nitro System.
+  - All bare metal instances except:
+    - General purpose: `a1.metal`, `mac1.metal`,
+      `mac2.metal`, `mac2-m1ultra.metal`,
+      `mac2-m2.metal`, `mac2-m2pro.metal`,
+      `mac-m3ultra.metal`, `mac-m4.metal`,
+      `mac-m4max.metal`, and
+      `mac-m4pro.metal`
+    - Accelerated computing: `g5g.metal`
+    - Memory optimized: `u-6tb1.metal`, `u-9tb1.metal`,
+      `u-12tb1.metal`, `u-18tb1.metal`, and
+      `u-24tb1.metal`
 
 ## Grant access
 
