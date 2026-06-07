@@ -1,10 +1,10 @@
-# AWS Application Migration Service events
+# AWS Transform MGN events
 
-Application Migration Service sends service events directly to EventBridge, as well as via AWS CloudTrail.
+MGN sends service events directly to EventBridge, as well as via AWS CloudTrail.
 
-## Application Migration Service service events
+## MGN service events
 
-Application Migration Service sends the following events directly to EventBridge:
+MGN sends the following events directly to EventBridge:
 
 - MGN Agent Install
 - MGN Data Replication
@@ -41,9 +41,9 @@ specifying an array of event names to match. For example:
 For more information, see
 [Creating event patterns](../userguide/eb-event-patterns.md#eb-create-pattern "../userguide/eb-event-patterns.md#eb-create-pattern") in the _Amazon EventBridge User Guide_.
 
-## Application Migration Service events delivered via AWS CloudTrail
+## MGN events delivered via AWS CloudTrail
 
-AWS CloudTrail sends events originating from Application Migration Service to EventBridge. AWS services deliver events to CloudTrail on a [best effort](event-delivery-level.md "event-delivery-level.md") basis. For more information,
+AWS CloudTrail sends events originating from MGN to EventBridge. AWS services deliver events to CloudTrail on a [best effort](event-delivery-level.md "event-delivery-level.md") basis. For more information,
 see [AWS service events delivered via AWS CloudTrail](../userguide/eb-service-event-cloudtrail.md "../userguide/eb-service-event-cloudtrail.md")
 in the _Amazon EventBridge User Guide_.
 
