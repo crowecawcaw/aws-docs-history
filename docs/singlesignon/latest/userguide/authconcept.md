@@ -123,18 +123,18 @@ and AWS account sessions.
 
 | Action                                                                     | User loses IAM Identity Center access                   | User can't create new application sessions | User can't access existing application sessions | User loses access to existing AWS account sessions                                                                  |
 | -------------------------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------ | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| Application or AWS account access removed from user                        | No<br>• User can continue accessing IAM Identity Center | Effective immediately                      | Within 1 hour                                   | Within 12 hours or less. Duration depends on IAM role session<br>expiry duration configured for the permission set. |
-| User removed from group that had an assigned application or<br>AWS account | No<br>• User can continue accessing IAM Identity Center | Within 1 hour                              | Within 2 hours                                  | Within 12 hours or less. Duration depends on IAM role session<br>expiry duration configured for the permission set. |
-| Application or AWS account access removed from group                       | No<br>• User can continue accessing IAM Identity Center | Effective immediately                      | Within 1 hour                                   | Within 12 hours or less. Duration depends on IAM role session<br>expiry duration configured for the permission set. |
+| Application or AWS account access removed from user                        | No<br>• User can continue accessing IAM Identity Center | Effective immediately                      | Within 30 minutes                               | Within 12 hours or less. Duration depends on IAM role session<br>expiry duration configured for the permission set. |
+| User removed from group that had an assigned application or<br>AWS account | No<br>• User can continue accessing IAM Identity Center | Effective immediately                      | Within 30 minutes                               | Within 12 hours or less. Duration depends on IAM role session<br>expiry duration configured for the permission set. |
+| Application or AWS account access removed from group                       | No<br>• User can continue accessing IAM Identity Center | Effective immediately                      | Within 30 minutes                               | Within 12 hours or less. Duration depends on IAM role session<br>expiry duration configured for the permission set. |
 
 ###### Note
 
-The AWS access portal and AWS CLI will reflect updated user permissions within 1 hour after you add or remove a user from that group.
+The AWS access portal and AWS CLI will reflect updated user permissions immediately after you add or remove a user from that group. If you use an external identity provider, changes take effect after your provider syncs the update to IAM Identity Center.
 
 ###### Understanding timing differences
 
-- Effective immediately – Actions that require immediate re-authentication.
-- Within 30 minutes - 2 hours – Application sessions need time to check with IAM Identity Center and discover any changes.
+- Effective immediately – IAM Identity Center evaluates group membership and permission changes in real time. The next time a user attempts to create a new session, the change is enforced.
+- Within 30 minutes – Existing application sessions end at their next refresh attempt, typically within 30 minutes.
 - Within 12 hours or less – IAM role sessions operate independently and only end when their configured duration expires.
 
 ## Single logout

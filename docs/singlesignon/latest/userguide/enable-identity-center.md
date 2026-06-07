@@ -63,9 +63,17 @@ Organization (recommended)
 ###### Important
 
 Perform this step only if you've configured the necessary permissions for use of the KMS customer managed key. Without proper permissions, this step may fail or disrupt IAM Identity Center administration and AWS managed applications. 4. Under **Enable IAM Identity Center**, choose
-**Enable**. 5. On the **Enable IAM Identity Center with AWS Organizations** page, review the
-information and then select **Enable** to complete the
-process.
+**Enable**.
+
+    * If you are signed in to the management account of an existing
+     organization, IAM Identity Center begins enabling. Proceed to set up your
+     environment.
+    * If you have a standalone AWS account (not part of an
+     organization), you see the **Enable IAM Identity Center with
+     AWS Organizations** page. This option creates a new
+     organization with your account as the management account. Review
+     the information and choose **Enable** to
+     complete the process.
 
 ###### Note
 
@@ -73,6 +81,12 @@ AWS Organizations can have IAM Identity Center enabled only in a single AWS Regi
 After enabling IAM Identity Center, if you need to change the Region that IAM Identity Center is
 enabled in, you must [delete](delete-config.md "delete-config.md") the
 current instance and create an instance in the other Region.
+
+###### Tip
+
+If you have a standalone account and want to create an account
+instance instead of an organization instance, see the
+**Account** tab.
 
 After enabling your organization instance we recommend that you do the
 following steps to finish setting up your environment:
@@ -106,11 +120,10 @@ Account
    **Enable IAM Identity Center**, choose
    **Enable**.
 
-You see the **Enable IAM Identity Center with AWS Organizations** page. We
-recommend this option, but it is not required.
-
-Select the link **enable an account instance of
-IAM Identity Center**. 4. If you are an administrator of an AWS Organizations member account, under
+You see the **Enable IAM Identity Center with AWS Organizations** page. This
+creates an organization instance, which we recommend. However, if you
+prefer an account instance instead, select the link **enable an
+account instance of IAM Identity Center**. 4. If you are an administrator of an AWS Organizations member account, under
 **Enable an account instance of IAM Identity Center**, select
 **Enable an account instance**. 5. On the **Enable an account instance of IAM Identity Center** page,
 review the information and _optionally_ add tags that

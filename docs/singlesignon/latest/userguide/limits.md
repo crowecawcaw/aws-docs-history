@@ -50,11 +50,10 @@ that are associated with IAM roles, see [IAM and STS quotas](../../../IAM/latest
 
 ## IAM Identity Center identity store quotas
 
-| Resource                                                                           | Default quota | Can be increased |
-| ---------------------------------------------------------------------------------- | ------------- | ---------------- |
-| Number of users supported in IAM Identity Center                                   | 200000        | Yes              |
-| Number of groups supported in IAM Identity Center                                  | 100000        | Yes              |
-| Number of unique groups that can be used to evaluate the permissions<br>for a user | 1000          | No               |
+| Resource                                          | Default quota | Can be increased |
+| ------------------------------------------------- | ------------- | ---------------- |
+| Number of users supported in IAM Identity Center  | 200000        | Yes              |
+| Number of groups supported in IAM Identity Center | 100000        | Yes              |
 
 ## IAM Identity Center throttle limits
 
