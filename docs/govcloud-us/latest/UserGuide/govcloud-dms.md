@@ -1,10 +1,12 @@
 # AWS Database Migration Service in AWS GovCloud (US)
 
-## How AWS Database Migration Service differs for AWS GovCloud (US)
+## How AWS Database Migration Service differs
+
+The following differences apply to AWS Database Migration Service:
 
 - AWS DMS Schema Conversion is not available.
 
-## Documentation for AWS Database Migration Service
+## Documentation
 
 [AWS Database Migration Service documentation](https://aws.amazon.com/documentation/dms/ "https://aws.amazon.com/documentation/dms/").
 

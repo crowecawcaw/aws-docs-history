@@ -2,15 +2,17 @@
 
 Use CloudWatch Events to send system events from AWS resources to AWS Lambda functions, Amazon SNS topics, streams in Amazon Kinesis, and other target types.
 
-## How Amazon CloudWatch differs for AWS GovCloud (US)
+## How Amazon CloudWatch differs
+
+The following differences apply to Amazon CloudWatch:
 
 - Transaction Search is not available.
 - The GetMetricWidgetImage API is not available.
 - [Dashboard sharing](../../../AmazonCloudWatch/latest/monitoring/cloudwatch-dashboard-sharing.md "../../../AmazonCloudWatch/latest/monitoring/cloudwatch-dashboard-sharing.md") is not available.
-- You cannot create CloudWatch alarms for Trusted Advisor metrics in AWS GovCloud (US).
-- Amazon CloudWatch cross-account observability is not available in AWS GovCloud (US).
+- You cannot create CloudWatch alarms for Trusted Advisor metrics.
+- Amazon CloudWatch cross-account observability is not available.
 
-## Documentation for Amazon CloudWatch
+## Documentation
 
 [Amazon CloudWatch documentation](https://aws.amazon.com/documentation/cloudwatch/ "https://aws.amazon.com/documentation/cloudwatch/").
 

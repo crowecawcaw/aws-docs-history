@@ -2,12 +2,14 @@
 
 AWS Backup is a fully managed backup service that makes it easy to centralize and automate the backup of data across AWS services in the cloud and on premises. Using AWS Backup, you can configure backup policies and monitor backup activity for your AWS resources in one place. AWS Backup automates and consolidates backup tasks that were previously performed service-by-service, and removes the need to create custom scripts and manual processes. With just a few clicks on the AWS Backup console, you can create backup policies that automate backup schedules and retention management.
 
-## How AWS Backup differs for AWS GovCloud (US)
+## How AWS Backup differs
+
+The following differences apply to AWS Backup:
 
 - Restore testing is not available.
 - Backup Audit Manager multi-account, multi-Region reporting is not available.
 
-## Documentation for AWS Backup
+## Documentation
 
 [AWS Backup documentation](../../../aws-backup/latest/devguide/whatisbackup.md "../../../aws-backup/latest/devguide/whatisbackup.md").
 

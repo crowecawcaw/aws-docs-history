@@ -2,12 +2,14 @@
 
 An online resource to help you reduce cost, increase performance, and improve security by optimizing your AWS environment, Trusted Advisor provides real time guidance to help you provision your resources following AWS best practices.
 
-## How AWS Trusted Advisor Differs for AWS GovCloud (US)
+## How AWS Trusted Advisor differs
 
-- Email notifications for Trusted Advisor check summaries aren’t supported in the AWS GovCloud (US) Regions.
-- The organizational view feature is currently not supported in the AWS GovCloud (US) Regions.
+The following differences apply to AWS Trusted Advisor:
+
+- Email notifications for Trusted Advisor check summaries are not available.
+- The organizational view feature is currently not supported.
 - For a list of supported checks in the AWS GovCloud (US) Regions, see [Supported Trusted Advisor checks](#supported-ta-checks "#supported-ta-checks"). You can also sign in to the [Trusted Advisor console](https://console.aws.amazon.com/trustedadvisor "https://console.aws.amazon.com/trustedadvisor").
-- Email notifications for Trusted Advisor Priority recommendation summaries aren’t supported in the AWS GovCloud (US) Regions.
+- Email notifications for Trusted Advisor Priority recommendation summaries are not available.
 - Not all checks are automatically refreshed. For checks not automatically refreshed, customers can manually refresh via the Console or API.
 
 ### Supported Trusted Advisor checks
@@ -16,10 +18,11 @@ The following tables list the Trusted Advisor checks that are available in the A
 
 #### Cost optimization
 
-The following table lists the Trusted Advisor checks for cost optimization that are available in the AWS GovCloud (US) Regions.
+The following table lists the Trusted Advisor checks for cost optimization that are available.
+.​
 
-| ​                                                                       | Check                   | Support level |
-| ----------------------------------------------------------------------- | ----------------------- | ------------- |
+| Check                                                                   | Support level           |
+| ----------------------------------------------------------------------- | ----------------------- |
 | Amazon EC2 Instances Stopped                                            | Business and Enterprise |
 | Amazon ECR Repository Without Lifecycle Policy Configured               | Business and Enterprise |
 | AWS Account Not Part of AWS Organizations                               | Business and Enterprise |
@@ -33,10 +36,11 @@ The following table lists the Trusted Advisor checks for cost optimization that 
 
 #### Fault tolerance
 
-The following table lists the Trusted Advisor checks for fault tolerance that are available in the AWS GovCloud (US) Regions.
+The following table lists the Trusted Advisor checks for fault tolerance that are available.
+.​
 
-| ​                                                                    | Check                   | Support level |
-| -------------------------------------------------------------------- | ----------------------- | ------------- |
+| Check                                                                | Support level           |
+| -------------------------------------------------------------------- | ----------------------- |
 | Amazon Aurora DB Instance Accessibility                              | Business and Enterprise |
 | Amazon DynamoDB Table Not Included in Backup Plan                    | Business and Enterprise |
 | Amazon EBS Not Included in AWS Backup Plan                           | Business and Enterprise |
@@ -71,10 +75,11 @@ The following table lists the Trusted Advisor checks for fault tolerance that ar
 
 #### Operational Excellence
 
-The following table lists the Trusted Advisor checks for operational excellence that are available in the AWS GovCloud (US) Regions.
+The following table lists the Trusted Advisor checks for operational excellence that are available.
+.​
 
-| ​                                                                                 | Check                   | Support level |
-| --------------------------------------------------------------------------------- | ----------------------- | ------------- |
+| Check                                                                             | Support level           |
+| --------------------------------------------------------------------------------- | ----------------------- |
 | Amazon API Gateway Not Logging Execution Logs                                     | Business and Enterprise |
 | Amazon API Gateway REST APIs Without X-Ray Tracing Enabled                        | Business and Enterprise |
 | Amazon EC2 Instance Not Managed by AWS Systems Manager                            | Business and Enterprise |
@@ -97,10 +102,11 @@ The following table lists the Trusted Advisor checks for operational excellence 
 
 #### Performance
 
-The following table lists the Trusted Advisor checks for performance that are available in the AWS GovCloud (US) Regions.
+The following table lists the Trusted Advisor checks for performance that are available.
+.​
 
-| ​                                                                 | Check                   | Support level |
-| ----------------------------------------------------------------- | ----------------------- | ------------- |
+| Check                                                             | Support level           |
+| ----------------------------------------------------------------- | ----------------------- |
 | Amazon DynamoDB Auto Scaling Not Enabled                          | Business and Enterprise |
 | Amazon EBS Optimization Not Enabled                               | Business and Enterprise |
 | Amazon EBS Provisioned IOPS (SSD) Volume Attachment Configuration | Business and Enterprise |
@@ -114,10 +120,11 @@ The following table lists the Trusted Advisor checks for performance that are av
 
 #### Security
 
-The following table lists the Trusted Advisor checks for security that are available in the AWS GovCloud (US) Regions.
+The following table lists the Trusted Advisor checks for security that are available.
+.​
 
-| ​                                                                                     | Check                   | Support level |
-| ------------------------------------------------------------------------------------- | ----------------------- | ------------- |
+| Check                                                                                 | Support level           |
+| ------------------------------------------------------------------------------------- | ----------------------- |
 | Amazon CloudWatch Log Group retention period less than 365 days                       | All support levels      |
 | Amazon EBS Public Snapshots                                                           | All support levels      |
 | Amazon RDS Security Group Access Risk                                                 | Business and Enterprise |
@@ -135,10 +142,11 @@ The following table lists the Trusted Advisor checks for security that are avail
 
 #### Service quotas
 
-The following table lists the checks for Trusted Advisor service quotas, formerly known as limits, that are available in the AWS GovCloud (US) Regions.
+The following table lists the checks for Trusted Advisor service quotas, formerly known as limits, that are available.
+.​
 
-| ​                                                 | Check              | Support level |
-| ------------------------------------------------- | ------------------ | ------------- |
+| Check                                             | Support level      |
+| ------------------------------------------------- | ------------------ |
 | Amazon DynamoDB Throughput                        | All support levels |
 | Auto Scaling Groups                               | All support levels |
 | Auto Scaling Launch Configurations                | All support levels |
@@ -183,7 +191,7 @@ The following table lists the checks for Trusted Advisor service quotas, formerl
 | VPC Elastic IP Address                            | All support levels |
 | VPC Internet Gateways                             | All support levels |
 
-## Documentation for AWS Trusted Advisor
+## Documentation
 
 See the following topics:
 

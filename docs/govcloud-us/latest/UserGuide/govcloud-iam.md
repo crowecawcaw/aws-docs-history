@@ -2,7 +2,9 @@
 
 AWS Identity and Access Management (IAM) is a web service for securely controlling access to AWS services. With IAM, you can centrally manage users, security credentials such as access keys, and permissions that control which AWS resources users and applications can access.
 
-## How IAM differs for AWS GovCloud (US)
+## How IAM differs
+
+The following differences apply to IAM:
 
 - You must have an existing standard AWS account to create an AWS GovCloud (US) account. See [AWS GovCloud (US) Sign Up](getting-started-sign-up.md "getting-started-sign-up.md") to learn more. If you have AWS GovCloud (US) sign up issues, contact [AWS Customer Support](https://console.aws.amazon.com/support/home#/case/create?issueType=customer-service&serviceCode=customer-account&categoryCode=aws-govcloud-us-onboarding/ "https://console.aws.amazon.com/support/home#/case/create?issueType=customer-service&serviceCode=customer-account&categoryCode=aws-govcloud-us-onboarding/").
 - When your AWS GovCloud (US) account is created, you are provided initial access to the [AWS Management Console for AWS GovCloud (US)](https://signin.amazonaws-us-gov.com "https://signin.amazonaws-us-gov.com") by an `Administrator`
@@ -12,7 +14,7 @@ AWS Identity and Access Management (IAM) is a web service for securely controlli
 You cannot access the AWS Management Console for AWS GovCloud (US) using the [associated standard AWS accountroot user credentials](getting-started-standard-account-linking.md "getting-started-standard-account-linking.md").
 
 - The AWS GovCloud (US) account root user is created at the same time the AWS GovCloud (US) account is created, but access to this user is not provided by default to AWS GovCloud (US) customers.
-  - Sign in to the AWS Management Console for AWS GovCloud (US) as the AWS GovCloud (US) account root user is not supported.
+  - Sign in to the AWS Management Console for AWS GovCloud (US) as the AWS GovCloud (US) account root user is not available.
   - AWS GovCloud (US) account root user access keys can be provided at the request of [associated standard AWS account](getting-started-standard-account-linking.md "getting-started-standard-account-linking.md") root user by contacting AWS Customer Support. See [Requesting root access keys for an AWS GovCloud (US) account](govcloud-account-root-user.md#requesting-root-user-keys "govcloud-account-root-user.md#requesting-root-user-keys") to get started.
   - Tasks that require the root user in AWS GovCloud (US) are limited. See [Tasks in AWS GovCloud (US) Regions that require root user access keys](govcloud-account-root-user.md#govcloud-tasks-require-root-user "govcloud-account-root-user.md#govcloud-tasks-require-root-user").
   - Since there is no access to the root user, there is no ability to centrally manage such credentials in AWS Organizations. However, you can perform privileged tasks for member accounts in your organization. To learn more about performing some root user tasks using short-term credentials, see [Perform a privileged task on an AWS Organizations member account](../../../IAM/latest/UserGuide/id_root-user-privileged-task.md "../../../IAM/latest/UserGuide/id_root-user-privileged-task.md").
@@ -29,7 +31,7 @@ If all administrators have forgotten or lost access to the AWS GovCloud (US) acc
   For more information, see [Dual-stack endpoint support](../../../IAM/latest/UserGuide/reference_dual-stack_endpoint_support.md "../../../IAM/latest/UserGuide/reference_dual-stack_endpoint_support.md") in the _IAM User Guide_.
 - In the AWS GovCloud (US) Regions, there is no AWS STS global endpoint. AWS provides Regional AWS STS endpoints.
 - When using the IAM or AWS STS service in AWS GovCloud (US), you must use [AWS GovCloud (US)IAM/AWS STS endpoints](using-govcloud-endpoints.md "using-govcloud-endpoints.md").
-  Use SSL (HTTPS) when you make calls to the IAM or AWS STS service in AWS GovCloud (US) Regions.
+  Use SSL (HTTPS) when you make calls to the IAM or AWS STS service.
 - IAM users that you create in AWS GovCloud (US) are specific to AWS GovCloud (US) and do not exist in other standard AWS Regions.
 - AWS GovCloud (US) supports MFA devices listed in the [Multi-Factor Authentication (MFA) in AWS GovCloud (US)](https://aws.amazon.com/govcloud-us/mfa/ "https://aws.amazon.com/govcloud-us/mfa/") page.
   - You can use these MFA devices with your AWS GovCloud (US) administrator user or any IAM user in your account.
@@ -45,13 +47,13 @@ If all administrators have forgotten or lost access to the AWS GovCloud (US) acc
   - Documentation that mentions **Valid only in AWS Regions enabled by default** refers to **Support only SigV4-based signatures on AWS requests** for the AWS STS endpoint in the AWS GovCloud (US-West) Region.
   - Documentation that mentions **All AWS Regions** refers to **Both the SigV4 and SigV4A algorithms** for the AWS STS endpoint in the AWS GovCloud (US-West) Region.
 
-- IAM Access Analyzer policy generation is not supported in AWS GovCloud (US). To learn more, see [Using AWS Identity and Access Management Access Analyzer](../../../IAM/latest/UserGuide/what-is-access-analyzer.md "../../../IAM/latest/UserGuide/what-is-access-analyzer.md") in the _IAM User Guide_.
+- IAM Access Analyzer policy generation is not available in AWS GovCloud (US). To learn more, see [Using AWS Identity and Access Management Access Analyzer](../../../IAM/latest/UserGuide/what-is-access-analyzer.md "../../../IAM/latest/UserGuide/what-is-access-analyzer.md") in the _IAM User Guide_.
 - IAM Roles Anywhere is now supported in AWS GovCloud (US). To learn more, see [Providing access for non AWS workloads](../../../IAM/latest/UserGuide/id_roles_common-scenarios_non-aws.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_non-aws.md") in the _IAM User Guide_.
 - When configuring SAML Applications for single sign on in AWS GovCloud (US), the SAML Audience and ACS links will be different than those used in the standard Regions.
   - Application ACS URL: https://signin.amazonaws-us-gov.com/saml
   - Application SAML audience: `urn:amazon:webservices:govcloud`
 
-## Documentation for AWS Identity and Access Management
+## Documentation
 
 [AWSIAM documentation](https://aws.amazon.com/documentation/iam/ "https://aws.amazon.com/documentation/iam/").
 

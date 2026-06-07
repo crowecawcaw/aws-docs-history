@@ -2,12 +2,14 @@
 
 AWS Organizations is an account management service that enables you to consolidate multiple AWS accounts into an organization that you create and centrally manage. AWS Organizations includes account management and consolidated billing capabilities that enable you to better meet the budgetary, security, and compliance needs of your business.
 
-## How AWS Organizations differs for AWS GovCloud (US)
+## How AWS Organizations differs
+
+The following differences apply to AWS Organizations:
 
 - You must use AWS Organizations with all features enabled. The consolidated billing feature set is not available in this Region.
 - You must meet the U.S. regulatory requirements as described in [Signing Up for AWS GovCloud (US).](../ug-west/getting-started-sign-up.md "../ug-west/getting-started-sign-up.md")
 - Creating accounts from within AWS Organizations operates differently in the AWS GovCloud (US) Regions compared to commercial AWS Regions:
-  - You start creating AWS GovCloud (US) accounts by calling the [CreateGovCloudAccount](../../../organizations/latest/APIReference/API_CreateGovCloudAccount.md "../../../organizations/latest/APIReference/API_CreateGovCloudAccount.md") action from the management account of the organization in the commercial Region. Calling account creation APIs from the AWS GovCloud (US) Regions is not supported.
+  - You start creating AWS GovCloud (US) accounts by calling the [CreateGovCloudAccount](../../../organizations/latest/APIReference/API_CreateGovCloudAccount.md "../../../organizations/latest/APIReference/API_CreateGovCloudAccount.md") action from the management account of the organization in the commercial Region. Calling account creation APIs from the AWS GovCloud (US) Regions is not available.
   - When you call the CreateGovCloudAccount API action, you create two accounts: a standalone account in the AWS GovCloud (US) Regions, and an associated account in the commercial Region for billing and support purposes. The account in the commercial Region is automatically a member of the organization whose credentials made the request. Both accounts are associated with the same email address.
   - After creating the standalone account in the AWS GovCloud (US) Regions, you can invite it to an organization in the AWS GovCloud (US) Regions only.
   - Accounts created in other AWS Regions cannot be members of an organization in the AWS GovCloud (US) Regions.
@@ -73,7 +75,7 @@ The following diagram explains account access works so that you can invite stand
 
 ###### To invite an account in the AWS GovCloud (US) Regions to an Organization
 
-1. From the AWS GovCloud (US) account that’s associated with the management account of your organization in the commercial Region, assume the role of the AWS GovCloud (US) account you just created in the AWS GovCloud (US) Regions.
+1. From the AWS GovCloud (US) account that’s associated with the management account of your organization in the commercial Region, assume the role of the AWS GovCloud (US) account you just created.
 
 In the above example, start from AWS GovCloud (US) Account 1 and assume the role that was created in AWS GovCloud (US) Account 2. 2. Follow the procedure described in [Sending Invitations to AWS Accounts](../../../organizations/latest/userguide/orgs_manage_accounts_invites.md#orgs_manage_accounts_invite-account "../../../organizations/latest/userguide/orgs_manage_accounts_invites.md#orgs_manage_accounts_invite-account") in the [AWS Organizations User Guide](../../../organizations/latest/userguide/orgs_introduction.md "../../../organizations/latest/userguide/orgs_introduction.md") to invite the account in the AWS GovCloud (US) Regions to the organization.
 
@@ -85,7 +87,7 @@ In the above example, start from AWS GovCloud (US) Account 1 and assume the role
 
 The role is automatically created when you create the account. By default, the role is named **`**OrganizationAccountAccessRole**`** but you can change it using the `RoleName` parameter when you call the `CreateGovCloudAccount` operation.
 
-## Documentation for AWS Organizations
+## Documentation
 
 [AWS Organizations documentation](../../../organizations/latest/userguide/orgs_introduction.md "../../../organizations/latest/userguide/orgs_introduction.md").
 

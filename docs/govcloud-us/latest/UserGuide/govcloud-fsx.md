@@ -2,16 +2,18 @@
 
 Amazon FSx makes it easy and cost effective to launch and run popular file systems. With Amazon FSx, you can leverage the rich feature sets and fast performance of widely-used open source and commercially-licensed file systems, while avoiding time-consuming administrative tasks like hardware provisioning, software configuration, patching, and backups. It provides cost-efficient capacity and high levels of reliability, and it integrates with other AWS services so that you can manage and use the file systems in cloud-native ways. Amazon FSx let you choose between three widely-used file systems: NetApp ONTAP, Windows File Server, and Lustre.
 
-## How Amazon FSx differs for AWS GovCloud (US)
+## How Amazon FSx differs
+
+The following differences apply to Amazon FSx:
 
 - Amazon FSx for Lustre Persistent_2 is not available.
-- For Amazon FSx for OpenZFS, the following features aren’t available:
+- For Amazon FSx for OpenZFS, the following features are not available:
   - Single-AZ 2 deployment type
   - Amazon S3 access points
 
 - Amazon File Cache is not available for Amazon FSx.
 
-## Documentation for Amazon FSx
+## Documentation
 
 [Amazon FSx documentation](../../../fsx/index.md "../../../fsx/index.md").
 

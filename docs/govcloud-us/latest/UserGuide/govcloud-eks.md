@@ -2,7 +2,9 @@
 
 Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes it easy for you to run Kubernetes on AWS without needing to stand up or maintain your own Kubernetes control plane. Kubernetes is an open-source system for automating the deployment, scaling, and management of containerized applications.
 
-## How Amazon EKS differs for AWS GovCloud (US)
+## How Amazon EKS differs
+
+The following differences apply to Amazon EKS:
 
 - [Amazon EKS on Fargate](../../../eks/latest/userguide/fargate.md "../../../eks/latest/userguide/fargate.md") isn’t available.
 - [Amazon Managed Service for Prometheus](../../../eks/latest/userguide/prometheus.md "../../../eks/latest/userguide/prometheus.md") isn’t available.
@@ -10,7 +12,7 @@ Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes i
 - Amazon EKS Anywhere isn’t available.
 - Amazon EKS Hybrid Nodes isn’t available.
 
-## Documentation for Amazon EKS
+## Documentation
 
 [Amazon EKS documentation](../../../eks.md "../../../eks.md").
 

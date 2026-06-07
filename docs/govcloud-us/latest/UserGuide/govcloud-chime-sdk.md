@@ -2,7 +2,9 @@
 
 With the Amazon Chime SDK, you can quickly add voice, video, and screen sharing into your websites and mobile applications. Built-in machine learning provides noise and echo reduction to improve audio quality, and background replacement and blur to help improve visual privacy. Innovate faster by using the Amazon Chime SDK communication building blocks for secure customer communications that scale up or down to meet demand.
 
-## How Amazon Chime SDK differs for AWS GovCloud (US)
+## How Amazon Chime SDK differs
+
+The following differences apply to Amazon Chime SDK:
 
 - WebRTC media sessions (meetings-chime)
   - Sessions can be hosted in AWS GovCloud (US) Regions only
@@ -10,7 +12,7 @@ With the Amazon Chime SDK, you can quickly add voice, video, and screen sharing 
   - Live transcription only uses Amazon Transcribe in the AWS GovCloud (US-West) Region
   - Live transcription does not support Amazon Transcribe Medical
 
-- The following Amazon Chime SDK features are not supported:
+- The following Amazon Chime SDK features are not available:
   - Media Pipelines (media-pipelines-chime)
   - PSTN Audio (service.chime)
   - SIP Trunking (service.chime)
@@ -20,7 +22,7 @@ With the Amazon Chime SDK, you can quickly add voice, video, and screen sharing 
 
 - Amazon Chime SDK in AWS GovCloud (US) is in a separate AWS partition from other AWS Regions. Therefore, it does not support cross-partition integration with other AWS services, such as Amazon CloudWatch, Amazon EventBridge, Amazon Simple Notification Service, Amazon Simple Queue Service and Amazon Transcribe.
 
-## Documentation for Amazon Chime SDK
+## Documentation
 
 [Amazon Chime SDK documentation](../../../chime-sdk/index.md "../../../chime-sdk/index.md").
 

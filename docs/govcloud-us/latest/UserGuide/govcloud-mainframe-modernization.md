@@ -4,11 +4,11 @@ AWS Mainframe Modernization helps you modernize your mainframe applications to A
 
 You can use AWS Mainframe Modernization to help you efficiently create and manage the runtime environment on AWS for your mainframe applications, as well as to manage and monitor your modernized applications.
 
-## How AWS Mainframe Modernization differs for AWS GovCloud (US)
+## How AWS Mainframe Modernization differs
 
-This service has no differences between AWS GovCloud (US) Regions and the standard AWS Regions.
+There are no differences for this service.
 
-## Documentation for AWS Mainframe Modernization
+## Documentation
 
 [AWS Mainframe Modernization documentation](../../../m2/latest/userguide/what-is-m2.md "../../../m2/latest/userguide/what-is-m2.md").
 

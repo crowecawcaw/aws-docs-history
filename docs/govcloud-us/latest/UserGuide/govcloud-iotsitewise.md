@@ -8,11 +8,13 @@ AWS IoT SiteWise is only supported in the AWS GovCloud (US-West) Region.
 
 The SiteWise Monitor feature will no longer be open to new customers starting November 7, 2025. If you would like to use SiteWise Monitor, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](../../../iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.md "../../../iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.md").
 
-## How AWS IoT SiteWise differs for AWS GovCloud (US)
+## How AWS IoT SiteWise differs
+
+The following differences apply to AWS IoT SiteWise:
 
 - The alarm configuration and notification features in AWS IoT SiteWise Monitor portals are currently not supported.
 - Partner data sources on AWS IoT SiteWise gateways are not currently supported.
-- The following endpoints are not supported:
+- The following endpoints are not available:
 
       + The endpoint for the control plane API operations that you use to manage asset models and assets: `model.iotsitewise.region.amazonaws.com`.
       + The endpoint for the control plane API operations that you use to manage tags, storage configurations, and account configurations: `iotsitewise.region.amazonaws.com`.
@@ -21,7 +23,7 @@ The SiteWise Monitor feature will no longer be open to new customers starting No
 
   For more information, see [Service Endpoints](using-govcloud-endpoints.md "using-govcloud-endpoints.md").
 
-## Documentation for AWS IoT SiteWise
+## Documentation
 
 [AWS IoT SiteWise documentation](../../../iot-sitewise/index.md "../../../iot-sitewise/index.md").
 

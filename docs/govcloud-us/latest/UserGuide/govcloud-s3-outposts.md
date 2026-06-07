@@ -2,13 +2,15 @@
 
 Amazon S3 on Outposts delivers object storage to your on-premises AWS Outposts environment to help you meet your low latency, local data processing, and data residency needs. Using the Amazon S3 APIs and features, Amazon S3 on Outposts makes it easier to store, secure, tag, retrieve, report on, and control access to the data on your Outposts. AWS Outposts is a fully managed service that extends AWS infrastructure, services, and tools to virtually any data center, co-location space, or on-premises facility for a truly consistent hybrid experience.
 
-## How Amazon S3 on Outposts differs for AWS GovCloud (US)
+## How Amazon S3 on Outposts differs
 
-AWS CloudFormation is not supported.
+The following differences apply to Amazon S3 on Outposts:
 
-## Documentation for Amazon S3 on Outposts
+- AWS CloudFormation is not available.
 
-[S3 on Outposts documentation](../../../AmazonS3/latest/userguide/S3onOutposts.md "../../../AmazonS3/latest/userguide/S3onOutposts.md").
+## Documentation
+
+- [S3 on Outposts documentation](../../../AmazonS3/latest/userguide/S3onOutposts.md "../../../AmazonS3/latest/userguide/S3onOutposts.md")
 
 ## Export-controlled content
 

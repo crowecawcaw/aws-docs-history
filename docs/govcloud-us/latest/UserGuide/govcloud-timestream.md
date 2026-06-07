@@ -10,14 +10,14 @@ With the purpose-built query engine in Timestream, you can access and analyze re
 
 Timestream helps ensure that your time series data is always encrypted, whether at rest or in transit. With Timestream, you can also specify an AWS KMS customer managed key for encrypting data in the magnetic store.
 
-## How Amazon Timestream differs for AWS GovCloud (US)
+## How Amazon Timestream differs
 
-The AWS GovCloud (US) Region implementation of Amazon Timestream is unique in the following ways.
+The following differences apply to Amazon Timestream:
 
 - The query editor in the Timestream console does not allow you to save your queries for later usage or search from saved queries.
 - Customers who rely upon FIFO support with SNS notifications from the scheduled query service for Timestream will not be able to create such a topic in GovCloud since the Region does not support FIFO topics. For more information, see [Amazon SNS in AWS GovCloud (US)](govcloud-sns.md "govcloud-sns.md"). This might cause notifications for scheduled queries to arrive out of order.
 
-## Documentation for Amazon Timestream
+## Documentation
 
 [Timestream documentation](../../../timestream/latest/developerguide/what-is-timestream.md "../../../timestream/latest/developerguide/what-is-timestream.md").
 

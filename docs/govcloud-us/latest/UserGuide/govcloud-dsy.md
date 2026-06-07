@@ -2,11 +2,11 @@
 
 DataSync is a data transfer service that makes it easy for you to automate moving data between on-premises storage and Amazon S3, Amazon Elastic File System (Amazon EFS), or Amazon FSx. DataSync automatically handles many of the tasks related to data transfers that can slow down migrations or burden your IT operations, including running your own instances, handling encryption, managing scripts, network optimization, and data integrity validation. You can use DataSync to transfer data at speeds up to 10 times faster than open-source tools. DataSync uses an on-premises software agent to connect to your existing storage or file systems using the Network File System (NFS) protocol, so you don’t have to write scripts or modify your applications to work with AWS APIs. You can use DataSync to copy data over AWS Direct Connect or internet links to AWS. The service enables one-time data migrations, recurring data processing workflows, and automated replication for data protection and recovery. Deploy the DataSync agent on premises, connect it to a file system or storage array, select Amazon EFS, Amazon S3, or Amazon FSx as your AWS storage, and start moving data. You pay only for the data you copy.
 
-## How AWS DataSync differs for AWS GovCloud (US)
+## How AWS DataSync differs
 
-This service has no differences between the AWS GovCloud (US) and the standard AWS Regions.
+There are no differences for this service.
 
-## Documentation for AWS DataSync
+## Documentation
 
 [AWS DataSync documentation](../../../datasync/latest/userguide/what-is-datasync.md "../../../datasync/latest/userguide/what-is-datasync.md").
 

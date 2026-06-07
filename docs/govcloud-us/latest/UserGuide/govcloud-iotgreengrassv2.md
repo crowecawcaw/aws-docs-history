@@ -2,11 +2,13 @@
 
 AWS IoT Greengrass seamlessly extends AWS to edge devices so they can act locally on the data they generate, while still using the cloud for management, analytics, and durable storage. With AWS IoT Greengrass, connected devices can run AWS Lambda functions, execute predictions based on machine learning models, keep device data in sync, and communicate with other devices securely even when not connected to the Internet.
 
-## How AWS IoT Greengrass V2 differs for AWS GovCloud (US)
+## How AWS IoT Greengrass V2 differs
 
-- Secret manager v2.0.5 is the minimum supported version in the AWS GovCloud (US) Regions.
+The following differences apply to AWS IoT Greengrass V2:
 
-## Documentation for AWS IoT Greengrass V2
+- Secret manager v2.0.5 is the minimum supported version.
+
+## Documentation
 
 [AWS IoT Greengrass documentation](../../../greengrass/v2/developerguide/what-is-iot-greengrass.md "../../../greengrass/v2/developerguide/what-is-iot-greengrass.md").
 

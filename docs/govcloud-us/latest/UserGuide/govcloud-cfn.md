@@ -2,7 +2,9 @@
 
 AWS CloudFormation enables you to create and provision AWS infrastructure deployments predictably and repeatedly. It helps you leverage AWS products such as Amazon EC2, Amazon Elastic Block Store, Amazon SNS, Elastic Load Balancing, and Auto Scaling to build highly reliable, highly scalable, cost-effective applications in the cloud without worrying about creating and configuring the underlying AWS infrastructure. AWS CloudFormation enables you to use a template file to create and delete a collection of resources together as a single unit (a stack).
 
-## How AWS CloudFormation differs for AWS GovCloud (US)
+## How AWS CloudFormation differs
+
+The following differences apply to AWS CloudFormation:
 
 - KmsKeyID property is not available.
 - CloudFormation doesn’t support the following resources:
@@ -16,7 +18,7 @@ AWS CloudFormation enables you to create and provision AWS infrastructure deploy
 
 ResourceTypes for CloudFormation can vary per Region. Ensure the ResourceTypes needed are available in AWS GovCloud (US-West) and AWS GovCloud (US-East) which can be found here within the [Resource Specification table](../../../AWSCloudFormation/latest/UserGuide/cfn-resource-specification.md "../../../AWSCloudFormation/latest/UserGuide/cfn-resource-specification.md").
 
-## Documentation for AWS CloudFormation
+## Documentation
 
 The following documentation is based on the public AWS documentation. As you read this documentation, you should consider how CloudFormation differs for AWS GovCloud (US) Regions, as described in this topic. Also, some features and new functionality described in this documentation might not be available in the current release of AWS GovCloud (US) Regions. There are other differences, such as links, endpoints, and screenshots.
 

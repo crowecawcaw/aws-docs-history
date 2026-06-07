@@ -6,7 +6,9 @@ Red Hat OpenShift Service on AWS (ROSA) is a managed service that you can use to
 
 Red Hat OpenShift Service on AWS has achieved FedRAMP High Authorization for classic and hosted control plane architectures.
 
-## How Red Hat OpenShift Service on AWS differs for AWS GovCloud (US)
+## How Red Hat OpenShift Service on AWS differs
+
+The following differences apply to Red Hat OpenShift Service on AWS:
 
 - You must have access to the [Red Hat Hybrid Cloud Console on AWS GovCloud (US)](https://console.openshiftusgov.com/openshift "https://console.openshiftusgov.com/openshift"). To obtain access, complete the [ROSA FedRAMP access request form](https://console.redhat.com/openshift/create/rosa/govcloud "https://console.redhat.com/openshift/create/rosa/govcloud").
 - Support does not yet have the ability to transfer support cases to Red Hat on behalf of customers.
@@ -15,7 +17,7 @@ Red Hat OpenShift Service on AWS has achieved FedRAMP High Authorization for cla
 
 - ROSA classic and ROSA with Hosted Control Planes (HCP) are both supported.
 - The AWS
-  ROSA console is not yet available in AWS GovCloud (US) Regions.
+  ROSA console is not yet available.
 - Only ROSA clusters that use AWS PrivateLink can be deployed in AWS GovCloud (US).
 - You must meet the U.S. regulatory requirements as described in [AWS GovCloud (US) Sign Up](getting-started-sign-up.md "getting-started-sign-up.md").
 - You must deploy ROSA into an existing VPC.
@@ -24,7 +26,7 @@ Red Hat OpenShift Service on AWS has achieved FedRAMP High Authorization for cla
 - You must have a FIPS 140-3 compliant hardware token for use with the service.
 - You need to configure the AWS CLI on your local machine to use your AWS GovCloud (US) account. This configuration is required to create ROSA clusters.
 - ROSA entitlements cannot be shared between AWS standard accounts and AWS GovCloud (US) accounts using AWS License Manager.
-- VPC sharing is not supported.
+- VPC sharing is not available.
 
 ## Enabling ROSA
 
@@ -94,7 +96,7 @@ Once logged in to your AWS GovCloud (US) and Red Hat Hybrid Cloud Console on AWS
 
 The procedure is the same for deploying a ROSA cluster in AWS GovCloud (US) Regions and AWS standard Regions. For more information, see [Getting started with ROSA](../../../rosa/latest/userguide/getting-started.md "../../../rosa/latest/userguide/getting-started.md") in the _ROSA User Guide_.
 
-## Documentation for Red Hat OpenShift Service on AWS
+## Documentation
 
 [ROSA documentation.](../../../ROSA/latest/userguide/what-is-rosa.md "../../../ROSA/latest/userguide/what-is-rosa.md")
 

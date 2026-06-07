@@ -6,20 +6,22 @@ Amazon Bedrock AgentCore is an agentic platform for building, deploying, and ope
 
 AgentCore provides both a developer toolkit and console that give teams control throughout the agent lifecycle. The platform converts APIs and Lambda functions into agent-compatible tools through its gateway, deploys agents with complete session isolation and support for long-running workloads, and integrates with existing identity providers for automated authentication and permission delegation. Developers can monitor agent quality through continuous evaluations that sample and score live interactions for correctness, helpfulness, safety, and goal success rate—with full observability powered by Amazon CloudWatch.
 
-## How Amazon Bedrock AgentCore differs for AWS GovCloud (US)
+## How Amazon Bedrock AgentCore differs
+
+The following differences apply to Amazon Bedrock AgentCore:
 
 - AgentCore Memory is not available.
 - AgentCore Gateway does not include semantic search functionality.
 - AgentCore Harness is not available.
 - AgentCore Policy is not available.
 - AWS Agent Registry (Preview) is not available.
-- The following CloudFormation resources are not supported:
+- The following CloudFormation resources are not available:
   - `AWS::BedrockAgentCore::OnlineEvaluationConfig`
   - `AWS::BedrockAgentCore::OAuth2CredentialProvider`
   - `AWS::BedrockAgentCore::Evaluator`
   - `AWS::BedrockAgentCore::ApiKeyCredentialProvider`
 
-## Documentation for Amazon Bedrock AgentCore
+## Documentation
 
 [Amazon Bedrock AgentCore documentation](../../../bedrock-agentcore.md "../../../bedrock-agentcore.md").
 

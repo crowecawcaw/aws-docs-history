@@ -4,16 +4,16 @@ Amazon MQ is a managed message broker service that makes it easy to migrate to a
 
 Amazon MQ works with your existing applications and services without the need to manage, operate, or maintain your own messaging system.
 
-## How Amazon MQ differs for AWS GovCloud (US)
+## How Amazon MQ differs
 
-Amazon MQ in AWS GovCloud (US) differs from its counterpart in commercial Regions in the following key ways:
+The following differences apply to Amazon MQ:
 
 - The AWS Free Tier is not available in GovCloud, meaning users cannot access the free resources offered in commercial Regions.
 - Amazon MQ in GovCloud Regions does not support cross-Region data replication.
 - The instance types supported by Amazon MQ in GovCloud differ from those in commercial Regions. Users should consult the Amazon MQ pricing page for the specific instance types available in their Region.
 - Amazon MQ does not support CRDR in AWS GovCloud (US) regions.
 
-## Documentation for Amazon MQ
+## Documentation
 
 [Amazon MQ documentation](../../../amazon-mq.md "../../../amazon-mq.md").
 

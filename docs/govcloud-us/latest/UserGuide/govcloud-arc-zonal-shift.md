@@ -1,8 +1,8 @@
 # Amazon Application Recovery Controller (ARC) in AWS GovCloud (US)
 
-## How Amazon Application Recovery Controller (ARC) differs for AWS GovCloud (US)
+## How Amazon Application Recovery Controller (ARC) differs
 
-The AWS GovCloud (US-West) implementation of ARC is unique in the following way:
+The following differences apply to Amazon Application Recovery Controller (ARC):
 
 - The routing control, and readiness check features of the ARC service are not available in AWS GovCloud (US-West).
 
@@ -16,7 +16,7 @@ You can start a zonal shift for any supported resource in your account in an AWS
 
 You can use Region switch in ARC to orchestrate large-scale, complex recovery tasks for your application resources across AWS accounts, to help ensure business continuity and reduce operational overhead. Region switch provides a centralized and observable solution that you can perform manually, or automate by using Amazon CloudWatch alarm triggers. If an AWS Region becomes impaired, you can execute the plans that you create by using Region switch to fail over or switch your resources to another Region. This ensures that your application can continue to operate, running in a healthy AWS Region.
 
-## Documentation for Amazon Application Recovery Controller (ARC)
+## Documentation
 
 [Amazon Application Recovery Controller (ARC) Developer Guide﻿](../../../r53recovery/latest/dg/what-is-route53-recovery.md "../../../r53recovery/latest/dg/what-is-route53-recovery.md")
 

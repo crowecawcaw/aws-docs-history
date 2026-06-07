@@ -2,11 +2,13 @@
 
 AWS Verified Access provides secure access to corporate applications without a VPN connection. It evaluates each request in real time and determines whether the user has access to the application.
 
-## How AWS Verified Access differs for AWS GovCloud (US)
+## How AWS Verified Access differs
+
+The following differences apply to AWS Verified Access:
 
 - Use SSL (HTTPS) when you make calls to the service in the AWS GovCloud (US) Region. In other AWS Regions, you can use HTTP or HTTPS.
 
-## Documentation for AWS Verified Access
+## Documentation
 
 [Verified Access documentation](../../../verified-access/landingpage.md "../../../verified-access/landingpage.md").
 

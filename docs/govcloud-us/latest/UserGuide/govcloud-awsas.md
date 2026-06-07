@@ -2,13 +2,15 @@
 
 With AWS Auto Scaling, you can quickly discover the scalable AWS resources for your application and set up dynamic scaling. It uses Amazon EC2 Auto Scaling to scale your EC2 instances and Application Auto Scaling to scale resources from other services.The AWS Management Console provides a web interface for AWS Auto Scaling.
 
-## How AWS Auto Scaling differs for AWS GovCloud (US)
+## How AWS Auto Scaling differs
 
-- Predictive scaling is not available in the AWS GovCloud (US) Regions.
+The following differences apply to AWS Auto Scaling:
+
+- Predictive scaling is not available.
 - The following CloudFormation resource is not available in the AWS GovCloud (US) Regions:
   - [AWS::AutoScalingPlans::ScalingPlan](govcloud-as.md "govcloud-as.md")
 
-## Documentation for AWS Auto Scaling
+## Documentation
 
 For more information about anything in the above list, see the documentation for the specific service at [AWS documentation](https://aws.amazon.com/documentation/ "https://aws.amazon.com/documentation/").
 

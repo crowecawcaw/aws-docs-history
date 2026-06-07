@@ -2,13 +2,13 @@
 
 AWS End User Messaging is an AWS service that you can use to engage with you customers across multiple messaging channels. You can use AWS End User Messaging to send push notifications, SMS text messages, and voice messages.
 
-## How AWS End User Messaging differs for AWS GovCloud (US)
+## How AWS End User Messaging differs
 
-AWS End User Messaging SMS and Voice V2 API
+The following differences apply to AWS End User Messaging:
 
-- Text to voice messages are only supported in AWS GovCloud (US-West).
+- AWS End User Messaging SMS and Voice V2 API: Text to voice messages are only supported in AWS GovCloud (US-West).
 
-## Documentation for AWS End User Messaging
+## Documentation
 
 AWS End User Messaging SMS [documentation](../../../sms-voice/latest/userguide/what-is-service.md "../../../sms-voice/latest/userguide/what-is-service.md"), AWS End User Messaging SMS and voice v2 API [documentation](../../../pinpoint/latest/apireference_smsvoicev2/index.md "../../../pinpoint/latest/apireference_smsvoicev2/index.md"), and AWS End User Messaging Push [documentation](../../../push-notifications/latest/userguide/what-is-service.md "../../../push-notifications/latest/userguide/what-is-service.md").
 

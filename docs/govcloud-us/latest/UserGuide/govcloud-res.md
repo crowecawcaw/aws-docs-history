@@ -4,9 +4,11 @@ This product is currently available in AWS GovCloud (US-West) only.
 
 Research and Engineering Studio on AWS (RES) is an AWS supported, open source product that enables IT administrators to provide a web portal for scientists and engineers to run technical computing workloads on AWS. RES provides a single pane of glass for users to launch secure virtual desktops to conduct scientific research, product design, engineering simulations, or data analysis workloads. Users can connect to the RES portal using their existing corporate credentials and work on individual or collaborative projects.
 
-## How Research and Engineering Studio on AWS differs for AWS GovCloud (US)
+## How Research and Engineering Studio on AWS differs
 
-The Research and Engineering Studio User Guide already includes special instructions for AWS GovCloud (US) where appropriate. The following list describes the instances where there are special instructions for AWS GovCloud (US).
+The following differences apply to Research and Engineering Studio on AWS:
+
+The Research and Engineering Studio User Guide already includes special instructions for AWS GovCloud (US) where appropriate. The following list describes the instances where there are special instructions.
 
 - In the [Deploy the product](../../../res/latest/ug/deploy-the-product.md "../../../res/latest/ug/deploy-the-product.md") chapter:
   - Under [Prerequisites](../../../res/latest/ug/deploy-the-product.md#prerequisites "../../../res/latest/ug/deploy-the-product.md#prerequisites"):
@@ -14,7 +16,7 @@ The Research and Engineering Studio User Guide already includes special instruct
 
   - Under [Step 1: Create external resources](../../../res/latest/ug/deploy-the-product.md#create-external-resources "../../../res/latest/ug/deploy-the-product.md#create-external-resources"):
     - We provide a different [template for AWS GovCloud (US)](https://console.amazonaws-us-gov.com/cloudformation/home?region=us-gov-west-1#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/aws-hpc-recipes/main/recipes/res/res_demo_env/assets/bi.yaml "https://console.amazonaws-us-gov.com/cloudformation/home?region=us-gov-west-1#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/aws-hpc-recipes/main/recipes/res/res_demo_env/assets/bi.yaml").
-    - The `SubDomain` template parameter is required in AWS GovCloud (US).
+    - The `SubDomain` template parameter is required.
     - Don’t use the `PortalDomainName` template parameter.
 
   - Under [Step 2: Launch the product](../../../res/latest/ug/deploy-the-product.md#launch-the-product "../../../res/latest/ug/deploy-the-product.md#launch-the-product"):
@@ -35,12 +37,12 @@ The Research and Engineering Studio User Guide already includes special instruct
       - To run the provided CentOS7 stack, you must subscribe to the AMI in AWS Marketplace with your [linked standard account](getting-started-standard-account-linking.md "getting-started-standard-account-linking.md").
 
   - In the [Cost monitoring and control](../../../res/latest/ug/cost-management.md "../../../res/latest/ug/cost-management.md") section:
-    - Associating RES projects to AWS Budgets isn’t supported.
+    - Associating RES projects to AWS Budgets is not available.
 
   - In the [Cost analysis dashboard](../../../res/latest/ug/cost-analysis-dashboard.md "../../../res/latest/ug/cost-analysis-dashboard.md") section:
-    - Use of the cost analysis dashboard isn’t supported.
+    - Use of the cost analysis dashboard is not available.
 
-## Documentation for Research and Engineering Studio on AWS
+## Documentation
 
 [Research and Engineering Studio documentation](../../../res/latest/ug/overview.md "../../../res/latest/ug/overview.md").
 

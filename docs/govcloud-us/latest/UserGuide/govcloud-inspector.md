@@ -2,11 +2,13 @@
 
 Amazon Inspector is a security vulnerability assessment service that helps improve the security and compliance of your AWS resources. Amazon Inspector automatically assesses resources for vulnerabilities or deviations from best practices, and then produces a detailed list of security findings prioritized by level of severity. Amazon Inspector includes a knowledge base of hundreds of rules mapped to common security standards and vulnerability definitions that are regularly updated by AWS security researchers.
 
-## How Amazon Inspector Classic differs for AWS GovCloud (US)
+## How Amazon Inspector Classic differs
 
-- Network Assessment rules package is not deployed in AWS GovCloud (US) Regions.
+The following differences apply to Amazon Inspector Classic:
 
-## Documentation for Amazon Inspector Classic
+- Network Assessment rules package is not deployed.
+
+## Documentation
 
 [Amazon Inspector Classic documentation](../../../inspector/v1/userguide/inspector_introduction.md "../../../inspector/v1/userguide/inspector_introduction.md").
 

@@ -2,7 +2,9 @@
 
 AWS IoT Greengrass seamlessly extends AWS to edge devices so they can act locally on the data they generate, while still using the cloud for management, analytics, and durable storage. With AWS IoT Greengrass, connected devices can run AWS Lambda functions, execute predictions based on machine learning models, keep device data in sync, and communicate with other devices securely even when not connected to the Internet.
 
-## How AWS IoT Greengrass V1 differs for AWS GovCloud (US)
+## How AWS IoT Greengrass V1 differs
+
+The following differences apply to AWS IoT Greengrass V1:
 
 - AWS IoT Greengrass Core software v1.9.2 is the minimum supported version.
 - The following minimum versions of the AWS IoT Greengrass Core SDK are supported.
@@ -43,7 +45,7 @@ The following example policy includes the minimum required permissions that must
 
 - The default limit for the maximum number of transactions per second (TPS) on the AWS IoT Greengrass API is 10 TPS. For more information, see [AWS IoT Greengrass Limits](../../../general/latest/gr/aws_service_limits.md#limits_greengrass "../../../general/latest/gr/aws_service_limits.md#limits_greengrass") in the _Amazon Web Services General Reference_ .
 
-## Documentation for AWS IoT Greengrass
+## Documentation
 
 [AWS IoT Greengrass documentation](https://aws.amazon.com/documentation/greengrass "https://aws.amazon.com/documentation/greengrass").
 

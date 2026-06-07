@@ -2,7 +2,9 @@
 
 AWS Direct Connect links your internal network to an AWS Direct Connect location over a standard 1 gigabit, 10 gigabit, 100 gigabit, or 400 gigabit Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an AWS Direct Connect router. With this connection in place, you can create virtual interfaces directly to the AWS cloud and Amazon Virtual Private Cloud, bypassing Internet service providers in your network path.
 
-## How Direct Connect differs for AWS GovCloud (US)
+## How Direct Connect differs
+
+The following differences apply to Direct Connect:
 
 - Using the Direct Connect Gateway connectivity from any Direct Connect location can be established into either or both AWS GovCloud (US) locations. For more information, see https://aws.amazon.com/blogs/publicsector/aws-hybrid-connectivity-sharing-aws-direct-connect-aws-govcloud-us-commercial-regions/
 - Direct Connect Gateway is supported between an AWS GovCloud (US) account and a linked standard/commercial AWS account. From your AWS GovCloud (US) account, you can associate a virtual private gateway with an Direct Connect gateway that exists in the linked commercial/standard AWS account.
@@ -15,7 +17,7 @@ AWS Direct Connect links your internal network to an AWS Direct Connect location
 - Use the Amazon VPC section of the AWS GovCloud (US) console to set up hardware VPN access to AWS GovCloud (US) Regions over a public virtual interface.
 - If you are processing export-controlled workloads, you must configure your Direct Connect connection with a VPN to encrypt data in transit. For detailed instructions about how to create your VPC and VPN, see [Adding a Hardware Virtual Private Gateway to Your VPC](../../../vpc/latest/userguide/VPC_VPN.md "../../../vpc/latest/userguide/VPC_VPN.md") in the Amazon VPC User Guide. For instructions about how to configure your on-premises VPN hardware, see the [AWS Site-to-Site VPN Network Administrator Guide](../../../vpn/latest/s2svpn/your-cgw.md "../../../vpn/latest/s2svpn/your-cgw.md").
 
-## Documentation for Direct Connect
+## Documentation
 
 [Direct Connect documentation](../../../directconnect/index.md "../../../directconnect/index.md").
 

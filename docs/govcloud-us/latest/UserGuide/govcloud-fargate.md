@@ -2,11 +2,13 @@
 
 AWS Fargate is a compute engine for Amazon ECS that lets you run containers in production without deploying or managing servers. Fargate lets you focus on designing and building your applications instead of managing the infrastructure that runs them.
 
-## How AWS Fargate differs for AWS GovCloud (US)
+## How AWS Fargate differs
+
+The following differences apply to AWS Fargate:
 
 - Amazon EKS on Fargate is not available in AWS GovCloud (US).
 
-## Documentation for AWS Fargate
+## Documentation
 
 [Amazon ECS User Guide for AWS Fargate documentation](../../../AmazonECS/latest/userguide/Welcome.md "../../../AmazonECS/latest/userguide/Welcome.md").
 

@@ -2,9 +2,9 @@
 
 Amazon GuardDuty is a continuous security monitoring service. Amazon GuardDuty can help to identify unexpected and potentially unauthorized or malicious activity in your AWS environment.
 
-## How Amazon GuardDuty differs for AWS GovCloud (US) Regions
+## How Amazon GuardDuty differs
 
-The following list indicates the differences in the feature availability in AWS GovCloud (US) Regions:
+The following differences apply to Amazon GuardDuty:
 
 - When using [Runtime Monitoring](../../../guardduty/latest/ug/runtime-monitoring.md "../../../guardduty/latest/ug/runtime-monitoring.md") (including EKS Runtime Monitoring), make the following changes in the AWS GovCloud (US) Regions:
 
@@ -55,8 +55,8 @@ The following list indicates the differences in the feature availability in AWS 
 
       	AWS GovCloud (US-West) - `383110348953.dkr.ecr.us-gov-west-1.amazonaws.com/aws-guardduty-agent-fargate`
 
-- The entity lists capability in [Customizing threat detection with entity lists and IP address lists](../../../guardduty/latest/ug/guardduty_upload-lists.md "../../../guardduty/latest/ug/guardduty_upload-lists.md") is not supported in AWS GovCloud (US) Regions. GuardDuty continues to support IP address lists.
-- The [Extended Threat Detection](../../../guardduty/latest/ug/guardduty-extended-threat-detection.md "../../../guardduty/latest/ug/guardduty-extended-threat-detection.md") coverage for EKS clusters supports detecting multi-stage attacks through available EKS Protection finding types (EKS audit log monitoring) and AWS API activity in AWS GovCloud (US) Regions.
+- The entity lists capability in [Customizing threat detection with entity lists and IP address lists](../../../guardduty/latest/ug/guardduty_upload-lists.md "../../../guardduty/latest/ug/guardduty_upload-lists.md") is not available in AWS GovCloud (US) Regions. GuardDuty continues to support IP address lists.
+- The [Extended Threat Detection](../../../guardduty/latest/ug/guardduty-extended-threat-detection.md "../../../guardduty/latest/ug/guardduty-extended-threat-detection.md") coverage for EKS clusters supports detecting multi-stage attacks through available EKS Protection finding types (EKS audit log monitoring) and AWS API activity.
 - The following [EKS Protection](../../../guardduty/latest/ug/kubernetes-protection.md "../../../guardduty/latest/ug/kubernetes-protection.md") (EKS audit log monitoring) finding types are not available in the AWS GovCloud (US) Regions:
   - [CredentialAccess:Kubernetes/AnomalousBehavior.SecretsAccessed](../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#credaccess-kubernetes-anomalousbehavior-secretsaccessed "../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#credaccess-kubernetes-anomalousbehavior-secretsaccessed")
   - [PrivilegeEscalation:Kubernetes/AnomalousBehavior.RoleBindingCreated](../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#privesc-kubernetes-anomalousbehavior-rolebindingcreated "../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#privesc-kubernetes-anomalousbehavior-rolebindingcreated")
@@ -67,16 +67,16 @@ The following list indicates the differences in the feature availability in AWS 
   - [PrivilegeEscalation:Kubernetes/AnomalousBehavior.RoleCreated](../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#privesc-kubernetes-anomalousbehavior-rolecreated "../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#privesc-kubernetes-anomalousbehavior-rolecreated")
   - [Discovery:Kubernetes/AnomalousBehavior.PermissionChecked](../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#privesc-kubernetes-anomalousbehavior-rolecreated "../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#privesc-kubernetes-anomalousbehavior-rolecreated")
 
-- In [Malware Protection for EC2](../../../guardduty/latest/ug/malware-protection.md "../../../guardduty/latest/ug/malware-protection.md"), the support for scanning instances with `productCode` as `marketplace` is not supported. GuardDuty will skip the malware scan for such instances and log the skip reason as `UNSUPPORTED_PRODUCT_CODE_TYPE`.
-- In [Malware Protection for Backup](../../../guardduty/latest/ug/malware-protection-backup.md "../../../guardduty/latest/ug/malware-protection-backup.md"), the scanning of EC2 and EBS Recovery points is not supported. In these cases GuardDuty will not perform a scan on the input recovery point resource.
-- Cross-region data transfer is not supported in AWS GovCloud (US) Regions.
-- Member accounts invitation notifications through AWS Health Dashboard and email are not supported in AWS GovCloud (US) Regions.
+- In [Malware Protection for EC2](../../../guardduty/latest/ug/malware-protection.md "../../../guardduty/latest/ug/malware-protection.md"), the support for scanning instances with `productCode` as `marketplace` is not available. GuardDuty will skip the malware scan for such instances and log the skip reason as `UNSUPPORTED_PRODUCT_CODE_TYPE`.
+- In [Malware Protection for Backup](../../../guardduty/latest/ug/malware-protection-backup.md "../../../guardduty/latest/ug/malware-protection-backup.md"), the scanning of EC2 and EBS Recovery points is not available. In these cases GuardDuty will not perform a scan on the input recovery point resource.
+- Cross-region data transfer is not available.
+- Member accounts invitation notifications through AWS Health Dashboard and email are not available.
 - In AWS GovCloud (US) Regions, AWS doesn’t use or store Customer Content processed by Amazon GuardDuty to develop and improve the service or technologies of AWS or its affiliates. Opt-out policies are currently not applicable to these Regions.
 - The [additional filterable fields](../../../guardduty/latest/ug/guardduty_filter-findings.md#filter_criteria "../../../guardduty/latest/ug/guardduty_filter-findings.md#filter_criteria") for suppression rules and filters are not available in AWS GovCloud (US) Regions. You can continue to use the console-supported fields.
-- The following IAM finding types are not supported in the AWS GovCloud (US) Regions:
+- The following IAM finding types are not available in the AWS GovCloud (US) Regions:
   - {https---docs-aws-amazon-com-guardduty-latest-ug-guardduty_finding-types-html-credentialaccess-iam-compromisedcredentials}[CredentialAccess:IAMUser/CompromisedCredentials]
 
-## Documentation for Amazon GuardDuty
+## Documentation
 
 [Amazon GuardDuty documentation](https://aws.amazon.com/documentation/guardduty/ "https://aws.amazon.com/documentation/guardduty/").
 

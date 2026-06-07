@@ -2,9 +2,11 @@
 
 Amazon SageMaker AI is a fully managed machine learning service. With Amazon SageMaker AI, data scientists and developers can quickly and easily build and train machine learning models, and then directly deploy them into a production-ready hosted environment. It provides an integrated Jupyter authoring notebook instance for easy access to your data sources for exploration and analysis, so you don’t have to manage servers. It also provides common machine learning algorithms that are optimized to run efficiently against extremely large data in a distributed environment. With native support for bring-your-own-algorithms and frameworks, Amazon SageMaker AI provides flexible distributed training options that adjust to your specific workflows.
 
-## How Amazon SageMaker AI differs for AWS GovCloud (US)
+## How Amazon SageMaker AI differs
 
-- Only the following features are available. API calls to unavailable features will fail with a 4xx message indicating "The requested operation is not supported in the called region".
+The following differences apply to Amazon SageMaker AI:
+
+- Only the following features are available. API calls to unavailable features will fail with a 4xx message indicating "The requested operation is not available in the called region".
   - Notebook instances
   - Training
   - Pipelines
@@ -17,8 +19,8 @@ Amazon SageMaker AI is a fully managed machine learning service. With Amazon Sag
   - SageMaker Debugger and Profiler
   - Model Tuning
   - SageMaker Studio and Studio Classic
-    - Authentication using AWS Identity and Access Management is supported; authentication using IAM Identity Center is not supported
-    - Scheduling a notebook job is not supported
+    - Authentication using AWS Identity and Access Management is supported; authentication using IAM Identity Center is not available
+    - Scheduling a notebook job is not available
     - AWS Glue interactive sessions is supported only in AWS GovCloud (US-West)
 
   - SageMaker Studio notebooks
@@ -27,7 +29,7 @@ Amazon SageMaker AI is a fully managed machine learning service. With Amazon Sag
 
 SageMaker Jumpstart in GovCloud only provides support for open-weight models. You can only access SageMaker Jumpstart with SageMaker AI Python SDK.
 
-## Documentation for Amazon SageMaker AI
+## Documentation
 
 [Amazon SageMaker AI documentation](https://aws.amazon.com/documentation/sagemaker/ "https://aws.amazon.com/documentation/sagemaker/").
 

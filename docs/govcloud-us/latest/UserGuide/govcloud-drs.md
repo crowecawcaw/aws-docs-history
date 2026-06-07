@@ -2,11 +2,13 @@
 
 AWS Elastic Disaster Recovery minimizes downtime and data loss with fast, reliable recovery of on-premises and cloud-based applications using affordable storage, minimal compute, and point-in-time recovery.
 
-## How AWS Elastic Disaster Recovery differs for AWS GovCloud (US)
+## How AWS Elastic Disaster Recovery differs
+
+The following differences apply to AWS Elastic Disaster Recovery:
 
 - In AWS GovCloud (US) Regions, you must launch all Amazon EC2 instances for recovery, drill, failback and AWS Elastic Disaster Recovery service resources in an Amazon Virtual Private Cloud (Amazon VPC). In some cases, your account might have a default VPC; otherwise, you must create a VPC before launching instances or setting up the AWS Elastic Disaster Recovery staging area.
 - Use SSL (HTTPS) or Federal Information Processing System (FIPS) protocols when you make calls to the service in the AWS GovCloud (US) Regions (us-gov-west-1, us-gov-east-1). In other AWS Regions, you can use HTTP or HTTPS.
-- Cross-Partition failback features between commercial and AWS GovCloud (US) partitions are not supported. Cross-Region failback features within the AWS GovCloud (US) partition are available between AWS GovCloud (US) Regions (us-gov-west-1 and us-gov-east-1).
+- Cross-Partition failback features between commercial and AWS GovCloud (US) partitions are not available. Cross-Region failback features within the AWS GovCloud (US) partition are available between AWS GovCloud (US) Regions (us-gov-west-1 and us-gov-east-1).
 - AWS Elastic Disaster Recovery source servers can only be extended to other GovCloud AWS accounts when using multiple staging accounts.
 - AWS Elastic Disaster Recovery trusted account features are only supported between other GovCloud AWS accounts.
 - The Provisioned IOPS SSD (io2) EBS volume type is not available in the AWS GovCloud (US) Regions.
@@ -20,7 +22,7 @@ AWS Elastic Disaster Recovery minimizes downtime and data loss with fast, reliab
   - [AWS Systems Manager](govcloud-ssm.md "govcloud-ssm.md")
   - [Cloudwatch](govcloud-cw.md "govcloud-cw.md")
 
-## Documentation for AWS Elastic Disaster Recovery
+## Documentation
 
 [AWS Elastic Disaster Recovery documentation](../../../drs/latest/userguide/what-is-drs.md "../../../drs/latest/userguide/what-is-drs.md").
 

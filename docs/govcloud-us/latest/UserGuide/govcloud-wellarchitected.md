@@ -7,15 +7,14 @@ AWS Well-Architected Tool (AWS WA Tool) is a service in the cloud that provides 
 - Guiding you in making your workloads more reliable, secure, efficient, and cost-effective
   You can use AWS WA Tool to document and measure your workload using the best practices from the AWS Well-Architected Framework. These best practices were developed by AWS Solutions Architects based on their years of experience building solutions across a wide variety of businesses. The framework provides a consistent approach for measuring architectures and provides guidance for implementing designs that scale with your needs over time.
 
-## How AWS Well-Architected Tool differs for AWS GovCloud (US)
+## How AWS Well-Architected Tool differs
 
-**AWS Service Catalog AppRegistry integration with Well-Architected using service-managed attribute groups** – The ability to reference Well-Architected metadata in AppRegistry using service-managed attribute groups is not available in AWS GovCloud (US) Regions.
+The following differences apply to AWS Well-Architected Tool:
 
-**Profiles** – Profiles is not available in AWS GovCloud (US) Regions.
+**AWS Service Catalog AppRegistry integration with Well-Architected using service-managed attribute groups** – The ability to reference Well-Architected metadata in AppRegistry using service-managed attribute groups is not available.
+**Profiles** – Profiles is not available. \* Jira \* – The AWS Well-Architected Tool Connector for Jira is not available.
 
-- Jira \* – The AWS Well-Architected Tool Connector for Jira is not available in AWS GovCloud (US) Regions.
-
-## Documentation for AWS Well-Architected Tool
+## Documentation
 
 [AWS WA Tool documentation](../../../wellarchitected.md "../../../wellarchitected.md").
 

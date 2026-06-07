@@ -6,15 +6,17 @@ Amazon Virtual Private Cloud (Amazon VPC) enables you to launch Amazon Web Servi
 
 Not all Amazon VPC endpoints in AWS GovCloud (US) support Amazon VPC endpoint policies.
 
-## How Amazon Virtual Private Cloud differs for AWS GovCloud (US)
+## How Amazon Virtual Private Cloud differs
+
+The following differences apply to Amazon Virtual Private Cloud:
 
 - Use SSL (HTTPS) when you make calls to the service in the AWS GovCloud (US) Region. In other AWS Regions, you can use HTTP or HTTPS.
 - Traffic mirror sessions are visible to the owner of a traffic mirror target only if created using the same account. If a traffic mirror target is shared with other accounts, those other accounts can still create sessions with that target, but those sessions are not visible to the target owner.
 - Security group rule IDs are not available in the Amazon VPC console.
 - The AWS-managed prefix list for Amazon CloudFront is not available.
-- Amazon VPC Route Server is not supported.
+- Amazon VPC Route Server is not available.
 
-## Documentation for Amazon Virtual Private Cloud
+## Documentation
 
 [Amazon VPC documentation](../../../vpc.md "../../../vpc.md")
 

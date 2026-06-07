@@ -7,13 +7,15 @@ AWS Transfer Family is a secure transfer service that enables you to transfer fi
 - File Transfer Protocol (FTP) (AWS Transfer for FTP).
 - Applicability Statement 2 (AS2).
 
-## How AWS Transfer Family differs for AWS GovCloud (US)
+## How AWS Transfer Family differs
 
-- PUBLIC and VPC_ENDPOINT endpoint types are not supported. Only VPC endpoint type is supported, for both internal and internet facing access. For more information, see [Creating a server in a virtual private cloud](../../../transfer/latest/userguide/create-server-in-vpc.md "../../../transfer/latest/userguide/create-server-in-vpc.md")in the _AWS Transfer Family User Guide_.
+The following differences apply to AWS Transfer Family:
+
+- PUBLIC and VPC_ENDPOINT endpoint types are not available. Only VPC endpoint type is supported, for both internal and internet facing access. For more information, see [Creating a server in a virtual private cloud](../../../transfer/latest/userguide/create-server-in-vpc.md "../../../transfer/latest/userguide/create-server-in-vpc.md")in the _AWS Transfer Family User Guide_.
 - If you are providing your end users access to your endpoint using a custom hostname, you need to map your endpoint’s IP addresses to the custom domain using Amazon Route 53 or any DNS provider. If you use a hostname registered with Route 53, there are some DNS limitations. For more information about using Route 53 for GovCloud endpoints, see [Setting Up Amazon Route 53 with Your AWS GovCloud (US) Resources](migrating-route53-hostedzone.md "migrating-route53-hostedzone.md").
 - For Transfer Family web apps, you can enable FIPS during configuration. To do so, select the **FIPS Enabled endpoint** checkbox on the **Configure web app** screen.
 
-## Documentation for AWS Transfer Family
+## Documentation
 
 [AWS Transfer Family documentation](../../../transfer/latest/userguide/what-is-aws-transfer-family.md "../../../transfer/latest/userguide/what-is-aws-transfer-family.md").
 

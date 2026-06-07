@@ -2,12 +2,12 @@
 
 AWS Directory Service for Microsoft Active Directory, also known as AWS Managed Microsoft AD, enables your directory-aware workloads and AWS resources to use managed Active Directory in the AWS Cloud. AWS Managed Microsoft AD is built on actual Microsoft Active Directory and does not require you to synchronize or replicate data from your existing Active Directory to the cloud. You can use standard Active Directory administration tools and take advantage of built-in Active Directory features, such as Group Policy and single sign-on (SSO). With AWS Managed Microsoft AD, you can easily join Amazon EC2 and Amazon RDS for SQL Server instances to your domain, and use AWS Enterprise IT applications such as Amazon WorkSpaces with Active Directory users and groups.
 
-## How AWS Directory Service differs for AWS GovCloud (US)
+## How AWS Directory Service differs
 
-The following list details the differences for using this service in AWS GovCloud (US) Regions compared to other AWS Regions:
+The following differences apply to AWS Directory Service:
 
 - Only AWS Managed Microsoft AD and AD Connector directory types are supported by AWS Directory Service.
-- The following directory types are not supported:
+- The following directory types are not available:
   - Simple AD
   - Amazon Cloud Directory
 
@@ -39,7 +39,7 @@ If you are using the Amazon Linux AMI, the AWS CLI is already installed and conf
 - Automatic DNS forwarding is not enabled by default and must be configured.
 - The Directory Service Data API is not available.
 
-## Documentation for AWS Directory Service
+## Documentation
 
 [AWS Directory Service documentation](../../../directory-service/index.md "../../../directory-service/index.md").
 

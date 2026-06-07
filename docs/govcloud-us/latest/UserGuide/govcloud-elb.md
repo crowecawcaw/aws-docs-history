@@ -2,13 +2,15 @@
 
 Elastic Load Balancing automatically distributes your incoming application traffic across multiple targets, such as EC2 instances. It monitors the health of registered targets and routes traffic only to the healthy targets.
 
-Elastic Load Balancing supports the following types of load balancers: Application Load Balancers, Network Load Balancers, Gateway Load Balancers, and Classic Load Balancers. All four types of load balancers are supported in AWS GovCloud (US) Regions.
+Elastic Load Balancing supports the following types of load balancers: Application Load Balancers, Network Load Balancers, Gateway Load Balancers, and Classic Load Balancers. All four types of load balancers are supported.
 
 ###### Note
 
 Some features of Elastic Load Balancing (ELB) TLS do not support FIPS 140-3 requirements by default. When using the Classic or Network Load Balancer, you can pass TCP traffic and terminate TLS on your target (for example, web server), that is configured to support FIPS 140-3 requirements. Application Load Balancer (ALB) supports selecting FIPS algorithms.
 
-## How Elastic Load Balancing differs for AWS GovCloud (US)
+## How Elastic Load Balancing differs
+
+The following differences apply to Elastic Load Balancing:
 
 - When using the legacy bucket policy, specify the following AWS account IDs in the policy to grant Elastic Load Balancing permission to write logs to your S3 bucket:
 
@@ -20,7 +22,7 @@ Some features of Elastic Load Balancing (ELB) TLS do not support FIPS 140-3 requ
 - Export data must be encrypted in transit outside of the export boundary. Because Elastic Load Balancing uses global DNS servers, export traffic across Elastic Load Balancing must be encrypted.
 - Cognito authentication is not available.
 
-## Documentation for Elastic Load Balancing
+## Documentation
 
 [Elastic Load Balancing documentation](https://aws.amazon.com/documentation/elastic-load-balancing/ "https://aws.amazon.com/documentation/elastic-load-balancing/").
 

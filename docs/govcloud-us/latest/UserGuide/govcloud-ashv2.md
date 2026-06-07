@@ -2,15 +2,17 @@
 
 AWS Security Hub is a unified cloud security solution that prioritizes your critical security issues and helps you respond at scale. Security Hub detects security issues by automatically correlating and enriching security signals from multiple sources, such as posture management (AWS Security Hub CSPM), vulnerability management (Amazon Inspector), sensitive data (AWS Macie), and threat detection (Amazon GuardDuty). This enables security teams to prioritize active risks in their cloud environments through automated analyses and contextual insights. Through intuitive visualizations, Security Hub transforms complex security signals into actionable insights, which enables you to make informed decisions about your security quickly. Security Hub also includes automated response workflows to help you remediate risks, improve team productivity, and minimize operational disruptions.
 
-## How Security Hub differs for AWS GovCloud (US)
+## How Security Hub differs
+
+The following differences apply to Security Hub:
 
 **Integrations**
 
-Integrations with third-party products are not supported in the AWS GovCloud (US) Region. For more information about integrations in other AWS Regions, see [Integrations with AWS services and third-party products](../../../securityhub/latest/userguide/securityhub-v2-integrations.md "../../../securityhub/latest/userguide/securityhub-v2-integrations.md") in the _AWS Security Hub User Guide_.
+Integrations with third-party products are not available in the AWS GovCloud (US) Region. For more information about integrations in other AWS Regions, see [Integrations with AWS services and third-party products](../../../securityhub/latest/userguide/securityhub-v2-integrations.md "../../../securityhub/latest/userguide/securityhub-v2-integrations.md") in the _AWS Security Hub User Guide_.
 
 **Automation Rules**
 
-Automation rules for integrations are not supported in the AWS GovCloud (US) Region. Automation rules allow you to automatically update finding fields based on specified criteria. For more information about automation rules in other AWS Regions, see [Automating response and remediation](../../../securityhub/latest/userguide/securityhub-v2-automation-rules.md "../../../securityhub/latest/userguide/securityhub-v2-automation-rules.md") in the _Security Hub User Guide_.
+Automation rules for integrations are not available in the AWS GovCloud (US) Region. Automation rules allow you to automatically update finding fields based on specified criteria. For more information about automation rules in other AWS Regions, see [Automating response and remediation](../../../securityhub/latest/userguide/securityhub-v2-automation-rules.md "../../../securityhub/latest/userguide/securityhub-v2-automation-rules.md") in the _Security Hub User Guide_.
 
 **Cost Estimator**
 
@@ -35,7 +37,7 @@ Security Hub leverages findings from AWS Security Hub CSPM (Cloud Security Postu
 - **AWS Security Hub CSPM** - For information about AWS Security Hub CSPM feature differences in AWS GovCloud (US) Region, including controls, see [AWS Security Hub CSPM in AWS GovCloud (US)](govcloud-ash.md "govcloud-ash.md") in the _AWS GovCloud (US) User Guide_.
 - **Amazon Inspector** - For information about Amazon Inspector feature differences in AWS GovCloud (US) Region, see [Amazon Inspector in AWS GovCloud (US)](govcloud-inspector.md "govcloud-inspector.md") in the _AWS GovCloud (US) User Guide_.
 
-## Documentation for Security Hub
+## Documentation
 
 [AWS Security Hub documentation](../../../securityhub/latest/userguide/what-is-securityhub-v2.md "../../../securityhub/latest/userguide/what-is-securityhub-v2.md").
 

@@ -2,11 +2,13 @@
 
 Amazon Athena is an interactive query service that makes it easy to analyze data directly in Amazon Simple Storage Service (Amazon S3) using standard SQL. With a few actions in the AWS Management Console, you can point Athena at your data stored in Amazon S3 and begin using standard SQL to run ad-hoc queries and get results in seconds. Athena is serverless, so there is no infrastructure to set up or manage, and you pay only for the queries you run. Athena scales automatically—executing queries in parallel—so results are fast, even with large datasets and complex queries.
 
-## How Athena differs for AWS GovCloud (US)
+## How Athena differs
 
-- Granting AWS Lake Formation permissions to Amazon Athena users who authenticate through the JDBC or ODBC driver using a SAML identity provider is not supported.
+The following differences apply to Athena:
 
-## Documentation for Amazon Athena
+- Granting AWS Lake Formation permissions to Amazon Athena users who authenticate through the JDBC or ODBC driver using a SAML identity provider is not available.
+
+## Documentation
 
 [Amazon Athena documentation](../../../athena/latest/ug/what-is.md "../../../athena/latest/ug/what-is.md").
 

@@ -2,13 +2,15 @@
 
 AWS IoT Device Management is a cloud-based device management service that makes it easy for customers to securely manage IoT devices throughout their lifecycle. Customers can use AWS IoT Device Management to onboard device information and configuration, organize their device inventory, monitor their fleet of devices, and remotely manage devices deployed across many locations. This remote management includes over-the-air (OTA) updates to device software.
 
-## How AWS IoT Device Management differs for AWS GovCloud (US)
+## How AWS IoT Device Management differs
 
-- Use of Amazon Cognito Identities to grant permissions to users of your AWS IoT applications, via your own identity provider or other popular identity providers, is not supported. For more information, see [Common Amazon Cognito scenarios](../../../cognito/latest/developerguide/cognito-scenarios.md#scenario-identity-pool "../../../cognito/latest/developerguide/cognito-scenarios.md#scenario-identity-pool").
+The following differences apply to AWS IoT Device Management:
+
+- Use of Amazon Cognito Identities to grant permissions to users of your AWS IoT applications, via your own identity provider or other popular identity providers, is not available. For more information, see [Common Amazon Cognito scenarios](../../../cognito/latest/developerguide/cognito-scenarios.md#scenario-identity-pool "../../../cognito/latest/developerguide/cognito-scenarios.md#scenario-identity-pool").
 - AWS IoT Device Management Fleet Hub is not available. For more information, see [What is Fleet Hub for AWS IoT Device Management?](../../../iot/latest/fleethubuserguide/what-is-aws-iot-monitor.md "../../../iot/latest/fleethubuserguide/what-is-aws-iot-monitor.md")
-- FreeRTOS over-the-air (OTA) updates using MQTT-based file delivery via a stream is not supported. For more information, see [OTA Update Manager service](../../../freertos/latest/userguide/ota-manager.md "../../../freertos/latest/userguide/ota-manager.md") and [MQTT-based file delivery](../../../iot/latest/developerguide/mqtt-based-file-delivery.md "../../../iot/latest/developerguide/mqtt-based-file-delivery.md").
+- FreeRTOS over-the-air (OTA) updates using MQTT-based file delivery via a stream is not available. For more information, see [OTA Update Manager service](../../../freertos/latest/userguide/ota-manager.md "../../../freertos/latest/userguide/ota-manager.md") and [MQTT-based file delivery](../../../iot/latest/developerguide/mqtt-based-file-delivery.md "../../../iot/latest/developerguide/mqtt-based-file-delivery.md").
 
-## Documentation for AWS IoT Device Management
+## Documentation
 
 [AWS IoT Device Management documentation](https://aws.amazon.com/documentation/iot-device-management "https://aws.amazon.com/documentation/iot-device-management").
 

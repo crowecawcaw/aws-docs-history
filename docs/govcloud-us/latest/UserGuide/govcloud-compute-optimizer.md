@@ -2,11 +2,13 @@
 
 AWS Compute Optimizer recommends optimal AWS compute resources for your workloads to reduce costs and improve performance. Compute Optimizer uses machine learning to analyze your historical utilization metrics to help you choose the optimal AWS resource configuration.
 
-## How AWS Compute Optimizer differs for AWS GovCloud (US)
+## How AWS Compute Optimizer differs
+
+The following differences apply to AWS Compute Optimizer:
 
 Compute Optimizer only supports FIPS enabled endpoints in AWS GovCloud (US). To call Compute Optimizer APIs in AWS GovCloud (US), set the environment variable `AWS_USE_FIPS_ENDPOINT` to `true` for the AWS CLI and SDK.
 
-The following AWS Compute Optimizer features aren’t available in AWS GovCloud (US):
+The following AWS Compute Optimizer features are not available in AWS GovCloud (US):
 
 - Estimated monthly savings, savings opportunity, Reserved Instances (RI) coverage, and RI utilization information for Amazon Elastic Compute Cloud (Amazon EC2) instances and Amazon EC2 Auto Scaling groups
 - Savings opportunity summary displayed in the Compute Optimizer dashboard
@@ -18,7 +20,7 @@ The following AWS Compute Optimizer features aren’t available in AWS GovCloud 
 - Recommendations for idle resources
 - Recommendations for EC2 Auto Scaling groups that have mixed instance types, scaling policies, or both
 
-## Documentation for AWS Compute Optimizer
+## Documentation
 
 [Compute Optimizer documentation](../../../compute-optimizer/latest/ug/what-is-compute-optimizer.md "../../../compute-optimizer/latest/ug/what-is-compute-optimizer.md").
 

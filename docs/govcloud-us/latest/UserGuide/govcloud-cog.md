@@ -2,16 +2,16 @@
 
 Amazon Cognito provides authentication, authorization, and user management for your web and mobile apps. Your users can sign in directly with a user name and password, or through a third party such as Facebook, Amazon, Google or Apple. The two main components of Amazon Cognito are user pools and identity pools. User pools are user directories that provide sign-up and sign-in options for your app users. Identity pools enable you to grant your users access to other AWS services. You can use identity pools and user pools separately or together.
 
-## How Amazon Cognito differs for AWS GovCloud (US)
+## How Amazon Cognito differs
 
-Below listed are the differences between the AWS GovCloud (US) and the standard AWS Regions.
+The following differences apply to Amazon Cognito:
 
-- Amazon Pinpoint integration with user pools isn’t suported in AWS GovCloud (US).
+- Amazon Pinpoint integration with user pools isn’t supported.
 - Amazon Cognito in AWS GovCloud (US) uses FIPS endpoints only.
   - The API service endpoints are `cognito-idp-fips.us-gov-west-1.amazonaws.com` and `cognito-idp-fips.us-gov-east-1.amazonaws.com`. For more information about FIPS in AWS, see [Federal Information Processing Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/").
   - Hosted UI endpoints have a URL path in the format `–0—.auth-fips.us-gov-west-1.amazoncognito.com` or `–1—.auth-fips.us-gov-east-1.amazoncognito.com`.
 
-- Custom domains for user pools aren’t supported in AWS GovCloud (US).
+- Custom domains for user pools are not available.
 - Identity pools might be unable to assume IAM roles in AWS GovCloud (US-East) when the length of your role name plus role session name are longer than 24 characters. This length doesn’t include the path. For best results in this Region, use roles with name lengths of no greater than 20 characters and session name lengths of no greater than four characters.
 - Amazon Cognito Sync isn’t available in AWS GovCloud (US) Regions.
 
@@ -19,7 +19,7 @@ The IAM roles that you assign to users with Amazon Cognito identity pools must h
 
 For AWS GovCloud (US-East), replace `cognito-identity-us-gov.amazonaws.com` with `cognito-identity.us-gov-east-1.amazonaws.com`.
 
-## Documentation for Amazon Cognito
+## Documentation
 
 [Amazon Cognito documentation](../../../cognito.md "../../../cognito.md").
 

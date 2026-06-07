@@ -2,9 +2,9 @@
 
 IAM Identity Center is the AWS solution for connecting your workforce users to all of their AWS managed applications and AWS accounts. Users who have access to one or more AWS accounts can sign in to the AWS access portal and access AWS services by using the AWS Management Console or retrieve temporary credentials to access AWS services programmatically. You can connect your existing identity provider or create and manage your users directly in IAM Identity Center. For existing identity providers, automatic provisioning (synchronization) of user and group information from your identity provider into IAM Identity Center is supported.
 
-## How IAM Identity Center differs for AWS GovCloud (US)
+## How IAM Identity Center differs
 
-The following list details the differences for using this service in the AWS GovCloud (US) Regions compared to other AWS Regions:
+The following differences apply to IAM Identity Center:
 
 - IAM Identity Center integrates with AWS Organizations to manage access across your AWS accounts, and therefore, IAM Identity Center is subject to any [AWS Organizations GovCloud differences](govcloud-organizations.md "govcloud-organizations.md").
 - IAM Identity Center supports dual-stack endpoints in AWS GovCloud (US) Regions. You can use either IPv4, IPv6, or dual-stack to access IAM Identity Center services and the AWS access portal.
@@ -64,9 +64,9 @@ The email address `no-reply@<identitystore_id>.us-gov-home.awsapps.com` is used 
   - `amcs-captcha-prod-us-east-1.s3.dualstack.us-east-1.amazonaws.com`
 
 - If you change an AWS account name or email address, and you want your AWS access portal to show the new value, you’ll need to create a case with Support. In the support case, specify the account ID and the AWS Region of your IAM Identity Center instance. Also include a list of account IDs that require a refresh in your AWS access portal.
-- The user background sessions feature appears in the console for AWS GovCloud (US), but this feature cannot be used because user background sessions are only supported for Amazon SageMaker Studio. Although Amazon SageMaker AI is supported in AWS GovCloud (US), Amazon SageMaker Studio, which is its latest web experience for running machine learning (ML) workflows, is not supported in AWS GovCloud (US).
+- The user background sessions feature appears in the console for AWS GovCloud (US), but this feature cannot be used because user background sessions are only supported for Amazon SageMaker Studio. Although Amazon SageMaker AI is supported in AWS GovCloud (US), Amazon SageMaker Studio, which is its latest web experience for running machine learning (ML) workflows, is not available.
 
-## Documentation for AWS IAM Identity Center
+## Documentation
 
 [AWS IAM Identity Center documentation](../../../singlesignon.md "../../../singlesignon.md").
 

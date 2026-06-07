@@ -2,7 +2,9 @@
 
 AWS Step Functions makes it easy to coordinate the components of distributed applications as a series of steps in a visual workflow. You can quickly build and run state machines to execute the steps of your application in a reliable and scalable fashion.
 
-## How AWS Step Functions differs for AWS GovCloud (US)
+## How AWS Step Functions differs
+
+The following differences apply to AWS Step Functions:
 
 - US Commercial Regions supports FIPS and Non-FIPS endpoints.
 - US GovCloud East supports FIPS and Non-FIPS endpoints.
@@ -12,7 +14,7 @@ AWS Step Functions makes it easy to coordinate the components of distributed app
 - US GovCloud West Region only supports AWS PrivateLink for FIPS endpoints.
 - Support to call HTTPS APIs is not available.
 
-## Documentation for AWS Step Functions
+## Documentation
 
 [AWS Step Functions documentation](../../../step-functions/latest/dg/welcome.md "../../../step-functions/latest/dg/welcome.md").
 

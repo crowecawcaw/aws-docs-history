@@ -2,9 +2,9 @@
 
 With AWS CloudTrail, you can monitor your AWS deployments in the cloud by getting a history of AWS API calls for your account, including API calls made via the AWS Management Console, the AWS SDKs, the command line tools, and higher-level AWS services. You can also identify which users and accounts called AWS APIs for services that support CloudTrail, the source IP address the calls were made from, and when the calls occurred. You can integrate CloudTrail into applications using the API, automate trail creation for your organization, check the status of your trails, and control how administrators turn CloudTrail logging on and off.
 
-## How AWS CloudTrail differs for AWS GovCloud (US)
+## How AWS CloudTrail differs
 
-The following list details the differences for using this service in AWS GovCloud (US) Regions compared to other AWS Regions:
+The following differences apply to AWS CloudTrail:
 
 - As of November 22, 2021, AWS CloudTrail changed how trails capture global service events. Now, events created by CloudFront, IAM, and AWS STS are recorded in the AWS Region in which they were created, the AWS GovCloud (US-West) Region, us-gov-west-1. This makes CloudTrail's treatment of these services consistent with that of other AWS global services.
 
@@ -73,7 +73,7 @@ For more information, see [Amazon S3 bucket policy](../../../awscloudtrail/lates
 
 This note applies to bucket policies that use a CloudTrail account ID as the Principal. In AWS GovCloud (US) Regions, do not add CloudTrail account IDs of non-isolated Regions to your policy templates, or an "Invalid principal in policy" error will occur. Similarly, if you are in a non-isolated Region, do not add the CloudTrail account ID for AWS GovCloud (US) to your policy templates.
 
-## Documentation for AWS CloudTrail
+## Documentation
 
 [AWS CloudTrail documentation](https://aws.amazon.com/documentation/cloudtrail/ "https://aws.amazon.com/documentation/cloudtrail/").
 

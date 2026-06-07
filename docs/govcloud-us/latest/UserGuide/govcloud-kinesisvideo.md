@@ -2,22 +2,24 @@
 
 Amazon Kinesis Video Streams makes it easy to securely stream video from connected devices to AWS for analytics, machine learning (ML), playback, and other processing. Kinesis Video Streams automatically provisions and elastically scales all the infrastructure needed to ingest streaming video data from millions of devices. It durably stores, encrypts, and indexes video data in your streams, and allows you to access your data through easy-to-use APIs. Kinesis Video Streams enables you to playback video for live and on-demand viewing, and quickly build applications that take advantage of computer vision and video analytics through integration with Amazon Rekognition Video, and libraries for ML frameworks such as Apache MxNet, TensorFlow, and OpenCV.
 
-## How Amazon Kinesis Video Streams differs for AWS GovCloud (US)
+## How Amazon Kinesis Video Streams differs
 
-The following features are not yet supported in AWS GovCloud (US):
+The following differences apply to Amazon Kinesis Video Streams:
+
+The following features are not yet available:
 
 - WebRTC Ingestion and Storage
 - Kinesis Video Streams Edge Agent
 - Kinesis Video Streams Multiviewer
 
-The following features are not supported in AWS GovCloud (US):
+The following features are not available in AWS GovCloud (US):
 
 - Unencrypted STUN and TURN connections
 
 In addition, the Amazon SNS
 `Publish` action has a default quota of 300 messages per second in the AWS GovCloud (US-East) and AWS GovCloud (US-West) regions. When notifications are enabled, one message is published per fragment per stream. If you need a higher quota limit for your account, request through the Service Quotas console.
 
-## Documentation for Amazon Kinesis Video Streams
+## Documentation
 
 [Kinesis Video Streams documentation](../../../kinesisvideostreams/latest/dg/what-is-kinesis-video.md "../../../kinesisvideostreams/latest/dg/what-is-kinesis-video.md").
 

@@ -2,9 +2,9 @@
 
 Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides resizeable computing capacity—literally, servers in Amazon’s data centers—that you use to build and host your software systems.
 
-## How Amazon Elastic Compute Cloud differs for AWS GovCloud (US)
+## How Amazon Elastic Compute Cloud differs
 
-The implementation of Amazon EC2 is different for AWS GovCloud (US) in the following ways:
+The following differences apply to Amazon Elastic Compute Cloud:
 
 ###### General differences
 
@@ -14,9 +14,9 @@ The implementation of Amazon EC2 is different for AWS GovCloud (US) in the follo
 
 ###### Billing and purchasing differences
 
-- Reserved Instance resale is not supported.
-- Savings Plans can’t be purchased from AWS GovCloud (US) accounts, but can be purchased in any standard account and applied to usage in AWS GovCloud (US) Regions.
-- Spot Instance data feed is not supported.
+- Reserved Instance resale is not available.
+- Savings Plans can’t be purchased from AWS GovCloud (US) accounts, but can be purchased in any standard account and applied to usage.
+- Spot Instance data feed is not available.
 - When you use the launch instance wizard in the console to launch an instance using an AWS Marketplace AMI, we don’t automatically subscribe you to the AMI as we do in other AWS Regions. Instead, when you choose the AMI, choose **Subscribe with Marketplace** to open the AWS Marketplace to subscribe.
 - The AWS Certificate Manager (ACM) for Nitro Enclaves AMI is not available from the AWS Marketplace. ACM for Nitro Enclaves must be installed from the Amazon Linux Extras repository.
 - The Nitro Enclaves Developer AMI is not available from the AWS Marketplace.
@@ -24,14 +24,14 @@ The implementation of Amazon EC2 is different for AWS GovCloud (US) in the follo
 ###### Image differences
 
 - AMI copy and snapshot copy do not support migrating AMIs and snapshots from another AWS Region into AWS GovCloud (US) Regions. For information about how to migrate your AMIs from another AWS Region into AWS GovCloud (US) Regions, see [How VM Import/Export Differs for AWS GovCloud (US)](#govcloud-vmie-diffs "#govcloud-vmie-diffs").
-- When using the [Amazon EC2 AMI tools](../../../AWSEC2/latest/CommandLineReference/set-up-ami-tools.md "../../../AWSEC2/latest/CommandLineReference/set-up-ami-tools.md"), AWS GovCloud (US) Regions uses a non-default public key certificate to encrypt AMI manifests. The [ec2-bundle-image](../../../AWSEC2/latest/CommandLineReference/CLTRG-ami-bundle-image.md "../../../AWSEC2/latest/CommandLineReference/CLTRG-ami-bundle-image.md"), [ec2-bundle-vol](../../../AWSEC2/latest/CommandLineReference/CLTRG-ami-bundle-vol.md "../../../AWSEC2/latest/CommandLineReference/CLTRG-ami-bundle-vol.md"), [ec2-migrate-bundle](../../../AWSEC2/latest/CommandLineReference/CLTRG-ami-migrate-bundle.md "../../../AWSEC2/latest/CommandLineReference/CLTRG-ami-migrate-bundle.md"), and [ec2-migrate-manifest](../../../AWSEC2/latest/CommandLineReference/CLTRG-ami-migrate-manifest.md "../../../AWSEC2/latest/CommandLineReference/CLTRG-ami-migrate-manifest.md") commands require the `--ec2cert $EC2_AMITOOL_HOME/etc/ec2/amitools/cert-ec2-gov.pem` option in AWS GovCloud (US) Regions.
-- The `lastLaunchedTime` AMI attribute is not supported.
+- When using the [Amazon EC2 AMI tools](../../../AWSEC2/latest/CommandLineReference/set-up-ami-tools.md "../../../AWSEC2/latest/CommandLineReference/set-up-ami-tools.md"), AWS GovCloud (US) Regions uses a non-default public key certificate to encrypt AMI manifests. The [ec2-bundle-image](../../../AWSEC2/latest/CommandLineReference/CLTRG-ami-bundle-image.md "../../../AWSEC2/latest/CommandLineReference/CLTRG-ami-bundle-image.md"), [ec2-bundle-vol](../../../AWSEC2/latest/CommandLineReference/CLTRG-ami-bundle-vol.md "../../../AWSEC2/latest/CommandLineReference/CLTRG-ami-bundle-vol.md"), [ec2-migrate-bundle](../../../AWSEC2/latest/CommandLineReference/CLTRG-ami-migrate-bundle.md "../../../AWSEC2/latest/CommandLineReference/CLTRG-ami-migrate-bundle.md"), and [ec2-migrate-manifest](../../../AWSEC2/latest/CommandLineReference/CLTRG-ami-migrate-manifest.md "../../../AWSEC2/latest/CommandLineReference/CLTRG-ami-migrate-manifest.md") commands require the `--ec2cert $EC2_AMITOOL_HOME/etc/ec2/amitools/cert-ec2-gov.pem` option.
+- The `lastLaunchedTime` AMI attribute is not available.
 
 ###### Instance differences
 
-- The get-console-screenshot CLI command is not supported.
-- Get instance screenshot is not supported.
-- On-Demand Instance hibernation is not supported.
+- The get-console-screenshot CLI command is not available.
+- Get instance screenshot is not available.
+- On-Demand Instance hibernation is not available.
 - [EC2 Instance Connect](../../../AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect.md "../../../AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect.md") will not work if your Linux instance has SELinux enabled in enforcing mode. The process for enabling or disabling SELinux varies across Linux distributions. For information about how to check the status of SELinux on your instance, or to enable or disable SELinux, see the relevant operating system guide for your instance.
 - EC2 CPU Optimization is currently API-only.
 - [Attestation documents](../../../enclaves/latest/user/set-up-attestation.md "../../../enclaves/latest/user/set-up-attestation.md") used by Nitro Enclaves are signed by the AWS Nitro Attestation Public Key Infrastructure (PKI). You can verify that the attestation documents are signed by the Nitro Attestation PKI. For more information, see [Verifying the root of trust](../../../enclaves/latest/user/verify-root.md "../../../enclaves/latest/user/verify-root.md") in the _AWS Nitro Enclaves User Guide_.
@@ -63,9 +63,9 @@ The implementation of Amazon EC2 is different for AWS GovCloud (US) in the follo
 - When you launch an instance using the [ec2-run-instances](../../../AWSEC2/latest/CommandLineReference/ApiReference-cmd-RunInstances.md "../../../AWSEC2/latest/CommandLineReference/ApiReference-cmd-RunInstances.md") CLI command or [RunInstances](../../../AWSEC2/latest/APIReference/API_RunInstances.md "../../../AWSEC2/latest/APIReference/API_RunInstances.md") API operation, you must specify the `subnet` parameter.
 - By default, enhanced networking is not enabled on Windows Server 2012 R2 AMIs. For more information, see [Optimize network performance on EC2 Windows instances](../../../AWSEC2/latest/UserGuide/enhanced-networking-os.md "../../../AWSEC2/latest/UserGuide/enhanced-networking-os.md").
 
-## How VM Import/Export Differs for AWS GovCloud (US)
+## How VM Import/Export differs
 
-VM Import/Export is different for AWS GovCloud (US) in the following ways:
+The following differences apply to VM Import/Export:
 
 - When using VM Import:
   - If your account is set up as default VPC, then your default VPC will be the target for your import.
@@ -89,7 +89,7 @@ If you deleted your default VPC, you can create a new one. For more information,
 If your account doesn’t have a default VPC but you want a default VPC, you can submit a request by completing the [AWS GovCloud (US) – Contact Us](https://aws.amazon.com/govcloud-us/contact/ "https://aws.amazon.com/govcloud-us/contact/") form.
 In the form, include your AWS GovCloud (US-West) account ID and indicate that you want to enable your account for a default VPC.
 
-## Documentation for Amazon EC2
+## Documentation
 
 The following documentation is based on the public AWS documentation. As you read this documentation, you should consider how Amazon EC2 differs for AWS GovCloud (US) Regions, as described in this topic. Also, some features and new functionality described in this documentation might not be available in the current release of AWS GovCloud (US) Regions. There are other differences, such as links, endpoints, and screenshots.
 

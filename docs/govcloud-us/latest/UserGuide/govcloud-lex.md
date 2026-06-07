@@ -4,16 +4,18 @@ This service is currently available in AWS GovCloud (US-West) only.
 
 Amazon Lex is an AWS service for building conversational interfaces for applications using voice and text. With Amazon Lex, the same conversational engine that powers Amazon Alexa is now available to any developer, enabling you to build sophisticated, natural language chatbots into your new and existing applications. Amazon Lex provides the deep functionality and flexibility of natural language understanding (NLU) and automatic speech recognition (ASR) so you can build highly engaging user experiences with lifelike, conversational interactions, and create new categories of products.
 
-## How Amazon Lex differs for AWS GovCloud (US)
+## How Amazon Lex differs
+
+The following differences apply to Amazon Lex:
 
 - Amazon Lex V2 and Amazon Lex V1 are available in AWS GovCloud (US).
 - Amazon Lex does not support channels, which enable bots to integrate with messaging platforms such as Facebook, Slack, and Twilio.
-- The Amazon Lex console does not show utterances or missed utterances. The GetUtterancesView API action is not supported.
+- The Amazon Lex console does not show utterances or missed utterances. The GetUtterancesView API action is not available.
 - The supported languages include only en-US and es-US.
 - Amazon Lex does not support conversation logs, which store interactions to help you review the bot’s performance and troubleshoot.
-- In AWS GovCloud (US) Regions, AWS DOES NOT use or store AI Content processed by this AI Service to develop and improve that Service or technologies of AWS or its affiliates. Opt-out policies are not currently applicable to these Regions.
+- In AWS GovCloud (US) Regions, AWS does not use or store AI Content processed by this AI Service to develop and improve that Service or technologies of AWS or its affiliates. Opt-out policies are not currently applicable to these Regions.
 
-## Documentation for Amazon Lex
+## Documentation
 
 [Amazon Lex documentation](../../../lex/latest/dg/what-is.md "../../../lex/latest/dg/what-is.md").
 

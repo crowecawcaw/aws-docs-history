@@ -2,20 +2,22 @@
 
 Amazon Aurora (Aurora) is a fully managed relational database engine that’s compatible with MySQL and PostgreSQL. You already know how MySQL and PostgreSQL combine the speed and reliability of high-end commercial databases with the simplicity and cost-effectiveness of open-source databases. The code, tools, and applications you use today with your existing MySQL and PostgreSQL databases can be used with Aurora. With some workloads, Aurora can deliver up to five times the throughput of MySQL and up to three times the throughput of PostgreSQL without requiring changes to most of your existing applications.
 
-## How Amazon Aurora differs for AWS GovCloud (US)
+## How Amazon Aurora differs
 
-- Publishing [Amazon Aurora MySQL Logs](../../../AmazonRDS/latest/UserGuide/AuroraMySQL.Integrating.CloudWatch.md "../../../AmazonRDS/latest/UserGuide/AuroraMySQL.Integrating.CloudWatch.md") to Amazon CloudWatch Logs is not supported.
-- Creation of [cross-Region read replicas](../../../AmazonRDS/latest/UserGuide/AuroraMySQL.Replication.CrossRegion.md "../../../AmazonRDS/latest/UserGuide/AuroraMySQL.Replication.CrossRegion.md") from other AWS Regions to the AWS GovCloud (US) Regions or from AWS GovCloud (US) Regions to other AWS Regions isn’t supported.
-- Aurora PostgresSQL cross-Region read replicas is not available in AWS GovCloud (US) Regions.
-- Copying of [DB Snapshots](../../../AmazonRDS/latest/UserGuide/USER_CopySnapshot.md "../../../AmazonRDS/latest/UserGuide/USER_CopySnapshot.md") from other AWS Regions to the AWS GovCloud (US) Regions or from AWS GovCloud (US) Regions to other AWS Regions isn’t supported.
+The following differences apply to Amazon Aurora:
+
+- Publishing [Amazon Aurora MySQL Logs](../../../AmazonRDS/latest/UserGuide/AuroraMySQL.Integrating.CloudWatch.md "../../../AmazonRDS/latest/UserGuide/AuroraMySQL.Integrating.CloudWatch.md") to Amazon CloudWatch Logs is not available.
+- Creation of [cross-Region read replicas](../../../AmazonRDS/latest/UserGuide/AuroraMySQL.Replication.CrossRegion.md "../../../AmazonRDS/latest/UserGuide/AuroraMySQL.Replication.CrossRegion.md") from other AWS Regions to the AWS GovCloud (US) Regions or from AWS GovCloud (US) Regions to other AWS Regions is not available.
+- Aurora PostgresSQL cross-Region read replicas is not available.
+- Copying of [DB Snapshots](../../../AmazonRDS/latest/UserGuide/USER_CopySnapshot.md "../../../AmazonRDS/latest/UserGuide/USER_CopySnapshot.md") from other AWS Regions to the AWS GovCloud (US) Regions or from AWS GovCloud (US) Regions to other AWS Regions is not available.
 - Instance types and engine versions might vary in the AWS GovCloud (US) Regions. To determine instance and engine availability, see the [RDS Management Console](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/") or CLI tools.
-- Database activity streams are not supported in AWS GovCloud (US).
+- Database activity streams are not available.
 - Intermediate SSL certificates must be used to connect to the AWS GovCloud (US) Regions using SSL. For more information related to Intermediate certificates, see [Using SSL/TLS to Encrypt a Connection](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md").
 - [Backtracking](../../../AmazonRDS/latest/UserGuide/AuroraMySQL.Managing.Backtrack.md "../../../AmazonRDS/latest/UserGuide/AuroraMySQL.Managing.Backtrack.md") is not available.
 - [Aurora Serverless v1](../../../AmazonRDS/latest/AuroraUserGuide/aurora-serverless.md "../../../AmazonRDS/latest/AuroraUserGuide/aurora-serverless.md") is not available.
-- [Aurora MySQL binlog replication](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Replication.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Replication.md") from other AWS Regions to the AWS GovCloud (US) Regions or from AWS GovCloud (US) Regions to other AWS Regions isn’t supported.
+- [Aurora MySQL binlog replication](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Replication.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Replication.md") from other AWS Regions to the AWS GovCloud (US) Regions or from AWS GovCloud (US) Regions to other AWS Regions is not available.
 - Since the AWS GovCloud (US) Regions use a unique certificate authority (CA), update your DB clusters for the AWS GovCloud (US) Regions to use the Region-specific certificate identified by `rds-ca-rsa4096-g1` in [DescribeCertificates](../../../AmazonRDS/latest/APIReference/API_DescribeCertificates.md "../../../AmazonRDS/latest/APIReference/API_DescribeCertificates.md") calls as soon as possible. The remaining instructions described in the [Rotating your SSL/TLS certificate](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.md") topic are the same, except for the certificate identifier.
-- Scaling to 0 capacity with Amazon Aurora Serverless v2 is not available in AWS GovCloud (US) Regions.
+- Scaling to 0 capacity with Amazon Aurora Serverless v2 is not available.
 - Zero-ETL integration with SageMaker Lakehouse isn’t available.
 
 The following Amazon Aurora editions are supported in AWS GovCloud (US) Regions:
@@ -23,7 +25,7 @@ The following Amazon Aurora editions are supported in AWS GovCloud (US) Regions:
 - Amazon Aurora MySQL-compatible edition
 - Amazon Aurora PostgreSQL-compatible edition
 
-## Documentation for Amazon Aurora
+## Documentation
 
 For more information about Amazon Aurora, see the [Amazon Aurora documentation](../../../AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.md "../../../AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.md").
 

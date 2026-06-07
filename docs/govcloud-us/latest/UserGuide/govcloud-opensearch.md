@@ -2,12 +2,14 @@
 
 Amazon OpenSearch Service is a managed service that makes it easy to deploy, operate, and scale OpenSearch, a popular open-source search and analytics engine. OpenSearch Service also offers security options, high availability, data durability, and direct access to the OpenSearch API.
 
-## How Amazon OpenSearch Service differs for AWS GovCloud (US)
+## How Amazon OpenSearch Service differs
 
-- Amazon Cognito authentication for OpenSearch Dashboards is not supported in the AWS GovCloud (US-East) Region.
-- OpenSearch ingestion is not available in AWS GovCloud (US).
+The following differences apply to Amazon OpenSearch Service:
 
-## Documentation for Amazon OpenSearch Service
+- Amazon Cognito authentication for OpenSearch Dashboards is not available in the AWS GovCloud (US-East) Region.
+- OpenSearch ingestion is not available.
+
+## Documentation
 
 [Amazon OpenSearch Service documentation](../../../opensearch-service.md "../../../opensearch-service.md").
 

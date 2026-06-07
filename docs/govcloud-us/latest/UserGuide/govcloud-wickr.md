@@ -2,7 +2,9 @@
 
 AWS WickrGov is an end-to-end encrypted service that helps organizations collaborate across messaging, calling, file sharing, and screen sharing. Users of AWS WickrGov can also federate with other AWS WickrGov users outside their network.
 
-## How AWS WickrGov differs for AWS GovCloud (US)
+## How AWS WickrGov differs
+
+The following differences apply to AWS WickrGov:
 
 - WickrGov is only available in the AWS GovCloud (US-West) Region.
 - The AWS GovCloud (US) Federation allows communication between WickrGov networks in the AWS GovCloud (US-West) Region and commercial networks in other Regions.
@@ -14,7 +16,7 @@ AWS WickrGov is an end-to-end encrypted service that helps organizations collabo
 
 - AWS WickrGov offers a premium free trial option that allows up to 50 users and last for three months.
 
-## Documentation for AWS WickrGov
+## Documentation
 
 [AWS WickrGov documentation](../../../wickr/index.md "../../../wickr/index.md").
 

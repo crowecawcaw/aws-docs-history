@@ -4,9 +4,9 @@ This service is currently available in AWS GovCloud (US-West) only.
 
 Amazon Comprehend Medical detects useful information in unstructured clinical text. As much as 75 percent of all health record data is found in unstructured text such as physician’s notes, discharge summaries, test results, and case notes. Amazon Comprehend Medical uses Natural Language Processing (NLP) models to sort through enormous quantities of data for valuable information gained through advances in machine learning.
 
-## How Amazon Comprehend Medical differs for AWS GovCloud (US)
+## How Amazon Comprehend Medical differs
 
-Below listed are the differences between the AWS GovCloud (US) and the standard AWS Regions.
+The following differences apply to Amazon Comprehend Medical:
 
 Differences in Quotas/Limits:
 
@@ -16,7 +16,7 @@ Differences in Quotas/Limits:
 | Transactions per second (TPS) for the `DetectPHI` operation                                                                                                                                                                                                                         | 5       |
 | Transactions per second (TPS) for the `StartEntitiesDetectionV2Job`, `StartPHIDetectionJob`, `StopEntitiesDetectionV2Job`, `StopPHIDetectionJob`, `ListEntitiesDetectionV2Jobs`, `ListPHIDetectionJobs`, `DescribeEntitiesDetectionV2Job`, and `DescribePHIDetectionJob` operations | 2       |
 
-## Documentation for Amazon Comprehend Medical
+## Documentation
 
 [Amazon Comprehend Medical documentation](../../../comprehend/latest/dg/comprehend-medical.md "../../../comprehend/latest/dg/comprehend-medical.md").
 

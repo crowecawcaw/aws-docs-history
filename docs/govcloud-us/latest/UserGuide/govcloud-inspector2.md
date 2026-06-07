@@ -6,11 +6,13 @@ Amazon Inspector is a security vulnerability assessment service that helps impro
 
 The Amazon Inspector plugin for [Linux deep inspection](../../../inspector/latest/user/scanning-ec2.md#deep-inspection "../../../inspector/latest/user/scanning-ec2.md#deep-inspection") is not FIPS compliant.
 
-## How Amazon Inspector differs for AWS GovCloud (US)
+## How Amazon Inspector differs
+
+The following differences apply to Amazon Inspector:
 
 - Lambda code scanning is not available.
 
-## Documentation for Amazon Inspector
+## Documentation
 
 [Amazon Inspector documentation](../../../inspector.md "../../../inspector.md").
 

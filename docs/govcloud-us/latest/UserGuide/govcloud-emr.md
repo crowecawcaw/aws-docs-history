@@ -4,7 +4,9 @@ Amazon EMR is a cloud big data platform for running large-scale distributed data
 
 For information related to Release history, refer to [Amazon EMR Release Information](../../../emr/latest/ReleaseGuide/emr-whatsnew-history.md "../../../emr/latest/ReleaseGuide/emr-whatsnew-history.md").
 
-## How Amazon EMR differs for AWS GovCloud (US)
+## How Amazon EMR differs
+
+The following differences apply to Amazon EMR:
 
 - MapR distributions are currently not supported.
 - In AWS GovCloud (US) Regions, you launch all Amazon EMR job flows in Amazon Virtual Private Cloud (Amazon VPC). For information about configuring an Amazon VPC that can run a job flow, see [Set up a VPC to host clusters](../../../emr/latest/ManagementGuide/emr-vpc-host-job-flows.md "../../../emr/latest/ManagementGuide/emr-vpc-host-job-flows.md").
@@ -14,7 +16,7 @@ For information related to Release history, refer to [Amazon EMR Release Informa
 - Amazon EMR on EKS on Fargate is not available.
 - Amazon EMR with AWS Lake Formation is not available.
 
-## Documentation for Amazon EMR
+## Documentation
 
 [Amazon EMR documentation](https://aws.amazon.com/documentation/elastic-mapreduce/ "https://aws.amazon.com/documentation/elastic-mapreduce/").
 

@@ -2,11 +2,11 @@
 
 Amazon Kinesis makes it easy to collect, process, and analyze video and data streams in real time.
 
-## How Amazon Kinesis Data Streams differs for AWS GovCloud (US)
+## How Amazon Kinesis Data Streams differs
 
-This service has no differences between the AWS GovCloud (US) and the standard AWS Regions.
+There are no differences for this service.
 
-## Documentation for Amazon Kinesis Data Streams
+## Documentation
 
 [Amazon Kinesis Data Streams documentation](https://aws.amazon.com/documentation/kinesis/ "https://aws.amazon.com/documentation/kinesis/").
 

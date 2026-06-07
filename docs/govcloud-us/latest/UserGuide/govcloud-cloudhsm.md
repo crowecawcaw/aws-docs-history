@@ -2,11 +2,11 @@
 
 AWS CloudHSM offers secure cryptographic key storage for customers by providing managed hardware security modules in the AWS Cloud.
 
-## How AWS CloudHSM differs for AWS GovCloud (US)
+## How AWS CloudHSM differs
 
-This service has no differences between the AWS GovCloud (US) and the standard AWS Regions.
+There are no differences for this service.
 
-## Documentation for AWS CloudHSM
+## Documentation
 
 [AWS CloudHSM documentation](../../../cloudhsm/latest/userguide/introduction.md "../../../cloudhsm/latest/userguide/introduction.md").
 

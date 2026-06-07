@@ -2,7 +2,9 @@
 
 AWS Security Hub CSPM provides you with a comprehensive view of your security state in AWS and helps you check your environment against security industry standards and best practices. Security Hub collects security data from across AWS accounts, services, and supported third-party partner products and helps you analyze your security trends and identify the highest priority security issues.
 
-## How Security Hub CSPM differs for AWS GovCloud (US)
+## How Security Hub CSPM differs
+
+The following differences apply to Security Hub CSPM:
 
 **Product integrations**
 
@@ -14,14 +16,14 @@ For a list of the supported integrations in the AWS GovCloud (US) Region, see [I
 
 Not all security controls are supported in the AWS GovCloud (US) Region. For details, see the following lists in the _AWS Security Hub CSPM User Guide_.
 
-- [Controls that are not supported in AWS GovCloud (US-East)](../../../securityhub/latest/userguide/securityhub-regions.md#securityhub-control-support-govuseast1 "../../../securityhub/latest/userguide/securityhub-regions.md#securityhub-control-support-govuseast1")
-- [Controls that are not supported in AWS GovCloud (US-West)](../../../securityhub/latest/userguide/securityhub-regions.md#securityhub-control-support-govuswest1 "../../../securityhub/latest/userguide/securityhub-regions.md#securityhub-control-support-govuswest1")
+- [Controls that are not available in AWS GovCloud (US-East)](../../../securityhub/latest/userguide/securityhub-regions.md#securityhub-control-support-govuseast1 "../../../securityhub/latest/userguide/securityhub-regions.md#securityhub-control-support-govuseast1")
+- [Controls that are not available in AWS GovCloud (US-West)](../../../securityhub/latest/userguide/securityhub-regions.md#securityhub-control-support-govuswest1 "../../../securityhub/latest/userguide/securityhub-regions.md#securityhub-control-support-govuswest1")
 
 **Cross-Region aggregation**
 
 [Cross-Region aggregation](../../../securityhub/latest/userguide/finding-aggregation.md "../../../securityhub/latest/userguide/finding-aggregation.md") is supported with limitations in AWS GovCloud (US). In AWS GovCloud (US), cross-Region aggregation is supported only for findings, finding updates, and insights across AWS GovCloud (US). Specifically, you can only aggregate findings, finding updates, and insights between AWS GovCloud (US-East) and AWS GovCloud (US-West).
 
-## Documentation for Security Hub CSPM
+## Documentation
 
 [AWS Security Hub CSPM documentation](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md").
 

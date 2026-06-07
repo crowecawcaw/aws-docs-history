@@ -2,9 +2,11 @@
 
 AWS Deep Learning AMIs empower machine learning practitioners and researchers with the cutting-edge infrastructure and tools to accelerate deep learning and artificial intelligence in the cloud, at any scale. With just a few clicks, you can launch Amazon EC2 instances pre-installed with the latest popular deep learning frameworks like TensorFlow and PyTorch and leverage these state-of-the-art frameworks to train sophisticated, custom AI models, experiment with groundbreaking new algorithms, and continuously enhance your deep learning skills and techniques.
 
-## How AWS Deep Learning AMIs differs for AWS GovCloud (US)
+## How AWS Deep Learning AMIs differs
 
-Only the following DLAMI are available in the GovCloud Regions:
+The following differences apply to AWS Deep Learning AMIs:
+
+Only the following DLAMI are available:
 
 ### Base DLAMI
 
@@ -20,7 +22,7 @@ Only the following DLAMI are available in the GovCloud Regions:
 - **X86**
   - [AWS Deep Learning AMI (Amazon Linux 2)](https://aws.amazon.com/releasenotes/aws-deep-learning-ami-amazon-linux-2 "https://aws.amazon.com/releasenotes/aws-deep-learning-ami-amazon-linux-2")
 
-## Documentation for AWS Deep Learning AMIs
+## Documentation
 
 [AWS Deep Learning AMIs documentation](https://aws.amazon.com/documentation/dlami/ "https://aws.amazon.com/documentation/dlami/").
 

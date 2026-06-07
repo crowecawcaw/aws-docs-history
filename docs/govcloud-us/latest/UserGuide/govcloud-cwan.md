@@ -2,11 +2,13 @@
 
 AWS Cloud WAN is a managed wide-area networking (WAN) service that you can use to build, manage, and monitor a unified global network that connects resources running across your cloud and on-premises environments.
 
-## How AWS Cloud WAN differs for AWS GovCloud (US)
+## How AWS Cloud WAN differs
 
-- Direct Connect gateway attachments are not supported.
+The following differences apply to AWS Cloud WAN:
 
-## Documentation for AWS Cloud WAN
+- Direct Connect gateway attachments are not available.
+
+## Documentation
 
 [AWS Cloud WAN documentation](../../../network-manager/latest/cloudwan/what-is-cloudwan.md "../../../network-manager/latest/cloudwan/what-is-cloudwan.md")
 

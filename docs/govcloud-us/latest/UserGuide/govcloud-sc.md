@@ -2,12 +2,14 @@
 
 AWS Service Catalog allows organizations to create and manage catalogs of IT services that are approved for use on AWS. These IT services can include everything from virtual machine images, servers, software, and databases to complete multi-tier application architectures. AWS Service Catalog allows you to centrally manage commonly deployed IT services, and helps you achieve consistent governance and meet your compliance requirements, while enabling users to quickly deploy only the approved IT services they need.
 
-## How Service Catalog differs for AWS GovCloud (US)
+## How Service Catalog differs
+
+The following differences apply to Service Catalog:
 
 - In AWS GovCloud (US) Copy Product is only supported within AWS GovCloud (US) Regions in the GovCloud partition.
-- Stack Sets are not currently supported in AWS GovCloud (US) Regions.
+- Stack Sets are not currently supported.
 
-## Documentation for Service Catalog
+## Documentation
 
 [AWS Service Catalog documentation](../../../servicecatalog/index.md "../../../servicecatalog/index.md").
 

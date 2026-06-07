@@ -2,11 +2,13 @@
 
 Amazon Elastic Container Service (Amazon ECS) is a highly scalable, fast, container management service that makes it easy to run, stop, and manage Docker containers on a cluster of Amazon EC2 instances.
 
-## How Amazon Elastic Container Service differs for AWS GovCloud (US)
+## How Amazon Elastic Container Service differs
+
+The following differences apply to Amazon Elastic Container Service:
 
 - The Amazon ECS-optimized AMI variant of the Bottlerocket operating system is not available when launching Amazon ECS container instances.
 
-## Documentation for Amazon Elastic Container Service
+## Documentation
 
 [Amazon Elastic Container Service documentation](https://aws.amazon.com/documentation/ecs/ "https://aws.amazon.com/documentation/ecs/").
 

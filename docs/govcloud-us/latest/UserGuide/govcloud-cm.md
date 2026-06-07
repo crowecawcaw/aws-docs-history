@@ -2,11 +2,13 @@
 
 AWS Cloud Map is a fully managed service that you can use to create and maintain a map of the backend services and resources that your applications depend on.
 
-## How AWS Cloud Map differs for AWS GovCloud (US)
+## How AWS Cloud Map differs
 
-- Public DNS namespaces are not supported in the AWS GovCloud (US) Regions.
+The following differences apply to AWS Cloud Map:
 
-## Documentation for AWS Cloud Map
+- Public DNS namespaces are not available.
+
+## Documentation
 
 [AWS Cloud Map documentation](../../../cloud-map.md "../../../cloud-map.md").
 

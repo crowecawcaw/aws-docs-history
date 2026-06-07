@@ -8,10 +8,10 @@ Amazon Managed Grafana is a fully managed and secure data visualization service 
 
 The following differences apply to Amazon Managed Grafana in AWS GovCloud (US) Regions:
 
-- Enterprise Plugins are not supported.
-- Customer Managed Keys are not supported.
-- Dual-stack functionality is not supported.
-- CloudFormation is not supported.
+- Enterprise Plugins are not available.
+- Customer Managed Keys are not available.
+- Dual-stack functionality is not available.
+- CloudFormation is not available.
 
 ## Export-controlled content
 
@@ -19,7 +19,7 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 - No data will leave the AWS GovCloud (US) Regions for this service.
 
-## Documentation References
+## Documentation
 
 - [Amazon Managed Grafana](../../../grafana.md "../../../grafana.md") documentation
 - [AWS Developer Tools](../../../{developer-tools-url}.md "../../../{developer-tools-url}.md") in AWS GovCloud (US) Regions

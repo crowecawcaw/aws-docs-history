@@ -8,7 +8,9 @@ Amazon Pinpoint is an AWS service that you can use to engage with you customers 
 
 The Amazon Pinpoint API is currently available in AWS GovCloud (US-West).
 
-## How Amazon Pinpoint differs for AWS GovCloud (US)
+## How Amazon Pinpoint differs
+
+The following differences apply to Amazon Pinpoint:
 
 - Amazon Pinpoint API
   - You can’t use the SendMessages operation in the Amazon Pinpoint API to send voice messages.
@@ -18,9 +20,9 @@ The Amazon Pinpoint API is currently available in AWS GovCloud (US-West).
   - When you create a journey, you can only configure the **Journey entry** activity to add participants who are in a specific segment. You can’t configure the **Journey entry** activity to add participants when they perform an activity (also known as an event).
   - You can’t create message templates that include recommendations provided by Amazon Personalize.
   - The In-App channel is unavailable.
-  - Time zone estimation is not supported.
+  - Time zone estimation is not available.
 
-## Documentation for Amazon Pinpoint
+## Documentation
 
 Amazon Pinpoint
 [documentation](../../../pinpoint/latest/userguide/pinpoint-ug.pdf.md "../../../pinpoint/latest/userguide/pinpoint-ug.pdf.md") and Amazon Pinpoint API [documentaiton](../../../pinpoint/latest/apireference/welcome.md "../../../pinpoint/latest/apireference/welcome.md").

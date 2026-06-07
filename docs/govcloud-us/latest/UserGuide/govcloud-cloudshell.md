@@ -2,11 +2,13 @@
 
 AWS CloudShell is a browser-based, pre-authenticated shell that you can launch directly from the AWS Management Console. You can run AWS CLI commands against AWS services using your preferred shell (Bash, PowerShell, or Z shell). And you can do this without needing to download or install command line tools.
 
-## How AWS CloudShell differs for AWS GovCloud (US)
+## How AWS CloudShell differs
 
-Currently, AWS CloudShell does not support Docker in the AWS GovCloud (US) Regions.
+The following differences apply to AWS CloudShell:
 
-## Documentation for AWS CloudShell
+- Docker is not available.
+
+## Documentation
 
 [CloudShell documentation](../../../cloudshell/latest/userguide/welcome.md "../../../cloudshell/latest/userguide/welcome.md").
 

@@ -4,15 +4,17 @@ Amazon DocumentDB (with MongoDB compatibility) is a fast, scalable, highly avail
 
 Amazon DocumentDB is a non-relational database service designed from the ground-up to give you the performance, scalability, and availability you need when operating mission-critical MongoDB workloads at scale. In Amazon DocumentDB, the storage and compute are decoupled, allowing each to scale independently. You can increase the read capacity to millions of requests per second by adding up to 15 low latency read replicas in minutes, regardless of the size of your data.
 
-## How Amazon DocumentDB differs for AWS GovCloud (US)
+## How Amazon DocumentDB differs
 
-- Copying [cluster snapshots](../../../documentdb/latest/developerguide/backup_restore-copy_cluster_snapshot.md "../../../documentdb/latest/developerguide/backup_restore-copy_cluster_snapshot.md") from other AWS Regions to the AWS GovCloud (US) Regions or from AWS GovCloud (US) Regions to other Regions is not supported.
-- Amazon DocumentDB elastic clusters are not supported.
+The following differences apply to Amazon DocumentDB:
+
+- Copying [cluster snapshots](../../../documentdb/latest/developerguide/backup_restore-copy_cluster_snapshot.md "../../../documentdb/latest/developerguide/backup_restore-copy_cluster_snapshot.md") from other AWS Regions to the AWS GovCloud (US) Regions or from AWS GovCloud (US) Regions to other Regions is not available.
+- Amazon DocumentDB elastic clusters are not available.
 - The db.t4g and db.r4 instance classes are not available.
 - The db.r8g instance class is available in the AWS GovCloud (US-West) Region only and is not available in the AWS GovCloud (US-East) Region.
 - Amazon DocumentDB Performance Insights is not available.
 
-## Documentation for Amazon DocumentDB
+## Documentation
 
 [Amazon DocumentDB documentation](../../../documentdb/latest/developerguide/what-is.md "../../../documentdb/latest/developerguide/what-is.md").
 

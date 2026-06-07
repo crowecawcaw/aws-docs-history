@@ -2,13 +2,15 @@
 
 Amazon MemoryDB makes it easy to set up, manage, and scale distributed in-memory cache environments in the AWS Cloud. It provides a high performance, resizable, and cost-effective in-memory cache, while removing complexity associated with deploying and managing a distributed cache environment. MemoryDB works with the Valkey and Redis OSS engines.
 
-## How Amazon MemoryDB differs for AWS GovCloud (US)
+## How Amazon MemoryDB differs
+
+The following differences apply to Amazon MemoryDB:
 
 - All MemoryDB instances must be launched in an Amazon VPC.
 - MemoryDB clusters have a preferred weekly maintenance window. For information about the time blocks, see [Cache Engine Version Management](http://aws.amazon.com/VersionManagement.MaintenanceWindow.html "http://aws.amazon.com/VersionManagement.MaintenanceWindow.html").
-- The r6gd node type and data-tiering are not available in AWS GovCloud (US).
+- The r6gd node type and data-tiering are not available.
 
-## Documentation for Amazon MemoryDB
+## Documentation
 
 [Amazon MemoryDB documentation](../../../memorydb.md "../../../memorydb.md").
 

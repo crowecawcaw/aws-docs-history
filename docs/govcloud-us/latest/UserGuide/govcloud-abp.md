@@ -2,17 +2,19 @@
 
 Amazon API Gateway is a fully managed service that makes it easy for developers to publish, maintain, monitor, and secure APIs at any scale. Create an API to access data, business logic, or functionality from your back-end services, such as applications running on Amazon Elastic Compute Cloud (Amazon EC2), code running on AWS Lambda, or any web application.
 
-## How Amazon API Gateway differs for AWS GovCloud (US)
+## How Amazon API Gateway differs
 
-- The `TLS_1_0` security policy for Regional APIs is not supported.
-- Portals are not supported.
-- Amazon API Gateway edge-optimized API and edge-optimized custom domain name are not supported.
+The following differences apply to Amazon API Gateway:
+
+- The `TLS_1_0` security policy for Regional APIs is not available.
+- Portals are not available.
+- Amazon API Gateway edge-optimized API and edge-optimized custom domain name are not available.
 - The Amazon Route 53 Hosted Zone ID for the regional endpoint in the AWS GovCloud (US-West) Region is Z1K6XKP9SAGWDV. The Amazon Route 53 Hosted Zone ID for the regional endpoint in the AWS GovCloud (US-East) Region is Z3SE9ATJYCRCZJ.
-- HTTP API private integrations aren’t supported in AWS GovCloud (US-East).
-- HTTP API private integrations with AWS Cloud Map aren’t supported in AWS GovCloud (US-West).
+- HTTP API private integrations are not available in AWS GovCloud (US-East).
+- HTTP API private integrations with AWS Cloud Map are not available in AWS GovCloud (US-West).
 - All API Gateway APIs created in GovCloud Regions are FIPS-compliant by default.
 - API Gateway mTLS endpoints do not currently support ECDSA server certificates.
-- `TLS-CHACHA20-POLY1305-SHA256` is not supported.
+- `TLS-CHACHA20-POLY1305-SHA256` is not available.
 
 The following region-specific API Gateway account IDs are automatically added to your Amazon VPC endpoint service as AllowedPrincipals for private integrations in AWS GovCloud (US):
 
@@ -20,7 +22,7 @@ The following region-specific API Gateway account IDs are automatically added to
 | ------------------------------ | ---------------------------- | ---------- |
 | us-gov-west-1<br>us-gov-east-1 | 291049978687<br>044865953448 |
 
-## Documentation for Amazon API Gateway
+## Documentation
 
 [Amazon API Gateway documentation](https://aws.amazon.com/documentation/apigateway/ "https://aws.amazon.com/documentation/apigateway/").
 

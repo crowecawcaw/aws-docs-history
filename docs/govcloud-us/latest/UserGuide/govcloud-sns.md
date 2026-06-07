@@ -2,17 +2,19 @@
 
 Amazon Simple Notification Service (Amazon SNS) is a web service that enables applications, end-users, and devices to instantly send and receive notifications from the cloud.
 
-## How Amazon Simple Notification Service differs for AWS GovCloud (US)
+## How Amazon Simple Notification Service differs
+
+The following differences apply to Amazon Simple Notification Service:
 
 - You cannot use Amazon SNS to send SMS messages while using the AWS GovCloud (US-East) Region.
-- Amazon Data Firehose subscriptions are not supported.
+- Amazon Data Firehose subscriptions are not available.
 - Kinesis Firehose protocol option for the Amazon SNS topics is not available.
-- Message Data Protection is not supported.
-- Custom data identifiers are not supported.
-- Amazon SNS message archiving and replay is not supported.
-- IPv6 is not supported.
+- Message Data Protection is not available.
+- Custom data identifiers are not available.
+- Amazon SNS message archiving and replay is not available.
+- IPv6 is not available.
 
-## Documentation for Amazon Simple Notification Service
+## Documentation
 
 [Amazon SNS documentation](http://aws.amazon.com/documentation/sns/ "http://aws.amazon.com/documentation/sns/").
 

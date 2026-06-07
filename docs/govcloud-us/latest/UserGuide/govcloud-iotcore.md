@@ -2,11 +2,13 @@
 
 AWS IoT enables secure, bi-directional communication between Internet-connected things (such as sensors, actuators, embedded devices, or smart appliances) and the AWS Cloud over MQTT and HTTP.
 
-## How AWS IoT differs for AWS GovCloud (US)
+## How AWS IoT differs
 
-- Use of Amazon Cognito Identities to grant permissions to users of your AWS IoT applications, via your own identity provider or other popular identity providers, is not supported.
+The following differences apply to AWS IoT:
 
-## Documentation for AWS IoT
+- Use of Amazon Cognito Identities to grant permissions to users of your AWS IoT applications, via your own identity provider or other popular identity providers, is not available.
+
+## Documentation
 
 [AWS IoT Core documentation](https://aws.amazon.com/documentation/iot/ "https://aws.amazon.com/documentation/iot/").
 

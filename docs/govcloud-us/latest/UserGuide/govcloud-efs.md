@@ -2,11 +2,13 @@
 
 Amazon EFS provides file storage for use with Amazon EC2 instances. The service is designed to be highly scalable, highly available, and highly durable. The service manages all the file storage infrastructure for you, meaning that you can avoid the complexity of deploying, patching, and maintaining complex file system configurations.
 
-## How Amazon Elastic File System differs for AWS GovCloud (US)
+## How Amazon Elastic File System differs
 
-- Cross-account replication is not supported.
+The following differences apply to Amazon Elastic File System:
 
-## Documentation for Amazon Elastic File System
+- Cross-account replication is not available.
+
+## Documentation
 
 [Amazon Elastic File System documentation](../../../efs/latest/ug/whatisefs.md "../../../efs/latest/ug/whatisefs.md").
 

@@ -2,14 +2,16 @@
 
 Amazon Elastic Container Registry (Amazon ECR) is a fully managed Docker container registry that makes it easy for developers to store, manage, and deploy Docker container images.
 
-## How Amazon Elastic Container Registry differs for AWS GovCloud (US)
+## How Amazon Elastic Container Registry differs
+
+The following differences apply to Amazon Elastic Container Registry:
 
 - [Amazon ECR Dual-layer server-side encryption with AWS KMS (DSSE-KMS)](../../../AmazonECR/latest/userguide/encryption-at-rest.md "../../../AmazonECR/latest/userguide/encryption-at-rest.md") is available.
-- [Amazon ECR pull through cache rules](../../../AmazonECR/latest/userguide/pull-through-cache.md "../../../AmazonECR/latest/userguide/pull-through-cache.md") aren’t supported.
-- [Amazon ECR public registries](../../../AmazonECR/latest/public/public-registries.md "../../../AmazonECR/latest/public/public-registries.md") aren’t supported.
+- [Amazon ECR to Amazon ECR pull through cache rules](../../../AmazonECR/latest/userguide/pull-through-cache.md "../../../AmazonECR/latest/userguide/pull-through-cache.md") are available only within the same partition.
+- [Amazon ECR public registries](../../../AmazonECR/latest/public/public-registries.md "../../../AmazonECR/latest/public/public-registries.md") are not available.
 - The [Amazon ECR Public Gallery](../../../AmazonECR/latest/public/public-gallery.md "../../../AmazonECR/latest/public/public-gallery.md") isn’t hosted in AWS GovCloud (US). However, if external internet access is available, you should be able to reach and pull container images from the gallery.
 
-## Documentation for Amazon Elastic Container Registry
+## Documentation
 
 [Amazon Elastic Container Registry documentation](https://aws.amazon.com/documentation/ecr/ "https://aws.amazon.com/documentation/ecr/").
 

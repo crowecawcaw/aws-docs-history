@@ -2,13 +2,15 @@
 
 Use CloudWatch Logs to monitor, store, and access your log files from Amazon EC2 instances, AWS CloudTrail, or other sources.
 
-## How Amazon CloudWatch Logs differs for AWS GovCloud (US)
+## How Amazon CloudWatch Logs differs
+
+The following differences apply to Amazon CloudWatch Logs:
 
 - Use SSL (HTTPS) when you make calls to the service in AWS GovCloud (US) Regions. In other AWS Regions, you can use HTTP or HTTPS.
 - The Live Tail feature is not available.
-- The `logGroupNamePattern` parameter is not supported for use in the describe-log-groups AWS CLI command or the DescribeLogGroups API.
+- The `logGroupNamePattern` parameter is not available for use in the describe-log-groups AWS CLI command or the DescribeLogGroups API.
 
-## Documentation for Amazon CloudWatch Logs
+## Documentation
 
 [Amazon CloudWatch Logs documentation](https://aws.amazon.com/documentation/cloudwatch/ "https://aws.amazon.com/documentation/cloudwatch/").
 

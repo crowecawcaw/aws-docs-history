@@ -2,11 +2,11 @@
 
 AWS Backint Agent for SAP HANA (AWS Backint Agent) is an SAP-certified backup and restore application for SAP HANA workloads running on Amazon EC2 instances in the cloud. AWS Backint Agent runs as a standalone application that integrates with your existing workflows to back up your SAP HANA database to Amazon S3 and to restore it using SAP HANA Cockpit, SAP HANA Studio, and SQL commands. AWS Backint Agent supports full, incremental, and differential backup of SAP HANA databases.
 
-## How AWS Backint Agent for SAP HANA differs for AWS GovCloud (US)
+## How AWS Backint Agent for SAP HANA differs
 
-This service has no differences between the AWS GovCloud (US) Region and the standard AWS Regions.
+There are no differences for this service.
 
-## Documentation for AWS Backint Agent for SAP HANA
+## Documentation
 
 [AWS Backint Agent for SAP HANA documentation](../../../sap/latest/sap-hana/aws-backint-agent-what-is.md "../../../sap/latest/sap-hana/aws-backint-agent-what-is.md").
 

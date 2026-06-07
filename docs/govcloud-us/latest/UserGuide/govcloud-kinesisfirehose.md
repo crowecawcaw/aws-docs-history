@@ -2,11 +2,11 @@
 
 Amazon Kinesis Data Firehose is a fully managed service for delivering real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon Redshift, Amazon OpenSearch Service, and Splunk. Kinesis Data Firehose is part of the Kinesis streaming data platform, along with Kinesis Data Streams, Kinesis Video Streams, and Amazon Kinesis Data Analytics. With Kinesis Data Firehose, you don’t need to write applications or manage resources. You configure your data producers to send data to Kinesis Data Firehose, and it automatically delivers the data to the destination that you specified. You can also configure Kinesis Data Firehose to transform your data before delivering it.
 
-## How Amazon Data Firehose differs for AWS GovCloud (US)
+## How Amazon Data Firehose differs
 
-This service has no differences between the AWS GovCloud (US) and the standard AWS Regions.
+There are no differences for this service.
 
-## Documentation for Amazon Data Firehose
+## Documentation
 
 [Amazon Data Firehose documentation](https://aws.amazon.com/documentation/kinesis/ "https://aws.amazon.com/documentation/kinesis/").
 

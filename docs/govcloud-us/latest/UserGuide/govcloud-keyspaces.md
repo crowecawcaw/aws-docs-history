@@ -4,10 +4,12 @@ Amazon Keyspaces (for Apache Cassandra) is a scalable, highly available, and man
 
 Amazon Keyspaces is serverless, so you pay for only the resources that you use, and the service automatically scales tables up and down in response to application traffic. You can build applications that serve thousands of requests per second with virtually unlimited throughput and storage.
 
-## How Amazon Keyspaces differs for AWS GovCloud (US)
+## How Amazon Keyspaces differs
 
-- Amazon Keyspaces Multi-Region replication is not supported.
-- Amazon Keyspaces integration with CloudFormation is not supported.
+The following differences apply to Amazon Keyspaces:
+
+- Amazon Keyspaces Multi-Region replication is not available.
+- Amazon Keyspaces integration with CloudFormation is not available.
 
 This section describes the Amazon Keyspaces quotas and default values in AWS GovCloud (US) Regions that differ from Amazon Keyspaces
 [quotas](../../../keyspaces/latest/devguide/quotas.md "../../../keyspaces/latest/devguide/quotas.md") in other AWS Regions.
@@ -19,7 +21,7 @@ This section describes the Amazon Keyspaces quotas and default values in AWS Gov
 
 For more information about quotas in AWS GovCloud (US) Regions, see [Service Quotas](govcloud-servicequotas.md "govcloud-servicequotas.md") in the [AWS GovCloud (US) User Guide](../UserGuide.md "../UserGuide.md").
 
-## Documentation for Amazon Keyspaces
+## Documentation
 
 [Amazon Keyspaces documentation](../../../keyspaces/index.md "../../../keyspaces/index.md").
 

@@ -2,17 +2,19 @@
 
 Amazon WorkSpaces is a managed, secure cloud desktop service. You can use Amazon WorkSpaces to provision Windows, Amazon Linux 2, Ubuntu, Red Hat Enterprise Linux (RHEL), or Rocky Linux desktops in just a few minutes and quickly scale to provide thousands of desktops to workers across the globe. You can pay either monthly or hourly, just for the WorkSpaces you launch, which helps you save money when compared to traditional desktops and on-premises virtual desktop infrastructure (VDI) solutions. Amazon WorkSpaces helps you eliminate the complexity in managing hardware inventory and OS versions and patches which helps simplify your desktop delivery strategy. With Amazon WorkSpaces, your users get a fast, responsive desktop of their choice that they can access anywhere, anytime, from any supported device.
 
-## How Amazon WorkSpaces differs for AWS GovCloud (US)
+## How Amazon WorkSpaces differs
 
-- The Amazon WorkSpaces Application Manager console is not supported.
+The following differences apply to Amazon WorkSpaces:
+
+- The Amazon WorkSpaces Application Manager console is not available.
 - The Web Access client (from browser) does not support PCoIP WorkSpaces.
-- The cross-Region redirection feature is not supported.
-- The **Forgot Password** option and the **Welcome Email** feature are not supported in the AWS GovCloud (US) Regions. Users cannot reset their own passwords and users with new WorkSpaces will not receive a welcome email.
-- Amazon WorkSpaces Advisor is not supported.
+- The cross-Region redirection feature is not available.
+- The **Forgot Password** option and the **Welcome Email** feature are not available in the AWS GovCloud (US) Regions. Users cannot reset their own passwords and users with new WorkSpaces will not receive a welcome email.
+- Amazon WorkSpaces Advisor is not available.
 
-## Documentation for Amazon WorkSpaces
+## Documentation
 
-[Amazon WorkSpaces documentation](../../../workspaces.md "../../../workspaces.md").
+- [Amazon WorkSpaces documentation](../../../workspaces.md "../../../workspaces.md")
 
 ## Export-controlled content
 

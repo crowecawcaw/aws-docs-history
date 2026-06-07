@@ -4,11 +4,11 @@ Amazon Kinesis Data Analytics is the easiest way to analyze streaming data, gain
 
 Amazon Managed Service for Apache Flink takes care of everything required to run your real-time applications continuously and scales automatically to match the volume and throughput of your incoming data. With Amazon Managed Service for Apache Flink, you only pay for the resources your streaming applications consume. There is no minimum fee or setup cost.
 
-## How Amazon Managed Service for Apache Flink differs for AWS GovCloud (US)
+## How Amazon Managed Service for Apache Flink differs
 
-This service has no differences between the AWS GovCloud (US) Region and the standard AWS Regions.
+There are no differences for this service.
 
-## Documentation for Amazon Managed Service for Apache Flink
+## Documentation
 
 [Amazon Managed Service for Apache Flink documentation](https://aws.amazon.com/kinesis/data-analytics/resources/ "https://aws.amazon.com/kinesis/data-analytics/resources/").
 

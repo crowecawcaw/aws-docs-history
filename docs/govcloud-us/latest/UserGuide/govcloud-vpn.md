@@ -2,13 +2,15 @@
 
 AWS Site-to-Site VPN enables you to securely connect your on-premises network or branch office site to your Amazon Virtual Private Cloud (Amazon VPC).
 
-## How Site-to-Site VPN differs for AWS GovCloud (US)
+## How Site-to-Site VPN differs
+
+The following differences apply to Site-to-Site VPN:
 
 - AWS Site-to-Site VPN integration with Global Accelerator (Accelerated VPN Connections) is not available in the AWS GovCloud (US) Region.
 - The AWS Site-to-Site VPN endpoints in AWS GovCloud (US) operate using FIPS 140-3 validated cryptographic modules. Correspondingly, VPN connections created in GovCloud require a different set of algorithms to establish a tunnel. For more information about FIPS 140-3, see "Cryptographic Module Validation Program" on the NIST Computer Security Resource Center website.
 - Use SSL (HTTPS) when you make calls to the service in the AWS GovCloud (US) Region. In other AWS Regions, you can use HTTP or HTTPS..
 
-## Documentation for AWS Site-to-Site VPN
+## Documentation
 
 [Site-to-Site VPN documentation](../../../vpn.md "../../../vpn.md").
 

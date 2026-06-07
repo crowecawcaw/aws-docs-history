@@ -4,13 +4,13 @@ AWS WAF is a web application firewall that lets you monitor web requests that ar
 
 For list of services that AWS WAF supports, please visit the [service page](https://aws.amazon.com/waf "https://aws.amazon.com/waf").
 
-## How AWS WAF Differs for AWS GovCloud (US)
+## How AWS WAF differs
 
-AWS WAF for AWS GovCloud (US) doesn’t support the following functionality:
+The following differences apply to AWS WAF:
 
 - Managed rule groups that are provided for subscription by AWS Marketplace third party sellers are not available for use in AWS GovCloud (US). The only managed rule groups that are available in AWS GovCloud (US) are the AWS managed rule groups that are provided with AWS WAF. For more information about managed rule groups in AWS WAF, see [Managed rule groups](../../../waf/latest/developerguide/waf-managed-rule-groups.md "../../../waf/latest/developerguide/waf-managed-rule-groups.md") in the AWS WAF, AWS Firewall Manager, and AWS Shield Advanced Developer Guide.
 
-## Documentation for AWS WAF
+## Documentation
 
 [AWS WAF documentation](https://aws.amazon.com/documentation/waf/ "https://aws.amazon.com/documentation/waf/").
 

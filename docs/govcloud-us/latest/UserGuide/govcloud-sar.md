@@ -2,11 +2,13 @@
 
 The AWS Serverless Application Repository is a managed repository for serverless applications. It enables teams, organizations, and individual developers to find, deploy, publish, share, store, and easily assemble serverless architectures.
 
-## How AWS Serverless Application Repository differs for AWS GovCloud (US)
+## How AWS Serverless Application Repository differs
+
+The following differences apply to AWS Serverless Application Repository:
 
 - Applications that are publicly shared in other AWS Regions are not automatically available in AWS GovCloud (US) Regions. To make applications available in AWS GovCloud (US) Regions, you must publish and share them independently of other AWS Regions.
 
-## Documentation for AWS Serverless Application Repository
+## Documentation
 
 [AWS Serverless Application Repository documentation](../../../serverlessrepo/index.md "../../../serverlessrepo/index.md").
 

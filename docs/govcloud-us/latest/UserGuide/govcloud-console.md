@@ -2,7 +2,9 @@
 
 The AWS Management Console is a graphical interface for accessing a wide range of AWS Cloud services and managing compute, storage, and other cloud resources. The console includes the Tag Editor tool for managing metadata that you add to your resources. You can then use those tags to create resource groups to manage your AWS resources collectively.
 
-## How AWS Management Console differs for AWS GovCloud (US)
+## How AWS Management Console differs
+
+The following differences apply to AWS Management Console:
 
 - You access the [AWS GovCloud (US) console](https://console.amazonaws-us-gov.com "https://console.amazonaws-us-gov.com") by using a different URL than the standard AWS Management Console.
 - You can only access the AWS GovCloud (US) console by using an IAM user name and password, not with the GovCloud account root user email address. You cannot enable an MFA device for your AWS GovCloud (US) account root user email, but can enable for IAM users. For information about the AWS GovCloud (US) differences in IAM, see [AWS Identity and Access Management](https://aws.amazon.com/iam/details/mfa/ "https://aws.amazon.com/iam/details/mfa/").

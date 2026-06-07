@@ -4,15 +4,17 @@ This service is currently available in AWS GovCloud (US-West) only.
 
 Amazon Rekognition makes it easy to add image and video analysis to your applications. You just provide an image or video to the Rekognition API, and the service can identify objects, people, text, scenes, and activities. It can detect any inappropriate content as well. Amazon Rekognition also provides highly accurate facial analysis and facial recognition. You can detect, analyze, and compare faces for a wide variety of use cases, including user verification, cataloging, people counting, and public safety.
 
-## How Amazon Rekognition differs for AWS GovCloud (US)
+## How Amazon Rekognition differs
+
+The following differences apply to Amazon Rekognition:
 
 - Celebrity Recognition is not available in AWS GovCloud (US) for either Amazon Rekognition Image or Amazon Rekognition Stored Video.
-- Amazon Rekognition Streaming Video is not available in AWS GovCloud (US).
-- Amazon Rekognition Custom Labels is not available in AWS GovCloud (US).
+- Amazon Rekognition Streaming Video is not available.
+- Amazon Rekognition Custom Labels is not available.
 - Amazon Rekognition Bulk Analysis is not available in AWS GovCloud (US)
-- In AWS GovCloud (US) Regions, AWS DOES NOT use or store AI Content processed by this AI Service to develop and improve that Service or technologies of AWS or its affiliates. Opt-out policies are not currently applicable to these Regions.
+- In AWS GovCloud (US) Regions, AWS does not use or store AI Content processed by this AI Service to develop and improve that Service or technologies of AWS or its affiliates. Opt-out policies are not currently applicable to these Regions.
 
-## Documentation for Amazon Rekognition
+## Documentation
 
 [Amazon Rekognition documentation](../../../rekognition/index.md "../../../rekognition/index.md").
 

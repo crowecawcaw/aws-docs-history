@@ -2,13 +2,15 @@
 
 Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. You can use Amazon DynamoDB to create a database table that can store and retrieve any amount of data, and serve any level of request traffic. Amazon DynamoDB automatically spreads the data and traffic for the table over a sufficient number of servers to handle the request capacity specified by the customer and the amount of data stored, while maintaining consistent and fast performance.
 
-## How Amazon DynamoDB differs for AWS GovCloud (US)
+## How Amazon DynamoDB differs
+
+The following differences apply to Amazon DynamoDB:
 
 - **Export Table** is not available in the DynamoDB console.
 - [DynamoDB Accelerator(DAX)](../../../amazondynamodb/latest/developerguide/DAX.md "../../../amazondynamodb/latest/developerguide/DAX.md") and [Global tables multi-Region strong consistency (MRSC)](../../../amazondynamodb/latest/developerguide/V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes "../../../amazondynamodb/latest/developerguide/V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes") are not available.
-- [AWS PrivateLink](../../../vpc/latest/privatelink/what-is-privatelink.md "../../../vpc/latest/privatelink/what-is-privatelink.md") is not supported for DynamoDB.
+- [AWS PrivateLink](../../../vpc/latest/privatelink/what-is-privatelink.md "../../../vpc/latest/privatelink/what-is-privatelink.md") is not available for DynamoDB.
 
-## Documentation for Amazon DynamoDB
+## Documentation
 
 [Amazon DynamoDB documentation](http://aws.amazon.com/documentation/dynamodb/ "http://aws.amazon.com/documentation/dynamodb/").
 

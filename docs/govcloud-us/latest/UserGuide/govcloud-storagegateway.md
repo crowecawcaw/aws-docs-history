@@ -2,14 +2,16 @@
 
 AWS Storage Gateway is a service that connects an on-premises software appliance with cloud-based storage to provide seamless and secure integration between your on-premises IT environment and the AWS storage infrastructure in the cloud.
 
-## How AWS Storage Gateway differs for AWS GovCloud (US)
+## How AWS Storage Gateway differs
+
+The following differences apply to AWS Storage Gateway:
 
 - A file gateway created inside AWS GovCloud (US) cannot connect to a bucket outside of the AWS GovCloud (US) Regions.
 - A file gateway created outside of AWS GovCloud (US) cannot connect to a bucket inside AWS GovCloud (US).
 - TLS-enabled endpoint are available.
-- [AWS Storage Gateway Hardware Appliance](../../../storagegateway/latest/userguide/HardwareAppliance.md "../../../storagegateway/latest/userguide/HardwareAppliance.md") is not supported for use with the AWS Storage Gateway service running in the AWS GovCloud (US) Region.
+- [AWS Storage Gateway Hardware Appliance](../../../storagegateway/latest/userguide/HardwareAppliance.md "../../../storagegateway/latest/userguide/HardwareAppliance.md") is not available for use with the AWS Storage Gateway service running in the AWS GovCloud (US) Region.
 
-## Documentation for AWS Storage Gateway
+## Documentation
 
 [AWS Storage Gateway documentation](../../../storagegateway/index.md "../../../storagegateway/index.md").
 
@@ -30,7 +32,7 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 ## AWS Storage Gateway AMI Information
 
-The following table lists the available AWS Storage Gateway AMIs in the AWS GovCloud (US) Regions.
+The following table lists the available AWS Storage Gateway AMIs.
 
 | Gateway Type | AMI ID                     |
 | ------------ | -------------------------- |

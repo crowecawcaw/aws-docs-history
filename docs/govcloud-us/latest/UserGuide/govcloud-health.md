@@ -6,7 +6,9 @@ All customers can use the Health Dashboard, powered by the AWS Health API. The d
 
 Additionally, Support customers who have a Business or Enterprise support plan can use the AWS Health API to integrate with in-house and third-party systems.
 
-## How AWS Health differs for AWS GovCloud (US)
+## How AWS Health differs
+
+The following differences apply to AWS Health:
 
 - The Amazon EventBridge channel doesn’t send public events from the Service Health View of the Health Dashboard.
   - Instead, use the AWS Health API or Service Health View RSS feed to programmatically receive these events. Account specific events are accessible through the EventBridge endpoint.
@@ -18,9 +20,9 @@ Additionally, Support customers who have a Business or Enterprise support plan c
 - To enhance the reliability of AWS Health notifications, you can set up rules in the dedicated backup regions. The AWS GovCloud (US-West) Region acts as the backup region for AWS GovCloud (US-East) Region, and the AWS GovCloud (US-East) Region acts as the backup region for the AWS GovCloud (US-West) Region. When health events occur, they are automatically sent to both the primary region and its designated backup region. For example, if you’re monitoring events in the AWS GovCloud (US-West) Region, then any health events are delivered to both the AWS GovCloud (US-West) Region and the AWS GovCloud (US-East) Region. This system makes sure you continue receiving health notifications even if your primary region experiences issues. To create a backup rule, follow the procedure for [Configuring an EventBridge rule to send notifications about events in AWS Health](../../../health/latest/ug/creating-event-bridge-events-rule-for-aws-health.md "../../../health/latest/ug/creating-event-bridge-events-rule-for-aws-health.md").
 - If you want to create an EventBridge integration with high availability, or if you prefer not to use backup functionality and want to add a filter to your backup region rule, see [Creating EventBridge rules for AWS Region coverage](../../../health/latest/ug/choosing-a-region.md "../../../health/latest/ug/choosing-a-region.md").
 - If you want to capture events from both AWS GovCloud (US-West) and AWS GovCloud (US-East) Regions but prefer to configure only a single rule, then you can use simplified integration. To receive all Health events from both Regions, you can set up a single rule in either the AWS GovCloud (US-West) Region or the AWS GovCloud (US-East) Region. However, you won’t have high availability configuration.
-- Some AWS Health events are not Region-specific. Events that aren’t specific to a Region are called global events. These include events sent for AWS Identity and Access Management (IAM). To receive global events in AWS GovCloud (US), you must create a rule in the AWS GovCloud (US-West) Region.
+- Some AWS Health events are not Region-specific. Events that are not specific to a Region are called global events. These include events sent for AWS Identity and Access Management (IAM). To receive global events in AWS GovCloud (US), you must create a rule in the AWS GovCloud (US-West) Region.
 
-## Documentation for AWS Health
+## Documentation
 
 [AWS Health documentation](../../../health/index.md "../../../health/index.md").
 

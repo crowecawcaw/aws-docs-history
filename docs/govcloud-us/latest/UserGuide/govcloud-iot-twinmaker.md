@@ -4,17 +4,17 @@ AWS IoT TwinMaker is used to build operational digital twins of physical and dig
 
 AWS IoT TwinMaker is available in 6 Classic regions (us-east-1, us-west-2, eu-west-1, ap-southeast-1, eu-central-1, ap-southeast-2). AWS IoT TwinMaker is available in one GovCloud region: us-gov-west-1.
 
-## How AWS IoT TwinMaker differs for AWS GovCloud (US)
+## How AWS IoT TwinMaker differs
 
-The following differences exist between AWS IoT TwinMaker in AWS GovCloud (US) and standard regions:
+The following differences apply to AWS IoT TwinMaker:
 
 - AWS IoT TwinMaker only supports the self-managed Grafana configuration option. Amazon Managed Grafana (AMG) is not available in the AWS GovCloud (US-West).
 - AWS IoT TwinMaker doesn’t support Edge Video feature and Kinesis Video Streams (KVS) connector in AWS GovCloud (US-West).
-- The `com.amazon.iotsitewise.connector.edgevideo` component type is not supported.
-- The `com.amazon.kvs.video` component type is not supported.
+- The `com.amazon.iotsitewise.connector.edgevideo` component type is not available.
+- The `com.amazon.kvs.video` component type is not available.
 - The metadata bulk import and export operations are not available in the GovCloud PDT (us-gov-west-1) region.
 
-## Documentation for AWS IoT TwinMaker
+## Documentation
 
 [AWS IoT TwinMaker documentation](../../../iot-twinmaker/landingpage.md "../../../iot-twinmaker/landingpage.md").
 

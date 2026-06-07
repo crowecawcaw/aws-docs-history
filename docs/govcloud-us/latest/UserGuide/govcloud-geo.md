@@ -4,11 +4,13 @@ This service is currently available in AWS GovCloud (US-West) only, because Amaz
 
 Amazon Location Service lets you securely add location data to your application. Amazon Location provides access to location-based functionality and data providers through AWS resources. Amazon Location offers five types of AWS resources, depending on the type of functionality you need. Use the different resources together to create a full location-based application.
 
-## How Amazon Location Service differs for AWS GovCloud (US)
+## How Amazon Location Service differs
 
-- [Granting access to resources using API keys](../../../location/latest/developerguide/using-apikeys.md "../../../location/latest/developerguide/using-apikeys.md") is not supported.
+The following differences apply to Amazon Location Service:
 
-## Documentation for Amazon Location Service
+- [Granting access to resources using API keys](../../../location/latest/developerguide/using-apikeys.md "../../../location/latest/developerguide/using-apikeys.md") is not available.
+
+## Documentation
 
 [Amazon Location documentation](../../../location/index.md "../../../location/index.md").
 

@@ -2,14 +2,16 @@
 
 Amazon Transcribe uses advanced machine learning technologies to recognize speech in audio files and transcribe them into text. Use Amazon Transcribe to convert audio to text and to create applications that incorporate the content of audio files. For example, you can transcribe the audio track from a video recording to create closed captioning for the video.
 
-## How Amazon Transcribe differs for AWS GovCloud (US)
+## How Amazon Transcribe differs
+
+The following differences apply to Amazon Transcribe:
 
 - Automatic language identification is not available in the AWS GovCloud (US-East) Region.
-- Call Analytics is not available in the AWS GovCloud (US) Regions.
+- Call Analytics is not available.
 - Automatic content redaction is not available in the AWS GovCloud (US-East) Region.
-- In AWS GovCloud (US) Regions, AWS DOES NOT use or store AI Content processed by this AI Service to develop and improve that Service or technologies of AWS or its affiliates. Opt-out policies are not currently applicable to these Regions.
+- In AWS GovCloud (US) Regions, AWS does not use or store AI Content processed by this AI Service to develop and improve that Service or technologies of AWS or its affiliates. Opt-out policies are not currently applicable to these Regions.
 
-## Documentation for Amazon Transcribe
+## Documentation
 
 [Amazon Transcribe documentation](../../../transcribe/latest/dg.md "../../../transcribe/latest/dg.md").
 

@@ -2,11 +2,11 @@
 
 AWS Cloud Control API, a set of common application programming interfaces (APIs) that is designed to make it easy for developers to manage their cloud infrastructure in a consistent manner and leverage the latest AWS capabilities faster. Using AWS Cloud Control API, developers can manage the lifecycle of hundreds of AWS resources and over a dozen third-party resources with five consistent APIs instead of using distinct service-specific APIs. With this launch, AWS Partner Network (APN) Partners can now automate how their solutions integrate with existing and future AWS services through a one-time integration, instead of spending weeks of custom development work as new resources become available.
 
-## How AWS Cloud Control API differs for AWS GovCloud (US)
+## How AWS Cloud Control API differs
 
-This service has no differences between the AWS GovCloud (US) Region and the standard AWS Regions.
+There are no differences for this service.
 
-## Documentation for AWSCloud Control API
+## Documentation
 
 [AWSCloud Control API documentation](../../../cloudcontrolapi.md "../../../cloudcontrolapi.md").
 

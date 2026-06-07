@@ -2,11 +2,13 @@
 
 AWS Key Management Service (KMS) is an encryption and key management service scaled for the cloud. KMS keys and functionality are used by other AWS services, and you can use them to protect data in your own applications that use AWS.
 
-## How AWS KMS differs for AWS GovCloud (US)
+## How AWS KMS differs
+
+The following differences apply to AWS KMS:
 
 - External key store proxies in the AWS GovCloud (US) Region must support HTTP/1.1 or later and TLS 1.2 or later with at least one of these cipher suites: TLS_AES_256_GCM_SHA384 (TLS 1.3), TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (TLS 1.2), TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 (TLS 1.2). The AWS GovCloud (US) Region does not support the TLS_CHACHA20_POLY1305_SHA256 cipher suite. For more information, see the open-source [external key store proxy API specification](https://github.com/aws/aws-kms-xksproxy-api-spec/ "https://github.com/aws/aws-kms-xksproxy-api-spec/") that AWS KMS publishes.
 
-## Documentation for AWS Key Management Service
+## Documentation
 
 [AWS Key Management Service Developer Guide](../../../kms/latest/developerguide.md "../../../kms/latest/developerguide.md").
 

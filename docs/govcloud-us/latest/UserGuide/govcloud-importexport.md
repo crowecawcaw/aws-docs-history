@@ -2,14 +2,16 @@
 
 AWS Snow Family is a service for customers who want to transport terabytes or petabytes of data to and from AWS, or who want to access the storage and compute power of the AWS Cloud locally and cost effectively in places where connecting to the internet might not be an option.
 
-## How AWS Snow Family differs for AWS GovCloud (US)
+## How AWS Snow Family differs
+
+The following differences apply to AWS Snow Family:
 
 - Users can only select AWS GovCloud (US) Regions as the import or export destination Region. The AWS GovCloud (US) Region selection is available only when signed in to AWS GovCloud (US).
 - AWS Snowball Edge Device Management service is not available.
 - AWS Snow Family Large Data Migration Manager is not available.
 - Amazon EKS Anywhere on Snow is not available.
 
-## Documentation for AWS Snow Family
+## Documentation
 
 [AWS Snow Family documentation](https://aws.amazon.com/documentation/snowball/ "https://aws.amazon.com/documentation/snowball/").
 

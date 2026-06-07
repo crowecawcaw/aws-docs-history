@@ -2,16 +2,18 @@
 
 AWS CodeDeploy is a deployment service that enables developers to automate the deployment of applications to instances and to update the applications as required.
 
-## How AWS CodeDeploy differs for AWS GovCloud (US)
+## How AWS CodeDeploy differs
+
+The following differences apply to AWS CodeDeploy:
 
 - The new AWS CodeDeploy console is not available in the AWS GovCloud (US) Regions
 - Use TLS (HTTPS) when you make calls to the service in AWS GovCloud (US) Regions. In other regions, you can use HTTP or HTTPS.
 - Several procedures in the CodeDeploy User Guide require the customer to substitute the name of a region-specific Amazon S3 bucket or bucket ARN. These procedures are for tasks such as restricting bucket access and downloading installation files, samples, and templates. In AWS GovCloud (US) Regions, the formats for accessing these resources do not follow the same patterns as for other Regions.
-- ECS capacity providers are not supported.
-- Automatically updating outdated instances is not supported.
+- ECS capacity providers are not available.
+- Automatically updating outdated instances is not available.
 - CodeDeploy does not have a VPC endpoint powered by PrivateLink.
 
-## Documentation for AWS CodeDeploy
+## Documentation
 
 Use the values presented here to complete CodeDeploy procedures in the AWS GovCloud (US).
 

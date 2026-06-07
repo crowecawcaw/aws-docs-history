@@ -2,9 +2,11 @@
 
 AWS CodePipeline is a continuous delivery service you can use to model, visualize, and automate the steps required to release your software. You can quickly model and configure the different stages of a software release process. CodePipeline automates the steps required to release your software changes continuously.
 
-## How AWS CodePipeline differs for AWS GovCloud (US)
+## How AWS CodePipeline differs
 
-The following actions/provider types are not supported:
+The following differences apply to AWS CodePipeline:
+
+The following actions/provider types are not available:
 
 - Custom actions
 - Source Actions. The following actions are only available in AWS GovCloud (US-East):
@@ -15,7 +17,7 @@ The following actions/provider types are not supported:
 
 - Build Actions:
   - Jenkins
-  - For the CodeBuild action, enabling batch builds is not supported. For the CodeBuild action type, the action configuration does not contain the following parameters : BatchEnabled, CombineArtifacts.
+  - For the CodeBuild action, enabling batch builds is not available. For the CodeBuild action type, the action configuration does not contain the following parameters : BatchEnabled, CombineArtifacts.
 
 - Test Actions:
   - Device Farm
@@ -31,11 +33,11 @@ The following actions/provider types are not supported:
   - AWS Step Functions
 
 - Since AWS GovCloud (US) operates as isolated regions, you cannot share or use CodePipeline resources with other services outside of the Regions. For example, you cannot use a CodeCommit repository in AWS GovCloud (US-West) as the source for a pipeline in CodePipeline that is not in the AWS GovCloud (US-West) Region.
-- All policy statements must refer to the GovCloud ARNs for the AWS GovCloud (US) Region. For example, policies for AWS Artifact buckets, CloudWatch Events rules, and trigger resources must use the AWS GovCloud (US) ARNs for those services. For more information, see .
+- All policy statements must refer to the GovCloud ARNs for the AWS GovCloud (US) Region. For example, policies for AWS Artifact buckets, CloudWatch Events rules, and trigger resources must use the AWS GovCloud (US) ARNs for those services. For more information, see [Amazon Resource Names in AWS GovCloud (US)](../../../general/latest/gr/arns.md "../../../general/latest/gr/arns.md").
 - All users and service roles must exist in the AWS GovCloud (US) Region.
-- Cross-region actions such as multi-region deployment are not supported.
+- Cross-region actions such as multi-region deployment are not available.
 
-## Documentation for AWS CodePipeline
+## Documentation
 
 [AWS CodePipeline documentation](../../../codepipeline/latest/userguide/welcome.md "../../../codepipeline/latest/userguide/welcome.md").
 

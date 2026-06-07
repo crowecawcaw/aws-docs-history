@@ -2,11 +2,13 @@
 
 Use CloudWatch Events to send system events from AWS resources to AWS Lambda functions, Amazon SNS topics, streams in Amazon Kinesis, and other target types.
 
-## How Amazon CloudWatch Events differs for AWS GovCloud (US)
+## How Amazon CloudWatch Events differs
+
+The following differences apply to Amazon CloudWatch Events:
 
 - Use SSL (HTTPS) when you make calls to the service in AWS GovCloud (US) Regions. In other AWS Regions, you can use HTTP or HTTPS.
 
-## Documentation for Amazon CloudWatch Events
+## Documentation
 
 [Amazon CloudWatch Events documentation](https://aws.amazon.com/documentation/cloudwatch/ "https://aws.amazon.com/documentation/cloudwatch/").
 

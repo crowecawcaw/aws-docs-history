@@ -4,16 +4,16 @@ AWS Config provides a detailed view of the resources associated with your AWS ac
 
 AWS Config and AWS Config Rules are supported in the AWS GovCloud (US) Region.
 
-## How AWS Config differs for AWS GovCloud (US)
+## How AWS Config differs
 
-The implementation of AWS Config is different for AWS GovCloud (US) in the following ways:
+The following differences apply to AWS Config:
 
 - For a list of rules supported in AWS GovCloud (US-East), see [List of AWS Config Managed Rules by Region Availability | AWS GovCloud (US-East)](../../../config/latest/developerguide/managing-rules-by-region-availability.md#aws-govcloud-us-east-section-head "../../../config/latest/developerguide/managing-rules-by-region-availability.md#aws-govcloud-us-east-section-head").
 - For a list of rules supported in AWS GovCloud (US-West), see [List of AWS Config Managed Rules by Region Availability | AWS GovCloud (US-West)](../../../config/latest/developerguide/managing-rules-by-region-availability.md#aws-govcloud-us-west-section-head "../../../config/latest/developerguide/managing-rules-by-region-availability.md#aws-govcloud-us-west-section-head").
-- AWS Config recording of third-party resources or custom resource types are not supported in AWS GovCloud (US).
-- AWS Systems Manager documents (SSM documents) for AWS Config remediation actions are not supported in AWS GovCloud (US).
+- AWS Config recording of third-party resources or custom resource types are not available.
+- AWS Systems Manager documents (SSM documents) for AWS Config remediation actions are not available.
 
-## Documentation for AWS Config
+## Documentation
 
 [AWS Config documentation](https://aws.amazon.com/documentation/config/ "https://aws.amazon.com/documentation/config/").
 

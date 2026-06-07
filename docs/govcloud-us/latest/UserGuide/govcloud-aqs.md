@@ -4,18 +4,20 @@ Amazon Quick Suite is a comprehensive business intelligence and analytics platfo
 
 The supported QuickSight capabilities in AWS GovCloud (US) give decision-makers the opportunity to explore and interpret information in an interactive visual environment. They have secure access to dashboards from any device on your network and from mobile devices.
 
-## How Amazon Quick Suite differs for AWS GovCloud (US)
+## How Amazon Quick Suite differs
 
-Amazon Quick Suite (formerly Amazon QuickSight) is supported in AWS GovCloud (US) regions with limitations. Only the core business intelligence capabilities are available, including dashboards, visualizations, data analysis, and reporting features. AI-powered features and functionality introduced as part of Amazon Quick Suite are not supported in AWS GovCloud (US) regions.
+The following differences apply to Amazon Quick Suite:
+
+- Amazon Quick Suite (formerly Amazon QuickSight) is supported in AWS GovCloud (US) regions with limitations. Only the core business intelligence capabilities are available, including dashboards, visualizations, data analysis, and reporting features. AI-powered features and functionality introduced as part of Amazon Quick Suite are not available in AWS GovCloud (US) regions.
 
 Below listed are the differences between the AWS GovCloud (US) and the standard AWS Regions.
 
-- Email based user provisioning is not supported in AWS GovCloud (US).
-- Using geospatial visualizations is not supported in AWS GovCloud (US).
-- Using Amazon SageMaker AI integration is not supported in AWS GovCloud (US).
-- The Q AI assistant is not supported in AWS GovCloud (US).
-- Amazon Quick Suite and interface VPC endpoints (AWS PrivateLink) are not supported in AWS GovCloud (US).
-- The mobile app is not supported for AWS GovCloud (US-East).
+- Email based user provisioning is not available.
+- Using geospatial visualizations is not available.
+- Using Amazon SageMaker AI integration is not available.
+- The Q AI assistant is not available.
+- Amazon Quick Suite and interface VPC endpoints (AWS PrivateLink) are not available.
+- The mobile app is not available for AWS GovCloud (US-East).
 
 Amazon Quick Suite in AWS GovCloud (US) supports user authorization for federated users only. Quick directly supports authentication through AWS Identity and Access Management (IAM), AWS IAM Identity Center (IAM Identity Center), and AWS Directory Service for Microsoft Active Directory. For more information, see [Identity federation in AWS](https://aws.amazon.com/identity/federation/ "https://aws.amazon.com/identity/federation/").
 
@@ -32,7 +34,7 @@ Specialized configurations that allow users to authenticate with a different ide
 
 If you are using the [Embedded Analytics Tutorial](https://aws.amazon.com/getting-started/hands-on/embedded-analytics-tutorial-introduction/ "https://aws.amazon.com/getting-started/hands-on/embedded-analytics-tutorial-introduction/"), you can point to AWS GovCloud (US) ARNs and URLs for your resources, but in the step for the static website that uses Amazon CloudFront and Amazon S3, you need to point to a classic AWS Region, for example US East (N. Virginia), for the tutorial to work. This is not necessary outside the tutorial. For more information and additional examples, see [Developing with Amazon Quick](../../../quicksight/latest/user/quicksight_dev.md "../../../quicksight/latest/user/quicksight_dev.md") in the Amazon Quick Suite User Guide.
 
-## Documentation for Amazon Quick Suite
+## Documentation
 
 [Amazon Quick Suite documentation](../../../quicksuite.md "../../../quicksuite.md").
 

@@ -6,15 +6,15 @@ Lake Formation provides its own permissions model that augments the IAM permissi
 
 The Lake Formation hybrid access mode for AWS Glue crawler lets you secure and access the cataloged data using both Lake Formation permissions and IAM permissions policies for Amazon S3 and AWS Glue actions. With hybrid access mode, data administrators can onboard Lake Formation permissions selectively and incrementally, focusing on one data lake use case at a time. Lake Formation also allows you to share data internally and externally across multiple AWS accounts, AWS organizations or directly with IAM principals in another account providing fine-grained access to the AWS Glue Data Catalog metadata and underlying data.
 
-## How AWS Lake Formation differs for AWS GovCloud (US)
+## How AWS Lake Formation differs
 
-The AWS GovCloud (US) Region implementation of Lake Formation is unique in the following ways:
+The following differences apply to AWS Lake Formation:
 
-- Granting Lake Formation permissions to Amazon Athena users who authenticate through the JDBC or ODBC driver using a SAML identity provider is not supported.
+- Granting Lake Formation permissions to Amazon Athena users who authenticate through the JDBC or ODBC driver using a SAML identity provider is not available.
 - AWS Lake Formation blueprints are available in AWS GovCloud (US-West) only.
 - AWS Lake Formation governed tables are not available.
 
-## Documentation for AWS Lake Formation
+## Documentation
 
 [AWS Lake Formation documentation](../../../lake-formation/latest/dg/what-is-lake-formation.md "../../../lake-formation/latest/dg/what-is-lake-formation.md").
 
