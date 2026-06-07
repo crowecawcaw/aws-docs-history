@@ -223,6 +223,7 @@ If the **Type** column specifies a "List of …" one of the simple types, then y
 - [Amazon EventBridge Scheduler](list_amazoneventbridgescheduler.md "list_amazoneventbridgescheduler.md")
 - [Amazon EventBridge Schemas](list_amazoneventbridgeschemas.md "list_amazoneventbridgeschemas.md")
 - [AWS Fault Injection Service](list_awsfaultinjectionservice.md "list_awsfaultinjectionservice.md")
+- [AWS FinOps Agent](list_awsfinopsagent.md "list_awsfinopsagent.md")
 - [Amazon FinSpace](list_amazonfinspace.md "list_amazonfinspace.md")
 - [Amazon FinSpace API](list_amazonfinspaceapi.md "list_amazonfinspaceapi.md")
 - [AWS Firewall Manager](list_awsfirewallmanager.md "list_awsfirewallmanager.md")

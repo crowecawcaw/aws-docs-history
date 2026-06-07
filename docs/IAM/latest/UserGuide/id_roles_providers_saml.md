@@ -103,8 +103,7 @@ For a list of possible `region-code` values, see the
 **Region** column in [AWS Sign-In
 endpoints](../../../general/latest/gr/signin-service.md "../../../general/latest/gr/signin-service.md").
 
-You can optionally use the SAML metadata document from `https://signin.aws.amazon.com/static/saml-metadata.xml`
-. 2. Using your organization's IdP, you generate an equivalent SAML metadata XML file that
+You can optionally use the SAML metadata document from `https://signin.aws.amazon.com/static/saml-metadata.xml`. 2. Using your organization's IdP, you generate an equivalent SAML metadata XML file that
 can describe your IdP as an IAM identity provider in AWS. It must include the issuer
 name, a creation date, an expiration date, and keys that AWS can use to validate
 authentication responses (assertions) from your organization.

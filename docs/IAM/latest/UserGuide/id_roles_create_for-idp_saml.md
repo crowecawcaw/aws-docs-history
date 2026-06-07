@@ -53,6 +53,7 @@ that only your application can assume the role:
      the identity provider in the IAM console to display the details page.
 
 
+
     `https://`region-code`.signin.aws.amazon.com/saml/acs/`IdP-ID``
 
 The following example trust policy is designed for a SAML federated user:
