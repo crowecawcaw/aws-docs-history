@@ -16,7 +16,7 @@ If you configured your Agent Space with IAM Identity Center, you can assign user
 
 1. In the AWS Security Agent Management Console, navigate to your Agent Space.
 2. Select the **Web app** tab.
-3. In the **Users** table, click **Add users**.
+3. In the **Users** table, choose **Add users**.
 4. Select existing users from IAM Identity Center or create new users.
 5. Confirm the user assignments.
 
@@ -42,7 +42,7 @@ If you configured your Agent Space with IAM-only access, users with AWS Console 
 
 1. Log into the AWS Security Agent console.
 2. Navigate to the Agent Space you want to access.
-3. On the Web app tab of the Agent Space landing page click the **Admin access** button to launch the web application.
+3. On the Web app tab of the Agent Space landing page choose the **Admin access** button to launch the web application.
 4. The web application opens in a new tab with the user automatically authenticated.
 
 ###### Note
