@@ -29,7 +29,7 @@ For more information about data access policies, see [Data access policies versu
 | Data Access Policy           | APIs                                                                               |
 | ---------------------------- | ---------------------------------------------------------------------------------- |
 | aoss:DescribeSnapshot        | GET /\_cat/snapshots/aoss-automatedGET<br>\_snapshot/aoss-automated/`snapshot_id`/ |
-| aoss:RestoreSnapshot         | POST /\_snapshot/aoss-automated/snapshot/\_restore                                 |
+| aoss:RestoreSnapshot         | POST /\_snapshot/aoss-automated/`snapshot_id`/\_restore                            |
 | aoss:DescribeCollectionItems | GET /\_cat/recovery                                                                |
 
 ###### Note

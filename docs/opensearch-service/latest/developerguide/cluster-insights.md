@@ -4,8 +4,24 @@ Amazon OpenSearch Service now includes Cluster Insights, a monitoring solution t
 
 ###### Note
 
-Cluster Insights is available through the OpenSearch Service UI at no additional cost to all users running OpenSearch version 2.17 or later.
-Additionally, domains with OpenSearch versions 2.17 and 2.19 also need to be on the latest service software version update.
+Cluster Insights is available at no additional cost with the following version
+support:
+
+- **Amazon OpenSearch Service console (Cluster Health tab):**
+  Available for Elasticsearch 6.8 and later, and all OpenSearch versions
+  (1.0+).
+- **OpenSearch Dashboards UI (via OpenSearch UI
+  application):** Requires OpenSearch 2.17 or later. Domains
+  running earlier versions can be associated as data sources but will not
+  appear in the Cluster Insights Overview in the UI. Domains with OpenSearch
+  versions 2.17 and 2.19 also need to be on the latest service software
+  version update.
+- **Query View tab (in OpenSearch Dashboards
+  UI):** Requires OpenSearch 2.19 or later.
+  Note: Domains running OpenSearch versions earlier than 2.17 can be associated
+  as data sources in the OpenSearch UI application, but will not appear in the
+  Cluster Insights Overview. Only domains running OpenSearch 2.17 or later are
+  fully supported for Cluster Insights in the Dashboards UI.
 
 ## Benefits
 

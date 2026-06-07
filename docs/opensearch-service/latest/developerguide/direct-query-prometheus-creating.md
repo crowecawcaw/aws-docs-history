@@ -97,14 +97,7 @@ Attach the following permissions to your IAM role to allow OpenSearch Service to
                 "aps:DescribeRuleGroupsNamespace",
                 "aps:PutRuleGroupsNamespace"
             ],
-            "Resource": "arn:aws:aps:`region`:`account-id`:workspace/`workspace-id`",
-            "Condition": {
-                "ForAnyValue:StringEquals": {
-                    "aws:CalledVia": [
-                        "directquery.opensearchservice.amazonaws.com"
-                    ]
-                }
-            }
+            "Resource": "arn:aws:aps:`region`:`account-id`:workspace/`workspace-id`"
         },
         {
             "Sid": "AmazonOpenSearchDirectQueryPrometheusListAccess",
@@ -112,14 +105,7 @@ Attach the following permissions to your IAM role to allow OpenSearch Service to
             "Action": [
                 "aps:ListWorkspaces"
             ],
-            "Resource": "*",
-            "Condition": {
-                "ForAnyValue:StringEquals": {
-                    "aws:CalledVia": [
-                        "directquery.opensearchservice.amazonaws.com"
-                    ]
-                }
-            }
+            "Resource": "*"
         }
     ]
 }
