@@ -106,9 +106,16 @@ aws iot-data send-direct-message \
     --confirmation \
     --timeout 10 \
     --payload '{"action": "reboot"}' \
-    --region us-west-2
+    --cli-binary-format raw-in-base64-out \
+    --region us-west-2 \
     --endpoint-url https://`IoT_data_endpoint`
 ```
+
+The `--cli-binary-format` option is required
+if you're using AWS Command Line Interface version 2. To make this the default
+setting, run `aws configure set cli-binary-format
+ raw-in-base64-out`. For more information, see [AWS CLI supported global command line options](../../../cli/latest/userguide/cli-configure-options.md#cli-configure-options-list "../../../cli/latest/userguide/cli-configure-options.md#cli-configure-options-list") in the
+_AWS Command Line Interface User Guide for Version 2_.
 
 curl (X.509 client certificate, port 8443)
 

@@ -21,12 +21,17 @@ With device connectivity query support, you can:
 2. Retrieve additional connectivity metadata, including:
    1. Disconnect reason
    2. Timestamps for the most recent connect or disconnect event.
+   3. Session information including the keep-alive duration
+   4. Socket level session information including IP address, port, and VPC endpoint ID. This information
+      is available only when the following conditions are met:
+      1. You enable this option in fleet indexing configuration settings.
+      2. You have the corresponding permission in the IAM policy when invoking the API.
 
 ###### Note
 
 Fleet indexing indexes the connectivity status for a device whose connection
 `clientId` is the same as the `thingName` of a registered thing in
-[Registry.](thing-registry.md "thing-registry.md")
+[Registry](thing-registry.md "thing-registry.md").
 
 ## Benefits
 
@@ -56,82 +61,125 @@ To use device connectivity query support:
 1. [Set up an AWS account](setting-up.md "setting-up.md")
 2. Onboard and register devices to AWS IoT Core in your preferred region
 3. [Enable
-   Fleet Indexing](managing-index.md "managing-index.md") with Connectivity indexing
+   Fleet Indexing](managing-index.md "managing-index.md") with Connectivity indexing. Optional: Opt-in to receive socket level information
+   by enabling the `includeSocketInformation` option.
 
 ###### Note
 
 No additional setup is required if you already have connectivity indexing
-enabled
+enabled.
 
 For detailed setup instructions, refer to the [AWS IoT
 Developer Guide](setting-up.md "setting-up.md")
 
-## Examples
+## Example
+
+**CLI Command:**
 
 ```
-aws iot get-thing-connectivity-data --thing-name myThingName
+aws iot get-thing-connectivity-data --include-socket-information --thing-name myThingName
 ```
 
-```
+**Response:**
 
+```
 {
-   "connected": true,
-   "disconnectReason": "NONE",
    "thingName": "myThingName",
-   "timestamp": "2024-12-19T10:00:00.000000-08:00"
+   "connected": true,
+   "timestamp": "2024-12-19T10:00:00.000000-08:00",
+   "disconnectReason": "NONE",
+   "sourceIp": "192.0.2.1",
+   "sourcePort": 52123,
+   "targetIp": "198.51.100.1",
+   "targetPort": 8883,
+   "vpcEndpointId": "vpce-1234567890abcdef0",
+   "keepAliveDuration": 60,
+   "cleanSession": true,
+   "clientId": "myThingName"
 }
 ```
 
-- `thingName`: The name of the device as indicated by the request. This
-  also matches the clientId used to connect to AWS IoT Core.
-- `disconnectReason`: Reason for disconnect. Will be NONE for a connected
-  device.
+**API Parameters**
+
+- `thingName`: The name of the device registered in AWS IoT Registry. This
+  must match the `clientId` used to connect to AWS IoT Core.
+- `includeSocketInformation`: The `includeSocketInformation` parameter controls whether socket-level
+  network information is included in the API response. When set to true, the response includes the following
+  fields: `sourceIp, sourcePort, targetIp, targetPort, vpcEndpointId`. When `includeSocketInformation` is not specified or
+  set to false, these socket fields are excluded from the response. To restrict specific IAM users from
+  accessing socket information you will need to specify this in their IAM policy by setting the
+  `includeSocketInformation` condition key to be false
+
+**Response Fields**
+
+- `thingName`: The name of the device registered in AWS IoT Registry. This
+  must match the `clientId` used to connect to AWS IoT Core.
 - `connected`: The boolean value true indicating this device is currently
   connected.
+- `disconnectReason`: Reason for disconnect. Will be `NONE` for a connected
+  device and `UNKNOWN` for a device which has never been connected. For a disconnected
+  device, this will indicate if the disconnection was client initiated, server initiated,
+  due to authentication/authorization issues or due to network issues. For disconnect
+  reason codes, see [LifeCycleEvents](life-cycle-events.md "life-cycle-events.md")
 - `timestamp`: The timestamp representing the device’s
-  most recent disconnect in milliseconds.
+  most recent connect or disconnect event.
+- `clientId`: The clientId of the MQTT client.
+- `keepAliveDuration`: The keep-alive interval in
+  seconds that the client specified when establishing the connection.
+  This determines how frequently the client sends keep-alive messages
+  to maintain the connection.
+- `cleanSession`: Indicates whether the client is
+  using a clean session.
+- `sessionExpiry`: The persistent session expiry
+  configuration the client specified when establishing the connection.
+  This determines how long a session will remain active after the
+  client disconnects.
+- `sourceIp`: The IP address of the client that
+  initiated the connection. Only returned if `includeSocketInformation`
+  is set to be true and user is authorized to retrieve this information.
+- `sourcePort`: The port number used by the client for
+  the connection. Only returned if `includeSocketInformation` is set
+  to be true and user is authorized to retrieve this information.
+- `targetIp`: The IP address where the connection
+  request was made to. Only returned if `includeSocketInformation`
+  is set to be true and user is authorized to retrieve this information
+- `targetPort`: The port number of the AWS IoT Core
+  endpoint that the client connected to. Only returned if
+  `includeSocketInformation` is set to be true and user is
+  authorized to retrieve this information.
+- `vpcEndpointId`: The ID of the VPC endpoint that the
+  client connected through, if applicable. Only returned if
+  `includeSocketInformation` is set to be true and user is
+  authorized to retrieve this information.
+
+**Required Permissions**
+
+To use the GetThingConnectivityData API, you need the following IAM permission
+
+`iot:GetThingConnectivityData`
+
+You can scope this permission to specific things using resource based policies.
+Use the `iot:IncludeSocketInformation` condition to implement granular access control
+on socket information. The policy example below demonstrates a
+scenario where you deny the user access to socket information. Please note that this example works when
+it is the sole policy granting access to the action GetThingConnectivityData.
+
+**Authorization Policy Examples**
 
 ```
-aws iot get-thing-connectivity-data --thing-name myThingName
-```
-
-```
-
 {
-   "connected": false,
-   "disconnectReason": "CLIENT_INITIATED_DISCONNECT",
-   "thingName": "myThingName",
-   "timestamp": "2024-12-19T10:30:00.000000-08:00"
+  "Version": "2012-10-17",
+  "Statement": [
+  {
+    "Effect": "Allow",
+    "Action": [ "iot:GetThingConnectivityData" ],
+    "Resource": [ "arn:aws:iot:us-east-1:123456789012:thing/*"],
+    "Condition": {
+      "Bool": {
+        "iot:IncludeSocketInformation": "false"
+      }
+    }
+  }]
 }
-```
-
-- `thingName`: The name of the device as indicated by the request. This
-  also matches the clientId used to connect to AWS IoT Core.
-- `disconnectReason`: Reason for disconnect is CLIENT_INITIATED_DISCONNECT
-  indicating the client indicated to AWS IoT Core that it would disconnect.
-- `connected`: The boolean value false indicating this device is currently
-  disconnected.
-- `timestamp`: The timestamp representing the device’s
-  most recent disconnect in milliseconds.
 
 ```
-aws iot get-thing-connectivity-data --thing-name neverConnectedThing
-```
-
-```
-
-{
-   "connected": false,
-   "disconnectReason": "UNKNOWN",
-   "thingName": "neverConnectedThing"
-}
-```
-
-- `thingName`: The name of the device as indicated by the request. This
-  also matches the clientId used to connect to AWS IoT Core.
-- `disconnectReason`: Reason for disconnect. Will be “UNKNOWN” for a device
-  which has never been connected or for which Fleet Indexing does not have the last
-  disconnect reason stored.
-- `connected`: The boolean value false indicating this device is currently
-  disconnected.
-- `timestamp`: The timestamp is not returned for a device which has never been connected or for which Fleet Indexing does not have the last timestamp stored.

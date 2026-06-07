@@ -25,6 +25,16 @@ the following message payload sent to the `topic/subtopic` topic.
 }
 ```
 
+The resulting outgoing payload is:
+
+```
+{
+  "bar": {
+    "baz": "RED"
+  }
+}
+```
+
 If a JSON property name includes a hyphen character or numeric characters, the 'dot'
 notation will not work. Instead, you must use the [get function](iot-sql-functions.md#iot-sql-function-get "iot-sql-functions.md#iot-sql-function-get") to extract the property's value.
 

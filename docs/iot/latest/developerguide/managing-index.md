@@ -1,4 +1,4 @@
-# Manage thing indexing
+# Managing thing indexing
 
 The index created for all of your things is `AWS_Things`. You can control
 what to index from the following data sources: [AWS IoT
@@ -52,7 +52,12 @@ following structure:
             "name": "String",
             "order": "LonLat|LatLon"
         }
-    ]
+    ],
+     "connectivity": {
+        "includeSocketInformation": [
+           "GET_THING_CONNECTIVITY_DATA"
+        ]
+     }
   }
 }
 ```
@@ -67,7 +72,10 @@ depending on what data sources you want to index and search devices from:
   disabled.
 
 - `thingConnectivityIndexingMode`: Specifies if thing connectivity data
-  is indexed.
+  is indexed. This needs to be enabled to get connectivity status information in
+  [SearchIndex queries](managing-index.md#search-index "managing-index.md#search-index") or to use the GetThingConnectivityData API.
+  The [GetThingConnectivityData](device-connectivity-status.md "device-connectivity-status.md") API response will also include socket information
+  if this is enabled in the [filter](../apireference/API_IndexingFilter.md "../apireference/API_IndexingFilter.md") and the `includeSocketInformation` flag is `true` in the GetThingConnectivityData API request.
 
 - `deviceDefenderIndexingMode`: Specifies if Device Defender violations
   data is indexed.
@@ -119,8 +127,7 @@ indexing configuration examples](#update-index-examples "#update-index-examples"
 
 ### Indexing filter
 
-Indexing filter provides additional selections for named shadows and geolocation
-data.
+Indexing filter provides additional selections for named shadows, geolocation, and connectivity data.
 
 **`namedShadowNames`**
 
@@ -178,6 +185,51 @@ The example filter below specifies a geoLocation object in a named shadow
   }
 ```
 
+`**connectivity**`
+
+- To include socket information (source IP address, target IP address, source
+  port, target port, and VPC endpoint ID) in the `GetThingConnectivityData` response, use the
+  `includeSocketInformation` option within the connectivity filter as shown
+  in the following example. You must also set the `includeSocketInformation`
+  parameter to `true` when invoking the `GetThingConnectivityData`
+  API. To restrict specific callers from accessing socket information, you must
+  explicitly specify this in their IAM policy by setting the
+  `iot:IncludeSocketInformation` condition context key to `false`.
+
+###### Note
+
+The option to include socket information is only supported for the
+`GetThingConnectivityData` response and not for
+`SearchIndex` or other fleet indexing APIs.
+
+```
+"filter": {
+  "connectivity": {
+    "includeSocketInformation": [
+      "GET_THING_CONNECTIVITY_DATA"
+    ]
+  }
+}
+```
+
+To disable socket information indexing, you must set `includeSocketInformation` in the connectivity filter to an empty array as shown in the example below.
+
+###### Note
+
+In an `UpdateIndexingConfiguration` request, if connectivity indexing is enabled and
+a connectivity filter is not configured or `includeSocketInformation` is not specified or null,
+the previous value of the connectivity filter is preserved while updating the indexing configuration.
+
+Example to disable socket information indexing
+
+```
+"filter": {
+  "connectivity": {
+    "includeSocketInformation": [ ]
+   }
+  }
+```
+
 For more information, see [IndexingFilter](../apireference/API_IndexingFilter.md "../apireference/API_IndexingFilter.md") from
 _AWS IoT_
 _API Reference_.
@@ -185,7 +237,7 @@ _API Reference_.
 ### Updating indexing configuration examples
 
 To update your indexing configuration, use the AWS IoT
-**update-indexing-configuration** CLI command . The following examples
+**update-indexing-configuration** CLI command. The following examples
 show how to use **update-indexing-configuration**.
 
 Short syntax:
@@ -193,9 +245,10 @@ Short syntax:
 ```
 aws iot update-indexing-configuration --thing-indexing-configuration \
 'thingIndexingMode=REGISTRY_AND_SHADOW, deviceDefenderIndexingMode=VIOLATIONS,
-namedShadowIndexingMode=ON,filter={namedShadowNames=[thing1shadow]}, thingConnectivityIndexingMode=STATUS,
+namedShadowIndexingMode=ON,thingConnectivityIndexingMode=STATUS,
+filter={namedShadowNames=[namedShadow1],geoLocations=[{name=shadow.name.namedShadow1.reported.location,order=LonLat}],connectivity={includeSocketInformation=[GET_THING_CONNECTIVITY_DATA]}},
 customFields=[{name=attributes.version,type=Number},
-{name=shadow.name.thing1shadow.desired.DefaultDesired, type=String}, {name=shadow.desired.power, type=Boolean},
+{name=shadow.name.namedShadow1.desired.DefaultDesired, type=String}, {name=shadow.desired.power, type=Boolean},
 {name=deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number, type=Number}]'
 ```
 
@@ -207,22 +260,22 @@ aws iot update-indexing-configuration --cli-input-json \ '{
           "thingConnectivityIndexingMode": "STATUS",
           "deviceDefenderIndexingMode": "VIOLATIONS",
           "namedShadowIndexingMode": "ON",
-          "filter": { "namedShadowNames": ["thing1shadow"]},
+          "filter": { "namedShadowNames": ["namedShadow1"], "geoLocations": [{"name": "shadow.name.namedShadow1.reported.location", "order": "LonLat"}], "connectivity": {"includeSocketInformation": ["GET_THING_CONNECTIVITY_DATA"]}},
           "customFields": [ { "name": "shadow.desired.power", "type": "Boolean" },
           {"name": "attributes.version", "type": "Number"},
-          {"name": "shadow.name.thing1shadow.desired.DefaultDesired", "type": "String"},
-          {"name": "deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number", "type": Number} ] } }'
+          {"name": "shadow.name.namedShadow1.desired.DefaultDesired", "type": "String"},
+          {"name": "deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number", "type": "Number"} ] } }'
 ```
 
 This command doesn't produce any output.
 
-To check the thing index status, run the `describe-index` CLI command:
+To check the thing index status, run the **describe-index** CLI command:
 
 ```
 aws iot describe-index --index-name "AWS_Things"
 ```
 
-The output of the `describe-index` command looks like the
+The output of the **describe-index** command looks like the
 following:
 
 ```
@@ -242,13 +295,13 @@ For more information, see [Describing a thing
 index](#describe-index "#describe-index").
 
 To get your thing indexing configuration details, run the
-`get-indexing-configuration` CLI command:
+**get-indexing-configuration** CLI command:
 
 ```
 aws iot get-indexing-configuration
 ```
 
-The output of the `get-indexing-configuration` command looks like the
+The output of the **get-indexing-configuration** command looks like the
 following:
 
 ```
@@ -260,31 +313,7 @@ following:
         "namedShadowIndexingMode": "ON",
         "managedFields": [
             {
-                "name": "connectivity.disconnectReason",
-                "type": "String"
-            },
-            {
-                "name": "registry.version",
-                "type": "Number"
-            },
-            {
-                "name": "thingName",
-                "type": "String"
-            },
-            {
-                "name": "deviceDefender.violationCount",
-                "type": "Number"
-            },
-            {
-                "name": "shadow.hasDelta",
-                "type": "Boolean"
-            },
-            {
-                "name": "shadow.name.*.version",
-                "type": "Number"
-            },
-            {
-                "name": "shadow.version",
+                "name": "connectivity.keepAliveDuration",
                 "type": "Number"
             },
             {
@@ -292,19 +321,7 @@ following:
                 "type": "Number"
             },
             {
-                "name": "connectivity.timestamp",
-                "type": "Number"
-            },
-            {
-                "name": "shadow.name.*.hasDelta",
-                "type": "Boolean"
-            },
-            {
-                "name": "registry.thingTypeName",
-                "type": "String"
-            },
-            {
-                "name": "thingId",
+                "name": "deviceDefender.*.*.metricName",
                 "type": "String"
             },
             {
@@ -312,18 +329,81 @@ following:
                 "type": "Boolean"
             },
             {
+                "name": "shadow.version",
+                "type": "Number"
+            },
+            {
+                "name": "deviceDefender.*.*.lastViolationTime",
+                "type": "Number"
+            },
+            {
+                "name": "deviceDefender.*.*.inViolation",
+                "type": "Boolean"
+            },
+            {
+                "name": "thingName",
+                "type": "String"
+            },
+            {
+                "name": "deviceDefender.version",
+                "type": "Number"
+            },
+            {
+                "name": "shadow.name.*.version",
+                "type": "Number"
+            },
+            {
+                "name": "registry.version",
+                "type": "Number"
+            },
+            {
+                "name": "connectivity.sessionExpiry",
+                "type": "Number"
+            },
+            {
+                "name": "registry.thingTypeName",
+                "type": "String"
+            },
+            {
+                "name": "deviceDefender.violationCount",
+                "type": "Number"
+            },
+            {
+                "name": "connectivity.timestamp",
+                "type": "Number"
+            },
+            {
+                "name": "connectivity.clientId",
+                "type": "String"
+            },
+            {
+                "name": "thingId",
+                "type": "String"
+            },
+            {
+                "name": "shadow.name.*.hasDelta",
+                "type": "Boolean"
+            },
+            {
                 "name": "registry.thingGroupNames",
+                "type": "String"
+            },
+            {
+                "name": "shadow.hasDelta",
+                "type": "Boolean"
+            },
+            {
+                "name": "connectivity.cleanSession",
+                "type": "Boolean"
+            },
+            {
+                "name": "connectivity.disconnectReason",
                 "type": "String"
             }
         ],
         "customFields": [
             {
-                "name": "shadow.name.thing1shadow.desired.DefaultDesired",
-                "type": "String"
-            },
-
-            {
-                "name": "deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number",
+                "name": "attributes.version",
                 "type": "Number"
             },
             {
@@ -331,16 +411,31 @@ following:
                 "type": "Boolean"
             },
             {
-                "name": "attributes.version",
+                "name": "shadow.name.namedShadow1.desired.DefaultDesired",
+                "type": "String"
+            },
+            {
+                "name": "deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number",
                 "type": "Number"
             }
         ],
         "filter": {
-              "namedShadowNames": [
-                  "thing1shadow"
-              ]
-          }
-      },
+            "namedShadowNames": [
+                "namedShadow1"
+            ],
+            "geoLocations": [
+                {
+                    "name": "shadow.name.namedShadow1.reported.location",
+                    "order": "LonLat"
+                }
+            ],
+            "connectivity": {
+                "includeSocketInformation": [
+                    "GET_THING_CONNECTIVITY_DATA"
+                ]
+            }
+        }
+    },
     "thingGroupIndexingConfiguration": {
         "thingGroupIndexingMode": "OFF"
     }
@@ -348,7 +443,7 @@ following:
 ```
 
 To update the custom fields, you can run the
-`update-indexing-configuration` command. An example is as follows:
+**update-indexing-configuration** command. An example is as follows:
 
 ```
 aws iot update-indexing-configuration --thing-indexing-configuration
@@ -431,92 +526,90 @@ aws iot search-index --index-name "AWS_Things" --query-string
 
 ```
 {
-    "things":[{
-         "thingName":"mything1",
-         "thingGroupNames":[
-            "mygroup1"
-         ],
-         "thingId":"a4b9f759-b0f2-4857-8a4b-967745ed9f4e",
-         "attributes":{
-            "attribute1":"abc"
-         },
-         "connectivity": {
-            "connected":false,
-            "timestamp":1556649874716,
-            "disconnectReason": "CONNECTION_LOST"
-         }
+  "things": [
+    {
+      "thingName": "mything1",
+      "thingGroupNames": ["mygroup1"],
+      "thingId": "a4b9f759-b0f2-4857-8a4b-967745ed9f4e",
+      "attributes": {
+        "attribute1": "abc"
+      },
+      "connectivity": {
+        "connected": false,
+        "timestamp": 1556649874716,
+        "disconnectReason": "CONNECTION_LOST",
+        "clientId": "mything1",
+        "keepAliveDuration": 60,
+        "cleanSession": false,
+        "sessionExpiry": 3600
+      }
     },
     {
-        "thingName":"mything2",
-        "thingTypeName":"MyThingType",
-        "thingGroupNames":[
-            "mygroup1",
-            "mygroup2"
-        ],
-        "thingId":"01014ef9-e97e-44c6-985a-d0b06924f2af",
-        "attributes":{
-            "model":"1.2",
-            "country":"usa"
+      "thingName": "mything2",
+      "thingTypeName": "MyThingType",
+      "thingGroupNames": ["mygroup1", "mygroup2"],
+      "thingId": "01014ef9-e97e-44c6-985a-d0b06924f2af",
+      "attributes": {
+        "model": "1.2",
+        "country": "usa"
+      },
+      "shadow": {
+        "desired": {
+          "location": "new york",
+          "myvalues": [3, 4, 5]
         },
-        "shadow":{
-            "desired":{
-                "location":"new york",
-                "myvalues":[3, 4, 5]
-            },
-            "reported":{
-                "location":"new york",
-                "myvalues":[1, 2, 3],
-                "stats":{
-                    "battery":78
-                }
-            },
-            "metadata":{
-                 "desired":{
-                       "location":{
-                            "timestamp":123456789
-                        },
-                       "myvalues":{
-                             "timestamp":123456789
-                       }
-                  },
-                  "reported":{
-                        "location":{
-                             "timestamp":34535454
-                         },
-                        "myvalues":{
-                             "timestamp":34535454
-                        },
-                        "stats":{
-                             "battery":{
-                                   "timestamp":34535454
-                             }
-                        }
-                 }
-            },
-            "version":10,
-            "timestamp":34535454
+        "reported": {
+          "location": "new york",
+          "myvalues": [1, 2, 3],
+          "stats": {
+            "battery": 78
+          }
         },
-        "connectivity": {
-            "connected":true,
-            "timestamp":1556649855046
-        }
-    }],
-    "nextToken":"AQFCuvk7zZ3D9pOYMbFCeHbdZ+h=G"
+        "metadata": {
+          "desired": {
+            "location": { "timestamp": 123456789 },
+            "myvalues": { "timestamp": 123456789 }
+          },
+          "reported": {
+            "location": { "timestamp": 34535454 },
+            "myvalues": { "timestamp": 34535454 },
+            "stats": {
+              "battery": { "timestamp": 34535454 }
+            }
+          }
+        },
+        "version": 10,
+        "timestamp": 34535454
+      },
+      "connectivity": {
+        "connected": true,
+        "timestamp": 1556649855046,
+        "clientId": "mything2",
+        "keepAliveDuration": 60,
+        "cleanSession": true
+      }
+    }
+  ],
+  "nextToken": "AQFCuvk7zZ3D9pOYMbFCeHbdZ+h=G"
 }
 ```
 
 In the JSON response, `"connectivity"` (as enabled by the
-`thingConnectivityIndexingMode=STATUS` setting) provides a Boolean value, a
-timestamp, and a disconnectReason that indicates whether the device is connected to
-AWS IoT Core. The device `"mything1"` disconnected (`false`) at POSIX
+`thingConnectivityIndexingMode=STATUS` setting) provides the connection
+status, timestamp, disconnect reason, client ID, keep-alive duration, clean session flag,
+and session expiry for the device. The device `"mything1"` disconnected (`false`) at POSIX
 time `1556649874716` due to `CONNECTION_LOST`. For more information
 about disconnect reasons, see [Lifecycle events](life-cycle-events.md "life-cycle-events.md").
 
 ```
 "connectivity": {
-    "connected":false,
-    "timestamp":1556649874716,
-    "disconnectReason": "CONNECTION_LOST"
+  "connected": false,
+  "timestamp": 1556649874716,
+  "disconnectReason": "CONNECTION_LOST",
+  "clientId": "mything1",
+  "keepAliveDuration": 60,
+  "cleanSession": false,
+  "sessionExpiry": 3600
 }
 ```
 
@@ -525,8 +618,11 @@ The device `"mything2"` connected (`true`) at POSIX time
 
 ```
 "connectivity": {
-    "connected":true,
-    "timestamp":1556649855046
+  "connected": true,
+  "timestamp": 1556649855046,
+  "clientId": "mything2",
+  "keepAliveDuration": 60,
+  "cleanSession": true
 }
 ```
 
@@ -535,9 +631,10 @@ represents 6:44:15.046 PM on Tuesday, April 30, 2019 (UTC).
 
 ###### Important
 
-If a device has been disconnected for approximately an hour, the
-`"timestamp"` value and the `"disconnectReason"` value of the
-connectivity status might be missing.
+If a device has never connected to IoT Core or was disconnected for more than 1 hour
+before fleet indexing's `thingConnectivityIndexingMode` was enabled,
+the response will have the `connected` field set to `false`
+with no additional session details.
 
 ## Restrictions and limitations
 
@@ -623,9 +720,9 @@ indexed either.)
 
 **Unregistered devices**
 
-Fleet indexing indexes the connectivity status for a device whose connection
-`clientId` is the same as the `thingName` of a registered
-thing in [Registry](thing-registry.md "thing-registry.md").
+Fleet indexing does not index data for unregistered devices. Things must be
+registered in AWS IoT Registry and must use the thing name as the
+`clientId` while connecting to AWS IoT Core.
 
 **Unregistered shadows**
 
@@ -655,13 +752,15 @@ The maximum number of requested percentiles for aggregation queries is 100.
 
 ## Authorization
 
-You can specify the things index as an Amazon Resource Name (ARN) in an AWS IoT policy
+You can specify the things index or thing (for GetThingConnectivityData action) as
+an Amazon Resource Name (ARN) in an AWS IoT policy
 action, as follows.
 
-| Action              | Resource                                                                                           |
-| ------------------- | -------------------------------------------------------------------------------------------------- |
-| `iot:SearchIndex`   | An index ARN (for example,<br>`arn:aws:iot:`your-aws-region``your-aws-account`:index/AWS_Things`). |
-| `iot:DescribeIndex` | An index ARN (for example,<br>`arn:aws:iot:`your-aws-region`:index/AWS_Things`).                   |
+| Action                         | Resource                                                                                                                                              |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `iot:SearchIndex`              | An index ARN (for example,<br>`arn:aws:iot:`your-aws-region`:`your-aws-account`:index/AWS_Things`).                                                   |
+| `iot:DescribeIndex`            | An index ARN (for example,<br>`arn:aws:iot:`your-aws-region`:`your-aws-account`:index/AWS_Things`).                                                   |
+| `iot:GetThingConnectivityData` | You can scope this permission to specific things. Use the<br>`iot:IncludeSocketInformation` condition key to control<br>access to socket information. |
 
 ###### Note
 

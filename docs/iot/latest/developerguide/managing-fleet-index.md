@@ -13,13 +13,13 @@ violations data. By adding these data sources to your fleet indexing configurati
 search for things, query for aggregate data, and create dynamic thing groups and fleet
 metrics based on your search queries.
 
-**Registry**-AWS IoT provides a registry that helps you
+**Registry** - AWS IoT provides a registry that helps you
 manage things. You can add the registry data to your fleet indexing configuration to search
 for devices based on the thing names, descriptions, and other registry attributes. For more
 information about the registry, see [How to manage things with
 the registry](thing-registry.md "thing-registry.md").
 
-**Shadow**-The [AWS IoT
+**Shadow** - The [AWS IoT
 Device Shadow service](iot-device-shadows.md "iot-device-shadows.md") provides shadows that help you store your device state data.
 Thing indexing supports both classic unnamed shadows and named shadows. To index named
 shadows, activate your named shadow settings and specify your shadow names in thing indexing
@@ -34,28 +34,19 @@ To add named shadows for indexing:
   shadows**, and add your shadow names through **Named shadow
   selection**.
 - If you use the AWS Command Line Interface (AWS CLI), set `namedShadowIndexingMode` to be
-  `ON`, and specify shadow names in [`IndexingFilter`](../apireference/API_IndexingFilter.md "../apireference/API_IndexingFilter.md"). To see example CLI commands, see [Manage thing indexing](managing-index.md#enable-index "managing-index.md#enable-index").
-
-###### Important
-
-July 20, 2022 is the General Availability (GA) release of the AWS IoT Device Management
-fleet indexing integration with AWS IoT Core named shadows and AWS IoT Device Defender detect violations.
-With this GA release, you can index specific named shadows by specifying shadow names. If
-you added your named shadows for indexing during this feature's public preview period from
-November 30, 2021 to July 19, 2022, we encourage you to reconfigure your fleet indexing
-settings and choose specific shadow names to reduce indexing cost and optimize
-performance.
+  `ON`, and specify shadow names in [`IndexingFilter`](../apireference/API_IndexingFilter.md "../apireference/API_IndexingFilter.md"). To see example CLI commands, see [Managing thing indexing](managing-index.md#enable-index "managing-index.md#enable-index").
 
 For more information about shadows, see [AWS IoT Device
 Shadow service](iot-device-shadows.md "iot-device-shadows.md").
 
-**Connectivity**-Device connectivity data helps you
+**Connectivity** - Device connectivity data helps you
 identify the connection status of your devices. This connectivity data is driven by [lifecycle events](life-cycle-events.md "life-cycle-events.md"). When a client connects or
 disconnects, AWS IoT publishes lifecycle events with messages to MQTT topics. A connect or
 disconnect message can be a list of JSON elements that provide details of the connection
-status. For more information about device connectivity, see [Lifecycle events](life-cycle-events.md "life-cycle-events.md").
+status, including the client ID, keep-alive duration, clean session flag, and session
+expiry. For more information about device connectivity, see [Lifecycle events](life-cycle-events.md "life-cycle-events.md").
 
-**Device Defender violations**-AWS IoT Device Defender violations data helps
+**Device Defender violations** - AWS IoT Device Defender violations data helps
 identify anomalous device behaviors against the normal behaviors that you define in a
 Security Profile. A Security Profile contains a set of expected device behaviors. Each
 behavior uses a metric that specifies the normal behavior of your devices. For more
@@ -122,7 +113,11 @@ The following lists managed fields for thing indexing:
   {name:connectivity.timestamp, type:Number},
   {name:connectivity.version, type:Number},
   {name:connectivity.connected, type:Boolean},
-  {name:connectivity.disconnectReason, type:String}
+  {name:connectivity.disconnectReason, type:String},
+  {name:connectivity.clientId, type:String},
+  {name:connectivity.keepAliveDuration, type:Number},
+  {name:connectivity.cleanSession, type:Boolean},
+  {name:connectivity.sessionExpiry, type:Number}
 ]
 ```
 
@@ -171,7 +166,7 @@ mode, you can't specify a custom field from a thing shadow. You can use the [upd
 (see an example command in [Updating indexing
 configuration examples](managing-index.md#update-index-examples "managing-index.md#update-index-examples")).
 
-- **Custom field names**
+**Custom field names**
 
 Custom field names for thing and thing group attributes begin with
 `attributes.`, followed by the attribute name. If unnamed shadow indexing is
@@ -191,7 +186,7 @@ value being indexed, fleet indexing ignores the inconsistent value for aggregati
 CloudWatch Logs are helpful when troubleshooting aggregation query problems. For more information, see
 [Troubleshooting aggregation queries for the fleet indexing service](fleet-indexing-troubleshooting.md#aggregation-troubleshooting "fleet-indexing-troubleshooting.md#aggregation-troubleshooting").
 
-- **Custom field types**
+**Custom field types**
 
 Custom field types have the following supported values: `Number`,
 `String`, and `Boolean`.

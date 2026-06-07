@@ -19,7 +19,7 @@ This tutorial takes about 15 minutes to complete.
 
 - Install the latest version of [AWS CLI](../../../cli/latest/userguide/cli-chap-install.md "../../../cli/latest/userguide/cli-chap-install.md").
 - Familiarize yourself with [Location indexing
-  and geoqueries](location-indexing-geoquery.md "location-indexing-geoquery.md"), [Manage thing indexing](managing-index.md "managing-index.md"),
+  and geoqueries](location-indexing-geoquery.md "location-indexing-geoquery.md"), [Managing thing indexing](managing-index.md "managing-index.md"),
   and [Query syntax](query-syntax.md "query-syntax.md").
 
 ## Create thing and shadow

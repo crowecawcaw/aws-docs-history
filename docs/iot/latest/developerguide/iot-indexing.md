@@ -24,7 +24,7 @@ life. AWS IoT updates the index continually with your latest data. For more info
 ## Querying connectivity status for a specific device
 
 This API provides low-latency, high-throughput access to the most recent device-specific
-connectivity information. For more information, see [Device connectivity status.](device-connectivity-status.md "device-connectivity-status.md")
+connectivity information. For more information, see [Device connectivity status](device-connectivity-status.md "device-connectivity-status.md").
 
 ## Searching across data sources
 

@@ -82,3 +82,13 @@ Incoming payload published on topic `'topic/subtopic'`: `{"color":"red", "temper
 SQL: `SELECT (temperature - 32) * 5 / 9 AS celsius, upper(color) as my_color FROM 'topic/subtopic'`
 Outgoing payload: `{"celsius":10,"my_color":"RED"}`
 ```
+
+You can use object literals in the SELECT clause to construct JSON objects with keys
+that contain characters not supported by standard identifiers, such as hyphens. For
+example:
+
+```
+Incoming payload published on topic `'topic/subtopic'`: `{"color":"red", "temperature":50}`
+SQL: `SELECT {"key-with-hyphen": color, "123-numeric-start": temperature} FROM 'topic/subtopic'`
+Outgoing payload: `{"key-with-hyphen":"red","123-numeric-start":50}`
+```
