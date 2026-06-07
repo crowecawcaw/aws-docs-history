@@ -136,11 +136,6 @@ You can configure the Deadline Cloud worker agent settings in three ways. We rec
 the operating system setup by running the `install-deadline-worker`
 tool.
 
-The worker agent does not support running as a domain user on Windows. To run a job as
-a domain user, you can specify a domain user account when you configure a queue user for
-running jobs. For more information, see step 7 in [Deadline Cloud queues](../userguide/queues.md "../userguide/queues.md") in the
-_AWS Deadline Cloud User Guide_.
-
 **Command line arguments** — You can specify
 arguments when you run the Deadline Cloud worker agent from the command line. Some configuration
 settings are not available through command line arguments. To see all the available

@@ -248,3 +248,5 @@ On Windows (cmd), run the following command.
 ```
 rmdir /s /q deadline-cloud-samples\conda_recipes\output
 ```
+
+For supported plugins with plugin sync examples, see [Sync plugins to Deadline Cloud workers](plugin-sync.md "plugin-sync.md").

@@ -38,6 +38,7 @@ premises for workstations and on-premises farm hosts.
 - [Create a conda build recipe for the Maya adaptor](create-conda-recipe-maya-openjd.md "create-conda-recipe-maya-openjd.md")
 - [Create a conda build recipe for Autodesk Maya to Arnold (MtoA) plugin](create-conda-recipe-mtoa-plugin.md "create-conda-recipe-mtoa-plugin.md")
 - [Automate package builds with Deadline Cloud](automate-package-builds.md "automate-package-builds.md")
+- [Sync plugins to Deadline Cloud workers](plugin-sync.md "plugin-sync.md")
 
 ## Configure production queue permissions for custom conda packages
 

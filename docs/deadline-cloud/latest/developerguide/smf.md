@@ -20,3 +20,4 @@ To install custom software on workers using host configuration scripts, see [Run
 
 - [Connect VPC resources to your SMF with VPC resource endpoints](smf-vpc.md "smf-vpc.md")
 - [Use job attachments with service-managed fleets](smf-job-attachments.md "smf-job-attachments.md")
+- [Persistent storage for service-managed fleets](smf-persistent-storage-dev.md "smf-persistent-storage-dev.md")

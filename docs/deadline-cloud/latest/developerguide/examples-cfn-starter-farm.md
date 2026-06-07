@@ -1,0 +1,31 @@
+# Deploy a starter Deadline Cloud farm with CloudFormation
+
+The
+[starter_farm](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/starter_farm "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/starter_farm")
+CloudFormation template deploys a Deadline Cloud farm that you can use to run jobs that
+render images, reconstruct 3D scenes, or transform data. The deployed farm
+includes:
+
+- One or more
+  [service-managed
+  fleets](../userguide/smf-manage.md "../userguide/smf-manage.md") that you select during deployment.
+- A production queue with conda virtual environments for the
+  applications that jobs need.
+- A package build queue that you can use to build conda packages.
+- Two conda channels by default: a private channel on an Amazon S3 bucket
+  you provide and the
+  [deadline-cloud
+  channel](../userguide/create-queue-environment.md#conda-queue-environment "../userguide/create-queue-environment.md#conda-queue-environment"), which provides applications such as Blender, Houdini,
+  Maya, and Nuke.
+  To deploy the template, you need an Amazon S3 bucket to hold job
+  attachments and the conda channel, and a Deadline Cloud monitor with IAM Identity
+  Center to view and manage jobs.
+
+From the CloudFormation console, choose _Create Stack_,
+upload
+`deadline-cloud-starter-farm-template.yaml`, enter a stack
+name and the Amazon S3 bucket name, and proceed through stack creation. To use
+the
+[conda-forge channel](https://conda-forge.org/ "https://conda-forge.org/"), set the
+`ProdCondaChannels` parameter to
+`deadline-cloud conda-forge`.
