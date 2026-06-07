@@ -21,9 +21,53 @@ Viewing AWS credits
 - To view your estimated credit balance for the current month, navigate to
   the **Bills** page in the **Billing**
   console, and then choose the **Savings** tab. This credit
-  balance is updated every 24 hours and shows your latest estimated credit
+  balance is updated monthly and shows your latest estimated credit
   balance.
-  Viewing AWS credits for billing transfer users
+  Viewing credit details
+
+To view detailed information about a specific credit, navigate to the
+**Credits** page in the **Billing** console
+and select the credit. The credit details page displays the following
+information:
+
+- **Credit ID** — The unique identifier for the
+  credit.
+- **Credit type** — The type of credit (for example,
+  **Promotion**).
+- **Status** — The current status of the credit. The
+  following statuses are possible:
+  - **Active** — The credit is set to be
+    consumed and will be applied to eligible charges.
+  - **Paused** — The credit is turned off but
+    can be turned back on to be consumed. To change a credit's status
+    between **Active** and **Paused**,
+    use the status toggle on the credit details page.
+  - **Exhausted** — The credit has a zero
+    balance remaining and has been fully consumed.
+  - **Expired** — The credit has passed its
+    expiration date and is no longer available for use.
+
+- **Amount remaining** — The remaining balance of the
+  credit as of the last billing cycle.
+- **Estimated amount remaining** — The estimated
+  remaining balance of the credit for the current month, updated
+  daily.
+- **Start date** — The date the credit becomes
+  effective.
+- **Expiration date** — The date the credit
+  expires.
+- **Applicable products** — The AWS services that
+  the credit can be applied to.
+- **Account ID** — The AWS account that owns the
+  credit.
+  The credit details page also includes an **Application history**
+  tab that shows how the credit has been allocated, including the recipient account,
+  service, product, and amount for each allocation.
+
+The credit details page also displays the credit's sharing preference
+configuration. For more information, see [Credit-level sharing preferences](#credit-level-sharing-preferences "#credit-level-sharing-preferences").
+
+Viewing AWS credits for billing transfer users
 
 - When you sign in as a bill source account, your credits apply to the standard AWS bill sent
   to your bill transfer account. These credits don't appear in your pro forma billing
@@ -53,8 +97,8 @@ apply in the following order:
 3. The oldest of all credits
 
 For example, Jorge has two credits available to him. Credit one is for 10 dollars,
-it expires January 2019, and it can be used for either Amazon S3 or Amazon EC2. Credit two is
-for 5 dollars, it expires December 2019, and it can be used only for Amazon EC2. Jorge
+it expires January 2026, and it can be used for either Amazon S3 or Amazon EC2. Credit two is
+for 5 dollars, it expires December 2026, and it can be used only for Amazon EC2. Jorge
 has sufficient AWS charges to apply all credits. AWS selects credit one for
 application first because it expires sooner than credit two.
 
@@ -92,8 +136,8 @@ sellers of record. This means that AWS tries to apply your credits before they
 expire. So they might use a generic credit for a specific service.
 
 For example, Jorge has two credits available to him. Credit one is for 10 dollars,
-expires January 2019, and can be used for either Amazon S3 or Amazon EC2. Credit two is for 5
-dollars, expires December 2019, and can be used only for Amazon EC2. Jorge has two AWS
+expires January 2026, and can be used for either Amazon S3 or Amazon EC2. Credit two is for 5
+dollars, expires December 2026, and can be used only for Amazon EC2. Jorge has two AWS
 charges: 100 dollars for Amazon EC2 and 50 dollars for Amazon S3. AWS applies credit one,
 which expires in January, to the Amazon EC2 charge, which leaves him with a 90-dollar
 Amazon EC2 charge and a 50-dollar Amazon S3 charge. AWS applies credit two to the remaining
@@ -123,7 +167,7 @@ An individual's account credits don't cover the account usage from the
 day that the individual joined the organization to the end of that
 month. For this period, the individual's account credits aren't applied
 to the bill. However, starting the next month, AWS applies the
-individual’s account credits to the organization.
+individual's account credits to the organization.
 
 - If an account is owned by an organization at the start of the month, AWS
   applies credits redeemed by the payer account or by any linked account to
@@ -134,10 +178,10 @@ individual’s account credits to the organization.
   bill because the account belonged to the organization during that calendar
   month.
 - If an individual leaves an organization during the month, AWS begins
-  applying credits to the individual’s account on the first day of the
+  applying credits to the individual's account on the first day of the
   following month.
 - Credits are shared with all accounts that join an organization at any
-  point in the month. However, the organization’s shared credit pool consists
+  point in the month. However, the organization's shared credit pool consists
   of only credits from accounts that have been part of the organization since
   the first day of the month.
 
@@ -161,6 +205,17 @@ bill for April. From May onward, Susan's credits are applied to her account.
 
 ## Step 4: Sharing AWS credits
 
+You can manage credit sharing in your organization using two levels of
+control:
+
+- **Credit sharing preference activation**
+  — Activate or deactivate credit sharing for accounts in your
+  organization. Accounts must have credit sharing activated to give or
+  receive shared credits.
+- **Credit-level sharing preferences**
+  — Define which accounts can use a specific credit based on your cost
+  allocation structure using Cost Categories.
+
 You can turn off credit sharing on the **Billing preferences**
 page on the Billing and Cost Management console. The following rules specify how credits are applied
 to bills for single accounts and for organizations when credit sharing is turned
@@ -174,11 +229,12 @@ off:
   on. The payer account user can also select which accounts credits can be
   shared with.
 
-### Credit sharing preferences
+### Credit sharing preference activation
 
-You can use this section to activate sharing credits across member accounts in
-your billing family. You can select specific accounts or enable sharing for all
-accounts.
+You can activate or deactivate credit sharing for member accounts in your
+billing family. Accounts must have credit sharing activated to participate in
+credit sharing. This includes both giving credits to and receiving credits from
+other accounts in the same organization.
 
 ###### Note
 
@@ -187,7 +243,7 @@ as part of AWS Organizations.
 
 When you use billing transfer and sign in as a bill transfer account, you can control sharing preferences only for accounts in your AWS Organizations. Each bill source account controls sharing preferences for accounts in their own AWS Organizations.
 
-###### To manage credit sharing for member accounts
+###### To manage credit sharing preference activation for member accounts
 
 1. Open the AWS Billing and Cost Management console at
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
@@ -210,3 +266,62 @@ When you use billing transfer and sign in as a bill transfer account, you can co
   member accounts**.
 - To download a history of your credit sharing preferences, choose
   **Download preference history (CSV)**.
+
+### Credit-level sharing preferences
+
+You can configure sharing preferences at the individual credit level to
+control which linked accounts can use a specific credit. Credit-level sharing
+preferences use Cost Categories to define the sharing group based on your cost
+allocation structure.
+
+###### Note
+
+**Prerequisite:** Both the credit owner
+account and the recipient accounts must have credit sharing activated. For
+more information, see [Credit sharing preference activation](#consolidated-billing-credit-sharing-preferences "#consolidated-billing-credit-sharing-preferences")
+
+This section is only available for the management account (payer account)
+as part of AWS Organizations.
+
+###### To configure a credit-level sharing preference
+
+1. Open the AWS Billing and Cost Management console at
+   [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
+2. In the navigation pane, under **Billing and
+   Payments**, choose **Credits**.
+3. Select the credit you want to configure sharing for.
+4. In the **Sharing preference** section, choose
+   **Edit**.
+5. For **Cost category**, select an existing cost
+   category from the dropdown, or choose **create a new cost
+   category** to define your sharing group. If you don't see
+   a newly created cost category, choose the **Refresh**
+   button.
+6. For **Rule**, select a rule to define which accounts
+   are included in the sharing group.
+7. Review the **Selected preference details** section
+   to confirm the cost category, rule, and list of accounts that will be
+   included in the sharing group.
+8. Choose **Save**.
+
+###### To edit a credit-level sharing preference
+
+1. Navigate to the credit details page.
+2. In the **Sharing preference** section, choose
+   **Edit**.
+3. Update the **Cost category** or
+   **Rule** as needed.
+4. Review the updated **Selected preference details**.
+5. Choose **Save**.
+
+###### To remove a credit-level sharing preference
+
+1. Navigate to the credit details page.
+2. In the **Sharing preference** section, choose
+   **Remove association**.
+
+###### Note
+
+When a credit-level sharing preference is removed, the credit reverts to
+the default sharing behavior based on the credit sharing activation
+settings for accounts in your organization.
