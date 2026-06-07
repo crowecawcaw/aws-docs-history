@@ -11,31 +11,31 @@ Connect Customer provides managers with a random sample of their agents’ conta
 
 2. Select the timeframe of contacts for evaluation, such as trailing week. Note that you can sample contacts from a maximum period of 5 weeks.
 
-![Select timeframe](images/evaluationforms-randomsampling-time-range.png) 3. Select the agent or agent hierarchy that you need to evaluate.
+![Select timeframe.](images/evaluationforms-randomsampling-time-range.png) 3. Select the agent or agent hierarchy that you need to evaluate.
 
-![Filter search - Agent](images/evaluationforms-randomsampling-agent-filter.png)
+![Filter search - Agent.](images/evaluationforms-randomsampling-agent-filter.png)
 
-![Add filter - Agent](images/evaluationforms-randomsampling-agent-filter-select.png) 4. Apply any additional filters to select only those contacts that are suitable for evaluation.
+![Add filter - Agent.](images/evaluationforms-randomsampling-agent-filter-select.png) 4. Apply any additional filters to select only those contacts that are suitable for evaluation.
 
     * **Conversational analytics**: Ensures that the contact is analyzed by conversational analytics and has a transcript
     * **Recording**: Filter contacts with audio recording (voice) or screen recording (video)
     * **Interaction Duration**: You can choose contacts with a minimum and maximum agent-customer interaction
     * **Evaluation Status**: Only select contacts that have not yet been evaluated
 
-![Add additional filters](images/evaluationforms-randomsampling-search-filters.png) 5. Specify the sampling criteria, such as 5 contacts per agent and choose **apply** to generate a sample.
+![Add additional filters.](images/evaluationforms-randomsampling-search-filters.png) 5. Specify the sampling criteria, such as 5 contacts per agent and choose **apply** to generate a sample.
 
-![Sampling criteria](images/evaluationforms-randomsampling-criteria.png) 6. You can save the set of filters and sampling criteria within saved search.
+![Sampling criteria.](images/evaluationforms-randomsampling-criteria.png) 6. You can save the set of filters and sampling criteria within saved search.
 
-![Save filters and sampling criteria](images/evaluationforms-randomsampling-save-search.png)
-![Save filters and sampling criteria](images/evaluationforms-randomsampling-save-search-name.png)
-![Save filters and sampling criteria](images/evaluationforms-randomsampling-save-search-banner.png) 7. Once the sample is generated, you can create draft evaluations in bulk across all the contacts.
+![Save filters and sampling criteria.](images/evaluationforms-randomsampling-save-search.png)
+![Save filters and sampling criteria.](images/evaluationforms-randomsampling-save-search-name.png)
+![Save filters and sampling criteria.](images/evaluationforms-randomsampling-save-search-banner.png) 7. Once the sample is generated, you can create draft evaluations in bulk across all the contacts.
 
     * Select **Create Draft Evaluations**
     * Select the **Evaluation Form**
 
-![Create draft evaluations](images/evaluationforms-randomsampling-create-draft-eval-empty.png)
+![Create draft evaluations.](images/evaluationforms-randomsampling-create-draft-eval-empty.png)
 
-![Select evaluation form](images/evaluationforms-randomsampling-create-draft-eval-form-select.png)
+![Select evaluation form.](images/evaluationforms-randomsampling-create-draft-eval-form-select.png)
 
 This associates the draft evaluations with the sample name.
 
@@ -43,22 +43,22 @@ This associates the draft evaluations with the sample name.
 
 This step is required if you need to retrieve the contact sample in the future.
 
-![Creating draft evaluations](images/evaluationforms-randomsampling-in-progress-banner.png)
+![Creating draft evaluations.](images/evaluationforms-randomsampling-in-progress-banner.png)
 
-![Draft evaluations successfully created](images/evaluationforms-randomsampling-success-banner.png)
+![Draft evaluations successfully created.](images/evaluationforms-randomsampling-success-banner.png)
 
 ## Retrieving and viewing sampled contacts for evaluation
 
 To retrieve the contact sample in the future, go to Contact Search and apply the filter Evaluation – contact samples. Note that contact samples are specific to the user that generated the sample.
 
-![Create draft evaluations](images/evaluationforms-randomsampling-contact-samples-filter.png)
+![Create draft evaluations.](images/evaluationforms-randomsampling-contact-samples-filter.png)
 
 ## Auditing sampling criteria
 
 If you open an evaluation, it will indicate if contact sampling was used to create the evaluation. You can choose **Yes** to audit the filter criteria used to generate the contact sample, ensuring that filters did not introduce any bias (e.g., negative customer sentiment) during the contact selection process.
 
-![Create draft evaluations - contact details](images/evaluationforms-randomsampling-evals-list.png)
+![Create draft evaluations - contact details.](images/evaluationforms-randomsampling-evals-list.png)
 
-![Create draft evaluations - evaluation overview](images/evaluationforms-randomsampling-sampled-eval.png)
+![Create draft evaluations - evaluation overview.](images/evaluationforms-randomsampling-sampled-eval.png)
 
-![Create draft evaluations - contact sample details](images/evaluationforms-randomsampling-sampled-eval-details.png)
+![Create draft evaluations - contact sample details.](images/evaluationforms-randomsampling-sampled-eval-details.png)

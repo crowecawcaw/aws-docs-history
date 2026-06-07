@@ -20,7 +20,7 @@ Assign the **Agent Applications - Custom views** permission
 to agents. This enables them to see step-by-step guides in their agent
 workspace.
 
-![The Security profile permissions page, the agent applications section, the custom views permission](images/sec-perms-agent-view-sq.png) 3. **Increase your service quota for concurrent active chats
+![The Security profile permissions page, the agent applications section, the custom views permission.](images/sec-perms-agent-view-sq.png) 3. **Increase your service quota for concurrent active chats
 per instance**
 
 The workflows that agents interact with run as chat contacts in Connect Customer. We

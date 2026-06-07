@@ -42,7 +42,7 @@ when the agent is focused on a different tab or application.
 The following image shows an example of a missed call scenario due to the CCP tab
 not having access to agent's microphone.
 
-![The CCP, the error message "Microphone is not accessible."](images/ccp-issue-microphone-access.png)
+![The CCP, the error message "Microphone is not accessible.".](images/ccp-issue-microphone-access.png)
 
 ### How to fix
 
@@ -72,7 +72,7 @@ subsequent IP addresses.
 The following image shows an example of a missed call scenario due to missing
 allowlisted domains.
 
-![The CCP, the error message "Initialization Failed."](images/ccp-issues-initialization.png)
+![The CCP, the error message "Initialization Failed.".](images/ccp-issues-initialization.png)
 
 ### How to fix
 
@@ -171,7 +171,7 @@ calls.
 The following image shows an example of a invalid outbound configuration message
 on the CCP.
 
-![The CCP, the error message "Invalid outbound configuration."](images/ccp-issues-invalidoutboundconfig.png)
+![The CCP, the error message "Invalid outbound configuration.".](images/ccp-issues-invalidoutboundconfig.png)
 
 ### How to fix
 
@@ -197,7 +197,7 @@ on the Connect Customer instance.
 
 The following image shows an example of a invalid number message on the CCP.
 
-![The CCP, the error message "Invalid number."](images/ccp-issues-invalidnumber.png)
+![The CCP, the error message "Invalid number.".](images/ccp-issues-invalidnumber.png)
 
 ### How to fix
 

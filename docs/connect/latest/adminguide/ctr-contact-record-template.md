@@ -175,7 +175,7 @@ For information on using the API, see [PutProfileObjectType](../../../customerpr
 1. In the Customer Profiles console, select **View Details** in the
    **Customer Profiles domain** section.
 
-![Choose View details in the Customer Profiles domain section](images/ctr-contact-record-template-usage-examples-console-1.png) 2. On the **Domain details** page, choose
+![Choose View details in the Customer Profiles domain section.](images/ctr-contact-record-template-usage-examples-console-1.png) 2. On the **Domain details** page, choose
 **Edit** in the **Profile creation and
 auto-association** section.
 

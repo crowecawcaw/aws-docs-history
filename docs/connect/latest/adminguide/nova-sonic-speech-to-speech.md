@@ -17,25 +17,25 @@ You can configure Amazon Nova Sonic as a Speech-to-Speech (S2S) model for a Conv
 3. Select the locale you want to configure.
 4. In the Speech model section, choose **Edit**.
 
-![Amazon Nova Sonic Speech-to-Speech overview](images/nova-sonic-overview.jpg)
+![Amazon Nova Sonic Speech-to-Speech overview.](images/nova-sonic-overview.jpg)
 
 ### Step 2: Select Speech-to-Speech
 
 In the Speech model modal, open the Model type dropdown and choose **Speech-to-Speech**.
 
-![Model type dropdown showing Speech-to-Speech option](images/nova-sonic-model-type.png)
+![Model type dropdown showing Speech-to-Speech option.](images/nova-sonic-model-type.png)
 
 ### Step 3: Choose Amazon Nova Sonic
 
 After selecting Speech-to-Speech, open Voice provider and select **Amazon Nova Sonic**. Then choose **Confirm**.
 
-![Model type dropdown showing Speech-to-Speech option](images/nova-sonic-speech-to-speech.png)
+![Model type dropdown showing Speech-to-Speech option.](images/nova-sonic-speech-to-speech.png)
 
 ### Step 4: Review Speech model status
 
 The Speech model card now shows Speech-to-Speech: Amazon Nova Sonic and displays a warning to select a Nova Sonic compatible voice in your Set voice block.
 
-![Speech model modal with Amazon Nova Sonic selected](images/nova-sonic-provider-selection.png)
+![Speech model modal with Amazon Nova Sonic selected.](images/nova-sonic-provider-selection.png)
 
 ### Step 5: Build and activate the locale
 
@@ -58,13 +58,13 @@ After enabling Nova Sonic at the bot level, you must configure a matching Nova S
 2. Search for Set voice in the block library.
 3. Drag a Set voice block onto the canvas or open an existing one.
 
-![Speech model card showing Nova Sonic configuration](images/nova-sonic-speech-model-card.jpg)
+![Speech model card showing Nova Sonic configuration.](images/nova-sonic-speech-model-card.jpg)
 
 ### Step 2: Select Override and Generative speaking style
 
 In Other settings, choose **Override speaking style** and select **Generative** to enable Nova Sonic expressive output.
 
-![Set voice block configuration](images/nova-sonic-set-voice-block.png)
+![Set voice block configuration.](images/nova-sonic-set-voice-block.png)
 
 ### Step 3: Select a Nova Sonic compatible voice
 
@@ -72,13 +72,13 @@ In Other settings, choose **Override speaking style** and select **Generative** 
 2. Under Language, select the locale that corresponds to the voice you want.
 3. Under Voice, select one of the Nova Sonic–compatible voices.
 
-![Override speaking style set to Generative](images/nova-sonic-generative-style.png)
+![Override speaking style set to Generative.](images/nova-sonic-generative-style.png)
 
 ### Step 4: Review selected voice
 
 The Set voice block now shows the selected voice and style, such as Voice: Matthew (Generative).
 
-![Set necessary fields for Sonic](images/nova-sonic-voice-selection.png)
+![Set necessary fields for Sonic.](images/nova-sonic-voice-selection.png)
 
 ### Step 5: Save and publish the flow
 

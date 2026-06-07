@@ -194,11 +194,11 @@ To enable Flow Modules to be invoked outside of a Flow by various systems as ind
 
 ### Create new module as tool
 
-![Create new module as tool interface](images/module-as-tool-create-new.png)
+![Create new module as tool interface.](images/module-as-tool-create-new.png)
 
 ### Create module as tool from existing module
 
-![Create module as tool from existing module interface](images/module-as-tool-from-existing.png)
+![Create module as tool from existing module interface.](images/module-as-tool-from-existing.png)
 
 ### Module as tool supported blocks
 

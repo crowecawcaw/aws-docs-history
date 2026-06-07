@@ -19,12 +19,12 @@ response programmatically, see [DeleteQuickResponse](../../../amazon-q-connect/l
 2. On the navigation bar, choose **Content Management**, then
    **Quick responses**.
 
-![Menu showing "Content Management" and "Quick responses."](images/agent-application-1.png) 3. On the **Quick responses** page, select the checkbox next to the response
+![Menu showing "Content Management" and "Quick responses.".](images/agent-application-1.png) 3. On the **Quick responses** page, select the checkbox next to the response
 that you want to delete. You can select a maximum of 20 responses. 4. Choose **Delete**.
 
 A success message appears:
 
-![A green checkmark and the words "Successfully Deleted selected Quick response."](images/deletion-success-message.png)
+![A green checkmark and the words "Successfully Deleted selected Quick response.".](images/deletion-success-message.png)
 
 ###### Note
 

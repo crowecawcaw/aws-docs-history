@@ -15,10 +15,10 @@ steps:
    shared table created in the previous section.
 3. Choose **Actions** and select **Grant**.
 
-![AWS Lake Formation tables](images/manage-access-to-resource-link-tables-1.png) 4. In the grant data permissions menu, in the Principals section, choose SAML
+![AWS Lake Formation tables.](images/manage-access-to-resource-link-tables-1.png) 4. In the grant data permissions menu, in the Principals section, choose SAML
 users and groups and enter the ARN of the QuickSight user. 5. In the Table permissions section choose Describe as a table permission. 6. Choose **Grant**.
 
-![AWS Lake Formation tables - grant](images/manage-access-to-resource-link-tables-2.png)
+![AWS Lake Formation tables - grant.](images/manage-access-to-resource-link-tables-2.png)
 Now, the QuickSight user can see that the table exists within Quicksight's dataset
 console.
 
@@ -35,8 +35,8 @@ which is the table shared by Connect Customer. To do that, complete the followin
 3. Choose **Actions** and select **Grant on
    Target**.
 
-![AWS Lake Formation tables - grant](images/manage-access-to-resource-link-tables-3.png) 4. In the grant data permissions menu, in the **Principals**
+![AWS Lake Formation tables - grant.](images/manage-access-to-resource-link-tables-3.png) 4. In the grant data permissions menu, in the **Principals**
 section, choose SAML users and groups and enter the ARN of the QuickSight user. 5. In the Table permissions section choose Select as a table
 permission. 6. Choose **Grant**.
 
-![AWS Lake Formation tables - grant](images/manage-access-to-resource-link-tables-4.png)
+![AWS Lake Formation tables - grant.](images/manage-access-to-resource-link-tables-4.png)

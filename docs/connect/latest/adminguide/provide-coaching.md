@@ -28,11 +28,76 @@ Permissions can be configured as follows:
    sessions – View** permission. This permission enables the agent to view and acknowledge coaching
    where they are the participant.
 
+In addition, admins, quality managers and supervisors can be granted **Contact
+Search - View** and **Evaluation forms - perform evaluations -
+View** permissions. With these permissions enabled, users will see automated
+suggestions of evaluations to coach on, based on the selected coaching topic.
+
 For more information, see [Assign security profile permissions for performance evaluations and coaching](evaluation-and-coaching-permissions.md "evaluation-and-coaching-permissions.md").
 
 ## Provide coaching to agents
 
-1. Log in to Connect Customer with a security profile that can [search contacts](contact-search.md "contact-search.md") and perform coaching.
+You can start coaching in two ways:
+
+- **Coach based on aggregated performance insights**:
+  If you already know topics to coach on by reviewing average evaluation scores within
+  the [Agent performance
+  evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md"), you can navigate to the coaching sessions
+  page, create a new coaching session, and select the corresponding evaluation criteria
+  as a topic. You will then receive automated suggestions of evaluations to coach on,
+  which you can use to draft detailed feedback.
+- **Coach on individual evaluations**: While reviewing
+  an evaluation on the Contact Details page, you can start a coaching session to
+  provide detailed feedback based on that specific evaluation. You can link multiple
+  evaluations to a coaching session.
+
+### Coach based on aggregated performance insights
+
+For example, if you notice in your [Agent performance
+evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md") that an agent has been scoring low on
+empathy, you can navigate to the coaching sessions page and create a new coaching session
+to address that trend.
+
+1. Log in to Connect Customer with a security profile that has required [permissions](#coaching-permissions "#coaching-permissions") to create coaching,
+   search for contacts and view evaluations.
+2. Navigate to **Analytics and Optimization** >
+   **Coaching sessions**.
+3. When creating a new coaching session, first select a participant.
+4. Add scored evaluation forms as session topics. For example, select the
+   evaluation form, section, or question that contains the empathy criteria the
+   agent scored low on. Suggestions are based on these evaluation forms.
+
+![Adding a scored evaluation form as a coaching session topic.](images/coaching-add-scored-topic.png) 5. Connect Customer automatically suggests evaluations for this participant. You can
+choose to add suggestions as strengths or opportunities.
+
+![Automated evaluation suggestions shown as strengths or opportunities.](images/coaching-evaluation-suggestions.png) 6. Select **Show strength suggestions** or **Show
+opportunity suggestions** to view more suggestions, or filter
+suggestions based on different criteria, such as score range, date range, or
+certain topics.
+
+![Filtering evaluation suggestions by score range, date range, or topic.](images/coaching-filter-evaluation-suggestions.png) 7. You can edit the coaching session by specifying dates, times, and location,
+providing detailed feedback, and setting improvement goals on coaching
+topics.
+
+![The edit coaching session page with fields for dates, times, location, feedback, and goals.](images/coaching-edit-coaching-session.png)
+
+###### Note
+
+**Session due date** is mandatory. 8. Choose **Submit** to save the coaching session as a draft. 9. When the coaching session is ready, choose **Share** to
+make the coaching session visible to the agent. If the agent has an email
+configured within Connect Customer (or has a secondary email for a SAML instance), they
+will receive an email notification with a link to view the coaching
+session. 10. At the time of coaching, you can access the coaching session on
+**Analytics and Optimization** > **Coaching
+sessions**. This page displays all past and upcoming coaching
+sessions. 11. After the coaching session is finished, choose **Mark as
+Complete** and optionally add a note. 12. Agents can acknowledge the coaching along with their own coaching
+notes.
+
+### Coach on individual evaluations
+
+1. Log in to Connect Customer with a security profile that has required [permissions](#coaching-permissions "#coaching-permissions") to create coaching,
+   search for contacts and view evaluations.
 2. Select **Analytics and Optimization** >
    **Contact search** from the navigation bar on the
    left.

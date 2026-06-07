@@ -266,7 +266,7 @@ Metrics include:
   were excluded from the targeted segment during a campaign execution. Example
   exclusion reasons include: MISSING_TIMEZONE, MISSING_CHANNEL
 
-![Campaign metrics by recipients table screenshot](images/campaign-metrics-recipients-table.png)
+![Campaign metrics by recipients table screenshot.](images/campaign-metrics-recipients-table.png)
 
 ## Campaign metrics table
 

@@ -5,7 +5,7 @@
    **Edit** button. Choose
    **Edit**.
 
-![edit a calculated attribute](images/calculated-attributes-admin-website-edit-1.png) 2. You can edit the **Description**, **Number of
+![edit a calculated attribute.](images/calculated-attributes-admin-website-edit-1.png) 2. You can edit the **Description**, **Number of
 events**, and **Time period**. When done,
 choose **Save**.
 

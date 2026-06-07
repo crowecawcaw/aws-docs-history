@@ -4229,7 +4229,7 @@ task](create-task-block.md "create-task-block.md").
 #### Improved user interface for Connect Customer console
 
 Released a redesigned and improved user interface for the Connect Customer console, making it easier
-and faster to manage Connect Customer instances. For more information, see [Create an Connect Customer instance](amazon-connect-instances.md "amazon-connect-instances.md").
+and faster to manage Connect Customer instances. For more information, see [Create a Connect Customer instance](amazon-connect-instances.md "amazon-connect-instances.md").
 
 #### APIs for Hours of Operation and Agent Status (Preview)
 
@@ -4869,7 +4869,7 @@ The following updates were released in August 2020:
 #### Telephony
 
 - Added the ability for all customers to enable/disable media support for outbound phone
-  calls. For more information, see [Step 3: Set telephony](amazon-connect-instances.md#get-started-telephony "amazon-connect-instances.md#get-started-telephony") in the [Create an Connect Customer instance](amazon-connect-instances.md "amazon-connect-instances.md") topic.
+  calls. For more information, see [Step 3: Set telephony](amazon-connect-instances.md#get-started-telephony "amazon-connect-instances.md#get-started-telephony") in the [Create a Connect Customer instance](amazon-connect-instances.md "amazon-connect-instances.md") topic.
 
 #### Monitoring
 
@@ -5044,7 +5044,7 @@ The following updates were released in April 2020:
 - Added early media support for outbound phone calls. Enabled by default, an agent hears
   tones and audio messages played by phone companies—such as busy signals, failure to
   connect errors, or other informational messages—through their headset or audio device.
-  For more information, see [Step 3: Set telephony](amazon-connect-instances.md#get-started-telephony "amazon-connect-instances.md#get-started-telephony") in the [Create an Connect Customer instance](amazon-connect-instances.md "amazon-connect-instances.md") topic.
+  For more information, see [Step 3: Set telephony](amazon-connect-instances.md#get-started-telephony "amazon-connect-instances.md#get-started-telephony") in the [Create a Connect Customer instance](amazon-connect-instances.md "amazon-connect-instances.md") topic.
 - Added the `barge-in-enabled` session attribute to the [Get customer input](get-customer-input.md "get-customer-input.md") block so customers
   can interrupt Amazon Lex bots with their voice.
 

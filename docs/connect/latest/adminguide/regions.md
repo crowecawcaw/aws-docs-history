@@ -155,6 +155,7 @@ available.
 
 - US East (N. Virginia)
 - US West (Oregon)
+- Africa (Cape Town)
 - Asia Pacific (Seoul)
 - Asia Pacific (Singapore)
 - Asia Pacific (Sydney)

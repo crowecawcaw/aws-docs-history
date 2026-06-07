@@ -23,7 +23,7 @@ For example, the following image shows a Connect AI agents experience that is co
 a customized AI agent for the Agent Assistance use case and uses the system
 default AI agents for the rest.
 
-![The default and custom AI agents specified for Connect Customer](images/ai-agent-default.png)
+![The default and custom AI agents specified for Connect Customer.](images/ai-agent-default.png)
 Here's how customized AI agents work:
 
 - You can override one or more of the system AI agents with your customized AI

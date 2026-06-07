@@ -8,4 +8,4 @@ For information on multi-skill, see [Multi skill scheduling](multiskill-scheduli
 
 Mention the demand group while requesting for overtime. Only agents who are associated with the demand group will be approved for over time slots
 
-![Restrict over time by demand group](images/wfm-overtime-multiskill.png)
+![Restrict over time by demand group.](images/wfm-overtime-multiskill.png)

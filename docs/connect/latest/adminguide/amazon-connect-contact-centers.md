@@ -40,7 +40,7 @@ After you create an Connect Customer instance, you can:
 ###### Contents
 
 - [Connect Customer](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md")
-- [Create an Connect Customer
+- [Create a Connect Customer
   instance](amazon-connect-instances.md "amazon-connect-instances.md")
 - [Test voice, chat, and task experiences in Connect Customer](chat-testing.md "chat-testing.md")
 - [Set up your channels](set-channels.md "set-channels.md")

@@ -65,14 +65,17 @@ form audit trail.
 - **Coaching - manage coaching sessions**: Access coaching
   sessions performed by yourself or others. This permission is for admins or quality
   managers.
+  - **View**: View any coaching session.
+  - **Create**: Create new coaching sessions. You can
+    choose yourself as the coach or assign other users as the
+    coach.
+  - **Edit**: Edit any coaching session.
+  - **Delete**: Delete any coaching session.
 
-      + **View**: View any coaching session.
-      + **Create**: Create new coaching sessions. You can
-       choose yourself as the coach or assign other users as the
-       coach.
-      + **Edit**: Edit any coaching session.
-      + **Delete**: Delete any coaching session.
-
+- **Contact Search - View** and **Evaluation forms -
+  perform evaluations - View** permissions: Receive automated
+  suggestions of evaluations to coach on after selecting a specific evaluation
+  criteria as a coaching topic.
   The **Admin** security profile has these permissions by default.
 
 For information about how to add more permissions to an existing security profile,

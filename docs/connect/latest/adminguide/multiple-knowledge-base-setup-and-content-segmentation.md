@@ -27,9 +27,9 @@ Both configurations require the same initial setup. Complete these steps first, 
 
 1. From the AWS Console, you can add additional knowledge bases by choosing Add Integration and following the guided experience. In this example, we added demo-byobkb as the additional knowledge base.
 
-![Multiple integrations shown on AI agents domain page](images/ai-agents-showing-multi-kbs-in-domain-page.png) 2. From AI Agent Designer, create a new Orchestration AI agent, and edit the default Retrieve tool
+![Multiple integrations shown on AI agents domain page.](images/ai-agents-showing-multi-kbs-in-domain-page.png) 2. From AI Agent Designer, create a new Orchestration AI agent, and edit the default Retrieve tool
 
-![AI Agents builder page](images/ai-agents-ai-agent-builder.png) 3. Associate existing knowledge base to the Retrieve Tool. AI agent will use this knowledge base as the default
+![AI Agents builder page.](images/ai-agents-ai-agent-builder.png) 3. Associate existing knowledge base to the Retrieve Tool. AI agent will use this knowledge base as the default
 
 ![Choosing the assistant association for the retrieve tool.](images/ai-agents-picking-assistant-association-in-retrieve-tool.png) 4. Add an additional Tool, choose Amazon Connect as the namespace and choose Retrieve type of AI Tool
 
@@ -37,7 +37,7 @@ Both configurations require the same initial setup. Complete these steps first, 
 
 ![Choosing the assistant association for the retrieve tool.](images/ai-agents-picking-assistant-association-in-retrieve-tool2.png) 6. Name each additional Retrieve tool starting with "Retrieve" (e.g., Retrieve2, Retrieve3, RetrieveProducts, RetrievePolicies).
 
-![Naming the retrieve tool](images/ai-agents-naming-the-retrieve-tool.png) 7. Next, configure the tool instructions and examples. The configuration varies depending on your use case. The following sections cover two scenarios: querying all knowledge bases simultaneously and querying knowledge bases selectively.
+![Naming the retrieve tool.](images/ai-agents-naming-the-retrieve-tool.png) 7. Next, configure the tool instructions and examples. The configuration varies depending on your use case. The following sections cover two scenarios: querying all knowledge bases simultaneously and querying knowledge bases selectively.
 
 ### Querying all knowledge bases simultaneously
 
@@ -47,9 +47,9 @@ Use this configuration when you want the agent to search all knowledge bases sim
 
 1. Fill in the tool instructions by copying over the instructions and examples from the default Retrieve tool.
 
-![Retrieve tool instructions](images/ai-agents-retrieve-tool-instructions.png) 2. Choose the Add button to create the new Retrieve tool. Your tool list should now have the new Retrieve tool.
+![Retrieve tool instructions.](images/ai-agents-retrieve-tool-instructions.png) 2. Choose the Add button to create the new Retrieve tool. Your tool list should now have the new Retrieve tool.
 
-![Tool list containing multiple retrieve tools](images/ai-agents-multiple-retrieve-tools-list.png)
+![Tool list containing multiple retrieve tools.](images/ai-agents-multiple-retrieve-tools-list.png)
 
 You now have a second Retrieve tool. To use all Retrieve tools together, you must modify the prompt with instructions to invoke them simultaneously. Without this change, only one Retrieve tool will be used.
 
@@ -59,7 +59,7 @@ You now have a second Retrieve tool. To use all Retrieve tools together, you mus
 
 Create a new prompt by copying the default orchestration prompt that matches your use case. In this example, we copy from the AgentAssistanceOrchestration prompt.
 
-![Creating new AI Prompt screen](images/ai-agents-creating-new-prompt.png) 2. Choose the **Create button** and you will be taken to a page where you can modify the prompt. 3. Modify your prompt based on your orchestration type:
+![Creating new AI Prompt screen.](images/ai-agents-creating-new-prompt.png) 2. Choose the **Create button** and you will be taken to a page where you can modify the prompt. 3. Modify your prompt based on your orchestration type:
 
     * ###### For Agent Assistance orchestration prompts:
 
@@ -94,9 +94,9 @@ Unlike parallel invocation, each Retrieve tool needs distinct instructions that 
 
 1. For each Retrieve tool, including the default, write specific instructions that describe the content of its associated knowledge base and when to use it.
 
-![Retrieve tool instructions](images/ai-agents-retrieve-tool-instructions.png) 2. Choose the Add button to create the new Retrieve tool. Your tool list should now have the new Retrieve tool.
+![Retrieve tool instructions.](images/ai-agents-retrieve-tool-instructions.png) 2. Choose the Add button to create the new Retrieve tool. Your tool list should now have the new Retrieve tool.
 
-![Tool list containing multiple retrieve tools](images/ai-agents-multiple-retrieve-tools-list.png)
+![Tool list containing multiple retrieve tools.](images/ai-agents-multiple-retrieve-tools-list.png)
 
 You now have a second Retrieve tool. To have the agent select the appropriate tool based on context, you must modify the prompt with instructions on when to use each tool.
 
@@ -106,7 +106,7 @@ You now have a second Retrieve tool. To have the agent select the appropriate to
 
 Create a new prompt by copying the default orchestration prompt that matches your use case. In this example, we copy from the AgentAssistanceOrchestration prompt.
 
-![Creating new AI Prompt screen](images/ai-agents-creating-new-prompt.png) 2. Choose the **Create button** and you will be taken to a page where you can modify the prompt. 3. Modify your prompt based on your orchestration type:
+![Creating new AI Prompt screen.](images/ai-agents-creating-new-prompt.png) 2. Choose the **Create button** and you will be taken to a page where you can modify the prompt. 3. Modify your prompt based on your orchestration type:
 
     * ###### For Agent Assistance orchestration prompts:
 
@@ -175,14 +175,14 @@ Once your content is tagged, you can filter retrieval results by specifying tag 
 2. Add key-value pairs to define your tag filter. You need two overrides to filter by a single tag. In this example, we use `equals` as the filter operator:
    - Set the Property Key to `retrievalConfiguration.filter.equals.key` with the value as your tag name (for example, `number`).
 
-   ![Setting the filter key override](images/ai-agents-retrieve-tool-filter-key.png)
+   ![Setting the filter key override.](images/ai-agents-retrieve-tool-filter-key.png)
    - Set the Property Key to `retrievalConfiguration.filter.equals.value` with the value as your tag value (for example, `one`).
 
-   ![Setting the filter value override](images/ai-agents-retrieve-tool-filter-value.png)
+   ![Setting the filter value override.](images/ai-agents-retrieve-tool-filter-value.png)
 
 You can use any filter configuration that starts with `retrievalConfiguration.filter` to define your tag filtering criteria.
 
-![Completed tag filter configuration](images/ai-agents-retrieve-tool-filter-complete.png)
+![Completed tag filter configuration.](images/ai-agents-retrieve-tool-filter-complete.png)
 
 #### Bedrock knowledge base
 

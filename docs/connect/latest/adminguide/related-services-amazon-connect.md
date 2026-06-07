@@ -32,7 +32,7 @@ For more information, see:
 Connect Customer uses Amazon Simple Storage Service (Amazon S3) to store recorded conversations and exported reports.
 When you set up Connect Customer, it creates default buckets for these requirements, or you can
 point it to existing Amazon S3 infrastructure. For more information, see [Step 4: Data storage](amazon-connect-instances.md#get-started-data-storage "amazon-connect-instances.md#get-started-data-storage") in
-[Create an Connect Customer instance](amazon-connect-instances.md "amazon-connect-instances.md").
+[Create a Connect Customer instance](amazon-connect-instances.md "amazon-connect-instances.md").
 
 VPC endpoints are not supported.
 

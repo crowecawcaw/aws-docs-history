@@ -19,7 +19,7 @@ rule-based matching rules.
 
 ## Edit rule-based matching merge rules
 
-![Edit rule-based matching merge rules](images/rule-based-edit-merge-rules.png)
+![Edit rule-based matching merge rules.](images/rule-based-edit-merge-rules.png)
 
 ## Edit rule-based match location
 

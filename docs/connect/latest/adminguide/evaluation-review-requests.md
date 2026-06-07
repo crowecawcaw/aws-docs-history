@@ -15,7 +15,7 @@ Connect Customer enables you to specify which evaluation forms support review re
 7. You can also choose one or more recipients who will be notified via email when a review is requested. The email has a link to the contact with the evaluation for which a review is requested. Note that in order for the users to receive emails on a SAML authenticated instance, the secondary email needs to be provided within the user's profile in Connect.
 8. Once you **Activate** the form, subsequent evaluations performed using the form will support review requests.
 
-![Additional settings tab showing Allow review requests option](images/evaluationforms-review-enable.png)
+![Additional settings tab showing Allow review requests option.](images/evaluationforms-review-enable.png)
 
 ## Who can request reviews of an evaluation?
 
@@ -35,11 +35,11 @@ Users with the permission **Evaluation forms - review evaluations - Create and V
 4. The evaluation will show under **Review requested** on the evaluations pane
 5. You can cancel a request if the review is yet to be started
 
-![Request a review button on evaluation](images/evaluationforms-review-request.png)
+![Request a review button on evaluation.](images/evaluationforms-review-request.png)
 
-![Request review dialog with explanation field](images/evaluationforms-review-requestcomment.png)
+![Request review dialog with explanation field.](images/evaluationforms-review-requestcomment.png)
 
-![Evaluation showing Review requested status](images/evaluationforms-review-requested.png)
+![Evaluation showing Review requested status.](images/evaluationforms-review-requested.png)
 
 ## Searching for pending reviews
 
@@ -51,7 +51,7 @@ As mentioned above, you can configure in the evaluation form, who would be autom
 4. Use the evaluation status filter with the value **Review requested** to search for contacts with evaluations where a review has been requested, and is yet to be picked up for review
 5. Use the evaluation status filter with the value **Under review** to search for contacts with evaluations that are picked up for review
 
-![Contact search with evaluation status filter](images/evaluationforms-review-searchrequested.png)
+![Contact search with evaluation status filter.](images/evaluationforms-review-searchrequested.png)
 
 ## Starting and completing reviews
 
@@ -62,4 +62,4 @@ As mentioned above, you can configure in the evaluation form, who would be autom
 5. The in-progress review is listed under **Evaluation reviews**. Users with the **Evaluation forms - review evaluations - Create** permissions can make edits to the evaluation such as changing answers, amending the notes. You can **Save** your review at anytime and choose **Resolve review** to finalize the review.
 6. This will send an automated email notification to the user who had requested the review.
 
-![Evaluation review in progress](images/evaluationforms-review-view.png)
+![Evaluation review in progress.](images/evaluationforms-review-view.png)

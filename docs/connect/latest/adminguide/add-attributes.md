@@ -43,7 +43,7 @@ You can follow these steps when creating or updating a quick response.
 2. On the left navigation bar, choose **Content Management**, then
    **Quick responses**.
 
-![Menu showing "Content Management" and "Quick responses."](images/agent-application-1.png) 3. Choose **Add response** to create a response.
+![Menu showing "Content Management" and "Quick responses.".](images/agent-application-1.png) 3. Choose **Add response** to create a response.
 
 —or—
 

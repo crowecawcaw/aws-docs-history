@@ -22,4 +22,4 @@ Connect Customer API. While doing that keep the following limitations in mind:
 1. In the AWS Management Console, choose **Connect Customer**.
 2. Choose **Add an instance**.
 3. Complete the steps on the Connect Customer resource configuration page. For instructions
-   see [Create an Connect Customer instance](amazon-connect-instances.md "amazon-connect-instances.md").
+   see [Create a Connect Customer instance](amazon-connect-instances.md "amazon-connect-instances.md").

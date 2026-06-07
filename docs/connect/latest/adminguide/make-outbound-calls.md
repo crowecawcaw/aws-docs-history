@@ -1,7 +1,7 @@
 # Make outbound calls using the Contact Control Panel (CCP)
 
 Before you can make an outbound call, your contact center must be set up to allow
-agents to make calls. For more information, see [Step 3: Set telephony](amazon-connect-instances.md#get-started-telephony "amazon-connect-instances.md#get-started-telephony") in [Create an Connect Customer instance](amazon-connect-instances.md "amazon-connect-instances.md").
+agents to make calls. For more information, see [Step 3: Set telephony](amazon-connect-instances.md#get-started-telephony "amazon-connect-instances.md#get-started-telephony") in [Create a Connect Customer instance](amazon-connect-instances.md "amazon-connect-instances.md").
 
 For information about the caller ID that's displayed when you make an outbound
 call, see [Set up outbound caller ID in Connect Customer](queues-callerid.md "queues-callerid.md").

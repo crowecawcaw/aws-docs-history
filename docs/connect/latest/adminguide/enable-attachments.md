@@ -102,26 +102,64 @@ appropriate permissions in their security profile.
 
 5. Choose **Save**.
 
+![The Edit security profile page with the Settings section expanded, showing the File attachments permission.](images/enable-attachments-security-profile-settings.png)
+
 Users assigned a security profile with file attachment permissions see a
 **Settings** icon in the left navigation menu, below
 **Channels**. From there, they can view or edit file
 attachment settings based on their assigned permissions.
 
-## Step 3: Configure attachment size limits and custom file extensions
+## Step 3: Configure attachment file types and size limits
 
-After you enable attachments, you can configure the following options through the
-Connect Customer admin website:
+After you enable attachments and assign permissions, you can configure allowed
+file types and maximum file sizes for each channel independently. Configuration
+is scoped per channel: Email, Chat, Tasks, and Cases. Changes to one channel
+do not affect the others.
 
-- **Attachment size limit** – The default
-  maximum attachment size is 20 MB. You can increase this limit up to
-  100 MB.
-- **Custom file extensions** – In addition to
-  the default supported file types, you can configure custom file extensions
-  for attachments across chat, email, cases, and tasks.
+###### To configure attachment file types and size limits
+
+1. In the Connect Customer admin website, choose the **Settings**
+   icon (gear icon) in the left navigation pane.
+2. On the **Attachments** page, choose
+   **Edit**.
+
+The following image shows the Attachments page in read-only mode.
+
+![The Attachments page showing the current configuration in read-only mode, with the Edit button in the upper right.](images/enable-attachments-config-view.png) 3. Under **Channels**, choose **Configure each
+channel and service individually** to set different file types
+and size limits per channel. Alternatively, choose **Apply one
+configuration to all channels and services** to use the same
+settings across your entire instance. 4. Select the channel tab that you want to configure:
+**Email**, **Chat**,
+**Tasks**, or **Cases**. 5. To add a custom file extension, enter the extension in the
+**Add file extensions** field and choose
+**Add extension**. To remove an allowed file type,
+choose the X next to the extension. 6. Under **Maximum file size**, use the slider or enter
+a value to set the maximum attachment size for the selected channel.
+
+    * For Chat, Tasks, and Cases, you can configure the maximum
+     file size from 1 MB to 100 MB.
+    * For Email, the maximum file size is 20 MB. You can reduce
+     this limit but cannot exceed 20 MB.
+
+The following image shows the attachment configuration in edit mode.
+
+![The Attachments page in edit mode, showing channel tabs, allowed file types, and the maximum file size slider.](images/enable-attachments-config-edit.png) 7. Choose **Save**.
+
+###### Email attachment limitations
+
+- Email attachments cannot exceed 20 MB due to Amazon SES
+  limitations.
+- Even if you add a file extension to the allowed list for email,
+  Amazon SES may block certain file types. For a list of file types
+  that SES blocks, see [Unsupported attachment types](../../../ses/latest/dg/mime-types-appendix.md "../../../ses/latest/dg/mime-types-appendix.md") in the
+  _Amazon Simple Email Service Developer Guide_.
 
 ###### Note
 
-You can also configure these options by using the Connect Customer API.
+You can also configure these options programmatically by using the [UpdateAttachedFilesConfiguration](../APIReference/API_UpdateAttachedFilesConfiguration.md "../APIReference/API_UpdateAttachedFilesConfiguration.md") API. The API uses the
+`AttachmentScope` parameter to specify the channel
+(EMAIL, CHAT, CASE, or TASK).
 
 ## Step 4: Configure a CORS policy on your attachments bucket
 

@@ -48,7 +48,7 @@ The required permissions are:
 - **Channels and flows - Views**
 - **Routing - Quick Connects**
 
-![Security profile permissions for agent-initiated flows](images/agent-initiated-flows-security-profile.png)
+![Security profile permissions for agent-initiated flows.](images/agent-initiated-flows-security-profile.png)
 
 ## Create Quick Connect for agent-initiated flow
 
@@ -60,7 +60,7 @@ The required permissions are:
    send.
 5. Choose **Save**.
 
-![Create Quick Connect for agent-initiated flow](images/agent-initiated-flows-quick-connect-config.png)
+![Create Quick Connect for agent-initiated flow.](images/agent-initiated-flows-quick-connect-config.png)
 
 ## Associate Quick Connect with queue
 
@@ -71,7 +71,7 @@ The required permissions are:
    Connect.
 4. Choose **Save**.
 
-![Associate Quick Connect with queue](images/agent-initiated-flows-add-quick-connect.png)
+![Associate Quick Connect with queue.](images/agent-initiated-flows-add-quick-connect.png)
 
 For additional details on quick connects, see [Create quick connects in Connect Customer](quick-connects.md "quick-connects.md").
 
@@ -82,16 +82,16 @@ For additional details on quick connects, see [Create quick connects in Connect 
 2. On the selection menu, choose the appropriate form
 3. Select **Add to chat**
 
-![Agent control panel Quick connect button](images/agent-initiated-flows-agent-example-1.png)
+![Agent control panel Quick connect button.](images/agent-initiated-flows-agent-example-1.png)
 
-![Select form and Add to chat](images/agent-initiated-flows-agent-example-2.png)
+![Select form and Add to chat.](images/agent-initiated-flows-agent-example-2.png)
 
 When the form is active, the agent may cancel the workflow. Agents will see events
 for the status of the workflow.
 
-![Active workflow status](images/agent-initiated-flows-agent-example-3.png)
+![Active workflow status.](images/agent-initiated-flows-agent-example-3.png)
 
-![Workflow events for agent](images/agent-initiated-flows-agent-example-4.png)
+![Workflow events for agent.](images/agent-initiated-flows-agent-example-4.png)
 
 ## Receive Form from Agent
 
@@ -100,6 +100,6 @@ for the status of the workflow.
   form
 - Upon submission, the agent will be notified through new events
 
-![Customer receives form](images/agent-initiated-flows-customer-example-1.png)
+![Customer receives form.](images/agent-initiated-flows-customer-example-1.png)
 
-![Form submission notification](images/agent-initiated-flows-customer-example-2.png)
+![Form submission notification.](images/agent-initiated-flows-customer-example-2.png)

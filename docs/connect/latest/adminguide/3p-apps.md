@@ -274,7 +274,7 @@ If you created an integration before Dec 15, 2023, then you may encounter
 issues when updating the association of the integration to instance(s). This is
 because you need to make updates to your IAM policy.
 
-![IAM error when trying to delete an integration due to insufficient permissions](images/delete-3p-apps.png)
+![IAM error when trying to delete an integration due to insufficient permissions.](images/delete-3p-apps.png)
 
 Your IAM policy will need to be updated to include the following
 permissions:

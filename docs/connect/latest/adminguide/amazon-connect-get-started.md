@@ -7,7 +7,7 @@ For an online workshop that uses a case study and includes hands-on labs, see
 
 Use these steps to set up your contact center.
 
-1. [Create an Connect Customer instance](amazon-connect-instances.md "amazon-connect-instances.md"). Use an instance to contain all the resources and settings related to your
+1. [Create a Connect Customer instance](amazon-connect-instances.md "amazon-connect-instances.md"). Use an instance to contain all the resources and settings related to your
    contact center. You specify how you plan to manage user accounts, whether your
    contact center will accept incoming calls and make outbound calls, and review the
    location where data will be stored in your Amazon S3 bucket.

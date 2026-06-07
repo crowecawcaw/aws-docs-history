@@ -1,4 +1,4 @@
-# Create an Connect Customer instance
+# Create a Connect Customer instance
 
 The first step in setting up your Connect Customer contact center is to create a virtual contact
 center instance. Each instance contains all the resources and settings related to your

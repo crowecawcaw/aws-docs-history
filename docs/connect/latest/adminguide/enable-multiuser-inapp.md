@@ -75,7 +75,7 @@ The following diagram illustrates how previous and next contact IDs are
 mapped in a scenario where multiple participants and agents are added in a
 web, in-app or video call.
 
-![Diagram showing how contact IDs are mapped for multi-party WebRTC calls](images/multiparty-webrtc-contact-mapping.png)
+![Diagram showing how contact IDs are mapped for multi-party WebRTC calls.](images/multiparty-webrtc-contact-mapping.png)
 
 ## Handling concurrent user joins
 
@@ -130,7 +130,7 @@ If the field exists, the backend should call [CreateParticipant](../APIReference
 
 The backend flow should look like the following.
 
-![Backend flow diagram for handling concurrent user joins](images/multiparty-backend-flow.png)
+![Backend flow diagram for handling concurrent user joins.](images/multiparty-backend-flow.png)
 
 You can refer to the [Connect Customer in-app calling examples](https://github.com/amazon-connect/amazon-connect-in-app-calling-examples/tree/main/Web "https://github.com/amazon-connect/amazon-connect-in-app-calling-examples/tree/main/Web") on GitHub for implementation.
 

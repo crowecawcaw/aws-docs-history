@@ -8,4 +8,4 @@ For information on multi-skill, see [Multi skill scheduling](multiskill-scheduli
 
 Check the option to enable cross demand group trade.
 
-![Restrict shift exchange by demand group](images/wfm-shiftexchange-multiskill.png)
+![Restrict shift exchange by demand group.](images/wfm-shiftexchange-multiskill.png)

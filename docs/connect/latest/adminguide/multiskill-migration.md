@@ -15,7 +15,7 @@ permissions](required-optimization-permissions.md "required-optimization-permiss
 
 For more information, see [Multi skill forecasting](multiskill-forecasting.md "multiskill-forecasting.md")
 
-![Edit FG](images/wfm-migration-editfg.png)
+![Edit FG.](images/wfm-migration-editfg.png)
 
 - You may now create additional demand groups and move queues accordingly.
 
@@ -29,7 +29,7 @@ permissions](required-optimization-permissions.md "required-optimization-permiss
 - Create your new forecast group.
 - Go to old forecast groups and remove all queues.
 
-![Edit FG](images/wfm-migration-removequeues.png)
+![Edit FG.](images/wfm-migration-removequeues.png)
 
 - Go back to new forecast group and create demand groups.
 

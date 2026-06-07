@@ -153,7 +153,7 @@ profiles with `ProfileType` is PROFILE or where
 **Sample Campaign that targets accounts to be
 reached out by using `Phone`**
 
-![Sample Campaign that targets accounts to be reached out by using Phone](images/step-3-choose-the-starting-audiences-to-include-in-audience-group-1-7.png)
+![Sample Campaign that targets accounts to be reached out by using Phone.](images/step-3-choose-the-starting-audiences-to-include-in-audience-group-1-7.png)
 
 In this example, the campaign targets a single account with the
 following call sequence:

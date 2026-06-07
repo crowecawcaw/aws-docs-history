@@ -318,4 +318,4 @@ presence of the customer by using a [Check call progress](check-call-progress.md
 callback contact is recreated. If a customer is detected on other end of the call,
 the call is transferred to queue for the agent to be joined to the customer.
 
-![An outbound dial flow with a Check call progress block](images/customer-first-callback-contact-lifecycle-sample-flows-outbound-1.png)
+![An outbound dial flow with a Check call progress block.](images/customer-first-callback-contact-lifecycle-sample-flows-outbound-1.png)

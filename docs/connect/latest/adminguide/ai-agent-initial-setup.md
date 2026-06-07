@@ -765,11 +765,11 @@ The Bedrock knowledge base integration is only available for on-contact calls an
 
 ![The Add integration page.](images/add-integration-page-ai-agents.png) 2. Choose Bedrock Knowledge Base
 
-![Selecting Bedrock knowledge base from data source list](images/ai-agents-select-byobkb-data-source.png) 3. Select existing Bedrock Knowledge Base
+![Selecting Bedrock knowledge base from data source list.](images/ai-agents-select-byobkb-data-source.png) 3. Select existing Bedrock Knowledge Base
 
-![Selecting existing Bedrock Knowledge Base](images/ai-agents-selecting-bedrock-knowledge-base.png) 4. Review and add integration
+![Selecting existing Bedrock Knowledge Base.](images/ai-agents-selecting-bedrock-knowledge-base.png) 4. Review and add integration
 
-![BYOBKB review and integrate page](images/ai-agents-byobkb-review-and-integrate.png)
+![BYOBKB review and integrate page.](images/ai-agents-byobkb-review-and-integrate.png)
 You have successfully integrated an existing Bedrock Knowledge Base with Connect's AI Agents
 
 ###### Note

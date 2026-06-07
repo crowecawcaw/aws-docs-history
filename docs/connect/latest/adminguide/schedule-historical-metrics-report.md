@@ -76,7 +76,7 @@ For example:
       - Row 1: 2:00PM EST November 9th to midnight (00:00) November 10th
       - Row 2: Midnight (00:00) November 10th to 2:00PM EST November 10th
 
-  ![Settings to create a scheduled report for yesterday that generates a report at 2:00PM EST every day](images/metrics-scheduled-reports-historical-daily-2pm.png)
+  ![Settings to create a scheduled report for yesterday that generates a report at 2:00PM EST every day.](images/metrics-scheduled-reports-historical-daily-2pm.png)
   - To create a scheduled report for yesterday that generates only one row
     for the 24 hour interval in each run, apply the following settings:
     - Generate this report **Daily**, running every
@@ -87,7 +87,7 @@ For example:
       November 9th to midnight (00:00) November 10th with 1 row for the
       24 hour interval in each run.
 
-  ![Settings to create a scheduled report for yesterday that generates a report at 12:00AM EST every day](images/metrics-scheduled-reports-historical-daily-12am.png)
+  ![Settings to create a scheduled report for yesterday that generates a report at 12:00AM EST every day.](images/metrics-scheduled-reports-historical-daily-12am.png)
 
 - A scheduled report with **Generate this report** =
   **Hourly - - For the Previous 24 Hours** always

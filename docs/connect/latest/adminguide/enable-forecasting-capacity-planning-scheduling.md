@@ -10,7 +10,7 @@ account.
    type _Connect Customer_ and then choose
    **Connect Customer**.This is shown in the following image.
 
-![The AWS Management Console, the search box, Connect Customer](images/wfm-aws-console.png) 3. On the **Connect Customer virtual contact center instances** page,
+![The AWS Management Console, the search box, Connect Customer.](images/wfm-aws-console.png) 3. On the **Connect Customer virtual contact center instances** page,
 choose the **Instance alias** where you want to enable
 forecasting, capacity planning, and scheduling.
 
