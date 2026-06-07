@@ -68,7 +68,7 @@ licensing models.
 
 1 Denotes that the instance was originally launched from your own
 imported virtual machine (VM). You can import your VM using a service such
-as [VM Import/Export](../../../vm-import/latest/userguide/what-is-vmimport.md "../../../vm-import/latest/userguide/what-is-vmimport.md") or [AWS Application Migration Service](../../../mgn/latest/ug/what-is-application-migration-service.md "../../../mgn/latest/ug/what-is-application-migration-service.md").
+as [VM Import/Export](../../../vm-import/latest/userguide/what-is-vmimport.md "../../../vm-import/latest/userguide/what-is-vmimport.md") or [AWS Transform MGN](../../../mgn/latest/ug/what-is-application-migration-service.md "../../../mgn/latest/ug/what-is-application-migration-service.md").
 
 2 Denotes that you have sourced your own SQL Server installation
 media (.iso, .exe).
