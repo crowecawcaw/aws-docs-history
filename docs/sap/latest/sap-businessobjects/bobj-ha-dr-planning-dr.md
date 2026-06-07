@@ -44,4 +44,4 @@ In the event of DR or when performing a DR drill, you can either manually switch
 
 **Figure 5: Redirecting users to a DR region**
 
-![Redirecting users to a DR region](/images/sap/latest/sap-businessobjects/images/bobj-ha-dr-dr-redirect.png)
+![Redirecting users to a DR region](images/bobj-ha-dr-dr-redirect.png)
