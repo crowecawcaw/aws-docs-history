@@ -30,9 +30,9 @@ When using IAM authentication, the following limitations apply:
 - IAM authentication requires in-transit encryption (TLS) to be enabled on your cache. For more information, see
   [ElastiCache in-transit encryption (TLS)](in-transit-encryption.md "in-transit-encryption.md").
 - For IAM-enabled ElastiCache users the username and user id properties must be identical.
-- The IAM authentication token is valid for 15 minutes. For long-lived connections, we recommend using a Valkey or Redis OSS client that supports a credentials provider interface.
+- The IAM authentication token is valid for 15 minutes. If the connection is re-authenticated with an expired token, the authentication request will be rejected. For long-lived connections, we recommend using a Valkey or Redis OSS client that supports a credentials provider interface to automatically generate fresh tokens before expiry.
 - An IAM authenticated connection to ElastiCache for Valkey or Redis OSS will automatically be disconnected after 12 hours. The connection can be prolonged for 12 hours by sending an `AUTH` or `HELLO` command with a new IAM authentication token.
-- IAM authentication is not supported inside `MULTI`/`EXEC` blocks.
+- IAM re-authentication (`AUTH` or `HELLO` commands) is not supported inside `MULTI`/`EXEC` or Lua script blocks. However, you can run regular data commands inside `MULTI`/`EXEC` blocks on an IAM-authenticated connection.
 - Currently, IAM authentication supports the following global condition context keys:
 
       + When using IAM authentication with serverless caches, `aws:VpcSourceIp`, `aws:SourceVpc`, `aws:SourceVpce`,

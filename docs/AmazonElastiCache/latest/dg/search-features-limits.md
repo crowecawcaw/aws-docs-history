@@ -48,6 +48,11 @@ The RDB files from the one cluster with search indexes can be imported to anothe
 
 Similar to Valkey OSS write operations, an index backfill is subjected to out-of-memory limitations. If engine memory is filled up while a backfill is in progress, all backfills are paused. If memory becomes available, the backfill process is resumed. It is possible to delete an index when backfill is paused due to out of memory.
 
+### Write throttling with durability enabled
+
+When durability is enabled and search indexes are configured, write commands targeting indexed keys may be throttled to maintain transactional log performance. For details, see
+[Search write throttling](Durability.SearchThrottling.md "Durability.SearchThrottling.md").
+
 ### Transactions
 
 The commands `FT.CREATE` and `FT.DROPINDEX`, cannot be executed in a transactional context, i.e., not within a `MULTI/EXEC` block or within a LUA or FUNCTION script. Additionally, the `FT.SEARCH` and `FT.AGGREGATE` commands cannot be executed in a transactional context in a ElastiCache Valkey Cluster operating in Cluster Mode.

@@ -19,3 +19,6 @@
 - Durability requires and automatically enables encryption at-rest, and requires
   encryption in-transit (TLS) to be enabled at cluster creation.
 - Online migration from self-hosted Valkey or Redis OSS to a durable cluster is not supported.
+- When durability is enabled and search indexes are configured, write commands targeting
+  indexed keys may be throttled to maintain transactional log performance. For details, see
+  [Search write throttling](Durability.SearchThrottling.md "Durability.SearchThrottling.md").

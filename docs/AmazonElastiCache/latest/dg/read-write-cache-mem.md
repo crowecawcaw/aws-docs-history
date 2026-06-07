@@ -100,7 +100,7 @@ from pymemcache.client.base import Client
 context = ssl.create_default_context()
 cluster_endpoint = <To be taken from the AWS CLI / console>
 target_port = 11211
-memcached_client = Client(("{cluster_endpoint}", target_port), tls_context=context)
+memcached_client = Client((cluster_endpoint, target_port), tls_context=context)
 memcached_client.set("key", "value", expire=500, noreply=False)
 assert self.memcached_client.get("key").decode() == "value"
 

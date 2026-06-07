@@ -3,6 +3,10 @@
 ElastiCache offers a wide variety of metrics and events for monitoring when working with serverless caches.
 This includes CloudWatch metrics, command level metrics, and event logs which can be ingested via Amazon EventBridge.
 
+###### Note
+
+Amazon ElastiCache offers both serverless caches and node-based clusters. This page covers metrics and events for _serverless caches_. If you are using node-based clusters, see [Metrics and events for node-based Valkey and Redis OSS clusters](self-designed-metrics-events.valkey-and-redis.md "self-designed-metrics-events.valkey-and-redis.md").
+
 ###### Topics
 
 - [Serverless cache metrics](#serverless-metrics "#serverless-metrics")

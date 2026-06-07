@@ -109,7 +109,7 @@ It is not recommended for production use due to the following limitations:
   Therefore, you should avoid sending sensitive data via the NAT instance.
 - The NAT instance adds the overhead of maintaining another instance.
 - The NAT instance serves as a single point of failure.
-  For information about how to set up high availability NAT on VPC, see [High Availability for Amazon VPC NAT Instances: An Example](https://aws.amazon.com/articles/2781451301784570 "https://aws.amazon.com/articles/2781451301784570").
+  For high availability, consider using a [NAT gateway](../../../AmazonVPC/latest/UserGuide/vpc-nat-gateway.md "../../../AmazonVPC/latest/UserGuide/vpc-nat-gateway.md") instead.
 
 #### How to access ElastiCache resources from outside AWS
 
@@ -324,4 +324,4 @@ The following topics may be of additional interest.
 - [Accessing an ElastiCache Cache from an Application Running in a Customer's Data Center](elasticache-vpc-accessing.md#elasticache-vpc-accessing-data-center "elasticache-vpc-accessing.md#elasticache-vpc-accessing-data-center")
 - [NAT Instances](../../../AmazonVPC/latest/UserGuide/VPC_NAT_Instance.md "../../../AmazonVPC/latest/UserGuide/VPC_NAT_Instance.md")
 - [Configuring ElastiCache Clients](ClientConfig.md "ClientConfig.md")
-- [High Availability for Amazon VPC NAT Instances: An Example](https://aws.amazon.com/articles/2781451301784570 "https://aws.amazon.com/articles/2781451301784570")
+- [NAT Gateways](../../../AmazonVPC/latest/UserGuide/vpc-nat-gateway.md "../../../AmazonVPC/latest/UserGuide/vpc-nat-gateway.md")

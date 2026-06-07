@@ -41,26 +41,18 @@ Copy the Endpoint Address shown in the output. You'll need this address when you
 
 ### Step 1.3: Create IAM Role
 
-1. Create an IAM trust policy document, as shown below, for your role that allows your account to assume the new role.
+1. Create an IAM trust policy document, as shown below, for your role that allows the Lambda service to assume the new role.
    Save the policy to a file named _trust-policy.json_.
 
-JSON
-
 ```
-`{
-"Version":"2012-10-17",
- "Statement": [{
- "Effect": "Allow",
- "Action": "sts:AssumeRole",
- "Resource": "arn:aws:iam::*:role/*"
- },
- {
- "Effect": "Allow",
- "Action": "sts:AssumeRole",
- "Resource": "arn:aws:iam::*:role/*"
- }]
-}`
-
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Effect": "Allow",
+        "Principal": {"Service": "lambda.amazonaws.com"},
+        "Action": "sts:AssumeRole"
+    }]
+}
 ```
 
 2. Create an IAM policy document, as shown below. Save the policy to a file named _policy.json_.
@@ -110,9 +102,13 @@ aws iam attach-role-policy \
  --policy-arn "arn:aws:iam::123456789012:policy/elasticache-allow-all"
 ```
 
-### Step 1.4: Create a default user
+### Step 1.4: Configure IAM authentication
 
-1. Create a new default user.
+###### Important
+
+This step is required. Your Lambda function authenticates to ElastiCache using IAM. For this to work, you must create an IAM-enabled ElastiCache user, add it to a user group, and associate that user group with your cache. Without this configuration, connection attempts from Lambda will fail.
+
+1. Create a default user with access disabled. Every user group requires a default user. By disabling access on this user, you ensure that only explicitly configured IAM users can connect.
 
 ```
 aws elasticache create-user \
@@ -123,7 +119,7 @@ aws elasticache create-user \
 --access-string "off +get ~keys*"
 ```
 
-2. Create a new IAM-enabled user.
+2. Create an IAM-enabled user. This is the user identity that your Lambda function will authenticate as.
 
 ```
 aws elasticache create-user \
@@ -134,7 +130,7 @@ aws elasticache create-user \
 --access-string "on ~* +@all"
 ```
 
-3. Create a user group and attach the user.
+3. Create a user group, add both users to it, and associate the group with your cache.
 
 ```
 aws elasticache create-user-group \

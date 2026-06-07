@@ -211,7 +211,7 @@ aws elasticache failover-replication-group \
 
 ```
 aws elasticache increase-node-groups-in-global-replication-group \
-   --apply-immediately `yes` \
+   --apply-immediately \
    --global-replication-group-id `global-replication-group-name` \
    --node-group-count `3`
 
@@ -221,17 +221,17 @@ aws elasticache increase-node-groups-in-global-replication-group \
 
 ```
 aws elasticache decrease-node-groups-in-global-replication-group \
-   --apply-immediately `yes` \
+   --apply-immediately \
    --global-replication-group-id `global-replication-group-name` \
    --node-group-count `3`
 
 ```
 
-- [rebalance-shards-in-global-replication-group](../../../cli/latest/reference/elasticache/rebalance-slots-in-global-replication-group.md "../../../cli/latest/reference/elasticache/rebalance-slots-in-global-replication-group.md")
+- [rebalance-slots-in-global-replication-group](../../../cli/latest/reference/elasticache/rebalance-slots-in-global-replication-group.md "../../../cli/latest/reference/elasticache/rebalance-slots-in-global-replication-group.md")
 
 ```
-aws elasticache rebalance-shards-in-global-replication-group \
-   --apply-immediately `yes` \
+aws elasticache rebalance-slots-in-global-replication-group \
+   --apply-immediately \
    --global-replication-group-id `global-replication-group-name`
 
 

@@ -12,3 +12,4 @@ You can learn more about the Search feature and related concepts at [Valkey Sear
 
 - [Search features and limits](search-features-limits.md "search-features-limits.md")
 - [Choosing the appropriate configuration](choosing-configuration.md "choosing-configuration.md")
+- [Search write throttling](Durability.SearchThrottling.md "Durability.SearchThrottling.md")

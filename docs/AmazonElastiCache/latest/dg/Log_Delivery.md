@@ -2,6 +2,8 @@
 
 ###### Note
 
+Log delivery is not supported for serverless caches.
+
 Slow Log is supported for Valkey 7.x and above, and Redis OSS clusters and replication groups using engine version 6.0 onward.
 
 Engine Log is supported for Valkey 7.x and above, and Redis OSS clusters and replication groups using engine version 6.2 onward.

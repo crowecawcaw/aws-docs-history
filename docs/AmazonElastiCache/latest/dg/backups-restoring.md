@@ -55,3 +55,51 @@ aws elasticache create-serverless-cache ^
     --engine redis ^
     --snapshot-arns-to-restore Snapshot-ARN
 ```
+
+**To restore a backup to a node-based cluster (AWS CLI)**
+
+You can restore a backup to a node-based cluster using the `create-replication-group` operation with the
+`--snapshot-name` parameter (for an ElastiCache backup) or the `--snapshot-arns` parameter (for an RDB file stored in Amazon S3).
+
+The following example restores from an ElastiCache backup:
+
+For Linux, macOS, or Unix:
+
+```
+aws elasticache create-replication-group \
+    --replication-group-id `my-cluster` \
+    --replication-group-description "`Restore from backup`" \
+    --snapshot-name `my-backup`
+```
+
+For Windows:
+
+```
+aws elasticache create-replication-group ^
+    --replication-group-id `my-cluster` ^
+    --replication-group-description "`Restore from backup`" ^
+    --snapshot-name `my-backup`
+```
+
+The following example restores from an RDB file stored in Amazon S3:
+
+For Linux, macOS, or Unix:
+
+```
+aws elasticache create-replication-group \
+    --replication-group-id `my-cluster` \
+    --replication-group-description "`Restore from S3`" \
+    --snapshot-arns `arn:aws:s3:::my-bucket/my-backup.rdb`
+```
+
+For Windows:
+
+```
+aws elasticache create-replication-group ^
+    --replication-group-id `my-cluster` ^
+    --replication-group-description "`Restore from S3`" ^
+    --snapshot-arns `arn:aws:s3:::my-bucket/my-backup.rdb`
+```
+
+For more information on seeding a new node-based cluster from a backup, see
+[Tutorial: Seeding a new node-based cluster with an externally created backup](backups-seeding-redis.md "backups-seeding-redis.md").

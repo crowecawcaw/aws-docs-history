@@ -9,6 +9,7 @@ is generating the error message.
 - [Customer's node quota exceeded](#ErrorMessages.CACHE_CLUSTER_CUSTOMER_QUOTA_EXCEEDED "#ErrorMessages.CACHE_CLUSTER_CUSTOMER_QUOTA_EXCEEDED")
 - [Manual snapshot quota exceeded](#ErrorMessages.MANUAL_SNAPSHOT_WITHIN_24_HOURS_QUOTA_EXCEEDED "#ErrorMessages.MANUAL_SNAPSHOT_WITHIN_24_HOURS_QUOTA_EXCEEDED")
 - [Insufficient cluster capacity](#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY "#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY")
+- [VPC endpoint quota exceeded](#ErrorMessages.VPC_ENDPOINT_LIMIT_EXCEEDED "#ErrorMessages.VPC_ENDPOINT_LIMIT_EXCEEDED")
 
 Error Message:
 **Cluster node quota exceeded.
@@ -76,3 +77,22 @@ AWS does not currently have enough available On-Demand capacity to service your 
 - If you're launching a cluster, submit a new request without specifying an Availability Zone.
 - If you're launching a cluster, submit a new request using a different node type (which you can scale up at
   a later stage). For more information, see [Scaling ElastiCache](Scaling.md "Scaling.md").
+
+ 
+
+Error Messages:
+**Failed to create cache _cluster-name_. Quota limit reached for creating VPC endpoint.**
+Or, in CloudTrail: **"errorCode": "Client.VpcEndpointLimitExceeded"** and **"errorMessage": "Limit of _%n_ VPC endpoints per VPC exceeded."**
+
+**Cause:**
+You attempted to create an ElastiCache Serverless cluster in a VPC that has already reached its
+maximum number of VPC endpoints.
+
+**Solution:**
+Request a quota increase for VPC endpoints:
+
+1. Open the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home "https://console.aws.amazon.com/servicequotas/home") in your AWS Region.
+2. For **AWS Services**, choose **Amazon Virtual Private Cloud (Amazon VPC)**.
+3. Choose **Interface VPC endpoints per VPC**, and then request an increase.
+
+For more information, see [Amazon VPC quotas](../../../general/latest/gr/vpc-service.md "../../../general/latest/gr/vpc-service.md") in _Amazon Web Services General Reference_.

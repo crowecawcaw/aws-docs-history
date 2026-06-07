@@ -67,6 +67,14 @@ valkey-cli -h `Primary or Configuration Endpoint` --tls -a `'your-password'` -p 
 
 ###### Note
 
+If you are connecting to a cluster-mode enabled cache using the Configuration Endpoint, add the `-c` flag to enable cluster mode in the client. This allows the client to follow `MOVED` and `ASK` redirections automatically:
+
+```
+valkey-cli -c -h `Configuration Endpoint` --tls -a `'your-password'` -p 6379
+```
+
+###### Note
+
 If you install redis6 on Amazon Linux 2023, you can now use the command `redis6-cli` instead of `valkey-cli`:
 
 ```

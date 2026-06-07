@@ -4,12 +4,12 @@ When connecting to an ElastiCache Valkey or Redis OSS cluster in cluster mode en
 
 - The client is initialized and must populate the initial slots configuration
 - A MOVED redirection is received from the server, such as in the situation of a failover when all slots served by the former primary node are taken over by the replica, or re-sharding when slots are being moved from the source primary to the target primary node
-  Client discovery is usually done via issuing a CLUSTER SLOT or CLUSTER NODE command to the Valkey or Redis OSS server. We recommend the CLUSTER SLOT method because it returns the set of slot ranges and the associated primary and replica nodes back to the client.
+  Client discovery is usually done via issuing a CLUSTER SLOTS or CLUSTER NODES command to the Valkey or Redis OSS server. We recommend the CLUSTER SLOTS method because it returns the set of slot ranges and the associated primary and replica nodes back to the client.
   This doesn't require additional parsing from the client and is more efficient.
 
-Depending on the cluster topology, the size of the response for the CLUSTER SLOT command can vary based on the cluster size. Larger clusters with more nodes produce a larger response. As a result, it's important to ensure that the number of clients
+Depending on the cluster topology, the size of the response for the CLUSTER SLOTS command can vary based on the cluster size. Larger clusters with more nodes produce a larger response. As a result, it's important to ensure that the number of clients
 doing the cluster topology discovery doesn't grow unbounded. For example, when the client application starts up or loses connection from the server and must perform cluster discovery, one common mistake is that the client application fires several
-reconnection and discovery requests without adding exponential backoff upon retry. This can render the Valkey or Redis OSS server unresponsive for a prolonged period of time, with the CPU utilization at 100%. The outage is prolonged if each CLUSTER SLOT
+reconnection and discovery requests without adding exponential backoff upon retry. This can render the Valkey or Redis OSS server unresponsive for a prolonged period of time, with the CPU utilization at 100%. The outage is prolonged if each CLUSTER SLOTS
 command must process a large number of nodes in the cluster bus. We have observed multiple client outages in the past due to this behavior across a number of different languages including Python (redis-py-cluster) and Java (Lettuce and Redisson).
 
 In a serverless cache, many of the problems are automatically mitigated because the advertised cluster topology is static and consists of two entries: a write endpoint and a read endpoint. Cluster discovery is also automatically spread over multiple

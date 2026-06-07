@@ -64,6 +64,12 @@ At this time, you can't use global datastores in [Using local zones with ElastiC
   key management service concepts](../../../kms/latest/developerguide/concepts.md#master_keys "../../../kms/latest/developerguide/concepts.md#master_keys") in the
   _AWS Key Management Service Developer Guide._
 - Global datastores are not supported with durability-enabled clusters.
+- When a cluster is associated with a global datastore, ElastiCache automatically
+  disables the _Auto upgrade minor versions_ setting to prevent
+  engine version inconsistencies between member clusters. This setting cannot be
+  re-enabled while the cluster belongs to a global datastore.
+- Global Datastore doesn't support cross-account deployments. All primary and
+  secondary clusters must reside within the same AWS account.
 
 ###### Note
 

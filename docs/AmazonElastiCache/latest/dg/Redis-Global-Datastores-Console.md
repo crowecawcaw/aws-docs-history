@@ -163,7 +163,7 @@ procedure.
     datastore. On the **Parameter Groups** page, the yes/no
     **Global** attribute indicates whether a parameter
     group is part of a global datastore. 4. For **Node type**, choose the down arrow (
-    ![Downward-pointing triangle icon, typically used to indicate a dropdown menu.](images/ElastiCache-DnArrow.png)
+    ![Downward-pointing triangle icon, typically used to indicate a dropdown menu.](/images/AmazonElastiCache/latest/dg/images/ElastiCache-DnArrow.png)
     ). In the **Change node type** dialog
     box, choose a value for **Instance family** for the node
     type that you want. Then choose the node type that you want to use for this

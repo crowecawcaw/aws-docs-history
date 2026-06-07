@@ -122,21 +122,35 @@ inspect and apply them using the AWS CLI:
 - To retrieve a description of the service updates that are available,
   run the following command:
 
-`aws elasticache describe-service-updates --service-update-status available`
+```
+aws elasticache describe-service-updates --service-update-status available
+```
 
 For more information, see [describe-service-updates](../../../cli/latest/reference/elasticache/describe-service-updates.md "../../../cli/latest/reference/elasticache/describe-service-updates.md").
 
-- To apply a service update on a list of clusters, run the following command:
+- To apply a service update on a list of replication groups, run the following command:
 
-`aws elasticache batch-apply-update-action --service-update ServiceUpdateNameToApply=sample-service-update --cluster-names cluster-1 cluster2`
+```
+aws elasticache batch-apply-update-action \
+  --service-update-name `my-service-update` \
+  --replication-group-ids `my-replication-group-1 my-replication-group-2`
+```
+
+For a cache cluster, run the following command:
+
+```
+aws elasticache batch-apply-update-action \
+  --service-update-name `my-service-update` \
+  --cache-cluster-ids `my-cache-cluster-1 my-cache-cluster-2`
+```
 
 For more information, see [batch-apply-update-action](../../../cli/latest/reference/elasticache/batch-apply-update-action.md "../../../cli/latest/reference/elasticache/batch-apply-update-action.md").
 
 ### Verifying you have the latest Service Update Applied using the AWS console
 
-You can verify your ElastiCache for Redis OSS clusters are running the latest service update by following these steps:
+You can verify your ElastiCache for Valkey or Redis OSS clusters are running the latest service update by following these steps:
 
-1. Choose an applicable cluster on the **Redis OSS Clusters** page
+1. Choose an applicable cluster on the **Valkey or Redis OSS caches** page
 2. Choose **Service updates** in the navigation pane to see the applicable service updates for
    that cluster, if any.
 
@@ -145,7 +159,7 @@ If the console displays a list of service updates, you can select the service up
 
 ![Service updates console screenshot 1.](images/service-updates-1.png)
 
-If the console displays “No service updates found”, it means the ElastiCache for Redis OSS cluster
+If the console displays “No service updates found”, it means the ElastiCache for Valkey or Redis OSS cluster
 already has the latest service update applied.
 
 ![Service updates console screenshot 2.](images/service-updates-2.png)
@@ -193,16 +207,18 @@ shows how to do this.
 
 For a replication group, do the following:
 
-`aws elasticache batch-stop-update-action --service-update-name
- `sample-service-update`--replication-group-ids
-`my-replication-group-1
-my-replication-group-2``
+```
+aws elasticache batch-stop-update-action \
+  --service-update-name `my-service-update` \
+  --replication-group-ids `my-replication-group-1 my-replication-group-2`
+```
 
-For a cluster, do the following:
+For a cache cluster, do the following:
 
-`aws elasticache batch-stop-update-action --service-update-name
- `sample-service-update`--cache-cluster-ids
-`my-cache-cluster-1
-my-cache-cluster-2``
+```
+aws elasticache batch-stop-update-action \
+  --service-update-name `my-service-update` \
+  --cache-cluster-ids `my-cache-cluster-1 my-cache-cluster-2`
+```
 
 For more information, see [BatchStopUpdateAction](../APIReference/API_BatchStopUpdateAction.md "../APIReference/API_BatchStopUpdateAction.md").

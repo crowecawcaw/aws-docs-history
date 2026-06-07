@@ -565,7 +565,7 @@ Output from the above command looks something like this (JSON format).
 For more information, see modify-cache-cluster
 in the _AWS CLI Reference_. 3. If you used the `--apply-immediately`,
 check the status of the new cluster using the AWS CLI `describe-cache-clusters` command with the following parameter.
-When the status changes to _available_, you can begin using the new, larger cluster.
+When the status changes to _available_, you can begin using the new, smaller cluster.
 
     * `--cache-cluster-id` – The name of your single-node Valkey or Redis OSS cluster.
      Use this parameter to describe a particular cluster rather than all clusters.

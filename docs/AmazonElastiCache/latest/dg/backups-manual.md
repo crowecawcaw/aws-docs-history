@@ -42,14 +42,14 @@ The status of the cluster changes to _snapshotting_.
 **Manual backup of a serverless cache with the AWS CLI**
 
 To create a manual backup of a cache using the AWS CLI, use the
-`create-serverless-snapshot` AWS CLI operation with the following parameters:
+`create-serverless-cache-snapshot` AWS CLI operation with the following parameters:
 
 - `--serverless-cache-name` – The name of the serverless cache that you are backing up.
 - `--serverless-cache-snapshot-name` – Name of the snapshot to be created.
   For Linux, macOS, or Unix:
 
 - ```
-  aws elasticache create-serverless-snapshot \
+  aws elasticache create-serverless-cache-snapshot \
                           --serverless-cache-name CacheName \
                           --serverless-cache-snapshot-name bkup-20231127
   ```
@@ -59,7 +59,7 @@ For Windows:
 
 
 * ```
-aws elasticache create-serverless-snapshot ^
+aws elasticache create-serverless-cache-snapshot ^
     --serverless-cache-name CacheName ^
     --serverless-cache-snapshot-name bkup-20231127
 ````
