@@ -71,6 +71,14 @@ Admin access is intended for initial setup and configuration. For production use
 
 ## Adding users and groups
 
+To connect your IAM Identity Center instance with DevOps Agent, you need the following IAM permissions:
+
+- aidevops:EnableOperatorApp
+- sso:CreateApplicationAssignment
+- sso:DeleteApplicationAssignment
+- sso:ListApplicationAssignments
+- sso:DescribeApplication
+
 After configuring IAM Identity Center authentication, you need to grant specific users and groups access to the Agent Space web app:
 
 ### Step 1: Access user management

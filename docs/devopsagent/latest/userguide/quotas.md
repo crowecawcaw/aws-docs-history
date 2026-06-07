@@ -10,6 +10,7 @@ The following table describes the quotas for AWS DevOps Agent.
 | Concurrent investigations per agent space        | 3       | Yes        | The maximum number of incident resolution investigations that can run concurrently in a single agent space. |
 | Concurrent evaluations per agent space           | 1       | No         | The maximum number of incident prevention evaluations that can run concurrently in a single agent space.    |
 | Concurrent on-demand invocations per agent space | 10      | Yes        | The maximum number of on-demand DevOps invocations that can run concurrently in a single agent space.       |
+| MCP tools per agent space                        | 500     | No         | The maximum number of MCP tools that can be allowlisted across all MCP servers in a single agent space.     |
 
 ## Requesting a quota increase
 

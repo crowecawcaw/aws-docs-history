@@ -269,6 +269,12 @@ description: Comprehensive RDS performance investigation procedures
 
 Use clear, descriptive names like "rds-throttling-investigation" rather than generic names. A good skill name reflects the specific scenario or service it addresses, making it easier to identify the right skill at a glance.
 
+## Sample skills
+
+The [AWS DevOps Agent Skills samples repository](https://github.com/aws-samples/sample-code-for-devops-agent-skills "https://github.com/aws-samples/sample-code-for-devops-agent-skills") on GitHub contains community-contributed skills you can use as-is or as a starting point for writing your own. Available samples include skills for AWS Health event investigation, AWS Support case analysis, EKS operational reviews, and RDS operational reviews.
+
+To use a sample skill, clone the repository, zip the skill directory, and upload it to your Agent Space. Each skill includes a README with prerequisites and usage instructions.
+
 ## Managing Skills
 
 AWS DevOps Agent provides comprehensive skill management capabilities through the Operator Web App:
