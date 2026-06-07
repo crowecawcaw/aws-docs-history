@@ -27,7 +27,7 @@ segments.
 
 The following are the key concepts for MACsec:
 
-- MAC Security (MACsec) — An IEEE 802.1 Layer 2
+- **MAC Security (MACsec)** — An IEEE 802.1 Layer 2
   standard that provides data confidentiality, data integrity, and data origin
   authenticity. For more information about the protocol, see [802.1AE: MAC Security
   (MACsec)](https://1.ieee802.org/security/802-1ae/ "https://1.ieee802.org/security/802-1ae/").
@@ -38,7 +38,7 @@ The following are the key concepts for MACsec:
   generation process. This derivation happens at both ends of the connection after
   you provide and provision the CKN/CAK pair. The SAK is regenerated periodically
   for security purposes and whenever a MACsec session is established.
-- Connectivity Association Key Name (CKN) and Connectivity Association Key (CAK) — The values
+- **Connectivity Association Key Name (CKN)** and **Connectivity Association Key (CAK)** — The values
   in this pair are used to generate the MACsec key. You generate the pair values,
   associate them with an Direct Connect connection, and then provision them on your edge
   device at your end of the Direct Connect connection. Direct Connect supports only
@@ -49,6 +49,14 @@ The following are the key concepts for MACsec:
   exactly 64 characters in length. Direct Connect supports only Advanced
   Encryption Standard (AES) 256-bit keys for dedicated connections, which
   corresponds to a 64-character hexadecimal string.
+- **Key Distribution Channel** — To deliver a new CKN-CAK
+  pair to AWS, use the AWS Console or the Direct Connect CLI or SDK using
+  `associate-mac-sec-key`. We recommend you only use TLS 1.3 and
+  enforce a post-quantum key exchange algorithm such as ML-KEM (Module-Lattice-Based
+  Key Encapsulation Mechanism) when associating a new CKN-CAK pair with your
+  dedicated connection. For more information, review the AWS [SDK and CLI
+  guides](../../../sdkref/latest/guide/pqtls-details.md "../../../sdkref/latest/guide/pqtls-details.md"). When using the AWS Console, use a web browser that supports
+  ML-KEM and review the connection security.
 - **Encryption modes** — Direct Connect supports two MACsec
   encryption modes:
 
