@@ -157,7 +157,7 @@ Content-type: application/json
 ```
 
 The response includes the API key value to use when accessing
-resources in your applications. The key value will havethe format
+resources in your applications. The key value will have the format
 `v1.public.a1b2c3d4...`.
 
 You can also use the [DescribeKey](../APIReference/API_geoapikeys_DescribeKey.md "../APIReference/API_geoapikeys_DescribeKey.md") API to find the key value for a key at a later

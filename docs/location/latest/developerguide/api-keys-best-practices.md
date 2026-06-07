@@ -4,10 +4,10 @@ Follow these best practices to secure your API keys and manage their lifecycle.
 
 ## Manage API keys
 
-API keys include a plain text _value_ that gives access to one
-or more resources or APIs in your AWS account. If someone copies your API key,
-they can access those same resources and APIs. To minimize the potential impact,
-review the following best practices:
+API keys include a plain text _value_ that gives access to one or
+more resources or APIs in your AWS account. If someone copies your API key, they can
+access those same resources and APIs. To minimize the potential impact, review the
+following best practices:
 
 - **Limit the API key**
 
@@ -17,9 +17,9 @@ the key can be used.
 
 - **Manage API key lifetimes**
 
-You can create API keys that work indefinitely. However, if you want to
-create a temporary API key, rotate API keys on a regular basis, or revoke an
-existing API key, you can use _API key
+You can create API keys that work indefinitely. However, if you want to create
+a temporary API key, rotate API keys on a regular basis, or revoke an existing
+API key, you can use _API key
 expiration_.
 
     + You can set the expiration time for an API key when you create or
@@ -33,9 +33,8 @@ expiration_.
     + If you attempt to deactivate an API key that has been used within
      the last seven days, you'll be prompted to confirm that you want to
      make the change.
-    + If you are using the Amazon Location Service API or the AWS CLI, set the
-     `ForceUpdate` parameter to `true`,
-     otherwise you'll receive an error.
+    + If you are using the Amazon Location Service API or the AWS CLI, set the `ForceUpdate` parameter to `true`, otherwise you'll
+     receive an error.
 
 ## Restrict API key usage by request origin
 
@@ -52,9 +51,7 @@ Reference_.
 
 - `X-Android-Package`:
 
-A unique identifier for Android applications, defined in the app's
-`build.gradle` file, typically following a reverse-domain
-format.
+A unique identifier for Android applications, defined in the app's `build.gradle` file, typically following a reverse-domain format.
 
 Example:
 
@@ -73,9 +70,8 @@ Example:
 
 - `X-Apple-Bundle-Id` :
 
-A unique identifier for Apple (iOS, macOS, etc.) applications, defined in
-the app's `Info.plist`, typically following a reverse-domain
-format.
+A unique identifier for Apple (iOS, macOS, etc.) applications, defined in the
+app's `Info.plist`, typically following a reverse-domain format.
 
 Example:
 
