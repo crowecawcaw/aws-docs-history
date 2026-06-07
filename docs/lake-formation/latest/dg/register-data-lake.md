@@ -39,3 +39,4 @@ unstructured data, consider using Amazon S3 access grants to manage data access.
 - [Registering an Amazon S3 location in another AWS account](register-cross-account.md "register-cross-account.md")
 - [Registering an encrypted Amazon S3 location across AWS accounts](register-cross-encrypted.md "register-cross-encrypted.md")
 - [Deregistering an Amazon S3 location](unregister-location.md "unregister-location.md")
+- [Accessing Amazon S3 locations](accessing-s3-locations.md "accessing-s3-locations.md")

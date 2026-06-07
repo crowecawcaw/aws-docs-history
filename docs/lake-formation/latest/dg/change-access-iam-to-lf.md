@@ -40,10 +40,9 @@ aws lakeformation register-resource \
    control**
 
 Update the catalog with empty `CreateDatabaseDefaultPermissions` and
-`CreateTableDefaultPermissions` (set to `[]`) and set
-`OverwriteChildResourcePermissionsWithDefault` to `Accept`. This
-removes IAM-based access from all existing child resources and allows the catalog and its
-objects to be managed using Lake Formation grants.
+`CreateTableDefaultPermissions` (set to `[]`). This
+ensures that databases and tables in the catalog are managed using Lake Formation grants
+instead of IAM-based default permissions.
 
 ```
 aws glue update-catalog \
@@ -55,7 +54,6 @@ aws glue update-catalog \
     },
     "CreateDatabaseDefaultPermissions": [],
     "CreateTableDefaultPermissions": [],
-    "OverwriteChildResourcePermissionsWithDefault": "Accept",
     "AllowFullTableExternalDataAccess": "True"
   }'
 ```

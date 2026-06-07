@@ -53,7 +53,9 @@ location for a table under a federated database, you need to register the same l
 with the **Enable Data Catalog Federation** option. 7. Choose **Hybrid access mode** to not enable Lake Formation permissions by default. When you register Amazon S3 location
 in hybrid access mode, you can enable Lake Formation permissions by opting in principals for databases and tables under that location. 
 
-For more information on setting up hybrid access mode, see [Hybrid access mode](hybrid-access-mode.md "hybrid-access-mode.md"). 8. Select **Register location**.
+For more information on setting up hybrid access mode, see [Hybrid access mode](hybrid-access-mode.md "hybrid-access-mode.md"). 8. Choose **Register S3 path with Owner Account** and provide the S3 bucket owner account to allow Lake Formation to
+verify the registration role's access on the Amazon S3 location and enable Lake Formation to vend
+temporary credentials for Amazon S3 files under the registered location. 9. Select **Register location**.
 
 ###### To register a location (AWS CLI)
 
@@ -125,6 +127,26 @@ aws lakeformation update-resource \
  --resource-arn arn:aws:s3:::`<s3-path>` \
  --role-arn arn:aws:iam::`<123456789012>`:role/`<s3-access-role>` \
  --hybrid-access-enabled
+```
+
+4. ###### Register a location with expected owner account
+
+Use the `--expected-resource-owner-account` flag to allow Lake Formation
+to verify the registration role's access on the Amazon S3 location and vend
+temporary credentials for Amazon S3 files under the registered location.
+
+```
+aws lakeformation register-resource \
+ --resource-arn arn:aws:s3:::`<s3-path>` \
+ --role-arn arn:aws:iam::`<123456789012>`:role/`<s3-access-role>` \
+ --expected-resource-owner-account `<123456789012>`
+```
+
+```
+aws lakeformation update-resource \
+ --resource-arn arn:aws:s3:::`<s3-path>` \
+ --role-arn arn:aws:iam::`<123456789012>`:role/`<s3-access-role>` \
+ --expected-resource-owner-account `<123456789012>`
 ```
 
 For more information, see [RegisterResource](../APIReference/API_RegisterResource.md "../APIReference/API_RegisterResource.md") API operation.
