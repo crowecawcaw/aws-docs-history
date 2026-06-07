@@ -66,3 +66,13 @@ credentials instead of the [AssumeRoleWithSAML](../../../STS/latest/APIReference
 | Parameter name       | Alias | Parameter type | Default value |
 | -------------------- | ----- | -------------- | ------------- |
 | LakeFormationEnabled | none  | Optional       | FALSE         |
+
+## Enable token caching
+
+When enabled, caches the SAML assertion in memory across driver connections. This
+prevents SQL tools that create multiple driver connections from launching multiple
+browser windows.
+
+| Parameter name     | Alias | Parameter type | Default value |
+| ------------------ | ----- | -------------- | ------------- |
+| EnableTokenCaching | none  | Optional       | FALSE         |

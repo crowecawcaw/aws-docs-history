@@ -14,7 +14,7 @@ The Windows system you use must meet the following requirements:
 - One of the following operating systems:
   - Windows 11, 10, or 8.1
   - Windows Server 2019, 2016, or 2012
-  - Supported processor architecture : x86_64 (64-bit)
+  - Supported processor architecture: x86_64
 
 - At least 100 MB of available disk space
 - [Microsoft Visual C++ Redistributable for Visual Studio](https://visualstudio.microsoft.com/downloads/#microsoft-visual-c-redistributable-for-visual-studio-2022 "https://visualstudio.microsoft.com/downloads/#microsoft-visual-c-redistributable-for-visual-studio-2022") for 64-bit
@@ -25,7 +25,7 @@ The Windows system you use must meet the following requirements:
 ###### To download and install the Amazon Athena ODBC driver for Windows
 
 1. [Download](odbc-v2-driver.md#odbc-v2-driver-download "odbc-v2-driver.md#odbc-v2-driver-download") the
-   `AmazonAthenaODBC-2.`x`.`x`.`x`.msi`
+   `AmazonAthenaODBC-2.`x`.`y`.`z`-windows-amd64.msi`
    installation file.
 2. Launch the installation file, and then choose
    **Next**.

@@ -30,36 +30,34 @@ macOS operating systems.
 7. Enter the following command to verify that the driver is installed:
 
 ```
-> pkgutil --pkgs | grep athenaodbc
+> pkgutil --pkgs | grep athena.odbc
 ```
 
-Depending on your system, the output can look like one of the
+If the driver installed successfully, the output resembles the
 following.
 
 ```
-com.amazon.athenaodbc-x86_64.Config
-com.amazon.athenaodbc-x86_64.Driver
-```
-
-or
-
-```
-com.amazon.athenaodbc-arm64.Config
-com.amazon.athenaodbc-arm64.Driver
+com.amazon.athena.odbc.Runtime
+com.amazon.athena.odbc.Documentation
 ```
 
 ## Configuring a data source name on macOS
 
-After the driver is installed, you can find example `.odbc.ini` and
-`.odbcinst.ini` files in the following locations:
+After the driver is installed, you can find example
+`odbc.ini.example` and
+`odbcinst.ini.example` files in the following location:
 
-- Intel processor computers:
-  `/opt/athena/odbc/x86_64/ini/`
-- ARM processor computers:
-  `/opt/athena/odbc/arm64/ini/`
+- `/opt/amazon/athena-odbc/share/athena-odbc/`
 
-Use the `.ini` files in this location as examples for configuring
-the Amazon Athena ODBC driver and data source name (DSN).
+Copy the example files to a configuration directory and remove the
+`.example` extension. Use these files as a starting point for
+configuring the Amazon Athena ODBC driver and data source name (DSN).
+
+```
+sudo mkdir -p /opt/amazon/athena-odbc/etc/athena-odbc
+sudo cp /opt/amazon/athena-odbc/share/athena-odbc/odbc.ini.example /opt/amazon/athena-odbc/etc/athena-odbc/odbc.ini
+sudo cp /opt/amazon/athena-odbc/share/athena-odbc/odbcinst.ini.example /opt/amazon/athena-odbc/etc/athena-odbc/odbcinst.ini
+```
 
 ###### Note
 
@@ -67,43 +65,25 @@ By default, ODBC driver managers use the hidden configuration files
 `.odbc.ini` and `.odbcinst.ini`, which are
 located in the home directory.
 
-To specify the path to the `.odbc.ini` and
-`.odbcinst.ini` files using the iODBC driver manager, perform the
+To specify the path to the `odbc.ini` and
+`odbcinst.ini` files using the iODBC driver manager, perform the
 following steps.
 
 ###### To specify ODBC `.ini` file locations using iODBC driver manager
 
 1. Set `ODBCINI` to the full path and file name of the
-   `odbc.ini` file.
-   - For macOS computers that have Intel processors, use the following
-     syntax.
+   `odbc.ini` file, as in the following example.
 
-   ```
-   export ODBCINI=/opt/athena/odbc/x86_64/ini/odbc.ini
-   ```
+```
+export ODBCINI=/opt/amazon/athena-odbc/etc/athena-odbc/odbc.ini
+```
 
-   - For macOS computers that have ARM processors, use the following
-     syntax.
+2. Set `ODBCSYSINI` to the full path of the directory that contains
+   the `odbcinst.ini` file, as in the following example.
 
-   ```
-   export ODBCINI=/opt/athena/odbc/arm64/ini/odbc.ini
-   ```
-
-2. Set `ODBCSYSINI` to the full path and file name of the
-   `odbcinst.ini` file.
-   - For macOS computers that have Intel processors, use the following
-     syntax.
-
-   ```
-   export ODBCSYSINI=/opt/athena/odbc/x86_64/ini/odbcinst.ini
-   ```
-
-   - For macOS computers that have ARM processors, use the following
-     syntax.
-
-   ```
-   export ODBCSYSINI=/opt/athena/odbc/arm64/ini/odbcinst.ini
-   ```
+```
+export ODBCSYSINI=/opt/amazon/athena-odbc/etc/athena-odbc
+```
 
 3. If you want to use a data source name (DSN) to connect to your data store,
    configure the `odbc.ini` file to define data source names
@@ -118,14 +98,11 @@ athena_odbc_test=Amazon Athena ODBC (x64)
 [ATHENA_WIDE_SETTINGS] # Special DSN-name to signal driver about logging configuration.
 LogLevel=0             # set to 1 to enable ODBC driver logs
 UseAwsLogger=0         # set to 1 to enable AWS-SDK logs
-LogPath=/opt/athena/odbc/logs/ # Path to store the log files. Permissions to the location are required.
+LogPath=/opt/amazon/athena-odbc/logs/ # Path to store the log files. Permissions to the location are required.
 
 [athena_odbc_test]
 Description=Amazon Athena ODBC (x64)
-# For ARM:
-Driver=/opt/athena/odbc/arm64/lib/libathena-odbc-arm64.dylib
-# For Intel:
-# Driver=/opt/athena/odbc/x86_64/lib/libathena-odbc-x86_64.dylib
+Driver=/opt/amazon/athena-odbc/lib/libathenaodbc.dylib
 AwsRegion=us-west-1
 Workgroup=primary
 Catalog=AwsDataCatalog
@@ -144,12 +121,8 @@ S3OutputLocation=s3://amzn-s3-demo-bucket/
 Amazon Athena ODBC (x64)=Installed
 
 [Amazon Athena ODBC (x64)]
-# For ARM:
-Driver=/opt/athena/odbc/arm64/lib/libathena-odbc-arm64.dylib
-Setup=/opt/athena/odbc/arm64/lib/libathena-odbc-arm64.dylib
-# For Intel:
-# Driver=/opt/athena/odbc/x86_64/lib/libathena-odbc-x86_64.dylib
-# Setup=/opt/athena/odbc/x86_64/lib/libathena-odbc-x86_64.dylib
+Driver=/opt/amazon/athena-odbc/lib/libathenaodbc.dylib
+Setup=/opt/amazon/athena-odbc/lib/libathenaodbc.dylib
 ```
 
 5. After you install and configure the Amazon Athena ODBC driver, use the
@@ -169,7 +142,7 @@ DSN                              | Driver
 athena_odbc_test                 | Amazon Athena ODBC (x64)
 
 Enter ODBC connect string (? shows list): DSN=athena_odbc_test;
-Driver: 2.0.2.1 (Amazon Athena ODBC Driver)
+Driver: 2.x.y.z (Amazon Athena ODBC Driver)
 
 SQL>
 ```

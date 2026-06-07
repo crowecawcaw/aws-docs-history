@@ -29,9 +29,6 @@ statements.
 - In parameterized queries, parameters are positional and are denoted by
   `?`. Parameters are assigned values by their order in the query.
   Named parameters are not supported.
-- Currently, `?` parameters can be placed only in the
-  `WHERE` clause. Syntax like `SELECT ? FROM table` is
-  not supported.
 - Question mark parameters cannot be placed in double or single quotes (that is,
   `'?'` and `"?"` are not valid syntax).
 - For SQL execution parameters to be treated as strings, they must be enclosed

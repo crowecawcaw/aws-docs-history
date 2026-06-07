@@ -1,18 +1,29 @@
-# DataZone IdC Credentials Provider
+# SageMaker Browser IDC Credentials Provider
 
-An authentication mechanism that enables connecting to DataZone-governed data in Athena
-using IAM Identity Center.
+An authentication plugin that connects to Amazon Athena through SageMaker Unified Studio. It opens a
+browser for AWS Identity and Access Management Identity Center sign-in using the OAuth 2.0 Authorization Code
+flow with PKCE, then exchanges the resulting token for temporary credentials scoped to
+your SageMaker Unified Studio domain and Athena project environment.
+
+For information on enabling and using IAM Identity Center, see [Step 1:
+Enable IAM Identity Center](../../../singlesignon/latest/userguide/get-started-enable-identity-center.md "../../../singlesignon/latest/userguide/get-started-enable-identity-center.md") in the _AWS IAM Identity Center User Guide_.
+
+###### Note
+
+This plugin is designed for single-user desktop environments. In shared environments
+like Windows Terminal Servers or Remote Desktop Services, system administrators are
+responsible for establishing and maintaining security boundaries between users.
 
 ## Credentials provider
 
 The credentials provider that will be used to authenticate requests to AWS. Set
-the value of this parameter to `DataZoneIdc`. Note that the
+the value of this parameter to `SageMakerBrowserIdc`. Note that the
 `AWSCredentialsProviderClass` alias is deprecated; use the
 `CredentialsProvider` parameter name instead.
 
-| Parameter name      | Alias                                    | Parameter type | Default value | Value to use |
-| ------------------- | ---------------------------------------- | -------------- | ------------- | ------------ |
-| CredentialsProvider | AWSCredentialsProviderClass (deprecated) | Required       | none          | DataZoneIdc  |
+| Parameter name      | Alias                                                 | Parameter type | Default value | Value to use        |
+| ------------------- | ----------------------------------------------------- | -------------- | ------------- | ------------------- |
+| CredentialsProvider | AWSCredentialsProviderClass (deprecated), DataZoneIdc | Required       | none          | SageMakerBrowserIdc |
 
 ## DataZone domain identifier
 
@@ -22,13 +33,22 @@ Identifier of the DataZone domain to use.
 | ---------------- | ----- | -------------- | ------------- |
 | DataZoneDomainId | none  | Required       | none          |
 
+## DataZone project identifier
+
+Identifier of the DataZone project to use.
+
+| Parameter name    | Alias | Parameter type | Default value |
+| ----------------- | ----- | -------------- | ------------- |
+| DataZoneProjectId | none  | Optional       | none          |
+
 ## DataZone environment identifier
 
-Identifier of the DataZone environment to use.
+Identifier of the DataZone environment to use. Required if
+`DataZoneProjectId` is not specified.
 
 | Parameter name        | Alias | Parameter type | Default value |
 | --------------------- | ----- | -------------- | ------------- |
-| DataZoneEnvironmentId | none  | Required       | none          |
+| DataZoneEnvironmentId | none  | Optional       | none          |
 
 ## DataZone domain region
 

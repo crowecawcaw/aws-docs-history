@@ -82,3 +82,13 @@ specified, the driver uses a default Amazon S3 endpoint. For more information, s
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                   |
 | -------------------------- | ------------------ | ----------------- | ----------------------------------------------- |
 | S3EndpointOverride         | Optional           | none              | `S3EndpointOverride=s3.us-east-2.amazonaws.com` |
+
+## SageMaker endpoint override
+
+The `ClientConfiguration.endpointOverride` method uses this value to
+override the default HTTP endpoint for the DataZone client. For more information, see
+[ClientConfiguration](../../../sdk-for-cpp/v1/developer-guide/client-config.md "../../../sdk-for-cpp/v1/developer-guide/client-config.md").
+
+| **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                                |
+| -------------------------- | ------------------ | ----------------- | ------------------------------------------------------------ |
+| SageMakerEndpointOverride  | Optional           | none              | `SageMakerEndpointOverride=datazone.us-east-1.amazonaws.com` |

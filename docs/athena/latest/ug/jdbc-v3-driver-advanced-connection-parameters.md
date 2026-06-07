@@ -254,9 +254,9 @@ The endpoint that the driver will use when using
 `ClientConfiguration.endpointOverride` to override the default HTTP
 endpoint for SSO OIDC client. For more information, see [ClientConfiguration](../../../sdk-for-cpp/v1/developer-guide/client-config.md "../../../sdk-for-cpp/v1/developer-guide/client-config.md").
 
-| Parameter name          | Alias | Parameter type | Default value |
-| ----------------------- | ----- | -------------- | ------------- |
-| SSOOIDCEndpointOverride |       | Optional       | none          |
+| Parameter name  | Alias | Parameter type | Default value |
+| --------------- | ----- | -------------- | ------------- |
+| SsoOidcEndpoint |       | Optional       | none          |
 
 ### SSO Admin endpoint override
 
@@ -264,9 +264,19 @@ The endpoint that the driver will use when using
 `ClientConfiguration.endpointOverride` to override the default HTTP
 endpoint for SSO Admin client. For more information, see [ClientConfiguration](../../../sdk-for-cpp/v1/developer-guide/client-config.md "../../../sdk-for-cpp/v1/developer-guide/client-config.md").
 
-| Parameter name           | Alias | Parameter type | Default value |
-| ------------------------ | ----- | -------------- | ------------- |
-| SSOAdminEndpointOverride |       | Optional       | none          |
+| Parameter name   | Alias | Parameter type | Default value |
+| ---------------- | ----- | -------------- | ------------- |
+| SsoAdminEndpoint |       | Optional       | none          |
+
+### SSO endpoint override
+
+The endpoint that the driver will use when using
+`ClientConfiguration.endpointOverride` to override the default HTTP
+endpoint for SSO client. For more information, see [ClientConfiguration](../../../sdk-for-cpp/v1/developer-guide/client-config.md "../../../sdk-for-cpp/v1/developer-guide/client-config.md").
+
+| Parameter name | Alias | Parameter type | Default value |
+| -------------- | ----- | -------------- | ------------- |
+| SsoEndpoint    |       | Optional       | none          |
 
 ## Proxy configuration parameters
 

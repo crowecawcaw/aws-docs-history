@@ -14,8 +14,7 @@ To download the Amazon Athena 2.x ODBC driver, visit the links on this page.
 
 ###### Important
 
-When you use the ODBC 2.x driver, be sure to note the following
-requirements:
+When you use the ODBC 2.x driver, be sure to note the following:
 
 - Open port 444 – Keep port 444, which
   Athena uses to stream query results, open to outbound traffic. When you use a
@@ -27,42 +26,36 @@ requirements:
   exposed directly with the API. It is used only with the ODBC and JDBC
   drivers as part of streaming results support. For an example policy, see
   [AWS managed policy: AWSQuicksightAthenaAccess](security-iam-awsmanpol.md#awsquicksightathenaaccess-managed-policy "security-iam-awsmanpol.md#awsquicksightathenaaccess-managed-policy").
-
-###### Important
-
-Security update: Version 2.1.0.0 includes security
-enhancements to authentication, query processing, and transport security components.
-We recommend upgrading to this version to benefit from these improvements. For details,
-see the [Amazon Athena ODBC 2.x release notes](odbc-v2-driver-release-notes.md "odbc-v2-driver-release-notes.md").
+- Security update – Version 2.1.0.0
+  includes security enhancements to authentication, query processing, and
+  transport security components. We recommend upgrading to benefit from these
+  improvements. For details, see the [Amazon Athena ODBC 2.x release notes](odbc-v2-driver-release-notes.md "odbc-v2-driver-release-notes.md").
+- Installation changes in version 2.2.0.0
+  – Starting from version 2.2.0.0, the installation process has
+  changed for Windows, Linux, and macOS. On Windows, uninstall the previous
+  driver version before installing 2.2.0.0. For more information, see [Linux](odbc-v2-driver-getting-started-linux.md "odbc-v2-driver-getting-started-linux.md"), [macOS](odbc-v2-driver-getting-started-macos.md "odbc-v2-driver-getting-started-macos.md"), and [Windows](odbc-v2-driver-getting-started-windows.md "odbc-v2-driver-getting-started-windows.md").
 
 ### Linux
 
-| Driver version                | Download link                                                                                                                                                                                                                                             |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ODBC 2.1.0.0 for Linux 64-bit | [Linux 64 bit ODBC driver 2.1.0.0](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.1.0.0/Linux/AmazonAthenaODBC-2.1.0.0.rpm "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.1.0.0/Linux/AmazonAthenaODBC-2.1.0.0.rpm") |
+| Driver version                | Download link                                                                                                                                                                                                                                                           |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ODBC 2.2.0.0 for Linux x86_64 | [Linux x86_64 ODBC driver 2.2.0.0](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.0/Linux/AmazonAthenaODBC-2.2.0.0-x86_64.rpm "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.0/Linux/AmazonAthenaODBC-2.2.0.0-x86_64.rpm") |
 
-### macOS (ARM)
+### macOS
 
-| Driver version                      | Download link                                                                                                                                                                                                                                                               |
-| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ODBC 2.1.0.0 for macOS 64-bit (ARM) | [macOS 64 bit ODBC driver 2.1.0.0 (ARM)](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.1.0.0/Mac/arm/AmazonAthenaODBC-2.1.0.0_arm.pkg "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.1.0.0/Mac/arm/AmazonAthenaODBC-2.1.0.0_arm.pkg") |
-
-### macOS (Intel)
-
-| Driver version                        | Download link                                                                                                                                                                                                                                                                     |
-| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ODBC 2.1.0.0 for macOS 64-bit (Intel) | [macOS 64 bit ODBC driver 2.1.0.0 (Intel)](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.1.0.0/Mac/Intel/AmazonAthenaODBC-2.1.0.0_x86.pkg "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.1.0.0/Mac/Intel/AmazonAthenaODBC-2.1.0.0_x86.pkg") |
+| Driver version         | Download link                                                                                                                                                                                                                                                                      |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ODBC 2.2.0.0 for macOS | [macOS ODBC driver 2.2.0.0](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.0/Mac/AmazonAthenaODBC-2.2.0.0-macos11-universal.pkg "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.0/Mac/AmazonAthenaODBC-2.2.0.0-macos11-universal.pkg") |
 
 ### Windows
 
-| Driver version                  | Download link                                                                                                                                                                                                                                                   |
-| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ODBC 2.1.0.0 for Windows 64-bit | [Windows 64 bit ODBC driver 2.1.0.0](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.1.0.0/Windows/AmazonAthenaODBC-2.1.0.0.msi "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.1.0.0/Windows/AmazonAthenaODBC-2.1.0.0.msi") |
+| Driver version                 | Download link                                                                                                                                                                                                                                                                              |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ODBC 2.2.0.0 for Windows amd64 | [Windows amd64 ODBC driver 2.2.0.0](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.0/Windows/AmazonAthenaODBC-2.2.0.0-windows-amd64.msi "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.0/Windows/AmazonAthenaODBC-2.2.0.0-windows-amd64.msi") |
 
 ### Licenses
 
-- [AWS license](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.1.0.0/LICENSE.txt "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.1.0.0/LICENSE.txt")
-- [Third party license](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.1.0.0/THIRD_PARTY_LICENSES.txt "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.1.0.0/THIRD_PARTY_LICENSES.txt")
+- [AWS license](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.0/LICENSE.txt "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.0/LICENSE.txt")
 
 ## Trusted identity propagation with ODBC
 

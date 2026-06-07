@@ -23,5 +23,6 @@ parameters that are required depend on the authentication method that you use.
   AD](jdbc-v3-driver-browser-azure-ad-credentials.md "jdbc-v3-driver-browser-azure-ad-credentials.md")
 - [Browser
   SAML](jdbc-v3-driver-browser-saml-credentials.md "jdbc-v3-driver-browser-saml-credentials.md")
-- [DataZone IdC](jdbc-v3-driver-datazone-idc.md "jdbc-v3-driver-datazone-idc.md")
-- [DataZone IAM](jdbc-v3-driver-datazone-iamcp.md "jdbc-v3-driver-datazone-iamcp.md")
+- [Browser SSO OIDC](jdbc-v3-driver-browser-sso-oidc.md "jdbc-v3-driver-browser-sso-oidc.md")
+- [SageMaker Browser IDC](jdbc-v3-driver-datazone-idc.md "jdbc-v3-driver-datazone-idc.md")
+- [SageMaker IAM](jdbc-v3-driver-datazone-iamcp.md "jdbc-v3-driver-datazone-iamcp.md")

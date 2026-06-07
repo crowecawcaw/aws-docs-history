@@ -1,7 +1,18 @@
-# DataZone IAM Credentials Provider
+# SageMaker IAM Credentials Provider
 
-An authentication mechanism that uses IAM credentials to connect to
-DataZone-governed data in Athena.
+An authentication plugin that uses IAM credentials to connect to Amazon Athena through
+SageMaker Unified Studio. This plugin authenticates using IAM credentials (static access key/secret key
+or the AWS default credential chain) and retrieves Athena connection credentials via
+the SageMaker connection service.
+
+## Credentials provider
+
+The credentials provider that will be used to authenticate requests to AWS. Set
+the value of this parameter to `SageMakerIam`.
+
+| Parameter name      | Alias                                                 | Parameter type | Default value | Value to use |
+| ------------------- | ----------------------------------------------------- | -------------- | ------------- | ------------ |
+| CredentialsProvider | AWSCredentialsProviderClass (deprecated), DataZoneIam | Required       | none          | SageMakerIam |
 
 ## DataZone domain identifier
 
@@ -11,13 +22,22 @@ Identifier of the DataZone domain to use.
 | ---------------- | ----- | -------------- | ------------- |
 | DataZoneDomainId | none  | Required       | none          |
 
+## DataZone project identifier
+
+Identifier of the DataZone project to use.
+
+| Parameter name    | Alias | Parameter type | Default value |
+| ----------------- | ----- | -------------- | ------------- |
+| DataZoneProjectId | none  | Optional       | none          |
+
 ## DataZone environment identifier
 
-Identifier of the DataZone environment to use.
+Identifier of the DataZone environment to use. Required if
+`DataZoneProjectId` is not specified.
 
 | Parameter name        | Alias | Parameter type | Default value |
 | --------------------- | ----- | -------------- | ------------- |
-| DataZoneEnvironmentId | none  | Required       | none          |
+| DataZoneEnvironmentId | none  | Optional       | none          |
 
 ## DataZone domain region
 

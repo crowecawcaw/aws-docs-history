@@ -23,3 +23,5 @@ For common authentication parameters, see [Common authentication parameters](odb
 | [Browser trusted identity propagation credentials](odbc-v2-driver-browser-oidc-tip.md "odbc-v2-driver-browser-oidc-tip.md") | `AuthenticationType=BrowserOidcTip;`       |
 | [Okta](odbc-v2-driver-okta.md "odbc-v2-driver-okta.md")                                                                     | `AuthenticationType=Okta;`                 |
 | [Ping](odbc-v2-driver-ping.md "odbc-v2-driver-ping.md")                                                                     | `AuthenticationType=Ping;`                 |
+| [SageMaker Browser IDC](odbc-v2-driver-sagemaker-idc.md "odbc-v2-driver-sagemaker-idc.md")                                  | `AuthenticationType=SageMakerBrowserIdc;`  |
+| [SageMaker IAM](odbc-v2-driver-sagemaker-iam.md "odbc-v2-driver-sagemaker-iam.md")                                          | `AuthenticationType=SageMakerIam;`         |

@@ -88,9 +88,9 @@ The number of seconds the polling SSO API should check for the access token.
 
 The local port number to use for the OAuth 2.0 callback server. This is used as
 the redirect URI and you may need to allowlist this port on your network. The default
-generated redirect URI is: `http://localhost:7890/athena`. This parameter
-was added in v2.1.0.0 as part of the migration from Device Code to Authorization Code
-with PKCE.
+generated redirect URI is: `http://127.0.0.1:7890/oauth/callback`. This
+parameter was added in v2.1.0.0 as part of the migration from Device Code to
+Authorization Code with PKCE.
 
 ###### Warning
 

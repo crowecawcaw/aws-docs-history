@@ -3,6 +3,62 @@
 These release notes provide details of improvements and fixes in the Amazon Athena JDBC 3.x
 driver.
 
+## 3.8.0
+
+Released 2026-06-03
+
+### Improvements
+
+- Multi-catalog browsing – Added
+  multi-catalog browsing support for lakehouse features. The driver can now
+  discover and connect to all catalogs in federated catalog environments,
+  enabling use of S3 Tables and catalog federation through
+  Amazon Athena.
+- Browser SSO OIDC authentication plugin
+  – Added a new authentication plugin for AWS Identity and Access Management Identity Center.
+  This plugin enables seamless browser-based single sign-on authentication
+  using the Authorization Code with PKCE flow. For more information, see [Browser SSO OIDC credentials](jdbc-v3-driver-browser-sso-oidc.md "jdbc-v3-driver-browser-sso-oidc.md").
+- SageMaker authentication – Added
+  support for connecting using `DataZoneProjectId` in the
+  `SageMakerBrowserIdc` and `SageMakerIam`
+  authentication plugins. You can now connect to your SageMaker projects
+  and work with the data from your preferred third-party tool. For more
+  information, see [SageMaker Browser IDC Credentials Provider](jdbc-v3-driver-datazone-idc.md "jdbc-v3-driver-datazone-idc.md") and [SageMaker IAM Credentials Provider](jdbc-v3-driver-datazone-iamcp.md "jdbc-v3-driver-datazone-iamcp.md").
+- Browser authentication caching –
+  Added in-memory token caching support to the BrowserSaml and BrowserAzureAD
+  authentication plugins. When `EnableTokenCaching` is set to
+  `true`, the driver caches authentication tokens across
+  connections, reducing the number of browser authentication prompts.
+- AWS SDK version update – We have
+  updated the AWS SDK version used in the driver to 2.46.3 and have updated
+  the project dependencies for release 3.8.0.
+
+### Fixes
+
+- Date and time handling – The driver
+  now correctly handles pre-Gregorian dates, daylight saving time transitions,
+  time zone conversions, and nanosecond precision in date, time, and timestamp
+  values.
+- Prepared statements – Prepared
+  statements now work correctly when trailing line comments are
+  present.
+- Special characters in table names –
+  The `getTables` and `getColumns` methods now correctly
+  handle table names containing special characters such as `+`,
+  `$`, or `.`.
+- ResultSet.getObject –
+  `ResultSet.getObject()` now throws `SQLException`
+  instead of `NullPointerException` or
+  `ClassCastException`, in compliance with the JDBC
+  specification.
+- OutputLocation compatibility – The
+  `s3_staging_dir` connection parameter from the 2.x driver is now
+  correctly recognized as an alias for
+  `OutputLocation`.
+- Connection lifecycle – The driver now
+  properly shuts down internal thread pools when the connection is closed or
+  when the network timeout is changed, preventing thread leaks.
+
 ## 3.7.0
 
 Released 2025-11-21
@@ -120,7 +176,7 @@ Released 2024-10-30
 
 - DataZone authentication – Added
   support for the DataZone authentication plugins `DataZoneIdC` and
-  `DataZoneIAM`. For more information, see [DataZone IdC Credentials Provider](jdbc-v3-driver-datazone-idc.md "jdbc-v3-driver-datazone-idc.md") and [DataZone IAM Credentials Provider](jdbc-v3-driver-datazone-iamcp.md "jdbc-v3-driver-datazone-iamcp.md").
+  `DataZoneIAM`. For more information, see [SageMaker Browser IDC Credentials Provider](jdbc-v3-driver-datazone-idc.md "jdbc-v3-driver-datazone-idc.md") and [SageMaker IAM Credentials Provider](jdbc-v3-driver-datazone-iamcp.md "jdbc-v3-driver-datazone-iamcp.md").
 - Network timeout – The network
   timeout can now be set using the `NetworkTimeoutMillis`
   connection parameter. Previously it could be set only on the

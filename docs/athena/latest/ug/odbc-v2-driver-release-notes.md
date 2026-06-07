@@ -3,6 +3,43 @@
 These release notes provide details of enhancements, features, known issues, and workflow
 changes in the Amazon Athena ODBC 2.x driver.
 
+## 2.2.0.0
+
+Released 2026-05-29
+
+### Improvements
+
+- SageMaker authentication – Added
+  support for the SageMaker authentication plugins
+  `SageMakerBrowserIdc` and `SageMakerIam`. You can
+  now connect to your SageMaker projects and work with the data from your
+  preferred third-party tool. For more information, see
+  [SageMaker Browser IDC](odbc-v2-driver-sagemaker-idc.md "odbc-v2-driver-sagemaker-idc.md") and
+  [SageMaker IAM](odbc-v2-driver-sagemaker-iam.md "odbc-v2-driver-sagemaker-iam.md").
+- Multi-catalog browsing – Added
+  multi-catalog browsing support for lakehouse features. The driver can now
+  discover and connect to all catalogs in federated catalog environments,
+  enabling use of S3 Tables and catalog federation through
+  Amazon Athena.
+- macOS universal installer – The macOS
+  driver is now distributed as a single universal binary that supports both
+  ARM and Intel architectures, simplifying installation across all Mac
+  hardware.
+- HTTP client migration – Removed
+  the libcurl dependency from ODBC binaries by migrating to the AWS SDK CRT
+  HTTP client. The CRT client uses the platform's native TLS stack and system
+  trust store, improving connection reliability and eliminating transitive
+  dependencies on OpenSSL and zlib.
+
+### Fixes
+
+- Added `ExternalId` support for STS `AssumeRole`
+  for cross-account role assumption. The `ExternalId` is read
+  from the AWS profile configuration.
+
+To download the new ODBC v2 driver, see [ODBC 2.x driver download](odbc-v2-driver.md#odbc-v2-driver-download "odbc-v2-driver.md#odbc-v2-driver-download"). For connection information, see [Amazon Athena ODBC 2.x](odbc-v2-driver.md "odbc-v2-driver.md"). On Windows,
+uninstall the previous version before upgrading to 2.2.0.0.
+
 ## 2.1.0.0
 
 Released 2026-03-20

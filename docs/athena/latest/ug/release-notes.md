@@ -17,6 +17,18 @@ Describes Amazon Athena features, improvements, and bug fixes by release date.
 
 ## Athena release notes for 2026
 
+### June 03, 2026
+
+Amazon Athena releases JDBC driver version 3.8.0. For more information about this
+version of the driver, see [Amazon Athena JDBC 3.x release notes](jdbc-v3-driver-release-notes.md "jdbc-v3-driver-release-notes.md"). To download the latest JDBC
+driver, see [JDBC 3.x driver download](jdbc-v3-driver.md#jdbc-v3-driver-download "jdbc-v3-driver.md#jdbc-v3-driver-download").
+
+### May 29, 2026
+
+Amazon Athena releases ODBC driver version 2.2.0.0. For more information about this
+version of the driver, see [Amazon Athena ODBC 2.x release notes](odbc-v2-driver-release-notes.md "odbc-v2-driver-release-notes.md"). To download the ODBC 2.x driver,
+see [ODBC 2.x driver download](odbc-v2-driver.md#odbc-v2-driver-download "odbc-v2-driver.md#odbc-v2-driver-download").
+
 ### May 12, 2026
 
 Published on 2026-05-12
