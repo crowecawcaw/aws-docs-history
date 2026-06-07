@@ -378,3 +378,49 @@ The metrics that are collected are listed in the following table.
 | `node_diskio_ebs_ec2_instance_performance_exceeded_iops` | `ClusterName`<br>`ClusterName`, `NodeName`,<br>`InstanceId`<br>`ClusterName`, `NodeName`, `InstanceId`<br>`VolumeId` | The total time, in microseconds, that the EBS volume exceeded the<br>attached Amazon EC2 instance's maximum IOPS performance.       |
 | `node_diskio_ebs_ec2_instance_performance_exceeded_tp`   | `ClusterName`<br>`ClusterName`, `NodeName`,<br>`InstanceId`<br>`ClusterName`, `NodeName`, `InstanceId`<br>`VolumeId` | The total time, in microseconds, that the EBS volume exceeded the<br>attached Amazon EC2 instance's maximum throughput performance. |
 | `node_diskio_ebs_volume_queue_length`                    | `ClusterName`<br>`ClusterName`, `NodeName`,<br>`InstanceId`<br>`ClusterName`, `NodeName`, `InstanceId`<br>`VolumeId` | The number of read and write operations waiting to be<br>completed.                                                                 |
+
+## Amazon EC2 local instance store NVMe metrics
+
+Beginning with version `1.300069.0` of the CloudWatch agent, Container Insights
+with enhanced observability for Amazon EKS automatically collects Amazon EC2 local instance store
+NVMe metrics from Amazon EKS clusters on Linux instances. The CloudWatch agent must be installed
+using the CloudWatch Observability Amazon EKS add-on version `6.2.0` or later, or the
+equivalent Helm chart. For more information about the add-on, see [Install the CloudWatch agent with the Amazon CloudWatch Observability EKS add-on or the Helm chart](install-CloudWatch-Observability-EKS-addon.md "install-CloudWatch-Observability-EKS-addon.md"). For more information
+about Amazon EC2 instance store, see [Amazon EC2 instance
+store](../../../eks/latest/userguide/lis-csi.md "../../../eks/latest/userguide/lis-csi.md").
+
+To collect these metrics, you must meet the following prerequisites:
+
+- You must be using Container Insights with enhanced observability for Amazon EKS, with
+  the CloudWatch Observability Amazon EKS add-on version `6.2.0` or later.
+- The `aws-ec2-local-instance-store-csi-driver` EKS add-on or Helm chart
+  must be installed on the cluster with metrics enabled.
+  - To enable the metrics when you are using the
+    `aws-ec2-local-instance-store-csi-driver` add-on, use the following
+    option when you create or update the add-on.
+    `--configuration-values '{"metrics":{"enabled":true}}'`
+  - To enable the metrics when you are using Helm chart, use the following option
+    when you create or update the add-on. `--set
+metrics.enabled=true`
+
+- Your cluster must have worker nodes running on EC2 instance types that support
+  instance store volumes. For more information, see [Considerations](../../../eks/latest/userguide/lis-csi.md#lis-csi-considerations "../../../eks/latest/userguide/lis-csi.md#lis-csi-considerations")
+  in the Amazon EKS User Guide.
+
+Once the prerequisites are met, the CloudWatch agent automatically discovers and collects
+metrics from the local instance store CSI driver. No additional CloudWatch agent configuration
+is required.
+
+The following table lists the metrics that are collected.
+
+| Metric name                                                         | Dimensions                                                                                                            | Description                                                                                                                               |
+| ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `node_diskio_instance_store_total_read_ops`                         | `ClusterName`<br>`ClusterName`, `NodeName`,<br>`InstanceId`<br>`ClusterName`, `NodeName`,<br>`InstanceId`, `VolumeId` | The total number of completed read operations.                                                                                            |
+| `node_diskio_instance_store_total_write_ops`                        | `ClusterName`<br>`ClusterName`, `NodeName`,<br>`InstanceId`<br>`ClusterName`, `NodeName`,<br>`InstanceId`, `VolumeId` | The total number of completed write operations.                                                                                           |
+| `node_diskio_instance_store_total_read_bytes`                       | `ClusterName`<br>`ClusterName`, `NodeName`,<br>`InstanceId`<br>`ClusterName`, `NodeName`,<br>`InstanceId`, `VolumeId` | The total number of read bytes transferred.                                                                                               |
+| `node_diskio_instance_store_total_write_bytes`                      | `ClusterName`<br>`ClusterName`, `NodeName`,<br>`InstanceId`<br>`ClusterName`, `NodeName`,<br>`InstanceId`, `VolumeId` | The total number of write bytes transferred.                                                                                              |
+| `node_diskio_instance_store_total_read_time`                        | `ClusterName`<br>`ClusterName`, `NodeName`,<br>`InstanceId`<br>`ClusterName`, `NodeName`,<br>`InstanceId`, `VolumeId` | The total time spent, in seconds, by all completed read operations.                                                                       |
+| `node_diskio_instance_store_total_write_time`                       | `ClusterName`<br>`ClusterName`, `NodeName`,<br>`InstanceId`<br>`ClusterName`, `NodeName`,<br>`InstanceId`, `VolumeId` | The total time spent, in seconds, by all completed write<br>operations.                                                                   |
+| `node_diskio_instance_store_ec2_instance_performance_exceeded_iops` | `ClusterName`<br>`ClusterName`, `NodeName`,<br>`InstanceId`<br>`ClusterName`, `NodeName`,<br>`InstanceId`, `VolumeId` | The total time, in seconds, that the instance store volume exceeded the<br>attached Amazon EC2 instance's maximum IOPS performance.       |
+| `node_diskio_instance_store_ec2_instance_performance_exceeded_tp`   | `ClusterName`<br>`ClusterName`, `NodeName`,<br>`InstanceId`<br>`ClusterName`, `NodeName`,<br>`InstanceId`, `VolumeId` | The total time, in seconds, that the instance store volume exceeded the<br>attached Amazon EC2 instance's maximum throughput performance. |
+| `node_diskio_instance_store_volume_queue_length`                    | `ClusterName`<br>`ClusterName`, `NodeName`,<br>`InstanceId`<br>`ClusterName`, `NodeName`,<br>`InstanceId`, `VolumeId` | The number of read and write operations waiting to be completed.                                                                          |

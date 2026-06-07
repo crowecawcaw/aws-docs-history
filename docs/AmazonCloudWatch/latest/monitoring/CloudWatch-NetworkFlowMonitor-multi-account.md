@@ -21,6 +21,14 @@ account. The scope for Network Flow Monitor is automatically set to the AWS acco
 
 Use the guidance in the following sections to complete these steps.
 
+###### Shared VPC with Amazon EKS clusters
+
+If your Amazon EKS cluster runs in a member account that uses a shared subnet (a subnet owned by another account),
+you must create the monitor in the account that owns the subnet (typically the delegated admin or management account),
+not in the member account where the Amazon EKS cluster resides. A monitor created in the member account cannot match
+network flow data because the member account does not own the subnet resources. To monitor flows for the Amazon EKS cluster,
+create the monitor in the subnet-owning account and specify the Amazon EKS cluster as the local resource.
+
 ###### Contents
 
 - [Multi-account setup overview](#CloudWatch-NetworkFlowMonitor-multi-account.overview "#CloudWatch-NetworkFlowMonitor-multi-account.overview")
@@ -177,6 +185,33 @@ in your scope. This policy enables you to view resources from other accounts whe
 For each of the account in your scope, create a role, **NetworkFlowMonitorAccountResourceAccess**, and attach the
 **AmazonEC2ReadOnlyAccess** policy. To see permission details for the policy, see
 [AmazonEC2ReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonEC2ReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AmazonEC2ReadOnlyAccess.md") in the AWS Managed Policy Reference Guide.
+
+If you want to view Amazon EKS cluster resources from other accounts in the console, you must also add the
+following permissions to the **NetworkFlowMonitorAccountResourceAccess** role:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "EKSReadAccess",
+            "Effect": "Allow",
+            "Action": [
+                "eks:ListClusters",
+                "eks:DescribeCluster",
+                "eks:ListNodegroups",
+                "eks:DescribeNodegroup",
+                "eks:ListFargateProfiles",
+                "eks:DescribeFargateProfile",
+                "eks:ListAddons",
+                "eks:DescribeAddon",
+                "eks:AccessKubernetesApi"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
 
 This policy is in addition to the policy that you must add to each instance so that the Network Flow Monitor agent can send performance
 metrics from the instance to the Network Flow Monitor ingestion backend server. For more information about requirements for agents, see

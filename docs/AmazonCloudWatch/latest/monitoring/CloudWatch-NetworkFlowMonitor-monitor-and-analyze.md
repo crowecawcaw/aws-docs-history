@@ -44,7 +44,7 @@ flows, such as flows between Availability Zones (`INTER_AZ`).
 
 - **Metrics:** View detailed information for the top contributors
   for each metric type that Network Flow Monitor aggregates data for. Separate tables of top contributors are
-  provided for retransmission timeouts, retransmissions, round-trip time, and data transferred.
+  provided for retransmission timeouts, retransmissions, and data transferred.
 - **Network paths:** To get an idea about where anomalies are occurring,
   you can view the network path of a network flow. When you choose a
   specific metric in a metrics table, the network path for that flow is displayed below the table.

@@ -66,8 +66,10 @@ TCP-based probes carry TCP SYN packets from your AWS hosted resources to the des
 address and port, and expect a TCP SYN+ACK packet in response. Network Synthetic Monitor uses the
 information on the TCP SYN and TCP SYN+ACK messages to
 calculate round-trip time and packet loss metrics. Network Synthetic Monitor periodically
-switches source TCP ports to increase network coverage, which increases the probability
-of detecting packet loss.
+switches source TCP ports (using ports in the range 1024–65535)
+to increase network coverage, which increases the probability
+of detecting packet loss. Ensure that your firewall rules allow TCP traffic from this
+entire source port range to the configured destination port.
 
 ## Network health indicator for AWS
 

@@ -23,7 +23,7 @@ with your own custom metrics, see [How to add related information to custom tele
 | Amazon API Gateway V2                            | `AWS::ApiGatewayV2::Stage`                   | No      | Yes  |
 | Amazon API Gateway V2                            | `AWS::ApiGatewayV2::Api`                     | Yes     | No   |
 | AWS App Runner                                   | `AWS::AppRunner::Service`                    | No      | Yes  |
-| AWS Application Migration Service                | `AWS::MGN::SourceServer`                     | Yes     | No   |
+| AWS Transform MGN                                | `AWS::MGN::SourceServer`                     | Yes     | No   |
 | Amazon WorkSpaces Applications                   | `AWS::AppStream::Fleet`                      | Yes     | Yes  |
 | AWS AppSync                                      | `AWS::AppSync::GraphQLApi`                   | Yes     | Yes  |
 | AWS B2B Data Interchange                         | `AWS::B2BI::Transformer`                     | No      | Yes  |
