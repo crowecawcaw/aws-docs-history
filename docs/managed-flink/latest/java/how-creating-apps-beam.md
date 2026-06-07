@@ -1,11 +1,5 @@
 # Use Apache Beam with Managed Service for Apache Flink applications
 
-###### Note
-
-**There is no compatible Apache Flink Runner for Flink 1.20. For more
-information, see [Flink Version Compatibility](https://beam.apache.org/documentation/runners/flink/#flink-version-compatibility "https://beam.apache.org/documentation/runners/flink/#flink-version-compatibility") in the Apache Beam
-Documentation.**>
-
 You can use the [Apache Beam](https://beam.apache.org/ "https://beam.apache.org/")
 framework with your Managed Service for Apache Flink application to process streaming data. Managed Service for Apache Flink applications
 that use Apache Beam use
