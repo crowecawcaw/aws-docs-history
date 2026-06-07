@@ -24,14 +24,21 @@ Application name: `live`, and instance name
 Application name: `live`, and instance name
 `curling`
 
-- The public IP addresses that MediaLive will pull the source content
-  from.
+- The endpoints that MediaLive will pull the source content from. Each endpoint
+  can be specified by either a public IP address or a hostname.
 
-These addresses must include port 1935. For example:
+The endpoints must include port 1935. For example, with public IP
+addresses:
 
 `rtmp://203.0.113.13:1935`
 
 `rtmp://198.51.100.54:1935`
+
+Or with hostnames:
+
+`rtmp://example-rtmp.upstream.example.com:1935`
+
+`rtmp://example-rtmp-2.upstream.example.com:1935`
 
 - The user name and password to access the upstream system, if the upstream
   system requires authenticated requests. Note that these user credentials

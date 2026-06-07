@@ -14,14 +14,6 @@ specified these locations when you created the input:
 
 **https://203.0.113.54/sports/curling.m3u8**
 
-Or, for a pull from an AWS Elemental MediaStore container:
-
-**mediastoressl://eri39n.data.mediastore.us-west-2.amazonaws.com/sports/canada/curling.m3u8**
-
-and
-
-**mediastoressl://21lu05.data.mediastore.us-west-2.amazonaws.com/sports/canada/curling.m3u8**
-
 Or, for a pull from an Amazon S3 bucket:
 
 **s3ssl://amzn-s3-demo-bucket/filler-videos/main/oceanwaves.mp4**

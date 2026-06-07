@@ -52,11 +52,41 @@ to pipeline 1.
   segment.
   **Resiliency**
 
-- Resiliency is handled as follows. If input into
-  MediaLive is lost, then the behavior is for MediaLive to
-  pause delivery. MediaPackage expects this behavior and
-  handles the loss by switching to the other
-  input.
+- **MediaPackage v1 (HLS)
+  destinations**
+  - The `InputLossAction` field
+    controls what happens when input into MediaLive
+    is lost. The defaults for this field are not
+    configurable for the MediaPackage output
+    group.
+  - For standard channels, the default is
+    `PAUSE_OUTPUT`. When input is
+    lost, MediaLive pauses delivery to MediaPackage. MediaPackage
+    detects the pause and automatically switches
+    to the input from the other pipeline.
+  - For single-pipeline channels, the default
+    is `EMIT_OUTPUT`. When input is
+    lost, MediaLive continues to emit output (such
+    as the input loss slate or the last frame)
+    to MediaPackage. Because there is no second
+    pipeline, MediaPackage continues to serve this
+    output to viewers.
+
+- **MediaPackage v2 (CMAF)
+  destinations**
+
+      + The `InputLossAction` field
+       does not apply. CMAF ingest handles
+       resilience at the protocol level.
+      + For standard channels, both pipelines
+       deliver to MediaPackage simultaneously. If one
+       pipeline stops, MediaPackage automatically uses the
+       other pipeline's content.
+      + For single-pipeline channels, if input is
+       lost, MediaLive stops producing segments. MediaPackage
+       serves the last available content until new
+       segments arrive.
+
   **SCTE-35**
 
 - Passthrough of SCTE-35 messages is always enabled.

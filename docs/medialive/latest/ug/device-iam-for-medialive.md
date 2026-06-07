@@ -24,11 +24,16 @@ are very simple. Keep them separate.
 For you to use a Link device, MediaLive must have permissions on operations and
 resources in MediaConnect and in Secrets Manager:
 
-- For MediaConnect: MediaLive must be able to read details about a flow.
+- For MediaConnect: MediaLive must be able to read details about a flow. This allows MediaLive to
+  retrieve flow configuration information (such as the ingest endpoint) so that the device
+  knows where to send content. This permission is read-only and does not allow MediaLive to
+  modify or delete the flow.
 - For Secrets Manager: The device always encrypts the content it sends to MediaConnect. It encrypts
-  using an encryption key that MediaLiveprovides. MediaLive in turn obtains the encryption key
+  using an encryption key that MediaLive provides. MediaLive in turn obtains the encryption key
   from a secret that the MediaConnect user has stored in Secrets Manager. Therefore, MediaLive needs permission
-  to read the encryption key that is stored in a secret.
+  to read the encryption key that is stored in a secret. This permission is limited to
+  reading the specific secrets that you identify in the policy. It does not grant MediaLive
+  access to other secrets in your account.
   This table specifies the required operations and resources.
 
 | Permissions                                                                         | Service name in IAM | Actions          | Resources                                                                             |

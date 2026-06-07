@@ -59,13 +59,8 @@ these properties.
 
 ### Tagging using the AWS Management Console
 
-We recommend that you manage tags by using the Tag Editor on the AWS Management Console. The
-Tag Editor provides a central, unified way to create and manage your tags. The Tag
-Editor provides the best results, including consistency between tags within MediaLive
-and between MediaLive and other services.
-
-For more information, see [Working with
-Tag Editor](../../../awsconsolehelpdocs/latest/gsg/tag-editor.md "../../../awsconsolehelpdocs/latest/gsg/tag-editor.md") in [Getting Started with the AWS Management Console](../../../awsconsolehelpdocs/latest/gsg/getting-started.md "../../../awsconsolehelpdocs/latest/gsg/getting-started.md").
+You can manage tags on MediaLive resources by using the MediaLive console, the
+AWS CLI, or the MediaLive API.
 
 ### Tagging using MediaLive
 

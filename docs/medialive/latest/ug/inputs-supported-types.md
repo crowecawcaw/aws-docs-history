@@ -14,6 +14,7 @@ the sections that follow.
 - RTMP Pull
 - RTMP Push
 - RTP
+- SDI
 - SMPTE 2110
 - SRT Caller
 - SRT Listener

@@ -12,7 +12,7 @@ need. Follow the steps for [option
 - When creating the SNS subscription, you might want to
   add more detail to the topic, for example,
   `MediaLive_notifications_channel_1234567`.
-- When creating the CloudWatch rule, you create an event
+- When creating the EventBridge rule, you create an event
   pattern that identifies `aws.medialive` as
   the event source and the ARN for the specific channel or
   multiplex as the resource within that event source. For
@@ -35,7 +35,7 @@ The resource is the ARN for the channel or multiplex. You can
 obtain this ARN from the channels list or multiplexes list on
 the MediaLive console.
 
-The rule for this example says, "When CloudWatch receives any
+The rule for this example says, "When EventBridge receives any
 event from `aws.medialive` for channel
 `1234567`, invoke the specified SNS topic." In
 other words, the rule triggers an email that is sent to the

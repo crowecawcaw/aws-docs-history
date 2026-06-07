@@ -19,6 +19,11 @@ This option applies only in the following scenario:
   you include the ID3 tags will contain both the watermark and the ID3 tags. Outputs that don't
   include the ID3 tags will contain only the watermark.
 
+###### Note
+
+The Nielsen SDK generates ID3 tag data approximately every 5 minutes. As a result, output
+segments contain ID3 tags at approximately 5-minute intervals.
+
 You can't remove the watermarks from the audio, but if your playback devices don't implement
 the Nielsen SDK, the devices simply ignore the watermarks.
 
@@ -39,7 +44,7 @@ metadata](id3-metadata.md "id3-metadata.md") in outputs.
      obtained from Nielsen. If you enter an ID here, it is added to the ID3 metadata along
      with the source ID (SID) that is always in the source watermark.
 
-3. Go to the output group and output where you want to include the ID3 tags..
+3. Go to the output group and output where you want to include the ID3 tags.
 
 (If the output group is **MediaPackage**, you don't have to set up the
 output. The ID3 tags are always passed through, if the output is a standard output.)

@@ -12,14 +12,16 @@ If the channel includes an HLS input, MediaLive stops attempting to lock pipelin
 the channel. Pipeline locking won't resume, even after the channel switches to
 another input.
 
-## Inputs must include embedded timecode (source timecode method)
+## Embedded timecode requirements (source timecode method)
 
-When you use the source timecode pipeline locking method (the default), the
-input must include embedded timecode. These rules apply:
+When you use the source timecode pipeline locking method (the default),
+embedded timecode handling depends on the locking mode:
 
-- When using the source timecode method, the input must have an embedded
-  timecode. This requirement applies to both pipeline locking mode and
-  epoch locking mode.
+- For epoch locking mode, the input must have an embedded
+  timecode.
+- For pipeline locking mode, an embedded timecode is recommended for
+  the best synchronization accuracy. If embedded timecodes are
+  unavailable, MediaLive falls back to approximate synchronization.
 - For epoch-locking mode, the embedded timecode must be within 2 minutes of
   epoch time. If the timecode is off by more than 2 minutes, MediaLive considers
   that the source doesn't meet the requirements for pipeline locking.

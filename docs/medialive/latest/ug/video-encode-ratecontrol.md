@@ -29,7 +29,7 @@ bitrate.
    option and about completing the other fields in the **Rate control mode**
    section, see the sections below.
 
-For AV1, note that the rate control mode is always QVBR.
+For AV1, the supported rate control modes are QVBR (default) and CBR.
 
 ###### Topics
 

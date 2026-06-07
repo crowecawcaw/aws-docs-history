@@ -20,6 +20,7 @@ to:
 | RTMP Pull                  | Both                                |
 | RTMP Push                  | Both                                |
 | RTP                        | Both                                |
+| SDI                        | MediaLive Anywhere deployments only |
 | SMPTE 2110                 | MediaLive Anywhere deployments only |
 | SRT Caller                 | Both                                |
 | SRT Listener               | Both                                |

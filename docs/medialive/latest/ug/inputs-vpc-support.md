@@ -14,6 +14,7 @@ Some MediaLive inputs can be set up in Amazon Virtual Private Cloud (Amazon VPC)
 | RTMP Pull                  | No                                     |
 | RTMP Push                  | Yes, setup as a VPC input is supported |
 | RTP                        | Yes, setup as a VPC input is supported |
+| SDI                        | No                                     |
 | SMPTE 2110                 | No                                     |
 | SRT Caller                 | No                                     |
 | SRT Listener               | No                                     |

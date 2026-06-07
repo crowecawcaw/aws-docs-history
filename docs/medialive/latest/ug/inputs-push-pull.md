@@ -15,6 +15,7 @@ delivery:
 | HLS                        |                          | Pull |
 | Link                       | Push                     |      |
 | MediaConnect               | Push                     |      |
+| MediaConnect Router        | Push                     |      |
 | MP4                        |                          | Pull |
 | RTMP Pull                  |                          | Pull |
 | RTMP Push                  | Push. See the note below |      |

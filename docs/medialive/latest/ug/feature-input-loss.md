@@ -111,7 +111,7 @@ channel, as described in [Creating a channel from scratch](creating-channel-scra
 ## Customizing delivery
 
 You can change the default handling of the replacement content so that
-instead of delivering the encoded output, MediaLivediscards it. You can change
+instead of delivering the encoded output, MediaLive discards it. You can change
 the handling in the following types of output groups:
 
 - HLS

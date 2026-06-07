@@ -108,6 +108,12 @@ are responsible for ensuring that this endpoint is
 always available to accept the content from the
 channel pipeline.
 
+The egress endpoint IP addresses remain constant
+for each pipeline in the channel, for the lifetime
+of the channel. You can use these addresses to
+authorize traffic from specific IP addresses in your
+downstream systems.
+
 - **Destinations** – This
   pane shows one line for each destination.
 

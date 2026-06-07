@@ -1,13 +1,13 @@
 # Font styles for TTML
 
-This section applies if you are [setting up TTML captions](output-sidecar-and-smptett-mss.md "output-sidecar-and-smptett-mss.md") from source captions are embedded or Teletext captions.
+This section applies if you are [setting up TTML captions](output-sidecar-and-smptett-mss.md "output-sidecar-and-smptett-mss.md") from embedded or Teletext source captions.
 You can optionally specify some of the font style information.
 
 1. In the output that has the TTML captions, display the section for the captions.
 2. Set **Style control** to **Passthrough** or
-   **Use_configured**.
+   **USE_CONFIGURED**.
 
-Note that when **User_configured** is selected, there are
+Note that when **USE_CONFIGURED** is selected, there are
 actually no fields that you can configure.
 The XML file for the captions will include the following style information:
 

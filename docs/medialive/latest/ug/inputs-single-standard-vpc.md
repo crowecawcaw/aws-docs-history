@@ -19,6 +19,7 @@ standard channel, in order to implement pipeline resiliency. For more informatio
 | RTMP Pull                  | Both                |
 | RTMP Push                  | Both                |
 | RTP                        | Standard-class only |
+| SDI                        | Single-class only   |
 | SMPTE 2110                 | Single-class only   |
 | SRT Caller                 | Both                |
 | SRT Listener               | Both                |

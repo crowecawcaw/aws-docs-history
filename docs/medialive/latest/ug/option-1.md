@@ -71,28 +71,30 @@ window.
 
 ## Create a rule
 
-You now create a rule in Amazon CloudWatch that says, "When
-CloudWatch receives any event from
+You now create a rule in Amazon EventBridge that says, "When
+EventBridge receives any event from
 `aws.medialive`, invoke the specified SNS
 topic." In other words, you create a rule that sends an
 email to the subscribed email address.
 
-###### To create a rule (Amazon CloudWatch console)
+###### To create a rule (EventBridge console)
 
-1. Sign in to the AWS Management Console and open the CloudWatch console
-   at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+1. Open the EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
 2. In the navigation pane, choose
-   **Events**.
-3. On the **Welcome to CloudWatch
-   Events** page, choose **Create
-   rule**.
-4. On the **Step 1** page, in
-   **Event Source**, choose
-   **Event Pattern**.
-5. Change **Build event pattern to
-   match** to **Custom event
-   pattern**.
-6. In the box, type the following:
+   **Rules**, and then choose
+   **Create rule**.
+3. Enter a **Name** and optional
+   description for the rule.
+4. For **Event bus**, keep the
+   default event bus selected.
+5. For **Rule type**, choose
+   **Rule with an event pattern**,
+   and then choose **Next**.
+6. For **Creation method**, choose
+   **Custom pattern (JSON
+   editor)**.
+7. In the **Event pattern** box,
+   enter the following:
 
 ```
 {
@@ -102,20 +104,21 @@ email to the subscribed email address.
 }
 ```
 
-7. On the pane on the right, choose **Add
-   target**.
-8. Choose **SNS topic**.
-9. For **Topic**, choose the topic
-   that you created, for example,
-   `MediaLive_alert`.
-10. In **Configure input**, choose
-    **Matched event**.
-11. Choose **Configure
-    details**.
-12. Type a name and optional description, and then
-    choose **Create rule**.
+8. Choose **Next**.
+9. For **Target type**, choose
+   **AWS service**.
+10. For **Select a target**, choose
+    **SNS topic**.
+11. For **Topic**, choose the topic
+    that you created, for example,
+    `MediaLive_alert`.
+12. Choose **Next**, configure
+    optional tags, and then choose
+    **Next** again.
+13. Review the rule details and choose
+    **Create rule**.
 
 Now, whenever an alert occurs in MediaLive, an event will be
-sent to Amazon CloudWatch. This event will trigger the rule
-that instructs CloudWatch to send an email to the email address
+sent to EventBridge. This event will trigger the rule
+that sends an email to the email address
 that you specified in the SNS subscription.

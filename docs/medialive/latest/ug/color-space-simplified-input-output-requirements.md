@@ -10,7 +10,6 @@ Dolby Vision 8.1 can be set up only in the following output group types:
 - Archive
 - CMAF Ingest
 - HLS
-- SRT caller
 - UDP
   **Supported output codecs**
 

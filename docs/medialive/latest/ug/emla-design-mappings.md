@@ -5,7 +5,7 @@ MediaLive Anywhere workflows.
 
 In each cluster, you must design a collection of mappings. You must design these mappings
 after you have [identified the networks](emla-deploy-identify-network-requirements.md#emla-identify-networks "emla-deploy-identify-network-requirements.md#emla-identify-networks") and
-designed the clusters. You must decision a mapping for each network that handles encoder
+designed the clusters. You must decide on a mapping for each network that handles encoder
 traffic. You don't need to create a mapping for the management network.
 
 ## About interface mappings

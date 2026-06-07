@@ -12,7 +12,7 @@ VPC:
   In this example, the channel has two output groups. Assume that the
   destinations of both the output groups are on EC2 on your VPC.
 
-![MediaLive channel with two pipelines, each with an endpoint connecting to HLS and Microsoft Smooth destinations.](/images/medialive/latest/ug/images\vpc-delivery-1.png)
+![MediaLive channel with two pipelines, each with an endpoint connecting to HLS and Microsoft Smooth destinations.](images/vpc-delivery-1.png)
 **Single-pipeline channels**
 
 You must identify subnets for the following locations:

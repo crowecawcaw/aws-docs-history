@@ -107,10 +107,3 @@ child manifest for pipeline 1, it will switch to reading that child manifest.
 Downstream systems that are reading the main manifest for pipeline 1 are not affected.
 These systems are presumably reading the child manifests for pipeline 1 (because these
 appear first in the manifest).
-
-###### Note
-
-If the downstream system for the HLS output is AWS Elemental MediaStore, you can set up MediaStore to
-delete stale inputs. See [Components of an object lifecycle policy](../../../mediastore/latest/ug/policies-object-lifecycle-components.md "../../../mediastore/latest/ug/policies-object-lifecycle-components.md"). After the child manifest has been
-deleted, MediaStore falls back to following the "manifest has been deleted" logic of scenario
-B.

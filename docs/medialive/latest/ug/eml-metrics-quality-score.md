@@ -79,14 +79,14 @@ score reverts to 100.
 
 ## MQCS fill frame insertions
 
-The black frame portion of the MQCS (media quality confidence score).
+The fill frame portion of the MQCS (media quality confidence score).
 
 This portion is calculated as follows: The input has transmitted one or more
 sequential video frames that are "fill frames". The score gets lower as long as the
 problem persists. As soon as MediaLive receives one frame without this problem, the
 score reverts to 100.
 
-- Name: dd
+- Name: MqcsFillFrameInsertion
 - Units: None
 - Meaning of no datapoints: The channel doesn’t have any output groups in
   which MediaLive is generating an MQCS. For example, the channel doesn’t have any
@@ -119,14 +119,14 @@ reverts to 100.
 
 ## MQCS SVQ
 
-The black frame portion of the MQCS (media quality confidence score).
+The SVQ portion of the MQCS (media quality confidence score).
 
 This portion is calculated as follows: The input has transmitted one or more
 sequential video frames that are affected by an SVQ (speed versus quality) problem.
 The score gets lower as long as the problem persists. As soon as MediaLive receives one
 frame without this problem, the score reverts to 100.
 
-- Name: dd
+- Name: MqcsSvq
 - Units: None
 - Meaning of no datapoints: The channel doesn’t have any output groups in
   which MediaLive is generating an MQCS. For example, the channel doesn’t have any
@@ -139,14 +139,14 @@ frame without this problem, the score reverts to 100.
 
 ## MQCS video frame drop
 
-The black frame portion of the MQCS (media quality confidence score).
+The video frame drop portion of the MQCS (media quality confidence score).
 
 This portion is calculated as follows: The input has transmitted one or more
 sequential segments that contain dropped frames. The score gets lower as long as the
 problem persists. As soon as MediaLive receives one segment without dropped frames, the
 score reverts to 100.
 
-- Name: dd
+- Name: MqcsVideoFrameDrops
 - Units: None
 - Meaning of no datapoints: The channel doesn’t have any output groups in
   which MediaLive is generating an MQCS. For example, the channel doesn’t have any

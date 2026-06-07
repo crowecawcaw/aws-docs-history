@@ -12,4 +12,4 @@ into MediaLive:
   upstream system to provide one source and will therefore attempt to pull
   from one source location.
 
-![Diagram showing upstream origin servers receiving GET requests for two different sports URLs.](/images/medialive/latest/ug/images\hls-pull-uss-input.png)
+![Diagram showing upstream origin servers receiving GET requests for two different sports URLs.](images/hls-pull-uss-input.png)

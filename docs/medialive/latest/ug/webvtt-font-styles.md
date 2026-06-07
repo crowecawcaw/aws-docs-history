@@ -7,7 +7,7 @@ information.
 1. In the output that has the WebVTT captions, display the section for the
    captions.
 2. Set **Style control**:
-   - **No_Style_Data**: Includes only text and timestamp
+   - **NO_STYLE_DATA**: Includes only text and timestamp
      information for the caption encode.
    - **Passthrough**: Passes through position and color style data
      from the source, and includes the text and timestamp information.

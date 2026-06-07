@@ -19,4 +19,4 @@ channel. The upstream system does not need to be pushing before then.
 At runtime of the channel, MediaLive reacts to the content that is being pushed and
 ingests it.
 
-![Upstream system sending two flows to MediaConnect, which inputs them into MediaLive.](/images/medialive/latest/ug/images\emx-push-uss-input.png)
+![Upstream system sending two flows to MediaConnect, which inputs them into MediaLive.](images/emx-push-uss-input.png)

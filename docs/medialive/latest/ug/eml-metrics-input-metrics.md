@@ -22,7 +22,7 @@ presented to MediaLive.
 The number of seconds in which the channel input contained one
 or more unrecoverable packets.
 
-This metric only applies to channel inputs of type RTP Push or MediaConnect.
+This metric only applies to channel inputs of type RTP Push, SRT, or MediaConnect.
 
 This metric is useful for monitoring the health of the input.
 It provides a time-based measurement for packet loss.
@@ -41,9 +41,9 @@ Follow this guideline:
 
 - Name: ChannelInputErrorSeconds
 - Units: Count.
-- Meaning of zero: An RTP Push or MediaConnect input was being
+- Meaning of zero: An RTP Push, SRT, or MediaConnect input was being
   ingested and no packets were lost.
-- Meaning of no datapoints: There are no RTP Push or
+- Meaning of no datapoints: There are no RTP Push, SRT, or
   MediaConnect inputs active or being prepared (by the schedule).
   Or you included the ActiveInputFailoverLabel in a
   channel that isn't set up for automatic input failover.

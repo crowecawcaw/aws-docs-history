@@ -8,5 +8,3 @@ At runtime of the channel, the upstream system (the caller) will perform a hands
 with MediaLive (the listener). The upstream system will connect to two URLs (for a standard
 channel) or one URL (for a single-pipeline channel), and push the source content
 into the channel.
-
-![](/images/medialive/latest/ug/images\srt-push-uss-input.png)

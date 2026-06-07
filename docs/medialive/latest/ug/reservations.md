@@ -22,6 +22,7 @@ next month.
 
 ###### Topics
 
+- [Reservations and AWS Organizations](reservations-consolidated-billing.md "reservations-consolidated-billing.md")
 - [How input and output reservations work](input-output-reservations.md "input-output-reservations.md")
 - [Add-on reservations](addon-reservations.md "addon-reservations.md")
 - [Purchasing a reservation](purchasing-reservations.md "purchasing-reservations.md")

@@ -70,6 +70,18 @@ input pricing, see [https://aws.amazon.com/medialive/pricing/](https://aws.amazo
 of these characteristics in the input specification when you create
 the channel. For more information, see [Input specifications settings](input-specification.md "input-specification.md").
 
+Inputs from a Link device use a different pricing
+model. Link inputs are charged a flat rate that is not based on
+codec, bitrate, or resolution. Link UHD devices are charged at a
+higher rate than Link HD devices. A Link UHD device that is
+configured to send HD resolution is charged at the Link HD rate.
+For specific rates, see [https://aws.amazon.com/medialive/pricing/](https://aws.amazon.com/medialive/pricing/ "https://aws.amazon.com/medialive/pricing/").
+
+For channels configured with a standard channel class
+(two-pipeline), input and output charges are at the standard-class
+rate. For channels with a single-pipeline channel class, charges are
+at the single-pipeline rate.
+
 - There is an _add-on charge_ for
   running channels that have specific features enabled. The charge
   applies to the channel, not to individual inputs, outputs, or other
