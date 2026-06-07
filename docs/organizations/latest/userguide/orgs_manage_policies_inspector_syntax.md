@@ -3,9 +3,28 @@
 Amazon Inspector policies follow a standardized JSON syntax that defines how Amazon Inspector is enabled and
 configured across your organization. An Amazon Inspector policy is a JSON document structured according to the AWS Organizations management-policy syntax. It defines which organizational entities will have Amazon Inspector automatically enabled.
 
+## Key considerations for Amazon Inspector policies
+
+Before creating Amazon Inspector policies, understand these key points about policy
+syntax:
+
+- Both `enable_in_regions` and `disable_in_regions` lists
+  are required for each scan type included in the policy, though they can be empty
+  arrays (`"@@assign": []`).
+- When processing effective policies, `disable_in_regions` takes
+  precedence over `enable_in_regions`. If a region appears in both
+  lists, scanning will be disabled in that region.
+- Child policies can modify parent policies using inheritance operators
+  (`@@assign`, `@@append`, `@@remove`) unless
+  explicitly restricted.
+- The `ALL_SUPPORTED` designation includes both current and future
+  AWS Regions where Amazon Inspector is available.
+- Region names must be valid AWS Regions where Amazon Inspector is supported. Invalid
+  region names will cause a validation error.
+
 ## Basic policy structure
 
-An Amazon Inspector policy uses this basic structure:
+An Amazon Inspector policy uses this basic structure. Each scan type requires both `enable_in_regions` and `disable_in_regions`, even if one is an empty array.
 
 ```
 {
@@ -39,6 +58,20 @@ Defines how Amazon Inspector is enabled across the organization, and contains sc
 `Regions (Array of Strings)`
 
 Specifies the Regions where Amazon Inspector should be auto-enabled.
+
+## Scan types
+
+| Scan type                | Key                                             | Required |
+| ------------------------ | ----------------------------------------------- | -------- |
+| Lambda standard scanning | `lambda_standard_scanning`                      | No       |
+| Lambda code scanning     | `lambda_standard_scanning.lambda_code_scanning` | No       |
+| EC2 scanning             | `ec2_scanning`                                  | No       |
+| ECR scanning             | `ecr_scanning`                                  | No       |
+| Code repository scanning | `code_repository_scanning`                      | No       |
+
+Each scan type is optional — include only the scan types you want to configure.
+However, for each scan type you include, both `enable_in_regions` and
+`disable_in_regions` are required.
 
 ## Amazon Inspector policy examples
 
