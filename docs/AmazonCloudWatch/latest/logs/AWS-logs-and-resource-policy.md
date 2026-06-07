@@ -50,6 +50,7 @@ permissions, see the sections after the table.
 - [![AWS Elastic Beanstalk logo](images/integration-icons/elastic-beanstalk.png)AWS Elastic Beanstalk](../../../elasticbeanstalk/latest/dg/AWSHowTo.cloudwatchlogs.md "../../../elasticbeanstalk/latest/dg/AWSHowTo.cloudwatchlogs.md")
 - [![Amazon ECS logo](images/integration-icons/ecs.png)Amazon ECS](../../../AmazonECS/latest/developerguide/using_cloudwatch_logs.md "../../../AmazonECS/latest/developerguide/using_cloudwatch_logs.md")
 - [![Amazon EKS Auto Mode logo](images/integration-icons/eks.png)Amazon EKS Auto Mode](../../../eks/latest/userguide/auto-managed-component-logs.md "../../../eks/latest/userguide/auto-managed-component-logs.md")
+- [![Amazon EKS Capability Logs logo](images/integration-icons/eks.png)Amazon EKS Capability Logs](../../../eks/latest/userguide/capabilities-controller-logs.md "../../../eks/latest/userguide/capabilities-controller-logs.md")
 - [![Amazon EKS Control Plane logo](images/integration-icons/eks.png)Amazon EKS Control Plane](../../../eks/latest/userguide/control-plane-logs.md "../../../eks/latest/userguide/control-plane-logs.md")
 - [![AWS Elemental MediaPackage logo](images/integration-icons/mediapackage.png)AWS Elemental MediaPackage](../../../mediapackage/latest/ug/access-logging.md "../../../mediapackage/latest/ug/access-logging.md")
 - [![AWS Elemental MediaTailor logo](images/integration-icons/mediatailor.png)AWS Elemental MediaTailor](../../../mediatailor/latest/ug/monitoring-cw-logs.md "../../../mediatailor/latest/ug/monitoring-cw-logs.md")

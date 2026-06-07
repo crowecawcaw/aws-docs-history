@@ -2,8 +2,8 @@
 
 Use `parse` to extract data from a log field and create
 extracted fields that you can process in your query. The
-`parse` command supports three modes: glob expressions,
-regular expressions, and logfmt.
+`parse` command supports four modes: glob expressions,
+regular expressions, logfmt, and CSV.
 
 If `fieldName` is omitted, `@message` is
 used by default. You can parse from any named field by specifying the
@@ -84,6 +84,28 @@ parse @message /(?<NetworkInterface>eni-.*?) /
 | display NetworkInterface, @message
 ```
 
+**Multi-match mode**
+
+Use multi-match mode to extract all matches of a regular
+expression from a field, producing multiple rows per log event.
+Add the keyword `multi` after the regex pattern.
+
+**Syntax**
+
+```
+parse `fieldName` /`regex`/ multi
+```
+
+**Examples**
+
+**Extract all IP addresses from a log line
+(multi-match)**
+
+```
+parse @message /(\d+\.\d+\.\d+\.\d+)/ as ip_addr multi
+| stats count(*) by ip_addr
+```
+
 ## Logfmt mode
 
 Use `parse logfmt` to parse logfmt-formatted log lines
@@ -111,4 +133,55 @@ parse @message logfmt as lf
 ```
 parse @message logfmt as lf
 | stats count(*) by lf.host
+```
+
+## CSV mode
+
+Use `parse csv` to parse CSV-formatted log lines
+into structured fields. Each comma-separated value is assigned to
+the corresponding alias.
+
+**Syntax**
+
+```
+parse `fieldName` csv as `alias1`, `alias2`, `alias3`
+```
+
+**Examples**
+
+```
+parse @message csv as timestamp, level, message
+| filter level = "ERROR"
+| display timestamp, message
+```
+
+```
+parse @message csv as host, method, path, status, duration
+| stats avg(duration) by method
+```
+
+## JSON field extraction
+
+Use `json field=`fieldName``
+for explicit chained JSON extraction from a previously parsed
+object field. This enables you to extract nested keys from a
+structured field without re-parsing the raw message.
+
+**Syntax**
+
+```
+json field=`fieldName` "`key.subkey`" as `alias`
+```
+
+**Examples**
+
+```
+parse @message /(?<payload>\{.*\})/ as payload
+| json field=payload "user.name" as username
+| display username
+```
+
+```
+json field=requestContext "identity.sourceIp" as caller_ip
+| stats count(*) by caller_ip
 ```

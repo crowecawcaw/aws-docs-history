@@ -14,6 +14,13 @@ type.
 stats count(*) by queryType, bin(1h)
 ```
 
+The following query collects the distinct status values for each
+service.
+
+```
+stats values(status) as statuses by service
+```
+
 All such queries can produce bar charts. If your query uses the
 `bin()` function to group the data by one field over time,
 you can also see line charts and stacked area charts.
@@ -286,6 +293,7 @@ as arguments for other functions.
 | `pct(fieldName: LogFieldValue, percent:<br>number)` | LogFieldValue | A percentile indicates the relative standing of a<br>value in a dataset. For example,<br>`pct(@duration, 95)` returns the<br>`@duration` value at which 95 percent<br>of the values of `@duration` are lower<br>than this value, and 5 percent are higher than this<br>value. |
 | `stddev(fieldName:<br>NumericLogField)`             | number        | The standard deviation of the values in the<br>specified field.                                                                                                                                                                                                               |
 | `sum(fieldName:<br>NumericLogField)`                | number        | The sum of the values in the specified<br>field.                                                                                                                                                                                                                              |
+| `values(fieldName:<br>LogField)`                    | array         | Collects the distinct values of the specified<br>field for each group. Also known as<br>`COLLECT_VALUES`.                                                                                                                                                                     |
 
 **Stats non-aggregation functions**
 
