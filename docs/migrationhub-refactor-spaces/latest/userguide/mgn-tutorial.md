@@ -37,7 +37,7 @@ use it.
 3. Choose the **Get started** button that appears in the
    following image.
 
-![AWS Application Migration Service page with "Start migrating" box and "Get started" button.](images/mgn-get-started.png) 4. If this is your first time using AWS MGN in the Region you chose, you will
+![AWS Transform MGN page with "Start migrating" box and "Get started" button.](images/mgn-get-started.png) 4. If this is your first time using AWS MGN in the Region you chose, you will
 see the following screen. Choose the **Set up service**
 button.
 
