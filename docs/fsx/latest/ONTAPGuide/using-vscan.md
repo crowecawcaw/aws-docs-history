@@ -15,6 +15,9 @@ see the following resources for each of the supported solutions.
   [Vscan partner solutions](https://docs.netapp.com/us-en/ontap/antivirus/vscan-partner-solutions.html "https://docs.netapp.com/us-en/ontap/antivirus/vscan-partner-solutions.html") and
   [Trellix Product Docs](https://docs.trellix.com/ "https://docs.trellix.com/")
 - Trend Micro – [Vscan partner solutions](https://docs.netapp.com/us-en/ontap/antivirus/vscan-partner-solutions.html "https://docs.netapp.com/us-en/ontap/antivirus/vscan-partner-solutions.html")
+- OPSWAT –
+  [Vscan partner solutions](https://docs.netapp.com/us-en/ontap/antivirus/vscan-partner-solutions.html "https://docs.netapp.com/us-en/ontap/antivirus/vscan-partner-solutions.html") and
+  [OPSWAT Product Docs](https://www.opswat.com/docs/mdss/integrations/netapp-ontap-how-to-enable-vscan "https://www.opswat.com/docs/mdss/integrations/netapp-ontap-how-to-enable-vscan")
 
 ###### Note
 

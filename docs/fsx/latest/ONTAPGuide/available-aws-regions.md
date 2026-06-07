@@ -9,14 +9,14 @@ Amazon FSx for NetApp ONTAP file systems are available in the following AWS Regi
 | US West (N. California)    | ✓               | ✓              | ✓               | ✓              |
 | US West (Oregon)           | ✓               | ✓              | ✓               | ✓              |
 | AWS GovCloud (US-East)     | ✓               | ✓              |                 |                |
-| AWS GovCloud (US-West)     | ✓               | ✓              |                 |                |
+| AWS GovCloud (US-West)     | ✓               | ✓              | ✓               | ✓              |
 | Africa (Cape Town)         | ✓               | ✓              |                 |                |
 | Asia Pacific (Hong Kong)   | ✓               | ✓              |                 |                |
 | Asia Pacific (Tokyo)       | ✓               | ✓              | ✓               | ✓              |
 | Asia Pacific (Seoul)       | ✓               | ✓              | ✓               | ✓              |
 | Asia Pacific (Osaka)       | ✓               | ✓              |                 |                |
 | Asia Pacific (Mumbai)      | ✓               | ✓              | ✓               | ✓              |
-| Asia Pacific (Hyderabad)   | ✓               | ✓              |                 |                |
+| Asia Pacific (Hyderabad)   | ✓               | ✓              | ✓               | ✓              |
 | Asia Pacific (Singapore)   | ✓               | ✓              | ✓               | ✓              |
 | Asia Pacific (Sydney)      | ✓               | ✓              | ✓               | ✓              |
 | Asia Pacific (Jakarta)     | ✓               | ✓              |                 |                |
@@ -33,10 +33,10 @@ Amazon FSx for NetApp ONTAP file systems are available in the following AWS Regi
 | Europe (Milan)             | ✓               | ✓              |                 |                |
 | Europe (Spain)             | ✓               | ✓              | ✓               | ✓              |
 | Europe (Ireland)           | ✓               | ✓              | ✓               | ✓              |
-| Europe (London)            | ✓               | ✓              |                 |                |
+| Europe (London)            | ✓               | ✓              | ✓               | ✓              |
 | Europe (Paris)             | ✓               | ✓              |                 |                |
 | Israel (Tel Aviv)          | ✓               | ✓              |                 |                |
 | Mexico (Central)           | ✓               | ✓              |                 |                |
 | Middle East (UAE)          | ✓               | ✓              |                 |                |
 | Middle East (Bahrain)      | ✓               | ✓              |                 |                |
-| South America (São Paulo)  | ✓               | ✓              |                 |                |
+| South America (São Paulo)  | ✓               | ✓              | ✓               | ✓              |
