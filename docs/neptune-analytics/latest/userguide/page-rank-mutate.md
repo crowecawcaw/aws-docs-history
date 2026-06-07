@@ -86,7 +86,7 @@ _valid values_: "int", "long", "float", "double".
      of those property values will be sampled at random.
 
 - **sourceNodes** _(optional) - required if
-  running personalized PageReank_   –  
+  running personalized PageRank_   –  
   _type:_ `list`;   _default: none_.
 
 A personalization vertex list ["101", ...]
