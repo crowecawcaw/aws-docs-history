@@ -55,7 +55,7 @@ only**.
 
 ![The Individual objects can be made public and read only option.](images/amazon-lightsail-bucket-access-permissions-options.png) 7. Choose **Save**. 8. Choose **Yes, save** in the confirmation prompt that appears.
 
-![The Yes, save button.](images/amazon-lightsail-bucket-access-permissions-confirmation.png)
+![The Yes, save button.](/images/lightsail/latest/userguide/images/amazon-lightsail-bucket-access-permissions-confirmation.png)
 
 After a few moments, your bucket is configured to allow for individual object access.
 This ensures that objects uploaded to your bucket from your WordPress website using the
@@ -65,7 +65,7 @@ Offload Media Lite plugin are readable to your customers. 9. Scroll to the **Res
 ![The Attach instance option.](images/amazon-lightsail-bucket-resource-access.png) 10. Choose the name of your WordPress instance in the drop-down list that appears, and
 then choose **Attach**.
 
-![The Attach option.](images/amazon-lightsail-bucket-attach-resource-access.png)
+![The Attach option.](/images/lightsail/latest/userguide/images/amazon-lightsail-bucket-attach-resource-access.png)
 
 After a few moments, your WordPress instance is attached to your bucket. This gives
 your WordPress instance access to manage your bucket and its objects.

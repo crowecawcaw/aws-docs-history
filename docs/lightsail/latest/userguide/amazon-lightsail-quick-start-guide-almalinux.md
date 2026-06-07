@@ -77,7 +77,7 @@ more information on tag usage, see [Tags](amazon-lightsail-tags.md "amazon-light
 
 
 
-    ![A tag with only the tag key specified in the Lightsail create instance workflow.](images/amazon-lightsail-instance-key-name-only-tags.png)
+    ![A tag with only the tag key specified in the Lightsail create instance workflow.](/images/lightsail/latest/userguide/images/amazon-lightsail-instance-key-name-only-tags.png)
     2. (Optional) For **Value**, enter a tag value.
 
 
