@@ -29,7 +29,7 @@ configuration file.
   ReadCertExample.
 - `CustomActions` / `OnNodeConfigured` / `Args`: The Amazon Resource Name (ARN) of secret that holds the
   domain certification policy.
-  For better security posture, we suggest to use the `HeadNode` / `Ssh` / `AllowedIps` configuration to limit the SSH access to the head node.
+  For better security posture, we suggest using the `HeadNode` / `Ssh` / `AllowedIps` configuration to limit the SSH access to the head node.
 
 Notice that the certificate specified in `LdapTlsCaCert` must be accessible to all cluster nodes.
 
@@ -116,7 +116,7 @@ aws secretsmanager get-secret-value --region $REGION --secret-id $CERTIFICATE_SE
 - `DomainAddr`: This IP address is one of the DNS addresses of your AD service.
 - `PasswordSecretArn`: The Amazon Resource Name (ARN) of the secret that contains the password for the
   `DomainReadOnlyUser`.
-  For better security posture, we suggest to use the HeadNode/Ssh/AllowedIps configuration to limit the SSH access to the head node.
+  For better security posture, we suggest using the HeadNode/Ssh/AllowedIps configuration to limit the SSH access to the head node.
 
 ```
 Region: `region-id`
@@ -159,7 +159,7 @@ DirectoryService:
 - `DomainAddr`: This IP address is one of the DNS addresses of your AD service.
 - `PasswordSecretArn`: The Amazon Resource Name (ARN) of the secret that contains the password for the
   `DomainReadOnlyUser`.
-  For better security posture, we suggest to use the HeadNode/Ssh/AllowedIps configuration to limit the SSH access to the head node.
+  For better security posture, we suggest using the HeadNode/Ssh/AllowedIps configuration to limit the SSH access to the head node.
 
 ```
 Region: `region-id`
@@ -201,7 +201,7 @@ Create your cluster with the following command.
  "cloudformationStackStatus": "CREATE_IN_PROGRESS",
  "cloudformationStackArn": "arn:aws:cloudformation:region-id:123456789012:stack/ad-cluster/1234567-abcd-0123-def0-abcdef0123456",
  "region": "region-id",
- "version": 3.15.0,
+ "version": 3.15.1,
  "clusterStatus": "CREATE_IN_PROGRESS"
  }
 }`

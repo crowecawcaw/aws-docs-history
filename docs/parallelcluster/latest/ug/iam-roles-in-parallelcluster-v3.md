@@ -792,7 +792,7 @@ JSON
 ### Restricted IAM access mode
 
 When no additional IAM policies are granted to the user, IAM roles required by clusters or
-custom image build need to be manually created by an administrator and passed as part of the cluster
+custom image builds need to be manually created by an administrator and passed as part of the cluster
 configuration.
 
 When creating a cluster the following parameters are required:
@@ -1338,7 +1338,7 @@ JSON
 [Iam](Scheduling-v3.md#Scheduling-v3-SlurmQueues-Iam "Scheduling-v3.md#Scheduling-v3-SlurmQueues-Iam") / [InstanceRole](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Iam-InstanceRole "Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Iam-InstanceRole") |
 [InstanceProfile](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Iam-InstanceProfile "Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Iam-InstanceProfile")
 
-This option allows to override the IAM role that is assigned to the compute nodes of the cluster. For more
+This option allows you to override the IAM role that is assigned to the compute nodes of the cluster. For more
 information, see [InstanceProfile](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Iam-InstanceProfile "Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Iam-InstanceProfile").
 
 Here is the minimal set of policies to be used as part of this role:

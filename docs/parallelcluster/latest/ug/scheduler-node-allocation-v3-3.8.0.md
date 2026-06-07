@@ -6,7 +6,7 @@ cluster based on the requirements of each job, the number of nodes allocated to 
 which nodes need to be resumed. ParallelCluster gets this information from the SLURM_RESUME_FILE
 environment variable.
 
-The scaling for dynamic nodes is a two steps process, which involves the launch of the EC2
+The scaling for dynamic nodes is a two-step process, which involves the launch of the EC2
 instances and the assignment of the launched Amazon EC2 instances to the Slurm nodes. Each of these two
 steps can be done using an **all-or-nothing** or **best-effort** logic.
 
@@ -107,7 +107,7 @@ Limitations
 
 - Possible idle running instances at the end of the scaling process, for the case when it’s
   not possible to allocate all the nodes requested by the jobs.
-  The following is an example that shows how the scaling of dynamic nodes behave using the
+  The following is an example that shows how the scaling of dynamic nodes behaves using the
   different **ParallelCluster launch strategies**. Suppose you have
   submitted two jobs requesting 20 nodes each, for a total of 40 nodes of the same type, but there
   are only 30 Amazon EC2 instances available to cover the requested capacity on EC2.

@@ -123,14 +123,14 @@ changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-
 
 Specifies the type of storage used for internally shared data. Internally shared
 data includes data that AWS ParallelCluster uses to manage the cluster and the default
-shared `/home` if not specified in the [SharedStorage section](SharedStorage-v3.md "SharedStorage-v3.md") as a Mount directory to mount a shared filesystem
+shared `/home` if not specified in the [SharedStorage section](SharedStorage-v3.md "SharedStorage-v3.md") as a Mount directory to mount a shared file system
 volume. For more details on internal shared data refer [AWS ParallelCluster internal directories](directories-v3.md "directories-v3.md").
 
 If `Ebs`, which is the default storage type, the head node will export
 portions of its root volume as shared directories for compute nodes and login nodes
 using NFS.
 
-If `Efs`, ParallelCluster will create an EFS filesystem to use for
+If `Efs`, ParallelCluster will create an EFS file system to use for
 shared internal data and `/home`.
 
 [Update policy: If this setting is
@@ -519,7 +519,7 @@ CustomActions:
 `OnNodeStart`
 (**Optional**)
 
-Specifies single script or a sequence of scripts to run on the head node before any
+Specifies a single script or a sequence of scripts to run on the head node before any
 node deployment bootstrap action is started. For more information, see [Custom bootstrap actions](custom-bootstrap-actions-v3.md "custom-bootstrap-actions-v3.md").
 
 `Sequence` (**Optional**)
@@ -808,7 +808,7 @@ The following users are permitted access to the head node's IMDS:
 - root user
 - cluster administrative user (`pc-cluster-admin` by default)
 - operating system specific default user (`ec2-user` on Amazon
-  Linux 2 and RedHat, and `ubuntu` on Ubuntu 18.04.
+  Linux 2, Amazon Linux 2023 and Red Hat, and `ubuntu` on Ubuntu 22.04 and Ubuntu 24.04)
 
 The default is `true`.
 

@@ -5,7 +5,7 @@ manager for Python packages.
 
 ###### Prerequisites
 
-- AWS ParallelCluster requires Python 3.7 or later. If you don't already have it installed, [download a compatible version](https://www.python.org/downloads/ "https://www.python.org/downloads/") for your platform at [python.org](https://www.python.org/ "https://www.python.org/").
+- AWS ParallelCluster requires Python 3.9 or later. If you don't already have it installed, [download a compatible version](https://www.python.org/downloads/ "https://www.python.org/downloads/") for your platform at [python.org](https://www.python.org/ "https://www.python.org/").
 
 ###### Install AWS ParallelCluster
 
@@ -39,7 +39,7 @@ see the [Node.js release schedule](https://github.com/nodejs/release#release-sch
 ```
 `$` `pcluster version`
 `{
- "version": "3.15.0"
+ "version": "3.15.1"
 }`
 ```
 

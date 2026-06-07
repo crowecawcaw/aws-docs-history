@@ -20,7 +20,7 @@ POST /v3/images/custom
   "dryrun": boolean,
   "region": "string",
   "rollbackOnFailure": boolean,
-  "supressValidators": [ "string" ],
+  "suppressValidators": [ "string" ],
   "validationFailureLevel": "string"
 }
 ```

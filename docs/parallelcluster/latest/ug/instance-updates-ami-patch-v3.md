@@ -47,7 +47,7 @@ the stopped instance migrates it to use the new hardware.
 Similarly, you can manually stop and start an instance that doesn't have instance stores. For this case and for other cases of instances without ephemeral volumes, continue to
 [Stop and start a cluster's head node](#instance-headnode-stop-start-v3 "#instance-headnode-stop-start-v3").
 
-If your instance has ephemeral drives and its been stopped, the data in the instance store is lost. You can determine if the instance type used for the head node
+If your instance has ephemeral drives and it's been stopped, the data in the instance store is lost. You can determine if the instance type used for the head node
 has instance stores from the table found in [Instance store volumes](../../../AWSEC2/latest/UserGuide/InstanceStorage.md#instance-store-volumes "../../../AWSEC2/latest/UserGuide/InstanceStorage.md#instance-store-volumes").
 
 ## Save data from ephemeral drives

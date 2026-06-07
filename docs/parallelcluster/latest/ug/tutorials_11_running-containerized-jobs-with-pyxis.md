@@ -25,15 +25,15 @@ and [NVIDIA Enroot](https://github.com/NVIDIA/enroot "https://github.com/NVIDIA/
 
 ## Create the cluster
 
-Starting with AWS ParallelCluster 3.11.1, all official AMIs comes with Pyxis and Enroot
+Starting with AWS ParallelCluster 3.11.1, all official AMIs come with Pyxis and Enroot
 pre-installed. In particular, SLURM is recompiled with Pyxis support and Enroot is
-installed as a binary in the system. However, you must to configure them according to
+installed as a binary in the system. However, you must configure them according to
 your specific needs. The folders used by Enroot and Pyxis will have a critical impact on cluster performance. For more
 information, see [Pyxis
 documentation](https://github.com/NVIDIA/pyxis/wiki/Setup#slurm-plugstack-configuration "https://github.com/NVIDIA/pyxis/wiki/Setup#slurm-plugstack-configuration") and [Enroot
 documentation.](https://github.com/NVIDIA/pyxis/wiki/Setup#enroot-configuration-example "https://github.com/NVIDIA/pyxis/wiki/Setup#enroot-configuration-example")
 
-For your convenience, you can find sample configurations for both Pyxis, Enroot and
+For your convenience, you can find sample configurations for Pyxis, Enroot, and
 SPANK within `/opt/parallelcluster/examples/`.
 
 To deploy a cluster using the sample configurations we have provided, complete the

@@ -251,7 +251,7 @@ setting can be changed during an update.](using-pcluster-update-cluster-v3.md#up
 
 `Size` (**Optional**, `Integer`)
 
-Specifies the volume size in gibibytes (GiB). The default value is 35.
+Specifies the volume size in gibibytes (GiB). The default value is 40.
 
 [Update policy: If this setting is
 changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-policy-fail-v3 "using-pcluster-update-cluster-v3.md#update-policy-fail-v3")
@@ -320,7 +320,7 @@ cluster is deleted or the volume is removed. The supported values are
 `Delete`, `Retain`, and `Snapshot`. The default
 value is `Delete`.
 
-When the [DeletionPolicy](#yaml-SharedStorage-EbsSettings-DeletionPolicy "#yaml-SharedStorage-EbsSettings-DeletionPolicy") set to `Delete`, a managed volume, with its data,
+When the [DeletionPolicy](#yaml-SharedStorage-EbsSettings-DeletionPolicy "#yaml-SharedStorage-EbsSettings-DeletionPolicy") is set to `Delete`, a managed volume, with its data,
 is deleted if the cluster is deleted or if the volume is removed with a cluster
 update.
 
@@ -392,7 +392,7 @@ changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-
 
 ### `EfsSettings` properties
 
-When the [DeletionPolicy](#yaml-SharedStorage-EfsSettings-DeletionPolicy "#yaml-SharedStorage-EfsSettings-DeletionPolicy") set to `Delete`, a managed file system, with its data,
+When the [DeletionPolicy](#yaml-SharedStorage-EfsSettings-DeletionPolicy "#yaml-SharedStorage-EfsSettings-DeletionPolicy") is set to `Delete`, a managed file system, with its data,
 is deleted if the cluster is deleted, or if the file system is removed with a cluster
 update.
 
@@ -580,7 +580,7 @@ setting can be changed during an update.](using-pcluster-update-cluster-v3.md#up
 `AccessPointId` (**Optional**,
 `String`)
 
-If this option is specified, the filesystem entry point defined by the `access point ID` will be mounted rather than the filesystem root.
+If this option is specified, the file system entry point defined by the `access point ID` will be mounted rather than the file system root.
 
 For more information, see [Shared storage](shared-storage-quotas-integration-v3.md "shared-storage-quotas-integration-v3.md").
 
@@ -900,7 +900,7 @@ node.
 
 ###### Note
 
-The file system must be associated to a security group that allows inbound and
+The file system must be associated with a security group that allows inbound and
 outbound TCP traffic through ports 988, 1021, 1022, and 1023.
 
 Make sure that traffic is allowed between the cluster and file system by doing one
@@ -1036,7 +1036,7 @@ List of DRAs (up to 8 per file system)
 Each data repository association must have a unique Amazon FSx file system
 directory and a unique S3 bucket or prefix associated with it.
 
-You can not use [ExportPath](#yaml-SharedStorage-FsxLustreSettings-ExportPath "#yaml-SharedStorage-FsxLustreSettings-ExportPath") and [ImportPath](#yaml-SharedStorage-FsxLustreSettings-ImportPath "#yaml-SharedStorage-FsxLustreSettings-ImportPath") in the
+You cannot use [ExportPath](#yaml-SharedStorage-FsxLustreSettings-ExportPath "#yaml-SharedStorage-FsxLustreSettings-ExportPath") and [ImportPath](#yaml-SharedStorage-FsxLustreSettings-ImportPath "#yaml-SharedStorage-FsxLustreSettings-ImportPath") in the
 FsxLustreSettings at the same time as using DRAs.
 
 [Update policy: This
@@ -1203,7 +1203,7 @@ Specifies the volume ID of the existing FSx for ONTAP system.
 - If the FSx for ONTAP deployment type is `Multi-AZ`, make sure that the
   head node subnet's route table is properly configured.
 - Support for FSx for ONTAP was added in AWS ParallelCluster version 3.2.0.
-- The file system must be associated to a security group that allows inbound and
+- The file system must be associated with a security group that allows inbound and
   outbound TCP and UDP traffic through ports 111, 635, 2049, and 4046.
 
 Make sure traffic is allowed between the cluster and file system by doing one of the
@@ -1261,7 +1261,7 @@ Specifies the volume ID of the existing FSx for OpenZFS system.
 - If an AWS Batch scheduler is used, FSx for OpenZFS is only available on the head
   node.
 - Support for FSx for OpenZFS was added in AWS ParallelCluster version 3.2.0.
-- The file system must be associated to a security group that allows inbound and
+- The file system must be associated with a security group that allows inbound and
   outbound TCP and UDP traffic through ports 111, 2049, 20001, 20002, and 20003.
 
 Make sure that traffic is allowed between the cluster and file system by doing one of
@@ -1317,7 +1317,7 @@ Specifies the File Cache ID of an existing File Cache.
 
 - File Cache doesn't support AWS Batch schedulers.
 - Support for File Cache is added in AWS ParallelCluster version 3.7.0.
-- The file system must be associated to a security group that allows inbound and
+- The file system must be associated with a security group that allows inbound and
   outbound TCP traffic through port 988.
 
 Make sure that traffic is allowed between the cluster and file system by doing one of

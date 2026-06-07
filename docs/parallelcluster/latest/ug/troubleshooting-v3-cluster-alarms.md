@@ -10,7 +10,7 @@ The naming convention for cluster alarms is `CLUSTER_NAME-COMPONENT-METRIC`, e.g
 
 - `CLUSTER_NAME-HeadNode`: signals the overall status of the head node. It is red if at least one of the alarms below is.
 - `CLUSTER_NAME-HeadNode-Health`: red if there is at least one Amazon EC2 Health
-  Check failure. In case of alarm, we suggest to have a look at [Troubleshoot instances with
+  Check failure. In case of alarm, we suggest having a look at [Troubleshoot instances with
   failed status checks](../../../AWSEC2/latest/UserGuide/TroubleshootingInstances.md "../../../AWSEC2/latest/UserGuide/TroubleshootingInstances.md").
 - `CLUSTER_NAME-HeadNode-Cpu`: red if CPU utilization is greater than 90%. In case of alarm,
   check the processes that are consuming the CPU the most with `ps -aux --sort=-%cpu | head -n 10`.

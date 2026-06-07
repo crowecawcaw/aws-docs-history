@@ -10,8 +10,8 @@ solutions.
 Even though the head node doesn't run a job, its functions and its sizing are crucial to the overall performance of the cluster. When you
 choose the instance type to use for your head node, consider the following characteristics:
 
-**Cluster size:** The head node orchestrates the scaling logic of the cluster and is responsible of attaching
-new nodes to the scheduler. To scale up and down a cluster that has a large number nodes, provide the head node some extra compute capacity.
+**Cluster size:** The head node orchestrates the scaling logic of the cluster and is responsible for attaching
+new nodes to the scheduler. To scale up and down a cluster that has a large number of nodes, provide the head node some extra compute capacity.
 
 **Shared file systems:** When you use shared file systems, choose an instance type with enough network
 bandwidth, and enough Amazon EBS bandwidth, to handle your workflows. Ensure that the head node is able to both expose sufficient NFS server directories

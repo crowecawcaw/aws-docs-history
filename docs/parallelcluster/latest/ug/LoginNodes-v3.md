@@ -262,7 +262,7 @@ changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-
 
 `Dcv` (**Optional**)
 
-Defines configuration settings for the NICE DCV server that runs on the [login nodes](LoginNodes-v3.md "LoginNodes-v3.md"). For more information, see [Connect to the head and login nodes through Amazon DCV](dcv-v3.md "dcv-v3.md")
+Defines configuration settings for the Amazon DCV server that runs on the [login nodes](LoginNodes-v3.md "LoginNodes-v3.md"). For more information, see [Connect to the head and login nodes through Amazon DCV](dcv-v3.md "dcv-v3.md")
 
 ```
 Dcv:
@@ -273,7 +273,7 @@ Dcv:
 
 ###### Important
 
-By default, the NICE DCV port setup by AWS ParallelCluster is open to all IPv4 addresses. You can connect to a NICE DCV port only if you have the URL for the NICE DCV session and connect to the NICE DCV session within 30 seconds of when the URL is returned from pcluster dcv-connect. Use the `AllowedIps` setting to further restrict access to the NICE DCV port with a CIDR-formatted IP range and use the Port setting to set a nonstandard port.
+By default, the Amazon DCV port setup by AWS ParallelCluster is open to all IPv4 addresses. You can connect to an Amazon DCV port only if you have the URL for the Amazon DCV session and connect to the Amazon DCV session within 30 seconds of when the URL is returned from pcluster dcv-connect. Use the `AllowedIps` setting to further restrict access to the Amazon DCV port with a CIDR-formatted IP range and use the Port setting to set a nonstandard port.
 
 [Update policy: If this setting is
 changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-policy-fail-v3 "using-pcluster-update-cluster-v3.md#update-policy-fail-v3")
@@ -284,25 +284,25 @@ Support for DCV on login nodes is added in AWS ParallelCluster version 3.11.0.
 
 `Enabled` (**Required** `Boolean`)
 
-Specifies whether NICE DCV is enabled on the login nodes in the pool. The default value is `false`.
+Specifies whether Amazon DCV is enabled on the login nodes in the pool. The default value is `false`.
 
 [Update policy: If this setting is
 changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-policy-fail-v3 "using-pcluster-update-cluster-v3.md#update-policy-fail-v3")
 
 ###### Note
 
-NICE DCV automatically generates a self-signed certificate that's used to secure traffic between the NICE DCV client and NICE DCV server that runs on the login node. To configure your own certificate, see [Amazon DCV HTTPS certificate](dcv-v3.md#dcv-v3-certificate "dcv-v3.md#dcv-v3-certificate").
+Amazon DCV automatically generates a self-signed certificate that's used to secure traffic between the Amazon DCV client and Amazon DCV server that runs on the login node. To configure your own certificate, see [Amazon DCV HTTPS certificate](dcv-v3.md#dcv-v3-certificate "dcv-v3.md#dcv-v3-certificate").
 
 `Port` (**Optional** `Integer`)
 
-Specifies the port for NICE DCV. The default value is `8443`.
+Specifies the port for Amazon DCV. The default value is `8443`.
 
 [Update policy: If this setting is
 changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-policy-fail-v3 "using-pcluster-update-cluster-v3.md#update-policy-fail-v3")
 
 `AllowedIps` (**Optional** `String`)
 
-Specifies the CIDR-formatted IP range for connections to NICE DCV. This setting is used only when AWS ParallelCluster creates the security group. The default value is `0.0.0.0/0`, which allows access from any Internet address.
+Specifies the CIDR-formatted IP range for connections to Amazon DCV. This setting is used only when AWS ParallelCluster creates the security group. The default value is `0.0.0.0/0`, which allows access from any internet address.
 
 [Update policy: If this setting is
 changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-policy-fail-v3 "using-pcluster-update-cluster-v3.md#update-policy-fail-v3")
@@ -345,7 +345,7 @@ Support for custom actions on login nodes is added in AWS ParallelCluster versio
 
 `OnNodeStart` (**Optional**)
 
-Specifies single script or a sequence of scripts to run on the [login nodes](LoginNodes-v3.md "LoginNodes-v3.md") before any node deployment bootstrap action is started. For more information, see [Custom bootstrap actions](custom-bootstrap-actions-v3.md "custom-bootstrap-actions-v3.md").
+Specifies a single script or a sequence of scripts to run on the [login nodes](LoginNodes-v3.md "LoginNodes-v3.md") before any node deployment bootstrap action is started. For more information, see [Custom bootstrap actions](custom-bootstrap-actions-v3.md "custom-bootstrap-actions-v3.md").
 
 `Sequence` (**Optional**)
 
@@ -372,7 +372,7 @@ List of arguments to pass to the single script.
 
 `OnNodeConfigured` (**Optional**)
 
-Specifies single script or a sequence of scripts to run on the [login nodes](LoginNodes-v3.md "LoginNodes-v3.md") after the node bootstrap processes are complete. For more information, see [Custom bootstrap actions](custom-bootstrap-actions-v3.md "custom-bootstrap-actions-v3.md").
+Specifies a single script or a sequence of scripts to run on the [login nodes](LoginNodes-v3.md "LoginNodes-v3.md") after the node bootstrap processes are complete. For more information, see [Custom bootstrap actions](custom-bootstrap-actions-v3.md "custom-bootstrap-actions-v3.md").
 
 `Sequence` (**Optional**)
 
@@ -402,7 +402,7 @@ changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-
 
 `OnNodeUpdated` (**Optional**)
 
-Specifies single script or a sequence of scripts to run after the head node update is completed and the scheduler and shared storage are aligned with the latest cluster configuration changes. For more information, see [Custom bootstrap actions](custom-bootstrap-actions-v3.md "custom-bootstrap-actions-v3.md").
+Specifies a single script or a sequence of scripts to run after the head node update is completed and the scheduler and shared storage are aligned with the latest cluster configuration changes. For more information, see [Custom bootstrap actions](custom-bootstrap-actions-v3.md "custom-bootstrap-actions-v3.md").
 
 `Sequence` (**Optional**)
 

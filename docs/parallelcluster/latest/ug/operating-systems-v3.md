@@ -1,6 +1,6 @@
 # Operating systems
 
-AWS ParallelCluster supports Amazon Linux 2, Amazon Linux 2023, Ubuntu24.04, Ubuntu 22.04, Ubuntu 20.04, Red Hat Enterprise Linux 8 (RHEL8), Rocky 8, Red Hat Enterprise Linux 9 (RHEL9), and Rocky 9. AWS ParallelCluster offers pre-built AMIs for select operating systems, for more details on AMIs
+AWS ParallelCluster supports Amazon Linux 2, Amazon Linux 2023, Ubuntu 24.04, Ubuntu 22.04, Red Hat Enterprise Linux 8 (RHEL8), Rocky 8, Red Hat Enterprise Linux 9 (RHEL9), and Rocky 9. AWS ParallelCluster offers pre-built AMIs for select operating systems, for more details on AMIs
 provided by AWS ParallelCluster refer to [Image section](Image-v3.md "Image-v3.md").
 
 ## Operating system considerations
@@ -15,7 +15,7 @@ kernel.
 
 **RHEL 8**
 
-RedHat Enterprise Linux 8.7 (rhel8) is added starting in AWS ParallelCluster version 3.6.0. If
+Red Hat Enterprise Linux 8.7 (rhel8) is added starting in AWS ParallelCluster version 3.6.0. If
 you configure your cluster to use rhel8, the on-demand cost for any instance type is higher than
 when you configure your cluster to use other supported operation systems.
 
@@ -49,3 +49,8 @@ kernel. To upgrade the kernel before building the AMI:
 - Launch an instance using a rocky9 AMI id from here: [https://rockylinux.org/cloud-images/](https://rockylinux.org/cloud-images/ "https://rockylinux.org/cloud-images/")
 - ssh into the instance and run the following command:`sudo yum -y update`
 - Create an image from the instance to use as `ParentImage`
+
+**Amazon Linux 2**
+
+AWS ParallelCluster 3.15 is the last version to include `alinux2` support.
+Amazon Linux 2 reaches End of Life (EOL) on 2026-06-30 (see [Amazon Linux 2 FAQs](https://aws.amazon.com/amazon-linux-2/faqs/ "https://aws.amazon.com/amazon-linux-2/faqs/") ) and will no longer receive security patches or bug fixes after EOL.

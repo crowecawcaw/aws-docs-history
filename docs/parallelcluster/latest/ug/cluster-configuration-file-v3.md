@@ -37,7 +37,7 @@ changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-
 `String`)
 
 Specifies the name of an Amazon S3 bucket that is created in your AWS account to store resources
-that are used are used by your clusters, such as the cluster configuration file, and to export
+that are used by your clusters, such as the cluster configuration file, and to export
 logs. AWS ParallelCluster maintains one Amazon S3 bucket in each AWS Region that you create clusters
 in. By default, these Amazon S3 buckets are named `parallelcluster-hash-v1-DO-NOT-DELETE`.
 

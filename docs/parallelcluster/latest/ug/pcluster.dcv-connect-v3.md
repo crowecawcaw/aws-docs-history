@@ -1,6 +1,6 @@
 # `pcluster dcv-connect`
 
-Permits to connect to the head node through an interactive session by using Amazon DCV.
+Permits connecting to the head node through an interactive session by using Amazon DCV.
 
 ```
 pcluster dcv-connect [-h]

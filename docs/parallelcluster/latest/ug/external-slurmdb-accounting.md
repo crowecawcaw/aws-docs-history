@@ -45,7 +45,7 @@ quick-create template (`us-east-1`)](https://us-east-1.console.aws.amazon.com/cl
 
 ###### Database connection
 
-- **DBMSClientSG**: The security group to be attach to the Slurmdbd instance. This security group should allows connections between the database server and the Slurmdbd instance.
+- **DBMSClientSG**: The security group to be attached to the Slurmdbd instance. This security group should allow connections between the database server and the Slurmdbd instance.
 - **DBMSDatabaseName**: The name of the database.
 - **DBMSUsername**: The username to the database.
 - **DBMSPasswordSecretArn**: The secret containing the password to the database.

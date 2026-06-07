@@ -13,7 +13,7 @@ The following directories are shared between the head node, compute nodes, and l
 
 By default these directories are created on the head nodes EBS volume and shared as NFS
 exports to the compute and login nodes. Starting from AWS ParallelCluster 3.8 you can enable
-AWS ParallelCluster to create and manage an Amazon EFS filesystem to host and share these directories
+AWS ParallelCluster to create and manage an Amazon EFS file system to host and share these directories
 by setting the [SharedStorageType](HeadNode-v3.md#yaml-HeadNode-SharedStorageType "HeadNode-v3.md#yaml-HeadNode-SharedStorageType") parameter
 to efs.
 

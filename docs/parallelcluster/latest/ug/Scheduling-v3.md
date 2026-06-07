@@ -1435,7 +1435,7 @@ nodes.
 At cluster creation time, the head node waits for all the static nodes to be
 ready before signaling the success of cluster creation. However, when you use
 `CapacityType = CAPACITY_BLOCK`, the nodes part of the compute
-resources associated to Capacity Blocks won't be considered for this check. The
+resources associated with Capacity Blocks won't be considered for this check. The
 cluster will be created even if not all the configured Capacity Blocks are
 active.
 

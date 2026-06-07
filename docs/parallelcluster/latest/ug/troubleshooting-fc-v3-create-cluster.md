@@ -221,7 +221,7 @@ You might discover the following in these logs.
     ```
     DevSettings:
       Timeouts:
-        HeadNodeBootstrapTimeout: 1800 # default setting: 1800 seconds
+        HeadNodeBootstrapTimeout: 2100 # default setting: 2100 seconds
     ```
     + Can't find the logs, or the head node wasn't created successfully
 

@@ -112,7 +112,7 @@ environment variable, the `region` setting in the `[default]` section of the
  "key": "parallelcluster:pmix_version"
  },
  {
- "value": "parallelcluster/3.15.0/images/alinux2-image-abcd1234efgh56781234",
+ "value": "parallelcluster/3.15.1/images/alinux2-image-abcd1234efgh56781234",
  "key": "parallelcluster:s3_image_dir"
  },
  {

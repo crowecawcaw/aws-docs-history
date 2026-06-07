@@ -23,11 +23,11 @@ or back up the data before you update the cluster.
   it can be re-attached to the cluster as an external file system with your cluster data preserved.
 - Starting with AWS ParallelCluster version 3.4.0, you can enhance security for Amazon EFS file system mounts by configuring [SharedStorage](SharedStorage-v3.md "SharedStorage-v3.md") / [EfsSettings](SharedStorage-v3.md#SharedStorage-v3-EfsSettings "SharedStorage-v3.md#SharedStorage-v3-EfsSettings") /
   [EncryptionInTransit](SharedStorage-v3.md#yaml-SharedStorage-EfsSettings-EncryptionInTransit "SharedStorage-v3.md#yaml-SharedStorage-EfsSettings-EncryptionInTransit") and [IamAuthorization](SharedStorage-v3.md#yaml-SharedStorage-EfsSettings-IamAuthorization "SharedStorage-v3.md#yaml-SharedStorage-EfsSettings-IamAuthorization") settings.
-- When mounting an external filesystem to the /home directory, AWS ParallelCluster copies the contents of the head node's /home directory
-  to the external filesystem. It copies existing data in the /home directory without overwriting existing files or directories on the external storage.
-  This includes the cluster's SSH key for the default user in case it does not already exist on the external filesystem. Consequently all other clusters
-  that mount the same external filesystem to their respective /home directory will also have the same SSH key for their default user of the cluster.
-- In a multi-cluster environment that mounts the same external filesystem to the /home directories of clusters, SSH keys that grant access to the compute nodes,
-  created on the head node by AWS ParallelCluster, are generated only once when the first cluster mounts the external filesystem to /home. All other clusters use
+- When mounting an external file system to the /home directory, AWS ParallelCluster copies the contents of the head node's /home directory
+  to the external file system. It copies existing data in the /home directory without overwriting existing files or directories on the external storage.
+  This includes the cluster's SSH key for the default user in case it does not already exist on the external file system. Consequently all other clusters
+  that mount the same external file system to their respective /home directory will also have the same SSH key for their default user of the cluster.
+- In a multi-cluster environment that mounts the same external file system to the /home directories of clusters, SSH keys that grant access to the compute nodes,
+  created on the head node by AWS ParallelCluster, are generated only once when the first cluster mounts the external file system to /home. All other clusters use
   the same SSH key. As a result, anyone possessing the SSH key for the default user of these shared clusters can access any cluster. All compute nodes allow
   connections using the initially generated key.

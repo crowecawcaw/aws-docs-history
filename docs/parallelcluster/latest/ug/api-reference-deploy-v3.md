@@ -13,7 +13,7 @@ Run the following commands to deploy the API:
 ```
 `$` `REGION=`<region>``
 `$` `API_STACK_NAME=`<stack-name>``  # This can be any name
-`$` `VERSION=3.15.0`
+`$` `VERSION=3.15.1`
 `$` `aws cloudformation create-stack \
    --region ${REGION} \
    --stack-name ${API_STACK_NAME} \

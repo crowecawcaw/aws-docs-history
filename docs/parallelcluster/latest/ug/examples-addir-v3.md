@@ -37,7 +37,7 @@ LDAPS:**
 ```
 Region: region-id
 Image:
-  Os: alinux2
+  Os: alinux2023
 HeadNode:
   InstanceType: t2.micro
   Networking:
@@ -152,7 +152,7 @@ LDAPS without certificate verification:**
 ```
 Region: region-id
 Image:
-  Os: alinux2
+  Os: alinux2023
 HeadNode:
   InstanceType: t2.micro
   Networking:

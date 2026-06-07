@@ -26,3 +26,4 @@ you need to upgrade to the new minor or patch version.
 | 3.12.`x`                     | 06/30/2026                        |
 | 3.13.`x`                     | 09/30/2026                        |
 | 3.14.`x`                     | 03/29/2027                        |
+| 3.15.`x`                     | 09/23/2027                        |

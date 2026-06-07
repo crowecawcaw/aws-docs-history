@@ -30,7 +30,7 @@ When configuring custom security groups, you must ensure that the following port
 | 22                           | TCP     | Inbound  | SSH access to the head node (from allowed IP ranges)                |
 | 6817-6819                    | TCP     | Inbound  | Slurm controller ports (from compute and login nodes)               |
 | 6817-6819                    | TCP     | Outbound | Slurm controller ports (to compute and login nodes)                 |
-| 8443                         | TCP     | Inbound  | NICE DCV (if enabled, from allowed IP ranges)                       |
+| 8443                         | TCP     | Inbound  | Amazon DCV (if enabled, from allowed IP ranges)                     |
 | 111, 2049                    | TCP/UDP | Inbound  | NFS (from compute and login nodes, if using NFS for shared storage) |
 | 443                          | TCP     | Outbound | HTTPS access to AWS services (if not using VPC endpoints)           |
 
@@ -172,7 +172,7 @@ When configuring security groups for AWS ParallelCluster in restricted environme
 - **Principle of least privilege**: Only open the ports that are necessary for cluster operation.
 - **Use security group references**: When possible, use security group references (allowing traffic from another security group) rather than CIDR blocks to limit traffic between cluster components.
 - **Restrict SSH access**: Limit SSH access to the head node to only the IP ranges that need it using the [HeadNode / Ssh / AllowedIps](HeadNode-v3.md#yaml-HeadNode-Ssh-AllowedIps "HeadNode-v3.md#yaml-HeadNode-Ssh-AllowedIps") configuration.
-- **Restrict DCV access**: If using NICE DCV, limit access to only the IP ranges that need it using the [HeadNode / Dcv / AllowedIps](HeadNode-v3.md#yaml-HeadNode-Dcv-AllowedIps "HeadNode-v3.md#yaml-HeadNode-Dcv-AllowedIps") configuration.
+- **Restrict DCV access**: If using Amazon DCV, limit access to only the IP ranges that need it using the [HeadNode / Dcv / AllowedIps](HeadNode-v3.md#yaml-HeadNode-Dcv-AllowedIps "HeadNode-v3.md#yaml-HeadNode-Dcv-AllowedIps") configuration.
 - **Test thoroughly**: After configuring custom security groups, thoroughly test all cluster functionality to ensure that all required communication paths are working.
 - **Document your configuration**: Maintain documentation of your security group configuration, including which ports are open and why they are needed.
 

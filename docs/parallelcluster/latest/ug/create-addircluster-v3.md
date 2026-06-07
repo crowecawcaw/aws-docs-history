@@ -63,7 +63,7 @@ cn=ReadOnly,ou=Users,ou=CORP,dc=`corp`,dc=`example`,dc=`com`
 ```
 Region: region-id
 Image:
-  Os: alinux2
+  Os: alinux2023
 HeadNode:
   InstanceType: t2.micro
   Networking:

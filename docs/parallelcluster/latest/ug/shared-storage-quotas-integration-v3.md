@@ -33,8 +33,8 @@ shared storage outside of the cluster lifecycle.
 
 ###### Note
 
-Versions of AWS ParallelCluster prior to 3.8 do not allow for externally managed filesystems to be mounted at `/home`. Starting from version 3.8,
-AWS ParallelCluster allows you to use `/home` as a mount point for an external managed filesystem. You can mount an externally managed file system to
+Versions of AWS ParallelCluster prior to 3.8 do not allow for externally managed file systems to be mounted at `/home`. Starting from version 3.8,
+AWS ParallelCluster allows you to use `/home` as a mount point for an external managed file system. You can mount an externally managed file system to
 `/home` by specifying `/home` as the value to the [MountDir](SharedStorage-v3.md#yaml-SharedStorage-MountDir "SharedStorage-v3.md#yaml-SharedStorage-MountDir") parameter under the [SharedStorage section](SharedStorage-v3.md "SharedStorage-v3.md").
 
 Amazon File Cache is not suitable for use as the system `/home` directory and therefore is not supported at this time for mounting `/home`.
@@ -42,8 +42,8 @@ Amazon File Cache is not suitable for use as the system `/home` directory and th
 When specifying a `/home` directory under the [SharedStorage section](SharedStorage-v3.md "SharedStorage-v3.md") the [SharedStorageType](HeadNode-v3.md#yaml-HeadNode-SharedStorageType "HeadNode-v3.md#yaml-HeadNode-SharedStorageType")
 configuration option will be overridden, meaning the settings under [SharedStorage section](SharedStorage-v3.md "SharedStorage-v3.md") will be used instead.
 
-When mounting an external filesystem to the `/home` directory AWS ParallelCluster copies the head node's `/home` contents to the external filesystem, without overwriting existing files on the external storage.
-This includes transferring the cluster's SSH key for the default user, if it is absent on the external filesystem. For more information refer to [AWS ParallelCluster shared storage considerations](shared-storage-working-considerations-v3.md "shared-storage-working-considerations-v3.md").
+When mounting an external file system to the `/home` directory AWS ParallelCluster copies the head node's `/home` contents to the external file system, without overwriting existing files on the external storage.
+This includes transferring the cluster's SSH key for the default user, if it is absent on the external file system. For more information refer to [AWS ParallelCluster shared storage considerations](shared-storage-working-considerations-v3.md "shared-storage-working-considerations-v3.md").
 
 AWS ParallelCluster managed storage
 

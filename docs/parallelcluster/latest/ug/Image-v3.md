@@ -4,7 +4,7 @@
 
 Unsupported versions of the official AMIs distributed by AWS ParallelCluster will be made
 unavailable after 18 months of inactivity. These old images contain outdated software and cannot receive
-support in case of issues. We strongly suggest to move to the latest supported version.
+support in case of issues. We strongly suggest moving to the latest supported version.
 
 **(Required)** Defines the operating system for the cluster.
 
@@ -25,15 +25,21 @@ Specifies the operating system to use for the cluster. The supported values are 
 
 ###### Note
 
-RedHat Enterprise Linux 8.7 (`rhel8`) is added starting in AWS ParallelCluster version 3.6.0.
-
 If you configure your cluster to use `rhel`, the on-demand cost for any
 instance type is higher than when you configure your cluster to use other supported
 operation systems. For more information about pricing, see [On-Demand Pricing](https://aws.amazon.com/ec2/pricing/on-demand "https://aws.amazon.com/ec2/pricing/on-demand") and
 [How is
 Red Hat Enterprise Linux on Amazon EC2 offered and priced?](https://aws.amazon.com/partners/redhat/faqs/#Pricing_and_Billing "https://aws.amazon.com/partners/redhat/faqs/#Pricing_and_Billing").
 
-RedHat Enterprise Linux 9 (rhel9) is added starting in AWS ParallelCluster version 3.9.0.
+###### Note
+
+Red Hat Enterprise Linux 8.7 (`rhel8`) is added starting in AWS ParallelCluster
+version 3.6.0.
+
+Red Hat Enterprise Linux 9 (`rhel9`) is added starting in AWS ParallelCluster version 3.9.0.
+
+AWS ParallelCluster 3.15 is the last version to include `alinux2` support.
+Amazon Linux 2 reaches End of Life (EOL) on 2026-06-30 (see [Amazon Linux 2 FAQs](https://aws.amazon.com/amazon-linux-2/faqs/ "https://aws.amazon.com/amazon-linux-2/faqs/") ) and will no longer receive security patches or bug fixes after EOL.
 
 All AWS commercial Regions support all of the following operating systems.
 
@@ -90,7 +96,7 @@ JSON
 
 ```
 
-To build a RedHat Enterprise Linux custom AMI, you must configure the OS for installing
+To build a Red Hat Enterprise Linux custom AMI, you must configure the OS for installing
 the packages that are provided by the RHUI (AWS) repositories:
 `rhel-<version>-baseos-rhui-rpms`,
 `rhel-<version>-appstream-rhui-rpms`, and
@@ -103,10 +109,6 @@ on the same version as the running kernel version. kernel.
 - Only RHEL 8.2 and later versions support FSx for Lustre.
 - RHEL 8.7 kernel version 4.18.0-425.3.1.el8 doesn't support FSx for Lustre.
 - Only RHEL 8.4 and later versions support EFA.
-- AL23 doesn't support NICE DCV, as it doesn't include a graphical desktop
-  environment, which is required to run NICE DCV. For more information, see the
-  official [NICE DCV
-  documentation](../../../dcv.md "../../../dcv.md").
 
 To troubleshoot custom AMI validation warnings, see [Troubleshooting custom AMI issues](troubleshooting-v3-custom-amis.md "troubleshooting-v3-custom-amis.md").
 
