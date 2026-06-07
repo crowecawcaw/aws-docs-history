@@ -121,13 +121,10 @@ owner enforced setting for Object Ownership, be aware of the following:
   You must choose a
   destination
   bucket that doesn't have Object Lock enabled.
-- **If the destination bucket uses SSE-KMS, grant
-  the logging service principal access to the AWS KMS key** – If
-  the destination bucket uses SSE-KMS default encryption, you must grant the
-  logging service principal (`logging.s3.amazonaws.com`) the
-  `kms:GenerateDataKey` and `kms:Decrypt` permissions in
-  your AWS KMS key policy. Otherwise, log objects might be created but encrypted with
-  a key that you can't access, or log delivery might fail.
+- **The destination bucket must use Amazon S3 managed
+  keys (SSE-S3)** – If the destination bucket uses SSE-KMS
+  default encryption, log objects might be created but encrypted with a key that
+  you can't access.
 - **The
   destination
   bucket does not have Requester Pays enabled** – Using a

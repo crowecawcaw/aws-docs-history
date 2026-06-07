@@ -36,7 +36,7 @@ storage. The minimum billable file size on high-performance storage is 10 KiB.
 ## How data access is metered
 
 You pay data access charges for metadata operations and for reads and writes to the
-file system's high-performance storage. Large file reads (1 MiB or larger) are always
+file system's high-performance storage. Large file reads (1 MiB or larger file IO) are always
 streamed directly from your S3 bucket, even if data resides on the file system's
 high-performance storage. S3 is optimized for high throughput reads, while
 high-performance storage is optimized for low-latency small-file access. Direct reads
@@ -122,7 +122,7 @@ high-performance storage. Expiration incurs no data access or metadata charges.
 (inodes) reflects the contents of your linked S3 bucket. As your bucket changes,
 metadata is updated to stay consistent with the current state of your bucket. Metadata
 for accessed directories never expires. You can use the Inodes CloudWatch metric to
-monitor your metadata usage. Metadata expiration incurs no charges.
+monitor your metadata usage. Metadata expiration incurs no charges. POSIX metadata changes such as chown and chmod update the object in your S3 bucket. S3 objects are immutable, so S3 Files writes a new version of the object with the updated metadata, metered as an S3 PUT request and S3 Files export. Each metadata change creates an additional version of the object.
 
 ## Metering examples
 

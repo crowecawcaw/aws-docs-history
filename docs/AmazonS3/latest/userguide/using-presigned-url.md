@@ -178,6 +178,13 @@ Presigned URLs remain valid only while their underlying credentials are valid. A
 
 Before generating a presigned URL, verify that you have the correct permissions configured. The IAM user or role generating the URL must have the required permissions, such as `s3:GetObject`, for the specific operation. Additionally, check that the Amazon S3 bucket policy doesn't explicitly deny access to the object.
 
+###### Q: Why am I getting an `AccessDenied` error with `HeadersNotSigned: if-range`?
+
+When `Range` is included in `X-Amz-SignedHeaders`, Amazon S3
+requires that `If-Range` also be signed if present in the request. Add
+`If-Range` to `X-Amz-SignedHeaders` when you generate the
+presigned URL.
+
 ###### Q: I'm getting `SignatureDoesNotMatch` errors. How do I fix this?
 
 If you encounter `SignatureDoesNotMatch` errors when using Amazon S3 presigned URLs, consider several common causes. First, ensure that your system clock is synchronized with a Network Time Protocol (NTP) server, as even small time drifts can invalidate signatures. Next, be aware that some corporate proxies might modify headers or query strings, potentially causing signature mismatches. To troubleshoot, try testing without the proxy. Finally, verify that all request parameters—including the HTTP method, headers, and query string—match exactly between URL generation and usage. Addressing these issues can often resolve `SignatureDoesNotMatch` errors.

@@ -6,6 +6,16 @@ AWS Region. If you've enabled S3 Replication Time Control (S3 RTC) on your repli
 be notified when objects don't replicate within the 15-minute S3 RTC threshold for
 replication.
 
+###### Important
+
+To receive replication failure event notifications
+(`s3:Replication:OperationFailedReplication`), you must enable S3 Replication metrics
+on your replication rule. You do not need to enable S3 Replication Time Control (S3 RTC) to receive failure
+notifications. S3 RTC is only required for threshold-based notifications
+(`s3:Replication:OperationMissedThreshold` and
+`s3:Replication:OperationReplicatedAfterThreshold`). You can enable
+S3 Replication metrics independently of S3 RTC. For more information, see [Enabling S3 Replication metrics](repl-metrics.md#enabling-replication-metrics "repl-metrics.md#enabling-replication-metrics").
+
 By using the following `Replication` event types, you can monitor the
 minute-by-minute progress of replication events by tracking bytes pending, operations pending,
 and replication latency. For more information about S3 Replication metrics, see [Using S3 Replication metrics](repl-metrics.md "repl-metrics.md").
@@ -30,11 +40,6 @@ AWS Lambda. For more information, see [Amazon S3 Event Notifications](EventNotif
 
 For instructions on how to configure Amazon S3 Event Notifications, see [Enabling event
 notifications](how-to-enable-disable-notification-intro.md "how-to-enable-disable-notification-intro.md").
-
-###### Note
-
-In addition to enabling event notifications, make sure that you also enable
-S3 Replication metrics. For more information, see [Enabling S3 Replication metrics](repl-metrics.md#enabling-replication-metrics "repl-metrics.md#enabling-replication-metrics").
 
 The following is an example of a message that Amazon S3 sends to publish an
 `s3:Replication:OperationFailedReplication` event. For more information, see

@@ -107,7 +107,7 @@ from within an application and are regularly updated to follow the latest best p
 For example, the SDKs include logic to automatically retry requests on HTTP 503 errors and
 are investing in code to respond and adapt to slow connections.
 
-The SDKs also provide the [Transfer Manager](../../../sdk-for-java/latest/developer-guide/examples-s3-transfermanager.md "../../../sdk-for-java/latest/developer-guide/examples-s3-transfermanager.md"), which automates horizontally scaling connections to achieve
+The SDKs also provide the [Transfer Manager](../../../sdk-for-java/latest/developer-guide/transfer-manager.md "../../../sdk-for-java/latest/developer-guide/transfer-manager.md"), which automates horizontally scaling connections to achieve
 thousands of requests per second, using byte-range requests where appropriate. It’s
 important to use the latest version of the AWS SDKs to obtain the latest performance
 optimization features.
