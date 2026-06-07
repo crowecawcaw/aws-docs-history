@@ -26,8 +26,12 @@ purchase analysis.
 10. Under **Exclude expiring Savings Plans**, select Savings Plans
     expiring within the next 90 days that you’d like to exclude from the
     analysis.
-11. Under **Commitment**, choose **Recommended**
-    or **Custom**.
-12. If you chose **Custom**, under **Hourly
-    commitment**, enter your preferred hourly commitment amount.
-13. Choose **Run analysis**.
+11. Under **Commitment**, choose
+    **Recommended**, **Target coverage (%)**, or
+    **Custom**.
+12. If you chose **Target coverage (%)**, under
+    **Target coverage (%)**, enter your target coverage
+    percentage.
+13. If you chose **Custom**, under **Hourly
+    commitment ($)**, enter your preferred hourly commitment amount.
+14. Choose **Run analysis**.
