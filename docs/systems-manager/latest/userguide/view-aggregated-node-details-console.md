@@ -6,7 +6,7 @@ views:
 All nodes (No filter)
 Lists all managed nodes in your organization or account.
 
-![A list of managed nodes in the Explore nodes page](/images/systems-manager/latest/userguide/images/2-explore-nodes-managed-nodes.png)
+![A list of managed nodes in the Explore nodes page](images/2-explore-nodes-managed-nodes.png)
 
 Node types
 Provides tabs for viewing data separately for Amazon Elastic Compute Cloud (Amazon EC2) instances

@@ -1544,10 +1544,12 @@ connection that isn't encrypted with Secure Socket Layer
 (SSL) or Transport Layer Security (TLS). The default
 value is `false`. We don't recommend
 performing downloads without encryption. If you choose
-to do so, you assume all associated risks. Security is a
-shared responsibility between AWS and you. This is
-described as the shared responsibility model. To learn
-more, see the [shared
+to do so, you assume all associated risks. SSM Agent
+follows HTTP redirects, which means an HTTPS URL can be
+redirected to an HTTP URL. Security is a shared
+responsibility between AWS and you. This is described
+as the shared responsibility model. To learn more, see
+the [shared
 responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/").
 
 Type: Boolean

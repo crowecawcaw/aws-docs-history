@@ -53,7 +53,7 @@ Note the following important details:
     * When registering instances, only use the provided download link
      provided for `ssm-setup-cli`. `ssm-setup-cli`
      shouldn’t be stored separately for future use.
-    * You can use the script provided [here](https://github.com/aws/amazon-ssm-agent/blob/mainline/Tools/src/setupcli_data_integrity_linux.sh "https://github.com/aws/amazon-ssm-agent/blob/mainline/Tools/src/setupcli_data_integrity_linux.sh") to validate the signature of
+    * You can use the [setupcli\_data\_integrity\_linux.sh](https://github.com/aws/amazon-ssm-agent/blob/mainline/Tools/src/setupcli_data_integrity_linux.sh "https://github.com/aws/amazon-ssm-agent/blob/mainline/Tools/src/setupcli_data_integrity_linux.sh") script to validate the signature of
      `ssm-setup-cli`.
 
 `region` represents the identifier for an AWS Region supported

@@ -64,7 +64,7 @@ Note the following important details:
      option that determines the source where the agent is downloaded
      from. Don't specify a value for this option unless required by your
      organization.
-    * You can use the script provided [here](https://github.com/aws/amazon-ssm-agent/blob/mainline/Tools/src/setupcli_data_integrity_windows.ps1 "https://github.com/aws/amazon-ssm-agent/blob/mainline/Tools/src/setupcli_data_integrity_windows.ps1") to validate the signature of
+    * You can use the [setupcli\_data\_integrity\_windows.ps1](https://github.com/aws/amazon-ssm-agent/blob/mainline/Tools/src/setupcli_data_integrity_windows.ps1 "https://github.com/aws/amazon-ssm-agent/blob/mainline/Tools/src/setupcli_data_integrity_windows.ps1") script to validate the signature of
      `ssm-setup-cli`.
     * When registering instances, only use the provided download link
      provided for `ssm-setup-cli`. `ssm-setup-cli`
