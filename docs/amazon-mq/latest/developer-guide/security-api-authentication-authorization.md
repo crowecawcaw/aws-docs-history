@@ -76,7 +76,7 @@ JSON
 
 ```
 
-For more information, see and [Never Modify or Delete the Amazon MQ Elastic Network Interface](best-practices-activemq.md#never-modify-delete-elastic-network-interface "best-practices-activemq.md#never-modify-delete-elastic-network-interface").
+For more information, see [Setting Up Amazon MQ](amazon-mq-setting-up.md "amazon-mq-setting-up.md") and [Never Modify or Delete the Amazon MQ Elastic Network Interface](best-practices-activemq.md#never-modify-delete-elastic-network-interface "best-practices-activemq.md#never-modify-delete-elastic-network-interface").
 
 ## Amazon MQ REST API permissions reference
 

@@ -101,9 +101,9 @@ For more information about dimension names, see
 
 ## Dimensions for RabbitMQ brokers
 
-| Dimension  | Description      |
-| ---------- | ---------------- |
-| `BrokerId` | Id of the broker |
+| Dimension | Description             |
+| --------- | ----------------------- |
+| `Broker`  | The name of the broker. |
 
 ## Configuring Amazon MQ for RabbitMQ logs
 
