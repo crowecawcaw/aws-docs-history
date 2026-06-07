@@ -299,14 +299,11 @@ includes:
 
 - `defaultRunSetting` — Shared configuration for all runs in the
   batch. This includes fields such as `workflowId`, `roleArn`,
-  `outputUri`, `parameters`, and `engineSettings`. For Nextflow workflows,
-  use `engineSettings` to specify profiles that apply to all runs in the batch. For more information, see
-  [Specify engine settings](starting-a-run.md#start-run-api-engine-settings "starting-a-run.md#start-run-api-engine-settings").
+  `outputUri`, and `parameters`.
 - `batchRunSettings` — The individual run configurations, provided as one
   of:
   - `inlineSettings` — An array of up to 100 run-specific configurations provided
-    directly in the request body. Each inline setting can include `engineSettings` to override the
-    default profile for individual runs.
+    directly in the request body.
   - `s3UriSettings` — An Amazon S3 URI pointing to a JSON file containing the run
     configurations. Required for batches with more than 100 runs, and supports up to 100,000
     runs.
