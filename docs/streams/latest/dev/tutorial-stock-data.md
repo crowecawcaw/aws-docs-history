@@ -32,7 +32,6 @@ The examples shown use the US West (Oregon) Region, but they work on any of the 
 ###### Tasks
 
 - [Prerequisites for completing the exercises](#setting-up-prerequisites "#setting-up-prerequisites")
-- [Set up an AWS account and create an administrator user](setting-up.md "setting-up.md")
 - [Set up the AWS Command Line Interface (AWS CLI)](setup-awscli.md "setup-awscli.md")
 - [Create and run a Managed Service for Apache Flink application](get-started-exercise.md "get-started-exercise.md")
 
@@ -56,4 +55,4 @@ To complete the steps in this guide, you must have the following:
 $ mvn -version
 ```
 
-To get started, go to [Set up an AWS account and create an administrator user](setting-up.md "setting-up.md").
+To get started, go to [Sign up for an AWS account](before-you-begin.md#sign-up-for-aws "before-you-begin.md#sign-up-for-aws").
