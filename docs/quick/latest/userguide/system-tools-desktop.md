@@ -164,6 +164,17 @@ Code Execution has the following key characteristics.
 
 - Code runs in an **OS-level sandbox**
   (macOS Seatbelt or Windows AppContainer) for security.
+
+###### Note
+
+The sandbox also has access to the system temporary
+directories regardless of your folder permission settings.
+On Windows, these are `C:\TEMP`,
+`C:\TMP`, `\TEMP`, and
+`\TMP`. On macOS and Linux, these are
+`/tmp`, `/var/tmp`, and
+`/usr/tmp`.
+
 - A **persistent namespace** is
   maintained across code runs within a conversation, so variables
   and functions carry over.
@@ -172,7 +183,13 @@ Code Execution has the following key characteristics.
   sandbox.
 - File access within the sandbox follows the same folder permissions
   you configure in **Settings** >
-  **My computer**.
+  **My computer**. In addition,
+  the sandbox always has access to system temporary directories.
+  On Windows, these are `C:\TEMP`,
+  `C:\TMP`, `\TEMP`, and
+  `\TMP`. On macOS and Linux, these are
+  `/tmp`, `/var/tmp`, and
+  `/usr/tmp`.
 
 | Operation    | Type  | Description                            |
 | ------------ | ----- | -------------------------------------- |

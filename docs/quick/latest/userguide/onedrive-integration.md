@@ -15,4 +15,7 @@ through Microsoft Graph API calls.
 
 Index OneDrive documents, spreadsheets, and presentations.
 Amazon Quick agents can then search and answer questions about
-the content.
+the content. Amazon Quick supports two setup methods:
+user-managed setup for quick configuration, and admin-managed
+setup with service credentials for document-level access
+control.

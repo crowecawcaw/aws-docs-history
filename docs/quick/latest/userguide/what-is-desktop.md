@@ -65,6 +65,16 @@ can access, and you can revoke access at any time. Per-folder options include
 keyword search indexing, semantic search indexing, and knowledge graph
 extraction.
 
+###### Note
+
+Quick also has access to system temporary directories
+regardless of your folder permission settings. On Windows, these are
+`C:\TEMP`, `C:\TMP`,
+`\TEMP`, and `\TMP`. On macOS and
+Linux, these are `/tmp`,
+`/var/tmp`, and
+`/usr/tmp`.
+
 ### Stay informed with proactive notifications
 
 Background agents run on a schedule to monitor your connected services and

@@ -21,6 +21,7 @@ powerful features.
 
 ###### Topics
 
+- [Key concepts](#sight-key-concepts "#sight-key-concepts")
 - [Connecting to data in Amazon Quick Sight](working-with-data.md "working-with-data.md")
 - [Refreshing data in Amazon Quick Sight](refreshing-data.md "refreshing-data.md")
 - [Preparing data in Amazon Quick Sight](preparing-data.md "preparing-data.md")
@@ -31,3 +32,58 @@ powerful features.
 - [Generative BI with Quick Sight](quicksight-gen-bi.md "quicksight-gen-bi.md")
 - [Troubleshooting Amazon Quick Sight](troubleshooting.md "troubleshooting.md")
 - [Developing with Amazon Quick Sight](quicksight_dev.md "quicksight_dev.md")
+
+## Key concepts
+
+The following terms are used throughout this section.
+
+**Data source**
+
+A connection to an external data repository such as a database, data
+warehouse, cloud service, or file. Data sources provide the raw data
+for your analyses.
+
+**Data preparation**
+
+The process of transforming data for use in an analysis. This includes
+filtering data, renaming fields, changing data types, adding calculated
+fields, and creating SQL queries to refine data.
+
+**Dataset**
+
+A prepared collection of data ready for use in analyses and dashboards.
+Datasets can be stored in SPICE for fast performance or queried directly
+from the source.
+
+**SPICE**
+
+_SPICE (Super-fast, Parallel, In-memory
+Calculation Engine)_ is the in-memory engine
+that Quick Sight uses for high-performance analytics. SPICE speeds up
+analytical queries on imported data so you don't need to retrieve data
+from the source every time you change an analysis or update a
+visual.
+
+**Analysis**
+
+The workspace for creating data visualizations. Each analysis contains
+a collection of visualizations that you arrange and customize on one or
+more sheets.
+
+**Visual**
+
+A graphical representation of data such as a chart, graph, or table.
+All visuals begin in AutoGraph mode, which automatically selects the
+best visualization type for the fields you select.
+
+**Sheet**
+
+A page within an analysis that displays a set of visualizations and
+insights. You can add multiple sheets to an analysis and configure them
+to work independently or together.
+
+**Dashboard**
+
+The published version of an analysis. You share dashboards with other
+Quick users and control what they can do with the
+data.

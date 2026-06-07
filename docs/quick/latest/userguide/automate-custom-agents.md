@@ -1,11 +1,11 @@
 # Custom agents
 
-Custom agent is an intelligent action that processes natural language inputs to automate complex steps using integrated tool-calling capabilities. It primarily uses integrations as its tool interface, while offering extensibility to use Code as tool, and other native actions like human-in-the-loop task. The agent delivers structured, predictable outputs optimized for seamless integration into downstream automation steps.
+Custom agent is an intelligent action that processes natural language inputs to automate complex steps. It uses integrated tool-calling capabilities with integrations as its primary tool interface. It also offers extensibility to use Code as a tool and other native actions like human-in-the-loop task. The agent delivers structured, predictable outputs optimized for downstream automation steps.
 
 ## Properties
 
 - **Title**: Name of the step/custom agent
-- **Mode**: A mode defines how the agent operates based on your use case. The three available modes are: Fast, Pro, and Custom. Fast is best for simple tasks like summarization, classification, and high-volume automations, and Pro is ideal for complex tasks that involve reasoning and orchestration of multiple tools or actions. Fast and Pro are fully managed modes that require no pre-setup needed in advance. In Custom Mode, you'll need a Bedrock runtime connector and can select the model you want to use (Explained below). This is ideal when you already have a prompt fine-tuned for a particular Bedrock model, specifically need a particular Bedrock model for the Agent, or want to include your own custom or fine-tuned model hosted on Bedrock. In Custom Mode, since you bring your own model from Bedrock via an integration, model inference is billed separately to the account associated with that Bedrock integration.
+- **Mode**: A mode defines how the agent operates based on your use case. The three available modes are Fast, Pro, and Custom. Fast is best for simple tasks like summarization, classification, and high-volume automations. Pro is ideal for complex tasks that involve reasoning and orchestration of multiple tools or actions. Fast and Pro are fully managed modes that require no pre-setup in advance. Custom Mode requires a Bedrock runtime connector and lets you select the model you want to use. For more information, see [Using Custom Models in Custom Agent (Bring your own bedrock model)](#custom-agent-byom "#custom-agent-byom"). Custom Mode is ideal when you have a prompt fine-tuned for a particular Bedrock model, need a specific Bedrock model for the Agent, or want to use your own custom or fine-tuned model hosted on Bedrock. In Custom Mode, you bring your own model from Bedrock through an integration. Model inference is billed separately to the account associated with that Bedrock integration.
 - **Instructions**: In this field you write the prompt for the agent in natural language. Best practices while writing the prompt:
   - Be clear and explicit about what you want.
   - Structure the prompt. Start with mentioning the 'Task' or 'Role' first and then 'Instructions' to achieve the task with numbered steps
@@ -18,10 +18,10 @@ Custom agent is an intelligent action that processes natural language inputs to 
   Summarize the last two paragraphs of the provided text, focusing only on the main conclusion."""
   ```
 
-- **Actions**: Action is a tool that enables the AI agent to interact with external systems or perform specific tasks. This is optional. You can run the custom agent without any actions. Below are the different actions which can be used in the custom agent
+- **Actions**: Action is a tool that enables the AI agent to interact with external systems or perform specific tasks. This is optional. You can run the custom agent without any actions. The following actions can be used in the custom agent.
   - **General Actions**
-    - **Create user task** - If enabled, this tool allows the Agent to trigger a Human-in-the-Loop (HITL) task whenever it gets stuck and needs assistance during execution. The Agent pauses and waits for human input. The HITL task is visible in the task center. For best results, the author can specify in the prompt exactly when the Agent should invoke HITL. This is selected by default. The automation runs until the task is finished.
-    - **Code** - The Code action generates and executes python code within a restricted python environment, same as code actions, to solve tasks involving calculations, data manipulation, and file processing. Unlike code generators, it actively creates and runs scripts to accomplish objectives, working with Excel, PDF files, various data formats and available integrations
+    - **Create user task** - If enabled, this tool allows the Agent to trigger a Human-in-the-Loop (HITL) task when it gets stuck during execution. The Agent pauses and waits for human input. The HITL task is visible in the task center. For best results, specify in the prompt exactly when the Agent should invoke HITL. This action is selected by default. The automation runs until the task is finished.
+    - **Code** - The Code action generates and executes Python code within a restricted Python environment, same as code actions. It solves tasks involving calculations, data manipulation, and file processing. Unlike code generators, it actively creates and runs scripts to accomplish objectives. It works with Excel, PDF files, various data formats, and available integrations.
       - **Key Capabilities:**
         - **File Operations**: Process multi-tab Excel files, extract content, perform date calculations, apply conditional formatting, and upload results to S3
         - **Data Transformation**: Convert between JSON and table formats, transpose data, rename columns, and join tables
@@ -119,13 +119,13 @@ During test execution, you can monitor progress in the audit panel. The test ski
 
 After the test completes, review the following information in the Test panel:
 
-- Metrics Card (Monitor Tab at the top of the Test panel)
+- Metrics Card (Monitor Tab in the Test panel)
   - Total execution time
   - Number of tools used
   - Number of tasks created
 
 - Logs in between
-- Watch Variables Tab (Bottom accordion of the Test panel)
+- Watch Variables Tab (Variables accordion in the Test panel)
   - Input - View input variables and their values
   - Output - Examine output results from the agent execution
   - For structured outputs, choose **View Details** to open the View Output dialog box:

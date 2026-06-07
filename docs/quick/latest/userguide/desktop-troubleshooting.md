@@ -94,7 +94,7 @@ Quick can't find a file
 
 If Quick can't find a file you reference in chat, verify the following.
 
-1. The file's parent folder is added in **Settings** > **My computer** > **Local folders**. Quick can only access files in folders you explicitly grant access to.
+1. The file's parent folder is added in **Settings** > **My computer** > **Local folders**. Quick can only access files in folders you explicitly grant access to, with the exception of system temporary directories, which are always accessible. On Windows, these are `C:\TEMP`, `C:\TMP`, `\TEMP`, and `\TMP`. On macOS and Linux, these are `/tmp`, `/var/tmp`, and `/usr/tmp`.
 2. Choose **+ Add folder** to grant access to additional folders.
 3. After adding a folder, Quick can immediately read files in it. Indexing for search happens in the background.
 

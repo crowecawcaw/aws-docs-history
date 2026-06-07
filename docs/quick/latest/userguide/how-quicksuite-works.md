@@ -1,233 +1,85 @@
 # How Amazon Quick works
 
-Amazon Quick provides six integrated capabilities for comprehensive business intelligence and analytics:
+When you use Quick, the following components work together to process
+your requests.
 
-- Amazon Quick Sight for interactive data visualization and business intelligence
-- Amazon Quick Flows for intelligent workflow automation
-- Amazon Quick Automate for streamlined business process automation
-- Amazon Quick Index for data discovery and cataloging
-- Amazon Quick Research for comprehensive data analysis
-- Apps in Amazon Quick for building and sharing interactive web applications
+## You start in chat
 
-###### Data visualization and business intelligence
+Chat is the primary interface for Quick. You type a question, give an
+instruction, or describe what you need. Quick interprets your request
+and determines how to respond: answering from connected data, generating content,
+running a workflow, conducting research, or taking action in an external application.
+For more information, see [Ask questions, explore data, and get insights with chat in Amazon Quick](using-quick-chat.md "using-quick-chat.md").
 
-With Amazon Quick Sight, your applications can:
+## Agents process your requests
 
-- Connect to diverse data sources including databases, data warehouses, and cloud services
-- Create interactive dashboards and visualizations with automatic chart suggestions
-- Perform data preparation and transformation
-- Generate machine learning insights including forecasting and anomaly detection
-- Embed analytics in custom applications and websites
-- Share dashboards and reports across your organization
-  Use cases include self-service business intelligence, executive dashboards, and embedded analytics.
+Behind every interaction is an agent. Agents are configured with instructions that
+define their behavior, knowledge sources that ground their responses, and tools that
+let them take action. Quick provides a default agent, and you can create
+custom agents for specific domains. For more information, see [Create, customize, and deploy AI-powered chat agents in Amazon Quick](working-with-agents.md "working-with-agents.md").
 
-###### Intelligent workflow automation
+## Spaces organize context
 
-With Amazon Quick Flows and Amazon Quick Automate, your applications can:
+Spaces bring together the resources an agent needs: documents, dashboards,
+datasets, knowledge bases, and action connectors. When you assign a space to an
+agent, it draws on everything in that space to answer questions and complete tasks.
+You share spaces with your team so everyone benefits from the same context. For more
+information, see [Organize, collaborate, and share resources with spaces in Amazon Quick](working-with-spaces.md "working-with-spaces.md").
 
-- Build interactive workflows that combine AI processing with structured automation
-- Automate common business processes and repetitive tasks
-- Integrate with external systems through action connectors
-- Process natural language inputs to trigger automated workflows
-- Orchestrate complex multi-step business processes
-  Use cases include document processing, approval workflows, and system integration automation.
+## Integrations connect Quick to your world
 
-###### AI-powered analysis and collaboration
+Integrations give Quick access to external information and the ability
+to act on your behalf:
 
-With Quick AI capabilities, your applications can:
+**Knowledge bases**
 
-- Create custom AI agents configured for specific organizational needs
-- Analyze natural language queries across enterprise data sources
-- Generate permissions-aware responses with citations and source tracing
-- Organize team knowledge in collaborative spaces
-- Conduct comprehensive research across large document collections
-- Integrate AI assistance into existing tools through extensions
-  Use cases include conversational analytics, knowledge management, and research automation.
+Bring external content into Quick for AI retrieval.
+Sources include Amazon S3, SharePoint, OneDrive, Confluence, Google Drive,
+and web crawlers. Quick keeps the index in sync as sources
+update.
 
-###### Interactive web applications
+**Action connectors**
 
-With apps in Amazon Quick, you can:
+Let Quick read data, trigger workflows, and update
+records in external services. You create connectors from OpenAPI
+specifications or Model Context Protocol (MCP) servers.
 
-- Describe the app you need in natural language and Quick will generate a working application in minutes
-- Connect to data sources and take action in business systems
-- Use built-in storage for application data
-- Embed Amazon Quick Sight visuals directly into your applications
-- Publish and share applications through a unique URL
-  Use cases include internal tools, data-driven dashboards, and team productivity applications.
+**Extensions**
 
-###### Key features
+Embed Quick inside Chrome, Slack, Microsoft Teams, and
+Microsoft 365 applications so you interact with agents without leaving
+the app you're working in.
 
-- SPICE in-memory engine for high-performance analytics
-- Natural language processing for conversational data interaction
-- Enterprise-grade security with granular permissions and row-level security
-- Extensive third-party integrations with 25+ applications
-- Scalable architecture supporting hundreds of thousands of users
-- Comprehensive APIs and SDKs for programmatic access
-  Quick lets you enhance the accuracy and relevance of AI responses by connecting custom knowledge bases and configuring agents with domain-specific expertise. For example, you can create specialized agents for financial analysis, customer support, or technical documentation that understand your organization's specific context and terminology.
+**Structured data connections**
 
-The following sections cover the types of analysis that Quick provides and an overview of Amazon Quick Sight, automation, and AI operations. Also covered are the differences between interactive and programmatic operations.
+Connect Quick Sight to databases, data warehouses, and data lakes
+for analytics and visualization.
 
-To demo the Quick capabilities, you can see [Getting started with Amazon Quick](getting-started.md "getting-started.md"), which covers getting started with sample data and creating your first analysis.
+For more information, see [Work with integrations in Amazon Quick](working-with-integrations.md "working-with-integrations.md").
 
-###### Topics
+## Features use those building blocks
 
-- [Business intelligence (BI) with Amazon Quick Sight](#how-quick-works-bi "#how-quick-works-bi")
-- [Perform deep research with Amazon Quick Research](#how-quick-works-deep-research "#how-quick-works-deep-research")
-- [Automate workflows with Amazon Quick Flows and Amazon Quick Automate](#how-quick-works-automate-workflows "#how-quick-works-automate-workflows")
-- [Create and use Amazon Quick custom agents](#how-quick-works-chat-agents "#how-quick-works-chat-agents")
-- [Share data and collaborate with Amazon Quick spaces and folders](#how-quick-works-spaces-folders "#how-quick-works-spaces-folders")
-- [Build web applications with apps in Amazon Quick](#how-quick-works-apps "#how-quick-works-apps")
-- [Governance and administration for Amazon Quick](#how-quick-works-governance-admin "#how-quick-works-governance-admin")
+Each Quick feature combines the components above in different
+ways:
 
-## Business intelligence (BI) with Amazon Quick Sight
+| Feature             | What it does                         | What it uses                                               |
+| ------------------- | ------------------------------------ | ---------------------------------------------------------- |
+| Quick Sight         | Interactive dashboards and analytics | Structured data connections, SPICE, datasets               |
+| Quick Flows         | Task automation                      | Action connectors, spaces, agent logic                     |
+| Quick Automate      | End-to-end process automation        | Action connectors, agents, human-in-the-loop               |
+| Quick Research      | In-depth cited reports               | Spaces, knowledge bases, web                               |
+| Apps in Quick       | Interactive web applications         | Structured data, action connectors, Quick Sight<br>visuals |
+| Desktop application | Personalized AI on your machine      | Local files, email, calendar, MCP servers                  |
 
-Using Amazon Quick Sight, you can access data and prepare it for use in reporting. It saves your
-prepared data either in SPICE memory or as a direct query. You can use a
-variety of data sources for analysis. When you create an analysis, the typical workflow
-has the following steps:
+## Where to go next
 
-1. Create a new analysis.
-2. Add new or existing datasets.
-3. Choose fields to create the first chart. Quick Sight automatically suggests
-   the best visualization.
-4. Add more charts, tables, or insights to the analysis. Resize and rearrange
-   them on one or more sheets. Use extended features to add variables, custom
-   controls, colors, additional pages (called sheets), and more.
-5. Publish the analysis as a dashboard to share it with other people.
-
-## Perform deep research with Amazon Quick Research
-
-Amazon Quick Research capabilities in Quick enable you to conduct
-comprehensive analysis across large volumes of data and documents using AI-powered
-tools. These features help you uncover insights, patterns, and relationships that might
-not be immediately apparent through traditional analysis methods.
-
-Deep research functionality includes:
-
-- Analyzing hundreds of documents, reports, or datasets simultaneously to
-  identify trends and patterns
-- Using natural language queries to explore complex data relationships across
-  multiple sources
-- Generating comprehensive summaries and insights from large document
-  collections
-- Leveraging AI to surface relevant information and connections that support
-  decision-making
-
-This capability is particularly valuable for tasks such as market research,
-competitive analysis, regulatory compliance review, and strategic planning where
-comprehensive data analysis is essential.
-
-## Automate workflows with Amazon Quick Flows and Amazon Quick Automate
-
-Quick automations provide intelligent workflow capabilities that combine
-generative AI with automated actions to streamline business processes and enhance
-productivity. These tools help organizations create, manage, and execute workflows that
-can understand natural language inputs and perform complex operations across various
-systems.
-
-Automation capabilities include:
-
-- **Amazon Quick Flows** - Interactive workflows that
-  combine AI-powered processing with structured automation steps for complex
-  business processes
-- **Amazon Quick Automate** - Streamlined automation
-  tools for common business processes and repetitive tasks
-- Integration with external systems through action connectors to extend
-  automation capabilities
-- Natural language interfaces that allow users to trigger and interact with
-  automated workflows
-
-These automation tools enable organizations to reduce manual effort, improve
-consistency, and scale their analytical and operational processes while maintaining
-human oversight and control.
-
-## Create and use Amazon Quick custom agents
-
-Custom agents in Quick are AI-powered assistants that you can configure to
-help users explore data, analyze information, and perform specific tasks within your
-organization's context. These agents combine natural language processing with access to
-your data sources, dashboards, and business knowledge to provide contextual
-assistance.
-
-You can create custom agents to:
-
-- Provide domain-specific expertise by connecting agents to relevant datasets,
-  topics, and knowledge bases
-- Automate common analytical tasks and workflows through conversational
-  interfaces
-- Enable self-service analytics for business users who prefer natural language
-  queries over traditional BI tools
-- Integrate with external systems and actions to perform tasks beyond data
-  analysis
-
-Custom agents can be configured with specific goals, knowledge sources, and connected
-tools to provide tailored assistance for different teams, use cases, or business domains
-within your organization.
-
-## Share data and collaborate with Amazon Quick spaces and folders
-
-Spaces and folders in Quick provide organizational structures that enable
-teams to collaborate effectively on data analysis and share insights across your
-organization. Spaces serve as collaborative workspaces that aggregate data, dashboards,
-and knowledge for specific teams or domains, while folders provide hierarchical
-organization for your analytics assets.
-
-Using spaces, you can:
-
-- Create team-specific knowledge bases that combine datasets, dashboards,
-  topics, and uploaded files
-- Enable contextual AI conversations by grounding agent responses with relevant
-  team data
-- Reduce data silos by allowing multiple team members to contribute and access
-  shared knowledge
-- Maintain proper access controls while facilitating collaboration across
-  teams
-
-Folders complement spaces by providing structured organization for your analytics
-assets, with support for both personal and shared folders. Shared restricted folders
-ensure that sensitive assets remain within designated boundaries while still enabling
-collaboration.
-
-## Build web applications with apps in Amazon Quick
-
-Apps in Amazon Quick in Quick lets you build, publish, and share interactive
-web applications by describing what you need in natural language. The apps in Quick
-agent generates a working app with a live preview that you can review, iterate on, and
-publish.
-
-Apps in Quick capabilities include:
-
-- Describing your application in natural language and Quick will generate a working app in minutes
-- Connecting to data sources and taking action in business systems
-- Using built-in storage for persistent application data
-- Embedding Amazon Quick Sight visuals for interactive data visualization
-- Adding AI inference capabilities to your applications
-- Publishing and sharing apps through a unique URL
-
-For more information, see [Build web applications with apps in Amazon Quick](using-amazon-quick-apps.md "using-amazon-quick-apps.md").
-
-## Governance and administration for Amazon Quick
-
-Governance and administration features in Quick provide comprehensive
-tools for managing users, controlling access, ensuring security, and maintaining
-compliance across your analytics environment. These capabilities enable administrators
-to establish proper controls while empowering users to work effectively with
-data.
-
-Key governance and administration capabilities include:
-
-- Identity and access management through integration with IAM Identity Center, IAM, and
-  other identity providers
-- Row-level security and column-level security to control data access at
-  granular levels
-- VPC connectivity and network security controls for secure data access
-- Audit logging and monitoring capabilities to track user activities and system
-  usage
-- Resource management including SPICE capacity, user subscriptions, and feature
-  access controls
-- Brand customization and organizational settings to align with corporate
-  standards
-
-These features ensure that your Quick deployment meets organizational
-security requirements while providing the flexibility needed for effective data analysis
-and collaboration.
+| I want to...                        | Go to                                                                                                                        |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Set up Quick for my organization    | [Setting up and signing into Amazon Quick](setting-up.md "setting-up.md")                                                    |
+| Start using Quick                   | [Getting started with Amazon Quick](getting-started.md "getting-started.md")                                                 |
+| Build dashboards and visualize data | [Visualize, analyze, and share data with analyses, dashboards, and reports in Amazon Quick Sight](quick-bi.md "quick-bi.md") |
+| Automate tasks                      | [Using Amazon Quick automations](using-amazon-quick-automations.md "using-amazon-quick-automations.md")                      |
+| Research a topic                    | [Using Amazon Quick Research](using-amazon-quick-research.md "using-amazon-quick-research.md")                               |
+| Build an app                        | [Build web applications with apps in Amazon Quick](using-amazon-quick-apps.md "using-amazon-quick-apps.md")                  |
+| Connect Quick to my tools           | [Work with integrations in Amazon Quick](working-with-integrations.md "working-with-integrations.md")                        |
+| Use Quick on my desktop             | [What is Amazon Quick on desktop?](what-is-desktop.md "what-is-desktop.md")                                                  |
